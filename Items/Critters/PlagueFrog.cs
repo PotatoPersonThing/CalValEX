@@ -164,7 +164,7 @@ namespace CalValEX.Items.Critters
 			{
 				return 0f;
 			}
-			return SpawnCondition.HardmodeJungle.Chance * 3f;
+			return SpawnCondition.HardmodeJungle.Chance * 0.5f;
 		}
 
 

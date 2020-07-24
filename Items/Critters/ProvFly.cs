@@ -160,7 +160,7 @@ namespace CalValEX.Items.Critters
 			{
 				return 0f;
 			}
-			return SpawnCondition.Underworld.Chance * 2.5f;
+			return SpawnCondition.Underworld.Chance * 0.7f;
 		}
 
 

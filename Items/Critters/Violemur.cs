@@ -15,7 +15,7 @@ namespace CalValEX.Items.Critters
 	/// The important bits are: Main.npcCatchable, npc.catchItem, and item.makeNPC
 	/// We will also show off adding an item to an existing RecipeGroup (see ExampleMod.AddRecipeGroups)
 	/// </summary>
-	internal class CrystalFly : ModNPC
+	internal class Violemur : ModNPC
 	{
 		public override bool Autoload(ref string name)
 		{
@@ -115,33 +115,36 @@ namespace CalValEX.Items.Critters
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Profaned Butterfly");
-			Main.npcFrameCount[npc.type] = 3;
+			DisplayName.SetDefault("Violemur");
+			Main.npcFrameCount[npc.type] = 7;
 			Main.npcCatchable[npc.type] = true;
 		}
 
 		public override void SetDefaults()
 		{
-			npc.width = 48;
-			npc.height = 40;
-			npc.aiStyle = 65;
-			npc.damage = 0;
-			npc.defense = 0;
-			npc.lifeMax = 5;
-			npc.HitSound = SoundID.NPCHit38;
-			npc.DeathSound = SoundID.NPCDeath1;
-			npc.npcSlots = 0.5f;
-			npc.noGravity = true;
+			//npc.width = 56;
+			//npc.height = 26;
+			//npc.aiStyle = 67;
+			//npc.damage = 0;
+			//npc.defense = 0;
+			//npc.lifeMax = 2000;
+			//npc.HitSound = SoundID.NPCHit38;
+			//npc.DeathSound = SoundID.NPCDeath1;
+			//npc.npcSlots = 0.5f;
+			//npc.noGravity = true;
+			//npc.catchItem = 2007;
 
-			npc.catchItem = (short)ItemType<CrystalFlyItem>();
-			npc.lavaImmune = true;
+			npc.CloneDefaults(NPCID.Squirrel);
+			npc.catchItem = (short)ItemType<ViolemurItem>();
+			npc.lavaImmune = false;
+			//npc.aiStyle = 0;
 			npc.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
-			aiType = NPCID.GoldButterfly;
-			animationType = NPCID.GoldButterfly;
+			aiType = NPCID.Squirrel;
+			animationType = NPCID.Squirrel;
 			npc.lifeMax = 20;
 			for (int i = 0; i < npc.buffImmune.Length; i++)
 			{
-				npc.buffImmune[(ModLoader.GetMod("CalamityMod").BuffType("Holy Flames"))] = false;
+				npc.buffImmune[(ModLoader.GetMod("CalamityMod").BuffType("AstralInfectionDebuff"))] = false;
 			}
 		}
 
@@ -155,13 +158,18 @@ namespace CalValEX.Items.Critters
 			return true;
 		}
 
-		public override float SpawnChance(NPCSpawnInfo spawnInfo)
-		{
-			if (spawnInfo.playerSafe || !NPC.downedMoonlord)
-			{
-				return 0f;
-			}
-			return SpawnCondition.OverworldHallow.Chance * 0.7f;
+
+		public override float SpawnChance(NPCSpawnInfo spawnInfo) 
+        {
+            Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
+            if (clamMod != null)
+            {
+            if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "astral"))
+                {
+			return 0.7f;
+                }
+            }
+            return 0f;
 		}
 
 
