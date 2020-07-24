@@ -146,6 +146,8 @@ namespace CalValEX.Items.Critters
 			{
 				npc.buffImmune[(ModLoader.GetMod("CalamityMod").BuffType("AstralInfectionDebuff"))] = false;
 			}
+            banner = npc.type;
+			bannerItem = ItemType<ViolemurBanner>();
 		}
 
 		public override bool? CanBeHitByItem(Player player, Item item)
