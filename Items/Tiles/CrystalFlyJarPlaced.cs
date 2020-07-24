@@ -20,7 +20,7 @@ namespace CalValEX.Items.Tiles
             TileObjectData.newTile.Height = 2;
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
 
-			animationFrameHeight = 40;
+			animationFrameHeight = 38;
             TileObjectData.addTile(Type);
 		}
 
