@@ -130,7 +130,6 @@ namespace CalValEX.Items.Critters
 			//npc.lifeMax = 2000;
 			//npc.HitSound = SoundID.NPCHit38;
 			//npc.DeathSound = SoundID.NPCDeath1;
-			//npc.npcSlots = 0.5f;
 			//npc.noGravity = true;
 			//npc.catchItem = 2007;
 
@@ -141,6 +140,7 @@ namespace CalValEX.Items.Critters
 			npc.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
 			aiType = NPCID.Squirrel;
 			animationType = NPCID.Squirrel;
+			npc.npcSlots = 0.25f;
 			npc.lifeMax = 20;
 			for (int i = 0; i < npc.buffImmune.Length; i++)
 			{
@@ -168,7 +168,7 @@ namespace CalValEX.Items.Critters
             {
             if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "astral"))
                 {
-			return 0.7f;
+			return 0.35f;
                 }
             }
             return 0f;

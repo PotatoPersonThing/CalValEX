@@ -18,7 +18,7 @@ namespace CalValEX.Items.Critters
 	/// The important bits are: Main.npcCatchable, npc.catchItem, and item.makeNPC
 	/// We will also show off adding an item to an existing RecipeGroup (see ExampleMod.AddRecipeGroups)
 	/// </summary>
-	internal class NukeFly : ModNPC
+	internal class Orthobab : ModNPC
 	{
 		public override bool Autoload(ref string name) {
 			IL.Terraria.Wiring.HitWireSingle += HookStatue;
@@ -111,32 +111,28 @@ namespace CalValEX.Items.Critters
 		}
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Vaporofly");
-			Main.npcFrameCount[npc.type] = 8;
+			DisplayName.SetDefault("Orthocera Hatchling");
+			Main.npcFrameCount[npc.type] = 6;
 			Main.npcCatchable[npc.type] = true;
 		}
 
 		public override void SetDefaults() {
-			//npc.width = 56;
-			//npc.height = 26;
-			//npc.aiStyle = 67;
-			//npc.damage = 0;
-			//npc.defense = 0;
-			//npc.lifeMax = 2000;
-			//npc.HitSound = SoundID.NPCHit38;
-			//npc.DeathSound = SoundID.NPCDeath1;
-			//npc.npcSlots = 0.5f;
-			//npc.noGravity = true;
-			//npc.catchItem = 2007;
-
-			npc.CloneDefaults(NPCID.Firefly);
-			npc.catchItem = (short)ItemType<NukeFlyItem>();
+			npc.noGravity = true;
+			npc.width = 20;
+			npc.height = 24;
+			npc.aiStyle = 16;
+			npc.damage = 0;
+			npc.defense = 0;
+			npc.lifeMax = 5;
+			npc.HitSound = SoundID.NPCHit38;
+			npc.DeathSound = SoundID.NPCDeath1;
+			npc.npcSlots = 0.25f;
+			npc.catchItem = (short)ItemType<OrthobabItem>();
 			npc.lavaImmune = false;
-			//npc.aiStyle = 0;
 			npc.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
-			aiType = NPCID.Firefly;
-			animationType = NPCID.Firefly;
-            npc.lifeMax = 20;
+			aiType = NPCID.Goldfish;
+			animationType = NPCID.PinkJellyfish;
+            npc.lifeMax = 5;
             for (int i = 0; i < npc.buffImmune.Length; i++)
 		{
 			npc.buffImmune[(ModLoader.GetMod("CalamityMod").BuffType("SulphuricPoisoning"))] = false;
@@ -158,12 +154,8 @@ namespace CalValEX.Items.Critters
             {
             if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea"))
                 {
-			if(spawnInfo.player.ZoneOverworldHeight)
-			{
-                      	 return SpawnCondition.OverworldNight.Chance * 0.5f;
-			}
+                 return 0.35f;
                 }
-		return 0f;
             }
             return 0f;
             
@@ -175,25 +167,6 @@ namespace CalValEX.Items.Critters
 			item.stack = 1;
 		}
 
-        public void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale)
-        {
-            Vector2 origin = new Vector2(npc.width * .5f, npc.height * .5f);
-            SpriteEffects effect = npc.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-            spriteBatch.Draw(mod.GetTexture("Items/Critters/NukeFly_Glow"), npc.Center - Main.screenPosition, new Rectangle?(), Color.White, rotation, origin, scale, effect, 0f);
-        }
-
-        
-	public override void AI()
-	{
-        if (Main.rand.NextFloat() < 0.3421053f)
-{
-	Dust dust;
-	// You need to set position depending on what you are doing. You may need to subtract width/2 and height/2 as well to center the spawn rectangle.
-	Vector2 position = Main.LocalPlayer.Center;
-	dust = Main.dust[Terraria.Dust.NewDust(npc.Center, 57, 57, 6, 0f, 0f, 0, new Color(109,255,0), 1f)];
-	dust.noGravity = true;
-}
-    }
 
 		// TODO: Hooks for Collision_MoveSnailOnSlopes and npc.aiStyle = 67 problem
 	}

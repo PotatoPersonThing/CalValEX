@@ -130,7 +130,7 @@ namespace CalValEX.Items.Critters
 			npc.lifeMax = 5;
 			npc.HitSound = SoundID.NPCHit38;
 			npc.DeathSound = SoundID.NPCDeath1;
-			npc.npcSlots = 0.5f;
+			npc.npcSlots = 0.25f;
 			npc.noGravity = true;
 
 			npc.catchItem = (short)ItemType<CrystalFlyItem>();
@@ -161,7 +161,7 @@ namespace CalValEX.Items.Critters
 			{
 				return 0f;
 			}
-			return SpawnCondition.OverworldHallow.Chance * 0.7f;
+			return SpawnCondition.OverworldHallow.Chance * 0.4f;
 		}
 
 
