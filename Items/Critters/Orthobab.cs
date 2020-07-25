@@ -131,7 +131,7 @@ namespace CalValEX.Items.Critters
 			npc.lavaImmune = false;
 			npc.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
 			aiType = NPCID.Goldfish;
-			animationType = NPCID.PinkJellyfish;
+			animationType = NPCID.Goldfish;
             npc.lifeMax = 5;
             for (int i = 0; i < npc.buffImmune.Length; i++)
 		{
