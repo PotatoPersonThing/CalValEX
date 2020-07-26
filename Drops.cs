@@ -1091,27 +1091,33 @@ namespace CalValEX
                         ModContent.ItemType<WeaverFlesh>());
                 }
             }
-            if (npc.type == mod.NPCType("Bumblefuck"))
-            {
-                if (((bool)mod.Call("DifficultyActive", "revengeance")) && Main.rand.NextFloat() < 0.1f)
-
+           if (npc.type == mod.NPCType("Bumblefuck"))
+			{
+				if (((bool) mod.Call("DifficultyActive", "revengeance")) && Main.rand.NextFloat() < 0.1f)
+            
                 {
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<FluffyFeather>());
                 }
 
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 1.0f)
-                {
+				else if (((bool) mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 1.0f)
+				{
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<FluffyFeather>());
                 }
-                if (((bool)mod.Call("DifficultyActive", "death")) && Main.rand.NextFloat() < 0.001f)
-
+                if (((bool) mod.Call("DifficultyActive", "armageddon")) && Main.rand.NextFloat() < 0.1f)
+            
+                {
+                    Item.NewItem(npc.getRect(),
+                        ModContent.ItemType<SparrowMeat>());
+                }
+				if (((bool) mod.Call("DifficultyActive", "death")) && Main.rand.NextFloat() < 0.001f)
+            
                 {
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<FluffyFur>());
                 }
-            }
+			}
             if (npc.type == mod.NPCType("AstrumAureus"))
             {
                 if (((bool)mod.Call("DifficultyActive", "revengeance")) && Main.rand.NextFloat() < 0.1f)
