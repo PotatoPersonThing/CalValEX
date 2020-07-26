@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX;
+using CalValEX.Items;
 
 namespace CalValEX.Items.Pets {
 	public class FluffyFur : ModItem
@@ -54,14 +55,9 @@ namespace CalValEX.Items.Pets {
     Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
                 ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(mod.ItemType("FluffyFeather"), 10);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("EffulgentFeather"), 200);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CosmicDischarge"), 1);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("HolyCollider"), 1);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("BansheeHook"), 1);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("StreamGouge"), 1);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("SoulEdge"), 1);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Valediction"), 1);
+                recipe.AddIngredient(mod.ItemType("SparrowMeat"), 1);
+				recipe.AddIngredient(mod.ItemType("FluffyFeather"), 1);
+				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("EffulgentFeather"), 150);
                 recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
                 recipe.SetResult(this);
                 recipe.AddRecipe();
