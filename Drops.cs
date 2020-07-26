@@ -12,7 +12,6 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Items;
-using Terraria.ObjectData;
 
 namespace CalValEX
 {
@@ -160,7 +159,6 @@ namespace CalValEX
             {
                 return;
             }
-            Player localPlayer = Main.LocalPlayer;
             //Prehm
             if (npc.type == mod.NPCType("AngryDog"))
             {
@@ -285,7 +283,7 @@ namespace CalValEX
                         ModContent.ItemType<FloatyCarpetItem>());
                 }
             }
-            if (npc.type == mod.NPCType("SuperDummyNPC") && Main.LocalPlayer.HeldItem.type != mod.ItemType("SuperDummy"))
+             if (npc.type == mod.NPCType("SuperDummyNPC") && Main.LocalPlayer.HeldItem.type != mod.ItemType("SuperDummy"))
             {
                 Item.NewItem(npc.getRect(),
                     ModContent.ItemType<DummyMask>());
@@ -648,6 +646,21 @@ namespace CalValEX
                     Item
                         .NewItem(npc.getRect(),
                         ModContent.ItemType<CoralMask>());
+                }
+            }
+            if (npc.type == mod.NPCType("Cryon"))
+            {
+                if (Utils.NextFloat(Main.rand) < 0.15f)
+                {
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<Cryocap>());
+                }
+                if (Utils.NextFloat(Main.rand) < 0.15f)
+                {
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<Cryocoat>());
                 }
             }
             if (npc.type == mod.NPCType("CultistAssassin"))
