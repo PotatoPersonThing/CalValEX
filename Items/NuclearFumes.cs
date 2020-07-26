@@ -25,6 +25,7 @@ namespace CalValEX.Items
 		{
 			item.width = 28;
 			item.height = 18;
+			item.value = Item.sellPrice(0, 10, 0, 0);
 			item.maxStack = 999;
 			item.rare = 10;
 		}
