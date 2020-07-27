@@ -1072,22 +1072,6 @@ namespace CalValEX
                 }
             }
             //Bosses
-            if (npc.type == mod.NPCType("Calamitas"))
-            {
-                if (Utils.NextFloat(Main.rand) < 0.3f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<Calacirclet>());
-                }
-            }
-            if (npc.type == mod.NPCType("PlaguebringerGoliath"))
-            {
-                if (Utils.NextFloat(Main.rand) < 0.3f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<PlaguePack>());
-                }
-            }
             if (npc.type == mod.NPCType("Polterghast"))
             {
                 if (((bool)mod.Call("DifficultyActive", "revengeance")) && Main.rand.NextFloat() < 0.1f)
