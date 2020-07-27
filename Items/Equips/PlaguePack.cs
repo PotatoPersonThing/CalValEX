@@ -23,22 +23,23 @@ namespace CalValEX.Items.Equips
 			item.rare = 8;
 			item.accessory = true;
 		}
+	//these wings use the same values as the solar wings
 		public override void UpdateAccessory(Player player, bool hideVisual) {
 			player.wingTimeMax = 180;
 		}
 
 		public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
 			ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend) {
-			ascentWhenFalling = 0.5f;
-			ascentWhenRising = 0.1f;
-			maxCanAscendMultiplier = 0.5f;
-			maxAscentMultiplier = 1.5f;
-			constantAscend = 0.1f;
+			ascentWhenFalling = 0.85f;
+			ascentWhenRising = 0.15f;
+			maxCanAscendMultiplier = 1f;
+			maxAscentMultiplier = 3f;
+			constantAscend = 0.135f;
 		}
 
 		public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration) {
-			speed = 7.75f;
-			acceleration *= 1.5f;
+			speed = 9f;
+			acceleration *= 2.5f;
 		}
 	}
 }
