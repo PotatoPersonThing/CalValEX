@@ -127,7 +127,7 @@ namespace CalValEX.Items.Critters
 			npc.aiStyle = 7;
 			npc.damage = 0;
 			npc.defense = 0;
-			npc.lifeMax = 25;
+			npc.lifeMax = 100;
 			npc.HitSound = SoundID.NPCHit38;
 			npc.DeathSound = SoundID.NPCDeath1;
 
