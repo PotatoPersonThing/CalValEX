@@ -150,6 +150,12 @@ namespace CalValEX
                         ++nextSlot;
                     }
                 }
+                if (type == NPCID.Truffle)
+                {
+                       shop.item[nextSlot].SetDefaults(ModContent.ItemType<SwearshroomItem>());
+                       shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 0);
+                       ++nextSlot;
+                }
             }
         }
         public override void NPCLoot(NPC npc)
@@ -159,6 +165,30 @@ namespace CalValEX
             {
                 return;
             }
+            //Town NPCs
+            if (npc.type == mod.NPCType("DILF"))
+            {
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<Permascarf>());
+            }
+            if (npc.type == mod.NPCType("THIEF"))
+            {
+                Item
+                    .NewItem(npc.getRect(),
+                    ModContent.ItemType<BanditHat>());
+            }
+            // Swearshrooms
+            if (npc.type == mod.NPCType("CrabShroom"))
+            {
+	            if (!NPC.AnyNPCs(mod.NPCType("Crabulon")))
+        	    {
+                    	if (Main.LocalPlayer.HasItem(mod.ItemType("KnowledgeCrabulon")))
+                    	{
+                    		NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Swearshroom>(), 0, 0f, 0f, 0f, 0f, 255);
+                    }
+        	}
+	    }
             //Prehm
             if (npc.type == mod.NPCType("AngryDog"))
             {
