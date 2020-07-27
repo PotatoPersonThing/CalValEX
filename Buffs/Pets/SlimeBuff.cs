@@ -16,10 +16,10 @@ namespace CalValEX.Buffs.Pets {
 		
 		public override void Update(Player player, ref int buffIndex) {
 			player.buffTime[buffIndex] = 18000;
-			player.GetModPlayer<CalValEXPlayer>().cr = true;
-			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.Crimulan>()] <= 0;
+			player.GetModPlayer<CalValEXPlayer>().mSlime = true;
+			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.SlimeDemi>()] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer) {
-				Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.Crimulan>(), 0, 0f, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.SlimeDemi>(), 0, 0f, player.whoAmI, 0f, 0f);
 			}
 		}
 	}
