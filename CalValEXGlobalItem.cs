@@ -124,6 +124,10 @@ namespace CalValEX
                     }
                     if (arg == calamityMod.ItemType("CalamitasBag"))
                     {
+                        if (Utils.NextFloat(Main.rand) < 0.3f)
+                            {   
+                                player.QuickSpawnItem(ModContent.ItemType<Calacirclet>());
+                            }
                         if (Utils.NextFloat(Main.rand) < 0.001f)
                             {   
                                 player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());
@@ -153,6 +157,10 @@ namespace CalValEX
                         if (Utils.NextFloat(Main.rand) < 0.2f)
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<InfectedController>());
+                            }
+                        if (Utils.NextFloat(Main.rand) < 0.3f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<PlaguePack>());
                             }
                     }
                     if (arg == calamityMod.ItemType("RavagerBag"))
@@ -266,3 +274,5 @@ namespace CalValEX
         }
     }
 }
+
+
