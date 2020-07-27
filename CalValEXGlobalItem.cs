@@ -226,6 +226,10 @@ namespace CalValEX
                             {   
                                 player.QuickSpawnItem(ModContent.ItemType<OldWings>());
                             }
+                        if (Utils.NextFloat(Main.rand) < 0.3f)
+                            {   
+                                player.QuickSpawnItem(ModContent.ItemType<CorrodedCleaver>());
+                            }
                     }
                     if (arg == calamityMod.ItemType("DevourerofGodsBag"))
                     {
