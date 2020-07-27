@@ -182,7 +182,7 @@ namespace CalValEX
             // Swearshrooms
             if (npc.type == mod.NPCType("CrabShroom"))
             {
-	            if (!NPC.AnyNPCs(mod.NPCType("Crabulon")))
+	            if (!NPC.AnyNPCs(mod.NPCType("CrabulonIdle")))
         	    {
                     	if (Main.LocalPlayer.HasItem(mod.ItemType("KnowledgeCrabulon")))
                     	{
