@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 using Terraria.DataStructures;
 using CalValEX;
 
-namespace CalValEX.Items.Pets {
+namespace CalValEX.Items.Pets 
+{
 	public class ImpureStick : ModItem
 	{
 		public override void SetStaticDefaults() 
@@ -32,13 +33,9 @@ namespace CalValEX.Items.Pets {
 		}
 
 		public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-        {
+        	{
                 type = mod.ProjectileType("SlimeDemi");
 		    	return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-                type = mod.ProjectileType("Ebonian");
-                return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-                type = mod.ProjectileType("Crimulan");
-                return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-            }
-		}
+            	}
 	}
+}
