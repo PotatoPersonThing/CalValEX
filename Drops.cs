@@ -12,6 +12,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Items;
+using CalValEX.Items.Critters;
 
 namespace CalValEX
 {
