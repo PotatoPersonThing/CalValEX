@@ -730,6 +730,15 @@ namespace CalValEX
                         ModContent.ItemType<ChaosEssence>());
                 }
             }
+            if (npc.type == mod.NPCType("OverloadedSoldier"))
+            {
+                if (Utils.NextFloat(Main.rand) < 0.15f)
+                {
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<UnloadedHelm>());
+                }
+            }
             if (npc.type == mod.NPCType("PhantomDebris"))
             {
                 if (Main.rand.NextFloat() < 0.05f)
