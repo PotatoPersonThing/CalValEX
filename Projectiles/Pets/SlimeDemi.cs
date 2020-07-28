@@ -10,7 +10,7 @@ namespace CalValEX.Projectiles.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Nuclear George");
+            DisplayName.SetDefault("Slime Demigod");
             //Main.projFrames[projectile.type] = 4; //frames
             Main.projPet[projectile.type] = true;
         }
