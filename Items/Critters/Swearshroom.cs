@@ -137,6 +137,7 @@ namespace CalValEX.Items.Critters
 			aiType = NPCID.Mouse;
 			animationType = NPCID.Grubby;
 			npc.npcSlots = 0.25f;
+			npc.dontTakeDamage = true;
 		}
 
 		public override bool? CanBeHitByItem(Player player, Item item)
@@ -153,7 +154,14 @@ namespace CalValEX.Items.Critters
 		{
 			item.stack = 1;
 		}
-
-		// TODO: Hooks for Collision_MoveSnailOnSlopes and npc.aiStyle = 67 problem
+		private int nohurt = 120;
+		public override void AI()
+        	{
+			if (--nohurt == 0)
+			{
+			npc.dontTakeDamage = false;
+			npc.netUpdate = true;
+			}
+		}
 	}
 }
