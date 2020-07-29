@@ -15,7 +15,7 @@ namespace CalValEX.Items.Equips
 	public class TrilobiteShield : ModItem
 	{
 		public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Trilobite Bulwark");
+            DisplayName.SetDefault("Trilobuckler");
 			Tooltip.SetDefault("An ancient shield that's too old to block attacks");
 		}
 
