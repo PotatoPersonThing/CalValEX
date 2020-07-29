@@ -17,6 +17,7 @@ namespace CalValEX.Items.Equips
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Calamity Circlet");
+            Tooltip.SetDefault("Ring of Fire!")'
         }
 
         public override void SetDefaults()
