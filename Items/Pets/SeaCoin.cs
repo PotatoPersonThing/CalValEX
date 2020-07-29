@@ -19,7 +19,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("The Sea King's Coin");
-            Tooltip.SetDefault("They surround the coin");
+            Tooltip.SetDefault("Blessed with the Aquatic Pest's power\nUse the coin after using the Dried Mandible to have both scourges follow you");
         }
 
         public override void SetDefaults()
@@ -64,7 +64,6 @@ public override void AddRecipes()
     Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
                 ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<DriedMandible>());
                 recipe.AddIngredient(ModContent.ItemType<AquaticHide>());
                 recipe.AddIngredient(ModContent.ItemType<NuclearFumes>(), 50);
                 recipe.AddTile(TileID.LunarCraftingStation);
@@ -72,14 +71,13 @@ public override void AddRecipes()
                 recipe.AddRecipe();
 			}
     }
-
+        private int scourge2 = 180;
         public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
                 type = mod.ProjectileType("AquaHead");
 			return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-            type = mod.ProjectileType("DesertHead");
-			return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-            }
-		}
-    }
+		    }
+        }
+	}
+
 
