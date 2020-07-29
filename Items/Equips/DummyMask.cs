@@ -16,7 +16,7 @@ namespace CalValEX.Items.Equips
 	{
 		public override void SetStaticDefaults() {
             DisplayName.SetDefault("Dummy Mask");
-			Tooltip.SetDefault("Dummy.");
+			Tooltip.SetDefault("The only dummy here is you.");
 		}
 
 		public override void SetDefaults() {
