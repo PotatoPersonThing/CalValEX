@@ -7,6 +7,7 @@ Currently adds the following:
 - 5 Hooks
 - A handful of wings 
 - A variety of placeable decorations
+- Some new critters to be found across your world
 - A large amount of vanity clothing, hats, and accessories
 
 Sprite credits: Kawaggy, KaiPanda, Blockaroz, William, YuH, Yharex87, TimerFun, caligulasAquarium, Krysmun, IbanPlay, Willowmaine, Enreden, Gamagamer64, L0st, Cooper, RyanLolz1, Vectix, Mochi, Leon, and MrPlague
