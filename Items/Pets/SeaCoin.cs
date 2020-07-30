@@ -19,7 +19,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("The Sea King's Coin");
-            Tooltip.SetDefault("Blessed with the Aquatic Pest's power\nUse the coin after using the Dried Mandible to have both scourges follow you");
+            Tooltip.SetDefault("Blessed with the Aquatic Pest's power\n[c/FF0000:Use the coin AFTER using the Dried Mandible to have both scourges follow you]");
         }
 
         public override void SetDefaults()
