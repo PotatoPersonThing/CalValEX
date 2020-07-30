@@ -13,17 +13,9 @@ namespace CalValEX
 {
 	public class CalValEX : Mod
 	{
-		//public override void PostSetupContent()
-		//{	Mod CalValEX = ModLoader.GetMod("CalamityMod");
-		//{
-			//Main.ItemName(ModLoader.GetMod("CalamityMod").ItemType("StreamGouge") = "Soul Piercer");
-		//}
-		//}
 		public override void PostSetupContent()
 	{
 		Mod cal = ModLoader.GetMod("CalamityMod");
-			cal.GetItem("StreamGouge").DisplayName.AddTranslation(GameCulture.English, "Soul Piercer");
-			cal.GetItem("SoulPiercer").DisplayName.AddTranslation(GameCulture.English, "True Soul Piercer");
 			cal.GetItem("KnowledgeCrabulon").Tooltip.AddTranslation(GameCulture.English, "A crab and its mushrooms, a love story.\nIt's interesting how creatures can adapt given certain circumstances.\nPlace in your inventory to gain the Mushy buff while underground or in the mushroom biome.\nHowever, your movement speed will be decreased while in these areas due to you being covered in fungi.\nThe great crustacean's mushrooms may also grow angry when attacked, though they will also become harmless.");
 		
 	}
