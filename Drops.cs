@@ -157,6 +157,33 @@ namespace CalValEX
                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 0);
                        ++nextSlot;
                 }
+                if (type == NPCID.PartyGirl)
+                {
+                    if (Main.LocalPlayer.HasItem(ModContent.ItemType<Mirballoon>()))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedMirageBalloon>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
+                        ++nextSlot;
+                    }
+                    if (Main.LocalPlayer.HasItem(ModContent.ItemType<BoxBalloon>()))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedBoxBalloon>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
+                        ++nextSlot;
+                    }
+                    if (Main.LocalPlayer.HasItem(ModContent.ItemType<ChaosBalloon>()))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedChaosBalloon>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
+                        ++nextSlot;
+                    }
+                    if (Main.LocalPlayer.HasItem(ModContent.ItemType<BoB2>()))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedBoB2>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
+                        ++nextSlot;
+                    }
+                }
             }
         }
         public override void NPCLoot(NPC npc)
