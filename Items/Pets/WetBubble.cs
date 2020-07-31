@@ -17,8 +17,8 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Strange Bubble");
-            Tooltip.SetDefault("An elemental's favorite orb!");
+            DisplayName.SetDefault("Strange Music Note");
+            Tooltip.SetDefault("An elemental's favorite sound!");
         }
 
         public override void SetDefaults()
