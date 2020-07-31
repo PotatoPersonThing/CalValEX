@@ -48,6 +48,12 @@ namespace CalValEX
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 20, 0);
                             ++nextSlot;
                         }
+                        if ((bool) clamMod.Call("GetBossDowned", "acidrainscourge"))
+                        {
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<BelchingCoral>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 30, 0);
+                            ++nextSlot;
+                        }
                         if ((bool) clamMod.Call("GetBossDowned", "providence"))
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<BlazingConflict>());
@@ -88,6 +94,27 @@ namespace CalValEX
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<SSCoral>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 25, 0);
+                            ++nextSlot;
+                        }
+                        {
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<BrainCoral>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 25, 0);
+                            ++nextSlot;
+                        }
+                        {
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<TableCoral>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 25, 0);
+                            ++nextSlot;
+                        }
+                        {
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<FanCoral>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 25, 0);
+                            ++nextSlot;
+                        }
+                        if ((bool) clamMod.Call("GetBossDowned", "acidrainscourge"))
+                        {
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<BelchingCoral>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 35, 0);
                             ++nextSlot;
                         }
                         if ((bool) clamMod.Call("GetBossDowned", "providence"))
