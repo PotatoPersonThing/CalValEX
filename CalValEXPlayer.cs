@@ -127,6 +127,7 @@ namespace CalValEX
 	public bool asPet = false;
 	public bool dsPet = false;
 	public bool mDuke = false;
+	public bool sirember = false;
 		
 		public override void ResetEffects()
 		{
@@ -214,6 +215,7 @@ namespace CalValEX
 		asPet = false;
 		dsPet = false;
 		mDuke = false;
+		sirember = false;
 		}
 
 		public override void UpdateDead()
@@ -302,6 +304,7 @@ namespace CalValEX
 		asPet = false;
 		dsPet = false;
 		mDuke = false;
+		sirember = false;
 		}
 
 		public override void CatchFish(Item fishingRod, Item bait, int power, int liquidType, int poolSize, int worldLayer, int questFish, ref int caughtType, ref bool junk)
