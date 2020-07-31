@@ -17,7 +17,7 @@ namespace CalValEX.Items.Mounts
 	{
 		public override void SetStaticDefaults() {
 			 DisplayName.SetDefault("Profaned Cycle");
-			Tooltip.SetDefault("When you need to get somewhere, in style.");
+			Tooltip.SetDefault("When you need to get somewhere, in style.\nYour defensive capabilties will be weakened until the Dark Sun is conquered");
 		}
 
 		public override void SetDefaults() {
