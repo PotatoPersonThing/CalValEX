@@ -29,6 +29,10 @@ public class TractorMount : ModBuff
 	{
 		player.mount.SetMount(ModContent.MountType<WulfrumTractor>(), player, false);
 		player.buffTime[buffIndex] = 10;
+		if (!(bool) NPC.downedBoss3)
+        	{
+			Main.LocalPlayer.AddBuff(BuffID.Cursed, 10);
+		}
 	}
 	}
 }
