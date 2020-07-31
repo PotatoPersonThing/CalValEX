@@ -68,7 +68,7 @@ namespace CalValEX.Items.Pets
             recipe.AddIngredient(ModContent.ItemType<CorrodedCleaver>(), 1);
             recipe.AddIngredient(ModContent.ItemType<NuclearFumes>(), 30);
             recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CosmiliteBar"), 40);
-            recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("HellcasterFragment"), 5);
+            recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("EndothermicEnergy"), 20);
             recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
             recipe.SetResult(this);
             recipe.AddRecipe();
