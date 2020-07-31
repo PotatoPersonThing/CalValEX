@@ -133,6 +133,13 @@ namespace CalValEX
                                 player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());
                             }
                     }
+                    if (arg == calamityMod.ItemType("LeviathanBag"))
+                    {
+                        if (Utils.NextFloat(Main.rand) < 0.3f)
+                            {   
+                                player.QuickSpawnItem(ModContent.ItemType<LeviWings>());
+                            }
+                    }
                     if (arg == calamityMod.ItemType("AstrageldonBag"))
                     {
                         if (Utils.NextFloat(Main.rand) < 0.2f)
