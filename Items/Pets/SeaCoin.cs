@@ -19,7 +19,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("The Sea King's Coin");
-            Tooltip.SetDefault("Blessed with the Aquatic Pest's power");
+            Tooltip.SetDefault("Blessed with pest power");
         }
 
         public override void SetDefaults()
