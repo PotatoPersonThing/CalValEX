@@ -758,6 +758,24 @@ namespace CalValEX
                         ModContent.ItemType<Cryocoat>());
                 }
             }
+	    if (npc.type == mod.NPCType("SmallSightseer"))
+            {
+                if (Utils.NextFloat(Main.rand) < 0.05f)
+                {
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<Binoculars>());
+                }
+            }
+	    if (npc.type == mod.NPCType("BigSightseer"))
+            {
+                if (Utils.NextFloat(Main.rand) < 0.1f)
+                {
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<Binoculars>());
+                }
+            }
             if (npc.type == mod.NPCType("CultistAssassin"))
             {
                 if (Utils.NextFloat(Main.rand) < 0.15f)
