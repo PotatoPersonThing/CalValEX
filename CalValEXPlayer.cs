@@ -128,6 +128,8 @@ namespace CalValEX
 	public bool dsPet = false;
 	public bool mDuke = false;
 	public bool sirember = false;
+	public bool deusmain = false;
+	public bool deussmall = false
 		
 		public override void ResetEffects()
 		{
@@ -216,6 +218,8 @@ namespace CalValEX
 		dsPet = false;
 		mDuke = false;
 		sirember = false;
+		deusmain = false;
+		deussmall = false
 		}
 
 		public override void UpdateDead()
@@ -305,6 +309,8 @@ namespace CalValEX
 		dsPet = false;
 		mDuke = false;
 		sirember = false;
+		deusmain = false;
+		deussmall = false
 		}
 
 		public override void CatchFish(Item fishingRod, Item bait, int power, int liquidType, int poolSize, int worldLayer, int questFish, ref int caughtType, ref bool junk)
