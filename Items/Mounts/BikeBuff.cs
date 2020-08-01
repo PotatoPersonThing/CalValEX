@@ -17,7 +17,6 @@ namespace CalValEX.Items.Mounts
 		public override void Update(Player player, ref int buffIndex) {
 			player.mount.SetMount(ModContent.MountType<Mounts.ProfanedCycle>(), player);
 			player.buffTime[buffIndex] = 10;
-            		Player.thorns = 10f;
 			Mod clamMod = ModLoader.GetMod("CalamityMod");
 			if (!(bool) clamMod.Call("GetBossDowned", "buffedeclipse"))
 			{
