@@ -185,7 +185,7 @@ namespace CalValEX
                     {
                         if (Utils.NextFloat(Main.rand) < 0.3f)
                             {   
-                                player.QuickSpawnItem(ModContent.ItemType<Binoculars>());
+                                player.QuickSpawnItem(ModContent.ItemType<Star>());
                             }
                         if (Utils.NextFloat(Main.rand) < 0.2f)
                             {   
