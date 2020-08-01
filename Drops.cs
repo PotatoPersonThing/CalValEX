@@ -899,6 +899,12 @@ namespace CalValEX
                     Item
                         .NewItem(npc.getRect(),
                         ModContent.ItemType<ProfanedEnergyHook>());
+		if (Utils.NextFloat(Main.rand) < 0.1f)
+                {
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<ProfanedBalloon>());
+                }
                 }
                 if (((bool)mod.Call("DifficultyActive", "revengeance")) && Utils.NextFloat(Main.rand) < 0.01f)
                 {
@@ -929,6 +935,12 @@ namespace CalValEX
                     Item
                         .NewItem(npc.getRect(),
                         ModContent.ItemType<HolyTorch>());
+                }
+		if (Utils.NextFloat(Main.rand) < 0.1f)
+                {
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<ProfanedBalloon>());
                 }
                 if (((bool)mod.Call("DifficultyActive", "revengeance")) && Utils.NextFloat(Main.rand) < 0.01f)
                 {
