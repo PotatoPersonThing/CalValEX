@@ -14,7 +14,7 @@ using CalValEX.Items.Pets;
 
 namespace CalValEX.Items.Pets
 {
-    public class Star : ModItem
+    public class AstralStar : ModItem
     {
         public override void SetStaticDefaults()
         {
