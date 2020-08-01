@@ -21,7 +21,7 @@ namespace CalValEX.Buffs.Pets
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<Projectiles.Pets.AquaHead>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ProjectileType<Projectiles.Pets.AquaHead>(), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height * 10), 0f, 0f, ProjectileType<Projectiles.Pets.AquaHead>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
             player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().dsPet = true;
