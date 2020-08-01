@@ -33,6 +33,11 @@ namespace CalValEX
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 20, 0);
                             ++nextSlot;
                         }
+			{
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Anemone>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 20, 0);
+                            ++nextSlot;
+                        }
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<BrainCoral>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 20, 0);
@@ -93,6 +98,11 @@ namespace CalValEX
                         if ((bool) clamMod.Call("GetBossDowned", "giantclam"))
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<SSCoral>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 25, 0);
+                            ++nextSlot;
+                        }
+			{
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Anemone>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 25, 0);
                             ++nextSlot;
                         }
