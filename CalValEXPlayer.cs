@@ -323,7 +323,7 @@ namespace CalValEX
 			caughtType = mod.ItemType("WetBubble");
 		}
 		Mod clamMod = ModLoader.GetMod("CalamityMod");
-		if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") && power > 80 && Utils.NextFloat(Main.rand) < 0.08f)
+		if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") && power > 80 && Utils.NextFloat(Main.rand) < 0.04f)
 		{
 			caughtType = mod.ItemType("CursedLockpick");
 		}
