@@ -65,6 +65,7 @@ public override void AddRecipes()
             {
                 ModRecipe recipe = new ModRecipe(mod);
                 recipe.AddIngredient(ModContent.ItemType<AquaticHide>());
+		recipe.AddIngredient(ModContent.ItemType<DriedMandible>());
                 recipe.AddIngredient(ModContent.ItemType<NuclearFumes>(), 50);
                 recipe.AddTile(TileID.LunarCraftingStation);
                 recipe.SetResult(this);
