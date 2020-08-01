@@ -130,6 +130,7 @@ namespace CalValEX
 	public bool sirember = false;
 	public bool deusmain = false;
 	public bool deussmall = false;
+	public bool rusty = false;
 		
 		public override void ResetEffects()
 		{
@@ -220,6 +221,7 @@ namespace CalValEX
 		sirember = false;
 		deusmain = false;
 		deussmall = false;
+		rusty = false;
 		}
 
 		public override void UpdateDead()
@@ -311,6 +313,7 @@ namespace CalValEX
 		sirember = false;
 		deusmain = false;
 		deussmall = false;
+		rusty = false;
 		}
 
 		public override void CatchFish(Item fishingRod, Item bait, int power, int liquidType, int poolSize, int worldLayer, int questFish, ref int caughtType, ref bool junk)
@@ -318,6 +321,11 @@ namespace CalValEX
 		if (player.ZoneBeach && power > 80 && Utils.NextFloat(Main.rand) < 0.02f)
 		{
 			caughtType = mod.ItemType("WetBubble");
+		}
+		Mod clamMod = ModLoader.GetMod("CalamityMod");
+		if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") && power > 80 && Utils.NextFloat(Main.rand) < 0.08f)
+		{
+			caughtType = mod.ItemType("CursedLockpick");
 		}
 	}
 	}
