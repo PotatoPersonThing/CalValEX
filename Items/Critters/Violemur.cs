@@ -179,6 +179,13 @@ namespace CalValEX.Items.Critters
 		{
 			item.stack = 1;
 		}
+		
+		public override void HitEffect(int hitDirection, double damage) {
+			if (npc.life <= 0) {
+				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Violemur"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Violemur2"), 1f);
+				}
+			}
 
 		// TODO: Hooks for Collision_MoveSnailOnSlopes and npc.aiStyle = 67 problem
 	}
