@@ -132,6 +132,11 @@ namespace CalValEX
 	public bool deussmall = false;
 	public bool rusty = false;
 	public bool sepet = false;
+	public bool pylon = false;
+	public bool worb = false;
+	public bool rover = false;
+	public bool drone = false;
+	public bool hover = false;
 		
 		public override void ResetEffects()
 		{
@@ -224,6 +229,11 @@ namespace CalValEX
 		deussmall = false;
 		rusty = false;
 		sepet = false;
+		pylon = false;
+		worb = false;
+		rover = false;
+		drone = false;
+		hover = false;
 		}
 
 		public override void UpdateDead()
@@ -317,6 +327,11 @@ namespace CalValEX
 		deussmall = false;
 		rusty = false;
 		sepet = false;
+		pylon = false;
+		worb = false;
+		rover = false;
+		drone = false;
+		hover = false;
 		}
 
 		public override void CatchFish(Item fishingRod, Item bait, int power, int liquidType, int poolSize, int worldLayer, int questFish, ref int caughtType, ref bool junk)
