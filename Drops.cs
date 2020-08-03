@@ -1154,6 +1154,12 @@ namespace CalValEX
                         .NewItem(npc.getRect(),
                         ModContent.ItemType<AncientAuricTeslaHelm>());
                 }
+		if (Utils.NextFloat(Main.rand) < 0.1f)
+                {
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<WulfrumController>());
+                }
             }
             if (npc.type == mod.NPCType("CragmawMire"))
             {
