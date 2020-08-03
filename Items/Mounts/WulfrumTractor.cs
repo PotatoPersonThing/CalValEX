@@ -24,7 +24,7 @@ namespace CalValEX.Items.Mounts
 			mountData.acceleration = 0.05f;
 			mountData.jumpSpeed = 4f;
 			mountData.blockExtraJumps = false;
-			mountData.totalFrames = 6;
+			mountData.totalFrames = 4;
 			mountData.constantJump = true;
 			int[] array = new int[mountData.totalFrames];
 			for (int l = 0; l < array.Length; l++) {
@@ -70,7 +70,7 @@ namespace CalValEX.Items.Mounts
 		public override void UpdateEffects(Player player) {
 			if ((Math.Abs(player.velocity.X) > 20)) 
             {
-			mountData.runningFrameCount = 6;
+			mountData.runningFrameCount = 4;
 			mountData.runningFrameDelay = 12;
 			mountData.runningFrameStart = 0;
 			mountData.inAirFrameCount = 0;
@@ -81,7 +81,7 @@ namespace CalValEX.Items.Mounts
 			}
             else 
             {
-			mountData.runningFrameCount = 6;
+			mountData.runningFrameCount = 4;
 			mountData.runningFrameDelay = 12;
 			mountData.runningFrameStart = 0;
 			mountData.inAirFrameCount = 0;
