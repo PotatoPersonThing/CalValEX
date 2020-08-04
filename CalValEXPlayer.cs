@@ -21,6 +21,8 @@ namespace CalValEX
 	public class CalValEXPlayer : ModPlayer
 	{
 		private const int saveVersion = 0;
+		
+		public bool ZoneAstral;
 
 		public bool mBirb = false;
 		public bool mBirb2 = false;
@@ -346,5 +348,30 @@ namespace CalValEX
 			caughtType = mod.ItemType("CursedLockpick");
 		}
 	}
+	
+	public override void UpdateBiomes() {
+			ZoneAstral = CalValEXWorld.astralTiles > 50;
+		}
+
+		public override bool CustomBiomesMatch(Player other) {
+			CalValEXPlayer modOther = other.GetModPlayer<CalValEXPlayer>();
+			return ZoneAstral == modOther.ZoneAstral;
+		}
+
+		public override void CopyCustomBiomesTo(Player other) {
+			CalValEXPlayer modOther = other.GetModPlayer<CalValEXPlayer>();
+			modOther.ZoneAstral = ZoneAstral;
+		}
+
+		public override void SendCustomBiomes(BinaryWriter writer) {
+			BitsByte flags = new BitsByte();
+			flags[0] = ZoneAstral;
+			writer.Write(flags);
+		}
+
+		public override void ReceiveCustomBiomes(BinaryReader reader) {
+			BitsByte flags = reader.ReadByte();
+			ZoneAstral = flags[0];
+		}
 	}
 }
