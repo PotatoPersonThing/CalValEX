@@ -16,8 +16,8 @@ namespace CalValEX.Items.Mounts
 			mountData.buff = mod.BuffType("BikeBuff");
 			mountData.heightBoost = 20;
 			mountData.fallDamage = 0.1f;
-			mountData.runSpeed = 31f;
-			mountData.dashSpeed = 10f;
+			mountData.runSpeed = 25f;
+			mountData.dashSpeed = 9f;
 			mountData.flightTimeMax = 0;
 			mountData.fatigueMax = 0;
 			mountData.jumpHeight = 25;
@@ -75,7 +75,7 @@ namespace CalValEX.Items.Mounts
 			mountData.inAirFrameCount = 1;
 			mountData.inAirFrameDelay = 12;
 			mountData.inAirFrameStart = 12;
-			mountData.runSpeed = 31f;
+			mountData.runSpeed = 25f;
 			mountData.acceleration = 0.25f;
 
 if (Main.rand.NextFloat() < 1f)
@@ -93,7 +93,7 @@ if (Main.rand.NextFloat() < 1f)
 			mountData.inAirFrameCount = 1;
 			mountData.inAirFrameDelay = 12;
 			mountData.inAirFrameStart = 11;
-			mountData.runSpeed = 31f; 
+			mountData.runSpeed = 25f; 
 			}
 		}
 	}
