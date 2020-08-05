@@ -12,6 +12,7 @@ using Terraria.ModLoader.IO;
 using Terraria.World.Generation;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Tiles;
+using CalValEX.Items.Tiles.Astral;
 
 namespace CalValEX
 {
@@ -29,7 +30,7 @@ public override void ResetNearbyTileEffects() {
 
 		public override void TileCountsAvailable(int[] tileCounts) {
 			// Here we count various tiles towards ZoneAstral
-			astralTiles = tileCounts[TileType<Helplaced>()] + tileCounts[TileType<HesfinePlaced>()];
+			astralTiles = tileCounts[TileType<Helplaced>()] + tileCounts[TileType<HesfinePlaced>()] + + tileCounts[TileType<AstralDirtPlaced>()];
         }
     }
 }
