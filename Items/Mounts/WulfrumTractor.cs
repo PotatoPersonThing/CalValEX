@@ -16,8 +16,8 @@ namespace CalValEX.Items.Mounts
 			mountData.buff = mod.BuffType("TractorMount");
 			mountData.heightBoost = 20;
 			mountData.fallDamage = 0.1f;
-			mountData.runSpeed = 10f;
-			mountData.dashSpeed = 7f;
+			mountData.runSpeed = 8f;
+			mountData.dashSpeed = 5f;
 			mountData.flightTimeMax = 0;
 			mountData.fatigueMax = 0;
 			mountData.jumpHeight = 8;
@@ -76,7 +76,7 @@ namespace CalValEX.Items.Mounts
 			mountData.inAirFrameCount = 0;
 			mountData.inAirFrameDelay = 12;
 			mountData.inAirFrameStart = 0;
-			mountData.runSpeed = 10f;
+			mountData.runSpeed = 8f;
 			mountData.acceleration = 0.05f;
 			}
             else 
@@ -87,7 +87,7 @@ namespace CalValEX.Items.Mounts
 			mountData.inAirFrameCount = 0;
 			mountData.inAirFrameDelay = 12;
 			mountData.inAirFrameStart = 0;
-			mountData.runSpeed = 10f; 
+			mountData.runSpeed = 8f; 
 			}
 		}
 	}
