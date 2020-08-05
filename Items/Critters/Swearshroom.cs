@@ -128,7 +128,7 @@ namespace CalValEX.Items.Critters
 			npc.damage = 0;
 			npc.defense = 0;
 			npc.lifeMax = 100;
-			npc.HitSound = SoundID.NPCHit38;
+			npc.HitSound = SoundID.NPCHit26;
 			npc.DeathSound = SoundID.NPCDeath1;
 
 			npc.catchItem = (short)ItemType<SwearshroomItem>();
