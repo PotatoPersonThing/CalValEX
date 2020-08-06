@@ -10,7 +10,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Wulfrom Pylon");
-            Main.projFrames[projectile.type] = 4; //frames
+            Main.projFrames[projectile.type] = 7; //frames
             Main.projPet[projectile.type] = true;
         }
 
@@ -72,12 +72,13 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
         public override void SetFrameLimitsAndFrameSpeed()
         {
             idleFrameLimits[0] = 0;
-            idleFrameLimits[1] = 3; //what your min idle frame is (start of idle animation)
+            idleFrameLimits[1] = 6; //what your min idle frame is (start of idle animation)
 
             walkingFrameLimits[0] = 0; //what your min walking frame is (start of walking animation)
-            walkingFrameLimits[1] = 3; //what your max walking frame is (end of walking animation)
+            walkingFrameLimits[1] = 6; //what your max walking frame is (end of walking animation)
 
-            flyingFrameLimits[0] = flyingFrameLimits[1] = 3; //what your min flying frame is (start of flying animation)
+            flyingFrameLimits[0] = 0;
+            flyingFrameLimits[1] = 6; //what your min flying frame is (start of flying animation)
 
             animationSpeed[0] = 12; //idle animation speed
             animationSpeed[1] = 8; //walking animation speed

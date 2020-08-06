@@ -28,7 +28,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
             projectile.friendly = true;
             projectile.tileCollide = false;
             */
-            facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
+            facingLeft = false;; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
             shouldFlip = true; //should the sprite flip? set true if it should, false if it shouldnt
             usesAura = false; //does this pet use an aura?

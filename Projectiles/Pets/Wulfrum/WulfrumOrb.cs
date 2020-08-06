@@ -10,7 +10,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Wulfrom Gyrothing");
-            Main.projFrames[projectile.type] = 1; //frames
+            Main.projFrames[projectile.type] = 5; //frames
             Main.projPet[projectile.type] = true;
         }
 
@@ -53,7 +53,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
 
         public override void SetPetSpeedsAndInertia()
         {
-            speed[0] = 8f; //walking speed
+            speed[0] = 14f; //walking speed
             speed[1] = 12f; //flying speed
 
             inertia[0] = 20f; //walking inertia
@@ -71,14 +71,17 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
         
         public override void SetFrameLimitsAndFrameSpeed()
         {
-            idleFrameLimits[0] = idleFrameLimits[1] = 0; //what your min idle frame is (start of idle animation)
+            idleFrameLimits[0] = 0;
+            idleFrameLimits[1] = 4; //what your min idle frame is (start of idle animation)
 
-            walkingFrameLimits[0] = walkingFrameLimits[1] = 0;//what your min walking frame is (start of walking animation)
+            walkingFrameLimits[0] = 0;
+            walkingFrameLimits[1] = 4;//what your min walking frame is (start of walking animation)
              //what your max walking frame is (end of walking animation)
 
-            flyingFrameLimits[0] = flyingFrameLimits[1] = 0; //what your min flying frame is (start of flying animation)
+            flyingFrameLimits[0] = 0;
+            flyingFrameLimits[1] = 4; //what your min flying frame is (start of flying animation)
 
-            animationSpeed[0] = 30; //idle animation speed
+            animationSpeed[0] = 8; //idle animation speed
             animationSpeed[1] = 8; //walking animation speed
             animationSpeed[2] = 10; //flying animation speed
             spinRotationSpeedMult = 5.5f; //how fast it should spin
