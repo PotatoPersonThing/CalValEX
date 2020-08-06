@@ -53,7 +53,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
 
         public override void SetPetSpeedsAndInertia()
         {
-            speed[0] = 14f; //walking speed
+            speed[0] = 17f; //walking speed
             speed[1] = 12f; //flying speed
 
             inertia[0] = 20f; //walking inertia
