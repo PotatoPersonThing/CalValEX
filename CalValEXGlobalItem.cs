@@ -33,6 +33,8 @@ namespace CalValEX
                             break;
                         case "Bumbledoge":
                         case "BumbleDoge":
+                        case "Bojangles":
+                        case "Bojeangles":
                             player.QuickSpawnItem(ModContent.ItemType<AeroPebble>());
                             player.QuickSpawnItem(ModContent.ItemType<FluffyFur>());
                             break;
