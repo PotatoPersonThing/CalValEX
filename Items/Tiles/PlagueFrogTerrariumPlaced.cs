@@ -35,7 +35,7 @@ namespace CalValEX.Items.Tiles
             {
                 frameCounter = 0;
                 frame++;
-                if (frame > 27)
+                if (frame > 26)
                 {
                     frame = 0;
                 }
