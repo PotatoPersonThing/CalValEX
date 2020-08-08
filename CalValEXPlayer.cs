@@ -139,6 +139,7 @@ namespace CalValEX
 	public bool rover = false;
 	public bool drone = false;
 	public bool hover = false;
+	public bool RepairBot = false;
 		
 		public override void ResetEffects()
 		{
@@ -236,6 +237,7 @@ namespace CalValEX
 		rover = false;
 		drone = false;
 		hover = false;
+		RepairBot = false;
 		}
 
 		public override void UpdateDead()
@@ -334,6 +336,7 @@ namespace CalValEX
 		rover = false;
 		drone = false;
 		hover = false;
+		RepairBot = false;
 		}
 
 		public override void CatchFish(Item fishingRod, Item bait, int power, int liquidType, int poolSize, int worldLayer, int questFish, ref int caughtType, ref bool junk)
