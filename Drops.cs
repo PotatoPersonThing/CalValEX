@@ -301,11 +301,6 @@ namespace CalValEX
             }
             if (npc.type == mod.NPCType("WulfrumRover") && Main.expertMode)
             {
-                if (Utils.NextFloat(Main.rand) < 0.0001f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<AncientAuricTeslaHelm>());
-                }
                 if (((bool)mod.Call("DifficultyActive", "defiled")) && Utils.NextFloat(Main.rand) < 0.05f)
                 {
                     Item.NewItem(npc.getRect(),
