@@ -286,6 +286,15 @@ namespace CalValEX
                         ModContent.ItemType<DiscardedCollar>());
                 }
             }
+	    if (npc.type == mod.NPCType("Scryllar"))
+            {
+                if (Utils.NextFloat(Main.rand) < 0.1f)
+                {
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<ScryllianWings>());
+		}
+	    }
             if (npc.type == mod.NPCType("DespairStone"))
             {
                 if (((bool)mod.Call("DifficultyActive", "defiled")) && Utils.NextFloat(Main.rand) < 0.1f)
