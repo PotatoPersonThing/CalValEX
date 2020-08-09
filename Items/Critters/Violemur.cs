@@ -159,6 +159,23 @@ namespace CalValEX.Items.Critters
 		{
 			return true;
 		}
+				public override void AI()
+		{
+			Mod clamMod = ModLoader.GetMod("CalamityMod");
+			if (clamMod != null)
+			{
+				if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "astral"))
+				{
+					npc.dontTakeDamage = true;
+					npc.netUpdate = true;
+				}
+				else
+				{
+					npc.dontTakeDamage = false;
+					npc.netUpdate = true;
+				}
+			}
+		}
 
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo) 
