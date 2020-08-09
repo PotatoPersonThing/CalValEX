@@ -62,8 +62,8 @@ namespace CalValEX.Items.Pets
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (calamityMod != null)
             {
-                recipe.AddIngredient(calamityMod.ItemType("DubiousPlating") 2);
-                recipe.AddIngredient(calamityMod.ItemType("Dubious Circuitry") 1);
+                recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 2);
+                recipe.AddIngredient(calamityMod.ItemType("Dubious Circuitry"), 1);
                 recipe.AddTile(TileID.Anvils);
 			    recipe.SetResult(this);
 			    recipe.AddRecipe();
