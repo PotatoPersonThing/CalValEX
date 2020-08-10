@@ -130,7 +130,7 @@ namespace CalValEX
                         if (Main.hardMode == true)
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Vvanities>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
                             ++nextSlot;
                         }
 			if ((bool) clamMod.Call("GetBossDowned", "acidrainscourge"))
