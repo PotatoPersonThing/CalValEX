@@ -53,6 +53,12 @@ namespace CalValEX
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 20, 0);
                             ++nextSlot;
                         }
+			if (Main.hardMode == true)
+                        {
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Vvanities>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
+                            ++nextSlot;
+                        }
                         if ((bool) clamMod.Call("GetBossDowned", "acidrainscourge"))
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<BelchingCoral>());
@@ -123,7 +129,7 @@ namespace CalValEX
                         }
                         if (Main.hardMode == true)
                         {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Vvanities());
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Vvanities>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
                             ++nextSlot;
                         }
