@@ -32,8 +32,8 @@ namespace CalValEX.Projectiles.Pets
         {
             distance[0] = 1000f; //teleport
             distance[1] = 560f; //speed increase
-            distance[2] = 180f; //when to walk
-            distance[3] = 100f; //when to stop walking
+            distance[2] = 100f; //when to walk
+            distance[3] = 50f; //when to stop walking
             distance[4] = 280f; //when to fly
             distance[5] = 180f; //when to stop flying
         }
@@ -51,8 +51,8 @@ namespace CalValEX.Projectiles.Pets
             jumpFrameLimits[1] = -1; //what your max jump frame is (end of jump animation)
 
             animationSpeed[0] = 30; //idle animation speed
-            animationSpeed[1] = 16; //walking animation speed
-            animationSpeed[2] = 10; //flying animation speed
+            animationSpeed[1] = 3; //walking animation speed
+            animationSpeed[2] = 5; //flying animation speed
             animationSpeed[3] = -1; //jumping animation speed
 
             jumpAnimationLength = -1; //how long the jump animation should stay
