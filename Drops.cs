@@ -206,6 +206,15 @@ namespace CalValEX
                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 0);
                        ++nextSlot;
                 }
+		if (type == NPCID.Cyborg)
+                {
+		if ((bool) clamMod.Call("GetBossDowned", "astrumaureus"))
+                       {
+                       shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrumAureusLog>());
+                       shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
+                       ++nextSlot;
+		       }
+                }
                 if (type == NPCID.PartyGirl)
                 {
                     if (Main.LocalPlayer.HasItem(ModContent.ItemType<Mirballoon>()))
