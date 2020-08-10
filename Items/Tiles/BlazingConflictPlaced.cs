@@ -21,7 +21,7 @@ namespace CalValEX.Items.Tiles
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16 }; //
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Blazinf Conflict");
+			name.SetDefault("Blazing Conflict");
 			AddMapEntry(new Color(139, 0, 0), name);
 		}
 
