@@ -55,7 +55,7 @@ namespace CalValEX
                         }
 			if (Main.hardMode == true)
                         {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Vvanities>());
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<VVanities>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
                             ++nextSlot;
                         }
@@ -129,7 +129,7 @@ namespace CalValEX
                         }
                         if (Main.hardMode == true)
                         {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Vvanities>());
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<VVanities>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
                             ++nextSlot;
                         }
