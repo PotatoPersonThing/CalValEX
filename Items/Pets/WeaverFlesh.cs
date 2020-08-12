@@ -17,7 +17,7 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Storm Medallion");
+            DisplayName.SetDefault("Storm Medal");
             Tooltip.SetDefault("Heads or worms?");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5,6));
            /// ItemID.Sets.AnimatesAsSoul[item.type] = true;
