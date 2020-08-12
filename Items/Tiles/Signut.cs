@@ -18,7 +18,7 @@ namespace CalValEX.Items.Tiles
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Signut");
             Tooltip
-                .SetDefault("Don't judge me, being trapped in ice for a long time does stuff to your mind");
+                .SetDefault("'Yharex'\n+" "Don't judge me, being trapped in ice for a long time does stuff to your mind");
 		}
 
 		public override void SetDefaults() {
