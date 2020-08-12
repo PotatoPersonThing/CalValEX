@@ -115,7 +115,7 @@ namespace CalValEX.Items.Critters
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Blazing Butterfly");
+			DisplayName.SetDefault("Profaned Butterfly");
 			Main.npcFrameCount[npc.type] = 3;
 			Main.npcCatchable[npc.type] = true;
 		}
