@@ -18,7 +18,7 @@ namespace CalValEX.Items.Tiles
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("22");
             Tooltip
-                .SetDefault("22");
+                .SetDefault("'Willow'\n+""22");
 		}
 
 		public override void SetDefaults() {
