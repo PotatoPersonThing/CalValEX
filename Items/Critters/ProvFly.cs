@@ -115,7 +115,7 @@ namespace CalValEX.Items.Critters
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Profaned Butterfly");
+			DisplayName.SetDefault("Blazing Butterfly");
 			Main.npcFrameCount[npc.type] = 3;
 			Main.npcCatchable[npc.type] = true;
 		}
@@ -128,7 +128,7 @@ namespace CalValEX.Items.Critters
 			npc.damage = 0;
 			npc.defense = 0;
 			npc.lifeMax = 5;
-			npc.HitSound = SoundID.NPCHit38;
+			npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath1;
 			npc.npcSlots = 0.25f;
 			npc.noGravity = true;
