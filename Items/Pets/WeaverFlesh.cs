@@ -17,18 +17,25 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Weaver Gizzard");
-            Tooltip.SetDefault("Gross");
+            DisplayName.SetDefault("Storm Medallion");
+            Tooltip.SetDefault("Heads or worms?");
+            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5,6));
+           /// ItemID.Sets.AnimatesAsSoul[item.type] = true;
+            ItemID.Sets.ItemIconPulse[item.type] = false;
+            ItemID.Sets.ItemNoGravity[item.type] = false;
         }
 
         public override void SetDefaults()
         {
+	    item.width = 22;
+	    item.height = 46;
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit13;
             item.shoot = mod.ProjectileType("StasisNaked");
             item.value = Item.sellPrice(3, 50, 0, 0);
-            item.rare = 2;
+            item.rare = 10;
             item.buffType = mod.BuffType("SWPetBuff");
+	    item.noUseGraphic = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
