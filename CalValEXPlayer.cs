@@ -341,12 +341,12 @@ namespace CalValEX
 
 		public override void CatchFish(Item fishingRod, Item bait, int power, int liquidType, int poolSize, int worldLayer, int questFish, ref int caughtType, ref bool junk)
 	{
-		if (player.ZoneBeach && power > 80 && Utils.NextFloat(Main.rand) < 0.02f)
+		if (player.ZoneBeach && power > 80 && Utils.NextFloat(Main.rand) < 0.021f)
 		{
 			caughtType = mod.ItemType("WetBubble");
 		}
 		Mod clamMod = ModLoader.GetMod("CalamityMod");
-		if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") && power > 80 && Utils.NextFloat(Main.rand) < 0.04f)
+		if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") && power > 90 && Utils.NextFloat(Main.rand) < 0.02f)
 		{
 			caughtType = mod.ItemType("CursedLockpick");
 		}
