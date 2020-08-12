@@ -17,7 +17,7 @@ namespace CalValEX.Items.Critters
 internal class ProvFlyItem : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Profaned Butterfly");
+			DisplayName.SetDefault("Blazing Butterfly");
 		}
 
 		public override void SetDefaults() {
