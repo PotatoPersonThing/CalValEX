@@ -18,7 +18,7 @@ namespace CalValEX.Items.Tiles
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("V for Vanities!");
             Tooltip
-                .SetDefault("V!");
+                .SetDefault("Willow\n+" "V!");
 		}
 
 		public override void SetDefaults() {
