@@ -18,7 +18,7 @@ namespace CalValEX.Items.Tiles
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Little Buddies");
             Tooltip
-                .SetDefault("Friends!");
+                .SetDefault("'Mochi'\n+" "Friends!");
 		}
 
 		public override void SetDefaults() {
