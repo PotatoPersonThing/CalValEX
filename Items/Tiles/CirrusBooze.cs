@@ -18,7 +18,7 @@ namespace CalValEX.Items.Tiles
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("A Fine Chalice");
             Tooltip
-                .SetDefault("A fine chalice indeed");
+                .SetDefault("'TimerFun'\n+" "A fine chalice indeed");
 		}
 
 		public override void SetDefaults() {
