@@ -77,6 +77,12 @@ namespace CalValEX
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50, 0, 0);
                             ++nextSlot;
                         }
+			if ((bool) clamMod.Call("GetBossDowned", "devourerofgods"))
+                        {
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<CosmicTerror>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 50, 0, 0);
+                            ++nextSlot;
+                        }
                         if ((bool) clamMod.Call("GetBossDowned", "buffedeclipse"))
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<TheYhar>());
