@@ -17,6 +17,8 @@ namespace CalValEX.Items.Tiles
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Calamity's Vanities (alt)");
+			Tooltip.SetDefault("'Giacomo'\n+");
+			
 		}
 
 		public override void SetDefaults() {
