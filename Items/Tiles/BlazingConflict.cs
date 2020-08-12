@@ -18,7 +18,7 @@ namespace CalValEX.Items.Tiles
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Blazing Conflict");
             Tooltip
-                .SetDefault("Fire vs fire");
+                .SetDefault("Yharex\n+" "Fire vs fire");
 		}
 
 		public override void SetDefaults() {
