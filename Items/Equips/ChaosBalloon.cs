@@ -18,7 +18,7 @@ public class ChaosBalloon : ModItem
 	public override void SetStaticDefaults()
 	{
 		DisplayName.SetDefault("Puffer Balloon");
-		Tooltip.SetDefault("May go off any minute now...");
+		Tooltip.SetDefault("The Party Girl can tie this for you\n+" "May go off any minute now...");
 	}
 
 	public override void SetDefaults()
