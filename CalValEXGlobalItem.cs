@@ -82,6 +82,12 @@ namespace CalValEX
                         case "Scarfy":
                             player.QuickSpawnItem(ModContent.ItemType<FluffyFeather>());
                             break;
+                        case "Willow":
+                        case "willowmaine":
+                        case "bean long":
+                            player.QuickSpawnItem(ModContent.ItemType<PerennialFlower>());
+                            player.QuickSpawnItem(ModContent.ItemType<VVanities>());
+                            break;
                     }
                 }
             }
