@@ -248,6 +248,14 @@ namespace CalValEX
                         {
                             player.QuickSpawnItem(ModContent.ItemType<RavaHook>());
                         }
+                        if (Utils.NextFloat(Main.rand) < 0.005f)
+                        {
+                            player.QuickSpawnItem(ModContent.ItemType<ScavaHook>());
+                        }
+                        if (Utils.NextFloat(Main.rand) < 0.3f)
+                        {
+                            player.QuickSpawnItem(ModContent.ItemType<SkullBalloon>());
+                        }
                     }
                     if (arg == calamityMod.ItemType("AstrumDeusBag"))
                     {
