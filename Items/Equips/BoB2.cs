@@ -18,7 +18,7 @@ public class BoB2 : ModItem
 	public override void SetStaticDefaults()
 	{
 		DisplayName.SetDefault("Bundle of Water Balloons");
-		Tooltip.SetDefault("The Party Girl can tie this for you\n+" "How did none of them pop down there?");
+		Tooltip.SetDefault("The Party Girl can tie this for you\n+" "'How did none of them pop down there?'");
 	}
 
 	public override void SetDefaults()
