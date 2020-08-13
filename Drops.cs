@@ -223,19 +223,19 @@ namespace CalValEX
                 }
                 if (type == NPCID.PartyGirl)
                 {
-                    if (Main.LocalPlayer.HasItem(ModContent.ItemType<Mirballoon>()))
+                    if (Main.LocalPlayer.HasItem(ModContent.ItemType<Mirballoon>())||Main.LocalPlayer.HasItem(ModContent.ItemType<BoB2>()))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedMirageBalloon>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
                         ++nextSlot;
                     }
-                    if (Main.LocalPlayer.HasItem(ModContent.ItemType<BoxBalloon>()))
+                    if (Main.LocalPlayer.HasItem(ModContent.ItemType<BoxBalloon>())||Main.LocalPlayer.HasItem(ModContent.ItemType<BoB2>()))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedBoxBalloon>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
                         ++nextSlot;
                     }
-                    if (Main.LocalPlayer.HasItem(ModContent.ItemType<ChaosBalloon>()))
+                    if (Main.LocalPlayer.HasItem(ModContent.ItemType<ChaosBalloon>())||Main.LocalPlayer.HasItem(ModContent.ItemType<BoB2>()))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedChaosBalloon>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
