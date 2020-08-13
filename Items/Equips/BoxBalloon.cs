@@ -18,7 +18,7 @@ public class BoxBalloon : ModItem
 	public override void SetStaticDefaults()
 	{
 		DisplayName.SetDefault("Cuboidal Balloon");
-		Tooltip.SetDefault("Feeling square");
+		Tooltip.SetDefault("The Party Girl can tie this for you\n+" "Feeling square");
 	}
 
 	public override void SetDefaults()
