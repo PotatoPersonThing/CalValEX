@@ -16,7 +16,7 @@ namespace CalValEX.Items.Equips
 	{
 		public override void SetStaticDefaults() {
             DisplayName.SetDefault("Mirage Balloon");
-			Tooltip.SetDefault("The Party Girl can tie this for you\n+" "Keep away from sharp objects!");
+			Tooltip.SetDefault("The Party Girl can tie this for you\n+" "'Keep away from sharp objects!'");
 		}
 
 		public override void SetDefaults() {
