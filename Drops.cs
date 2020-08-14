@@ -980,43 +980,6 @@ namespace CalValEX
                         ModContent.ItemType<ChewyToy>());
                 }
             }
-            //Phantoms
-            if (npc.type == mod.NPCType("PhantomSpirit"))
-            {
-                if (Utils.NextFloat(Main.rand) < 0.01f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<PhantomJar>());
-                }
-            }
-            if (npc.type == mod.NPCType("PhantomSpiritS"))
-            {
-                if (Utils.NextFloat(Main.rand) < 0.02f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<PhantomJar>());
-                }
-            }
-            if (npc.type == mod.NPCType("PhantomSpiritM"))
-            {
-                if (Utils.NextFloat(Main.rand) < 0.05f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<PhantomJar>());
-                }
-            }
-            if (npc.type == mod.NPCType("PhantomSpiritL"))
-            {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<PhantomJar>());
-                }
-            }
             //Post-ml misc
             //if (npc.type == mod.NPCType("ShockstormShuttle"))
             //{
