@@ -104,6 +104,15 @@ namespace CalValEX
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(42, 0, 0, 0);
                             ++nextSlot;
                         }
+			if ((bool) clamMod.Call("GetBossDowned", "acidrain"))
+                        {
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<SulphurPillar>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
+                            ++nextSlot;
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<SulphurGeyser>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
+                            ++nextSlot;
+                        }
                     }
                     if (!(bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sunkensea"))
                     {
@@ -176,6 +185,15 @@ namespace CalValEX
                             ++nextSlot;
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Yharlamitas>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(420, 0, 0, 0);
+                            ++nextSlot;
+                        }
+			if ((bool) clamMod.Call("GetBossDowned", "acidrain"))
+                        {
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<SulphurPillar>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
+                            ++nextSlot;
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<SulphurGeyser>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
                             ++nextSlot;
                         }
                     }
