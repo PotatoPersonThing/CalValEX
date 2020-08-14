@@ -47,10 +47,6 @@ namespace CalValEX
                         case "Kiwabug":
                             player.QuickSpawnItem(ModContent.ItemType<UglyTentacle>());
                             break;
-                        case "Nukebirb":
-                        case "Unyuho":
-                            player.QuickSpawnItem(ModContent.ItemType<PristineExcalibur>());
-                            break;
                         case "YuH":
                             player.QuickSpawnItem(ModContent.ItemType<Eidolistthingy>());
                             break;
@@ -62,6 +58,8 @@ namespace CalValEX
                             break;
                         case "Lucca":
                             player.QuickSpawnItem(ModContent.ItemType<JunkoHat>());
+                            break;
+                            player.QuickSpawnItem(ModContent.ItemType<ToyScythe>());
                             break;
                         case "Lil Junko":
                             player.QuickSpawnItem(ModContent.ItemType<JunkoHat>());
@@ -87,6 +85,9 @@ namespace CalValEX
                         case "bean long":
                             player.QuickSpawnItem(ModContent.ItemType<PerennialFlower>());
                             player.QuickSpawnItem(ModContent.ItemType<VVanities>());
+                            break;
+                        case "Potato Person":
+                            player.QuickSpawnItem(ModContent.ItemType<MissingFang>());
                             break;
                     }
                 }
