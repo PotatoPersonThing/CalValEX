@@ -59,5 +59,20 @@ namespace CalValEX.Items.Pets
                 player.AddBuff(item.buffType, 3600, true);
             }
         }
+                               public override void AddRecipes()
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+               Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            if (calamityMod != null)
+            {
+                recipe.AddIngredient((ItemID.WispinaBottle), 1);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("RuinousSoul"), 3);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Phantoplasm"), 20);
+                recipe.AddTile(TileID.LunarCraftingStation);
+			    recipe.SetResult(this);
+			    recipe.AddRecipe();
+            }
+        }
+                    
     }
 }
