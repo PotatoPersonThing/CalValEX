@@ -106,7 +106,7 @@ namespace CalValEX
                         }
 			if ((bool) clamMod.Call("GetBossDowned", "acidrain"))
                         {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<SulphurPillar>());
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<SulphurColumn>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
                             ++nextSlot;
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<SulphurGeyser>());
@@ -189,7 +189,7 @@ namespace CalValEX
                         }
 			if ((bool) clamMod.Call("GetBossDowned", "acidrain"))
                         {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<SulphurPillar>());
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<SulphurColumn>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
                             ++nextSlot;
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<SulphurGeyser>());
