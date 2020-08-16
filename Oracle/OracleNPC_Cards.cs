@@ -55,7 +55,22 @@ namespace CalValEX.Oracle
             {
                 projectile.velocity.Y += 0.1f;
             }
-            projectile.rotation = projectile.velocity.ToRotation();
+            projectile.rotation += 0.6f;
+            if (projectile.rotation > MathHelper.TwoPi)
+            {
+                projectile.rotation -= MathHelper.TwoPi;
+            }
+            else if (projectile.rotation < 0)
+            {
+                projectile.rotation += MathHelper.TwoPi;
+            }
+	}
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            Texture2D texture = Main.projectileTexture[projectile.type];
+            spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, null, Color.White, projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
+            return false;
         }
     }
 }
