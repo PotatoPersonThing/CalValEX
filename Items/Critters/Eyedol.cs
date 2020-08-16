@@ -130,9 +130,13 @@ namespace CalValEX.Items.Critters
 			npc.damage = 0;
 			npc.defense = 0;
 			npc.lifeMax = 100;
+			Mod calamityMod = ModLoader.GetMod("CalamityMod");
+			if ((bool) calamityMod.Call("GetBossDowned", "providence"))
+			{
+			npc.lifeMax = 500;
+			}
 			npc.HitSound = SoundID.NPCHit33;
 			npc.DeathSound = SoundID.NPCDeath1;
-
 			npc.catchItem = (short)ItemType<EyedolItem>();
 			npc.lavaImmune = true;
 			npc.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
