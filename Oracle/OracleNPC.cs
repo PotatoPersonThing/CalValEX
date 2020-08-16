@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using CalValEX.Oracle;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -275,6 +275,12 @@ namespace CalValEX.Oracle
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 50, 0);
                         ++nextSlot;
                     }
+                if ((bool) Main.hardMode)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<PristineExcalibur>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 50, 0, 0);
+                        ++nextSlot;
+                    }
                 if ((bool) NPC.downedPlantBoss)
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Eidolistthingy>());
@@ -392,13 +398,13 @@ namespace CalValEX.Oracle
 
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)
         {
-            damage = 15;
+            damage = 10;
             knockback = 4f;
         }
 
         public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
         {
-            cooldown = 60;
+            cooldown = 20;
             randExtraCooldown = 20;
         }
 
@@ -410,7 +416,7 @@ namespace CalValEX.Oracle
 
         public override void TownNPCAttackProjSpeed(ref float multiplier, ref float gravityCorrection, ref float randomOffset)
         {
-            multiplier = 12f;
+            multiplier = 24f;
             randomOffset = 2f;
         }
 

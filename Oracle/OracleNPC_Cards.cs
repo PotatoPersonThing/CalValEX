@@ -17,8 +17,8 @@ namespace CalValEX.Oracle
         public override void SetDefaults()
         {
             projectile.width = 26;
-            projectile.height = 18;
-            projectile.damage = 30;
+            projectile.height = 26;
+            projectile.damage = 20;
             projectile.ignoreWater = false;
             projectile.tileCollide = true;
             projectile.friendly = true;
@@ -75,5 +75,6 @@ namespace CalValEX.Oracle
             spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, null, Color.White, projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0f);
             return false;
         }
+
     }
 }
