@@ -127,6 +127,70 @@ namespace CalValEX
                            player.QuickSpawnItem(ModContent.ItemType<SulphurGeyser>()); 
                         }
                     }
+                if (((bool)calamityMod.Call("GetBossDowned", "polterghast")) & Utils.NextFloat(Main.rand) < 0.025f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<EidolonTree>()); 
+                    }
+                if (((bool)calamityMod.Call("GetBossDowned", "polterghast")) & Utils.NextFloat(Main.rand) < 0.01f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<NuclearFumes>()); 
+                        player.QuickSpawnItem(ModContent.ItemType<NuclearFumes>()); 
+                        player.QuickSpawnItem(ModContent.ItemType<NuclearFumes>()); 
+                        if (Utils.NextFloat(Main.rand) < 0.05f)
+                        {
+                           player.QuickSpawnItem(ModContent.ItemType<NuclearFumes>()); 
+                        }
+                        if (Utils.NextFloat(Main.rand) < 0.05f)
+                        {
+                           player.QuickSpawnItem(ModContent.ItemType<NuclearFumes>()); 
+                        }
+                    }
+                if (((bool)calamityMod.Call("GetBossDowned", "acidrainscourge")) & Utils.NextFloat(Main.rand) < 0.05f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<BelchingCoral>()); 
+                    }
+            }
+            if (item.type == calamityMod.ItemType("AstralCrate"))
+            {
+                if (Utils.NextFloat(Main.rand) < 0.03f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<MonolithPot>());
+                    }
+                if (Utils.NextFloat(Main.rand) < 0.005f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<AstralOldPurple>());
+                    }
+                if (Utils.NextFloat(Main.rand) < 0.02f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<AstralOldYellow>());
+                    }
+                if (((bool)calamityMod.Call("GetBossDowned", "signus")) & Utils.NextFloat(Main.rand) < 0.05f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<NetherTree>()); 
+                    }
+            }
+            if (item.type == calamityMod.ItemType("SunkenCrate"))
+            {
+                if (Utils.NextFloat(Main.rand) < 0.03f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<SSCoral>());
+                    }
+                if (Utils.NextFloat(Main.rand) < 0.03f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<Anemone>());
+                    }
+                if (Utils.NextFloat(Main.rand) < 0.03f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<TableCoral>());
+                    }
+                if (Utils.NextFloat(Main.rand) < 0.03f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<FanCoral>());
+                    }
+                if (Utils.NextFloat(Main.rand) < 0.03f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<BrainCoral>());
+                    }
             }
         }
 
