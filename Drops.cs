@@ -113,6 +113,9 @@ namespace CalValEX
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<SulphurGeyser>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
                             ++nextSlot;
+			    shop.item[nextSlot].SetDefaults(ModContent.ItemType<Ribrod>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 2, 0, 0);
+                            ++nextSlot;
                         }
                     }
                     if (!(bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sunkensea"))
@@ -195,6 +198,9 @@ namespace CalValEX
                             ++nextSlot;
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<SulphurGeyser>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
+                            ++nextSlot;
+			    shop.item[nextSlot].SetDefaults(ModContent.ItemType<Ribrod>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
                             ++nextSlot;
                         }
                     }
