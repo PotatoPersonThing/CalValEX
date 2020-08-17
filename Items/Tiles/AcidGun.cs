@@ -22,7 +22,7 @@ namespace CalValEX.Items.Tiles
 		}
 
 		public override void SetDefaults() {
-			item.useStyle = 1;
+			item.useStyle = 4;
 			item.useTurn = true;
 			item.useAnimation = 15;
 			item.useTime = 10;
