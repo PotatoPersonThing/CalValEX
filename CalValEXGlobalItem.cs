@@ -1,4 +1,5 @@
-﻿using CalValEX.Items.Equips;
+﻿using CalValEX.Items;
+using CalValEX.Items.Equips;
 using CalValEX.Items.Hooks;
 using CalValEX.Items.Mounts;
 using CalValEX.Items.Pets;
@@ -58,7 +59,6 @@ namespace CalValEX
                             break;
                         case "Lucca":
                             player.QuickSpawnItem(ModContent.ItemType<JunkoHat>());
-                            break;
                             player.QuickSpawnItem(ModContent.ItemType<ToyScythe>());
                             break;
                         case "Lil Junko":
