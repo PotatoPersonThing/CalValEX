@@ -10,15 +10,15 @@ namespace CalValEX.Projectiles.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Nuclear George");
+            DisplayName.SetDefault("Slime Demi");
             //Main.projFrames[projectile.type] = 4; //frames
             Main.projPet[projectile.type] = true;
         }
 
         public override void SafeSetDefautls() //SafeSetDefaults!!!
         {
-            projectile.width = 24;
-            projectile.height = 24;
+            projectile.width = 18;
+            projectile.height = 18;
             projectile.ignoreWater = true;
             /* you don't need to set these anymore!
             projectile.penetrate = -1;
