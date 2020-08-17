@@ -345,11 +345,6 @@ namespace CalValEX
 		{
 			caughtType = mod.ItemType("WetBubble");
 		}
-		Mod clamMod = ModLoader.GetMod("CalamityMod");
-		if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") && power > 90 && Utils.NextFloat(Main.rand) < 0.02f)
-		{
-			caughtType = mod.ItemType("CursedLockpick");
-		}
 	}
 	
 	public override void UpdateBiomes() {
