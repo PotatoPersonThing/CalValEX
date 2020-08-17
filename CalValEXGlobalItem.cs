@@ -92,6 +92,42 @@ namespace CalValEX
                     }
                 }
             }
+            if (item.type == calamityMod.ItemType("AbyssalCrate"))
+            {
+                if (Utils.NextFloat(Main.rand) < 0.035f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<AcidGun>());
+                    }
+                if (Utils.NextFloat(Main.rand) < 0.02f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<CursedLockpick>());
+                    }
+                if (Utils.NextFloat(Main.rand) < 0.05f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<SulphurColumn>());
+                        player.QuickSpawnItem(ModContent.ItemType<SulphurColumn>());
+                        player.QuickSpawnItem(ModContent.ItemType<SulphurColumn>());
+                        player.QuickSpawnItem(ModContent.ItemType<SulphurColumn>());
+                        player.QuickSpawnItem(ModContent.ItemType<SulphurColumn>());
+                        player.QuickSpawnItem(ModContent.ItemType<SulphurColumn>());
+                        if (Utils.NextFloat(Main.rand) < 0.5f)
+                        {
+                            player.QuickSpawnItem(ModContent.ItemType<SulphurColumn>());
+                        }
+                    }
+                if (Utils.NextFloat(Main.rand) < 0.05f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<SulphurGeyser>());
+                        if (Utils.NextFloat(Main.rand) < 0.05f)
+                        {
+                           player.QuickSpawnItem(ModContent.ItemType<SulphurGeyser>()); 
+                        }
+                        if (Utils.NextFloat(Main.rand) < 0.05f)
+                        {
+                           player.QuickSpawnItem(ModContent.ItemType<SulphurGeyser>()); 
+                        }
+                    }
+            }
         }
 
         public override void OpenVanillaBag(string context, Player player, int arg)
