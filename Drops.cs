@@ -6,6 +6,7 @@ using CalValEX.Items.Hooks;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Mounts;
+using CalValEX.Items;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
