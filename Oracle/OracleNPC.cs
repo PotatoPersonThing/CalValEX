@@ -398,7 +398,7 @@ namespace CalValEX.Oracle
 
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)
         {
-            damage = 10;
+            damage = 9;
             knockback = 4f;
         }
 
