@@ -250,6 +250,10 @@ namespace CalValEX
                         {
                             player.QuickSpawnItem(ModContent.ItemType<LeviWings>());
                         }
+                        if (Utils.NextFloat(Main.rand) < 0.01f)
+                        {
+                            player.QuickSpawnItem(ModContent.ItemType<WetBubble>());
+                        }
                     }
                     if (arg == calamityMod.ItemType("AstrageldonBag"))
                     {
