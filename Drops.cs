@@ -1375,6 +1375,37 @@ namespace CalValEX
                         ModContent.ItemType<AncientAuricTeslaHelm>());
                 }
             }
+	    if (npc.type == mod.NPCType("Yharon"))
+            {
+            	if ((bool) clamMod.Call("GetBossDowned", "buffedeclipse"))
+		{
+                    Item.NewItem(npc.getRect(),
+                        ModContent.ItemType<Termipebbles>());
+			Item.NewItem(npc.getRect(),
+                        ModContent.ItemType<Termipebbles>());
+			Item.NewItem(npc.getRect(),
+                        ModContent.ItemType<Termipebbles>());
+			Item.NewItem(npc.getRect(),
+                        ModContent.ItemType<Termipebbles>());
+			Item.NewItem(npc.getRect(),
+                        ModContent.ItemType<Termipebbles>());
+			Item.NewItem(npc.getRect(),
+                        ModContent.ItemType<Termipebbles>());
+			Item.NewItem(npc.getRect(),
+                        ModContent.ItemType<Termipebbles>());
+			
+			if (Utils.NextFloat(Main.rand) < 0.5f)
+               		 {
+                    	Item.NewItem(npc.getRect(),
+                        	ModContent.ItemType<Termipebbles>());
+               		 }
+			 if (Utils.NextFloat(Main.rand) < 0.3f)
+               		 {
+                    	Item.NewItem(npc.getRect(),
+                        	ModContent.ItemType<Termipebbles>());
+               		 }
+                }
+            }
             if (npc.type == mod.NPCType("SupremeCalamitas"))
             {
                 if (Main.rand.NextFloat() < 0.2f)
