@@ -54,7 +54,7 @@ namespace CalValEX.Items.Equips
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (calamityMod != null)
             {
-		recipe.AddIngredient(ModContent.ItemType<Termipebbles>(), 2);
+		recipe.AddIngredient(ModContent.ItemType<Termipebbles>(), 5);
                 recipe.AddIngredient(calamityMod.ItemType("Rock"));
                 recipe.AddTile(calamityMod.TileType("DraedonsForge"));  
 			    recipe.SetResult(this);
