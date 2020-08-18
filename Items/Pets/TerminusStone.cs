@@ -62,7 +62,7 @@ namespace CalValEX.Items.Pets
                Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (calamityMod != null)
             {
-                recipe.AddIngredient(calamityMod.ItemType("BossRush"));
+		recipe.AddIngredient(ModContent.ItemType<Termipebbles>(), 5);
                 recipe.AddIngredient(calamityMod.ItemType("Rock"));
                 recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("ShadowspecBar"), 5);
                 recipe.AddIngredient(mod.ItemType("VoodooGod"), 1);
