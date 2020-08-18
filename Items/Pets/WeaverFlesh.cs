@@ -22,7 +22,7 @@ namespace CalValEX.Items.Pets
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5,6));
            /// ItemID.Sets.AnimatesAsSoul[item.type] = true;
             ItemID.Sets.ItemIconPulse[item.type] = false;
-            ItemID.Sets.ItemNoGravity[item.type] = false;
+            ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 
         public override void SetDefaults()
