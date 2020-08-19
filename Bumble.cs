@@ -27,11 +27,25 @@ namespace CalValEX
             {
                 if (npc.type == clam.NPCType("Bumblefuck"))
                 { 
-                    npc.GivenName = "Blunderbird";
+                    if (Utils.NextFloat(Main.rand) < 0.01f)
+                    {
+                    npc.GivenName = "Bumblebirb";
+                    }
+                    else
+                    {
+                        npc.GivenName = "Blunderbird";
+                    }
                 }
                 if (npc.type == clam.NPCType("Bumblefuck2"))
                 { 
-                    npc.GivenName = "Blunderling";
+                    if (Utils.NextFloat(Main.rand) < 0.01f)
+                    {
+                    npc.GivenName = "Bumblebirb";
+                    }
+                    else
+                    {
+                        npc.GivenName = "Blunderling";
+                    }
                 }
             }
         }
