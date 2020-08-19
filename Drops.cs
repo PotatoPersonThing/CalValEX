@@ -1380,30 +1380,7 @@ namespace CalValEX
             	if ((bool) clamMod.Call("GetBossDowned", "buffedeclipse"))
 		{
                     Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<Termipebbles>());
-			Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<Termipebbles>());
-			Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<Termipebbles>());
-			Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<Termipebbles>());
-			Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<Termipebbles>());
-			Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<Termipebbles>());
-			Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<Termipebbles>());
-			
-			if (Utils.NextFloat(Main.rand) < 0.5f)
-               		 {
-                    	Item.NewItem(npc.getRect(),
-                        	ModContent.ItemType<Termipebbles>());
-               		 }
-			 if (Utils.NextFloat(Main.rand) < 0.3f)
-               		 {
-                    	Item.NewItem(npc.getRect(),
-                        	ModContent.ItemType<Termipebbles>());
-               		 }
+                        ModContent.ItemType<Termipebbles>(), 7);
                 }
             }
             if (npc.type == mod.NPCType("SupremeCalamitas"))
