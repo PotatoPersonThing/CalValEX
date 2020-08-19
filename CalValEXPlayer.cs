@@ -1,20 +1,6 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using Terraria;
-using Terraria.DataStructures;
-using Terraria.GameInput;
-using Terraria.Graphics.Effects;
-using Terraria.Graphics.Shaders;
-using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
-using CalValEX;
-using CalValEX.Items.Pets;
 
 namespace CalValEX
 {
@@ -23,7 +9,6 @@ namespace CalValEX
 		private const int saveVersion = 0;
 		
 		public bool ZoneAstral;
-
 		public bool mBirb = false;
 		public bool mBirb2 = false;
 		public bool mDoge = false;
@@ -77,70 +62,50 @@ namespace CalValEX
 		public bool SignusMini = false;
 		public bool Angrypup = false;
 		public bool cryokid = false;
+		public bool MiniCryo = false;
+		public bool SmolCrab = false;
+		public bool VoidOrb = false;
+		public bool AstPhage = false;
+		public bool StarJelly = false;
+		public bool ProGuard1 = false;
+		public bool ProGuard2 = false;
+		public bool ProGuard3 = false;
+		public bool ProviPet = false;
+		public bool Dstone = false;
+		public bool EWyrm = false;
+		public bool PBGmini = false;
+		public bool BoldLizard = false;
+		public bool Nugget = false;
+		public bool Enredpet = false;
+		public bool sandmini = false;
+		public bool raresandmini = false;
+		public bool babywaterclone = false;
+		public bool rarebrimling = false;
+		public bool cloudmini = false;
+		public bool Skeetyeet = false;
+		public bool TerminalRock = false;
+		public bool BabyCnidrion = false;
+		public bool sVoid = false;
+		public bool	sSignus = false;
+		public bool	sWeeb = false;
+		public bool	euros = false;
+		public bool jared = false;
+		public bool asPet = false;
+		public bool dsPet = false;
+		public bool mDuke = false;
+		public bool sirember = false;
+		public bool deusmain = false;
+		public bool deussmall = false;
+		public bool rusty = false;
+		public bool sepet = false;
+		public bool pylon = false;
+		public bool worb = false;
+		public bool rover = false;
+		public bool drone = false;
+		public bool hover = false;
+		public bool RepairBot = false;
+		public bool MechaGeorge = false;
 
-	public bool MiniCryo = false;
-
-	public bool SmolCrab = false;
-
-	public bool VoidOrb = false;
-
-	public bool AstPhage = false;
-
-	public bool StarJelly = false;
-
-	public bool ProGuard1 = false;
-
-	public bool ProGuard2 = false;
-
-	public bool ProGuard3 = false;
-
-	public bool ProviPet = false;
-
-	public bool Dstone = false;
-
-	public bool EWyrm = false;
-
-	public bool PBGmini = false;
-
-	public bool BoldLizard = false;
-
-	public bool Nugget = false;
-
-	public bool Enredpet = false;
-
-	public bool sandmini = false;
-
-	public bool raresandmini = false;
-
-	public bool babywaterclone = false;
-
-	public bool rarebrimling = false;
-
-	public bool cloudmini = false;
-
-	public bool Skeetyeet = false;
-	public bool TerminalRock = false;
-	public bool BabyCnidrion = false;
-	public bool sVoid = false;
-	public bool	sSignus = false;
-	public bool	sWeeb = false;
-	public bool	euros = false;
-	public bool jared = false;
-	public bool asPet = false;
-	public bool dsPet = false;
-	public bool mDuke = false;
-	public bool sirember = false;
-	public bool deusmain = false;
-	public bool deussmall = false;
-	public bool rusty = false;
-	public bool sepet = false;
-	public bool pylon = false;
-	public bool worb = false;
-	public bool rover = false;
-	public bool drone = false;
-	public bool hover = false;
-	public bool RepairBot = false;
-		
 		public override void ResetEffects()
 		{
 			mBirb = false;
@@ -238,6 +203,7 @@ namespace CalValEX
 		drone = false;
 		hover = false;
 		RepairBot = false;
+		MechaGeorge = false;
 		}
 
 		public override void UpdateDead()
@@ -337,6 +303,7 @@ namespace CalValEX
 		drone = false;
 		hover = false;
 		RepairBot = false;
+		MechaGeorge = false;
 		}
 
 		public override void CatchFish(Item fishingRod, Item bait, int power, int liquidType, int poolSize, int worldLayer, int questFish, ref int caughtType, ref bool junk)

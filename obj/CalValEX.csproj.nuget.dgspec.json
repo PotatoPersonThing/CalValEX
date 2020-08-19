@@ -1,0 +1,52 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/danielg/Library/Application Support/Terraria/ModLoader/Mod Sources/CalValEX/CalValEX.csproj": {}
+  },
+  "projects": {
+    "/Users/danielg/Library/Application Support/Terraria/ModLoader/Mod Sources/CalValEX/CalValEX.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/danielg/Library/Application Support/Terraria/ModLoader/Mod Sources/CalValEX/CalValEX.csproj",
+        "projectName": "CalValEX",
+        "projectPath": "/Users/danielg/Library/Application Support/Terraria/ModLoader/Mod Sources/CalValEX/CalValEX.csproj",
+        "packagesPath": "/Users/danielg/.nuget/packages/",
+        "outputPath": "/Users/danielg/Library/Application Support/Terraria/ModLoader/Mod Sources/CalValEX/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/danielg/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net45"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net45": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net45": {
+          "dependencies": {
+            "tModLoader.CodeAssist": {
+              "target": "Package",
+              "version": "[0.1.*, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.401/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

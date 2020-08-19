@@ -1,15 +1,6 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
-using CalValEX;
-using CalValEX.Items;
-using CalValEX.Items.Hooks;
-using Terraria.DataStructures;
-using System;
-using System.Collections.Generic;
 using CalValEX.Items.Critters;
 
 namespace CalValEX.Items.Pets
@@ -29,7 +20,7 @@ namespace CalValEX.Items.Pets
             item.UseSound = SoundID.NPCHit49;
             item.shoot = mod.ProjectileType("Godrge");
             item.value = Item.sellPrice(1, 0, 1, 0);
-            item.rare = 10;
+            item.rare = ItemRarityID.Red;
             item.expert = true;
             item.buffType = mod.BuffType("GodrgeBuff");
         }
@@ -48,7 +39,7 @@ namespace CalValEX.Items.Pets
                 ModRecipe recipe = new ModRecipe(mod);
 				recipe.AddIngredient(ModContent.ItemType<NuclearFumes>(), 20);
 				recipe.AddIngredient(ModContent.ItemType<NukeFlyItem>(), 1);
-                recipe.AddIngredient(ModContent.ItemType<BubbleGum>(), 1);
+                recipe.AddIngredient(ModContent.ItemType<FROM>(), 1);
                 recipe.AddTile(TileID.LunarCraftingStation);
                 recipe.SetResult(this);
                 recipe.AddRecipe();

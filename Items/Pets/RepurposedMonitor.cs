@@ -1,14 +1,7 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
-using CalValEX;
-using CalValEX.Items;
-using CalValEX.Items.Hooks;
-using Terraria.DataStructures;
-using System;
 using System.Collections.Generic;
 
 namespace CalValEX.Items.Pets
@@ -63,7 +56,7 @@ namespace CalValEX.Items.Pets
             if (calamityMod != null)
             {
                 recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 2);
-                recipe.AddIngredient(calamityMod.ItemType("Dubious Circuitry"), 1);
+                recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 2);
                 recipe.AddTile(TileID.Anvils);
 			    recipe.SetResult(this);
 			    recipe.AddRecipe();

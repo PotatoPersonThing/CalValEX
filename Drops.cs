@@ -1,18 +1,12 @@
-using System;
-using System.Collections.Generic;
-using CalValEX;
 using CalValEX.Items.Equips;
 using CalValEX.Items.Hooks;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Mounts;
 using CalValEX.Items;
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Items;
 using CalValEX.Items.Critters;
 
 namespace CalValEX
@@ -34,7 +28,7 @@ namespace CalValEX
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 20, 0);
                             ++nextSlot;
                         }
-			{
+			    {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Anemone>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 20, 0);
                             ++nextSlot;
@@ -1377,10 +1371,10 @@ namespace CalValEX
             }
 	    if (npc.type == mod.NPCType("Yharon"))
             {
-            	if ((bool) clamMod.Call("GetBossDowned", "buffedeclipse") && !Main.expertMode)
-		{
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<Termipebbles>(), Main.rand.Next(2, 8));
+                if ((bool) mod.Call("GetBossDowned", "buffedeclipse") && !Main.expertMode)
+		        {
+                Item.NewItem(npc.getRect(),
+                    ModContent.ItemType<Termipebbles>(), Main.rand.Next(2, 8));
                 }
             }
             if (npc.type == mod.NPCType("SupremeCalamitas"))
