@@ -1380,7 +1380,7 @@ namespace CalValEX
             	if ((bool) clamMod.Call("GetBossDowned", "buffedeclipse") && !Main.expertMode)
 		{
                     Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<Termipebbles>(), 7);
+                        ModContent.ItemType<Termipebbles>(), Main.rand.Next(2, 8));
                 }
             }
             if (npc.type == mod.NPCType("SupremeCalamitas"))
