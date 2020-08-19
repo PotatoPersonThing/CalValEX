@@ -1377,7 +1377,7 @@ namespace CalValEX
             }
 	    if (npc.type == mod.NPCType("Yharon"))
             {
-            	if ((bool) clamMod.Call("GetBossDowned", "buffedeclipse"))
+            	if ((bool) clamMod.Call("GetBossDowned", "buffedeclipse") && !Main.expertMode)
 		{
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<Termipebbles>(), 7);
