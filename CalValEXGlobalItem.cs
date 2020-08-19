@@ -442,13 +442,7 @@ namespace CalValEX
                     }
                     if (arg == calamityMod.ItemType("YharonBag"))
                     {
-                        player.QuickSpawnItem(ModContent.ItemType<Termipebbles>());
-                        player.QuickSpawnItem(ModContent.ItemType<Termipebbles>());
-                        player.QuickSpawnItem(ModContent.ItemType<Termipebbles>());
-                        if (Utils.NextFloat(Main.rand) < 0.5f)
-                        {
-                            player.QuickSpawnItem(ModContent.ItemType<Termipebbles>());
-                        }
+                        player.QuickSpawnItem(ModContent.ItemType<Termipebbles>(), Main.rand.Next(5, 8));
                         if (Utils.NextFloat(Main.rand) < 0.3f)
                         {
                             player.QuickSpawnItem(ModContent.ItemType<JunglePhoenixWings>());
