@@ -104,28 +104,11 @@ namespace CalValEX
                     }
                 if (Utils.NextFloat(Main.rand) < 0.05f)
                     {
-                        player.QuickSpawnItem(ModContent.ItemType<SulphurColumn>());
-                        player.QuickSpawnItem(ModContent.ItemType<SulphurColumn>());
-                        player.QuickSpawnItem(ModContent.ItemType<SulphurColumn>());
-                        player.QuickSpawnItem(ModContent.ItemType<SulphurColumn>());
-                        player.QuickSpawnItem(ModContent.ItemType<SulphurColumn>());
-                        player.QuickSpawnItem(ModContent.ItemType<SulphurColumn>());
-                        if (Utils.NextFloat(Main.rand) < 0.5f)
-                        {
-                            player.QuickSpawnItem(ModContent.ItemType<SulphurColumn>());
-                        }
+                        player.QuickSpawnItem(ModContent.ItemType<SulphurColumn>(), Main.rand.Next(5, 7));
                     }
                 if (Utils.NextFloat(Main.rand) < 0.05f)
                     {
-                        player.QuickSpawnItem(ModContent.ItemType<SulphurGeyser>());
-                        if (Utils.NextFloat(Main.rand) < 0.05f)
-                        {
-                           player.QuickSpawnItem(ModContent.ItemType<SulphurGeyser>()); 
-                        }
-                        if (Utils.NextFloat(Main.rand) < 0.05f)
-                        {
-                           player.QuickSpawnItem(ModContent.ItemType<SulphurGeyser>()); 
-                        }
+                        player.QuickSpawnItem(ModContent.ItemType<SulphurGeyser>(), Main.rand.Next(2, 3));
                     }
                 if (((bool)calamityMod.Call("GetBossDowned", "polterghast")) & Utils.NextFloat(Main.rand) < 0.025f)
                     {
@@ -133,17 +116,7 @@ namespace CalValEX
                     }
                 if (((bool)calamityMod.Call("GetBossDowned", "polterghast")) & Utils.NextFloat(Main.rand) < 0.01f)
                     {
-                        player.QuickSpawnItem(ModContent.ItemType<NuclearFumes>()); 
-                        player.QuickSpawnItem(ModContent.ItemType<NuclearFumes>()); 
-                        player.QuickSpawnItem(ModContent.ItemType<NuclearFumes>()); 
-                        if (Utils.NextFloat(Main.rand) < 0.05f)
-                        {
-                           player.QuickSpawnItem(ModContent.ItemType<NuclearFumes>()); 
-                        }
-                        if (Utils.NextFloat(Main.rand) < 0.05f)
-                        {
-                           player.QuickSpawnItem(ModContent.ItemType<NuclearFumes>()); 
-                        }
+                        player.QuickSpawnItem(ModContent.ItemType<NuclearFumes>(), Main.rand.Next(3, 5));
                     }
                 if (((bool)calamityMod.Call("GetBossDowned", "acidrainscourge")) & Utils.NextFloat(Main.rand) < 0.05f)
                     {
