@@ -62,6 +62,7 @@ namespace CalValEX.Projectiles.Pets
                 modOwner.dBall = false;
             if (modOwner.dBall)
                 projectile.timeLeft = 2;
+            CalValEX.Bumble = true;
 
             float offsetX = 48 * -owner.direction;
             Vector2 offset = new Vector2(offsetX, -50f);

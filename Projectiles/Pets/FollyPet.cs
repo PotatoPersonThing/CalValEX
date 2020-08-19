@@ -41,6 +41,7 @@ namespace CalValEX.Projectiles.Pets
             {
                 projectile.timeLeft = 2;
             }
+            CalValEX.Bumble = false;
         }
     }
 }
