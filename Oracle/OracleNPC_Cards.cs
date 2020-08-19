@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -28,7 +27,7 @@ namespace CalValEX.Oracle
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             int randNumb = Main.rand.Next(0, 6); //change this to higher or lower, depending on how many debuffs it can potentially inflict
-            switch(randNumb)
+            switch (randNumb)
             {
                 case 0:
                     target.AddBuff(BuffID.OnFire, Main.rand.Next(300, 1200)); //5 to 25 seconds (each second is 60 ticks)
@@ -67,7 +66,7 @@ namespace CalValEX.Oracle
             {
                 projectile.rotation += MathHelper.TwoPi;
             }
-	}
+        }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
@@ -76,5 +75,14 @@ namespace CalValEX.Oracle
             return false;
         }
 
+        public override void Kill(int timeLeft)
+        {
+            int killdust = 0;
+            while (killdust < 9)
+            {
+                Dust.NewDust(projectile.position, projectile.width, projectile.height, 97, -projectile.velocity.X * 0.05f, -projectile.velocity.Y * 0.05f, 50, default, 1f);
+                killdust += 1;
+            }
+        }
     }
 }
