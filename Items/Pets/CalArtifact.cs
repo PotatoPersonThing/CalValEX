@@ -19,7 +19,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Calamitous Soul Artifact");
-            Tooltip.SetDefault("Summons a pet Sepulchling\nThe grave rises");
+            Tooltip.SetDefault("Summons a pet Sepulchling\n'The grave rises'");
         }
 
         public override void SetDefaults()
@@ -72,8 +72,8 @@ namespace CalValEX.Items.Pets
                 {
                     ModRecipe recipe = new ModRecipe(mod);
                     recipe.AddIngredient(mod.ItemType("Calacirclet"), 1);
-                    recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("ExodiumClusterOre"), 15);
-                    recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Cinderplate"), 5);
+                    recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("ExodiumClusterOre"), 25);
+                    recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Chaosplate"), 25);
                     recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("BloodstoneCore"), 10);
                     recipe.AddTile(TileID.DemonAltar);
                     recipe.SetResult(this);
