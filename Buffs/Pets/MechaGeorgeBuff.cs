@@ -8,7 +8,7 @@ namespace CalValEX.Buffs.Pets
 		public override void SetDefaults()
 		{
 			DisplayName.SetDefault("MechaGeorge");
-		    Description.SetDefault("'...ItguildUtiE'");
+		    Description.SetDefault("'...KDlt7S1U9x8'");
 			Main.buffNoTimeDisplay[Type] = true;
 			Main.vanityPet[Type] = true;
 		}
