@@ -31,7 +31,6 @@ namespace CalValEX.Items
             item.useTurn = true;
             item.UseSound = SoundID.Item2;
             item.maxStack = 30;
-            item.consumable = true;
             item.rare = 10;
             item.value = Item.sellPrice(0, 30, 20, 0);
             item.buffType = BuffID.WellFed; //Specify an existing buff to be applied when used.
