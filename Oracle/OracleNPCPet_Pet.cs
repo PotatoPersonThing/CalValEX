@@ -20,7 +20,6 @@ namespace CalValEX.Oracle
 
         public override void SetDefaults()
         {
-            projectile.damage = 45;
             projectile.width = 30;
             projectile.height = 32;
             projectile.penetrate = -1;
@@ -126,8 +125,16 @@ namespace CalValEX.Oracle
 
             bool foundTarget = false;
 
+            if (!Main.bloodMoon)
+            {
+                projectile.damage = 0;
+                projectile.netUpdate = true;
+            }
+
             if (Main.bloodMoon)
             {
+                projectile.damage = 45;
+                projectile.netUpdate = true;
                 State = -1;
             }
 
