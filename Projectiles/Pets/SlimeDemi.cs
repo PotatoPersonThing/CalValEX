@@ -15,7 +15,7 @@ namespace CalValEX.Projectiles.Pets
             Main.projPet[projectile.type] = true;
         }
 
-        public override void SafeSetDefautls() //SafeSetDefaults!!!
+        public override void SafeSetDefaults() //SafeSetDefaults!!!
         {
             projectile.width = 18;
             projectile.height = 18;

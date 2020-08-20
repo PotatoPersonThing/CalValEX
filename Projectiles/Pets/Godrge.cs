@@ -14,7 +14,7 @@ namespace CalValEX.Projectiles.Pets
            ProjectileID.Sets.LightPet[projectile.type] = true; //this is needed for a light pet.
         }
 
-        public override void SafeSetDefautls() //SafeSetDefaults!!!
+        public override void SafeSetDefaults() //SafeSetDefaults!!!
         {
             projectile.width = 46;
             projectile.height = 42;

@@ -16,7 +16,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
             Main.projPet[projectile.type] = true;
         }
 
-        public override void SafeSetDefautls() //SafeSetDefaults!!!
+        public override void SafeSetDefaults() //SafeSetDefaults!!!
         {
             projectile.width = 22;
             projectile.height = 22;

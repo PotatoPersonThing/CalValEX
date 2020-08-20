@@ -34,7 +34,7 @@ namespace CalValEX.Projectiles.Pets
         public Vector3 RGB;
         public float intensity;
         public int abyssLightLevel;
-        public virtual void SafeSetDefautls()
+        public virtual void SafeSetDefaults()
         {
             spinRotation = false;
             facingLeft = false;
@@ -46,7 +46,7 @@ namespace CalValEX.Projectiles.Pets
 
         public sealed override void SetDefaults()
         {
-            SafeSetDefautls();
+            SafeSetDefaults();
 
             projectile.penetrate = -1;
             projectile.netImportant = true;
@@ -189,17 +189,20 @@ namespace CalValEX.Projectiles.Pets
                     }
 
                     //animation
-                    projectile.frameCounter++;
-                    if (projectile.frameCounter >= animationSpeed)
+                    if (animationSpeed > 0)
                     {
-                        projectile.frameCounter = 0;
-                        projectile.frame++;
-                        if (projectile.frame >= Main.projFrames[projectile.type])
-                            projectile.frame = 0;
-                    }
-                    if (!spinRotation)
-                    {
-                        projectile.rotation = projectile.velocity.X * 0.1f; //so that it turns towards where its flying
+                        projectile.frameCounter++;
+                        if (projectile.frameCounter >= animationSpeed)
+                        {
+                            projectile.frameCounter = 0;
+                            projectile.frame++;
+                            if (projectile.frame >= Main.projFrames[projectile.type])
+                                projectile.frame = 0;
+                        }
+                        if (!spinRotation)
+                        {
+                            projectile.rotation = projectile.velocity.X * 0.1f; //so that it turns towards where its flying
+                        }
                     }
                     break;
             }
