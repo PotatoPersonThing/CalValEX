@@ -1029,10 +1029,11 @@ namespace CalValEX
             {
                 if (Utils.NextFloat(Main.rand) < 1.0f)
                 {
-                    Item.NewItem(npc.getRect(), ModContent.ItemType<NuclearFumes>());
-                    Item.NewItem(npc.getRect(), ModContent.ItemType<NuclearFumes>());
-                    Item.NewItem(npc.getRect(), ModContent.ItemType<NuclearFumes>());
-                    Item.NewItem(npc.getRect(), ModContent.ItemType<NuclearFumes>());
+                    Item.NewItem(npc.getRect(), (ModContent.ItemType<NuclearFumes>(), Main.rand.Next(3, 5)));
+                    if (main.expertMode)
+                    {
+                        Item.NewItem(npc.getRect(), (ModContent.ItemType<NuclearFumes>(), Main.rand.Next(1, 3)));
+                    }
                 }
                 if (Utils.NextFloat(Main.rand) < 0.5f)
                 {
