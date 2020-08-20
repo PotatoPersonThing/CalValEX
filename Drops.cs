@@ -1248,6 +1248,12 @@ namespace CalValEX
                         .NewItem(npc.getRect(),
                         ModContent.ItemType<AncientAuricTeslaHelm>());
                 }
+                if (Utils.NextFloat(Main.rand) < 0.1f)
+                {
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<StormBandana>());
+                }
                 if (Utils.NextFloat(Main.rand) < 0.15f)
                 {
                     Item

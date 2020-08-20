@@ -12,16 +12,16 @@ using CalValEX.Items.Hooks;
 namespace CalValEX.Items.Equips
 {
 	[AutoloadEquip(EquipType.Neck)]
-	public class CosBandana : ModItem
+	public class CosmicWormScarf : ModItem
 	{
 		public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Cosmic Bandanna");
-			Tooltip.SetDefault("So stylish it bends the fabric of reality!");
+            DisplayName.SetDefault("Cosmic Worm Scarf");
+			Tooltip.SetDefault("'Spacetime Fashion!'");
 		}
 
 		public override void SetDefaults() {
-			item.width = 24;
-			item.height = 28;
+			item.width = 36;
+			item.height = 38;
 			item.value = Item.sellPrice(0, 0, 1, 0);
 			item.rare = 10;
 			item.accessory = true;
