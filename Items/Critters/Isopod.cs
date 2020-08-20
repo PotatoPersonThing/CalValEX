@@ -114,8 +114,8 @@ namespace CalValEX.Items.Critters
 		}
 
 		public override void SetDefaults() {
-			//npc.width = 56;
-			//npc.height = 26;
+			npc.width = 56;
+			npc.height = 26;
 			//npc.aiStyle = 67;
 			//npc.damage = 0;
 			//npc.defense = 0;

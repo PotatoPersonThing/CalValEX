@@ -114,18 +114,9 @@ namespace CalValEX.Items.Critters
 		}
 
 		public override void SetDefaults() {
-			//npc.width = 56;
-			//npc.height = 26;
-			//npc.aiStyle = 67;
-			//npc.damage = 0;
-			//npc.defense = 0;
-			//npc.lifeMax = 2000;
-			//npc.HitSound = SoundID.NPCHit38;
-			//npc.DeathSound = SoundID.NPCDeath1;
-			//npc.npcSlots = 0.5f;
-			//npc.noGravity = true;
-			//npc.catchItem = 2007;
 
+			npc.width = 56;
+			npc.height = 26;
 			npc.CloneDefaults(NPCID.GlowingSnail);
 			npc.catchItem = (short)ItemType<GoldenIsopodItem>();
 			npc.lavaImmune = false;
@@ -173,16 +164,25 @@ namespace CalValEX.Items.Critters
 		}
 
 		public override void AI()
-	{
-        if (Main.rand.NextFloat() < 0.8421053f)
-{
-	Dust dust;
-	// You need to set position depending on what you are doing. You may need to subtract width/2 and height/2 as well to center the spawn rectangle.
-	Vector2 position = Main.LocalPlayer.Center;
-	dust = Main.dust[Terraria.Dust.NewDust(npc.Center, 52, 36, 6, 0f, 0f, 0, new Color(234,255,0), 1f)];
-	dust.noGravity = true;
-}
-    }
+		{
+			if (Main.rand.NextFloat() < 0.1f)
+			{
+				Dust dust;
+				// You need to set position depending on what you are doing. You may need to subtract width/2 and height/2 as well to center the spawn rectangle.
+				Vector2 positionLeft = new Vector2(npc.position.X, npc.position.Y - 8);
+				Vector2 positionRight = new Vector2(npc.position.X, npc.position.Y - 8);
+				if (npc.direction == -1)
+				{
+					dust = Main.dust[Terraria.Dust.NewDust(positionLeft, 10, 10, 64, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
+					dust.noGravity = true;
+				}
+				else if (npc.direction != 0)
+				{
+					dust = Main.dust[Terraria.Dust.NewDust(positionRight, 10, 10, 64, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
+					dust.noGravity = true;
+				}
+			}
+		}
 
 		// TODO: Hooks for Collision_MoveSnailOnSlopes and npc.aiStyle = 67 problem
 	}
