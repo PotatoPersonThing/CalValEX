@@ -1,4 +1,4 @@
 displayName = Calamity's Vanities
 author = YuH and Potato Person, originally owned by Hypera
-version = 5.4.3
+version = 5.4.4
 modReferences = CalamityMod
