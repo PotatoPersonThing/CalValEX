@@ -1,4 +1,4 @@
-using CalValEX.Items;
+﻿using CalValEX.Items;
 using CalValEX.Items.Equips;
 using CalValEX.Items.Hooks;
 using CalValEX.Items.Mounts;
@@ -404,13 +404,9 @@ namespace CalValEX
                     }
                     if (arg == calamityMod.ItemType("DevourerofGodsBag"))
                     {
-                        if (Utils.NextFloat(Main.rand) < 0.1f)
+                        if (Utils.NextFloat(Main.rand) < 0.01f)
                         {
-                            player.QuickSpawnItem(ModContent.ItemType<CosmicWormScarf>());
-                        }
-                        if (Utils.NextFloat(Main.rand) < 0.05f)
-                        {
-                            player.QuickSpawnItem(ModContent.ItemType<RapturedWormScarf>());
+                            player.QuickSpawnItem(ModContent.ItemType<CosBandana>());
                         }
                         if (Utils.NextFloat(Main.rand) < 0.01f)
                         {

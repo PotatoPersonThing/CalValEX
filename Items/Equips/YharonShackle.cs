@@ -11,13 +11,13 @@ using CalValEX.Items.Hooks;
 
 namespace CalValEX.Items.Equips
 {
-    [AutoloadEquip(EquipType.HandsOn)]
+    [AutoloadEquip(EquipType.Neck)]
     public class YharonShackle : ModItem
     {
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Yharon's Shackle");
-            Tooltip.SetDefault("'It barely fits you...'");
+            Tooltip.SetDefault("It barely fits you...");
         }
 
         public override void SetDefaults()
