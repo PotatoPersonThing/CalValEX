@@ -168,17 +168,16 @@ namespace CalValEX.Items.Critters
 			if (Main.rand.NextFloat() < 0.1f)
 			{
 				Dust dust;
-				// You need to set position depending on what you are doing. You may need to subtract width/2 and height/2 as well to center the spawn rectangle.
 				Vector2 positionLeft = new Vector2(npc.position.X, npc.position.Y - 8);
 				Vector2 positionRight = new Vector2(npc.position.X, npc.position.Y - 8);
 				if (npc.direction == -1)
 				{
-					dust = Main.dust[Terraria.Dust.NewDust(positionLeft, 10, 10, 246, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
+					dust = Main.dust[Terraria.Dust.NewDust(positionLeft, 3, 3, 246, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
 					dust.noGravity = true;
 				}
 				else if (npc.direction != 0)
 				{
-					dust = Main.dust[Terraria.Dust.NewDust(positionRight, 10, 10, 246, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
+					dust = Main.dust[Terraria.Dust.NewDust(positionRight, 3, 3, 246, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
 					dust.noGravity = true;
 				}
 			}
