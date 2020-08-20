@@ -11,27 +11,24 @@ using CalValEX.Items.Hooks;
 
 namespace CalValEX.Items.Equips
 {
-    [AutoloadEquip(EquipType.HandsOn)]
-    public class YharonShackle : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Yharon's Shackle");
-            Tooltip.SetDefault("'It barely fits you...'");
-        }
+	[AutoloadEquip(EquipType.Neck)]
+	public class RapturedWormScarf : ModItem
+	{
+		public override void SetStaticDefaults() {
+            DisplayName.SetDefault("Raptured Worm Scarf");
+			Tooltip.SetDefault("'So stylish it bends the fabric of reality!'");
+            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(3,7));
+		}
 
-        public override void SetDefaults()
-        {
-            item.width = 24;
-            item.height = 28;
-            item.value = Item.sellPrice(0, 20, 0, 0);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            item.rare = 10;
-            item.accessory = true;
+		public override void SetDefaults() {
+			item.width = 36;
+			item.height = 38;
+			item.value = Item.sellPrice(0, 0, 1, 0);
+			item.rare = 10;
+			item.accessory = true;
             item.vanity = true;
-        }
-
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
+		}
+		public override void ModifyTooltips(List<TooltipLine> tooltips)
 {
     //rarity 12 (Turquoise) = new Color(0, 255, 200)
     //rarity 13 (Pure Green) = new Color(0, 255, 0)
@@ -50,5 +47,5 @@ namespace CalValEX.Items.Equips
         }
     }
 }
-    }
+	}
 }
