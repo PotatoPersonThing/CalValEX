@@ -69,7 +69,7 @@ namespace CalValEX.Projectiles.Pets
         {
             idleFrameLimits[0] = idleFrameLimits[1] = 0; //what your min idle frame is (start of idle animation)
 
-            walkingFrameLimits[0] = 2; //what your min walking frame is (start of walking animation)
+            walkingFrameLimits[0] = 1; //what your min walking frame is (start of walking animation)
             walkingFrameLimits[1] = 4; //what your max walking frame is (end of walking animation)
 
             flyingFrameLimits[0] = 5;
