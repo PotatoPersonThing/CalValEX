@@ -173,12 +173,12 @@ namespace CalValEX.Items.Critters
 				Vector2 positionRight = new Vector2(npc.position.X, npc.position.Y - 8);
 				if (npc.direction == -1)
 				{
-					dust = Main.dust[Terraria.Dust.NewDust(positionLeft, 10, 10, 64, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
+					dust = Main.dust[Terraria.Dust.NewDust(positionLeft, 10, 10, 246, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
 					dust.noGravity = true;
 				}
 				else if (npc.direction != 0)
 				{
-					dust = Main.dust[Terraria.Dust.NewDust(positionRight, 10, 10, 64, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
+					dust = Main.dust[Terraria.Dust.NewDust(positionRight, 10, 10, 246, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
 					dust.noGravity = true;
 				}
 			}
