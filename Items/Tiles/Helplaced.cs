@@ -70,7 +70,7 @@ namespace CalValEX.Items.Tiles
 					}
 				else
 					{
-						Main.LocalPlayer.AddBuff(146, 10);
+						Main.LocalPlayer.AddBuff(146, 20);
 					}
 		}
 
