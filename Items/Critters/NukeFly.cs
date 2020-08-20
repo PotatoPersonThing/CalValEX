@@ -117,18 +117,8 @@ namespace CalValEX.Items.Critters
 		}
 
 		public override void SetDefaults() {
-			//npc.width = 56;
-			//npc.height = 26;
-			//npc.aiStyle = 67;
-			//npc.damage = 0;
-			//npc.defense = 0;
-			//npc.lifeMax = 2000;
-			//npc.HitSound = SoundID.NPCHit38;
-			//npc.DeathSound = SoundID.NPCDeath1;
-			//npc.npcSlots = 0.5f;
-			//npc.noGravity = true;
-			//npc.catchItem = 2007;
-
+			npc.width = 20;
+			npc.height = 20;
 			npc.CloneDefaults(NPCID.Firefly);
 			npc.catchItem = (short)ItemType<NukeFlyItem>();
 			npc.lavaImmune = false;
@@ -183,19 +173,26 @@ namespace CalValEX.Items.Critters
         }
 
         
-	public override void AI()
-	{
+		public override void AI()
+		{
         if (Main.rand.NextFloat() < 0.3421053f)
-{
-	Dust dust;
-	// You need to set position depending on what you are doing. You may need to subtract width/2 and height/2 as well to center the spawn rectangle.
-	Vector2 position = Main.LocalPlayer.Center;
-	dust = Main.dust[Terraria.Dust.NewDust(npc.Center, 57, 57, 6, 0f, 0f, 0, new Color(109,255,0), 1f)];
-	dust.noGravity = true;
-}
-    }
-
-		// TODO: Hooks for Collision_MoveSnailOnSlopes and npc.aiStyle = 67 problem
+		{
+			Dust dust;
+			// You need to set position depending on what you are doing. You may need to subtract width/2 and height/2 as well to center the spawn rectangle.
+			Vector2 positionLeft = new Vector2 (npc.position.X + 9, npc.position.Y);
+			Vector2 positionRight = new Vector2(npc.position.X - 9, npc.position.Y);
+				if (npc.direction == -1)
+                {
+					dust = Main.dust[Terraria.Dust.NewDust(positionLeft, 0, 0, 6, 1f, 1f, 0, new Color(109, 255, 0), 0.5f)];
+					dust.noGravity = true;
+				}
+				else if (npc.direction != 0)
+                {
+					dust = Main.dust[Terraria.Dust.NewDust(positionRight, 0, 0, 6, 1f, 1f, 0, new Color(109, 255, 0), 0.5f)];
+					dust.noGravity = true;
+				}
+			}
+		}
 	}
 }
 
