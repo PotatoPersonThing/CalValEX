@@ -40,7 +40,7 @@ namespace CalValEX.Items.Tiles
             if (closer)
             {
 				if (Main.tile[i, j].frameY >= 36) {
-                Main.LocalPlayer.AddBuff(87, 10);
+                Main.LocalPlayer.AddBuff(87, 20);
 				}
             }
         }
