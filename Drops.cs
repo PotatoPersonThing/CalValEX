@@ -1031,7 +1031,7 @@ namespace CalValEX
                 {
                     Item.NewItem(npc.getRect(),
                     ModContent.ItemType<NuclearFumes>(), Main.rand.Next(3, 5));
-                    if (main.expertMode)
+                    if (Main.expertMode)
                     {
                         Item.NewItem(npc.getRect(), ModContent.ItemType<NuclearFumes>(), Main.rand.Next(1, 3));
                     }
