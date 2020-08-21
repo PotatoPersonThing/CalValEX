@@ -42,9 +42,8 @@ public override void AddRecipes()
     Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
                 ModRecipe recipe = new ModRecipe(mod);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CoreofCalamity"), 1);
+				recipe.AddIngredient(mod.ItemType("Necrostone"), 100);
 				recipe.AddIngredient((ItemID.LivingFireBlock), 10);
-                recipe.AddIngredient((ItemID.StoneBlock), 100);
                 recipe.AddTile(TileID.MythrilAnvil);
                 recipe.SetResult(this);
                 recipe.AddRecipe();
