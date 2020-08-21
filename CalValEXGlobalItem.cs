@@ -328,6 +328,7 @@ namespace CalValEX
                     }
                     if (arg == calamityMod.ItemType("RavagerBag"))
                     {
+                         player.QuickSpawnItem(ModContent.ItemType<Necrostone>(), Main.rand.Next(194, 235));
                         if (Utils.NextFloat(Main.rand) < 0.3f)
                         {
                             player.QuickSpawnItem(ModContent.ItemType<AncientChoker>());
