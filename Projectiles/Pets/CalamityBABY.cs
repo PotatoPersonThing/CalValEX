@@ -53,9 +53,24 @@ namespace CalValEX.Projectiles.Pets
             offSetY = -50f;
         }
 
+        private bool firstTick = false;
         private bool MyDudeJustGotHitLikeTheIdiotItIs = false;
         public override bool PreAI()
         {
+            if (!firstTick)
+            {
+                MyDudeJustGotHitLikeTheIdiotItIs = false;
+                for (int i = 0; i < Main.maxPlayers; i++)
+                {
+                    Player player = Main.player[i];
+                    if (player.active)
+                    {
+                        player.GetModPlayer<CalValEXPlayer>().CalamityBabyGotHit = false;
+                    }
+                }
+                firstTick = true;
+            }
+
             if (!MyDudeJustGotHitLikeTheIdiotItIs && !nameList.Contains(Main.player[projectile.owner].name))
             {
                 if (Main.player[projectile.owner].GetModPlayer<CalValEXPlayer>().CalamityBabyGotHit)
@@ -67,6 +82,7 @@ namespace CalValEX.Projectiles.Pets
                     projectile.localAI[0] = 0;
                     projectile.frameCounter = 0;
                     projectile.frame = 12;
+                    projectile.netUpdate = true;
                 }
             }
             return true;
@@ -153,6 +169,17 @@ namespace CalValEX.Projectiles.Pets
                     {
                         projectile.ai[0] = 0;
                         projectile.localAI[1] = 0;
+
+                        for (int i = 0; i < Main.maxPlayers; i++)
+                        {
+                            Player myPlayer = Main.player[i];
+                            if (myPlayer.active)
+                            {
+                                myPlayer.GetModPlayer<CalValEXPlayer>().CalamityBabyGotHit = false;
+                            }
+                        }
+                        MyDudeJustGotHitLikeTheIdiotItIs = false;
+                        projectile.netUpdate = true;
                     }
                     break;
                 case 0:

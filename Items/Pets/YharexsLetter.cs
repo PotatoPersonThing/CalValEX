@@ -26,7 +26,20 @@ namespace CalValEX.Items.Pets
             item.buffType = ModContent.BuffType<CalamityBABYBuff>();
             item.useTime = 30;
             item.useAnimation = 30;
-            item.useStyle = ItemUseStyleID.EatingUsing;
+            item.useStyle = ItemUseStyleID.HoldingUp;
+        }
+
+        public override bool UseItem(Player player)
+        {
+            for (int i = 0; i < Main.maxPlayers; i++)
+            {
+                Player myPlayer = Main.player[i];
+                if (myPlayer.active)
+                {
+                    myPlayer.GetModPlayer<CalValEXPlayer>().CalamityBabyGotHit = false;
+                }
+            }
+            return true;
         }
 
         public override void UseStyle(Player player)
