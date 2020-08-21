@@ -1422,6 +1422,41 @@ namespace CalValEX
                         ModContent.ItemType<ProfanedFrame>());
                 }
             }
+
+            //Yharexs' Dev Pet (Calamity BABY)
+            if ((bool)mod.Call("DifficultyActive", "death"))
+            {
+                if (npc.type == mod.NPCType("AstralSlime") && Main.rand.Next(870000) == 0)
+                {
+                    Item.NewItem(npc.Hitbox, ModContent.ItemType<YharexsLetter>());
+                }
+                if (npc.type == mod.NPCType("SupremeCalamitas"))
+                {
+                    bool didIGetHit = false;
+                    for (int i = 0; i < Main.maxPlayers; i++)
+                    {
+                        Player player = Main.player[i];
+                        if (player.active && !player.dead)
+                        {
+                            if (player.GetModPlayer<CalValEXPlayer>().SCalHits > 0)
+                            {
+                                didIGetHit = true;
+                            }
+                        }
+                    }
+                    if (!didIGetHit)
+                    {
+                        Item.NewItem(npc.Hitbox, ModContent.ItemType<YharexsLetter>());
+                    }
+                    else
+                    {
+                        if (Main.rand.Next(1000) == 0)
+                        {
+                            Item.NewItem(npc.Hitbox, ModContent.ItemType<YharexsLetter>());
+                        }
+                    }    
+                }
+            }
         }
     }
 }
