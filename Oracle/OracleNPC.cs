@@ -408,16 +408,36 @@ namespace CalValEX.Oracle
             randExtraCooldown = 20;
         }
 
+        private int OracleWeapon = 0;
+
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            projType = ModContent.ProjectileType<OracleNPC_Cards>();
-            attackDelay = 1;
+            if (Main.rand.NextBool(7))
+            {
+                projType = ModContent.ProjectileType<OracleNPC_8Ball>();
+                attackDelay = 2;
+                OracleWeapon = 1;
+            }
+            else
+            {
+                projType = ModContent.ProjectileType<OracleNPC_Cards>();
+                attackDelay = 1;
+                OracleWeapon = 0;
+            }
         }
 
         public override void TownNPCAttackProjSpeed(ref float multiplier, ref float gravityCorrection, ref float randomOffset)
         {
-            multiplier = 24f;
             randomOffset = 2f;
+
+            if (OracleWeapon == 0)
+            {
+                multiplier = 24f;
+            }
+            if (OracleWeapon == 1)
+            {
+               multiplier = 10f;
+            }
         }
 
         public override bool PreAI()
