@@ -75,7 +75,9 @@ namespace CalValEX
                             player.QuickSpawnItem(ModContent.ItemType<FogG>());
                             break;
                         case "Yharex87":
+                        case "Yharex":
                             player.QuickSpawnItem(ModContent.ItemType<JellyBottle>());
+                            player.QuickSpawnItem(ModContent.ItemType<YharexsLetter>());
                             break;
                         case "Scarfy":
                             player.QuickSpawnItem(ModContent.ItemType<FluffyFeather>());
