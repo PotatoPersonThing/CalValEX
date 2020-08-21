@@ -1309,7 +1309,7 @@ namespace CalValEX
                         ModContent.ItemType<JellyBottle>());
                 }
             }
-            if (npc.type == mod.NPCType("RavagerBody") && Main.expertMode)
+            if (npc.type == mod.NPCType("RavagerBody"))
             {
                 if (((bool)mod.Call("DifficultyActive", "revengeance")) && Main.rand.NextFloat() < 0.1f)
                 {
@@ -1317,7 +1317,11 @@ namespace CalValEX
                         .NewItem(npc.getRect(),
                         ModContent.ItemType<ScavaHook>());
                 }
-            }
+		if (!Main.expertMode)
+		{
+		 Item.NewItem(npc.getRect(),
+                    ModContent.ItemType<Necrostone>(), Main.rand.Next(135, 273));
+            	}
             if (npc.type == mod.NPCType("Signus"))
             {
                 if (Utils.NextFloat(Main.rand) < 0.3f)
