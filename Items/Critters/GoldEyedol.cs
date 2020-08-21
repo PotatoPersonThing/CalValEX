@@ -15,9 +15,10 @@ namespace CalValEX.Items.Critters
 	/// The important bits are: Main.npcCatchable, npc.catchItem, and item.makeNPC
 	/// We will also show off adding an item to an existing RecipeGroup (see ExampleMod.AddRecipeGroups)
 	/// </summary>
-	internal class GoldenIsopod : ModNPC
+	internal class GoldEyedol : ModNPC
 	{
-		public override bool Autoload(ref string name) {
+		public override bool Autoload(ref string name)
+		{
 			IL.Terraria.Wiring.HitWireSingle += HookStatue;
 			return base.Autoload(ref name);
 		}
@@ -48,7 +49,8 @@ namespace CalValEX.Items.Critters
 		/// 
 		/// </summary>
 		/// <param name="il"></param>
-		private void HookStatue(ILContext il) {
+		private void HookStatue(ILContext il)
+		{
 			// obtain a cursor positioned before the first instruction of the method
 			// the cursor is used for navigating and modifying the il
 			var c = new ILCursor(il);
@@ -70,19 +72,22 @@ namespace CalValEX.Items.Critters
 			// we'll just use the fact that there are no other switch statements with case 56, followed by a SelectRandom
 
 			ILLabel[] targets = null;
-			while (c.TryGotoNext(i => i.MatchSwitch(out targets))) {
+			while (c.TryGotoNext(i => i.MatchSwitch(out targets)))
+			{
 				// some optimising compilers generate a sub so that all the switch cases start at 0
 				// ldc.i4.s 51
 				// sub
 				// switch
 				int offset = 0;
-				if (c.Prev.MatchSub() && c.Prev.Previous.MatchLdcI4(out offset)) {
+				if (c.Prev.MatchSub() && c.Prev.Previous.MatchLdcI4(out offset))
+				{
 					;
 				}
 
 				// get the label for case 56: if it exists
 				int case56Index = 56 - offset;
-				if (case56Index < 0 || case56Index >= targets.Length || !(targets[case56Index] is ILLabel target)) {
+				if (case56Index < 0 || case56Index >= targets.Length || !(targets[case56Index] is ILLabel target))
+				{
 					continue;
 				}
 
@@ -92,10 +97,11 @@ namespace CalValEX.Items.Critters
 				c.GotoNext(i => i.MatchCall(typeof(Utils), nameof(Utils.SelectRandom)));
 
 				// goto next positions us before the instruction we searched for, so we can insert our array modifying code right here
-				c.EmitDelegate<Func<short[], short[]>>(arr => {
+				c.EmitDelegate<Func<short[], short[]>>(arr =>
+				{
 					// resize the array and add our custom snail
-					Array.Resize(ref arr, arr.Length+1);
-					arr[arr.Length-1] = (short)npc.type;
+					Array.Resize(ref arr, arr.Length + 1);
+					arr[arr.Length - 1] = (short)npc.type;
 					return arr;
 				});
 
@@ -107,40 +113,82 @@ namespace CalValEX.Items.Critters
 			throw new Exception("Hook location not found, switch(*) { case 56: ...");
 		}
 
-		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Gold Isopod");
-			Main.npcFrameCount[npc.type] = 8;
+
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Gold Eyedol");
+			Main.npcFrameCount[npc.type] = 4;
 			Main.npcCatchable[npc.type] = true;
 		}
 
-		public override void SetDefaults() {
-
-			npc.width = 56;
-			npc.height = 26;
-			npc.CloneDefaults(NPCID.GlowingSnail);
-			npc.catchItem = (short)ItemType<GoldenIsopodItem>();
-			npc.lavaImmune = false;
-			//npc.aiStyle = 0;
-			npc.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
-			aiType = NPCID.GlowingSnail;
-			animationType = NPCID.GlowingSnail;
-            npc.HitSound = SoundID.NPCHit38;
-            npc.rarity = 5;
-            npc.lifeMax = 20000;
-            for (int i = 0; i < npc.buffImmune.Length; i++)
+		public override void SetDefaults()
 		{
-			npc.buffImmune[(ModLoader.GetMod("CalamityMod").BuffType("CrushDepth"))] = false;
-		}
-            banner = npc.type;
-			bannerItem = ItemType<IsopodBanner>();
+			npc.width = 28;
+			npc.height = 24;
+			npc.aiStyle = -1;
+			aiType = -1;
+			npc.damage = 0;
+			npc.defense = 0;
+			npc.lifeMax = 100;
+			Mod calamityMod = ModLoader.GetMod("CalamityMod");
+			if ((bool) calamityMod.Call("GetBossDowned", "providence"))
+			{
+			npc.lifeMax = 500;
+			}
+			npc.HitSound = SoundID.NPCHit33;
+			npc.DeathSound = SoundID.NPCDeath1;
+			npc.catchItem = (short)ItemType<GoldEyedolItem>();
+			npc.lavaImmune = true;
+			npc.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
+			npc.npcSlots = 0.25f;
+			banner = npc.type;
+			bannerItem = ItemType<EyedolBanner>();
 		}
 
-		public override bool? CanBeHitByItem(Player player, Item item) {
+		public override bool? CanBeHitByItem(Player player, Item item)
+		{
 			return true;
 		}
 
-		public override bool? CanBeHitByProjectile(Projectile projectile) {
+		public override bool? CanBeHitByProjectile(Projectile projectile)
+		{
 			return true;
+		}
+
+		public override void OnCatchNPC(Player player, Item item)
+		{
+			item.stack = 1;
+		}
+
+		private const int Frame_Up = 0;
+		private const int Frame_Rightup = 1;
+		private const int Frame_Rightdown = 2;
+		private const int Frame_Down = 3;
+
+		public override void FindFrame(int frameHeight)
+		{
+			npc.spriteDirection = npc.direction;
+			npc.TargetClosest(true);
+			Vector2 targetPosition = Main.player[npc.target].position;
+
+			if (targetPosition.Y - npc.position.Y <= 0f)
+			{
+				npc.frame.Y = Frame_Rightup * frameHeight;
+
+				if (targetPosition.X - npc.position.X < 25 && targetPosition.X - npc.position.X > -25)
+				{
+					npc.frame.Y = Frame_Up * frameHeight;
+				}
+			}
+			if (targetPosition.Y - npc.position.Y > 0f)
+			{
+				npc.frame.Y = Frame_Rightdown * frameHeight;
+
+				if (targetPosition.X - npc.position.X < 25 && targetPosition.X - npc.position.X > -25)
+				{
+					npc.frame.Y = Frame_Down * frameHeight;
+				}
+			}
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo) 
@@ -148,30 +196,12 @@ namespace CalValEX.Items.Critters
             Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
             if (clamMod != null)
             {
-            if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "layer4"))
+            if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "crags"))
                 {
-                    if (spawnInfo.water)
-                    {
-                        return SpawnCondition.CaveJellyfish.Chance * 0.02f;
-                    }
+			return 0.02f;
                 }
             }
             return 0f;
-		}
-
-		public override void OnCatchNPC(Player player, Item item) {
-			item.stack = 1;
-		}
-
-		public override void HitEffect(int hitDirection, double damage)
-		{
-			if (npc.life <= 0)
-			{
-				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/GoldIsopod"), 1f);
-				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/GoldIsopod2"), 1f);
-				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/GoldIsopod3"), 1f);
-				Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/GoldIsopod4"), 1f);
-			}
 		}
 
 		public override void AI()
@@ -179,21 +209,18 @@ namespace CalValEX.Items.Critters
 			if (Main.rand.NextFloat() < 0.1f)
 			{
 				Dust dust;
-				Vector2 positionLeft = new Vector2(npc.position.X, npc.position.Y - 8);
-				Vector2 positionRight = new Vector2(npc.position.X, npc.position.Y - 8);
+				Vector2 position = new Vector2(npc.position.X + 9, npc.position.Y + 5);
 				if (npc.direction == -1)
 				{
-					dust = Main.dust[Terraria.Dust.NewDust(positionLeft, 3, 3, 246, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
+					dust = Main.dust[Terraria.Dust.NewDust(position, 3, 3, 246, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
 					dust.noGravity = true;
 				}
 				else if (npc.direction != 0)
 				{
-					dust = Main.dust[Terraria.Dust.NewDust(positionRight, 3, 3, 246, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
+					dust = Main.dust[Terraria.Dust.NewDust(position, 3, 3, 246, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
 					dust.noGravity = true;
 				}
 			}
 		}
-
-		// TODO: Hooks for Collision_MoveSnailOnSlopes and npc.aiStyle = 67 problem
 	}
 }

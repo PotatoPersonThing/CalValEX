@@ -124,7 +124,7 @@ namespace CalValEX.Items.Critters
 		public override void SetDefaults()
 		{
 			npc.width = 28;
-			npc.height = 26;
+			npc.height = 24;
 			npc.aiStyle = -1;
 			aiType = -1;
 			npc.damage = 0;
@@ -141,6 +141,8 @@ namespace CalValEX.Items.Critters
 			npc.lavaImmune = true;
 			npc.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
 			npc.npcSlots = 0.25f;
+			banner = npc.type;
+			bannerItem = ItemType<EyedolBanner>();
 		}
 
 		public override bool? CanBeHitByItem(Player player, Item item)
