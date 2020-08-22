@@ -4,7 +4,13 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CalValEX" expanded="True">
-            <Node name="CalValEX" expanded="True" />
+            <Node name="CalValEX" expanded="True">
+              <Node name="Items" expanded="True">
+                <Node name="Critters" expanded="True">
+                  <Node name="GoldEyedol.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
           </Node>
         </State>
       </Pad>
