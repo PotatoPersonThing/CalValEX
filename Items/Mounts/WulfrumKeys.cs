@@ -19,7 +19,7 @@ public class WulfrumKeys : ModItem
 	public override void SetStaticDefaults()
 	{
 		DisplayName.SetDefault("Wulfrum Keys");
-				Tooltip.SetDefault("Gives you access to a Wulfrum Tank\nThe keys wield dark energy which will prevent you from using weapons until the dungeon master has fallen\nYou already know how to operate it... somehow...");
+				Tooltip.SetDefault("Gives you access to a Wulfrum Tank\nThe keys wield dark energy which will lay a fatal curse on your health and damage if a powerful entity is near\nYou already know how to operate it... somehow...");
 	}
 
 	public override void SetDefaults()
