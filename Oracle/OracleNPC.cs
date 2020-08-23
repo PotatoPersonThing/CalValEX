@@ -415,8 +415,9 @@ namespace CalValEX.Oracle
             if (Main.rand.NextBool(7))
             {
                 projType = ModContent.ProjectileType<OracleNPC_8Ball>();
-                attackDelay = 2;
+                attackDelay = 1;
                 OracleWeapon = 1;
+                return;
             }
             else
             {
