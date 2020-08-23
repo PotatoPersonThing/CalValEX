@@ -1,14 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Oracle/OracleNPC.cs">
+    <Files>
+      <File FileName="Oracle/OracleNPC.cs" Line="418" Column="32" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CalValEX" expanded="True">
             <Node name="CalValEX" expanded="True">
-              <Node name="Items" expanded="True">
-                <Node name="Critters" expanded="True">
-                  <Node name="GoldEyedol.cs" selected="True" />
-                </Node>
+              <Node name="Items" expanded="True" />
+              <Node name="Oracle" expanded="True">
+                <Node name="OracleNPC.cs" selected="True" />
               </Node>
             </Node>
           </Node>
