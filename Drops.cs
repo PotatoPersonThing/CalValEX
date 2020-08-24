@@ -1,13 +1,13 @@
+using CalValEX.Items;
+using CalValEX.Items.Critters;
 using CalValEX.Items.Equips;
 using CalValEX.Items.Hooks;
+using CalValEX.Items.Mounts;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Tiles;
-using CalValEX.Items.Mounts;
-using CalValEX.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Items.Critters;
 
 namespace CalValEX
 {
@@ -269,6 +269,7 @@ namespace CalValEX
                 }
             }
         }
+
         public override void NPCLoot(NPC npc)
         {
             Mod mod = ModLoader.GetMod("CalamityMod");
@@ -376,7 +377,6 @@ namespace CalValEX
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<CosmicCone>());
                 }
-
                 else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.1f)
                 {
                     Item.NewItem(npc.getRect(),
@@ -391,7 +391,6 @@ namespace CalValEX
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<SkeetCrest>());
                 }
-
                 else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.1f)
                 {
                     Item.NewItem(npc.getRect(),
@@ -406,7 +405,6 @@ namespace CalValEX
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<AeroWings>());
                 }
-
                 else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.1f && Main.expertMode)
                 {
                     Item.NewItem(npc.getRect(),
@@ -421,7 +419,6 @@ namespace CalValEX
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<FloatyCarpetItem>());
                 }
-
                 else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.1f && Main.expertMode)
                 {
                     Item.NewItem(npc.getRect(),
@@ -442,7 +439,6 @@ namespace CalValEX
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<AmethystStone>());
                 }
-
                 else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.2f)
                 {
                     Item.NewItem(npc.getRect(),
@@ -457,7 +453,6 @@ namespace CalValEX
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<TopazStone>());
                 }
-
                 else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.2f)
                 {
                     Item.NewItem(npc.getRect(),
@@ -472,7 +467,6 @@ namespace CalValEX
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<SapphireStone>());
                 }
-
                 else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.2f)
                 {
                     Item.NewItem(npc.getRect(),
@@ -487,7 +481,6 @@ namespace CalValEX
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<EmeraldStone>());
                 }
-
                 else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.2f)
                 {
                     Item.NewItem(npc.getRect(),
@@ -502,7 +495,6 @@ namespace CalValEX
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<RubyStone>());
                 }
-
                 else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.2f)
                 {
                     Item.NewItem(npc.getRect(),
@@ -517,7 +509,6 @@ namespace CalValEX
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<DiamondStone>());
                 }
-
                 else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.2f)
                 {
                     Item.NewItem(npc.getRect(),
@@ -532,7 +523,6 @@ namespace CalValEX
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<CrystalStone>());
                 }
-
                 else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.2f)
                 {
                     Item.NewItem(npc.getRect(),
@@ -547,7 +537,6 @@ namespace CalValEX
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<AmberStone>());
                 }
-
                 else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.2f)
                 {
                     Item.NewItem(npc.getRect(),
@@ -855,7 +844,6 @@ namespace CalValEX
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<ChaosEssence>());
                 }
-
                 else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.1f)
                 {
                     Item.NewItem(npc.getRect(),
@@ -879,7 +867,6 @@ namespace CalValEX
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<HauntedPebble>());
                 }
-
                 else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.1f && Main.expertMode)
                 {
                     Item.NewItem(npc.getRect(),
@@ -1005,7 +992,7 @@ namespace CalValEX
             //if (Main.rand.NextFloat() < 0.075f && NPC.downedMoonlord)
 
             // {
-            //Item.NewItem(npc.getRect(), 
+            //Item.NewItem(npc.getRect(),
             //     ModContent.ItemType<ExodiumMoon>());
             //}
 
@@ -1122,7 +1109,7 @@ namespace CalValEX
                         ModContent.ItemType<ClamMask>());
                 }
             }
-            if (npc.type == 541)
+            if (npc.type == NPCID.SandElemental)
             {
                 if (Utils.NextFloat(Main.rand) < 0.1f && Main.expertMode)
                 {
@@ -1187,7 +1174,6 @@ namespace CalValEX
                             ModContent.ItemType<MawHook>());
                     }
                 }
-
                 else if (!((bool)mod.Call("GetBossDowned", "polterghast")) && Main.rand.NextFloat() < 0.5f && Main.expertMode)
                 {
                     Item.NewItem(npc.getRect(),
@@ -1275,7 +1261,6 @@ namespace CalValEX
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<FluffyFeather>());
                 }
-
                 else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 1.0f)
                 {
                     Item.NewItem(npc.getRect(),
@@ -1302,7 +1287,6 @@ namespace CalValEX
                     Item.NewItem(npc.getRect(),
                         ModContent.ItemType<JellyBottle>());
                 }
-
                 else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 1.0f)
                 {
                     Item.NewItem(npc.getRect(),
@@ -1313,151 +1297,138 @@ namespace CalValEX
             {
                 if (((bool)mod.Call("DifficultyActive", "revengeance")) && Main.rand.NextFloat() < 0.1f)
                 {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<ScavaHook>());
+                    Item.NewItem(npc.getRect(), ModContent.ItemType<ScavaHook>());
                 }
                 if (!Main.expertMode)
                 {
+                    Item.NewItem(npc.getRect(), ModContent.ItemType<Necrostone>(), Main.rand.Next(135, 273));
+                }
+            }
+            if (npc.type == mod.NPCType("Signus"))
+            {
+                if (Utils.NextFloat(Main.rand) < 0.3f)
+                {
+                    Item.NewItem(npc.getRect(), ModContent.ItemType<SigCloth>());
+                }
+                if (Utils.NextFloat(Main.rand) < 0.2f)
+                {
+                    Item.NewItem(npc.getRect(), ModContent.ItemType<SigCape>());
+                }
+                if (Utils.NextFloat(Main.rand) < 0.2f)
+                {
+                    Item.NewItem(npc.getRect(), ModContent.ItemType<SignusNether>());
+                }
+                if (Utils.NextFloat(Main.rand) < 0.3f)
+                {
+                    Item.NewItem(npc.getRect(), ModContent.ItemType<SignusEmblem>());
+                }
+                if (((bool)mod.Call("DifficultyActive", "revengeance")) && Main.rand.NextFloat() < 0.2f && Main.expertMode)
+                {
+                    Item.NewItem(npc.getRect(), ModContent.ItemType<JunkoHat>());
+                }
+                if (Utils.NextFloat(Main.rand) < 0.007f && Main.expertMode)
+                {
+                    Item.NewItem(npc.getRect(), ModContent.ItemType<AncientAuricTeslaHelm>());
+                }
+            }
+            if (npc.type == mod.NPCType("CeaselessVoid"))
+            {
+                if (Utils.NextFloat(Main.rand) < 0.3f)
+                {
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<VoidShard>());
+                }
+                if (Utils.NextFloat(Main.rand) < 0.3f && Main.expertMode)
+                {
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<VoidWings>());
+                }
+                if (Utils.NextFloat(Main.rand) < 0.007f && Main.expertMode)
+                {
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<AncientAuricTeslaHelm>());
+                }
+            }
+            if (npc.type == mod.NPCType("Yharon"))
+            {
+                if ((bool)mod.Call("GetBossDowned", "buffedeclipse") && !Main.expertMode)
+                {
                     Item.NewItem(npc.getRect(),
-                               ModContent.ItemType<Necrostone>(), Main.rand.Next(135, 273));
+                        ModContent.ItemType<Termipebbles>(), Main.rand.Next(2, 8));
                 }
-                if (npc.type == mod.NPCType("Signus"))
+            }
+            if (npc.type == mod.NPCType("SupremeCalamitas"))
+            {
+                if (Main.rand.NextFloat() < 0.2f)
+
                 {
-                    if (Utils.NextFloat(Main.rand) < 0.3f)
-                    {
-                        Item
-                            .NewItem(npc.getRect(),
-                            ModContent.ItemType<SigCloth>());
-                    }
-                    if (Utils.NextFloat(Main.rand) < 0.2f)
-                    {
-                        Item
-                            .NewItem(npc.getRect(),
-                            ModContent.ItemType<SigCape>());
-                    }
-                    if (Utils.NextFloat(Main.rand) < 0.2f)
-                    {
-                        Item
-                            .NewItem(npc.getRect(),
-                            ModContent.ItemType<SignusNether>());
-                    }
-                    if (Utils.NextFloat(Main.rand) < 0.3f)
-                    {
-                        Item
-                            .NewItem(npc.getRect(),
-                            ModContent.ItemType<SignusEmblem>());
-                    }
-                    if (((bool)mod.Call("DifficultyActive", "revengeance")) && Main.rand.NextFloat() < 0.2f && Main.expertMode)
-                    {
-                        Item.NewItem(npc.getRect(),
-                            ModContent.ItemType<JunkoHat>());
-                    }
-                    if (Utils.NextFloat(Main.rand) < 0.007f && Main.expertMode)
-                    {
-                        Item
-                            .NewItem(npc.getRect(),
-                            ModContent.ItemType<AncientAuricTeslaHelm>());
-                    }
+                    Item.NewItem(npc.getRect(),
+                        ModContent.ItemType<AncientAuricTeslaHelm>());
                 }
-                if (npc.type == mod.NPCType("CeaselessVoid"))
+            }
+
+            //Profaned bike
+            if (npc.type == mod.NPCType("ProfanedGuardianBoss3") && Main.expertMode)
+            {
+                if (Utils.NextFloat(Main.rand) < 0.1f)
                 {
-                    if (Utils.NextFloat(Main.rand) < 0.3f)
-                    {
-                        Item
-                            .NewItem(npc.getRect(),
-                            ModContent.ItemType<VoidShard>());
-                    }
-                    if (Utils.NextFloat(Main.rand) < 0.3f && Main.expertMode)
-                    {
-                        Item
-                            .NewItem(npc.getRect(),
-                            ModContent.ItemType<VoidWings>());
-                    }
-                    if (Utils.NextFloat(Main.rand) < 0.007f && Main.expertMode)
-                    {
-                        Item
-                            .NewItem(npc.getRect(),
-                            ModContent.ItemType<AncientAuricTeslaHelm>());
-                    }
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<ProfanedBattery>());
                 }
-                if (npc.type == mod.NPCType("Yharon"))
+            }
+            if (npc.type == mod.NPCType("ProfanedGuardianBoss2") && Main.expertMode)
+            {
+                if (Utils.NextFloat(Main.rand) < 0.1f)
                 {
-                    if ((bool)mod.Call("GetBossDowned", "buffedeclipse") && !Main.expertMode)
-                    {
-                        Item.NewItem(npc.getRect(),
-                            ModContent.ItemType<Termipebbles>(), Main.rand.Next(2, 8));
-                    }
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<ProfanedWheels>());
+                }
+            }
+            if (npc.type == mod.NPCType("ProfanedGuardianBoss") && Main.expertMode)
+            {
+                if (Utils.NextFloat(Main.rand) < 0.2f)
+                {
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<ProfanedFrame>());
+                }
+            }
+
+            //Yharexs' Dev Pet (Calamity BABY)
+            if ((bool)mod.Call("DifficultyActive", "death"))
+            {
+                if (npc.type == mod.NPCType("AstralSlime") && Main.rand.Next(870000) == 0)
+                {
+                    Item.NewItem(npc.Hitbox, ModContent.ItemType<YharexsLetter>());
                 }
                 if (npc.type == mod.NPCType("SupremeCalamitas"))
                 {
-                    if (Main.rand.NextFloat() < 0.2f)
-
+                    bool didIGetHit = false;
+                    for (int i = 0; i < Main.maxPlayers; i++)
                     {
-                        Item.NewItem(npc.getRect(),
-                            ModContent.ItemType<AncientAuricTeslaHelm>());
+                        Player player = Main.player[i];
+                        if (player.active && !player.dead)
+                        {
+                            if (player.GetModPlayer<CalValEXPlayer>().SCalHits > 0)
+                            {
+                                didIGetHit = true;
+                            }
+                        }
                     }
-                }
-                //Profaned bike
-                if (npc.type == mod.NPCType("ProfanedGuardianBoss3") && Main.expertMode)
-                {
-                    if (Utils.NextFloat(Main.rand) < 0.1f)
-                    {
-                        Item
-                            .NewItem(npc.getRect(),
-                            ModContent.ItemType<ProfanedBattery>());
-                    }
-                }
-                if (npc.type == mod.NPCType("ProfanedGuardianBoss2") && Main.expertMode)
-                {
-                    if (Utils.NextFloat(Main.rand) < 0.1f)
-                    {
-                        Item
-                            .NewItem(npc.getRect(),
-                            ModContent.ItemType<ProfanedWheels>());
-                    }
-                }
-                if (npc.type == mod.NPCType("ProfanedGuardianBoss") && Main.expertMode)
-                {
-                    if (Utils.NextFloat(Main.rand) < 0.2f)
-                    {
-                        Item
-                            .NewItem(npc.getRect(),
-                            ModContent.ItemType<ProfanedFrame>());
-                    }
-                }
-
-                //Yharexs' Dev Pet (Calamity BABY)
-                if ((bool)mod.Call("DifficultyActive", "death"))
-                {
-                    if (npc.type == mod.NPCType("AstralSlime") && Main.rand.Next(870000) == 0)
+                    if (!didIGetHit)
                     {
                         Item.NewItem(npc.Hitbox, ModContent.ItemType<YharexsLetter>());
                     }
-                    if (npc.type == mod.NPCType("SupremeCalamitas"))
+                    else
                     {
-                        bool didIGetHit = false;
-                        for (int i = 0; i < Main.maxPlayers; i++)
-                        {
-                            Player player = Main.player[i];
-                            if (player.active && !player.dead)
-                            {
-                                if (player.GetModPlayer<CalValEXPlayer>().SCalHits > 0)
-                                {
-                                    didIGetHit = true;
-                                }
-                            }
-                        }
-                        if (!didIGetHit)
+                        if (Main.rand.Next(1000) == 0)
                         {
                             Item.NewItem(npc.Hitbox, ModContent.ItemType<YharexsLetter>());
-                        }
-                        else
-                        {
-                            if (Main.rand.Next(1000) == 0)
-                            {
-                                Item.NewItem(npc.Hitbox, ModContent.ItemType<YharexsLetter>());
-                            }
                         }
                     }
                 }
