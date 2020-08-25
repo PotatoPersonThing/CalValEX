@@ -1,13 +1,6 @@
-using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.DataStructures;
-using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX;
-using CalValEX.Items.Pets;
-using CalValEX.Items.Hooks;
+using Terraria.ID;
 
 namespace CalValEX.Items.Equips
 {
@@ -25,10 +18,14 @@ namespace CalValEX.Items.Equips
             item.width = 20;
             item.height = 14;
             item.value = Item.sellPrice(0, 0, 3, 0);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            item.rare = 7;
+            item.rare = ItemRarityID.Lime;
             item.accessory = true;
             item.vanity = true;
+        }
+
+        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
+        {
+            drawAltHair = true;
         }
     }
 }
