@@ -19,7 +19,6 @@ namespace CalValEX.Items.Equips
             item.height = 14;
             item.value = Item.sellPrice(0, 0, 3, 0);
             item.rare = ItemRarityID.Lime;
-            item.accessory = true;
             item.vanity = true;
         }
 
