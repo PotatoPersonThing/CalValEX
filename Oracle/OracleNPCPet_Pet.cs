@@ -1,4 +1,4 @@
-﻿
+
 using CalValEX.Oracle;
 using Microsoft.Xna.Framework;
 using System;
@@ -21,7 +21,7 @@ namespace CalValEX.Oracle
         public override void SetDefaults()
         {
             projectile.width = 30;
-            projectile.height = 32;
+            projectile.height = 34;
             projectile.penetrate = -1;
             projectile.netImportant = true;
             projectile.timeLeft *= 5;
