@@ -275,6 +275,10 @@ namespace CalValEX
                         {
                             player.QuickSpawnItem(ModContent.ItemType<brimtulip>());
                         }
+                        if (Utils.NextFloat(Main.rand) < 0.3f)
+                        {
+                            player.QuickSpawnItem(ModContent.ItemType<FoilSpoon>());
+                        }
                     }
                     if (arg == calamityMod.ItemType("CalamitasBag"))
                     {
@@ -292,6 +296,10 @@ namespace CalValEX
                         if (Utils.NextFloat(Main.rand) < 0.3f)
                         {
                             player.QuickSpawnItem(ModContent.ItemType<LeviWings>());
+                        }
+                        if (Utils.NextFloat(Main.rand) < 0.3f)
+                        {
+                            player.QuickSpawnItem(ModContent.ItemType<FoilAtlantis>());
                         }
                         if (Utils.NextFloat(Main.rand) < 0.01f)
                         {

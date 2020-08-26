@@ -18,7 +18,8 @@ public class ProfanedBalloon : ModItem
 	public override void SetStaticDefaults()
 	{
 		DisplayName.SetDefault("Profaned Balloon");
-	}
+        Tooltip.SetDefault("'Patronage for Providence!'");
+    }
 
 	public override void SetDefaults()
 	{

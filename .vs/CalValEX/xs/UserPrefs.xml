@@ -1,23 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Projectiles/Pets/Godrge.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CalValEXGlobalItem.cs">
     <Files>
-      <File FileName="Projectiles/Pets/RepairBot.cs" Line="20" Column="1" />
-      <File FileName="Projectiles/Pets/Skeetyeet.cs" Line="43" Column="26" />
-      <File FileName="Projectiles/Pets/FlyingPet.cs" Line="240" Column="35" />
-      <File FileName="Projectiles/Pets/Godrge.cs" Line="68" Column="32" />
+      <File FileName="CalValEXGlobalItem.cs" Line="302" Column="88" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CalValEX" expanded="True">
             <Node name="CalValEX" expanded="True">
-              <Node name="Items" expanded="True" />
-              <Node name="Oracle" expanded="True" />
-              <Node name="Projectiles" expanded="True">
-                <Node name="Pets" expanded="True">
-                  <Node name="Godrge.cs" selected="True" />
-                </Node>
-              </Node>
+              <Node name="CalValEXGlobalItem.cs" selected="True" />
             </Node>
           </Node>
         </State>
