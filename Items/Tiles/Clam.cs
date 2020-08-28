@@ -10,7 +10,7 @@ namespace CalValEX.Items.Tiles
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Ohayou!");
-            Tooltip.SetDefault("'Mochi'");
+            Tooltip.SetDefault("'Yharex'");
         }
 
         public override void SetDefaults()
