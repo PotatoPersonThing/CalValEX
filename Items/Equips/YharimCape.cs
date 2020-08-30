@@ -23,8 +23,8 @@ public class YharimCape : ModItem
 
 	public override void SetDefaults()
 	{
-		item.width = 24;
-		item.height = 28;
+		item.width = 38;
+		item.height = 32;
 		item.value = Item.sellPrice(20, 0, 0, 0);
 		item.rare = 11;
 		item.accessory = true;

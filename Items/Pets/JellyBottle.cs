@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
@@ -19,6 +19,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Space Junk");
             Tooltip.SetDefault("Summons the forgotten blob of the astral meteor");
+            ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 
         public override void SetDefaults()

@@ -1,7 +1,7 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Items/Equips/RapturedWormScarf.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Drops.cs">
     <Files>
-      <File FileName="Items/Equips/RapturedWormScarf.cs" Line="25" Column="20" />
+      <File FileName="Drops.cs" Line="863" Column="18" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -9,10 +9,9 @@
           <Node name="CalValEX" expanded="True">
             <Node name="CalValEX" expanded="True">
               <Node name="Items" expanded="True">
-                <Node name="Equips" expanded="True">
-                  <Node name="RapturedWormScarf.cs" selected="True" />
-                </Node>
+                <Node name="Pets" expanded="True" />
               </Node>
+              <Node name="Drops.cs" selected="True" />
             </Node>
           </Node>
         </State>

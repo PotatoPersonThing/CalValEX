@@ -858,6 +858,17 @@ namespace CalValEX
                         .NewItem(npc.getRect(),
                         ModContent.ItemType<UnloadedHelm>());
                 }
+                if (Main.rand.NextFloat() < 0.05f)
+
+                {
+                    Item.NewItem(npc.getRect(),
+                        ModContent.ItemType<HauntedPebble>());
+                }
+                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.1f && Main.expertMode)
+                {
+                    Item.NewItem(npc.getRect(),
+                        ModContent.ItemType<HauntedPebble>());
+                }
             }
             if (npc.type == mod.NPCType("PhantomDebris"))
             {
