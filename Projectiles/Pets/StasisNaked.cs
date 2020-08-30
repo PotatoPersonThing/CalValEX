@@ -13,7 +13,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Naked Stasis Drone");
-            Main.projFrames[projectile.type] = 5;
+            Main.projFrames[projectile.type] = 4;
         }
 
         public override void SetDefaults()
@@ -24,7 +24,7 @@ namespace CalValEX.Projectiles.Pets
 
         public override bool PreAI()
         {
-            _ = Main.player[projectile.owner];
+            Player player = Main.player[projectile.owner];
             return true;
         }
 

@@ -1,16 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Projectiles/Pets/Skeetyeet.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Items/Equips/RapturedWormScarf.cs">
     <Files>
-      <File FileName="Projectiles/Pets/Skeetyeet.cs" Line="40" Column="25" />
+      <File FileName="Items/Equips/RapturedWormScarf.cs" Line="25" Column="20" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CalValEX" expanded="True">
             <Node name="CalValEX" expanded="True">
-              <Node name="Projectiles" expanded="True">
-                <Node name="Pets" expanded="True">
-                  <Node name="Skeetyeet.cs" selected="True" />
+              <Node name="Items" expanded="True">
+                <Node name="Equips" expanded="True">
+                  <Node name="RapturedWormScarf.cs" selected="True" />
                 </Node>
               </Node>
             </Node>
