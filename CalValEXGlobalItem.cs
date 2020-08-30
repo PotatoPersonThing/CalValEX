@@ -423,7 +423,7 @@ namespace CalValEX
                         {
                             player.QuickSpawnItem(ModContent.ItemType<CosmicWormScarf>());
                         }
-                        if (Utils.NextFloat(Main.rand) < 0.05f)
+                        if (Utils.NextFloat(Main.rand) < 0.007f)
                         {
                             player.QuickSpawnItem(ModContent.ItemType<RapturedWormScarf>());
                         }

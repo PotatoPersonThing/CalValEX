@@ -275,12 +275,6 @@ namespace CalValEX.Oracle
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 50, 0);
                         ++nextSlot;
                     }
-                if ((bool) Main.hardMode)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<PristineExcalibur>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 50, 0, 0);
-                        ++nextSlot;
-                    }
                 if ((bool) NPC.downedPlantBoss)
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Eidolistthingy>());

@@ -751,7 +751,7 @@ namespace CalValEX
                         .NewItem(npc.getRect(),
                         ModContent.ItemType<PerennialFlower>());
                 }
-                if (Utils.NextFloat(Main.rand) < 0.05f)
+                if (Utils.NextFloat(Main.rand) < 0.007f)
                 {
                     Item
                         .NewItem(npc.getRect(),
@@ -898,6 +898,12 @@ namespace CalValEX
                     Item
                         .NewItem(npc.getRect(),
                         ModContent.ItemType<Mirballoon>());
+                }
+                if (Utils.NextFloat(Main.rand) < 0.007f && NPC.downedGolemBoss)
+                {
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<OldMirage>());
                 }
             }
             if (npc.type == mod.NPCType("Hadarian"))
@@ -1295,7 +1301,7 @@ namespace CalValEX
             }
             if (npc.type == mod.NPCType("RavagerBody"))
             {
-                if (((bool)mod.Call("DifficultyActive", "revengeance")) && Main.rand.NextFloat() < 0.1f)
+                if (Main.rand.NextFloat() < 0.01f)
                 {
                     Item.NewItem(npc.getRect(), ModContent.ItemType<ScavaHook>());
                 }

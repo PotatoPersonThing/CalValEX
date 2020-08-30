@@ -1,4 +1,3 @@
-﻿
 using Microsoft.Xna.Framework;
 using System.IO;
 using Terraria;
@@ -12,7 +11,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Androomba");
-            Main.projFrames[projectile.type] = 6; //frames
+            Main.projFrames[projectile.type] = 10; //frames
             Main.projPet[projectile.type] = true;
         }
 
@@ -74,10 +73,10 @@ namespace CalValEX.Projectiles.Pets
             idleFrameLimits[0] = idleFrameLimits[1] = 0; //what your min idle frame is (start of idle animation)
 
             walkingFrameLimits[0] = 0; //what your min walking frame is (start of walking animation)
-            walkingFrameLimits[1] = 2; //what your max walking frame is (end of walking animation)
+            walkingFrameLimits[1] = 5; //what your max walking frame is (end of walking animation)
 
-            flyingFrameLimits[0] = 3; //what your min flying frame is (start of flying animation)
-            flyingFrameLimits[1] = 5; //what your max flying frame is (end of flying animation)
+            flyingFrameLimits[0] = 6; //what your min flying frame is (start of flying animation)
+            flyingFrameLimits[1] = 9; //what your max flying frame is (end of flying animation)
 
             animationSpeed[0] = 30; //idle animation speed
             animationSpeed[1] = 8; //walking animation speed

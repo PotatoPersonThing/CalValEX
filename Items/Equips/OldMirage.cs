@@ -11,23 +11,24 @@ using CalValEX.Items.Hooks;
 
 namespace CalValEX.Items.Equips
 {
-	[AutoloadEquip(EquipType.Neck)]
-	public class RapturedWormScarf : ModItem
-	{
-		public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Raptured Worm Scarf");
-			Tooltip.SetDefault("'So stylish it bends the fabric of reality!'");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(3,7));
-		}
+    [AutoloadEquip(EquipType.Balloon)]
+    public class OldMirage : ModItem
+    {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ancient Mirage Balloon");
+            Tooltip.SetDefault("'Keep away from the ocean'\n'Balloons are nasty pollutants'");
+        }
 
-		public override void SetDefaults() {
-			item.width = 36;
-			item.height = 38;
-			item.value = Item.sellPrice(0, 0, 1, 0);
-			item.rare = 10;
-			item.accessory = true;
+        public override void SetDefaults()
+        {
+            item.width = 26;
+            item.height = 42;
+            item.value = Item.sellPrice(0, 0, 5, 0);
+            item.rare = ItemRarityID.LightPurple;
+            item.accessory = true;
             item.vanity = true;
-		}
+        }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
@@ -50,3 +51,4 @@ namespace CalValEX.Items.Equips
         }
     }
 }
+

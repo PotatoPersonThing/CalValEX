@@ -37,7 +37,7 @@ namespace CalValEX.Projectiles.Pets
             distance[0] = 1200f; //teleport distance
             distance[1] = 560f; //faster speed distance
             speed = 50f;
-            inertia = 120f;
+            inertia = 110f;
             animationSpeed = -1; //how fast the animation should play
             spinRotationSpeedMult = 0.2f; //rotation speed multiplier, keep it positive for it to spin in the right direction
             offSetX = 1.5f * Main.player[projectile.owner].direction; //Front of the player now
