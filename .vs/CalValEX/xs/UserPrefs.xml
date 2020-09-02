@@ -1,17 +1,22 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Projectiles/Pets/ProviPet.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Projectiles/Pets/HeatPet.cs">
     <Files>
-      <File FileName="Projectiles/Pets/Godrge.cs" Line="67" Column="26" />
-      <File FileName="Projectiles/Pets/ProviPet.cs" Line="1" Column="1" />
+      <File FileName="Projectiles/Pets/ProviPet.cs" Line="25" Column="31" />
+      <File FileName="Projectiles/Pets/HeatPet.cs" Line="44" Column="40" />
+      <File FileName="Projectiles/Pets/HeatBaby.cs" Line="15" Column="4" />
+      <File FileName="Projectiles/Pets/sandmini.cs" Line="30" Column="54" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CalValEX" expanded="True">
             <Node name="CalValEX" expanded="True">
+              <Node name="Items" expanded="True">
+                <Node name="Pets" expanded="True" />
+              </Node>
               <Node name="Projectiles" expanded="True">
                 <Node name="Pets" expanded="True">
-                  <Node name="ProviPet.cs" selected="True" />
+                  <Node name="HeatPet.cs" selected="True" />
                 </Node>
               </Node>
             </Node>
