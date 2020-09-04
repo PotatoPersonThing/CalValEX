@@ -10,7 +10,7 @@ namespace CalValEX.Items.Equips
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Foil Spoon");
-            Tooltip.SetDefault("'Inflated with the Crag's fumes'");
+            Tooltip.SetDefault("'spoon'");
         }
 
         public override void SetDefaults()

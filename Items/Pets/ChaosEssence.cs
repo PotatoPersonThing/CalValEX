@@ -17,9 +17,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Essence of Cinders");
+            DisplayName.SetDefault("Essence of Disorder");
             Tooltip
-                .SetDefault("Come burn with me");
+                .SetDefault("Summons a pair of Heat Spirits to light your way \n 'Come burn with me'");
                 ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 
@@ -28,7 +28,7 @@ namespace CalValEX.Items.Pets
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.Item45;
             item.shoot = mod.ProjectileType("HeatPet");
-            item.value = Item.sellPrice(0, 0, 50, 0);
+            item.value = Item.sellPrice(0, 0, 10, 0);
             item.rare = 4;
             item.buffType = mod.BuffType("HeatBuff");
         }

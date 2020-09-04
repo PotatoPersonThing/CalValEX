@@ -112,6 +112,7 @@ namespace CalValEX
         public bool CalamityBABYBool = false;
         public bool CalamityBabyGotHit = false;
         public int SCalHits = 0;
+        public bool Lightshield = false;
 
         public override void Initialize()
         {
@@ -229,6 +230,7 @@ namespace CalValEX
             RepairBot = false;
             MechaGeorge = false;
             CalamityBABYBool = false;
+            Lightshield = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
