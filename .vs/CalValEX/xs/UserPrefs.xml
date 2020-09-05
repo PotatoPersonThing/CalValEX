@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Projectiles/Pets/HeatPet.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Items/Pets/VanityCore.cs">
     <Files>
       <File FileName="Projectiles/Pets/ProviPet.cs" Line="11" Column="42" IsPinned="True" />
-      <File FileName="Projectiles/Pets/HeatPet.cs" Line="60" Column="1" IsPinned="True" />
+      <File FileName="Buffs/Pets/VanityCoreBuff.cs" Line="39" Column="44" />
+      <File FileName="Items/Pets/VanityCore.cs" Line="30" Column="56" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,12 +11,12 @@
           <Node name="CalValEX" expanded="True">
             <Node name="CalValEX" expanded="True">
               <Node name="Items" expanded="True">
-                <Node name="Pets" expanded="True" />
+                <Node name="Pets" expanded="True">
+                  <Node name="VanityCore.cs" selected="True" />
+                </Node>
               </Node>
               <Node name="Projectiles" expanded="True">
-                <Node name="Pets" expanded="True">
-                  <Node name="HeatPet.cs" selected="True" />
-                </Node>
+                <Node name="Pets" expanded="True" />
               </Node>
             </Node>
           </Node>
