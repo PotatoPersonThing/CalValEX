@@ -1,9 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Projectiles/Pets/ProviPet.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Projectiles/Pets/Lightshield.cs">
     <Files>
-      <File FileName="Projectiles/Pets/ProviPet.cs" Line="25" Column="31" IsPinned="True" />
+      <File FileName="Projectiles/Pets/ProviPet.cs" Line="11" Column="42" IsPinned="True" />
       <File FileName="Projectiles/Pets/HeatPet.cs" Line="30" Column="28" IsPinned="True" />
-      <File FileName="Projectiles/Pets/Lightshield.cs" Line="40" Column="27" IsPinned="True" />
+      <File FileName="Projectiles/Pets/Lightshield.cs" Line="49" Column="10" IsPinned="True" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,7 +18,7 @@
               </Node>
               <Node name="Projectiles" expanded="True">
                 <Node name="Pets" expanded="True">
-                  <Node name="ProviPet.cs" selected="True" />
+                  <Node name="Lightshield.cs" selected="True" />
                 </Node>
               </Node>
             </Node>
