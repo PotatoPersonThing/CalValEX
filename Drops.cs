@@ -782,6 +782,20 @@ namespace CalValEX
                         ModContent.ItemType<CoralMask>());
                 }
             }
+            if (npc.type == mod.NPCType("IceClasper"))
+            {
+                if (Main.rand.NextFloat() < 0.05f)
+
+                {
+                    Item.NewItem(npc.getRect(),
+                        ModContent.ItemType<AntarcticEssence>());
+                }
+                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.1f)
+                {
+                    Item.NewItem(npc.getRect(),
+                        ModContent.ItemType<AntarcticEssence>());
+                }
+            }
             if (npc.type == mod.NPCType("Cryon"))
             {
                 if (Utils.NextFloat(Main.rand) < 0.15f)

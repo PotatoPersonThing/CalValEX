@@ -1,24 +1,20 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Projectiles/Pets/Lightshield.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Projectiles/Pets/HeatPet.cs">
     <Files>
       <File FileName="Projectiles/Pets/ProviPet.cs" Line="11" Column="42" IsPinned="True" />
-      <File FileName="Projectiles/Pets/HeatPet.cs" Line="30" Column="28" IsPinned="True" />
-      <File FileName="Projectiles/Pets/Lightshield.cs" Line="49" Column="10" IsPinned="True" />
+      <File FileName="Projectiles/Pets/HeatPet.cs" Line="60" Column="1" IsPinned="True" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CalValEX" expanded="True">
             <Node name="CalValEX" expanded="True">
-              <Node name="Buffs" expanded="True">
-                <Node name="Pets" expanded="True" />
-              </Node>
               <Node name="Items" expanded="True">
                 <Node name="Pets" expanded="True" />
               </Node>
               <Node name="Projectiles" expanded="True">
                 <Node name="Pets" expanded="True">
-                  <Node name="Lightshield.cs" selected="True" />
+                  <Node name="HeatPet.cs" selected="True" />
                 </Node>
               </Node>
             </Node>
