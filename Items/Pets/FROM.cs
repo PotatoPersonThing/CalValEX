@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using CalValEX.Items.Critters;
 
 namespace CalValEX.Items.Pets
 {
@@ -41,7 +42,8 @@ namespace CalValEX.Items.Pets
             recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 5);
             recipe.AddIngredient(calamityMod.ItemType("InfectedArmorPlating"), 1);
             recipe.AddIngredient(ModContent.ItemType<BubbleGum>(), 1);
-            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.AddIngredient(ModContent.ItemType<PlagueFrogItem>(), 1);
+                recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
             }

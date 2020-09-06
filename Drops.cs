@@ -397,6 +397,15 @@ namespace CalValEX
                         ModContent.ItemType<SkeetCrest>());
                 }
             }
+            if (npc.type == mod.NPCType("ShockstormShuttle"))
+            {
+                if (Utils.NextFloat(Main.rand) < 0.1f)
+                {
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<ShuttleBalloon>());
+                }
+            }
             if (npc.type == mod.NPCType("AeroSlime") && Main.expertMode)
             {
                 if (Main.rand.NextFloat() < 0.05f)
@@ -593,6 +602,10 @@ namespace CalValEX
                     Item
                         .NewItem(npc.getRect(),
                         ModContent.ItemType<GammaHelmet>());
+                }
+                if (Utils.NextFloat(Main.rand) < 0.3f)
+                {
+                    Item.NewItem(npc.getRect(), ModContent.ItemType<NuclearFumes>());
                 }
             }
             //Astral tree drops all
@@ -813,20 +826,27 @@ namespace CalValEX
             }
             if (npc.type == mod.NPCType("SmallSightseer"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.05f)
+                if ((bool)mod.Call("GetBossDowned", "astrumaureus"))
                 {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<Binoculars>());
+                    if (Utils.NextFloat(Main.rand) < 0.05f)
+                    {
+                        Item
+                            .NewItem(npc.getRect(),
+                            ModContent.ItemType<Binoculars>());
+                    }
+
                 }
             }
             if (npc.type == mod.NPCType("BigSightseer"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
+                if ((bool)mod.Call("GetBossDowned", "astrumaureus"))
                 {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<Binoculars>());
+                    if (Utils.NextFloat(Main.rand) < 0.1f)
+                    {
+                        Item
+                            .NewItem(npc.getRect(),
+                            ModContent.ItemType<Binoculars>());
+                    }
                 }
             }
             if (npc.type == mod.NPCType("CultistAssassin"))
@@ -1203,6 +1223,10 @@ namespace CalValEX
                     {
                         Item.NewItem(npc.getRect(),
                             ModContent.ItemType<MawHook>());
+                    }
+                    if (Utils.NextFloat(Main.rand) < 0.3f)
+                    {
+                        Item.NewItem(npc.getRect(), ModContent.ItemType<NuclearFumes>(), Main.rand.Next(1, 3));
                     }
                 }
                 else if (!((bool)mod.Call("GetBossDowned", "polterghast")) && Main.rand.NextFloat() < 0.5f && Main.expertMode)
