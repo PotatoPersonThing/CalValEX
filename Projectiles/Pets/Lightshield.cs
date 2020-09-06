@@ -65,6 +65,12 @@ namespace CalValEX.Projectiles.Pets
                 projectile.rotation += MathHelper.TwoPi;
             }
 
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            if (calamityMod != null)
+            {
+                calamityMod.Call("AddAbyssLightStrength", projectile.owner, 2);
+            }
+
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
