@@ -12,8 +12,8 @@ namespace CalValEX.Items.Pets {
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Sulfurous Bubble");
-			Tooltip.SetDefault("There seems to be an egg inside");
+			DisplayName.SetDefault("Acid Lamp");
+			Tooltip.SetDefault("'There seems to be an egg inside'");
 		}
 
 		public override void SetDefaults() {

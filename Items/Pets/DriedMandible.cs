@@ -18,8 +18,8 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dried up Mandible");
-            Tooltip.SetDefault("There's a worm wriggling in it");
+            DisplayName.SetDefault("Dried Locket");
+            Tooltip.SetDefault("'There's a worm wriggling in it'");
         }
 
         public override void SetDefaults()

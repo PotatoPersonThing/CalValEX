@@ -13,11 +13,15 @@ namespace CalValEX.Items.Pets
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Impure Stick");
-			Tooltip.SetDefault("Don't feed this stick");
+			DisplayName.SetDefault("Slime Deity's Soul");
+			Tooltip.SetDefault("'Power hungry for rot'");
+            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4,6));
+		    ItemID.Sets.AnimatesAsSoul[item.type] = true;
 		}
 
 		public override void SetDefaults() {
+	    item.width = 20;
+	    item.height = 20;
 		item.CloneDefaults(ItemID.ZephyrFish);
 		item.UseSound = SoundID.Item81;
 		item.shoot = mod.ProjectileType("SlimeDemi");

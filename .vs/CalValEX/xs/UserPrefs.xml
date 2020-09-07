@@ -1,12 +1,23 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Drops.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Items/Pets/ImpureStick.cs">
     <Files>
-      <File FileName="Drops.cs" Line="1400" Column="48" />
+      <File FileName="Items/Pets/ImpureStick.cs" Line="24" Column="23" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CalValEX" expanded="True" />
+          <Node name="CalValEX" expanded="True">
+            <Node name="CalValEX" expanded="True">
+              <Node name="Items" expanded="True">
+                <Node name="Pets" expanded="True">
+                  <Node name="ImpureStick.cs" selected="True" />
+                </Node>
+              </Node>
+              <Node name="Projectiles" expanded="True">
+                <Node name="Pets" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>
