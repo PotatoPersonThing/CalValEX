@@ -1,7 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workbench ActiveDocument="Items/Pets/ImpureStick.cs">
     <Files>
-      <File FileName="Items/Pets/ImpureStick.cs" Line="24" Column="23" />
+      <File FileName="Items/Pets/ImpureStick.cs" Line="20" Column="1" />
+      <File FileName="Items/Pets/SkeetCrest.cs" Line="22" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

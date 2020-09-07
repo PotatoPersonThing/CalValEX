@@ -17,6 +17,7 @@ namespace CalValEX.Items.Pets
 			Tooltip.SetDefault("'Power hungry for rot'");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4,6));
 		    ItemID.Sets.AnimatesAsSoul[item.type] = true;
+			ItemID.Sets.ItemNoGravity[item.type] = true;
 		}
 
 		public override void SetDefaults() {
