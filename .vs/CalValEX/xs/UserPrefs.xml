@@ -6,9 +6,7 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CalValEX" expanded="True">
-            <Node name="CalValEX" expanded="True" />
-          </Node>
+          <Node name="CalValEX" expanded="True" />
         </State>
       </Pad>
     </Pads>
