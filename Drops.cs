@@ -1400,6 +1400,12 @@ namespace CalValEX
                         .NewItem(npc.getRect(),
                         ModContent.ItemType<VoidWings>());
                 }
+                if (Utils.NextFloat(Main.rand) < 0.05f)
+                {
+                    Item
+                        .NewItem(npc.getRect(),
+                        ModContent.ItemType<OldVoidWings>());
+                }
                 if (Utils.NextFloat(Main.rand) < 0.007f && Main.expertMode)
                 {
                     Item

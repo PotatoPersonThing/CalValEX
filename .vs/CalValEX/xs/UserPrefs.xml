@@ -1,23 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Projectiles/Pets/ProviPet.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Drops.cs">
     <Files>
-      <File FileName="Projectiles/Pets/ProviPet.cs" Line="25" Column="31" IsPinned="True" />
+      <File FileName="Drops.cs" Line="1400" Column="48" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CalValEX" expanded="True">
-            <Node name="CalValEX" expanded="True">
-              <Node name="Items" expanded="True">
-                <Node name="Equips" expanded="True" />
-              </Node>
-              <Node name="Oracle" expanded="True" />
-              <Node name="Projectiles" expanded="True">
-                <Node name="Pets" expanded="True">
-                  <Node name="ProviPet.cs" selected="True" />
-                </Node>
-              </Node>
-            </Node>
+            <Node name="CalValEX" expanded="True" />
           </Node>
         </State>
       </Pad>
