@@ -1,13 +1,5 @@
-using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.DataStructures;
-using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX;
-using CalValEX.Items.Pets;
-using CalValEX.Items.Hooks;
 
 namespace CalValEX.Items.Equips
 {
@@ -29,10 +21,10 @@ namespace CalValEX.Items.Equips
             item.accessory = true;
             item.vanity = true;
         }
-          public virtual void DrawHair(ref bool drawHair, ref bool drawAltHair) 
-            {
-                drawHair = true;
-                drawAltHair = true;
-         } 
+
+        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
+        {
+            drawAltHair = true;
+        }
     }
 }
