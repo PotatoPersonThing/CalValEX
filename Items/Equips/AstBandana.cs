@@ -21,7 +21,7 @@ namespace CalValEX.Items.Equips
 
 		public override void SetDefaults() {
 			item.width = 24;
-			item.height = 28;
+			item.height = 32;
 			item.value = Item.sellPrice(0, 1, 10, 0);
 			item.rare = 6;
 			item.accessory = true;
