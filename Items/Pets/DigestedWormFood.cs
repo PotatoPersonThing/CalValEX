@@ -12,8 +12,8 @@ namespace CalValEX.Items.Pets {
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Digested Worm Food");
-			Tooltip.SetDefault("May contain worms");
+			DisplayName.SetDefault("Meaty Worm Tumor");
+			Tooltip.SetDefault("May contain tied worms");
 		}
 
 		public override void SetDefaults() {

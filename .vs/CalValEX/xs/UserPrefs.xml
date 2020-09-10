@@ -1,8 +1,7 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workbench ActiveDocument="Items/Pets/ImpureStick.cs">
     <Files>
-      <File FileName="Items/Pets/ImpureStick.cs" Line="20" Column="1" />
-      <File FileName="Items/Pets/SkeetCrest.cs" Line="22" Column="1" />
+      <File FileName="Items/Pets/ImpureStick.cs" Line="33" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,9 +12,7 @@
                 <Node name="Pets" expanded="True">
                   <Node name="ImpureStick.cs" selected="True" />
                 </Node>
-              </Node>
-              <Node name="Projectiles" expanded="True">
-                <Node name="Pets" expanded="True" />
+                <Node name="Tiles" expanded="True" />
               </Node>
             </Node>
           </Node>

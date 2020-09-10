@@ -21,8 +21,8 @@ namespace CalValEX.Items.Pets
 		}
 
 		public override void SetDefaults() {
-	    item.width = 20;
-	    item.height = 22;
+	    item.width = 30;
+	    item.height = 32;
 		item.CloneDefaults(ItemID.ZephyrFish);
 		item.UseSound = SoundID.Item81;
 		item.shoot = mod.ProjectileType("SlimeDemi");

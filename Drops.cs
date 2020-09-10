@@ -89,6 +89,9 @@ namespace CalValEX
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<WilliamPainting>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
                             ++nextSlot;
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamiteaTime>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
+                            ++nextSlot;
                         }
                         if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas"))
                         {
@@ -173,6 +176,9 @@ namespace CalValEX
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(10, 0, 0, 0);
                             ++nextSlot;
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<WilliamPainting>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(10, 0, 0, 0);
+                            ++nextSlot;
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamiteaTime>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(10, 0, 0, 0);
                             ++nextSlot;
                         }
