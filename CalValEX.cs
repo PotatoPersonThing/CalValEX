@@ -1,5 +1,8 @@
+using CalValEX.Items.Dyes;
 using CalValEX.Oracle;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -8,6 +11,14 @@ namespace CalValEX
     public class CalValEX : Mod
     {
         public static bool Bumble;
+
+        public override void Load()
+        {
+            if (!Main.dedServ)
+            {
+                GameShaders.Armor.BindShader(ModContent.ItemType<DraedonHologramDye>(), new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/DraedonHologramDye")), "DraedonHologramDyePass"));
+            }
+        }
 
         public override void PostSetupContent()
         {
