@@ -202,7 +202,10 @@ namespace CalValEX.Items.Critters
             {
             if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "astral"))
                 {
-			return 0.02f;
+					if (!Main.eclipse && !Main.bloodMoon && !Main.pumpkinMoon && !Main.snowMoon)
+					{
+						return 0.02f;
+					}
                 }
             }
             return 0f;

@@ -1,7 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Items/Pets/ImpureStick.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Items/Critters/GoldViolemur.cs">
     <Files>
-      <File FileName="Items/Pets/ImpureStick.cs" Line="33" Column="1" />
+      <File FileName="Items/Pets/ImpureStick.cs" Line="32" Column="1" />
+      <File FileName="Drops.cs" Line="897" Column="18" />
+      <File FileName="Items/Critters/Violemur.cs" Line="1" Column="1" />
+      <File FileName="Items/Critters/GoldViolemur.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -9,8 +12,8 @@
           <Node name="CalValEX" expanded="True">
             <Node name="CalValEX" expanded="True">
               <Node name="Items" expanded="True">
-                <Node name="Pets" expanded="True">
-                  <Node name="ImpureStick.cs" selected="True" />
+                <Node name="Critters" expanded="True">
+                  <Node name="GoldViolemur.cs" selected="True" />
                 </Node>
                 <Node name="Tiles" expanded="True" />
               </Node>
