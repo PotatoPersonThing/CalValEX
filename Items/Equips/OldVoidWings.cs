@@ -17,7 +17,7 @@ namespace CalValEX.Items.Equips
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Revoided Wings");
-			Tooltip.SetDefault("Literally carried out of the darkness");
+			Tooltip.SetDefault("'Literally carried out of the darkness'");
 		}
 
 		public override void SetDefaults()
