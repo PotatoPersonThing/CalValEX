@@ -1,8 +1,10 @@
 using CalValEX.Items.Dyes;
 using CalValEX.Oracle;
 using Microsoft.Xna.Framework.Graphics;
+using System.IO;
 using Terraria;
 using Terraria.Graphics.Shaders;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -49,6 +51,70 @@ namespace CalValEX
                 player.statLifeMax2 -= calculateLife;
                 player.allDamage -= reduceDamageBy;
             }
+        }
+
+        public override void HandlePacket(BinaryReader reader, int whoAmI)
+        {
+            MessageType msgType = (MessageType)reader.ReadByte();
+            byte playerNumber;
+            OraclePlayer oraclePlayer;
+            CalValEXPlayer calValEXPlayer;
+            int SCalHits;
+            switch (msgType)
+            {
+                case MessageType.SyncOraclePlayer:
+                    playerNumber = reader.ReadByte();
+                    oraclePlayer = Main.player[playerNumber].GetModPlayer<OraclePlayer>();
+                    oraclePlayer.playerHasGottenBag = reader.ReadBoolean();
+                    break;
+
+                case MessageType.PlayerBagChanged:
+                    playerNumber = reader.ReadByte();
+                    oraclePlayer = Main.player[playerNumber].GetModPlayer<OraclePlayer>();
+                    oraclePlayer.playerHasGottenBag = reader.ReadBoolean();
+                    if (Main.netMode == NetmodeID.Server)
+                    {
+                        var packet = GetPacket();
+                        packet.Write((byte)MessageType.PlayerBagChanged);
+                        packet.Write(playerNumber);
+                        packet.Write(oraclePlayer.playerHasGottenBag);
+                        packet.Send(-1, playerNumber);
+                    }
+                    break;
+
+                case MessageType.SyncCalValEXPlayer:
+                    playerNumber = reader.ReadByte();
+                    calValEXPlayer = Main.player[playerNumber].GetModPlayer<CalValEXPlayer>();
+                    SCalHits = reader.ReadInt32();
+                    calValEXPlayer.SCalHits = SCalHits;
+                    break;
+
+                case MessageType.SyncSCalHits:
+                    playerNumber = reader.ReadByte();
+                    calValEXPlayer = Main.player[playerNumber].GetModPlayer<CalValEXPlayer>();
+                    SCalHits = reader.ReadInt32();
+                    calValEXPlayer.SCalHits = SCalHits;
+                    if (Main.netMode == NetmodeID.Server)
+                    {
+                        var packet = GetPacket();
+                        packet.Write((byte)MessageType.SyncSCalHits);
+                        packet.Write(playerNumber);
+                        packet.Write(calValEXPlayer.SCalHits);
+                        packet.Send(-1, playerNumber);
+                    }
+                    break;
+                default:
+                    Logger.WarnFormat("CalValEX: Unknown Message type: {0}", msgType);
+                    break;
+            }
+        }
+
+        public enum MessageType
+        {
+            SyncOraclePlayer = 0,
+            PlayerBagChanged,
+            SyncCalValEXPlayer,
+            SyncSCalHits
         }
     }
 }

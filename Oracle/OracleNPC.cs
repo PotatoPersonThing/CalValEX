@@ -244,9 +244,6 @@ namespace CalValEX.Oracle
             button2 = "Divination";
         }
 
-
-        int PlayerBagCheck = Main.LocalPlayer.GetModPlayer<OraclePlayer>().PlayerBag;
-
         public override void OnChatButtonClicked(bool firstButton, ref bool shop)
         {
             if (firstButton)
@@ -258,10 +255,10 @@ namespace CalValEX.Oracle
                 shop = false;
                 if (Main.myPlayer == Main.LocalPlayer.whoAmI)
                 {
-                    if (PlayerBagCheck <= 0)
+                    if (!Main.LocalPlayer.GetModPlayer<OraclePlayer>().playerHasGottenBag)
                     {
-                        Main.npcChatText = $"Here's what TUB found with my divination!";
-                        PlayerBagCheck = 0;
+                        Main.npcChatText = "Here's what TUB found with my divination!";
+                        Main.LocalPlayer.GetModPlayer<OraclePlayer>().playerHasGottenBag = true;
                         if (Main.rand.NextFloat() < 0.40f)
                         {
                             Main.LocalPlayer.QuickSpawnItem(ItemID.GoodieBag);
@@ -277,7 +274,7 @@ namespace CalValEX.Oracle
                     }
                     else
                     {
-                        Main.npcChatText = $"Sorry dude, only one reading per day!";
+                        Main.npcChatText = "Sorry dude, only one reading per day!";
                     }
                 }
             }

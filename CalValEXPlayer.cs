@@ -346,5 +346,33 @@ namespace CalValEX
             BitsByte flags = reader.ReadByte();
             ZoneAstral = flags[0];
         }
+
+        public override void clientClone(ModPlayer clientClone)
+        {
+            CalValEXPlayer clone = clientClone as CalValEXPlayer;
+            clone.SCalHits = SCalHits;
+        }
+
+        public override void SyncPlayer(int toWho, int fromWho, bool newPlayer)
+        {
+            ModPacket packet = mod.GetPacket();
+            packet.Write((byte)CalValEX.MessageType.SyncCalValEXPlayer);
+            packet.Write((byte)player.whoAmI);
+            packet.Write(SCalHits);
+            packet.Send(toWho, fromWho);
+        }
+
+        public override void SendClientChanges(ModPlayer clientPlayer)
+        {
+            CalValEXPlayer clone = clientPlayer as CalValEXPlayer;
+            if (clone.SCalHits != SCalHits)
+            {
+                var packet = mod.GetPacket();
+                packet.Write((byte)CalValEX.MessageType.SyncSCalHits);
+                packet.Write((byte)player.whoAmI);
+                packet.Write(SCalHits);
+                packet.Send();
+            }
+        }
     }
 }
