@@ -16,7 +16,7 @@ namespace CalValEX.Items.Tiles
     internal class ProvFlyJar : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Profaned Butterfly Jar");
+			DisplayName.SetDefault("Blazing Butterfly Jar");
 		}
 
 		public override void SetDefaults() {
