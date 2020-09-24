@@ -356,28 +356,28 @@ namespace CalValEX.Oracle
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50, 0, 0);
                         ++nextSlot;
                     }
+		 if ((bool) clamMod.Call("GetBossDowned", "dragonfolly") && Main.expertMode)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<OrbSummon>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 75, 0, 0);
+                        ++nextSlot;
+                    }
                 if ((bool) clamMod.Call("GetBossDowned", "providence") && Main.expertMode)
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<ChewyToy>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(5, 0, 0, 0);
                         ++nextSlot;
                     }
+		if ((bool) clamMod.Call("GetBossDowned", "signus") && Main.expertMode)
+                   {
+                       shop.item[nextSlot].SetDefaults(ModContent.ItemType<JunkoHat>());
+                       shop.item[nextSlot].shopCustomPrice = Item.buyPrice(10, 75, 0, 0);
+                       ++nextSlot;
+                   }
                 if ((bool) clamMod.Call("GetBossDowned", "devourerofgods") && Main.expertMode)
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Enredenitem>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(10, 0, 0, 0);
-                        ++nextSlot;
-                    }
-                if ((bool) clamMod.Call("GetBossDowned", "polterghast") && Main.expertMode)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<ToyScythe>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(40, 0, 0, 0);
-                        ++nextSlot;
-                    }
-                if ((bool) clamMod.Call("GetBossDowned", "yharon") && Main.expertMode)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<FluffyFur>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(50, 0, 0, 0);
                         ++nextSlot;
                     }
             }
