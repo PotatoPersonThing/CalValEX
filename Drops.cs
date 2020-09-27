@@ -13,6 +13,18 @@ namespace CalValEX
 {
     public class Drops : GlobalNPC
     {
+        public readonly float rareEnemyChance = 0.1f; //10%
+        public readonly float normalEnemyChance = 0.05f; //5%
+        public readonly float extraDefiledChance = 0.05f; //5%
+        public readonly float minibossChance = 0.1f; //10%
+        public readonly float bossPetChance = 0.2f; //20%
+        public readonly float bossHookChance = 0.1f; //10%
+        public readonly float RIVChance = 0.075f; //7.5%
+
+        public readonly float vanityMinChance = 0.05f; //5%
+        public readonly float vanityNormalChance = 0.1f; //10%
+        public readonly float vanityMaxChance = 0.15f; //15%
+
         public override void SetupShop(int type, Chest shop, ref int nextSlot)
         {
             Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
@@ -237,6 +249,15 @@ namespace CalValEX
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 0);
                     ++nextSlot;
                 }
+                if (type == NPCID.Cyborg)
+                {
+                    if ((bool)clamMod.Call("GetBossDowned", "astrumaureus"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrumAureusLog>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
+                        ++nextSlot;
+                    }
+                }
                 if (type == NPCID.PartyGirl)
                 {
                     if (Main.LocalPlayer.HasItem(ModContent.ItemType<Mirballoon>()) || Main.LocalPlayer.HasItem(ModContent.ItemType<BoB2>()))
@@ -269,779 +290,293 @@ namespace CalValEX
 
         public override void NPCLoot(NPC npc)
         {
-            Mod mod = ModLoader.GetMod("CalamityMod");
-            if (mod == null)
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+
+            //5%/10% (non-defiled/defiled)
+            float normalChance = normalEnemyChance + ((bool)calamityMod.Call("DifficultyActive", "defiled") ? extraDefiledChance : 0);
+            //10%/15% (non-defiled/defiled)
+            float rareChance = rareEnemyChance + ((bool)calamityMod.Call("DifficultyActive", "defiled") ? extraDefiledChance : 0);
+            //1%/5% (non-defiled/defiled)
+            float mountChance = 0.01f + ((bool)calamityMod.Call("DifficultyActive", "defiled") ? 0.04f : 0);
+
+            if (npc.type == calamityMod.NPCType("DILF"))
             {
-                return;
+                DropItem(npc, ModContent.ItemType<Permascarf>()); //garanteed
             }
-            //Town NPCs
-            if (npc.type == mod.NPCType("DILF"))
+            if (npc.type == calamityMod.NPCType("THIEF"))
             {
-                Item
-                    .NewItem(npc.getRect(),
-                    ModContent.ItemType<Permascarf>());
-            }
-            if (npc.type == mod.NPCType("THIEF"))
-            {
-                Item
-                    .NewItem(npc.getRect(),
-                    ModContent.ItemType<BanditHat>());
+                DropItem(npc, ModContent.ItemType<BanditHat>()); //garanteed
             }
             // Swearshrooms
-            if (npc.type == mod.NPCType("CrabShroom"))
+            if (npc.type == calamityMod.NPCType("CrabShroom"))
             {
-                if (!NPC.AnyNPCs(mod.NPCType("CrabulonIdle")))
+                if (!NPC.AnyNPCs(calamityMod.NPCType("CrabulonIdle")))
                 {
-                    if (Main.LocalPlayer.HasItem(mod.ItemType("KnowledgeCrabulon")))
+                    if (Main.LocalPlayer.HasItem(calamityMod.ItemType("KnowledgeCrabulon")))
                     {
-                        NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Swearshroom>(), 0, 0f, 0f, 0f, 0f, 255);
+                        NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Swearshroom>());
                     }
                 }
             }
             //Prehm
-            if (npc.type == mod.NPCType("AngryDog"))
+            if (npc.type == calamityMod.NPCType("AngryDog"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<TundraBall>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<TundraBall>(), rareChance);
             }
-            if (npc.type == mod.NPCType("BoxJellyfish"))
+            if (npc.type == calamityMod.NPCType("BoxJellyfish"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<BoxBalloon>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<BoxBalloon>(), rareChance);
             }
-            if (npc.type == mod.NPCType("Catfish"))
+            if (npc.type == calamityMod.NPCType("Catfish"))
             {
-                if (((bool)mod.Call("DifficultyActive", "defiled")) && Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<DiscardedCollar>());
-                }
-                else if (Utils.NextFloat(Main.rand) < 0.05f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<DiscardedCollar>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<DiscardedCollar>(), normalChance);
             }
-            if (npc.type == mod.NPCType("Scryllar"))
+            if (npc.type == calamityMod.NPCType("Scryllar"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<ScryllianWings>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<ScryllianWings>(), normalChance);
             }
-            if (npc.type == mod.NPCType("ScryllarRage"))
+            if (npc.type == calamityMod.NPCType("ScryllarRage"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<ScryllianWings>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<ScryllianWings>(), normalChance);
             }
-            if (npc.type == mod.NPCType("DespairStone"))
+            if (npc.type == calamityMod.NPCType("DespairStone"))
             {
-                if (((bool)mod.Call("DifficultyActive", "defiled")) && Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<Drock>());
-                }
-                else if (Utils.NextFloat(Main.rand) < 0.05f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<Drock>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<Drock>(), normalChance);
             }
-            if (npc.type == mod.NPCType("WulfrumRover") && Main.expertMode)
+            if (npc.type == calamityMod.NPCType("WulfrumRover"))
             {
-                if (((bool)mod.Call("DifficultyActive", "defiled")) && Utils.NextFloat(Main.rand) < 0.05f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<WulfrumKeys>());
-                }
-                else if (Utils.NextFloat(Main.rand) < 0.01f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<WulfrumKeys>());
-                }
+                ConditionalChanceDropItem(npc, ModContent.ItemType<WulfrumKeys>(), Main.expertMode, mountChance);
             }
-            if (npc.type == mod.NPCType("CosmicElemental"))
+            if (npc.type == calamityMod.NPCType("CosmicElemental"))
             {
-                if (Main.rand.NextFloat() < 0.05f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<CosmicCone>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.1f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<CosmicCone>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<CosmicCone>(), normalChance);
             }
-            if (npc.type == mod.NPCType("Sunskater"))
+            if (npc.type == calamityMod.NPCType("Sunskater"))
             {
-                if (Main.rand.NextFloat() < 0.05f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<SkeetCrest>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.1f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<SkeetCrest>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<SkeetCrest>(), normalChance);
             }
-            if (npc.type == mod.NPCType("ShockstormShuttle"))
+            if (npc.type == calamityMod.NPCType("ShockstormShuttle"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<ShuttleBalloon>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<ShuttleBalloon>(), rareChance);
             }
-            if (npc.type == mod.NPCType("AeroSlime") && Main.expertMode)
+            if (npc.type == calamityMod.NPCType("AeroSlime"))
             {
-                if (Main.rand.NextFloat() < 0.05f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<AeroWings>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.1f && Main.expertMode)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<AeroWings>());
-                }
+                ConditionalChanceDropItem(npc, ModContent.ItemType<AeroWings>(), Main.expertMode, normalChance);
             }
-            if (npc.type == mod.NPCType("SeaFloaty"))
+            if (npc.type == calamityMod.NPCType("SeaFloaty"))
             {
-                if (Main.rand.NextFloat() < 0.05f && Main.expertMode)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<FloatyCarpetItem>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.1f && Main.expertMode)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<FloatyCarpetItem>());
-                }
+                ConditionalChanceDropItem(npc, ModContent.ItemType<FloatyCarpetItem>(), Main.expertMode, normalChance);
             }
-            if (npc.type == mod.NPCType("SuperDummyNPC") && Main.LocalPlayer.HeldItem.type != mod.ItemType("SuperDummy"))
+            if (npc.type == calamityMod.NPCType("SuperDummyNPC"))
             {
-                Item.NewItem(npc.getRect(),
-                    ModContent.ItemType<DummyMask>());
+                ConditionalDropItem(npc, ModContent.ItemType<DummyMask>(), Main.LocalPlayer.HeldItem.type != calamityMod.ItemType("SuperDummy"));
             }
             //Crawlers
-            if (npc.type == mod.NPCType("CrawlerAmethyst"))
+            if (npc.type == calamityMod.NPCType("CrawlerAmethyst"))
             {
-                if (Main.rand.NextFloat() < 0.1f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<AmethystStone>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.2f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<AmethystStone>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<AmethystStone>(), rareChance);
             }
-            if (npc.type == mod.NPCType("CrawlerTopaz"))
+            if (npc.type == calamityMod.NPCType("CrawlerTopaz"))
             {
-                if (Main.rand.NextFloat() < 0.1f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<TopazStone>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.2f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<TopazStone>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<TopazStone>(), rareChance);
             }
-            if (npc.type == mod.NPCType("CrawlerSapphire"))
+            if (npc.type == calamityMod.NPCType("CrawlerSapphire"))
             {
-                if (Main.rand.NextFloat() < 0.1f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<SapphireStone>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.2f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<SapphireStone>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<SapphireStone>(), rareChance);
             }
-            if (npc.type == mod.NPCType("CrawlerEmerald"))
+            if (npc.type == calamityMod.NPCType("CrawlerEmerald"))
             {
-                if (Main.rand.NextFloat() < 0.1f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<EmeraldStone>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.2f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<EmeraldStone>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<EmeraldStone>(), rareChance);
             }
-            if (npc.type == mod.NPCType("CrawlerRuby"))
+            if (npc.type == calamityMod.NPCType("CrawlerRuby"))
             {
-                if (Main.rand.NextFloat() < 0.1f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<RubyStone>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.2f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<RubyStone>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<RubyStone>(), rareChance);
             }
-            if (npc.type == mod.NPCType("CrawlerDiamond"))
+            if (npc.type == calamityMod.NPCType("CrawlerDiamond"))
             {
-                if (Main.rand.NextFloat() < 0.1f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<DiamondStone>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.2f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<DiamondStone>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<DiamondStone>(), rareChance);
             }
-            if (npc.type == mod.NPCType("CrawlerCrystal"))
+            if (npc.type == calamityMod.NPCType("CrawlerCrystal"))
             {
-                if (Main.rand.NextFloat() < 0.1f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<CrystalStone>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.2f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<CrystalStone>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<CrystalStone>(), rareChance);
             }
-            if (npc.type == mod.NPCType("CrawlerAmber"))
+            if (npc.type == calamityMod.NPCType("CrawlerAmber"))
             {
-                if (Main.rand.NextFloat() < 0.1f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<AmberStone>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.2f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<AmberStone>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<AmberStone>(), rareChance);
             }
             //end of crawler drops and prehm
             //Acid rain set tier 2
-            if (npc.type == mod.NPCType("SulfurousSkater"))
+            if (npc.type == calamityMod.NPCType("SulfurousSkater"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<SkaterEgg>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<SkaterEgg>(), normalChance);
             }
-            if (npc.type == mod.NPCType("Orthocera"))
+            if (npc.type == calamityMod.NPCType("Orthocera"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.05f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<Help>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.1f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<Help>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<Help>(), normalChance);
             }
-            if (npc.type == mod.NPCType("FlakCrab"))
+            if (npc.type == calamityMod.NPCType("FlakCrab"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<FlakHeadCrab>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<FlakHeadCrab>(), normalChance);
             }
-            if (npc.type == mod.NPCType("Trilobite"))
+            if (npc.type == calamityMod.NPCType("Trilobite"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<TrilobiteShield>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<TrilobiteShield>(), normalChance);
             }
-            if (npc.type == mod.NPCType("GammaSlime"))
+            if (npc.type == calamityMod.NPCType("GammaSlime"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.03f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<GammaHelmet>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.3f)
-                {
-                    Item.NewItem(npc.getRect(), ModContent.ItemType<NuclearFumes>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<GammaHelmet>(), vanityMinChance);
+                ChanceDropItem(npc, ModContent.ItemType<NuclearFumes>(), 0.3f); //30%
             }
             //Astral tree drops all
-            if (npc.type == mod.NPCType("AstralProbe"))
+            if (npc.type == calamityMod.NPCType("AstralProbe"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.002f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AstralOldPurple>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.001f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AstralOldYellow>());
-                }
+                ChanceDropItem(npc, Main.rand.NextBool() ? ModContent.ItemType<AstralOldPurple>() : ModContent.ItemType<AstralOldYellow>(), 0.001f); //0.1% for either
             }
-            if (npc.type == mod.NPCType("SmallSightseer"))
+            if (npc.type == calamityMod.NPCType("SmallSightseer"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.001f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AstralOldPurple>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.001f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AstralOldYellow>());
-                }
+                ChanceDropItem(npc, Main.rand.NextBool() ? ModContent.ItemType<AstralOldPurple>() : ModContent.ItemType<AstralOldYellow>(), 0.001f); //0.1% for either
             }
-            if (npc.type == mod.NPCType("BigSightseer"))
+            if (npc.type == calamityMod.NPCType("BigSightseer"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.001f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AstralOldPurple>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.001f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AstralOldYellow>());
-                }
+                ChanceDropItem(npc, Main.rand.NextBool() ? ModContent.ItemType<AstralOldPurple>() : ModContent.ItemType<AstralOldYellow>(), 0.001f); //0.1% for either
             }
             //Astral tree drops surface
-            if (npc.type == mod.NPCType("Aries"))
+            //These chances are not consistent at all. This is stupid. - Kawaggy
+            if (npc.type == calamityMod.NPCType("Aries"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.001f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AstralOldPurple>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<AstralOldPurple>(), 0.001f); //0.1%
             }
-            if (npc.type == mod.NPCType("AstralSlime"))
+            if (npc.type == calamityMod.NPCType("AstralSlime"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.01f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AstralOldPurple>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<AstralOldPurple>(), 0.01f); //1%
             }
-            if (npc.type == mod.NPCType("Atlas"))
+            if (npc.type == calamityMod.NPCType("Atlas"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.005f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AstralOldPurple>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<AstralOldPurple>(), 0.01f); //1%
             }
-            if (npc.type == mod.NPCType("Nova"))
+            if (npc.type == calamityMod.NPCType("Nova"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.001f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AstralOldPurple>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<AstralOldPurple>(), 0.001f); //0.1%
             }
-            if (npc.type == mod.NPCType("Mantis"))
+            if (npc.type == calamityMod.NPCType("Mantis"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.001f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AstralOldPurple>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<AstralOldPurple>(), 0.001f); //0.1%
             }
-            if (npc.type == mod.NPCType("FusionFeeder"))
+            if (npc.type == calamityMod.NPCType("FusionFeeder"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.002f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AstralOldPurple>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<AstralOldPurple>(), 0.002f); //0.2%
             }
-            if (npc.type == mod.NPCType("Hadarian"))
+            if (npc.type == calamityMod.NPCType("Hadarian"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.002f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AstralOldPurple>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<AstralOldPurple>(), 0.002f); //0.2%
             }
             //Astral tree drops underground
-            if (npc.type == mod.NPCType("Hive"))
+            if (npc.type == calamityMod.NPCType("Hive"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.002f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AstralOldYellow>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<AstralOldYellow>(), 0.002f); //0.2%
             }
-            if (npc.type == mod.NPCType("Astralachnea"))
+            if (npc.type == calamityMod.NPCType("Astralachnea"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.001f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AstralOldYellow>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<AstralOldYellow>(), 0.002f); //0.2%
             }
-            if (npc.type == mod.NPCType("StellarCulex"))
+            if (npc.type == calamityMod.NPCType("StellarCulex"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.001f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AstralOldPurple>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<AstralOldYellow>(), 0.001f); //0.1%
             }
-            if (npc.type == mod.NPCType("Hiveling"))
+            if (npc.type == calamityMod.NPCType("Hiveling"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.0001f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AstralOldPurple>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<AstralOldYellow>(), 0.0001f); //0.01%
             }
             //Hardmode drops
-            if (npc.type == mod.NPCType("PerennialSlime"))
+            if (npc.type == calamityMod.NPCType("PerennialSlime"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<PerennialFlower>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.07f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AncientPerennialFlower>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.075f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<PerennialDress>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<PerennialFlower>(), vanityNormalChance);
+                ChanceDropItem(npc, ModContent.ItemType<PerennialDress>(), vanityNormalChance);
+                ChanceDropItem(npc, ModContent.ItemType<PerennialFlower>(), RIVChance);
             }
-            if (npc.type == mod.NPCType("Bohldohr"))
+            if (npc.type == calamityMod.NPCType("Bohldohr"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<BoldEgg>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<BoldEgg>(), normalChance);
             }
-            if (npc.type == mod.NPCType("BelchingCoral"))
+            if (npc.type == calamityMod.NPCType("BelchingCoral"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<CoralMask>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<CoralMask>(), normalChance);
             }
-            if (npc.type == mod.NPCType("IceClasper"))
+            if (npc.type == calamityMod.NPCType("IceClasper"))
             {
-                if (Main.rand.NextFloat() < 0.05f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<AntarcticEssence>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.1f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<AntarcticEssence>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<AntarcticEssence>(), normalChance);
             }
-            if (npc.type == mod.NPCType("Cryon"))
+            if (npc.type == calamityMod.NPCType("Cryon"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.15f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<Cryocap>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.15f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<Cryocoat>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<Cryocap>(), vanityNormalChance);
+                ChanceDropItem(npc, ModContent.ItemType<Cryocoat>(), vanityNormalChance);
             }
-            if (npc.type == mod.NPCType("SmallSightseer"))
+            if (npc.type == calamityMod.NPCType("SmallSightseer"))
             {
-                if ((bool)mod.Call("GetBossDowned", "astrumaureus"))
-                {
-                    if (Utils.NextFloat(Main.rand) < 0.05f)
-                    {
-                        Item
-                            .NewItem(npc.getRect(),
-                            ModContent.ItemType<Binoculars>());
-                    }
-
-                }
+                ConditionalChanceDropItem(npc, ModContent.ItemType<Binoculars>(), (bool)calamityMod.Call("GetBossDowned", "astrumaureus"), 0.05f); //5%
             }
-            if (npc.type == mod.NPCType("BigSightseer"))
+            if (npc.type == calamityMod.NPCType("BigSightseer"))
             {
-                if ((bool)mod.Call("GetBossDowned", "astrumaureus"))
-                {
-                    if (Utils.NextFloat(Main.rand) < 0.1f)
-                    {
-                        Item
-                            .NewItem(npc.getRect(),
-                            ModContent.ItemType<Binoculars>());
-                    }
-                }
+                ConditionalChanceDropItem(npc, ModContent.ItemType<Binoculars>(), (bool)calamityMod.Call("GetBossDowned", "astrumaureus"), 0.1f); //10%
             }
-            if (npc.type == mod.NPCType("CultistAssassin"))
+            if (npc.type == calamityMod.NPCType("CultistAssassin"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.15f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<CultistRobe>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.15f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<CultistHood>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.15f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<CultistLegs>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<CultistRobe>(), vanityMaxChance);
+                ChanceDropItem(npc, ModContent.ItemType<CultistHood>(), vanityMaxChance);
+                ChanceDropItem(npc, ModContent.ItemType<CultistLegs>(), vanityMaxChance);
             }
-            if (npc.type == mod.NPCType("HeatSpirit"))
+            if (npc.type == calamityMod.NPCType("HeatSpirit"))
             {
-                if (Main.rand.NextFloat() < 0.05f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<ChaosEssence>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.1f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<ChaosEssence>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<ChaosEssence>(), normalChance);
             }
-            if (npc.type == mod.NPCType("OverloadedSoldier"))
+            if (npc.type == calamityMod.NPCType("OverloadedSoldier"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.15f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<UnloadedHelm>());
-                }
-                if (Main.rand.NextFloat() < 0.05f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<HauntedPebble>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.1f && Main.expertMode)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<HauntedPebble>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<UnloadedHelm>(), vanityMaxChance);
+                ChanceDropItem(npc, ModContent.ItemType<HauntedPebble>(), normalChance);
             }
-            if (npc.type == mod.NPCType("PhantomDebris"))
+            if (npc.type == calamityMod.NPCType("PhantomDebris"))
             {
-                if (Main.rand.NextFloat() < 0.05f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<HauntedPebble>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.1f && Main.expertMode)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<HauntedPebble>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<HauntedPebble>(), normalChance);
             }
-            if (npc.type == mod.NPCType("DevilFishAlt"))
+            if (npc.type == calamityMod.NPCType("DevilFishAlt"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<DevilfishMask1>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<DevilfishMask1>(), vanityNormalChance);
             }
-            if (npc.type == mod.NPCType("DevilFish"))
+            if (npc.type == calamityMod.NPCType("DevilFish"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<DevilfishMask2>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<DevilfishMask2>(), vanityNormalChance);
             }
-            if (npc.type == mod.NPCType("MirageJelly"))
+            if (npc.type == calamityMod.NPCType("MirageJelly"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<Mirballoon>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.01f && NPC.downedGolemBoss)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<OldMirage>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<Mirballoon>(), vanityNormalChance);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<OldMirage>(), NPC.downedGolemBoss, 0.01f); //1%
             }
-            if (npc.type == mod.NPCType("Hadarian"))
+            if (npc.type == calamityMod.NPCType("Hadarian"))
             {
-                if (((bool)mod.Call("GetBossDowned", "astrumaureus")) && Main.expertMode)
-
-                {
-                    if (Main.rand.NextFloat() < 0.05f)
-                    {
-                        Item.NewItem(npc.getRect(),
-                            ModContent.ItemType<HadarianTail>());
-                    }
-                }
+                ConditionalChanceDropItem(npc, ModContent.ItemType<HadarianTail>(), (bool)calamityMod.Call("GetBossDowned", "astrumaureus"), 0.05f); //5%
             }
-            if (npc.type == mod.NPCType("Eidolist"))
+            if (npc.type == calamityMod.NPCType("Eidolist"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<EidoMask>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<Eidcape>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<EidoMask>(), vanityNormalChance);
+                ChanceDropItem(npc, ModContent.ItemType<Eidcape>(), vanityNormalChance);
             }
             //Profaned enemies
-            if (npc.type == mod.NPCType("ProfanedEnergyBody") && Main.expertMode
-            )
+            if (npc.type == calamityMod.NPCType("ProfanedEnergyBody") && Main.expertMode)
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<ProfanedEnergyHook>());
-                    if (Utils.NextFloat(Main.rand) < 0.1f)
-                    {
-                        Item
-                            .NewItem(npc.getRect(),
-                            ModContent.ItemType<ProfanedBalloon>());
-                    }
-                }
-                if (((bool)mod.Call("DifficultyActive", "revengeance")) && Utils.NextFloat(Main.rand) < 0.01f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<ChewyToy>());
-                }
+                ConditionalChanceDropItem(npc, ModContent.ItemType<ProfanedEnergyHook>(), Main.expertMode, bossHookChance);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<ProfanedBalloon>(), Main.expertMode, vanityNormalChance);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<ChewyToy>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.01f); //1%
             }
-            if (npc.type == mod.NPCType("ScornEater"))
+            if (npc.type == calamityMod.NPCType("ScornEater"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<ScornEaterMask>());
-                }
-                if (((bool)mod.Call("DifficultyActive", "revengeance")) && Utils.NextFloat(Main.rand) < 0.01f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<ChewyToy>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<ScornEaterMask>(), vanityNormalChance);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<ChewyToy>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.01f); //1%
             }
-            if (npc.type == mod.NPCType("ImpiousImmolator"))
+            if (npc.type == calamityMod.NPCType("ImpiousImmolator"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<HolyTorch>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<ProfanedBalloon>());
-                }
-                if (((bool)mod.Call("DifficultyActive", "revengeance")) && Utils.NextFloat(Main.rand) < 0.01f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<ChewyToy>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<HolyTorch>(), 0.1f); //10%
+                ChanceDropItem(npc, ModContent.ItemType<ProfanedBalloon>(), vanityNormalChance);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<ChewyToy>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.01f); //1%
             }
             //Post-ml misc
             //if (npc.type == mod.NPCType("ShockstormShuttle"))
@@ -1059,186 +594,74 @@ namespace CalValEX
             //  ModContent.ItemType<ExodiumMoon>());
             //}
             //  }
-            if (npc.type == mod.NPCType("ChaoticPuffer"))
+            if (npc.type == calamityMod.NPCType("ChaoticPuffer"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<ChaosBalloon>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<ChaosBalloon>(), vanityNormalChance);
             }
             //Minibosses
-            if (npc.type == mod.NPCType("NuclearTerror"))
+            if (npc.type == calamityMod.NPCType("NuclearTerror"))
             {
-                if (Utils.NextFloat(Main.rand) < 1.0f)
-                {
-                    Item.NewItem(npc.getRect(),
-                    ModContent.ItemType<NuclearFumes>(), Main.rand.Next(3, 5));
-                    if (Main.expertMode)
-                    {
-                        Item.NewItem(npc.getRect(), ModContent.ItemType<NuclearFumes>(), Main.rand.Next(1, 3));
-                    }
-                }
-                if (Utils.NextFloat(Main.rand) < 0.5f)
-                {
-                    Item.NewItem(npc.getRect(), ModContent.ItemType<NuclearFumes>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.3f)
-                {
-                    Item.NewItem(npc.getRect(), ModContent.ItemType<NuclearFumes>());
-                }
+                DropItem(npc, ModContent.ItemType<NuclearFumes>(), 3, 5); //garanteed 3 to 5
+                ConditionalDropItem(npc, ModContent.ItemType<NuclearFumes>(), Main.expertMode, 1, 3); //when expert mode you get 1 to 3
+                ChanceDropItem(npc, ModContent.ItemType<NuclearFumes>(), 0.5f); //50% chance to get 1 extra
+                ChanceDropItem(npc, ModContent.ItemType<NuclearFumes>(), 0.3f); //30% chance to get 1 extra
             }
-            if (npc.type == mod.NPCType("Cnidrion"))
+            if (npc.type == calamityMod.NPCType("Cnidrion"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<DryShrimp>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<DryShrimp>(), minibossChance);
             }
-            if (npc.type == mod.NPCType("Reaper"))
+            if (npc.type == calamityMod.NPCType("Reaper"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<ReaperSharkArms>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<ReaperSharkArms>(), minibossChance);
             }
-            if (npc.type == mod.NPCType("ColossalSquid"))
+            if (npc.type == calamityMod.NPCType("ColossalSquid"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<SquidHat>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<SquidHat>(), minibossChance);
             }
-            if (npc.type == mod.NPCType("EidolonWyrmHead") && Main.expertMode)
+            if (npc.type == calamityMod.NPCType("EidolonWyrmHead"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<EWail>());
-                }
+                ConditionalChanceDropItem(npc, ModContent.ItemType<EWail>(), Main.expertMode, minibossChance);
             }
-            if (npc.type == mod.NPCType("EidolonWyrmHeadHuge"))
+            if (npc.type == calamityMod.NPCType("EidolonWyrmHeadHuge"))
             {
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<SoulShard>());
-                }
+                DropItem(npc, ModContent.ItemType<SoulShard>());
             }
-            if (npc.type == mod.NPCType("GreatSandShark") && Main.expertMode)
+            if (npc.type == calamityMod.NPCType("GreatSandShark") && Main.expertMode)
             {
-                if (Utils.NextFloat(Main.rand) < 0.2f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<CrushedCore>());
-                }
+                ConditionalChanceDropItem(npc, ModContent.ItemType<CrushedCore>(), Main.expertMode, minibossChance);
             }
-            if (npc.type == mod.NPCType("Horse"))
+            if (npc.type == calamityMod.NPCType("Horse"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.2f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<EarthShield>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<EarthShield>(), minibossChance);
             }
-            if (npc.type == mod.NPCType("GiantClam") && Main.expertMode)
+            if (npc.type == calamityMod.NPCType("GiantClam") && Main.expertMode)
             {
-                if (Utils.NextFloat(Main.rand) < 0.3f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<ClamHermitMedallion>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.3f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<ClamMask>());
-                }
+                ConditionalChanceDropItem(npc, ModContent.ItemType<ClamHermitMedallion>(), Main.expertMode, minibossChance);
+                ChanceDropItem(npc, ModContent.ItemType<ClamMask>(), vanityMaxChance);
             }
             if (npc.type == NPCID.SandElemental)
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f && Main.expertMode)
-                {
-                    Item.NewItem(npc.getRect(),
-                            ModContent.ItemType<SandBottle>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.05f && Main.expertMode)
-                {
-                    Item.NewItem(npc.getRect(),
-                            ModContent.ItemType<SandPlush>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.1f && Main.expertMode)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<SandPlush>());
-                }
+                ConditionalChanceDropItem(npc, ModContent.ItemType<SandBottle>(), Main.expertMode, normalChance);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<SandPlush>(), Main.expertMode, normalChance);
             }
-            if (npc.type == mod.NPCType("PlaguebringerShade") && Main.expertMode)
+            if (npc.type == calamityMod.NPCType("PlaguebringerShade"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<BeeCan>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<PlaugeWings>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.0012f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AncientAuricTeslaHelm>());
-                }
+                ConditionalChanceDropItem(npc, ModContent.ItemType<BeeCan>(), Main.expertMode, 0.1f);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<PlaugeWings>(), Main.expertMode, 0.1f);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), Main.expertMode, 0.0012f);
             }
-            if (npc.type == mod.NPCType("ArmoredDiggerHead") && Main.expertMode)
+            if (npc.type == calamityMod.NPCType("ArmoredDiggerHead"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.0012f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AncientAuricTeslaHelm>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<WulfrumController>());
-                }
+                ConditionalChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), Main.expertMode, 0.0012f);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<WulfrumController>(), Main.expertMode, 0.1f);
             }
-            if (npc.type == mod.NPCType("CragmawMire"))
+            if (npc.type == calamityMod.NPCType("CragmawMire"))
             {
-                if (((bool)mod.Call("GetBossDowned", "polterghast")) && Main.expertMode)
-
+                if (Main.expertMode)
                 {
-                    if (Main.rand.NextFloat() < 0.1f)
-                    {
-                        Item.NewItem(npc.getRect(),
-                            ModContent.ItemType<MawHook>());
-                    }
-                    if (Utils.NextFloat(Main.rand) < 0.3f)
-                    {
-                        Item.NewItem(npc.getRect(), ModContent.ItemType<NuclearFumes>(), Main.rand.Next(1, 3));
-                    }
-                }
-                else if (!((bool)mod.Call("GetBossDowned", "polterghast")) && Main.rand.NextFloat() < 0.5f && Main.expertMode)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<MawHook>());
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<MawHook>(), (bool)calamityMod.Call("GetBossDowned", "polterghast"), 0.1f); //10%
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<MawHook>(), !(bool)calamityMod.Call("GetBossDowned", "polterghast"), 0.5f); //50% ?? why more??
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<NuclearFumes>(), (bool)calamityMod.Call("GetBossDowned", "polterghast"), 0.3f, 1, 3);
                 }
             }
             //if (npc.type == mod.NPCType("NuclearTerror"))
@@ -1249,231 +672,100 @@ namespace CalValEX
             //ModContent.ItemType<RadJuice>());
             //}
             //}
-            if (npc.type == mod.NPCType("ThiccWaifu"))
+            if (npc.type == calamityMod.NPCType("ThiccWaifu"))
             {
-                if (((bool)mod.Call("GetBossDowned", "supremecalamitas")) && Main.rand.NextFloat() < 0.0001f && Main.expertMode)
-
+                if (Main.expertMode)
                 {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<FogG>());
-                }
-                if (Main.rand.NextFloat() < 0.1f && Main.expertMode)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<cloudcandy>());
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<FogG>(), (bool)calamityMod.Call("GetBossDowned", "supremecalamitas"), 0.0001f);
+                    ChanceDropItem(npc, ModContent.ItemType<cloudcandy>(), 0.1f);
                 }
             }
-            if (npc.type == mod.NPCType("Mauler"))
+            if (npc.type == calamityMod.NPCType("Mauler"))
             {
-                if (Main.rand.NextFloat() < 0.2f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<MaulerMask>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<MaulerMask>(), vanityNormalChance);
             }
             //Bosses
-            if (npc.type == mod.NPCType("Polterghast"))
+            if (npc.type == calamityMod.NPCType("Polterghast"))
             {
-                if (((bool)mod.Call("DifficultyActive", "revengeance")) && Main.rand.NextFloat() < 0.1f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<ToyScythe>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 1.0f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<ToyScythe>());
-                }
+                int dropped = ConditionalChanceDropItem(npc, ModContent.ItemType<ToyScythe>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
+                if (dropped == 0)
+                    ConditionalDropItem(npc, ModContent.ItemType<ToyScythe>(), (bool)calamityMod.Call("DifficultyActive", "defiled"));
             }
-            if (npc.type == mod.NPCType("StormWeaverHeadNaked") && Main.expertMode)
+            if (npc.type == calamityMod.NPCType("StormWeaverHeadNaked") && Main.expertMode)
             {
-                if (Utils.NextFloat(Main.rand) < 0.007f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AncientAuricTeslaHelm>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<StormBandana>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.15f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<ShellScrap>());
-                }
-                else if (Utils.NextFloat(Main.rand) < 0.15f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<WeaverFlesh>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), 0.007f); //0.7%
+                ChanceDropItem(npc, ModContent.ItemType<StormBandana>(), vanityNormalChance);
+                ChanceDropItem(npc, Main.rand.NextBool() ? ModContent.ItemType<ShellScrap>() : ModContent.ItemType<WeaverFlesh>(), bossPetChance);
             }
-            if (npc.type == mod.NPCType("Bumblefuck"))
+            if (npc.type == calamityMod.NPCType("Bumblefuck"))
             {
-                if (((bool)mod.Call("DifficultyActive", "revengeance")) && Main.rand.NextFloat() < 0.1f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<FluffyFeather>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 1.0f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<FluffyFeather>());
-                }
-                if (((bool)mod.Call("DifficultyActive", "armageddon")) && Main.rand.NextFloat() < 0.1f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<SparrowMeat>());
-                }
-                if (((bool)mod.Call("DifficultyActive", "death")) && Main.rand.NextFloat() < 0.001f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<FluffyFur>());
-                }
+                int dropped = ConditionalChanceDropItem(npc, ModContent.ItemType<FluffyFeather>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
+                if (dropped == 0)
+                    ConditionalDropItem(npc, ModContent.ItemType<FluffyFeather>(), (bool)calamityMod.Call("DifficultyActive", "defiled"));
+                ConditionalChanceDropItem(npc, ModContent.ItemType<SparrowMeat>(), (bool)calamityMod.Call("DifficultyActive", "armageddon"), bossPetChance);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<FluffyFur>(), (bool)calamityMod.Call("DifficultyActive", "death"), 0.001f); //0.1%
             }
-            if (npc.type == mod.NPCType("AstrumAureus"))
+            if (npc.type == calamityMod.NPCType("AstrumAureus"))
             {
-                if (((bool)mod.Call("DifficultyActive", "revengeance")) && Main.rand.NextFloat() < 0.1f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<JellyBottle>());
-                }
-                else if (((bool)mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 1.0f)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<JellyBottle>());
-                }
+                int dropped = ConditionalChanceDropItem(npc, ModContent.ItemType<JellyBottle>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
+                if (dropped == 0)
+                    ConditionalDropItem(npc, ModContent.ItemType<JellyBottle>(), (bool)calamityMod.Call("DifficultyActive", "defiled"));
             }
-            if (npc.type == mod.NPCType("RavagerBody"))
+            if (npc.type == calamityMod.NPCType("RavagerBody"))
             {
-                if (Main.rand.NextFloat() < 0.05f)
-                {
-                    Item.NewItem(npc.getRect(), ModContent.ItemType<ScavaHook>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<ScavaHook>(), bossHookChance);
+                ConditionalDropItem(npc, ModContent.ItemType<Necrostone>(), !Main.expertMode, 135, 275);
+            }
+            if (npc.type == calamityMod.NPCType("Signus"))
+            {
+                ChanceDropItem(npc, ModContent.ItemType<SigCloth>(), bossPetChance);
+                ChanceDropItem(npc, ModContent.ItemType<SigCape>(), vanityNormalChance);
+                ChanceDropItem(npc, ModContent.ItemType<SignusNether>(), vanityNormalChance);
+                ChanceDropItem(npc, ModContent.ItemType<SignusEmblem>(), vanityNormalChance);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<JunkoHat>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.2f); //20%
+                ConditionalChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), Main.expertMode, 0.007f); //0.7%
+            }
+            if (npc.type == calamityMod.NPCType("CeaselessVoid"))
+            {
+                ChanceDropItem(npc, ModContent.ItemType<VoidShard>(), bossPetChance);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<VoidShard>(), Main.expertMode, vanityNormalChance);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<VoidShard>(), Main.expertMode, 0.05f); //5%
+                ConditionalChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), Main.expertMode, 0.007f); //0.7%
+            }
+            if (npc.type == calamityMod.NPCType("Yharon"))
+            {
                 if (!Main.expertMode)
                 {
-                    Item.NewItem(npc.getRect(), ModContent.ItemType<Necrostone>(), Main.rand.Next(135, 273));
+                    ConditionalDropItem(npc, ModContent.ItemType<Termipebbles>(), (bool)calamityMod.Call("GetBossDowned", "buffedeclipse"), 2, 8);
                 }
             }
-            if (npc.type == mod.NPCType("Signus"))
+            if (npc.type == calamityMod.NPCType("SupremeCalamitas"))
             {
-                if (Utils.NextFloat(Main.rand) < 0.3f)
-                {
-                    Item.NewItem(npc.getRect(), ModContent.ItemType<SigCloth>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.2f)
-                {
-                    Item.NewItem(npc.getRect(), ModContent.ItemType<SigCape>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.2f)
-                {
-                    Item.NewItem(npc.getRect(), ModContent.ItemType<SignusNether>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.3f)
-                {
-                    Item.NewItem(npc.getRect(), ModContent.ItemType<SignusEmblem>());
-                }
-                if (((bool)mod.Call("DifficultyActive", "revengeance")) && Main.rand.NextFloat() < 0.2f && Main.expertMode)
-                {
-                    Item.NewItem(npc.getRect(), ModContent.ItemType<JunkoHat>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.007f && Main.expertMode)
-                {
-                    Item.NewItem(npc.getRect(), ModContent.ItemType<AncientAuricTeslaHelm>());
-                }
-            }
-            if (npc.type == mod.NPCType("CeaselessVoid"))
-            {
-                if (Utils.NextFloat(Main.rand) < 0.3f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<VoidShard>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.3f && Main.expertMode)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<VoidWings>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.05f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<OldVoidWings>());
-                }
-                if (Utils.NextFloat(Main.rand) < 0.007f && Main.expertMode)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<AncientAuricTeslaHelm>());
-                }
-            }
-            if (npc.type == mod.NPCType("Yharon"))
-            {
-                if ((bool)mod.Call("GetBossDowned", "buffedeclipse") && !Main.expertMode)
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<Termipebbles>(), Main.rand.Next(2, 8));
-                }
-            }
-            if (npc.type == mod.NPCType("SupremeCalamitas"))
-            {
-                if (Main.rand.NextFloat() < 0.2f)
-
-                {
-                    Item.NewItem(npc.getRect(),
-                        ModContent.ItemType<AncientAuricTeslaHelm>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), 0.2f); //20%
             }
 
             //Profaned bike
-            if (npc.type == mod.NPCType("ProfanedGuardianBoss3") && Main.expertMode)
+            if (npc.type == calamityMod.NPCType("ProfanedGuardianBoss3") && Main.expertMode)
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<ProfanedBattery>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<ProfanedBattery>(), 0.1f); //10%
             }
-            if (npc.type == mod.NPCType("ProfanedGuardianBoss2") && Main.expertMode)
+            if (npc.type == calamityMod.NPCType("ProfanedGuardianBoss2") && Main.expertMode)
             {
-                if (Utils.NextFloat(Main.rand) < 0.1f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<ProfanedWheels>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<ProfanedWheels>(), 0.1f); //10%
             }
-            if (npc.type == mod.NPCType("ProfanedGuardianBoss") && Main.expertMode)
+            if (npc.type == calamityMod.NPCType("ProfanedGuardianBoss") && Main.expertMode)
             {
-                if (Utils.NextFloat(Main.rand) < 0.2f)
-                {
-                    Item
-                        .NewItem(npc.getRect(),
-                        ModContent.ItemType<ProfanedFrame>());
-                }
+                ChanceDropItem(npc, ModContent.ItemType<ProfanedFrame>(), 0.1f); //10%
             }
 
             //Yharexs' Dev Pet (Calamity BABY)
-            if ((bool)mod.Call("DifficultyActive", "death"))
+            if ((bool)calamityMod.Call("DifficultyActive", "death"))
             {
-                if (npc.type == mod.NPCType("AstralSlime") && Main.rand.Next(870000) == 0)
+                if (npc.type == calamityMod.NPCType("AstralSlime") && Main.rand.Next(870000) == 0)
                 {
-                    Item.NewItem(npc.Hitbox, ModContent.ItemType<YharexsLetter>());
+                    DropItem(npc, ModContent.ItemType<YharexsLetter>());
                 }
-                if (npc.type == mod.NPCType("SupremeCalamitas"))
+                if (npc.type == calamityMod.NPCType("SupremeCalamitas"))
                 {
                     bool didIGetHit = false;
                     for (int i = 0; i < Main.maxPlayers; i++)
@@ -1489,17 +781,64 @@ namespace CalValEX
                     }
                     if (!didIGetHit)
                     {
-                        Item.NewItem(npc.Hitbox, ModContent.ItemType<YharexsLetter>());
+                        DropItem(npc, ModContent.ItemType<YharexsLetter>());
                     }
                     else
                     {
                         if (Main.rand.Next(1000) == 0)
                         {
-                            Item.NewItem(npc.Hitbox, ModContent.ItemType<YharexsLetter>());
+                            DropItem(npc, ModContent.ItemType<YharexsLetter>());
                         }
                     }
                 }
             }
         }
+
+        private static int DropItem(NPC npc, int itemID, bool dropPerPlayer, int min = 1, int max = 0)
+        {
+            int numberOfItems;
+            if (max <= min)
+                numberOfItems = min;
+            else
+                numberOfItems = Main.rand.Next(min, max + 1);
+
+            if (numberOfItems <= 0)
+                return 0;
+
+            if (dropPerPlayer)
+                npc.DropItemInstanced(npc.position, npc.Size, itemID, numberOfItems);
+            else
+                Item.NewItem(npc.Hitbox, itemID, numberOfItems);
+            return numberOfItems;
+        }
+
+        private static int DropItem(NPC npc, int itemID, int min = 1, int max = 0) => DropItem(npc, itemID, false, min, max);
+
+        public static int ChanceDropItem(NPC npc, int itemID, float chance, bool dropPerPlayer, int min = 1, int max = 0)
+        {
+            if (Main.rand.NextFloat() < chance)
+                return DropItem(npc, itemID, dropPerPlayer, min, max);
+            return 0;
+        }
+
+        public static int ChanceDropItem(NPC npc, int itemID, float chance, int min = 1, int max = 0) => ChanceDropItem(npc, itemID, chance, false, min, max);
+
+        public static int ConditionalDropItem(NPC npc, int itemID, bool condition, bool dropPerPlayer, int min = 1, int max = 0)
+        {
+            if (condition)
+                return DropItem(npc, itemID, dropPerPlayer, min, max);
+            return 0;
+        }
+
+        public static int ConditionalDropItem(NPC npc, int itemID, bool condition, int min = 1, int max = 0) => ConditionalDropItem(npc, itemID, condition, false, min, max);
+
+        public static int ConditionalChanceDropItem(NPC npc, int itemID, bool condition, float chance, bool dropPerPlayer, int min = 1, int max = 0)
+        {
+            if (condition)
+                return ChanceDropItem(npc, itemID, chance, dropPerPlayer, min, max);
+            return 0;
+        }
+
+        public static int ConditionalChanceDropItem(NPC npc, int itemID, bool condition, float chance, int min = 1, int max = 0) => ConditionalChanceDropItem(npc, itemID, condition, chance, false, min, max);
     }
 }
