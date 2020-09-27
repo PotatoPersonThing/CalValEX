@@ -28,10 +28,12 @@ namespace CalValEX
                             player.QuickSpawnItem(ModContent.ItemType<EWail>());
                             player.QuickSpawnItem(ModContent.ItemType<SoulShard>());
                             break;
+
                         case "RamG":
                         case "Ramgear":
                             player.QuickSpawnItem(ModContent.ItemType<ToyScythe>());
                             break;
+
                         case "Bumbledoge":
                         case "BumbleDoge":
                         case "Bojangles":
@@ -39,55 +41,70 @@ namespace CalValEX
                             player.QuickSpawnItem(ModContent.ItemType<AeroPebble>());
                             player.QuickSpawnItem(ModContent.ItemType<FluffyFur>());
                             break;
+
                         case "Krysmun":
                             player.QuickSpawnItem(ModContent.ItemType<FluffyFeather>());
                             break;
+
                         case "William":
                             player.QuickSpawnItem(ModContent.ItemType<EurosBandage>());
                             break;
+
                         case "Kiwabug":
                             player.QuickSpawnItem(ModContent.ItemType<UglyTentacle>());
                             break;
+
                         case "YuH":
                             player.QuickSpawnItem(ModContent.ItemType<Eidolistthingy>());
                             break;
+
                         case "Hypera":
                             player.QuickSpawnItem(ModContent.ItemType<SolarBun>());
                             break;
+
                         case "Drakudragonx":
                             player.QuickSpawnItem(ModContent.ItemType<BambooStick>());
                             break;
+
                         case "Lucca":
                             player.QuickSpawnItem(ModContent.ItemType<JunkoHat>());
                             player.QuickSpawnItem(ModContent.ItemType<ToyScythe>());
                             break;
+
                         case "Lil Junko":
                             player.QuickSpawnItem(ModContent.ItemType<JunkoHat>());
                             break;
+
                         case "Cooper":
                             player.QuickSpawnItem(ModContent.ItemType<coopershortsword>());
                             break;
+
                         case "Enreden":
                             player.QuickSpawnItem(ModContent.ItemType<Enredenitem>());
                             break;
+
                         case "Emerald":
                         case "EmeraldXLapis":
                             player.QuickSpawnItem(ModContent.ItemType<FogG>());
                             break;
+
                         case "Yharex87":
                         case "Yharex":
                             player.QuickSpawnItem(ModContent.ItemType<JellyBottle>());
                             player.QuickSpawnItem(ModContent.ItemType<YharexsLetter>());
                             break;
+
                         case "Scarfy":
                             player.QuickSpawnItem(ModContent.ItemType<FluffyFeather>());
                             break;
+
                         case "Willow":
                         case "willowmaine":
                         case "bean long":
                             player.QuickSpawnItem(ModContent.ItemType<PerennialFlower>());
                             player.QuickSpawnItem(ModContent.ItemType<VVanities>());
                             break;
+
                         case "Potato Person":
                             player.QuickSpawnItem(ModContent.ItemType<MissingFang>());
                             break;
@@ -97,79 +114,79 @@ namespace CalValEX
             if (item.type == calamityMod.ItemType("AbyssalCrate"))
             {
                 if (Utils.NextFloat(Main.rand) < 0.035f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<AcidGun>());
-                    }
+                {
+                    player.QuickSpawnItem(ModContent.ItemType<AcidGun>());
+                }
                 if (Utils.NextFloat(Main.rand) < 0.02f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<CursedLockpick>());
-                    }
+                {
+                    player.QuickSpawnItem(ModContent.ItemType<CursedLockpick>());
+                }
                 if (Utils.NextFloat(Main.rand) < 0.05f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<SulphurColumn>(), Main.rand.Next(5, 7));
-                    }
+                {
+                    player.QuickSpawnItem(ModContent.ItemType<SulphurColumn>(), Main.rand.Next(5, 7));
+                }
                 if (Utils.NextFloat(Main.rand) < 0.05f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<SulphurGeyser>(), Main.rand.Next(2, 3));
-                    }
+                {
+                    player.QuickSpawnItem(ModContent.ItemType<SulphurGeyser>(), Main.rand.Next(2, 3));
+                }
                 if (((bool)calamityMod.Call("GetBossDowned", "polterghast")) & Utils.NextFloat(Main.rand) < 0.025f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<EidolonTree>()); 
-                    }
+                {
+                    player.QuickSpawnItem(ModContent.ItemType<EidolonTree>());
+                }
                 if (((bool)calamityMod.Call("GetBossDowned", "polterghast")) & Utils.NextFloat(Main.rand) < 0.01f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<NuclearFumes>(), Main.rand.Next(3, 5));
-                    }
+                {
+                    player.QuickSpawnItem(ModContent.ItemType<NuclearFumes>(), Main.rand.Next(2, 11));
+                }
                 if (((bool)calamityMod.Call("GetBossDowned", "acidrainscourge")) & Utils.NextFloat(Main.rand) < 0.05f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<BelchingCoral>()); 
-                    }
+                {
+                    player.QuickSpawnItem(ModContent.ItemType<BelchingCoral>());
+                }
             }
             if (item.type == calamityMod.ItemType("AstralCrate"))
             {
                 if (Utils.NextFloat(Main.rand) < 0.03f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<MonolithPot>());
-                    }
+                {
+                    player.QuickSpawnItem(ModContent.ItemType<MonolithPot>());
+                }
                 if (Utils.NextFloat(Main.rand) < 0.005f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<AstralOldPurple>());
-                    }
+                {
+                    player.QuickSpawnItem(ModContent.ItemType<AstralOldPurple>());
+                }
                 if (Utils.NextFloat(Main.rand) < 0.02f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<AstralOldYellow>());
-                    }
+                {
+                    player.QuickSpawnItem(ModContent.ItemType<AstralOldYellow>());
+                }
                 if (((bool)calamityMod.Call("GetBossDowned", "signus")) & Utils.NextFloat(Main.rand) < 0.05f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<NetherTree>()); 
-                    }
+                {
+                    player.QuickSpawnItem(ModContent.ItemType<NetherTree>());
+                }
             }
             if (item.type == calamityMod.ItemType("SunkenCrate"))
             {
                 if (Utils.NextFloat(Main.rand) < 0.03f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<SSCoral>());
-                    }
+                {
+                    player.QuickSpawnItem(ModContent.ItemType<SSCoral>());
+                }
                 if (Utils.NextFloat(Main.rand) < 0.03f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<Anemone>());
-                    }
+                {
+                    player.QuickSpawnItem(ModContent.ItemType<Anemone>());
+                }
                 if (Utils.NextFloat(Main.rand) < 0.03f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<TableCoral>());
-                    }
+                {
+                    player.QuickSpawnItem(ModContent.ItemType<TableCoral>());
+                }
                 if (Utils.NextFloat(Main.rand) < 0.03f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<FanCoral>());
-                    }
+                {
+                    player.QuickSpawnItem(ModContent.ItemType<FanCoral>());
+                }
                 if (Utils.NextFloat(Main.rand) < 0.03f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<BrainCoral>());
-                    }
+                {
+                    player.QuickSpawnItem(ModContent.ItemType<BrainCoral>());
+                }
                 if (Utils.NextFloat(Main.rand) < 0.01f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<SeaCrown>());
-                    }
+                {
+                    player.QuickSpawnItem(ModContent.ItemType<SeaCrown>());
+                }
             }
         }
 
@@ -338,7 +355,7 @@ namespace CalValEX
                     }
                     if (arg == calamityMod.ItemType("RavagerBag"))
                     {
-                         player.QuickSpawnItem(ModContent.ItemType<Necrostone>(), Main.rand.Next(194, 235));
+                        player.QuickSpawnItem(ModContent.ItemType<Necrostone>(), Main.rand.Next(194, 235));
                         if (Utils.NextFloat(Main.rand) < 0.3f)
                         {
                             player.QuickSpawnItem(ModContent.ItemType<AncientChoker>());
