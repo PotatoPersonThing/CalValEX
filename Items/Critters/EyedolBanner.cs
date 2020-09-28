@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Terraria.ID;
 
-namespace CalValEX.Items.Tiles
+namespace CalValEX.Items.Tiles.Banners
 {
 	public class EyedolBanner : ModItem
 	{
