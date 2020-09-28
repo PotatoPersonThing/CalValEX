@@ -4,6 +4,10 @@ using CalValEX.Items.Hooks;
 using CalValEX.Items.Mounts;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Tiles;
+using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
+using CalValEX.Items.Tiles.Paintings;
+using CalValEX.Items.Tiles.Plants;
+using CalValEX.Items.Tiles.Statues;
 using Terraria;
 using Terraria.ModLoader;
 

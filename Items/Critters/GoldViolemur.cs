@@ -6,7 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
-using CalValEX.Items.Tiles;
+using CalValEX.Items.Tiles.Banners;
 
 namespace CalValEX.Items.Critters
 {

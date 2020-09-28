@@ -5,6 +5,10 @@ using CalValEX.Items.Hooks;
 using CalValEX.Items.Mounts;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Tiles;
+using CalValEX.Items.Tiles.Balloons;
+using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
+using CalValEX.Items.Tiles.Paintings;
+using CalValEX.Items.Tiles.Plants;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -248,15 +252,6 @@ namespace CalValEX
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<SwearshroomItem>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 0);
                     ++nextSlot;
-                }
-                if (type == NPCID.Cyborg)
-                {
-                    if ((bool)clamMod.Call("GetBossDowned", "astrumaureus"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrumAureusLog>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
-                        ++nextSlot;
-                    }
                 }
                 if (type == NPCID.PartyGirl)
                 {
