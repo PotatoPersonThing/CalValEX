@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
 
-namespace CalValEX.Items.Tiles
+namespace CalValEX.Items.Tiles.Banners
 {
 	public class EyedolBannerPlaced : ModTile
 	{
