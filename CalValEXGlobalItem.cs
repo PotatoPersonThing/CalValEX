@@ -133,7 +133,7 @@ namespace CalValEX
                 {
                     player.QuickSpawnItem(ModContent.ItemType<EidolonTree>());
                 }
-                if (((bool)calamityMod.Call("GetBossDowned", "polterghast")) & Utils.NextFloat(Main.rand) < 0.01f)
+                if (((bool)calamityMod.Call("GetBossDowned", "polterghast")) & Utils.NextFloat(Main.rand) < 0.1f)
                 {
                     player.QuickSpawnItem(ModContent.ItemType<NuclearFumes>(), Main.rand.Next(2, 11));
                 }
