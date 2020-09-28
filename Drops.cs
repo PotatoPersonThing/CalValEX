@@ -24,6 +24,8 @@ namespace CalValEX
         public readonly float bossPetChance = 0.2f; //20%
         public readonly float bossHookChance = 0.1f; //10%
         public readonly float RIVChance = 0.075f; //7.5%
+        
+        public override bool InstancePerEntity => true;
 
         public readonly float vanityMinChance = 0.05f; //5%
         public readonly float vanityNormalChance = 0.1f; //10%
