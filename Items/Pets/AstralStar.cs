@@ -18,7 +18,7 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Astral Star");
+            DisplayName.SetDefault("Geminga");
             Tooltip.SetDefault("A highly condensed star");
         }
 
