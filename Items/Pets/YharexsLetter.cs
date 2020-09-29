@@ -1,6 +1,7 @@
 ﻿using CalValEX.Buffs.Pets;
 using CalValEX.Projectiles.Pets;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -12,14 +13,14 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Yharex's Letter");
-            Tooltip.SetDefault("Hope you like my BABY version as a cute pet, also I recommend you have a Astral Slimy as companion");
+            DisplayName.SetDefault("AstraEGGeldon");
+            Tooltip.SetDefault("'You can stop asking from where I was born'\nSummons an edgy amalgamate to accompany you");
         }
 
         public override void SetDefaults()
         {
-            item.width = 44;
-            item.height = 32;
+            item.width = 42;
+            item.height = 42;
             item.shoot = ModContent.ProjectileType<CalamityBABY>();
             item.value = Item.sellPrice(0, 10, 0, 0);
             item.rare = ItemRarityID.Red;
@@ -71,6 +72,13 @@ namespace CalValEX.Items.Pets
             recipe.AddIngredient(calamityMod.ItemType("AstralSlimeBanner"), 30);
             recipe.SetResult(this);
             recipe.AddRecipe();
+        }
+
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            foreach (TooltipLine tooltipLine in tooltips) 
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName") 
+                    tooltipLine.overrideColor = new Color(219, 94, 210);
         }
     }
 }
