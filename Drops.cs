@@ -734,7 +734,7 @@ namespace CalValEX
             }
             if (npc.type == calamityMod.NPCType("RavagerBody"))
             {
-                ChanceDropItem(npc, ModContent.ItemType<ScavaHook>(), bossHookChance);
+                ChanceDropItem(npc, ModContent.ItemType<ScavaHook>(), RIVChance);
                 ConditionalDropItem(npc, ModContent.ItemType<Necrostone>(), !Main.expertMode, 135, 275);
             }
             if (npc.type == calamityMod.NPCType("Signus"))
@@ -752,6 +752,10 @@ namespace CalValEX
                 ConditionalChanceDropItem(npc, ModContent.ItemType<VoidShard>(), Main.expertMode, vanityNormalChance);
                 ConditionalChanceDropItem(npc, ModContent.ItemType<VoidShard>(), Main.expertMode, 0.05f); //5%
                 ConditionalChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), Main.expertMode, 0.007f); //0.7%
+            }
+            if (npc.type == calamityMod.NPCType("OldDuke") && Main.expertMode)
+            {
+                ChanceDropItem(npc, ModContent.ItemType<CharredChopper>(), RIVChance);
             }
             if (npc.type == calamityMod.NPCType("Yharon"))
             {
