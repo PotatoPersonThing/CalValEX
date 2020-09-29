@@ -631,6 +631,10 @@ namespace CalValEX
             {
                 ChanceDropItem(npc, ModContent.ItemType<DryShrimp>(), minibossChance);
             }
+            if (npc.type == calamityMod.NPCType("Bumblefolly"))
+            {
+                ChanceDropItem(npc, ModContent.ItemType<OrbSummon>(), minibossChance);
+            }
             if (npc.type == calamityMod.NPCType("Reaper"))
             {
                 ChanceDropItem(npc, ModContent.ItemType<ReaperSharkArms>(), minibossChance);

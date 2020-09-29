@@ -6,6 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using CalValEX;
+using CalValEX.Items.Tiles.Plants;
 
 namespace CalValEX.Items.Pets {
 	public class CrushedCore : ModItem
@@ -30,5 +31,19 @@ namespace CalValEX.Items.Pets {
 				player.AddBuff(item.buffType, 3600, true);
 			}
 		}
+
+		public override void AddRecipes()
+        {
+        Mod CalValEX = ModLoader.GetMod("CalamityMod");
+                {
+                    ModRecipe recipe = new ModRecipe(mod);
+					recipe.AddIngredient((ItemID.AncientBattleArmorMaterial), 10);
+					recipe.AddIngredient((ItemID.Bass), 1);
+                    recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("GrandScale"), 5);
+                    recipe.AddTile(mod.TileType("BelchingCoralPlaced"));
+                    recipe.SetResult(this);
+                    recipe.AddRecipe();
+                }
+        }
 	}
 }
