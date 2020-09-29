@@ -133,11 +133,15 @@ namespace CalValEX
                 {
                     player.QuickSpawnItem(ModContent.ItemType<SulphurGeyser>(), Main.rand.Next(2, 3));
                 }
+                if (((bool)calamityMod.Call("GetBossDowned", "calamitas")) & Utils.NextFloat(Main.rand) < 0.02f)
+                {
+                    player.QuickSpawnItem(ModContent.ItemType<Pollution>());
+                }
                 if (((bool)calamityMod.Call("GetBossDowned", "polterghast")) & Utils.NextFloat(Main.rand) < 0.025f)
                 {
                     player.QuickSpawnItem(ModContent.ItemType<EidolonTree>());
                 }
-                if (((bool)calamityMod.Call("GetBossDowned", "polterghast")) & Utils.NextFloat(Main.rand) < 0.1f)
+                if (((bool)calamityMod.Call("GetBossDowned", "oldduke")) & Utils.NextFloat(Main.rand) < 0.1f)
                 {
                     player.QuickSpawnItem(ModContent.ItemType<NuclearFumes>(), Main.rand.Next(2, 11));
                 }
