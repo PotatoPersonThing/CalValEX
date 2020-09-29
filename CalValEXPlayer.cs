@@ -113,6 +113,10 @@ namespace CalValEX
         public bool CalamityBabyGotHit = false;
         public int SCalHits = 0;
         public bool Lightshield = false;
+        public bool sDuke = false;
+        public bool squid = false;
+        public bool voidling = false;
+        public bool mScourge = false;
 
         public override void Initialize()
         {
@@ -231,6 +235,10 @@ namespace CalValEX
             MechaGeorge = false;
             CalamityBABYBool = false;
             Lightshield = false;
+            sDuke = false;
+            squid = false;
+            voidling = false;
+            mScourge = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
