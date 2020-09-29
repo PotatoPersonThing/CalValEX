@@ -64,7 +64,7 @@ namespace CalValEX.Items.Pets
             {
 		recipe.AddIngredient(ModContent.ItemType<Termipebbles>(), 5);
                 recipe.AddIngredient(calamityMod.ItemType("Rock"));
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("ShadowspecBar"), 5);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CalamitousEssence"), 5);
                 recipe.AddIngredient(mod.ItemType("VoodooGod"), 1);
                 recipe.AddIngredient(mod.ItemType("NuggetBiscuit"), 1);
                 recipe.AddTile(calamityMod.TileType("DraedonsForge"));
