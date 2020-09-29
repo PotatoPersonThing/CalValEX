@@ -7,6 +7,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using CalValEX.Items;
 
 namespace CalValEX
 {
@@ -116,6 +117,39 @@ namespace CalValEX
             PlayerBagChanged,
             SyncCalValEXPlayer,
             SyncSCalHits
+        }
+
+        public override void AddRecipes()
+		{
+                //Wulfrum
+                Mod CalValEX = ModLoader.GetMod("CalamityMod");
+                {
+                ModRecipe recipe = new ModRecipe(this);
+				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("EnergyCore"), 50);
+				recipe.AddIngredient(ItemID.SlimeBanner);
+                recipe.AddTile(TileID.Solidifier);
+                recipe.SetResult(ModLoader.GetMod("CalamityMod").ItemType("WulfrumSlimeBanner"));
+                recipe.AddRecipe();
+                recipe = new ModRecipe(this);
+				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("EnergyCore"), 50);
+                recipe.AddIngredient(ItemID.SlimeBanner);
+                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("StaticRefiner"));
+                recipe.SetResult(ModLoader.GetMod("CalamityMod").ItemType("WulfrumSlimeBanner"));
+                recipe.AddRecipe();
+                //Irradiated
+                recipe = new ModRecipe(this);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("GammaSlimeBanner"));
+				recipe.AddIngredient(ModContent.ItemType<NuclearFumes>(), 50);
+                recipe.AddTile(TileID.Solidifier);
+                recipe.SetResult(ModLoader.GetMod("CalamityMod").ItemType("IrradiatedSlimeBanner"));
+                recipe.AddRecipe();
+                recipe = new ModRecipe(this);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("GammaSlimeBanner"));
+				recipe.AddIngredient(ModContent.ItemType<NuclearFumes>(), 50);
+                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("StaticRefiner"));
+                recipe.SetResult(ModLoader.GetMod("CalamityMod").ItemType("IrradiatedSlimeBanner"));
+                recipe.AddRecipe();
+                }
         }
     }
 }
