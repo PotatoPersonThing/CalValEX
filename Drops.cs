@@ -642,6 +642,7 @@ namespace CalValEX
             if (npc.type == calamityMod.NPCType("EidolonWyrmHead"))
             {
                 ConditionalChanceDropItem(npc, ModContent.ItemType<EWail>(), Main.expertMode, minibossChance);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<SoulShard>(), !(bool)calamityMod.Call("GetBossDowned", "cryogen") && !NPC.downedGolemBoss && !NPC.downedPlantBoss && !NPC.downedAncientCultist, 1.0f);
             }
             if (npc.type == calamityMod.NPCType("EidolonWyrmHeadHuge"))
             {
