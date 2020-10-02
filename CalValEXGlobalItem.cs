@@ -46,10 +46,6 @@ namespace CalValEX
                             player.QuickSpawnItem(ModContent.ItemType<FluffyFur>());
                             break;
 
-                        case "Krysmun":
-                            player.QuickSpawnItem(ModContent.ItemType<FluffyFeather>());
-                            break;
-
                         case "William":
                             player.QuickSpawnItem(ModContent.ItemType<EurosBandage>());
                             break;
@@ -99,6 +95,9 @@ namespace CalValEX
                             break;
 
                         case "Scarfy":
+                        case "DodoNation":
+                        case "Dodo":
+                        case "Krysmun":
                             player.QuickSpawnItem(ModContent.ItemType<FluffyFeather>());
                             break;
 
