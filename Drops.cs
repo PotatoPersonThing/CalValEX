@@ -234,21 +234,21 @@ namespace CalValEX
                 }
                 if (type == clamMod.NPCType("THIEF"))
                 {
-                    if ((bool)clamMod.Call("GetBossDowned", "signus"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Signut>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(15, 0, 0, 0);
-                        ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidTentacles>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
-                        ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidThorax>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
-                        ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidCranium>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
-                        ++nextSlot;
-                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "astrumaureus"))
+                        {
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<AureicFedora>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
+                            ++nextSlot;
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidTentacles>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
+                            ++nextSlot;
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidThorax>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
+                            ++nextSlot;
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidCranium>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
+                            ++nextSlot;
+                        }
                 }
                 if (type == NPCID.Clothier)
                 {
@@ -266,12 +266,6 @@ namespace CalValEX
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
                         ++nextSlot;
                     }
-                    if ((bool)clamMod.Call("GetBossDowned", "astrumaureus"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<AureicFedora>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
-                            ++nextSlot;
-                        }
                 }
                 if (type == NPCID.Truffle)
                 {
