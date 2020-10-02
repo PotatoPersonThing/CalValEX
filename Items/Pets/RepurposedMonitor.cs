@@ -51,15 +51,53 @@ namespace CalValEX.Items.Pets
 }
         public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            if (calamityMod != null)
+			Mod calamityMod = ModLoader.GetMod("CalamityMod");
             {
-                recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 2);
-                recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 2);
-                recipe.AddTile(TileID.Anvils);
-			    recipe.SetResult(this);
-			    recipe.AddRecipe();
+                {
+                    ModRecipe recipe = new ModRecipe(mod);
+                    recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 2);
+                    recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 2);
+                    recipe.AddIngredient(calamityMod.ItemType("Navyplate"), 15);
+                    recipe.AddTile(TileID.Anvils);
+                    recipe.SetResult(this);
+                    recipe.AddRecipe();
+                }
+                {
+                    ModRecipe recipe = new ModRecipe(mod);
+                    recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 2);
+                    recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 2);
+                    recipe.AddIngredient(calamityMod.ItemType("Chaosplate"), 15);
+                    recipe.AddTile(TileID.Anvils);
+                    recipe.SetResult(this);
+                    recipe.AddRecipe();
+                }
+                {
+                    ModRecipe recipe = new ModRecipe(mod);
+                    recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 2);
+                    recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 2);
+                    recipe.AddIngredient(calamityMod.ItemType("Cinderplate"), 15);
+                    recipe.AddTile(TileID.Anvils);
+                    recipe.SetResult(this);
+                    recipe.AddRecipe();
+                }
+                {
+                    ModRecipe recipe = new ModRecipe(mod);
+                    recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 2);
+                    recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 2);
+                    recipe.AddIngredient(calamityMod.ItemType("Elumplate"), 15);
+                    recipe.AddTile(TileID.Anvils);
+                    recipe.SetResult(this);
+                    recipe.AddRecipe();
+                }
+                {
+                    ModRecipe recipe = new ModRecipe(mod);
+                    recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 2);
+                    recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 2);
+                    recipe.AddIngredient(calamityMod.ItemType("PlagueContainmentCells"), 15);
+                    recipe.AddTile(TileID.Anvils);
+                    recipe.SetResult(this);
+                    recipe.AddRecipe();
+                }
             }
         }
     }
