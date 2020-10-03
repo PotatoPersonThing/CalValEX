@@ -51,13 +51,13 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
         public override void SetUpAuraAndGlowmask() //for aura and glowmasks
         {
-            auraTexture = "Projectiles/Pets/GodrgeAura"; //aura texture location
+            auraTexture = "Projectiles/Pets/LightPets/GodrgeAura"; //aura texture location
             auraRotates = true; //does the aura rotate?
             auraRotation = true; //where does the aura rotate? true for right, false for left
             auraRotationSpeedMult = 0.05f; //aura rotation multiplier
 
             glowmaskTexture = ""; //glowmask texture location
-            auraGlowmaskTexture = "Projectiles/Pets/GodrgeAuraGlow"; //aura glowmask texture location
+            auraGlowmaskTexture = "Projectiles/Pets/LightPets/GodrgeAuraGlow"; //aura glowmask texture location
         }
 
         public override void SetUpLight() //for when the pet emmits light
