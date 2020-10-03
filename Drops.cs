@@ -2,6 +2,7 @@ using CalValEX.Items;
 using CalValEX.Items.Critters;
 using CalValEX.Items.Equips;
 using CalValEX.Items.Hooks;
+using CalValEX.Items.LightPets;
 using CalValEX.Items.Mounts;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Tiles;

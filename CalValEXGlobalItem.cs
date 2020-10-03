@@ -2,6 +2,7 @@ using CalValEX.Items;
 using CalValEX.Items.Equips;
 using CalValEX.Items.Hooks;
 using CalValEX.Items.Mounts;
+using CalValEX.Items.LightPets;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
@@ -95,9 +96,9 @@ namespace CalValEX
                             break;
 
                         case "Scarfy":
+                        case "Krysmun":
                         case "DodoNation":
                         case "Dodo":
-                        case "Krysmun":
                             player.QuickSpawnItem(ModContent.ItemType<FluffyFeather>());
                             break;
 
