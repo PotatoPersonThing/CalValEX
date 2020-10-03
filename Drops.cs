@@ -4,6 +4,7 @@ using CalValEX.Items.Equips;
 using CalValEX.Items.Hooks;
 using CalValEX.Items.LightPets;
 using CalValEX.Items.Mounts;
+using CalValEX.Items.Mounts.Morshu;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Balloons;
@@ -307,7 +308,88 @@ namespace CalValEX
         public override void NPCLoot(NPC npc)
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
-
+            int droppedMoney = 0;
+            for (int i = 0; i < Main.maxPlayers; i++)
+            {
+                Player player = Main.player[i];
+                if (player.active && !player.dead)
+                {
+                    if (player.HasBuff(ModContent.BuffType<MorshuBuff>()))
+                    {
+                        float value = npc.value;
+                        value /= 5;
+                        if (value < 0)
+                            value = 1;
+                        if (droppedMoney == 0)
+                        {
+                            while (value > 0)
+                            {
+                                if (value > 1000000f)
+                                {
+                                    int platCoins = (int)(value / 1000000f);
+                                    if (platCoins > 50 && Main.rand.Next(5) == 0)
+                                    {
+                                        platCoins /= Main.rand.Next(3) + 1;
+                                    }
+                                    if (Main.rand.Next(5) == 0)
+                                    {
+                                        platCoins /= Main.rand.Next(3) + 1;
+                                    }
+                                    value -= (float)(1000000f * platCoins);
+                                    Item.NewItem(npc.Hitbox, ItemID.PlatinumCoin, platCoins);
+                                    continue;
+                                }
+                                if (value > 10000f)
+                                {
+                                    int goldCoins = (int)(value / 10000f);
+                                    if (goldCoins > 50 && Main.rand.Next(5) == 0)
+                                    {
+                                        goldCoins /= Main.rand.Next(3) + 1;
+                                    }
+                                    if (Main.rand.Next(5) == 0)
+                                    {
+                                        goldCoins /= Main.rand.Next(3) + 1;
+                                    }
+                                    value -= (float)(10000f * goldCoins);
+                                    Item.NewItem(npc.Hitbox, ItemID.GoldCoin, goldCoins);
+                                    continue;
+                                }
+                                if (value > 100f)
+                                {
+                                    int silverCoins = (int)(value / 100f);
+                                    if (silverCoins > 50 && Main.rand.Next(5) == 0)
+                                    {
+                                        silverCoins /= Main.rand.Next(3) + 1;
+                                    }
+                                    if (Main.rand.Next(5) == 0)
+                                    {
+                                        silverCoins /= Main.rand.Next(3) + 1;
+                                    }
+                                    value -= (float)(100f * silverCoins);
+                                    Item.NewItem(npc.Hitbox, ItemID.SilverCoin, silverCoins);
+                                    continue;
+                                }
+                                int copperCoins = (int)value;
+                                if (copperCoins > 50 && Main.rand.Next(5) == 0)
+                                {
+                                    copperCoins /= Main.rand.Next(3) + 1;
+                                }
+                                if (Main.rand.Next(5) == 0)
+                                {
+                                    copperCoins /= Main.rand.Next(4) + 1;
+                                }
+                                if (copperCoins < 1)
+                                {
+                                    copperCoins = 1;
+                                }
+                                value -= (float)copperCoins;
+                                Item.NewItem(npc.Hitbox, ItemID.CopperCoin, copperCoins);
+                            }
+                            droppedMoney++;
+                        }
+                    }
+                }
+            }
             //5%/10% (non-defiled/defiled)
             float normalChance = normalEnemyChance + ((bool)calamityMod.Call("DifficultyActive", "defiled") ? extraDefiledChance : 0);
             //10%/15% (non-defiled/defiled)
