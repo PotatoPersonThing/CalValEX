@@ -8,19 +8,35 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using CalValEX.Items;
+using System;
 
 namespace CalValEX
 {
     public class CalValEX : Mod
     {
         public static bool Bumble;
+        public static string currentDate;
+        public static int day;
+        public static int month;
 
         public override void Load()
         {
+            DateTime dateTime = DateTime.Now;
+            currentDate = dateTime.ToString("dd/MM/yyyy");
+            day = dateTime.Day;
+            month = dateTime.Month;
             if (!Main.dedServ)
             {
                 GameShaders.Armor.BindShader(ModContent.ItemType<DraedonHologramDye>(), new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/DraedonHologramDye")), "DraedonHologramDyePass"));
             }
+        }
+
+        public override void Unload()
+        {
+            currentDate = null;
+            Bumble = false;
+            day = -1;
+            month = -1;
         }
 
         public override void PostSetupContent()

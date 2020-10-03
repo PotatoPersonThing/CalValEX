@@ -228,6 +228,8 @@ namespace CalValEX.Projectiles.Pets
         {
             if (usesAura)
             {
+                if (auraTexture == null)
+                    return true;
                 Texture2D texture = mod.GetTexture(auraTexture);
                 //Rectangle sourceRectangle = new Rectangle(0, 0, (int)(texture.Width / 2f), (int)(texture.Height / 2f));
                 Rectangle sourceRectangle = new Rectangle(0, 0, texture.Width, texture.Height);

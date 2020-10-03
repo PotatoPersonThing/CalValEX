@@ -1,13 +1,5 @@
-using System;
-using System.IO;
-using System.Linq;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
-using Terraria.ID;
-using Terraria.Localization;
 
 namespace CalValEX
 {

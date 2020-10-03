@@ -11,6 +11,7 @@ using CalValEX.Items.Pets;
 using CalValEX.Items.Equips;
 using CalValEX;
 using static Terraria.ModLoader.ModContent;
+using CalValEX.Items.LightPets;
 
 namespace CalValEX.Oracle
 {

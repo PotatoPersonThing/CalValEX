@@ -113,7 +113,7 @@ namespace CalValEX.Projectiles.Pets
                     int i = (int)(projectile.position.X + (float)(projectile.width / 2)) / 16;
                     int j = (int)(projectile.position.Y + (float)(projectile.height / 2)) / 16;
 
-                    if ((WorldGen.SolidTile(i, j + 1) || Main.tile[i, j + 1].type == TileID.Platforms) && !ownerIsFar)
+                    if ((WorldGen.SolidTile(i, j + 1) || Main.tile[i, j + 1].type == TileID.Platforms || Main.tile[i, j + 1].slope() > 0) && !ownerIsFar)
                     {
                         projectile.velocity.Y = -4.5f;
                     }
