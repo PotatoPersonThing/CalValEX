@@ -27,6 +27,7 @@ namespace CalValEX.Projectiles.Pets
         public float[] drag = new float[2];
         public bool facingLeft;
         public bool shouldFlip;
+        public bool doJumpAnim;
 
         /// <summary>
         /// Use this instead of SetDefaults, else the pet sprite won't work correctly.
@@ -40,8 +41,8 @@ namespace CalValEX.Projectiles.Pets
 
         public sealed override void SetDefaults()
         {
+            doJumpAnim = true;
             SafeSetDefaults();
-
             projectile.penetrate = -1;
             projectile.netImportant = true;
             projectile.timeLeft *= 5;
@@ -169,7 +170,7 @@ namespace CalValEX.Projectiles.Pets
             SafeReceiveExtraAI(reader);
         }
 
-        private int jumpCounter = 0; //this will determine how long the jump frame should happen
+        public int jumpCounter = 0; //this will determine how long the jump frame should happen
         public sealed override void AI()
         {
             SetTheseValues();
@@ -266,8 +267,11 @@ namespace CalValEX.Projectiles.Pets
                         i += (int)projectile.velocity.X;
                     }
                     //this is for jumping
-                    if (jumpCounter > -1)
-                        jumpCounter--;
+                    if (doJumpAnim)
+                    {
+                        if (jumpCounter > -1)
+                            jumpCounter--;
+                    }
                     if (WorldGen.SolidTile(i, j))
                     {
                         int i2 = (int)(projectile.position.X + (float)(projectile.width / 2)) / 16;
@@ -331,20 +335,26 @@ namespace CalValEX.Projectiles.Pets
                     }
 
                     //jump animation
-                    if (jumpFrameLimits[0] != -1 && jumpFrameLimits[1] != -1)
+                    if (doJumpAnim)
                     {
-                        if (jumpCounter > 0)
+                        if (jumpFrameLimits[0] != -1 && jumpFrameLimits[1] != -1)
                         {
-                            if (projectile.frameCounter >= animationSpeed[3])
+                            if (jumpCounter > 0)
                             {
-                                if (projectile.frame == jumpFrameLimits[1])
+                                if (projectile.frameCounter >= animationSpeed[3])
                                 {
+                                    if (projectile.frame == jumpFrameLimits[1])
+                                    {
+                                        projectile.frameCounter = 0;
+                                    }
                                     projectile.frameCounter = 0;
+                                    projectile.frame++;
+
+                                    if (projectile.frame < jumpFrameLimits[0] || projectile.frame > jumpFrameLimits[1])
+                                    {
+                                        projectile.frame = jumpFrameLimits[0];
+                                    }
                                 }
-                                projectile.frameCounter = 0;
-                                projectile.frame++;
-                                if (projectile.frame < jumpFrameLimits[0] || projectile.frame > jumpFrameLimits[1])
-                                    projectile.frame = jumpFrameLimits[0];
                             }
                         }
                     }
