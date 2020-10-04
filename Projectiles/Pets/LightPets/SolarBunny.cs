@@ -1,8 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using CalValEX;
-using CalValEX.Projectiles.Pets.LightPets;
+using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets.LightPets
 {
@@ -11,9 +10,8 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Solar Bunny");
-            //Main.projFrames[projectile.type] = 4; //frames
             Main.projPet[projectile.type] = true;
-            ProjectileID.Sets.LightPet[projectile.type] = true; //this is needed for a light pet.
+            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
         public override void SafeSetDefaults() //SafeSetDefaults!!!
@@ -21,58 +19,50 @@ namespace CalValEX.Projectiles.Pets.LightPets
             projectile.width = 34;
             projectile.height = 28;
             projectile.ignoreWater = true;
-            /* you don't need to set these anymore!
-            projectile.penetrate = -1;
-            projectile.netImportant = true;
-            projectile.timeLeft *= 5;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
-            */
-            facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
-            spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
-            shouldFlip = true; //should the sprite flip? set true if it should, false if it shouldnt
-            usesAura = true; //does this pet use an aura?
-            usesGlowmask = false; //does this pet use a glowmask?
-            auraUsesGlowmask = true; //does the aura use a glowmask?
+            facingLeft = true;
+            spinRotation = false;
+            shouldFlip = true;
+            usesAura = true;
+            usesGlowmask = false;
+            auraUsesGlowmask = true;
         }
 
         public override void SetUpFlyingPet()
         {
-            distance[0] = 1840f; //teleport distance
-            distance[1] = 560f; //faster speed distance
+            distance[0] = 1840f;
+            distance[1] = 560f;
             speed = 12f;
             inertia = 60f;
-            animationSpeed = 30; //how fast the animation should play
-            spinRotationSpeedMult = 0.2f; //rotation speed multiplier, keep it positive for it to spin in the right direction
-            offSetX = 48f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
-            offSetY = -50f; //how much higher from the center the pet should float
+            animationSpeed = 30;
+            spinRotationSpeedMult = 0.2f;
+            offSetX = 48f * -Main.player[projectile.owner].direction;
+            offSetY = -50f;
         }
 
-        //you usualy don't have to use the lower two unless you want the pet to have an aura, glowmask
-        //or if you want the pet to emit light
-
-        public override void SetUpAuraAndGlowmask() //for aura and glowmasks
+        public override void SetUpAuraAndGlowmask()
         {
-            auraTexture = "Projectiles/Pets/LightPets/SolarBunnyAura"; //aura texture location
-            auraRotates = true; //does the aura rotate?
-            auraRotation = true; //where does the aura rotate? true for right, false for left
-            auraRotationSpeedMult = 0.05f; //aura rotation multiplier
+            auraTexture = "Projectiles/Pets/LightPets/SolarBunnyAura";
+            auraRotates = true;
+            auraRotation = true;
+            auraRotationSpeedMult = 0.05f;
 
-            glowmaskTexture = ""; //glowmask texture location
-            auraGlowmaskTexture = "Projectiles/Pets/LightPets/SolarBunnyAuraGlow"; //aura glowmask texture location
+            glowmaskTexture = "";
+            auraGlowmaskTexture = "Projectiles/Pets/LightPets/SolarBunnyAuraGlow";
         }
 
-        public override void SetUpLight() //for when the pet emmits light
+        public override void SetUpLight()
         {
-            shouldLightUp = true; //should the pet glow? true if it should, false if it shouldn't
-            RGB = new Vector3(255, 191, 73); //should only go up to 255 and as low as 0
-            intensity = 1f; //how intense the light should be. do not go over 2f or else the light will be too strong
-            abyssLightLevel = 6; //for abyss light level to work shouldLightUp must be set up true.
+            shouldLightUp = true;
+            RGB = new Vector3(255, 191, 73);
+            intensity = 1f;
+            abyssLightLevel = 6;
         }
 
         public override void SafeAI(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            //calamityMod.Call("MakeColdImmune", player);
 
             if (player.dead)
                 modPlayer.sBun = false;
