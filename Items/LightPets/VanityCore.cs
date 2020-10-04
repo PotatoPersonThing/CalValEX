@@ -1,15 +1,6 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
-using CalValEX;
-using CalValEX.Items;
-using CalValEX.Items.Hooks;
-using Terraria.DataStructures;
-using System;
-using System.Collections.Generic;
 
 namespace CalValEX.Items.LightPets
 {
@@ -18,9 +9,8 @@ namespace CalValEX.Items.LightPets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Core of Vanity");
-            Tooltip
-                .SetDefault("Summons pet Heat Sprits, Cryogen's Shield and a Sunskater to follow you");
-                ItemID.Sets.ItemNoGravity[item.type] = true;
+            Tooltip.SetDefault("Summons pet Heat Sprits, Cryogen's Shield and a Sunskater to follow you");
+            ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 
         public override void SetDefaults()
@@ -43,22 +33,22 @@ namespace CalValEX.Items.LightPets
 
         public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-                type = mod.ProjectileType("HeatBaby");
-		    	return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
+            type = mod.ProjectileType("HeatBaby");
+            return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
         }
 
         public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
+        {
+            ModRecipe recipe = new ModRecipe(mod);
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (calamityMod != null)
             {
                 recipe.AddIngredient(ModContent.ItemType<SkeetCrest>());
                 recipe.AddIngredient(ModContent.ItemType<ChaosEssence>());
                 recipe.AddIngredient(ModContent.ItemType<AntarcticEssence>());
-                recipe.AddTile(calamityMod.TileType("MythrilAnvil"));  
-			    recipe.SetResult(this);
-			    recipe.AddRecipe();
+                recipe.AddTile(TileID.MythrilAnvil);
+                recipe.SetResult(this);
+                recipe.AddRecipe();
             }
         }
     }

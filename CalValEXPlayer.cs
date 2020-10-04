@@ -119,6 +119,7 @@ namespace CalValEX
         public bool squid = false;
         public bool voidling = false;
         public bool mScourge = false;
+        public bool darksunSpirits = false;
         /*
         public bool sandTPrevious;
         public bool sandT;
@@ -277,6 +278,7 @@ namespace CalValEX
             squid = false;
             voidling = false;
             mScourge = false;
+            darksunSpirits = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
