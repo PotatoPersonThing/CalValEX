@@ -54,7 +54,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         {
             shouldLightUp = true;
             RGB = new Vector3(255, 191, 73);
-            intensity = 1f;
+            intensity = 1.75f;
             abyssLightLevel = 6;
         }
 

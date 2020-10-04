@@ -13,52 +13,42 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Small Sightseer");
-            Main.projFrames[projectile.type] = 5; //frames
+            Main.projFrames[projectile.type] = 5;
             Main.projPet[projectile.type] = true;
-            ProjectileID.Sets.LightPet[projectile.type] = true; //this is needed for a light pet.
+            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
-        public override void SafeSetDefaults() //SafeSetDefaults!!!
+        public override void SafeSetDefaults()
         {
             projectile.width = 62;
             projectile.height = 30;
             projectile.ignoreWater = true;
-            /* you don't need to set these anymore!
-            projectile.penetrate = -1;
-            projectile.netImportant = true;
-            projectile.timeLeft *= 5;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
-            */
-            facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
-            spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
-            shouldFlip = true; //should the sprite flip? set true if it should, false if it shouldnt
-            usesAura = false; //does this pet use an aura?
-            usesGlowmask = false; //does this pet use a glowmask?
-            auraUsesGlowmask = false; //does the aura use a glowmask?
+            facingLeft = true;
+            spinRotation = false;
+            shouldFlip = true;
+            usesAura = false;
+            usesGlowmask = false;
+            auraUsesGlowmask = false;
         }
 
         public override void SetUpFlyingPet()
         {
-            distance[0] = 1840f; //teleport distance
-            distance[1] = 560f; //faster speed distance
+            distance[0] = 1840f;
+            distance[1] = 560f;
             speed = 10f;
             inertia = 60f;
-            animationSpeed = 4; //how fast the animation should play
-            spinRotationSpeedMult = 0f; //rotation speed multiplier, keep it positive for it to spin in the right direction
-            offSetX = -21f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
-            offSetY = -11f; //how much higher from the center the pet should float
+            animationSpeed = 4;
+            spinRotationSpeedMult = 0f;
+            offSetX = -21f * -Main.player[projectile.owner].direction;
+            offSetY = -11f;
         }
-
-        //you usualy don't have to use the lower two unless you want the pet to have an aura, glowmask
-        //or if you want the pet to emit light
 
         public override void SetUpLight() //for when the pet emmits light
         {
-            shouldLightUp = true; //should the pet glow? true if it should, false if it shouldn't
-            RGB = new Vector3(255, 71, 66); //should only go up to 255 and as low as 0
-            intensity = 0.8f; //how intense the light should be. do not go over 2f or else the light will be too strong
-            abyssLightLevel = 2; //for abyss light level to work shouldLightUp must be set up true.
+            shouldLightUp = true;
+            RGB = new Vector3(255, 71, 66);
+            intensity = 0.9f;
+            abyssLightLevel = 2;
         }
 
         public override void SafeAI(Player player)

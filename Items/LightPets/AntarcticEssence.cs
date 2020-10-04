@@ -10,6 +10,7 @@ using CalValEX.Items.Hooks;
 using Terraria.DataStructures;
 using System;
 using System.Collections.Generic;
+using CalValEX.Projectiles.Pets.LightPets;
 
 namespace CalValEX.Items.LightPets
 {
@@ -25,7 +26,7 @@ namespace CalValEX.Items.LightPets
         public override void SetDefaults()
         {
             item.UseSound = SoundID.NPCHit5;
-            item.shoot = mod.ProjectileType("Lightshield");
+            item.shoot = ModContent.ProjectileType<Lightshield>();
             item.value = Item.sellPrice(0, 0, 20, 0);
             item.buffType = mod.BuffType("LightshieldBuff");
             item.rare = ItemRarityID.Pink;

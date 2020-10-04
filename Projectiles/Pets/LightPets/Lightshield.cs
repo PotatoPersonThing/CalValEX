@@ -37,7 +37,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            Lighting.AddLight(projectile.Center, 1.08f, 2.27f, 2.55f);
+            Lighting.AddLight(projectile.Center, new Vector3(0.541176471f, 1f, 1f));
             Texture2D texture = Main.projectileTexture[projectile.type];
             spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, null, projectile.GetAlpha(lightColor), projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.None, 0f);
             return false;
@@ -46,8 +46,13 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override void AI()
         {
             Player player = Main.player[projectile.owner];
-            if (player.dead || !player.active)
-                projectile.Kill();
+
+            CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
+
+            if (player.dead)
+                modPlayer.Lightshield = false;
+            if (modPlayer.Lightshield)
+                projectile.timeLeft = 2;
 
             Vector2 idlePosition = player.Center;
             idlePosition.Y -= projectile.height / 2;
@@ -70,13 +75,6 @@ namespace CalValEX.Projectiles.Pets.LightPets
             {
                 calamityMod.Call("AddAbyssLightStrength", projectile.owner, 2);
             }
-
-            CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-
-            if (player.dead)
-                modPlayer.Lightshield = false;
-            if (modPlayer.Lightshield)
-                projectile.timeLeft = 2;
         }
     }
 }

@@ -57,7 +57,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         {
             shouldLightUp = true; //should the pet glow? true if it should, false if it shouldn't
             RGB = new Vector3(0, 251, 199); //should only go up to 255 and as low as 0
-            intensity = 0.3f; //how intense the light should be. do not go over 2f or else the light will be too strong
+            intensity = 0.5f; //how intense the light should be. do not go over 2f or else the light will be too strong
             abyssLightLevel = 0; //for abyss light level to work shouldLightUp must be set up true.
         }
 

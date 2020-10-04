@@ -14,7 +14,6 @@ namespace CalValEX.Projectiles.Pets.LightPets
             DisplayName.SetDefault("Small Potato3");
             Main.projFrames[projectile.type] = 1;
             Main.projPet[projectile.type] = true;
-            projectile.light = 0.9f;
         }
 
         public override void SetDefaults()
@@ -24,31 +23,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             // drawOriginOffsetY = -40;
              drawOffsetX = -90;
         }
-        //  public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
-        // {
-        //     Texture2D glowMask = mod.GetTexture("Items/Glowmasks/ProGuard3_Glowmask");
-        //     Rectangle frame = glowMask.Frame(1, Main.projFrames[projectile.type], 0, projectile.frame);
-        //     frame.Height -= 1;
-        //     float originOffsetX = (glowMask.Width - projectile.width) * 0.5f + projectile.width * 0.5f + drawOriginOffsetX;
-        //     spriteBatch.Draw
-        //     (
-        //         glowMask,
-        //         projectile.position - Main.screenPosition + new Vector2(originOffsetX + drawOffsetX, projectile.height / 2 + projectile.gfxOffY),
-        //         frame,
-        //         Color.White,
-        //         projectile.rotation,
-        //         new Vector2(originOffsetX, projectile.height / 2 - drawOriginOffsetY),
-        //         projectile.scale,
-        //         projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
-        //         0f
-        //     );
-        // }
 
-        public override bool PreAI()
-        {
-            Player player = Main.player[projectile.owner];
-            return true;
-        }
         public void AnimateProjectile() // Call this every frame, for example in the AI method.
         {
             projectile.frameCounter++;
@@ -59,6 +34,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
                 projectile.frameCounter = 1;
             }
         }
+
         public override void AI()
         {
             Player player = Main.player[projectile.owner];
@@ -71,6 +47,18 @@ namespace CalValEX.Projectiles.Pets.LightPets
             {
                 projectile.timeLeft = 2;
             }
+
+            Vector2 vectorToOwner = player.Center - projectile.Center;
+            float distanceToOwner = vectorToOwner.Length();
+
+            if (distanceToOwner > 3000f)
+            {
+                projectile.position = player.Center;
+                projectile.velocity *= 0.1f;
+                projectile.netUpdate = true;
+            }
+
+            Lighting.AddLight(projectile.position, new Vector3(0.727058823f, 0.409411765f, 0.208235294f));
         }
     }
 }

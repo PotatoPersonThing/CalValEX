@@ -19,11 +19,10 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.DD2PetGhost);
-            aiType = ProjectileID.DD2PetGhost;
             drawOriginOffsetY = -150;
             drawOffsetX = -50;
-            projectile.light = 2.0f;
         }
+
         public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             Texture2D glowMask = mod.GetTexture("Projectiles/Pets/LightPets/ProviPet_Glowmask");
@@ -42,12 +41,6 @@ namespace CalValEX.Projectiles.Pets.LightPets
                 projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
                 0f
             );
-        }
-
-        public override bool PreAI()
-        {
-            Player player = Main.player[projectile.owner];
-            return true;
         }
         public void AnimateProjectile() // Call this every frame, for example in the AI method.
         {
@@ -70,6 +63,18 @@ namespace CalValEX.Projectiles.Pets.LightPets
             if (modPlayer.ProviPet)
             {
                 projectile.timeLeft = 2;
+            }
+
+            Lighting.AddLight(projectile.position, new Vector3(1.61568627f, 0.901960784f, 0.462745098f));
+
+            Vector2 vectorToOwner = player.Center - projectile.Center;
+            float distanceToOwner = vectorToOwner.Length();
+
+            if (distanceToOwner > 3000f)
+            {
+                projectile.position = player.Center;
+                projectile.velocity *= 0.1f;
+                projectile.netUpdate = true;
             }
         }
     }
