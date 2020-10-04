@@ -72,6 +72,12 @@ namespace CalValEX
                             player.QuickSpawnItem(ModContent.ItemType<ToyScythe>());
                             break;
 
+                        case "Junko":
+                            player.QuickSpawnItem(ModContent.ItemType<JunkoHat>());
+                            player.QuickSpawnItem(ModContent.ItemType<ToyScythe>());
+                            player.QuickSpawnItem(ModContent.ItemType<ProfanedBalloon>());
+                            break;
+
                         case "Lil Junko":
                             player.QuickSpawnItem(ModContent.ItemType<JunkoHat>());
                             break;
