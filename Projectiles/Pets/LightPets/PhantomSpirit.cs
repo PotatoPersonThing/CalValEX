@@ -41,6 +41,16 @@ namespace CalValEX.Projectiles.Pets.LightPets
             if (modPlayer.mPhan)
                 projectile.timeLeft = 2;
 
+            Vector2 vectorToOwner = player.Center - projectile.Center;
+            float distanceToOwner = vectorToOwner.Length();
+
+            if (distanceToOwner > 2000f)
+            {
+                projectile.position = player.Center;
+                projectile.velocity *= 0.1f;
+                projectile.netUpdate = true;
+            }
+
             Lighting.AddLight(projectile.position, new Vector3(2.5f, 1.20588235f, 1.54901961f));
             float velocity = 2.5f;
             float limit = 5f;
