@@ -12,7 +12,7 @@ namespace CalValEX.Buffs.LightPets
             DisplayName.SetDefault("Cosmic Assistant");
             Description.SetDefault("He's here to help!");
             Main.buffNoTimeDisplay[Type] = true;
-            Main.vanityPet[Type] = true;
+            Main.lightPet[Type] = true;
         }
         public override void Update(Player player, ref int buffIndex)
         {
