@@ -1,32 +1,45 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets.LightPets
-    {
-
+{
     public class Enredpet : ModProjectile
     {
+        public override string Texture => "CalValEX/Projectiles/Pets/LightPets/CosmicAssistantRing"; 
+        private readonly string CosmicTexture = "CalValEX/Projectiles/Pets/LightPets/CosmicAssistant";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cosmic helper");
-            Main.projFrames[projectile.type] = 4;
+            DisplayName.SetDefault("Cosmic Assistant");
             Main.projPet[projectile.type] = true;
         }
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.BabyHornet);
-            aiType = ProjectileID.BabyHornet;
-            //drawOriginOffsetY = -29;
+            projectile.width = 72;
+            projectile.height = 72;
+            projectile.penetrate = -1;
+            projectile.netImportant = true;
+            projectile.timeLeft *= 5;
+            projectile.friendly = true;
+            projectile.tileCollide = false;
+            projectile.aiStyle = -1;
         }
 
-        public override bool PreAI()
+        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             Player player = Main.player[projectile.owner];
-            return true;
+            Texture2D texture = ModContent.GetTexture(CosmicTexture);
+            Rectangle sourceRectangle = new Rectangle(0, 40 * frame, texture.Width, texture.Height / 6);
+            Vector2 origin = new Vector2(texture.Width, texture.Height);
+            Vector2 position = player.Center;
+            position.Y += 36f;
+            position -= Main.screenPosition;
+            spriteBatch.Draw(texture, position, sourceRectangle, lightColor, 0f, origin / 2f, 1f, SpriteEffects.None, 0);
         }
+
+        private int frame = 0;
         public override void AI()
         {
             Player player = Main.player[projectile.owner];
@@ -39,17 +52,31 @@ namespace CalValEX.Projectiles.Pets.LightPets
             {
                 projectile.timeLeft = 2;
             }
-        }
-        public void AnimateProjectile() // Call this every frame, for example in the AI method.
-        {
+
+            Vector2 vectorToOwner = player.Center;
+            vectorToOwner.Y -= 64f;
+
+            float velY = player.velocity.Y;
+            float velX = player.velocity.X;
+
+            MathHelper.Clamp(velY, -2, 2);
+            MathHelper.Clamp(velX, -2, 2);
+
+            vectorToOwner.X += 0.5f * -velX;
+            vectorToOwner.Y += 0.5f * -velY;
+
+            projectile.Center = vectorToOwner;
+
             projectile.frameCounter++;
-            if (projectile.frameCounter >= 60) // This will change the sprite every 8 frames (0.13 seconds). Feel free to experiment.
+            if (projectile.frameCounter > 5)
             {
-                projectile.frame++;
-                projectile.frame %= 1; // Will reset to the first frame if you've gone through them all.
-                projectile.frameCounter = 4;
+                frame++;
+                projectile.frameCounter = 0;
+                if (frame > 5)
+                    frame = 0;
             }
+
+            Lighting.AddLight(projectile.Center, new Vector3(1.2f, 0.65882353f, 1.38039216f));
         }
     }
-
 }
