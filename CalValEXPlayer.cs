@@ -1,5 +1,5 @@
-using CalValEX.Buffs.Transformations;
-using CalValEX.Items.Equips.Transformations;
+//using CalValEX.Buffs.Transformations;
+//using CalValEX.Items.Equips.Transformations;
 using CalValEX.Projectiles.Pets;
 using Microsoft.Xna.Framework;
 using System.IO;
@@ -119,12 +119,12 @@ namespace CalValEX
         public bool squid = false;
         public bool voidling = false;
         public bool mScourge = false;
-
+        /*
         public bool sandTPrevious;
         public bool sandT;
         public bool sandHide;
         public bool sandForce;
-
+        */
         public override void Initialize()
         {
             CalamityBabyGotHit = false;
@@ -132,11 +132,11 @@ namespace CalValEX
 
         public override void ResetEffects()
         {
-            sandTPrevious = sandT;
-            sandT = sandHide = sandForce = false;
+            //sandTPrevious = sandT;
+            //sandT = sandHide = sandForce = false;
             ResetMyStuff();
         }
-
+        /*
         public override void UpdateVanityAccessories()
         {
             for (int n = 13; n < 18 + player.extraAccessorySlots; n++)
@@ -165,7 +165,7 @@ namespace CalValEX
             if (sandT)
                 player.AddBuff(ModContent.BuffType<SandTransformationBuff>(), 60, true);
         }
-
+        */
         public override void UpdateDead()
         {
             ResetMyStuff();
