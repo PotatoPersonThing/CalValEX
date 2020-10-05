@@ -260,17 +260,17 @@ namespace CalValEX.Oracle
                     {
                         Main.npcChatText = "Here's what TUB found with my divination!";
                         Main.LocalPlayer.GetModPlayer<OraclePlayer>().playerHasGottenBag = true;
-                        if (Main.rand.NextFloat() < 0.40f)
+                        if (Main.rand.NextFloat() < 0.2f)
                         {
                             Main.LocalPlayer.QuickSpawnItem(ItemID.GoodieBag);
                         }
-                        else if (Main.rand.NextFloat() < 0.40f)
+                        else if (Main.rand.NextFloat() < 0.4f)
                         {
                             Main.LocalPlayer.QuickSpawnItem(ItemID.Present);
                         }
                         else
                         {
-                            Main.LocalPlayer.QuickSpawnItem(ItemType<Termipebbles>());
+                            Main.LocalPlayer.QuickSpawnItem(ItemType<MysteryPainting>());
                         }
                     }
                     else

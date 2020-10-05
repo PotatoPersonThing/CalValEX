@@ -80,29 +80,14 @@ namespace CalValEX
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 30, 0);
                             ++nextSlot;
                         }
-                        if ((bool)clamMod.Call("GetBossDowned", "providence"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<BlazingConflict>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 50, 0, 0);
-                            ++nextSlot;
-                        }
                         if ((bool)clamMod.Call("GetBossDowned", "oldduke"))
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<BloodwormScarf>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50, 0, 0);
                             ++nextSlot;
                         }
-                        if ((bool)clamMod.Call("GetBossDowned", "devourerofgods"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<CosmicTerror>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 50, 0, 0);
-                            ++nextSlot;
-                        }
                         if ((bool)clamMod.Call("GetBossDowned", "buffedeclipse"))
                         {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<TheYhar>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 80, 0, 0);
-                            ++nextSlot;
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamityFriends>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
                             ++nextSlot;
@@ -115,21 +100,12 @@ namespace CalValEX
                         }
                         if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas"))
                         {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Clam>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 0, 0, 0);
-                            ++nextSlot;
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Yharlamitas>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(42, 0, 0, 0);
                             ++nextSlot;
                         }
                         if ((bool)clamMod.Call("GetBossDowned", "acidrain"))
                         {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<SulphurColumn>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<SulphurGeyser>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
-                            ++nextSlot;
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Ribrod>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 2, 0, 0);
                             ++nextSlot;
@@ -175,12 +151,6 @@ namespace CalValEX
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 35, 0);
                             ++nextSlot;
                         }
-                        if ((bool)clamMod.Call("GetBossDowned", "providence"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<BlazingConflict>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(5, 0, 0, 0);
-                            ++nextSlot;
-                        }
                         if ((bool)clamMod.Call("GetBossDowned", "oldduke"))
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<BloodwormScarf>());
@@ -189,9 +159,6 @@ namespace CalValEX
                         }
                         if ((bool)clamMod.Call("GetBossDowned", "buffedeclipse"))
                         {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<TheYhar>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(18, 0, 0, 0);
-                            ++nextSlot;
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamityFriends>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(10, 0, 0, 0);
                             ++nextSlot;
@@ -204,21 +171,12 @@ namespace CalValEX
                         }
                         if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas"))
                         {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Clam>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(20, 0, 0, 0);
-                            ++nextSlot;
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Yharlamitas>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(420, 0, 0, 0);
                             ++nextSlot;
                         }
                         if ((bool)clamMod.Call("GetBossDowned", "acidrain"))
                         {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<SulphurColumn>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<SulphurGeyser>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
-                            ++nextSlot;
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Ribrod>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
                             ++nextSlot;
