@@ -1,5 +1,5 @@
 displayName = Calamity's Vanities
 author = YuH and Potato Person, originally owned by Hypera
-version = 5.4.4.2
+version = 6.0
 modReferences = CalamityMod
 homepage = https://forums.terraria.org/index.php?threads/calamitys-vanities.97575/
