@@ -40,7 +40,7 @@ namespace CalValEX.Items.Pets {
     {
         if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
         {
-            tooltipLine.overrideColor = new Color(255, 140, 0); //change the color accordingly to above
+            tooltipLine.overrideColor = new Color(107, 240, 255); //change the color accordingly to above
         }
     }
 }

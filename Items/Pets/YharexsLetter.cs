@@ -1,4 +1,8 @@
-﻿using CalValEX.Buffs.Pets;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using CalValEX.Buffs.Pets;
 using CalValEX.Projectiles.Pets;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
@@ -78,7 +82,7 @@ namespace CalValEX.Items.Pets
         {
             foreach (TooltipLine tooltipLine in tooltips) 
                 if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName") 
-                    tooltipLine.overrideColor = new Color(219, 94, 210);
+                    tooltipLine.overrideColor = new Color(107, 240, 255);
         }
     }
 }

@@ -715,19 +715,23 @@ namespace CalValEX
             if (npc.type == calamityMod.NPCType("Reaper"))
             {
                 ChanceDropItem(npc, ModContent.ItemType<ReaperSharkArms>(), minibossChance);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<OmegaBlue>(), Main.expertMode, 0.05f);
             }
             if (npc.type == calamityMod.NPCType("ColossalSquid"))
             {
                 ChanceDropItem(npc, ModContent.ItemType<SquidHat>(), minibossChance);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<OmegaBlue>(), Main.expertMode, 0.05f);
             }
             if (npc.type == calamityMod.NPCType("EidolonWyrmHead"))
             {
                 ConditionalChanceDropItem(npc, ModContent.ItemType<EWail>(), Main.expertMode, minibossChance);
                 ConditionalChanceDropItem(npc, ModContent.ItemType<SoulShard>(), !(bool)calamityMod.Call("GetBossDowned", "cryogen") && !NPC.downedGolemBoss && !NPC.downedPlantBoss && !NPC.downedAncientCultist, 1.0f);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<OmegaBlue>(), Main.expertMode, 0.05f);
             }
             if (npc.type == calamityMod.NPCType("EidolonWyrmHeadHuge"))
             {
                 DropItem(npc, ModContent.ItemType<SoulShard>());
+                DropItem(npc, ModContent.ItemType<OmegaBlue>());
             }
             if (npc.type == calamityMod.NPCType("GreatSandShark") && Main.expertMode)
             {
@@ -786,6 +790,7 @@ namespace CalValEX
             if (npc.type == calamityMod.NPCType("Mauler"))
             {
                 ChanceDropItem(npc, ModContent.ItemType<MaulerMask>(), vanityNormalChance);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<OmegaBlue>(), Main.expertMode, 0.05f);
             }
             //Bosses
             if (npc.type == calamityMod.NPCType("Polterghast"))
