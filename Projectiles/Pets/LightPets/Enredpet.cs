@@ -56,11 +56,10 @@ namespace CalValEX.Projectiles.Pets.LightPets
             Vector2 vectorToOwner = player.Center;
             vectorToOwner.Y -= 64f;
 
-            float velY = player.velocity.Y;
-            float velX = player.velocity.X;
+            float value = 8f;
 
-            MathHelper.Clamp(velY, -2, 2);
-            MathHelper.Clamp(velX, -2, 2);
+            float velY = MathHelper.Clamp(player.velocity.Y, -value, value);
+            float velX = MathHelper.Clamp(player.velocity.X, -value, value);
 
             vectorToOwner.X += 0.5f * -velX;
             vectorToOwner.Y += 0.5f * -velY;
