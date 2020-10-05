@@ -15,29 +15,15 @@ namespace CalValEX.Items.Equips
 	public class Invishield : ModItem
 	{
 		public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Glass Shield");
-			Tooltip.SetDefault("So weak that it doesn't even appear!");
+            DisplayName.SetDefault("Compensation");
+			Tooltip.SetDefault("Can be sold");
 		}
 
 		public override void SetDefaults() {
 			item.width = 24;
 			item.height = 28;
 			item.value = Item.sellPrice(0, 0, 0, 5);
-			item.rare = 1;
-			item.accessory = true;
-            item.vanity = true;
+			item.rare = -1;
 		}
-
-        public override void AddRecipes()
-    {
-    Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient((ItemID.Glass), 20);
-                recipe.AddTile(TileID.Anvils);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-			}
-    }
 	}
 }
