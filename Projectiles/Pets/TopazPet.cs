@@ -9,14 +9,14 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Topaz Scuttler");
-            Main.projFrames[projectile.type] = 3; //frames
+           Main.projFrames[projectile.type] = 4; //frames
             Main.projPet[projectile.type] = true;
         }
 
         public override void SafeSetDefaults() //SAFE SET DEFAULTS!!!
         {
-            projectile.width = 24;
-            projectile.height = 26;
+            projectile.width = 16;
+            projectile.height = 20;
             projectile.ignoreWater = true;
             projectile.tileCollide = true;
             /* you don't need to set these anymore!!
@@ -73,9 +73,9 @@ namespace CalValEX.Projectiles.Pets
             idleFrameLimits[0] = idleFrameLimits[1] = 0; //what your min idle frame is (start of idle animation)
 
             walkingFrameLimits[0] = 0; //what your min walking frame is (start of walking animation)
-            walkingFrameLimits[1] = 1; //what your max walking frame is (end of walking animation)
+            walkingFrameLimits[1] = 3; //what your max walking frame is (end of walking animation)
 
-            flyingFrameLimits[0] = flyingFrameLimits[1] = 2; //what your min flying frame is (start of flying animation)
+            flyingFrameLimits[0] = flyingFrameLimits[1] = 0; //what your min flying frame is (start of flying animation)
 
             animationSpeed[0] = 30; //idle animation speed
             animationSpeed[1] = 8; //walking animation speed

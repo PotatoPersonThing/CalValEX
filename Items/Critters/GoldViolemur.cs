@@ -202,7 +202,11 @@ namespace CalValEX.Items.Critters
             {
             if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "astral"))
                 {
-					if (!Main.eclipse && !Main.bloodMoon && !Main.pumpkinMoon && !Main.snowMoon)
+					if (spawnInfo.playerSafe)
+					{
+						return SpawnCondition.TownCritter.Chance * 0.07f;
+					}
+					else if (!Main.eclipse && !Main.bloodMoon && !Main.pumpkinMoon && !Main.snowMoon)
 					{
 						return 0.02f;
 					}
