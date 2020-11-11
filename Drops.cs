@@ -1,6 +1,14 @@
 using CalValEX.Items;
 using CalValEX.Items.Critters;
 using CalValEX.Items.Equips;
+using CalValEX.Items.Equips.Wings;
+using CalValEX.Items.Equips.Hats;
+using CalValEX.Items.Equips.Shirts;
+using CalValEX.Items.Equips.Legs;
+using CalValEX.Items.Equips.Scarves;
+using CalValEX.Items.Equips.Shields;
+using CalValEX.Items.Equips.Capes;
+using CalValEX.Items.Equips.Balloons;
 using CalValEX.Items.Hooks;
 using CalValEX.Items.LightPets;
 using CalValEX.Items.Mounts;
@@ -226,6 +234,12 @@ namespace CalValEX
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
                         ++nextSlot;
                     }
+                }
+                if (type == NPCID.Mechanic)
+                {
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryConsoleItem"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
+                    ++nextSlot;
                 }
                 if (type == NPCID.Truffle)
                 {

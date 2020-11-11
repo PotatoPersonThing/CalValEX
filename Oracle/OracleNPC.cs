@@ -9,6 +9,7 @@ using Terraria.ModLoader;
 using CalValEX.Items;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Equips;
+using CalValEX.Items.Equips.Hats;
 using CalValEX;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.LightPets;

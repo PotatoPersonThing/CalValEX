@@ -9,6 +9,8 @@ using CalValEX.Items;
 using CalValEX.Items.Equips;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Tiles;
+using CalValEX.Items.Equips.Hats;
+using CalValEX.Items.Equips.Shields;
 using Terraria.DataStructures;
 using System;
 using System.Collections.Generic;

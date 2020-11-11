@@ -1,5 +1,13 @@
 using CalValEX.Items;
 using CalValEX.Items.Equips;
+using CalValEX.Items.Equips.Hats;
+using CalValEX.Items.Equips.Shirts;
+using CalValEX.Items.Equips.Legs;
+using CalValEX.Items.Equips.Balloons;
+using CalValEX.Items.Equips.Shields;
+using CalValEX.Items.Equips.Scarves;
+using CalValEX.Items.Equips.Wings;
+using CalValEX.Items.Equips.Capes;
 using CalValEX.Items.Hooks;
 using CalValEX.Items.Mounts;
 using CalValEX.Items.LightPets;

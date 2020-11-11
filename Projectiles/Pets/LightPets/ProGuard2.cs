@@ -1,64 +1,82 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
+using CalValEX;
+using CalValEX.Projectiles.Pets;
 
 namespace CalValEX.Projectiles.Pets.LightPets
-    {
-
-    public class ProGuard2 : ModProjectile
+{
+    public class ProGuard2 : FlyingPet
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Small Potato2");
-            Main.projFrames[projectile.type] = 1;
+            DisplayName.SetDefault("Small Potato");
+            Main.projFrames[projectile.type] = 1; //frames
             Main.projPet[projectile.type] = true;
         }
 
-        public override void SetDefaults()
+        public override void SafeSetDefaults() //SafeSetDefaults!!!
         {
-            projectile.CloneDefaults(ProjectileID.ZephyrFish);
-            aiType = ProjectileID.ZephyrFish;
-            drawOriginOffsetY = -100;
+            projectile.width = 22;
+            projectile.height = 22;
+            projectile.ignoreWater = true;
+            /* you don't need to set these anymore!
+            projectile.penetrate = -1;
+            projectile.netImportant = true;
+            projectile.timeLeft *= 5;
+            projectile.friendly = true;
+            projectile.tileCollide = false;
+            */
+            facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
+            spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
+            shouldFlip = true; //should the sprite flip? set true if it should, false if it shouldnt
+            usesAura = false; //does this pet use an aura?
+            usesGlowmask = false; //does this pet use a glowmask?
+            auraUsesGlowmask = false; //does the aura use a glowmask?
         }
 
-        public void AnimateProjectile() // Call this every frame, for example in the AI method.
+        public override void SetUpFlyingPet()
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 9) // This will change the sprite every 8 frames (0.13 seconds). 
-            {
-                projectile.frame++;
-                projectile.frame %= 1; // Will reset to the first frame if you've gone through them all.
-                projectile.frameCounter = 1;
-            }
+            distance[0] = 1440f; //teleport distance
+            distance[1] = 560f; //faster speed distance
+            speed = 12f;
+            inertia = 60f;
+            animationSpeed = 12; //how fast the animation should play
+            spinRotationSpeedMult = 0.2f; //rotation speed multiplier, keep it positive for it to spin in the right direction
+            offSetX = 148f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
+            offSetY = -50f; //how much higher from the center the pet should float
         }
 
-        public override void AI()
+        //you usualy don't have to use the lower two unless you want the pet to have an aura, glowmask
+        //or if you want the pet to emit light
+
+        public override void SafeAI(Player player)
         {
-            Player player = Main.player[projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
-            {
                 modPlayer.ProGuard2 = false;
-            }
             if (modPlayer.ProGuard2)
-            {
                 projectile.timeLeft = 2;
-            }
 
-            Vector2 vectorToOwner = player.Center - projectile.Center;
-            float distanceToOwner = vectorToOwner.Length();
-
-            if (distanceToOwner > 3000f)
-            {
-                projectile.position = player.Center;
-                projectile.velocity *= 0.1f;
-                projectile.netUpdate = true;
-            }
-
-            Lighting.AddLight(projectile.position, new Vector3(0.727058823f, 0.409411765f, 0.208235294f));
+            /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.
+             * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
+             * you should make new custom behaviour with numbers higher than 0, or less than 0
+             * the next few lines is an example on how to implement this
+             * 
+             * switch ((int)projectile.localAI[1])
+             * {
+             *     case -1:
+             *         break;
+             *     case 1:
+             *         break;
+             * }
+             * 
+             * 0 is already in use.
+             * 0 = flying
+             * 
+             * you can still use this, changing thing inside (however it's not recomended unless you want to add custom behaviour to this)
+             */
         }
     }
 }

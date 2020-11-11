@@ -16,8 +16,8 @@ namespace CalValEX.Items.Mounts
 	public class HadarianTail : ModItem
 	{
 		public override void SetStaticDefaults() {
-			 DisplayName.SetDefault("Hadarian Tail");
-			Tooltip.SetDefault("An infected scavenger may aid you for this");
+			 DisplayName.SetDefault("Hadarian Egg");
+			Tooltip.SetDefault("Contains an infected scavenger to let you soar to new heights");
 		}
 
 		public override void SetDefaults() {

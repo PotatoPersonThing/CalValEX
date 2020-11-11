@@ -26,5 +26,13 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
 			item.consumable = true;
 			item.createTile = ModContent.TileType<NecrostonePlaced>();
 		}
+
+		public override void AddRecipes() {
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ModContent.ItemType<NecrostoneWall>());
+			recipe.AddTile(TileID.WorkBenches);
+			recipe.SetResult(this, 1);
+			recipe.AddRecipe();
+		}
 	}
 }
