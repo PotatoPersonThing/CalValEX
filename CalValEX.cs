@@ -9,6 +9,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using CalValEX.Items;
 using System;
+using System.Reflection;
 
 namespace CalValEX
 {
@@ -18,6 +19,8 @@ namespace CalValEX
         public static string currentDate;
         public static int day;
         public static int month;
+
+        public static MethodInfo compactFraming;
 
         public override void Load()
         {
@@ -40,6 +43,7 @@ namespace CalValEX
             Bumble = false;
             day = -1;
             month = -1;
+            compactFraming = null;
         }
 
         public override void PostSetupContent()
@@ -52,6 +56,10 @@ namespace CalValEX
             {
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<OracleNPC>(), "Equip a Pet or Light Pet");
             }
+
+            Type tileFraming = cal.Code.GetType("CalamityMod.TileFraming");
+
+            compactFraming = tileFraming.GetMethod("CompactFraming", BindingFlags.Static | BindingFlags.NonPublic);
         }
 
         public static void MountNerf(Player player, float reduceDamageBy, float reduceHealthBy)
