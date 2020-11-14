@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
+using Terraria.DataStructures;
 using CalValEX.Items.Tiles;
 
 namespace CalValEX.Items.Tiles.Plants
@@ -19,6 +20,7 @@ namespace CalValEX.Items.Tiles.Plants
             TileObjectData.newTile.Width = 4;
             TileObjectData.newTile.Height = 8;
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16, 16, 16, 16 }; //
+			TileObjectData.newTile.Origin = new Point16(0, 6);
             TileObjectData.addTile(Type);
 		}
 
