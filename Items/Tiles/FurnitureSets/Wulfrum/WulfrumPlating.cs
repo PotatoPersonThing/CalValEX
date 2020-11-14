@@ -32,7 +32,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Wulfrum
 				ModRecipe recipe = new ModRecipe(mod);
 				recipe.AddIngredient((ItemID.StoneBlock), 50);
 				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("WulfrumShard"), 1);
-				recipe.AddTile((ItemID.Anvils));
+				recipe.AddTile(TileID.Anvils);
 				recipe.SetResult(this, 50);
 				recipe.AddRecipe();
         }
