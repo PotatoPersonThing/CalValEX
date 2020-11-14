@@ -5,9 +5,9 @@ using static Terraria.ModLoader.ModContent;
 using CalValEX;
 using CalValEX.Items.Tiles;
 
-namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
+namespace CalValEX.Items.Tiles.FurnitureSets.Shadow
 {
-	public class NecrostonePlaced : ModTile
+	public class ShadowBrickPlaced : ModTile
 	{
 		public override void SetDefaults() 
         {
@@ -15,9 +15,10 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
 			Main.tileMergeDirt[Type] = false;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
-			drop = ModContent.ItemType<Necrostone>();
-			AddMapEntry(new Color(108, 59, 16));
-			minPick = 210;
+			drop = ModContent.ItemType<ShadowBrick>();
+			AddMapEntry(new Color(47, 1, 51));
+            dustType = 187;
+			minPick = 275;
 		}
 	}
 }

@@ -5,9 +5,9 @@ using static Terraria.ModLoader.ModContent;
 using CalValEX;
 using CalValEX.Items.Tiles;
 
-namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
+namespace CalValEX.Items.Tiles.FurnitureSets.Wulfrum
 {
-	public class NecrostonePlaced : ModTile
+	public class WulfrumPlatingPlaced : ModTile
 	{
 		public override void SetDefaults() 
         {
@@ -15,9 +15,8 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
 			Main.tileMergeDirt[Type] = false;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
-			drop = ModContent.ItemType<Necrostone>();
-			AddMapEntry(new Color(108, 59, 16));
-			minPick = 210;
+			drop = ModContent.ItemType<WulfrumPlating>();
+			AddMapEntry(new Color(149, 222, 168));
 		}
 	}
 }

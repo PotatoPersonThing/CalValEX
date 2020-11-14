@@ -18,7 +18,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
 			item.width = 12;
 			item.height = 12;
 			item.maxStack = 999;
-            item.rare = 7;
+            item.rare = 0;
 			item.useTurn = true;
 			item.autoReuse = true;
 			item.useAnimation = 15;

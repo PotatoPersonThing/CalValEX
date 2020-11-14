@@ -13,6 +13,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
 			item.maxStack = 999;
 			item.rare = CalamityRarity.PureGreen;
 			item.useTurn = true;
+			item.rare = 0;
 			item.autoReuse = true;
 			item.useAnimation = 15;
 			item.useTime = 10;
@@ -21,6 +22,18 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
 			item.createTile = ModContent.TileType<BloodstoneBrickPlaced>();
 		}
 
-		public override void ModifyTooltips(List<TooltipLine> tooltips) => ItemUtils.CheckRarity(CalamityRarity.PureGreen, tooltips);
+		public override void AddRecipes()
+        {
+
+        	Mod CalValEX = ModLoader.GetMod("CalamityMod");
+                {
+                    ModRecipe recipe = new ModRecipe(mod);
+                    recipe.AddIngredient((ItemID.StoneBlock), 200);
+                    recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("BloodstoneCore"), 1);
+                    recipe.AddTile(TileID.LunarCraftingStation);
+                    recipe.SetResult(this, 200);
+                    recipe.AddRecipe();
+                }
+        }
     }
 }

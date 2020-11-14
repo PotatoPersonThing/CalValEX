@@ -13,6 +13,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
             drop = ModContent.ItemType<BloodstoneBrick>();
             AddMapEntry(new Color(126, 94, 87));
             animationFrameHeight = 90;
+            minPick = 275;
         }
         readonly int animationFrameWidth = 234;
 
