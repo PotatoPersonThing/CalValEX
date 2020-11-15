@@ -25,7 +25,7 @@ namespace CalValEX.Items
 
 		public override void RightClick(Player player) 
         {
-			int choice = Main.rand.Next(18);
+			int choice = Main.rand.Next(19);
                         if (choice == 0)
                         {
                             player.QuickSpawnItem(ModContent.ItemType<BlazingConflict>());
@@ -93,6 +93,10 @@ namespace CalValEX.Items
                         else if (choice == 16)
                         {
                             player.QuickSpawnItem(ModContent.ItemType<RogueExtractor>());
+                        }
+                        else if (choice == 17)
+                        {
+                            player.QuickSpawnItem(ModContent.ItemType<Espelho>());
                         }
                         else
                         {
