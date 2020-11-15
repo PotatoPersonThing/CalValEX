@@ -1,11 +1,15 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
 {
-    public class BloodstoneBrick : ModItem
+    public class Bloodstone : ModItem
     {
+        public override void SetStaticDefaults() {
+			DisplayName.SetDefault("Bloodstone Block");
+		}
+
 		public override void SetDefaults()
 		{
 			item.width = 16;
@@ -19,7 +23,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
 			item.useTime = 10;
 			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.consumable = true;
-			item.createTile = ModContent.TileType<BloodstoneBrickPlaced>();
+			item.createTile = ModContent.TileType<BloodstonePlaced>();
 		}
 
 		public override void AddRecipes()
@@ -28,10 +32,9 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
         	Mod CalValEX = ModLoader.GetMod("CalamityMod");
                 {
                     ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient((ItemID.StoneBlock), 200);
-                    recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("BloodstoneCore"), 1);
+                    recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Bloodstone"), 1);
                     recipe.AddTile(TileID.LunarCraftingStation);
-                    recipe.SetResult(this, 200);
+                    recipe.SetResult(this);
                     recipe.AddRecipe();
                 }
         }
