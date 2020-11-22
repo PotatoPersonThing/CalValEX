@@ -40,11 +40,11 @@ internal class IsopodItem : ModItem
             {
                 return;
             }
-            if (((bool) mod.Call("GetBossDowned", "polterghast")))
+            if (((bool) mod.Call("GetBossDowned", "polterghast")) || CalValEXConfig.Instance.IsopodBait)
             {
                 item.bait = 55;
             }
-			else if (!((bool) mod.Call("GetBossDowned", "polterghast")))
+			else if (!((bool) mod.Call("GetBossDowned", "polterghast")) && !CalValEXConfig.Instance.IsopodBait)
 			{
 				item.bait = 1;
 			}

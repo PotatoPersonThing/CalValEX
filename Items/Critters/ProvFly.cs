@@ -156,7 +156,7 @@ namespace CalValEX.Items.Critters
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			if (spawnInfo.playerSafe || !NPC.downedMoonlord)
+			if (spawnInfo.playerSafe || !NPC.downedMoonlord || CalValEXConfig.Instance.CritterSpawns)
 			{
 				return 0f;
 			}
