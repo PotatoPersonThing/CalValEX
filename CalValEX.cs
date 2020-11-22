@@ -74,7 +74,7 @@ namespace CalValEX
                 }
             }
 
-            if (bossIsAlive)
+            if (bossIsAlive && !CalValEXConfig.Instance.GroundMountLol)
             {
                 int calculateLife = (int)(player.statLifeMax2 * reduceHealthBy);
                 player.statLifeMax2 -= calculateLife;

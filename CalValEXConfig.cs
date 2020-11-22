@@ -49,6 +49,12 @@ namespace CalValEX
 
 		[Header("Other")]
 
+		[Label("Disable Mount Nerf")]
+		[BackgroundColor(155, 181, 53, 155)]
+		[DefaultValue(false)]
+		[Tooltip("Disables the stat cripple which ground mounts give")]
+		public bool GroundMountLol { get; set; }
+
 		[Label("Disable Dragonball Easter Egg")]
 		[BackgroundColor(155, 181, 53, 155)]
 		[DefaultValue(false)]
