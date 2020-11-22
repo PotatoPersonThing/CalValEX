@@ -47,6 +47,14 @@ namespace CalValEX
 		[Tooltip("Makes it so that all Calamity's Vanities critters no longer spawn naturally")]
 		public bool CritterSpawns { get; set; }
 
+		[Header("Other")]
+
+		[Label("Disable Dragonball Easter Egg")]
+		[BackgroundColor(155, 181, 53, 155)]
+		[DefaultValue(false)]
+		[Tooltip("Disables the easter egg caused by the Dragonball pet")]
+		public bool DragonballName { get; set; }
+
 		public override bool AcceptClientChanges(ModConfig pendingConfig, int whoAmI, ref string message) => true;
 	}
 }

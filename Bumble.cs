@@ -15,7 +15,7 @@ namespace CalValEX
          public override void SetDefaults(NPC npc)
         {
             Mod clam = ModLoader.GetMod("CalamityMod");
-            if (mod != null && CalValEX.Bumble)
+            if (mod != null && CalValEX.Bumble && !CalValEXConfig.Instance.DragonballName)
             {
                 if (npc.type == clam.NPCType("Bumblefuck"))
                 { 
