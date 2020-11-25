@@ -265,7 +265,7 @@ namespace CalValEX.Oracle
                         {
                             Main.LocalPlayer.QuickSpawnItem(ItemID.GoodieBag);
                         }
-                        else if (Main.rand.NextFloat() < 0.4f)
+                        else if (Main.rand.NextFloat() < 0.2f)
                         {
                             Main.LocalPlayer.QuickSpawnItem(ItemID.Present);
                         }
