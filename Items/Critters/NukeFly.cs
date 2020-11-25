@@ -146,14 +146,14 @@ namespace CalValEX.Items.Critters
             Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
             if (clamMod != null)
             {
-            if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea"))
-                {
-			if(spawnInfo.player.ZoneOverworldHeight)
-			{
-                      	 return SpawnCondition.OverworldNight.Chance * 0.5f;
-			}
-                }
-		return 0f;
+				if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") && !CalValEXConfig.Instance.CritterSpawns)
+					{
+					if (spawnInfo.player.ZoneOverworldHeight)
+						{
+                      		return SpawnCondition.OverworldNight.Chance * 0.5f;
+						}
+					}
+				return 0f;
             }
             return 0f;
             

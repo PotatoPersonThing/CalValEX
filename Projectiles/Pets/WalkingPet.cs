@@ -272,6 +272,7 @@ namespace CalValEX.Projectiles.Pets
                         if (jumpCounter > -1)
                             jumpCounter--;
                     }
+                    Collision.StepUp(ref projectile.position, ref projectile.velocity, projectile.width, projectile.height, ref projectile.stepSpeed, ref projectile.gfxOffY);
                     if (WorldGen.SolidTile(i, j))
                     {
                         int i2 = (int)(projectile.position.X + (float)(projectile.width / 2)) / 16;

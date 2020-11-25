@@ -9,6 +9,7 @@ using Terraria.ModLoader;
 using CalValEX.Items;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Equips;
+using CalValEX.Items.Equips.Hats;
 using CalValEX;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.LightPets;
@@ -264,7 +265,7 @@ namespace CalValEX.Oracle
                         {
                             Main.LocalPlayer.QuickSpawnItem(ItemID.GoodieBag);
                         }
-                        else if (Main.rand.NextFloat() < 0.4f)
+                        else if (Main.rand.NextFloat() < 0.2f)
                         {
                             Main.LocalPlayer.QuickSpawnItem(ItemID.Present);
                         }

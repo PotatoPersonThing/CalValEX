@@ -164,7 +164,7 @@ namespace CalValEX.Items.Critters
 			Mod clamMod = ModLoader.GetMod("CalamityMod");
 			if (clamMod != null)
 			{
-				if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "astral"))
+				if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "astral") && !CalValEXConfig.Instance.ViolemurDefense)
 				{
 					npc.dontTakeDamage = true;
 					npc.netUpdate = true;
@@ -183,11 +183,15 @@ namespace CalValEX.Items.Critters
             Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
             if (clamMod != null)
             {
-				if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "astral"))
+				if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "astral") && !CalValEXConfig.Instance.CritterSpawns)
                 {
-					if (!Main.eclipse && !Main.bloodMoon && !Main.pumpkinMoon && !Main.snowMoon)
+					if (spawnInfo.playerSafe)
 					{
-						return 0.35f;
+						return SpawnCondition.TownCritter.Chance;
+					}
+					else if (!Main.eclipse && !Main.bloodMoon && !Main.pumpkinMoon && !Main.snowMoon)
+					{
+						return 0.15f;
 					}
                 }
             }

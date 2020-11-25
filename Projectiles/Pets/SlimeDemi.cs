@@ -32,7 +32,7 @@ namespace CalValEX.Projectiles.Pets
             inertia = 60f;
             animationSpeed = 30;
             spinRotationSpeedMult = 0.2f;
-            offSetX = 48f * -Main.player[projectile.owner].direction;
+            offSetX = 56f * -Main.player[projectile.owner].direction;
             offSetY = -50f;
         }
 

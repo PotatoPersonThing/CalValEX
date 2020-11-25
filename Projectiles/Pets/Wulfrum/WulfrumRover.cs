@@ -46,7 +46,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
             distance[0] = 2400f; //teleport
             distance[1] = 560f; //speed increase
             distance[2] = 140f; //when to walk
-            distance[3] = 40f; //when to stop walking
+            distance[3] = 60f; //when to stop walking
             distance[4] = 548f; //when to fly
             distance[5] = 180f; //when to stop flying
         }

@@ -7,6 +7,7 @@ using static Terraria.ModLoader.ModContent;
 using CalValEX;
 using CalValEX.Items;
 using CalValEX.Items.Tiles;
+using CalValEX.Items.Tiles.Blocks;
 using Terraria.DataStructures;
 using System;
 using System.Collections.Generic;
@@ -59,8 +60,9 @@ public override void AddRecipes()
     Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
                 ModRecipe recipe = new ModRecipe(mod);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Lumenite"), 30);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Voidstone"), 50);
+				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Lumenite"), 20);
+				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Voidstone"), 30);
+                recipe.AddIngredient(ModContent.ItemType<EidolicSlab>(), 20);
                 recipe.AddIngredient(ModContent.ItemType<NuclearFumes>(), 5);
                 recipe.AddTile(TileID.LunarCraftingStation);
                 recipe.SetResult(this);

@@ -160,7 +160,7 @@ namespace CalValEX.Items.Critters
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			if (spawnInfo.playerSafe || !NPC.downedGolemBoss)
+			if (spawnInfo.playerSafe || !NPC.downedGolemBoss || CalValEXConfig.Instance.CritterSpawns)
 			{
 				return 0f;
 			}

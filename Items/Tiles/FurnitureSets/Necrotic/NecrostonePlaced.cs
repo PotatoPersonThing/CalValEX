@@ -17,13 +17,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
 			Main.tileLighted[Type] = true;
 			drop = ModContent.ItemType<Necrostone>();
 			AddMapEntry(new Color(108, 59, 16));
-			//SetModTree(new Trees.ExampleTree());
+			minPick = 210;
 		}
-
-
-		//public override int SaplingGrowthType(ref int style) {
-			//style = 0;
-			//return TileType<ExampleSapling>();
-		//}
 	}
 }

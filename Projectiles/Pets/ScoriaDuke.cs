@@ -11,7 +11,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Scoria Duke");
-            Main.projFrames[projectile.type] = 6; //frames
+            Main.projFrames[projectile.type] = 4; //frames
             Main.projPet[projectile.type] = true;
         }
 
@@ -43,7 +43,7 @@ namespace CalValEX.Projectiles.Pets
             inertia = 60f;
             animationSpeed = 12; //how fast the animation should play
             spinRotationSpeedMult = 0.2f; //rotation speed multiplier, keep it positive for it to spin in the right direction
-            offSetX = 48f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
+            offSetX = 56f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
             offSetY = -50f; //how much higher from the center the pet should float
         }
 
