@@ -849,8 +849,8 @@ namespace CalValEX
             if (npc.type == calamityMod.NPCType("CeaselessVoid"))
             {
                 ChanceDropItem(npc, ModContent.ItemType<VoidShard>(), bossPetChance);
-                ConditionalChanceDropItem(npc, ModContent.ItemType<VoidShard>(), Main.expertMode, vanityNormalChance);
-                ConditionalChanceDropItem(npc, ModContent.ItemType<VoidShard>(), Main.expertMode, 0.05f); //5%
+                ConditionalChanceDropItem(npc, ModContent.ItemType<VoidWings>(), Main.expertMode, vanityNormalChance);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<OldVoidWings>(), Main.expertMode, 0.05f); //5%
                 ConditionalChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), Main.expertMode, 0.007f); //0.7%
                 if (!Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
                 {
