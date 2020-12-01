@@ -49,15 +49,6 @@ namespace CalValEX.Items.Tiles
 				return true;
 			}
 
-		public override void MouseOver(int i, int j)
-		{
-			Player localPlayer = Main.LocalPlayer;
-			localPlayer.noThrow = 2;
-			localPlayer.showItemIcon = true;
-			localPlayer.showItemIcon2 = ModContent.ItemType<Help>();
-			int dust = Dust.NewDust(new Vector2(i, j) * 16f, 5, 5, 1, 0f, 6.315789f, 161, new Color(0,217,255), 1.315789f);
-		}
-
 		public override bool NewRightClick(int i, int j) {
 			Player player = Main.LocalPlayer;
 					Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Help"));
