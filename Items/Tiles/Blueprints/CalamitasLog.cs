@@ -16,7 +16,7 @@ namespace CalValEX.Items.Tiles.Blueprints
     internal class CalamitasLog : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Calamitas Blueprint");
+			DisplayName.SetDefault("Calamitas Cloning Project Blueprint");
             Tooltip
                 .SetDefault("Do Not Distribute");
 		}
