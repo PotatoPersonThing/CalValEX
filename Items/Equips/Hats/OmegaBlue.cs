@@ -17,6 +17,7 @@ namespace CalValEX.Items.Equips.Hats
         public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Ancient Omega Blue Helmet");
+			Tooltip.SetDefault("You are beneath my notice, wyrm!");
 		}
 		public override void SetDefaults() {
 			item.width = 28;
