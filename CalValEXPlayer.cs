@@ -1,5 +1,6 @@
 //using CalValEX.Buffs.Transformations;
 //using CalValEX.Items.Equips.Transformations;
+using CalValEX.Items.Mounts.Morshu;
 using CalValEX.Projectiles.Pets;
 using Microsoft.Xna.Framework;
 using System.IO;
@@ -126,9 +127,13 @@ namespace CalValEX
         public bool sandHide;
         public bool sandForce;
         */
+
+        public int morshuTimer;
         public override void Initialize()
         {
+            ResetMyStuff();
             CalamityBabyGotHit = false;
+            morshuTimer = 0;
         }
 
         public override void ResetEffects()
@@ -167,11 +172,19 @@ namespace CalValEX
                 player.AddBuff(ModContent.BuffType<SandTransformationBuff>(), 60, true);
         }
         */
+
+        public override void PostUpdateBuffs()
+        {
+            if (!player.HasBuff(ModContent.BuffType<MorshuBuff>()))
+                morshuTimer = 0;
+        }
+
         public override void UpdateDead()
         {
             ResetMyStuff();
             CalamityBabyGotHit = false;
             SCalHits = 0;
+            morshuTimer = 0;
         }
 
         private void ResetMyStuff()
