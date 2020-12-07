@@ -16,6 +16,10 @@ namespace CalValEX.Items.Equips.Wings
 	[AutoloadEquip(EquipType.Wings)]
 	public class PlaguePack : ModItem
 	{
+		public override void SetStaticDefaults() 
+		{
+			DisplayName.SetDefault("Beelzebooster");
+		}
 		public override void SetDefaults() {
 			item.width = 40;
 			item.height = 34;
