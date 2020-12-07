@@ -17,7 +17,7 @@ namespace CalValEX.Items.Tiles.Plants
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Acid Vine Gun");
+			DisplayName.SetDefault("Acid Tape Dispenser");
             Tooltip.SetDefault("Places an infinite amount of Sulphurous Vines");
 		}
 
