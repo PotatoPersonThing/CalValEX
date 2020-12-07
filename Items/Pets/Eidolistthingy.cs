@@ -17,9 +17,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Eidolon Slab");
+            DisplayName.SetDefault("Smol Eldritch Hoodie");
             Tooltip
-                .SetDefault("Baby's first tablet");
+                .SetDefault("Baby's first hood");
         }
 
         public override void SetDefaults()
