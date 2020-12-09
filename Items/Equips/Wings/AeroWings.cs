@@ -29,7 +29,7 @@ namespace CalValEX.Items.Equips.Wings
 			item.accessory = true;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
-			player.wingTimeMax = 50;
+			player.wingTimeMax = 30;
 		}
 
 		public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
@@ -37,13 +37,13 @@ namespace CalValEX.Items.Equips.Wings
 			ascentWhenFalling = 0.65f;
 			ascentWhenRising = 0.10f;
 			maxCanAscendMultiplier = 1f;
-			maxAscentMultiplier = 2f;
+			maxAscentMultiplier = 1.3f;
 			constantAscend = 0.135f;
 		}
 
 		public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration) {
-			speed = 5f;
-			acceleration *= 1.5f;
+			speed = 4f;
+			acceleration *= 1.0f;
 		}
 	}
 }
