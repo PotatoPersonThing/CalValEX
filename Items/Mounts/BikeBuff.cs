@@ -17,7 +17,7 @@ namespace CalValEX.Items.Mounts
 		{
 			player.mount.SetMount(ModContent.MountType<ProfanedCycle>(), player);
 			player.buffTime[buffIndex] = 10;
-			CalValEX.MountNerf(player, 0.75f, 0.9f);
+			CalValEX.MountNerf(player, 0.9f, 0.75f);
 		}
 	}
 }
