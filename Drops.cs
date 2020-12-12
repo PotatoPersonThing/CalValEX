@@ -280,6 +280,12 @@ namespace CalValEX
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 0);
                         ++nextSlot;
                     }
+                    if ((bool)calamityMod.Call("GetBossDowned", "calamitas"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamitasFumo>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 20, 0);
+                        ++nextSlot;
+                    }
                 }
             }
         }
