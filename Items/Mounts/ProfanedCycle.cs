@@ -14,12 +14,12 @@ namespace CalValEX.Items.Mounts
             mountData.buff = mod.BuffType("BikeBuff");
             mountData.heightBoost = 20;
             mountData.fallDamage = 0.1f;
-            mountData.runSpeed = 25f;
-            mountData.dashSpeed = 9f;
+            mountData.runSpeed = 20f;
+            mountData.dashSpeed = 7f;
             mountData.flightTimeMax = 0;
             mountData.fatigueMax = 0;
             mountData.jumpHeight = 25;
-            mountData.acceleration = 0.30f;
+            mountData.acceleration = 0.20f;
             mountData.jumpSpeed = 6f;
             mountData.blockExtraJumps = false;
             mountData.totalFrames = 13;
@@ -77,7 +77,7 @@ namespace CalValEX.Items.Mounts
                 mountData.inAirFrameCount = 1;
                 mountData.inAirFrameDelay = 12;
                 mountData.inAirFrameStart = 12;
-                mountData.runSpeed = 25f;
+                mountData.runSpeed = 20f;
                 mountData.acceleration = 0.25f;
 
                 if (player.whoAmI == Main.myPlayer)
@@ -91,7 +91,7 @@ namespace CalValEX.Items.Mounts
                 mountData.inAirFrameCount = 1;
                 mountData.inAirFrameDelay = 12;
                 mountData.inAirFrameStart = 11;
-                mountData.runSpeed = 25f;
+                mountData.runSpeed = 20f;
             }
         }
     }
