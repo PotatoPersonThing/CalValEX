@@ -36,7 +36,12 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
                     recipe.AddTile(TileID.LunarCraftingStation);
                     recipe.SetResult(this);
                     recipe.AddRecipe();
-                }
+					ModRecipe recipe2 = new ModRecipe(mod);
+					recipe2.AddIngredient(ModContent.ItemType<BloodstoneWall>(), 4);
+					recipe2.AddTile(TileID.WorkBenches);
+					recipe2.SetResult(this, 1);
+					recipe2.AddRecipe();
+			}
         }
     }
 }
