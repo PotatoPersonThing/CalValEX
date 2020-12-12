@@ -17,7 +17,7 @@ namespace CalValEX.Items.Mounts
 	{
 		public override void SetStaticDefaults() {
 			 DisplayName.SetDefault("Profaned Cycle");
-			Tooltip.SetDefault("When you need to get somewhere, in style.\nThe Profaned Goddess' curse haunts the cycle, cutting your damage and health in half if a boss is nearby");
+			Tooltip.SetDefault("When you need to get somewhere, in style.\nThe Profaned Goddess' curse haunts the cycle, cutting your damage and health dramatically if a boss is nearby");
 		}
 
 		public override void SetDefaults() {
