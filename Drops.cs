@@ -16,6 +16,7 @@ using CalValEX.Items.Mounts.Morshu;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Balloons;
+using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
 using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
@@ -234,6 +235,12 @@ namespace CalValEX
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
                         ++nextSlot;
                     }
+                }
+                if (type == NPCID.Dryad && Main.hardMode == true)
+                {
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralGrass>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 50);
+                    ++nextSlot;
                 }
                 if (type == NPCID.Mechanic)
                 {
