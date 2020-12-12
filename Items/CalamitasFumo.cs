@@ -30,6 +30,7 @@ namespace CalValEX.Items
             item.height = 44;
             item.consumable = true;
             item.UseSound = SoundID.Item1;
+            item.rare = 6;
             item.useAnimation = 20;
             item.useTime = 20;
             item.noUseGraphic = true;
