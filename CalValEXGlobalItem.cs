@@ -13,6 +13,7 @@ using CalValEX.Items.Mounts;
 using CalValEX.Items.LightPets;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Tiles;
+using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
 using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
@@ -394,6 +395,10 @@ namespace CalValEX
                             if (Utils.NextFloat(Main.rand) < 0.3f)
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<PlaguePack>());
+                            }
+                            if (Utils.NextFloat(Main.rand) < 0.33f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<PlagueHiveWand>());
                             }
                         }
                         if (arg == calamityMod.ItemType("RavagerBag"))
