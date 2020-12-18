@@ -11,7 +11,7 @@ namespace CalValEX.Items.Tiles.Blocks
 		// The tooltip for this item is automatically assigned from .lang files
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("Places Plague Hives/nUses Hives");
+			Tooltip.SetDefault("Places Plague Hives");
 		}
 
 		public override void SetDefaults()

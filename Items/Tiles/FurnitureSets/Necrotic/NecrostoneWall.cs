@@ -10,9 +10,6 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
 {
 	public class NecrostoneWall : ModItem
 	{
-		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Necrostone Wall");
-		}
 
 		public override void SetDefaults() {
 			item.width = 12;
