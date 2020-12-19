@@ -15,6 +15,7 @@ namespace CalValEX.Items.Tiles
 			Main.tileLighted[Type] = true;
 			Main.tileLavaDeath[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall
+			TileID.Sets.HasOutlines[Type] = true;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.Width = 2;
             TileObjectData.newTile.Height = 3;
