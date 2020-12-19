@@ -216,6 +216,10 @@ namespace CalValEX
                     {
                         player.QuickSpawnItem(ModContent.ItemType<SeaCrown>());
                     }
+                    if (Utils.NextFloat(Main.rand) < 0.025f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<SunkenLamp>());
+                    }
                 }
             }
         }
