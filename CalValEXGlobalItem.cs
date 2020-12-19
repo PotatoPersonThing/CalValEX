@@ -15,6 +15,7 @@ using CalValEX.Items.Pets;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
+using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
 using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
 using CalValEX.Items.Tiles.Statues;
@@ -539,6 +540,31 @@ namespace CalValEX
                     }
                 }
             }
+        }
+
+       public void DeleteRecipes(int item)
+        {
+            RecipeFinder val = new RecipeFinder();
+            val.SetResult(item, 1);
+            foreach (Recipe item2 in val.SearchRecipes())
+            {
+                new RecipeEditor(item2).DeleteRecipe();
+            }
+        }
+
+        public override void AddRecipes()
+	    {
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            DeleteRecipes(calamityMod.ItemType("AuricToilet"));
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ModContent.ItemType<CosmiliteChairEX>(), 1);
+            recipe.AddIngredient(ModContent.ItemType<BloodstoneChairItem>(), 1);
+            recipe.AddIngredient(calamityMod.ItemType("BotanicChair"), 1);
+            recipe.AddIngredient(calamityMod.ItemType("SilvaChair"), 1);
+            recipe.AddIngredient(calamityMod.ItemType("AuricBar"), 4);
+            recipe.AddTile(calamityMod.TileType("DraedonsForge"));
+            recipe.SetResult(calamityMod.ItemType("AuricToilet"), 1);
+            recipe.AddRecipe();
         }
     }
 }
