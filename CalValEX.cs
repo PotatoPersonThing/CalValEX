@@ -44,6 +44,7 @@ namespace CalValEX
             day = -1;
             month = -1;
             compactFraming = null;
+            ExtraTextures.ChristmasPets.ChristmasTextureChange.Unload();
         }
 
         public override void PostSetupContent()
@@ -60,6 +61,7 @@ namespace CalValEX
             Type tileFraming = cal.Code.GetType("CalamityMod.TileFraming");
 
             compactFraming = tileFraming.GetMethod("CompactFraming", BindingFlags.Static | BindingFlags.NonPublic);
+            ExtraTextures.ChristmasPets.ChristmasTextureChange.Load();
         }
 
         public static void MountNerf(Player player, float reduceDamageBy, float reduceHealthBy)

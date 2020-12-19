@@ -1,4 +1,4 @@
-﻿using CalamityMod.UI;
+﻿//using CalamityMod.UI;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 using Terraria;
