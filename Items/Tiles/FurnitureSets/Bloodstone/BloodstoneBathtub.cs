@@ -27,7 +27,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 64, 32, ItemType<BloodstoneBookshelfItem>());
+			Item.NewItem(i * 16, j * 16, 64, 32, ItemType<BloodstoneBathtubItem>());
 		}
 	}
 }
