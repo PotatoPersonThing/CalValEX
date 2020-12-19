@@ -59,7 +59,7 @@ namespace CalValEX.Items.Tiles.Blueprints
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
 			{
 				ModRecipe recipe = new ModRecipe(mod);
-				recipe.AddIngredient(ItemID.HallowedBar);
+				recipe.AddIngredient(ItemID.SoulofSight);
 				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("PowerCell"), 10);
 				recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("LaboratoryConsole"));
 				recipe.SetResult(this);
