@@ -18,6 +18,7 @@ using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Balloons;
 using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
+using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
 using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
 using Terraria;
@@ -799,7 +800,14 @@ namespace CalValEX
             {
                 if (!CalValEXConfig.Instance.ConfigBossBlocks)
                 {
+                    if (Main.rand.NextFloat() < 0.5f)
+                    {
                     ConditionalDropItem(npc, (ModLoader.GetMod("CalamityMod").ItemType("StratusBricks")), !Main.expertMode, 155, 265);
+                    }
+                    else
+                    {
+                    ConditionalDropItem(npc, ModContent.ItemType<PhantowaxBlock>(), !Main.expertMode, 155, 265);
+                    }
                 }
                 int dropped = ConditionalChanceDropItem(npc, ModContent.ItemType<ToyScythe>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 if (dropped == 0)

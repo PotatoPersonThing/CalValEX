@@ -15,6 +15,7 @@ using CalValEX.Items.Pets;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
+using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
 using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
@@ -484,7 +485,15 @@ namespace CalValEX
                         {
                             if (!CalValEXConfig.Instance.ConfigBossBlocks)
                             {
+                                
+                                if (Main.rand.NextFloat() < 0.5f)
+                                {
                                 player.QuickSpawnItem(ModLoader.GetMod("CalamityMod").ItemType("StratusBricks"), Main.rand.Next(205, 335));
+                                }
+                                else
+                                {
+                                player.QuickSpawnItem(ModContent.ItemType<PhantowaxBlock>(), Main.rand.Next(205, 335));
+                                }
                             }
                             if (Utils.NextFloat(Main.rand) < 0.1f)
                             {
