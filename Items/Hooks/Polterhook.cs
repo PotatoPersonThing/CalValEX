@@ -17,7 +17,7 @@ namespace CalValEX.Items.Hooks
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Ghastly Chains");
-            Tooltip.SetDefault("Let the eternally suffering souls pull you forward!");
+            Tooltip.SetDefault("Let the eternally suffering souls pull you forward!\nReach: 46\nLaunch Velocity: 18\nPull Velocity: 26");
 		}
 
 		public override void SetDefaults() {

@@ -34,7 +34,7 @@ internal class Phantomhook : ModProjectile
 		}
 
 		public override float GrappleRange() {
-			return 950f;
+			return 750f;
 		}
 
 		public override void NumGrappleHooks(Player player, ref int numHooks) {
@@ -42,7 +42,7 @@ internal class Phantomhook : ModProjectile
 		}
 
 		public override void GrappleRetreatSpeed(Player player, ref float speed) {
-			speed = 40f;
+			speed = 26f;
 		}
 
 		public override void GrapplePullSpeed(Player player, ref float speed) {

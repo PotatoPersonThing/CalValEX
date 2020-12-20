@@ -17,7 +17,7 @@ namespace CalValEX.Items.Hooks
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Profaned Energy Hook");
-            Tooltip.SetDefault("Rattle the holy chains");
+            Tooltip.SetDefault("Rattle the holy chains\nReach: 37\nLaunch Velocity: 16\nPull Velocity: 30");
 		}
 
 		public override void SetDefaults() {

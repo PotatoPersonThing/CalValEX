@@ -34,7 +34,7 @@ internal class ProfanedHook : ModProjectile
 		}
 
 		public override float GrappleRange() {
-			return 900f;
+			return 600f;
 		}
 
 		public override void NumGrappleHooks(Player player, ref int numHooks) {

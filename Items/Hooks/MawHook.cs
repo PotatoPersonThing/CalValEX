@@ -17,7 +17,7 @@ namespace CalValEX.Items.Hooks
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Cragmaw Spinehook");
-            Tooltip.SetDefault("Prehistoric pull power!");
+            Tooltip.SetDefault("Prehistoric pull power!\nReach: 31\nLaunch Velocity: 18\nPull Velocity: 17");
 		}
 
 		public override void SetDefaults() {
