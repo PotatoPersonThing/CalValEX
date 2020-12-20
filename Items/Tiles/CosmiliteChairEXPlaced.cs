@@ -16,7 +16,7 @@ namespace CalValEX.Items.Tiles
 			Main.tileNoAttach[Type] = true;
 			Main.tileLavaDeath[Type] = true;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
-			TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
+			TileObjectData.newTile.CoordinateHeights = new[] { 16, 16 };
 			TileObjectData.newTile.Direction = TileObjectDirection.PlaceLeft;
 			TileObjectData.newTile.StyleWrapLimit = 2; //not really necessary but allows me to add more subtypes of chairs below the example chair texture
 			TileObjectData.newTile.StyleMultiplier = 2; //same as above
