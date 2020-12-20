@@ -360,7 +360,7 @@ namespace CalValEX
                             {
                                 player.AddBuff(BuffID.Lovestruck, Main.rand.Next(600, 3601));
                             }
-                            else if (!player.HasBuff(ModLoader.GetMod("CalamityMod").BuffType("AstrageldonBuff")))
+                            else if (!player.HasBuff(ModLoader.GetMod("CalamityMod").BuffType("AstrageldonBuff")) || !Main.LocalPlayer.HasItem(ItemID.LandMine))
                             {
                                 CalamityBabyGotHit = true;
                             }
