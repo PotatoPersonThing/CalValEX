@@ -19,6 +19,7 @@ namespace CalValEX.Items.Equips.Wings
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Beelzebooster");
+			Tooltip.SetDefault("And they wonder how bees can get themselves off the ground\n" + "Horizontal speed: 9\n" + "Acceleration multiplier: 2.5\n" + "Flight time: 170");
 		}
 		public override void SetDefaults() {
 			item.width = 40;

@@ -18,7 +18,7 @@ namespace CalValEX.Items.Equips.Wings
 	{
 
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Fly like an eagle");
+			Tooltip.SetDefault("Fly like an eagle\n" + "Horizontal speed: 9\n" + "Acceleration multiplier: 2.5\n" + "Flight time: 210");
 		}
 
 		public override void SetDefaults() {

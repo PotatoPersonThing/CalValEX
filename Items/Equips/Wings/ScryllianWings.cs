@@ -8,7 +8,8 @@ namespace CalValEX.Items.Equips.Wings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Scryllian Wings\nInflicts intense burns when worn before the flesh wall falls");
+            DisplayName.SetDefault("Scryllian Wings");
+            Tooltip.SetDefault("RISE!\n" + "Inflicts intense burns when worn before the flesh wall falls\n" + "Horizontal speed: 6.5\n" + "Flight time: 60");
         }
 
         public override void SetDefaults()

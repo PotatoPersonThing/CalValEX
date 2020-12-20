@@ -20,7 +20,7 @@ namespace CalValEX.Items.Equips.Wings
 
 		public override void SetStaticDefaults() {
             DisplayName.SetDefault("Godspeed Boosters");
-			Tooltip.SetDefault("Devout propulsion!");
+			Tooltip.SetDefault("Devout propulsion!\n" + "Horizontal speed: 9\n" + "Acceleration multiplier: 2.7\n" + "Flight time: 200");
 		}
 
 		public override void SetDefaults() {

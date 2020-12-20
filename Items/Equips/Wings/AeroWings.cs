@@ -18,7 +18,7 @@ namespace CalValEX.Items.Equips.Wings
 	{
 
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("It's a windy day");
+			Tooltip.SetDefault("It's a windy day\n" + "Horizontal speed: 4\n" + "Acceleration multiplier: 1\n" + "Flight time: 30");
 		}
 
 		public override void SetDefaults() {

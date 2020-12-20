@@ -17,7 +17,7 @@ namespace CalValEX.Items.Equips.Wings
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Plaguebringer Wings");
-            Tooltip.SetDefault("Nanomachines not included");
+            Tooltip.SetDefault("Nanomachines not included\n" + "Horizontal speed: 7.75\n" + "Acceleration multiplier: 1.5\n" + "Flight time: 150");;
         }
 
         public override void SetDefaults()

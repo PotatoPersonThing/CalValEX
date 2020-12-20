@@ -19,7 +19,7 @@ namespace CalValEX.Items.Equips.Wings
 
 		public override void SetStaticDefaults() {
             DisplayName.SetDefault("Old Duke Wings");
-			Tooltip.SetDefault("Toxic propulsion!");
+			Tooltip.SetDefault("Toxic propulsion!\n" + "Horizontal speed: 9.5\n" + "Acceleration multiplier: 2.7\n" + "Flight time: 190");
 		}
 
 		public override void SetDefaults() {

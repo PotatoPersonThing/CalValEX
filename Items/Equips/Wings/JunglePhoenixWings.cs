@@ -18,7 +18,7 @@ namespace CalValEX.Items.Equips.Wings
 	{
 
 		public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Chicken Wings");
+            DisplayName.SetDefault("Chicken Wings\n" + "Horizontal speed: 11.5\n" + "Acceleration multiplier: 2.9\n" + "Flight time: 140");
 			Tooltip.SetDefault("Hot");
 		}
 

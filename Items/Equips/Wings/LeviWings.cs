@@ -17,7 +17,7 @@ namespace CalValEX.Items.Equips.Wings
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Leviathan Fin Wings");
-            Tooltip.SetDefault("Flip flop");
+            Tooltip.SetDefault("Flip flop\n" + "Horizontal speed: 6.75\n" + "Acceleration multiplier: 1.4\n" + "Flight time: 120");
         }
 
         public override void SetDefaults()

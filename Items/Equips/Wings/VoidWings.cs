@@ -17,7 +17,7 @@ namespace CalValEX.Items.Equips.Wings
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Void Wings");
-			Tooltip.SetDefault("Let the darkness carry you");
+			Tooltip.SetDefault("Let the darkness carry you\n" + "Horizontal speed: 9\n" + "Acceleration multiplier: 2.5\n" + "Flight time: 230");
 			Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 4));
 			ItemID.Sets.ItemNoGravity[item.type] = true;
 		}
