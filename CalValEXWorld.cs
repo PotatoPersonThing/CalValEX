@@ -9,6 +9,7 @@ namespace CalValEX
 	public class CalValEXWorld : ModWorld
 	{
 		public static int astralTiles;
+		public static bool rescuedjelly = false;
 
 
 
