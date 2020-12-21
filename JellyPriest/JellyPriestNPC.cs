@@ -682,6 +682,7 @@ namespace CalValEX.JellyPriest
                     }
                 if ((bool) clamMod.Call("GetBossDowned", "oldduke") && Main.expertMode)
                     {
+
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Help>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(76, 0, 0, 0);
                         ++nextSlot;
@@ -691,9 +692,6 @@ namespace CalValEX.JellyPriest
             else if (shop2)
             {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            shop.item[nextSlot].SetDefaults(ItemType<WulfrumPlating>());
-            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 50);
-			nextSlot++;
             Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
             if (clamMod != null)
             {
@@ -715,13 +713,10 @@ namespace CalValEX.JellyPriest
                         shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryPipePlating"));
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
                         ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("SulphurousSand"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
-                        ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("HardenedSulphurousSand"));
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("SulphurousSandstone"));
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 35);
                         ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("SulphurousSandstone"));
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("HardenedSulphurousSandstone"));
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 50);
                         ++nextSlot;
                          if ((bool) clamMod.Call("GetBossDowned", "giantclam"))
@@ -759,22 +754,10 @@ namespace CalValEX.JellyPriest
                             shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("BrimstoneSlag"));
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 3, 5);
                             ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("SmoothBrimstoneSlag"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 3, 5);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("AshenSlab"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 3, 5);
-                            ++nextSlot;
                         }
                         if (NPC.downedGolemBoss)
                         {
                             shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("Voidstone"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 10, 0);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("SmoothVoidstone"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 10, 0);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("VoidstoneSlab"));
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 10, 0);
                             ++nextSlot;
                         }
@@ -804,19 +787,10 @@ namespace CalValEX.JellyPriest
                             shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("ProfanedRock"));
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 66, 66);
                             ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("ProfanedSlab"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 66, 66);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("RunicProfanedBrick"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 66, 66);
-                            ++nextSlot;
                             shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("ProfanedCrystal"));
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 6, 66, 66);
                             ++nextSlot;
                             shop.item[nextSlot].SetDefaults(ItemType<Bloodstone>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 80, 0);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ItemType<BloodstoneBrick>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 80, 0);
                             ++nextSlot;
                             shop.item[nextSlot].SetDefaults(ItemType<ChiseledBloodstone>());
@@ -831,7 +805,7 @@ namespace CalValEX.JellyPriest
                             shop.item[nextSlot].SetDefaults(ItemType<EidolicSlab>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
                             ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("StratusBrick"));
+                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("StratusBricks"));
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
                             ++nextSlot;
                         }
@@ -858,7 +832,7 @@ namespace CalValEX.JellyPriest
                         }
             }
             }
-        }               
+        }              
 
         public override bool CanGoToStatue(bool toKingStatue)
         {
@@ -910,7 +884,7 @@ namespace CalValEX.JellyPriest
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-                projType = ModContent.ProjectileType<OracleNPC_8Ball>();
+                projType = ModContent.ProjectileType<InkShot>();
                 attackDelay = 1;
                 return;
         }
