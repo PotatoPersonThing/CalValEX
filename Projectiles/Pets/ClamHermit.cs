@@ -10,6 +10,7 @@ namespace CalValEX.Projectiles.Pets
     {
         public override string Texture => "CalValEX/Projectiles/Pets/ClamHermit_Normal";
         private readonly string HalloweenTexture = "CalValEX/Projectiles/Pets/ClamHermit_Halloween";
+        private readonly string ChristmasTexture = "CalValEX/Projectiles/Pets/ClamHermit_Christmas";
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Clam Hermit");
@@ -92,6 +93,16 @@ namespace CalValEX.Projectiles.Pets
             if (CalValEX.month == 10)
             {
                 Texture2D texture = ModContent.GetTexture(HalloweenTexture);
+                Rectangle rectangle = new Rectangle(0, texture.Height / Main.projFrames[projectile.type] * projectile.frame, texture.Width, texture.Height / Main.projFrames[projectile.type]);
+                Vector2 position = projectile.Center - Main.screenPosition;
+                position.X += drawOffsetX;
+                position.Y += drawOriginOffsetY;
+                spriteBatch.Draw(texture, position, rectangle, lightColor, projectile.rotation, projectile.Size / 2f, 1f, (projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0f);
+                return false;
+            }
+            if (CalValEX.month == 12)
+            {
+                Texture2D texture = ModContent.GetTexture(ChristmasTexture);
                 Rectangle rectangle = new Rectangle(0, texture.Height / Main.projFrames[projectile.type] * projectile.frame, texture.Width, texture.Height / Main.projFrames[projectile.type]);
                 Vector2 position = projectile.Center - Main.screenPosition;
                 position.X += drawOffsetX;
