@@ -29,5 +29,15 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
 			item.value = 500;
 			item.createTile = ModContent.TileType<BloodstoneChest>();
 		}
-	}
+
+        public override void AddRecipes()
+        {
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("BloodOrb"), 5);
+			recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>(), 15);
+			recipe.AddTile(TileID.LunarCraftingStation);
+			recipe.SetResult(this);
+			recipe.AddRecipe();
+		}
+    }
 }

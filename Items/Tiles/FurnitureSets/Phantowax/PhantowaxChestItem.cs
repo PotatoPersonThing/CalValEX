@@ -24,5 +24,15 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
 			item.value = 500;
 			item.createTile = ModContent.TileType<PhantowaxChest>();
 		}
+
+		public override void AddRecipes()
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Phantoplasm"), 4);
+			recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>(), 4);
+			recipe.AddTile(TileID.LunarCraftingStation);
+			recipe.SetResult(this);
+			recipe.AddRecipe();
+		}
 	}
 }
