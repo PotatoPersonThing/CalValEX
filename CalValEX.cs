@@ -1,5 +1,6 @@
 using CalValEX.Items.Dyes;
 using CalValEX.Oracle;
+using CalValEX.JellyPriest;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 using Terraria;
