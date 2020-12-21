@@ -16,7 +16,7 @@ namespace CalValEX.JellyPriest
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bound Jelly Priest");
+            DisplayName.SetDefault("Bound Jelly Priestess");
             Main.npcFrameCount[npc.type] = 1;
         }
         

@@ -41,7 +41,7 @@ namespace CalValEX.JellyPriest
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Jelly Priest");
+            DisplayName.SetDefault("Jelly Priestess");
             Main.npcFrameCount[npc.type] = 25;
             NPCID.Sets.ExtraFramesCount[npc.type] = 9;
             NPCID.Sets.AttackFrameCount[npc.type] = 4;
