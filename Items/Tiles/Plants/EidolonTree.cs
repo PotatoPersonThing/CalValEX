@@ -54,19 +54,4 @@ namespace CalValEX.Items.Tiles.Plants
         }
     }
 }
-
-public override void AddRecipes()
-    {
-    Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Lumenite"), 20);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Voidstone"), 30);
-                recipe.AddIngredient(ModContent.ItemType<EidolicSlab>(), 20);
-                recipe.AddIngredient(ModContent.ItemType<NuclearFumes>(), 5);
-                recipe.AddTile(TileID.LunarCraftingStation);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-			}
-    }
 }}

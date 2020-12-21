@@ -55,18 +55,4 @@ namespace CalValEX.Items.Tiles.Statues
         }
     }
 }
-
-public override void AddRecipes()
-    {
-    Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("DivineGeode"), 10);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("UnholyEssence"), 50);
-                recipe.AddIngredient((ItemID.StoneBlock), 200);
-                recipe.AddTile(TileID.LunarCraftingStation);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-			}
-    }
 }}

@@ -34,17 +34,4 @@ namespace CalValEX.Items.Tiles.Statues
 			item.height = 12;
             item.rare = 1;
 		}
-
-public override void AddRecipes()
-    {
-    Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("VictoryShard"), 5);
-                recipe.AddIngredient((ItemID.StoneBlock), 50);
-                recipe.AddTile(TileID.Anvils);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-			}
-    }
 }}

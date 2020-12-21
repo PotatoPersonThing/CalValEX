@@ -30,18 +30,5 @@ namespace CalValEX.Items.Tiles.Banners
 			item.createTile = TileType<VeilBannerPlaced>();
 			item.placeStyle = 0;
 		}
-
-		public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			Mod calamityMod = ModLoader.GetMod("CalamityMod");
-			if (calamityMod != null)
-			{
-				recipe.AddIngredient(calamityMod.ItemType("SolarVeil"), 10);
-				recipe.AddTile(TileID.MythrilAnvil);
-				recipe.SetResult(this);
-				recipe.AddRecipe();
-			}
-		}
 	}
 }

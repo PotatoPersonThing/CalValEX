@@ -32,18 +32,4 @@ namespace CalValEX.Items.Tiles.Plants
 			item.height = 12;
             item.rare = 4;
 		}
-
-public override void AddRecipes()
-    {
-    Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("AstralMonolith"), 5);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("AstralDirt"), 10);
-                recipe.AddIngredient((ItemID.ClayPot));
-                recipe.AddTile(TileID.MythrilAnvil);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-			}
-    }
 }}

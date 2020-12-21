@@ -55,18 +55,4 @@ namespace CalValEX.Items.Tiles.Plants
         }
     }
 }
-
-public override void AddRecipes()
-    {
-    Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("TwistingNether"), 3);
-				recipe.AddIngredient((ItemID.ClayPot), 4);
-                recipe.AddIngredient((ItemID.Acorn), 4);
-                recipe.AddTile(TileID.LunarCraftingStation);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-			}
-    }
 }}
