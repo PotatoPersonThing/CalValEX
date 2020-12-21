@@ -56,6 +56,7 @@ namespace CalValEX
             if (censusMod != null)
             {
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<OracleNPC>(), "Equip a Pet or Light Pet");
+                censusMod.Call("TownNPCCondition", ModContent.NPCType<JellyPriestNPC>(), "Find at the Sulphurous Sea after defeating Acid Rain tier 1");
             }
 
             Type tileFraming = cal.Code.GetType("CalamityMod.TileFraming");
