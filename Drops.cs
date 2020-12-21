@@ -52,42 +52,10 @@ namespace CalValEX
                 {
                     if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sunkensea"))
                     {
-                        if ((bool)clamMod.Call("GetBossDowned", "giantclam"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<SSCoral>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 20, 0);
-                            ++nextSlot;
-                        }
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Anemone>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 20, 0);
-                            ++nextSlot;
-                        }
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<BrainCoral>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 20, 0);
-                            ++nextSlot;
-                        }
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<TableCoral>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 20, 0);
-                            ++nextSlot;
-                        }
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<FanCoral>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 20, 0);
-                            ++nextSlot;
-                        }
                         if (Main.hardMode == true)
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<VVanities>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
-                            ++nextSlot;
-                        }
-                        if ((bool)clamMod.Call("GetBossDowned", "aquaticscourge"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<BelchingCoral>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 30, 0);
                             ++nextSlot;
                         }
                         if ((bool)clamMod.Call("GetBossDowned", "oldduke"))
@@ -114,51 +82,13 @@ namespace CalValEX
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(42, 0, 0, 0);
                             ++nextSlot;
                         }
-                        if ((bool)clamMod.Call("GetBossDowned", "acidrain"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Ribrod>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 2, 0, 0);
-                            ++nextSlot;
-                        }
                     }
                     if (!(bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sunkensea"))
                     {
-                        if ((bool)clamMod.Call("GetBossDowned", "giantclam"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<SSCoral>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 25, 0);
-                            ++nextSlot;
-                        }
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Anemone>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 25, 0);
-                            ++nextSlot;
-                        }
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<BrainCoral>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 25, 0);
-                            ++nextSlot;
-                        }
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<TableCoral>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 25, 0);
-                            ++nextSlot;
-                        }
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<FanCoral>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 25, 0);
-                            ++nextSlot;
-                        }
                         if (Main.hardMode == true)
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<VVanities>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
-                            ++nextSlot;
-                        }
-                        if ((bool)clamMod.Call("GetBossDowned", "aquaticscourge"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<BelchingCoral>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 35, 0);
                             ++nextSlot;
                         }
                         if ((bool)clamMod.Call("GetBossDowned", "oldduke"))
@@ -183,12 +113,6 @@ namespace CalValEX
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Yharlamitas>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(420, 0, 0, 0);
-                            ++nextSlot;
-                        }
-                        if ((bool)clamMod.Call("GetBossDowned", "acidrain"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Ribrod>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
                             ++nextSlot;
                         }
                     }
@@ -241,12 +165,6 @@ namespace CalValEX
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralGrass>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 50);
-                    ++nextSlot;
-                }
-                if (type == NPCID.Mechanic)
-                {
-                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryConsoleItem"));
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
                     ++nextSlot;
                 }
                 if (type == NPCID.Truffle)
