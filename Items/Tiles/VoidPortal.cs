@@ -55,18 +55,4 @@ namespace CalValEX.Items.Tiles
         }
     }
 }
-
-public override void AddRecipes()
-    {
-    Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("DarkPlasma"), 20);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CosmiliteBar"), 2);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CeaselessVoidTrophy"), 1);
-                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-			}
-    }
 }}
