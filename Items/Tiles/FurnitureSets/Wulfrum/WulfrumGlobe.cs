@@ -33,17 +33,4 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Wulfrum
 			item.height = 12;
             item.rare = 2;
 		}
-
- public override void AddRecipes()
-    {
-    Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("WulfrumShard"), 5);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("EnergyCore"), 1);
-                recipe.AddTile(TileID.Anvils);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-			}
-    }
 }}

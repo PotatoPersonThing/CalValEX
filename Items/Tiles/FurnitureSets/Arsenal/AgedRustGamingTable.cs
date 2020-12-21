@@ -56,25 +56,5 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Arsenal
                 }
             }
         }
-
-        public override void AddRecipes()
-        {
-        Mod CalValEX = ModLoader.GetMod("CalamityMod");
-                {
-                    ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("DubiousPlating"), 2);
-                    recipe.AddIngredient((ItemID.IronBar), 4);
-                    recipe.AddTile(TileID.Anvils);
-                    recipe.SetResult(this);
-                    recipe.AddRecipe();
-
-                    ModRecipe recipe2 = new ModRecipe(mod);
-                    recipe2.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("DubiousPlating"), 2);
-                    recipe2.AddIngredient((ItemID.LeadBar), 4);
-                    recipe2.AddTile(TileID.Anvils);
-                    recipe2.SetResult(this);
-                    recipe2.AddRecipe();
-                }
-        }
     }
 }
