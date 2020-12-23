@@ -204,11 +204,11 @@ namespace CalValEX.JellyPriest
                         case 0:
                             return "This place reeks of sadness, let me help you get the place better with some beautiful decorations will you.";
                         case 1:
-                            return "I told you already, i'm not going back into that stinky sea to get you materials for your stuff... unless you have some extra change with you, of course.";
+                            return "I told you already, I'm not going back into that stinky sea to get you materials for your stuff... unless you have some extra change with you, of course.";
                         case 2:
-                            return "I would love to decorate your place for free, but i require some coins for buying offerings you know?.";
+                            return "I would love to decorate your place for free, but I require some coins for buying offerings you know?.";
                         default:
-                            return "Oh, where i got this apron and tools from? It is all handmade by myself with resources from around my place! You learn to do this stuff over time with enough passion.";
+                            return "Oh, where I got this apron and tools from? It is all handmade by myself with resources from around my place! You learn to do this stuff over time with enough passion.";
                     }
                 }
                 else
