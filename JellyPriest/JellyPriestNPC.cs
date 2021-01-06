@@ -166,7 +166,7 @@ namespace CalValEX.JellyPriest
                 switch(Main.rand.Next(2))
                 {
                     case 0:
-                        return "Oh! So you did find the location of the deity i'm searching for? Please explain in detail everything about them, i would love to start working on my offerings and monuments as soon as possible.";
+                        return "Oh! So you did find the location of the deity I'm searching for? Please explain in detail everything about them, I would love to start working on my offerings and monuments as soon as possible.";
                     default:
                         return "For some reason, the goddess' presence feels like it's weakened. I hope nothing bad happened to her.";
                 }
