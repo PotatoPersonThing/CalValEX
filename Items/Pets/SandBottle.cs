@@ -17,8 +17,8 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Small Sand Bottle");
-            Tooltip.SetDefault("An elemental's favorite drink!");
+            DisplayName.SetDefault("Small Sand Pale");
+            Tooltip.SetDefault("An elemental's favorite pale!");
         }
 
         public override void SetDefaults()
