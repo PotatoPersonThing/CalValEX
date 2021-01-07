@@ -524,9 +524,9 @@ namespace CalValEX
             }
             if (npc.type == calamityMod.NPCType("CultistAssassin"))
             {
-                ChanceDropItem(npc, ModContent.ItemType<CultistRobe>(), vanityMaxChance);
-                ChanceDropItem(npc, ModContent.ItemType<CultistHood>(), vanityMaxChance);
-                ChanceDropItem(npc, ModContent.ItemType<CultistLegs>(), vanityMaxChance);
+                ChanceDropItem(npc, ModContent.ItemType<CultistRobe>(), normalChance);
+                ChanceDropItem(npc, ModContent.ItemType<CultistHood>(), normalChance);
+                ChanceDropItem(npc, ModContent.ItemType<CultistLegs>(), normalChance);
             }
             if (npc.type == calamityMod.NPCType("HeatSpirit"))
             {
@@ -567,18 +567,18 @@ namespace CalValEX
             if (npc.type == calamityMod.NPCType("ProfanedEnergyBody") && Main.expertMode)
             {
                 ConditionalChanceDropItem(npc, ModContent.ItemType<ProfanedEnergyHook>(), Main.expertMode, bossHookChance);
-                ConditionalChanceDropItem(npc, ModContent.ItemType<ProfanedBalloon>(), Main.expertMode, vanityNormalChance);
+                ConditionalChanceDropItem(npc, ModContent.ItemType<ProfanedBalloon>(), Main.expertMode, normalChance);
                 ConditionalChanceDropItem(npc, ModContent.ItemType<ChewyToy>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.01f); //1%
             }
             if (npc.type == calamityMod.NPCType("ScornEater"))
             {
-                ChanceDropItem(npc, ModContent.ItemType<ScornEaterMask>(), vanityNormalChance);
+                ChanceDropItem(npc, ModContent.ItemType<ScornEaterMask>(), normalChance);
                 ConditionalChanceDropItem(npc, ModContent.ItemType<ChewyToy>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.01f); //1%
             }
             if (npc.type == calamityMod.NPCType("ImpiousImmolator"))
             {
-                ChanceDropItem(npc, ModContent.ItemType<HolyTorch>(), 0.1f); //10%
-                ChanceDropItem(npc, ModContent.ItemType<ProfanedBalloon>(), vanityNormalChance);
+                ChanceDropItem(npc, ModContent.ItemType<HolyTorch>(), 0.05f); //10%
+                ChanceDropItem(npc, ModContent.ItemType<ProfanedBalloon>(), normalChance);
                 ConditionalChanceDropItem(npc, ModContent.ItemType<ChewyToy>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.01f); //1%
             }
             //Post-ml misc
