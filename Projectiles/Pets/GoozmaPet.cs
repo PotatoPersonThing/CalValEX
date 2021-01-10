@@ -186,7 +186,7 @@ namespace CalValEX.Projectiles.Pets
                 {
                     AddDeity(11);
                 }
-                else if (calPlayer.ZoneSunken)
+                else if (calPlayer.ZoneSunkenSea)
                 {
                     AddDeity(14);
                 }
