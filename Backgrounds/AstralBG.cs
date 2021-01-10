@@ -27,9 +27,30 @@ namespace CalValEX.Backgrounds
 			}
 		}
 
+		public override int ChooseFarTexture() {
+			return mod.GetBackgroundSlot("Backgrounds/AstralBack");
+		}
+
+		private static int SurfaceFrameCounter;
+		private static int SurfaceFrame;
+		public override int ChooseMiddleTexture() {
+			if (++SurfaceFrameCounter > 12) {
+				SurfaceFrame = (SurfaceFrame + 1) % 2;
+				SurfaceFrameCounter = 0;
+			}
+			switch (SurfaceFrame) {
+				case 0:
+					return mod.GetBackgroundSlot("Backgrounds/AstralMiddle");
+				case 1:
+					return mod.GetBackgroundSlot("Backgrounds/AstralMiddle");
+				default:
+					return -1;
+			}
+		}
+
 		public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b) {
-            b -= 1450f;
-			return mod.GetBackgroundSlot("Backgrounds/Astral");
+			b -= 130f;
+			return mod.GetBackgroundSlot("Backgrounds/AstralClose");
 		}
 	}
 }
