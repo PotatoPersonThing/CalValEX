@@ -186,6 +186,10 @@ namespace CalValEX.Projectiles.Pets
                 {
                     AddDeity(11);
                 }
+                else if (calPlayer.ZoneSunken)
+                {
+                    AddDeity(14);
+                }
                 else if (player.ZoneJungle)
                 {
                     if (NPC.downedGolemBoss)
