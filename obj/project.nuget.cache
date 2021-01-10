@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "wTGw4j/ZI61JUiS7G6P+WArnT5Allo7NQkNgjINH9CqAnwCjyuJxkpkNtfZW6Imcw2ma2IEu9KqWTRyC6kXeMQ==",
+  "dgSpecHash": "UGYU39+Oqwfb4TpW+gFCth0tzSkLo84rKX8rprGstOiwDo48rKBiRdP8CZCu23O+uSCa2eQVJfOkMVHDERfQGA==",
   "success": true,
-  "projectFilePath": "/Users/danielg/Library/Application Support/Terraria/ModLoader/Mod Sources/CalValEX/CalValEX.csproj",
+  "projectFilePath": "C:\\Users\\Administrator Alt\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\CalValEX\\CalValEX.csproj",
   "expectedPackageFiles": [
-    "/Users/danielg/.nuget/packages/tmodloader.codeassist/0.1.1/tmodloader.codeassist.0.1.1.nupkg.sha512"
+    "C:\\Users\\Administrator Alt\\.nuget\\packages\\tmodloader.codeassist\\0.1.1\\tmodloader.codeassist.0.1.1.nupkg.sha512"
   ],
   "logs": []
 }

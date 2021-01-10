@@ -31,28 +31,26 @@
     ]
   },
   "packageFolders": {
-    "/Users/danielg/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\Administrator Alt\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/danielg/Library/Application Support/Terraria/ModLoader/Mod Sources/CalValEX/CalValEX.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator Alt\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\CalValEX\\CalValEX.csproj",
       "projectName": "CalValEX",
-      "projectPath": "/Users/danielg/Library/Application Support/Terraria/ModLoader/Mod Sources/CalValEX/CalValEX.csproj",
-      "packagesPath": "/Users/danielg/.nuget/packages/",
-      "outputPath": "/Users/danielg/Library/Application Support/Terraria/ModLoader/Mod Sources/CalValEX/obj/",
+      "projectPath": "C:\\Users\\Administrator Alt\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\CalValEX\\CalValEX.csproj",
+      "packagesPath": "C:\\Users\\Administrator Alt\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Administrator Alt\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\CalValEX\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "/Users/danielg/.config/NuGet/NuGet.Config"
+        "C:\\Users\\Administrator Alt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net45"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -74,7 +72,7 @@
             "version": "[0.1.*, )"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.401/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

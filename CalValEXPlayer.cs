@@ -8,7 +8,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-
+using CalamityMod.CalPlayer;
 namespace CalValEX
 {
     public class CalValEXPlayer : ModPlayer
@@ -121,6 +121,10 @@ namespace CalValEX
         public bool voidling = false;
         public bool mScourge = false;
         public bool darksunSpirits = false;
+        public bool goozmaPet = false;
+
+
+        //public CalamityPlayer calPlayer;
         /*
         public bool sandTPrevious;
         public bool sandT;
@@ -132,6 +136,7 @@ namespace CalValEX
         public override void Initialize()
         {
             ResetMyStuff();
+            //calPlayer = player.GetModPlayer<CalamityPlayer>();
             CalamityBabyGotHit = false;
             morshuTimer = 0;
         }
@@ -178,6 +183,8 @@ namespace CalValEX
             if (!player.HasBuff(ModContent.BuffType<MorshuBuff>()))
                 morshuTimer = 0;
         }
+
+        
 
         public override void UpdateDead()
         {
@@ -292,6 +299,7 @@ namespace CalValEX
             voidling = false;
             mScourge = false;
             darksunSpirits = false;
+            goozmaPet = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
