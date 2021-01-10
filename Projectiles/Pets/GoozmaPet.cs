@@ -170,10 +170,6 @@ namespace CalValEX.Projectiles.Pets
                 {
                     AddDeity(6);
                 }
-                else if (player.ZoneBeach)
-                {
-                    AddDeity(8);
-                }
                 else if (player.ZoneDesert)
                 {
                     AddDeity(18);
@@ -210,14 +206,19 @@ namespace CalValEX.Projectiles.Pets
 
                     if (CalamityMod.World.CalamityWorld.rainingAcid)
                     {
-                        AddDeity(17);
+                        AddDeity(16);
                     }
                     else
                     {
-                        AddDeity(16);
+                        AddDeity(17);
                     }
 
-                }else if (player.ZoneDirtLayerHeight || player.ZoneRockLayerHeight)
+                }
+                else if (player.ZoneBeach)
+                {
+                    AddDeity(8);
+                }
+                else if (player.ZoneDirtLayerHeight || player.ZoneRockLayerHeight)
                 {
                     AddDeity(7);
                 }
