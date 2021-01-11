@@ -17,9 +17,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ancient Choker");
+            DisplayName.SetDefault("Skull Cluster");
             Tooltip
-                .SetDefault("A strange medallion that attracts roaming flesh golems");
+                .SetDefault("Two skulls pop out of the pile with glowing eyes");
         }
 
         public override void SetDefaults()
