@@ -13,6 +13,7 @@ using CalValEX.Items.Equips.Hats;
 using CalValEX;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.LightPets;
+using CalamityMod.World;
 
 namespace CalValEX.Oracle
 {
@@ -150,6 +151,17 @@ namespace CalValEX.Oracle
                         return Main.npc[wizard].GivenName + " may seem like a weird old dude with a silly costume, but his magic is real for sure.";
                     default:
                         return "Hey punk, can you talk to " + Main.npc[wizard].GivenName + "? I have a buddy that he might enjoy having!";
+                }
+            }
+
+            if (!Main.expertMode)
+            {
+                switch(Main.rand.Next(2))
+                {
+                    case 0:
+                        return "Y'know kid, a lot of little buddies tend to only follow those who challenge themselves. Some could say that they will only follow Experts.";
+                    default:
+                        return "While your current adventure gives many opportunity to find little friends, I heard that Experts attract a lot more!";
                 }
             }
 
@@ -322,7 +334,7 @@ namespace CalValEX.Oracle
                                 nextSlot++;
                             
                 }
-                if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea"))
+                if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") || CalamityMod.World.CalamityWorld.rainingAcid)
                             {
                                 shop.item[nextSlot].SetDefaults(ModContent.ItemType<BubbleGum>());
                                 shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 75, 0, 0);
