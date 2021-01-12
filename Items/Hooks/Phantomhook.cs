@@ -26,7 +26,7 @@ internal class Phantomhook : ModProjectile
 					hooksOut++;
 				}
 			}
-			if (hooksOut > 1) 
+			if (hooksOut > 3) 
 			{
 				return false;
 			}
