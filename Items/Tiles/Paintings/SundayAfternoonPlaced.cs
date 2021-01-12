@@ -26,7 +26,7 @@ namespace CalValEX.Items.Tiles.Paintings
 		}
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY) {
-			Item.NewItem(i * 16, j * 16, 88, 56, ItemType<NotLikeHome>());
+			Item.NewItem(i * 16, j * 16, 88, 56, ItemType<SundayAfternoon>());
 		}
 	}
 }
