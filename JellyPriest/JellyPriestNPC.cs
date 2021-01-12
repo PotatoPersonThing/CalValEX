@@ -26,6 +26,7 @@ using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
 using CalValEX;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.LightPets;
+using CalamityMod.CalPlayer;
 
 namespace CalValEX.JellyPriest
 {
@@ -148,6 +149,8 @@ namespace CalValEX.JellyPriest
                         return "Do you think Amidias knows anything about the sea deity I'm searching? It seems that old horse got a lot of knowledge about story.";
                 }
             }
+            Player player = Main.player[Main.myPlayer];
+            CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
 
             if (NPC.AnyNPCs((ModLoader.GetMod("CalamityMod").NPCType("Siren"))))
             {
@@ -171,6 +174,21 @@ namespace CalValEX.JellyPriest
                         return "For some reason, the goddess' presence feels like it's weakened. I hope nothing bad happened to her.";
                 }
 
+            }
+
+            if (calPlayer.sirenWaifu || calPlayer.elementalHeart)
+            {
+                return "You were successfully able to befriend the grand Water Elemental? I'm impressed.";
+            }
+
+            if (calPlayer.sirenBoobs && !calPlayer.sirenBoobsHide)
+            {
+               return "OH! Please, welcome yourself to my shop. I've been preparing these just for you.";
+            }
+
+            if (calPlayer.sirenPet)
+            {
+                return "Awe, that little one is cute. She reminds me a lot of the deity I seek.";
             }
 
             if (Main.eclipse)
