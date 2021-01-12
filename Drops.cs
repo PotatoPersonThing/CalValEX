@@ -24,6 +24,8 @@ using CalValEX.Items.Tiles.Plants;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using CalamityMod.CalPlayer;
+using CalamityMod.World;
 
 namespace CalValEX
 {
@@ -638,10 +640,6 @@ namespace CalValEX
                 DropItem(npc, ModContent.ItemType<SoulShard>());
                 DropItem(npc, ModContent.ItemType<OmegaBlue>());
             }
-            if (npc.type == calamityMod.NPCType("GreatSandShark") && Main.expertMode)
-            {
-                ConditionalChanceDropItem(npc, ModContent.ItemType<CrushedCore>(), Main.expertMode, minibossChance);
-            }
             if (npc.type == calamityMod.NPCType("Horse"))
             {
                 ChanceDropItem(npc, ModContent.ItemType<EarthShield>(), minibossChance);
@@ -731,7 +729,7 @@ namespace CalValEX
                 if (dropped == 0)
                     ConditionalDropItem(npc, ModContent.ItemType<ToyScythe>(), (bool)calamityMod.Call("DifficultyActive", "defiled"));
             }
-            if (npc.type == calamityMod.NPCType("StormWeaverHeadNaked") && Main.expertMode)
+            if (npc.type == calamityMod.NPCType("StormWeaverHeadNaked") && Main.expertMode && CalamityMod.World.CalamityWorld.DoGSecondStageCountdown <= 0)
             {
                 ChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), 0.007f); //0.7%
                 ChanceDropItem(npc, ModContent.ItemType<StormBandana>(), vanityNormalChance);
@@ -768,7 +766,7 @@ namespace CalValEX
                 ChanceDropItem(npc, ModContent.ItemType<ScavaHook>(), RIVChance);
                 ConditionalDropItem(npc, ModContent.ItemType<Necrostone>(), !Main.expertMode, 155, 265);
             }
-            if (npc.type == calamityMod.NPCType("Signus"))
+            if (npc.type == calamityMod.NPCType("Signus") && CalamityMod.World.CalamityWorld.DoGSecondStageCountdown <= 0)
             {
                 ChanceDropItem(npc, ModContent.ItemType<SigCloth>(), bossPetChance);
                 ChanceDropItem(npc, ModContent.ItemType<SigCape>(), vanityNormalChance);
@@ -785,7 +783,7 @@ namespace CalValEX
                     ConditionalDropItem(npc, (ModLoader.GetMod("CalamityMod").ItemType("OccultStone")), (bool)calamityMod.Call("GetBossDowned", "devourerofgods"), 205, 335);
                 }
             }
-            if (npc.type == calamityMod.NPCType("CeaselessVoid"))
+            if (npc.type == calamityMod.NPCType("CeaselessVoid") && CalamityMod.World.CalamityWorld.DoGSecondStageCountdown <= 0)
             {
                 ChanceDropItem(npc, ModContent.ItemType<VoidShard>(), bossPetChance);
                 ConditionalChanceDropItem(npc, ModContent.ItemType<VoidWings>(), Main.expertMode, vanityNormalChance);
