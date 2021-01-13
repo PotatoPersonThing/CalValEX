@@ -141,6 +141,10 @@ namespace CalValEX.Projectiles.Pets
          * 18 = desert
          * 19 = boss rush
          * 20 = snow
+         * 21 = abyss layer 1
+         * :22: = abyss layer 3
+         * 23 = pillars
+         * 24 = ug snow/cryonic
          */
             if (CalamityMod.Events.BossRushEvent.BossRushActive)
             {
@@ -151,87 +155,108 @@ namespace CalValEX.Projectiles.Pets
             }
             else
             {
-                if (player.ZoneCorrupt)
+                if (player.ZoneTowerVortex || player.ZoneTowerSolar || player.ZoneTowerStardust || player.ZoneTowerNebula)
+                {
+                    AddDeity(23);
+                }
+                else if (player.ZoneCorrupt) //Ebonian
                 {
                     AddDeity(1);
                 }
-                else if (player.ZoneCrimson)
+                else if (player.ZoneCrimson) //Crimulan
                 {
                     AddDeity(2);
                 }
-                else if (player.ZoneHoly)
+                else if (player.ZoneHoly) //Crystalline
                 {
                     AddDeity(3);
                 }
-                else if (calPlayer.ZoneAstral)
+                else if (calPlayer.ZoneAstral) //I wonder what this could be
                 {
                     AddDeity(4);
                 }
-                else if (calPlayer.ZoneCalamity)
+                else if (calPlayer.ZoneCalamity) //Charred
                 {
                     AddDeity(6);
                 }
-                else if (player.ZoneDesert)
+                else if (player.ZoneDesert) //Victide
                 {
                     AddDeity(18);
                 }
-                else if (player.ZoneSkyHeight)
+                else if (player.ZoneSkyHeight) //Exodium
                 {
                     AddDeity(12);
                 }
-                else if (player.ZoneUnderworldHeight)
+                else if (player.ZoneUnderworldHeight) //Chaotic
                 {
                     AddDeity(9);
                 }
-                else if (calPlayer.ZoneAbyss)
+                else if (calPlayer.ZoneAbyssLayer1 || calPlayer.ZoneAbyssLayer2) //Scoria
+                {
+                    AddDeity(21);
+                }
+                else if (calPlayer.ZoneAbyssLayer3) //Mirage
                 {
                     AddDeity(11);
                 }
-                else if (calPlayer.ZoneSunkenSea)
+                else if (calPlayer.ZoneAbyssLayer4) //Lumenyl
+                {
+                    AddDeity(22);
+                }
+                else if (calPlayer.ZoneSunkenSea) //Prism
                 {
                     AddDeity(14);
                 }
-                else if (player.ZoneJungle)
+                else if (player.ZoneJungle && player.ZoneRockLayerHeight) //Plague
                 {
-                    if (NPC.downedGolemBoss)
-                    {
-                        AddDeity(Main.rand.NextBool() ? 10 : 15);
-                    }
-                    else
-                    {
-                        AddDeity(15);
-                    }
+                    AddDeity(10);
                 }
-                else if (player.ZoneDungeon)
+                else if (player.ZoneJungle && player.ZoneDirtLayerHeight) //Plague alt
+                {
+                    AddDeity(10);
+                }
+                else if (player.ZoneJungle && !player.ZoneDirtLayerHeight && !player.ZoneRockLayerHeight) //Uelibloom
+                {
+                    AddDeity(15);
+                }
+                else if (player.ZoneDungeon) //Phantoplasm
                 {
                     AddDeity(13);
                 }
-                else if (player.ZoneSnow)
+                else if (player.ZoneSnow && player.ZoneRockLayerHeight) //Cryogenic
+                {
+                    AddDeity(24);
+                }
+                else if (player.ZoneSnow && player.ZoneDirtLayerHeight) //Cryogenic alt
+                {
+                    AddDeity(24);
+                }
+                else if (player.ZoneSnow && !player.ZoneDirtLayerHeight && !player.ZoneRockLayerHeight) //Cryonic
                 {
                     AddDeity(20);
                 }
                 else if (calPlayer.ZoneSulphur)
                 {
 
-                    if (CalamityMod.World.CalamityWorld.rainingAcid)
+                    if (CalamityMod.World.CalamityWorld.rainingAcid) //Gamma
                     {
                         AddDeity(16);
                     }
-                    else
+                    else //Irradiated
                     {
                         AddDeity(17);
                     }
 
                 }
-                else if (player.ZoneBeach)
+                else if (player.ZoneBeach) //Box Jelly
                 {
                     AddDeity(8);
                 }
-                else if (player.ZoneDirtLayerHeight || player.ZoneRockLayerHeight)
+                else if (player.ZoneDirtLayerHeight || player.ZoneRockLayerHeight) //Perennial
                 {
                     AddDeity(7);
                 }
-                else
+                else //Wulfrum
                 {
                     AddDeity(5);
                 }
