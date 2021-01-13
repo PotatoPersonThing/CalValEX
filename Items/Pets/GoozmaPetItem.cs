@@ -26,7 +26,7 @@ namespace CalValEX.Items.Pets
                 "It's a Overseer legend. Goozma was the ultimate evolution of all slimes, so powerful it could influence the cells that comprise all other slime.\n" +
                 "It could even create new slime gods, with affinities to the world's biomes.\n" +
                 "The energy of the world is a pathway to many abilities some consider to be unnatural.\n" +
-                "It became so powerful� the only thing it was afraid of was losing it's power, which eventually, of course, it did.\n" +
+                "It became so powerful that the only thing it was afraid of was losing it's power, which eventually, of course, it did.\n" +
                 "Unfortunately, Goozma's power grew so great for it to become a temporal anomaly.\n" +
                 "A temporal anomaly which a power beyond our universe had no choice but to erase, so that it never existed in the first place.\n" +
                 "Ironic. The very growth in power which made Goozma a deity in the first place, was also the cause of its demise");
