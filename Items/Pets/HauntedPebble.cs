@@ -33,6 +33,7 @@ namespace CalValEX.Items.Pets
             item.value = Item.sellPrice(0, 3, 2, 0);
             item.rare = 4;
             item.buffType = mod.BuffType("DebrisPet");
+	    item.noUseGraphic = true;
         }
 
         public override void UseStyle(Player player)
