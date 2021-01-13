@@ -140,6 +140,7 @@ namespace CalValEX.Projectiles.Pets
          * 17 = acid rain
          * 18 = desert
          * 19 = boss rush
+         * 20 = snow
          */
             if (CalamityMod.Events.BossRushEvent.BossRushActive)
             {
@@ -204,6 +205,10 @@ namespace CalValEX.Projectiles.Pets
                 else if (player.ZoneDungeon)
                 {
                     AddDeity(13);
+                }
+                else if (player.ZoneSnow)
+                {
+                    AddDeity(20);
                 }
                 else if (calPlayer.ZoneSulphur)
                 {
