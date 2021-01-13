@@ -696,9 +696,14 @@ namespace CalValEX
                 ConditionalChanceDropItem(npc, ModContent.ItemType<OmegaBlue>(), Main.expertMode, 0.05f);
             }
             //Bosses
-            if (npc.type == calamityMod.NPCType("SlimeGodCore") && !CalValEXConfig.Instance.ConfigBossBlocks)
+            if (npc.type == calamityMod.NPCType("SlimeGodCore"))
             {
+                if (!CalValEXConfig.Instance.ConfigBossBlocks)
+                {
                 ConditionalDropItem(npc, (ModLoader.GetMod("CalamityMod").ItemType("StatigelBlock")), !Main.expertMode, 155, 265);
+                }
+                ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.01f);
+
             }
             if (npc.type == calamityMod.NPCType("BrimstoneElemental") && !CalValEXConfig.Instance.ConfigBossBlocks)
             {
@@ -826,6 +831,23 @@ namespace CalValEX
             if (npc.type == calamityMod.NPCType("ProfanedGuardianBoss") && Main.expertMode)
             {
                 ChanceDropItem(npc, ModContent.ItemType<ProfanedFrame>(), 0.1f); //10%
+            }
+
+            //Goozma slimes
+            if ((bool)calamityMod.Call("DifficultyActive", "revengeance"))
+            {
+                if (npc.type == calamityMod.NPCType("AeroSlime") || npc.type == calamityMod.NPCType("CryoSlime") || npc.type == calamityMod.NPCType("PerennialSlime") || npc.type == calamityMod.NPCType("WulfrumSlime") || npc.type == calamityMod.NPCType("PlaguedJungleSlime") || npc.type == calamityMod.NPCType("BloomSlime"))
+                {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(), Main.expertMode, 0.001f);
+                }
+                if (npc.type == calamityMod.NPCType("IrradiatedSlime") || npc.type == calamityMod.NPCType("GammaSlime") || npc.type == calamityMod.NPCType("EbonianBlightSlime") || npc.type == calamityMod.NPCType("CrimulanBlightSlime") || npc.type == calamityMod.NPCType("AstralSlime"))
+                {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(), Main.expertMode, 0.002f);
+                }
+                /*if ((npc.type == calamityMod.NPCType("AstrageldonSlime"))
+                {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(), Main.expertMode, 0.0375f);
+                }      lol   */
             }
         }
             //Yharexs' Dev Pet (Calamity BABY)
