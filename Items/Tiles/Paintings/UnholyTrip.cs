@@ -10,7 +10,7 @@ namespace CalValEX.Items.Tiles.Paintings
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Unholy Trip");
-            Tooltip.SetDefault("'Mathew Maple'");
+            Tooltip.SetDefault("'Triangle'");
         }
 
         public override void SetDefaults()
