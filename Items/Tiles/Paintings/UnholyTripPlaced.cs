@@ -29,7 +29,7 @@ namespace CalValEX.Items.Tiles.Paintings
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(i * 16, j * 16, 16, 32, ItemType<Frozen>());
+			Item.NewItem(i * 16, j * 16, 16, 32, ItemType<UnholyTrip>());
 		}
 	}
 }
