@@ -30,13 +30,13 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
 			//item.createWall = ModContent.WallType<BloodstoneBrickWallPlaced>();
 		}
 
-		public override void AddRecipes()
+		/*public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ModContent.ItemType<BloodstoneBrick>());
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.SetResult(this, 4);
 			recipe.AddRecipe();
-		}
+		}*/
 	}
 }
