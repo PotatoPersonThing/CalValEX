@@ -7,6 +7,8 @@ using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
 using CalValEX.Items.Tiles.Banners;
+using CalamityMod.Sounds.NPCHit;
+using CalamityMod.Sounds.NPCKilled;
 
 namespace CalValEX.Items.Critters
 {
@@ -128,8 +130,7 @@ namespace CalValEX.Items.Critters
 			//npc.damage = 0;
 			//npc.defense = 0;
 			//npc.lifeMax = 2000;
-			//npc.HitSound = SoundID.NPCHit38;
-			//npc.DeathSound = SoundID.NPCDeath1;
+			
 			//npc.noGravity = true;
 			//npc.catchItem = 2007;
 
@@ -148,6 +149,8 @@ namespace CalValEX.Items.Critters
 			}
             banner = npc.type;
 			bannerItem = ItemType<ViolemurBanner>();
+			npc.HitSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/ViolemurHit");
+			npc.DeathSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/ViolemurDeath");
 		}
 
 		public override bool? CanBeHitByItem(Player player, Item item)
