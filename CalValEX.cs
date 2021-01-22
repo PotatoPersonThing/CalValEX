@@ -9,6 +9,25 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using CalValEX.Items;
+using CalValEX.Items.Equips;
+using CalValEX.Items.Equips.Hats;
+using CalValEX.Items.Equips.Shirts;
+using CalValEX.Items.Equips.Legs;
+using CalValEX.Items.Equips.Balloons;
+using CalValEX.Items.Equips.Shields;
+using CalValEX.Items.Equips.Scarves;
+using CalValEX.Items.Equips.Wings;
+using CalValEX.Items.Equips.Capes;
+using CalValEX.Items.Hooks;
+using CalValEX.Items.Mounts;
+using CalValEX.Items.LightPets;
+using CalValEX.Items.Pets;
+using CalValEX.Items.Tiles;
+using CalValEX.Items.Tiles.Blocks;
+using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
+using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using System;
 using System.Reflection;
 
@@ -50,9 +69,12 @@ namespace CalValEX
 
         public override void PostSetupContent()
         {
+            //Tooltip changes
             Mod cal = ModLoader.GetMod("CalamityMod");
             cal.GetItem("KnowledgeCrabulon").Tooltip.AddTranslation(GameCulture.English, "A crab and its mushrooms, a love story.\nIt's interesting how creatures can adapt given certain circumstances.\nFavorite this item to gain the Mushy buff while underground or in the mushroom biome.\nHowever, your movement speed will be decreased while in these areas due to you being covered in fungi.\nThe great crustacean's mushrooms may also grow angry when attacked, though they will also become harmless.");
             cal.GetItem("LaboratoryConsoleItem").Tooltip.AddTranslation(GameCulture.English, "Can be used to print blueprints");
+
+            //Census support
             Mod censusMod = ModLoader.GetMod("Census");
             if (censusMod != null)
             {
@@ -60,10 +82,49 @@ namespace CalValEX
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<JellyPriestNPC>(), "Find at the Sulphurous Sea after defeating Acid Rain tier 1");
             }
 
+            //Compact tile framing support
             Type tileFraming = cal.Code.GetType("CalamityMod.TileFraming");
 
             compactFraming = tileFraming.GetMethod("CompactFraming", BindingFlags.Static | BindingFlags.NonPublic);
+
+            //Christmas textures
             ExtraTextures.ChristmasPets.ChristmasTextureChange.Load();
+
+            //Boss log support
+            Mod bossChecklist = ModLoader.GetMod("BossChecklist");
+            if (bossChecklist != null) 
+            {
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Desert Scourge", new List<int> { ModContent.ItemType<DesertMedallion>(), ModContent.ItemType<DriedMandible>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Giant Clam", new List<int> { ModContent.ItemType<ClamMask>(), ModContent.ItemType<ClamHermitMedallion>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Crabulon", new List<int> { ModContent.ItemType<ClawShroom>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Hive Mind", new List<int> { ModContent.ItemType<MissingFang>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "The Perforators", new List<int> { ModContent.ItemType<DigestedWormFood>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Slime God", new List<int> { (ModLoader.GetMod("CalamityMod").ItemType("StatigelBlock")), ModContent.ItemType<ImpureStick>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Cryogen", new List<int> { ModContent.ItemType<CryoStick>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Aquatic Scourge", new List<int> { ModContent.ItemType<AquaticHide>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Brimstone Elemental", new List<int> { (ModLoader.GetMod("CalamityMod").ItemType("BrimstoneSlag")), ModContent.ItemType<BrimmyBody>(), ModContent.ItemType<BrimmySpirit>(), ModContent.ItemType<FoilSpoon>(), ModContent.ItemType<brimtulip>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Calamitas", new List<int> { ModContent.ItemType<Calacirclet>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Leviathan", new List<int> { ModContent.ItemType<LeviWings>(), ModContent.ItemType<FoilAtlantis>(), ModContent.ItemType<WetBubble>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Astrum Aureus", new List<int> { ModContent.ItemType<AureusShield>(), ModContent.ItemType<AstDie>(), ModContent.ItemType<JellyBottle>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Plaguebringer Goliath", new List<int> { (ModLoader.GetMod("CalamityMod").ItemType("PlaguedPlate")), ModContent.ItemType<PlaguePack>(), ModContent.ItemType<InfectedController>(), ModContent.ItemType<PlagueHiveWand>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Ravager", new List<int> { ModContent.ItemType<Necrostone>(), ModContent.ItemType<SkullBalloon>(), ModContent.ItemType<RavaHook>(), ModContent.ItemType<ScavaHook>(), ModContent.ItemType<AncientChoker>(), });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Astrum Deus", new List<int> { ModContent.ItemType<AstBandana>(), ModContent.ItemType<AstralStar>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Profaned Guardians", new List<int> { ModContent.ItemType<ProfanedFrame>(), ModContent.ItemType<ProfanedBattery>(), ModContent.ItemType<ProfanedWheels>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Dragonfolly", new List<int> { (ModLoader.GetMod("CalamityMod").ItemType("SilvaCrystal")), ModContent.ItemType<FollyWings>(), ModContent.ItemType<Birbhat>(), ModContent.ItemType<FollyWing>(), ModContent.ItemType<OrbSummon>(), ModContent.ItemType<FluffyFeather>(), ModContent.ItemType<SparrowMeat>(), ModContent.ItemType<FluffyFur>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Providence", new List<int> { (ModLoader.GetMod("CalamityMod").ItemType("ProfanedRock")), ModContent.ItemType<ProviCrystal>(), ModContent.ItemType<ProShard>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Ceaseless Void", new List<int> { (ModLoader.GetMod("CalamityMod").ItemType("OccultStone")), ModContent.ItemType<VoidWings>(), ModContent.ItemType<OldVoidWings>(), ModContent.ItemType<VoidShard>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Storm Weaver", new List<int> { (ModLoader.GetMod("CalamityMod").ItemType("OccultStone")), ModContent.ItemType<StormBandana>(), ModContent.ItemType<ShellScrap>(), ModContent.ItemType<WeaverFlesh>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Signus", new List<int> { (ModLoader.GetMod("CalamityMod").ItemType("OccultStone")), ModContent.ItemType<SignusEmblem>(), ModContent.ItemType<SigCape>(), ModContent.ItemType<SignusNether>(), ModContent.ItemType<SigCloth>(), ModContent.ItemType<JunkoHat>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Polterghast", new List<int> { (ModLoader.GetMod("CalamityMod").ItemType("StratusBricks")), ModContent.ItemType<PhantowaxBlock>(), ModContent.ItemType<Polterhook>(), ModContent.ItemType<ToyScythe>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Old Duke", new List<int> { ModContent.ItemType<OldWings>(), ModContent.ItemType<CorrodedCleaver>(), ModContent.ItemType<CharredChopper>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Devourer of Gods", new List<int> { ModContent.ItemType<CosmicWormScarf>(), ModContent.ItemType<RapturedWormScarf>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Yharon", new List<int> { ModContent.ItemType<Termipebbles>(), ModContent.ItemType<JunglePhoenixWings>(), ModContent.ItemType<YharonShackle>(), ModContent.ItemType<NuggetBiscuit>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Supreme Calamitas", new List<int> { ModContent.ItemType<AncientAuricTeslaHelm>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Acid Rain (Post-AS)", new List<int> { ModContent.ItemType<MawHook>(), ModContent.ItemType<FlakHeadCrab>(), ModContent.ItemType<SkaterEgg>(), ModContent.ItemType<Help>(), ModContent.ItemType<TrilobiteShield>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Acid Rain (Post-Polter)", new List<int> { ModContent.ItemType<NuclearFumes>(), ModContent.ItemType<GammaHelmet>() });
+
+                
+            }
         }
 
         public static void MountNerf(Player player, float reduceDamageBy, float reduceHealthBy)
