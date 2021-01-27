@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
@@ -13,12 +13,12 @@ using System.Collections.Generic;
 
 namespace CalValEX.Items
 {
-    public class CalamitasFumo : ModItem
+    public class CalaFumoYeetable : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Calamitas Plushie (Placeable)");
-            Tooltip.SetDefault("A dark artifact that must be handled with care");
+            DisplayName.SetDefault("Calamitas Plushie (Throwable)");
+            Tooltip.SetDefault("A dark artifact that must be handled with care/nCan be thrown");
         }
 
         public override void SetDefaults()
@@ -34,14 +34,15 @@ namespace CalValEX.Items
             item.noUseGraphic = true;
             item.noMelee = true;
             item.value = 20;
-            item.createTile = mod.TileType("CalaFumoPlaced");
+            item.shoot = mod.ProjectileType("CalaFumo");
+            item.shootSpeed = 6f;
         }
         public override void AddRecipes()
         {
         Mod CalValEX = ModLoader.GetMod("CalamityMod");
                 {
                     ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient(ModContent.ItemType<CalaFumoYeetable>());
+                    recipe.AddIngredient(ModContent.ItemType<CalamitasFumo>());
                     recipe.SetResult(this);
                     recipe.AddRecipe();
                 }
