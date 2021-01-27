@@ -193,7 +193,7 @@ namespace CalValEX.Projectiles.Pets
                         Projectile myBubble = null;
                         for (int i = 0; i<Main.maxProjectiles; i++)
 {
-    if ((Main.projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubble") || Main.projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubble2")) && Main.projectile[i].active && Math.Abs(projectile.Center.X - Main.projectile[i].Center.X) < bubbleDistance && Collision.CanHit(projectile.position, projectile.width, projectile.height, Main.projectile[i].position, Main.projectile[i].width, Main.projectile[i].height) && Main.projectile[i].Center.Y > projectile.Bottom.Y)
+    if ((Main.projectile[i].type == calamityMod.ProjectileType("CragmawBubble") || Main.projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubble") || Main.projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubbleFriendly") || Main.projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubble2")) && Main.projectile[i].active && Math.Abs(projectile.Center.X - Main.projectile[i].Center.X) < bubbleDistance && Collision.CanHit(projectile.position, projectile.width, projectile.height, Main.projectile[i].position, Main.projectile[i].width, Main.projectile[i].height) && Main.projectile[i].Center.Y > projectile.Bottom.Y)
     {
         bubbleDistance = projectile.Distance(Main.projectile[i].Center);
         myBubble = Main.projectile[i];
