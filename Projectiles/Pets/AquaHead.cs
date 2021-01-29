@@ -10,7 +10,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class AquaHead : ModProjectile
     {
-        private static readonly int Size = 38;
+        private static readonly int Size = 20;
         private static readonly int SegmentCount = 9;
         private bool SpawnedSegments = false;
         public override void SetStaticDefaults()
