@@ -9,7 +9,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class DesertTail : ModProjectile
     {
-        private static readonly int Size = 20;
+        private static readonly int Size = 26;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Desert Pest");
@@ -45,7 +45,7 @@ namespace CalValEX.Projectiles.Pets
             float segmentAheadRotation;
 
             // This, and Size will likely need to be changed based on the sprite size of the segment
-            float travelFactor = 56f;
+            float travelFactor = 30f;
 
             Vector2 segmentAheadCenter;
             int byUUID = Projectile.GetByUUID(projectile.owner, (int)projectile.ai[0]);

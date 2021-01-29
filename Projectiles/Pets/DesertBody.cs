@@ -9,7 +9,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class DesertBody : ModProjectile
     {
-        private static readonly int Size = 32;
+        private static readonly int Size = 26;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Desert Pest");
@@ -43,7 +43,7 @@ namespace CalValEX.Projectiles.Pets
             float segmentAheadRotation;
 
             // This, and Size will likely need to be changed based on the sprite size of the segment
-            float travelFactor = 32f;
+            float travelFactor = 20f;
 
             Vector2 segmentAheadCenter;
             int segmentAhead = (int)projectile.ai[0];

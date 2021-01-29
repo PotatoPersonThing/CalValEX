@@ -10,7 +10,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class DesertHead : ModProjectile
     {
-        private static readonly int Size = 32;
+        private static readonly int Size = 26;
         private static readonly int SegmentCount = 7;
         private bool SpawnedSegments = false;
         public override void SetStaticDefaults()
