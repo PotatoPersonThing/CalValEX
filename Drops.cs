@@ -811,6 +811,21 @@ namespace CalValEX
             {
                 ChanceDropItem(npc, ModContent.ItemType<CharredChopper>(), RIVChance);
             }
+            if (npc.type == calamityMod.NPCType("DevourerofGodsHeadS") && Main.expertMode)
+            {
+                if ((bool)calamityMod.Call("DifficultyActive", "death"))
+                {
+                    ChanceDropItem(npc, ModContent.ItemType<DogPetItem>(), 0.5f);
+                }
+                else if ((bool)calamityMod.Call("DifficultyActive", "revengeance") && !(bool)calamityMod.Call("DifficultyActive", "death"))
+                {
+                    ChanceDropItem(npc, ModContent.ItemType<DogPetItem>(), 0.05f);
+                }
+                else
+                {
+                    return;
+                }
+            }
             if (npc.type == calamityMod.NPCType("Yharon"))
             {
                 if (!Main.expertMode)
