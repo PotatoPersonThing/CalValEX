@@ -696,6 +696,10 @@ namespace CalValEX
                 ConditionalChanceDropItem(npc, ModContent.ItemType<OmegaBlue>(), Main.expertMode, 0.05f);
             }
             //Bosses
+            if (npc.type == calamityMod.NPCType("DesertScourgeHead"))
+            {
+                ChanceDropItem(npc, ModContent.ItemType<SandTooth>(), RIVChance);
+            }
             if (npc.type == calamityMod.NPCType("SlimeGodCore"))
             {
                 if (!CalValEXConfig.Instance.ConfigBossBlocks)

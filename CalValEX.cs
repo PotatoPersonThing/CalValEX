@@ -94,7 +94,7 @@ namespace CalValEX
             Mod bossChecklist = ModLoader.GetMod("BossChecklist");
             if (bossChecklist != null) 
             {
-                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Desert Scourge", new List<int> { ModContent.ItemType<DesertMedallion>(), ModContent.ItemType<DriedMandible>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Desert Scourge", new List<int> { ModContent.ItemType<DesertMedallion>(), ModContent.ItemType<DriedMandible>(), ModContent.ItemType<SandTooth>() });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Giant Clam", new List<int> { ModContent.ItemType<ClamMask>(), ModContent.ItemType<ClamHermitMedallion>() });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Crabulon", new List<int> { ModContent.ItemType<ClawShroom>() });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Hive Mind", new List<int> { ModContent.ItemType<MissingFang>() });
