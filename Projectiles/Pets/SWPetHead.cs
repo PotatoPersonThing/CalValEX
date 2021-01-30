@@ -10,8 +10,8 @@ namespace CalValEX.Projectiles.Pets
 {
     public class SWPetHead : ModProjectile
     {
-        private static readonly int Size = 48;
-        private static readonly int SegmentCount = 10;
+        private static readonly int Size = 25;
+        private static readonly int SegmentCount = 16;
         private bool SpawnedSegments = false;
         public override void SetStaticDefaults()
         {

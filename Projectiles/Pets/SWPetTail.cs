@@ -9,7 +9,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class SWPetTail : ModProjectile
     {
-        private static readonly int Size = 46;
+        private static readonly int Size = 24;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Lil' Weaver");
@@ -45,7 +45,7 @@ namespace CalValEX.Projectiles.Pets
             float segmentAheadRotation;
 
             // This, and Size will likely need to be changed based on the sprite size of the segment
-            float travelFactor = 56f;
+            float travelFactor = 16f;
 
             Vector2 segmentAheadCenter;
             int byUUID = Projectile.GetByUUID(projectile.owner, (int)projectile.ai[0]);

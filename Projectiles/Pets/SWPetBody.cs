@@ -9,7 +9,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class SWPetBody : ModProjectile
     {
-        private static readonly int Size = 40;
+        private static readonly int Size = 16;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Lil' Weaver");
@@ -43,7 +43,7 @@ namespace CalValEX.Projectiles.Pets
             float segmentAheadRotation;
 
             // This, and Size will likely need to be changed based on the sprite size of the segment
-            float travelFactor = 32f;
+            float travelFactor = 16f;
 
             Vector2 segmentAheadCenter;
             int segmentAhead = (int)projectile.ai[0];
