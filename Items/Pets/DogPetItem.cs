@@ -22,6 +22,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Cosmic Rapture");
             Tooltip.SetDefault("Summons the Devourer of the cosmos to follow you\n" +
 				"The Devourer will only appear when you have proven yourself worthy to it");
+				
         }
 
         public override void SetDefaults()
