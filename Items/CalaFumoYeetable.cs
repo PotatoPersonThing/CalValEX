@@ -18,7 +18,7 @@ namespace CalValEX.Items
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Calamitas Plushie (Throwable)");
-            Tooltip.SetDefault("A dark artifact that must be handled with care/nCan be thrown");
+            Tooltip.SetDefault("A dark artifact that must be handled with care\n" +"Can be thrown");
         }
 
         public override void SetDefaults()
