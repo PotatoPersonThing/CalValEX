@@ -10,7 +10,6 @@ namespace CalValEX.Projectiles.Pets
 {
     public class DogHead : ModProjectile
     {
-        public override string Texture => "CalamityMod/NPCs/DevourerofGods/DevourerofGodsHeadS";
         //private static readonly int Size = 134;
         private static readonly int SegmentCount = 26;
         private bool SpawnedSegments = false;
@@ -23,7 +22,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetDefaults()
         {
             projectile.width = 134;
-            projectile.height = 196;
+            projectile.height = 392;
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.ignoreWater = true;
@@ -156,8 +155,8 @@ namespace CalValEX.Projectiles.Pets
             }
 
             projectile.position = projectile.Center;
-            projectile.width = 134;
-            projectile.height = 196;
+            projectile.width = 130;
+            projectile.height = 392;
             projectile.Center = projectile.position;
         }
     }

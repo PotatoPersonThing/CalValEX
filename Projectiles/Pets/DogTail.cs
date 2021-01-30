@@ -10,7 +10,7 @@ namespace CalValEX.Projectiles.Pets
     public class DogTail : ModProjectile
     {
         public override string Texture => "CalamityMod/NPCs/DevourerofGods/DevourerofGodsTailS";
-        private static readonly int Size = 90;
+        private static readonly int Size = 86;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Devourer of Gods (real)");

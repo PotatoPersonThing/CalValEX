@@ -10,8 +10,8 @@ namespace CalValEX.Projectiles.Pets
 {
     public class DeusSmallHead : ModProjectile
     {
-        private static readonly int Size = 30;
-        private static readonly int SegmentCount = 3;
+        private static readonly int Size = 28;
+        private static readonly int SegmentCount = 5;
         private bool SpawnedSegments = false;
         public override void SetStaticDefaults()
         {
