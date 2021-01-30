@@ -32,6 +32,7 @@ namespace CalValEX.Items.Pets
             item.value = Item.sellPrice(0, 10, 0, 0);
             item.rare = 10;
             item.buffType = mod.BuffType("DogBuff");
+	    ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
