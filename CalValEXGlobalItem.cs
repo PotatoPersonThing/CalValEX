@@ -12,6 +12,7 @@ using CalValEX.Items.Hooks;
 using CalValEX.Items.Mounts;
 using CalValEX.Items.LightPets;
 using CalValEX.Items.Pets;
+using CalValEX.Items.Critters;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
@@ -63,6 +64,17 @@ namespace CalValEX
                             case "William":
                                 player.QuickSpawnItem(ModContent.ItemType<EurosBandage>());
                                 break;
+				
+			    case "Spider":
+			    case "spider":
+			    case "Spooktacular":
+			    case "spooktacular":
+                                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
+				player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
+				player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
+				player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
+				player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
+                                break;
 
                             case "Kiwabug":
                                 player.QuickSpawnItem(ModContent.ItemType<UglyTentacle>());
@@ -78,6 +90,10 @@ namespace CalValEX
 
                             case "Drakudragonx":
                                 player.QuickSpawnItem(ModContent.ItemType<BambooStick>());
+                                break;
+				
+			    case "Fabsol":
+			    	player.QuickSpawnItem(ModContent.ItemType<DogPetItem>());
                                 break;
 
                             case "Lucca":
