@@ -6,17 +6,19 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
+using CalValEX.Buffs.LightPets;
 
 namespace CalValEX.Items.Mounts
 {
 	public class WulfrumTractor : ModMountData
 	{
-		public override void SetDefaults() {
+		public override void SetDefaults() 
+		{
 			//mountData.spawnDust = mod.DustType("Smoke");
 			mountData.buff = mod.BuffType("TractorMount");
 			mountData.heightBoost = 20;
 			mountData.fallDamage = 0.1f;
-			mountData.runSpeed = 7f;
+			mountData.runSpeed = 7;
 			mountData.dashSpeed = 4f;
 			mountData.flightTimeMax = 0;
 			mountData.fatigueMax = 0;
@@ -24,7 +26,7 @@ namespace CalValEX.Items.Mounts
 			mountData.acceleration = 0.05f;
 			mountData.jumpSpeed = 4f;
 			mountData.blockExtraJumps = false;
-			mountData.totalFrames = 5;
+			mountData.totalFrames = 10;
 			mountData.constantJump = true;
 			int[] array = new int[mountData.totalFrames];
 			for (int l = 0; l < array.Length; l++) {
@@ -48,7 +50,7 @@ namespace CalValEX.Items.Mounts
 			// }
 			mountData.flyingFrameCount = 0;
 			mountData.flyingFrameDelay = 0;
-			mountData.flyingFrameStart = 0;
+			mountData.flyingFrameStart = 4;
 			mountData.inAirFrameCount = 1;
 			mountData.inAirFrameDelay = 12;
 			mountData.inAirFrameStart = 4;
@@ -68,26 +70,37 @@ namespace CalValEX.Items.Mounts
 		}
 
 		public override void UpdateEffects(Player player) {
+			mountData.heightBoost = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 22 : 20);
+			mountData.fallDamage = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 0.04f : 0.1f);
+			mountData.runSpeed = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 7);
+			mountData.dashSpeed = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 4.5f : 4f);
+			mountData.jumpHeight = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 8);
+			mountData.acceleration = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 0.06f : 0.05f);
+			mountData.jumpSpeed = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 5f : 4f);
+			mountData.standingFrameCount = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 4);
+			mountData.flyingFrameStart = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 4);
+			mountData.inAirFrameStart = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 4);
+			mountData.idleFrameStart = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 5 : 0);
 			if ((Math.Abs(player.velocity.X) > 20)) 
             {
 			mountData.runningFrameCount = 4;
 			mountData.runningFrameDelay = 12;
-			mountData.runningFrameStart = 0;
+			mountData.runningFrameStart = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 5 : 0);
 			mountData.inAirFrameCount = 1;
 			mountData.inAirFrameDelay = 12;
-			mountData.inAirFrameStart = 4;
-			mountData.runSpeed = 7f;
-			mountData.acceleration = 0.05f;
+			mountData.inAirFrameStart = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 4);
+			mountData.runSpeed = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 7);
+			mountData.acceleration = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 0.06f : 0.05f);
 			}
             else 
             {
 			mountData.runningFrameCount = 4;
 			mountData.runningFrameDelay = 12;
-			mountData.runningFrameStart = 0;
+			mountData.runningFrameStart = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 5 : 0);
 			mountData.inAirFrameCount = 1;
 			mountData.inAirFrameDelay = 12;
-			mountData.inAirFrameStart = 4;
-			mountData.runSpeed = 7f; 
+			mountData.inAirFrameStart = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 4);
+			mountData.runSpeed = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 7);
 			}
 		}
 	}
