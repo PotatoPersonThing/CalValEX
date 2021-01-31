@@ -8,9 +8,10 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
     {
         public override void SetDefaults()
         {
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
-            drop = ModContent.ItemType<Bloodstone>();
+            drop = calamityMod.ItemType("Bloodstone");
             AddMapEntry(new Color(126, 94, 87));
             animationFrameHeight = 90;
             minPick = 275;

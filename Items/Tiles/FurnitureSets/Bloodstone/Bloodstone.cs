@@ -1,13 +1,18 @@
+using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
+using Terraria;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
 {
     public class Bloodstone : ModItem
     {
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Bloodstone Block");
+			DisplayName.SetDefault("Compensation");
+			Tooltip.SetDefault("Can be sold");
 		}
 
 		public override void SetDefaults()
@@ -15,33 +20,8 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
 			item.width = 16;
 			item.height = 16;
 			item.maxStack = 999;
-			item.rare = 0;
-			item.useTurn = true;
-			item.rare = 0;
-			item.autoReuse = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-			item.useStyle = ItemUseStyleID.SwingThrow;
-			item.consumable = true;
-			item.createTile = ModContent.TileType<BloodstonePlaced>();
+			item.value = Item.sellPrice(0, 0, 1, 0);
+			item.rare = -1;
 		}
-
-		public override void AddRecipes()
-        {
-
-        	Mod CalValEX = ModLoader.GetMod("CalamityMod");
-                {
-                    ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Bloodstone"), 1);
-                    recipe.AddTile(TileID.LunarCraftingStation);
-                    recipe.SetResult(this);
-                    recipe.AddRecipe();
-					ModRecipe recipe2 = new ModRecipe(mod);
-					recipe2.AddIngredient(ModContent.ItemType<BloodstoneWall>(), 4);
-					recipe2.AddTile(TileID.WorkBenches);
-					recipe2.SetResult(this, 1);
-					recipe2.AddRecipe();
-			}
-        }
     }
 }
