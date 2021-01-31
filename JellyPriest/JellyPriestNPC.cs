@@ -526,9 +526,6 @@ namespace CalValEX.JellyPriest
                             shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("ProfanedCrystal"));
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 6, 66, 66);
                             ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ItemType<Bloodstone>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 80, 0);
-                            ++nextSlot;
                             shop.item[nextSlot].SetDefaults(ItemType<ChiseledBloodstone>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 80, 0);
                             ++nextSlot;
@@ -807,9 +804,6 @@ namespace CalValEX.JellyPriest
                             ++nextSlot;
                             shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("ProfanedCrystal"));
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 6, 66, 66);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ItemType<Bloodstone>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 80, 0);
                             ++nextSlot;
                             shop.item[nextSlot].SetDefaults(ItemType<ChiseledBloodstone>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 80, 0);
