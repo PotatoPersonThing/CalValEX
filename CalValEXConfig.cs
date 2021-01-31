@@ -48,6 +48,12 @@ namespace CalValEX
 
 		[Header("Other")]
 
+		[Label("True Size")]
+		[BackgroundColor(192, 54, 64, 192)]
+		[DefaultValue(false)]
+		[Tooltip("Makes a certain pet a lot larger when true")]
+		public bool FatDog { get; set; }
+
 		[Label("Disable Mount Nerf")]
 		[BackgroundColor(192, 54, 64, 192)]
 		[DefaultValue(false)]
