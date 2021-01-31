@@ -50,8 +50,6 @@ namespace CalValEX.Items.Pets
 			return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
             type = mod.ProjectileType("WulfrumRover");
 			return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-            type = mod.ProjectileType("WulfrumPylon");
-			return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
             type = mod.ProjectileType("WulfrumHover");
 			return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
 		    }
