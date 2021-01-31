@@ -21,6 +21,7 @@ using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
 using CalValEX.Items.Tiles.Statues;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX
@@ -30,6 +31,20 @@ namespace CalValEX
         public override bool InstancePerEntity => true;
         public override bool CloneNewInstances => true;
 
+        public override void SetDefaults(Item item)
+        {
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            if (item.type == calamityMod.ItemType("Bloodstone"))
+            {
+                item.useTurn = true;
+                item.autoReuse = true;
+                item.useAnimation = 15;
+                item.useTime = 10;
+                item.useStyle = ItemUseStyleID.SwingThrow;
+                item.consumable = true;
+                item.createTile = ModContent.TileType<BloodstonePlaced>();
+            }
+        }
         public override void RightClick(Item item, Player player)
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
