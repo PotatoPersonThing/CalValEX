@@ -25,6 +25,7 @@ using CalValEX.Items.Pets;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
+using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
 using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
@@ -240,6 +241,13 @@ namespace CalValEX
             recipe.AddTile(calamityMod.TileType("StaticRefiner"));
             recipe.SetResult(calamityMod.ItemType("IrradiatedSlimeBanner"));
             recipe.AddRecipe();
+            //Bloodstone wall to Bloodstone
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ModContent.ItemType<BloodstoneWall>(), 4);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.SetResult(calamityMod.ItemType("Bloodstone"));
+            recipe.AddRecipe();
+
         }
     }
 }
