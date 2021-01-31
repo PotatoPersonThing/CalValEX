@@ -2,6 +2,9 @@ using Terraria;
 using Terraria.ModLoader;
 using CalValEX.Projectiles.Pets;
 using CalValEX.Projectiles.Pets.Wulfrum;
+using CalValEX.Buffs.Pets;
+using static CalValEX.CalValEXPlayer;
+using CalValEX.Buffs.LightPets;
 
 namespace CalValEX.Projectiles.Pets.Wulfrum
 {
@@ -10,7 +13,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Wulfrom Gyrothing");
-            Main.projFrames[projectile.type] = 5; //frames
+            Main.projFrames[projectile.type] = 10; //frames
             Main.projPet[projectile.type] = true;
         }
 
@@ -71,19 +74,20 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
         
         public override void SetFrameLimitsAndFrameSpeed()
         {
-            idleFrameLimits[0] = 0;
-            idleFrameLimits[1] = 4; //what your min idle frame is (start of idle animation)
+            Player player = Main.LocalPlayer;
+            idleFrameLimits[0] = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 6 : 0);
+            idleFrameLimits[1] = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 4); //what your min idle frame is (start of idle animation)
 
-            walkingFrameLimits[0] = 0;
-            walkingFrameLimits[1] = 4;//what your min walking frame is (start of walking animation)
+            walkingFrameLimits[0] = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 6 : 0);
+            walkingFrameLimits[1] = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 4);//what your min walking frame is (start of walking animation)
              //what your max walking frame is (end of walking animation)
 
-            flyingFrameLimits[0] = 0;
-            flyingFrameLimits[1] = 4; //what your min flying frame is (start of flying animation)
+            flyingFrameLimits[0] = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 6 : 0);
+            flyingFrameLimits[1] = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 4); //what your min flying frame is (start of flying animation)
 
-            animationSpeed[0] = 8; //idle animation speed
-            animationSpeed[1] = 8; //walking animation speed
-            animationSpeed[2] = 10; //flying animation speed
+            animationSpeed[0] = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 4 : 8); //idle animation speed
+            animationSpeed[1] = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 4 : 8); //walking animation speed
+            animationSpeed[2] = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 5 : 10); //flying animation speed
             spinRotationSpeedMult = 5.5f; //how fast it should spin
             //put the below to -1 if you dont want a jump animation (so its just gonna continue it's walk animation
             animationSpeed[3] = -1; //jumping animation speed
