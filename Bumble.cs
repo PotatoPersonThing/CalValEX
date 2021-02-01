@@ -1,5 +1,9 @@
 using Terraria;
 using Terraria.ModLoader;
+using static CalValEX.CalValEXGlobalitem;
+using CalValEX.Items.Mounts;
+using CalValEX.Buffs.Pets;
+using CalValEX.Buffs.LightPets;
 
 namespace CalValEX
 {
@@ -38,6 +42,13 @@ namespace CalValEX
                     {
                         npc.GivenName = "Blunderling";
                     }
+                }
+            }
+            if (CalValEX.WulfrumsetReal)
+            {
+                if (npc.type == clam.NPCType("WulfrumGyrator"))
+                {
+                    npc.GivenName = "John Wulfrum";
                 }
             }
         }

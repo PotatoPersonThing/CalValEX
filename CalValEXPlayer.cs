@@ -9,6 +9,9 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalamityMod.CalPlayer;
+using CalValEX.Items.Mounts;
+using CalValEX.Buffs.Pets;
+using CalValEX.Buffs.LightPets;
 namespace CalValEX
 {
     public class CalValEXPlayer : ModPlayer

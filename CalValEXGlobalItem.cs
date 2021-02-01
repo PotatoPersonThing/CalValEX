@@ -1,3 +1,4 @@
+using CalValEX;
 using CalValEX.Items;
 using CalValEX.Items.Equips;
 using CalValEX.Items.Equips.Hats;
@@ -10,6 +11,8 @@ using CalValEX.Items.Equips.Wings;
 using CalValEX.Items.Equips.Capes;
 using CalValEX.Items.Hooks;
 using CalValEX.Items.Mounts;
+using CalValEX.Buffs.Pets;
+using CalValEX.Buffs.LightPets;
 using CalValEX.Items.LightPets;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Tiles;
@@ -589,6 +592,26 @@ namespace CalValEX
             recipe.AddTile(calamityMod.TileType("DraedonsForge"));
             recipe.SetResult(calamityMod.ItemType("AuricToilet"), 1);
             recipe.AddRecipe();
+        }
+
+        public override string IsArmorSet(Item head, Item body, Item legs)
+        {
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            if ((head.type == calamityMod.ItemType("WulfrumHelmet") || head.type == calamityMod.ItemType("WulfrumHelm") || head.type == calamityMod.ItemType("WulfrumHeadgear") || head.type == calamityMod.ItemType("WulfrumHood") || head.type == calamityMod.ItemType("WulfrumMask")) && body.type == calamityMod.ItemType("WulfrumArmor") && legs.type == calamityMod.ItemType("WulfrumLeggings"))
+                return "Wulfrumset";
+            return "";            
+        }
+
+        public override void UpdateArmorSet(Player player, string set)
+        {
+            if (player.HasBuff(ModContent.BuffType<PylonBuff>()) && player.HasBuff(ModContent.BuffType<WulfrumArmy>()) && player.HasBuff(ModContent.BuffType<TractorMount>()) && set == "Wulfrumset")
+            {
+                CalValEX.WulfrumsetReal = true;
+            }
+            else
+            {
+                CalValEX.WulfrumsetReal = false;
+            }
         }
     }
 }

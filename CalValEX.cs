@@ -37,6 +37,8 @@ namespace CalValEX
     public class CalValEX : Mod
     {
         public static bool Bumble;
+        public static bool Wulfrumset;
+        public static bool WulfrumsetReal;
         public static string currentDate;
         public static int day;
         public static int month;
@@ -62,6 +64,7 @@ namespace CalValEX
         {
             currentDate = null;
             Bumble = false;
+            Wulfrumset = false;
             day = -1;
             month = -1;
             compactFraming = null;
