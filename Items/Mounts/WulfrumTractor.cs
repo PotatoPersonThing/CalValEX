@@ -80,6 +80,7 @@ namespace CalValEX.Items.Mounts
 			mountData.flyingFrameStart = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 4);
 			mountData.inAirFrameStart = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 4);
 			mountData.idleFrameStart = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 5 : 0);
+			mountData.standingFrameStart = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 5 : 0);
 			if ((Math.Abs(player.velocity.X) > 20)) 
             {
 			mountData.runningFrameCount = 4;
