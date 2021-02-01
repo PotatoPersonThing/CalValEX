@@ -77,7 +77,6 @@ namespace CalValEX.Items.Mounts
 			mountData.jumpHeight = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 8);
 			mountData.acceleration = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 0.06f : 0.05f);
 			mountData.jumpSpeed = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 5f : 4f);
-			mountData.standingFrameCount = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 4);
 			mountData.flyingFrameStart = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 4);
 			mountData.inAirFrameStart = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 4);
 			mountData.idleFrameStart = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 5 : 0);
