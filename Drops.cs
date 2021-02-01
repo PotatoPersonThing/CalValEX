@@ -518,7 +518,7 @@ namespace CalValEX
             {
                 ChanceDropItem(npc, ModContent.ItemType<PerennialFlower>(), vanityNormalChance);
                 ChanceDropItem(npc, ModContent.ItemType<PerennialDress>(), vanityNormalChance);
-                ChanceDropItem(npc, ModContent.ItemType<PerennialFlower>(), RIVChance);
+                ChanceDropItem(npc, ModContent.ItemType<AncientPerennialFlower>(), RIVChance);
             }
             if (npc.type == calamityMod.NPCType("Bohldohr"))
             {
