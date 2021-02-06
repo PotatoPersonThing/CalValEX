@@ -3,15 +3,14 @@
 using CalValEX.Items.Mounts.Morshu;
 using CalValEX.Projectiles.Pets;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalamityMod.CalPlayer;
-using CalValEX.Items.Mounts;
-using CalValEX.Buffs.Pets;
-using CalValEX.Buffs.LightPets;
+
 namespace CalValEX
 {
     public class CalValEXPlayer : ModPlayer
@@ -128,7 +127,6 @@ namespace CalValEX
         public bool voreworm = false;
         public bool moistPet = false;
 
-
         //public CalamityPlayer calPlayer;
         /*
         public bool sandTPrevious;
@@ -138,6 +136,7 @@ namespace CalValEX
         */
 
         public int morshuTimer;
+
         public override void Initialize()
         {
             ResetMyStuff();
@@ -152,6 +151,7 @@ namespace CalValEX
             //sandT = sandHide = sandForce = false;
             ResetMyStuff();
         }
+
         /*
         public override void UpdateVanityAccessories()
         {
@@ -188,8 +188,6 @@ namespace CalValEX
             if (!player.HasBuff(ModContent.BuffType<MorshuBuff>()))
                 morshuTimer = 0;
         }
-
-        
 
         public override void UpdateDead()
         {
@@ -352,15 +350,19 @@ namespace CalValEX
                                 case 0:
                                     humiliationText = "Why didn't you code me earlier?";
                                     break;
+
                                 case 1:
                                     humiliationText = "Not worthy.";
                                     break;
+
                                 case 2:
                                     humiliationText = "It's been months.";
                                     break;
+
                                 case 3:
                                     humiliationText = "You will not be forgiven.";
                                     break;
+
                                 case 4:
                                     humiliationText = "I hope you learn.";
                                     break;
@@ -450,5 +452,80 @@ namespace CalValEX
                 packet.Send();
             }
         }
+
+        public override void ModifyDrawLayers(List<PlayerLayer> layers)
+        {
+            int headLayer = layers.FindIndex(l => l == PlayerLayer.Head);
+
+            if (headLayer > -1)
+            {
+                layers.Insert(headLayer + 1, DraedonHelmet);
+            }
+        }
+
+        public static readonly PlayerLayer DraedonHelmet = new PlayerLayer("CalValEX", "DraedonHelmet", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
+        {
+            if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
+            {
+                return;
+            }
+
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("CalValEX");
+
+            if (drawPlayer.head != mod.GetEquipSlot("DraedonHelmet", EquipType.Head))
+            {
+                return;
+            }
+            string path = "Items/Equips/Hats/Draedon/DraedonHelmet_Head_";
+            Texture2D texture = mod.GetTexture(path + "Melee");
+            //ugly but i dont care
+            if (drawPlayer.HeldItem.magic)
+            {
+                texture = mod.GetTexture(path + "Magic");
+            }
+            else if (drawPlayer.HeldItem.summon)
+            {
+                texture = mod.GetTexture(path + "Summoner");
+            }
+            else if (drawPlayer.HeldItem.ranged)
+            {
+                texture = mod.GetTexture(path + "Ranger");
+            }
+            else if (drawPlayer.HeldItem.thrown)
+            {
+                texture = mod.GetTexture(path + "Rogue");
+            }
+            else
+            {
+                texture = mod.GetTexture(path + "Melee");
+            }
+
+            float drawX = (int)(drawInfo.position.X - Main.screenPosition.X - (drawPlayer.bodyFrame.Width / 2) + (drawPlayer.width / 2));
+            float drawY = (int)(drawInfo.position.Y - Main.screenPosition.Y + drawPlayer.height - drawPlayer.bodyFrame.Height);
+
+            Vector2 origin = drawInfo.headOrigin;
+
+            Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition + drawInfo.headOrigin;
+
+            float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+
+            Color color = Lighting.GetColor((int)(drawInfo.position.X + drawPlayer.width * 0.5) / 16,
+                (int)(drawInfo.position.Y + drawPlayer.height * 0.25) / 16,
+                Color.White);
+
+            Rectangle frame = drawPlayer.bodyFrame;
+
+            float rotation = drawPlayer.headRotation;
+
+            SpriteEffects spriteEffects = drawInfo.spriteEffects;
+
+            DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, 1f, spriteEffects, 0);
+
+            drawData.shader = drawInfo.headArmorShader;
+
+            Main.playerDrawData.Add(drawData);
+
+        });
     }
 }
