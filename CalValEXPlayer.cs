@@ -478,31 +478,31 @@ namespace CalValEX
                 return;
             }
             string path = "Items/Equips/Hats/Draedon/DraedonHelmet_Head_";
-            Texture2D texture = mod.GetTexture(path + "Melee");
+            Texture2D texture = mod.GetTexture(path + "None");
             //ugly but i dont care
             if (drawPlayer.HeldItem.magic)
             {
                 texture = mod.GetTexture(path + "Magic");
             }
-            else if (drawPlayer.HeldItem.summon)
+            if (drawPlayer.HeldItem.summon)
             {
                 texture = mod.GetTexture(path + "Summoner");
             }
-            else if (drawPlayer.HeldItem.ranged)
+            if (drawPlayer.HeldItem.ranged)
             {
                 texture = mod.GetTexture(path + "Ranger");
             }
-            else if (drawPlayer.HeldItem.thrown)
+            if (drawPlayer.HeldItem.thrown)
             {
                 texture = mod.GetTexture(path + "Rogue");
             }
-            else
+            if (drawPlayer.HeldItem.melee)
             {
                 texture = mod.GetTexture(path + "Melee");
             }
 
             float drawX = (int)(drawInfo.position.X - Main.screenPosition.X - (drawPlayer.bodyFrame.Width / 2) + (drawPlayer.width / 2));
-            float drawY = (int)(drawInfo.position.Y - Main.screenPosition.Y + drawPlayer.height - drawPlayer.bodyFrame.Height);
+            float drawY = (int)(drawInfo.position.Y - Main.screenPosition.Y + drawPlayer.height - drawPlayer.bodyFrame.Height + 2);
 
             Vector2 origin = drawInfo.headOrigin;
 
