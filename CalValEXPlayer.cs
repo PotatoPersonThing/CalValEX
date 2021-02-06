@@ -1,5 +1,6 @@
 //using CalValEX.Buffs.Transformations;
 //using CalValEX.Items.Equips.Transformations;
+using CalValEX.Items.Equips.Hats.Draedon;
 using CalValEX.Items.Mounts.Morshu;
 using CalValEX.Projectiles.Pets;
 using Microsoft.Xna.Framework;
@@ -466,7 +467,7 @@ namespace CalValEX
 
         public override void ModifyDrawHeadLayers(List<PlayerHeadLayer> layers)
         {
-            int headLayer = layers.FindIndex(l => l == PlayerHeadLayer.Head);
+            int headLayer = layers.FindIndex(l => l == PlayerHeadLayer.Armor);
 
             if (headLayer > -1)
             {
@@ -484,32 +485,34 @@ namespace CalValEX
                 return;
             }
 
-            string path = "Items/Equips/Hats/Draedon/DraedonHelmet_Head_";
-            Texture2D texture = mod.GetTexture(path + "None");
+            Texture2D texture = DraedonHelmetTextureCache.none;
             //ugly but i dont care
             if (drawPlayer.HeldItem.magic)
             {
-                texture = mod.GetTexture(path + "Magic");
+                texture = DraedonHelmetTextureCache.magic;
             }
             if (drawPlayer.HeldItem.summon)
             {
-                texture = mod.GetTexture(path + "Summoner");
+                texture = DraedonHelmetTextureCache.summoner;
             }
             if (drawPlayer.HeldItem.ranged)
             {
-                texture = mod.GetTexture(path + "Ranger");
+                texture = DraedonHelmetTextureCache.ranger;
             }
             if (drawPlayer.HeldItem.thrown)
             {
-                texture = mod.GetTexture(path + "Rogue");
+                texture = DraedonHelmetTextureCache.rogue;
             }
             if (drawPlayer.HeldItem.melee)
             {
-                texture = mod.GetTexture(path + "Melee");
+                texture = DraedonHelmetTextureCache.melee;
             }
 
+            if (texture == DraedonHelmetTextureCache.none)
+                return;
+
             float drawX = (int)(drawPlayer.position.X - Main.screenPosition.X - (drawPlayer.bodyFrame.Width / 2) + (drawPlayer.width / 2));
-            float drawY = (int)(drawPlayer.position.Y - Main.screenPosition.Y + drawPlayer.height - drawPlayer.bodyFrame.Height + 2);
+            float drawY = (int)(drawPlayer.position.Y - Main.screenPosition.Y + drawPlayer.height - drawPlayer.bodyFrame.Height + 4);
 
             Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition + drawInfo.drawOrigin;
 
@@ -550,32 +553,35 @@ namespace CalValEX
             {
                 return;
             }
-            string path = "Items/Equips/Hats/Draedon/DraedonHelmet_Head_";
-            Texture2D texture = mod.GetTexture(path + "None");
+
+            Texture2D texture = DraedonHelmetTextureCache.none;
             //ugly but i dont care
             if (drawPlayer.HeldItem.magic)
             {
-                texture = mod.GetTexture(path + "Magic");
+                texture = DraedonHelmetTextureCache.magic;
             }
             if (drawPlayer.HeldItem.summon)
             {
-                texture = mod.GetTexture(path + "Summoner");
+                texture = DraedonHelmetTextureCache.summoner;
             }
             if (drawPlayer.HeldItem.ranged)
             {
-                texture = mod.GetTexture(path + "Ranger");
+                texture = DraedonHelmetTextureCache.ranger;
             }
             if (drawPlayer.HeldItem.thrown)
             {
-                texture = mod.GetTexture(path + "Rogue");
+                texture = DraedonHelmetTextureCache.rogue;
             }
             if (drawPlayer.HeldItem.melee)
             {
-                texture = mod.GetTexture(path + "Melee");
+                texture = DraedonHelmetTextureCache.melee;
             }
 
+            if (texture == DraedonHelmetTextureCache.none)
+                return;
+
             float drawX = (int)(drawInfo.position.X - Main.screenPosition.X - (drawPlayer.bodyFrame.Width / 2) + (drawPlayer.width / 2));
-            float drawY = (int)(drawInfo.position.Y - Main.screenPosition.Y + drawPlayer.height - drawPlayer.bodyFrame.Height + 2);
+            float drawY = (int)(drawInfo.position.Y - Main.screenPosition.Y + drawPlayer.height - drawPlayer.bodyFrame.Height + 4);
 
             Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition + drawInfo.headOrigin;
 
