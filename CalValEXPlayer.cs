@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -463,6 +464,78 @@ namespace CalValEX
             }
         }
 
+        public override void ModifyDrawHeadLayers(List<PlayerHeadLayer> layers)
+        {
+            int headLayer = layers.FindIndex(l => l == PlayerHeadLayer.Head);
+
+            if (headLayer > -1)
+            {
+                layers.Insert(headLayer + 1, HeadDraedonHelmet);
+            }
+        }
+
+        public static readonly PlayerHeadLayer HeadDraedonHelmet = new PlayerHeadLayer("CalValEX", "HeadDraedonHelmet", delegate (PlayerHeadDrawInfo drawInfo)
+        {
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("CalValEX");
+
+            if (drawPlayer.head != mod.GetEquipSlot("DraedonHelmet", EquipType.Head))
+            {
+                return;
+            }
+
+            string path = "Items/Equips/Hats/Draedon/DraedonHelmet_Head_";
+            Texture2D texture = mod.GetTexture(path + "None");
+            //ugly but i dont care
+            if (drawPlayer.HeldItem.magic)
+            {
+                texture = mod.GetTexture(path + "Magic");
+            }
+            if (drawPlayer.HeldItem.summon)
+            {
+                texture = mod.GetTexture(path + "Summoner");
+            }
+            if (drawPlayer.HeldItem.ranged)
+            {
+                texture = mod.GetTexture(path + "Ranger");
+            }
+            if (drawPlayer.HeldItem.thrown)
+            {
+                texture = mod.GetTexture(path + "Rogue");
+            }
+            if (drawPlayer.HeldItem.melee)
+            {
+                texture = mod.GetTexture(path + "Melee");
+            }
+
+            float drawX = (int)(drawPlayer.position.X - Main.screenPosition.X - (drawPlayer.bodyFrame.Width / 2) + (drawPlayer.width / 2));
+            float drawY = (int)(drawPlayer.position.Y - Main.screenPosition.Y + drawPlayer.height - drawPlayer.bodyFrame.Height + 2);
+
+            Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition + drawInfo.drawOrigin;
+
+            Rectangle frame = drawPlayer.bodyFrame;
+
+            Color color = Color.White;
+
+            float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+
+            float rotation = drawPlayer.headRotation;
+
+            Vector2 origin = drawInfo.drawOrigin;
+
+            float scale = drawInfo.scale;
+
+            SpriteEffects spriteEffects = drawInfo.spriteEffects;
+
+            DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, scale, spriteEffects, 0);
+
+            GameShaders.Armor.Apply(drawInfo.armorShader, drawPlayer, drawData);
+
+            drawData.Draw(Main.spriteBatch);
+
+            Main.pixelShader.CurrentTechnique.Passes[0].Apply();
+        });
+
         public static readonly PlayerLayer DraedonHelmet = new PlayerLayer("CalValEX", "DraedonHelmet", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
         {
             if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
@@ -504,19 +577,20 @@ namespace CalValEX
             float drawX = (int)(drawInfo.position.X - Main.screenPosition.X - (drawPlayer.bodyFrame.Width / 2) + (drawPlayer.width / 2));
             float drawY = (int)(drawInfo.position.Y - Main.screenPosition.Y + drawPlayer.height - drawPlayer.bodyFrame.Height + 2);
 
-            Vector2 origin = drawInfo.headOrigin;
-
             Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition + drawInfo.headOrigin;
-
-            float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
-
-            Color color = Lighting.GetColor((int)(drawInfo.position.X + drawPlayer.width * 0.5) / 16,
-                (int)(drawInfo.position.Y + drawPlayer.height * 0.25) / 16,
-                Color.White);
 
             Rectangle frame = drawPlayer.bodyFrame;
 
+            Color color = Lighting.GetColor(
+                (int)(drawInfo.position.X + drawPlayer.width * 0.5) / 16,
+                (int)(drawInfo.position.Y + drawPlayer.height * 0.25) / 16,
+                Color.White);
+
+            float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+
             float rotation = drawPlayer.headRotation;
+
+            Vector2 origin = drawInfo.headOrigin;
 
             SpriteEffects spriteEffects = drawInfo.spriteEffects;
 
