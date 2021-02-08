@@ -1,6 +1,7 @@
 //using CalValEX.Buffs.Transformations;
 //using CalValEX.Items.Equips.Transformations;
 using CalValEX.Items.Equips.Hats.Draedon;
+using CalValEX.Items.Equips.Shirts.Draedon;
 using CalValEX.Items.Mounts.Morshu;
 using CalValEX.Projectiles.Pets;
 using Microsoft.Xna.Framework;
@@ -458,10 +459,15 @@ namespace CalValEX
         public override void ModifyDrawLayers(List<PlayerLayer> layers)
         {
             int headLayer = layers.FindIndex(l => l == PlayerLayer.Head);
+            int bodyLayer = layers.FindIndex(l => l == PlayerLayer.Body);
 
             if (headLayer > -1)
             {
                 layers.Insert(headLayer + 1, DraedonHelmet);
+            }
+            if (bodyLayer > -1)
+            {
+                layers.Insert(bodyLayer + 1, DraedonChestplate);
             }
         }
 
@@ -472,6 +478,34 @@ namespace CalValEX
             if (headLayer > -1)
             {
                 layers.Insert(headLayer + 1, HeadDraedonHelmet);
+            }
+        }
+
+        public override void ModifyDrawInfo(ref PlayerDrawInfo drawInfo) //i just really dont want to fix the sprite issues.
+        {
+            if (drawInfo.drawPlayer.legs == mod.GetEquipSlot("DraedonLeggings", EquipType.Legs))
+            {
+                drawInfo.legColor = Color.Transparent;
+                drawInfo.legGlowMaskColor = Color.Transparent;
+                drawInfo.pantsColor = Color.Transparent;
+            }
+
+            if (drawInfo.drawPlayer.body == mod.GetEquipSlot("DraedonChestplate", EquipType.Body))
+            {
+                drawInfo.armGlowMaskColor = Color.Transparent;
+                drawInfo.bodyColor = Color.Transparent;
+                drawInfo.bodyGlowMaskColor = Color.Transparent;
+                drawInfo.shirtColor = Color.Transparent;
+                drawInfo.underShirtColor = Color.Transparent;
+            }
+
+            if (drawInfo.drawPlayer.head == mod.GetEquipSlot("DraedonHelmet", EquipType.Head))
+            {
+                drawInfo.eyeColor = Color.Transparent;
+                drawInfo.eyeWhiteColor = Color.Transparent;
+                drawInfo.faceColor = Color.Transparent;
+                drawInfo.hairColor = Color.Transparent;
+                drawInfo.headGlowMaskColor = Color.Transparent;
             }
         }
 
@@ -605,7 +639,70 @@ namespace CalValEX
             drawData.shader = drawInfo.headArmorShader;
 
             Main.playerDrawData.Add(drawData);
+        });
 
+        public static readonly PlayerLayer DraedonChestplate = new PlayerLayer("CalValEX", "DraedonChestplate", PlayerLayer.Body, delegate (PlayerDrawInfo drawInfo) {
+
+            if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
+                return;
+
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("CalValEX");
+
+            if (drawPlayer.body != mod.GetEquipSlot("DraedonChestplate", EquipType.Body))
+                return;
+
+            Texture2D texture = DraedonHelmetTextureCache.none;
+            //ugly but i dont care
+            if (drawPlayer.HeldItem.magic)
+            {
+                texture = DraedonChestplateCache.magic;
+            }
+            if (drawPlayer.HeldItem.summon)
+            {
+                texture = DraedonChestplateCache.summoner;
+            }
+            if (drawPlayer.HeldItem.ranged)
+            {
+                texture = DraedonChestplateCache.ranger;
+            }
+            if (drawPlayer.HeldItem.thrown)
+            {
+                texture = DraedonChestplateCache.rogue;
+            }
+            if (drawPlayer.HeldItem.melee)
+            {
+                texture = DraedonChestplateCache.melee;
+            }
+
+            if (texture == DraedonChestplateCache.none)
+                return;
+
+            float drawX = (int)drawInfo.position.X + drawPlayer.width / 2;
+            float drawY = (int)drawInfo.position.Y + drawPlayer.height - drawPlayer.bodyFrame.Height / 2 + 4f;
+
+            Vector2 origin = drawInfo.bodyOrigin;
+
+            Vector2 position = new Vector2(drawX, drawY) + drawPlayer.bodyPosition - Main.screenPosition;
+
+            float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+
+            Color color = Lighting.GetColor(
+               (int)(drawInfo.position.X + drawPlayer.width * 0.5) / 16,
+               (int)(drawInfo.position.Y + drawPlayer.height * 0.5) / 16,
+               Color.White);
+
+            Rectangle frame = drawPlayer.bodyFrame;
+
+            float rotation = drawPlayer.bodyRotation;
+
+            SpriteEffects spriteEffects = drawInfo.spriteEffects;
+
+            DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, 1f, spriteEffects, 0);
+
+            drawData.shader = drawInfo.bodyArmorShader;
+
+            Main.playerDrawData.Add(drawData);
         });
     }
 }

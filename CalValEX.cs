@@ -32,6 +32,7 @@ using System.Collections.Generic;
 using System;
 using System.Reflection;
 using CalValEX.Items.Equips.Hats.Draedon;
+using CalValEX.Items.Equips.Shirts.Draedon;
 
 namespace CalValEX
 {
@@ -60,6 +61,7 @@ namespace CalValEX
                 GameShaders.Armor.BindShader(ModContent.ItemType<DraedonHologramDye>(), new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/DraedonHologramDye")), "DraedonHologramDyePass"));
             }
             DraedonHelmetTextureCache.Load(this);
+            DraedonChestplateCache.Load(this);
         }
 
         public override void Unload()
@@ -72,6 +74,7 @@ namespace CalValEX
             compactFraming = null;
             ExtraTextures.ChristmasPets.ChristmasTextureChange.Unload();
             DraedonHelmetTextureCache.Unload(this);
+            DraedonChestplateCache.Unload(this);
         }
 
         public override void PostSetupContent()
