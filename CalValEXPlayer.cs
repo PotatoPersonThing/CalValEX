@@ -1,17 +1,19 @@
 //using CalValEX.Buffs.Transformations;
 //using CalValEX.Items.Equips.Transformations;
+using CalValEX.Items.Equips.Hats.Draedon;
+using CalValEX.Items.Equips.Shirts.Draedon;
 using CalValEX.Items.Mounts.Morshu;
 using CalValEX.Projectiles.Pets;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalamityMod.CalPlayer;
-using CalValEX.Items.Mounts;
-using CalValEX.Buffs.Pets;
-using CalValEX.Buffs.LightPets;
+
 namespace CalValEX
 {
     public class CalValEXPlayer : ModPlayer
@@ -128,7 +130,6 @@ namespace CalValEX
         public bool voreworm = false;
         public bool moistPet = false;
 
-
         //public CalamityPlayer calPlayer;
         /*
         public bool sandTPrevious;
@@ -138,6 +139,7 @@ namespace CalValEX
         */
 
         public int morshuTimer;
+
         public override void Initialize()
         {
             ResetMyStuff();
@@ -152,6 +154,7 @@ namespace CalValEX
             //sandT = sandHide = sandForce = false;
             ResetMyStuff();
         }
+
         /*
         public override void UpdateVanityAccessories()
         {
@@ -188,8 +191,6 @@ namespace CalValEX
             if (!player.HasBuff(ModContent.BuffType<MorshuBuff>()))
                 morshuTimer = 0;
         }
-
-        
 
         public override void UpdateDead()
         {
@@ -352,15 +353,19 @@ namespace CalValEX
                                 case 0:
                                     humiliationText = "Why didn't you code me earlier?";
                                     break;
+
                                 case 1:
                                     humiliationText = "Not worthy.";
                                     break;
+
                                 case 2:
                                     humiliationText = "It's been months.";
                                     break;
+
                                 case 3:
                                     humiliationText = "You will not be forgiven.";
                                     break;
+
                                 case 4:
                                     humiliationText = "I hope you learn.";
                                     break;
@@ -450,5 +455,254 @@ namespace CalValEX
                 packet.Send();
             }
         }
+
+        public override void ModifyDrawLayers(List<PlayerLayer> layers)
+        {
+            int headLayer = layers.FindIndex(l => l == PlayerLayer.Head);
+            int bodyLayer = layers.FindIndex(l => l == PlayerLayer.Body);
+
+            if (headLayer > -1)
+            {
+                layers.Insert(headLayer + 1, DraedonHelmet);
+            }
+            if (bodyLayer > -1)
+            {
+                layers.Insert(bodyLayer + 1, DraedonChestplate);
+            }
+        }
+
+        public override void ModifyDrawHeadLayers(List<PlayerHeadLayer> layers)
+        {
+            int headLayer = layers.FindIndex(l => l == PlayerHeadLayer.Armor);
+
+            if (headLayer > -1)
+            {
+                layers.Insert(headLayer + 1, HeadDraedonHelmet);
+            }
+        }
+
+        public override void ModifyDrawInfo(ref PlayerDrawInfo drawInfo) //i just really dont want to fix the sprite issues.
+        {
+            if (drawInfo.drawPlayer.legs == mod.GetEquipSlot("DraedonLeggings", EquipType.Legs))
+            {
+                drawInfo.legColor = Color.Transparent;
+                drawInfo.legGlowMaskColor = Color.Transparent;
+                drawInfo.pantsColor = Color.Transparent;
+            }
+
+            if (drawInfo.drawPlayer.body == mod.GetEquipSlot("DraedonChestplate", EquipType.Body))
+            {
+                drawInfo.armGlowMaskColor = Color.Transparent;
+                drawInfo.bodyColor = Color.Transparent;
+                drawInfo.bodyGlowMaskColor = Color.Transparent;
+                drawInfo.shirtColor = Color.Transparent;
+                drawInfo.underShirtColor = Color.Transparent;
+            }
+
+            if (drawInfo.drawPlayer.head == mod.GetEquipSlot("DraedonHelmet", EquipType.Head))
+            {
+                drawInfo.eyeColor = Color.Transparent;
+                drawInfo.eyeWhiteColor = Color.Transparent;
+                drawInfo.faceColor = Color.Transparent;
+                drawInfo.hairColor = Color.Transparent;
+                drawInfo.headGlowMaskColor = Color.Transparent;
+            }
+        }
+
+        public static readonly PlayerHeadLayer HeadDraedonHelmet = new PlayerHeadLayer("CalValEX", "HeadDraedonHelmet", delegate (PlayerHeadDrawInfo drawInfo)
+        {
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("CalValEX");
+
+            if (drawPlayer.head != mod.GetEquipSlot("DraedonHelmet", EquipType.Head))
+            {
+                return;
+            }
+
+            Texture2D texture = DraedonHelmetTextureCache.none;
+            //ugly but i dont care
+            if (drawPlayer.HeldItem.magic)
+            {
+                texture = DraedonHelmetTextureCache.magic;
+            }
+            if (drawPlayer.HeldItem.summon)
+            {
+                texture = DraedonHelmetTextureCache.summoner;
+            }
+            if (drawPlayer.HeldItem.ranged)
+            {
+                texture = DraedonHelmetTextureCache.ranger;
+            }
+            if (drawPlayer.HeldItem.thrown)
+            {
+                texture = DraedonHelmetTextureCache.rogue;
+            }
+            if (drawPlayer.HeldItem.melee)
+            {
+                texture = DraedonHelmetTextureCache.melee;
+            }
+
+            if (texture == DraedonHelmetTextureCache.none)
+                return;
+
+            float drawX = (int)(drawPlayer.position.X - Main.screenPosition.X - (drawPlayer.bodyFrame.Width / 2) + (drawPlayer.width / 2));
+            float drawY = (int)(drawPlayer.position.Y - Main.screenPosition.Y + drawPlayer.height - drawPlayer.bodyFrame.Height + 4);
+
+            Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition + drawInfo.drawOrigin;
+
+            Rectangle frame = drawPlayer.bodyFrame;
+
+            Color color = Color.White;
+
+            float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+
+            float rotation = drawPlayer.headRotation;
+
+            Vector2 origin = drawInfo.drawOrigin;
+
+            float scale = drawInfo.scale;
+
+            SpriteEffects spriteEffects = drawInfo.spriteEffects;
+
+            DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, scale, spriteEffects, 0);
+
+            GameShaders.Armor.Apply(drawInfo.armorShader, drawPlayer, drawData);
+
+            drawData.Draw(Main.spriteBatch);
+
+            Main.pixelShader.CurrentTechnique.Passes[0].Apply();
+        });
+
+        public static readonly PlayerLayer DraedonHelmet = new PlayerLayer("CalValEX", "DraedonHelmet", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
+        {
+            if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
+            {
+                return;
+            }
+
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("CalValEX");
+
+            if (drawPlayer.head != mod.GetEquipSlot("DraedonHelmet", EquipType.Head))
+            {
+                return;
+            }
+
+            Texture2D texture = DraedonHelmetTextureCache.none;
+            //ugly but i dont care
+            if (drawPlayer.HeldItem.magic)
+            {
+                texture = DraedonHelmetTextureCache.magic;
+            }
+            if (drawPlayer.HeldItem.summon)
+            {
+                texture = DraedonHelmetTextureCache.summoner;
+            }
+            if (drawPlayer.HeldItem.ranged)
+            {
+                texture = DraedonHelmetTextureCache.ranger;
+            }
+            if (drawPlayer.HeldItem.thrown)
+            {
+                texture = DraedonHelmetTextureCache.rogue;
+            }
+            if (drawPlayer.HeldItem.melee)
+            {
+                texture = DraedonHelmetTextureCache.melee;
+            }
+
+            if (texture == DraedonHelmetTextureCache.none)
+                return;
+
+            float drawX = (int)(drawInfo.position.X - Main.screenPosition.X - (drawPlayer.bodyFrame.Width / 2) + (drawPlayer.width / 2));
+            float drawY = (int)(drawInfo.position.Y - Main.screenPosition.Y + drawPlayer.height - drawPlayer.bodyFrame.Height + 4);
+
+            Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition + drawInfo.headOrigin;
+
+            Rectangle frame = drawPlayer.bodyFrame;
+
+            Color color = Lighting.GetColor(
+                (int)(drawInfo.position.X + drawPlayer.width * 0.5) / 16,
+                (int)(drawInfo.position.Y + drawPlayer.height * 0.25) / 16,
+                Color.White);
+
+            float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+
+            float rotation = drawPlayer.headRotation;
+
+            Vector2 origin = drawInfo.headOrigin;
+
+            SpriteEffects spriteEffects = drawInfo.spriteEffects;
+
+            DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, 1f, spriteEffects, 0);
+
+            drawData.shader = drawInfo.headArmorShader;
+
+            Main.playerDrawData.Add(drawData);
+        });
+
+        public static readonly PlayerLayer DraedonChestplate = new PlayerLayer("CalValEX", "DraedonChestplate", PlayerLayer.Body, delegate (PlayerDrawInfo drawInfo) {
+
+            if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
+                return;
+
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("CalValEX");
+
+            if (drawPlayer.body != mod.GetEquipSlot("DraedonChestplate", EquipType.Body))
+                return;
+
+            Texture2D texture = DraedonHelmetTextureCache.none;
+            //ugly but i dont care
+            if (drawPlayer.HeldItem.magic)
+            {
+                texture = DraedonChestplateCache.magic;
+            }
+            if (drawPlayer.HeldItem.summon)
+            {
+                texture = DraedonChestplateCache.summoner;
+            }
+            if (drawPlayer.HeldItem.ranged)
+            {
+                texture = DraedonChestplateCache.ranger;
+            }
+            if (drawPlayer.HeldItem.thrown)
+            {
+                texture = DraedonChestplateCache.rogue;
+            }
+            if (drawPlayer.HeldItem.melee)
+            {
+                texture = DraedonChestplateCache.melee;
+            }
+
+            if (texture == DraedonChestplateCache.none)
+                return;
+
+            float drawX = (int)drawInfo.position.X + drawPlayer.width / 2;
+            float drawY = (int)drawInfo.position.Y + drawPlayer.height - drawPlayer.bodyFrame.Height / 2 + 4f;
+
+            Vector2 origin = drawInfo.bodyOrigin;
+
+            Vector2 position = new Vector2(drawX, drawY) + drawPlayer.bodyPosition - Main.screenPosition;
+
+            float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+
+            Color color = Lighting.GetColor(
+               (int)(drawInfo.position.X + drawPlayer.width * 0.5) / 16,
+               (int)(drawInfo.position.Y + drawPlayer.height * 0.5) / 16,
+               Color.White);
+
+            Rectangle frame = drawPlayer.bodyFrame;
+
+            float rotation = drawPlayer.bodyRotation;
+
+            SpriteEffects spriteEffects = drawInfo.spriteEffects;
+
+            DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, 1f, spriteEffects, 0);
+
+            drawData.shader = drawInfo.bodyArmorShader;
+
+            Main.playerDrawData.Add(drawData);
+        });
     }
 }

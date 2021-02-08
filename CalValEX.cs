@@ -31,6 +31,8 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System;
 using System.Reflection;
+using CalValEX.Items.Equips.Hats.Draedon;
+using CalValEX.Items.Equips.Shirts.Draedon;
 
 namespace CalValEX
 {
@@ -58,6 +60,8 @@ namespace CalValEX
                 AddEquipTexture(null, EquipType.Head, "SandElemental_Legs", "CalValEX/Items/Equips/Transformations/SandElemental_Legs");
                 GameShaders.Armor.BindShader(ModContent.ItemType<DraedonHologramDye>(), new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/DraedonHologramDye")), "DraedonHologramDyePass"));
             }
+            DraedonHelmetTextureCache.Load(this);
+            DraedonChestplateCache.Load(this);
         }
 
         public override void Unload()
@@ -69,6 +73,8 @@ namespace CalValEX
             month = -1;
             compactFraming = null;
             ExtraTextures.ChristmasPets.ChristmasTextureChange.Unload();
+            DraedonHelmetTextureCache.Unload(this);
+            DraedonChestplateCache.Unload(this);
         }
 
         public override void PostSetupContent()
