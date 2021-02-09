@@ -210,6 +210,46 @@ namespace CalValEX
                 }
             }
         }
+        bool geldonSummon = false;
+        bool bdogeMount = false;
+        bool junkoReference = false;
+        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        {
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            if (npc.type == calamityMod.NPCType("AstrumAureus"))
+            {                
+                if (projectile.type != calamityMod.ProjectileType("AstrageldonSummon"))
+                    {
+                        geldonSummon = false;
+                    }
+                else if (projectile.type == calamityMod.ProjectileType("AstrageldonSummon"))
+                    {
+                        geldonSummon = true;
+                    }
+            }
+            else if (npc.type == calamityMod.NPCType("Bumblefuck"))
+            {                
+                if (projectile.type != calamityMod.ProjectileType("Minibirb") && !projectile.ranged)
+                    {
+                        bdogeMount = false;
+                    }
+                else if (projectile.type == calamityMod.ProjectileType("Minibirb") && !projectile.ranged)
+                    {
+                        bdogeMount = true;
+                    }
+            }
+            else if (npc.type == calamityMod.NPCType("Signus"))
+            {                
+                if (projectile.type == calamityMod.ProjectileType("PristineFire") || projectile.type == calamityMod.ProjectileType("PristineSecondary"))
+                    {
+                        junkoReference = true;
+                    }
+                else 
+                    {
+                        junkoReference = false;
+                    }
+            }
+        }
 
         public override void NPCLoot(NPC npc)
         {
@@ -518,7 +558,7 @@ namespace CalValEX
             {
                 ChanceDropItem(npc, ModContent.ItemType<PerennialFlower>(), vanityNormalChance);
                 ChanceDropItem(npc, ModContent.ItemType<PerennialDress>(), vanityNormalChance);
-                ChanceDropItem(npc, ModContent.ItemType<AncientPerennialFlower>(), RIVChance);
+                ChanceDropItem(npc, ModContent.ItemType<PerennialFlower>(), RIVChance);
             }
             if (npc.type == calamityMod.NPCType("Bohldohr"))
             {
@@ -778,17 +818,29 @@ namespace CalValEX
                 if (dropped == 0)
                     ConditionalDropItem(npc, ModContent.ItemType<FluffyFeather>(), (bool)calamityMod.Call("DifficultyActive", "defiled"));
                 ConditionalChanceDropItem(npc, ModContent.ItemType<SparrowMeat>(), (bool)calamityMod.Call("DifficultyActive", "armageddon"), bossPetChance);
-                ConditionalChanceDropItem(npc, ModContent.ItemType<FluffyFur>(), (bool)calamityMod.Call("DifficultyActive", "death"), 0.001f); //0.1%
                 if (!Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
                 {
                     ConditionalDropItem(npc, (ModLoader.GetMod("CalamityMod").ItemType("SilvaCrystal")), (bool)calamityMod.Call("GetBossDowned", "yharon"), 155, 265);
                 }
+                if (bdogeMount)
+                      {
+                        ChanceDropItem(npc, ModContent.ItemType<FluffyFur>(), 1.0f);
+                      }
+                 else
+                      {
+                        ConditionalChanceDropItem(npc, ModContent.ItemType<FluffyFur>(), (bool)calamityMod.Call("DifficultyActive", "death"), 0.001f);
+                      }
             }
             if (npc.type == calamityMod.NPCType("AstrumAureus"))
             {
-                int dropped = ConditionalChanceDropItem(npc, ModContent.ItemType<JellyBottle>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
-                if (dropped == 0)
-                    ConditionalDropItem(npc, ModContent.ItemType<JellyBottle>(), (bool)calamityMod.Call("DifficultyActive", "defiled"));
+                 if (geldonSummon)
+                      {
+                        ChanceDropItem(npc, ModContent.ItemType<JellyBottle>(), 1.0f);
+                      }
+                 else
+                      {
+                        ConditionalChanceDropItem(npc, ModContent.ItemType<JellyBottle>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.1f);
+                      }
             }
             if (npc.type == calamityMod.NPCType("RavagerBody"))
             {
@@ -801,7 +853,14 @@ namespace CalValEX
                 ChanceDropItem(npc, ModContent.ItemType<SigCape>(), vanityNormalChance);
                 ChanceDropItem(npc, ModContent.ItemType<SignusNether>(), vanityNormalChance);
                 ChanceDropItem(npc, ModContent.ItemType<SignusEmblem>(), vanityNormalChance);
-                ConditionalChanceDropItem(npc, ModContent.ItemType<JunkoHat>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.2f); //20%
+                if (junkoReference)
+                      {
+                        ChanceDropItem(npc, ModContent.ItemType<JunkoHat>(), 1.0f);
+                      }
+                 else
+                      {
+                        ConditionalChanceDropItem(npc, ModContent.ItemType<JunkoHat>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.01f);
+                      }
                 ConditionalChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), Main.expertMode, 0.007f); //0.7%
                 if (!Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
                 {
