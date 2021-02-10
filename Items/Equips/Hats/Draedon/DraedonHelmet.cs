@@ -8,7 +8,7 @@ namespace CalValEX.Items.Equips.Hats.Draedon
 	{
         public override void SetStaticDefaults()
         {
-			DisplayName.SetDefault("Draedon's Helmet");
+			DisplayName.SetDefault("Arsenal Soldier Helmet");
 			Tooltip.SetDefault("Changes appearance depending on held item damage type");
         }
 
