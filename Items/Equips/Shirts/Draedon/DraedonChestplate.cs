@@ -8,7 +8,7 @@ namespace CalValEX.Items.Equips.Shirts.Draedon
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Draedon's Chestplate");
+            DisplayName.SetDefault("Arsenal Soldier Chestplate");
             Tooltip.SetDefault("Changes appearance depending on held item damage type");
         }
 
