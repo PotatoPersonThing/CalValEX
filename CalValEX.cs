@@ -221,6 +221,25 @@ namespace CalValEX
             SyncSCalHits
         }
 
+        public override void AddRecipeGroups()
+		{
+            RecipeGroup group = new RecipeGroup(() => Lang.misc[37] + (" Wings"), new int[]
+            {
+				ItemType("AeroWings"),
+				ItemType("FollyWings"),
+				ItemType("GodspeedBoosters"),
+				ItemType("JunglePhoenixWings"),
+				ItemType("LeviWings"),
+                ItemType("OldVoidWings"),
+                ItemType("OldWings"),
+                ItemType("PlaugeWings"),
+                ItemType("ScryllianWings"),
+                ItemType("TerminalWings"),
+				ItemType("VoidWings")
+			});
+			RecipeGroup.RegisterGroup("WingsGroupVanities", group);
+        }
+
         public override void AddRecipes()
 		{
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
@@ -256,7 +275,16 @@ namespace CalValEX
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(calamityMod.ItemType("Bloodstone"));
             recipe.AddRecipe();
-
+            //Seraph Tracers
+            recipe = new ModRecipe(this);
+            recipe.AddRecipeGroup("WingsGroupVanities");
+            recipe.AddIngredient(calamityMod.ItemType("AngelTreads"));
+            recipe.AddIngredient(calamityMod.ItemType("CoreofCalamity"), 3);
+            recipe.AddIngredient(calamityMod.ItemType("BarofLife"), 5);
+            recipe.AddIngredient(ItemID.LunarBar, 5);
+            recipe.AddTile(TileID.LunarCraftingStation);
+            recipe.SetResult(calamityMod.ItemType("InfinityBoots"));
+            recipe.AddRecipe();
         }
     }
 }
