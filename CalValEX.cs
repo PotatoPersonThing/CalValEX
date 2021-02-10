@@ -222,22 +222,22 @@ namespace CalValEX
         }
 
         public override void AddRecipeGroups()
-		{
-            RecipeGroup group = new RecipeGroup(() => Lang.misc[37] + (" Wings"), new int[]
+        {
+            if (RecipeGroup.recipeGroupIDs.ContainsKey("WingsGroup"))
             {
-				ItemType("AeroWings"),
-				ItemType("FollyWings"),
-				ItemType("GodspeedBoosters"),
-				ItemType("JunglePhoenixWings"),
-				ItemType("LeviWings"),
-                ItemType("OldVoidWings"),
-                ItemType("OldWings"),
-                ItemType("PlaugeWings"),
-                ItemType("ScryllianWings"),
-                ItemType("TerminalWings"),
-				ItemType("VoidWings")
-			});
-			RecipeGroup.RegisterGroup("WingsGroupVanities", group);
+                int index = RecipeGroup.recipeGroupIDs["WingsGroup"];
+                RecipeGroup group = RecipeGroup.recipeGroups[index];
+                group.ValidItems.Add(ModContent.ItemType<AeroWings>()); //modded item
+                group.ValidItems.Add(ModContent.ItemType<GodspeedBoosters>());
+                group.ValidItems.Add(ModContent.ItemType<FollyWings>());
+                group.ValidItems.Add(ModContent.ItemType<JunglePhoenixWings>());
+                group.ValidItems.Add(ModContent.ItemType<LeviWings>());
+                group.ValidItems.Add(ModContent.ItemType<OldVoidWings>());
+                group.ValidItems.Add(ModContent.ItemType<VoidWings>());
+                group.ValidItems.Add(ModContent.ItemType<PlaugeWings>());
+                group.ValidItems.Add(ModContent.ItemType<ScryllianWings>());
+                group.ValidItems.Add(ModContent.ItemType<TerminalWings>());
+            }
         }
 
         public override void AddRecipes()
@@ -274,16 +274,6 @@ namespace CalValEX
             recipe.AddIngredient(ModContent.ItemType<BloodstoneWall>(), 4);
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(calamityMod.ItemType("Bloodstone"));
-            recipe.AddRecipe();
-            //Seraph Tracers
-            recipe = new ModRecipe(this);
-            recipe.AddRecipeGroup("WingsGroupVanities");
-            recipe.AddIngredient(calamityMod.ItemType("AngelTreads"));
-            recipe.AddIngredient(calamityMod.ItemType("CoreofCalamity"), 3);
-            recipe.AddIngredient(calamityMod.ItemType("BarofLife"), 5);
-            recipe.AddIngredient(ItemID.LunarBar, 5);
-            recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(calamityMod.ItemType("InfinityBoots"));
             recipe.AddRecipe();
         }
     }
