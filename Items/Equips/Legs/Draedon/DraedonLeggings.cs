@@ -8,7 +8,7 @@ namespace CalValEX.Items.Equips.Legs.Draedon
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Draedon's Leggings");
+            DisplayName.SetDefault("Arsenal Soldier Leggings");
         }
 
         public override void SetDefaults()
