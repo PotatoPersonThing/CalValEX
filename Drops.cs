@@ -229,14 +229,14 @@ namespace CalValEX
             }
             else if (npc.type == calamityMod.NPCType("Bumblefuck"))
             {                
-                if (projectile.type != calamityMod.ProjectileType("Minibirb") && !projectile.ranged)
-                    {
-                        bdogeMount = false;
-                    }
-                else if (projectile.type == calamityMod.ProjectileType("Minibirb") && !projectile.ranged)
-                    {
-                        bdogeMount = true;
-                    }
+                if (projectile.type == calamityMod.ProjectileType("Minibirb") && !projectile.ranged)
+                {
+                    bdogeMount = true;
+                }
+                else
+                {
+                    bdogeMount = false;
+                }
             }
             else if (npc.type == calamityMod.NPCType("Signus"))
             {                
