@@ -131,9 +131,7 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Yharon", new List<int> { ModContent.ItemType<Termipebbles>(), ModContent.ItemType<JunglePhoenixWings>(), ModContent.ItemType<YharonShackle>(), ModContent.ItemType<NuggetBiscuit>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Supreme Calamitas", new List<int> { ModContent.ItemType<AncientAuricTeslaHelm>() });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Acid Rain (Post-AS)", new List<int> { ModContent.ItemType<MawHook>(), ModContent.ItemType<FlakHeadCrab>(), ModContent.ItemType<SkaterEgg>(), ModContent.ItemType<Help>(), ModContent.ItemType<TrilobiteShield>() });
-                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Acid Rain (Post-Polter)", new List<int> { ModContent.ItemType<NuclearFumes>(), ModContent.ItemType<GammaHelmet>() });
-
-                
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Acid Rain (Post-Polter)", new List<int> { ModContent.ItemType<MawHook>(), ModContent.ItemType<FlakHeadCrab>(), ModContent.ItemType<SkaterEgg>(), ModContent.ItemType<Help>(), ModContent.ItemType<TrilobiteShield>(), ModContent.ItemType<NuclearFumes>(), ModContent.ItemType<GammaHelmet>() });
             }
         }
 
