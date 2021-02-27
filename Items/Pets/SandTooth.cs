@@ -18,8 +18,8 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sand Tooth");
-            Tooltip.SetDefault("'Theres a worm wriggling for it'");
+            DisplayName.SetDefault("Slighlty Moist, but also Slightly Dry Locket");
+            Tooltip.SetDefault("'Theres a worm wriggling in it'");
         }
 
         public override void SetDefaults()
