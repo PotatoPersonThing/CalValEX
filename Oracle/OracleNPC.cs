@@ -296,7 +296,10 @@ namespace CalValEX.Oracle
 
         public override void SetupShop(Chest shop, ref int nextSlot)
         {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+ 	    Mod calamityMod = ModLoader.GetMod("CalamityMod");
+	    shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.PuppoCollar>());
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 4, 50, 0);
+			nextSlot++;
             shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.BambooStick>());
             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
 			nextSlot++;
