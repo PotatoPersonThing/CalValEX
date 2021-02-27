@@ -18,7 +18,7 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Slighlty Moist, but also Slightly Dry Locket");
+            DisplayName.SetDefault("Slightly Moist, but also Slightly Dry Locket");
             Tooltip.SetDefault("'Theres a worm wriggling in it'");
         }
 
