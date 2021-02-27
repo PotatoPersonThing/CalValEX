@@ -18,7 +18,8 @@ namespace CalValEX.Items.Tiles.Plants
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             TileObjectData.newTile.Width = 2;
             TileObjectData.newTile.Height = 3;
-			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 }; //
+			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 };
+	AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch); //
             TileObjectData.addTile(Type);
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Potted Fan Coral");
