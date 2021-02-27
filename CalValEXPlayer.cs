@@ -131,6 +131,8 @@ namespace CalValEX
         public bool moistPet = false;
 	public bool Chihuahua = false;
 	public bool strongWeeb = false;
+	public bool ySquid = false;
+	public bool oSquid = false;
 
         //public CalamityPlayer calPlayer;
         /*
@@ -312,6 +314,8 @@ namespace CalValEX
             moistPet = false;
 	    Chihuahua = false;
             strongWeeb = false;
+            ySquid = false;
+            oSquid = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
