@@ -28,6 +28,13 @@ namespace CalValEX.Items.Tiles.Plants
 		public override void KillMultiTile(int i, int j, int frameX, int frameY) {
 			Item.NewItem(i * 16, j * 16, 16, 24, ItemType<FanCoral>());
 		}
+
+		public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
+        	{
+            		r = 0.3f;
+            		g = 0.75f;
+            		b = 0.75f;
+        	}
 	}
 }
 
