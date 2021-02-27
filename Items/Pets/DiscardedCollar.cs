@@ -17,9 +17,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Discarded Collar");
+            DisplayName.SetDefault("Nutrient Deprived Salmon");
             Tooltip
-                .SetDefault("Who would abandon this collar?");
+                .SetDefault("Low in protein, but a treat appreciated by sulphurous abominations");
         }
 
         public override void SetDefaults()
