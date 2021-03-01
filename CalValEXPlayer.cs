@@ -21,6 +21,7 @@ namespace CalValEX
         private const int saveVersion = 0;
 
         public bool ZoneAstral;
+        public bool HellLab;
         public bool mBirb = false;
         public bool mBirb2 = false;
         public bool mDoge = false;
@@ -129,10 +130,10 @@ namespace CalValEX
         public bool goozmaPet = false;
         public bool voreworm = false;
         public bool moistPet = false;
-	public bool Chihuahua = false;
-	public bool strongWeeb = false;
-	public bool ySquid = false;
-	public bool oSquid = false;
+	    public bool Chihuahua = false;
+	    public bool strongWeeb = false;
+	    public bool ySquid = false;
+	    public bool oSquid = false;
 
         //public CalamityPlayer calPlayer;
         /*
@@ -312,7 +313,7 @@ namespace CalValEX
             goozmaPet = false;
             voreworm = false;
             moistPet = false;
-	    Chihuahua = false;
+	        Chihuahua = false;
             strongWeeb = false;
             ySquid = false;
             oSquid = false;
@@ -409,24 +410,28 @@ namespace CalValEX
         public override void UpdateBiomes()
         {
             ZoneAstral = CalValEXWorld.astralTiles > 50;
+            HellLab = CalValEXWorld.hellTiles > 50;
         }
 
         public override bool CustomBiomesMatch(Player other)
         {
             CalValEXPlayer modOther = other.GetModPlayer<CalValEXPlayer>();
             return ZoneAstral == modOther.ZoneAstral;
+            return HellLab == modOther.HellLab;
         }
 
         public override void CopyCustomBiomesTo(Player other)
         {
             CalValEXPlayer modOther = other.GetModPlayer<CalValEXPlayer>();
             modOther.ZoneAstral = ZoneAstral;
+            modOther.HellLab = HellLab;
         }
 
         public override void SendCustomBiomes(BinaryWriter writer)
         {
             BitsByte flags = new BitsByte();
             flags[0] = ZoneAstral;
+            flags[1] = HellLab;
             writer.Write(flags);
         }
 
@@ -434,6 +439,7 @@ namespace CalValEX
         {
             BitsByte flags = reader.ReadByte();
             ZoneAstral = flags[0];
+            HellLab = flags[1];
         }
 
         public override void clientClone(ModPlayer clientClone)

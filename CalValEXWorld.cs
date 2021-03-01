@@ -12,6 +12,9 @@ namespace CalValEX
     public class CalValEXWorld : ModWorld
     {
         public static int astralTiles;
+
+        public static int hellTiles;
+
         public static bool rescuedjelly;
 
         public override void Initialize()
@@ -39,12 +42,16 @@ namespace CalValEX
         public override void ResetNearbyTileEffects()
         {
             astralTiles = 0;
+            hellTiles = 0;
         }
 
         public override void TileCountsAvailable(int[] tileCounts)
         {
-            // Here we count various tiles towards ZoneAstral
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            // Old Astral tiles
             astralTiles = tileCounts[TileType<Helplaced>()] + tileCounts[TileType<HesfinePlaced>()] + +tileCounts[TileType<AstralDirtPlaced>()];
+            // Hell Lab tiles
+            hellTiles = tileCounts[(calamityMod.TileType("Chaosplate"))];
         }
 
         public static void UpdateWorldBool() { if (Main.netMode == NetmodeID.Server) NetMessage.SendData(MessageID.WorldData); }
