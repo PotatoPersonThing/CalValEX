@@ -33,7 +33,6 @@ namespace CalValEX
     {
         public readonly float rareEnemyChance = 0.1f; //10%
         public readonly float normalEnemyChance = 0.05f; //5%
-        public readonly float extraDefiledChance = 0.05f; //5%
         public readonly float minibossChance = 0.1f; //10%
         public readonly float bossPetChance = 0.2f; //20%
         public readonly float bossHookChance = 0.1f; //10%
@@ -336,12 +335,12 @@ namespace CalValEX
                     }
                 }
             }
-            //5%/10% (non-defiled/defiled)
-            float normalChance = normalEnemyChance + ((bool)calamityMod.Call("DifficultyActive", "defiled") ? extraDefiledChance : 0);
-            //10%/15% (non-defiled/defiled)
-            float rareChance = rareEnemyChance + ((bool)calamityMod.Call("DifficultyActive", "defiled") ? extraDefiledChance : 0);
-            //1%/5% (non-defiled/defiled)
-            float mountChance = 0.01f + ((bool)calamityMod.Call("DifficultyActive", "defiled") ? 0.04f : 0);
+            //5%
+            float normalChance = normalEnemyChance;
+            //10%
+            float rareChance = rareEnemyChance;
+            //1%
+            float mountChance = 0.01f;
             if (!CalValEXConfig.Instance.DisableVanityDrops)
             { 
             if (npc.type == calamityMod.NPCType("DILF"))
@@ -645,21 +644,15 @@ namespace CalValEX
                 ConditionalChanceDropItem(npc, ModContent.ItemType<ChewyToy>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.01f); //1%
             }
             //Post-ml misc
-            //if (npc.type == mod.NPCType("ShockstormShuttle"))
-            //{
-            //if (Main.rand.NextFloat() < 0.075f && NPC.downedMoonlord)
+            /*if (npc.type == mod.NPCType("ShockstormShuttle"))
+            {
+            if (Main.rand.NextFloat() < 0.075f && NPC.downedMoonlord)
 
-            // {
-            //Item.NewItem(npc.getRect(),
-            //     ModContent.ItemType<ExodiumMoon>());
-            //}
-
-            //else if (((bool) mod.Call("DifficultyActive", "defiled")) && Main.rand.NextFloat() < 0.2f && NPC.downedMoonlord)
-            //{
-            // Item.NewItem(npc.getRect(),
-            //  ModContent.ItemType<ExodiumMoon>());
-            //}
-            //  }
+             {
+            Item.NewItem(npc.getRect(),
+                 ModContent.ItemType<ExodiumMoon>());
+            }
+             }*/
             if (npc.type == calamityMod.NPCType("ChaoticPuffer"))
             {
                 ChanceDropItem(npc, ModContent.ItemType<ChaosBalloon>(), vanityNormalChance);
@@ -794,9 +787,7 @@ namespace CalValEX
                     ConditionalDropItem(npc, ModContent.ItemType<PhantowaxBlock>(), !Main.expertMode, 155, 265);
                     }
                 }
-                int dropped = ConditionalChanceDropItem(npc, ModContent.ItemType<ToyScythe>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
-                if (dropped == 0)
-                    ConditionalDropItem(npc, ModContent.ItemType<ToyScythe>(), (bool)calamityMod.Call("DifficultyActive", "defiled"));
+                ConditionalChanceDropItem(npc, ModContent.ItemType<ToyScythe>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
             }
             if (npc.type == calamityMod.NPCType("StormWeaverHeadNaked") && Main.expertMode && CalamityMod.World.CalamityWorld.DoGSecondStageCountdown <= 0)
             {
@@ -814,9 +805,7 @@ namespace CalValEX
             }
             if (npc.type == calamityMod.NPCType("Bumblefuck"))
             {
-                int dropped = ConditionalChanceDropItem(npc, ModContent.ItemType<FluffyFeather>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
-                if (dropped == 0)
-                    ConditionalDropItem(npc, ModContent.ItemType<FluffyFeather>(), (bool)calamityMod.Call("DifficultyActive", "defiled"));
+                ConditionalChanceDropItem(npc, ModContent.ItemType<FluffyFeather>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 ConditionalChanceDropItem(npc, ModContent.ItemType<SparrowMeat>(), (bool)calamityMod.Call("DifficultyActive", "armageddon"), bossPetChance);
                 if (!Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
                 {
