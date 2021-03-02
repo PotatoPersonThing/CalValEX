@@ -66,36 +66,50 @@ namespace CalValEX.Oracle
             }
             return false;
         }
-
+	bool rachelname = false;
         public override string TownNPCName()
         {
+	    
             switch (WorldGen.genRand.Next(14))
             {
                 case 0:
+                    rachelname = false;
                     return "Maddi";
                 case 1:
+                    rachelname = false;
                     return "Tiggy";
                 case 3:
+                    rachelname = false;
                     return "Gabriel";
                 case 4:
+                    rachelname = false;
                     return "Lex";
                 case 5:
+                    rachelname = false;
                     return "Gwyn";
                 case 6:
+                    rachelname = false;
                     return "Sammy";
                 case 7:
+                    rachelname = false;
                     return "Eve";
                 case 8:
+                    rachelname = false;
                     return "Emily";
                 case 9:
+                    rachelname = false;
                     return "Lilith";
                 case 10:
+                    rachelname = true;
                     return "Rachel";
                 case 11:
+                    rachelname = false;
                     return "Leah";
                 case 12:
+                    rachelname = false;
                     return "Rebecca";
                 default:
+                    rachelname = false;
                     return "Alex";
             }
         }
@@ -330,14 +344,14 @@ namespace CalValEX.Oracle
                         shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.UglyTentacle>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
                         nextSlot++;
-                if (npc.GivenName == "Rachel")
+                if (rachelname)
                 {
                                 shop.item[nextSlot].SetDefaults(ModContent.ItemType<BubbleGum>());
-                                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 80, 0, 0);
+                                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 40, 0, 0);
                                 nextSlot++;
                             
                 }
-                if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") || CalamityMod.World.CalamityWorld.rainingAcid)
+                else if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") || CalamityMod.World.CalamityWorld.rainingAcid)
                             {
                                 shop.item[nextSlot].SetDefaults(ModContent.ItemType<BubbleGum>());
                                 shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 75, 0, 0);
