@@ -23,7 +23,9 @@ using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
 using CalValEX.Items.Tiles.FurnitureSets.Arsenal;
 using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
 using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
+using CalValEX.Items.Tiles.Blueprints;
 using CalValEX;
+using static CalValEX.CalValEXPlayer;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.LightPets;
 using CalamityMod.CalPlayer;
@@ -113,6 +115,13 @@ namespace CalValEX.JellyPriest
 
         public override string GetChat()
         {
+	    Player player = Main.player[Main.myPlayer];
+            CalValEXPlayer CalValEXPlayer = player.GetModPlayer<CalValEXPlayer>();
+	    if (CalValEXPlayer.sirember)
+            {
+                return "WHAT IS THAT HORRIBLE MONSTROSITY";
+            }
+
             if (npc.homeless)
             {
                 switch(Main.rand.Next(2))
@@ -149,7 +158,6 @@ namespace CalValEX.JellyPriest
                         return "Do you think Amidias knows anything about the sea deity I'm searching? It seems that old horse got a lot of knowledge about story.";
                 }
             }
-            Player player = Main.player[Main.myPlayer];
             CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
 
             if (NPC.AnyNPCs((ModLoader.GetMod("CalamityMod").NPCType("Siren"))))
@@ -189,6 +197,11 @@ namespace CalValEX.JellyPriest
             if (calPlayer.sirenPet)
             {
                 return "Awe, that little one is cute. She reminds me a lot of the deity I seek.";
+            }
+
+            if (CalValEXPlayer.babywaterclone)
+            {
+                return "That little one has a presence that feels similar, but different to the deity I seek.";
             }
 
             if (Main.eclipse)
@@ -411,6 +424,12 @@ namespace CalValEX.JellyPriest
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<EidolonTree>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 50, 0, 0);
+                        ++nextSlot;
+                    }
+                if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().HellLab && Main.LocalPlayer.ZoneUnderworldHeight)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<SamLog>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(5, 0, 0, 0);
                         ++nextSlot;
                     }
                 if ((bool) clamMod.Call("GetBossDowned", "oldduke") && Main.expertMode)
@@ -693,6 +712,12 @@ namespace CalValEX.JellyPriest
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<EidolonTree>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 50, 0, 0);
+                        ++nextSlot;
+                    }
+                if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().HellLab && Main.LocalPlayer.ZoneUnderworldHeight)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<SamLog>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(5, 0, 0, 0);
                         ++nextSlot;
                     }
                 if ((bool) clamMod.Call("GetBossDowned", "oldduke") && Main.expertMode)
