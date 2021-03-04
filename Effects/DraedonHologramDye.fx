@@ -1,4 +1,4 @@
-﻿sampler uImage0 : register(s0);
+sampler uImage0 : register(s0);
 sampler uImage1 : register(s1);
 float3 uColor;
 float3 uSecondaryColor;
@@ -65,7 +65,7 @@ float4 DraedonHologramDye(float4 sampleColor : COLOR0, float2 coords : TEXCOORD0
     {
         color.rgb = 2 * luminosity;
     }
-    return color;
+    return color * sampleColor;
 }
 
 technique Technique1
