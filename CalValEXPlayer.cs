@@ -635,20 +635,13 @@ namespace CalValEX
 
             Rectangle frame = drawPlayer.bodyFrame;
 
-            Color color = Lighting.GetColor(
-                (int)(drawInfo.position.X + drawPlayer.width * 0.5) / 16,
-                (int)(drawInfo.position.Y + drawPlayer.height * 0.25) / 16,
-                Color.White);
-
-            float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
-
             float rotation = drawPlayer.headRotation;
 
             Vector2 origin = drawInfo.headOrigin;
 
             SpriteEffects spriteEffects = drawInfo.spriteEffects;
 
-            DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, 1f, spriteEffects, 0);
+            DrawData drawData = new DrawData(texture, position, frame, drawInfo.upperArmorColor, rotation, origin, 1f, spriteEffects, 0);
 
             drawData.shader = drawInfo.headArmorShader;
 
@@ -699,20 +692,13 @@ namespace CalValEX
 
             Vector2 position = new Vector2(drawX, drawY) + drawPlayer.bodyPosition - Main.screenPosition;
 
-            float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
-
-            Color color = Lighting.GetColor(
-               (int)(drawInfo.position.X + drawPlayer.width * 0.5) / 16,
-               (int)(drawInfo.position.Y + drawPlayer.height * 0.5) / 16,
-               Color.White);
-
             Rectangle frame = drawPlayer.bodyFrame;
 
             float rotation = drawPlayer.bodyRotation;
 
             SpriteEffects spriteEffects = drawInfo.spriteEffects;
 
-            DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, 1f, spriteEffects, 0);
+            DrawData drawData = new DrawData(texture, position, frame, drawInfo.middleArmorColor, rotation, origin, 1f, spriteEffects, 0);
 
             drawData.shader = drawInfo.bodyArmorShader;
 
