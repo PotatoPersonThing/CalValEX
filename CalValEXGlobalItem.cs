@@ -20,6 +20,7 @@ using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
 using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
+using CalValEX.Items.Tiles.Monoliths;
 using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
 using CalValEX.Items.Tiles.Statues;
@@ -374,6 +375,10 @@ namespace CalValEX
                         }
                         if (arg == calamityMod.ItemType("LeviathanBag"))
                         {
+                            if (Utils.NextFloat(Main.rand) < 0.15f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<AquaticMonolith>());
+                            }
                             if (Utils.NextFloat(Main.rand) < 0.3f)
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<LeviWings>());

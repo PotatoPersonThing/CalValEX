@@ -19,6 +19,7 @@ using CalValEX.Items.Tiles.Balloons;
 using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
 using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
+using CalValEX.Items.Tiles.Monoliths;
 using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
 using Terraria;
@@ -765,6 +766,14 @@ namespace CalValEX
             if (npc.type == calamityMod.NPCType("BrimstoneElemental") && !CalValEXConfig.Instance.ConfigBossBlocks)
             {
                 ConditionalDropItem(npc, (ModLoader.GetMod("CalamityMod").ItemType("BrimstoneSlag")), !Main.expertMode, 155, 265);
+            }
+            if (npc.type == calamityMod.NPCType("Leviathan") && !NPC.AnyNPCs(calamityMod.NPCType("Siren")) && !Main.expertMode)
+            {
+                ChanceDropItem(npc, ModContent.ItemType<AquaticMonolith>(), 0.15f);
+            }
+            if (npc.type == calamityMod.NPCType("Siren") && !NPC.AnyNPCs(calamityMod.NPCType("Leviathan")) && !Main.expertMode)
+            {
+                ChanceDropItem(npc, ModContent.ItemType<AquaticMonolith>(), 0.15f);
             }
             if (npc.type == calamityMod.NPCType("PlaguebringerGoliath") && !CalValEXConfig.Instance.ConfigBossBlocks)
             {
