@@ -153,14 +153,21 @@ namespace CalValEX
 
                                   Rectangle frame = drawPlayer.bodyFrame;
 
+                                  Color color = Lighting.GetColor(
+                                      (int) (drawInfo.position.X + drawPlayer.width * 0.5) / 16,
+                                      (int) (drawInfo.position.Y + drawPlayer.height * 0.25) / 16,
+                                      Color.White);
+
+                                  float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+
                                   float rotation = drawPlayer.headRotation;
 
                                   Vector2 origin = drawInfo.headOrigin;
 
                                   SpriteEffects spriteEffects = drawInfo.spriteEffects;
 
-                                  DrawData drawData = new DrawData(texture, position, frame, drawInfo.upperArmorColor,
-                                      rotation, origin, 1f, spriteEffects, 0);
+                                  DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation,
+                                      origin, 1f, spriteEffects, 0);
 
                                   drawData.shader = drawInfo.headArmorShader;
 
@@ -224,14 +231,21 @@ namespace CalValEX
                                   Vector2 position = new Vector2(drawX, drawY) + drawPlayer.bodyPosition -
                                                      Main.screenPosition;
 
+                                  float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+
+                                  Color color = Lighting.GetColor(
+                                      (int) (drawInfo.position.X + drawPlayer.width * 0.5) / 16,
+                                      (int) (drawInfo.position.Y + drawPlayer.height * 0.5) / 16,
+                                      Color.White);
+
                                   Rectangle frame = drawPlayer.bodyFrame;
 
                                   float rotation = drawPlayer.bodyRotation;
 
                                   SpriteEffects spriteEffects = drawInfo.spriteEffects;
 
-                                  DrawData drawData = new DrawData(texture, position, frame, drawInfo.middleArmorColor,
-                                      rotation, origin, 1f, spriteEffects, 0);
+                                  DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation,
+                                      origin, 1f, spriteEffects, 0);
 
                                   drawData.shader = drawInfo.bodyArmorShader;
 
@@ -249,6 +263,9 @@ namespace CalValEX
         public bool BoldLizard;
         public bool CalamityBABYBool;
         public bool CalamityBabyGotHit;
+
+        //Monoliths
+        public bool calMonolith = false;
         public bool catfish;
         public bool Chihuahua;
         public bool cloudmini;
@@ -258,6 +275,7 @@ namespace CalValEX
         public bool dBall;
         public bool deusmain;
         public bool deussmall;
+        public bool dogMonolith = false;
         public bool drone;
         public bool dsPet;
         public bool Dstone;
@@ -276,6 +294,7 @@ namespace CalValEX
         public bool hover;
         public bool jared;
         public bool junsi;
+        public bool leviMonolith = false;
         public bool Lightshield;
         public bool mAero;
         public bool mAmb;
@@ -323,10 +342,12 @@ namespace CalValEX
         public bool Nugget;
         public bool oSquid;
         public bool PBGmini;
+        public bool pbgMonolith = false;
         public bool ProGuard1;
         public bool ProGuard2;
         public bool ProGuard3;
         public bool ProviPet;
+        public bool provMonolith = false;
         public bool pylon;
         public bool rarebrimling;
         public bool raresandmini;
@@ -337,6 +358,7 @@ namespace CalValEX
         public bool sandmini;
         public bool sBun;
         public int SCalHits;
+        public bool scalMonolith = false;
         public bool sDuke;
         public bool seerL;
         public bool seerM;
@@ -360,6 +382,7 @@ namespace CalValEX
         public bool VoidOrb;
         public bool voreworm;
         public bool worb;
+        public bool yharonMonolith = false;
         public bool ySquid;
 
         public bool ZoneAstral;
@@ -661,6 +684,24 @@ namespace CalValEX
             flags[0] = ZoneAstral;
             flags[1] = HellLab;
             writer.Write(flags);
+        }
+
+        public override void UpdateBiomeVisuals()
+        {
+            bool useCalMonolith = calMonolith;
+            player.ManageSpecialBiomeVisuals("CalamityMod:CalamitasRun3", useCalMonolith, player.Center);
+            bool useLeviMonolith = leviMonolith;
+            player.ManageSpecialBiomeVisuals("CalamityMod:Leviathan", useLeviMonolith, player.Center);
+            bool usePBGMonolith = pbgMonolith;
+            player.ManageSpecialBiomeVisuals("CalamityMod:PlaguebringerGoliath", usePBGMonolith, player.Center);
+            bool useProvMonolith = provMonolith;
+            player.ManageSpecialBiomeVisuals("CalamityMod:Providence", useProvMonolith, player.Center);
+            bool useDogMonolith = dogMonolith;
+            player.ManageSpecialBiomeVisuals("CalamityMod:DevourerofGodsHead", useDogMonolith, player.Center);
+            bool useYharonMonolith = yharonMonolith;
+            player.ManageSpecialBiomeVisuals("CalamityMod:Yharon", useYharonMonolith, player.Center);
+            bool useScalMonolith = scalMonolith;
+            player.ManageSpecialBiomeVisuals("CalamityMod:SupremeCalamitas", useScalMonolith, player.Center);
         }
 
         public override void ReceiveCustomBiomes(BinaryReader reader)
