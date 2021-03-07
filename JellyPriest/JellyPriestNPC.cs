@@ -1,34 +1,24 @@
-using System;
-using CalValEX.JellyPriest;
+using CalamityMod.CalPlayer;
+using CalValEX.Items.Tiles;
+using CalValEX.Items.Tiles.Banners;
+using CalValEX.Items.Tiles.Blocks;
+using CalValEX.Items.Tiles.Blueprints;
+using CalValEX.Items.Tiles.FurnitureSets.Arsenal;
+using CalValEX.Items.Tiles.FurnitureSets.Auric;
+using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
+using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
+using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
+using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
+using CalValEX.Items.Tiles.Plants;
+using CalValEX.Items.Tiles.Statues;
+using CalValEX.Items.Tiles.Walls;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using CalValEX.Oracle;
-using CalValEX.Items;
-using CalValEX.Items.Pets;
-using CalValEX.Items.Equips;
-using CalValEX.Items.Equips.Hats;
-using CalValEX.Items.Tiles;
-using CalValEX.Items.Tiles.Plants;
-using CalValEX.Items.Tiles.Statues;
-using CalValEX.Items.Tiles.Blocks;
-using CalValEX.Items.Tiles.Walls;
-using CalValEX.Items.Tiles.Banners;
-using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
-using CalValEX.Items.Tiles.FurnitureSets.Auric;
-using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
-using CalValEX.Items.Tiles.FurnitureSets.Arsenal;
-using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
-using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
-using CalValEX.Items.Tiles.Blueprints;
-using CalValEX;
-using static CalValEX.CalValEXPlayer;
 using static Terraria.ModLoader.ModContent;
-using CalValEX.Items.LightPets;
-using CalamityMod.CalPlayer;
 
 namespace CalValEX.JellyPriest
 {
@@ -37,7 +27,7 @@ namespace CalValEX.JellyPriest
     {
         private static bool shop1;
 
-	    private static bool shop2;
+        private static bool shop2;
 
         public override string Texture => "CalValEX/JellyPriest/JellyPriestNPC";
         public override string[] AltTextures => new[] { "CalValEX/JellyPriest/JellyPriestNPC_Alt" };
@@ -86,28 +76,40 @@ namespace CalValEX.JellyPriest
             {
                 case 0:
                     return "Eika";
+
                 case 1:
                     return "Feferi";
+
                 case 3:
                     return "Netlia";
+
                 case 4:
                     return "Atollia";
+
                 case 5:
                     return "Melodi";
+
                 case 6:
                     return "Signathia";
+
                 case 7:
                     return "Manawa";
+
                 case 8:
                     return "Kanji";
+
                 case 9:
                     return "Mariacala";
+
                 case 10:
                     return "Cuboza";
+
                 case 11:
                     return "Nidaria";
+
                 case 12:
                     return "Crasqua";
+
                 default:
                     return "Ooma";
             }
@@ -115,19 +117,20 @@ namespace CalValEX.JellyPriest
 
         public override string GetChat()
         {
-	    Player player = Main.player[Main.myPlayer];
+            Player player = Main.player[Main.myPlayer];
             CalValEXPlayer CalValEXPlayer = player.GetModPlayer<CalValEXPlayer>();
-	    if (CalValEXPlayer.sirember)
+            if (CalValEXPlayer.sirember)
             {
                 return "WHAT IS THAT HORRIBLE MONSTROSITY";
             }
 
             if (npc.homeless)
             {
-                switch(Main.rand.Next(2))
+                switch (Main.rand.Next(2))
                 {
                     case 0:
                         return "Being free from those vines is great and all, but I need a place to settle for my sculpting.";
+
                     default:
                         return "Greetings, land creature! I rise from this old sea in hopes of traveling and finding a certain deity from the old times, from when the sea was a beautiful reign for many. Do you have any hint about where I could find them?";
                 }
@@ -138,10 +141,11 @@ namespace CalValEX.JellyPriest
             int FAP = NPC.FindFirstNPC((ModLoader.GetMod("CalamityMod").NPCType("FAP")));
             if (FAP >= 0 && Main.rand.NextFloat() < 0.25f)
             {
-                switch(Main.rand.Next(2))
+                switch (Main.rand.Next(2))
                 {
                     case 0:
                         return "I don't feel very comfortable with how close that 'Princess' gets to me when I'm showing her some decorations, I'm starting to think she wants to make food out of me by what she says...!";
+
                     default:
                         return "The last time that Cirrus got near my decorations, she tore off one of my bust's heads!";
                 }
@@ -150,10 +154,11 @@ namespace CalValEX.JellyPriest
             int SEAHOE = NPC.FindFirstNPC((ModLoader.GetMod("CalamityMod").NPCType("SEAHOE")));
             if (SEAHOE >= 0 && Main.rand.NextFloat() < 0.25f)
             {
-                switch(Main.rand.Next(2))
+                switch (Main.rand.Next(2))
                 {
                     case 0:
                         return "The great sea king I've heard many tales of... And you say that you found him inside a clam...? Oh my, isn't that pathetic now.";
+
                     default:
                         return "Do you think Amidias knows anything about the sea deity I'm searching? It seems that old horse got a lot of knowledge about story.";
                 }
@@ -162,26 +167,26 @@ namespace CalValEX.JellyPriest
 
             if (NPC.AnyNPCs((ModLoader.GetMod("CalamityMod").NPCType("Siren"))))
             {
-                switch(Main.rand.Next(2))
+                switch (Main.rand.Next(2))
                 {
                     case 0:
                         return "Oh my Xeroc! It's her! I have to wrap up preparations quickly!";
+
                     default:
                         return "After all of my preparations, she is finally here! Anahita of the Tides!";
                 }
-
             }
             Mod clamMod = ModLoader.GetMod("CalamityMod");
             if (((bool)clamMod.Call("GetBossDowned", "anahitaleviathan")) && Main.rand.NextFloat() < 0.25f && !NPC.AnyNPCs((ModLoader.GetMod("CalamityMod").NPCType("Siren"))))
             {
-                switch(Main.rand.Next(2))
+                switch (Main.rand.Next(2))
                 {
                     case 0:
                         return "Oh! So you did find the location of the deity I'm searching for? Please explain in detail everything about them, I would love to start working on my offerings and monuments as soon as possible.";
+
                     default:
                         return "For some reason, the goddess' presence feels like it's weakened. I hope nothing bad happened to her.";
                 }
-
             }
 
             if (calPlayer.sirenWaifu || calPlayer.elementalHeart)
@@ -191,7 +196,7 @@ namespace CalValEX.JellyPriest
 
             if (calPlayer.sirenBoobs && !calPlayer.sirenBoobsHide)
             {
-               return "OH! Please, welcome yourself to my shop. I've been preparing these just for you.";
+                return "OH! Please, welcome yourself to my shop. I've been preparing these just for you.";
             }
 
             if (calPlayer.sirenPet)
@@ -206,10 +211,11 @@ namespace CalValEX.JellyPriest
 
             if (Main.eclipse)
             {
-                switch(Main.rand.Next(2))
+                switch (Main.rand.Next(2))
                 {
                     case 0:
                         return "It seems spooky out there, how about you stay inside my humble abode.";
+
                     default:
                         return "Hmm, maybe I can use those bits of cloth that some of those creatures have to make something.";
                 }
@@ -221,6 +227,7 @@ namespace CalValEX.JellyPriest
                 {
                     case 0:
                         return "Parties are fun! Hopefully one day, I can help make one which will catch the eye of the goddess I seek.";
+
                     default:
                         return "There's a lot of celebration today. Hopefully I can spice things up with my decorations!";
                 }
@@ -234,10 +241,13 @@ namespace CalValEX.JellyPriest
                     {
                         case 0:
                             return "This place reeks of sadness, let me help you get the place better with some beautiful decorations will you.";
+
                         case 1:
                             return "I told you already, I'm not going back into that stinky sea to get you materials for your stuff... unless you have some extra change with you, of course.";
+
                         case 2:
                             return "I would love to decorate your place for free, but I require some coins for buying offerings you know?.";
+
                         default:
                             return "Oh, where I got this apron and tools from? It is all handmade by myself with resources from around my place! You learn to do this stuff over time with enough passion.";
                     }
@@ -248,8 +258,10 @@ namespace CalValEX.JellyPriest
                     {
                         case 0:
                             return "Although the night sky makes things harder to see, some of my decorations can pierce the darkness with colorful light.";
+
                         case 1:
                             return "I actually have higher motivation to work at night, the moon reminds me of someone...";
+
                         default:
                             return "I wonder if the deity I seek watches the moon like I do.";
                     }
@@ -257,25 +269,27 @@ namespace CalValEX.JellyPriest
             }
             else
             {
-
                 switch (Main.rand.Next(6))
                 {
                     case 0:
                         return "This isn't a night where I feel like working.";
+
                     case 1:
                         return "Darling, could you keep an eye on the furniture? Stuff seems to be getting out of control for some reason.";
+
                     case 2:
                         return "The eerie redness of the sky does not look pretty on most of my decorations...";
+
                     default:
                         return "Stay away from my statues!";
                 }
             }
         }
-        
+
         public override void SetChatButtons(ref string button, ref string button2)
         {
-                button = "Decorations";
-                button2 = "Blocks";
+            button = "Decorations";
+            button2 = "Blocks";
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref bool shop)
@@ -302,30 +316,30 @@ namespace CalValEX.JellyPriest
         {
             if (shop1)
             {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            shop.item[nextSlot].SetDefaults(ItemType<Items.Tiles.Statues.C>());
-            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
-			nextSlot++;
-            Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
-            if (clamMod != null)
+                Mod calamityMod = ModLoader.GetMod("CalamityMod");
+                shop.item[nextSlot].SetDefaults(ItemType<Items.Tiles.Statues.C>());
+                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
+                nextSlot++;
+                Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
+                if (clamMod != null)
                 {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<WulfrumGlobe>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 10, 0);
-                        ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<WulfrumGlobe>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 10, 0);
+                    ++nextSlot;
 
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryConsoleItem"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
-                        ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryConsoleItem"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
+                    ++nextSlot;
 
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AgedRustGamingTable>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 15, 0, 0);
-                        ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<AgedRustGamingTable>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 15, 0, 0);
+                    ++nextSlot;
 
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<RustGamingTable>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 15, 0, 0);
-                        ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<RustGamingTable>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 15, 0, 0);
+                    ++nextSlot;
 
-                if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") || (bool) clamMod.Call("GetBossDowned", "acidrainscourge"))
+                    if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") || (bool)clamMod.Call("GetBossDowned", "acidrainscourge"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.SulphurGeyser>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 10, 0);
@@ -339,7 +353,7 @@ namespace CalValEX.JellyPriest
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 50, 0);
                         ++nextSlot;
                     }
-                if ((bool) clamMod.Call("GetBossDowned", "giantclam"))
+                    if ((bool)clamMod.Call("GetBossDowned", "giantclam"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.SunkenLamp>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 50, 0);
@@ -369,25 +383,25 @@ namespace CalValEX.JellyPriest
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 20, 0);
                         ++nextSlot;
                     }
-                if (Main.hardMode == true)
-                            {
-                                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Plants.MonolithPot>());
-                                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 95, 0);
-                                nextSlot++;
-                            }
-                if ((bool) clamMod.Call("GetBossDowned", "acidrainscourge"))
+                    if (Main.hardMode == true)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Plants.MonolithPot>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 95, 0);
+                        nextSlot++;
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "acidrainscourge"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Plants.BelchingCoral>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 2, 0, 0);
                         ++nextSlot;
                     }
-                if (NPC.downedPlantBoss || ((bool) clamMod.Call("GetBossDowned", "calamitas")))
+                    if (NPC.downedPlantBoss || ((bool)clamMod.Call("GetBossDowned", "calamitas")))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<VeilBanner>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
                         ++nextSlot;
                     }
-                if ((bool) clamMod.Call("GetBossDowned", "astrumaureus") && Main.expertMode)
+                    if ((bool)clamMod.Call("GetBossDowned", "astrumaureus") && Main.expertMode)
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralOldPurple>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
@@ -396,43 +410,43 @@ namespace CalValEX.JellyPriest
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
                         ++nextSlot;
                     }
-                if ((bool) clamMod.Call("GetBossDowned", "providence"))
+                    if ((bool)clamMod.Call("GetBossDowned", "providence"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Provibust>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50, 0, 0);
                         ++nextSlot;
                     }
-                if ((bool) clamMod.Call("GetBossDowned", "stormweaver"))
+                    if ((bool)clamMod.Call("GetBossDowned", "stormweaver"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Tesla>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 75, 0, 0);
                         ++nextSlot;
                     }
-                if ((bool) clamMod.Call("GetBossDowned", "ceaselessvoid"))
+                    if ((bool)clamMod.Call("GetBossDowned", "ceaselessvoid"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<VoidPortal>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 75, 0, 0);
                         ++nextSlot;
                     }
-                if ((bool) clamMod.Call("GetBossDowned", "signus"))
+                    if ((bool)clamMod.Call("GetBossDowned", "signus"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<NetherTree>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 5, 0, 0);
                         ++nextSlot;
                     }
-                if ((bool) clamMod.Call("GetBossDowned", "polterghast") && Main.expertMode)
+                    if ((bool)clamMod.Call("GetBossDowned", "polterghast") && Main.expertMode)
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<EidolonTree>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 50, 0, 0);
                         ++nextSlot;
                     }
-                if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().HellLab && Main.LocalPlayer.ZoneUnderworldHeight)
+                    if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().HellLab && Main.LocalPlayer.ZoneUnderworldHeight)
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<SamLog>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(5, 0, 0, 0);
                         ++nextSlot;
                     }
-                if ((bool) clamMod.Call("GetBossDowned", "oldduke") && Main.expertMode)
+                    if ((bool)clamMod.Call("GetBossDowned", "oldduke") && Main.expertMode)
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<SulphuricTank>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 50, 0, 0);
@@ -446,174 +460,174 @@ namespace CalValEX.JellyPriest
             }
             else if (shop2)
             {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
-            if (clamMod != null)
-            {
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryPlating"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                Mod calamityMod = ModLoader.GetMod("CalamityMod");
+                Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
+                if (clamMod != null)
+                {
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryPlating"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryPanels"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("HazardChevronPanels"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("RustedPlating"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("RustedPipes"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryPipePlating"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("SulphurousSandstone"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 35);
+                    ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("HardenedSulphurousSandstone"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 50);
+                    ++nextSlot;
+                    if ((bool)clamMod.Call("GetBossDowned", "giantclam"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("EutrophicSand"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 5);
                         ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryPanels"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("SmoothNavystone"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 5);
                         ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("HazardChevronPanels"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    }
+                    if (NPC.downedBoss3)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("AbyssGravel"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 5);
                         ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("RustedPlating"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "slimegod"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("StatigelBlock"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 3, 5);
                         ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("RustedPipes"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    }
+                    if (Main.hardMode == true)
+                    {
+                        shop.item[nextSlot].SetDefaults(ItemType<AstralGrass>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 10);
+                        nextSlot++;
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("AstralMonolith"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 5);
                         ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryPipePlating"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "brimstoneelemental"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("BrimstoneSlag"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 3, 5);
                         ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("SulphurousSandstone"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 35);
+                    }
+                    if (NPC.downedGolemBoss)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("Voidstone"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 10, 0);
                         ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("HardenedSulphurousSandstone"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 50);
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "plaguebringergoliath"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("PlaguedPlate"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 30, 0);
                         ++nextSlot;
-                         if ((bool) clamMod.Call("GetBossDowned", "giantclam"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("EutrophicSand"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 5);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("SmoothNavystone"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 5);
-                            ++nextSlot;
-                        }
-                        if (NPC.downedBoss3)
-                        {
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("AbyssGravel"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 5);
-                            ++nextSlot;
-                        }
-                        if ((bool) clamMod.Call("GetBossDowned", "slimegod"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("StatigelBlock"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 3, 5);
-                            ++nextSlot;
-                        }
-                        if (Main.hardMode == true)
-                        {
-                            shop.item[nextSlot].SetDefaults(ItemType<AstralGrass>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 10);
-                            nextSlot++;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("AstralMonolith"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 5);
-                            ++nextSlot;
-                        }
-                        if ((bool) clamMod.Call("GetBossDowned", "brimstoneelemental"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("BrimstoneSlag"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 3, 5);
-                            ++nextSlot;
-                        }
-                        if (NPC.downedGolemBoss)
-                        {
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("Voidstone"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 10, 0);
-                            ++nextSlot;
-                        }
-                        if ((bool) clamMod.Call("GetBossDowned", "plaguebringergoliath"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("PlaguedPlate"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 30, 0);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ItemType<PlagueHiveWand>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 40, 0);
-                            ++nextSlot;
-                             shop.item[nextSlot].SetDefaults(ItemType<PlagueHiveWall>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 10);
-                            ++nextSlot;
-                        }
-                        if ((bool) clamMod.Call("GetBossDowned", "ravager"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ItemType<Necrostone>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 40, 0);
-                            ++nextSlot;
-                        }
-                        if ((bool) clamMod.Call("GetBossDowned", "providence"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("UelibloomBrick"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 50, 0);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("ProfanedRock"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 66, 66);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("ProfanedCrystal"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 6, 66, 66);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ItemType<ChiseledBloodstone>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 80, 0);
-                            ++nextSlot;
-                        }
-                        if ((bool) clamMod.Call("GetBossDowned", "polterghast"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ItemType<PhantowaxBlock>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 90, 0);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ItemType<EidolicSlab>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("StratusBricks"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
-                            ++nextSlot;
-                        }
-                        if ((bool) clamMod.Call("GetBossDowned", "devourerofgods"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("CosmiliteBrick"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 2, 0, 0);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("OccultStone"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
-                            ++nextSlot;
-                        }
-                        if ((bool) clamMod.Call("GetBossDowned", "buffedmothron"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("SilvaCrystal"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
-                            ++nextSlot;
-                        }
-                        if ((bool) clamMod.Call("GetBossDowned", "yharon"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ItemType<AuricBrick>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 30, 0, 0);
-                            ++nextSlot;
-                        }
+                        shop.item[nextSlot].SetDefaults(ItemType<PlagueHiveWand>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 40, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ItemType<PlagueHiveWall>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 10);
+                        ++nextSlot;
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "ravager"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ItemType<Necrostone>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 40, 0);
+                        ++nextSlot;
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "providence"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("UelibloomBrick"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 50, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("ProfanedRock"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 66, 66);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("ProfanedCrystal"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 6, 66, 66);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ItemType<ChiseledBloodstone>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 80, 0);
+                        ++nextSlot;
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "polterghast"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ItemType<PhantowaxBlock>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 90, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ItemType<EidolicSlab>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("StratusBricks"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
+                        ++nextSlot;
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "devourerofgods"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("CosmiliteBrick"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 2, 0, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("OccultStone"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
+                        ++nextSlot;
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "buffedmothron"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("SilvaCrystal"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
+                        ++nextSlot;
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "yharon"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ItemType<AuricBrick>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 30, 0, 0);
+                        ++nextSlot;
+                    }
+                }
             }
-            }
-        }  
+        }
 
         public override void SetupShop(Chest shop, ref int nextSlot)
         {
             if (shop1)
             {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            shop.item[nextSlot].SetDefaults(ItemType<Items.Tiles.Statues.C>());
-            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
-			nextSlot++;
-            Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
-            if (clamMod != null)
+                Mod calamityMod = ModLoader.GetMod("CalamityMod");
+                shop.item[nextSlot].SetDefaults(ItemType<Items.Tiles.Statues.C>());
+                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
+                nextSlot++;
+                Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
+                if (clamMod != null)
                 {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<WulfrumGlobe>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 10, 0);
-                        ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<WulfrumGlobe>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 10, 0);
+                    ++nextSlot;
 
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryConsoleItem"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
-                        ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryConsoleItem"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
+                    ++nextSlot;
 
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AgedRustGamingTable>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 15, 0, 0);
-                        ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<AgedRustGamingTable>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 15, 0, 0);
+                    ++nextSlot;
 
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<RustGamingTable>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 15, 0, 0);
-                        ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<RustGamingTable>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 15, 0, 0);
+                    ++nextSlot;
 
-                if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") || (bool) clamMod.Call("GetBossDowned", "acidrainscourge"))
+                    if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") || (bool)clamMod.Call("GetBossDowned", "acidrainscourge"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.SulphurGeyser>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 10, 0);
@@ -627,7 +641,7 @@ namespace CalValEX.JellyPriest
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 50, 0);
                         ++nextSlot;
                     }
-                if ((bool) clamMod.Call("GetBossDowned", "giantclam"))
+                    if ((bool)clamMod.Call("GetBossDowned", "giantclam"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.SunkenLamp>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 50, 0);
@@ -657,25 +671,25 @@ namespace CalValEX.JellyPriest
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 20, 0);
                         ++nextSlot;
                     }
-                if (Main.hardMode == true)
-                            {
-                                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Plants.MonolithPot>());
-                                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 95, 0);
-                                nextSlot++;
-                            }
-                if ((bool) clamMod.Call("GetBossDowned", "acidrainscourge"))
+                    if (Main.hardMode == true)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Plants.MonolithPot>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 95, 0);
+                        nextSlot++;
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "acidrainscourge"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Plants.BelchingCoral>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 2, 0, 0);
                         ++nextSlot;
                     }
-                if (NPC.downedPlantBoss || ((bool) clamMod.Call("GetBossDowned", "calamitas")))
+                    if (NPC.downedPlantBoss || ((bool)clamMod.Call("GetBossDowned", "calamitas")))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<VeilBanner>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
                         ++nextSlot;
                     }
-                if ((bool) clamMod.Call("GetBossDowned", "astrumaureus") && Main.expertMode)
+                    if ((bool)clamMod.Call("GetBossDowned", "astrumaureus") && Main.expertMode)
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralOldPurple>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
@@ -684,45 +698,44 @@ namespace CalValEX.JellyPriest
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
                         ++nextSlot;
                     }
-                if ((bool) clamMod.Call("GetBossDowned", "providence"))
+                    if ((bool)clamMod.Call("GetBossDowned", "providence"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Provibust>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50, 0, 0);
                         ++nextSlot;
                     }
-                if ((bool) clamMod.Call("GetBossDowned", "stormweaver"))
+                    if ((bool)clamMod.Call("GetBossDowned", "stormweaver"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Tesla>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 75, 0, 0);
                         ++nextSlot;
                     }
-                if ((bool) clamMod.Call("GetBossDowned", "ceaselessvoid"))
+                    if ((bool)clamMod.Call("GetBossDowned", "ceaselessvoid"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<VoidPortal>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 75, 0, 0);
                         ++nextSlot;
                     }
-                if ((bool) clamMod.Call("GetBossDowned", "signus"))
+                    if ((bool)clamMod.Call("GetBossDowned", "signus"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<NetherTree>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 5, 0, 0);
                         ++nextSlot;
                     }
-                if ((bool) clamMod.Call("GetBossDowned", "polterghast") && Main.expertMode)
+                    if ((bool)clamMod.Call("GetBossDowned", "polterghast") && Main.expertMode)
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<EidolonTree>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 50, 0, 0);
                         ++nextSlot;
                     }
-                if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().HellLab && Main.LocalPlayer.ZoneUnderworldHeight)
+                    if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().HellLab && Main.LocalPlayer.ZoneUnderworldHeight)
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<SamLog>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(5, 0, 0, 0);
                         ++nextSlot;
                     }
-                if ((bool) clamMod.Call("GetBossDowned", "oldduke") && Main.expertMode)
+                    if ((bool)clamMod.Call("GetBossDowned", "oldduke") && Main.expertMode)
                     {
-
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Help>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(76, 0, 0, 0);
                         ++nextSlot;
@@ -731,145 +744,145 @@ namespace CalValEX.JellyPriest
             }
             else if (shop2)
             {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
-            if (clamMod != null)
-            {
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryPlating"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                Mod calamityMod = ModLoader.GetMod("CalamityMod");
+                Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
+                if (clamMod != null)
+                {
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryPlating"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryPanels"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("HazardChevronPanels"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("RustedPlating"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("RustedPipes"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryPipePlating"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("SulphurousSandstone"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 35);
+                    ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("HardenedSulphurousSandstone"));
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 50);
+                    ++nextSlot;
+                    if ((bool)clamMod.Call("GetBossDowned", "giantclam"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("EutrophicSand"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 5);
                         ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryPanels"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("SmoothNavystone"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 5);
                         ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("HazardChevronPanels"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    }
+                    if (NPC.downedBoss3)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("AbyssGravel"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 5);
                         ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("RustedPlating"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "slimegod"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("StatigelBlock"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 3, 5);
                         ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("RustedPipes"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    }
+                    if (Main.hardMode == true)
+                    {
+                        shop.item[nextSlot].SetDefaults(ItemType<AstralGrass>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 10);
+                        nextSlot++;
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("AstralMonolith"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 5);
                         ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryPipePlating"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 25);
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "brimstoneelemental"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("BrimstoneSlag"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 3, 5);
                         ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("SulphurousSandstone"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 35);
+                    }
+                    if (NPC.downedGolemBoss)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("Voidstone"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 10, 0);
                         ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("HardenedSulphurousSandstone"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 50);
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "plaguebringergoliath"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("PlaguedPlate"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 30, 0);
                         ++nextSlot;
-                         if ((bool) clamMod.Call("GetBossDowned", "giantclam"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("EutrophicSand"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5, 5);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("SmoothNavystone"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 5);
-                            ++nextSlot;
-                        }
-                        if (NPC.downedBoss3)
-                        {
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("AbyssGravel"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 5);
-                            ++nextSlot;
-                        }
-                        if ((bool) clamMod.Call("GetBossDowned", "slimegod"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("StatigelBlock"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 3, 5);
-                            ++nextSlot;
-                        }
-                        if (Main.hardMode == true)
-                        {
-                            shop.item[nextSlot].SetDefaults(ItemType<AstralGrass>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 10);
-                            nextSlot++;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("AstralMonolith"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 5);
-                            ++nextSlot;
-                        }
-                        if ((bool) clamMod.Call("GetBossDowned", "brimstoneelemental"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("BrimstoneSlag"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 3, 5);
-                            ++nextSlot;
-                        }
-                        if (NPC.downedGolemBoss)
-                        {
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("Voidstone"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 10, 0);
-                            ++nextSlot;
-                        }
-                        if ((bool) clamMod.Call("GetBossDowned", "plaguebringergoliath"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("PlaguedPlate"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 30, 0);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ItemType<PlagueHiveWand>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 40, 0);
-                            ++nextSlot;
-                             shop.item[nextSlot].SetDefaults(ItemType<PlagueHiveWall>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 10);
-                            ++nextSlot;
-                        }
-                        if ((bool) clamMod.Call("GetBossDowned", "ravager"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ItemType<Necrostone>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 40, 0);
-                            ++nextSlot;
-                        }
-                        if ((bool) clamMod.Call("GetBossDowned", "providence"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("UelibloomBrick"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 50, 0);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("ProfanedRock"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 66, 66);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("ProfanedCrystal"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 6, 66, 66);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ItemType<ChiseledBloodstone>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 80, 0);
-                            ++nextSlot;
-                        }
-                        if ((bool) clamMod.Call("GetBossDowned", "polterghast"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ItemType<PhantowaxBlock>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 90, 0);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ItemType<EidolicSlab>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("StratusBricks"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
-                            ++nextSlot;
-                        }
-                        if ((bool) clamMod.Call("GetBossDowned", "devourerofgods"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("CosmiliteBrick"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 2, 0, 0);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("OccultStone"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
-                            ++nextSlot;
-                        }
-                        if ((bool) clamMod.Call("GetBossDowned", "buffedmothron"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("SilvaCrystal"));
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
-                            ++nextSlot;
-                        }
-                        if ((bool) clamMod.Call("GetBossDowned", "yharon"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ItemType<AuricBrick>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 30, 0, 0);
-                            ++nextSlot;
-                        }
+                        shop.item[nextSlot].SetDefaults(ItemType<PlagueHiveWand>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 40, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ItemType<PlagueHiveWall>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 10);
+                        ++nextSlot;
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "ravager"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ItemType<Necrostone>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 40, 0);
+                        ++nextSlot;
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "providence"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("UelibloomBrick"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 50, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("ProfanedRock"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 66, 66);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("ProfanedCrystal"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 6, 66, 66);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ItemType<ChiseledBloodstone>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 80, 0);
+                        ++nextSlot;
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "polterghast"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ItemType<PhantowaxBlock>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 90, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ItemType<EidolicSlab>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("StratusBricks"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
+                        ++nextSlot;
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "devourerofgods"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("CosmiliteBrick"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 2, 0, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("OccultStone"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
+                        ++nextSlot;
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "buffedmothron"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("SilvaCrystal"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
+                        ++nextSlot;
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "yharon"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ItemType<AuricBrick>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 30, 0, 0);
+                        ++nextSlot;
+                    }
+                }
             }
-            }
-        }              
+        }
 
         public override bool CanGoToStatue(bool toKingStatue)
         {
@@ -921,9 +934,9 @@ namespace CalValEX.JellyPriest
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-                projType = ModContent.ProjectileType<InkShot>();
-                attackDelay = 1;
-                return;
+            projType = ModContent.ProjectileType<InkShot>();
+            attackDelay = 1;
+            return;
         }
 
         public override void TownNPCAttackProjSpeed(ref float multiplier, ref float gravityCorrection, ref float randomOffset)
@@ -932,14 +945,14 @@ namespace CalValEX.JellyPriest
             multiplier = 24f;
         }
 
-        public override void HitEffect(int hitDirection, double damage) 
+        public override void HitEffect(int hitDirection, double damage)
+        {
+            if (npc.life <= 0)
             {
-			    if (npc.life <= 0) 
-                {
-                    Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/JellyPriest"), 1f);
-                    Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/JellyPriest2"), 1f);
-                    Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/JellyPriest3"), 1f);
-				}
-			}
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/JellyPriest"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/JellyPriest2"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/JellyPriest3"), 1f);
+            }
+        }
     }
 }

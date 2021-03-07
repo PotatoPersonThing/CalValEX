@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets
@@ -11,6 +10,7 @@ namespace CalValEX.Projectiles.Pets
         public override string Texture => "CalValEX/Projectiles/Pets/ClamHermit_Normal";
         private readonly string HalloweenTexture = "CalValEX/Projectiles/Pets/ClamHermit_Halloween";
         private readonly string ChristmasTexture = "CalValEX/Projectiles/Pets/ClamHermit_Christmas";
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Clam Hermit");
@@ -31,6 +31,7 @@ namespace CalValEX.Projectiles.Pets
             drawOriginOffsetY -= 4;
             doJumpAnim = false;
         }
+
         public override void SetPetGravityAndDrag()
         {
             gravity = 0.1f;
@@ -65,7 +66,7 @@ namespace CalValEX.Projectiles.Pets
             jumpSpeed[3] = -7f;
             jumpSpeed[4] = -6.5f;
         }
-        
+
         public override void SetFrameLimitsAndFrameSpeed()
         {
             idleFrameLimits[0] = idleFrameLimits[1] = 0;
@@ -143,6 +144,7 @@ namespace CalValEX.Projectiles.Pets
                             projectile.frame = 11;
                     }
                     break;
+
                 case 0:
                     if (projectile.ai[0]++ > 240)
                     {
@@ -150,6 +152,7 @@ namespace CalValEX.Projectiles.Pets
                         ResetMe();
                     }
                     break;
+
                 case 1:
                     if (jumpCounter > 0)
                         jumpCounter--;
@@ -174,7 +177,7 @@ namespace CalValEX.Projectiles.Pets
              * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
              * you should make new custom behaviour with numbers higher than 2, or less than 0
              * the next few lines is an example on how to implement this
-             * 
+             *
              * switch ((int)projectile.localAI[1])
              * {
              *     case -1:
@@ -182,12 +185,12 @@ namespace CalValEX.Projectiles.Pets
              *     case 3:
              *         break;
              * }
-             * 
+             *
              * 0, 1 and 2 are already in use.
              * 0 = idling
              * 1 = walking
              * 2 = flying
-             * 
+             *
              * you can still use these, changing thing inside (however it's not recomended unless you want to add custom behaviour to these)
              */
         }

@@ -10,6 +10,7 @@ namespace CalValEX.Projectiles.Pets
     public class SepulcherTail : ModProjectile
     {
         private static readonly int Size = 46;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Sepulchling");

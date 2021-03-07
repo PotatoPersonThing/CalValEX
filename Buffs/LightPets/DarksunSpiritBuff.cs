@@ -1,9 +1,5 @@
-﻿using CalValEX.Projectiles.Pets.LightPets;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using CalValEX.Projectiles.Pets.LightPets;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -18,6 +14,7 @@ namespace CalValEX.Buffs.LightPets
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }
+
         public override void Update(Player player, ref int buffIndex)
         {
             List<int> pets = new List<int>
@@ -31,13 +28,16 @@ namespace CalValEX.Buffs.LightPets
             player.GetModPlayer<CalValEXPlayer>().darksunSpirits = true;
             bool petProjectileNotSpawned = true;
             for (int i = 0; i < pets.Count; i++)
-                if (player.ownedProjectileCounts[pets[i]] > 0) petProjectileNotSpawned = false;
+                if (player.ownedProjectileCounts[pets[i]] > 0)
+                {
+                    petProjectileNotSpawned = false;
+                }
+
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
                 for (int i = 0; i < pets.Count; i++)
-                {
-                    Projectile.NewProjectile(player.position.X + (player.width / 2), player.position.Y + (player.height / 2), 0f, 0f, pets[i], 0, 0f, player.whoAmI, 0f, 0f);
-                }
+                    Projectile.NewProjectile(player.position.X + player.width / 2,
+                        player.position.Y + player.height / 2, 0f, 0f, pets[i], 0, 0f, player.whoAmI);
             }
         }
     }

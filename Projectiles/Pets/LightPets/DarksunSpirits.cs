@@ -46,9 +46,11 @@ namespace CalValEX.Projectiles.Pets.LightPets
             intensity = 1.25f;
             abyssLightLevel = 5;
         }
+
         private float extraScale;
         private float rotation;
         private bool yep = false;
+
         public override void SafeAI(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();

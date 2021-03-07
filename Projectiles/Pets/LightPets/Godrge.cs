@@ -11,7 +11,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             DisplayName.SetDefault("Nuclear George");
             //Main.projFrames[projectile.type] = 4; //frames
             Main.projPet[projectile.type] = true;
-           ProjectileID.Sets.LightPet[projectile.type] = true; //this is needed for a light pet.
+            ProjectileID.Sets.LightPet[projectile.type] = true; //this is needed for a light pet.
         }
 
         public override void SafeSetDefaults() //SafeSetDefaults!!!
@@ -81,7 +81,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
              * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
              * you should make new custom behaviour with numbers higher than 0, or less than 0
              * the next few lines is an example on how to implement this
-             * 
+             *
              * switch ((int)projectile.localAI[1])
              * {
              *     case -1:
@@ -89,10 +89,10 @@ namespace CalValEX.Projectiles.Pets.LightPets
              *     case 1:
              *         break;
              * }
-             * 
+             *
              * 0 is already in use.
              * 0 = flying
-             * 
+             *
              * you can still use this, changing thing inside (however it's not recomended unless you want to add custom behaviour to this)
              */
         }

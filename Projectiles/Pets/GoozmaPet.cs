@@ -1,13 +1,12 @@
+using CalamityMod.CalPlayer;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using CalamityMod.CalPlayer;
-using CalamityMod.World;
+
 // If you don't know what to change this to, don't mess with this code.
 // You will fail
 namespace CalValEX.Projectiles.Pets
@@ -16,8 +15,6 @@ namespace CalValEX.Projectiles.Pets
     {
         private static readonly int Size = 46;
 
-        
-        
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Goozma");
@@ -41,8 +38,6 @@ namespace CalValEX.Projectiles.Pets
 
         public override void AI()
         {
-            
-
             // Custom AI here
             Player player = Main.player[projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
@@ -100,7 +95,6 @@ namespace CalValEX.Projectiles.Pets
                 MaxVel = 15;
             }
 
-
             if (projectile.velocity.Length() > MaxVel)
             {
                 projectile.velocity = Vector2.Normalize(projectile.velocity) * MaxVel;
@@ -115,7 +109,6 @@ namespace CalValEX.Projectiles.Pets
             }
 
             projectile.rotation += MathHelper.ToRadians(3.6f);
-
 
             //Deity Logic
             /*
@@ -237,7 +230,6 @@ namespace CalValEX.Projectiles.Pets
                 }
                 else if (calPlayer.ZoneSulphur)
                 {
-
                     if (CalamityMod.World.CalamityWorld.rainingAcid) //Gamma
                     {
                         AddDeity(16);
@@ -246,7 +238,6 @@ namespace CalValEX.Projectiles.Pets
                     {
                         AddDeity(17);
                     }
-
                 }
                 else if (player.ZoneBeach) //Box Jelly
                 {
@@ -261,34 +252,20 @@ namespace CalValEX.Projectiles.Pets
                     AddDeity(5);
                 }
             }
-            
-            
-
-
-
-
-
-
         }
-
-        
 
         public Rectangle getFrameFromTexture(int frame)
         {
             //Texture2D texture = Main.projectileTexture[projectile.type];
 
             return new Rectangle(0, 44 * frame, 46, 44);
-
-
         }
 
         public Vector2 getOriginFromFrame(int frame)
         {
             //Texture2D texture = Main.projectileTexture[projectile.type];
 
-            return new Vector2(23, (44 * frame)+22);
-
-
+            return new Vector2(23, (44 * frame) + 22);
         }
 
         public void AddDeity(int which)
@@ -304,13 +281,6 @@ namespace CalValEX.Projectiles.Pets
             }
         }
 
-       
-
-        
-
-
-
-
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             Texture2D projTexture = Main.projectileTexture[projectile.type];
@@ -323,11 +293,9 @@ namespace CalValEX.Projectiles.Pets
 
             for (int i = 0; i < GoozmaSlimeGods.Count; ++i)
             {
-
                 Vector2 offset = new Vector2(60, 0).RotatedBy((MathHelper.PiOver2 * i) + projectile.rotation);
 
-                spriteBatch.Draw(projTexture, center+offset, getFrameFromTexture(GoozmaSlimeGods[i]), lightColor, textureRotation, new Vector2(23, 22), projectile.scale, SpriteEffects.None, 0);//+(GoozmaSlimeGods[i]*44)
-
+                spriteBatch.Draw(projTexture, center + offset, getFrameFromTexture(GoozmaSlimeGods[i]), lightColor, textureRotation, new Vector2(23, 22), projectile.scale, SpriteEffects.None, 0);//+(GoozmaSlimeGods[i]*44)
             }
 
             return false;

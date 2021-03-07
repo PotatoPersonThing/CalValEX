@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+
 namespace CalValEX.Buffs.Pets
 {
     public class GoozmaBuff : ModBuff
@@ -23,7 +24,6 @@ namespace CalValEX.Buffs.Pets
             {
                 Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ProjectileType<Projectiles.Pets.GoozmaPet>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
-            
         }
     }
 }

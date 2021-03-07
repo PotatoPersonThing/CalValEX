@@ -1,10 +1,9 @@
-﻿using Terraria.ID;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System;
 using System.IO;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -46,6 +45,7 @@ namespace CalValEX.Projectiles.Pets
         }
 
         private bool ownerIsFar = false;
+
         public override void AI()
         {
             Player owner = Main.player[projectile.owner];
@@ -118,10 +118,10 @@ namespace CalValEX.Projectiles.Pets
                         projectile.velocity.Y = -4.5f;
                     }
                     break;
+
                 case 1: //fly
                     projectile.tileCollide = false;
                     projectile.frame = 2;
-
 
                     if (distanceToOwner <= 240f && Collision.CanHit(projectile.position, projectile.width, projectile.height, owner.position, owner.width, owner.height))
                     {

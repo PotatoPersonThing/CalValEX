@@ -1,33 +1,30 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX;
-using CalValEX.Items.Pets;
-using CalValEX.Items.Hooks;
 
 namespace CalValEX.Items.Equips.Scarves
 {
-	[AutoloadEquip(EquipType.Neck)]
-	public class RapturedWormScarf : ModItem
-	{
-		public override void SetStaticDefaults() {
+    [AutoloadEquip(EquipType.Neck)]
+    public class RapturedWormScarf : ModItem
+    {
+        public override void SetStaticDefaults()
+        {
             DisplayName.SetDefault("Raptured Worm Scarf");
-			Tooltip.SetDefault("'So stylish it bends the fabric of reality!'");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(3,7));
-		}
+            Tooltip.SetDefault("'So stylish it bends the fabric of reality!'");
+            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(3, 7));
+        }
 
-		public override void SetDefaults() {
-			item.width = 36;
-			item.height = 40;
-			item.value = Item.sellPrice(0, 0, 1, 0);
-			item.rare = 10;
-			item.accessory = true;
+        public override void SetDefaults()
+        {
+            item.width = 36;
+            item.height = 40;
+            item.value = Item.sellPrice(0, 0, 1, 0);
+            item.rare = 10;
+            item.accessory = true;
             item.vanity = true;
-		}
+        }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {

@@ -4,9 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -55,6 +55,7 @@ namespace CalValEX.Projectiles.Pets
 
         private bool firstTick = false;
         private bool MyDudeJustGotHitLikeTheIdiotItIs = false;
+
         public override bool PreAI()
         {
             if (!firstTick)
@@ -90,6 +91,7 @@ namespace CalValEX.Projectiles.Pets
 
         private float[] myRotation = new float[2];
         private float scale = 0.25f;
+
         public override void SafePreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             if (projectile.localAI[1] == -1)
@@ -182,6 +184,7 @@ namespace CalValEX.Projectiles.Pets
                         projectile.netUpdate = true;
                     }
                     break;
+
                 case 0:
                     projectile.tileCollide = false;
                     projectile.rotation = projectile.velocity.X * 0.025f;
@@ -208,6 +211,7 @@ namespace CalValEX.Projectiles.Pets
                             projectile.frame = 0;
                     }
                     break;
+
                 case 1: //laying down
                     projectile.tileCollide = true;
                     projectile.velocity *= 0.98f;
@@ -268,7 +272,7 @@ namespace CalValEX.Projectiles.Pets
             "AstralSlime"
         };
 
-        public static List<string> nameList = new List<string> 
+        public static List<string> nameList = new List<string>
         {
             "Yharex",
             "Yharex87",

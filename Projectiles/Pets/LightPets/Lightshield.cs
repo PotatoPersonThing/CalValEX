@@ -1,13 +1,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
-using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets.LightPets
 {
-
     public class Lightshield : ModProjectile
     {
         public override void SetStaticDefaults()

@@ -48,7 +48,7 @@ namespace CalValEX.Projectiles.Pets
             jumpFrameLimits[0] = 5;
             jumpFrameLimits[1] = 8;
 
-            jumpAnimationLength = 60;      
+            jumpAnimationLength = 60;
         }
 
         public override void SetPetDistances()
@@ -91,6 +91,7 @@ namespace CalValEX.Projectiles.Pets
          */
 
         private int auraFrame;
+
         public override void SafeAI(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
@@ -122,7 +123,7 @@ namespace CalValEX.Projectiles.Pets
                     }
 
                     projectile.frameCounter++;
-                    switch((int)projectile.ai[0])
+                    switch ((int)projectile.ai[0])
                     {
                         case 0:
                             if (projectile.frameCounter >= 15)
@@ -141,6 +142,7 @@ namespace CalValEX.Projectiles.Pets
                                 }
                             }
                             break;
+
                         case 1:
                             if (projectile.frameCounter >= 5)
                             {

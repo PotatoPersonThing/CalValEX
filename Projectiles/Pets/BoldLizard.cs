@@ -1,11 +1,9 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets
-    {
-
+{
     public class BoldLizard : ModProjectile
     {
         public override void SetStaticDefaults()
@@ -28,6 +26,7 @@ namespace CalValEX.Projectiles.Pets
             Player player = Main.player[projectile.owner];
             return true;
         }
+
         public void AnimateProjectile() // Call this every frame, for example in the AI method.
         {
             projectile.frameCounter++;
@@ -38,6 +37,7 @@ namespace CalValEX.Projectiles.Pets
                 projectile.frameCounter = 9;
             }
         }
+
         public override void AI()
         {
             Player player = Main.player[projectile.owner];

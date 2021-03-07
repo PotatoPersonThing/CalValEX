@@ -10,6 +10,7 @@ namespace CalValEX.Projectiles.Pets
     public class JaredTail : ModProjectile
     {
         private static readonly int Size = 78;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Jared");

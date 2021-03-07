@@ -1,15 +1,8 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
-using CalValEX;
-using CalValEX.Items;
-using CalValEX.Items.Hooks;
-using Terraria.DataStructures;
-using System;
-using System.Collections.Generic;
 
 namespace CalValEX.Items.Pets
 {
@@ -40,10 +33,10 @@ namespace CalValEX.Items.Pets
             }
         }
 
-	public override void ModifyTooltips(List<TooltipLine> tooltips)
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            foreach (TooltipLine tooltipLine in tooltips) 
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName") 
+            foreach (TooltipLine tooltipLine in tooltips)
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
                     tooltipLine.overrideColor = new Color(107, 240, 255);
         }
     }

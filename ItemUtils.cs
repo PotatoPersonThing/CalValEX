@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -23,7 +23,8 @@ namespace CalValEX
     public class ItemUtils
     {
         /// <summary>
-        /// Does the dirty work for the item name color. You use this in ModifyTooltips (Check BloodstoneBrick.cs for an example)
+        ///     Does the dirty work for the item name color. You use this in ModifyTooltips (Check BloodstoneBrick.cs for an
+        ///     example)
         /// </summary>
         /// <param name="rare">Use CalamityRarity.[rarity name]</param>
         /// <param name="tooltips">tooltips</param>
@@ -43,7 +44,9 @@ namespace CalValEX
 
             //rarity 21 Draedon's Arsenal (Dark Orange)
             if (rare <= 11)
+            {
                 return;
+            }
 
             Color color;
 
@@ -52,39 +55,53 @@ namespace CalValEX
                 case CalamityRarity.Turquoise:
                     color = new Color(0, 255, 200); //Turquoise
                     break;
+
                 case CalamityRarity.PureGreen:
                     color = new Color(0, 255, 0); //Pure Green
                     break;
+
                 case CalamityRarity.DarkBlue:
                     color = new Color(43, 96, 222); //Dark Blue
                     break;
+
                 case CalamityRarity.Violet:
                     color = new Color(108, 45, 199); //Violet
                     break;
+
                 case 16:
                     color = new Color(255, 0, 255); //Hot Pink/Developer
                     break;
+
                 case CalamityRarity.Rainbow:
                     color = new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB); //rainbow (no expert tag on item)
                     break;
+
                 case CalamityRarity.RareVariant:
                     color = new Color(255, 140, 0); //rare variant
                     break;
+
                 case CalamityRarity.DedicatedCal:
                     color = new Color(139, 0, 0); //dedicated(patron items) (calamity)
                     break;
+
                 case CalamityRarity.DedicatedEX:
                     color = new Color(107, 240, 255); //dedicated (CalValEX)
                     break;
+
                 case CalamityRarity.DraedonsArsenal:
                     color = new Color(204, 71, 35); //Draedon's Arsenal (Dark Orange)
                     break;
+
                 default:
                     color = Color.White;
                     break;
             }
 
-            foreach (TooltipLine tooltipLine in tooltips) if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName") tooltipLine.overrideColor = color;
+            foreach (TooltipLine tooltipLine in tooltips)
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                {
+                    tooltipLine.overrideColor = color;
+                }
         }
     }
 }

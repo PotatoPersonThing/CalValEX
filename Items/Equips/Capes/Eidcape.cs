@@ -1,13 +1,9 @@
-using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
+
 namespace CalValEX.Items.Equips.Capes
 {
     [AutoloadEquip(EquipType.Front)]
-    
     public class Eidcape : ModItem
     {
         public override void SetStaticDefaults()
@@ -25,6 +21,5 @@ namespace CalValEX.Items.Equips.Capes
             item.accessory = true;
             item.vanity = true;
         }
-        
     }
 }

@@ -1,15 +1,7 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
-using CalValEX;
-using CalValEX.Items;
-using CalValEX.Items.Hooks;
-using Terraria.DataStructures;
-using System;
-using System.Collections.Generic;
 
 namespace CalValEX.Items.Pets
 {
@@ -20,20 +12,20 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Haunted Pebble");
             Tooltip
                 .SetDefault("'Spookay~'");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(6,6));
+            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(6, 6));
         }
 
         public override void SetDefaults()
         {
-	    item.width = 20;
-	    item.height = 36;
+            item.width = 20;
+            item.height = 36;
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit33;
             item.shoot = mod.ProjectileType("PhantomPet");
             item.value = Item.sellPrice(0, 3, 2, 0);
             item.rare = 4;
             item.buffType = mod.BuffType("DebrisPet");
-	    item.noUseGraphic = true;
+            item.noUseGraphic = true;
         }
 
         public override void UseStyle(Player player)

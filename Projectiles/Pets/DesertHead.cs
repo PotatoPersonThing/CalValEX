@@ -13,6 +13,7 @@ namespace CalValEX.Projectiles.Pets
         private static readonly int Size = 26;
         private static readonly int SegmentCount = 7;
         private bool SpawnedSegments = false;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Desert Pest");
@@ -123,7 +124,6 @@ namespace CalValEX.Projectiles.Pets
             {
                 MaxVel = 15;
             }
-
 
             if (projectile.velocity.Length() > MaxVel)
             {

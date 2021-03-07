@@ -32,18 +32,23 @@ namespace CalValEX.Oracle
                 case 0:
                     target.AddBuff(BuffID.OnFire, Main.rand.Next(300, 1200)); //5 to 25 seconds (each second is 60 ticks)
                     break;
+
                 case 1:
                     target.AddBuff(BuffID.Poisoned, Main.rand.Next(300, 1200));
                     break;
+
                 case 2:
                     target.AddBuff(BuffID.Confused, Main.rand.Next(300, 1200));
                     break;
+
                 case 3:
                     target.AddBuff(BuffID.BrokenArmor, Main.rand.Next(300, 1200));
                     break;
+
                 case 4:
                     target.AddBuff(BuffID.CursedInferno, Main.rand.Next(300, 1200));
                     break;
+
                 default:
                     target.AddBuff(BuffID.Ichor, Main.rand.Next(300, 1200));
                     break;

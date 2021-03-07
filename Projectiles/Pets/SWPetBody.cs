@@ -10,6 +10,7 @@ namespace CalValEX.Projectiles.Pets
     public class SWPetBody : ModProjectile
     {
         private static readonly int Size = 16;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Lil' Weaver");

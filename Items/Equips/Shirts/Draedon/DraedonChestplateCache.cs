@@ -1,9 +1,4 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria.ModLoader;
 
 namespace CalValEX.Items.Equips.Shirts.Draedon
@@ -16,6 +11,7 @@ namespace CalValEX.Items.Equips.Shirts.Draedon
         public static Texture2D rogue;
         public static Texture2D summoner;
         public static Texture2D none;
+
         public static void Load(Mod mod)
         {
             string path = "Items/Equips/Shirts/Draedon/DraedonChestplate_Body";

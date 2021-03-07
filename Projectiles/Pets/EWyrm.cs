@@ -5,8 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets
-    {
-
+{
     public class EWyrm : ModProjectile
     {
         public override void SetStaticDefaults()
@@ -23,7 +22,8 @@ namespace CalValEX.Projectiles.Pets
             //drawOffsetX = 5;
             drawOriginOffsetY = 7;
         }
-          public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+
+        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             Texture2D glowMask = mod.GetTexture("Projectiles/Pets/EWyrm_Glowmask");
             Rectangle frame = glowMask.Frame(1, Main.projFrames[projectile.type], 0, projectile.frame);
@@ -48,6 +48,7 @@ namespace CalValEX.Projectiles.Pets
             Player player = Main.player[projectile.owner];
             return true;
         }
+
         public override void AI()
         {
             Player player = Main.player[projectile.owner];
@@ -61,6 +62,7 @@ namespace CalValEX.Projectiles.Pets
                 projectile.timeLeft = 2;
             }
         }
+
         public void AnimateProjectile() // Call this every frame, for example in the AI method.
         {
             projectile.frameCounter++;
@@ -72,5 +74,4 @@ namespace CalValEX.Projectiles.Pets
             }
         }
     }
-
 }

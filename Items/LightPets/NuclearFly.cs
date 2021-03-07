@@ -1,8 +1,8 @@
+using CalValEX.Items.Critters;
+using CalValEX.Items.Pets;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Items.Critters;
-using CalValEX.Items.Pets;
 
 namespace CalValEX.Items.LightPets
 {
@@ -33,18 +33,19 @@ namespace CalValEX.Items.LightPets
                 player.AddBuff(item.buffType, 3600, true);
             }
         }
+
         public override void AddRecipes()
-            {
-             Mod CalValEX = ModLoader.GetMod("CalamityMod");
+        {
+            Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
                 ModRecipe recipe = new ModRecipe(mod);
-				recipe.AddIngredient(ModContent.ItemType<NuclearFumes>(), 20);
-				recipe.AddIngredient(ModContent.ItemType<NukeFlyItem>(), 1);
+                recipe.AddIngredient(ModContent.ItemType<NuclearFumes>(), 20);
+                recipe.AddIngredient(ModContent.ItemType<NukeFlyItem>(), 1);
                 recipe.AddIngredient(ModContent.ItemType<FROM>(), 1);
                 recipe.AddTile(TileID.LunarCraftingStation);
                 recipe.SetResult(this);
                 recipe.AddRecipe();
-			}
+            }
         }
     }
 }

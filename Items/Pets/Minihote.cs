@@ -1,7 +1,6 @@
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Items.Pets
@@ -16,7 +15,6 @@ namespace CalValEX.Items.Pets
             ItemID.Sets.AnimatesAsSoul[item.type] = true;
             ItemID.Sets.ItemIconPulse[item.type] = false;
             ItemID.Sets.ItemNoGravity[item.type] = true;
-
         }
 
         public override void SetDefaults()
@@ -28,6 +26,7 @@ namespace CalValEX.Items.Pets
             item.rare = 10;
             item.buffType = mod.BuffType("minihotebuff");
         }
+
         public override void UseStyle(Player player)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
@@ -35,18 +34,18 @@ namespace CalValEX.Items.Pets
                 player.AddBuff(item.buffType, 3600, true);
             }
         }
-        		public override void AddRecipes() {
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("WetBubble"));
-			recipe.AddIngredient(mod.ItemType("cloudcandy"));
-			recipe.AddIngredient(mod.ItemType("brimtulip"));
+
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(mod.ItemType("WetBubble"));
+            recipe.AddIngredient(mod.ItemType("cloudcandy"));
+            recipe.AddIngredient(mod.ItemType("brimtulip"));
             recipe.AddIngredient(mod.ItemType("SandBottle"));
             recipe.AddIngredient(mod.ItemType("SandPlush"));
-			recipe.AddTile(TileID.LunarCraftingStation);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-		}
-
-
+            recipe.AddTile(TileID.LunarCraftingStation);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
     }
 }

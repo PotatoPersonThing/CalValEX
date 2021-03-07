@@ -12,15 +12,16 @@ namespace CalValEX.Items.Dyes
         {
             DisplayName.SetDefault("Draedon's Hologram Dye");
         }
+
         public override void SetDefaults()
-		{
-			byte dye = item.dye;
-			item.CloneDefaults(ItemID.GelDye);
-           		item.width = 22;
-            		item.height = 26;
-	    		item.value = Item.sellPrice(0, 0, 0, 5);
-			item.dye = dye;
-		}
+        {
+            byte dye = item.dye;
+            item.CloneDefaults(ItemID.GelDye);
+            item.width = 22;
+            item.height = 26;
+            item.value = Item.sellPrice(0, 0, 0, 5);
+            item.dye = dye;
+        }
 
         private int frameCounter;
         private int frame;

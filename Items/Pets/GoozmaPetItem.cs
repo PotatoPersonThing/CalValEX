@@ -1,15 +1,10 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-using CalValEX;
-using CalValEX.Items;
-using CalValEX.Items.Hooks;
-using Terraria.DataStructures;
-using System;
-using System.Collections.Generic;
 
 namespace CalValEX.Items.Pets
 {
@@ -17,7 +12,6 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-
             DisplayName.SetDefault("Ionized Jelly Crystal");
             Tooltip.SetDefault("Summons the pinnacle of slime evolution\n" +
                 "\n" +
@@ -30,9 +24,9 @@ namespace CalValEX.Items.Pets
                 "Unfortunately, Goozma's power grew so great for it to become a temporal anomaly.\n" +
                 "A temporal anomaly which a power beyond our universe had no choice but to erase, so that it never existed in the first place.\n" +
                 "Ironic. The very growth in power which made Goozma a deity in the first place, was also the cause of its demise");
-                 Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4,8));
-		    ItemID.Sets.AnimatesAsSoul[item.type] = true;
-			ItemID.Sets.ItemNoGravity[item.type] = true;
+            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 8));
+            ItemID.Sets.AnimatesAsSoul[item.type] = true;
+            ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 
         public override string Texture => "CalValEX/Items/Pets/GoozmaPetItemPlaceholderSprite";
@@ -44,7 +38,7 @@ namespace CalValEX.Items.Pets
             item.buffType = BuffType<Buffs.Pets.GoozmaBuff>();
             item.value = Item.sellPrice(0, 10, 0, 0);
             item.rare = 10;
-	    item.noUseGraphic = true;
+            item.noUseGraphic = true;
             item.UseSound = SoundID.Item81;
         }
 
@@ -71,19 +65,18 @@ namespace CalValEX.Items.Pets
         public override void AddRecipes() //Someone else do this
         {
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
-                {
-                    ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient(mod.ItemType("ImpureStick"), 1);
-                    recipe.AddIngredient(ItemID.Gel, 20);
-                    recipe.AddIngredient(ItemID.LunarBar, 3);
-                    recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("PurifiedGel"), 5);
-                    recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("BarofLife"), 2);
-                    recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("EbonianGel"), 5);
-                    recipe.AddTile(TileID.LunarCraftingStation);
-                    recipe.SetResult(this);
-                    recipe.AddRecipe();
-                }
-
+            {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddIngredient(mod.ItemType("ImpureStick"), 1);
+                recipe.AddIngredient(ItemID.Gel, 20);
+                recipe.AddIngredient(ItemID.LunarBar, 3);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("PurifiedGel"), 5);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("BarofLife"), 2);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("EbonianGel"), 5);
+                recipe.AddTile(TileID.LunarCraftingStation);
+                recipe.SetResult(this);
+                recipe.AddRecipe();
+            }
         }
 
         public override void UseStyle(Player player)
@@ -95,4 +88,3 @@ namespace CalValEX.Items.Pets
         }
     }
 }
-

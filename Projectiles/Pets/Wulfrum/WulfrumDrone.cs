@@ -1,16 +1,6 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.IO;
-using Terraria;
-using Terraria.ID;
-using Terraria.Localization;
-using Terraria.ModLoader;
-using CalValEX;
-using CalValEX.Projectiles.Pets;
-using CalValEX.Projectiles.Pets.Wulfrum;
-using CalValEX.Buffs.Pets;
 using CalValEX.Buffs.LightPets;
+using Terraria;
+using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets.Wulfrum
 {
@@ -66,28 +56,27 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
                 modPlayer.drone = false;
             if (modPlayer.drone)
                 projectile.timeLeft = 2;
-			if (player.HasBuff(ModContent.BuffType<PylonBuff>()))
-			{
+            if (player.HasBuff(ModContent.BuffType<PylonBuff>()))
+            {
                 if (projectile.frameCounter++ > 8)
-                    {
-                        projectile.frameCounter = 0;
-                        projectile.frame++;
-                        if (projectile.frame >= 8)
-                            projectile.frame = 4;
-                    }
-			}
+                {
+                    projectile.frameCounter = 0;
+                    projectile.frame++;
+                    if (projectile.frame >= 8)
+                        projectile.frame = 4;
+                }
+            }
             else if (!player.HasBuff(ModContent.BuffType<PylonBuff>()))
-			{
+            {
                 if (projectile.frameCounter++ % 8 == 7)
                 {
                     projectile.frame++;
                 }
-				if (projectile.frame >= 4)
-				{
-					projectile.frame = 0;
-				}
-			}
+                if (projectile.frame >= 4)
+                {
+                    projectile.frame = 0;
+                }
+            }
         }
     }
 }
-

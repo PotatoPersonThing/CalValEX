@@ -63,6 +63,7 @@ namespace CalValEX.Projectiles.Pets
         private bool haveIFoundABubble = false;
         private int State = 0;
         private int NextState = 0;
+
         public override void AI()
         {
             Player owner = Main.player[projectile.owner];
@@ -130,7 +131,7 @@ namespace CalValEX.Projectiles.Pets
             {
                 case -1: //flying
                     projectile.tileCollide = false;
-					//GO BACK TO WALKING IF DIDNT CATCH A BUBBLE
+                    //GO BACK TO WALKING IF DIDNT CATCH A BUBBLE
                     if (distanceToIdlePosition < 240f && !iHaveCaughtBubble)
                     {
                         for (int i = 0; i < dustCount; i++)
@@ -146,7 +147,7 @@ namespace CalValEX.Projectiles.Pets
                     Vector2 offset = new Vector2(offsetX, -50f);
                     vectorToIdlePosition += offset;
                     distanceToIdlePosition = vectorToIdlePosition.Length();
-					//MOVE IF TOO FAR AWAY FROM PLAYER
+                    //MOVE IF TOO FAR AWAY FROM PLAYER
                     if (distanceToIdlePosition > 20f)
                     {
                         vectorToIdlePosition.Normalize();
@@ -159,7 +160,7 @@ namespace CalValEX.Projectiles.Pets
                         projectile.velocity.X = -0.15f;
                         projectile.velocity.Y = -0.15f;
                     }
-					//ANIMATION
+                    //ANIMATION
                     projectile.frameCounter++;
                     if (projectile.frameCounter >= 5)
                     {
@@ -191,14 +192,14 @@ namespace CalValEX.Projectiles.Pets
                     {
                         float bubbleDistance = float.PositiveInfinity;
                         Projectile myBubble = null;
-                        for (int i = 0; i<Main.maxProjectiles; i++)
-{
-    if ((Main.projectile[i].type == calamityMod.ProjectileType("CragmawBubble") || Main.projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubble") || Main.projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubbleFriendly") || Main.projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubble2")) && Main.projectile[i].active && Math.Abs(projectile.Center.X - Main.projectile[i].Center.X) < bubbleDistance && Collision.CanHit(projectile.position, projectile.width, projectile.height, Main.projectile[i].position, Main.projectile[i].width, Main.projectile[i].height) && Main.projectile[i].Center.Y > projectile.Bottom.Y)
-    {
-        bubbleDistance = projectile.Distance(Main.projectile[i].Center);
-        myBubble = Main.projectile[i];
-    }
-}
+                        for (int i = 0; i < Main.maxProjectiles; i++)
+                        {
+                            if ((Main.projectile[i].type == calamityMod.ProjectileType("CragmawBubble") || Main.projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubble") || Main.projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubbleFriendly") || Main.projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubble2")) && Main.projectile[i].active && Math.Abs(projectile.Center.X - Main.projectile[i].Center.X) < bubbleDistance && Collision.CanHit(projectile.position, projectile.width, projectile.height, Main.projectile[i].position, Main.projectile[i].width, Main.projectile[i].height) && Main.projectile[i].Center.Y > projectile.Bottom.Y)
+                            {
+                                bubbleDistance = projectile.Distance(Main.projectile[i].Center);
+                                myBubble = Main.projectile[i];
+                            }
+                        }
 
                         if (bubbleDistance >= 2000f)
                             myBubble = null;
@@ -244,7 +245,7 @@ namespace CalValEX.Projectiles.Pets
                     //TRANSFORM INTO FLYING MODE
                     if (distanceToIdlePosition >= 980)
                     {
-                        for(int i = 0; i < dustCount; i++)
+                        for (int i = 0; i < dustCount; i++)
                         {
                             Dust.NewDust(projectile.position, projectile.width, projectile.height, dustID, projectile.velocity.X, projectile.velocity.Y);
                         }

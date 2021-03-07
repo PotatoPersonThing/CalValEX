@@ -1,5 +1,5 @@
-﻿using Terraria.ModLoader;
-using Terraria;
+﻿using Terraria;
+using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
 namespace CalValEX.Oracle
@@ -17,7 +17,7 @@ namespace CalValEX.Oracle
         {
             playerHasGottenBag = false;
         }
-  
+
         public override void PostUpdateMiscEffects()
         {
             if (!Main.dayTime && Main.time == 32398)

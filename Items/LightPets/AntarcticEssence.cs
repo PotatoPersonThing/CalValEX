@@ -1,16 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using CalValEX.Projectiles.Pets.LightPets;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
-using CalValEX;
-using CalValEX.Items;
-using CalValEX.Items.Hooks;
-using Terraria.DataStructures;
-using System;
-using System.Collections.Generic;
-using CalValEX.Projectiles.Pets.LightPets;
 
 namespace CalValEX.Items.LightPets
 {
@@ -30,8 +21,8 @@ namespace CalValEX.Items.LightPets
             item.value = Item.sellPrice(0, 0, 20, 0);
             item.buffType = mod.BuffType("LightshieldBuff");
             item.rare = ItemRarityID.Pink;
-            
         }
+
         public override void UseStyle(Player player)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)

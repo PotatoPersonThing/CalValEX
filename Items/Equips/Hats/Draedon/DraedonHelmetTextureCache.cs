@@ -11,6 +11,7 @@ namespace CalValEX.Items.Equips.Hats.Draedon
         public static Texture2D rogue;
         public static Texture2D summoner;
         public static Texture2D none;
+
         public static void Load(Mod mod)
         {
             string path = "Items/Equips/Hats/Draedon/DraedonHelmet_Head";

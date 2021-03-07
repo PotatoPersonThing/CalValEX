@@ -10,6 +10,7 @@ namespace CalValEX.Projectiles.Pets
     public class MoistScourgeBody : ModProjectile
     {
         private static readonly int Size = 26;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Desert Pest");
