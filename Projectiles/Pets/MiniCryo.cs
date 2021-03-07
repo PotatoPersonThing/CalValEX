@@ -1,8 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using CalValEX;
-using CalValEX.Projectiles.Pets;
+﻿using Terraria;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -12,7 +8,7 @@ namespace CalValEX.Projectiles.Pets
         {
             DisplayName.SetDefault("Chill Dude");
             //Main.projFrames[projectile.type] = 4; //frames
-           Main.projPet[projectile.type] = true;
+            Main.projPet[projectile.type] = true;
         }
 
         public override void SafeSetDefaults() //SafeSetDefaults!!!
@@ -74,7 +70,7 @@ namespace CalValEX.Projectiles.Pets
              * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
              * you should make new custom behaviour with numbers higher than 0, or less than 0
              * the next few lines is an example on how to implement this
-             * 
+             *
              * switch ((int)projectile.localAI[1])
              * {
              *     case -1:
@@ -82,10 +78,10 @@ namespace CalValEX.Projectiles.Pets
              *     case 1:
              *         break;
              * }
-             * 
+             *
              * 0 is already in use.
              * 0 = flying
-             * 
+             *
              * you can still use this, changing thing inside (however it's not recomended unless you want to add custom behaviour to this)
              */
         }

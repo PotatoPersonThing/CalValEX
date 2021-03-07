@@ -3,22 +3,22 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Equips.Hats.Draedon
 {
-	[AutoloadEquip(EquipType.Head)]
-	public class DraedonHelmet : ModItem
-	{
+    [AutoloadEquip(EquipType.Head)]
+    public class DraedonHelmet : ModItem
+    {
         public override void SetStaticDefaults()
         {
-			DisplayName.SetDefault("Arsenal Soldier Helmet");
-			Tooltip.SetDefault("Changes appearance depending on held item damage type");
+            DisplayName.SetDefault("Arsenal Soldier Helmet");
+            Tooltip.SetDefault("Changes appearance depending on held item damage type");
         }
 
         public override void SetDefaults()
-		{
-			item.width = 18;
-			item.height = 18;
-			item.rare = ItemRarityID.Blue;
-			item.vanity = true;
-		}
+        {
+            item.width = 18;
+            item.height = 18;
+            item.rare = ItemRarityID.Blue;
+            item.vanity = true;
+        }
 
         public override void AddRecipes()
         {

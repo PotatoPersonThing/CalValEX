@@ -1,10 +1,4 @@
-using System;
-using System.Collections.Generic;
-using CalValEX;
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets
 {

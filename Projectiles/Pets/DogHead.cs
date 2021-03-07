@@ -12,7 +12,9 @@ namespace CalValEX.Projectiles.Pets
     {
         //private static readonly int Size = 134;
         private static readonly int SegmentCount = 26;
+
         private bool SpawnedSegments = false;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Devourer of Gods (real)");
@@ -124,7 +126,6 @@ namespace CalValEX.Projectiles.Pets
             {
                 MaxVel = 15;
             }
-
 
             if (projectile.velocity.Length() > MaxVel)
             {

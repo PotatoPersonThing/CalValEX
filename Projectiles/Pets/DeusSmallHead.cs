@@ -13,6 +13,7 @@ namespace CalValEX.Projectiles.Pets
         private static readonly int Size = 28;
         private static readonly int SegmentCount = 5;
         private bool SpawnedSegments = false;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Astrum Demus");
@@ -123,7 +124,6 @@ namespace CalValEX.Projectiles.Pets
             {
                 MaxVel = 15;
             }
-
 
             if (projectile.velocity.Length() > MaxVel)
             {

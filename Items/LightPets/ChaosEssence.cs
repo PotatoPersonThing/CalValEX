@@ -1,15 +1,6 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
-using CalValEX;
-using CalValEX.Items;
-using CalValEX.Items.Hooks;
-using Terraria.DataStructures;
-using System;
-using System.Collections.Generic;
 
 namespace CalValEX.Items.LightPets
 {
@@ -20,7 +11,7 @@ namespace CalValEX.Items.LightPets
             DisplayName.SetDefault("Essence of Disorder");
             Tooltip
                 .SetDefault("Summons a pair of Heat Spirits to light your way \n 'Come burn with me'");
-                ItemID.Sets.ItemNoGravity[item.type] = true;
+            ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 
         public override void SetDefaults()
@@ -43,10 +34,10 @@ namespace CalValEX.Items.LightPets
 
         public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-                type = mod.ProjectileType("HeatBaby");
-		    	return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-                type = mod.ProjectileType("HeatPet");
-                return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
+            type = mod.ProjectileType("HeatBaby");
+            return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
+            type = mod.ProjectileType("HeatPet");
+            return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
         }
     }
 }

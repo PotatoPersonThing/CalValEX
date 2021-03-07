@@ -1,15 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
-using CalValEX;
-using CalValEX.Items;
-using CalValEX.Items.Tiles;
-using Terraria.DataStructures;
-using System;
-using System.Collections.Generic;
 
 namespace CalValEX.Items
 {
@@ -36,15 +26,16 @@ namespace CalValEX.Items
             item.value = 20;
             item.createTile = mod.TileType("CalaFumoPlaced");
         }
+
         public override void AddRecipes()
         {
-        Mod CalValEX = ModLoader.GetMod("CalamityMod");
-                {
-                    ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient(ModContent.ItemType<CalaFumoYeetable>());
-                    recipe.SetResult(this);
-                    recipe.AddRecipe();
-                }
+            Mod CalValEX = ModLoader.GetMod("CalamityMod");
+            {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddIngredient(ModContent.ItemType<CalaFumoYeetable>());
+                recipe.SetResult(this);
+                recipe.AddRecipe();
+            }
         }
     }
 }

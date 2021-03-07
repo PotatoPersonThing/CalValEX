@@ -1,6 +1,8 @@
+using CalValEX.Projectiles.Pets;
 using Terraria;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+
 namespace CalValEX.Buffs.Pets
 {
     public class ScourgeBuff : ModBuff
@@ -18,17 +20,20 @@ namespace CalValEX.Buffs.Pets
         {
             player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().asPet = true;
-            bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<Projectiles.Pets.AquaHead>()] <= 0;
+            bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<AquaHead>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height * 10), 0f, 0f, ProjectileType<Projectiles.Pets.AquaHead>(), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height * 10,
+                    0f, 0f, ProjectileType<AquaHead>(), 0, 0f, player.whoAmI);
             }
+
             player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().dsPet = true;
-            bool petProjectileNotSpawneds = player.ownedProjectileCounts[ProjectileType<Projectiles.Pets.DesertHead>()] <= 0;
+            bool petProjectileNotSpawneds = player.ownedProjectileCounts[ProjectileType<DesertHead>()] <= 0;
             if (petProjectileNotSpawneds && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ProjectileType<Projectiles.Pets.DesertHead>(), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                    0f, 0f, ProjectileType<DesertHead>(), 0, 0f, player.whoAmI);
             }
         }
     }

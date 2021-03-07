@@ -1,8 +1,5 @@
-
-using CalValEX.Oracle;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using System.IO;
 using Terraria;
 using Terraria.DataStructures;
@@ -14,6 +11,7 @@ namespace CalValEX.Oracle
     public class OracleNPCPet_Pet : ModProjectile
     {
         public override string Texture => "CalValEX/Oracle/OracleNPCPet_Pet_Normal";
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("TUB");
@@ -75,6 +73,7 @@ namespace CalValEX.Oracle
         private int State = 0;
         private bool isFlying = false;
         private bool bloodLust = Main.bloodMoon;
+
         public override void AI()
         {
             NPC owner = Main.npc[OracleGlobalNPC.oracleNPC];
@@ -84,8 +83,8 @@ namespace CalValEX.Oracle
                 if (projectile.velocity.Y >= 0.0f)
                 {
                     projectile.velocity.Y = -2f;
-                }    
-            }    
+                }
+            }
             */
             if (!owner.active)
             {
@@ -260,6 +259,7 @@ namespace CalValEX.Oracle
                         }
                     }
                     break;
+
                 case 0: //idle
                     projectile.tileCollide = true;
                     if (distanceToIdlePosition > 240f)
@@ -269,6 +269,7 @@ namespace CalValEX.Oracle
                     }
                     projectile.frame = 0;
                     break;
+
                 case 1: //walking (jumping)
                     projectile.tileCollide = true;
                     if (distanceToIdlePosition < 80f)
@@ -353,6 +354,7 @@ namespace CalValEX.Oracle
                         }
                     }
                     break;
+
                 case 2: //flying towards owner
                     projectile.tileCollide = false;
                     if (distanceToIdlePosition < 240f)
@@ -381,6 +383,7 @@ namespace CalValEX.Oracle
 
             projectile.friendly = foundTarget;
         }
+
         private void ResetMe()
         {
             projectile.ai[0] = 0;

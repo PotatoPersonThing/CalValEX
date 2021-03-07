@@ -16,7 +16,8 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
             animationFrameHeight = 90;
             minPick = 275;
         }
-        readonly int animationFrameWidth = 234;
+
+        private readonly int animationFrameWidth = 234;
 
         public override void AnimateIndividualTile(int type, int i, int j, ref int frameXOffset, ref int frameYOffset)
         {
@@ -33,16 +34,19 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
                             uniqueAnimationFrameX = 0;
                             uniqueAnimationFrameY = 0;
                             break;
+
                         case 1:
                             uniqueAnimationFrameX = 0;
                             uniqueAnimationFrameY = 1;
                             break;
+
                         default:
                             uniqueAnimationFrameX = 0;
                             uniqueAnimationFrameY = 0;
                             break;
                     }
                     break;
+
                 case 1:
                     switch (yPos)
                     {
@@ -50,16 +54,19 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
                             uniqueAnimationFrameX = 1;
                             uniqueAnimationFrameY = 0;
                             break;
+
                         case 1:
                             uniqueAnimationFrameX = 1;
                             uniqueAnimationFrameY = 1;
                             break;
+
                         default:
                             uniqueAnimationFrameX = 0;
                             uniqueAnimationFrameY = 0;
                             break;
                     }
                     break;
+
                 case 2:
                     switch (yPos)
                     {
@@ -67,10 +74,12 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
                             uniqueAnimationFrameX = 2;
                             uniqueAnimationFrameY = 0;
                             break;
+
                         case 1:
                             uniqueAnimationFrameX = 2;
                             uniqueAnimationFrameY = 1;
                             break;
+
                         default:
                             uniqueAnimationFrameX = 0;
                             uniqueAnimationFrameY = 0;

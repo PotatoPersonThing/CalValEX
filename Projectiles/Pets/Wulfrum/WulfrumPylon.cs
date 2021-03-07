@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using CalValEX;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Graphics.Shaders;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets.Wulfrum
@@ -17,7 +12,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
             Main.projFrames[projectile.type] = 7;
             Main.projPet[projectile.type] = true;
             drawOriginOffsetY = -15;
-			//drawOffsetX = -14;
+            //drawOffsetX = -14;
         }
 
         public override void SetDefaults()
@@ -31,6 +26,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
             projectile.tileCollide = false;
             projectile.aiStyle = -1;
         }
+
         public override void AI()
         {
             Player player = Main.player[projectile.owner];
@@ -40,7 +36,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
             if (modPlayer.pylon)
                 projectile.timeLeft = 2;
 
-             Vector2 vectorToOwner = player.Center;
+            Vector2 vectorToOwner = player.Center;
             vectorToOwner.Y -= 56f;
 
             float value = 8f;
@@ -53,20 +49,16 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
 
             projectile.Center = vectorToOwner;
 
-           if (projectile.frameCounter++ % 8 == 7)
-                {
-                    projectile.frame++;
-                }
-				if (projectile.frame >= 7)
-				{
-					projectile.frame = 0;
-				}
+            if (projectile.frameCounter++ % 8 == 7)
+            {
+                projectile.frame++;
+            }
+            if (projectile.frame >= 7)
+            {
+                projectile.frame = 0;
+            }
 
             Lighting.AddLight(projectile.Center, new Vector3(0.2f, 0.35882353f, 0.58039216f));
         }
     }
 }
-
-
-
-

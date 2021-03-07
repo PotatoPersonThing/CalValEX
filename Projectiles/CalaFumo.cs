@@ -1,6 +1,6 @@
-﻿using Terraria;
+﻿using CalValEX.Items;
+using Terraria;
 using Terraria.ModLoader;
-using CalValEX.Items;
 
 namespace CalValEX.Projectiles
 {

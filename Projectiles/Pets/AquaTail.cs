@@ -10,6 +10,7 @@ namespace CalValEX.Projectiles.Pets
     public class AquaTail : ModProjectile
     {
         private static readonly int Size = 20;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Aquatic Pest");

@@ -1,7 +1,5 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles.Paintings
 {

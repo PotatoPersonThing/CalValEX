@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using CalValEX;
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets
@@ -22,7 +17,7 @@ namespace CalValEX.Projectiles.Pets
             projectile.CloneDefaults(334);
             base.aiType = 334;
             base.drawOriginOffsetY = -14;
-		base.drawOffsetX = -10;
+            base.drawOffsetX = -10;
         }
 
         public override bool PreAI()
@@ -46,7 +41,3 @@ namespace CalValEX.Projectiles.Pets
         }
     }
 }
-
-
-
-

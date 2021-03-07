@@ -1,8 +1,8 @@
-﻿using Terraria.ModLoader;
-using Terraria.ID;
-using System.Collections.Generic;
+﻿using CalValEX.Buffs.LightPets;
 using Microsoft.Xna.Framework;
-using CalValEX.Buffs.LightPets;
+using System.Collections.Generic;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace CalValEX.Items.LightPets
 {
@@ -29,7 +29,6 @@ namespace CalValEX.Items.LightPets
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            
             foreach (TooltipLine tooltipLine in tooltips)
             {
                 if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")

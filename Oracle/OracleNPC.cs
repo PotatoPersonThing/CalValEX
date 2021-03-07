@@ -1,19 +1,15 @@
-using System;
-using CalValEX.Oracle;
+using CalValEX.Items;
+using CalValEX.Items.Equips.Hats;
+using CalValEX.Items.LightPets;
+using CalValEX.Items.Pets;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using CalValEX.Items;
-using CalValEX.Items.Pets;
-using CalValEX.Items.Equips;
-using CalValEX.Items.Equips.Hats;
-using CalValEX;
 using static Terraria.ModLoader.ModContent;
-using CalValEX.Items.LightPets;
-using CalamityMod.World;
 
 namespace CalValEX.Oracle
 {
@@ -66,48 +62,61 @@ namespace CalValEX.Oracle
             }
             return false;
         }
-	bool rachelname = false;
+
+        private bool rachelname = false;
+
         public override string TownNPCName()
         {
-	    
             switch (WorldGen.genRand.Next(14))
             {
                 case 0:
                     rachelname = false;
                     return "Maddi";
+
                 case 1:
                     rachelname = false;
                     return "Tiggy";
+
                 case 3:
                     rachelname = false;
                     return "Gabriel";
+
                 case 4:
                     rachelname = false;
                     return "Lex";
+
                 case 5:
                     rachelname = false;
                     return "Gwyn";
+
                 case 6:
                     rachelname = false;
                     return "Sammy";
+
                 case 7:
                     rachelname = false;
                     return "Eve";
+
                 case 8:
                     rachelname = false;
                     return "Emily";
+
                 case 9:
                     rachelname = false;
                     return "Lilith";
+
                 case 10:
                     rachelname = true;
                     return "Rachel";
+
                 case 11:
                     rachelname = false;
                     return "Leah";
+
                 case 12:
                     rachelname = false;
                     return "Rebecca";
+
                 default:
                     rachelname = false;
                     return "Alex";
@@ -118,10 +127,11 @@ namespace CalValEX.Oracle
         {
             if (npc.homeless)
             {
-                switch(Main.rand.Next(2))
+                switch (Main.rand.Next(2))
                 {
                     case 0:
                         return "I know, I know, you can't make homes for each of my buddies, but could you spare one for me?";
+
                     default:
                         return "I might not be very useful for your adventure, but believe me, my babies are adorable!";
                 }
@@ -139,6 +149,7 @@ namespace CalValEX.Oracle
                         {
                             case 0:
                                 return "Aww... I love your little buddy, " + Main.player[Main.myPlayer].name + ". You take care of 'em, 'kay?";
+
                             default:
                                 return "What a cutie you have there, punk! You better care of em', 'kay?";
                         }
@@ -149,6 +160,7 @@ namespace CalValEX.Oracle
                         {
                             case 0:
                                 return "You should be happy that your buddy there isn't like TUB.";
+
                             default:
                                 return "Maybe you should start putting your buddy away, for your own safety.";
                         }
@@ -159,10 +171,11 @@ namespace CalValEX.Oracle
             int wizard = NPC.FindFirstNPC(NPCID.Wizard);
             if (wizard >= 0 && Main.rand.NextFloat() < 0.25f)
             {
-                switch(Main.rand.Next(2))
+                switch (Main.rand.Next(2))
                 {
                     case 0:
                         return Main.npc[wizard].GivenName + " may seem like a weird old dude with a silly costume, but his magic is real for sure.";
+
                     default:
                         return "Hey punk, can you talk to " + Main.npc[wizard].GivenName + "? I have a buddy that he might enjoy having!";
                 }
@@ -170,10 +183,11 @@ namespace CalValEX.Oracle
 
             if (!Main.expertMode)
             {
-                switch(Main.rand.Next(2))
+                switch (Main.rand.Next(2))
                 {
                     case 0:
                         return "Y'know kid, a lot of little buddies tend to only follow those who challenge themselves. Some could say that they will only follow Experts.";
+
                     default:
                         return "While your current adventure gives many opportunity to find little friends, I heard that Experts attract a lot more!";
                 }
@@ -181,14 +195,17 @@ namespace CalValEX.Oracle
 
             if (Main.eclipse)
             {
-                switch(Main.rand.Next(4))
+                switch (Main.rand.Next(4))
                 {
                     case 0:
                         return "I'm happy that none of my friends become as mindless as these monsters!";
+
                     case 1:
                         return "Hey " + Main.player[Main.myPlayer].name + ", if you see one of my babies go a little more agressive than usual, please don't hurt them.";
+
                     case 2:
                         return "Hey punk! Promise me to protect me and my buddies, alright?";
+
                     default:
                         return "I sure am glad that my friends are not going mad on this weird day.";
                 }
@@ -200,6 +217,7 @@ namespace CalValEX.Oracle
                 {
                     case 0:
                         return "My cuties are having a blast in this fine day! You should get one to have a great day yourself!";
+
                     default:
                         return "Today is a great day to get a new pal! You should totally get one today bro.";
                 }
@@ -213,12 +231,16 @@ namespace CalValEX.Oracle
                     {
                         case 0:
                             return "Hey punk! I got some cute pets and I know you wanna buy one of 'em.";
+
                         case 1:
                             return "You're destined to do great things, bro. Do one right now and give these babies a home.";
+
                         case 2:
                             return "How does my little pet TUB eat? Well... ya don't wanna know that, bud.";
+
                         case 3:
                             return "Being clairvoyant helps find me pets in need and homes for the ones I have. Which have you got today " + Main.player[Main.myPlayer].name + "?";
+
                         default:
                             return "Been expecting you, punk. Right on time. Now let's talk about those cuties.";
                     }
@@ -229,10 +251,13 @@ namespace CalValEX.Oracle
                     {
                         case 0:
                             return "The stars are watching you, punk. Don't fail 'em.";
+
                         case 1:
                             return "It's dark and gloomy outside. Why not buy one of my little pals to keep you spirits up?";
+
                         case 2:
                             return "It's never too late to get one of these babies. Get one now, punk!";
+
                         default:
                             return "Do you need a buddy in these dark times?";
                     }
@@ -252,14 +277,19 @@ namespace CalValEX.Oracle
                 {
                     case 0:
                         return "You better get one of these babies, or else.";
+
                     case 1:
                         return "You don't want to know what by buddy TUB can do to you in these times.";
+
                     case 2:
                         return "You better don't get in the way of me and one of my babies.";
+
                     case 3:
                         return "Hey " + Main.player[Main.myPlayer].name + ", maybe you should try to hide for tonight.";
+
                     case 4:
                         return "You better run tonight, punk. TUB is looking for you and it won't go easy.";
+
                     default:
                         return "If you like living you should start hiding.";
                 }
@@ -310,107 +340,106 @@ namespace CalValEX.Oracle
 
         public override void SetupShop(Chest shop, ref int nextSlot)
         {
- 	    Mod calamityMod = ModLoader.GetMod("CalamityMod");
-	    shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.PuppoCollar>());
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.PuppoCollar>());
             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 4, 50, 0);
-			nextSlot++;
+            nextSlot++;
             shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.BambooStick>());
             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
-			nextSlot++;
+            nextSlot++;
             shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.EurosBandage>());
             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 6, 50, 0);
-			nextSlot++;
+            nextSlot++;
             Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
             if (clamMod != null)
             {
-                if ((bool) clamMod.Call("GetBossDowned", "hivemind"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AeroPebble>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 50, 0);
-                        ++nextSlot;
-                    }
-                    else if ((bool) clamMod.Call("GetBossDowned", "perforator"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AeroPebble>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 50, 0);
-                        ++nextSlot;
-                    }
-                if ((bool) NPC.downedPlantBoss)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Eidolistthingy>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 95, 0, 0);
-                        ++nextSlot;
-                    }
-                        shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.UglyTentacle>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
-                        nextSlot++;
+                if ((bool)clamMod.Call("GetBossDowned", "hivemind"))
+                {
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<AeroPebble>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 50, 0);
+                    ++nextSlot;
+                }
+                else if ((bool)clamMod.Call("GetBossDowned", "perforator"))
+                {
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<AeroPebble>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 50, 0);
+                    ++nextSlot;
+                }
+                if ((bool)NPC.downedPlantBoss)
+                {
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<Eidolistthingy>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 95, 0, 0);
+                    ++nextSlot;
+                }
+                shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.UglyTentacle>());
+                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
+                nextSlot++;
                 if (rachelname)
                 {
-                                shop.item[nextSlot].SetDefaults(ModContent.ItemType<BubbleGum>());
-                                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 40, 0, 0);
-                                nextSlot++;
-                            
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<BubbleGum>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 40, 0, 0);
+                    nextSlot++;
                 }
                 else if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") || CalamityMod.World.CalamityWorld.rainingAcid)
-                            {
-                                shop.item[nextSlot].SetDefaults(ModContent.ItemType<BubbleGum>());
-                                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 75, 0, 0);
-                                nextSlot++;
-                            }
-                if ((bool) clamMod.Call("GetBossDowned", "hivemind") && Main.expertMode)
+                {
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<BubbleGum>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 75, 0, 0);
+                    nextSlot++;
+                }
+                if ((bool)clamMod.Call("GetBossDowned", "hivemind") && Main.expertMode)
+                {
+                    if ((bool)clamMod.Call("GetBossDowned", "slimegod"))
                     {
-                        if ((bool) clamMod.Call("GetBossDowned", "slimegod"))
-                        {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<DigestedWormFood>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 80, 0, 0);
                         ++nextSlot;
-                        }
                     }
-                if ((bool) clamMod.Call("GetBossDowned", "perforator") && Main.expertMode)
+                }
+                if ((bool)clamMod.Call("GetBossDowned", "perforator") && Main.expertMode)
+                {
+                    if ((bool)clamMod.Call("GetBossDowned", "slimegod"))
                     {
-                        if ((bool) clamMod.Call("GetBossDowned", "slimegod"))
-                        {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<MissingFang>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 80, 0, 0);
                         ++nextSlot;
-                        }
                     }
-                if ((bool) clamMod.Call("GetBossDowned", "cryogen") && Main.expertMode)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<coopershortsword>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 5, 0, 0);
-                        ++nextSlot;
-                    }
-                if ((bool) clamMod.Call("GetBossDowned", "calamitas") && Main.expertMode)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AndroombaGBC>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50, 0, 0);
-                        ++nextSlot;
-                    }
-		 if ((bool) clamMod.Call("GetBossDowned", "dragonfolly") && Main.expertMode)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<OrbSummon>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 75, 0, 0);
-                        ++nextSlot;
-                    }
-                if ((bool) clamMod.Call("GetBossDowned", "providence") && Main.expertMode)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<ChewyToy>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(5, 0, 0, 0);
-                        ++nextSlot;
-                    }
-		if ((bool) clamMod.Call("GetBossDowned", "signus") && Main.expertMode)
-                   {
-                       shop.item[nextSlot].SetDefaults(ModContent.ItemType<JunkoHat>());
-                       shop.item[nextSlot].shopCustomPrice = Item.buyPrice(10, 75, 0, 0);
-                       ++nextSlot;
-                   }
-                if ((bool) clamMod.Call("GetBossDowned", "devourerofgods") && Main.expertMode)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Enredenitem>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(10, 0, 0, 0);
-                        ++nextSlot;
-                    }
+                }
+                if ((bool)clamMod.Call("GetBossDowned", "cryogen") && Main.expertMode)
+                {
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<coopershortsword>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 5, 0, 0);
+                    ++nextSlot;
+                }
+                if ((bool)clamMod.Call("GetBossDowned", "calamitas") && Main.expertMode)
+                {
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<AndroombaGBC>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50, 0, 0);
+                    ++nextSlot;
+                }
+                if ((bool)clamMod.Call("GetBossDowned", "dragonfolly") && Main.expertMode)
+                {
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<OrbSummon>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 75, 0, 0);
+                    ++nextSlot;
+                }
+                if ((bool)clamMod.Call("GetBossDowned", "providence") && Main.expertMode)
+                {
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<ChewyToy>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(5, 0, 0, 0);
+                    ++nextSlot;
+                }
+                if ((bool)clamMod.Call("GetBossDowned", "signus") && Main.expertMode)
+                {
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<JunkoHat>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(10, 75, 0, 0);
+                    ++nextSlot;
+                }
+                if ((bool)clamMod.Call("GetBossDowned", "devourerofgods") && Main.expertMode)
+                {
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<Enredenitem>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(10, 0, 0, 0);
+                    ++nextSlot;
+                }
             }
         }
 
@@ -491,7 +520,7 @@ namespace CalValEX.Oracle
             }
             if (OracleWeapon == 1)
             {
-               multiplier = 10f;
+                multiplier = 10f;
             }
         }
 
@@ -519,19 +548,19 @@ namespace CalValEX.Oracle
         }
 
         public override void NPCLoot()
-	{
-			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<OracleBeanie>() , 1, false, 0, false, false);
-		
-    }
-    public override void HitEffect(int hitDirection, double damage) 
+        {
+            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<OracleBeanie>(), 1, false, 0, false, false);
+        }
+
+        public override void HitEffect(int hitDirection, double damage)
+        {
+            if (npc.life <= 0)
             {
-			    if (npc.life <= 0) 
-                {
-                    Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/OracleNPC"), 1f);
-                    Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/OracleNPC2"), 1f);
-                    Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/OracleNPC3"), 1f);
-                    Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/OracleNPC4"), 1f);
-				}
-			}
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/OracleNPC"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/OracleNPC2"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/OracleNPC3"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/OracleNPC4"), 1f);
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
+using System.Collections.Generic;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Astral;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -25,7 +25,10 @@ namespace CalValEX
         public override TagCompound Save()
         {
             var downed = new List<string>();
-            if (rescuedjelly) downed.Add("rescuedjelly");
+            if (rescuedjelly)
+            {
+                downed.Add("rescuedjelly");
+            }
 
             return new TagCompound
             {
@@ -49,11 +52,18 @@ namespace CalValEX
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             // Old Astral tiles
-            astralTiles = tileCounts[TileType<Helplaced>()] + tileCounts[TileType<HesfinePlaced>()] + +tileCounts[TileType<AstralDirtPlaced>()];
+            astralTiles = tileCounts[TileType<Helplaced>()] + tileCounts[TileType<HesfinePlaced>()] +
+                          +tileCounts[TileType<AstralDirtPlaced>()];
             // Hell Lab tiles
-            hellTiles = tileCounts[(calamityMod.TileType("Chaosplate"))];
+            hellTiles = tileCounts[calamityMod.TileType("Chaosplate")];
         }
 
-        public static void UpdateWorldBool() { if (Main.netMode == NetmodeID.Server) NetMessage.SendData(MessageID.WorldData); }
+        public static void UpdateWorldBool()
+        {
+            if (Main.netMode == NetmodeID.Server)
+            {
+                NetMessage.SendData(MessageID.WorldData);
+            }
+        }
     }
 }

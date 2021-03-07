@@ -26,7 +26,6 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
-
         }
     }
 }

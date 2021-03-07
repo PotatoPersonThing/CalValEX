@@ -10,6 +10,7 @@ namespace CalValEX.Projectiles.Pets
     public class DeusTail : ModProjectile
     {
         private static readonly int Size = 24;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Astrum Demus");

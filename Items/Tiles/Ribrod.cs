@@ -4,13 +4,13 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles
 {
-	internal class Ribrod : ModItem
-	{
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Ribcage Wand");
-			Tooltip.SetDefault("Places Sulphurous Ribs\n" + "Right click to change rib");
-		}
+    internal class Ribrod : ModItem
+    {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Ribcage Wand");
+            Tooltip.SetDefault("Places Sulphurous Ribs\n" + "Right click to change rib");
+        }
 
         public override void SetDefaults()
         {
@@ -57,18 +57,21 @@ namespace CalValEX.Items.Tiles
                     case 0:
                         item.createTile = calamityMod.TileType("SulphurousRib2");
                         return true;
+
                     case 1:
                         item.createTile = calamityMod.TileType("SulphurousRib3");
                         return true;
+
                     case 2:
                         item.createTile = calamityMod.TileType("SulphurousRib4");
                         return true;
+
                     case 3:
                         item.createTile = calamityMod.TileType("SulphurousRib5");
                         return true;
                 }
             }
-    return true;
+            return true;
         }
-	}
+    }
 }

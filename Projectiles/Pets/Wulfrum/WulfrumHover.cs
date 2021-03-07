@@ -1,16 +1,6 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.IO;
-using Terraria;
-using Terraria.ID;
-using Terraria.Localization;
-using Terraria.ModLoader;
-using CalValEX;
-using CalValEX.Projectiles.Pets;
-using CalValEX.Projectiles.Pets.Wulfrum;
-using CalValEX.Buffs.Pets;
 using CalValEX.Buffs.LightPets;
+using Terraria;
+using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets.Wulfrum
 {
@@ -35,7 +25,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
             projectile.friendly = true;
             projectile.tileCollide = false;
             */
-            facingLeft = false;; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
+            facingLeft = false; ; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
             shouldFlip = true; //should the sprite flip? set true if it should, false if it shouldnt
             usesAura = false; //does this pet use an aura?
@@ -66,111 +56,104 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
                 modPlayer.hover = false;
             if (modPlayer.hover)
                 projectile.timeLeft = 2;
-			if (player.HasBuff(ModContent.BuffType<PylonBuff>()))
-			{
+            if (player.HasBuff(ModContent.BuffType<PylonBuff>()))
+            {
                 if (projectile.frameCounter++ > 8)
-                    {
-                        projectile.frameCounter = 0;
-                        projectile.frame++;
-                        if (projectile.frame >= 8)
-                            projectile.frame = 4;
-                    }
-			}
+                {
+                    projectile.frameCounter = 0;
+                    projectile.frame++;
+                    if (projectile.frame >= 8)
+                        projectile.frame = 4;
+                }
+            }
             else if (!player.HasBuff(ModContent.BuffType<PylonBuff>()))
-			{
+            {
                 if (projectile.frameCounter++ % 8 == 7)
                 {
                     projectile.frame++;
                 }
-				if (projectile.frame >= 4)
-				{
-					projectile.frame = 0;
-				}
-			}
-            
+                if (projectile.frame >= 4)
+                {
+                    projectile.frame = 0;
+                }
+            }
         }
     }
 }
 
-            /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.
-             * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
-             * you should make new custom behaviour with numbers higher than 0, or less than 0
-             * the next few lines is an example on how to implement this
-             * 
-             * switch ((int)projectile.localAI[1])
-             * {
-             *     case -1:
-             *         break;
-             *     case 1:
-             *         break;
-             * }
-             * 
-             * 0 is already in use.
-             * 0 = flying
-             * 
-             * you can still use this, changing thing inside (however it's not recomended unless you want to add custom behaviour to this)
-             */
-        
-        
-       /* private Player player;
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)  
-        {if (player.HasBuff(ModContent.BuffType<PylonBuff>())) 
-        {
-    Main.projectileTexture[ModContent.BuffType<WulfrumHover>()] = Modcontent.GetTexture("CalValEX/Projectiles/Pets/Wulfrum/WulfrumHoverCharge");
+/* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.
+ * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
+ * you should make new custom behaviour with numbers higher than 0, or less than 0
+ * the next few lines is an example on how to implement this
+ *
+ * switch ((int)projectile.localAI[1])
+ * {
+ *     case -1:
+ *         break;
+ *     case 1:
+ *         break;
+ * }
+ *
+ * 0 is already in use.
+ * 0 = flying
+ *
+ * you can still use this, changing thing inside (however it's not recomended unless you want to add custom behaviour to this)
+ */
+
+/* private Player player;
+ public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+ {if (player.HasBuff(ModContent.BuffType<PylonBuff>()))
+ {
+Main.projectileTexture[ModContent.BuffType<WulfrumHover>()] = Modcontent.GetTexture("CalValEX/Projectiles/Pets/Wulfrum/WulfrumHoverCharge");
 }
 else
 {
-  Main.projectileTexture[ModContent.BuffType<WulfrumHover>()] = Modcontent.GetTexture("CalValEX/Projectiles/Pets/Wulfrum/WulfrumHover");
+Main.projectileTexture[ModContent.BuffType<WulfrumHover>()] = Modcontent.GetTexture("CalValEX/Projectiles/Pets/Wulfrum/WulfrumHover");
 }
 }
-
-        
-        }
+ }
 }
 */
 
-
-        /*public override string Texture =>
-            {
-                if (player.pylon)
-                {
-                    "CalamityValEX/Projectiles/Pets/Wulfrum/WulfrumHoverCharge";
-                }
-                else
-                {
-                    "CalamityValEX/Projectiles/Pets/Wulfrum/WulfrumHover";
-                }
-            }*/
-            /* public override void AI()
+/*public override string Texture =>
+    {
+        if (player.pylon)
         {
-             projectile.frameCounter += 1.0;
-                if (player.pylon)
-                {
-                    if (projectile.frameCounter > 16.0)
-                    {
-                        projectile.frame.Y = projectile.frame.Y + frameHeight;
-                        projectile.frameCounter = 0.0;
-                    }
-                    if (projectile.frame.Y >= frameHeight * 4)
-                    {
-                        projectile.frame.Y = 0;
-                    }
-                }
-                else
-                {
-                    if (projectile.frameCounter > 8.0)
-                    {
-                        projectile.frame.Y = projectile.frame.Y + frameHeight;
-                        projectile.frameCounter = 0.0;
-                    }
-                    if (projectile.frame.Y < frameHeight * 4)
-                    {
-                        projectile.frame.Y = frameHeight * 4;
-                    }
-                    if (projectile.frame.Y >= frameHeight * 8)
-                    {
-                    projectile.frame.Y = frameHeight * 4;
-                    }
-                }}*/
-        
-    
+            "CalamityValEX/Projectiles/Pets/Wulfrum/WulfrumHoverCharge";
+        }
+        else
+        {
+            "CalamityValEX/Projectiles/Pets/Wulfrum/WulfrumHover";
+        }
+    }*/
+/* public override void AI()
+{
+ projectile.frameCounter += 1.0;
+    if (player.pylon)
+    {
+        if (projectile.frameCounter > 16.0)
+        {
+            projectile.frame.Y = projectile.frame.Y + frameHeight;
+            projectile.frameCounter = 0.0;
+        }
+        if (projectile.frame.Y >= frameHeight * 4)
+        {
+            projectile.frame.Y = 0;
+        }
+    }
+    else
+    {
+        if (projectile.frameCounter > 8.0)
+        {
+            projectile.frame.Y = projectile.frame.Y + frameHeight;
+            projectile.frameCounter = 0.0;
+        }
+        if (projectile.frame.Y < frameHeight * 4)
+        {
+            projectile.frame.Y = frameHeight * 4;
+        }
+        if (projectile.frame.Y >= frameHeight * 8)
+        {
+        projectile.frame.Y = frameHeight * 4;
+        }
+    }}*/

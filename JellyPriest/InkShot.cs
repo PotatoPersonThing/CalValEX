@@ -33,6 +33,7 @@ namespace CalValEX.JellyPriest
                 case 0:
                     target.AddBuff(BuffID.Slow, Main.rand.Next(300, 1200)); //5 to 25 seconds (each second is 60 ticks)
                     break;
+
                 default:
                     target.AddBuff(BuffID.Oiled, Main.rand.Next(300, 1200));
                     break;

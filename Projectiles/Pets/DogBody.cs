@@ -11,6 +11,7 @@ namespace CalValEX.Projectiles.Pets
     {
         public override string Texture => "CalamityMod/NPCs/DevourerofGods/DevourerofGodsBodyS";
         private static readonly int Size = 88;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Devourer of Gods (real)");

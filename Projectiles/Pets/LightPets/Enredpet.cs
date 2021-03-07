@@ -7,8 +7,9 @@ namespace CalValEX.Projectiles.Pets.LightPets
 {
     public class Enredpet : ModProjectile
     {
-        public override string Texture => "CalValEX/Projectiles/Pets/LightPets/CosmicAssistantRing"; 
+        public override string Texture => "CalValEX/Projectiles/Pets/LightPets/CosmicAssistantRing";
         private readonly string CosmicTexture = "CalValEX/Projectiles/Pets/LightPets/CosmicAssistant";
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Cosmic Assistant");
@@ -40,6 +41,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         }
 
         private int frame = 0;
+
         public override void AI()
         {
             Player player = Main.player[projectile.owner];

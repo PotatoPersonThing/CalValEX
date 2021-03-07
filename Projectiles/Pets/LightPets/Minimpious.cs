@@ -2,7 +2,6 @@ using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.Graphics.Shaders;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets.LightPets
@@ -46,7 +45,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
                 projectile.position = player.Center;
                 projectile.velocity *= 0.1f;
                 projectile.netUpdate = true;
-            }  
+            }
 
             if (projectile.velocity.X > 0f)
                 projectile.spriteDirection = -1;
