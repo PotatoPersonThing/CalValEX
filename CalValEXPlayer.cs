@@ -13,6 +13,7 @@ using Terraria.DataStructures;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using CalamityMod;
 
 namespace CalValEX
 {
@@ -144,6 +145,15 @@ namespace CalValEX
         */
 
         public int morshuTimer;
+
+        //Monoliths
+        public bool calMonolith = false;
+        public bool yharonMonolith = false;
+        public bool scalMonolith = false;
+        public bool dogMonolith = false;
+        public bool pbgMonolith = false;
+        public bool leviMonolith = false;
+        public bool provMonolith = false;
 
         public override void Initialize()
         {
@@ -435,6 +445,23 @@ namespace CalValEX
             writer.Write(flags);
         }
 
+        public override void UpdateBiomeVisuals() {
+			bool useCalMonolith = calMonolith;
+			player.ManageSpecialBiomeVisuals("CalamityMod:CalamitasRun3", useCalMonolith, player.Center);
+            bool useLeviMonolith = leviMonolith;
+			player.ManageSpecialBiomeVisuals("CalamityMod:Leviathan", useLeviMonolith, player.Center);
+            bool usePBGMonolith = pbgMonolith;
+			player.ManageSpecialBiomeVisuals("CalamityMod:PlaguebringerGoliath", usePBGMonolith, player.Center);
+            bool useProvMonolith = provMonolith;
+			player.ManageSpecialBiomeVisuals("CalamityMod:Providence", useProvMonolith, player.Center);
+            bool useDogMonolith = dogMonolith;
+			player.ManageSpecialBiomeVisuals("CalamityMod:DevourerofGodsHead", useDogMonolith, player.Center);
+            bool useYharonMonolith = yharonMonolith;
+			player.ManageSpecialBiomeVisuals("CalamityMod:Yharon", useYharonMonolith, player.Center);
+            bool useScalMonolith = scalMonolith;
+			player.ManageSpecialBiomeVisuals("CalamityMod:SupremeCalamitas", useScalMonolith, player.Center);
+		}
+
         public override void ReceiveCustomBiomes(BinaryReader reader)
         {
             BitsByte flags = reader.ReadByte();
@@ -635,13 +662,20 @@ namespace CalValEX
 
             Rectangle frame = drawPlayer.bodyFrame;
 
+            Color color = Lighting.GetColor(
+                (int)(drawInfo.position.X + drawPlayer.width * 0.5) / 16,
+                (int)(drawInfo.position.Y + drawPlayer.height * 0.25) / 16,
+                Color.White);
+
+            float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+
             float rotation = drawPlayer.headRotation;
 
             Vector2 origin = drawInfo.headOrigin;
 
             SpriteEffects spriteEffects = drawInfo.spriteEffects;
 
-            DrawData drawData = new DrawData(texture, position, frame, drawInfo.upperArmorColor, rotation, origin, 1f, spriteEffects, 0);
+            DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, 1f, spriteEffects, 0);
 
             drawData.shader = drawInfo.headArmorShader;
 
@@ -692,13 +726,20 @@ namespace CalValEX
 
             Vector2 position = new Vector2(drawX, drawY) + drawPlayer.bodyPosition - Main.screenPosition;
 
+            float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+
+            Color color = Lighting.GetColor(
+               (int)(drawInfo.position.X + drawPlayer.width * 0.5) / 16,
+               (int)(drawInfo.position.Y + drawPlayer.height * 0.5) / 16,
+               Color.White);
+
             Rectangle frame = drawPlayer.bodyFrame;
 
             float rotation = drawPlayer.bodyRotation;
 
             SpriteEffects spriteEffects = drawInfo.spriteEffects;
 
-            DrawData drawData = new DrawData(texture, position, frame, drawInfo.middleArmorColor, rotation, origin, 1f, spriteEffects, 0);
+            DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, 1f, spriteEffects, 0);
 
             drawData.shader = drawInfo.bodyArmorShader;
 
