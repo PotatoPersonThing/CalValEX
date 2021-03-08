@@ -342,13 +342,13 @@ namespace CalValEX.Oracle
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.PuppoCollar>());
-            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 4, 50, 0);
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 50, 0);
             nextSlot++;
             shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.BambooStick>());
-            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 2, 0, 0);
             nextSlot++;
             shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.EurosBandage>());
-            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 6, 50, 0);
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 2, 50, 0);
             nextSlot++;
             Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
             if (clamMod != null)
@@ -356,19 +356,19 @@ namespace CalValEX.Oracle
                 if ((bool)clamMod.Call("GetBossDowned", "hivemind"))
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<AeroPebble>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 50, 0);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 50, 0);
                     ++nextSlot;
                 }
                 else if ((bool)clamMod.Call("GetBossDowned", "perforator"))
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<AeroPebble>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 50, 0);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 50, 0);
                     ++nextSlot;
                 }
                 if ((bool)NPC.downedPlantBoss)
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<Eidolistthingy>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 95, 0, 0);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 0, 0);
                     ++nextSlot;
                 }
                 shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.UglyTentacle>());
@@ -407,13 +407,19 @@ namespace CalValEX.Oracle
                 if ((bool)clamMod.Call("GetBossDowned", "cryogen") && Main.expertMode)
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<coopershortsword>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 5, 0, 0);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 0, 0);
                     ++nextSlot;
                 }
                 if ((bool)clamMod.Call("GetBossDowned", "calamitas") && Main.expertMode)
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<AndroombaGBC>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50, 0, 0);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 50, 0, 0);
+                    ++nextSlot;
+                }
+                if ((bool)clamMod.Call("GetBossDowned", "calamitas") && Main.expertMode)
+                {
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<DeepseaLantern>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
                     ++nextSlot;
                 }
                 if ((bool)clamMod.Call("GetBossDowned", "dragonfolly") && Main.expertMode)

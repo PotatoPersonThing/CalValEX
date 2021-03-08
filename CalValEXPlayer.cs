@@ -285,6 +285,7 @@ namespace CalValEX
         public bool euros;
         public bool EWyrm;
         public bool excal;
+        public bool feel;
         public bool fog;
         public bool George;
         public bool GeorgeII;
@@ -561,6 +562,7 @@ namespace CalValEX
             strongWeeb = false;
             ySquid = false;
             oSquid = false;
+	    feel = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
