@@ -28,6 +28,9 @@ namespace CalValEX.Items.Tiles.Monoliths
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
             Item.NewItem(i * 16, j * 16, 32, 48, ModContent.ItemType<CalamitousMonolith>());
+            CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
+            modPlayer.calMonolith = false;
+            modPlayer.scalMonolith = false;
         }
 
         public override void NearbyEffects(int i, int j, bool closer)
@@ -88,9 +91,18 @@ namespace CalValEX.Items.Tiles.Monoliths
 
         public override bool NewRightClick(int i, int j)
         {
-            Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
-            HitWire(i, j);
-            return true;
+            CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
+            //
+            if ((modPlayer.dogMonolith && modPlayer.provMonolith) || (modPlayer.dogMonolith && modPlayer.yharonMonolith) || (modPlayer.dogMonolith && modPlayer.pbgMonolith) || (modPlayer.dogMonolith && modPlayer.leviMonolith) || (modPlayer.leviMonolith && modPlayer.dogMonolith) || (modPlayer.leviMonolith && modPlayer.pbgMonolith) || (modPlayer.leviMonolith && modPlayer.yharonMonolith) || (modPlayer.leviMonolith && modPlayer.provMonolith) || (modPlayer.dogMonolith && modPlayer.provMonolith) || (modPlayer.dogMonolith && modPlayer.yharonMonolith) || (modPlayer.dogMonolith && modPlayer.pbgMonolith) || (modPlayer.yharonMonolith && modPlayer.pbgMonolith) || (modPlayer.yharonMonolith && modPlayer.provMonolith) || (modPlayer.provMonolith && modPlayer.pbgMonolith))
+            {
+                return false;
+            }
+            else
+            {
+                Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                HitWire(i, j);
+                return true;
+            }
         }
 
         public override void MouseOver(int i, int j)

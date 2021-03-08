@@ -8,6 +8,11 @@ namespace CalValEX.Items.Tiles.Monoliths
 {
     public class DimensionalMonolith : ModItem
     {
+        public override void SetStaticDefaults()
+        {
+            Tooltip.SetDefault("Emits cosmic mist when activated\n" + "Cannot be used if two Monoliths are currently active");
+        }
+
         public override void SetDefaults()
         {
             item.width = 22;

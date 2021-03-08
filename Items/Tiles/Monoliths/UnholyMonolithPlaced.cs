@@ -5,6 +5,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using static CalValEX.CalValEXWorld;
 
 namespace CalValEX.Items.Tiles.Monoliths
 {
@@ -28,6 +29,9 @@ namespace CalValEX.Items.Tiles.Monoliths
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
             Item.NewItem(i * 16, j * 16, 32, 48, ModContent.ItemType<UnholyMonolith>());
+            CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
+            modPlayer.provMonolith = false;
+            //If two monolith are active and this one is active
         }
 
         public override void NearbyEffects(int i, int j, bool closer)
@@ -45,10 +49,18 @@ namespace CalValEX.Items.Tiles.Monoliths
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
-        {
-            frame = Main.tileFrame[TileID.LunarMonolith];
-            frameCounter = Main.tileFrameCounter[TileID.LunarMonolith];
-        }
+            {
+                frameCounter++;
+                if (frameCounter > 12) //make this number lower/bigger for faster/slower animation
+                {
+                    frameCounter = 0;
+                    frame++;
+                    if (frame > 5)
+                    {
+                        frame = 1;
+                    }
+                }
+            }
 
         public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
         {
@@ -79,9 +91,50 @@ namespace CalValEX.Items.Tiles.Monoliths
 
         public override bool NewRightClick(int i, int j)
         {
-            Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
-            HitWire(i, j);
-            return true;
+            CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
+            //
+            if ((modPlayer.scalMonolith && modPlayer.yharonMonolith) || (modPlayer.scalMonolith && modPlayer.dogMonolith) || (modPlayer.scalMonolith && modPlayer.pbgMonolith) || (modPlayer.scalMonolith && modPlayer.leviMonolith) || (modPlayer.leviMonolith && modPlayer.calMonolith) || (modPlayer.leviMonolith && modPlayer.pbgMonolith) || (modPlayer.leviMonolith && modPlayer.dogMonolith) || (modPlayer.leviMonolith && modPlayer.yharonMonolith) || (modPlayer.calMonolith && modPlayer.yharonMonolith) || (modPlayer.calMonolith && modPlayer.dogMonolith) || (modPlayer.calMonolith && modPlayer.pbgMonolith) || (modPlayer.dogMonolith && modPlayer.pbgMonolith) || (modPlayer.dogMonolith && modPlayer.yharonMonolith) || (modPlayer.yharonMonolith && modPlayer.pbgMonolith))
+            {
+                return false;
+            }
+            else
+            {
+                Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                HitWire(i, j);
+                return true;
+            }
+            /*if (CalValEXWorld.OneMonolith && !CalValEXWorld.TwoMonolith && Main.tile[i, j].frameY < 56)
+                {
+                    CalValEXWorld.TwoMonolith = true;
+                    Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                    HitWire(i, j);
+                    return true;
+                }
+            if (!CalValEXWorld.OneMonolith && !CalValEXWorld.TwoMonolith && Main.tile[i, j].frameY < 56)
+                {
+                    CalValEXWorld.OneMonolith = true;
+                    Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                    HitWire(i, j);
+                    return true;
+                }
+            if (CalValEXWorld.TwoMonolith && Main.tile[i, j].frameY >= 56)
+                {
+                    CalValEXWorld.TwoMonolith = false;
+                    Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                    HitWire(i, j);
+                    return true;
+                }
+            if (CalValEXWorld.OneMonolith && !CalValEXWorld.TwoMonolith && Main.tile[i, j].frameY >= 56)
+                {
+                    CalValEXWorld.OneMonolith = false;
+                    Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                    HitWire(i, j);
+                    return true;
+                }
+            else
+                {
+                    return false;
+                }*/
         }
 
         public override void MouseOver(int i, int j)

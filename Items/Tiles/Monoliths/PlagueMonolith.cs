@@ -6,6 +6,11 @@ namespace CalValEX.Items.Tiles.Monoliths
 {
     public class PlagueMonolith : ModItem
     {
+        public override void SetStaticDefaults()
+        {
+            Tooltip.SetDefault("Emits harmless plague gas when activated\n" + "Cannot be used if two Monoliths are currently active");
+        }
+
         public override void SetDefaults()
         {
             item.width = 22;

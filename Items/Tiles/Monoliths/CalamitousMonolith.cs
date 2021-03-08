@@ -6,6 +6,11 @@ namespace CalValEX.Items.Tiles.Monoliths
 {
     public class CalamitousMonolith : ModItem
     {
+        public override void SetStaticDefaults()
+        {
+            Tooltip.SetDefault("Infuses the nearby air with harmless Brimstone magic when activated\n" + "Cannot be used if two Monoliths are currently active");
+        }
+
         public override void SetDefaults()
         {
             item.width = 22;

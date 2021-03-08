@@ -5,6 +5,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using static CalValEX.CalValEXWorld;
 
 namespace CalValEX.Items.Tiles.Monoliths
 {
@@ -28,6 +29,8 @@ namespace CalValEX.Items.Tiles.Monoliths
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
             Item.NewItem(i * 16, j * 16, 32, 48, ModContent.ItemType<PlagueMonolith>());
+            CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
+            modPlayer.pbgMonolith = false;
         }
 
         public override void NearbyEffects(int i, int j, bool closer)
@@ -79,9 +82,53 @@ namespace CalValEX.Items.Tiles.Monoliths
 
         public override bool NewRightClick(int i, int j)
         {
-            Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
-            HitWire(i, j);
-            return true;
+            CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
+            if ((modPlayer.scalMonolith && modPlayer.yharonMonolith) || (modPlayer.scalMonolith && modPlayer.dogMonolith) || (modPlayer.scalMonolith && modPlayer.provMonolith) || (modPlayer.scalMonolith && modPlayer.leviMonolith) || (modPlayer.leviMonolith && modPlayer.calMonolith) || (modPlayer.leviMonolith && modPlayer.provMonolith) || (modPlayer.leviMonolith && modPlayer.dogMonolith) || (modPlayer.leviMonolith && modPlayer.yharonMonolith) || (modPlayer.calMonolith && modPlayer.yharonMonolith) || (modPlayer.calMonolith && modPlayer.dogMonolith) || (modPlayer.calMonolith && modPlayer.provMonolith) || (modPlayer.dogMonolith && modPlayer.provMonolith) || (modPlayer.dogMonolith && modPlayer.yharonMonolith) || (modPlayer.yharonMonolith && modPlayer.provMonolith))
+            {
+                return false;
+            }
+            else
+            {
+                Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                HitWire(i, j);
+                return true;
+            }
+            //If one monolith is active and its off
+            /*if (CalValEXWorld.OneMonolith && !CalValEXWorld.TwoMonolith && Main.tile[i, j].frameY < 56)
+                {
+                    CalValEXWorld.TwoMonolith = true;
+                    Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                    HitWire(i, j);
+                    return true;
+                }
+            //If no monoliths are actives and it's off
+            else if (!CalValEXWorld.OneMonolith && !CalValEXWorld.TwoMonolith && Main.tile[i, j].frameY < 56)
+                {
+                    CalValEXWorld.OneMonolith = true;
+                    Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                    HitWire(i, j);
+                    return true;
+                }
+            //If two monoliths are active and its on
+            else if (CalValEXWorld.TwoMonolith && Main.tile[i, j].frameY >= 56)
+                {
+                    CalValEXWorld.TwoMonolith = false;
+                    Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                    HitWire(i, j);
+                    return true;
+                }
+            //If one monolith is active and its on
+            else if (CalValEXWorld.OneMonolith && !CalValEXWorld.TwoMonolith && Main.tile[i, j].frameY >= 56)
+                {
+                    CalValEXWorld.OneMonolith = false;
+                    Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                    HitWire(i, j);
+                    return true;
+                }
+            else
+                {
+                    return false;
+                }*/
         }
 
         public override void MouseOver(int i, int j)

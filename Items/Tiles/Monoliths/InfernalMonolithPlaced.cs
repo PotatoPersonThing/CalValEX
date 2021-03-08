@@ -5,6 +5,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using static CalValEX.CalValEXWorld;
 
 namespace CalValEX.Items.Tiles.Monoliths
 {
@@ -28,6 +29,8 @@ namespace CalValEX.Items.Tiles.Monoliths
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
             Item.NewItem(i * 16, j * 16, 32, 48, ModContent.ItemType<InfernalMonolith>());
+            CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
+            modPlayer.yharonMonolith = false;
         }
 
         public override void NearbyEffects(int i, int j, bool closer)
@@ -79,9 +82,18 @@ namespace CalValEX.Items.Tiles.Monoliths
 
         public override bool NewRightClick(int i, int j)
         {
-            Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
-            HitWire(i, j);
-            return true;
+            CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
+            //
+            if ((modPlayer.scalMonolith && modPlayer.provMonolith) || (modPlayer.scalMonolith && modPlayer.dogMonolith) || (modPlayer.scalMonolith && modPlayer.pbgMonolith) || (modPlayer.scalMonolith && modPlayer.leviMonolith) || (modPlayer.leviMonolith && modPlayer.calMonolith) || (modPlayer.leviMonolith && modPlayer.pbgMonolith) || (modPlayer.leviMonolith && modPlayer.dogMonolith) || (modPlayer.leviMonolith && modPlayer.provMonolith) || (modPlayer.calMonolith && modPlayer.provMonolith) || (modPlayer.calMonolith && modPlayer.dogMonolith) || (modPlayer.calMonolith && modPlayer.pbgMonolith) || (modPlayer.dogMonolith && modPlayer.pbgMonolith) || (modPlayer.dogMonolith && modPlayer.provMonolith) || (modPlayer.provMonolith && modPlayer.pbgMonolith))
+            {
+                return false;
+            }
+            else
+            {
+                Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                HitWire(i, j);
+                return true;
+            }
         }
 
         public override void MouseOver(int i, int j)
