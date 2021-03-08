@@ -10,7 +10,6 @@ namespace CalValEX.Projectiles.Pets
 {
     public class SWPetHead : ModProjectile
     {
-        private static readonly int Size = 25;
         private static readonly int SegmentCount = 16;
         private bool SpawnedSegments = false;
 
@@ -22,7 +21,8 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetDefaults()
         {
-            projectile.width = projectile.height = Size;
+            projectile.width = 25;
+            projectile.height = 22;
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.ignoreWater = true;
@@ -154,7 +154,8 @@ namespace CalValEX.Projectiles.Pets
             }
 
             projectile.position = projectile.Center;
-            projectile.width = projectile.height = Size;
+            projectile.width = 25;
+            projectile.height = 22;
             projectile.Center = projectile.position;
         }
     }
