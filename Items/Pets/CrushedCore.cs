@@ -35,9 +35,9 @@ namespace CalValEX.Items.Pets
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
                 ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient((ItemID.AncientBattleArmorMaterial), 10);
+                recipe.AddIngredient((ItemID.AncientBattleArmorMaterial), 5);
                 recipe.AddIngredient((ItemID.Bass), 1);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("GrandScale"), 5);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("GrandScale"), 2);
                 recipe.AddTile(mod.TileType("BelchingCoralPlaced"));
                 recipe.SetResult(this);
                 recipe.AddRecipe();
