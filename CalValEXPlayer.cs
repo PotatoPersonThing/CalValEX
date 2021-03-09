@@ -14,6 +14,7 @@ using Terraria.DataStructures;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static CalValEX.CalValEXWorld;
 
 namespace CalValEX
 {
@@ -385,6 +386,7 @@ namespace CalValEX
         public bool worb;
         public bool yharonMonolith = false;
         public bool ySquid;
+        public bool amogus;
 
         public bool ZoneAstral;
 
@@ -562,7 +564,8 @@ namespace CalValEX
             strongWeeb = false;
             ySquid = false;
             oSquid = false;
-	    feel = false;
+	        feel = false;
+            amogus = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
@@ -690,20 +693,23 @@ namespace CalValEX
 
         public override void UpdateBiomeVisuals()
         {
-            bool useCalMonolith = calMonolith;
-            player.ManageSpecialBiomeVisuals("CalamityMod:CalamitasRun3", useCalMonolith, player.Center);
-            bool useLeviMonolith = leviMonolith;
-            player.ManageSpecialBiomeVisuals("CalamityMod:Leviathan", useLeviMonolith, player.Center);
-            bool usePBGMonolith = pbgMonolith;
-            player.ManageSpecialBiomeVisuals("CalamityMod:PlaguebringerGoliath", usePBGMonolith, player.Center);
-            bool useProvMonolith = provMonolith;
-            player.ManageSpecialBiomeVisuals("CalamityMod:Providence", useProvMonolith, player.Center);
-            bool useDogMonolith = dogMonolith;
-            player.ManageSpecialBiomeVisuals("CalamityMod:DevourerofGodsHead", useDogMonolith, player.Center);
-            bool useYharonMonolith = yharonMonolith;
-            player.ManageSpecialBiomeVisuals("CalamityMod:Yharon", useYharonMonolith, player.Center);
-            bool useScalMonolith = scalMonolith;
-            player.ManageSpecialBiomeVisuals("CalamityMod:SupremeCalamitas", useScalMonolith, player.Center);
+            //if (!(bool)CalValEXWorld.TwoMonolith)
+            //{
+                bool useCalMonolith = calMonolith;
+                player.ManageSpecialBiomeVisuals("CalamityMod:CalamitasRun3", useCalMonolith, player.Center);
+                bool useLeviMonolith = leviMonolith;
+                player.ManageSpecialBiomeVisuals("CalamityMod:Leviathan", useLeviMonolith, player.Center);
+                bool usePBGMonolith = pbgMonolith;
+                player.ManageSpecialBiomeVisuals("CalamityMod:PlaguebringerGoliath", usePBGMonolith, player.Center);
+                bool useProvMonolith = provMonolith;
+                player.ManageSpecialBiomeVisuals("CalamityMod:Providence", useProvMonolith, player.Center);
+                bool useDogMonolith = dogMonolith;
+                player.ManageSpecialBiomeVisuals("CalamityMod:DevourerofGodsHead", useDogMonolith, player.Center);
+                bool useYharonMonolith = yharonMonolith;
+                player.ManageSpecialBiomeVisuals("CalamityMod:Yharon", useYharonMonolith, player.Center);
+                bool useScalMonolith = scalMonolith;
+                player.ManageSpecialBiomeVisuals("CalamityMod:SupremeCalamitas", useScalMonolith, player.Center);
+           // }
         }
 
         public override void ReceiveCustomBiomes(BinaryReader reader)

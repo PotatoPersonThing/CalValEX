@@ -21,6 +21,7 @@ using CalValEX.Items.Tiles.Monoliths;
 using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
 using CalValEX.Items.Tiles.Statues;
+using CalValEX.AprilFools;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -56,6 +57,10 @@ namespace CalValEX
                 {
                     if (player.whoAmI == Main.myPlayer)
                     {
+                        if (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7))
+                        {
+                        NPC.NewNPC((int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<Jharim>(), 0, 0f, 0f, 0f, 0f, 255);	
+                        }
                         player.QuickSpawnItem(ModContent.ItemType<C>());
                         switch (player.name)
                         {

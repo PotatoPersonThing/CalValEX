@@ -17,9 +17,16 @@ namespace CalValEX
 
         public static bool rescuedjelly;
 
+        public static bool jharim;
+
+        public static bool OneMonolith;
+
+        public static bool TwoMonolith;
+
         public override void Initialize()
         {
             rescuedjelly = false;
+            jharim = false;
         }
 
         public override TagCompound Save()
@@ -28,6 +35,11 @@ namespace CalValEX
             if (rescuedjelly)
             {
                 downed.Add("rescuedjelly");
+            }
+
+            if (jharim)
+            {
+                downed.Add("jharim");
             }
 
             return new TagCompound
@@ -40,6 +52,7 @@ namespace CalValEX
         {
             var downed = tag.GetList<string>("downed");
             rescuedjelly = downed.Contains("rescuedjelly");
+            rescuedjelly = downed.Contains("jharim");
         }
 
         public override void ResetNearbyTileEffects()
