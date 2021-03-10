@@ -47,7 +47,8 @@ namespace CalValEX.AprilFools
 
         public override void AI()
         {
-            if (CalValEX.month != 4)
+            Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
+            if (CalValEX.month != 4 && orthoceraDLC == null)
             {
             npc.active = false;
             }
@@ -62,10 +63,6 @@ namespace CalValEX.AprilFools
         {
             Player player = Main.player[Main.myPlayer];
             CalValEXPlayer CalValEXPlayer = player.GetModPlayer<CalValEXPlayer>();
-            if (CalValEXPlayer.sirember)
-            {
-                return "WHAT IS THAT HORRIBLE MONSTROSITY";
-            }
 
             if (npc.homeless)
             {

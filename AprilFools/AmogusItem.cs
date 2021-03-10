@@ -20,7 +20,7 @@ namespace CalValEX.AprilFools
             item.width = 20;
             item.height = 36;
             item.CloneDefaults(ItemID.ZephyrFish);
-            item.UseSound = SoundID.NPCHit33;
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "AprilFools/AmogusScream");
             item.shoot = mod.ProjectileType("Amogus");
             item.value = Item.sellPrice(0, 0, 0, 0);
             item.rare = 10;

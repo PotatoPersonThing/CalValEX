@@ -57,9 +57,14 @@ namespace CalValEX
                 {
                     if (player.whoAmI == Main.myPlayer)
                     {
+                        Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
                         if (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7))
                         {
-                        NPC.NewNPC((int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<Jharim>(), 0, 0f, 0f, 0f, 0f, 255);	
+                            NPC.NewNPC((int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<Jharim>(), 0, 0f, 0f, 0f, 0f, 255);	
+                        }
+                        else if (orthoceraDLC != null)
+                        {
+                            NPC.NewNPC((int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<Jharim>(), 0, 0f, 0f, 0f, 0f, 255);
                         }
                         player.QuickSpawnItem(ModContent.ItemType<C>());
                         switch (player.name)

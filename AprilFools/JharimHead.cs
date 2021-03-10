@@ -37,7 +37,8 @@ namespace CalValEX.AprilFools
 
 		public override bool CanUseItem(Player player)
         {
-			if (CalValEX.month != 4)
+			Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
+            if (CalValEX.month != 4 && orthoceraDLC == null)
             {
             return false;
             }
@@ -53,7 +54,8 @@ namespace CalValEX.AprilFools
 
 		public override void AddRecipes()
 		{
-			if (CalValEX.month != 4)
+			Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
+            if (CalValEX.month != 4 && orthoceraDLC == null)
             {
             return;
             }

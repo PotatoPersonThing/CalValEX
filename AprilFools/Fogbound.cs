@@ -55,7 +55,8 @@ namespace CalValEX.AprilFools
 		}
 		public override void AI()
 		{
-			if (CalValEX.month != 4)
+			Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
+            if (CalValEX.month != 4 && orthoceraDLC == null)
             {
             npc.active = false;
             }
