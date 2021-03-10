@@ -693,8 +693,17 @@ namespace CalValEX
 
         public override void UpdateBiomeVisuals()
         {
-            //if (!(bool)CalValEXWorld.TwoMonolith)
-            //{
+            bool bossIsAlive2 = false;
+            for (int i = 0; i < Main.maxNPCs; i++)
+            {
+                NPC npc = Main.npc[i];
+                if (npc.active && npc.boss)
+                {
+                    bossIsAlive2 = true;
+                }
+            }
+            if (!bossIsAlive2)
+            {
                 bool useCalMonolith = calMonolith;
                 player.ManageSpecialBiomeVisuals("CalamityMod:CalamitasRun3", useCalMonolith, player.Center);
                 bool useLeviMonolith = leviMonolith;
@@ -709,7 +718,7 @@ namespace CalValEX
                 player.ManageSpecialBiomeVisuals("CalamityMod:Yharon", useYharonMonolith, player.Center);
                 bool useScalMonolith = scalMonolith;
                 player.ManageSpecialBiomeVisuals("CalamityMod:SupremeCalamitas", useScalMonolith, player.Center);
-           // }
+            }
         }
 
         public override void ReceiveCustomBiomes(BinaryReader reader)
