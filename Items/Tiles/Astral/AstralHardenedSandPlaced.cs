@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles.Astral
 {
-    public class XenostonePlaced : ModTile
+    public class AstralHardenedSandPlaced : ModTile
     {
         public override void SetDefaults()
         {
@@ -13,11 +13,12 @@ namespace CalValEX.Items.Tiles.Astral
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            drop = ModContent.ItemType<Xenostone>();
-            soundType = SoundID.Tink;
+            drop = ModContent.ItemType<AstralHardenedSand>();
             AddMapEntry(new Color(83, 55, 109));
             Main.tileMerge[Type][mod.TileType("AstralDirtPlaced")] = true;
             Main.tileMerge[Type][mod.TileType("XenostonePlaced")] = true;
+            Main.tileMerge[Type][mod.TileType("AstralClayPlaced")] = true;
+            Main.tileMerge[Type][mod.TileType("AstralSandPlaced")] = true;
         }
     }
 }

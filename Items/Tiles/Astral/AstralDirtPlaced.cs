@@ -14,13 +14,11 @@ namespace CalValEX.Items.Tiles.Astral
             Main.tileLighted[Type] = true;
             drop = ModContent.ItemType<AstralDirt>();
             AddMapEntry(new Color(40, 0, 50));
-            //SetModTree(new Trees.ExampleTree());
             Main.tileMerge[Type][mod.TileType("AstralGrassPlaced")] = true;
+            Main.tileMerge[Type][mod.TileType("XenostonePlaced")] = true;
+            Main.tileMerge[Type][mod.TileType("AstralClayPlaced")] = true;
+            Main.tileMerge[Type][mod.TileType("AstralSandPlaced")] = true;
+            Main.tileMerge[Type][mod.TileType("AstralHardenedSandPlaced")] = true;
         }
-
-        //public override int SaplingGrowthType(ref int style) {
-        //style = 0;
-        //return TileType<ExampleSapling>();
-        //}
     }
 }

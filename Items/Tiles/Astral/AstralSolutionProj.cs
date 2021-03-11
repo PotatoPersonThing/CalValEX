@@ -78,14 +78,11 @@ namespace CalValEX.Items.Tiles.Astral
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}
-						//Sans underground
-						/*else if (TileID.Sets.Conversion.Sand[type]) {
+						else if (TileID.Sets.Conversion.Sand[type]) {
 							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralSandPlaced>();
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
-						}*/
-                        //Dort
-                        //Grass
+						}
 						else if (TileID.Sets.Conversion.Grass[type]) 
                         {
 							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralGrassPlaced>();
@@ -99,6 +96,13 @@ namespace CalValEX.Items.Tiles.Astral
                             NetMessage.SendTileSquare(-1, k, l, 1);
                             break;
                         }
+						else if (type == ModLoader.GetMod("CalamityMod").TileType("AstralClay"))
+                        {
+                            Main.tile[k, l].type = (ushort)ModContent.TileType<AstralClayPlaced>();
+                            WorldGen.SquareTileFrame(k, l, true);
+                            NetMessage.SendTileSquare(-1, k, l, 1);
+                            break;
+                        }
                         else if (type == TileID.Dirt)
                         {
                             Main.tile[k, l].type = (ushort)ModContent.TileType<AstralDirtPlaced>();
@@ -106,25 +110,26 @@ namespace CalValEX.Items.Tiles.Astral
                             NetMessage.SendTileSquare(-1, k, l, 1);
                             break;
                         }
-                        //Hard sand
-						/*else if (TileID.Sets.Conversion.HardenedSand[type]) {
+						else if (type == TileID.ClayBlock)
+                        {
+                            Main.tile[k, l].type = (ushort)ModContent.TileType<AstralClayPlaced>();
+                            WorldGen.SquareTileFrame(k, l, true);
+                            NetMessage.SendTileSquare(-1, k, l, 1);
+                            break;
+                        }
+                        else if (TileID.Sets.Conversion.HardenedSand[type]) {
 							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralHardenedSandPlaced>();
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}
+						/*
                         //Sans stone
 						else if (TileID.Sets.Conversion.Sandstone[type]) {
 							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralSandstonePlaced>();
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}
-                        //Clay
-						else if (TileID.Sets.Conversion.Clay[type]) {
-							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralClayPlaced>();
-							WorldGen.SquareTileFrame(k, l, true);
-							NetMessage.SendTileSquare(-1, k, l, 1);
-						}
-                        //Clay
+                        //Ice
 						else if (TileID.Sets.Conversion.Ice[type]) {
 							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralIcePlaced>();
 							WorldGen.SquareTileFrame(k, l, true);
