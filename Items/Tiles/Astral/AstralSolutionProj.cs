@@ -73,20 +73,20 @@ namespace CalValEX.Items.Tiles.Astral
                         Mod CalValEX = ModLoader.GetMod("CalamityMod");
 
 						//Stone
-						/*if (TileID.Sets.Conversion.Stone[type]) {
+						if (TileID.Sets.Conversion.Stone[type]) {
 							Main.tile[k, l].type = (ushort)ModContent.TileType<XenostonePlaced>();
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}
 						//Sans underground
-						else if (TileID.Sets.Conversion.Sand[type]) {
+						/*else if (TileID.Sets.Conversion.Sand[type]) {
 							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralSandPlaced>();
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}*/
                         //Dort
                         //Grass
-						if (TileID.Sets.Conversion.Grass[type]) 
+						else if (TileID.Sets.Conversion.Grass[type]) 
                         {
 							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralGrassPlaced>();
 							WorldGen.SquareTileFrame(k, l, true);
@@ -101,7 +101,8 @@ namespace CalValEX.Items.Tiles.Astral
                                 WorldGen.SquareTileFrame(k, l, true);
                                 NetMessage.SendTileSquare(-1, k, l, 1);
                                 break;
-                        /*case  ModLoader.GetMod("CalamityMod").TileType("AstralDirt"):
+                            //Main.tileMerge[Type][mod.TileType("AstralDirtPlaced")] = true;
+                        /*case  mod.TileType("AstralDirtPlaced"):
                                 Main.tile[k, l].type = (ushort)ModContent.TileType<AstralDirtPlaced>();
                                 WorldGen.SquareTileFrame(k, l, true);
                                 NetMessage.SendTileSquare(-1, k, l, 1);
