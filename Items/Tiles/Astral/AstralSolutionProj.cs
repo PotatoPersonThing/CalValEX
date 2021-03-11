@@ -92,32 +92,19 @@ namespace CalValEX.Items.Tiles.Astral
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}
-                        else
+                        else if (type == ModLoader.GetMod("CalamityMod").TileType("AstralDirt"))
                         {
-                        switch (type)
-                        {
-                        case TileID.Dirt:
-                                Main.tile[k, l].type = (ushort)ModContent.TileType<AstralDirtPlaced>();
-                                WorldGen.SquareTileFrame(k, l, true);
-                                NetMessage.SendTileSquare(-1, k, l, 1);
-                                break;
-                            //Main.tileMerge[Type][mod.TileType("AstralDirtPlaced")] = true;
-                        /*case  mod.TileType("AstralDirtPlaced"):
-                                Main.tile[k, l].type = (ushort)ModContent.TileType<AstralDirtPlaced>();
-                                WorldGen.SquareTileFrame(k, l, true);
-                                NetMessage.SendTileSquare(-1, k, l, 1);
-                                break;
-                        case (ModLoader.GetMod("CalamityMod").TileType("AstralGrass")):
-                                Main.tile[k, l].type = (ushort)ModContent.TileType<AstralGrassPlaced>();
-                                WorldGen.SquareTileFrame(k, l, true);
-                                NetMessage.SendTileSquare(-1, k, l, 1);
-                                break;
-                        case (ModLoader.GetMod("CalamityMod").TileType("AstralGrass")):
-                                Main.tile[k, l].type = (ushort)ModContent.TileType<AstralGrassPlaced>();
-                                WorldGen.SquareTileFrame(k, l, true);
-                                NetMessage.SendTileSquare(-1, k, l, 1);
-                                break;*/
+                            Main.tile[k, l].type = (ushort)ModContent.TileType<AstralDirtPlaced>();
+                            WorldGen.SquareTileFrame(k, l, true);
+                            NetMessage.SendTileSquare(-1, k, l, 1);
+                            break;
                         }
+                        else if (type == TileID.Dirt)
+                        {
+                            Main.tile[k, l].type = (ushort)ModContent.TileType<AstralDirtPlaced>();
+                            WorldGen.SquareTileFrame(k, l, true);
+                            NetMessage.SendTileSquare(-1, k, l, 1);
+                            break;
                         }
                         //Hard sand
 						/*else if (TileID.Sets.Conversion.HardenedSand[type]) {
