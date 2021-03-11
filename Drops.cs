@@ -15,6 +15,7 @@ using CalValEX.Items.Mounts;
 using CalValEX.Items.Mounts.Morshu;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Tiles;
+using CalValEX.Items.Tiles.Astral;
 using CalValEX.Items.Tiles.Balloons;
 using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
@@ -190,6 +191,16 @@ namespace CalValEX
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<SwearshroomItem>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2);
+                    ++nextSlot;
+                }
+
+                if (type == NPCID.Steampunker)
+                {
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<XenoSolution>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5);
+                    ++nextSlot;
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<StarstruckSynthesizer>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
                     ++nextSlot;
                 }
 
