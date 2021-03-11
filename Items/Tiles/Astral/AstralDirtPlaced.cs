@@ -15,6 +15,7 @@ namespace CalValEX.Items.Tiles.Astral
             drop = ModContent.ItemType<AstralDirt>();
             AddMapEntry(new Color(40, 0, 50));
             //SetModTree(new Trees.ExampleTree());
+            Main.tileMerge[Type][mod.TileType("AstralGrassPlaced")] = true;
         }
 
         //public override int SaplingGrowthType(ref int style) {

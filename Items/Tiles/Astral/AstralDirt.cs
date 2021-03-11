@@ -7,7 +7,7 @@ namespace CalValEX.Items.Tiles.Astral
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Old Astral Grass");
+            DisplayName.SetDefault("Blighted Astral Dirt");
         }
 
         public override void SetDefaults()
