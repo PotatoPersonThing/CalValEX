@@ -15,6 +15,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static CalValEX.CalValEXWorld;
+using Terraria.GameContent.Skies;
 
 namespace CalValEX
 {
@@ -665,7 +666,7 @@ namespace CalValEX
 
         public override void UpdateBiomes()
         {
-            ZoneAstral = CalValEXWorld.astralTiles > 50;
+            ZoneAstral = CalValEXWorld.astralTiles > 400;
             HellLab = CalValEXWorld.hellTiles > 50;
         }
 

@@ -416,6 +416,10 @@ namespace CalValEX
             recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
             recipe.SetResult(calamityMod.ItemType("AstralSand"));
             recipe.AddRecipe();
+            recipe.AddIngredient(ModContent.ItemType<AstralSandstone>());
+            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+            recipe.SetResult(calamityMod.ItemType("AstralSandstone"));
+            recipe.AddRecipe();
             recipe = new ModRecipe(this);
             recipe.AddIngredient(ModContent.ItemType<AstralClay>());
             recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
