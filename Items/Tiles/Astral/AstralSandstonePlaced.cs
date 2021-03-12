@@ -13,6 +13,7 @@ namespace CalValEX.Items.Tiles.Astral
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
+            TileID.Sets.Conversion.Sandstone[Type] = true; 
             drop = ModContent.ItemType<AstralSandstone>();
             AddMapEntry(new Color(78, 45, 91));
             Main.tileMerge[Type][mod.TileType("AstralDirtPlaced")] = true;
