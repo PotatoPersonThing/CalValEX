@@ -16,6 +16,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static CalValEX.CalValEXWorld;
 using Terraria.GameContent.Skies;
+using CalamityMod.CalPlayer;
 
 namespace CalValEX
 {
