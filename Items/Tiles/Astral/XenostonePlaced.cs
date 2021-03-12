@@ -14,6 +14,7 @@ namespace CalValEX.Items.Tiles.Astral
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
             TileID.Sets.Conversion.Stone[Type] = true; 
+            TileID.Sets.Stone[Type] = true;
             drop = ModContent.ItemType<Xenostone>();
             soundType = SoundID.Tink;
             AddMapEntry(new Color(83, 55, 109));
