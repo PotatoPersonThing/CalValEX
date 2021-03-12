@@ -18,6 +18,11 @@ namespace CalValEX.Items.Tiles.Astral
             AddMapEntry(new Color(83, 55, 109));
             Main.tileMerge[Type][mod.TileType("AstralDirtPlaced")] = true;
             Main.tileMerge[Type][mod.TileType("XenostonePlaced")] = true;
+            Main.tileMerge[Type][mod.TileType("AstralSandstonePlaced")] = true;
         }
+
+        public override void ChangeWaterfallStyle(ref int style) {
+			style = mod.GetWaterfallStyleSlot("AstralWaterfallStyle");
+		}
     }
 }

@@ -17,5 +17,9 @@ namespace CalValEX.Items.Tiles.Astral
             Main.tileMerge[Type][mod.TileType("AstralDirtPlaced")] = true;
             Main.tileMerge[Type][mod.TileType("XenostonePlaced")] = true;
         }
+
+        public override void ChangeWaterfallStyle(ref int style) {
+			style = mod.GetWaterfallStyleSlot("AstralWaterfallStyle");
+		}
     }
 }

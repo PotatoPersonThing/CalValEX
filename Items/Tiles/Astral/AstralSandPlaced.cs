@@ -19,13 +19,14 @@ namespace CalValEX.Items.Tiles.Astral
 			TileID.Sets.Conversion.Sand[Type] = true; 
 			TileID.Sets.ForAdvancedCollision.ForSandshark[Type] = true;
 			TileID.Sets.Falling[Type] = true;
-			AddMapEntry(new Color(200, 200, 200));
+			AddMapEntry(new Color(104, 127, 164));
 			drop = ModContent.ItemType<AstralSand>();
             SetModCactus(new AstralCactus());
             Main.tileMerge[Type][mod.TileType("XenostonePlaced")] = true;
             Main.tileMerge[Type][mod.TileType("AstralDirtPlaced")] = true;
             Main.tileMerge[Type][mod.TileType("AstralClayPlaced")] = true;
             Main.tileMerge[Type][mod.TileType("AstralHardenedSandPlaced")] = true;
+            Main.tileMerge[Type][mod.TileType("AstralSandstonePlaced")] = true;
 		}
 
 		public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak) {
@@ -79,6 +80,10 @@ namespace CalValEX.Items.Tiles.Astral
 				return false;
 			}
 			return true;
+		}
+
+        public override void ChangeWaterfallStyle(ref int style) {
+			style = mod.GetWaterfallStyleSlot("AstralWaterfallStyle");
 		}
 	}
 }

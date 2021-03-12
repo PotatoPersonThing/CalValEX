@@ -122,13 +122,11 @@ namespace CalValEX.Items.Tiles.Astral
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}
-						/*
-                        //Sans stone
 						else if (TileID.Sets.Conversion.Sandstone[type]) {
 							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralSandstonePlaced>();
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
-						}
+						}/*
                         //Ice
 						else if (TileID.Sets.Conversion.Ice[type]) {
 							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralIcePlaced>();

@@ -19,6 +19,11 @@ namespace CalValEX.Items.Tiles.Astral
             Main.tileMerge[Type][mod.TileType("AstralClayPlaced")] = true;
             Main.tileMerge[Type][mod.TileType("AstralSandPlaced")] = true;
             Main.tileMerge[Type][mod.TileType("AstralHardenedSandPlaced")] = true;
+            Main.tileMerge[Type][mod.TileType("AstralSandstonePlaced")] = true;
         }
+
+        public override void ChangeWaterfallStyle(ref int style) {
+			style = mod.GetWaterfallStyleSlot("AstralWaterfallStyle");
+		}
     }
 }
