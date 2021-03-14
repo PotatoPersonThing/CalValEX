@@ -21,6 +21,13 @@ namespace CalValEX.Items.Tiles.Astral
             Main.tileMerge[Type][mod.TileType("AstralDirtPlaced")] = true;
             Main.tileMerge[Type][mod.TileType("XenostonePlaced")] = true;
             Main.tileMerge[Type][mod.TileType("AstralSandstonePlaced")] = true;
+            Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralClay")] = true;
+            Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralDirt")] = true;
+            Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralStone")] = true;
+            Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralSand")] = true;
+            Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralSandstone")] = true;
+            Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("HardenedAstralSand")] = true;
+            Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralGrass")] = true;
         }
 
         public override void ChangeWaterfallStyle(ref int style) {

@@ -16,7 +16,7 @@ namespace CalValEX.Items.Tiles.Astral
 			Main.tileBlockLight[Type] = true;
 			Main.tileSand[Type] = true;
 			TileID.Sets.TouchDamageSands[Type] = 15;
-			TileID.Sets.Conversion.Sand[Type] = true; 
+			TileID.Sets.Conversion.Sand[Type] = true;
 			TileID.Sets.ForAdvancedCollision.ForSandshark[Type] = true;
 			TileID.Sets.Falling[Type] = true;
 			AddMapEntry(new Color(104, 127, 164));
@@ -27,6 +27,13 @@ namespace CalValEX.Items.Tiles.Astral
             Main.tileMerge[Type][mod.TileType("AstralClayPlaced")] = true;
             Main.tileMerge[Type][mod.TileType("AstralHardenedSandPlaced")] = true;
             Main.tileMerge[Type][mod.TileType("AstralSandstonePlaced")] = true;
+			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralClay")] = true;
+			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralDirt")] = true;
+			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralStone")] = true;
+			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralSand")] = true;
+			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralSandstone")] = true;
+			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("HardenedAstralSand")] = true;
+			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralGrass")] = true;
 		}
 
 		public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak) {
