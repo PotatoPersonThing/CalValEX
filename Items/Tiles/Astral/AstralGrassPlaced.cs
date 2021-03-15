@@ -34,20 +34,23 @@ namespace CalValEX.Items.Tiles.Astral
 
         public override void RandomUpdate(int i, int j)
         {
-            int grassspawned;
-            int choice = Main.rand.Next(2);
-            if (choice == 0)
+            if (Main.rand.Next(7) == 0)
             {
-                grassspawned = mod.TileType("AstralTallGrass");
-            }
-            else
-            {
-                grassspawned = mod.TileType("AstralShortGrass");
-            }
+                int grassspawned;
+                int choice = Main.rand.Next(2);
+                if (choice == 0)
+                {
+                    grassspawned = mod.TileType("AstralTallGrass");
+                }
+                else
+                {
+                    grassspawned = mod.TileType("AstralShortGrass");
+                }
 
-            if (!Main.tile[i, j - 1].active() && Main.tileSolid[Main.tile[i, j + 1].type] && Main.tile[i, j].slope() == 0 && !Main.tile[i, j].halfBrick())
-            {
-                WorldGen.PlaceTile(i, j - 1, grassspawned, true, false, -1, Main.rand.Next(18));
+                if (!Main.tile[i, j - 1].active() && Main.tileSolid[Main.tile[i, j + 1].type] && Main.tile[i, j].slope() == 0 && !Main.tile[i, j].halfBrick())
+                {
+                    WorldGen.PlaceTile(i, j - 1, grassspawned, true, false, -1, Main.rand.Next(18));
+                }
             }
             int LocationX = i;
             int LocationY = j;
