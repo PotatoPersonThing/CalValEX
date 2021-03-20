@@ -425,6 +425,11 @@ namespace CalValEX
                     ChanceDropItem(npc, ModContent.ItemType<TundraBall>(), rareChance);
                 }
 
+                if (npc.type == calamityMod.NPCType("Pitbull"))
+                {
+                    ChanceDropItem(npc, ModContent.ItemType<OldTennisBall>(), rareChance);
+                }
+
                 if (npc.type == calamityMod.NPCType("BoxJellyfish"))
                 {
                     ChanceDropItem(npc, ModContent.ItemType<BoxBalloon>(), rareChance);

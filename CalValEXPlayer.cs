@@ -389,7 +389,7 @@ namespace CalValEX
         public bool yharonMonolith = false;
         public bool ySquid;
         public bool amogus;
-
+        public bool buppy;
         public bool ZoneAstral;
 
         public override void Initialize()
@@ -568,6 +568,7 @@ namespace CalValEX
             oSquid = false;
 	        feel = false;
             amogus = false;
+            buppy = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
