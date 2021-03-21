@@ -13,8 +13,7 @@ namespace CalValEX.Items.Tiles.Monoliths
         public override void SetDefaults()
         {
             Main.tileFrameImportant[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
-            TileObjectData.newTile.Height = 3;
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.Origin = new Point16(1, 2);
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 18 };
             TileObjectData.addTile(Type);
@@ -27,7 +26,7 @@ namespace CalValEX.Items.Tiles.Monoliths
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 48, ModContent.ItemType<AquaticMonolith>());
+            Item.NewItem(i * 16, j * 16, 48, 48, ModContent.ItemType<AquaticMonolith>());
             CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
             modPlayer.leviMonolith = false;
         }
@@ -82,7 +81,6 @@ namespace CalValEX.Items.Tiles.Monoliths
         public override bool NewRightClick(int i, int j)
         {
             CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
-            //
             if ((modPlayer.scalMonolith && modPlayer.provMonolith) || (modPlayer.scalMonolith && modPlayer.yharonMonolith) || (modPlayer.scalMonolith && modPlayer.pbgMonolith) || (modPlayer.scalMonolith && modPlayer.dogMonolith) || (modPlayer.dogMonolith && modPlayer.calMonolith) || (modPlayer.dogMonolith && modPlayer.pbgMonolith) || (modPlayer.dogMonolith && modPlayer.yharonMonolith) || (modPlayer.dogMonolith && modPlayer.provMonolith) || (modPlayer.calMonolith && modPlayer.provMonolith) || (modPlayer.calMonolith && modPlayer.yharonMonolith) || (modPlayer.calMonolith && modPlayer.pbgMonolith) || (modPlayer.yharonMonolith && modPlayer.pbgMonolith) || (modPlayer.yharonMonolith && modPlayer.provMonolith) || (modPlayer.provMonolith && modPlayer.pbgMonolith))
             {
                 return false;
@@ -105,9 +103,9 @@ namespace CalValEX.Items.Tiles.Monoliths
 
         public override void HitWire(int i, int j)
         {
-            int x = i - Main.tile[i, j].frameX / 18 % 2;
+            int x = i - Main.tile[i, j].frameX / 18 % 3;
             int y = j - Main.tile[i, j].frameY / 18 % 3;
-            for (int l = x; l < x + 2; l++)
+            for (int l = x; l < x + 3; l++)
             {
                 for (int m = y; m < y + 3; m++)
                 {
@@ -136,6 +134,9 @@ namespace CalValEX.Items.Tiles.Monoliths
                 Wiring.SkipWire(x + 1, y);
                 Wiring.SkipWire(x + 1, y + 1);
                 Wiring.SkipWire(x + 1, y + 2);
+                Wiring.SkipWire(x + 2, y);
+                Wiring.SkipWire(x + 2, y + 1);
+                Wiring.SkipWire(x + 2, y + 2);
             }
             NetMessage.SendTileSquare(-1, x, y + 1, 3);
         }
