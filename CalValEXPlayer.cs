@@ -392,6 +392,7 @@ namespace CalValEX
         public bool buppy;
         public bool BMonster;
         public bool hage;
+	public bool Blok;
         public bool ZoneAstral;
 
         public override void Initialize()
@@ -573,6 +574,7 @@ namespace CalValEX
             buppy = false;
             BMonster = false;
             hage = false;
+	    Blok = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
