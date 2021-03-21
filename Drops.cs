@@ -26,6 +26,8 @@ using CalValEX.Items.Tiles.Plants;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace CalValEX
 {
@@ -57,7 +59,7 @@ namespace CalValEX
             {
                 if (type == clamMod.NPCType("SEAHOE"))
                 {
-                    if ((bool) clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sunkensea"))
+                    if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sunkensea"))
                     {
                         if (Main.hardMode)
                         {
@@ -66,14 +68,14 @@ namespace CalValEX
                             ++nextSlot;
                         }
 
-                        if ((bool) clamMod.Call("GetBossDowned", "oldduke"))
+                        if ((bool)clamMod.Call("GetBossDowned", "oldduke"))
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<BloodwormScarf>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50);
                             ++nextSlot;
                         }
 
-                        if ((bool) clamMod.Call("GetBossDowned", "buffedeclipse"))
+                        if ((bool)clamMod.Call("GetBossDowned", "buffedeclipse"))
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamityFriends>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1);
@@ -86,7 +88,7 @@ namespace CalValEX
                             ++nextSlot;
                         }
 
-                        if ((bool) clamMod.Call("GetBossDowned", "supremecalamitas"))
+                        if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas"))
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Yharlamitas>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(42);
@@ -94,7 +96,7 @@ namespace CalValEX
                         }
                     }
 
-                    if (!(bool) clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sunkensea"))
+                    if (!(bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sunkensea"))
                     {
                         if (Main.hardMode)
                         {
@@ -103,14 +105,14 @@ namespace CalValEX
                             ++nextSlot;
                         }
 
-                        if ((bool) clamMod.Call("GetBossDowned", "oldduke"))
+                        if ((bool)clamMod.Call("GetBossDowned", "oldduke"))
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<BloodwormScarf>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(15);
                             ++nextSlot;
                         }
 
-                        if ((bool) clamMod.Call("GetBossDowned", "buffedeclipse"))
+                        if ((bool)clamMod.Call("GetBossDowned", "buffedeclipse"))
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamityFriends>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(10);
@@ -123,7 +125,7 @@ namespace CalValEX
                             ++nextSlot;
                         }
 
-                        if ((bool) clamMod.Call("GetBossDowned", "supremecalamitas"))
+                        if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas"))
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Yharlamitas>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(420);
@@ -134,7 +136,7 @@ namespace CalValEX
 
                 if (type == clamMod.NPCType("DILF"))
                 {
-                    if ((bool) clamMod.Call("GetBossDowned", "signus"))
+                    if ((bool)clamMod.Call("GetBossDowned", "signus"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Signut>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(15);
@@ -144,7 +146,7 @@ namespace CalValEX
 
                 if (type == clamMod.NPCType("THIEF"))
                 {
-                    if ((bool) clamMod.Call("GetBossDowned", "astrumaureus"))
+                    if ((bool)clamMod.Call("GetBossDowned", "astrumaureus"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<AureicFedora>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20);
@@ -237,7 +239,7 @@ namespace CalValEX
                         ++nextSlot;
                     }
 
-                    if ((bool) clamMod.Call("GetBossDowned", "calamitas"))
+                    if ((bool)clamMod.Call("GetBossDowned", "calamitas"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamitasFumo>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 20);
@@ -311,7 +313,7 @@ namespace CalValEX
                             {
                                 if (value > 1000000f)
                                 {
-                                    int platCoins = (int) (value / 1000000f);
+                                    int platCoins = (int)(value / 1000000f);
                                     if (platCoins > 50 && Main.rand.Next(5) == 0)
                                     {
                                         platCoins /= Main.rand.Next(3) + 1;
@@ -329,7 +331,7 @@ namespace CalValEX
 
                                 if (value > 10000f)
                                 {
-                                    int goldCoins = (int) (value / 10000f);
+                                    int goldCoins = (int)(value / 10000f);
                                     if (goldCoins > 50 && Main.rand.Next(5) == 0)
                                     {
                                         goldCoins /= Main.rand.Next(3) + 1;
@@ -347,7 +349,7 @@ namespace CalValEX
 
                                 if (value > 100f)
                                 {
-                                    int silverCoins = (int) (value / 100f);
+                                    int silverCoins = (int)(value / 100f);
                                     if (silverCoins > 50 && Main.rand.Next(5) == 0)
                                     {
                                         silverCoins /= Main.rand.Next(3) + 1;
@@ -363,7 +365,7 @@ namespace CalValEX
                                     continue;
                                 }
 
-                                int copperCoins = (int) value;
+                                int copperCoins = (int)value;
                                 if (copperCoins > 50 && Main.rand.Next(5) == 0)
                                 {
                                     copperCoins /= Main.rand.Next(3) + 1;
@@ -414,7 +416,7 @@ namespace CalValEX
                     {
                         if (Main.LocalPlayer.HasItem(calamityMod.ItemType("KnowledgeCrabulon")))
                         {
-                            NPC.NewNPC((int) npc.Center.X, (int) npc.Center.Y, ModContent.NPCType<Swearshroom>());
+                            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Swearshroom>());
                         }
                     }
                 }
@@ -702,13 +704,13 @@ namespace CalValEX
                 if (npc.type == calamityMod.NPCType("SmallSightseer"))
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<Binoculars>(),
-                        (bool) calamityMod.Call("GetBossDowned", "astrumaureus"), 0.05f); //5%
+                        (bool)calamityMod.Call("GetBossDowned", "astrumaureus"), 0.05f); //5%
                 }
 
                 if (npc.type == calamityMod.NPCType("BigSightseer"))
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<Binoculars>(),
-                        (bool) calamityMod.Call("GetBossDowned", "astrumaureus"), 0.1f); //10%
+                        (bool)calamityMod.Call("GetBossDowned", "astrumaureus"), 0.1f); //10%
                 }
 
                 if (npc.type == calamityMod.NPCType("CultistAssassin"))
@@ -753,7 +755,7 @@ namespace CalValEX
                 if (npc.type == calamityMod.NPCType("Hadarian"))
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<HadarianTail>(),
-                        (bool) calamityMod.Call("GetBossDowned", "astrumaureus"), 0.05f); //5%
+                        (bool)calamityMod.Call("GetBossDowned", "astrumaureus"), 0.05f); //5%
                 }
 
                 if (npc.type == calamityMod.NPCType("Eidolist"))
@@ -770,14 +772,14 @@ namespace CalValEX
                     ConditionalChanceDropItem(npc, ModContent.ItemType<ProfanedBalloon>(), Main.expertMode,
                         normalChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<ChewyToy>(),
-                        (bool) calamityMod.Call("DifficultyActive", "revengeance"), 0.01f); //1%
+                        (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.01f); //1%
                 }
 
                 if (npc.type == calamityMod.NPCType("ScornEater"))
                 {
                     ChanceDropItem(npc, ModContent.ItemType<ScornEaterMask>(), normalChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<ChewyToy>(),
-                        (bool) calamityMod.Call("DifficultyActive", "revengeance"), 0.01f); //1%
+                        (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.01f); //1%
                 }
 
                 if (npc.type == calamityMod.NPCType("ImpiousImmolator"))
@@ -785,7 +787,7 @@ namespace CalValEX
                     ChanceDropItem(npc, ModContent.ItemType<HolyTorch>(), 0.05f); //10%
                     ChanceDropItem(npc, ModContent.ItemType<ProfanedBalloon>(), normalChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<ChewyToy>(),
-                        (bool) calamityMod.Call("DifficultyActive", "revengeance"), 0.01f); //1%
+                        (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.01f); //1%
                 }
 
                 //Post-ml misc
@@ -826,22 +828,22 @@ namespace CalValEX
                 if (npc.type == calamityMod.NPCType("Reaper"))
                 {
                     ChanceDropItem(npc, ModContent.ItemType<ReaperSharkArms>(), minibossChance);
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<OmegaBlue>(), Main.expertMode, 0.05f);
+                    ChanceDropItem(npc, ModContent.ItemType<OmegaBlue>(), 0.05f);
                 }
 
                 if (npc.type == calamityMod.NPCType("ColossalSquid"))
                 {
                     ChanceDropItem(npc, ModContent.ItemType<SquidHat>(), minibossChance);
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<OmegaBlue>(), Main.expertMode, 0.05f);
+                    ChanceDropItem(npc, ModContent.ItemType<OmegaBlue>(), 0.05f);
                 }
 
                 if (npc.type == calamityMod.NPCType("EidolonWyrmHead"))
                 {
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<EWail>(), Main.expertMode, minibossChance);
+                    ChanceDropItem(npc, ModContent.ItemType<EWail>(), minibossChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<SoulShard>(),
-                        !(bool) calamityMod.Call("GetBossDowned", "cryogen") && !NPC.downedGolemBoss &&
+                        !(bool)calamityMod.Call("GetBossDowned", "cryogen") && !NPC.downedGolemBoss &&
                         !NPC.downedPlantBoss && !NPC.downedAncientCultist, 1.0f);
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<OmegaBlue>(), Main.expertMode, 0.05f);
+                    ChanceDropItem(npc, ModContent.ItemType<OmegaBlue>(), 0.05f);
                 }
 
                 if (npc.type == calamityMod.NPCType("EidolonWyrmHeadHuge"))
@@ -857,8 +859,7 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("GiantClam") && Main.expertMode)
                 {
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<ClamHermitMedallion>(), Main.expertMode,
-                        minibossChance);
+                    ChanceDropItem(npc, ModContent.ItemType<ClamHermitMedallion>(), minibossChance);
                     ChanceDropItem(npc, ModContent.ItemType<ClamMask>(), vanityMaxChance);
                 }
 
@@ -870,7 +871,7 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("PlaguebringerShade"))
                 {
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<BeeCan>(), Main.expertMode, 0.1f);
+                    ChanceDropItem(npc, ModContent.ItemType<BeeCan>(), 0.1f);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<PlaugeWings>(), Main.expertMode, 0.1f);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), Main.expertMode,
                         0.0012f);
@@ -887,13 +888,13 @@ namespace CalValEX
                     if (Main.expertMode)
                     {
                         ConditionalChanceDropItem(npc, ModContent.ItemType<MawHook>(),
-                            (bool) calamityMod.Call("GetBossDowned", "polterghast"), 0.1f); //10%
+                            (bool)calamityMod.Call("GetBossDowned", "polterghast"), 0.1f); //10%
                         ConditionalChanceDropItem(npc, ModContent.ItemType<MawHook>(),
-                            !(bool) calamityMod.Call("GetBossDowned", "polterghast"),
-                            0.5f); //50% ?? why more?? :Polterc:
-                        ConditionalChanceDropItem(npc, ModContent.ItemType<NuclearFumes>(),
-                            (bool) calamityMod.Call("GetBossDowned", "polterghast"), 0.3f, 1, 3);
+                            !(bool)calamityMod.Call("GetBossDowned", "polterghast"),
+                            0.5f); //50% ?? why more?? :Polterc
                     }
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<NuclearFumes>(),
+                            (bool)calamityMod.Call("GetBossDowned", "polterghast"), 0.3f, 1, 3);
                 }
 
                 //if (npc.type == mod.NPCType("NuclearTerror"))
@@ -906,12 +907,8 @@ namespace CalValEX
                 //}
                 if (npc.type == calamityMod.NPCType("ThiccWaifu"))
                 {
-                    if (Main.expertMode)
-                    {
-                        ConditionalChanceDropItem(npc, ModContent.ItemType<FogG>(),
-                            (bool) calamityMod.Call("GetBossDowned", "supremecalamitas"), 0.0001f);
-                        ChanceDropItem(npc, ModContent.ItemType<cloudcandy>(), 0.1f);
-                    }
+                    ChanceDropItem(npc, ModContent.ItemType<cloudcandy>(), 0.1f);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<FogG>(), (bool)calamityMod.Call("GetBossDowned", "supremecalamitas"), 0.0001f);
                 }
 
                 if (npc.type == calamityMod.NPCType("Mauler"))
@@ -935,7 +932,7 @@ namespace CalValEX
                     }
 
                     ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(),
-                        (bool) calamityMod.Call("DifficultyActive", "revengeance"), 0.01f);
+                        (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.01f);
                 }
 
                 if (npc.type == calamityMod.NPCType("BrimstoneElemental") && !CalValEXConfig.Instance.ConfigBossBlocks)
@@ -985,7 +982,7 @@ namespace CalValEX
                     }
 
                     ConditionalChanceDropItem(npc, ModContent.ItemType<ToyScythe>(),
-                        (bool) calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
+                        (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("StormWeaverHeadNaked") && Main.expertMode &&
@@ -999,26 +996,26 @@ namespace CalValEX
                     if (!Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
                     {
                         ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
-                            (bool) calamityMod.Call("GetBossDowned", "devourerofgods"), 155, 265);
+                            (bool)calamityMod.Call("GetBossDowned", "devourerofgods"), 155, 265);
                     }
 
                     if (Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
                     {
                         ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
-                            (bool) calamityMod.Call("GetBossDowned", "devourerofgods"), 205, 335);
+                            (bool)calamityMod.Call("GetBossDowned", "devourerofgods"), 205, 335);
                     }
                 }
 
                 if (npc.type == calamityMod.NPCType("Bumblefuck"))
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<FluffyFeather>(),
-                        (bool) calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
+                        (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<SparrowMeat>(),
-                        (bool) calamityMod.Call("DifficultyActive", "armageddon"), bossPetChance);
+                        (bool)calamityMod.Call("DifficultyActive", "armageddon"), bossPetChance);
                     if (!Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
                     {
                         ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("SilvaCrystal"),
-                            (bool) calamityMod.Call("GetBossDowned", "yharon"), 155, 265);
+                            (bool)calamityMod.Call("GetBossDowned", "yharon"), 155, 265);
                     }
 
                     if (bdogeMount)
@@ -1028,7 +1025,7 @@ namespace CalValEX
                     else
                     {
                         ConditionalChanceDropItem(npc, ModContent.ItemType<FluffyFur>(),
-                            (bool) calamityMod.Call("DifficultyActive", "death"), 0.001f);
+                            (bool)calamityMod.Call("DifficultyActive", "death"), 0.001f);
                     }
                 }
 
@@ -1041,7 +1038,7 @@ namespace CalValEX
                     else
                     {
                         ConditionalChanceDropItem(npc, ModContent.ItemType<JellyBottle>(),
-                            (bool) calamityMod.Call("DifficultyActive", "revengeance"), 0.1f);
+                            (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.1f);
                     }
                 }
 
@@ -1064,7 +1061,7 @@ namespace CalValEX
                     else
                     {
                         ConditionalChanceDropItem(npc, ModContent.ItemType<JunkoHat>(),
-                            (bool) calamityMod.Call("DifficultyActive", "revengeance"), 0.01f);
+                            (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.01f);
                     }
 
                     ConditionalChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), Main.expertMode,
@@ -1072,13 +1069,13 @@ namespace CalValEX
                     if (!Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
                     {
                         ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
-                            (bool) calamityMod.Call("GetBossDowned", "devourerofgods"), 155, 265);
+                            (bool)calamityMod.Call("GetBossDowned", "devourerofgods"), 155, 265);
                     }
 
                     if (Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
                     {
                         ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
-                            (bool) calamityMod.Call("GetBossDowned", "devourerofgods"), 205, 335);
+                            (bool)calamityMod.Call("GetBossDowned", "devourerofgods"), 205, 335);
                     }
                 }
 
@@ -1093,13 +1090,13 @@ namespace CalValEX
                     if (!Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
                     {
                         ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
-                            (bool) calamityMod.Call("GetBossDowned", "devourerofgods"), 155, 265);
+                            (bool)calamityMod.Call("GetBossDowned", "devourerofgods"), 155, 265);
                     }
 
                     if (Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
                     {
                         ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
-                            (bool) calamityMod.Call("GetBossDowned", "devourerofgods"), 205, 335);
+                            (bool)calamityMod.Call("GetBossDowned", "devourerofgods"), 205, 335);
                     }
                 }
 
@@ -1110,12 +1107,12 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("DevourerofGodsHeadS") && Main.expertMode)
                 {
-                    if ((bool) calamityMod.Call("DifficultyActive", "death"))
+                    if ((bool)calamityMod.Call("DifficultyActive", "death"))
                     {
                         ChanceDropItem(npc, ModContent.ItemType<DogPetItem>(), 0.5f);
                     }
-                    else if ((bool) calamityMod.Call("DifficultyActive", "revengeance") &&
-                             !(bool) calamityMod.Call("DifficultyActive", "death"))
+                    else if ((bool)calamityMod.Call("DifficultyActive", "revengeance") &&
+                             !(bool)calamityMod.Call("DifficultyActive", "death"))
                     {
                         ChanceDropItem(npc, ModContent.ItemType<DogPetItem>(), 0.05f);
                     }
@@ -1130,7 +1127,7 @@ namespace CalValEX
                     if (!Main.expertMode)
                     {
                         ConditionalDropItem(npc, ModContent.ItemType<Termipebbles>(),
-                            (bool) calamityMod.Call("GetBossDowned", "buffedeclipse"), 2, 8);
+                            (bool)calamityMod.Call("GetBossDowned", "buffedeclipse"), 2, 8);
                     }
                 }
 
@@ -1156,7 +1153,7 @@ namespace CalValEX
                 }
 
                 //Goozma slimes
-                if ((bool) calamityMod.Call("DifficultyActive", "revengeance"))
+                if ((bool)calamityMod.Call("DifficultyActive", "revengeance"))
                 {
                     if (npc.type == calamityMod.NPCType("AeroSlime") || npc.type == calamityMod.NPCType("CryoSlime") ||
                         npc.type == calamityMod.NPCType("PerennialSlime") ||
@@ -1184,7 +1181,7 @@ namespace CalValEX
             }
 
             //Yharexs' Dev Pet (Calamity BABY)
-            if ((bool) calamityMod.Call("DifficultyActive", "death"))
+            if ((bool)calamityMod.Call("DifficultyActive", "death"))
             {
                 if (npc.type == calamityMod.NPCType("AstralSlime") && Main.rand.Next(870000) == 0)
                 {
@@ -1295,5 +1292,54 @@ namespace CalValEX
         public static int ConditionalChanceDropItem(NPC npc, int itemID, bool condition, float chance, int min = 1,
             int max = 0) =>
             ConditionalChanceDropItem(npc, itemID, condition, chance, false, min, max);
+        public override bool PreDraw(NPC npc, SpriteBatch spriteBatch, Color drawColor)
+        {
+            if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok)
+            {
+                //DEUS HEAD
+                if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("AstrumDeusHeadSpectral"))
+                {
+                    Texture2D deusheadsprite = (ModContent.GetTexture("CalValEX/Items/Tiles/Astral/DeusHeadOld"));
+
+                    float deusheadframe = 1f / (float)Main.npcFrameCount[npc.type];
+                    int deusheadheight = (int)((float)(npc.frame.Y / npc.frame.Height) * deusheadframe) * (deusheadsprite.Height / 1);
+
+                    Rectangle deusheadsquare = new Rectangle(0, deusheadheight, deusheadsprite.Width, deusheadsprite.Height / 1);
+                    Color deusheadalpha = npc.GetAlpha(drawColor);
+                    spriteBatch.Draw(deusheadsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deusheadsquare, deusheadalpha, npc.rotation, Utils.Size(deusheadsquare) / 2f, npc.scale, SpriteEffects.None, 0f);
+                    return false;
+                }
+
+                //DEUS BODY
+                else if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("AstrumDeusBodySpectral"))
+                {
+                    Texture2D deusbodsprite = npc.localAI[3] == 1f ? ModContent.GetTexture("CalValEX/Items/Tiles/Astral/DeusBodyAltOld") : ModContent.GetTexture("CalValEX/Items/Tiles/Astral/DeusBodyOld");
+
+                    float deusbodframe = 1f / (float)Main.npcFrameCount[npc.type];
+                    int deusbodheight = (int)((float)(npc.frame.Y / npc.frame.Height) * deusbodframe) * (deusbodsprite.Height / 1);
+
+                    Rectangle deusbodsquare = new Rectangle(0, deusbodheight, deusbodsprite.Width, deusbodsprite.Height / 1);
+                    Color deusbodalpha = npc.GetAlpha(drawColor);
+                    spriteBatch.Draw(deusbodsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deusbodsquare, deusbodalpha, npc.rotation, Utils.Size(deusbodsquare) / 2f, npc.scale, SpriteEffects.None, 0f);
+                    return false;
+                }
+
+                //DEUS TAIL
+                else if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("AstrumDeusTailSpectral"))
+                {
+                    Texture2D deustailsprite = (ModContent.GetTexture("CalValEX/Items/Tiles/Astral/DeusTailOld"));
+
+                    float deustailframe = 1f / (float)Main.npcFrameCount[npc.type];
+                    int deustailheight = (int)((float)(npc.frame.Y / npc.frame.Height) * deustailframe) * (deustailsprite.Height / 1);
+
+                    Rectangle deustailsquare = new Rectangle(0, deustailheight, deustailsprite.Width, deustailsprite.Height / 1);
+                    Color deustailalpha = npc.GetAlpha(drawColor);
+                    spriteBatch.Draw(deustailsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deustailsquare, deustailalpha, npc.rotation, Utils.Size(deustailsquare) / 2f, npc.scale, SpriteEffects.None, 0f);
+                    return false;
+                }
+            }
+            return true;
+
+        }
     }
 }
