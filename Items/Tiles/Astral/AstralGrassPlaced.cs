@@ -13,12 +13,17 @@ namespace CalValEX.Items.Tiles.Astral
             Main.tileBlockLight[Type] = true;
             Main.tileBrick[Type] = true;
             drop = ModContent.ItemType<AstralDirt>();
+            dustType = ModContent.DustType<AstralSolutionDust>();
             AddMapEntry(new Color(40, 0, 50));
             TileID.Sets.Grass[Type] = true;
             TileID.Sets.Conversion.Grass[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
             TileID.Sets.NeedsGrassFramingDirt[Type] = mod.TileType("AstralDirtPlaced");
             SetModTree(new AstralTree());
+        }
+        public override void NumDust(int i, int j, bool fail, ref int num)
+        {
+            num = fail ? 1 : 3;
         }
 
         public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
