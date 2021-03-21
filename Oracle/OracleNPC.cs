@@ -350,6 +350,9 @@ namespace CalValEX.Oracle
             shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.EurosBandage>());
             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 2, 50, 0);
             nextSlot++;
+            shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.Cube>());
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
+            nextSlot++;
             Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
             if (clamMod != null)
             {
