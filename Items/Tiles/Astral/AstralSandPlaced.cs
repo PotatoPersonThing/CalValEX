@@ -16,6 +16,7 @@ namespace CalValEX.Items.Tiles.Astral
 			Main.tileBlockLight[Type] = true;
 			Main.tileSand[Type] = true;
 			TileID.Sets.TouchDamageSands[Type] = 15;
+			dustType = ModContent.DustType<AstralDust>();
 			TileID.Sets.Conversion.Sand[Type] = true;
 			TileID.Sets.ForAdvancedCollision.ForSandshark[Type] = true;
 			TileID.Sets.Falling[Type] = true;
@@ -34,6 +35,10 @@ namespace CalValEX.Items.Tiles.Astral
 			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralSandstone")] = true;
 			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("HardenedAstralSand")] = true;
 			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralGrass")] = true;
+		}
+		public override void NumDust(int i, int j, bool fail, ref int num)
+		{
+			num = fail ? 1 : 3;
 		}
 
 		public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak) {

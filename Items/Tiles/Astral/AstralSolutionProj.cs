@@ -13,8 +13,8 @@ namespace CalValEX.Items.Tiles.Astral
 		}
 
 		public override void SetDefaults() {
-			projectile.width = 6;
-			projectile.height = 6;
+			projectile.width = 16;
+			projectile.height = 16;
 			projectile.friendly = true;
 			projectile.alpha = 255;
 			projectile.penetrate = -1;
@@ -22,6 +22,8 @@ namespace CalValEX.Items.Tiles.Astral
 			projectile.tileCollide = false;
 			projectile.ignoreWater = true;
 		}
+
+		public override bool CanDamage() => false;
 
 		public override void AI() {
 			int dustType = ModContent.DustType<AstralSolutionDust>();
@@ -83,7 +85,7 @@ namespace CalValEX.Items.Tiles.Astral
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}
-						else if (TileID.Sets.Conversion.Grass[type]) 
+						else if (TileID.Sets.Conversion.Grass[type] && !TileID.Sets.GrassSpecial[type]) 
                         {
 							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralGrassPlaced>();
 							WorldGen.SquareTileFrame(k, l, true);
@@ -122,11 +124,36 @@ namespace CalValEX.Items.Tiles.Astral
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}
+						else if ((type == TileID.CorruptPlants) || (type == TileID.HallowedPlants) || (type == TileID.Plants)) 
+						{
+							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralShortGrass>();
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+						}
+						else if ((type == TileID.HallowedPlants2) || (type == TileID.Plants2)) 
+						{
+							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralTallGrass>();
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+						}
 						else if (TileID.Sets.Conversion.Sandstone[type]) {
 							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralSandstonePlaced>();
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
-						}/*
+						}
+						//Code for turning stuff into purity. Idk why I put this here lol
+						/*else if (type == ModContent.TileType<AstralDirtPlaced>()) 
+						{
+							Main.tile[k, l].type = (ushort)TileID.Dirt;
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+						}
+						else if (type == ModContent.TileType<AstralClayPlaced>()) 
+						{
+							Main.tile[k, l].type = (ushort)TileID.ClayBlock;
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+						}
                         //Ice
 						else if (TileID.Sets.Conversion.Ice[type]) {
 							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralIcePlaced>();

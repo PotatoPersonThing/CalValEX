@@ -9,7 +9,7 @@ namespace CalValEX.Items.Tiles.Astral
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Blighted Astral Solution");
 			Tooltip.SetDefault("Used by the Clentaminator"
-				+ "\nSpreads the Blighted Astral Infection");
+				+ "\nSpreads the Astral Blight");
 		}
 
 		public override void SetDefaults() {
@@ -18,7 +18,7 @@ namespace CalValEX.Items.Tiles.Astral
 			item.width = 10;
 			item.height = 12;
 			item.value = Item.buyPrice(0, 0, 25, 0);
-			item.rare = 5;
+			item.rare = 4;
 			item.maxStack = 999;
 			item.consumable = true;
 		}

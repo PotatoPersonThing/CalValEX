@@ -16,6 +16,7 @@ namespace CalValEX.Items.Tiles.Astral
             TileID.Sets.Conversion.Stone[Type] = true; 
             TileID.Sets.Stone[Type] = true;
             drop = ModContent.ItemType<Xenostone>();
+            dustType = ModContent.DustType<AstralDust>();
             soundType = SoundID.Tink;
             AddMapEntry(new Color(83, 55, 109));
             Main.tileMerge[Type][mod.TileType("AstralDirtPlaced")] = true;
@@ -28,6 +29,10 @@ namespace CalValEX.Items.Tiles.Astral
             Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralSandstone")] = true;
             Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("HardenedAstralSand")] = true;
             Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralGrass")] = true;
+        }
+        public override void NumDust(int i, int j, bool fail, ref int num)
+        {
+            num = fail ? 1 : 3;
         }
 
         public override void ChangeWaterfallStyle(ref int style) {
