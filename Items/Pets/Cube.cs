@@ -11,7 +11,8 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("A Cube");
-            Tooltip.SetDefault("'Heil the Cube Lord'");
+            Tooltip.SetDefault("'Heil the Cube Lord'\n" +
+                "Causes sickened star deities to blight");
         }
 
         public override void SetDefaults()
