@@ -920,7 +920,8 @@ namespace CalValEX
                 //Bosses
                 if (npc.type == calamityMod.NPCType("DesertScourgeHead"))
                 {
-                    ChanceDropItem(npc, ModContent.ItemType<SandTooth>(), RIVChance);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<SandTooth>(), Main.expertMode, RIVChance);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<DesertMedallion>(), !Main.expertMode, 0.2f);
                 }
 
                 if (npc.type == calamityMod.NPCType("SlimeGodCore"))
@@ -939,18 +940,23 @@ namespace CalValEX
                 {
                     ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("BrimstoneSlag"),
                         !Main.expertMode, 155, 265);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<BrimmySpirit>(), !Main.expertMode, 0.15f);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<BrimmyBody>(), !Main.expertMode, 0.15f);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<FoilSpoon>(), !Main.expertMode, 0.035f);
                 }
 
                 if (npc.type == calamityMod.NPCType("Leviathan") && !NPC.AnyNPCs(calamityMod.NPCType("Siren")) &&
                     !Main.expertMode)
                 {
                     ChanceDropItem(npc, ModContent.ItemType<AquaticMonolith>(), 0.15f);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<FoilAtlantis>(), !Main.expertMode, 0.2f);
                 }
 
                 if (npc.type == calamityMod.NPCType("Siren") && !NPC.AnyNPCs(calamityMod.NPCType("Leviathan")) &&
                     !Main.expertMode)
                 {
                     ChanceDropItem(npc, ModContent.ItemType<AquaticMonolith>(), 0.15f);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<FoilAtlantis>(), !Main.expertMode, 0.2f);
                 }
 
                 if (npc.type == calamityMod.NPCType("PlaguebringerGoliath") &&
@@ -960,10 +966,16 @@ namespace CalValEX
                         155, 265);
                 }
 
+                if (npc.type == calamityMod.NPCType("AstrumDeusHeadSpectral"))
+                {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<AstBandana>(), !Main.expertMode, 0.2f);
+                }
+
                 if (npc.type == calamityMod.NPCType("Providence") && !CalValEXConfig.Instance.ConfigBossBlocks)
                 {
                     ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("ProfanedRock"), !Main.expertMode,
                         155, 265);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<ProviCrystal>(), !Main.expertMode, 0.2f);
                 }
 
                 if (npc.type == calamityMod.NPCType("Polterghast"))
@@ -985,13 +997,13 @@ namespace CalValEX
                         (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
-                if (npc.type == calamityMod.NPCType("StormWeaverHeadNaked") && Main.expertMode &&
+                if (npc.type == calamityMod.NPCType("StormWeaverHeadNaked") &&
                     CalamityWorld.DoGSecondStageCountdown <= 0)
                 {
-                    ChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), 0.007f); //0.7%
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), Main.expertMode, 0.007f); //0.7%
                     ChanceDropItem(npc, ModContent.ItemType<StormBandana>(), vanityNormalChance);
-                    ChanceDropItem(npc,
-                        Main.rand.NextBool() ? ModContent.ItemType<ShellScrap>() : ModContent.ItemType<WeaverFlesh>(),
+                    ConditionalChanceDropItem(npc,
+                        Main.rand.NextBool() ? ModContent.ItemType<ShellScrap>() : ModContent.ItemType<WeaverFlesh>(), Main.expertMode, 
                         bossPetChance);
                     if (!Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
                     {
@@ -1008,6 +1020,7 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("Bumblefuck"))
                 {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<Birbhat>(), !Main.expertMode, 0.2f);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<FluffyFeather>(),
                         (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<SparrowMeat>(),
@@ -1031,6 +1044,7 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("AstrumAureus"))
                 {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<AureusShield>(), !Main.expertMode, 0.2f);
                     if (geldonSummon)
                     {
                         ChanceDropItem(npc, ModContent.ItemType<JellyBottle>(), 1.0f);
@@ -1044,13 +1058,17 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("RavagerBody"))
                 {
-                    ChanceDropItem(npc, ModContent.ItemType<ScavaHook>(), RIVChance);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<SkullBalloon>(), !Main.expertMode, 0.2f);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<ScavaHook>(), Main.expertMode, RIVChance);
                     ConditionalDropItem(npc, ModContent.ItemType<Necrostone>(), !Main.expertMode, 155, 265);
                 }
 
                 if (npc.type == calamityMod.NPCType("Signus") && CalamityWorld.DoGSecondStageCountdown <= 0)
                 {
-                    ChanceDropItem(npc, ModContent.ItemType<SigCloth>(), bossPetChance);
+                    if (Main.expertMode)
+                    {
+                        ChanceDropItem(npc, ModContent.ItemType<SigCloth>(), bossPetChance);
+                    }
                     ChanceDropItem(npc, ModContent.ItemType<SigCape>(), vanityNormalChance);
                     ChanceDropItem(npc, ModContent.ItemType<SignusNether>(), vanityNormalChance);
                     ChanceDropItem(npc, ModContent.ItemType<SignusEmblem>(), vanityNormalChance);
@@ -1081,7 +1099,7 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("CeaselessVoid") && CalamityWorld.DoGSecondStageCountdown <= 0)
                 {
-                    ChanceDropItem(npc, ModContent.ItemType<VoidShard>(), bossPetChance);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<VoidShard>(), Main.expertMode, bossPetChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<VoidWings>(), Main.expertMode,
                         vanityNormalChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<OldVoidWings>(), Main.expertMode, 0.05f); //5%
@@ -1107,6 +1125,7 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("DevourerofGodsHeadS") && Main.expertMode)
                 {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<CosmicWormScarf>(), !Main.expertMode, 0.2f);
                     if ((bool)calamityMod.Call("DifficultyActive", "death"))
                     {
                         ChanceDropItem(npc, ModContent.ItemType<DogPetItem>(), 0.5f);
@@ -1124,6 +1143,7 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("Yharon"))
                 {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<YharonShackle>(), !Main.expertMode, 0.2f);
                     if (!Main.expertMode)
                     {
                         ConditionalDropItem(npc, ModContent.ItemType<Termipebbles>(),
