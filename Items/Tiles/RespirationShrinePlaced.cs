@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
@@ -19,7 +19,7 @@ namespace CalValEX.Items.Tiles
             TileID.Sets.HasOutlines[Type] = false;
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x4);
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 18 }; //
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16 }; //
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Respiration Shrine");
