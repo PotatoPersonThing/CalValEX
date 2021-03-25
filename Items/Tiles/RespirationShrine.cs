@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ModLoader;
 using Terraria.ID;
@@ -55,12 +55,17 @@ namespace CalValEX.Items.Tiles
             {
                 ModRecipe recipe = new ModRecipe(mod);
                 recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Lumenite"), 333);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Voidstone"), 20);
-                recipe.AddIngredient((ItemID.Ectoplasm), 10);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Rock"), 2);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Voidstone"), 200);
+                recipe.AddIngredient((ItemID.Ectoplasm), 100);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CalamitousEssence"), 100);
                 recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
                 recipe.SetResult(this);
                 recipe.AddRecipe();
+                ModRecipe recipe2 = new ModRecipe(mod);
+                recipe2.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("HalibutCannon"));
+                recipe2.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
+                recipe2.SetResult(this);
+                recipe2.AddRecipe();
             }
         }
     }
