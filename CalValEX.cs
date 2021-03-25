@@ -440,6 +440,32 @@ namespace CalValEX
             recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
             recipe.SetResult(calamityMod.ItemType("HardenedAstralSand"));
             recipe.AddRecipe();
+            //Astral Walls
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ModContent.ItemType<AstralDirtWall>());
+            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+            recipe.SetResult(calamityMod.ItemType("AstralDirtWall"));
+            recipe.AddRecipe();
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ModContent.ItemType<XenostoneWall>());
+            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+            recipe.SetResult(calamityMod.ItemType("AstralStoneWall"));
+            recipe.AddRecipe();
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ModContent.ItemType<AstralHardenedSandWall>());
+            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+            recipe.SetResult(calamityMod.ItemType("HardenedAstralSandWall"));
+            recipe.AddRecipe();
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ModContent.ItemType<AstralSandstoneWall>());
+            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+            recipe.SetResult(calamityMod.ItemType("AstralSandstoneWall"));
+            recipe.AddRecipe();
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ModContent.ItemType<AstralGrassWall>());
+            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+            recipe.SetResult(calamityMod.ItemType("AstralGrassWall"));
+            recipe.AddRecipe();
             //Astral Furniture
             recipe = new ModRecipe(this);
             recipe.AddIngredient(ModContent.ItemType<OldAstralBathtubItem>());
