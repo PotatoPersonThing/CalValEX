@@ -23,5 +23,21 @@ namespace CalValEX.Items.Tiles.Astral
             item.consumable = true;
             item.createTile = ModContent.TileType<AstralDirtPlaced>();
         }
+        public override void AddRecipes()
+        {
+            Mod CalValEX = ModLoader.GetMod("CalamityMod");
+            {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("AstralDirt"));
+                recipe.AddTile(mod.TileType("StarstruckSynthesizerPlaced"));
+                recipe.SetResult(this);
+                recipe.AddRecipe();
+                ModRecipe recipe2 = new ModRecipe(mod);
+                recipe2.AddIngredient(mod.ItemType("AstralDirtWall"), 4);
+                recipe2.AddTile(TileID.WorkBenches);
+                recipe2.SetResult(this);
+                recipe2.AddRecipe();
+            }
+        }
     }
 }

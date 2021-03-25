@@ -33,6 +33,11 @@ namespace CalValEX.Items.Tiles.Astral
                 recipe.AddTile(mod.TileType("StarstruckSynthesizerPlaced"));
                 recipe.SetResult(this);
                 recipe.AddRecipe();
+                ModRecipe recipe2 = new ModRecipe(mod);
+                recipe2.AddIngredient(mod.ItemType("AstralHardenedSandWall"), 4);
+                recipe2.AddTile(TileID.WorkBenches);
+                recipe2.SetResult(this);
+                recipe2.AddRecipe();
             }
         }
     }
