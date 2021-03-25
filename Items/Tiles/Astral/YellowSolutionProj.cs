@@ -78,6 +78,7 @@ namespace CalValEX.Items.Tiles.Astral
 					if (WorldGen.InWorld(k, l, 1) && Math.Abs(k - i) + Math.Abs(l - j) < Math.Sqrt(size * size + size * size))
 					{
 						int type = Main.tile[k, l].type;
+						int wall = Main.tile[k, l].wall;
 						Mod CalValEX = ModLoader.GetMod("CalamityMod");
 
 						//Stone
@@ -127,6 +128,41 @@ namespace CalValEX.Items.Tiles.Astral
 						{
 							Main.tile[k, l].type = TileID.Stone;
 							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (wall == ModContent.WallType<AstralDirtWallPlaced>())
+						{
+							Main.tile[k, l].wall = WallID.Dirt;
+							WorldGen.SquareWallFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (wall == ModContent.WallType<XenostoneWallPlaced>())
+						{
+							Main.tile[k, l].wall = WallID.Stone;
+							WorldGen.SquareWallFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (wall == ModContent.WallType<AstralHardenedSandWallPlaced>())
+						{
+							Main.tile[k, l].wall = WallID.HardenedSand;
+							WorldGen.SquareWallFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (wall == ModContent.WallType<AstralSandstoneWallPlaced>())
+						{
+							Main.tile[k, l].wall = WallID.Sandstone;
+							WorldGen.SquareWallFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (wall == ModContent.WallType<AstralGrassWallPlaced>())
+						{
+							Main.tile[k, l].wall = WallID.Grass;
+							WorldGen.SquareWallFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
 						}

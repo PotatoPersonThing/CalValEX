@@ -72,7 +72,8 @@ namespace CalValEX.Items.Tiles.Astral
 					if (WorldGen.InWorld(k, l, 1) && Math.Abs(k - i) + Math.Abs(l - j) < Math.Sqrt(size * size + size * size)) 
                     {
 						int type = Main.tile[k, l].type;
-                        Mod CalValEX = ModLoader.GetMod("CalamityMod");
+						int wall = Main.tile[k, l].wall;
+						Mod CalValEX = ModLoader.GetMod("CalamityMod");
 
 						//Stone
 						if (TileID.Sets.Conversion.Stone[type]) {
@@ -140,6 +141,37 @@ namespace CalValEX.Items.Tiles.Astral
 							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralSandstonePlaced>();
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
+						}
+						else if (WallID.Sets.Conversion.Sandstone[wall])
+						{
+							Main.tile[k, l].wall = (ushort)ModContent.WallType<AstralSandstoneWallPlaced>();
+							WorldGen.SquareWallFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+						}
+						else if (WallID.Sets.Conversion.HardenedSand[wall])
+						{
+							Main.tile[k, l].wall = (ushort)ModContent.WallType<AstralHardenedSandWallPlaced>();
+							WorldGen.SquareWallFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+						}
+						else if (WallID.Sets.Conversion.Grass[wall])
+						{
+							Main.tile[k, l].wall = (ushort)ModContent.WallType<AstralGrassWallPlaced>();
+							WorldGen.SquareWallFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+						}
+						else if (WallID.Sets.Conversion.Stone[wall])
+						{
+							Main.tile[k, l].wall = (ushort)ModContent.WallType<XenostoneWallPlaced>();
+							WorldGen.SquareWallFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+						}
+						else if (wall == ModLoader.GetMod("CalamityMod").WallType("AstralDirtWall"))
+						{
+							Main.tile[k, l].wall = (ushort)ModContent.WallType<AstralDirtWallPlaced>();
+							WorldGen.SquareWallFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
 						}
 						//Code for turning stuff into purity. Idk why I put this here lol
 						/*else if (type == ModContent.TileType<AstralDirtPlaced>()) 
