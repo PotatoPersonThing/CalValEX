@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
 {
@@ -15,6 +16,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
             drop = ModContent.ItemType<ChiseledBloodstone>();
             AddMapEntry(new Color(126, 94, 87));
             minPick = 275;
+            soundType = SoundID.Tink;
         }
     }
 }
