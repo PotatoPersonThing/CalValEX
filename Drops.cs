@@ -966,9 +966,13 @@ namespace CalValEX
                         155, 265);
                 }
 
-                if (npc.type == calamityMod.NPCType("AstrumDeusHeadSpectral"))
+                if (npc.type == calamityMod.NPCType("AstrumDeusHeadSpectral") && !NPC.AnyNPCs(calamityMod.NPCType("AstrumDeusHeadSpectral")))
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<AstBandana>(), !Main.expertMode, 0.2f);
+                    if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok)
+                    {
+                        DropItem(npc, ModContent.ItemType<AstrumDeusMask>());
+                    }
                 }
 
                 if (npc.type == calamityMod.NPCType("Providence") && !CalValEXConfig.Instance.ConfigBossBlocks)
