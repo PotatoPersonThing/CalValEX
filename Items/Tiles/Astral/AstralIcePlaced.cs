@@ -1,11 +1,11 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Items.Tiles.Astral
 {
-    public class AstralHardenedSandPlaced : ModTile
+    public class AstralIcePlaced : ModTile
     {
         public override void SetDefaults()
         {
@@ -13,36 +13,40 @@ namespace CalValEX.Items.Tiles.Astral
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
+            drop = ModContent.ItemType<AstralIce>();
             dustType = ModContent.DustType<AstralDust>();
-            TileID.Sets.Conversion.HardenedSand[Type] = true; 
-            drop = ModContent.ItemType<AstralHardenedSand>();
-            AddMapEntry(new Color(88, 93, 134));
-            Main.tileMerge[Type][mod.TileType("AstralDirtPlaced")] = true;
+            AddMapEntry(new Color(232, 135, 249));
+            Main.tileMerge[Type][TileID.IceBlock] = true;
+            Main.tileMerge[Type][TileID.SnowBlock] = true;
+            Main.tileMerge[Type][mod.TileType("AstralGrassPlaced")] = true;
             Main.tileMerge[Type][mod.TileType("XenostonePlaced")] = true;
             Main.tileMerge[Type][mod.TileType("AstralClayPlaced")] = true;
             Main.tileMerge[Type][mod.TileType("AstralSandPlaced")] = true;
+            Main.tileMerge[Type][mod.TileType("AstralHardenedSandPlaced")] = true;
             Main.tileMerge[Type][mod.TileType("AstralSandstonePlaced")] = true;
+            Main.tileMerge[Type][mod.TileType("AstralDirtPlaced")] = true;
             Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralClay")] = true;
+            Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralIce")] = true;
+            Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralSnow")] = true;
+            Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralSilt")] = true;
             Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralDirt")] = true;
             Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralStone")] = true;
             Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralSand")] = true;
             Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralSandstone")] = true;
             Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("HardenedAstralSand")] = true;
             Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralGrass")] = true;
-            Main.tileMerge[Type][TileID.Dirt] = true;
-            Main.tileMerge[Type][TileID.FossilOre] = true;
-            Main.tileMerge[Type][TileID.Sand] = true;
-            Main.tileMerge[Type][TileID.HardenedSand] = true;
-            Main.tileMerge[Type][TileID.Sandstone] = true;
-            Main.tileMerge[Type][mod.TileType("AstralIcePlaced")] = true;
-        }
-        public override void NumDust(int i, int j, bool fail, ref int num)
-        {
-            num = fail ? 1 : 3;
+            soundType = SoundID.Item;
+            soundStyle = 50;
+            TileID.Sets.Ices[Type] = true;
+            TileID.Sets.IcesSlush[Type] = true;
+            TileID.Sets.IcesSnow[Type] = true;
+            TileID.Sets.ChecksForMerge[Type] = true;
+            TileID.Sets.Conversion.Ice[Type] = true;
         }
 
-        public override void ChangeWaterfallStyle(ref int style) {
-			style = mod.GetWaterfallStyleSlot("AstralWaterfallStyle");
-		}
+        public override void ChangeWaterfallStyle(ref int style)
+        {
+            style = mod.GetWaterfallStyleSlot("AstralWaterfallStyle");
+        }
     }
 }

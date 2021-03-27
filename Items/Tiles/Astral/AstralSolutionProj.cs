@@ -142,6 +142,12 @@ namespace CalValEX.Items.Tiles.Astral
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}
+						else if (TileID.Sets.Conversion.Ice[type])
+						{
+							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralIcePlaced>();
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+						}
 						else if (WallID.Sets.Conversion.Sandstone[wall])
 						{
 							Main.tile[k, l].wall = (ushort)ModContent.WallType<AstralSandstoneWallPlaced>();

@@ -35,6 +35,12 @@ namespace CalValEX.Items.Tiles.Astral
 			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralSandstone")] = true;
 			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("HardenedAstralSand")] = true;
 			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralGrass")] = true;
+			Main.tileMerge[Type][TileID.Dirt] = true;
+			Main.tileMerge[Type][TileID.FossilOre] = true;
+			Main.tileMerge[Type][TileID.Sand] = true;
+			Main.tileMerge[Type][TileID.HardenedSand] = true;
+			Main.tileMerge[Type][TileID.Sandstone] = true;
+			Main.tileMerge[Type][mod.TileType("AstralIcePlaced")] = true;
 		}
 		public override void NumDust(int i, int j, bool fail, ref int num)
 		{
