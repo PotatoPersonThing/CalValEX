@@ -133,7 +133,7 @@ namespace CalValEX.Projectiles.Pets
             {
                 rainbowy = SpriteEffects.FlipHorizontally;
             }
-            spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, hei, texture.Width, frameHeight)), new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB, 89), projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), projectile.scale, rainbowy, 0f);
+            spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, hei, texture.Width, frameHeight)), new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB, 109), projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), projectile.scale, rainbowy, 0f);
         }
     }
 }
