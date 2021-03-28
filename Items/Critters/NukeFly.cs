@@ -196,5 +196,20 @@ namespace CalValEX.Items.Critters
                 }
             }
         }
+        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            Texture2D texture = ModContent.GetTexture("CalValEX/Items/Critters/NukeFly_Glow");
+            float vapeframe = 8f / (float)Main.npcFrameCount[npc.type];
+            int vapeheight = (int)((float)(npc.frame.Y / npc.frame.Height) * vapeframe) * (texture.Height / 8);
+
+            Rectangle vapesquare = new Rectangle(0, vapeheight, texture.Width, texture.Height / 8);
+
+            SpriteEffects rainbowy = SpriteEffects.None;
+            if (npc.spriteDirection == 1)
+            {
+                rainbowy = SpriteEffects.FlipHorizontally;
+            }
+            spriteBatch.Draw(texture, npc.Center - Main.screenPosition, vapesquare, npc.color , npc.rotation, Utils.Size(vapesquare) / 2f, npc.scale, rainbowy, 0f);
+        }
     }
 }
