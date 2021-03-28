@@ -33,8 +33,8 @@ namespace CalValEX.Items.Critters
             npc.catchItem = (short)ItemType<AstJRItem>();
             npc.lavaImmune = false;
             npc.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
-            aiType = NPCID.BabySlime;
-            animationType = NPCID.Pinky;
+            aiType = NPCID.Pinky;
+            animationType = NPCID.BlueSlime;
             npc.lifeMax = 100;
             npc.Opacity = 255;
             npc.value = 0;
