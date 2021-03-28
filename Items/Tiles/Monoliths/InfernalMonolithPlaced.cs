@@ -17,67 +17,68 @@ namespace CalValEX.Items.Tiles.Monoliths
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.Origin = new Point16(1, 2);
-            TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 18 };
+            TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 16 };
             TileObjectData.addTile(Type);
             AddMapEntry(new Color(75, 139, 166));
             dustType = 1;
-            animationFrameHeight = 56;
+            animationFrameHeight = 54;
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.LunarMonolith };
         }
 
+        private bool yharonon;
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
             Item.NewItem(i * 16, j * 16, 32, 48, ModContent.ItemType<InfernalMonolith>());
             CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
             modPlayer.yharonMonolith = false;
+            yharonon = false;
         }
 
         public override void NearbyEffects(int i, int j, bool closer)
         {
             Mod clamMod = ModLoader.GetMod("CalamityMod");
             CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
-            if (Main.tile[i, j].frameY >= 56)
+            if (Main.tile[i, j].frameY >= 54)
             {
                 modPlayer.yharonMonolith = true;
+                yharonon = true;
             }
             else
             {
                 modPlayer.yharonMonolith = false;
+                yharonon = false;
             }
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
-            frame = Main.tileFrame[TileID.LunarMonolith];
-            frameCounter = Main.tileFrameCounter[TileID.LunarMonolith];
-        }
-
-        public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
-        {
-            Tile tile = Main.tile[i, j];
-            Texture2D texture;
-            if (Main.canDrawColorTile(i, j))
+            if (yharonon)
             {
-                texture = Main.tileAltTexture[Type, (int)tile.color()];
+                frameCounter++;
+                if (frameCounter > 6) //make this number lower/bigger for faster/slower animation
+                {
+                    frameCounter = 0;
+                    frame++;
+                    if (frame > 4)
+                    {
+                        frame = 1;
+                    }
+                }
             }
             else
             {
-                texture = Main.tileTexture[Type];
+                frameCounter++;
+                if (frameCounter > 1) //make this number lower/bigger for faster/slower animation
+                {
+                    frameCounter = 0;
+                    frame++;
+                    if (frame > 0)
+                    {
+                        frame = 0;
+                    }
+                }
             }
-            Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
-            if (Main.drawToScreen)
-            {
-                zero = Vector2.Zero;
-            }
-            int height = tile.frameY % animationFrameHeight == 36 ? 18 : 16;
-            int animate = 0;
-            if (tile.frameY >= 56)
-            {
-                animate = Main.tileFrame[Type] * animationFrameHeight;
-            }
-            Main.spriteBatch.Draw(texture, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY + animate, 16, height), Lighting.GetColor(i, j), 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
-            return false;
         }
 
         public override bool NewRightClick(int i, int j)
@@ -118,13 +119,13 @@ namespace CalValEX.Items.Tiles.Monoliths
                     }
                     if (Main.tile[l, m].active() && Main.tile[l, m].type == Type)
                     {
-                        if (Main.tile[l, m].frameY < 56)
+                        if (Main.tile[l, m].frameY < 54)
                         {
-                            Main.tile[l, m].frameY += 56;
+                            Main.tile[l, m].frameY += 54;
                         }
                         else
                         {
-                            Main.tile[l, m].frameY -= 56;
+                            Main.tile[l, m].frameY -= 54;
                         }
                     }
                 }
