@@ -65,7 +65,7 @@ namespace CalValEX
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             // Old Astral tiles
-            astralTiles = tileCounts[TileType<AstralDirtPlaced>()] +tileCounts[TileType<AstralGrassPlaced>()] +tileCounts[TileType<XenostonePlaced>()] +tileCounts[TileType<AstralSandPlaced>()] +tileCounts[TileType<AstralHardenedSandPlaced>()] +tileCounts[TileType<AstralSandstonePlaced>()] +tileCounts[TileType<AstralClayPlaced>()];
+            astralTiles = tileCounts[TileType<AstralDirtPlaced>()] + tileCounts[TileType<AstralGrassPlaced>()] + tileCounts[TileType<XenostonePlaced>()] + tileCounts[TileType<AstralSandPlaced>()] + tileCounts[TileType<AstralHardenedSandPlaced>()] + tileCounts[TileType<AstralSandstonePlaced>()] + tileCounts[TileType<AstralClayPlaced>()] + tileCounts[TileType<AstralIcePlaced>()];
             // Hell Lab tiles
             hellTiles = tileCounts[calamityMod.TileType("Chaosplate")];
         }
