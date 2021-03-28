@@ -10,7 +10,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Astrageldon Senior");
+            DisplayName.SetDefault("Gold Astragelly Slime");
         }
 
         public override void SetDefaults()

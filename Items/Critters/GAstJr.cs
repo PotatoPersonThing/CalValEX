@@ -17,7 +17,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Astrageldon Senior");
+            DisplayName.SetDefault("Gold Astragelly Slime");
             Main.npcFrameCount[npc.type] = 2;
             Main.npcCatchable[npc.type] = true;
         }
