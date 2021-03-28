@@ -13,7 +13,7 @@ namespace CalValEX.Items.Equips.Hats
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Aestheticrest");
-            //Tooltip.SetDefault("AAAAAAAAAAAAAAAAAAA");
+            Tooltip.SetDefault("Biteki-Chan");
         }
 
         public override void SetDefaults()
