@@ -401,14 +401,28 @@ namespace CalValEX.JellyPriest
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
                         ++nextSlot;
                     }
-                    if ((bool)clamMod.Call("GetBossDowned", "astrumaureus") && Main.expertMode)
+                    if ((bool)clamMod.Call("GetBossDowned", "astrumaureus"))
                     {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralOldPurple>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
-                        ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralOldYellow>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
-                        ++nextSlot;
+                        if (!Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral && Main.expertMode)
+                        {
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralOldPurple>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
+                            ++nextSlot;
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralOldYellow>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
+                            ++nextSlot;
+                        }
+                        else if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral)
+                        {
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralOldPurple>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
+                            ++nextSlot;
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralOldYellow>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
+                            ++nextSlot;
+                        }
+                        else
+                            return;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "providence"))
                     {
@@ -689,14 +703,28 @@ namespace CalValEX.JellyPriest
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
                         ++nextSlot;
                     }
-                    if ((bool)clamMod.Call("GetBossDowned", "astrumaureus") && Main.expertMode)
+                    if ((bool)clamMod.Call("GetBossDowned", "astrumaureus"))
                     {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralOldPurple>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
-                        ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralOldYellow>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
-                        ++nextSlot;
+                        if (!Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral && Main.expertMode)
+                        {
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralOldPurple>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
+                            ++nextSlot;
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralOldYellow>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
+                            ++nextSlot;
+                        }
+                        else if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral)
+                        {
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralOldPurple>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
+                            ++nextSlot;
+                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralOldYellow>());
+                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
+                            ++nextSlot;
+                        }
+                        else
+                            return;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "providence"))
                     {
