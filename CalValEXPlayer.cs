@@ -676,6 +676,14 @@ namespace CalValEX
             {
                 caughtType = mod.ItemType("WetBubble");
             }
+            if (ZoneAstral && power > 80 && Main.rand.NextFloat() < 0.0105f)
+            {
+                    caughtType = mod.ItemType("AstralOldPurple");
+            }
+            if (ZoneAstral && power > 80 && Main.rand.NextFloat() < 0.0105f)
+            {
+                caughtType = mod.ItemType("AstralOldYellow");
+            }
         }
 
         public override void UpdateBiomes()

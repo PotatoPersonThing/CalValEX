@@ -216,16 +216,6 @@ namespace CalValEX
                         player.QuickSpawnItem(ModContent.ItemType<MonolithPot>());
                     }
 
-                    if (Main.rand.NextFloat() < 0.005f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<AstralOldPurple>());
-                    }
-
-                    if (Main.rand.NextFloat() < 0.02f)
-                    {
-                        player.QuickSpawnItem(ModContent.ItemType<AstralOldYellow>());
-                    }
-
                     if ((bool) calamityMod.Call("GetBossDowned", "signus") & (Main.rand.NextFloat() < 0.05f))
                     {
                         player.QuickSpawnItem(ModContent.ItemType<NetherTree>());
