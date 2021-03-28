@@ -122,16 +122,18 @@ namespace CalValEX
                                 player.QuickSpawnItem(ModContent.ItemType<JunkoHat>());
                                 break;
 
-                            case "Mathew Maple":
-                                player.QuickSpawnItem(ModContent.ItemType<SwearingShroom>());
-                                break;
-
                             case "Cooper":
                                 player.QuickSpawnItem(ModContent.ItemType<coopershortsword>());
                                 break;
 
                             case "Enreden":
                                 player.QuickSpawnItem(ModContent.ItemType<Enredenitem>());
+                                break;
+
+                            case "Mathew":
+                            case "Mathew Maple":
+                            case "Maple":
+                                player.QuickSpawnItem(ModContent.ItemType<DeepseaLantern>());
                                 break;
 
                             case "Emerald":
