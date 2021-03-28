@@ -400,7 +400,7 @@ namespace CalValEX
                                 player.QuickSpawnItem(ModContent.ItemType<brimtulip>());
                             }
 
-                            if (Main.rand.NextFloat() < 0.3f)
+                            if (Main.rand.NextFloat() < 0.05f)
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<FoilSpoon>());
                             }
@@ -509,6 +509,11 @@ namespace CalValEX
                             if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<SkullBalloon>());
+                            }
+
+                            if (Main.rand.NextFloat() < 0.3f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<StonePile>());
                             }
                         }
 
