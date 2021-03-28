@@ -22,6 +22,7 @@ namespace CalValEX.Items.Tiles
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16 }; //
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
+            animationFrameHeight = 72;
             name.SetDefault("Respiration Shrine");
             AddMapEntry(new Color(0, 255, 200), name);
         }
@@ -36,7 +37,7 @@ namespace CalValEX.Items.Tiles
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             if (closer)
             {
-                if (Main.tile[i, j].frameY >= 36)
+                if (Main.tile[i, j].frameY < 72)
                 {
                     Main.LocalPlayer.AddBuff(ModLoader.GetMod("CalamityMod").BuffType("AmidiasBlessing"), 20);
                 }
@@ -78,13 +79,13 @@ namespace CalValEX.Items.Tiles
                     }
                     if (Main.tile[l, m].active() && Main.tile[l, m].type == Type)
                     {
-                        if (Main.tile[l, m].frameY < 36)
+                        if (Main.tile[l, m].frameY < 72)
                         {
-                            Main.tile[l, m].frameY += 36;
+                            Main.tile[l, m].frameY += 72;
                         }
                         else
                         {
-                            Main.tile[l, m].frameY -= 36;
+                            Main.tile[l, m].frameY -= 72;
                         }
                     }
                 }
