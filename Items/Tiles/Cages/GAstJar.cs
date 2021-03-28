@@ -8,7 +8,7 @@ namespace CalValEX.Items.Tiles.Cages
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cooler Astrageldon in a Jar");
+            DisplayName.SetDefault("Gold Astral Jelly Jar");
         }
 
         public override void SetDefaults()
@@ -20,7 +20,7 @@ namespace CalValEX.Items.Tiles.Cages
             item.autoReuse = true;
             item.maxStack = 99;
             item.consumable = true;
-            item.createTile = ModContent.TileType<GAstJarPlaced>();
+            item.createTile = ModContent.TileType<AstJarPlaced>();
             item.width = 12;
             item.height = 12;
             item.rare = 0;

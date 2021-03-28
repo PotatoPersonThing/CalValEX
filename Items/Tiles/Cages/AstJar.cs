@@ -8,7 +8,7 @@ namespace CalValEX.Items.Tiles.Cages
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Astrageldon in a Jar");
+            DisplayName.SetDefault("Astral Jelly Jar");
         }
 
         public override void SetDefaults()
