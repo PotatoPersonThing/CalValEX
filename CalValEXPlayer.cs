@@ -25,7 +25,7 @@ namespace CalValEX
         private const int saveVersion = 0;
 
         public static readonly PlayerHeadLayer HeadDraedonHelmet = new PlayerHeadLayer("CalValEX", "HeadDraedonHelmet",
-            delegate(PlayerHeadDrawInfo drawInfo)
+            delegate (PlayerHeadDrawInfo drawInfo)
             {
                 Player drawPlayer = drawInfo.drawPlayer;
                 Mod mod = ModLoader.GetMod("CalValEX");
@@ -67,9 +67,9 @@ namespace CalValEX
                     return;
                 }
 
-                float drawX = (int) (drawPlayer.position.X - Main.screenPosition.X - drawPlayer.bodyFrame.Width / 2 +
+                float drawX = (int)(drawPlayer.position.X - Main.screenPosition.X - drawPlayer.bodyFrame.Width / 2 +
                                      drawPlayer.width / 2);
-                float drawY = (int) (drawPlayer.position.Y - Main.screenPosition.Y + drawPlayer.height -
+                float drawY = (int)(drawPlayer.position.Y - Main.screenPosition.Y + drawPlayer.height -
                     drawPlayer.bodyFrame.Height + 4);
 
                 Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition + drawInfo.drawOrigin;
@@ -99,7 +99,7 @@ namespace CalValEX
             });
 
         public static readonly PlayerLayer DraedonHelmet = new PlayerLayer("CalValEX", "DraedonHelmet",
-            PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
+            PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
                               {
                                   if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
                                   {
@@ -146,9 +146,9 @@ namespace CalValEX
                                       return;
                                   }
 
-                                  float drawX = (int) (drawInfo.position.X - Main.screenPosition.X -
+                                  float drawX = (int)(drawInfo.position.X - Main.screenPosition.X -
                                       drawPlayer.bodyFrame.Width / 2 + drawPlayer.width / 2);
-                                  float drawY = (int) (drawInfo.position.Y - Main.screenPosition.Y + drawPlayer.height -
+                                  float drawY = (int)(drawInfo.position.Y - Main.screenPosition.Y + drawPlayer.height -
                                       drawPlayer.bodyFrame.Height + 4);
 
                                   Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition +
@@ -157,8 +157,8 @@ namespace CalValEX
                                   Rectangle frame = drawPlayer.bodyFrame;
 
                                   Color color = Lighting.GetColor(
-                                      (int) (drawInfo.position.X + drawPlayer.width * 0.5) / 16,
-                                      (int) (drawInfo.position.Y + drawPlayer.height * 0.25) / 16,
+                                      (int)(drawInfo.position.X + drawPlayer.width * 0.5) / 16,
+                                      (int)(drawInfo.position.Y + drawPlayer.height * 0.25) / 16,
                                       Color.White);
 
                                   float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
@@ -178,7 +178,7 @@ namespace CalValEX
                               });
 
         public static readonly PlayerLayer DraedonChestplate = new PlayerLayer("CalValEX", "DraedonChestplate",
-            PlayerLayer.Body, delegate(PlayerDrawInfo drawInfo)
+            PlayerLayer.Body, delegate (PlayerDrawInfo drawInfo)
                               {
                                   if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
                                   {
@@ -225,8 +225,8 @@ namespace CalValEX
                                       return;
                                   }
 
-                                  float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
-                                  float drawY = (int) drawInfo.position.Y + drawPlayer.height -
+                                  float drawX = (int)drawInfo.position.X + drawPlayer.width / 2;
+                                  float drawY = (int)drawInfo.position.Y + drawPlayer.height -
                                       drawPlayer.bodyFrame.Height / 2 + 4f;
 
                                   Vector2 origin = drawInfo.bodyOrigin;
@@ -237,8 +237,8 @@ namespace CalValEX
                                   float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
 
                                   Color color = Lighting.GetColor(
-                                      (int) (drawInfo.position.X + drawPlayer.width * 0.5) / 16,
-                                      (int) (drawInfo.position.Y + drawPlayer.height * 0.5) / 16,
+                                      (int)(drawInfo.position.X + drawPlayer.width * 0.5) / 16,
+                                      (int)(drawInfo.position.Y + drawPlayer.height * 0.5) / 16,
                                       Color.White);
 
                                   Rectangle frame = drawPlayer.bodyFrame;
@@ -392,8 +392,9 @@ namespace CalValEX
         public bool buppy;
         public bool BMonster;
         public bool hage;
-	public bool Blok;
+        public bool Blok;
         public bool ZoneAstral;
+        public bool aesthetic;
 
         public override void Initialize()
         {
@@ -569,17 +570,18 @@ namespace CalValEX
             strongWeeb = false;
             ySquid = false;
             oSquid = false;
-	        feel = false;
+            feel = false;
             amogus = false;
             buppy = false;
             BMonster = false;
             hage = false;
-	    Blok = false;
+            Blok = false;
+            aesthetic = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
         {
-            DoCalamityBabyThings((int) damage);
+            DoCalamityBabyThings((int)damage);
         }
 
         public override void OnHitByNPC(NPC npc, int damage, bool crit)
@@ -746,8 +748,8 @@ namespace CalValEX
         public override void SyncPlayer(int toWho, int fromWho, bool newPlayer)
         {
             ModPacket packet = mod.GetPacket();
-            packet.Write((byte) CalValEX.MessageType.SyncCalValEXPlayer);
-            packet.Write((byte) player.whoAmI);
+            packet.Write((byte)CalValEX.MessageType.SyncCalValEXPlayer);
+            packet.Write((byte)player.whoAmI);
             packet.Write(SCalHits);
             packet.Send(toWho, fromWho);
         }
@@ -758,12 +760,46 @@ namespace CalValEX
             if (clone.SCalHits != SCalHits)
             {
                 var packet = mod.GetPacket();
-                packet.Write((byte) CalValEX.MessageType.SyncSCalHits);
-                packet.Write((byte) player.whoAmI);
+                packet.Write((byte)CalValEX.MessageType.SyncSCalHits);
+                packet.Write((byte)player.whoAmI);
                 packet.Write(SCalHits);
                 packet.Send();
             }
         }
+
+        public static readonly PlayerLayer Head = new PlayerLayer("CalValEX", "Head", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
+        {
+            if (drawInfo.shadow != 0f)
+            {
+                return;
+            }
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("CalValEX");
+            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
+            if (modPlayer.aesthetic)
+            {
+                /*Texture2D texture = mod.GetTexture("Items/Equips/Hats/AestheticrownEquipped");
+                int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);
+                int drawY = (int)(drawInfo.position.Y - 4f - Main.screenPosition.Y);
+                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0);
+                Main.playerDrawData.Add(data);*/
+                Texture2D texture = mod.GetTexture("Items/Equips/Hats/AestheticrownEquipped");
+                int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);
+                int drawY = (int)(drawInfo.position.Y + drawPlayer.height - 32 - Main.screenPosition.Y);
+                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
+                Main.playerDrawData.Add(data);
+            }
+            /*Texture2D texture = mod.GetTexture("Buffs/Skull");
+				int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);
+				int drawY = (int)(drawInfo.position.Y - 4f - Main.screenPosition.Y);
+				DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0);
+				Main.playerDrawData.Add(data);
+				for (int k = 0; k < 2; k++) {
+					int dust = Dust.NewDust(new Vector2(drawInfo.position.X + drawPlayer.width / 2f - texture.Width / 2f, drawInfo.position.Y - 4f - texture.Height), texture.Width, texture.Height, ModContent.DustType<Smoke>(), 0f, 0f, 0, Color.Black);
+					Main.dust[dust].velocity += drawPlayer.velocity * 0.25f;
+					Main.playerDrawDust.Add(dust);
+				}*/
+        });
 
         public override void ModifyDrawLayers(List<PlayerLayer> layers)
         {
@@ -779,6 +815,17 @@ namespace CalValEX
             {
                 layers.Insert(bodyLayer + 1, DraedonChestplate);
             }
+            /*Texture2D destailsprite = (ModContent.GetTexture("CalPaintPack/Bosses/DesertScourge/DesertScourgeTail"));
+
+                float destailframe = 1f / (float)Main.npcFrameCount[npc.type];
+                int destailheight = (int)((float)(npc.frame.Y / npc.frame.Height) * destailframe) * (destailsprite.Height / 1);
+
+                Rectangle destailsquare = new Rectangle(0, destailheight, destailsprite.Width, destailsprite.Height / 1);
+                Color destailalpha = npc.GetAlpha(drawColor);
+                spriteBatch.Draw(destailsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), destailsquare, destailalpha, npc.rotation, Utils.Size(destailsquare) / 2f, npc.scale, SpriteEffects.None, 0f);
+                return false;*/
+            Head.visible = true;
+            layers.Insert(headLayer + 1, Head);
         }
 
         public override void ModifyDrawHeadLayers(List<PlayerHeadLayer> layers)
