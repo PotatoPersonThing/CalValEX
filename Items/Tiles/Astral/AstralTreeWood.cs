@@ -21,7 +21,7 @@ namespace CalValEX.Items.Tiles.Astral
             item.useTime = 10;
             item.useStyle = ItemUseStyleID.SwingThrow;
             item.consumable = true;
-            //item.createTile = ModContent.TileType<AstralTreeWoodPlaced>();
+            item.createTile = ModContent.TileType<AstralTreeWoodPlaced>();
         }
 
         public override void AddRecipes()
