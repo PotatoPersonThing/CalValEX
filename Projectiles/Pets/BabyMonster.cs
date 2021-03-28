@@ -49,7 +49,7 @@ namespace CalValEX.Projectiles.Pets
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
-                modPlayer.hage = false;
+                modPlayer.BMonster = false;
             if (modPlayer.BMonster)
                 projectile.timeLeft = 2;
 
