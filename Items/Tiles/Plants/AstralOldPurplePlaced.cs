@@ -21,7 +21,7 @@ namespace CalValEX.Items.Tiles.Plants
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16 }; //
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Purple Astral Tree");
+            name.SetDefault("Purple Xenomonolith");
             AddMapEntry(new Color(255, 0, 251), name);
         }
 

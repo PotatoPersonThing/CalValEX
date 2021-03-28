@@ -6,7 +6,7 @@ namespace CalValEX.Items.Tiles.Plants
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Purple Astral Tree");
+            DisplayName.SetDefault("Potted Purple Xenomonolith");
         }
 
         public override void SetDefaults()
