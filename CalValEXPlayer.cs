@@ -854,5 +854,13 @@ namespace CalValEX
                 drawInfo.headGlowMaskColor = Color.Transparent;
             }
         }
+        public override Texture2D GetMapBackgroundImage()
+        {
+            if (ZoneAstral)
+            {
+                return ModContent.GetTexture("CalValEX/Backgrounds/AstralMap");
+            }
+            return null;
+        }
     }
 }
