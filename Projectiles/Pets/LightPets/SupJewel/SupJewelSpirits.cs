@@ -100,8 +100,8 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
         public override void SafeSetDefaults()
         {
-            projectile.width = 26;
-            projectile.height = 20;
+            projectile.width = 40;
+            projectile.height = 22;
             projectile.ignoreWater = true;
             facingLeft = true;
             spinRotation = false;
@@ -158,8 +158,8 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
         public override void SafeSetDefaults()
         {
-            projectile.width = 14;
-            projectile.height = 10;
+            projectile.width = 100;
+            projectile.height = 174;
             projectile.ignoreWater = true;
             facingLeft = true;
             spinRotation = false;
@@ -216,8 +216,8 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
         public override void SafeSetDefaults()
         {
-            projectile.width = 14;
-            projectile.height = 10;
+            projectile.width = 200;
+            projectile.height = 200;
             projectile.ignoreWater = true;
             facingLeft = true;
             spinRotation = false;
