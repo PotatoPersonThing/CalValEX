@@ -26,7 +26,7 @@ namespace CalValEX.Items.Tiles.Astral.Furniture
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             disableSmartCursor = true;
             ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Xenomonolith Chandelier");
+            name.SetDefault("Xenomonolith Lantern");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 
