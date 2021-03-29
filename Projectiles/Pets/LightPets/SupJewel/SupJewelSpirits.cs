@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace CalValEX.Projectiles.Pets.LightPets
+namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
 {
     public class SpookShark : FlyingPet
     {
@@ -60,8 +60,8 @@ namespace CalValEX.Projectiles.Pets.LightPets
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
-                modPlayer.darksunSpirits = false;
-            if (modPlayer.darksunSpirits)
+                modPlayer.SupJ = false;
+            if (modPlayer.SupJ)
                 projectile.timeLeft = 2;
 
             rotation += 0.1f;
@@ -80,7 +80,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         {
             Player player = Main.player[projectile.owner];
             Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/LightPets/SupJewel/EndoAura");
-            Texture2D texture2 = ModContent.GetTexture("CalValEX/Projectiles/Pets/LightPets/EndoAura_Glow");
+            Texture2D texture2 = ModContent.GetTexture("CalValEX/Projectiles/Pets/LightPets/SupJewel/EndoAura_Glow");
             Rectangle sourceRectangle = new Rectangle(0, 0, texture.Width, texture.Height);
             Vector2 origin = new Vector2(texture.Width, texture.Height);
             Lighting.AddLight(player.position, new Vector3(1.01470588f, 0.573529411f, 0.274509804f));
@@ -94,7 +94,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Phantofish");
-            Main.projFrames[projectile.type] = 4;
+            Main.projFrames[projectile.type] = 1;
             Main.projPet[projectile.type] = true;
         }
 
@@ -141,8 +141,8 @@ namespace CalValEX.Projectiles.Pets.LightPets
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
-                modPlayer.darksunSpirits = false;
-            if (modPlayer.darksunSpirits)
+                modPlayer.SupJ = false;
+            if (modPlayer.SupJ)
                 projectile.timeLeft = 2;
         }
     }
@@ -163,7 +163,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             projectile.ignoreWater = true;
             facingLeft = true;
             spinRotation = false;
-            shouldFlip = true;
+            shouldFlip = false;
             usesAura = false;
             usesGlowmask = true;
             auraUsesGlowmask = false;
@@ -173,12 +173,12 @@ namespace CalValEX.Projectiles.Pets.LightPets
         {
             distance[0] = 3400f; //teleport distance
             distance[1] = 640f; //faster speed distance
-            speed = 18f;
+            speed = 6f;
             inertia = 70f;
             animationSpeed = 12; //how fast the animation should play
             spinRotationSpeedMult = 0.2f;
-            offSetX = 16f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
-            offSetY = 0f; //how much higher from the center the pet should float
+            offSetX = 500f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
+            offSetY = 200f; //how much higher from the center the pet should float
         }
 
         public override void SetUpAuraAndGlowmask()
@@ -190,7 +190,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         {
             shouldLightUp = true;
             RGB = new Vector3(207, 117, 56);
-            intensity = 1.25f;
+            intensity = 2f;
             abyssLightLevel = 5;
         }
 
@@ -199,8 +199,8 @@ namespace CalValEX.Projectiles.Pets.LightPets
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
-                modPlayer.darksunSpirits = false;
-            if (modPlayer.darksunSpirits)
+                modPlayer.SupJ = false;
+            if (modPlayer.SupJ)
                 projectile.timeLeft = 2;
         }
     }
@@ -210,7 +210,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Endo Runes");
-            Main.projFrames[projectile.type] = 4;
+            Main.projFrames[projectile.type] = 1;
             Main.projPet[projectile.type] = true;
         }
 
@@ -257,8 +257,8 @@ namespace CalValEX.Projectiles.Pets.LightPets
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
-                modPlayer.darksunSpirits = false;
-            if (modPlayer.darksunSpirits)
+                modPlayer.SupJ = false;
+            if (modPlayer.SupJ)
                 projectile.timeLeft = 2;
         }
     }
@@ -267,8 +267,8 @@ namespace CalValEX.Projectiles.Pets.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Arctic Shield");
-            Main.projFrames[projectile.type] = 1;
+            DisplayName.SetDefault("Nightmare Fuel Wings");
+            Main.projFrames[projectile.type] = 4;
             Main.projPet[projectile.type] = true;
         }
 
@@ -279,8 +279,8 @@ namespace CalValEX.Projectiles.Pets.LightPets
             projectile.tileCollide = false;
             projectile.ignoreWater = true;
             projectile.hostile = false;
-            projectile.width = 98;
-            projectile.height = 98;
+            projectile.width = 200;
+            projectile.height = 200;
             projectile.aiStyle = -1;
             projectile.netImportant = true;
         }
@@ -305,8 +305,8 @@ namespace CalValEX.Projectiles.Pets.LightPets
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
-                modPlayer.Lightshield = false;
-            if (modPlayer.Lightshield)
+                modPlayer.SupJ = false;
+            if (modPlayer.SupJ)
                 projectile.timeLeft = 2;
 
             Vector2 idlePosition = player.Center;
@@ -315,14 +315,10 @@ namespace CalValEX.Projectiles.Pets.LightPets
             projectile.position = idlePosition;
             projectile.spriteDirection = 1;
 
-            projectile.rotation += -0.75f;
-            if (projectile.rotation > MathHelper.TwoPi)
+            projectile.frameCounter++;
+            if (projectile.frameCounter > 3)
             {
-                projectile.rotation -= MathHelper.TwoPi;
-            }
-            else if (projectile.rotation < 0)
-            {
-                projectile.rotation += MathHelper.TwoPi;
+                projectile.frameCounter = 0;
             }
 
             Mod calamityMod = ModLoader.GetMod("CalamityMod");

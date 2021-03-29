@@ -43,9 +43,8 @@ namespace CalValEX.Items.LightPets
             ModRecipe recipe = new ModRecipe(mod);
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             recipe.AddIngredient(ModContent.ItemType<VanityCore>());
-            recipe.AddIngredient(calamityMod.ItemType("AscendantSpiritEssence"), 2);
             recipe.AddIngredient(calamityMod.ItemType("DarksunFragment"), 5);
-            recipe.AddTile(calamityMod.TileType("DraedonsForge"));
+            recipe.AddTile(TileID.LunarCraftingStation);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

@@ -397,6 +397,7 @@ namespace CalValEX
         public bool aesthetic;
         public bool rockhat;
         public bool rainbow;
+        public bool SupJ;
 
         public override void Initialize()
         {
@@ -581,6 +582,7 @@ namespace CalValEX
             aesthetic = false;
             rockhat = false;
             rainbow = false;
+            SupJ = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
