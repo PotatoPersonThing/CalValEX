@@ -123,7 +123,7 @@ namespace CalValEX.Items.Critters
         public override void SetDefaults()
         {
             npc.width = 38;
-            npc.height = 36;
+            npc.height = 38;
             //npc.aiStyle = 67;
             //npc.damage = 0;
             //npc.defense = 0;
@@ -206,17 +206,14 @@ namespace CalValEX.Items.Critters
 
         public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            Texture2D viosprite2 = (ModContent.GetTexture("CalValEX/Items/Critters/Blightolemur_Glow"));
-            float vioframe2 = 5f / (float)Main.npcFrameCount[npc.type];
-            int vioheight2 = (int)((float)(npc.frame.Y / npc.frame.Height) * vioframe2) * (viosprite2.Height / 5);
-            SpriteEffects glowflip = SpriteEffects.None;
-            if (npc.spriteDirection == 1)
-            {
-                glowflip = SpriteEffects.FlipHorizontally;
-            }
+            Texture2D minibirbsprite = (ModContent.GetTexture("CalValEX/Items/Critters/Blightolemur_Glow"));
 
-            Rectangle viosquare2 = new Rectangle(0, vioheight2, viosprite2.Width, viosprite2.Height / 5);
-            spriteBatch.Draw(viosprite2, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), viosquare2, Color.White, npc.rotation, Utils.Size(viosquare2) / 2f, npc.scale, glowflip, 0f);
+            float minibirbframe = 5f / (float)Main.npcFrameCount[npc.type];
+            int minibirbheight = (int)((float)(npc.frame.Y / npc.frame.Height) * minibirbframe) * (minibirbsprite.Height / 5);
+
+            Rectangle minibirbsquare = new Rectangle(0, minibirbheight, minibirbsprite.Width, minibirbsprite.Height / 5);
+            SpriteEffects minibirbeffects = (npc.direction != -1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+            spriteBatch.Draw(minibirbsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), minibirbsquare, Color.White, npc.rotation, Utils.Size(minibirbsquare) / 2f, npc.scale, minibirbeffects, 0f);
         }
     }
 }
