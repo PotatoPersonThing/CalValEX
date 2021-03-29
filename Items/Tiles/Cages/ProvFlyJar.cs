@@ -54,7 +54,7 @@ namespace CalValEX.Items.Tiles.Cages
             {
                 ModRecipe recipe = new ModRecipe(mod);
                 recipe.AddIngredient(ModContent.ItemType<ProvFlyItem>());
-                recipe.AddIngredient((ItemID.Terrarium), 1);
+                recipe.AddIngredient((ItemID.Bottle), 1);
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
