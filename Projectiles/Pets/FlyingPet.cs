@@ -270,8 +270,13 @@ namespace CalValEX.Projectiles.Pets
             if (usesGlowmask)
             {
                 Texture2D texture = mod.GetTexture(glowmaskTexture);
-                Rectangle rectangle = new Rectangle(0, 0, texture.Width, texture.Height);
-                spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, rectangle, Color.White, projectile.rotation, projectile.Size / 2f, 1f, SpriteEffects.None, 0f);
+                int frameHeight = texture.Height / Main.projFrames[projectile.type];
+                SpriteEffects glowflip = SpriteEffects.None;
+                if (projectile.spriteDirection == -1)
+                {
+                    glowflip = SpriteEffects.FlipHorizontally;
+                }
+                spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * projectile.frame, texture.Width, frameHeight)), Color.White, projectile.rotation, projectile.Size / 2f, 1f, glowflip, 0f);
             }
             /*
             if (auraUsesGlowmask)
