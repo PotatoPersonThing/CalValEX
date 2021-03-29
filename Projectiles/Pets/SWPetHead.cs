@@ -10,9 +10,9 @@ namespace CalValEX.Projectiles.Pets
 {
     public class SWPetHead : ModProjectile
     {
-        private static readonly int Size = 48;
-        private static readonly int SegmentCount = 10;
+        private static readonly int SegmentCount = 16;
         private bool SpawnedSegments = false;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Lil' Weaver");
@@ -21,7 +21,8 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetDefaults()
         {
-            projectile.width = projectile.height = Size;
+            projectile.width = 25;
+            projectile.height = 22;
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.ignoreWater = true;
@@ -124,7 +125,6 @@ namespace CalValEX.Projectiles.Pets
                 MaxVel = 15;
             }
 
-
             if (projectile.velocity.Length() > MaxVel)
             {
                 projectile.velocity = Vector2.Normalize(projectile.velocity) * MaxVel;
@@ -154,7 +154,8 @@ namespace CalValEX.Projectiles.Pets
             }
 
             projectile.position = projectile.Center;
-            projectile.width = projectile.height = Size;
+            projectile.width = 25;
+            projectile.height = 22;
             projectile.Center = projectile.position;
         }
     }

@@ -1,6 +1,4 @@
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Buffs.Pets
@@ -14,6 +12,7 @@ namespace CalValEX.Buffs.Pets
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
+
         public override void Update(Player player, ref int buffIndex)
         {
             player.buffTime[buffIndex] = 18000;
@@ -25,5 +24,4 @@ namespace CalValEX.Buffs.Pets
             }
         }
     }
-
 }

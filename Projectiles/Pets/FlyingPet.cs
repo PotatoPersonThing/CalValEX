@@ -34,6 +34,7 @@ namespace CalValEX.Projectiles.Pets
         public Vector3 RGB;
         public float intensity;
         public int abyssLightLevel;
+
         public virtual void SafeSetDefaults()
         {
             spinRotation = false;
@@ -51,7 +52,7 @@ namespace CalValEX.Projectiles.Pets
             projectile.penetrate = -1;
             projectile.netImportant = true;
             projectile.timeLeft *= 5;
-            projectile.friendly = true; 
+            projectile.friendly = true;
             projectile.tileCollide = false;
         }
 
@@ -85,7 +86,11 @@ namespace CalValEX.Projectiles.Pets
             intensity = 1f;
             abyssLightLevel = 0;
         }
-        public virtual void SafeSendExtraAI(BinaryWriter writer) { }
+
+        public virtual void SafeSendExtraAI(BinaryWriter writer)
+        {
+        }
+
         public sealed override void SendExtraAI(BinaryWriter writer)
         {
             //local ai is not synchronized, as it normaly is local. however, since this is a pet, there is no harm using it like this
@@ -95,7 +100,10 @@ namespace CalValEX.Projectiles.Pets
             SafeSendExtraAI(writer);
         }
 
-        public virtual void SafeReceiveExtraAI(BinaryReader reader) { }
+        public virtual void SafeReceiveExtraAI(BinaryReader reader)
+        {
+        }
+
         public sealed override void ReceiveExtraAI(BinaryReader reader) //first in, first out. make sure the first thing you send is the first thing you read.
         {
             projectile.localAI[0] = reader.ReadSingle();
@@ -105,6 +113,7 @@ namespace CalValEX.Projectiles.Pets
         }
 
         private float rotation = 0f;
+
         public sealed override void AI()
         {
             SetUpFlyingPet();
@@ -151,7 +160,6 @@ namespace CalValEX.Projectiles.Pets
             else if (!facingLeft && shouldFlip)
                 projectile.spriteDirection = projectile.velocity.X > 0 ? 1 : -1;
 
-
             if (distanceToOwner > distance[0])
             {
                 projectile.position = owner.Center;
@@ -165,9 +173,7 @@ namespace CalValEX.Projectiles.Pets
                 inertia *= 0.75f;
             }
 
-            
-
-            switch((int)projectile.localAI[1])
+            switch ((int)projectile.localAI[1])
             {
                 case 0:
                     projectile.tileCollide = false;
@@ -217,17 +223,25 @@ namespace CalValEX.Projectiles.Pets
             }
         }
 
-        public virtual void SafeAI(Player player) { }
+        public virtual void SafeAI(Player player)
+        {
+        }
+
         public sealed override void PostAI()
         {
             SafeAI(Main.player[projectile.owner]);
         }
 
-        public virtual void SafePreDraw(SpriteBatch spriteBatch, Color lightColor) { }
+        public virtual void SafePreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+        }
+
         public sealed override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             if (usesAura)
             {
+                if (auraTexture == null)
+                    return true;
                 Texture2D texture = mod.GetTexture(auraTexture);
                 //Rectangle sourceRectangle = new Rectangle(0, 0, (int)(texture.Width / 2f), (int)(texture.Height / 2f));
                 Rectangle sourceRectangle = new Rectangle(0, 0, texture.Width, texture.Height);
@@ -247,14 +261,22 @@ namespace CalValEX.Projectiles.Pets
             return true;
         }
 
-        public virtual void SafePostDraw(SpriteBatch spriteBatch, Color lightColor) { }
+        public virtual void SafePostDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+        }
+
         public sealed override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             if (usesGlowmask)
             {
                 Texture2D texture = mod.GetTexture(glowmaskTexture);
-                Rectangle rectangle = new Rectangle(0, 0, texture.Width, texture.Height);
-                spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, rectangle, Color.White, projectile.rotation, projectile.Size / 2f, 1f, SpriteEffects.None, 0f);
+                int frameHeight = texture.Height / Main.projFrames[projectile.type];
+                SpriteEffects glowflip = SpriteEffects.None;
+                if (projectile.spriteDirection == -1)
+                {
+                    glowflip = SpriteEffects.FlipHorizontally;
+                }
+                spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * projectile.frame, texture.Width, frameHeight)), Color.White, projectile.rotation, projectile.Size / 2f, 1f, glowflip, 0f);
             }
             /*
             if (auraUsesGlowmask)

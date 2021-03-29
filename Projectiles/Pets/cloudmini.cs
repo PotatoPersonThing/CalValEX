@@ -1,8 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using CalValEX;
-using CalValEX.Projectiles.Pets;
+﻿using Terraria;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -43,7 +39,7 @@ namespace CalValEX.Projectiles.Pets
             inertia = 60f;
             animationSpeed = 7; //how fast the animation should play
             spinRotationSpeedMult = 0.2f; //rotation speed multiplier, keep it positive for it to spin in the right direction
-            offSetX = 90f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
+            offSetX = -204f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
             offSetY = -50f; //how much higher from the center the pet should float
         }
 
@@ -63,7 +59,7 @@ namespace CalValEX.Projectiles.Pets
              * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
              * you should make new custom behaviour with numbers higher than 0, or less than 0
              * the next few lines is an example on how to implement this
-             * 
+             *
              * switch ((int)projectile.localAI[1])
              * {
              *     case -1:
@@ -71,10 +67,10 @@ namespace CalValEX.Projectiles.Pets
              *     case 1:
              *         break;
              * }
-             * 
+             *
              * 0 is already in use.
              * 0 = flying
-             * 
+             *
              * you can still use this, changing thing inside (however it's not recomended unless you want to add custom behaviour to this)
              */
         }

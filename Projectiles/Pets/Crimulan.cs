@@ -1,9 +1,7 @@
-
 using Microsoft.Xna.Framework;
 using System.IO;
 using Terraria;
 using Terraria.ModLoader;
-using System;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -50,6 +48,7 @@ namespace CalValEX.Projectiles.Pets
         }
 
         private int jumpCounter = 0; //this will determine how long the jump frame should happen
+
         public override void AI()
         {
             //this can also be a only flying pet, go below and search for the bool onlyFlying.
@@ -61,17 +60,17 @@ namespace CalValEX.Projectiles.Pets
             }
 
             {
-            Player player = Main.player[projectile.owner];
-            CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-            if (player.dead)
-            {
-                modPlayer.cr = false;
+                Player player = Main.player[projectile.owner];
+                CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
+                if (player.dead)
+                {
+                    modPlayer.cr = false;
+                }
+                if (modPlayer.cr)
+                {
+                    projectile.timeLeft = 2;
+                }
             }
-            if (modPlayer.cr)
-            {
-                projectile.timeLeft = 2;
-            }
-        }
 
             //this is heavely uneeded. you could just replace all these values with proper values inside the code, however
             //for simplicity sake, i put them like this for you to easely manipulate each thing without needing to go into the code.

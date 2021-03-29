@@ -1,20 +1,13 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
-using CalValEX;
-using CalValEX.Items;
-using CalValEX.Items.Tiles;
-using Terraria.DataStructures;
-using System;
-using System.Collections.Generic;
 
 namespace CalValEX.Items
 {
-	public class SparrowMeat : ModItem
-	{
+    public class SparrowMeat : ModItem
+    {
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Sparrow Meat");
@@ -30,12 +23,12 @@ namespace CalValEX.Items
             item.useTime = 15;
             item.useTurn = true;
             item.UseSound = SoundID.Item2;
-            item.maxStack = 30;
             item.rare = 10;
             item.value = Item.sellPrice(0, 30, 20, 0);
             item.buffType = BuffID.WellFed; //Specify an existing buff to be applied when used.
             item.buffTime = 3600; //The amount of time the buff declared in item.buffType will last in ticks. 5400 / 60 is 90, so this buff will last 90 seconds.
         }
+
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             //rarity 12 (Turquoise) = new Color(0, 255, 200)
@@ -61,16 +54,15 @@ namespace CalValEX.Items
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
                 ModRecipe recipe = new ModRecipe(mod);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CosmicDischarge"), 1);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("HolyCollider"), 1);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("BansheeHook"), 1);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("StreamGouge"), 1);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("SoulEdge"), 1);
-				recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Valediction"), 1);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CosmicDischarge"), 1);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("HolyCollider"), 1);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("BansheeHook"), 1);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("StreamGouge"), 1);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("SoulEdge"), 1);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Valediction"), 1);
                 recipe.SetResult(this);
                 recipe.AddRecipe();
-				
-			}
+            }
         }
     }
 }

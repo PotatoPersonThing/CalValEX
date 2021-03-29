@@ -27,6 +27,7 @@ namespace CalValEX.Projectiles.Pets
         public float[] drag = new float[2];
         public bool facingLeft;
         public bool shouldFlip;
+        public bool doJumpAnim;
 
         /// <summary>
         /// Use this instead of SetDefaults, else the pet sprite won't work correctly.
@@ -40,8 +41,8 @@ namespace CalValEX.Projectiles.Pets
 
         public sealed override void SetDefaults()
         {
+            doJumpAnim = true;
             SafeSetDefaults();
-
             projectile.penetrate = -1;
             projectile.netImportant = true;
             projectile.timeLeft *= 5;
@@ -105,9 +106,9 @@ namespace CalValEX.Projectiles.Pets
         /// <summary>
         /// -1 should only be put when there is no existent min/max frame for something. if there is only one frame, do this instead:
         /// idleFrameLimits[0] = idleFrameLimits[1] = frame number;
-        /// 
+        ///
         /// actionFrameLimits[0] is minimum, where actionFrameLimits[1] is the max.
-        /// 
+        ///
         /// animationSpeed 0, 1, 2 and 3 are idle, walking, flying and jumping animation speeds respectively
         /// </summary>
         public virtual void SetFrameLimitsAndFrameSpeed()
@@ -133,7 +134,7 @@ namespace CalValEX.Projectiles.Pets
 
             spinRotationSpeedMult = 1f; //how fast it should spin
         }
-        
+
         private void SetTheseValues()
         {
             SetPetGravityAndDrag();
@@ -146,7 +147,10 @@ namespace CalValEX.Projectiles.Pets
         //all things should be synchronized. most things vanilla already does for us, however you should sync the things you
         //made yourself as they are not synchronized alone by the server.
 
-        public virtual void SafeSendExtraAI(BinaryWriter writer) { }
+        public virtual void SafeSendExtraAI(BinaryWriter writer)
+        {
+        }
+
         public sealed override void SendExtraAI(BinaryWriter writer)
         {
             writer.Write(projectile.tileCollide);
@@ -158,7 +162,10 @@ namespace CalValEX.Projectiles.Pets
             SafeSendExtraAI(writer);
         }
 
-        public virtual void SafeReceiveExtraAI(BinaryReader reader) { }
+        public virtual void SafeReceiveExtraAI(BinaryReader reader)
+        {
+        }
+
         public sealed override void ReceiveExtraAI(BinaryReader reader) //first in, first out. make sure the first thing you send is the first thing you read.
         {
             projectile.tileCollide = reader.ReadBoolean();
@@ -169,7 +176,8 @@ namespace CalValEX.Projectiles.Pets
             SafeReceiveExtraAI(reader);
         }
 
-        private int jumpCounter = 0; //this will determine how long the jump frame should happen
+        public int jumpCounter = 0; //this will determine how long the jump frame should happen
+
         public sealed override void AI()
         {
             SetTheseValues();
@@ -190,7 +198,6 @@ namespace CalValEX.Projectiles.Pets
                 projectile.spriteDirection = projectile.velocity.X > 0 ? -1 : 1;
             else if (!facingLeft && shouldFlip)
                 projectile.spriteDirection = projectile.velocity.X > 0 ? 1 : -1;
-
 
             if (distanceToOwner > distance[0])
             {
@@ -266,8 +273,12 @@ namespace CalValEX.Projectiles.Pets
                         i += (int)projectile.velocity.X;
                     }
                     //this is for jumping
-                    if (jumpCounter > -1)
-                        jumpCounter--;
+                    if (doJumpAnim)
+                    {
+                        if (jumpCounter > -1)
+                            jumpCounter--;
+                    }
+                    Collision.StepUp(ref projectile.position, ref projectile.velocity, projectile.width, projectile.height, ref projectile.stepSpeed, ref projectile.gfxOffY);
                     if (WorldGen.SolidTile(i, j))
                     {
                         int i2 = (int)(projectile.position.X + (float)(projectile.width / 2)) / 16;
@@ -331,20 +342,26 @@ namespace CalValEX.Projectiles.Pets
                     }
 
                     //jump animation
-                    if (jumpFrameLimits[0] != -1 && jumpFrameLimits[1] != -1)
+                    if (doJumpAnim)
                     {
-                        if (jumpCounter > 0)
+                        if (jumpFrameLimits[0] != -1 && jumpFrameLimits[1] != -1)
                         {
-                            if (projectile.frameCounter >= animationSpeed[3])
+                            if (jumpCounter > 0)
                             {
-                                if (projectile.frame == jumpFrameLimits[1])
+                                if (projectile.frameCounter >= animationSpeed[3])
                                 {
+                                    if (projectile.frame == jumpFrameLimits[1])
+                                    {
+                                        projectile.frameCounter = 0;
+                                    }
                                     projectile.frameCounter = 0;
+                                    projectile.frame++;
+
+                                    if (projectile.frame < jumpFrameLimits[0] || projectile.frame > jumpFrameLimits[1])
+                                    {
+                                        projectile.frame = jumpFrameLimits[0];
+                                    }
                                 }
-                                projectile.frameCounter = 0;
-                                projectile.frame++;
-                                if (projectile.frame < jumpFrameLimits[0] || projectile.frame > jumpFrameLimits[1])
-                                    projectile.frame = jumpFrameLimits[0];
                             }
                         }
                     }
@@ -410,7 +427,9 @@ namespace CalValEX.Projectiles.Pets
             }
         }
 
-        public virtual void SafeAI(Player player) { }
+        public virtual void SafeAI(Player player)
+        {
+        }
 
         public override void PostAI()
         {

@@ -10,6 +10,7 @@ namespace CalValEX.Projectiles.Pets
     public class JaredBody : ModProjectile
     {
         private static readonly int Size = 54;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Eidolon Worm");

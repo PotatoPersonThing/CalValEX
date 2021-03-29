@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+
 namespace CalValEX.Buffs.Pets
 {
     public class AquaBuff : ModBuff
