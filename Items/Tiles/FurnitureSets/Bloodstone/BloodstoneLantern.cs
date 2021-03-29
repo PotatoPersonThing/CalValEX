@@ -26,7 +26,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             disableSmartCursor = true;
             ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Bloodstone Chandelier");
+            name.SetDefault("Bloodstone Lantern");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 
