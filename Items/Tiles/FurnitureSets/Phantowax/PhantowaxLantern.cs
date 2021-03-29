@@ -27,7 +27,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             disableSmartCursor = true;
             ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Phantowax Chandelier");
+            name.SetDefault("Phantowax Lantern");
             AddMapEntry(new Color(94, 39, 93), name);
         }
 
