@@ -30,7 +30,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
             shouldFlip = true; //should the sprite flip? set true if it should, false if it shouldnt
             usesAura = false; //does this pet use an aura?
-            usesGlowmask = false; //does this pet use a glowmask?
+            usesGlowmask = true; //does this pet use a glowmask?
             auraUsesGlowmask = false; //does the aura use a glowmask?
         }
 
@@ -44,6 +44,10 @@ namespace CalValEX.Projectiles.Pets.LightPets
             spinRotationSpeedMult = 0f; //rotation speed multiplier, keep it positive for it to spin in the right direction
             offSetX = -23f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
             offSetY = -21f; //how much higher from the center the pet should float
+        }
+        public override void SetUpAuraAndGlowmask()
+        {
+            glowmaskTexture = "Projectiles/Pets/LightPets/SeerM_Glow";
         }
 
         //you usualy don't have to use the lower two unless you want the pet to have an aura, glowmask

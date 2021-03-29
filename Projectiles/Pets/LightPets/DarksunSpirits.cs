@@ -23,7 +23,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             spinRotation = false;
             shouldFlip = true;
             usesAura = false;
-            usesGlowmask = false;
+            usesGlowmask = true;
             auraUsesGlowmask = false;
         }
 
@@ -37,6 +37,10 @@ namespace CalValEX.Projectiles.Pets.LightPets
             spinRotationSpeedMult = 0.2f;
             offSetX = 48f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
             offSetY = -50f; //how much higher from the center the pet should float
+        }
+        public override void SetUpAuraAndGlowmask()
+        {
+            glowmaskTexture = "Projectiles/Pets/LightPets/DarksunSpirit_Fish_Glow";
         }
 
         public override void SetUpLight()
@@ -89,7 +93,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Darksun Small Skull");
+            DisplayName.SetDefault("Darksun Skull");
             Main.projFrames[projectile.type] = 4;
             Main.projPet[projectile.type] = true;
         }
@@ -103,7 +107,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             spinRotation = false;
             shouldFlip = true;
             usesAura = false;
-            usesGlowmask = false;
+            usesGlowmask = true;
             auraUsesGlowmask = false;
         }
 
@@ -117,6 +121,11 @@ namespace CalValEX.Projectiles.Pets.LightPets
             spinRotationSpeedMult = 0.2f;
             offSetX = 16f * Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
             offSetY = 0f; //how much higher from the center the pet should float
+        }
+
+        public override void SetUpAuraAndGlowmask()
+        {
+            glowmaskTexture = "Projectiles/Pets/LightPets/DarksunSpiritSkull_1_Glow";
         }
 
         public override void SetUpLight()
@@ -149,14 +158,14 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
         public override void SafeSetDefaults()
         {
-            projectile.width = 26;
-            projectile.height = 20;
+            projectile.width = 14;
+            projectile.height = 10;
             projectile.ignoreWater = true;
             facingLeft = true;
             spinRotation = false;
             shouldFlip = true;
             usesAura = false;
-            usesGlowmask = false;
+            usesGlowmask = true;
             auraUsesGlowmask = false;
         }
 
@@ -170,6 +179,11 @@ namespace CalValEX.Projectiles.Pets.LightPets
             spinRotationSpeedMult = 0.2f;
             offSetX = 16f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
             offSetY = 0f; //how much higher from the center the pet should float
+        }
+
+        public override void SetUpAuraAndGlowmask()
+        {
+            glowmaskTexture = "Projectiles/Pets/LightPets/DarksunSpiritSkull_2_Glow";
         }
 
         public override void SetUpLight()

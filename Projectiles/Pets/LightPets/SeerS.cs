@@ -30,7 +30,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
             shouldFlip = true; //should the sprite flip? set true if it should, false if it shouldnt
             usesAura = false; //does this pet use an aura?
-            usesGlowmask = false; //does this pet use a glowmask?
+            usesGlowmask = true; //does this pet use a glowmask?
             auraUsesGlowmask = false; //does the aura use a glowmask?
         }
 
@@ -55,6 +55,10 @@ namespace CalValEX.Projectiles.Pets.LightPets
             RGB = new Vector3(0, 251, 199); //should only go up to 255 and as low as 0
             intensity = 0.5f; //how intense the light should be. do not go over 2f or else the light will be too strong
             abyssLightLevel = 0; //for abyss light level to work shouldLightUp must be set up true.
+        }
+        public override void SetUpAuraAndGlowmask()
+        {
+            glowmaskTexture = "Projectiles/Pets/LightPets/SeerS_Glow";
         }
 
         public override void SafeAI(Player player)

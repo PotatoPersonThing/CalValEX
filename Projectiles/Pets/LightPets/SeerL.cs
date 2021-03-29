@@ -23,7 +23,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             spinRotation = false;
             shouldFlip = true;
             usesAura = false;
-            usesGlowmask = false;
+            usesGlowmask = true;
             auraUsesGlowmask = false;
         }
 
@@ -37,6 +37,10 @@ namespace CalValEX.Projectiles.Pets.LightPets
             spinRotationSpeedMult = 0f;
             offSetX = -21f * -Main.player[projectile.owner].direction;
             offSetY = -11f;
+        }
+        public override void SetUpAuraAndGlowmask()
+        {
+            glowmaskTexture = "Projectiles/Pets/LightPets/SeerL_Glow";
         }
 
         public override void SetUpLight() //for when the pet emmits light
