@@ -146,7 +146,7 @@ namespace CalValEX.Items.Critters
                 npc.buffImmune[(ModLoader.GetMod("CalamityMod").BuffType("AstralInfectionDebuff"))] = false;
             }
             banner = npc.type;
-            bannerItem = ItemType<ViolemurBanner>();
+            bannerItem = ItemType<BleamurBanner>();
             npc.HitSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/ViolemurHit");
             npc.DeathSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/ViolemurDeath");
         }
