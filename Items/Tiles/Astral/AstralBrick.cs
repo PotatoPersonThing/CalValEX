@@ -5,6 +5,10 @@ namespace CalValEX.Items.Tiles.Astral
 {
     public class AstralBrick : ModItem
     {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Blighted Astral Brick");
+        }
         public override void SetDefaults()
         {
             item.width = 16;
@@ -31,6 +35,11 @@ namespace CalValEX.Items.Tiles.Astral
                 recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
                 recipe.SetResult(this);
                 recipe.AddRecipe();
+                ModRecipe recipe2 = new ModRecipe(mod);
+                recipe2.AddIngredient(mod.ItemType("AstralBrickWall"), 4);
+                recipe2.AddTile(TileID.WorkBenches);
+                recipe2.SetResult(this);
+                recipe2.AddRecipe();
             }
         }
     }
