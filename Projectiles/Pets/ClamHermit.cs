@@ -1,98 +1,119 @@
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
-using CalValEX.Projectiles.Pets;
 
 namespace CalValEX.Projectiles.Pets
 {
     public class ClamHermit : WalkingPet
     {
+        public override string Texture => "CalValEX/Projectiles/Pets/ClamHermit_Normal";
+        private readonly string HalloweenTexture = "CalValEX/Projectiles/Pets/ClamHermit_Halloween";
+        private readonly string ChristmasTexture = "CalValEX/Projectiles/Pets/ClamHermit_Christmas";
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Clam Hermit");
-            Main.projFrames[projectile.type] = 11; //frames
+            Main.projFrames[projectile.type] = 15;
             Main.projPet[projectile.type] = true;
         }
 
-        public override void SafeSetDefaults() //SAFE SET DEFAULTS!!!
+        public override void SafeSetDefaults()
         {
             projectile.width = 20;
             projectile.height = 26;
             projectile.ignoreWater = true;
             projectile.tileCollide = true;
-            /* you don't need to set these anymore!!
-            projectile.penetrate = -1;
-            projectile.netImportant = true;
-            projectile.timeLeft *= 5;
-            projectile.friendly = true;
-            */
-            //THIS IS NEEDED
-            facingLeft = false; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
-            spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
-            shouldFlip = true; //should the sprite flip? if that's the case, set to true. else, put it to false.
+            facingLeft = false;
+            spinRotation = false;
+            shouldFlip = true;
+            drawOffsetX -= 1;
+            drawOriginOffsetY -= 4;
+            doJumpAnim = false;
         }
 
-        //these below are not needed. only use what you need to change. most of the time you only need to change SetFrameLimitsAndFrameSpeed().
-        
         public override void SetPetGravityAndDrag()
         {
-            gravity = 0.1f; //needs to be positive for the pet to be pushed down platforms plus for it to have gravity
-            drag[0] = 0.92f; //idle drag
-            drag[1] = 0.95f; //walking drag
+            gravity = 0.1f;
+            drag[0] = 0.92f;
+            drag[1] = 0.95f;
         }
 
         public override void SetPetDistances()
         {
-            distance[0] = 2400f; //teleport
-            distance[1] = 560f; //speed increase
-            distance[2] = 140f; //when to walk
-            distance[3] = 40f; //when to stop walking
-            distance[4] = 448f; //when to fly
-            distance[5] = 180f; //when to stop flying
+            distance[0] = 2400f;
+            distance[1] = 560f;
+            distance[2] = 140f;
+            distance[3] = 40f;
+            distance[4] = 448f;
+            distance[5] = 180f;
         }
 
         public override void SetPetSpeedsAndInertia()
         {
-            speed[0] = 10f; //walking speed
-            speed[1] = 12f; //flying speed
+            speed[0] = 10f;
+            speed[1] = 12f;
 
-            inertia[0] = 20f; //walking inertia
-            inertia[1] = 80f; //flight inertia
+            inertia[0] = 20f;
+            inertia[1] = 80f;
         }
 
         public override void SetJumpSpeeds()
         {
-            jumpSpeed[0] = -4f; //1 tile above pet
-            jumpSpeed[1] = -6f; //2 tiles above pet
-            jumpSpeed[2] = -8f; //5 tiles above pet
-            jumpSpeed[3] = -7f; //4 tiles above pet
-            jumpSpeed[4] = -6.5f; //any other tile number above pet
+            jumpSpeed[0] = -4f;
+            jumpSpeed[1] = -6f;
+            jumpSpeed[2] = -8f;
+            jumpSpeed[3] = -7f;
+            jumpSpeed[4] = -6.5f;
         }
-        
+
         public override void SetFrameLimitsAndFrameSpeed()
         {
-            idleFrameLimits[0] = idleFrameLimits[1] = 0; //what your min idle frame is (start of idle animation)
+            idleFrameLimits[0] = idleFrameLimits[1] = 0;
 
-            walkingFrameLimits[0] = 0; //what your min walking frame is (start of walking animation)
-            walkingFrameLimits[1] = 6; //what your max walking frame is (end of walking animation)
+            walkingFrameLimits[0] = 0;
+            walkingFrameLimits[1] = 5;
 
-            flyingFrameLimits[0] = 7; //what your min flying frame is (start of flying animation)
-            flyingFrameLimits[1] = 10; //what your max flying frame is (end of flying animation)
+            flyingFrameLimits[0] = 6;
+            flyingFrameLimits[1] = 6;
 
-            animationSpeed[0] = 30; //idle animation speed
-            animationSpeed[1] = 8; //walking animation speed
-            animationSpeed[2] = 10; //flying animation speed
-            spinRotationSpeedMult = 2.5f; //how fast it should spin
-            //put the below to -1 if you dont want a jump animation (so its just gonna continue it's walk animation
-            animationSpeed[3] = -1; //jumping animation speed
+            animationSpeed[0] = 30;
+            animationSpeed[1] = 8;
+            animationSpeed[2] = 10;
+            spinRotationSpeedMult = 2.5f;
+            animationSpeed[3] = 5;
 
-            jumpFrameLimits[0] = -1; //what your min jump frame is (start of jump animation)
-            jumpFrameLimits[1] = -1; //what your max jump frame is (end of jump animation)
+            jumpFrameLimits[0] = 7; //min frame
+            jumpFrameLimits[1] = 9; //max frame
 
-            jumpAnimationLength = -1; //how long the jump animation should stay
-
-            
+            jumpAnimationLength = 60; //how long the jump animation should stay
         }
-        
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            if (CalValEX.month == 10)
+            {
+                Texture2D texture = ModContent.GetTexture(HalloweenTexture);
+                Rectangle rectangle = new Rectangle(0, texture.Height / Main.projFrames[projectile.type] * projectile.frame, texture.Width, texture.Height / Main.projFrames[projectile.type]);
+                Vector2 position = projectile.Center - Main.screenPosition;
+                position.X += drawOffsetX;
+                position.Y += drawOriginOffsetY;
+                spriteBatch.Draw(texture, position, rectangle, lightColor, projectile.rotation, projectile.Size / 2f, 1f, (projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0f);
+                return false;
+            }
+            if (CalValEX.month == 12)
+            {
+                Texture2D texture = ModContent.GetTexture(ChristmasTexture);
+                Rectangle rectangle = new Rectangle(0, texture.Height / Main.projFrames[projectile.type] * projectile.frame, texture.Width, texture.Height / Main.projFrames[projectile.type]);
+                Vector2 position = projectile.Center - Main.screenPosition;
+                position.X += drawOffsetX;
+                position.Y += drawOriginOffsetY;
+                spriteBatch.Draw(texture, position, rectangle, lightColor, projectile.rotation, projectile.Size / 2f, 1f, (projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0f);
+                return false;
+            }
+            return true;
+        }
+
         public override void SafeAI(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
@@ -102,11 +123,61 @@ namespace CalValEX.Projectiles.Pets
             if (modPlayer.mClam)
                 projectile.timeLeft = 2;
 
+            Vector2 vectorToOwner = player.Center - projectile.Center;
+            float distanceToOwner = vectorToOwner.Length();
+
+            switch ((int)projectile.localAI[1])
+            {
+                case -1: //jaming
+                    if (distanceToOwner > distance[2])
+                    {
+                        projectile.localAI[1] = 1;
+                        ResetMe();
+                    }
+
+                    projectile.frameCounter++;
+                    if (projectile.frameCounter > 10)
+                    {
+                        projectile.frame++;
+                        projectile.frameCounter = 0;
+                        if (projectile.frame < 11 || projectile.frame > 14)
+                            projectile.frame = 11;
+                    }
+                    break;
+
+                case 0:
+                    if (projectile.ai[0]++ > 240)
+                    {
+                        projectile.localAI[1] = -1;
+                        ResetMe();
+                    }
+                    break;
+
+                case 1:
+                    if (jumpCounter > 0)
+                        jumpCounter--;
+                    if (jumpFrameLimits[0] != -1 && jumpFrameLimits[1] != -1)
+                    {
+                        if (jumpCounter > 0)
+                        {
+                            if (projectile.frameCounter >= animationSpeed[3])
+                            {
+                                projectile.frameCounter = 0;
+                                projectile.frame++;
+
+                                if (projectile.frame >= jumpFrameLimits[1])
+                                    projectile.frame = jumpFrameLimits[1] - 1;
+                            }
+                        }
+                    }
+                    break;
+            }
+
             /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.
              * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
              * you should make new custom behaviour with numbers higher than 2, or less than 0
              * the next few lines is an example on how to implement this
-             * 
+             *
              * switch ((int)projectile.localAI[1])
              * {
              *     case -1:
@@ -114,12 +185,12 @@ namespace CalValEX.Projectiles.Pets
              *     case 3:
              *         break;
              * }
-             * 
+             *
              * 0, 1 and 2 are already in use.
              * 0 = idling
              * 1 = walking
              * 2 = flying
-             * 
+             *
              * you can still use these, changing thing inside (however it's not recomended unless you want to add custom behaviour to these)
              */
         }

@@ -10,9 +10,10 @@ namespace CalValEX.Projectiles.Pets
 {
     public class DeusHead : ModProjectile
     {
-        private static readonly int Size = 30;
-        private static readonly int SegmentCount = 6;
+        private static readonly int Size = 28;
+        private static readonly int SegmentCount = 8;
         private bool SpawnedSegments = false;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Astrum Demus");
@@ -123,7 +124,6 @@ namespace CalValEX.Projectiles.Pets
             {
                 MaxVel = 15;
             }
-
 
             if (projectile.velocity.Length() > MaxVel)
             {

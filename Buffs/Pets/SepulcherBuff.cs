@@ -1,6 +1,8 @@
+using CalValEX.Projectiles.Pets;
 using Terraria;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+
 namespace CalValEX.Buffs.Pets
 {
     public class SepulcherBuff : ModBuff
@@ -16,12 +18,37 @@ namespace CalValEX.Buffs.Pets
 
         public override void Update(Player player, ref int buffIndex)
         {
+
             player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().sepet = true;
-            bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<Projectiles.Pets.SepulcherHead>()] <= 0;
+            bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<SepulcherHead>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ProjectileType<Projectiles.Pets.SepulcherHead>(), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                    0f, 0f, ProjectileType<SepulcherHead>(), 0, 0f, player.whoAmI);
+            }
+            Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
+            if (CalValEX.month != 4 && orthoceraDLC == null)
+            {
+                player.buffTime[buffIndex] = 18000;
+                player.GetModPlayer<CalValEXPlayer>().BMonster = true;
+                bool petProjectileNotSpawnedbm = player.ownedProjectileCounts[ProjectileType<BabyMonster>()] <= 0;
+                if (petProjectileNotSpawnedbm && player.whoAmI == Main.myPlayer)
+                {
+                    Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                        0f, 0f, ProjectileType<BabyMonster>(), 0, 0f, player.whoAmI);
+                }
+            }
+            if (CalValEX.month == 4 || orthoceraDLC != null)
+            {
+                player.buffTime[buffIndex] = 18000;
+                player.GetModPlayer<CalValEXPlayer>().hage = true;
+                bool petProjectileNotSpawnedbh = player.ownedProjectileCounts[ProjectileType<BabyHage>()] <= 0;
+                if (petProjectileNotSpawnedbh && player.whoAmI == Main.myPlayer)
+                {
+                    Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                        0f, 0f, ProjectileType<BabyHage>(), 0, 0f, player.whoAmI);
+                }
             }
         }
     }

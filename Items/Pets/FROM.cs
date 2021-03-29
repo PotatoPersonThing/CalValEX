@@ -1,3 +1,4 @@
+using CalValEX.Items.Critters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -31,19 +32,21 @@ namespace CalValEX.Items.Pets
                 player.AddBuff(item.buffType, 3600, true);
             }
         }
+
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (calamityMod != null)
             {
-            recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 5);
-            recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 5);
-            recipe.AddIngredient(calamityMod.ItemType("InfectedArmorPlating"), 1);
-            recipe.AddIngredient(ModContent.ItemType<BubbleGum>(), 1);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+                recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 5);
+                recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 5);
+                recipe.AddIngredient(calamityMod.ItemType("InfectedArmorPlating"), 1);
+                recipe.AddIngredient(ModContent.ItemType<BubbleGum>(), 1);
+                recipe.AddIngredient(ModContent.ItemType<PlagueFrogItem>(), 1);
+                recipe.AddTile(TileID.MythrilAnvil);
+                recipe.SetResult(this);
+                recipe.AddRecipe();
             }
         }
     }

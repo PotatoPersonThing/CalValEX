@@ -1,15 +1,6 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
-using CalValEX;
-using CalValEX.Items;
-using CalValEX.Items.Hooks;
-using Terraria.DataStructures;
-using System;
-using System.Collections.Generic;
 
 namespace CalValEX.Items.Pets
 {
@@ -17,9 +8,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ancient Choker");
+            DisplayName.SetDefault("Skull Cluster");
             Tooltip
-                .SetDefault("A strange medallion that attracts roaming flesh golems");
+                .SetDefault("Two skulls pop out of the pile with glowing eyes");
         }
 
         public override void SetDefaults()

@@ -1,11 +1,9 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
+﻿using Terraria;
 using Terraria.ModLoader;
 
 namespace CalValEX.Buffs.Pets
 {
-    public class  CrabBuff : ModBuff
+    public class CrabBuff : ModBuff
     {
         public override void SetDefaults()
         {
@@ -14,6 +12,7 @@ namespace CalValEX.Buffs.Pets
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
+
         public override void Update(Player player, ref int buffIndex)
         {
             player.buffTime[buffIndex] = 18000;
@@ -25,5 +24,4 @@ namespace CalValEX.Buffs.Pets
             }
         }
     }
-
 }

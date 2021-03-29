@@ -1,9 +1,4 @@
-﻿
-using Microsoft.Xna.Framework;
-using System.IO;
-using Terraria;
-using Terraria.ModLoader;
-using System;
+﻿using Terraria;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -12,14 +7,14 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Smol Crab");
-            Main.projFrames[projectile.type] = 7; //frames
+            Main.projFrames[projectile.type] = 6; //frames
             Main.projPet[projectile.type] = true;
         }
 
         public override void SafeSetDefaults()
         {
-            projectile.width = 32;
-            projectile.height = 26;
+            projectile.width = 36;
+            projectile.height = 40;
             projectile.penetrate = -1;
             projectile.netImportant = true;
             projectile.timeLeft *= 5;
@@ -34,7 +29,7 @@ namespace CalValEX.Projectiles.Pets
 
         //all things should be synchronized. most things vanilla already does for us, however you should sync the things you
         //made yourself as they are not synchronized alone by the server.
-       public override void SetPetGravityAndDrag()
+        public override void SetPetGravityAndDrag()
         {
             gravity = 0.1f; //needs to be positive for the pet to be pushed down platforms plus for it to have gravity
             drag[0] = 0.92f; //idle drag
@@ -68,19 +63,21 @@ namespace CalValEX.Projectiles.Pets
             jumpSpeed[3] = -7f; //4 tiles above pet
             jumpSpeed[4] = -6.5f; //any other tile number above pet
         }
-        
+
         public override void SetFrameLimitsAndFrameSpeed()
         {
-            idleFrameLimits[0] = idleFrameLimits[1] = 0; //what your min idle frame is (start of idle animation)
+            idleFrameLimits[0] = 0;
+            idleFrameLimits[1] = 3; //what your min idle frame is (start of idle animation)
 
-            walkingFrameLimits[0] = 1; //what your min walking frame is (start of walking animation)
-            walkingFrameLimits[1] = 6; //what your max walking frame is (end of walking animation)
+            walkingFrameLimits[0] = 0; //what your min walking frame is (start of walking animation)
+            walkingFrameLimits[1] = 3; //what your max walking frame is (end of walking animation)
 
-            flyingFrameLimits[0] = flyingFrameLimits[1] = 0;  
+            flyingFrameLimits[0] = 4;
+            flyingFrameLimits[1] = 5;
 
-            animationSpeed[0] = 30; //idle animation speed
+            animationSpeed[0] = 9; //idle animation speed
             animationSpeed[1] = 8; //walking animation speed
-            animationSpeed[2] = 7; //flying animation speed
+            animationSpeed[2] = 10; //flying animation speed
             spinRotationSpeedMult = 2.5f; //how fast it should spin
             //put the below to -1 if you dont want a jump animation (so its just gonna continue it's walk animation
             animationSpeed[3] = -1; //jumping animation speed
@@ -89,10 +86,8 @@ namespace CalValEX.Projectiles.Pets
             jumpFrameLimits[1] = -1; //what your max jump frame is (end of jump animation)
 
             jumpAnimationLength = -1; //how long the jump animation should stay
-
-            
         }
-        
+
         public override void SafeAI(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
@@ -106,7 +101,7 @@ namespace CalValEX.Projectiles.Pets
              * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
              * you should make new custom behaviour with numbers higher than 2, or less than 0
              * the next few lines is an example on how to implement this
-             * 
+             *
              * switch ((int)projectile.localAI[1])
              * {
              *     case -1:
@@ -114,12 +109,12 @@ namespace CalValEX.Projectiles.Pets
              *     case 3:
              *         break;
              * }
-             * 
+             *
              * 0, 1 and 2 are already in use.
              * 0 = idling
              * 1 = walking
              * 2 = flying
-             * 
+             *
              * you can still use these, changing thing inside (however it's not recomended unless you want to add custom behaviour to these)
              */
         }

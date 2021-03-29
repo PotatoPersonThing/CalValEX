@@ -1,9 +1,4 @@
-
-using Microsoft.Xna.Framework;
-using System.IO;
 using Terraria;
-using Terraria.ModLoader;
-using System;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -35,7 +30,7 @@ namespace CalValEX.Projectiles.Pets
 
         //all things should be synchronized. most things vanilla already does for us, however you should sync the things you
         //made yourself as they are not synchronized alone by the server.
-       public override void SetPetGravityAndDrag()
+        public override void SetPetGravityAndDrag()
         {
             gravity = 0.1f; //needs to be positive for the pet to be pushed down platforms plus for it to have gravity
             drag[0] = 0.92f; //idle drag
@@ -69,7 +64,7 @@ namespace CalValEX.Projectiles.Pets
             jumpSpeed[3] = -7f; //4 tiles above pet
             jumpSpeed[4] = -6.5f; //any other tile number above pet
         }
-        
+
         public override void SetFrameLimitsAndFrameSpeed()
         {
             idleFrameLimits[0] = 8;
@@ -92,10 +87,8 @@ namespace CalValEX.Projectiles.Pets
             jumpFrameLimits[1] = -1; //what your max jump frame is (end of jump animation)
 
             jumpAnimationLength = -1; //how long the jump animation should stay
-
-            
         }
-        
+
         public override void SafeAI(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
@@ -109,7 +102,7 @@ namespace CalValEX.Projectiles.Pets
              * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
              * you should make new custom behaviour with numbers higher than 2, or less than 0
              * the next few lines is an example on how to implement this
-             * 
+             *
              * switch ((int)projectile.localAI[1])
              * {
              *     case -1:
@@ -117,12 +110,12 @@ namespace CalValEX.Projectiles.Pets
              *     case 3:
              *         break;
              * }
-             * 
+             *
              * 0, 1 and 2 are already in use.
              * 0 = idling
              * 1 = walking
              * 2 = flying
-             * 
+             *
              * you can still use these, changing thing inside (however it's not recomended unless you want to add custom behaviour to these)
              */
         }

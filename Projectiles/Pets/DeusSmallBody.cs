@@ -9,7 +9,8 @@ namespace CalValEX.Projectiles.Pets
 {
     public class DeusSmallBody : ModProjectile
     {
-        private static readonly int Size = 18;
+        private static readonly int Size = 16;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Astrum Demus");
@@ -43,7 +44,7 @@ namespace CalValEX.Projectiles.Pets
             float segmentAheadRotation;
 
             // This, and Size will likely need to be changed based on the sprite size of the segment
-            float travelFactor = 32f;
+            float travelFactor = 12f;
 
             Vector2 segmentAheadCenter;
             int segmentAhead = (int)projectile.ai[0];

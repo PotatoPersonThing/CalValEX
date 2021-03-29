@@ -1,10 +1,9 @@
-﻿using Terraria.ID;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System;
 using System.IO;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -46,6 +45,7 @@ namespace CalValEX.Projectiles.Pets
         }
 
         private bool ownerIsFar = false;
+
         public override void AI()
         {
             Player owner = Main.player[projectile.owner];
@@ -113,15 +113,15 @@ namespace CalValEX.Projectiles.Pets
                     int i = (int)(projectile.position.X + (float)(projectile.width / 2)) / 16;
                     int j = (int)(projectile.position.Y + (float)(projectile.height / 2)) / 16;
 
-                    if ((WorldGen.SolidTile(i, j + 1) || Main.tile[i, j + 1].type == TileID.Platforms) && !ownerIsFar)
+                    if ((WorldGen.SolidTile(i, j + 1) || Main.tile[i, j + 1].type == TileID.Platforms || Main.tile[i, j + 1].slope() > 0) && !ownerIsFar)
                     {
                         projectile.velocity.Y = -4.5f;
                     }
                     break;
+
                 case 1: //fly
                     projectile.tileCollide = false;
                     projectile.frame = 2;
-
 
                     if (distanceToOwner <= 240f && Collision.CanHit(projectile.position, projectile.width, projectile.height, owner.position, owner.width, owner.height))
                     {
