@@ -52,9 +52,18 @@ namespace CalValEX.Items.Tiles.Statues
             // If you want to make an NPC spawning statue, see below.
             int npcIndex = -1;
             // 30 is the time before it can be used again. NPC.MechSpawn checks nearby for other spawns to prevent too many spawns. 3 in immediate vicinity, 6 nearby, 10 in world.
-            if (Wiring.CheckMech(x, y, 30) && NPC.MechSpawn((float)spawnX, (float)spawnY, (ModContent.NPCType<Violemur>())))
+            int critter;
+            if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral)
             {
-                npcIndex = NPC.NewNPC(spawnX, spawnY - 12, (ModContent.NPCType<Violemur>()));
+                critter = ModContent.NPCType<Blightolemur>();
+            }
+            else
+            {
+                critter = ModContent.NPCType<Violemur>();
+            }
+            if (Wiring.CheckMech(x, y, 30) && NPC.MechSpawn((float)spawnX, (float)spawnY, (critter)))
+            {
+                npcIndex = NPC.NewNPC(spawnX, spawnY - 12, (critter));
             }
             if (npcIndex >= 0)
             {
