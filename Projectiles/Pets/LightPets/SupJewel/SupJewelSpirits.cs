@@ -22,7 +22,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
             projectile.ignoreWater = true;
             projectile.hostile = false;
             projectile.width = 154;
-            projectile.height = 174;
+            projectile.height = 184;
             projectile.netImportant = true;
             projectile.scale = 1f;
         }
@@ -32,18 +32,13 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
             return false;
         }
 
-	/*
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+	    public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            Player player = Main.player[projectile.owner];
-            Lighting.AddLight(projectile.Center, new Vector3(0.541176471f, 1f, 1f));
             Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/LightPets/SupJewel/NWings_Glow");
-            Rectangle sourceRectangle = new Rectangle(0, 0, texture.Width, texture.Height);
-            Vector2 origin = new Vector2(texture.Width, texture.Height);
-            spriteBatch.Draw(texture, player.Center - Main.screenPosition, sourceRectangle, Color.White, projectile.rotation, origin / 2f, projectile.scale, SpriteEffects.None, 0);
-            return true;
+            int frameHeight = texture.Height / Main.projFrames[projectile.type];
+            int hei = frameHeight * projectile.frame;
+            spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, hei, texture.Width, frameHeight)), Color.White, projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), projectile.scale, SpriteEffects.None, 0f);
         }
-	*/
 
         public override void AI()
         {
