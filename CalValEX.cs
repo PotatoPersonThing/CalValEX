@@ -471,6 +471,11 @@ namespace CalValEX
             recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
             recipe.SetResult(calamityMod.ItemType("AstralGrassWall"));
             recipe.AddRecipe();
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ModContent.ItemType<AstralIceWall>());
+            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+            recipe.SetResult(calamityMod.ItemType("AstralIceWall"));
+            recipe.AddRecipe();
             //Astral Furniture
             recipe = new ModRecipe(this);
             recipe.AddIngredient(ModContent.ItemType<OldAstralBathtubItem>());
