@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
@@ -32,6 +32,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
             return false;
         }
 
+	/*
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             Player player = Main.player[projectile.owner];
@@ -42,6 +43,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
             spriteBatch.Draw(texture, player.Center - Main.screenPosition, sourceRectangle, Color.White, projectile.rotation, origin / 2f, projectile.scale, SpriteEffects.None, 0);
             return true;
         }
+	*/
 
         public override void AI()
         {
