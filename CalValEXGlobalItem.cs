@@ -46,6 +46,13 @@ namespace CalValEX
                 item.consumable = true;
                 item.createTile = ModContent.TileType<BloodstonePlaced>();
             }
+            else if (item.type == calamityMod.ItemType("ElementalBlaster"))
+            {
+                if (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7))
+                {
+                    item.damage = 67;
+                }
+            }
         }
 
         public override void RightClick(Item item, Player player)

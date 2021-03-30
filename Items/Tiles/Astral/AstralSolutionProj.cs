@@ -172,9 +172,22 @@ namespace CalValEX.Items.Tiles.Astral
 							WorldGen.SquareWallFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}
+						else if (wall == WallID.IceUnsafe)
+						{
+							Main.tile[k, l].wall = (ushort)ModContent.WallType<AstralIceWallPlaced>();
+							WorldGen.SquareWallFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+						}
 						else if (wall == ModLoader.GetMod("CalamityMod").WallType("AstralDirtWall"))
 						{
 							Main.tile[k, l].wall = (ushort)ModContent.WallType<AstralDirtWallPlaced>();
+							WorldGen.SquareWallFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (wall == ModLoader.GetMod("CalamityMod").WallType("AstralIceWall"))
+						{
+							Main.tile[k, l].wall = (ushort)ModContent.WallType<AstralIceWallPlaced>();
 							WorldGen.SquareWallFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
