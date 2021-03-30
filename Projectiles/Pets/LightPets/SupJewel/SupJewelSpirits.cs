@@ -21,8 +21,8 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
             projectile.tileCollide = false;
             projectile.ignoreWater = true;
             projectile.hostile = false;
-            projectile.width = 200;
-            projectile.height = 202;
+            projectile.width = 154;
+            projectile.height = 174;
             projectile.netImportant = true;
             projectile.scale = 1f;
         }
@@ -34,10 +34,13 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
+            Player player = Main.player[projectile.owner];
             Lighting.AddLight(projectile.Center, new Vector3(0.541176471f, 1f, 1f));
-            Texture2D texture = Main.projectileTexture[projectile.type];
-            spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, null, projectile.GetAlpha(lightColor), projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.None, 0f);
-            return false;
+            Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/LightPets/SupJewel/NWings_Glow");
+            Rectangle sourceRectangle = new Rectangle(0, 0, texture.Width, texture.Height);
+            Vector2 origin = new Vector2(texture.Width, texture.Height);
+            spriteBatch.Draw(texture, player.Center - Main.screenPosition, sourceRectangle, Color.White, projectile.rotation, origin / 2f, projectile.scale, SpriteEffects.None, 0);
+            return true;
         }
 
         public override void AI()
@@ -54,11 +57,12 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
             Vector2 idlePosition = player.Center;
             idlePosition.Y -= projectile.height / 2;
             idlePosition.X -= projectile.width / 2;
+
             projectile.position = idlePosition;
             projectile.spriteDirection = 1;
 
             projectile.frameCounter++;
-            if (projectile.frameCounter > 6)
+            if (projectile.frameCounter > 22)
             {
                 projectile.frame++;
                 projectile.frameCounter = 0;
