@@ -21,8 +21,8 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
             projectile.tileCollide = false;
             projectile.ignoreWater = true;
             projectile.hostile = false;
-            projectile.width = 154;
-            projectile.height = 200;
+            projectile.width = 200;
+            projectile.height = 202;
             projectile.netImportant = true;
             projectile.scale = 1f;
         }
