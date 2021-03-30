@@ -53,6 +53,135 @@ namespace CalValEX
                     item.damage = 67;
                 }
             }
+            Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
+            if (item.type == calamityMod.ItemType("CosmicDischarge"))
+                {
+                    if (orthoceraDLC != null || (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7)))
+                    {
+                        item.damage = item.damage + ((bool)calamityMod.Call("GetBossDowned", "yharon") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") ? 1 : 0);
+                    }
+                }
+                else if (item.type == calamityMod.ItemType("ColdDivinity"))
+                {
+                    if (orthoceraDLC != null || (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7)))
+                    {
+                        item.damage = item.damage + (NPC.downedMechBoss1 ? 0 : 1)
+                            + (NPC.downedMechBoss2 ? 0 : 1) + (NPC.downedMechBoss3 ? 0 : 1)
+                            + (NPC.downedPlantBoss ? 0 : 1) + (NPC.downedGolemBoss ? 0 : 1)
+                            + (NPC.downedMoonlord ? 0 : 1)
+                            + ((bool)calamityMod.Call("GetBossDowned", "providence") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "devourerofgods") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "yharon") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") ? 1 : 0);
+                    }
+                }
+                else if (item.type == calamityMod.ItemType("SeasSearing"))
+                {
+                    if (orthoceraDLC != null || (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7)))
+                    {
+                        item.damage = item.damage + (NPC.downedMechBoss1 ? 0 : 1)
+                            + (NPC.downedMechBoss2 ? 0 : 1) + (NPC.downedMechBoss3 ? 0 : 1)
+                            + (NPC.downedPlantBoss ? 0 : 1) + (NPC.downedGolemBoss ? 0 : 1)
+                            + (NPC.downedMoonlord ? 0 : 1)
+                            + ((bool)calamityMod.Call("GetBossDowned", "providence") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "devourerofgods") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "yharon") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") ? 1 : 0);
+                    }
+                }
+                else if (item.type == calamityMod.ItemType("SHPC"))
+                {
+                    if (orthoceraDLC != null || (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7)))
+                    {
+                        item.damage = item.damage + (NPC.downedMechBoss1 ? 0 : 1)
+                            + (NPC.downedMechBoss2 ? 0 : 1) + (NPC.downedMechBoss3 ? 0 : 1)
+                            + (NPC.downedPlantBoss ? 0 : 1) + (NPC.downedGolemBoss ? 0 : 1)
+                            + (NPC.downedMoonlord ? 0 : 1)
+                            + ((bool)calamityMod.Call("GetBossDowned", "providence") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "devourerofgods") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "yharon") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") ? 1 : 0);
+                    }
+                }
+                else if (item.type == calamityMod.ItemType("BlossomFlux"))
+                {
+                    if (orthoceraDLC != null || (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7)))
+                    {
+                        item.damage = item.damage + (NPC.downedGolemBoss ? 0 : 1)
+                            + (NPC.downedMoonlord ? 0 : 1)
+                            + ((bool)calamityMod.Call("GetBossDowned", "providence") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "devourerofgods") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "yharon") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") ? 1 : 0);
+                    }
+                }
+                else if (item.type == calamityMod.ItemType("Malachite"))
+                {
+                    if (orthoceraDLC != null || (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7)))
+                    {
+                        item.damage = item.damage + (NPC.downedMoonlord ? 0 : 1)
+                            + ((bool)calamityMod.Call("GetBossDowned", "providence") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "devourerofgods") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "yharon") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") ? 1 : 0);
+                    }
+                }
+                else if (item.type == calamityMod.ItemType("AegisBlade"))
+                {
+                    if (orthoceraDLC != null || (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7)))
+                    {
+                        item.damage = item.damage + (NPC.downedMoonlord ? 0 : 1)
+                            + ((bool)calamityMod.Call("GetBossDowned", "providence") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "devourerofgods") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "yharon") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") ? 1 : 0);
+                    }
+                }
+                else if (item.type == calamityMod.ItemType("BrinyBaron"))
+                {
+                    if (orthoceraDLC != null || (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7)))
+                    {
+                        item.damage = item.damage + (NPC.downedMoonlord ? 0 : 1)
+                            + ((bool)calamityMod.Call("GetBossDowned", "providence") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "devourerofgods") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "yharon") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") ? 1 : 0);
+                    }
+                }
+                else if (item.type == calamityMod.ItemType("Vesuvius"))
+                {
+                    if (orthoceraDLC != null || (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7)))
+                    {
+                        item.damage = item.damage + (NPC.downedMoonlord ? 0 : 1)
+                            + ((bool)calamityMod.Call("GetBossDowned", "providence") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "devourerofgods") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "yharon") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") ? 1 : 0);
+                    }
+                }
+                else if (item.type == calamityMod.ItemType("PristineFury"))
+                {
+                    if (orthoceraDLC != null || (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7)))
+                    {
+                        item.damage = item.damage + ((bool)calamityMod.Call("GetBossDowned", "devourerofgods") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "yharon") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") ? 1 : 0);
+                    }
+                }
+                else if (item.type == calamityMod.ItemType("LeonidProgenitor"))
+                {
+                    if (orthoceraDLC != null || (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7)))
+                    {
+                        item.damage = item.damage + (NPC.downedGolemBoss ? 0 : 1)
+                            + (NPC.downedMoonlord ? 0 : 1)
+                            + ((bool)calamityMod.Call("GetBossDowned", "providence") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "devourerofgods") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "yharon") ? 1 : 0)
+                            + ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") ? 1 : 0);
+                    }
+                }
+            
         }
 
         public override void RightClick(Item item, Player player)
