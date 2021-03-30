@@ -106,7 +106,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
 
         public override void SetUpFlyingPet()
         {
-            distance[0] = 3400f; //teleport distance
+            distance[0] = 1600f; //teleport distance
             distance[1] = 640f; //faster speed distance
             speed = 4;
             inertia = 70f;
