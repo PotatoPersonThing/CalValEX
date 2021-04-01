@@ -11,7 +11,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bejeweled Spike");
-            Tooltip.SetDefault("'A blend of every flavor combined into one package'\n" + "This item is unfinished");
+            Tooltip.SetDefault("'A blend of every flavor combined into one package'");
         }
 
         public override void SetDefaults()
