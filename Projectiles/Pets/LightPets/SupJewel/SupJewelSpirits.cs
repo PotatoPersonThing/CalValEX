@@ -176,7 +176,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
         public override void SetUpLight()
         {
             shouldLightUp = true;
-            RGB = new Vector3(207, 117, 56);
+            RGB = new Vector3(200, 111, 145);
             intensity = 1.25f;
             abyssLightLevel = 5;
         }
@@ -261,7 +261,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
         public override void SetUpLight()
         {
             shouldLightUp = true;
-            RGB = new Vector3(207, 117, 56);
+            RGB = new Vector3(200, 111, 145);
             intensity = 1.25f;
             abyssLightLevel = 5;
         }
@@ -319,7 +319,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
         public override void SetUpLight()
         {
             shouldLightUp = true;
-            RGB = new Vector3(207, 117, 56);
+            RGB = new Vector3(171, 255, 231);
             intensity = 1.25f;
             abyssLightLevel = 5;
         }
