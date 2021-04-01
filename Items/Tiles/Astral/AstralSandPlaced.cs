@@ -41,6 +41,7 @@ namespace CalValEX.Items.Tiles.Astral
 			Main.tileMerge[Type][TileID.HardenedSand] = true;
 			Main.tileMerge[Type][TileID.Sandstone] = true;
 			Main.tileMerge[Type][mod.TileType("AstralIcePlaced")] = true;
+			SetModPalmTree(new AstralPalm());
 		}
 		public override void NumDust(int i, int j, bool fail, ref int num)
 		{
@@ -102,6 +103,11 @@ namespace CalValEX.Items.Tiles.Astral
 
         public override void ChangeWaterfallStyle(ref int style) {
 			style = mod.GetWaterfallStyleSlot("AstralWaterfallStyle");
+		}
+		public override int SaplingGrowthType(ref int style)
+		{
+			style = 1;
+			return ModContent.TileType<AstralPalmSapling>();
 		}
 	}
 }
