@@ -14,9 +14,6 @@ using Terraria.DataStructures;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static CalValEX.CalValEXWorld;
-using Terraria.GameContent.Skies;
-using CalamityMod.CalPlayer;
 
 namespace CalValEX
 {
@@ -31,70 +28,29 @@ namespace CalValEX
                 Mod mod = ModLoader.GetMod("CalValEX");
 
                 if (drawPlayer.head != mod.GetEquipSlot("DraedonHelmet", EquipType.Head))
-                {
                     return;
-                }
 
-                Texture2D texture = DraedonHelmetTextureCache.none;
-                //ugly but i dont care
-                if (drawPlayer.HeldItem.magic)
-                {
-                    texture = DraedonHelmetTextureCache.magic;
-                }
+                Texture2D texture = drawPlayer.HeldItem.magic ? DraedonHelmetTextureCache.DraedonMagicHelm
+                    : drawPlayer.HeldItem.summon ? DraedonHelmetTextureCache.DraedonSummonerHelm
+                    : drawPlayer.HeldItem.ranged ? DraedonHelmetTextureCache.DraedonRangerHelm
+                    : drawPlayer.HeldItem.thrown ? DraedonHelmetTextureCache.DraedonRogueHelm
+                    : drawPlayer.HeldItem.melee ? DraedonHelmetTextureCache.DraedonMeleeHelm
+                    : DraedonHelmetTextureCache.DraedonDefaultHelm;
 
-                if (drawPlayer.HeldItem.summon)
-                {
-                    texture = DraedonHelmetTextureCache.summoner;
-                }
-
-                if (drawPlayer.HeldItem.ranged)
-                {
-                    texture = DraedonHelmetTextureCache.ranger;
-                }
-
-                if (drawPlayer.HeldItem.thrown)
-                {
-                    texture = DraedonHelmetTextureCache.rogue;
-                }
-
-                if (drawPlayer.HeldItem.melee)
-                {
-                    texture = DraedonHelmetTextureCache.melee;
-                }
-
-                if (texture == DraedonHelmetTextureCache.none)
-                {
+                if (texture == DraedonHelmetTextureCache.DraedonDefaultHelm)
                     return;
-                }
 
-                float drawX = (int)(drawPlayer.position.X - Main.screenPosition.X - drawPlayer.bodyFrame.Width / 2 +
-                                     drawPlayer.width / 2);
+                float drawX = (int)(drawPlayer.position.X - Main.screenPosition.X - drawPlayer.bodyFrame.Width / 2f + drawPlayer.width / 2f);
                 float drawY = (int)(drawPlayer.position.Y - Main.screenPosition.Y + drawPlayer.height -
                     drawPlayer.bodyFrame.Height + 4);
-
                 Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition + drawInfo.drawOrigin;
-
-                Rectangle frame = drawPlayer.bodyFrame;
-
-                Color color = Color.White;
-
                 float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
-
-                float rotation = drawPlayer.headRotation;
-
-                Vector2 origin = drawInfo.drawOrigin;
-
                 float scale = drawInfo.scale;
-
-                SpriteEffects spriteEffects = drawInfo.spriteEffects;
-
-                DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, scale,
-                    spriteEffects, 0);
+                DrawData drawData = new DrawData(texture, position, drawPlayer.bodyFrame, Color.White * alpha,
+                    drawPlayer.headRotation, drawInfo.drawOrigin, scale, drawInfo.spriteEffects, 0);
 
                 GameShaders.Armor.Apply(drawInfo.armorShader, drawPlayer, drawData);
-
                 drawData.Draw(Main.spriteBatch);
-
                 Main.pixelShader.CurrentTechnique.Passes[0].Apply();
             });
 
@@ -102,78 +58,41 @@ namespace CalValEX
             PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
                               {
                                   if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
-                                  {
                                       return;
-                                  }
 
                                   Player drawPlayer = drawInfo.drawPlayer;
                                   Mod mod = ModLoader.GetMod("CalValEX");
 
                                   if (drawPlayer.head != mod.GetEquipSlot("DraedonHelmet", EquipType.Head))
-                                  {
                                       return;
-                                  }
 
-                                  Texture2D texture = DraedonHelmetTextureCache.none;
-                                  //ugly but i dont care
-                                  if (drawPlayer.HeldItem.magic)
-                                  {
-                                      texture = DraedonHelmetTextureCache.magic;
-                                  }
+                                  Texture2D texture = drawPlayer.HeldItem.magic ? DraedonHelmetTextureCache.DraedonMagicHelm
+                                      : drawPlayer.HeldItem.summon ? DraedonHelmetTextureCache.DraedonSummonerHelm
+                                      : drawPlayer.HeldItem.ranged ? DraedonHelmetTextureCache.DraedonRangerHelm
+                                      : drawPlayer.HeldItem.thrown ? DraedonHelmetTextureCache.DraedonRogueHelm
+                                      : drawPlayer.HeldItem.melee ? DraedonHelmetTextureCache.DraedonMeleeHelm
+                                      : DraedonHelmetTextureCache.DraedonDefaultHelm;
 
-                                  if (drawPlayer.HeldItem.summon)
-                                  {
-                                      texture = DraedonHelmetTextureCache.summoner;
-                                  }
-
-                                  if (drawPlayer.HeldItem.ranged)
-                                  {
-                                      texture = DraedonHelmetTextureCache.ranger;
-                                  }
-
-                                  if (drawPlayer.HeldItem.thrown)
-                                  {
-                                      texture = DraedonHelmetTextureCache.rogue;
-                                  }
-
-                                  if (drawPlayer.HeldItem.melee)
-                                  {
-                                      texture = DraedonHelmetTextureCache.melee;
-                                  }
-
-                                  if (texture == DraedonHelmetTextureCache.none)
-                                  {
+                                  if (texture == DraedonHelmetTextureCache.DraedonDefaultHelm)
                                       return;
-                                  }
 
                                   float drawX = (int)(drawInfo.position.X - Main.screenPosition.X -
-                                      drawPlayer.bodyFrame.Width / 2 + drawPlayer.width / 2);
+                                      drawPlayer.bodyFrame.Width / 2f + drawPlayer.width / 2f);
                                   float drawY = (int)(drawInfo.position.Y - Main.screenPosition.Y + drawPlayer.height -
                                       drawPlayer.bodyFrame.Height + 4);
 
-                                  Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition +
-                                                     drawInfo.headOrigin;
-
-                                  Rectangle frame = drawPlayer.bodyFrame;
-
+                                  Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition + drawInfo.headOrigin;
                                   Color color = Lighting.GetColor(
                                       (int)(drawInfo.position.X + drawPlayer.width * 0.5) / 16,
                                       (int)(drawInfo.position.Y + drawPlayer.height * 0.25) / 16,
                                       Color.White);
-
                                   float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
-
-                                  float rotation = drawPlayer.headRotation;
-
                                   Vector2 origin = drawInfo.headOrigin;
-
-                                  SpriteEffects spriteEffects = drawInfo.spriteEffects;
-
-                                  DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation,
-                                      origin, 1f, spriteEffects, 0);
-
-                                  drawData.shader = drawInfo.headArmorShader;
-
+                                  DrawData drawData = new DrawData(texture, position, drawPlayer.bodyFrame,
+                                      color * alpha, drawPlayer.headRotation, origin, 1f, drawInfo.spriteEffects, 0)
+                                  {
+                                      shader = drawInfo.headArmorShader
+                                  };
                                   Main.playerDrawData.Add(drawData);
                               });
 
@@ -181,76 +100,41 @@ namespace CalValEX
             PlayerLayer.Body, delegate (PlayerDrawInfo drawInfo)
                               {
                                   if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
-                                  {
                                       return;
-                                  }
 
                                   Player drawPlayer = drawInfo.drawPlayer;
                                   Mod mod = ModLoader.GetMod("CalValEX");
 
                                   if (drawPlayer.body != mod.GetEquipSlot("DraedonChestplate", EquipType.Body))
-                                  {
                                       return;
-                                  }
 
-                                  Texture2D texture = DraedonHelmetTextureCache.none;
-                                  //ugly but i dont care
-                                  if (drawPlayer.HeldItem.magic)
-                                  {
-                                      texture = DraedonChestplateCache.magic;
-                                  }
+                                  Texture2D texture = drawPlayer.HeldItem.magic ? DraedonChestplateCache.DraedonMagicChest
+                                      : drawPlayer.HeldItem.summon ? DraedonChestplateCache.DraedonSummonerChest
+                                      : drawPlayer.HeldItem.ranged ? DraedonChestplateCache.DraedonRangerChest
+                                      : drawPlayer.HeldItem.thrown ? DraedonChestplateCache.DraedonRogueChest
+                                      : drawPlayer.HeldItem.melee ? DraedonChestplateCache.DraedonMeleeChest
+                                      : DraedonChestplateCache.DraedonDefaultChest;
 
-                                  if (drawPlayer.HeldItem.summon)
-                                  {
-                                      texture = DraedonChestplateCache.summoner;
-                                  }
-
-                                  if (drawPlayer.HeldItem.ranged)
-                                  {
-                                      texture = DraedonChestplateCache.ranger;
-                                  }
-
-                                  if (drawPlayer.HeldItem.thrown)
-                                  {
-                                      texture = DraedonChestplateCache.rogue;
-                                  }
-
-                                  if (drawPlayer.HeldItem.melee)
-                                  {
-                                      texture = DraedonChestplateCache.melee;
-                                  }
-
-                                  if (texture == DraedonChestplateCache.none)
-                                  {
+                                  if (texture == DraedonHelmetTextureCache.DraedonDefaultHelm)
                                       return;
-                                  }
 
                                   float drawX = (int)drawInfo.position.X + drawPlayer.width / 2;
                                   float drawY = (int)drawInfo.position.Y + drawPlayer.height -
                                       drawPlayer.bodyFrame.Height / 2 + 4f;
-
-                                  Vector2 origin = drawInfo.bodyOrigin;
-
                                   Vector2 position = new Vector2(drawX, drawY) + drawPlayer.bodyPosition -
                                                      Main.screenPosition;
-
                                   float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
-
                                   Color color = Lighting.GetColor(
                                       (int)(drawInfo.position.X + drawPlayer.width * 0.5) / 16,
                                       (int)(drawInfo.position.Y + drawPlayer.height * 0.5) / 16,
                                       Color.White);
+                                  DrawData drawData = new DrawData(texture, position, drawPlayer.bodyFrame,
+                                      color * alpha, drawPlayer.bodyRotation, drawInfo.bodyOrigin, 1f,
+                                      drawInfo.spriteEffects, 0)
+                                  {
+                                      shader = drawInfo.bodyArmorShader
+                                  };
 
-                                  Rectangle frame = drawPlayer.bodyFrame;
-
-                                  float rotation = drawPlayer.bodyRotation;
-
-                                  SpriteEffects spriteEffects = drawInfo.spriteEffects;
-
-                                  DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation,
-                                      origin, 1f, spriteEffects, 0);
-
-                                  drawData.shader = drawInfo.bodyArmorShader;
 
                                   Main.playerDrawData.Add(drawData);
                               });

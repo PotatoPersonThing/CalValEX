@@ -62,22 +62,23 @@ namespace CalValEX
             currentDate = dateTime.ToString("dd/MM/yyyy");
             day = dateTime.Day;
             month = dateTime.Month;
-            if (!Main.dedServ)
-            {
-                AddEquipTexture(null, EquipType.Head, "SandElemental_Head",
-                    "CalValEX/Items/Equips/Transformations/SandElemental_Head");
-                AddEquipTexture(null, EquipType.Head, "SandElemental_Body",
-                    "CalValEX/Items/Equips/Transformations/SandElemental_Body",
-                    "CalValEX/Items/Equips/Transformations/SandElemental_Arms");
-                AddEquipTexture(null, EquipType.Head, "SandElemental_Legs",
-                    "CalValEX/Items/Equips/Transformations/SandElemental_Legs");
-                GameShaders.Armor.BindShader(ModContent.ItemType<DraedonHologramDye>(),
-                    new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/DraedonHologramDye")),
-                        "DraedonHologramDyePass"));
-            }
 
-            DraedonHelmetTextureCache.Load(this);
-            DraedonChestplateCache.Load(this);
+            if (Main.dedServ)
+                return;
+
+            AddEquipTexture(null, EquipType.Head, "SandElemental_Head",
+                "CalValEX/Items/Equips/Transformations/SandElemental_Head");
+            AddEquipTexture(null, EquipType.Head, "SandElemental_Body",
+                "CalValEX/Items/Equips/Transformations/SandElemental_Body",
+                "CalValEX/Items/Equips/Transformations/SandElemental_Arms");
+            AddEquipTexture(null, EquipType.Head, "SandElemental_Legs",
+                "CalValEX/Items/Equips/Transformations/SandElemental_Legs");
+            GameShaders.Armor.BindShader(ModContent.ItemType<DraedonHologramDye>(),
+                new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/DraedonHologramDye")),
+                    "DraedonHologramDyePass"));
+
+            DraedonHelmetTextureCache.Load();
+            DraedonChestplateCache.Load();
         }
 
         public override void Unload()
@@ -88,9 +89,13 @@ namespace CalValEX
             day = -1;
             month = -1;
             compactFraming = null;
-            ChristmasTextureChange.Unload();
-            DraedonHelmetTextureCache.Unload(this);
-            DraedonChestplateCache.Unload(this);
+
+            if (Main.dedServ)
+                return;
+
+            //ChristmasTextureChange.Unload();
+            DraedonHelmetTextureCache.Unload();
+            DraedonChestplateCache.Unload();
         }
 
         public override void PostSetupContent()

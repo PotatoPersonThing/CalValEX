@@ -5,31 +5,37 @@ namespace CalValEX.Items.Equips.Shirts.Draedon
 {
     public class DraedonChestplateCache
     {
-        public static Texture2D melee;
-        public static Texture2D ranger;
-        public static Texture2D magic;
-        public static Texture2D rogue;
-        public static Texture2D summoner;
-        public static Texture2D none;
+        private const string Path = "CalValEX/Items/Equips/Shirts/Draedon/DraedonChestplate_Body";
 
-        public static void Load(Mod mod)
+        public static Texture2D DraedonMeleeChest { get; private set; }
+
+        public static Texture2D DraedonRangerChest { get; private set; }
+
+        public static Texture2D DraedonMagicChest { get; private set; }
+
+        public static Texture2D DraedonRogueChest { get; private set; }
+
+        public static Texture2D DraedonSummonerChest { get; private set; }
+
+        public static Texture2D DraedonDefaultChest { get; private set; }
+
+        public static void Load()
         {
-            string path = "Items/Equips/Shirts/Draedon/DraedonChestplate_Body";
-            none = mod.GetTexture(path);
-            melee = mod.GetTexture(path + "_Melee");
-            ranger = mod.GetTexture(path + "_Ranger");
-            rogue = mod.GetTexture(path + "_Rogue");
-            magic = mod.GetTexture(path + "_Magic");
-            summoner = mod.GetTexture(path + "_Summoner");
+            DraedonDefaultChest = ModContent.GetTexture(Path);
+            DraedonMeleeChest = ModContent.GetTexture($"{Path}_Melee");
+            DraedonRangerChest = ModContent.GetTexture($"{Path}_Ranger");
+            DraedonRogueChest = ModContent.GetTexture($"{Path}_Rogue");
+            DraedonMagicChest = ModContent.GetTexture($"{Path}_Magic");
+            DraedonSummonerChest = ModContent.GetTexture($"{Path}_Summoner");
         }
 
-        public static void Unload(Mod mod)
+        public static void Unload()
         {
-            none = null;
-            melee = null;
-            rogue = null;
-            magic = null;
-            summoner = null;
+            DraedonDefaultChest = null;
+            DraedonMeleeChest = null;
+            DraedonRogueChest = null;
+            DraedonMagicChest = null;
+            DraedonSummonerChest = null;
         }
     }
 }
