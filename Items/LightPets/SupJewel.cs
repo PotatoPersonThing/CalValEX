@@ -66,7 +66,7 @@ namespace CalValEX.Items.LightPets
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (calamityMod != null)
             {
-                recipe.AddIngredient(calamityMod.ItemType("AscendedSpiritEssence"), 5);
+                recipe.AddIngredient(calamityMod.ItemType("AscendantSpiritEssence"), 5);
                 recipe.AddIngredient(ModContent.ItemType<DarksunSigil>());
                 recipe.AddIngredient(ModContent.ItemType<CryoStick>());
                 recipe.AddIngredient(ModContent.ItemType<PhantomJar>());
