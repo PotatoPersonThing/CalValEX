@@ -69,10 +69,11 @@ namespace CalValEX.Items.Pets
                     recipe.AddIngredient(calamityMod.ItemType("DepthCells"), 3996);
                     recipe.AddIngredient(calamityMod.ItemType("Tenebris"), 3996);
                     recipe.AddIngredient(calamityMod.ItemType("ReaperTooth"), 3996);
-                    recipe.AddIngredient(calamityMod.ItemType("EidolicWail"), 20);
-                    recipe.AddIngredient(calamityMod.ItemType("Valediction"), 20);
-                    recipe.AddIngredient(calamityMod.ItemType("CalamarisLament"), 20);
-                    recipe.AddIngredient(calamityMod.ItemType("SoulEdge"), 20);
+                    recipe.AddIngredient(calamityMod.ItemType("EidolicWail"), 5);
+                    recipe.AddIngredient(calamityMod.ItemType("Valediction"), 5);
+                    recipe.AddIngredient(calamityMod.ItemType("CalamarisLament"), 5);
+                    recipe.AddIngredient(calamityMod.ItemType("Reaper"), 2);
+                    recipe.AddIngredient(calamityMod.ItemType("SoulEdge"), 5);
                     recipe.AddIngredient(mod.ItemType("Pollution"), 1);
                     recipe.AddTile(TileID.LunarCraftingStation);
                     recipe.SetResult(this);
