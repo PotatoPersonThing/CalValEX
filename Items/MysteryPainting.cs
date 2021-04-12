@@ -59,7 +59,7 @@ namespace CalValEX.Items
             }
             else if (choice == 7)
             {
-                player.QuickSpawnItem(ModContent.ItemType<Plague22>());
+                player.QuickSpawnItem(ModContent.ItemType<VVanities>());
             }
             else if (choice == 8)
             {
@@ -116,6 +116,10 @@ namespace CalValEX.Items
             else if (choice == 21)
             {
                 player.QuickSpawnItem(ModContent.ItemType<AccidentalAbominationn>());
+            }
+            else if (choice == 22)
+            {
+                player.QuickSpawnItem(ModContent.ItemType<Plague22>());
             }
             else
             {
