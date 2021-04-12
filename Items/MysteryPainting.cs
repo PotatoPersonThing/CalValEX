@@ -121,6 +121,14 @@ namespace CalValEX.Items
             {
                 player.QuickSpawnItem(ModContent.ItemType<Plague22>());
             }
+            else if (choice == 23)
+            {
+                player.QuickSpawnItem(ModContent.ItemType<CalamityFriends>());
+            }
+            else if (choice == 24)
+            {
+                player.QuickSpawnItem(ModContent.ItemType<WilliamPainting>());
+            }
             else
             {
                 player.QuickSpawnItem(ModContent.ItemType<WormHeaven>());
