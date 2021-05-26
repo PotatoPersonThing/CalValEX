@@ -136,6 +136,12 @@ namespace CalValEX
 
                 if (type == clamMod.NPCType("DILF"))
                 {
+                    if ((bool)clamMod.Call("GetBossDowned", "cryogen"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<FrostflakeBrick>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 10);
+                        ++nextSlot;
+                    }
                     if ((bool)clamMod.Call("GetBossDowned", "signus"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Signut>());
