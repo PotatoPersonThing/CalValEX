@@ -28,7 +28,7 @@ namespace CalValEX.Items
 
         public override void RightClick(Player player)
         {
-            int choice = Main.rand.Next(23);
+            int choice = Main.rand.Next(26);
             if (choice == 0)
             {
                 player.QuickSpawnItem(ModContent.ItemType<BlazingConflict>());
