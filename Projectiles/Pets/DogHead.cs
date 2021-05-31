@@ -10,9 +10,6 @@ namespace CalValEX.Projectiles.Pets
 {
     public class DogHead : ModProjectile
     {
-        //private static readonly int Size = 134;
-        private static readonly int SegmentCount = 26;
-
         private bool SpawnedSegments = false;
 
         public override void SetStaticDefaults()
@@ -41,7 +38,7 @@ namespace CalValEX.Projectiles.Pets
                 int tail = Projectile.NewProjectile(projectile.Center, Vector2.Zero, ModContent.ProjectileType<DogTail>(),
                     projectile.damage, projectile.knockBack, 0, projectile.whoAmI);
                 // The minus one is because this segment and the tail are incorporated in the worm as well
-                for (int i = 0; i < SegmentCount - 2; i++)
+                for (int i = 0; i < (CalValEXConfig.Instance.FatDog ? 100 : 26) - 2; i++)
                 {
                     float uuid = (float)Projectile.GetByUUID(Main.myPlayer, Main.projectile[tail].ai[0]);
                     int body = Projectile.NewProjectile(projectile.Center, Vector2.Zero,
