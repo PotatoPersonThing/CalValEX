@@ -7,14 +7,14 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bl0ckar0z");
-            Main.projFrames[projectile.type] = 1; //frames
+            Main.projFrames[projectile.type] = 2; //frames
             Main.projPet[projectile.type] = true;
         }
 
         public override void SafeSetDefaults()
         {
-            projectile.width = 36;
-            projectile.height = 26;
+            projectile.width = 34;
+            projectile.height = 38;
             projectile.penetrate = -1;
             projectile.netImportant = true;
             projectile.timeLeft *= 5;
@@ -70,7 +70,7 @@ namespace CalValEX.Projectiles.Pets
 
             walkingFrameLimits[0] = walkingFrameLimits[1] = 0; //what your max walking frame is (end of walking animation)
 
-            flyingFrameLimits[0] = flyingFrameLimits[1] = 0;
+            flyingFrameLimits[0] = flyingFrameLimits[1] = 1;
 
             animationSpeed[0] = 9; //idle animation speed
             animationSpeed[1] = 8; //walking animation speed
