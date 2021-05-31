@@ -1,5 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
+using CalValEX.Items.Tiles.Walls;
 
 namespace CalValEX.Items.Tiles.Blocks
 {
@@ -23,6 +24,15 @@ namespace CalValEX.Items.Tiles.Blocks
             item.useStyle = ItemUseStyleID.SwingThrow;
             item.consumable = true;
             item.createTile = ModContent.TileType<FrostflakeBrickPlaced>();
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            recipe.AddIngredient(ModContent.ItemType<FrostflakeWall>(), 4);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
         }
     }
 }

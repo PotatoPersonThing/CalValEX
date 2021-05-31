@@ -13,6 +13,7 @@ namespace CalValEX.Items.Tiles.Blocks
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
+            Main.tileBlendAll[this.Type] = true;
             drop = ModContent.ItemType<FrostflakeBrick>();
             AddMapEntry(new Color(66, 242, 245));
             dustType = 92;
