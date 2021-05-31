@@ -186,6 +186,21 @@ namespace CalValEX
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
                         ++nextSlot;
                     }
+
+                    if (Main.LocalPlayer.ZoneDungeon)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<PolterMask>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
+                        ++nextSlot;
+
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Polterskirt>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
+                        ++nextSlot;
+
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<PolterStockings>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
+                        ++nextSlot;
+                    }
                 }
 
                 if (type == NPCID.Dryad && Main.hardMode)
@@ -920,8 +935,12 @@ namespace CalValEX
                         }
                     }
 
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<ToyScythe>(),
-                        (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<ToyScythe>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
+
+                    if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().poltermask && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().polterchest && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().polterthigh)
+                    {
+                        DropItem(npc, ModContent.ItemType<ToyScythe>());
+                    }
                 }
 
                 if (npc.type == calamityMod.NPCType("StormWeaverHeadNaked") &&

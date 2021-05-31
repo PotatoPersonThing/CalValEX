@@ -282,6 +282,9 @@ namespace CalValEX
         public bool rockhat;
         public bool rainbow;
         public bool SupJ;
+        public bool poltermask;
+        public bool polterchest;
+        public bool polterthigh;
 
         public override void Initialize()
         {
@@ -464,6 +467,9 @@ namespace CalValEX
             hage = false;
             Blok = false;
             aesthetic = false;
+            poltermask = false;
+            polterchest = false;
+            polterthigh = false;
             rockhat = false;
             rainbow = false;
             SupJ = false;
