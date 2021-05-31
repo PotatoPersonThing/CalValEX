@@ -9,15 +9,15 @@ namespace CalValEX.Items.Mounts
         public override void SetDefaults()
         {
             mountData.buff = mod.BuffType("PBGMountBuff");
-            mountData.heightBoost = 7;
+            mountData.heightBoost = 5;
             mountData.fallDamage = 0.1f;
-            mountData.runSpeed = 12f;
-            mountData.dashSpeed = 4f;
+            mountData.runSpeed = 7f;
+            mountData.dashSpeed = 3f;
             mountData.flightTimeMax = 195;
             mountData.fatigueMax = 0;
             mountData.jumpHeight = 6;
             mountData.acceleration = 0.35f;
-            mountData.jumpSpeed = 11f;
+            mountData.jumpSpeed = 5f;
             mountData.blockExtraJumps = false;
             mountData.totalFrames = 12;
             mountData.constantJump = true;
