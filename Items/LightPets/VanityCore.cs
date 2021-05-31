@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,6 +12,7 @@ namespace CalValEX.Items.LightPets
             DisplayName.SetDefault("Core of Vanity");
             Tooltip.SetDefault("Summons pet Heat Sprits, Cryogen's Shield and a Sunskater to follow you");
             ItemID.Sets.ItemNoGravity[item.type] = true;
+            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(6, 6));
         }
 
         public override void SetDefaults()
