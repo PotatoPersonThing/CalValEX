@@ -10,9 +10,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Swarmer Incubator");
+            DisplayName.SetDefault("Docile Pheromones");
             Tooltip
-                .SetDefault("Contains just enough energy to revitalize one of the folly's swarmers");
+                .SetDefault("'Smells like lemon'");
         }
 
         public override void SetDefaults()
@@ -21,7 +21,7 @@ namespace CalValEX.Items.Pets
             item.UseSound = SoundID.NPCHit51;
             item.shoot = mod.ProjectileType("FollyPet");
             item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 2;
+            item.rare = 10;
             item.buffType = mod.BuffType("FollyBuff");
         }
 
