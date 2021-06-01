@@ -1090,6 +1090,7 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("Yharon"))
                 {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<YharonsAnklet>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.1f);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<YharonShackle>(), !Main.expertMode, 0.2f);
                     if (!Main.expertMode)
                     {
