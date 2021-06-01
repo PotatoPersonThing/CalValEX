@@ -561,6 +561,11 @@ namespace CalValEX
 
                             if (Main.rand.NextFloat() < 0.3f)
                             {
+                                player.QuickSpawnItem(ModContent.ItemType<LeviathanEgg>());
+                            }
+
+                            if (Main.rand.NextFloat() < 0.3f)
+                            {
                                 player.QuickSpawnItem(ModContent.ItemType<FoilAtlantis>());
                             }
 
