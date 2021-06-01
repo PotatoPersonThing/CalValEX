@@ -285,6 +285,8 @@ namespace CalValEX
         public bool poltermask;
         public bool polterchest;
         public bool polterthigh;
+        public bool bSignut;
+        public bool bSlime;
 
         public override void Initialize()
         {
@@ -473,6 +475,8 @@ namespace CalValEX
             rockhat = false;
             rainbow = false;
             SupJ = false;
+            bSignut = false;
+            bSlime = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
