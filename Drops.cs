@@ -1090,12 +1090,19 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("Yharon"))
                 {
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<YharonsAnklet>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.1f);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<YharonShackle>(), !Main.expertMode, 0.2f);
                     if (!Main.expertMode)
                     {
                         ConditionalDropItem(npc, ModContent.ItemType<Termipebbles>(),
                             (bool)calamityMod.Call("GetBossDowned", "buffedeclipse"), 2, 8);
+                    }
+                    if (CalValEX.month == 6 && CalValEX.day == 1)
+                    {
+                        DropItem(npc, ModContent.ItemType<YharonsAnklet>());
+                    }
+                    else
+                    {
+                        ConditionalChanceDropItem(npc, ModContent.ItemType<YharonsAnklet>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.1f);
                     }
                 }
 
