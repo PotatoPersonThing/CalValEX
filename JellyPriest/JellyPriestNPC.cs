@@ -339,6 +339,10 @@ namespace CalValEX.JellyPriest
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 15, 0, 0);
                     ++nextSlot;
 
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<JunkArt>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 0, 0);
+                    ++nextSlot;
+
                     if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") || (bool)clamMod.Call("GetBossDowned", "acidrainscourge"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.SulphurGeyser>());
