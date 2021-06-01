@@ -11,7 +11,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Aerialite Bubble");
-            Tooltip.SetDefault("An odd disc covered in light gel");
+            Tooltip.SetDefault("An odd sphere covered in light gel");
         }
 
         public override void SetDefaults()
