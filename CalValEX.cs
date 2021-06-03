@@ -65,9 +65,8 @@ namespace CalValEX
 
             if (Main.dedServ)
                 return;
-
             AddEquipTexture(null, EquipType.Head, "SandElemental_Head",
-                "CalValEX/Items/Equips/Transformations/SandElemental_Head");
+            "CalValEX/Items/Equips/Transformations/SandElemental_Head");
             AddEquipTexture(null, EquipType.Head, "SandElemental_Body",
                 "CalValEX/Items/Equips/Transformations/SandElemental_Body",
                 "CalValEX/Items/Equips/Transformations/SandElemental_Arms");
@@ -79,6 +78,8 @@ namespace CalValEX
 
             DraedonHelmetTextureCache.Load();
             DraedonChestplateCache.Load();
+
+            AddMusicBox(GetSoundSlot(SoundType.Music, "Sounds/Music/AstralBlight"), ItemType("AstralMusicBox"), TileType("AstralMusicBoxPlaced"));
         }
 
         public override void Unload()
@@ -163,7 +164,7 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Leviathan",
                     new List<int>
                     {
-                        ModContent.ItemType<LeviWings>(), ModContent.ItemType<FoilAtlantis>(),
+                        ModContent.ItemType<LeviWings>(), ModContent.ItemType<FoilAtlantis>(), ModContent.ItemType<LeviathanEgg>(),
                         ModContent.ItemType<WetBubble>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Astrum Aureus",
@@ -254,7 +255,7 @@ namespace CalValEX
                     new List<int>
                     {
                         ModContent.ItemType<Termipebbles>(), ModContent.ItemType<JunglePhoenixWings>(),
-                        ModContent.ItemType<YharonShackle>(), ModContent.ItemType<NuggetBiscuit>(),
+                        ModContent.ItemType<YharonShackle>(), ModContent.ItemType<NuggetBiscuit>(), ModContent.ItemType<YharonsAnklet>(),
                         ModContent.ItemType<AncientAuricTeslaHelm>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Supreme Calamitas",
@@ -354,6 +355,20 @@ namespace CalValEX
                     Logger.WarnFormat("CalValEX: Unknown Message type: {0}", msgType);
                     break;
             }
+        }
+
+        public override void UpdateMusic(ref int music, ref MusicPriority priority)
+        {
+            if (Main.myPlayer == -1 || Main.gameMenu || !Main.LocalPlayer.active)
+            {
+                return;
+            }
+            if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral)
+            {
+                music = GetSoundSlot(SoundType.Music, "Sounds/Music/AstralBlight");
+                priority = MusicPriority.Environment;
+            }
+
         }
 
         public override void AddRecipeGroups()
