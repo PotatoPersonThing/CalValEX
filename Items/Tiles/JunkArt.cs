@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 using Terraria.ID;
 
 namespace CalValEX.Items.Tiles
