@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
+using Terraria.Graphics.Shaders;
 
 namespace CalValEX.Items.Tiles
 {
@@ -46,6 +47,16 @@ namespace CalValEX.Items.Tiles
             }
         }
 
+        public override void NearbyEffects(int i, int j, bool closer)
+        {
+            if (Main.rand.Next(16) < 2)
+            {
+                Dust dust = Dust.NewDustDirect(new Vector2(i, j) * 16f, 30, 30, 271, 0f, 0f, 255, new Color(255, 255, 255), 1f);
+                dust.shader = GameShaders.Armor.GetSecondaryShader(29, Main.LocalPlayer);
+            }
+        }
+        //int dust = Dust.NewDust(new Vector2(i, j) * 16f, 5, 5, 1, 0f, 6.315789f, 161, new Color(0, 217, 255), 1.315789f);
+
         public override bool HasSmartInteract()
         {
             return true;
@@ -55,6 +66,11 @@ namespace CalValEX.Items.Tiles
         {
             Player player = Main.LocalPlayer;
             Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Help"));
+            for (int x = 0; x < 100; x++)
+            {
+                Dust dust = Dust.NewDustDirect(new Vector2(i, j) * 16f, 30, 30, 271, 0f, 0f, 255, new Color(255, 255, 255), 1f);
+                dust.shader = GameShaders.Armor.GetSecondaryShader(29, Main.LocalPlayer);
+            }
             return true;
         }
     }
