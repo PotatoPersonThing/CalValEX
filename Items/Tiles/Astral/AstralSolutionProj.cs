@@ -185,6 +185,48 @@ namespace CalValEX.Items.Tiles.Astral
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
 						}
+						else if (wall == WallID.DirtUnsafe)
+						{
+							Main.tile[k, l].wall = (ushort)ModContent.WallType<AstralDirtWallPlaced>();
+							WorldGen.SquareWallFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (wall == WallID.DirtUnsafe2)
+						{
+							Main.tile[k, l].wall = (ushort)ModContent.WallType<AstralDirtWallPlaced>();
+							WorldGen.SquareWallFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (wall == WallID.DirtUnsafe3)
+						{
+							Main.tile[k, l].wall = (ushort)ModContent.WallType<AstralDirtWallPlaced>();
+							WorldGen.SquareWallFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (wall == WallID.DirtUnsafe4)
+						{
+							Main.tile[k, l].wall = (ushort)ModContent.WallType<AstralDirtWallPlaced>();
+							WorldGen.SquareWallFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (wall == WallID.DirtUnsafe1)
+						{
+							Main.tile[k, l].wall = (ushort)ModContent.WallType<AstralDirtWallPlaced>();
+							WorldGen.SquareWallFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (wall == WallID.Cave6Unsafe)
+						{
+							Main.tile[k, l].wall = (ushort)ModContent.WallType<AstralDirtWallPlaced>();
+							WorldGen.SquareWallFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
 						else if (wall == ModLoader.GetMod("CalamityMod").WallType("AstralIceWall"))
 						{
 							Main.tile[k, l].wall = (ushort)ModContent.WallType<AstralIceWallPlaced>();
