@@ -23,6 +23,7 @@ namespace CalValEX.Items.LightPets
             item.value = Item.sellPrice(0, 5, 0, 0);
             item.rare = ItemRarityID.Red;
             item.buffType = mod.BuffType("VanityCoreBuff");
+            item.noUseGraphic = true;
         }
 
         public override void UseStyle(Player player)
