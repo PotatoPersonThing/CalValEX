@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -7,9 +8,12 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Polter-Chan");
-            Main.projFrames[projectile.type] = 4; //frames
+            Main.projFrames[projectile.type] = 8; //frames
             Main.projPet[projectile.type] = true;
         }
+
+        Mod calamityMod = ModLoader.GetMod("CalamityMod");
+        //if ((bool)calamityMod.Call("DifficultyActive", "armageddon") && (bool)calamityMod.Call("DifficultyActive", "death") && (bool)calamityMod.Call("DifficultyActive", "ironheart"))
 
         public override void SafeSetDefaults() //SafeSetDefaults!!!
         {
@@ -23,7 +27,7 @@ namespace CalValEX.Projectiles.Pets
             projectile.friendly = true;
             projectile.tileCollide = false;
             */
-            facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
+            facingLeft = false; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
             shouldFlip = true; //should the sprite flip? set true if it should, false if it shouldnt
             usesAura = false; //does this pet use an aura?
@@ -55,24 +59,27 @@ namespace CalValEX.Projectiles.Pets
             if (modPlayer.mChan)
                 projectile.timeLeft = 2;
 
-            /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.
-             * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
-             * you should make new custom behaviour with numbers higher than 0, or less than 0
-             * the next few lines is an example on how to implement this
-             *
-             * switch ((int)projectile.localAI[1])
-             * {
-             *     case -1:
-             *         break;
-             *     case 1:
-             *         break;
-             * }
-             *
-             * 0 is already in use.
-             * 0 = flying
-             *
-             * you can still use this, changing thing inside (however it's not recomended unless you want to add custom behaviour to this)
-             */
+            if ((bool)calamityMod.Call("DifficultyActive", "armageddon") && (bool)calamityMod.Call("DifficultyActive", "death") && (bool)calamityMod.Call("DifficultyActive", "ironheart"))
+            {
+                if (projectile.frameCounter++ > 8)
+                {
+                    projectile.frameCounter = 0;
+                    projectile.frame++;
+                    if (projectile.frame >= 8)
+                        projectile.frame = 4;
+                }
+            }
+            else if (!((bool)calamityMod.Call("DifficultyActive", "armageddon") && (bool)calamityMod.Call("DifficultyActive", "death") && (bool)calamityMod.Call("DifficultyActive", "ironheart")))
+            {
+                if (projectile.frameCounter++ % 8 == 7)
+                {
+                    projectile.frame++;
+                }
+                if (projectile.frame >= 4)
+                {
+                    projectile.frame = 0;
+                }
+            }
         }
     }
 }
