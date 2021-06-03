@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,7 +9,7 @@ namespace CalValEX.Items
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Calamitas Plushie (Throwable)");
-            Tooltip.SetDefault("A dark artifact that must be handled with care\n" + "Can be thrown");
+            Tooltip.SetDefault("A dark artifact that must be handled with care\n" + "Can be thrown\n" + "Right click to make it spin while thrown");
         }
 
         public override void SetDefaults()
@@ -36,6 +37,25 @@ namespace CalValEX.Items
                 recipe.AddIngredient(ModContent.ItemType<CalamitasFumo>());
                 recipe.SetResult(this);
                 recipe.AddRecipe();
+            }
+        }
+
+        public override bool AltFunctionUse(Player player)
+        {
+            return true;
+        }
+
+        public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        {
+            if (player.altFunctionUse == 2)
+            {
+                type = mod.ProjectileType("CalaFumoSpeen");
+                return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
+            }
+            else
+            {
+                type = mod.ProjectileType("CalaFumo");
+                return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
             }
         }
     }
