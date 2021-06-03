@@ -11,8 +11,8 @@ namespace CalValEX.Items.Mounts
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Jungle Dragon Anklet");
-            Tooltip.SetDefault("Summons a rideable perfect lesser Yharon clone");
+            DisplayName.SetDefault("Infernal Message Book");
+            Tooltip.SetDefault("Summons a rideable perfect lesser Yharon clone\n'This is my message...'");
         }
 
         public override void SetDefaults()
