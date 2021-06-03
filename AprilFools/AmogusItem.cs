@@ -9,11 +9,21 @@ namespace CalValEX.AprilFools
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Stratus Astronaut");
-            Tooltip
-                .SetDefault("'amogus'");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 4));
+            if (CalValEX.month == 4)
+            {
+                DisplayName.SetDefault("Stratus Astronaut");
+                Tooltip.SetDefault("'amogus'");
+                Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 4));
+            }
+            else
+            {
+                DisplayName.SetDefault("Polus Communicator");
+                Tooltip.SetDefault("'summons a Stratus Astronaut'");
+            }
+            
         }
+
+        public override string Texture => (CalValEX.month == 4 ? "CalValEX/AprilFools/AmogusItem" : "CalValEX/AprilFools/AmogusItemReal");
 
         public override void SetDefaults()
         {
