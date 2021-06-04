@@ -21,6 +21,8 @@ namespace CalValEX.Items.Mounts
             mountData.blockExtraJumps = false;
             mountData.totalFrames = 8;
             mountData.constantJump = true;
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            mountData.spawnDust = calamityMod.DustType("AstralBlue");
             int[] array = new int[mountData.totalFrames];
             for (int l = 0; l < array.Length; l++)
             {

@@ -10,7 +10,6 @@ namespace CalValEX.Items.Mounts
     {
         public override void SetDefaults()
         {
-            //mountData.spawnDust = mod.DustType("Smoke");
             mountData.buff = mod.BuffType("BikeBuff");
             mountData.heightBoost = 20;
             mountData.fallDamage = 0.1f;
@@ -24,6 +23,8 @@ namespace CalValEX.Items.Mounts
             mountData.blockExtraJumps = false;
             mountData.totalFrames = 13;
             mountData.constantJump = true;
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            mountData.spawnDust = calamityMod.DustType("HolyFireDust");
             int[] array = new int[mountData.totalFrames];
             for (int l = 0; l < array.Length; l++)
             {

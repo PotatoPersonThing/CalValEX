@@ -17,6 +17,8 @@ namespace CalValEX.Items.Mounts
             mountData.fatigueMax = 0;
             mountData.jumpHeight = 6;
             mountData.acceleration = 0.35f;
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            mountData.spawnDust = calamityMod.DustType("BloomTileLeaves");
             mountData.jumpSpeed = 5f;
             mountData.blockExtraJumps = false;
             mountData.totalFrames = 12;
