@@ -64,7 +64,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
             if (tile.frameX == 0)
             {
                 // We can support different light colors for different styles here: switch (tile.frameY / 54)
-                r = 85f;
+                r = 0.85f;
                 g = 0.4f;
                 b = 0.9f;
             }

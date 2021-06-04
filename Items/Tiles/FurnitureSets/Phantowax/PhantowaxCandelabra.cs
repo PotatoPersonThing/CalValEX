@@ -36,7 +36,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
             Tile tile = Main.tile[i, j];
-            r = 85f;
+            r = 0.85f;
             g = 0.4f;
             b = 0.9f;
         }
