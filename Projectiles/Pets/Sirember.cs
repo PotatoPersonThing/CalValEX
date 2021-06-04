@@ -7,11 +7,16 @@ namespace CalValEX.Projectiles.Pets
 {
     public class Sirember : FlyingPet
     {
-        private bool theterror = false;
+        Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
+
+        public bool orthod = false;
+        public bool theterror = false;
+        public bool entropy = false;
 
         int apocalypse = 0;
-        int countdown = 0;
-        public bool entropy = false;
+        int time1 = 23600;
+        int time2 = 24260;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Giant Decapitated Floating Siren Head");
@@ -63,58 +68,20 @@ namespace CalValEX.Projectiles.Pets
             if (modPlayer.sirember)
                 projectile.timeLeft = 2;
 
-            /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.
-             * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
-             * you should make new custom behaviour with numbers higher than 0, or less than 0
-             * the next few lines is an example on how to implement this
-             *
-             * switch ((int)projectile.localAI[1])
-             * {
-             *     case -1:
-             *         break;
-             *     case 1:
-             *         break;
-             * }
-             *
-             * 0 is already in use.
-             * 0 = flying
-             *
-             * you can still use this, changing thing inside (however it's not recomended unless you want to add custom behaviour to this)
-             */
-            /*countdown++;
-            if (!theterror)
+            if (orthoceraDLC != null)
             {
-                if (countdown == 60)
-                {
-                    theterror = true;
-                    countdown = 666;
-                    Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0, 0, ModContent.ProjectileType<SiremberSpook>(), 0, 0, projectile.owner, 0);
-                }
+                time1 = 600;
+                time2 = 1260;
             }
-            if (theterror)
+            else
             {
-                for (int j = 0; j < 1; j++)
-                {
-                    theterror = true;
-                    projectile.frame = 0;
-                    projectile.rotation = 0;
-                    //projectile.position = projectile.position;
-                }
-                apocalypse++;
-                if (apocalypse == 660)
-                {
-                    theterror = false;
-                    countdown = 0;
-                    apocalypse = -1;
-                }
-                else if (apocalypse == 300)
-                {
-                    player.AddBuff(BuffID.Blackout, 360);
-                }
-            }*/
+                time1 = 23600;
+                time2 = 24260;
+            }
+
             apocalypse++;
 
-            if (apocalypse >= 23600 && apocalypse < 24260)
+            if (apocalypse >= time1 && apocalypse < time2)
             {
                 if (!entropy)
                 {
@@ -125,7 +92,7 @@ namespace CalValEX.Projectiles.Pets
                 }
 
             }
-            if (apocalypse >= 24260)
+            if (apocalypse >= time2)
             {
                 projectile.alpha = 0;
                 for (int x = 0; x < 60; x++)
@@ -136,6 +103,31 @@ namespace CalValEX.Projectiles.Pets
                 apocalypse = 0;
                 entropy = false;
             }
+            //Test version with smaller times
+            /*apocalypse++;
+
+            if (apocalypse >= 600 && apocalypse < 1260)
+            {
+                if (!entropy)
+                {
+                    entropy = true;
+                    Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/ReaperEnragedRoar"));
+                    Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, ModContent.ProjectileType<SiremberSpook>(), 0, 0, projectile.owner, 0);
+                    projectile.alpha = 255;
+                }
+
+            }
+            if (apocalypse >= 1260)
+            {
+                projectile.alpha = 0;
+                for (int x = 0; x < 60; x++)
+                {
+                    Dust dust;
+                    dust = Main.dust[Terraria.Dust.NewDust(projectile.Center, 30, 30, 16, 0f, 0f, 0, new Color(255, 255, 255), 1.644737f)];
+                }
+                apocalypse = 0;
+                entropy = false;
+            }*/
         }
     }
 }
