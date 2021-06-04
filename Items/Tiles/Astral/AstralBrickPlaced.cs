@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.Astral
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
+            Main.tileBlendAll[this.Type] = true;
             drop = ModContent.ItemType<AstralBrick>();
             AddMapEntry(new Color(171, 103, 171));
             animationFrameHeight = 90;

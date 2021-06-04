@@ -23,24 +23,7 @@ namespace CalValEX.Items.Tiles.Astral
 			AddMapEntry(new Color(104, 127, 164));
 			drop = ModContent.ItemType<AstralSand>();
             SetModCactus(new AstralCactus());
-            Main.tileMerge[Type][mod.TileType("XenostonePlaced")] = true;
-            Main.tileMerge[Type][mod.TileType("AstralDirtPlaced")] = true;
-            Main.tileMerge[Type][mod.TileType("AstralClayPlaced")] = true;
-            Main.tileMerge[Type][mod.TileType("AstralHardenedSandPlaced")] = true;
-            Main.tileMerge[Type][mod.TileType("AstralSandstonePlaced")] = true;
-			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralClay")] = true;
-			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralDirt")] = true;
-			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralStone")] = true;
-			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralSand")] = true;
-			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralSandstone")] = true;
-			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("HardenedAstralSand")] = true;
-			Main.tileMerge[Type][ModLoader.GetMod("CalamityMod").TileType("AstralGrass")] = true;
-			Main.tileMerge[Type][TileID.Dirt] = true;
-			Main.tileMerge[Type][TileID.FossilOre] = true;
-			Main.tileMerge[Type][TileID.Sand] = true;
-			Main.tileMerge[Type][TileID.HardenedSand] = true;
-			Main.tileMerge[Type][TileID.Sandstone] = true;
-			Main.tileMerge[Type][mod.TileType("AstralIcePlaced")] = true;
+			Main.tileBlendAll[this.Type] = true;
 			SetModPalmTree(new AstralPalm());
 		}
 		public override void NumDust(int i, int j, bool fail, ref int num)
