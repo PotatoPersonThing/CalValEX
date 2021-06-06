@@ -691,11 +691,20 @@ namespace CalValEX
             Player drawPlayer = drawInfo.drawPlayer;
             Mod mod = ModLoader.GetMod("CalValEX");
             CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
+            int secondyoffset = 0;
+            if (drawPlayer.bodyFrame.Y == 8 || drawPlayer.bodyFrame.Y == 9 || drawPlayer.bodyFrame.Y == 15 || drawPlayer.bodyFrame.Y == 16 || drawPlayer.bodyFrame.Y == 17)
+            {
+                secondyoffset = 2;
+            }
+            else
+            {
+                secondyoffset = 0;
+            }
             if (modPlayer.aesthetic)
             {
                 Texture2D texture = mod.GetTexture("Items/Equips/Hats/AestheticrownEquipped");
                 int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);
-                int drawY = (int)(drawInfo.position.Y + drawPlayer.height - 32 - Main.screenPosition.Y);
+                int drawY = (int)(drawInfo.position.Y + drawPlayer.height - 32 - Main.screenPosition.Y - secondyoffset);
                 DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
                 Main.playerDrawData.Add(data);
             }
@@ -703,7 +712,7 @@ namespace CalValEX
             {
                 Texture2D texture = mod.GetTexture("Items/Equips/Hats/StonePileEquipped");
                 int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);
-                int drawY = (int)(drawInfo.position.Y + drawPlayer.height - 32 - Main.screenPosition.Y);
+                int drawY = (int)(drawInfo.position.Y + drawPlayer.height - 32 - Main.screenPosition.Y - secondyoffset);
                 DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
                 Main.playerDrawData.Add(data);
             }
@@ -729,10 +738,31 @@ namespace CalValEX
             }
         });
 
+        public static readonly PlayerLayer Mimigun2 = new PlayerLayer("CalValEX", "Mimigun2", PlayerLayer.Arms, delegate (PlayerDrawInfo drawInfo)
+        {
+            if (drawInfo.shadow != 0f)
+            {
+                return;
+            }
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("CalValEX");
+            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
+            if (modPlayer.morshugun)
+            {
+                int gnuflip = 36 * -drawPlayer.direction;
+                Texture2D texture = mod.GetTexture("Items/Mounts/Morshu/Minigun");
+                int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X - gnuflip);
+                int drawY = (int)(drawInfo.position.Y + drawPlayer.height - Main.screenPosition.Y + 56);
+                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
+                Main.playerDrawData.Add(data);
+            }
+        });
+
         public override void ModifyDrawLayers(List<PlayerLayer> layers)
         {
             int headLayer = layers.FindIndex(l => l == PlayerLayer.Head);
             int bodyLayer = layers.FindIndex(l => l == PlayerLayer.Body);
+            int armLayer = layers.FindIndex(l => l == PlayerLayer.Arms);
 
             if (headLayer > -1)
             {
@@ -747,6 +777,8 @@ namespace CalValEX
             layers.Insert(headLayer + 1, Head);
             Mimigun.visible = true;
             layers.Insert(headLayer + 2, Mimigun);
+            Mimigun2.visible = true;
+            layers.Insert(armLayer + 1, Mimigun2);
         }
 
         public override void ModifyDrawHeadLayers(List<PlayerHeadLayer> layers)
