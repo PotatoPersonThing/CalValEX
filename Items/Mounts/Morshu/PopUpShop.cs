@@ -24,7 +24,7 @@ namespace CalValEX.Items.Mounts.Morshu
             item.useStyle = ItemUseStyleID.SwingThrow;
             item.value = Item.sellPrice(gold: 5);
             item.rare = ItemRarityID.Pink;
-            item.UseSound = SoundID.Item79;
+            item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/MorshuBomb");
             item.noMelee = true;
             item.mountType = ModContent.MountType<MorshuMount>();
         }
@@ -43,6 +43,23 @@ namespace CalValEX.Items.Mounts.Morshu
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
+        }
+
+        public override bool UseItem(Player player)
+        {
+            if (Main.rand.NextFloat() < 0.33f)
+            {
+                item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/MorshuBomb");
+            }
+            else if (Main.rand.NextFloat() < 0.5f)
+            {
+                item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/MorshuRope");
+            }
+            else
+            {
+                item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/MorshuLamp");
+            }
+            return true;
         }
     }
 }

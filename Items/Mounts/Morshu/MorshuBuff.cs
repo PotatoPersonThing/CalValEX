@@ -15,6 +15,7 @@ namespace CalValEX.Items.Mounts.Morshu
 
         public override void Update(Player player, ref int buffIndex)
         {
+            player.GetModPlayer<CalValEXPlayer>().morshu = true;
             player.mount.SetMount(ModContent.MountType<MorshuMount>(), player);
             player.buffTime[buffIndex] = 10;
             CalValEX.MountNerf(player, 0.5f, 0.5f);

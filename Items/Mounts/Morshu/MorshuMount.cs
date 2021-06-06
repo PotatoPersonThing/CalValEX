@@ -1,11 +1,18 @@
 ﻿using Terraria;
 using Terraria.ID;
+using Microsoft.Xna.Framework;
+using System;
 using Terraria.ModLoader;
 
 namespace CalValEX.Items.Mounts.Morshu
 {
     public class MorshuMount : ModMountData
     {
+        public int morshuscal = 0;
+        private bool morshuguncheck;
+        private bool morshuplaysound;
+        private bool scaldying;
+        private bool gunsound;
         public override void SetDefaults()
         {
             mountData.buff = ModContent.BuffType<MorshuBuff>();
@@ -63,6 +70,59 @@ namespace CalValEX.Items.Mounts.Morshu
             }
 
             MorshuConsumeCoinAI(player, 5);
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            if (scaldying)
+            {
+                morshuscal++;
+                if (!morshuplaysound)
+                {
+                    Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/MorshuScal"));
+                    morshuplaysound = true;
+                }
+                if (morshuscal >= 200)
+                {
+                    player.GetModPlayer<CalValEXPlayer>().morshugun = true;
+                    if (!gunsound)
+                    {
+                        Main.PlaySound(SoundID.Item117);
+                        gunsound = true;
+                    }
+                }
+                if (morshuscal >= 360)
+                {
+                    Vector2 perturbedSpeed = new Vector2(40, 0).RotatedByRandom(MathHelper.ToRadians(10));
+                    Main.PlaySound(SoundID.Item11);
+                    Projectile.NewProjectile(player.position.X + (104 * player.direction), player.position.Y + 78, 40 * player.direction, perturbedSpeed.Y, calamityMod.ProjectileType("AccelerationBulletProj"), 3000, 0.1f, player.whoAmI, 0f, 0f);
+                }
+            }
+
+            else
+            {
+                morshuscal = -1;
+                player.GetModPlayer<CalValEXPlayer>().morshugun = false;
+                morshuplaysound = false;
+                gunsound = false;
+            }
+            if (NPC.AnyNPCs(calamityMod.NPCType("SupremeCalamitas")))
+            {
+                for (int x = 0; x < Main.maxNPCs; x++)
+                {
+                    NPC npc = Main.npc[x];
+                    if (npc.type == calamityMod.NPCType("SupremeCalamitas") && npc.life <= npc.lifeMax * 0.01)
+                    {
+                        if (npc.dontTakeDamage == false)
+                        {
+                            scaldying = true;
+                        }
+                    }
+                    //npc.dontTakeDamage = false && npc.life <= npc.lifeMax * 0.99 && 
+                    //(npc.dontTakeDamage = false)
+                }
+            }
+            if (!NPC.AnyNPCs(calamityMod.NPCType("SupremeCalamitas")))
+            {
+                scaldying = false;
+            }
         }
 
         /// <param name="time">Time in seconds</param>
