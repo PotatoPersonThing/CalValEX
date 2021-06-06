@@ -693,7 +693,7 @@ namespace CalValEX
             CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
             if (modPlayer.aesthetic)
             {
-                Texture2D texture = mod.GetTexture("Items/Mounts/Morshu/Minigun");
+                Texture2D texture = mod.GetTexture("Items/Equips/Hats/AestheticrownEquipped");
                 int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);
                 int drawY = (int)(drawInfo.position.Y + drawPlayer.height - 32 - Main.screenPosition.Y);
                 DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
