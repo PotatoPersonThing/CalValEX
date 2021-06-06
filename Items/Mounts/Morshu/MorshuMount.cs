@@ -92,7 +92,8 @@ namespace CalValEX.Items.Mounts.Morshu
                 {
                     Vector2 perturbedSpeed = new Vector2(40, 0).RotatedByRandom(MathHelper.ToRadians(10));
                     Main.PlaySound(SoundID.Item11);
-                    Projectile.NewProjectile(player.position.X + (104 * player.direction), player.position.Y + 78, 40 * player.direction, perturbedSpeed.Y, calamityMod.ProjectileType("AccelerationBulletProj"), 3000, 0.1f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(player.position.X + (104 * player.direction), player.position.Y + 78, 40 * player.direction, perturbedSpeed.Y, calamityMod.ProjectileType("AccelerationBulletProj"), 30000, 0.1f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(player.position.X + (74 * player.direction), player.position.Y + 78, 40 * player.direction, perturbedSpeed.Y, calamityMod.ProjectileType("AccelerationBulletProj"), 30000, 0.1f, player.whoAmI, 0f, 0f);
                 }
             }
 
@@ -119,10 +120,22 @@ namespace CalValEX.Items.Mounts.Morshu
                     //(npc.dontTakeDamage = false)
                 }
             }
-            if (!NPC.AnyNPCs(calamityMod.NPCType("SupremeCalamitas")))
+            
+             if (!NPC.AnyNPCs(calamityMod.NPCType("SupremeCalamitas")))
             {
                 scaldying = false;
             }
+
+            //This is here for testing
+            /*if (NPC.AnyNPCs(calamityMod.NPCType("SuperDummyNPC")))
+            {
+                scaldying = true;
+            }
+              
+            if (!NPC.AnyNPCs(calamityMod.NPCType("SuperDummyNPC")))
+            {
+                scaldying = false;
+            }*/
         }
 
         /// <param name="time">Time in seconds</param>
