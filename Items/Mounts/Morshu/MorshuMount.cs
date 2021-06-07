@@ -79,7 +79,7 @@ namespace CalValEX.Items.Mounts.Morshu
                     Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/MorshuScal"));
                     morshuplaysound = true;
                 }
-                if (morshuscal >= 180)
+                if (morshuscal >= 200)
                 {
                     player.GetModPlayer<CalValEXPlayer>().morshugun = true;
                     if (!gunsound)
@@ -88,7 +88,7 @@ namespace CalValEX.Items.Mounts.Morshu
                         gunsound = true;
                     }
                 }
-                if (morshuscal >= 240)
+                if (morshuscal >= 360)
                 {
                     Vector2 perturbedSpeed = new Vector2(40, 0).RotatedByRandom(MathHelper.ToRadians(10));
                     Main.PlaySound(SoundID.Item11);
