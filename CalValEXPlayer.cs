@@ -692,7 +692,7 @@ namespace CalValEX
             Mod mod = ModLoader.GetMod("CalValEX");
             CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
             int secondyoffset = 0;
-            if (drawPlayer.bodyFrame.Y == 8 || drawPlayer.bodyFrame.Y == 9 || drawPlayer.bodyFrame.Y == 15 || drawPlayer.bodyFrame.Y == 16 || drawPlayer.bodyFrame.Y == 17)
+            if (drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 8 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 9 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 15 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 16 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 17)
             {
                 secondyoffset = 2;
             }
