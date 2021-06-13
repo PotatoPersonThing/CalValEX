@@ -59,7 +59,7 @@ namespace CalValEX.Items.Tiles
             {
                 {
                     ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient(calamityMod.ItemType("PowerCellFactory"), 1);
+                    recipe.AddIngredient(calamityMod.ItemType("PowerCellFactoryItem"), 1);
                     recipe.AddTile(TileID.Anvils);
                     recipe.SetResult(this);
                     recipe.AddRecipe();
