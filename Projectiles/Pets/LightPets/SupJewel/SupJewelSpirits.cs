@@ -103,8 +103,8 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
         {
             distance[0] = 1600f; //teleport distance
             distance[1] = 640f; //faster speed distance
-            speed = 4;
-            inertia = 70f;
+            speed = 10;
+            inertia = 80f;
             animationSpeed = 6; //how fast the animation should play
             spinRotationSpeedMult = 0f;
             offSetX = -120f;
