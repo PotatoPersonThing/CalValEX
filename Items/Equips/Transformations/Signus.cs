@@ -64,6 +64,7 @@ namespace CalValEX.Items.Equips.Transformations
 				recipe.AddIngredient(mod.ItemType("SigCape"), 1);
 				recipe.AddIngredient(mod.ItemType("SignusNether"), 1);
 				recipe.AddIngredient(mod.ItemType("SignusEmblem"), 1);
+				recipe.AddIngredient(calamityMod.ItemType("TwistingNether"), 3);
 				recipe.AddTile(TileID.LunarCraftingStation);
 				recipe.SetResult(this);
 				recipe.AddRecipe();

@@ -15,7 +15,6 @@ namespace CalValEX.Items.Equips.Transformations
 		{
 			DisplayName.SetDefault("Prototype Ring");
 			Tooltip.SetDefault("Transforms the wearer into a small mech");
-			ItemID.Sets.ItemNoGravity[item.type] = true;
 		}
 
 		public override void SetDefaults()
