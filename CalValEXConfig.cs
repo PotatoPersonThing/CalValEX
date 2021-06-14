@@ -24,7 +24,7 @@ namespace CalValEX
         public bool ConfigBossBlocks { get; set; }
 
         [Header("Critters")]
-        [Label("Disable Violemur Invinsibility")]
+        [Label("Disable Violemur Invincibility")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("Makes it so that Violemurs can be damaged at all times")]
@@ -48,6 +48,12 @@ namespace CalValEX
         [DefaultValue(false)]
         [Tooltip("Makes a certain pet a lot larger when true")]
         public bool FatDog { get; set; }
+
+        [Label("Superstitious Spirit Parade")]
+        [BackgroundColor(192, 54, 64, 192)]
+        [DefaultValue(false)]
+        [Tooltip("Allows the Superstitious Jewel to summon the 11 ingredient pets used to craft it")]
+        public bool SupCombo { get; set; }
 
         [Label("Disable Mount Nerf")]
         [BackgroundColor(192, 54, 64, 192)]

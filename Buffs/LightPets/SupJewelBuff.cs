@@ -1,6 +1,9 @@
 using CalValEX.Projectiles.Pets.LightPets.SupJewel;
+using CalValEX.Projectiles.Pets.LightPets;
+using CalValEX.Projectiles.Pets;
 using Terraria;
 using Terraria.ModLoader;
+using System.Collections.Generic;
 
 namespace CalValEX.Buffs.LightPets
 {
@@ -59,6 +62,46 @@ namespace CalValEX.Buffs.LightPets
             {
                 Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<NWings>(), 0, 0f, player.whoAmI);
+            }
+
+            if (CalValEXConfig.Instance.SupCombo)
+            {
+                List<int> petscombo = new List<int>
+                {
+                    ModContent.ProjectileType<HeatPet>(),
+                    ModContent.ProjectileType<HeatBaby>(),
+                    ModContent.ProjectileType<Skeetyeet>(),
+                    ModContent.ProjectileType<Lightshield>(),
+                    ModContent.ProjectileType<DarksunSpirit_Fish>(),
+                    ModContent.ProjectileType<DarksunSpiritSkull_1>(),
+                    ModContent.ProjectileType<DarksunSpiritSkull_2>(),
+                    ModContent.ProjectileType<MiniCryo>(),
+                    ModContent.ProjectileType<PhantomSpirit>(),
+                    ModContent.ProjectileType<Minimpious>()
+                };
+
+                player.buffTime[buffIndex] = 18000;
+                player.GetModPlayer<CalValEXPlayer>().mHeat = true;
+                player.GetModPlayer<CalValEXPlayer>().mHeat2 = true;
+                player.GetModPlayer<CalValEXPlayer>().Skeetyeet = true;
+                player.GetModPlayer<CalValEXPlayer>().Lightshield = true;
+                player.GetModPlayer<CalValEXPlayer>().darksunSpirits = true;
+                player.GetModPlayer<CalValEXPlayer>().MiniCryo = true;
+                player.GetModPlayer<CalValEXPlayer>().mPhan = true;
+                player.GetModPlayer<CalValEXPlayer>().mImp = true;
+                bool petProjectileNotSpawnedcombo = true;
+                for (int i = 0; i < petscombo.Count; i++)
+                    if (player.ownedProjectileCounts[petscombo[i]] > 0)
+                    {
+                        petProjectileNotSpawnedcombo = false;
+                    }
+
+                if (petProjectileNotSpawnedcombo && player.whoAmI == Main.myPlayer)
+                {
+                    for (int i = 0; i < petscombo.Count; i++)
+                        Projectile.NewProjectile(player.position.X + player.width / 2,
+                            player.position.Y + player.height / 2, 0f, 0f, petscombo[i], 0, 0f, player.whoAmI);
+                }
             }
         }
     }
