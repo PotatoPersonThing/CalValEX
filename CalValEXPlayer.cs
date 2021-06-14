@@ -305,6 +305,12 @@ namespace CalValEX
         public bool androPrevious;
         public bool androPower;
         public bool androTrans;
+        //Classic Brimmy transformation bools
+        public bool classicHide;
+        public bool classicForce;
+        public bool classicPrevious;
+        public bool classicPower;
+        public bool classicTrans;
 
         public override void Initialize()
         {
@@ -318,8 +324,10 @@ namespace CalValEX
         {
             signutPrevious = signutTrans;
             signutTrans = signutHide = signutForce = signutPower = false;
-            androPrevious = signutTrans;
+            androPrevious = androTrans;
             androTrans = androHide = androForce = androPower = false;
+            classicPrevious = classicTrans;
+            classicTrans = classicHide = classicForce = classicPower = false;
             ResetMyStuff();
         }
 
@@ -339,6 +347,11 @@ namespace CalValEX
                     androHide = false;
                     androForce = true;
                 }
+                else if (item.type == ModContent.ItemType<BurningEye>())
+                {
+                    classicHide = false;
+                    classicForce = true;
+                }
             }
         }
         public override void FrameEffects()
@@ -355,6 +368,12 @@ namespace CalValEX
                 player.body = mod.GetEquipSlot("TinyIbanRobotOfDoomBody", EquipType.Body);
                 player.head = mod.GetEquipSlot("TinyIbanRobotOfDoomHead", EquipType.Head);
             }
+            else if ((classicTrans || classicForce) && !classicHide)
+            {
+                player.legs = mod.GetEquipSlot("ClassicBrimmyLegs", EquipType.Legs);
+                player.body = mod.GetEquipSlot("ClassicBrimmyBody", EquipType.Body);
+                player.head = mod.GetEquipSlot("ClassicBrimmyHead", EquipType.Head);
+            }
         }
 
         public override void UpdateEquips(ref bool wallSpeedBuff, ref bool tileSpeedBuff, ref bool tileRangeBuff)
@@ -363,6 +382,8 @@ namespace CalValEX
                 player.AddBuff(ModContent.BuffType<SignutTransformationBuff>(), 60, true);
             else if (androTrans)
                 player.AddBuff(ModContent.BuffType<ProtoRingBuff>(), 60, true);
+            else if (classicTrans)
+                player.AddBuff(ModContent.BuffType<ClassicBrimmyBuff>(), 60, true);
         }
 
         public override void PostUpdateBuffs()
@@ -517,12 +538,14 @@ namespace CalValEX
         {
             DoCalamityBabyThings((int)damage);
             if (signutTrans) Main.PlaySound(SoundID.NPCHit49, (int)player.position.X, (int)player.position.Y);
+            if (classicTrans) Main.PlaySound(SoundID.FemaleHit, (int)player.position.X, (int)player.position.Y, 1, 1f, 0f);
         }
 
         public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit,
             ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
         {
             if (signutTrans) playSound = false;
+            if (classicTrans) playSound = false;
             return base.PreHurt(pvp, quiet, ref damage, ref hitDirection, ref crit, ref customDamage, ref playSound, ref genGore, ref damageSource);
         }
         public override void OnHitByNPC(NPC npc, int damage, bool crit)
