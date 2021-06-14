@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.IO;
 using CalValEX.Items.Equips.Hats.Draedon;
 using CalValEX.Items.Equips.Shirts.Draedon;
+using CalValEX.Items.Equips.Transformations;
+using CalValEX.Buffs.Transformations;
 using CalValEX.Items.Mounts.Morshu;
 using CalValEX.Projectiles.Pets;
 using Microsoft.Xna.Framework;
@@ -291,6 +293,18 @@ namespace CalValEX
         public bool morshu;
         public bool morshugun;
         public bool scaldown;
+        //Signus Transformation bools
+        public bool signutHide;
+        public bool signutForce;
+        public bool signutPrevious;
+        public bool signutPower;
+        public bool signutTrans;
+        //Andromeda transformation bools
+        public bool androHide;
+        public bool androForce;
+        public bool androPrevious;
+        public bool androPower;
+        public bool androTrans;
 
         public override void Initialize()
         {
@@ -302,41 +316,54 @@ namespace CalValEX
 
         public override void ResetEffects()
         {
-            //sandTPrevious = sandT;
-            //sandT = sandHide = sandForce = false;
+            signutPrevious = signutTrans;
+            signutTrans = signutHide = signutForce = signutPower = false;
+            androPrevious = signutTrans;
+            androTrans = androHide = androForce = androPower = false;
             ResetMyStuff();
         }
 
-        /*
+        
         public override void UpdateVanityAccessories()
         {
             for (int n = 13; n < 18 + player.extraAccessorySlots; n++)
             {
                 Item item = player.armor[n];
-                if (item.type == ModContent.ItemType<SandyBangles>())
+                if (item.type == ModContent.ItemType<Signus>())
                 {
-                    sandHide = false;
-                    sandForce = true;
+                    signutHide = false;
+                    signutForce = true;
+                }
+                else if (item.type == ModContent.ItemType<ProtoRing>())
+                {
+                    androHide = false;
+                    androForce = true;
                 }
             }
         }
-
         public override void FrameEffects()
         {
-            if ((sandT || sandForce) && !sandHide)
+            if ((signutTrans || signutForce) && !signutHide)
             {
-                player.legs = mod.GetEquipSlot("SandElemental_Legs", EquipType.Legs);
-                player.body = mod.GetEquipSlot("SandElemental_Body", EquipType.Body);
-                player.head = mod.GetEquipSlot("SandElemental_Head", EquipType.Head);
+                player.legs = mod.GetEquipSlot("SignusLegs", EquipType.Legs);
+                player.body = mod.GetEquipSlot("SignusBody", EquipType.Body);
+                player.head = mod.GetEquipSlot("SignusHead", EquipType.Head);
+            }
+            else if ((androTrans || androForce) && !androHide)
+            {
+                player.legs = mod.GetEquipSlot("TinyIbanRobotOfDoomLegs", EquipType.Legs);
+                player.body = mod.GetEquipSlot("TinyIbanRobotOfDoomBody", EquipType.Body);
+                player.head = mod.GetEquipSlot("TinyIbanRobotOfDoomHead", EquipType.Head);
             }
         }
 
         public override void UpdateEquips(ref bool wallSpeedBuff, ref bool tileSpeedBuff, ref bool tileRangeBuff)
         {
-            if (sandT)
-                player.AddBuff(ModContent.BuffType<SandTransformationBuff>(), 60, true);
+            if (signutTrans)
+                player.AddBuff(ModContent.BuffType<SignutTransformationBuff>(), 60, true);
+            else if (androTrans)
+                player.AddBuff(ModContent.BuffType<ProtoRingBuff>(), 60, true);
         }
-        */
 
         public override void PostUpdateBuffs()
         {
@@ -489,8 +516,15 @@ namespace CalValEX
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
         {
             DoCalamityBabyThings((int)damage);
+            if (signutTrans) Main.PlaySound(SoundID.NPCHit49, (int)player.position.X, (int)player.position.Y);
         }
 
+        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit,
+            ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
+        {
+            if (signutTrans) playSound = false;
+            return base.PreHurt(pvp, quiet, ref damage, ref hitDirection, ref crit, ref customDamage, ref playSound, ref genGore, ref damageSource);
+        }
         public override void OnHitByNPC(NPC npc, int damage, bool crit)
         {
             DoCalamityBabyThings(damage);

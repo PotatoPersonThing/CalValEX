@@ -7,6 +7,7 @@ using CalValEX.Items.Equips.Legs;
 using CalValEX.Items.Equips.Scarves;
 using CalValEX.Items.Equips.Shields;
 using CalValEX.Items.Equips.Shirts;
+using CalValEX.Items.Equips.Transformations;
 using CalValEX.Items.Equips.Wings;
 using CalValEX.Items.Hooks;
 using CalValEX.Items.LightPets;
@@ -215,6 +216,11 @@ namespace CalValEX
                                 player.QuickSpawnItem(ModContent.ItemType<ToyScythe>());
                                 break;
 
+                            case "caligulas":
+                            case "caligulasAquarium":
+                                player.QuickSpawnItem(ModContent.ItemType<Ectogasm>());
+                                break;
+
                             case "Bumbledoge":
                             case "BumbleDoge":
                             case "Bojangles":
@@ -264,6 +270,12 @@ namespace CalValEX
 
                             case "Enreden":
                                 player.QuickSpawnItem(ModContent.ItemType<Enredenitem>());
+                                break;
+
+                            case "Iban":
+                            case "IbanPlay":
+                            case "IBlockaroz":
+                                player.QuickSpawnItem(ModContent.ItemType<ProtoRing>());
                                 break;
 
                             case "Mathew":

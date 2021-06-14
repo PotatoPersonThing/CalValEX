@@ -14,6 +14,7 @@ using CalValEX.Items.Equips.Scarves;
 using CalValEX.Items.Equips.Shields;
 using CalValEX.Items.Equips.Shirts;
 using CalValEX.Items.Equips.Shirts.Draedon;
+using CalValEX.Items.Equips.Transformations;
 using CalValEX.Items.Equips.Wings;
 using CalValEX.Items.Hooks;
 using CalValEX.Items.LightPets;
@@ -72,6 +73,14 @@ namespace CalValEX
                 "CalValEX/Items/Equips/Transformations/SandElemental_Arms");
             AddEquipTexture(null, EquipType.Head, "SandElemental_Legs",
                 "CalValEX/Items/Equips/Transformations/SandElemental_Legs");
+            //Signus transformation
+            AddEquipTexture(new SignusHead(), null, EquipType.Head, "SignusHead", "CalValEX/Items/Equips/Transformations/SignusTrans_Head");
+            AddEquipTexture(new SignusBody(), null, EquipType.Body, "SignusBody", "CalValEX/Items/Equips/Transformations/SignusTrans_Body", "CalValEX/Items/Equips/Transformations/SignusTrans_Arms");
+            AddEquipTexture(new SignusLegs(), null, EquipType.Legs, "SignusLegs", "CalValEX/Items/Equips/Transformations/SignusTrans_Legs");
+            //TinyIbanRobotofDoom
+            AddEquipTexture(new SignusHead(), null, EquipType.Head, "TinyIbanRobotOfDoomHead", "CalValEX/Items/Equips/Transformations/TinyIbanRobotOfDoom_Head");
+            AddEquipTexture(new SignusBody(), null, EquipType.Body, "TinyIbanRobotOfDoomBody", "CalValEX/Items/Equips/Transformations/TinyIbanRobotOfDoom_Body", "CalValEX/Items/Equips/Transformations/TinyIbanRobotOfDoom_Arms");
+            AddEquipTexture(new SignusLegs(), null, EquipType.Legs, "TinyIbanRobotOfDoomLegs", "CalValEX/Items/Equips/Transformations/TinyIbanRobotOfDoom_Legs");
             GameShaders.Armor.BindShader(ModContent.ItemType<DraedonHologramDye>(),
                 new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/DraedonHologramDye")),
                     "DraedonHologramDyePass"));
@@ -98,7 +107,6 @@ namespace CalValEX
             DraedonHelmetTextureCache.Unload();
             DraedonChestplateCache.Unload();
         }
-
         public override void PostSetupContent()
         {
             //Tooltip changes
