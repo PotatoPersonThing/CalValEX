@@ -85,6 +85,10 @@ namespace CalValEX
             AddEquipTexture(new ClassicBrimmyHead(), null, EquipType.Head, "ClassicBrimmyHead", "CalValEX/Items/Equips/Transformations/ClassicBrimmy_Head");
             AddEquipTexture(new ClassicBrimmyBody(), null, EquipType.Body, "ClassicBrimmyBody", "CalValEX/Items/Equips/Transformations/ClassicBrimmy_Body", "CalValEX/Items/Equips/Transformations/ClassicBrimmy_Arms");
             AddEquipTexture(new ClassicBrimmyLegs(), null, EquipType.Legs, "ClassicBrimmyLegs", "CalValEX/Items/Equips/Transformations/ClassicBrimmy_Legs");
+            //Cloud transformation
+            AddEquipTexture(new CloudHead(), null, EquipType.Head, "CloudHead", "CalValEX/Items/Equips/Transformations/Cloud_Head");
+            AddEquipTexture(new CloudBody(), null, EquipType.Body, "CloudBody", "CalValEX/Items/Equips/Transformations/Cloud_Body", "CalValEX/Items/Equips/Transformations/Cloud_Arms");
+            AddEquipTexture(new CloudLegs(), null, EquipType.Legs, "CloudLegs", "CalValEX/Items/Equips/Transformations/Cloud_Legs");
             GameShaders.Armor.BindShader(ModContent.ItemType<DraedonHologramDye>(),
                 new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/DraedonHologramDye")),
                     "DraedonHologramDyePass"));

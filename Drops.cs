@@ -8,6 +8,7 @@ using CalValEX.Items.Equips.Legs;
 using CalValEX.Items.Equips.Scarves;
 using CalValEX.Items.Equips.Shields;
 using CalValEX.Items.Equips.Shirts;
+using CalValEX.Items.Equips.Transformations;
 using CalValEX.Items.Equips.Wings;
 using CalValEX.Items.Hooks;
 using CalValEX.Items.LightPets;
@@ -846,6 +847,7 @@ namespace CalValEX
                 if (npc.type == calamityMod.NPCType("ThiccWaifu"))
                 {
                     ChanceDropItem(npc, ModContent.ItemType<cloudcandy>(), 0.1f);
+                    ChanceDropItem(npc, ModContent.ItemType<CloudWaistbelt>(), 0.1f);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<FogG>(), (bool)calamityMod.Call("GetBossDowned", "supremecalamitas"), 0.0001f);
                 }
 

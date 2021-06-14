@@ -311,6 +311,12 @@ namespace CalValEX
         public bool classicPrevious;
         public bool classicPower;
         public bool classicTrans;
+        //Cloud transformation bools
+        public bool cloudHide;
+        public bool cloudForce;
+        public bool cloudPrevious;
+        public bool cloudPower;
+        public bool cloudTrans;
 
         public override void Initialize()
         {
@@ -328,6 +334,8 @@ namespace CalValEX
             androTrans = androHide = androForce = androPower = false;
             classicPrevious = classicTrans;
             classicTrans = classicHide = classicForce = classicPower = false;
+            cloudPrevious = cloudTrans;
+            cloudTrans = cloudHide = cloudForce = cloudPower = false;
             ResetMyStuff();
         }
 
@@ -352,6 +360,11 @@ namespace CalValEX
                     classicHide = false;
                     classicForce = true;
                 }
+                else if (item.type == ModContent.ItemType<CloudWaistbelt>())
+                {
+                    cloudHide = false;
+                    cloudForce = true;
+                }
             }
         }
         public override void FrameEffects()
@@ -374,6 +387,12 @@ namespace CalValEX
                 player.body = mod.GetEquipSlot("ClassicBrimmyBody", EquipType.Body);
                 player.head = mod.GetEquipSlot("ClassicBrimmyHead", EquipType.Head);
             }
+            else if ((cloudTrans || cloudForce) && !cloudHide)
+            {
+                player.legs = mod.GetEquipSlot("CloudLegs", EquipType.Legs);
+                player.body = mod.GetEquipSlot("CloudBody", EquipType.Body);
+                player.head = mod.GetEquipSlot("CloudHead", EquipType.Head);
+            }
         }
 
         public override void UpdateEquips(ref bool wallSpeedBuff, ref bool tileSpeedBuff, ref bool tileRangeBuff)
@@ -384,6 +403,8 @@ namespace CalValEX
                 player.AddBuff(ModContent.BuffType<ProtoRingBuff>(), 60, true);
             else if (classicTrans)
                 player.AddBuff(ModContent.BuffType<ClassicBrimmyBuff>(), 60, true);
+            else if (cloudTrans)
+                player.AddBuff(ModContent.BuffType<CloudTransformationBuff>(), 60, true);
         }
 
         public override void PostUpdateBuffs()
@@ -539,12 +560,14 @@ namespace CalValEX
             DoCalamityBabyThings((int)damage);
             if (signutTrans) Main.PlaySound(SoundID.NPCHit49, (int)player.position.X, (int)player.position.Y);
             if (classicTrans) Main.PlaySound(SoundID.FemaleHit, (int)player.position.X, (int)player.position.Y, 1, 1f, 0f);
+            if (cloudTrans) Main.PlaySound(SoundID.FemaleHit, (int)player.position.X, (int)player.position.Y, 1, 1f, 0f);
         }
 
         public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit,
             ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
         {
             if (signutTrans) playSound = false;
+            if (cloudTrans) playSound = false;
             if (classicTrans) playSound = false;
             return base.PreHurt(pvp, quiet, ref damage, ref hitDirection, ref crit, ref customDamage, ref playSound, ref genGore, ref damageSource);
         }
