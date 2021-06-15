@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework.Graphics;
 
 // If you don't know what to change this to, don't mess with this code.
 // You will fail
@@ -19,7 +20,8 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetDefaults()
         {
-            projectile.width = projectile.height = Size;
+            projectile.width = 90;
+            projectile.height = Size;
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.ignoreWater = true;
@@ -75,7 +77,8 @@ namespace CalValEX.Projectiles.Pets
             projectile.position = projectile.Center;
 
             // If scale is not 1, adjust the width and height based on that too
-            projectile.width = projectile.height = Size;
+            projectile.width = 90;
+            projectile.height = Size;
             projectile.Center = projectile.position;
 
             // Adjust the position of this segment relative to the one ahead
@@ -91,6 +94,13 @@ namespace CalValEX.Projectiles.Pets
             {
                 projectile.timeLeft = 2;
             }
+        }
+        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/JaredBody_Glow");
+            int frameHeight = texture.Height / Main.projFrames[projectile.type];
+            int hei = frameHeight * projectile.frame;
+            spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * projectile.frame, texture.Width, frameHeight)), Color.White, projectile.rotation, projectile.Size / 2f, 1f, SpriteEffects.None, 0f);
         }
     }
 }

@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 
 // If you don't know what to change this to, don't mess with this code.
@@ -22,7 +23,8 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetDefaults()
         {
-            projectile.width = projectile.height = Size;
+            projectile.width = 126;
+            projectile.height = Size;
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.ignoreWater = true;
@@ -154,8 +156,16 @@ namespace CalValEX.Projectiles.Pets
             }
 
             projectile.position = projectile.Center;
-            projectile.width = projectile.height = Size;
+            projectile.width = 126;
+            projectile.height = Size;
             projectile.Center = projectile.position;
+        }
+        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/JaredHead_Glow");
+            int frameHeight = texture.Height / Main.projFrames[projectile.type];
+            int hei = frameHeight * projectile.frame;
+            spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * projectile.frame, texture.Width, frameHeight)), Color.White, projectile.rotation, projectile.Size / 2f, 1f, SpriteEffects.None, 0f);
         }
     }
 }
