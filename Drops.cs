@@ -53,9 +53,40 @@ namespace CalValEX
 
         public override void SetupShop(int type, Chest shop, ref int nextSlot)
         {
+            
+            Mod alchLite =
+                ModLoader.GetMod(
+                    "AlchemistNPCLite");
+            if (alchLite != null)
+            {
+                if (type == alchLite.NPCType("Musician"))
+                {
+                    if (Main.hardMode)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralMusicBox>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10);
+                        ++nextSlot;
+                    }
+                }
+            }
+            Mod alchFull =
+                ModLoader.GetMod(
+                    "AlchemistNPC");
+            if (alchFull != null)
+            {
+                if (type == alchFull.NPCType("Musician"))
+                {
+                    if (Main.hardMode)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralMusicBox>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10);
+                        ++nextSlot;
+                    }
+                }
+            }
             Mod clamMod =
                 ModLoader.GetMod(
-                    "CalamityMod"); 
+                    "CalamityMod");
             if (clamMod != null)
             {
                 if (type == clamMod.NPCType("SEAHOE"))
