@@ -248,6 +248,21 @@ namespace CalValEX
                             case "Drakudragonx":
                                 player.QuickSpawnItem(ModContent.ItemType<BambooStick>());
                                 break;
+                                
+                            case "Spider":
+			                case "spider":
+			                case "Spooktacular":
+			                case "spooktacular":
+                                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
+				                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
+				                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
+				                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
+				                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
+                                break;
+                               
+                            case "Fabsol":
+                                player.QuickSpawnItem(ModContent.ItemType<DoGPetItem>());
+                                break;
 
                             case "Lucca":
                                 player.QuickSpawnItem(ModContent.ItemType<JunkoHat>());
@@ -300,6 +315,11 @@ namespace CalValEX
                             case "DodoNation":
                             case "Dodo":
                                 player.QuickSpawnItem(ModContent.ItemType<FluffyFeather>());
+                                break;
+                                
+                            case "caligulasAquarium":
+                            case "caligulas":
+                                player.QuickSpawnItem(ModContent.ItemType<Ectogasm>());
                                 break;
 
                             case "Willow":
