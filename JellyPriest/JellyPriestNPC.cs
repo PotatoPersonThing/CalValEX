@@ -407,6 +407,12 @@ namespace CalValEX.JellyPriest
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
                         ++nextSlot;
                     }
+                    if (((bool)clamMod.Call("GetBossDowned", "leviathan")) && Main.expertMode)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<HeartoftheCommunity>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 0, 0, 0);
+                        ++nextSlot;
+                    }
                     if ((bool)clamMod.Call("GetBossDowned", "astrumaureus"))
                     {
                         if (!Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral && Main.expertMode)
@@ -713,6 +719,12 @@ namespace CalValEX.JellyPriest
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<VeilBanner>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
+                        ++nextSlot;
+                    }
+                    if (((bool)clamMod.Call("GetBossDowned", "leviathan")) && Main.expertMode)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<HeartoftheCommunity>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 0, 0, 0);
                         ++nextSlot;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "astrumaureus"))
