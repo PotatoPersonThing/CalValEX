@@ -17,8 +17,8 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SafeSetDefaults() //SafeSetDefaults!!!
         {
-            projectile.width = 22;
-            projectile.height = 22;
+            projectile.width = 82;
+            projectile.height = 64;
             projectile.ignoreWater = true;
             /* you don't need to set these anymore!
             projectile.penetrate = -1;
@@ -31,7 +31,7 @@ namespace CalValEX.Projectiles.Pets
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
             shouldFlip = true; //should the sprite flip? set true if it should, false if it shouldnt
             usesAura = false; //does this pet use an aura?
-            usesGlowmask = false; //does this pet use a glowmask?
+            usesGlowmask = true; //does this pet use a glowmask?
             auraUsesGlowmask = false; //does the aura use a glowmask?
         }
 
@@ -47,8 +47,10 @@ namespace CalValEX.Projectiles.Pets
             offSetY = -50f; //how much higher from the center the pet should float
         }
 
-        //you usualy don't have to use the lower two unless you want the pet to have an aura, glowmask
-        //or if you want the pet to emit light
+        public override void SetUpAuraAndGlowmask()
+        {
+            glowmaskTexture = "Projectiles/Pets/PolterChan_Glow";
+        }
 
         public override void SafeAI(Player player)
         {
