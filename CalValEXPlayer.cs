@@ -317,6 +317,12 @@ namespace CalValEX
         public bool cloudPrevious;
         public bool cloudPower;
         public bool cloudTrans;
+        //Sand transformation bools
+        public bool sandHide;
+        public bool sandForce;
+        public bool sandPrevious;
+        public bool sandPower;
+        public bool sandTrans;
 
         public override void Initialize()
         {
@@ -336,6 +342,8 @@ namespace CalValEX
             classicTrans = classicHide = classicForce = classicPower = false;
             cloudPrevious = cloudTrans;
             cloudTrans = cloudHide = cloudForce = cloudPower = false;
+            sandPrevious = sandTrans;
+            sandTrans = sandHide = sandForce = sandPower = false;
             ResetMyStuff();
         }
 
@@ -365,6 +373,11 @@ namespace CalValEX
                     cloudHide = false;
                     cloudForce = true;
                 }
+                else if (item.type == ModContent.ItemType<SandyBangles>())
+                {
+                    sandHide = false;
+                    sandForce = true;
+                }
             }
         }
         public override void FrameEffects()
@@ -393,6 +406,12 @@ namespace CalValEX
                 player.body = mod.GetEquipSlot("CloudBody", EquipType.Body);
                 player.head = mod.GetEquipSlot("CloudHead", EquipType.Head);
             }
+            else if ((sandTrans || sandForce) && !sandHide)
+            {
+                player.legs = mod.GetEquipSlot("SandLegs", EquipType.Legs);
+                player.body = mod.GetEquipSlot("SandBody", EquipType.Body);
+                player.head = mod.GetEquipSlot("SandHead", EquipType.Head);
+            }
         }
 
         public override void UpdateEquips(ref bool wallSpeedBuff, ref bool tileSpeedBuff, ref bool tileRangeBuff)
@@ -405,6 +424,8 @@ namespace CalValEX
                 player.AddBuff(ModContent.BuffType<ClassicBrimmyBuff>(), 60, true);
             else if (cloudTrans)
                 player.AddBuff(ModContent.BuffType<CloudTransformationBuff>(), 60, true);
+            else if (sandTrans)
+                player.AddBuff(ModContent.BuffType<SandTransformationBuff>(), 60, true);
         }
 
         public override void PostUpdateBuffs()
@@ -561,6 +582,7 @@ namespace CalValEX
             if (signutTrans) Main.PlaySound(SoundID.NPCHit49, (int)player.position.X, (int)player.position.Y);
             if (classicTrans) Main.PlaySound(SoundID.FemaleHit, (int)player.position.X, (int)player.position.Y, 1, 1f, 0f);
             if (cloudTrans) Main.PlaySound(SoundID.FemaleHit, (int)player.position.X, (int)player.position.Y, 1, 1f, 0f);
+            if (sandTrans) Main.PlaySound(SoundID.FemaleHit, (int)player.position.X, (int)player.position.Y, 1, 1f, 0f);
         }
 
         public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit,
@@ -569,6 +591,7 @@ namespace CalValEX
             if (signutTrans) playSound = false;
             if (cloudTrans) playSound = false;
             if (classicTrans) playSound = false;
+            if (sandTrans) playSound = false;
             return base.PreHurt(pvp, quiet, ref damage, ref hitDirection, ref crit, ref customDamage, ref playSound, ref genGore, ref damageSource);
         }
         public override void OnHitByNPC(NPC npc, int damage, bool crit)

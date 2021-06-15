@@ -806,6 +806,7 @@ namespace CalValEX
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<SandBottle>(), Main.expertMode, normalChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<SandPlush>(), Main.expertMode, normalChance);
+                    ChanceDropItem(npc, ModContent.ItemType<SandyBangles>(), normalChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("PlaguebringerShade"))

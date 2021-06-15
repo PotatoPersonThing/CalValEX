@@ -1,6 +1,7 @@
 using CalValEX.Buffs.LightPets;
 using CalValEX.Buffs.Pets;
 using CalValEX.Items;
+using CalValEX.Items.Critters;
 using CalValEX.Items.Equips.Balloons;
 using CalValEX.Items.Equips.Hats;
 using CalValEX.Items.Equips.Legs;
@@ -216,11 +217,6 @@ namespace CalValEX
                                 player.QuickSpawnItem(ModContent.ItemType<ToyScythe>());
                                 break;
 
-                            case "caligulas":
-                            case "caligulasAquarium":
-                                player.QuickSpawnItem(ModContent.ItemType<Ectogasm>());
-                                break;
-
                             case "Bumbledoge":
                             case "BumbleDoge":
                             case "Bojangles":
@@ -248,20 +244,20 @@ namespace CalValEX
                             case "Drakudragonx":
                                 player.QuickSpawnItem(ModContent.ItemType<BambooStick>());
                                 break;
-                                
+
                             case "Spider":
-			                case "spider":
-			                case "Spooktacular":
-			                case "spooktacular":
+                            case "spider":
+                            case "Spooktacular":
+                            case "spooktacular":
                                 player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
-				                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
-				                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
-				                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
-				                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
+                                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
+                                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
+                                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
+                                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
                                 break;
-                               
+
                             case "Fabsol":
-                                player.QuickSpawnItem(ModContent.ItemType<DoGPetItem>());
+                                player.QuickSpawnItem(ModContent.ItemType<DogPetItem>());
                                 break;
 
                             case "Lucca":
@@ -316,7 +312,7 @@ namespace CalValEX
                             case "Dodo":
                                 player.QuickSpawnItem(ModContent.ItemType<FluffyFeather>());
                                 break;
-                                
+
                             case "caligulasAquarium":
                             case "caligulas":
                                 player.QuickSpawnItem(ModContent.ItemType<Ectogasm>());
