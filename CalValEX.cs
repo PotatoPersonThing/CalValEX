@@ -66,13 +66,6 @@ namespace CalValEX
 
             if (Main.dedServ)
                 return;
-            AddEquipTexture(null, EquipType.Head, "SandElemental_Head",
-            "CalValEX/Items/Equips/Transformations/SandElemental_Head");
-            AddEquipTexture(null, EquipType.Head, "SandElemental_Body",
-                "CalValEX/Items/Equips/Transformations/SandElemental_Body",
-                "CalValEX/Items/Equips/Transformations/SandElemental_Arms");
-            AddEquipTexture(null, EquipType.Head, "SandElemental_Legs",
-                "CalValEX/Items/Equips/Transformations/SandElemental_Legs");
             //Signus transformation
             AddEquipTexture(new SignusHead(), null, EquipType.Head, "SignusHead", "CalValEX/Items/Equips/Transformations/SignusTrans_Head");
             AddEquipTexture(new SignusBody(), null, EquipType.Body, "SignusBody", "CalValEX/Items/Equips/Transformations/SignusTrans_Body", "CalValEX/Items/Equips/Transformations/SignusTrans_Arms");
