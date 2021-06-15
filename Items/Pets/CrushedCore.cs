@@ -8,8 +8,8 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sand Shark Filet");
-            Tooltip.SetDefault("Too broken to attract the great beast again\nbut can attract another...");
+            DisplayName.SetDefault("Dusty Badge");
+            Tooltip.SetDefault("Looks tasty");
         }
 
         public override void SetDefaults()
