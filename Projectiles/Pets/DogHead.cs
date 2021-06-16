@@ -154,7 +154,7 @@ namespace CalValEX.Projectiles.Pets
             }
 
             projectile.position = projectile.Center;
-            projectile.width = 130;
+            projectile.width = 134;
             projectile.height = 392;
             projectile.Center = projectile.position;
         }
