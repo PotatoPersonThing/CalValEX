@@ -91,7 +91,7 @@ namespace CalValEX.Projectiles.Pets
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            if (CalValEX.month == 10)
+            if (CalValEX.month == 10 || Main.halloween)
             {
                 Texture2D texture = ModContent.GetTexture(HalloweenTexture);
                 Rectangle rectangle = new Rectangle(0, texture.Height / Main.projFrames[projectile.type] * projectile.frame, texture.Width, texture.Height / Main.projFrames[projectile.type]);
@@ -101,7 +101,7 @@ namespace CalValEX.Projectiles.Pets
                 spriteBatch.Draw(texture, position, rectangle, lightColor, projectile.rotation, projectile.Size / 2f, 1f, (projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0f);
                 return false;
             }
-            if (CalValEX.month == 12)
+            if (CalValEX.month == 12 || Main.xMas)
             {
                 Texture2D texture = ModContent.GetTexture(ChristmasTexture);
                 Rectangle rectangle = new Rectangle(0, texture.Height / Main.projFrames[projectile.type] * projectile.frame, texture.Width, texture.Height / Main.projFrames[projectile.type]);
