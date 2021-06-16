@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Equips.Scarves
 {
-    [AutoloadEquip(EquipType.Front)]
+    [AutoloadEquip(EquipType.Neck)]
     public class SignusEmblem : ModItem
     {
         public override void SetStaticDefaults()
