@@ -17,7 +17,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override void SafeSetDefaults() //SafeSetDefaults!!!
         {
             projectile.width = 24;
-            projectile.height = 16;
+            projectile.height = 21;
             projectile.ignoreWater = true;
             /* you don't need to set these anymore!
             projectile.penetrate = -1;
@@ -30,8 +30,12 @@ namespace CalValEX.Projectiles.Pets.LightPets
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
             shouldFlip = true; //should the sprite flip? set true if it should, false if it shouldnt
             usesAura = false; //does this pet use an aura?
-            usesGlowmask = false; //does this pet use a glowmask?
+            usesGlowmask = true; //does this pet use a glowmask?
             auraUsesGlowmask = false; //does the aura use a glowmask?
+        }
+        public override void SetUpAuraAndGlowmask()
+        {
+            glowmaskTexture = "Projectiles/Pets/LightPets/HeatBaby_Glow";
         }
 
         public override void SetUpFlyingPet()
