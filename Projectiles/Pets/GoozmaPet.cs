@@ -186,6 +186,10 @@ namespace CalValEX.Projectiles.Pets
                 {
                     AddDeity(23);
                 }
+                else if (modPlayer.ZoneLab) //Astral Blight
+                {
+                    AddDeity(30);
+                }
                 else if (player.ZoneCorrupt) //Ebonian
                 {
                     AddDeity(1);
