@@ -281,6 +281,7 @@ namespace CalValEX
         public bool hage;
         public bool Blok;
         public bool ZoneAstral;
+        public bool ZoneLab;
         public bool aesthetic;
         public bool rockhat;
         public bool rainbow;
@@ -696,6 +697,7 @@ namespace CalValEX
         {
             ZoneAstral = CalValEXWorld.astralTiles > 400;
             HellLab = CalValEXWorld.hellTiles > 50;
+            ZoneLab = CalValEXWorld.labTiles > 100;
         }
 
         public override bool CustomBiomesMatch(Player other)
@@ -703,6 +705,7 @@ namespace CalValEX
             CalValEXPlayer modOther = other.GetModPlayer<CalValEXPlayer>();
             return ZoneAstral == modOther.ZoneAstral;
             return HellLab == modOther.HellLab;
+            return ZoneLab = modOther.ZoneLab;
         }
 
         public override void CopyCustomBiomesTo(Player other)
@@ -710,6 +713,7 @@ namespace CalValEX
             CalValEXPlayer modOther = other.GetModPlayer<CalValEXPlayer>();
             modOther.ZoneAstral = ZoneAstral;
             modOther.HellLab = HellLab;
+            modOther.ZoneLab = ZoneLab;
         }
 
         public override void SendCustomBiomes(BinaryWriter writer)
@@ -717,6 +721,7 @@ namespace CalValEX
             BitsByte flags = new BitsByte();
             flags[0] = ZoneAstral;
             flags[1] = HellLab;
+            flags[2] = ZoneLab;
             writer.Write(flags);
         }
 

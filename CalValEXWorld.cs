@@ -15,6 +15,8 @@ namespace CalValEX
 
         public static int hellTiles;
 
+        public static int labTiles;
+
         public static bool rescuedjelly;
 
         public static bool jharim;
@@ -59,6 +61,7 @@ namespace CalValEX
         {
             astralTiles = 0;
             hellTiles = 0;
+            labTiles = 0;
         }
 
         public override void TileCountsAvailable(int[] tileCounts)
@@ -68,6 +71,8 @@ namespace CalValEX
             astralTiles = tileCounts[TileType<AstralDirtPlaced>()] + tileCounts[TileType<AstralGrassPlaced>()] + tileCounts[TileType<XenostonePlaced>()] + tileCounts[TileType<AstralSandPlaced>()] + tileCounts[TileType<AstralHardenedSandPlaced>()] + tileCounts[TileType<AstralSandstonePlaced>()] + tileCounts[TileType<AstralClayPlaced>()] + tileCounts[TileType<AstralIcePlaced>()];
             // Hell Lab tiles
             hellTiles = tileCounts[calamityMod.TileType("Chaosplate")];
+            // Lab tiles
+            labTiles = tileCounts[calamityMod.TileType("LaboratoryPlating")] + tileCounts[calamityMod.TileType("LaboratoryPanels")];
         }
 
         public static void UpdateWorldBool()
