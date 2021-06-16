@@ -72,7 +72,7 @@ namespace CalValEX
             // Hell Lab tiles
             hellTiles = tileCounts[calamityMod.TileType("Chaosplate")];
             // Lab tiles
-            labTiles = tileCounts[calamityMod.TileType("LaboratoryPlating")] + tileCounts[calamityMod.TileType("LaboratoryPanels")];
+            labTiles = tileCounts[calamityMod.TileType("LaboratoryPlating")] + tileCounts[calamityMod.TileType("LaboratoryPanels") + tileCounts[calamityMod.TileType("RustedPlating") + tileCounts[calamityMod.TileType("LaboratoryPipePlating") + tileCounts[calamityMod.TileType("RustedPipes")];
         }
 
         public static void UpdateWorldBool()
