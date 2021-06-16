@@ -13,7 +13,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class GoozmaPet : ModProjectile
     {
-        private static readonly int Size = 46;
+        private static readonly int Size = 66;
 
         public override void SetStaticDefaults()
         {
@@ -23,8 +23,8 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetDefaults()
         {
-            projectile.width = 46;
-            projectile.height = 44;
+            projectile.width = 66;
+            projectile.height = 66;
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.ignoreWater = true;
@@ -138,12 +138,46 @@ namespace CalValEX.Projectiles.Pets
          * :22: = abyss layer 3
          * 23 = pillars
          * 24 = ug snow/cryonic
+         * 25 = frost moon
+         * 26 = pumpkin moon
+         * 27 = blood moon
+         * 28 = eclipse
+         * 29 = astral blight
+         * 30 = arsenal
          */
-            if (CalamityMod.Events.BossRushEvent.BossRushActive)
+            if (CalamityMod.Events.BossRushEvent.BossRushActive) //Auric
             {
                 GoozmaSlimeGods = new List<int>
                 {
                     19,19,19,19,
+                };
+            }
+            else if (Main.eclipse) //Darksun
+            {
+                GoozmaSlimeGods = new List<int>
+                {
+                    28,28,28,28,
+                };
+            }
+            else if (Main.snowMoon) //Endothermic
+            {
+                GoozmaSlimeGods = new List<int>
+                {
+                    25,25,25,25,
+                };
+            }
+            else if (Main.pumpkinMoon) //Nightmare
+            {
+                GoozmaSlimeGods = new List<int>
+                {
+                    26,26,26,26,
+                };
+            }
+            else if (Main.bloodMoon) //Bloodstone
+            {
+                GoozmaSlimeGods = new List<int>
+                {
+                    27,27,27,27,
                 };
             }
             else
@@ -163,6 +197,10 @@ namespace CalValEX.Projectiles.Pets
                 else if (player.ZoneHoly) //Crystalline
                 {
                     AddDeity(3);
+                }
+                else if (modPlayer.ZoneAstral) //Astral Blight
+                {
+                    AddDeity(29);
                 }
                 else if (calPlayer.ZoneAstral) //I wonder what this could be
                 {
@@ -258,14 +296,14 @@ namespace CalValEX.Projectiles.Pets
         {
             //Texture2D texture = Main.projectileTexture[projectile.type];
 
-            return new Rectangle(0, 44 * frame, 46, 44);
+            return new Rectangle(0, 66 * frame, 66, 66);
         }
 
         public Vector2 getOriginFromFrame(int frame)
         {
             //Texture2D texture = Main.projectileTexture[projectile.type];
 
-            return new Vector2(23, (44 * frame) + 22);
+            return new Vector2(33, (66 * frame) + 33);
         }
 
         public void AddDeity(int which)
@@ -285,7 +323,7 @@ namespace CalValEX.Projectiles.Pets
         {
             Texture2D projTexture = Main.projectileTexture[projectile.type];
 
-            float textureRotation = MathHelper.Lerp((float)Math.PI / -4f, (float)Math.PI / 4f, 0.5f + MathHelper.Clamp(projectile.velocity.X / 22f, -0.5f, 0.5f));
+            float textureRotation = MathHelper.Lerp((float)Math.PI / -4f, (float)Math.PI / 4f, 0.5f + MathHelper.Clamp(projectile.velocity.X / 33f, -0.5f, 0.5f));
 
             Vector2 center = projectile.Center - Main.screenPosition + new Vector2(0, projectile.gfxOffY);
 
@@ -295,7 +333,7 @@ namespace CalValEX.Projectiles.Pets
             {
                 Vector2 offset = new Vector2(60, 0).RotatedBy((MathHelper.PiOver2 * i) + projectile.rotation);
 
-                spriteBatch.Draw(projTexture, center + offset, getFrameFromTexture(GoozmaSlimeGods[i]), lightColor, textureRotation, new Vector2(23, 22), projectile.scale, SpriteEffects.None, 0);//+(GoozmaSlimeGods[i]*44)
+                spriteBatch.Draw(projTexture, center + offset, getFrameFromTexture(GoozmaSlimeGods[i]), lightColor, textureRotation, new Vector2(33, 33), projectile.scale, SpriteEffects.None, 0);//+(GoozmaSlimeGods[i]*44)
             }
 
             return false;
