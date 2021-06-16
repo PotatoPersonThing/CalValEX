@@ -396,7 +396,7 @@ namespace CalValEX.Oracle
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            if (CalValEX.month == 10)
+            if (CalValEX.month == 10 || Main.halloween)
             {
                 Texture2D texture = ModContent.GetTexture("CalValEX/Oracle/OracleNPCPet_Pet_Halloween");
                 Rectangle rectangle = new Rectangle(0, texture.Height / Main.projFrames[projectile.type] * projectile.frame, texture.Width, texture.Height / Main.projFrames[projectile.type]);

@@ -317,17 +317,50 @@ namespace CalValEX.Oracle
                     {
                         Main.npcChatText = "Here's what TUB found with my divination!";
                         Main.LocalPlayer.GetModPlayer<OraclePlayer>().playerHasGottenBag = true;
-                        if (Main.rand.NextFloat() < 0.2f)
+                        if (CalValEX.month == 10)
                         {
-                            Main.LocalPlayer.QuickSpawnItem(ItemID.GoodieBag);
+                            if (Main.rand.NextFloat() < 0.3f)
+                            {
+                                Main.LocalPlayer.QuickSpawnItem(ItemID.GoodieBag);
+                            }
+                            else if (Main.rand.NextFloat() < 0.1f)
+                            {
+                                Main.LocalPlayer.QuickSpawnItem(ItemID.Present);
+                            }
+                            else
+                            {
+                                Main.LocalPlayer.QuickSpawnItem(ItemType<MysteryPainting>());
+                            }
                         }
-                        else if (Main.rand.NextFloat() < 0.2f)
+                        else if (CalValEX.month == 12)
                         {
-                            Main.LocalPlayer.QuickSpawnItem(ItemID.Present);
+                            if (Main.rand.NextFloat() < 0.1f)
+                            {
+                                Main.LocalPlayer.QuickSpawnItem(ItemID.GoodieBag);
+                            }
+                            else if (Main.rand.NextFloat() < 0.3f)
+                            {
+                                Main.LocalPlayer.QuickSpawnItem(ItemID.Present);
+                            }
+                            else
+                            {
+                                Main.LocalPlayer.QuickSpawnItem(ItemType<MysteryPainting>());
+                            }
                         }
                         else
                         {
-                            Main.LocalPlayer.QuickSpawnItem(ItemType<MysteryPainting>());
+                            if (Main.rand.NextFloat() < 0.2f)
+                            {
+                                Main.LocalPlayer.QuickSpawnItem(ItemID.GoodieBag);
+                            }
+                            else if (Main.rand.NextFloat() < 0.2f)
+                            {
+                                Main.LocalPlayer.QuickSpawnItem(ItemID.Present);
+                            }
+                            else
+                            {
+                                Main.LocalPlayer.QuickSpawnItem(ItemType<MysteryPainting>());
+                            }
                         }
                     }
                     else
