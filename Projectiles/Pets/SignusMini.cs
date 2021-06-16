@@ -13,8 +13,8 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SafeSetDefaults() //SafeSetDefaults!!!
         {
-            projectile.width = 22;
-            projectile.height = 22;
+            projectile.width = 36;
+            projectile.height = 48;
             projectile.ignoreWater = true;
             /* you don't need to set these anymore!
             projectile.penetrate = -1;
@@ -27,8 +27,12 @@ namespace CalValEX.Projectiles.Pets
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
             shouldFlip = true; //should the sprite flip? set true if it should, false if it shouldnt
             usesAura = false; //does this pet use an aura?
-            usesGlowmask = false; //does this pet use a glowmask?
+            usesGlowmask = true; //does this pet use a glowmask?
             auraUsesGlowmask = false; //does the aura use a glowmask?
+        }
+        public override void SetUpAuraAndGlowmask()
+        {
+            glowmaskTexture = "Projectiles/Pets/SignusMini_Glow";
         }
 
         public override void SetUpFlyingPet()
