@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
 using Terraria;
@@ -314,6 +315,25 @@ namespace CalValEX.Projectiles.Pets
             State = NextState;
             NextState = 0;
             projectile.netUpdate = true;
+        }
+        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            Texture2D glowMask = mod.GetTexture("Projectiles/Pets/SkaterPet_Glow");
+            Rectangle frame = glowMask.Frame(1, Main.projFrames[projectile.type], 0, projectile.frame);
+            frame.Height -= 1;
+            float originOffsetX = (glowMask.Width - projectile.width) * 0.5f + projectile.width * 0.5f + drawOriginOffsetX;
+            spriteBatch.Draw
+            (
+                glowMask,
+                projectile.position - Main.screenPosition + new Vector2(originOffsetX + drawOffsetX, projectile.height / 2 + projectile.gfxOffY),
+                frame,
+                Color.White,
+                projectile.rotation,
+                new Vector2(originOffsetX, projectile.height / 2 - drawOriginOffsetY),
+                projectile.scale,
+                projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
+                0f
+            );
         }
     }
 }
