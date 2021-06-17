@@ -45,7 +45,7 @@ namespace CalValEX.Items.Critters
             {
                 ModRecipe recipe = new ModRecipe(mod);
                 recipe.AddIngredient(ModContent.ItemType<ViolemurItem>());
-                recipe.AddIngredient((ItemID.GoldDust), 500);
+                recipe.AddIngredient((ItemID.GoldDust), 100);
                 recipe.AddTile(mod.TileType("GoldenDippingVatSheet"));
                 recipe.SetResult(this);
                 recipe.AddRecipe();
