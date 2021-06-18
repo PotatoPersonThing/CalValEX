@@ -580,7 +580,17 @@ namespace CalValEX
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
         {
             DoCalamityBabyThings((int)damage);
-            if (signutTrans) Main.PlaySound(SoundID.NPCHit49, (int)player.position.X, (int)player.position.Y);
+            if (signutTrans)
+            {
+                Main.PlaySound(SoundID.NPCHit49, (int)player.position.X, (int)player.position.Y);
+                for (int x = 0; x < 15; x++)
+                {
+                    Dust dust;
+                    Vector2 position = Main.LocalPlayer.Center;
+                    dust = Main.dust[Terraria.Dust.NewDust(player.Center, 26, 15, 191, 0f, 0f, 147, new Color(255, 255, 255), 0.9868422f)];
+                }
+            }
+
             if (classicTrans) Main.PlaySound(SoundID.FemaleHit, (int)player.position.X, (int)player.position.Y, 1, 1f, 0f);
             if (cloudTrans) Main.PlaySound(SoundID.FemaleHit, (int)player.position.X, (int)player.position.Y, 1, 1f, 0f);
             if (sandTrans) Main.PlaySound(SoundID.FemaleHit, (int)player.position.X, (int)player.position.Y, 1, 1f, 0f);
