@@ -16,6 +16,8 @@ namespace CalValEX.Items.Hooks
         public override void SetDefaults()
         {
             projectile.CloneDefaults(ProjectileID.BatHook);
+            projectile.width = 34;
+            projectile.height = 32;
         }
 
         public override bool? CanUseGrapple(Player player)
