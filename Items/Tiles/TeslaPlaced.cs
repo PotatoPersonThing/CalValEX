@@ -35,7 +35,7 @@ namespace CalValEX.Items.Tiles
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
             frameCounter++;
-            if (frameCounter > 2) //make this number lower/bigger for faster/slower animation
+            if (frameCounter > 6) //make this number lower/bigger for faster/slower animation
             {
                 frameCounter = 0;
                 frame++;
