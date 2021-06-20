@@ -23,6 +23,25 @@ namespace CalValEX
         [Tooltip("Makes it so that bosses and their bags no longer drop blocks")]
         public bool ConfigBossBlocks { get; set; }
 
+        [Header("Pets")]
+        [Label("True Size")]
+        [BackgroundColor(192, 54, 64, 192)]
+        [DefaultValue(false)]
+        [Tooltip("Makes a certain pet a lot larger when true")]
+        public bool FatDog { get; set; }
+
+        [Label("Superstitious Spirit Parade")]
+        [BackgroundColor(192, 54, 64, 192)]
+        [DefaultValue(false)]
+        [Tooltip("Allows the Superstitious Jewel to summon the 11 ingredient pets used to craft it")]
+        public bool SupCombo { get; set; }
+
+        [Label("Disable Dragonball Easter Egg")]
+        [BackgroundColor(192, 54, 64, 192)]
+        [DefaultValue(false)]
+        [Tooltip("Disables the easter egg caused by the Dragonball pet")]
+        public bool DragonballName { get; set; }
+
         [Header("Critters")]
         [Label("Disable Violemur Invincibility")]
         [BackgroundColor(192, 54, 64, 192)]
@@ -43,29 +62,17 @@ namespace CalValEX
         public bool CritterSpawns { get; set; }
 
         [Header("Other")]
-        [Label("True Size")]
-        [BackgroundColor(192, 54, 64, 192)]
-        [DefaultValue(false)]
-        [Tooltip("Makes a certain pet a lot larger when true")]
-        public bool FatDog { get; set; }
-
-        [Label("Superstitious Spirit Parade")]
-        [BackgroundColor(192, 54, 64, 192)]
-        [DefaultValue(false)]
-        [Tooltip("Allows the Superstitious Jewel to summon the 11 ingredient pets used to craft it")]
-        public bool SupCombo { get; set; }
-
         [Label("Disable Mount Nerf")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("Disables the stat cripple which ground mounts give")]
         public bool GroundMountLol { get; set; }
 
-        [Label("Disable Dragonball Easter Egg")]
+        [Label("Disable Vanity Elementals")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
-        [Tooltip("Disables the easter egg caused by the Dragonball pet")]
-        public bool DragonballName { get; set; }
+        [Tooltip("Disables Heart of the Elements from spawning its Elementals while in vanity slots")]
+        public bool HeartVanity { get; set; }
 
         public override bool AcceptClientChanges(ModConfig pendingConfig, int whoAmI, ref string message) => true;
     }

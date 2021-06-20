@@ -16,6 +16,7 @@ using Terraria.DataStructures;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX
 {
@@ -324,6 +325,8 @@ namespace CalValEX
         public bool sandPrevious;
         public bool sandPower;
         public bool sandTrans;
+        //More stuff ig
+        public bool vanityhote;
 
         public override void Initialize()
         {
@@ -351,6 +354,7 @@ namespace CalValEX
         
         public override void UpdateVanityAccessories()
         {
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
             for (int n = 13; n < 18 + player.extraAccessorySlots; n++)
             {
                 Item item = player.armor[n];
@@ -378,6 +382,70 @@ namespace CalValEX
                 {
                     sandHide = false;
                     sandForce = true;
+                }
+                else if (item.type == calamityMod.ItemType("HeartoftheElements") && !CalValEXConfig.Instance.HeartVanity)
+                {
+                    bool brimmyspawned = player.ownedProjectileCounts[ProjectileType<VanityBrimstone>()] <= 0;
+                    bool cloudspawned = player.ownedProjectileCounts[ProjectileType<VanityCloud>()] <= 0;
+                    bool sandspawned = player.ownedProjectileCounts[ProjectileType<VanitySand>()] <= 0;
+                    bool raresandspawned = player.ownedProjectileCounts[ProjectileType<VanityRareSand>()] <= 0;
+                    bool anahitaspawned = player.ownedProjectileCounts[ProjectileType<VanityAnahita>()] <= 0;
+                    if (brimmyspawned && player.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                            0f, 0f, ProjectileType<VanityBrimstone>(), 0, 0f, player.whoAmI);
+                    }
+                    if (cloudspawned && player.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                            0f, 0f, ProjectileType<VanityCloud>(), 0, 0f, player.whoAmI);
+                    }
+                    if (sandspawned && player.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                            0f, 0f, ProjectileType<VanitySand>(), 0, 0f, player.whoAmI);
+                    }
+                    if (raresandspawned && player.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                            0f, 0f, ProjectileType<VanityRareSand>(), 0, 0f, player.whoAmI);
+                    }
+                    if (anahitaspawned && player.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                            0f, 0f, ProjectileType<VanityAnahita>(), 0, 0f, player.whoAmI);
+                    }
+                    vanityhote = true;
+                }
+                /*if (n == 13 && item.type != calamityMod.ItemType("HeartoftheElements"))
+                {
+                    if (n == 14 && item.type != calamityMod.ItemType("HeartoftheElements"))
+                    {
+                        if (n == 15 && item.type != calamityMod.ItemType("HeartoftheElements"))
+                        {
+                            if (n == 16 && item.type != calamityMod.ItemType("HeartoftheElements"))
+                            {
+                                if (n == 17 && item.type != calamityMod.ItemType("HeartoftheElements"))
+                                {
+                                    if (n == 18 && item.type != calamityMod.ItemType("HeartoftheElements"))
+                                    {
+                                        if (n == 19 && item.type != calamityMod.ItemType("HeartoftheElements"))
+                                        {
+                                            vanityhote = false;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }*/
+            }
+            for (int n = 3; n < 10 + player.extraAccessorySlots; n++)
+            {
+                Item item = player.armor[n];
+                if (item.type == calamityMod.ItemType("HeartoftheElements"))
+                {
+                    vanityhote = false;
                 }
             }
         }
@@ -416,7 +484,7 @@ namespace CalValEX
         }
 
         public override void UpdateEquips(ref bool wallSpeedBuff, ref bool tileSpeedBuff, ref bool tileRangeBuff)
-        {
+        { 
             if (signutTrans)
                 player.AddBuff(ModContent.BuffType<SignutTransformationBuff>(), 60, true);
             else if (androTrans)
@@ -575,6 +643,7 @@ namespace CalValEX
             morshu = false;
             morshugun = false;
             scaldown = false;
+            vanityhote = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)

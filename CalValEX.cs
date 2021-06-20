@@ -86,6 +86,7 @@ namespace CalValEX
             AddEquipTexture(new SandHead(), null, EquipType.Head, "SandHead", "CalValEX/Items/Equips/Transformations/Sand_Head");
             AddEquipTexture(new SandBody(), null, EquipType.Body, "SandBody", "CalValEX/Items/Equips/Transformations/Sand_Body", "CalValEX/Items/Equips/Transformations/Sand_Arms");
             AddEquipTexture(new SandLegs(), null, EquipType.Legs, "SandLegs", "CalValEX/Items/Equips/Transformations/Sand_Legs");
+            
             GameShaders.Armor.BindShader(ModContent.ItemType<DraedonHologramDye>(),
                 new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/DraedonHologramDye")),
                     "DraedonHologramDyePass"));

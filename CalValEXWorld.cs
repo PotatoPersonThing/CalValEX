@@ -21,6 +21,8 @@ namespace CalValEX
 
         public static bool jharim;
 
+        public static bool orthofound;
+
         public static bool OneMonolith;
 
         public static bool TwoMonolith;
@@ -44,6 +46,11 @@ namespace CalValEX
                 downed.Add("jharim");
             }
 
+            if (orthofound)
+            {
+                downed.Add("orthofound");
+            }
+
             return new TagCompound
             {
                 ["downed"] = downed
@@ -54,7 +61,8 @@ namespace CalValEX
         {
             var downed = tag.GetList<string>("downed");
             rescuedjelly = downed.Contains("rescuedjelly");
-            rescuedjelly = downed.Contains("jharim");
+            jharim = downed.Contains("jharim");
+            orthofound = downed.Contains("orthofound");
         }
 
         public override void ResetNearbyTileEffects()
