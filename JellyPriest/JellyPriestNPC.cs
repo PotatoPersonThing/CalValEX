@@ -385,9 +385,13 @@ namespace CalValEX.JellyPriest
                     }
                     if (Main.hardMode == true)
                     {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.RoxFake>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
+                        ++nextSlot;
+
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Plants.MonolithPot>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 95, 0);
-                        nextSlot++;
+                        ++nextSlot;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "acidrainscourge"))
                     {
@@ -659,6 +663,10 @@ namespace CalValEX.JellyPriest
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 15, 0, 0);
                     ++nextSlot;
 
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<RustGamingTable2>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 15, 0, 0);
+                    ++nextSlot;
+
                     if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") || (bool)clamMod.Call("GetBossDowned", "acidrainscourge"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.SulphurGeyser>());
@@ -709,9 +717,13 @@ namespace CalValEX.JellyPriest
                     }
                     if (Main.hardMode == true)
                     {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.RoxFake>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
+                        ++nextSlot;
+
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Plants.MonolithPot>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 95, 0);
-                        nextSlot++;
+                        ++nextSlot;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "acidrainscourge"))
                     {
