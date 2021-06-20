@@ -383,7 +383,7 @@ namespace CalValEX
                     sandHide = false;
                     sandForce = true;
                 }
-                else if (item.type == calamityMod.ItemType("HeartoftheElements"))
+                else if (item.type == calamityMod.ItemType("HeartoftheElements") && !CalValEXConfig.Instance.HeartVanity)
                 {
                     bool brimmyspawned = player.ownedProjectileCounts[ProjectileType<VanityBrimstone>()] <= 0;
                     bool cloudspawned = player.ownedProjectileCounts[ProjectileType<VanityCloud>()] <= 0;
