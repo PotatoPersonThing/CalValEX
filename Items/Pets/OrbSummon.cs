@@ -12,7 +12,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("The Dragonball");
             Tooltip
-                .SetDefault("Uh oh/nCauses failed dragon clones to have identity crises");
+                .SetDefault("Uh oh\n"+"Causes failed dragon clones to have identity crises");
         }
 
         public override void SetDefaults()
