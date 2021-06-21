@@ -25,6 +25,7 @@ namespace CalValEX.Items
             item.noMelee = true;
             item.value = 20;
             item.createTile = mod.TileType("CalaFumoPlaced");
+            item.maxStack = 99;
         }
 
         public override void AddRecipes()
