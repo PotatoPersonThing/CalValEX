@@ -356,6 +356,7 @@ namespace CalValEX
         public override void UpdateVanityAccessories()
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            Mod antisocial = ModLoader.GetMod("Antisocial");
             for (int n = 13; n < 18 + player.extraAccessorySlots; n++)
             {
                 Item item = player.armor[n];
@@ -384,7 +385,7 @@ namespace CalValEX
                     sandHide = false;
                     sandForce = true;
                 }
-                else if (item.type == calamityMod.ItemType("HeartoftheElements") && !CalValEXConfig.Instance.HeartVanity)
+                else if (item.type == calamityMod.ItemType("HeartoftheElements") && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
                 {
                     bool brimmyspawned = player.ownedProjectileCounts[ProjectileType<VanityBrimstone>()] <= 0;
                     bool cloudspawned = player.ownedProjectileCounts[ProjectileType<VanityCloud>()] <= 0;
