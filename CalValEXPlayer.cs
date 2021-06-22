@@ -8,6 +8,7 @@ using CalValEX.Items.Equips.Shirts.Draedon;
 using CalValEX.Items.Equips.Transformations;
 using CalValEX.Buffs.Transformations;
 using CalValEX.Items.Mounts.Morshu;
+using CalValEX.Items.Tiles;
 using CalValEX.Projectiles.Pets;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -355,6 +356,7 @@ namespace CalValEX
         public override void UpdateVanityAccessories()
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            Mod antisocial = ModLoader.GetMod("Antisocial");
             for (int n = 13; n < 18 + player.extraAccessorySlots; n++)
             {
                 Item item = player.armor[n];
@@ -383,7 +385,7 @@ namespace CalValEX
                     sandHide = false;
                     sandForce = true;
                 }
-                else if (item.type == calamityMod.ItemType("HeartoftheElements") && !CalValEXConfig.Instance.HeartVanity)
+                else if (item.type == calamityMod.ItemType("HeartoftheElements") && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
                 {
                     bool brimmyspawned = player.ownedProjectileCounts[ProjectileType<VanityBrimstone>()] <= 0;
                     bool cloudspawned = player.ownedProjectileCounts[ProjectileType<VanityCloud>()] <= 0;
@@ -758,6 +760,7 @@ namespace CalValEX
         public override void CatchFish(Item fishingRod, Item bait, int power, int liquidType, int poolSize,
             int worldLayer, int questFish, ref int caughtType, ref bool junk)
         {
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (player.ZoneBeach && power > 80 && Main.rand.NextFloat() < 0.021f)
             {
                 caughtType = mod.ItemType("WetBubble");
@@ -769,6 +772,10 @@ namespace CalValEX
             if (ZoneAstral && power > 80 && Main.rand.NextFloat() < 0.0105f)
             {
                 caughtType = mod.ItemType("AstralOldYellow");
+            }
+            if ((bool)calamityMod.Call("GetInZone", Main.player[Main.myPlayer], "sunkensea") && power > 80 && Main.rand.NextFloat() < 0.021f)
+            {
+                caughtType = mod.ItemType("SailfishTrophy");
             }
         }
 

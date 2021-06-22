@@ -328,6 +328,22 @@ namespace CalValEX
                             case "Potato Person":
                                 player.QuickSpawnItem(ModContent.ItemType<MissingFang>());
                                 break;
+
+                            case "Dorira":
+                            case "Marco":
+                                player.QuickSpawnItem(ModContent.ItemType<CharredChopper>());
+                                player.QuickSpawnItem(ModContent.ItemType<RapturedWormScarf>());
+                                break;
+
+                            case "Hat Enthusiast":
+                                player.QuickSpawnItem(ModContent.ItemType<InkyArtifact>());
+                                break;
+
+                            case "Brimmy":
+                                player.QuickSpawnItem(ModContent.ItemType<BurningEye>());
+                                player.QuickSpawnItem(ModContent.ItemType<FoilSpoon>());
+                                player.QuickSpawnItem(ModContent.ItemType<brimtulip>());
+                                break;
                         }
                     }
                 }

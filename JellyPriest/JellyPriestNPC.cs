@@ -339,6 +339,10 @@ namespace CalValEX.JellyPriest
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 15, 0, 0);
                     ++nextSlot;
 
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<RustGamingTable2>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 15, 0, 0);
+                    ++nextSlot;
+
                     if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") || (bool)clamMod.Call("GetBossDowned", "acidrainscourge"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.SulphurGeyser>());
@@ -417,12 +421,6 @@ namespace CalValEX.JellyPriest
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 0, 0, 0);
                         ++nextSlot;
                     }
-                    if ((bool)clamMod.Call("GetBossDowned", "plaguebringergoliath"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("PlagueDialysis"));
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
-                        ++nextSlot;
-                    }
                     if ((bool)clamMod.Call("GetBossDowned", "astrumaureus"))
                     {
                         if (!Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral && Main.expertMode)
@@ -445,6 +443,12 @@ namespace CalValEX.JellyPriest
                         }
                         else
                             return;
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "plaguebringergoliath"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("PlagueDialysis"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
+                        ++nextSlot;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "providence"))
                     {
@@ -687,10 +691,6 @@ namespace CalValEX.JellyPriest
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 50, 0);
                         ++nextSlot;
 
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.SailfishTrophy>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 30, 0);
-                        ++nextSlot;
-
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Plants.Anemone>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 20, 0);
                         ++nextSlot;
@@ -771,6 +771,12 @@ namespace CalValEX.JellyPriest
                         }
                         else
                             return;
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "plaguebringergoliath"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("PlagueDialysis"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
+                        ++nextSlot;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "providence"))
                     {

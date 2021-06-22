@@ -27,6 +27,7 @@ namespace CalValEX.Items
             item.value = 20;
             item.shoot = mod.ProjectileType("CalaFumo");
             item.shootSpeed = 6f;
+            item.maxStack = 99;
         }
 
         public override void AddRecipes()
@@ -54,7 +55,20 @@ namespace CalValEX.Items
             }
             else
             {
-                type = mod.ProjectileType("CalaFumo");
+                if (Main.rand.NextFloat() < 0.01f)
+                {
+                    type = mod.ProjectileType("ItsReal");
+                    Main.PlaySound(SoundID.NPCHit49, (int)player.position.X, (int)player.position.Y);
+                }
+                else if (Main.rand.NextFloat() < 0.1f && CalValEX.month == 6 && CalValEX.day == 22)
+                {
+                    type = mod.ProjectileType("ItsReal");
+                    Main.PlaySound(SoundID.NPCHit49, (int)player.position.X, (int)player.position.Y);
+                }
+                else
+                {
+                    type = mod.ProjectileType("CalaFumo");
+                }
                 return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
             }
         }

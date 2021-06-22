@@ -9,7 +9,7 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Placable Roxcalibur");
+            DisplayName.SetDefault("Placeable Roxcalibur");
             Tooltip
                 .SetDefault("'You can rock!'");
         }
