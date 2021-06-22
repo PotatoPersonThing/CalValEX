@@ -517,6 +517,21 @@ namespace CalValEX
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<DigestedWormFood>());
                             }
+
+                            if (Main.rand.NextFloat() < 0.3f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<SmallWorm>());
+                            }
+
+                            if (Main.rand.NextFloat() < 0.3f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<MidWorm>());
+                            }
+
+                            if (Main.rand.NextFloat() < 0.3f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<BigWorm>());
+                            }
                         }
 
                         if (arg == calamityMod.ItemType("SlimeGodBag"))
