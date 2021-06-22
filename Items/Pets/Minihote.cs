@@ -53,11 +53,11 @@ namespace CalValEX.Items.Pets
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(mod.ItemType("SandBottle"));
+            recipe.AddIngredient(mod.ItemType("SandPlush"));
             recipe.AddIngredient(mod.ItemType("WetBubble"));
             recipe.AddIngredient(mod.ItemType("cloudcandy"));
             recipe.AddIngredient(mod.ItemType("brimtulip"));
-            recipe.AddIngredient(mod.ItemType("SandBottle"));
-            recipe.AddIngredient(mod.ItemType("SandPlush"));
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.SetResult(this);
             recipe.AddRecipe();
