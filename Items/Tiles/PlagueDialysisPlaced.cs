@@ -40,7 +40,7 @@ namespace CalValEX.Items.Tiles
             {
                 frameCounter = 0;
                 frame++;
-                if (frame > 6)
+                if (frame > 5)
                 {
                     frame = 0;
                 }
