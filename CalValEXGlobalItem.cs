@@ -338,6 +338,12 @@ namespace CalValEX
                             case "Hat Enthusiast":
                                 player.QuickSpawnItem(ModContent.ItemType<InkyArtifact>());
                                 break;
+
+                            case "Brimmy":
+                                player.QuickSpawnItem(ModContent.ItemType<BurningEye>());
+                                player.QuickSpawnItem(ModContent.ItemType<FoilSpoon>());
+                                player.QuickSpawnItem(ModContent.ItemType<brimtulip>());
+                                break;
                         }
                     }
                 }
