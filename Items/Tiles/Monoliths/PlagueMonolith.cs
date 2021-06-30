@@ -32,7 +32,7 @@ namespace CalValEX.Items.Tiles.Monoliths
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
                 ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("PlagueCellCluster"), 15);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("InfectedArmorPlating"), 15);
                 recipe.AddTile(TileID.MythrilAnvil);
                 recipe.SetResult(this);
                 recipe.AddRecipe();
