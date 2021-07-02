@@ -18,7 +18,7 @@ namespace CalValEX.Items.Equips.Legs
         {
             item.width = 24;
             item.height = 28;
-            item.value = Item.sellPrice(1, 0, 0, 0);
+            item.value = Item.sellPrice(0, 2, 0, 0);
             item.rare = 11;
             item.accessory = true;
             item.vanity = true;

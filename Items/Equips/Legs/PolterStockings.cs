@@ -19,7 +19,7 @@ namespace CalValEX.Items.Equips.Legs
             item.height = 14;
             item.rare = 10;
             item.vanity = true;
-            item.value = Item.sellPrice(0, 0, 10, 0);
+            item.value = Item.sellPrice(0, 1, 0, 0);
         }
 
         public override void UpdateEquip(Player player)
