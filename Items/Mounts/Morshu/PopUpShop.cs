@@ -22,7 +22,7 @@ namespace CalValEX.Items.Mounts.Morshu
             item.useTime = 20;
             item.useAnimation = 20;
             item.useStyle = ItemUseStyleID.SwingThrow;
-            item.value = Item.sellPrice(gold: 5);
+            item.value = Item.sellPrice(gold: 2);
             item.rare = ItemRarityID.Pink;
             item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/MorshuBomb");
             item.noMelee = true;
