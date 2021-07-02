@@ -18,7 +18,7 @@ namespace CalValEX.Items.Mounts
             item.useTime = 20;
             item.useAnimation = 20;
             item.useStyle = 1;
-            item.value = Item.sellPrice(0, 10, 50, 0);
+            item.value = Item.sellPrice(0, 2, 0, 0);
             item.rare = 7;
             //item.UseSound = SoundID.Item23;
             item.noMelee = true;

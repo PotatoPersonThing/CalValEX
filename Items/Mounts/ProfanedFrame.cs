@@ -17,7 +17,7 @@ namespace CalValEX.Items.Mounts
             item.width = 20;
             item.height = 20;
             item.maxStack = 1;
-            item.value = Item.sellPrice(0, 1, 0, 0);
+            item.value = Item.sellPrice(0, 0, 33, 0);
             item.rare = 8;
         }
 
