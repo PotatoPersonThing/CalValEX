@@ -19,7 +19,7 @@ namespace CalValEX.Items.Equips.Capes
         {
             item.width = 38;
             item.height = 32;
-            item.value = Item.sellPrice(20, 0, 0, 0);
+            item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = 11;
             item.accessory = true;
             item.vanity = true;
