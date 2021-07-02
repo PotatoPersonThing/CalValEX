@@ -16,7 +16,7 @@ namespace CalValEX.Items.Pets
         {
             item.UseSound = SoundID.NPCHit5;
             item.shoot = mod.ProjectileType("rarebrimling");
-            item.value = Item.sellPrice(0, 1, 0, 0);
+            item.value = Item.sellPrice(0, 2, 0, 0);
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             item.rare = 5;
             item.buffType = mod.BuffType("rarebrimlingbuff");

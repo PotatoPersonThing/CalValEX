@@ -19,7 +19,7 @@ namespace CalValEX.Items.Pets
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit14;
             item.shoot = mod.ProjectileType("ScoriaDuke");
-            item.value = Item.sellPrice(0, 35, 10, 0);
+            item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = 10;
             item.buffType = mod.BuffType("ScorchingFuryshronBuff");
         }

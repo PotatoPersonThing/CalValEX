@@ -22,7 +22,7 @@ namespace CalValEX.Items.Pets
             item.height = 32;
             item.UseSound = SoundID.Item81;
             item.shoot = mod.ProjectileType("SlimeDemi");
-            item.value = Item.sellPrice(0, 5, 10, 0);
+            item.value = Item.sellPrice(0, 1, 0, 0);
             item.rare = 3;
             item.buffType = mod.BuffType("SlimeBuff");
         }

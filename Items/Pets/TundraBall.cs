@@ -16,7 +16,7 @@ namespace CalValEX.Items.Pets
         {
             item.UseSound = SoundID.Item47;
             item.shoot = mod.ProjectileType("Angrypup");
-            item.value = Item.sellPrice(0, 0, 2, 50);
+            item.value = Item.sellPrice(0, 1, 0, 0);
             item.rare = 3;
             item.buffType = mod.BuffType("Doggobuff");
         }

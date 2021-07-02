@@ -19,7 +19,7 @@ namespace CalValEX.Items.Pets
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.Item111;
             item.shoot = mod.ProjectileType("MechaGeorge");
-            item.value = Item.sellPrice(0, 0, 5, 0);
+            item.value = Item.sellPrice(0, 2, 0, 0);
             item.expert = true;
             item.rare = ItemRarityID.Purple;
             item.buffType = mod.BuffType("MechaGeorgeBuff");

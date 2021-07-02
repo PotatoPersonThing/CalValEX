@@ -16,7 +16,7 @@ namespace CalValEX.Items.Pets
         {
             item.UseSound = SoundID.Item2;
             item.shoot = mod.ProjectileType("SmolCrab");
-            item.value = Item.sellPrice(0, 0, 10, 0);
+            item.value = Item.sellPrice(0, 1, 0, 0);
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             item.rare = 3;
             item.buffType = mod.BuffType("CrabBuff");

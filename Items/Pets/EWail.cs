@@ -18,7 +18,7 @@ namespace CalValEX.Items.Pets
         {
             item.UseSound = SoundID.Item47;
             item.shoot = mod.ProjectileType("EWyrm");
-            item.value = Item.sellPrice(0, 5, 0, 0);
+            item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = 10;
             item.buffType = mod.BuffType("WyrmBuff");
         }

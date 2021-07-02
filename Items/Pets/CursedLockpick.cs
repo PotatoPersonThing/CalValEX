@@ -18,7 +18,7 @@ namespace CalValEX.Items.Pets
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit4;
             item.shoot = mod.ProjectileType("RustyMimic");
-            item.value = Item.sellPrice(0, 0, 10, 0);
+            item.value = Item.sellPrice(0, 1, 0, 0);
             item.rare = 3;
             item.buffType = mod.BuffType("RustyBuff");
         }

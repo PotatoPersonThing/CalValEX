@@ -36,7 +36,7 @@ namespace CalValEX.Items.Pets
             item.CloneDefaults(ItemID.ZephyrFish);
             item.shoot = ProjectileType<Projectiles.Pets.GoozmaPet>();
             item.buffType = BuffType<Buffs.Pets.GoozmaBuff>();
-            item.value = Item.sellPrice(0, 10, 0, 0);
+            item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = 10;
             item.noUseGraphic = true;
             item.UseSound = SoundID.Item81;

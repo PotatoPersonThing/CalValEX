@@ -20,7 +20,7 @@ namespace CalValEX.Items.Pets
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit4;
             item.shoot = mod.ProjectileType("Androomba");
-            item.value = Item.sellPrice(1, 0, 1, 0);
+            item.value = Item.sellPrice(0, 2, 0, 0);
             item.rare = 8;
             item.buffType = mod.BuffType("AndroombaBuff");
         }

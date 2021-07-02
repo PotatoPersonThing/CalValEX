@@ -19,7 +19,7 @@ namespace CalValEX.Items.Pets
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit51;
             item.shoot = mod.ProjectileType("MiniBumble");
-            item.value = Item.sellPrice(3, 0, 0, 0);
+            item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = 10;
             item.buffType = mod.BuffType("MiniBumbleBuff");
         }

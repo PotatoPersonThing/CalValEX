@@ -17,7 +17,7 @@ namespace CalValEX.Items.Pets
             item.UseSound = SoundID.NPCHit5;
             item.shoot = mod.ProjectileType("MiniCryo");
             item.buffType = mod.BuffType("ChilledOut");
-            item.value = Item.sellPrice(0, 0, 10, 0);
+            item.value = Item.sellPrice(0, 2, 0, 0);
             item.rare = 5;
         }
 

@@ -20,7 +20,7 @@ namespace CalValEX.Items.Pets
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.Item21;
             item.shoot = mod.ProjectileType("Hoodieidolist");
-            item.value = Item.sellPrice(0, 1, 0, 0);
+            item.value = Item.sellPrice(0, 2, 0, 0);
             item.rare = 2;
             item.buffType = mod.BuffType("HoodiedolistBuff");
         }
