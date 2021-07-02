@@ -20,7 +20,7 @@ namespace CalValEX.Items.Equips.Wings
             item.value = 10000;
             item.rare = 4;
             item.accessory = true;
-            item.value = Item.sellPrice(1, 50, 0, 0);
+            item.value = Item.sellPrice(0, 3, 0, 0);
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

@@ -18,7 +18,7 @@ namespace CalValEX.Items.Equips.Wings
             item.height = 26;
             item.rare = 3;
             item.accessory = true;
-            item.value = Item.sellPrice(0, 0, 2, 0);
+            item.value = Item.sellPrice(0, 1, 0, 0);
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
