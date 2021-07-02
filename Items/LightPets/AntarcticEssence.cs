@@ -18,7 +18,7 @@ namespace CalValEX.Items.LightPets
         {
             item.UseSound = SoundID.NPCHit5;
             item.shoot = ModContent.ProjectileType<Lightshield>();
-            item.value = Item.sellPrice(0, 0, 20, 0);
+            item.value = Item.sellPrice(0, 2, 0, 0);
             item.buffType = mod.BuffType("LightshieldBuff");
             item.rare = ItemRarityID.Pink;
         }

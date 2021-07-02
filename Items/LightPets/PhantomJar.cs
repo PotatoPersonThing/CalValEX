@@ -20,7 +20,7 @@ namespace CalValEX.Items.LightPets
             item.CloneDefaults(ItemID.DD2PetGhost);
             item.UseSound = SoundID.NPCHit54;
             item.shoot = mod.ProjectileType("PhantomSpirit");
-            item.value = Item.sellPrice(1, 30, 0, 0);
+            item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = ItemRarityID.Green;
             item.buffType = mod.BuffType("PhantomBuff");
         }

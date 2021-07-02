@@ -20,7 +20,7 @@ namespace CalValEX.Items.LightPets
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.Item45;
             item.shoot = mod.ProjectileType("HeatPet");
-            item.value = Item.sellPrice(0, 5, 0, 0);
+            item.value = Item.sellPrice(0, 2, 0, 0);
             item.rare = ItemRarityID.Red;
             item.buffType = mod.BuffType("VanityCoreBuff");
             item.noUseGraphic = true;

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria;
 
 namespace CalValEX.Items.LightPets
 {
@@ -21,6 +22,7 @@ namespace CalValEX.Items.LightPets
             item.damage = 0;
             item.useStyle = ItemUseStyleID.SwingThrow;
             item.UseSound = SoundID.Item117;
+            item.value = Item.sellPrice(0, 3, 0, 0);
             item.useAnimation = 20;
             item.useTime = 20;
             item.buffType = ModContent.BuffType<DarksunSpiritBuff>();

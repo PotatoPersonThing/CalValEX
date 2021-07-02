@@ -18,7 +18,7 @@ namespace CalValEX.Items.LightPets
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit41;
             item.shoot = mod.ProjectileType("WulfrumPylon");
-            item.value = Item.sellPrice(0, 0, 2, 0);
+            item.value = Item.sellPrice(0, 1, 0, 0);
             item.rare = 1;
             item.buffType = mod.BuffType("PylonBuff");
         }

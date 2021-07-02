@@ -22,7 +22,7 @@ namespace CalValEX.Items.LightPets
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.Item45;
             item.shoot = mod.ProjectileType("Bishop");
-            item.value = Item.sellPrice(10, 0, 0, 0);
+            item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = ItemRarityID.Purple;
             item.buffType = mod.BuffType("SupJewelBuff");
         }

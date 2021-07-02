@@ -17,7 +17,7 @@ namespace CalValEX.Items.LightPets
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.Item4;
             item.shoot = mod.ProjectileType("SeerS");
-            item.value = Item.sellPrice(0, 10, 0, 0);
+            item.value = Item.sellPrice(0, 2, 0, 0);
             item.rare = ItemRarityID.Lime;
             item.buffType = mod.BuffType("SeerBuff");
         }
