@@ -16,7 +16,7 @@ namespace CalValEX.Items.Equips.Shirts
         {
             item.width = 24;
             item.height = 28;
-            item.value = Item.sellPrice(0, 2, 20, 0);
+            item.value = Item.sellPrice(0, 2, 0, 0);
             item.rare = 6;
             item.vanity = true;
         }

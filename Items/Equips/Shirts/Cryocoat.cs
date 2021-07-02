@@ -17,7 +17,7 @@ namespace CalValEX.Items.Equips.Shirts
             item.height = 14;
             item.rare = 5;
             item.vanity = true;
-            item.value = Item.sellPrice(0, 0, 3, 0);
+            item.value = Item.sellPrice(0, 2, 0, 0);
         }
 
         public override void DrawHands(ref bool drawHands, ref bool drawArms)
