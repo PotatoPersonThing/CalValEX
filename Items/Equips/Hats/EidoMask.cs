@@ -17,7 +17,7 @@ namespace CalValEX.Items.Equips.Hats
             item.height = 20;
             item.rare = 4;
             item.vanity = true;
-            item.value = Item.sellPrice(0, 1, 0, 0);
+            item.value = Item.sellPrice(0, 2, 0, 0);
         }
 
         public override bool DrawHead()

@@ -18,7 +18,7 @@ namespace CalValEX.Items.Equips.Hats
             item.height = 12;
             item.rare = ItemRarityID.Orange;
             item.vanity = true;
-            item.value = Item.sellPrice(0, 3, 0, 0);
+            item.value = Item.sellPrice(0, 1, 0, 0);
         }
 
         public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
