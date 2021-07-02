@@ -16,7 +16,7 @@ namespace CalValEX.Items.Equips.Scarves
         {
             item.width = 24;
             item.height = 32;
-            item.value = Item.sellPrice(0, 1, 10, 0);
+            item.value = Item.sellPrice(0, 2, 0, 0);
             item.rare = 6;
             item.accessory = true;
             item.vanity = true;

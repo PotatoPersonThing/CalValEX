@@ -21,7 +21,7 @@ namespace CalValEX.Items.Equips.Scarves
             item.rare = 10;
             item.accessory = true;
             item.vanity = true;
-            item.value = Item.sellPrice(0, 15, 0, 0);
+            item.value = Item.sellPrice(0, 3, 0, 0);
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
