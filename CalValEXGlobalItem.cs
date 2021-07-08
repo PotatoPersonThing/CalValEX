@@ -279,6 +279,10 @@ namespace CalValEX
                                 player.QuickSpawnItem(ModContent.ItemType<coopershortsword>());
                                 break;
 
+                            case "Tess":
+                                player.QuickSpawnItem(ModContent.ItemType<AstralStar>());
+                                break;
+
                             case "Enreden":
                                 player.QuickSpawnItem(ModContent.ItemType<Enredenitem>());
                                 break;
@@ -516,21 +520,6 @@ namespace CalValEX
                             if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<DigestedWormFood>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(ModContent.ItemType<SmallWorm>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(ModContent.ItemType<MidWorm>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(ModContent.ItemType<BigWorm>());
                             }
                         }
 
