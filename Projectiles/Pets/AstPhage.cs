@@ -37,10 +37,11 @@ namespace CalValEX.Projectiles.Pets
         public override void SetFrameLimitsAndFrameSpeed()
         {
             idleFrameLimits[0] = idleFrameLimits[1] = 0; //what your min idle frame is (start of idle animation)
-            walkingFrameLimits[0] = 1; //what your min walking frame is (start of walking animation)
-            walkingFrameLimits[1] = 12; //what your max walking frame is (end of walking animation)
 
-            flyingFrameLimits[0] = 13; //what your min flying frame is (start of flying animation)
+            walkingFrameLimits[0] = 1; //what your min walking frame is (start of walking animation)
+            walkingFrameLimits[1] = 11; //what your max walking frame is (end of walking animation)
+
+            flyingFrameLimits[0] = 12; //what your min flying frame is (start of flying animation)
             flyingFrameLimits[1] = 17; //what your max flying frame is (end of flying animation)
 
             jumpFrameLimits[0] = -1; //what your min jump frame is (start of jump animation)

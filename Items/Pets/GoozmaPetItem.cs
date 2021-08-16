@@ -25,7 +25,6 @@ namespace CalValEX.Items.Pets
                 "A temporal anomaly which a power beyond our universe had no choice but to erase, so that it never existed in the first place.\n" +
                 "Ironic. The very growth in power which made Goozma a deity in the first place, was also the cause of its demise");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 8));
-            ItemID.Sets.AnimatesAsSoul[item.type] = true;
             ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 

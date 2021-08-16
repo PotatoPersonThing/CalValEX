@@ -1,4 +1,5 @@
 using Terraria;
+using Microsoft.Xna.Framework;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -117,6 +118,16 @@ namespace CalValEX.Projectiles.Pets
              *
              * you can still use these, changing thing inside (however it's not recomended unless you want to add custom behaviour to these)
              */
+            switch (projectile.localAI[1])
+            {
+                case 2:
+                {
+                    Dust dust;
+                    Vector2 position = projectile.Center;
+                    dust = Main.dust[Terraria.Dust.NewDust(position, 30, 30, 15, 0f, 3.684211f, 0, new Color(255, 255, 255), 0.7894737f)];
+                    break;
+                }
+            }
         }
     }
 }

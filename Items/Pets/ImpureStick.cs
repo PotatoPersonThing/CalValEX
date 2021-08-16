@@ -12,7 +12,6 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Slime Deity's Soul");
             Tooltip.SetDefault("'Power hungry for rot'");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 6));
-            ItemID.Sets.AnimatesAsSoul[item.type] = true;
             ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 
