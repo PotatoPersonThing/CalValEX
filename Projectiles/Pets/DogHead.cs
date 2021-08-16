@@ -92,7 +92,7 @@ namespace CalValEX.Projectiles.Pets
             {
                 MinVel = 0.1f;
             }
-            if (ProjDistance.Length() > 50f)
+            if (ProjDistance.Length() > 80f)
             {
                 if (Math.Abs(PlayerCenter.X - projectile.Center.X) > 60f)
                 {
