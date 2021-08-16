@@ -168,6 +168,16 @@ namespace CalValEX.Oracle
                 }
             }
 
+            if (Main.hardMode && Main.rand.NextFloat() < 0.12f)
+            {
+                return "Y'know, if you're trying to find a certain little Water Elemental, you may have better luck if you take a fishing trip instead of resorting to violence.";
+            }
+
+            if ((NPC.AnyNPCs(ModLoader.GetMod("CalamityMod").NPCType("Bumblefuck"))) && Main.rand.NextFloat() < 0.25f)
+            {
+                return "That little birb over there seems to have a lot of little friends you can recover!";
+            }
+
             int wizard = NPC.FindFirstNPC(NPCID.Wizard);
             if (wizard >= 0 && Main.rand.NextFloat() < 0.25f)
             {

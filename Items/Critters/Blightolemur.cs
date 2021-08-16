@@ -219,7 +219,7 @@ namespace CalValEX.Items.Critters
             float minibirbframe = 5f / (float)Main.npcFrameCount[npc.type];
             int minibirbheight = (int)(float)((npc.frame.Y / npc.frame.Height) * minibirbframe) * (minibirbsprite.Height / 5);
 
-            Rectangle minibirbsquare = new Rectangle(0, minibirbheight - 8, minibirbsprite.Width, minibirbsprite.Height / 5);
+            Rectangle minibirbsquare = new Rectangle(0, minibirbheight + 5, minibirbsprite.Width, minibirbsprite.Height / 5);
             SpriteEffects minibirbeffects = (npc.direction != -1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
             spriteBatch.Draw(minibirbsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), minibirbsquare, Color.White, npc.rotation, Utils.Size(minibirbsquare) / 2f, npc.scale, minibirbeffects, 0f);
         }

@@ -287,6 +287,7 @@ namespace CalValEX
         public bool aesthetic;
         public bool rockhat;
         public bool rainbow;
+        public bool avalon;
         public bool SupJ;
         public bool poltermask;
         public bool polterchest;
@@ -646,6 +647,7 @@ namespace CalValEX
             morshugun = false;
             scaldown = false;
             vanityhote = false;
+            avalon = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)

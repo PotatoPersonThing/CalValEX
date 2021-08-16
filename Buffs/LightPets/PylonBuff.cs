@@ -16,6 +16,8 @@ namespace CalValEX.Buffs.LightPets
 
         public override void Update(Player player, ref int buffIndex)
         {
+            Mod clamMod = ModLoader.GetMod("CalamityMod");
+            clamMod.Call("AddAbyssLightStrength", Main.player[Main.myPlayer], 1);
             player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().pylon = true;
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<WulfrumPylon>()] <= 0;

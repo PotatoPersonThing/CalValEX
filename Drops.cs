@@ -48,6 +48,7 @@ namespace CalValEX
 
         private bool geldonSummon;
         private bool junkoReference;
+        private bool avaloncheck;
 
         public override bool InstancePerEntity => true;
 
@@ -952,6 +953,11 @@ namespace CalValEX
                     ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("ProfanedRock"), !Main.expertMode,
                         155, 265);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<ProviCrystal>(), !Main.expertMode, 0.2f);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<FlareRune>(), !Main.dayTime, 0.01f);
+                    if (NPC.AnyNPCs(calamityMod.NPCType("DevourerofGodsHead")) || NPC.AnyNPCs(calamityMod.NPCType("DevourerofGodsHeadS")))
+                    {
+                        avaloncheck = true;
+                    }
                 }
 
                 if (npc.type == calamityMod.NPCType("Polterghast"))
@@ -1107,6 +1113,11 @@ namespace CalValEX
                 if (npc.type == calamityMod.NPCType("DevourerofGodsHeadS") && Main.expertMode)
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<CosmicWormScarf>(), !Main.expertMode, 0.2f);
+                    if (avaloncheck)
+                    {
+                        DropItem(npc, ModContent.ItemType<FlareRune>());
+                    }
+                    avaloncheck = false;
                     if ((bool)calamityMod.Call("DifficultyActive", "death"))
                     {
                         ChanceDropItem(npc, ModContent.ItemType<DogPetItem>(), 0.5f);
@@ -1120,6 +1131,7 @@ namespace CalValEX
                     {
                         return;
                     }
+                    //(NPC.AnyNPCs(calamityMod.NPCType("DevourerofGods")))
                 }
 
                 if (npc.type == calamityMod.NPCType("Yharon"))
