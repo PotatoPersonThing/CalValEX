@@ -35,7 +35,7 @@ namespace CalValEX.Items.Tiles
         public override void NearbyEffects(int i, int j, bool closer)
         {
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            if (closer)
+            if (closer && !NPC.AnyNPCs(ModLoader.GetMod("CalamityMod").NPCType("EidolonWyrmHeadHuge")))
             {
                 if (Main.tile[i, j].frameY < 72)
                 {

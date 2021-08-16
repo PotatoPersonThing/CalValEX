@@ -94,11 +94,11 @@ namespace CalValEX.Projectiles.Pets
             }
             if (ProjDistance.Length() > 50f)
             {
-                if (Math.Abs(PlayerCenter.X - projectile.Center.X) > 10f)
+                if (Math.Abs(PlayerCenter.X - projectile.Center.X) > 60f)
                 {
                     projectile.velocity.X = projectile.velocity.X + MinVel * (float)Math.Sign(PlayerCenter.X - projectile.Center.X);
                 }
-                if (Math.Abs(PlayerCenter.Y - projectile.Center.Y) > 5f)
+                if (Math.Abs(PlayerCenter.Y - projectile.Center.Y) > 30)
                 {
                     projectile.velocity.Y = projectile.velocity.Y + MinVel * (float)Math.Sign(PlayerCenter.Y - projectile.Center.Y);
                 }

@@ -26,7 +26,7 @@ namespace CalValEX.Items
             item.rare = 10;
             item.value = Item.sellPrice(0, 30, 20, 0);
             item.buffType = BuffID.WellFed; //Specify an existing buff to be applied when used.
-            item.buffTime = 3600; //The amount of time the buff declared in item.buffType will last in ticks. 5400 / 60 is 90, so this buff will last 90 seconds.
+            item.buffTime = 300; //The amount of time the buff declared in item.buffType will last in ticks. 5400 / 60 is 90, so this buff will last 90 seconds.
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
