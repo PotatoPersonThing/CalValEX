@@ -10,7 +10,7 @@ Currently adds the following:
 - Some new critters to be found across your world
 - A large amount of vanity clothing, hats, and accessories
 
-Sprite credits: Kawaggy, Poddy, Blockaroz, William, YuH, Yharex87, TimerFun, caligulasAquarium, Krysmun, IbanPlay, Willowmaine, Enreden, Gamagamer64, L0st, Cooper, RyanLolz1, Vectix, Mochi, Leon, NnickykunN, Mathew Maple, Ramen Guy, SenpaiMasterNekitoKawaii2007, Nitro, YeH, Triangle, and MrPlague
+Sprite credits: Kawaggy, Poddy, Blockaroz, William, YuH, Yharex87, TimerFun, caligulasAquarium, Krysmun, IbanPlay, Willowmaine, Enreden, Gamagamer64, L0st, Cooper, RyanLolz1, Vectix, Mochi, Leon, NnickykunN, Dorira, Vinni, Mathew Maple, Ramen Guy, SenpaiMasterNekitoKawaii2007, Nitro, YeH, Triangle, and MrPlague
 Music Credits: Heart Plus Up! and apotofkoolaid
 Code credits: Potato Person, Kawaggy, Hypera, Phupperbat, Seraph, Stevie, Dominic Karma, Willowmaine
 
