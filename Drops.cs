@@ -48,7 +48,6 @@ namespace CalValEX
 
         private bool geldonSummon;
         private bool junkoReference;
-        private bool avaloncheck;
 
         public override bool InstancePerEntity => true;
 
@@ -954,10 +953,6 @@ namespace CalValEX
                         155, 265);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<ProviCrystal>(), !Main.expertMode, 0.2f);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<FlareRune>(), !Main.dayTime, 0.01f);
-                    if (NPC.AnyNPCs(calamityMod.NPCType("DevourerofGodsHead")) || NPC.AnyNPCs(calamityMod.NPCType("DevourerofGodsHeadS")))
-                    {
-                        avaloncheck = true;
-                    }
                 }
 
                 if (npc.type == calamityMod.NPCType("Polterghast"))
@@ -1113,23 +1108,21 @@ namespace CalValEX
                 if (npc.type == calamityMod.NPCType("DevourerofGodsHeadS") && Main.expertMode)
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<CosmicWormScarf>(), !Main.expertMode, 0.2f);
-                    if (avaloncheck)
+                    if (NPC.AnyNPCs(calamityMod.NPCType("ProfanedGuardianBoss")) && (bool)calamityMod.Call("DifficultyActive", "death"))
                     {
                         DropItem(npc, ModContent.ItemType<FlareRune>());
                     }
-                    avaloncheck = false;
+                    else if (NPC.AnyNPCs(calamityMod.NPCType("ProfanedGuardianBoss2")))
+                    {
+                        DropItem(npc, ModContent.ItemType<FlareRune>());
+                    }
                     if ((bool)calamityMod.Call("DifficultyActive", "death"))
                     {
                         ChanceDropItem(npc, ModContent.ItemType<DogPetItem>(), 0.5f);
                     }
-                    else if ((bool)calamityMod.Call("DifficultyActive", "revengeance") &&
-                             !(bool)calamityMod.Call("DifficultyActive", "death"))
+                    else if ((bool)calamityMod.Call("DifficultyActive", "revengeance") && !(bool)calamityMod.Call("DifficultyActive", "death"))
                     {
                         ChanceDropItem(npc, ModContent.ItemType<DogPetItem>(), 0.05f);
-                    }
-                    else
-                    {
-                        return;
                     }
                     //(NPC.AnyNPCs(calamityMod.NPCType("DevourerofGods")))
                 }
