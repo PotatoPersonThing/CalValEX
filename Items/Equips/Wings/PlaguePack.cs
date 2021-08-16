@@ -9,7 +9,7 @@ namespace CalValEX.Items.Equips.Wings
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Beelzebooster");
-            Tooltip.SetDefault("And they wonder how bees can get themselves off the ground\n" + "Horizontal speed: 9\n" + "Acceleration multiplier: 2.5\n" + "Flight time: 170");
+            Tooltip.SetDefault("And they wonder how bees can get themselves off the ground\n" + "Horizontal speed: 7.8\n" + "Acceleration multiplier: 1.9\n" + "Flight time: 170");
         }
 
         public override void SetDefaults()
@@ -32,15 +32,15 @@ namespace CalValEX.Items.Equips.Wings
         {
             ascentWhenFalling = 0.85f;
             ascentWhenRising = 0.15f;
-            maxCanAscendMultiplier = 1f;
-            maxAscentMultiplier = 3f;
-            constantAscend = 0.135f;
+            maxCanAscendMultiplier = 0.4f;
+            maxAscentMultiplier = 1.4f;
+            constantAscend = 0.08f;
         }
 
         public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
         {
-            speed = 9f;
-            acceleration *= 2.5f;
+            speed = 7.8f;
+            acceleration *= 1.9f;
         }
     }
 }
