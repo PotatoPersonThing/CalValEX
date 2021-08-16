@@ -6,6 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using static Terraria.ModLoader.ModContent;
+using System.IO;
 
 namespace CalValEX
 {
@@ -53,7 +54,9 @@ namespace CalValEX
 
             return new TagCompound
             {
-                ["downed"] = downed
+                {
+                    "downed", downed
+                }
             };
         }
 
@@ -63,6 +66,36 @@ namespace CalValEX
             rescuedjelly = downed.Contains("rescuedjelly");
             jharim = downed.Contains("jharim");
             orthofound = downed.Contains("orthofound");
+        }
+        public override void LoadLegacy(BinaryReader reader)
+        {
+            int loadVersion = reader.ReadInt32();
+            if (loadVersion == 0)
+            {
+                BitsByte flags = reader.ReadByte();
+                rescuedjelly = flags[0];
+                jharim = flags[1];
+                orthofound = flags[2];
+            }
+            else
+            {
+                ErrorLogger.Log("CalValEX: Unknown loadVersion: " + loadVersion);
+            }
+        }
+        public override void NetSend(BinaryWriter writer)
+        {
+            BitsByte flags = new BitsByte();
+            flags[0] = rescuedjelly;
+            flags[1] = jharim;
+            flags[2] = orthofound;
+            writer.Write(flags);
+        }
+        public override void NetReceive(BinaryReader reader)
+        {
+            BitsByte flags = reader.ReadByte();
+            rescuedjelly = flags[0];
+            jharim = flags[1];
+            orthofound = flags[2];
         }
 
         public override void ResetNearbyTileEffects()

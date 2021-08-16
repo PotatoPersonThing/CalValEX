@@ -29,7 +29,7 @@ namespace CalValEX.Items.Tiles.Astral
             {
                 ModRecipe recipe2 = new ModRecipe(mod);
                 recipe2.AddIngredient(mod.ItemType("AstralPearlBlock"));
-                recipe2.AddTile(mod.TileType("StarstruckSynthesizer"));
+                recipe2.AddTile(mod.TileType("StarstruckSynthesizerPlaced"));
                 recipe2.SetResult(this);
                 recipe2.AddRecipe();
             }

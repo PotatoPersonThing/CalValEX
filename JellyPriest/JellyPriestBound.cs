@@ -56,15 +56,14 @@ namespace CalValEX.JellyPriest
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
-            if (clamMod != null)
+            if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") && (bool)clamMod.Call("GetBossDowned", "acidrain") && !CalValEXWorld.rescuedjelly && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestBound>()) && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestNPC>()))
             {
-                if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") && (bool)clamMod.Call("GetBossDowned", "acidrain") && !CalValEXWorld.rescuedjelly && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestBound>()) && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestNPC>()))
-                {
-                    return 0.5f;
-                }
+                return 0.5f;
+            }
+            else
+            {
                 return 0f;
             }
-            return 0f;
         }
 
         public override void HitEffect(int hitDirection, double damage)

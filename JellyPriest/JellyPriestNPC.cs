@@ -557,6 +557,12 @@ namespace CalValEX.JellyPriest
                         shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("AstralMonolith"));
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 5);
                         ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ItemType<AstralPearlBlock>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 3, 0);
+                        nextSlot++;
+                        shop.item[nextSlot].SetDefaults(ItemType<AstralPearlBlock>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 3, 0);
+                        nextSlot++;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "brimstoneelemental"))
                     {
@@ -881,6 +887,9 @@ namespace CalValEX.JellyPriest
                         shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("AstralMonolith"));
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2, 5);
                         ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ItemType<AstralPearlBlock>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 3, 0);
+                        nextSlot++;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "brimstoneelemental"))
                     {

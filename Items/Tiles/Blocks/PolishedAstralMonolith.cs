@@ -27,9 +27,14 @@ namespace CalValEX.Items.Tiles.Blocks
         {
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("AstralMonolith"));
+                recipe.AddTile(TileID.Sawmill);
+                recipe.SetResult(this);
+                recipe.AddRecipe();
                 ModRecipe recipe2 = new ModRecipe(mod);
                 recipe2.AddIngredient(mod.ItemType("PolishedXenomonolith"));
-                recipe2.AddTile(mod.TileType("StarstruckSynthesizer"));
+                recipe2.AddTile(mod.TileType("StarstruckSynthesizerPlaced"));
                 recipe2.SetResult(this);
                 recipe2.AddRecipe();
             }
