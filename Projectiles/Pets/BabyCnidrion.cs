@@ -22,9 +22,9 @@ namespace CalValEX.Projectiles.Pets
             projectile.friendly = true;
             projectile.ignoreWater = true;
             projectile.tileCollide = true;
-            base.drawOffsetX = -13;
-            base.drawOriginOffsetY = -15;
-            facingLeft = false; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
+            //base.drawOffsetX = -13;
+            //base.drawOriginOffsetY = -15;
+            facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
             shouldFlip = true;
         }
