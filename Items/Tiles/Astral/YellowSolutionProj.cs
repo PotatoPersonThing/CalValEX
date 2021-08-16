@@ -78,6 +78,7 @@ namespace CalValEX.Items.Tiles.Astral
 					if (WorldGen.InWorld(k, l, 1) && Math.Abs(k - i) + Math.Abs(l - j) < Math.Sqrt(size * size + size * size))
 					{
 						int type = Main.tile[k, l].type;
+						int typemed = Main.tile[k - 1, l].type;
 						int wall = Main.tile[k, l].wall;
 						Mod CalValEX = ModLoader.GetMod("CalamityMod");
 
@@ -138,6 +139,47 @@ namespace CalValEX.Items.Tiles.Astral
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
 						}
+						/*else if (type == ModContent.TileType<AstralPilesBig>())
+						{
+							//Left top
+							Main.tile[k, l].type = TileID.LargePiles;
+							//Middle top
+							Main.tile[k - 1, l].type = TileID.LargePiles;
+							//Right top
+							Main.tile[k - 2, l].type = TileID.LargePiles;
+							//Left bottom
+							Main.tile[k, l - 1].type = TileID.LargePiles;
+							//Middle bottom
+							Main.tile[k - 1, l - 1].type = TileID.LargePiles;
+							//Right bottom
+							Main.tile[k - 2, l - 1].type = TileID.LargePiles;
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (type == ModContent.TileType<AstralPilesMedium>())
+						{
+							Main.tile[k, l].type = TileID.SmallPiles;
+							Main.tile[k - 1, l].type = TileID.SmallPiles;
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (type == ModContent.TileType<AstralPilesSmall>())
+						{
+							Main.tile[k, l].type = TileID.SmallPiles;
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (type == ModContent.TileType<AstralStalactites>())
+						{
+							Main.tile[k, l].type = TileID.Stalactite;
+							Main.tile[k, l - 1].type = TileID.Stalactite;
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}*/
 						else if (wall == ModContent.WallType<AstralDirtWallPlaced>())
 						{
 							Main.tile[k, l].wall = WallID.Dirt;
@@ -194,13 +236,6 @@ namespace CalValEX.Items.Tiles.Astral
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
 						}
-						/*else if (type == ModContent.TileType<AstralIcePlaced>())
-						{
-							Main.tile[k, l].type = TileID.Ice;
-							WorldGen.SquareTileFrame(k, l, true);
-							NetMessage.SendTileSquare(-1, k, l, 1);
-							break;
-						}*/
 					}
 				}
 			}

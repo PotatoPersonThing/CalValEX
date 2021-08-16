@@ -72,6 +72,7 @@ namespace CalValEX.Items.Tiles.Astral
 					if (WorldGen.InWorld(k, l, 1) && Math.Abs(k - i) + Math.Abs(l - j) < Math.Sqrt(size * size + size * size)) 
                     {
 						int type = Main.tile[k, l].type;
+						int typemed = Main.tile[k - 1, l].type;
 						int wall = Main.tile[k, l].wall;
 						Mod CalValEX = ModLoader.GetMod("CalamityMod");
 
@@ -134,9 +135,47 @@ namespace CalValEX.Items.Tiles.Astral
 						else if ((type == TileID.HallowedPlants2) || (type == TileID.Plants2)) 
 						{
 							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralTallGrass>();
+							Main.tile[k, l - 1].type = (ushort)ModContent.TileType<AstralTallGrass>();
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}
+						/*else if (type == TileID.LargePiles)
+						{
+							//Left top
+							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralPilesBig>();
+							//Left bottom
+							Main.tile[k, l - 1].type = (ushort)ModContent.TileType<AstralPilesBig>();
+							//Middle top
+							Main.tile[k - 1, l].type = (ushort)ModContent.TileType<AstralPilesBig>();
+							//Right top
+							Main.tile[k - 2, l - 1].type = (ushort)ModContent.TileType<AstralPilesBig>();
+							//Middle bottom
+							Main.tile[k - 1, l - 1].type = (ushort)ModContent.TileType<AstralPilesBig>();
+							//Right top
+							Main.tile[k - 2, l].type = (ushort)ModContent.TileType<AstralPilesBig>();
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+						}
+						else if (type == TileID.SmallPiles && typemed == TileID.SmallPiles)
+						{
+							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralPilesMedium>();
+							Main.tile[k - 1, l].type = (ushort)ModContent.TileType<AstralPilesMedium>();
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+						}
+						else if (type == TileID.SmallPiles && typemed != TileID.SmallPiles)
+						{
+							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralPilesSmall>();
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+						}
+						else if (type == TileID.Stalactite)
+						{
+							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralStalactites>();
+							Main.tile[k, l - 1].type = (ushort)ModContent.TileType<AstralStalactites>();
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+						}*/
 						else if (TileID.Sets.Conversion.Sandstone[type]) {
 							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralSandstonePlaced>();
 							WorldGen.SquareTileFrame(k, l, true);
