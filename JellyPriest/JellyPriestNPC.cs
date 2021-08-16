@@ -119,6 +119,21 @@ namespace CalValEX.JellyPriest
         {
             Player player = Main.player[Main.myPlayer];
             CalValEXPlayer CalValEXPlayer = player.GetModPlayer<CalValEXPlayer>();
+
+            CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
+
+            if (NPC.AnyNPCs((ModLoader.GetMod("CalamityMod").NPCType("Siren"))))
+            {
+                switch (Main.rand.Next(2))
+                {
+                    case 0:
+                        return "Oh my Xeroc! It's her! I have to wrap up preparations quickly!";
+
+                    default:
+                        return "After all of my preparations, she is finally here! Anahita of the Tides!";
+                }
+            }
+
             if (CalValEXPlayer.sirember)
             {
                 return "WHAT IS THAT HORRIBLE MONSTROSITY";
@@ -163,19 +178,6 @@ namespace CalValEX.JellyPriest
                         return "Do you think Amidias knows anything about the sea deity I'm searching? It seems that old horse got a lot of knowledge about story.";
                 }
             }
-            CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
-
-            if (NPC.AnyNPCs((ModLoader.GetMod("CalamityMod").NPCType("Siren"))))
-            {
-                switch (Main.rand.Next(2))
-                {
-                    case 0:
-                        return "Oh my Xeroc! It's her! I have to wrap up preparations quickly!";
-
-                    default:
-                        return "After all of my preparations, she is finally here! Anahita of the Tides!";
-                }
-            }
             Mod clamMod = ModLoader.GetMod("CalamityMod");
             if (((bool)clamMod.Call("GetBossDowned", "anahitaleviathan")) && Main.rand.NextFloat() < 0.25f && !NPC.AnyNPCs((ModLoader.GetMod("CalamityMod").NPCType("Siren"))))
             {
@@ -189,22 +191,22 @@ namespace CalValEX.JellyPriest
                 }
             }
 
-            if (calPlayer.sirenWaifu || calPlayer.elementalHeart)
+            if ((calPlayer.sirenWaifu || calPlayer.elementalHeart) && Main.rand.NextFloat() < 0.25f)
             {
                 return "You were successfully able to befriend the grand Water Elemental? I'm impressed.";
             }
 
-            if (calPlayer.sirenBoobs && !calPlayer.sirenBoobsHide)
+            if ((calPlayer.sirenBoobs && !calPlayer.sirenBoobsHide) && Main.rand.NextFloat() < 0.25f)
             {
                 return "OH! Please, welcome yourself to my shop. I've been preparing these just for you.";
             }
 
-            if (calPlayer.sirenPet)
+            if ((calPlayer.sirenPet) && Main.rand.NextFloat() < 0.25f)
             {
                 return "Awe, that little one is cute. She reminds me a lot of the deity I seek.";
             }
 
-            if (CalValEXPlayer.babywaterclone)
+            if ((CalValEXPlayer.babywaterclone) && Main.rand.NextFloat() < 0.25f)
             {
                 return "That little one has a presence that feels similar, but different to the deity I seek.";
             }
