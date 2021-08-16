@@ -27,6 +27,7 @@ namespace CalValEX.Items.Critters
             item.noUseGraphic = true;
             item.makeNPC = (short)NPCType<Blinker>();
             item.rare = ItemRarityID.Lime;
+            item.bait = 20;
         }
     }
 }

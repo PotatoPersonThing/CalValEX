@@ -35,6 +35,7 @@ namespace CalValEX.Items.Critters
                 return;
             }
             item.makeNPC = (short)NPCType<CrystalFly>();
+            item.bait = 45;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
