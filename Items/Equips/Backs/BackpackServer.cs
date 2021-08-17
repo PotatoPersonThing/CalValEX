@@ -17,7 +17,7 @@ namespace CalValEX.Items.Equips.Backs
         {
             item.width = 14;
             item.height = 34;
-            item.value = Item.sellPrice(0, 0, 1, 0);
+            item.value = Item.sellPrice(0, 1, 0, 0);
             item.rare = ItemRarityID.Purple; ;
             item.accessory = true;
             item.vanity = true;
@@ -29,8 +29,8 @@ namespace CalValEX.Items.Equips.Backs
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (calamityMod != null)
             {
-                recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"));
-                recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"));
+                recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 5);
+                recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 5);
                 recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("LaboratoryConsole"));
                 recipe.SetResult(this);
                 recipe.AddRecipe();

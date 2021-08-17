@@ -187,7 +187,7 @@ namespace CalValEX
                     if ((bool)clamMod.Call("GetBossDowned", "astrumaureus"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<AureicFedora>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20);
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10);
                         ++nextSlot;
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidTentacles>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);

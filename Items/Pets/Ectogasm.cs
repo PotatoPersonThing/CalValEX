@@ -71,7 +71,7 @@ namespace CalValEX.Items.Pets
             {
                 ModRecipe recipe = new ModRecipe(mod);
                 recipe.AddIngredient(mod.ItemType("ImpureStick"), 1);
-                recipe.AddIngredient(mod.ItemType("ShadowCloth"), 1);
+                recipe.AddIngredient(mod.ItemType("SigCloth"), 1);
                 recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("AuricBar"), 72);
                 recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("TwistingNether"), 72);
                 recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("PurifiedGel"), 72);
