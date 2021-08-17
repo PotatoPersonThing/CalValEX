@@ -24,6 +24,8 @@ namespace CalValEX
 
         public static bool orthofound;
 
+        public static bool amogus;
+
         public static bool OneMonolith;
 
         public static bool TwoMonolith;
@@ -32,6 +34,8 @@ namespace CalValEX
         {
             rescuedjelly = false;
             jharim = false;
+            amogus = false;
+            orthofound = false;
         }
 
         public override TagCompound Save()
@@ -52,6 +56,11 @@ namespace CalValEX
                 downed.Add("orthofound");
             }
 
+            if (amogus)
+            {
+                downed.Add("amogus");
+            }
+
             return new TagCompound
             {
                 {
@@ -66,6 +75,7 @@ namespace CalValEX
             rescuedjelly = downed.Contains("rescuedjelly");
             jharim = downed.Contains("jharim");
             orthofound = downed.Contains("orthofound");
+            amogus = downed.Contains("amogus");
         }
         public override void LoadLegacy(BinaryReader reader)
         {
@@ -76,6 +86,7 @@ namespace CalValEX
                 rescuedjelly = flags[0];
                 jharim = flags[1];
                 orthofound = flags[2];
+                amogus = flags[3];
             }
             else
             {
@@ -88,6 +99,7 @@ namespace CalValEX
             flags[0] = rescuedjelly;
             flags[1] = jharim;
             flags[2] = orthofound;
+            flags[3] = amogus;
             writer.Write(flags);
         }
         public override void NetReceive(BinaryReader reader)
@@ -96,6 +108,7 @@ namespace CalValEX
             rescuedjelly = flags[0];
             jharim = flags[1];
             orthofound = flags[2];
+            amogus = flags[3];
         }
 
         public override void ResetNearbyTileEffects()
