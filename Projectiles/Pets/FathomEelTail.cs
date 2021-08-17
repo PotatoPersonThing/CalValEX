@@ -46,7 +46,7 @@ namespace CalValEX.Projectiles.Pets
             float segmentAheadRotation;
 
             // This, and Size will likely need to be changed based on the sprite size of the segment
-            float travelFactor = 18f;
+            float travelFactor = 17f;
 
             Vector2 segmentAheadCenter;
             int byUUID = Projectile.GetByUUID(projectile.owner, (int)projectile.ai[0]);
@@ -97,7 +97,6 @@ namespace CalValEX.Projectiles.Pets
             {
                 projectile.Center = segmentAheadCenter - Vector2.Normalize(vectorToAhead) * travelFactor;
             }
-            projectile.spriteDirection = (vectorToAhead.X > 0f).ToDirectionInt();
 
             Player player = Main.player[projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
