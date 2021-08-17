@@ -9,7 +9,7 @@ namespace CalValEX.Items.LightPets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Essence of Yeet");
-            Tooltip.SetDefault("Sunfish gang, sunfish gang.");
+            Tooltip.SetDefault("'Sunfish gang, sunfish gang.'\nProvides a small amount of light in the abyss");
             ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 

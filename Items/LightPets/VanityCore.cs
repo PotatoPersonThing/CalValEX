@@ -10,7 +10,7 @@ namespace CalValEX.Items.LightPets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Core of Vanity");
-            Tooltip.SetDefault("Summons pet Heat Sprits, Cryogen's Shield and a Sunskater to follow you");
+            Tooltip.SetDefault("Summons pet Heat Sprits, Cryogen's Shield and a Sunskater to follow you\n" + "Provides a large amount of light in the abyss");
             ItemID.Sets.ItemNoGravity[item.type] = true;
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(6, 6));
         }

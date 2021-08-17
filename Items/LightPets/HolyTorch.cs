@@ -13,7 +13,7 @@ namespace CalValEX.Items.LightPets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("The Holy Torch");
-            Tooltip.SetDefault("Attracts an annoying fairy");
+            Tooltip.SetDefault("Attracts an annoying fairy\n" + "Provides a large amount of light in the abyss");
         }
 
         public override void SetDefaults()

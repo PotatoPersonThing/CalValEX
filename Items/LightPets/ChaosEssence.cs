@@ -10,7 +10,7 @@ namespace CalValEX.Items.LightPets
         {
             DisplayName.SetDefault("Essence of Disorder");
             Tooltip
-                .SetDefault("Summons a pair of Heat Spirits to light your way \n 'Come burn with me'");
+                .SetDefault("Summons a pair of Heat Spirits to light your way \n" + "Provides a moderate amount of light in the abyss\n" + "'Come burn with me'");
             ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 

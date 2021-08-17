@@ -10,7 +10,7 @@ namespace CalValEX.Items.LightPets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Antarctic Essence");
-            Tooltip.SetDefault("Summons a cosmetic shield of Cryogen's ice around you");
+            Tooltip.SetDefault("Summons a cosmetic shield of Cryogen's ice around you\n" + "Provides a moderate amount of light in the abyss");
             ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 

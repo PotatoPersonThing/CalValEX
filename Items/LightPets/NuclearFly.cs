@@ -12,7 +12,7 @@ namespace CalValEX.Items.LightPets
         {
             DisplayName.SetDefault("Divine Fly");
             Tooltip
-                .SetDefault("Ascension");
+                .SetDefault("'Ascension'\n" + "Provides a large amount of light in the abyss");
         }
 
         public override void SetDefaults()

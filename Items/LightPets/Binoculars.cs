@@ -9,7 +9,7 @@ namespace CalValEX.Items.LightPets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Astral Binoculars");
-            Tooltip.SetDefault("You can see something in the distance");
+            Tooltip.SetDefault("You can see something in the distance\n" + "Provides a moderate amount of light in the abyss");
         }
 
         public override void SetDefaults()

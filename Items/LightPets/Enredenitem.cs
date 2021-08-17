@@ -11,7 +11,7 @@ namespace CalValEX.Items.LightPets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Cosmic Bubble");
-            Tooltip.SetDefault("Summons the cosmic assistant to help you in your endeavors.\nEnreden's developer pet, without him this mod likely wouldn't be here.");
+            Tooltip.SetDefault("Summons the cosmic assistant to help you in your endeavors.\n" + "Provides a gigantic amount of light in the abyss\n" + "Enreden's developer pet, without him this mod likely wouldn't be here.");
             ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 

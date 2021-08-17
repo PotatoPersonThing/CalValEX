@@ -13,7 +13,7 @@ namespace CalValEX.Items.LightPets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Superstitious Jewel");
-            Tooltip.SetDefault("Summons an elemental and a miasma to follow you, emitting a crazy amount of light.\n" + "'It looks like glass, but the magic is real.'" );
+            Tooltip.SetDefault("Summons an elemental and a miasma to follow you, emitting a crazy amount of light.\n" + "Provides a colossal amount of light in the abyss\n" + "'It looks like glass, but the magic is real.'" );
             ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 
