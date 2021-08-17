@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework.Graphics;
 
 // If you don't know what to change this to, don't mess with this code.
 // You will fail
@@ -18,7 +19,8 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetDefaults()
         {
-            projectile.width = projectile.height = Size;
+            projectile.width = Size;
+            projectile.height = 26;
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.ignoreWater = true;
@@ -74,7 +76,8 @@ namespace CalValEX.Projectiles.Pets
             projectile.position = projectile.Center;
 
             // If scale is not 1, adjust the width and height based on that too
-            projectile.width = projectile.height = Size;
+            projectile.width = Size;
+            projectile.height = 26;
             projectile.Center = projectile.position;
 
             // Adjust the position of this segment relative to the one ahead
@@ -89,6 +92,49 @@ namespace CalValEX.Projectiles.Pets
             if (modPlayer.feel)
             {
                 projectile.timeLeft = 2;
+            }
+        }
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            if (projectile.knockBack == 2f && !projectile.ranged && !projectile.magic)
+            {
+                Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/FathomEelBody");
+                int frameHeight = texture.Height / Main.projFrames[projectile.type];
+                int hei = frameHeight * projectile.frame;
+                spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * projectile.frame, texture.Width, frameHeight)), lightColor, projectile.rotation, projectile.Size / 2f, 1f, SpriteEffects.None, 0f);
+                return false;
+            }
+            else if (projectile.knockBack == 3f && !projectile.ranged && !projectile.magic)
+            {
+                Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/FathomEelBody2");
+                int frameHeight = texture.Height / Main.projFrames[projectile.type];
+                int hei = frameHeight * projectile.frame;
+                spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * projectile.frame, texture.Width, frameHeight)), lightColor, projectile.rotation, projectile.Size / 2f, 1f, SpriteEffects.None, 0f);
+                return false;
+            }
+            else if (projectile.ranged)
+            {
+                Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/FathomEelBody3");
+                int frameHeight = texture.Height / Main.projFrames[projectile.type];
+                int hei = frameHeight * projectile.frame;
+                spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * projectile.frame, texture.Width, frameHeight)), lightColor, projectile.rotation, projectile.Size / 2f, 1f, SpriteEffects.None, 0f);
+                return false;
+            }
+            else if (projectile.magic)
+            {
+                Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/FathomEelBody4");
+                int frameHeight = texture.Height / Main.projFrames[projectile.type];
+                int hei = frameHeight * projectile.frame;
+                spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * projectile.frame, texture.Width, frameHeight)), lightColor, projectile.rotation, projectile.Size / 2f, 1f, SpriteEffects.None, 0f);
+                return false;
+            }
+            else
+            {
+                Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/FathomEelBody4");
+                int frameHeight = texture.Height / Main.projFrames[projectile.type];
+                int hei = frameHeight * projectile.frame;
+                spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * projectile.frame, texture.Width, frameHeight)), lightColor, projectile.rotation, projectile.Size / 2f, 1f, SpriteEffects.None, 0f);
+                return false;
             }
         }
     }

@@ -10,7 +10,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class FathomEelHead : ModProjectile
     {
-        private static readonly int SegmentCount = 10;
+        private static readonly int SegmentCount = 7;
         private bool SpawnedSegments = false;
         public override void SetStaticDefaults()
         {
@@ -20,7 +20,7 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetDefaults()
         {
-            projectile.width = 26;
+            projectile.width = 28;
             projectile.height = 36;
             projectile.friendly = true;
             projectile.hostile = false;
@@ -42,12 +42,24 @@ namespace CalValEX.Projectiles.Pets
                 {
                     float uuid = (float)Projectile.GetByUUID(Main.myPlayer, Main.projectile[tail].ai[0]);
                     int body = Projectile.NewProjectile(projectile.Center, Vector2.Zero,
-                        ModContent.ProjectileType<FathomEelBody>(), projectile.damage, projectile.knockBack,
+                        ModContent.ProjectileType<FathomEelBody>(), projectile.damage, 1f,
                         0, uuid);
                     int back = Projectile.NewProjectile(projectile.Center, Vector2.Zero,
-                        ModContent.ProjectileType<FathomEelBody>(), projectile.damage, projectile.knockBack,
+                        ModContent.ProjectileType<FathomEelBody>(), projectile.damage, 1f,
                         0, (float)body);
-
+                    if (i == 1 || i == 3)
+                    {
+                        Main.projectile[body].knockBack = 2f;
+                    }
+                    else if (i == 0 || i == 2 || i == 4)
+                    {
+                        Main.projectile[body].knockBack = 3f;
+                    }
+                    else if (i == 5)
+                    {
+                        Main.projectile[body].knockBack = 4f;
+                        Main.projectile[body].ranged = true;
+                    }
                     Main.projectile[body].ai[1] = 1f;
                     Main.projectile[body].netUpdate = true;
                     Main.projectile[body].identity = projectile.whoAmI;
@@ -144,7 +156,7 @@ namespace CalValEX.Projectiles.Pets
             projectile.rotation = projectile.velocity.ToRotation() + MathHelper.PiOver2;
 
             int oldDirection = projectile.direction;
-            projectile.direction = projectile.spriteDirection = (projectile.velocity.X > 0f).ToDirectionInt();
+            projectile.direction = (projectile.velocity.X > 0f).ToDirectionInt();
 
             // Update the projectile in multiplayer if the determined direction is not the true direction.
             // It will do weird things in multiplayer because of a lack of syncing among the directions

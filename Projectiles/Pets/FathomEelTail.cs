@@ -9,7 +9,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class FathomEelTail : ModProjectile
     {
-        private static readonly int Size = 26;
+        private static readonly int Size = 25;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Fathom Eel");
@@ -18,7 +18,8 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetDefaults()
         {
-            projectile.width = projectile.height = Size;
+            projectile.width = 26;
+            projectile.height = 26;
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.ignoreWater = true;
@@ -87,7 +88,8 @@ namespace CalValEX.Projectiles.Pets
             projectile.position = projectile.Center;
 
             // If scale is not 1, adjust the width and height based on that too
-            projectile.width = projectile.height = Size;
+            projectile.width = 26;
+            projectile.height = 26;
             projectile.Center = projectile.position;
 
             // Adjust the position of this segment relative to the one ahead
