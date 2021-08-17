@@ -17,7 +17,7 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lil' Weaver");
+            DisplayName.SetDefault("Jared Head");
             ProjectileID.Sets.NeedsUUID[projectile.type] = true;
         }
 
@@ -41,18 +41,21 @@ namespace CalValEX.Projectiles.Pets
                 int tail = Projectile.NewProjectile(projectile.Center, Vector2.Zero, ModContent.ProjectileType<JaredTail>(),
                     projectile.damage, projectile.knockBack, 0, projectile.whoAmI);
                 // The minus one is because this segment and the tail are incorporated in the worm as well
-                for (int i = 0; i < SegmentCount - 2; i++)
+                for (int i = 0; i < 18; i++)
                 {
                     float uuid = (float)Projectile.GetByUUID(Main.myPlayer, Main.projectile[tail].ai[0]);
-                    int body = Projectile.NewProjectile(projectile.Center, Vector2.Zero,
-                        ModContent.ProjectileType<JaredBody>(), projectile.damage, projectile.knockBack,
-                        0, uuid);
-                    int back = Projectile.NewProjectile(projectile.Center, Vector2.Zero,
-                        ModContent.ProjectileType<JaredBody>(), projectile.damage, projectile.knockBack,
-                        0, (float)body);
-
-                    Main.projectile[body].ai[1] = 1f;
-                    Main.projectile[body].netUpdate = true;
+					int body = Projectile.NewProjectile(projectile.Center, Vector2.Zero,
+					ModContent.ProjectileType<JaredBody>(), projectile.damage, 1f,
+					0, uuid);
+					int back = Projectile.NewProjectile(projectile.Center, Vector2.Zero,
+					ModContent.ProjectileType<JaredBody>(), projectile.damage, 1f,
+					0, (float)body);
+					if (i % 2 == 0)
+					{
+						Main.projectile[body].knockBack = 2f;
+					}
+					Main.projectile[body].ai[1] = 1f;
+					Main.projectile[body].netUpdate = true;
                     Main.projectile[body].identity = projectile.whoAmI;
 
                     Main.projectile[back].netUpdate = true;

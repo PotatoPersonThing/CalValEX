@@ -8,9 +8,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Nutrient Deprived Salmon");
+            DisplayName.SetDefault("Radioactive Catnip");
             Tooltip
-                .SetDefault("Low in protein, but a treat appreciated by sulphurous abominations");
+                .SetDefault("Doused in uranium, may morph organic life into terrifying abominations");
         }
 
         public override void SetDefaults()

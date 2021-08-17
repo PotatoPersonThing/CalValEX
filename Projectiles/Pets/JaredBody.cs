@@ -12,9 +12,12 @@ namespace CalValEX.Projectiles.Pets
     {
         private static readonly int Size = 54;
 
+        public bool segmentalt = false;
+        //private bool segmentcheck = false;
+
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Eidolon Worm");
+            DisplayName.SetDefault("Jared Body");
             ProjectileID.Sets.NeedsUUID[projectile.type] = true;
         }
 
@@ -94,13 +97,51 @@ namespace CalValEX.Projectiles.Pets
             {
                 projectile.timeLeft = 2;
             }
+            /*if ((Main.rand.Next(2) == 0) && !segmentcheck)
+            {
+                segmentalt = true;
+                segmentcheck = true;
+            }
+            else
+            {
+                segmentcheck = true;
+            }*/
+        }
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            if (projectile.knockBack == 1f)
+            {
+                Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/JaredBodyAlt");
+                int frameHeight = texture.Height / Main.projFrames[projectile.type];
+                int hei = frameHeight * projectile.frame;
+                spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * projectile.frame, texture.Width, frameHeight)), lightColor, projectile.rotation, projectile.Size / 2f, 1f, SpriteEffects.None, 0f);
+                return false;
+            }
+            else
+            {
+                Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/JaredBody");
+                int frameHeight = texture.Height / Main.projFrames[projectile.type];
+                int hei = frameHeight * projectile.frame;
+                spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * projectile.frame, texture.Width, frameHeight)), lightColor, projectile.rotation, projectile.Size / 2f, 1f, SpriteEffects.None, 0f);
+                return false;
+            }
         }
         public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/JaredBody_Glow");
-            int frameHeight = texture.Height / Main.projFrames[projectile.type];
-            int hei = frameHeight * projectile.frame;
-            spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * projectile.frame, texture.Width, frameHeight)), Color.White, projectile.rotation, projectile.Size / 2f, 1f, SpriteEffects.None, 0f);
+            if (projectile.knockBack == 1f)
+            {
+                Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/JaredBodyAlt_Glow");
+                int frameHeight = texture.Height / Main.projFrames[projectile.type];
+                int hei = frameHeight * projectile.frame;
+                spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * projectile.frame, texture.Width, frameHeight)), Color.White, projectile.rotation, projectile.Size / 2f, 1f, SpriteEffects.None, 0f);
+            }
+            else
+            {
+                Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/JaredBody_Glow");
+                int frameHeight = texture.Height / Main.projFrames[projectile.type];
+                int hei = frameHeight * projectile.frame;
+                spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * projectile.frame, texture.Width, frameHeight)), Color.White, projectile.rotation, projectile.Size / 2f, 1f, SpriteEffects.None, 0f);
+            }
         }
     }
 }

@@ -7,14 +7,14 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bumblefolly");
-            Main.projFrames[projectile.type] = 4; //frames
+            Main.projFrames[projectile.type] = 5; //frames
             Main.projPet[projectile.type] = true;
         }
 
         public override void SafeSetDefaults() //SafeSetDefaults!!!
         {
-            projectile.width = 84;
-            projectile.height = 72;
+            projectile.width = 78;
+            projectile.height = 68;
             projectile.ignoreWater = true;
             /* you don't need to set these anymore!
             projectile.penetrate = -1;
