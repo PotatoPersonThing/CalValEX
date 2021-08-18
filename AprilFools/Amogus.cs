@@ -188,6 +188,7 @@ namespace CalValEX.AprilFools
             switch ((int)projectile.localAI[1])
             {
                 case 3:
+                    //Main.sunTexture = mod.GetTexture(("AprilFools/AmogusBuff"));
                     Mod calamityMod = ModLoader.GetMod("CalamityMod");
                     Vector2 playerpos;
                     playerpos.X = player.position.X + (Main.rand.Next(-256, 256));
@@ -285,7 +286,7 @@ namespace CalValEX.AprilFools
                             birb = 0;
                         }
                     }
-                    if (deathcounter >= 1200)
+                    if (deathcounter >= 1000)
                     {
                         if (deathcounter <= 1800)
                         {
@@ -301,11 +302,11 @@ namespace CalValEX.AprilFools
                         }
 
                         minetimer++;
-                        if (minetimer >= 1200)
+                        if (minetimer >= 240)
                         {
                             for (int x = 0; x < 8; x++)
                             {
-                                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, Main.rand.Next(-2, 2), Main.rand.Next(-2, 2), mine, 0, 0f, Main.myPlayer, 0f, 0f);
+                                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, Main.rand.Next(-2, 2), Main.rand.Next(-2, 2), mine, 80, 0f, Main.myPlayer, 0f, 0f);
                                 minetimer = 0;
                             }
                         }

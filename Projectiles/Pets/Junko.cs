@@ -16,7 +16,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SafeSetDefaults()
         {
             projectile.width = 64;
-            projectile.height = 44;
+            projectile.height = 46;
             projectile.penetrate = -1;
             projectile.netImportant = true;
             projectile.timeLeft *= 5;
