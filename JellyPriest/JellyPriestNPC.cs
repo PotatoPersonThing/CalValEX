@@ -448,7 +448,7 @@ namespace CalValEX.JellyPriest
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "plaguebringergoliath"))
                     {
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("PlagueDialysis"));
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<PlagueDialysis>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
                         ++nextSlot;
                     }
@@ -782,7 +782,7 @@ namespace CalValEX.JellyPriest
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "plaguebringergoliath"))
                     {
-                        shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("PlagueDialysis"));
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<PlagueDialysis>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
                         ++nextSlot;
                     }
