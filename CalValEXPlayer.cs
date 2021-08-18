@@ -329,6 +329,9 @@ namespace CalValEX
         public bool sandTrans;
         //More stuff ig
         public bool vanityhote;
+        public int choppercounter = 0;
+        public int chopperframe = 0;
+        public bool wulfrumjam;
 
         public override void Initialize()
         {
@@ -484,6 +487,10 @@ namespace CalValEX
                 player.body = mod.GetEquipSlot("SandBody", EquipType.Body);
                 player.head = mod.GetEquipSlot("SandHead", EquipType.Head);
             }
+            else if (wulfrumjam)
+            {
+                player.wings = mod.GetEquipSlot("BlankWings", EquipType.Wings);
+            }
         }
 
         public override void UpdateEquips(ref bool wallSpeedBuff, ref bool tileSpeedBuff, ref bool tileRangeBuff)
@@ -514,6 +521,17 @@ namespace CalValEX
             CalamityBabyGotHit = false;
             SCalHits = 0;
             morshuTimer = 0;
+        }
+
+        public override void PreUpdate()
+        {
+            int wulfrumflame = 9;
+            if (choppercounter >= 7)
+            {
+                choppercounter = -1;
+                chopperframe = chopperframe == wulfrumflame - 1 ? 0 : chopperframe + 1;
+            }
+            choppercounter++;
         }
 
         private void ResetMyStuff()
@@ -648,6 +666,7 @@ namespace CalValEX
             scaldown = false;
             vanityhote = false;
             avalon = false;
+            wulfrumjam = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
@@ -901,7 +920,10 @@ namespace CalValEX
                 Texture2D texture = mod.GetTexture("Items/Equips/Hats/AestheticrownEquipped");
                 int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);
                 int drawY = (int)(drawInfo.position.Y + drawPlayer.height - 32 - Main.screenPosition.Y - secondyoffset);
-                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
+                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0)
+                {
+                    shader = drawInfo.headArmorShader
+                }; 
                 Main.playerDrawData.Add(data);
             }
             if (modPlayer.rockhat)
@@ -909,7 +931,10 @@ namespace CalValEX
                 Texture2D texture = mod.GetTexture("Items/Equips/Hats/StonePileEquipped");
                 int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);
                 int drawY = (int)(drawInfo.position.Y + drawPlayer.height - 32 - Main.screenPosition.Y - secondyoffset);
-                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
+                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0)
+                {
+                    shader = drawInfo.headArmorShader
+                }; 
                 Main.playerDrawData.Add(data);
             }
         });
@@ -954,11 +979,46 @@ namespace CalValEX
             }
         });
 
+        public static readonly PlayerLayer Chopper = new PlayerLayer("CalValEX", "Chopper", PlayerLayer.Wings, delegate (PlayerDrawInfo drawInfo)
+        {
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("CalValEX");
+            if (drawInfo.shadow != 0f)
+            {
+                return;
+            }
+            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
+            Player player = Main.LocalPlayer;
+            if (modPlayer.wulfrumjam)
+            {
+                    int winflip = 1 * -drawPlayer.direction;
+                    Texture2D texture = mod.GetTexture("Items/Equips/Wings/WulfrumHelipackMalfunction");
+                    Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f - 10 * player.direction, drawPlayer.gfxOffY - 2);
+                //DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
+                Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 9f);
+                    //float wulfrumframe = 8f / 8;
+                    //int wulfheight = (int)((float)(framecounter / texture.Height) * wulfrumframe) * (texture.Height / 8);
+                    Rectangle wulfsquare = texture.Frame(1, 9, 0, modPlayer.chopperframe);
+                    DrawData data = new DrawData(texture, wtf, wulfsquare, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, origin, 1, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0
+                    )
+                    {
+                        shader = drawInfo.wingShader
+                    }; 
+
+                /*spriteBatch.Draw(texture, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), wulfsquare, hive2alpha, npc.rotation, Utils.Size(wulfsquare) / 2f, npc.scale, SpriteEffects.None, 0f);
+                return false;*/
+
+
+                Main.playerDrawData.Add(data);
+                }
+        });
+
         public override void ModifyDrawLayers(List<PlayerLayer> layers)
         {
             int headLayer = layers.FindIndex(l => l == PlayerLayer.Head);
             int bodyLayer = layers.FindIndex(l => l == PlayerLayer.Body);
             int armLayer = layers.FindIndex(l => l == PlayerLayer.Arms);
+            int wingLayer = layers.FindIndex(l => l == PlayerLayer.Wings);
 
             if (headLayer > -1)
             {
@@ -968,6 +1028,11 @@ namespace CalValEX
             if (bodyLayer > -1)
             {
                 layers.Insert(bodyLayer + 1, DraedonChestplate);
+            }
+
+            if (wingLayer > -1)
+            {
+                layers.Insert(wingLayer + 1, Chopper);
             }
             Head.visible = true;
             layers.Insert(headLayer + 1, Head);

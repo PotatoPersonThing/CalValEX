@@ -16,6 +16,7 @@ using CalValEX.Items.Equips.Shirts;
 using CalValEX.Items.Equips.Shirts.Draedon;
 using CalValEX.Items.Equips.Transformations;
 using CalValEX.Items.Equips.Wings;
+using CalValEX.Items.Equips.Blanks;
 using CalValEX.Items.Hooks;
 using CalValEX.Items.LightPets;
 using CalValEX.Items.Mounts;
@@ -86,7 +87,9 @@ namespace CalValEX
             AddEquipTexture(new SandHead(), null, EquipType.Head, "SandHead", "CalValEX/Items/Equips/Transformations/Sand_Head");
             AddEquipTexture(new SandBody(), null, EquipType.Body, "SandBody", "CalValEX/Items/Equips/Transformations/Sand_Body", "CalValEX/Items/Equips/Transformations/Sand_Arms");
             AddEquipTexture(new SandLegs(), null, EquipType.Legs, "SandLegs", "CalValEX/Items/Equips/Transformations/Sand_Legs");
-            
+            //Blanks
+            AddEquipTexture(new BlankWings(), null, EquipType.Wings, "BlankWings", "CalValEX/Items/Equips/Shields/Invishield_Shield");
+
             GameShaders.Armor.BindShader(ModContent.ItemType<DraedonHologramDye>(),
                 new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/DraedonHologramDye")),
                     "DraedonHologramDyePass"));
