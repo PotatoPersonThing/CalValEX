@@ -1,5 +1,6 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Items.Equips.Wings
 {
@@ -59,6 +60,16 @@ namespace CalValEX.Items.Equips.Wings
         {
             speed = 1f;
             acceleration *= 1.0f;
+        }
+        public override void AddRecipes()
+        {
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(calamityMod.ItemType("WulfrumShard"), 12);
+            recipe.AddIngredient(calamityMod.ItemType("EnergyCore"), 3);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }
