@@ -10,7 +10,7 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Suspicious looking GBC");
+            DisplayName.SetDefault("Suspicious Looking GBC");
             Tooltip
                 .SetDefault("What could this mean?");
         }

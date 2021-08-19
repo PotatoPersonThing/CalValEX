@@ -10,7 +10,7 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Suspicious looking Chinese Crown");
+            DisplayName.SetDefault("Suspicious Looking Chinese Crown");
             Tooltip
                 .SetDefault("She's coming");
         }
