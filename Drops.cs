@@ -15,6 +15,8 @@ using CalValEX.Items.LightPets;
 using CalValEX.Items.Mounts;
 using CalValEX.Items.Mounts.Morshu;
 using CalValEX.Items.Pets;
+using CalValEX.Items.Pets.Scuttlers;
+using CalValEX.Items.Pets.Elementals;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Astral;
 using CalValEX.Items.Tiles.Balloons;

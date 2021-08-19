@@ -20,7 +20,7 @@ namespace CalValEX.Projectiles.Pets
             projectile.CloneDefaults(ProjectileID.BabySnowman);
             aiType = ProjectileID.BabySnowman;
             //drawOffsetX = 5;
-            drawOriginOffsetY = 7;
+            drawOriginOffsetY = 4;
         }
 
         public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)

@@ -1,6 +1,8 @@
 ﻿using CalValEX.Projectiles.Pets;
 using CalValEX.Projectiles.Pets.LightPets;
 using CalValEX.Projectiles.Pets.Wulfrum;
+using CalValEX.Projectiles.Pets.Scuttlers;
+using CalValEX.Projectiles.Pets.Elementals;
 using Terraria;
 using Terraria.ModLoader;
 

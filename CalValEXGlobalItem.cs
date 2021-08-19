@@ -14,6 +14,8 @@ using CalValEX.Items.Hooks;
 using CalValEX.Items.LightPets;
 using CalValEX.Items.Mounts;
 using CalValEX.Items.Pets;
+using CalValEX.Items.Pets.Scuttlers;
+using CalValEX.Items.Pets.Elementals;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;

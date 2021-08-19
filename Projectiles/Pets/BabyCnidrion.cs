@@ -7,7 +7,7 @@ namespace CalValEX.Projectiles.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Catfish");
+            DisplayName.SetDefault("Sneeze Dragon");
             Main.projFrames[projectile.type] = 7; //frames
             Main.projPet[projectile.type] = true;
         }
@@ -23,7 +23,7 @@ namespace CalValEX.Projectiles.Pets
             projectile.ignoreWater = true;
             projectile.tileCollide = true;
             //base.drawOffsetX = -13;
-            //base.drawOriginOffsetY = -15;
+            base.drawOriginOffsetY = 1;
             facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
             shouldFlip = true;
@@ -70,10 +70,11 @@ namespace CalValEX.Projectiles.Pets
         {
             idleFrameLimits[0] = idleFrameLimits[1] = 0; //what your min idle frame is (start of idle animation)
 
-            walkingFrameLimits[0] = 0; //what your min walking frame is (start of walking animation)
-            walkingFrameLimits[1] = 5; //what your max walking frame is (end of walking animation)
+            walkingFrameLimits[0] = 1; //what your min walking frame is (start of walking animation)
+            walkingFrameLimits[1] = 4; //what your max walking frame is (end of walking animation)
 
-            flyingFrameLimits[0] = flyingFrameLimits[1] = 6; //what your max flying frame is (end of flying animation)
+            flyingFrameLimits[0] = 5;
+            flyingFrameLimits[1] = 6; //what your max flying frame is (end of flying animation)
 
             animationSpeed[0] = 30; //idle animation speed
             animationSpeed[1] = 8; //walking animation speed

@@ -10,6 +10,8 @@ using CalValEX.Buffs.Transformations;
 using CalValEX.Items.Mounts.Morshu;
 using CalValEX.Items.Tiles;
 using CalValEX.Projectiles.Pets;
+using CalValEX.Projectiles.Pets.Scuttlers;
+using CalValEX.Projectiles.Pets.Elementals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
