@@ -234,6 +234,12 @@ namespace CalValEX
                                 break;
 
                             case "YuH":
+                            case "Yuh":
+                            case "yuh":
+                            case "Lilsigtum":
+                            case "GinYuH":
+                            case "Lil Sigtum":
+                                player.QuickSpawnItem(ModContent.ItemType<FlareRune>());
                                 player.QuickSpawnItem(ModContent.ItemType<Eidolistthingy>());
                                 break;
 
@@ -520,6 +526,24 @@ namespace CalValEX
                             if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<DigestedWormFood>());
+                            }
+
+                            if (Main.rand.NextFloat() < 0.4f)
+                            {
+                                int choice = Main.rand.Next(3);
+                                if (choice == 0)
+                                {
+                                    player.QuickSpawnItem(ModContent.ItemType<SmallWorm>());
+                                }
+                                if (choice == 1)
+                                {
+                                    player.QuickSpawnItem(ModContent.ItemType<MidWorm>());
+                                }
+                                else
+                                {
+                                    player.QuickSpawnItem(ModContent.ItemType<BigWorm>());
+                                }
+
                             }
                         }
 

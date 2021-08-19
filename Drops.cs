@@ -896,6 +896,21 @@ namespace CalValEX
                     ConditionalChanceDropItem(npc, ModContent.ItemType<DesertMedallion>(), !Main.expertMode, 0.2f);
                 }
 
+                if (npc.type == calamityMod.NPCType("PerforatorHeadSmall"))
+                {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<SmallWorm>(), !Main.expertMode, 0.2f);
+                }
+
+                if (npc.type == calamityMod.NPCType("PerforatorHeadMedium"))
+                {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<MidWorm>(), !Main.expertMode, 0.2f);
+                }
+
+                if (npc.type == calamityMod.NPCType("PerforatorHeadLarge"))
+                {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<BigWorm>(), !Main.expertMode, 0.2f);
+                }
+
                 if (npc.type == calamityMod.NPCType("SlimeGodCore"))
                 {
                     if (!CalValEXConfig.Instance.ConfigBossBlocks)
