@@ -333,6 +333,7 @@ namespace CalValEX
                             case "Willow":
                             case "willowmaine":
                             case "bean long":
+                                player.QuickSpawnItem(ModContent.ItemType<OldMirage>());
                                 player.QuickSpawnItem(ModContent.ItemType<PerennialFlower>());
                                 player.QuickSpawnItem(ModContent.ItemType<VVanities>());
                                 break;
