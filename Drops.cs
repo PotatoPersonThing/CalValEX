@@ -515,27 +515,28 @@ namespace CalValEX
                 if (npc.type == calamityMod.NPCType("WulfrumRover"))
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<WulfrumKeys>(), Main.expertMode, mountChance);
-                    ChanceDropItem(npc, ModContent.ItemType<WulfrumController>(), 0.04f);
+                    ChanceDropItem(npc, ModContent.ItemType<WulfrumController>(), 0.02f);
                 }
 
                 if (npc.type == calamityMod.NPCType("WulfrumDrone"))
                 {
-                    ChanceDropItem(npc, ModContent.ItemType<WulfrumController>(), 0.04f);
+                    ChanceDropItem(npc, ModContent.ItemType<WulfrumController>(), 0.02f);
                 }
 
                 if (npc.type == calamityMod.NPCType("WulfrumHovercraft"))
                 {
-                    ChanceDropItem(npc, ModContent.ItemType<WulfrumController>(), 0.04f);
+                    ChanceDropItem(npc, ModContent.ItemType<WulfrumController>(), 0.02f);
                 }
 
                 if (npc.type == calamityMod.NPCType("WulfrumGyrator"))
                 {
-                    ChanceDropItem(npc, ModContent.ItemType<WulfrumController>(), 0.04f);
+                    ChanceDropItem(npc, ModContent.ItemType<WulfrumController>(), 0.02f);
+                    ChanceDropItem(npc, ModContent.ItemType<WulfrumBalloon>(), rareChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("WulfrumSlime")) //Lol
                 {
-                    ChanceDropItem(npc, ModContent.ItemType<WulfrumController>(), 0.04f);
+                    ChanceDropItem(npc, ModContent.ItemType<WulfrumController>(), 0.02f);
                 }
 
                 if (npc.type == calamityMod.NPCType("WulfrumPylon"))
@@ -1068,6 +1069,7 @@ namespace CalValEX
                     {
                         ChanceDropItem(npc, ModContent.ItemType<SigCloth>(), bossPetChance);
                     }
+                    ChanceDropItem(npc, ModContent.ItemType<SignusBalloon>(), vanityNormalChance);
                     ChanceDropItem(npc, ModContent.ItemType<SigCape>(), vanityNormalChance);
                     ChanceDropItem(npc, ModContent.ItemType<SignusNether>(), vanityNormalChance);
                     ChanceDropItem(npc, ModContent.ItemType<SignusEmblem>(), vanityNormalChance);

@@ -67,6 +67,7 @@ namespace CalValEX.Items.Equips.Wings
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(calamityMod.ItemType("WulfrumShard"), 12);
             recipe.AddIngredient(calamityMod.ItemType("EnergyCore"), 3);
+            recipe.AddIngredient(ItemID.LuckyHorseshoe, 1);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();
