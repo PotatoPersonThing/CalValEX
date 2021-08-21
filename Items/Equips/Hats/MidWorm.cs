@@ -18,7 +18,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             item.width = 20;
             item.height = 22;
-            item.value = Item.sellPrice(0, 0, 2, 0);
+            item.value = Item.sellPrice(0, 1, 0, 0);
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             item.rare = 4;
             item.accessory = true;
