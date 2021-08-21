@@ -11,7 +11,7 @@ namespace CalValEX.Items.Equips.Hats
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Medium Perforator Mask");
-            Tooltip.SetDefault("''Worming its way to the top!'");
+            Tooltip.SetDefault("'Worming its way to the top!'");
         }
 
         public override void SetDefaults()
