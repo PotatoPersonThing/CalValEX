@@ -562,9 +562,6 @@ namespace CalValEX.JellyPriest
                         shop.item[nextSlot].SetDefaults(ItemType<AstralPearlBlock>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 3, 0);
                         nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<AstralPearlBlock>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 3, 0);
-                        nextSlot++;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "brimstoneelemental"))
                     {
