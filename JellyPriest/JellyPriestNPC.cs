@@ -60,14 +60,24 @@ namespace CalValEX.JellyPriest
             animationType = NPCID.Mechanic;
         }
 
+        private bool jellyspawn = false;
+
         public override bool CanTownNPCSpawn(int numTownNPCs, int money)
         {
-            return CalValEXWorld.rescuedjelly;
+            if (CalValEXWorld.rescuedjelly && !CalValEXConfig.Instance.TownNPC)
+            {
+                jellyspawn = true;
+            }
+            return jellyspawn;
         }
 
         public override void AI()
         {
             npc.breath += 2;
+            if (CalValEXConfig.Instance.TownNPC)
+            {
+                npc.active = false;
+            }
         }
 
         public override string TownNPCName()
