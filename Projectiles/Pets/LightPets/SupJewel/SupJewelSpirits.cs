@@ -25,6 +25,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
             projectile.height = 184;
             projectile.netImportant = true;
             projectile.scale = 1f;
+            projectile.alpha = 20;
         }
 
         public override bool? CanCutTiles()
@@ -37,7 +38,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
             Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/LightPets/SupJewel/NWings_Glow");
             int frameHeight = texture.Height / Main.projFrames[projectile.type];
             int hei = frameHeight * projectile.frame;
-            spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, hei, texture.Width, frameHeight)), Color.White, projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), projectile.scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, hei, texture.Width, frameHeight)), Color.Transparent, projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), projectile.scale, SpriteEffects.None, 0f);
         }
 
         public override void AI()
@@ -189,23 +190,26 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
+            /*
             if (player.dead)
                 modPlayer.SupJ = false;
             if (modPlayer.SupJ)
                 projectile.timeLeft = 2;
 
-            rotation += 0.01f;
-            if (extraScale > 0.25f && !yep)
+            rotation += 0.22f;
+            if (extraScale > 0f && !yep)
                 yep = true;
-            if (extraScale < 0f && yep)
+            if (extraScale < -0.5f && yep)
                 yep = false;
 
             if (!yep)
                 extraScale += 0.005f;
             if (yep)
                 extraScale -= 0.005f;
+            */
         }
 
+        /*
         public override void SafePreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             Player player = Main.player[projectile.owner];
@@ -217,6 +221,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
             spriteBatch.Draw(texture, player.Center - Main.screenPosition, sourceRectangle, lightColor, rotation, origin / 2f, 1f + extraScale, SpriteEffects.None, 0);
             spriteBatch.Draw(texture2, player.Center - Main.screenPosition, sourceRectangle, Color.White, rotation, origin / 2f, 1f + extraScale, SpriteEffects.None, 0);
         }
+        */
     }
 
     public class SpookSmall : FlyingPet
