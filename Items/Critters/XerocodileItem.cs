@@ -50,14 +50,12 @@ namespace CalValEX.Items.Critters
         }
         public override void AddRecipes()
         {
-            Mod clamMod = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(clamMod.ItemType("XerocodileItem"), 10);
-                recipe.AddIngredient(clamMod.ItemType("BloodstoneCore"), 1);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
+            ModRecipe recipe = new ModRecipe(mod);
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            recipe.AddIngredient(calamityMod.ItemType("Xerocodile"), 10);
+            recipe.AddIngredient(calamityMod.ItemType("BloodstoneCore"), 1);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

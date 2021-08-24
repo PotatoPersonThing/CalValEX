@@ -213,6 +213,7 @@ namespace CalValEX
         public bool MiniCryo;
         public bool mNaked;
         public bool moistPet;
+        public bool conejo;
 
         public int morshuscal = 0;
         //public CalamityPlayer calPlayer;
@@ -334,6 +335,8 @@ namespace CalValEX
         public bool vanityhote;
         public int choppercounter = 0;
         public int chopperframe = 0;
+        public int conecounter = 0;
+        public int coneframe = 0;
         public bool wulfrumjam;
 
         public override void Initialize()
@@ -539,6 +542,14 @@ namespace CalValEX
                 chopperframe = chopperframe == wulfrumflame - 1 ? 0 : chopperframe + 1;
             }
             choppercounter++;
+
+            int coneflame = 6;
+            if (conecounter >= 5)
+            {
+                conecounter = -1;
+                coneframe = coneframe == coneflame - 1 ? 0 : coneframe + 1;
+            }
+            conecounter++;
         }
 
         private void ResetMyStuff()
@@ -675,6 +686,7 @@ namespace CalValEX
             vanityhote = false;
             avalon = false;
             wulfrumjam = false;
+            conejo = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
@@ -913,8 +925,10 @@ namespace CalValEX
             }
             Player drawPlayer = drawInfo.drawPlayer;
             Mod mod = ModLoader.GetMod("CalValEX");
+            Player player = Main.LocalPlayer;
             CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
             int secondyoffset = 0;
+            float alb = (255 - drawPlayer.immuneAlpha) / 255f;
             if (drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 8 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 9 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 15 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 16 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 17)
             {
                 secondyoffset = 2;
@@ -928,7 +942,7 @@ namespace CalValEX
                 Texture2D texture = mod.GetTexture("Items/Equips/Hats/AestheticrownEquipped");
                 int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);
                 int drawY = (int)(drawInfo.position.Y + drawPlayer.height - 32 - Main.screenPosition.Y - secondyoffset);
-                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0)
+                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Color.White * alb, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0)
                 {
                     shader = drawInfo.headArmorShader
                 }; 
@@ -939,10 +953,24 @@ namespace CalValEX
                 Texture2D texture = mod.GetTexture("Items/Equips/Hats/StonePileEquipped");
                 int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);
                 int drawY = (int)(drawInfo.position.Y + drawPlayer.height - 32 - Main.screenPosition.Y - secondyoffset);
-                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0)
+                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Color.White * alb, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0)
                 {
                     shader = drawInfo.headArmorShader
                 }; 
+                Main.playerDrawData.Add(data);
+            }
+            if (modPlayer.conejo)
+            {
+                int winflip = 1 * -drawPlayer.direction;
+                    Texture2D texture = mod.GetTexture("Items/Equips/Hats/TrueCosmicConeEquipped");
+                    Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * player.direction, drawPlayer.gfxOffY - 85 - secondyoffset);
+                    Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
+                    Rectangle conesquare = texture.Frame(1, 6, 0, modPlayer.coneframe);
+                    DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, 0f, origin, 1, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0
+                    )
+                    {
+                        shader = drawInfo.headArmorShader
+                    };
                 Main.playerDrawData.Add(data);
             }
         });
@@ -994,6 +1022,7 @@ namespace CalValEX
                 return;
             }
             Player drawPlayer = drawInfo.drawPlayer;
+            float alb = (255 - drawPlayer.immuneAlpha) / 255f;
             Mod mod = ModLoader.GetMod("CalValEX");
             CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
             int secondyoffset = 0;
@@ -1011,7 +1040,7 @@ namespace CalValEX
                 Texture2D texture = mod.GetTexture("Items/Equips/Backs/PrismShell");
                 int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X - gnuflip + (15 * gnuflip));
                 int drawY = (int)(drawInfo.position.Y + drawPlayer.height - Main.screenPosition.Y - 4 - secondyoffset/*+ 56*/);
-                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0)
+                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Color.White * alb, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0)
                 {
                     shader = drawInfo.backShader
                 }; 
