@@ -21,6 +21,7 @@ using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
 using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
 using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
+using CalValEX.Items.Tiles.FurnitureSets.Meld;
 using CalValEX.Items.Tiles.Monoliths;
 using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
@@ -49,6 +50,16 @@ namespace CalValEX
                 item.useStyle = ItemUseStyleID.SwingThrow;
                 item.consumable = true;
                 item.createTile = ModContent.TileType<BloodstonePlaced>();
+            }
+            if (item.type == calamityMod.ItemType("MeldiateBar"))
+            {
+                item.useTurn = true;
+                item.autoReuse = true;
+                item.useAnimation = 15;
+                item.useTime = 10;
+                item.useStyle = ItemUseStyleID.SwingThrow;
+                item.consumable = true;
+                item.createTile = ModContent.TileType<MeldConstructPlaced>();
             }
             else if (item.type == calamityMod.ItemType("ElementalBlaster"))
             {

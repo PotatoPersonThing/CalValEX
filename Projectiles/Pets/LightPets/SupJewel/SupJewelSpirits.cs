@@ -5,8 +5,10 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
 {
+   /*
     public class NWings : ModProjectile
     {
+       
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Nightmare Fuel Wings");
@@ -76,7 +78,9 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
                 calamityMod.Call("AddAbyssLightStrength", projectile.owner, 2);
             }
         }
+       
     }
+   */
 
     public class Bishop : FlyingPet
     {
@@ -190,12 +194,12 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
-            /*
             if (player.dead)
                 modPlayer.SupJ = false;
             if (modPlayer.SupJ)
                 projectile.timeLeft = 2;
 
+            /*
             rotation += 0.22f;
             if (extraScale > 0f && !yep)
                 yep = true;
