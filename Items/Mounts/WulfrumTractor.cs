@@ -32,7 +32,7 @@ namespace CalValEX.Items.Mounts
             mountData.playerYOffsets = array;
             mountData.xOffset = 4;
             mountData.bodyFrame = 3;
-            mountData.yOffset = 14;
+            mountData.yOffset = 16;
             mountData.playerHeadOffset = 0;
             mountData.standingFrameCount = 4;
             mountData.standingFrameDelay = 12;

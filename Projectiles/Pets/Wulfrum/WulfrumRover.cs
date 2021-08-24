@@ -16,7 +16,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
         public override void SafeSetDefaults() //SAFE SET DEFAULTS!!!
         {
             projectile.width = 20;
-            projectile.height = 20;
+            projectile.height = 26;
             projectile.ignoreWater = true;
             projectile.tileCollide = true;
             /* you don't need to set these anymore!!
@@ -26,6 +26,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
             projectile.friendly = true;
             */
             //THIS IS NEEDED
+            base.drawOriginOffsetY = 2;
             facingLeft = false; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
             shouldFlip = true; //should the sprite flip? if that's the case, set to true. else, put it to false.
