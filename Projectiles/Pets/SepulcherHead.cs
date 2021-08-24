@@ -18,6 +18,7 @@ namespace CalValEX.Projectiles.Pets
         {
             DisplayName.SetDefault("Sepulchling");
             ProjectileID.Sets.NeedsUUID[projectile.type] = true;
+            Main.projPet[projectile.type] = true;
         }
 
         public override void SetDefaults()

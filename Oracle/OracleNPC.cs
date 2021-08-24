@@ -49,15 +49,18 @@ namespace CalValEX.Oracle
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money)
         {
-            for (int k = 0; k < Main.maxPlayers; k++)
+            if (!CalValEXConfig.Instance.TownNPC)
             {
-                Player player = Main.player[k];
-                if (!player.active)
-                    continue;
-
-                if (player.miscEquips[0].type != ItemID.None || player.miscEquips[1].type != ItemID.None)
+                for (int k = 0; k < Main.maxPlayers; k++)
                 {
-                    return true;
+                    Player player = Main.player[k];
+                    if (!player.active)
+                        continue;
+
+                    if (player.miscEquips[0].type != ItemID.None || player.miscEquips[1].type != ItemID.None)
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
@@ -584,6 +587,10 @@ namespace CalValEX.Oracle
 
         public override void AI()
         {
+            if (CalValEXConfig.Instance.TownNPC)
+            {
+                npc.active = false;
+            }
             bool iExist = false;
             for (int i = 0; i < Main.maxProjectiles; i++)
             {

@@ -395,7 +395,8 @@ namespace CalValEX
             {
                 int index = RecipeGroup.recipeGroupIDs["WingsGroup"];
                 RecipeGroup group = RecipeGroup.recipeGroups[index];
-                group.ValidItems.Add(ModContent.ItemType<AeroWings>()); //modded item
+                group.ValidItems.Add(ModContent.ItemType<WulfrumHelipack>());
+                group.ValidItems.Add(ModContent.ItemType<AeroWings>());
                 group.ValidItems.Add(ModContent.ItemType<GodspeedBoosters>());
                 group.ValidItems.Add(ModContent.ItemType<FollyWings>());
                 group.ValidItems.Add(ModContent.ItemType<JunglePhoenixWings>());

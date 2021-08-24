@@ -15,6 +15,7 @@ namespace CalValEX.Projectiles.Pets
         {
             DisplayName.SetDefault("Lil' Weaver");
             ProjectileID.Sets.NeedsUUID[projectile.type] = true;
+            Main.projPet[projectile.type] = true;
         }
 
         public override void SetDefaults()

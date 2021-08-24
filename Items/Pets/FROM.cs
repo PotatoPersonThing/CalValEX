@@ -1,7 +1,9 @@
-using CalValEX.Items.Critters;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using CalValEX.Items.Critters;
 
 namespace CalValEX.Items.Pets
 {
@@ -21,7 +23,7 @@ namespace CalValEX.Items.Pets
             item.shoot = mod.ProjectileType("MechaGeorge");
             item.value = Item.sellPrice(0, 2, 0, 0);
             item.expert = true;
-            item.rare = ItemRarityID.Purple;
+            item.rare = 7;
             item.buffType = mod.BuffType("MechaGeorgeBuff");
         }
 

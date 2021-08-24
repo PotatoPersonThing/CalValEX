@@ -15,7 +15,7 @@ namespace CalValEX.Items.Tiles.Astral
             drop = ModContent.ItemType<AstralBrick>();
             AddMapEntry(new Color(171, 103, 171));
             animationFrameHeight = 90;
-            minPick = 275;
+            minPick = 100;
             soundType = SoundID.Tink;
         }
 

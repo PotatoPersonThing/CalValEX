@@ -10,7 +10,7 @@ using CalValEX.Buffs.Transformations;
 using CalValEX.Items.Mounts.Morshu;
 using CalValEX.Items.Tiles;
 using CalValEX.Projectiles.Pets;
-using CalValEX.Projectiles.Pets.Scuttlers;
+using CalValEX.Items.Equips.Backs;
 using CalValEX.Projectiles.Pets.Elementals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -288,6 +288,7 @@ namespace CalValEX
         public bool ZoneLab;
         public bool aesthetic;
         public bool rockhat;
+        public bool prismshell;
         public bool rainbow;
         public bool avalon;
         public bool SupJ;
@@ -390,6 +391,10 @@ namespace CalValEX
                 {
                     sandHide = false;
                     sandForce = true;
+                }
+                else if (item.type == ModContent.ItemType<PrismShell>())
+                {
+                    prismshell = true;
                 }
                 else if (item.type == calamityMod.ItemType("HeartoftheElements") && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
                 {
@@ -659,6 +664,7 @@ namespace CalValEX
             polterchest = false;
             polterthigh = false;
             rockhat = false;
+            prismshell = false;
             rainbow = false;
             SupJ = false;
             bSignut = false;
@@ -981,6 +987,38 @@ namespace CalValEX
             }
         });
 
+        public static readonly PlayerLayer Prismshell = new PlayerLayer("CalValEX", "Prismshell", PlayerLayer.BackAcc, delegate (PlayerDrawInfo drawInfo)
+        {
+            if (drawInfo.shadow != 0f)
+            {
+                return;
+            }
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("CalValEX");
+            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
+            int secondyoffset = 0;
+            if (drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 8 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 9 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 15 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 16 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 17)
+            {
+                secondyoffset = 2;
+            }
+            else
+            {
+                secondyoffset = 0;
+            }
+            if (modPlayer.prismshell)
+            {
+                int gnuflip = /*66 */ -drawPlayer.direction;
+                Texture2D texture = mod.GetTexture("Items/Equips/Backs/PrismShell");
+                int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X - gnuflip + (15 * gnuflip));
+                int drawY = (int)(drawInfo.position.Y + drawPlayer.height - Main.screenPosition.Y - 4 - secondyoffset/*+ 56*/);
+                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0)
+                {
+                    shader = drawInfo.backShader
+                }; 
+                Main.playerDrawData.Add(data);
+            }
+        });
+
         public static readonly PlayerLayer Chopper = new PlayerLayer("CalValEX", "Chopper", PlayerLayer.Wings, delegate (PlayerDrawInfo drawInfo)
         {
             Player drawPlayer = drawInfo.drawPlayer;
@@ -1021,6 +1059,7 @@ namespace CalValEX
             int bodyLayer = layers.FindIndex(l => l == PlayerLayer.Body);
             int armLayer = layers.FindIndex(l => l == PlayerLayer.Arms);
             int wingLayer = layers.FindIndex(l => l == PlayerLayer.Wings);
+            int backLayer = layers.FindIndex(l => l == PlayerLayer.BackAcc);
 
             if (headLayer > -1)
             {
@@ -1042,6 +1081,8 @@ namespace CalValEX
             layers.Insert(headLayer + 2, Mimigun);
             Mimigun2.visible = true;
             layers.Insert(armLayer + 1, Mimigun2);
+            Prismshell.visible = true;
+            layers.Insert(backLayer + 1, Prismshell);
         }
 
         public override void ModifyDrawHeadLayers(List<PlayerHeadLayer> layers)

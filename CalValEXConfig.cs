@@ -42,7 +42,13 @@ namespace CalValEX
         [Tooltip("Disables the easter egg caused by the Dragonball pet")]
         public bool DragonballName { get; set; }
 
-        [Header("Critters")]
+        [Header("NPCs")]
+        [Label("Disable Town NPCs")]
+        [BackgroundColor(192, 54, 64, 192)]
+        [DefaultValue(false)]
+        [Tooltip("Prevents the Oracle and Jelly Priestess from spawning")]
+        public bool TownNPC { get; set; }
+
         [Label("Disable Violemur Invincibility")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]

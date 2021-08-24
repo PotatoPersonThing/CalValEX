@@ -1,6 +1,7 @@
 using CalamityMod.World;
 using CalValEX.Items;
 using CalValEX.Items.Critters;
+using CalValEX.Items.Equips.Backs;
 using CalValEX.Items.Equips.Balloons;
 using CalValEX.Items.Equips.Capes;
 using CalValEX.Items.Equips.Hats;
@@ -495,6 +496,11 @@ namespace CalValEX
                 if (npc.type == calamityMod.NPCType("Catfish"))
                 {
                     ChanceDropItem(npc, ModContent.ItemType<DiscardedCollar>(), normalChance);
+                }
+
+                if (npc.type == calamityMod.NPCType("PrismTurtle"))
+                {
+                    ChanceDropItem(npc, ModContent.ItemType<PrismShell>(), normalChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("Scryllar"))

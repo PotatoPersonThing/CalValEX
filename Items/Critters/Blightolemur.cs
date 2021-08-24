@@ -163,19 +163,15 @@ namespace CalValEX.Items.Critters
 
         public override void AI()
         {
-            Mod clamMod = ModLoader.GetMod("CalamityMod");
-            if (clamMod != null)
+            if (!CalValEXConfig.Instance.ViolemurDefense)
             {
-                if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral && !CalValEXConfig.Instance.ViolemurDefense)
-                {
-                    npc.dontTakeDamage = true;
-                    npc.netUpdate = true;
-                }
-                else
-                {
-                    npc.dontTakeDamage = false;
-                    npc.netUpdate = true;
-                }
+                npc.dontTakeDamageFromHostiles = true;
+                npc.netUpdate = true;
+            }
+            else
+            {
+                npc.dontTakeDamageFromHostiles = false;
+                npc.netUpdate = true;
             }
         }
 

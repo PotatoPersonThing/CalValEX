@@ -7,8 +7,8 @@ namespace CalValEX.Buffs.Pets
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Ressurected Swarmer");
-            Description.SetDefault("Who knew a zombie could be this cute?");
+            DisplayName.SetDefault("Dracoswarmer");
+            Description.SetDefault("A clone of a clone of a clone of a clone");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
