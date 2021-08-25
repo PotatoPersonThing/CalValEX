@@ -57,6 +57,7 @@ namespace CalValEX.Buffs.LightPets
                     0f, 0f, ModContent.ProjectileType<EndoRune>(), 0, 0f, player.whoAmI);
             }
 
+            /*
             player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().SupJ = true;
             bool petProjectileNotSpawned5 = player.ownedProjectileCounts[ModContent.ProjectileType<NWings>()] <= 0;
@@ -65,6 +66,7 @@ namespace CalValEX.Buffs.LightPets
                 Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<NWings>(), 0, 0f, player.whoAmI);
             }
+            */
 
             if (CalValEXConfig.Instance.SupCombo)
             {

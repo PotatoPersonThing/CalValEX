@@ -247,7 +247,7 @@ namespace CalValEX
                     {
                         ModLoader.GetMod("CalamityMod").ItemType("OccultStone"), ModContent.ItemType<SignusEmblem>(),
                         ModContent.ItemType<SigCape>(), ModContent.ItemType<SignusNether>(),
-                        ModContent.ItemType<SigCloth>(), ModContent.ItemType<JunkoHat>(),
+                        ModContent.ItemType<SigCloth>(), ModContent.ItemType<SignusBalloon>(), ModContent.ItemType<JunkoHat>(),
                         ModContent.ItemType<AncientAuricTeslaHelm>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Polterghast",
