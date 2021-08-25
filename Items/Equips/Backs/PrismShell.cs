@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Equips.Backs
 {
+    [AutoloadEquip(EquipType.Back)]
     public class PrismShell : ModItem
     {
         public override void SetStaticDefaults()
