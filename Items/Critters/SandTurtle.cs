@@ -141,25 +141,31 @@ namespace CalValEX.Items.Critters
             aiType = NPCID.Squirrel;
             animationType = -1;
             npc.npcSlots = 0.25f;
-            npc.lifeMax = 220;
+            npc.lifeMax = 300;
             //banner = npc.type;
             //bannerItem = ItemType<ViolemurBanner>();
             npc.HitSound = SoundID.NPCHit50;
             npc.DeathSound = SoundID.NPCDeath54;
         }
+        float valax = 0;
 
         public override void AI()
-        {
+        { 
             npc.spriteDirection = npc.direction;
             if (npc.localAI[0] != 4)
             {
+                valax = Math.Abs(npc.velocity.X);
                 npc.defense = 0;
                 npc.dontTakeDamageFromHostiles = false;
+                if (npc.velocity.X != 0 && (npc.velocity.X > 1 || npc.velocity.X < -1))
+                {
+                    npc.velocity.X = (npc.velocity.X / valax) * 1;
+                }
                 //shellout = false;
                 //shellin = false;
             }
             Mod clamMod = ModLoader.GetMod("CalamityMod");
-            if (npc.life <= npc.lifeMax * 0.20f && npc.localAI[0] != 4)
+            if (npc.life <= npc.lifeMax * 0.5f && npc.localAI[0] != 4)
             {
                 npc.localAI[0] = 4;
             }
@@ -178,13 +184,13 @@ namespace CalValEX.Items.Critters
                 npc.velocity.X = 0;
                 npc.defense = 99;
                 npc.dontTakeDamageFromHostiles = true;
-                if (heal == 4)
+                if (heal == 8)
                 {
                     npc.life += 1;
                     heal = 0;
                 }
 
-                if (npc.life >= npc.lifeMax * 0.95f)
+                if (npc.life >= npc.lifeMax)
                 {
                     npc.localAI[0] = 1;
                 }
