@@ -33,11 +33,11 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.SetResult(this, 50);
             recipe.AddRecipe();
-            /*ModRecipe recipe2 = new ModRecipe(mod);
-            recipe2.AddIngredient(ModContent.ItemType<WulfrumPanelWall>(), 4);
+            ModRecipe recipe2 = new ModRecipe(mod);
+            recipe2.AddIngredient(ModContent.ItemType<PhantowaxWall>(), 4);
             recipe2.AddTile(TileID.WorkBenches);
             recipe2.SetResult(this, 1);
-            recipe2.AddRecipe();*/
+            recipe2.AddRecipe();
         }
     }
 }
