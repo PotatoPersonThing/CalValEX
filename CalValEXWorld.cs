@@ -1,11 +1,10 @@
 using System.Collections.Generic;
-using CalValEX.Items.Tiles;
-using CalValEX.Items.Tiles.Astral;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using static Terraria.ModLoader.ModContent;
+using CalValEX.Tiles.AstralBlocks;
 using System.IO;
 
 namespace CalValEX

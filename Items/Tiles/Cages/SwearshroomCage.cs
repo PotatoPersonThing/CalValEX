@@ -1,6 +1,7 @@
 using CalValEX.Items.Critters;
 using Terraria.ID;
 using Terraria.ModLoader;
+using CalValEX.Tiles.Cages;
 
 namespace CalValEX.Items.Tiles.Cages
 {

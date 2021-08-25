@@ -1,5 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
+using CalValEX.Tiles.FurnitureSets.Necrotic;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
 {

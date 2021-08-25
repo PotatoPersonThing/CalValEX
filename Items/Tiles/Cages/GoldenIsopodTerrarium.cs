@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using CalValEX.Tiles.Cages;
 
 namespace CalValEX.Items.Tiles.Cages
 {

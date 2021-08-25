@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
+using CalValEX.NPCs.Critters;
 using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Items.Critters

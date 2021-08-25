@@ -1,4 +1,5 @@
 using Terraria.ModLoader;
+using CalValEX.Tiles.Plants;
 
 namespace CalValEX.Items.Tiles.Plants
 {

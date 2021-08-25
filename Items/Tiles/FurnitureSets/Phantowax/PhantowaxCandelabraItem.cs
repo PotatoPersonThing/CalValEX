@@ -1,4 +1,6 @@
 using Terraria.ID;
+using CalValEX.Items.Tiles.Blocks;
+using CalValEX.Tiles.FurnitureSets.Phantowax;
 using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax

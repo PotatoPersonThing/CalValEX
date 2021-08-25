@@ -40,7 +40,7 @@ namespace CalValEX.Projectiles.Pets.Elementals
             inertia = 60f;
             animationSpeed = 16; //how fast the animation should play
             spinRotationSpeedMult = 0.2f; //rotation speed multiplier, keep it positive for it to spin in the right direction
-            offSetX = -408f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
+            offSetX = 408f; //this is needed so it's always behind the player.
             offSetY = -50f; //how much higher from the center the pet should float
         }
 
@@ -56,7 +56,7 @@ namespace CalValEX.Projectiles.Pets.Elementals
                 projectile.timeLeft = 0;
             if (modPlayer.vanityhote)
                 projectile.timeLeft = 2;
-
+            projectile.rotation = 0;
             /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.
              * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
              * you should make new custom behaviour with numbers higher than 0, or less than 0

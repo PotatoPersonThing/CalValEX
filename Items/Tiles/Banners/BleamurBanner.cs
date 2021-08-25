@@ -2,6 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+using CalValEX.Tiles.Banners;
 
 namespace CalValEX.Items.Tiles.Banners
 {

@@ -3,6 +3,7 @@ using CalValEX.Items.Equips.Shields;
 using CalValEX.Items.Pets;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using CalValEX.Tiles.MiscFurniture;
 using Terraria.ID;
 using Terraria.ModLoader;
 

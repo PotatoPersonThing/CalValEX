@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
+using CalValEX.Tiles.Cages;
 
 namespace CalValEX.Items.Tiles.Cages
 {

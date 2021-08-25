@@ -3,6 +3,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+using CalValEX.Tiles.FurnitureSets.Necrotic;
+using CalValEX.Items.Tiles.Blocks;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
 {
@@ -25,7 +27,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
             item.useTime = 10;
             item.useStyle = ItemUseStyleID.SwingThrow;
             item.consumable = true;
-            item.createTile = TileType<Items.Tiles.FurnitureSets.Necrotic.NecroticTorchPlaced>();
+            item.createTile = TileType<NecroticTorchPlaced>();
             item.flame = true;
             item.value = 50;
         }

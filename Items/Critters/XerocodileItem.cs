@@ -4,6 +4,7 @@ using CalValEX.Items.Critters;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
+using CalValEX.NPCs.Critters;
 
 namespace CalValEX.Items.Critters
 {

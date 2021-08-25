@@ -8,7 +8,6 @@ using CalValEX.Items.Equips.Shirts.Draedon;
 using CalValEX.Items.Equips.Transformations;
 using CalValEX.Buffs.Transformations;
 using CalValEX.Items.Mounts.Morshu;
-using CalValEX.Items.Tiles;
 using CalValEX.Projectiles.Pets;
 using CalValEX.Items.Equips.Backs;
 using CalValEX.Projectiles.Pets.Elementals;

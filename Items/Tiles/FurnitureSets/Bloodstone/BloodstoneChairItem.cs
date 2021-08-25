@@ -1,5 +1,7 @@
 using Terraria.ID;
+using CalValEX.Items.Tiles.Blocks;
 using Terraria.ModLoader;
+using CalValEX.Tiles.FurnitureSets.Bloodstone;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
 {

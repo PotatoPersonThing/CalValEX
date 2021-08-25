@@ -19,9 +19,9 @@ using CalValEX.Items.Pets;
 using CalValEX.Items.Pets.Scuttlers;
 using CalValEX.Items.Pets.Elementals;
 using CalValEX.Items.Tiles;
-using CalValEX.Items.Tiles.Astral;
 using CalValEX.Items.Tiles.Balloons;
 using CalValEX.Items.Tiles.Blocks;
+using CalValEX.NPCs.Critters;
 using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
 using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
 using CalValEX.Items.Tiles.Monoliths;
@@ -1338,7 +1338,7 @@ namespace CalValEX
                 //DEUS HEAD
                 if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("AstrumDeusHeadSpectral"))
                 {
-                    Texture2D deusheadsprite = (ModContent.GetTexture("CalValEX/Items/Tiles/Astral/DeusHeadOld"));
+                    Texture2D deusheadsprite = (ModContent.GetTexture("CalValEX/NPCs/AstrumDeus/DeusHeadOld"));
 
                     float deusheadframe = 1f / (float)Main.npcFrameCount[npc.type];
                     int deusheadheight = (int)((float)(npc.frame.Y / npc.frame.Height) * deusheadframe) * (deusheadsprite.Height / 1);
@@ -1352,7 +1352,7 @@ namespace CalValEX
                 //DEUS BODY
                 else if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("AstrumDeusBodySpectral"))
                 {
-                    Texture2D deusbodsprite = npc.localAI[3] == 1f ? ModContent.GetTexture("CalValEX/Items/Tiles/Astral/DeusBodyAltOld") : ModContent.GetTexture("CalValEX/Items/Tiles/Astral/DeusBodyOld");
+                    Texture2D deusbodsprite = npc.localAI[3] == 1f ? ModContent.GetTexture("CalValEX/NPCs/AstrumDeus/DeusBodyAltOld") : ModContent.GetTexture("CalValEX/NPCs/AstrumDeus/DeusBodyOld");
 
                     float deusbodframe = 1f / (float)Main.npcFrameCount[npc.type];
                     int deusbodheight = (int)((float)(npc.frame.Y / npc.frame.Height) * deusbodframe) * (deusbodsprite.Height / 1);
@@ -1366,7 +1366,7 @@ namespace CalValEX
                 //DEUS TAIL
                 else if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("AstrumDeusTailSpectral"))
                 {
-                    Texture2D deustailsprite = (ModContent.GetTexture("CalValEX/Items/Tiles/Astral/DeusTailOld"));
+                    Texture2D deustailsprite = (ModContent.GetTexture("CalValEX/NPCs/AstrumDeus/DeusTailOld"));
 
                     float deustailframe = 1f / (float)Main.npcFrameCount[npc.type];
                     int deustailheight = (int)((float)(npc.frame.Y / npc.frame.Height) * deustailframe) * (deustailsprite.Height / 1);

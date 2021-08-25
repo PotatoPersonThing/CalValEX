@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using CalValEX.Tiles.Monoliths;
 
 namespace CalValEX.Items.Tiles.Monoliths
 {

@@ -2,6 +2,7 @@ using CalValEX.Items.Critters;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+using CalValEX.Tiles.Statues;
 
 namespace CalValEX.Items.Tiles.Statues
 {
