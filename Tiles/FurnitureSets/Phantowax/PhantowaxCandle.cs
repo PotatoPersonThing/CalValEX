@@ -23,7 +23,6 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileObjectData.newTile.Height = 1;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16 }; //
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-            TileObjectData.newTile.CoordinatePadding = 0;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Phantowax Candle");

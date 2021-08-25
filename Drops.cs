@@ -1388,7 +1388,7 @@ namespace CalValEX
                 //DEUS HEAD
                 if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("AstrumDeusHeadSpectral"))
                 {
-                    Texture2D deusheadsprite2 = (ModContent.GetTexture("CalValEX/Items/Tiles/Astral/DeusHeadOld_Glow"));
+                    Texture2D deusheadsprite2 = (ModContent.GetTexture("CalValEX/NPCs/AstrumDeus/DeusHeadOld_Glow"));
 
                     float deusheadframe2 = 1f / (float)Main.npcFrameCount[npc.type];
                     int deusheadheight2 = (int)((float)(npc.frame.Y / npc.frame.Height) * deusheadframe2) * (deusheadsprite2.Height / 1);
@@ -1400,7 +1400,7 @@ namespace CalValEX
                 //DEUS BODY
                 else if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("AstrumDeusBodySpectral"))
                 {
-                    Texture2D deusbodsprite2 = npc.localAI[3] == 1f ? ModContent.GetTexture("CalValEX/Items/Tiles/Astral/DeusBodyAltOld_Glow") : ModContent.GetTexture("CalValEX/Items/Tiles/Astral/DeusBodyOld_Glow");
+                    Texture2D deusbodsprite2 = npc.localAI[3] == 1f ? ModContent.GetTexture("CalValEX/NPCs/AstrumDeus/DeusBodyAltOld_Glow") : ModContent.GetTexture("CalValEX/NPCs/AstrumDeus/DeusBodyOld_Glow");
 
                     float deusbodframe2 = 1f / (float)Main.npcFrameCount[npc.type];
                     int deusbodheight2 = (int)((float)(npc.frame.Y / npc.frame.Height) * deusbodframe2) * (deusbodsprite2.Height / 1);
@@ -1412,7 +1412,7 @@ namespace CalValEX
                 //DEUS TAIL
                 else if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("AstrumDeusTailSpectral"))
                 {
-                    Texture2D deustailsprite2 = (ModContent.GetTexture("CalValEX/Items/Tiles/Astral/DeusTailOld_Glow"));
+                    Texture2D deustailsprite2 = (ModContent.GetTexture("CalValEX/NPCs/AstrumDeus/DeusTailOld_Glow"));
 
                     float deustailframe2 = 1f / (float)Main.npcFrameCount[npc.type];
                     int deustailheight2 = (int)((float)(npc.frame.Y / npc.frame.Height) * deustailframe2) * (deustailsprite2.Height / 1);
