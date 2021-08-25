@@ -129,6 +129,10 @@ namespace CalValEX.Items
             {
                 player.QuickSpawnItem(ModContent.ItemType<WilliamPainting>());
             }
+            else if (choice == 25)
+            {
+                player.QuickSpawnItem(ModContent.ItemType<ModIconPainting>());
+            }
             else
             {
                 player.QuickSpawnItem(ModContent.ItemType<WormHeaven>());
