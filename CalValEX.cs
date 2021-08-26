@@ -52,6 +52,12 @@ namespace CalValEX
             SyncSCalHits
         }
 
+        public static CalValEX instance;
+        public Mod herosmod;
+        public const string heropermission = "CalValEX";
+        public const string heropermissiondisplayname = "Calamity's Vanities";
+        public bool hasPermission;
+
         public static bool Bumble;
         public static bool Wulfrumset;
         public static bool WulfrumsetReal;
@@ -63,6 +69,9 @@ namespace CalValEX
 
         public override void Load()
         {
+            instance = this;
+            herosmod = ModLoader.GetMod("HEROsMod");
+
             DateTime dateTime = DateTime.Now;
             currentDate = dateTime.ToString("dd/MM/yyyy");
             day = dateTime.Day;
@@ -105,6 +114,10 @@ namespace CalValEX
 
         public override void Unload()
         {
+            instance = null;
+            herosmod = null;
+            hasPermission = false;
+
             currentDate = null;
             Bumble = false;
             Wulfrumset = false;
@@ -603,6 +616,30 @@ namespace CalValEX
             recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
             recipe.SetResult(calamityMod.ItemType("MonolithDresser"));
             recipe.AddRecipe();
+        }
+
+        public void SetupHerosMod()
+        {
+            if (herosmod != null)
+            {
+                herosmod.Call(
+                    // Special string
+                    "AddPermission",
+                    // Permission Name
+                    heropermission,
+                    // Permission Display Name
+                    heropermissiondisplayname);
+            }
+        }
+
+        public override void PostAddRecipes()
+        {
+            SetupHerosMod();
+        }
+
+        public bool getPermission()
+        {
+            return hasPermission;
         }
     }
 }
