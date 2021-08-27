@@ -266,11 +266,7 @@ namespace CalValEX
                             case "spider":
                             case "Spooktacular":
                             case "spooktacular":
-                                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
-                                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
-                                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
-                                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
-                                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>());
+                                player.QuickSpawnItem(ModContent.ItemType<IsopodItem>(), 5);
                                 break;
 
                             case "Fabsol":

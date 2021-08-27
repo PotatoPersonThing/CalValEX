@@ -311,13 +311,13 @@ namespace CalValEX
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (npc.type == calamityMod.NPCType("AstrumAureus"))
             {
-                if (projectile.type != calamityMod.ProjectileType("AstrageldonSummon"))
-                {
-                    geldonSummon = false;
-                }
-                else if (projectile.type == calamityMod.ProjectileType("AstrageldonSummon"))
+                if (projectile.type == calamityMod.ProjectileType("AstrageldonSummon") || projectile.type == calamityMod.ProjectileType("AstrageldonLaser"))
                 {
                     geldonSummon = true;
+                }
+                else
+                {
+                    geldonSummon = false;
                 }
             }
             else if (npc.type == calamityMod.NPCType("Bumblefuck"))
@@ -1066,7 +1066,7 @@ namespace CalValEX
                     ConditionalChanceDropItem(npc, ModContent.ItemType<SkullBalloon>(), !Main.expertMode, 0.2f);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<StonePile>(), !Main.expertMode, 0.2f);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<ScavaHook>(), Main.expertMode, RIVChance);
-                    ConditionalDropItem(npc, ModContent.ItemType<Necrostone>(), !Main.expertMode, 155, 265);
+                    ConditionalDropItem(npc, ModContent.ItemType<Necrostone>(), !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, 155, 265);
                 }
 
                 if (npc.type == calamityMod.NPCType("Signus") && CalamityWorld.DoGSecondStageCountdown <= 0)
@@ -1075,10 +1075,17 @@ namespace CalValEX
                     {
                         ChanceDropItem(npc, ModContent.ItemType<SigCloth>(), bossPetChance);
                     }
-                    ChanceDropItem(npc, ModContent.ItemType<SignusBalloon>(), vanityNormalChance);
-                    ChanceDropItem(npc, ModContent.ItemType<SigCape>(), vanityNormalChance);
-                    ChanceDropItem(npc, ModContent.ItemType<SignusNether>(), vanityNormalChance);
-                    ChanceDropItem(npc, ModContent.ItemType<SignusEmblem>(), vanityNormalChance);
+                    int choice = Main.rand.Next(4);
+                    { 
+                        if (choice == 0)
+                            DropItem(npc, ModContent.ItemType<SignusBalloon>());
+                        if (choice == 1)
+                            DropItem(npc, ModContent.ItemType<SigCape>());
+                        if (choice == 2)
+                            DropItem(npc, ModContent.ItemType<SignusNether>());
+                        else
+                            DropItem(npc, ModContent.ItemType<SignusEmblem>());
+                    }
                     if (junkoReference)
                     {
                         ChanceDropItem(npc, ModContent.ItemType<JunkoHat>(), 1.0f);
