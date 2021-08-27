@@ -79,6 +79,12 @@ namespace CalValEX
         [Tooltip("Disables the stat cripple which ground mounts give")]
         public bool GroundMountLol { get; set; }
 
+        [Label("Disable Cadance Heart Particles")]
+        [BackgroundColor(192, 54, 64, 192)]
+        [DefaultValue(false)]
+        [Tooltip("Disables Cadance Potion's heart particle effect")]
+        public bool Cadance { get; set; }
+
         [Label("Disable Vanity Elementals")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]

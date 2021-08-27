@@ -9,7 +9,7 @@ namespace CalValEX.Items.Equips.Wings
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Extremely faulty\n" + "Horizontal speed: 1\n" + "Acceleration multiplier: 1\n" + "Flight time: 20");
+            Tooltip.SetDefault("Extremely faulty\n" + "Horizontal speed: 1\n" + "Acceleration multiplier: 1\n" + "Flight time: 7");
         }
 
         public override void SetDefaults()
@@ -34,7 +34,7 @@ namespace CalValEX.Items.Equips.Wings
             }
             else
             {
-                player.wingTimeMax = 20;
+                player.wingTimeMax = 7;
                 player.GetModPlayer<CalValEXPlayer>().wulfrumjam = false;
             }
         }

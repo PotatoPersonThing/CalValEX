@@ -10,11 +10,10 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sepulcher Based");
-            Tooltip.SetDefault("An unpowered Power Cell Factory\n" + "Break to reactivate");
+            DisplayName.SetDefault("Sepulcher (new) is Based");
+            Tooltip.SetDefault("Unfinished item");
         }
 
-        public override string Texture => "CalamityMod/Items/Placeables/DraedonStructures/PowerCellFactoryItem";
         public override void SetDefaults()
         {
             item.useStyle = 1;
@@ -26,12 +25,8 @@ namespace CalValEX.Items.Tiles
             item.consumable = true;
             item.width = 16;
             item.height = 28;
-            item.rare = 3;
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            if (calamityMod != null)
-            {
-                item.createTile = ModContent.TileType<SePlaced>();
-            }
+            item.rare = 10;
+            item.createTile = ModContent.TileType<SePlaced>();
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -49,21 +44,7 @@ namespace CalValEX.Items.Tiles
             {
                 if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(204, 71, 35); //change the color accordingly to above
-                }
-            }
-        }
-
-        public override void AddRecipes()
-        {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            {
-                {
-                    ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient(calamityMod.ItemType("PowerCellFactoryItem"), 1);
-                    recipe.AddTile(TileID.Anvils);
-                    recipe.SetResult(this);
-                    recipe.AddRecipe();
+                    tooltipLine.overrideColor = new Color(0, 255, 0); //change the color accordingly to above
                 }
             }
         }

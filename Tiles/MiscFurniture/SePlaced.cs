@@ -144,7 +144,6 @@ namespace CalValEX.Tiles.MiscFurniture
             {
                 negavar = -1;
             }
-
             //Y offsets. 
             //If rotationcounter = 30, y2 will = 3
             //If rotationcounter = -30, y2 will = 3

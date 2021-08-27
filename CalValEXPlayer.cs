@@ -1,6 +1,6 @@
 //using CalValEX.Buffs.Transformations;
 //using CalValEX.Items.Equips.Transformations;
-
+using CalamityMod.CalPlayer;
 using System.Collections.Generic;
 using System.IO;
 using CalValEX.Items.Equips.Hats.Draedon;
@@ -534,6 +534,20 @@ namespace CalValEX
 
         public override void PreUpdate()
         {
+            //Kill Cadance potion heart particles
+            Main.instance.LoadGore(331);
+            Player player = Main.LocalPlayer;
+            CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
+            if (calPlayer.cadence && CalValEXConfig.Instance.Cadance)
+            {
+                Main.goreTexture[331] = GetTexture("CalValEX/Items/Equips/Shields/Invishield_Shield");
+            }
+            else
+            {
+                Main.goreLoaded[331] = false;
+            }
+
+            //Custom player draw frame counters
             int wulfrumflame = 9;
             if (choppercounter >= 7)
             {
