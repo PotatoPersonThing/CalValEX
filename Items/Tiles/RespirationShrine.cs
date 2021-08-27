@@ -12,7 +12,7 @@ namespace CalValEX.Items.Tiles
         {
             DisplayName.SetDefault("Respiration Shrine");
             Tooltip
-                .SetDefault("Grants you Amidias' Blessing within a certain radius, for your Abyss base needs.\n" + "Basically cheating.");
+                .SetDefault("Provides infinite breath in the Abyss within a certain radius, for your Abyss base needs.\n" + "Deactivating will near instantly cause you to start drowning\n" + "Basically cheating.");
         }
 
         public override void SetDefaults()

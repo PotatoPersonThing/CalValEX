@@ -35,13 +35,18 @@ namespace CalValEX.Tiles.MiscFurniture
 
         public override void NearbyEffects(int i, int j, bool closer)
         {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
+            Player player = Main.LocalPlayer;
             if (closer && !NPC.AnyNPCs(ModLoader.GetMod("CalamityMod").NPCType("EidolonWyrmHeadHuge")))
             {
                 if (Main.tile[i, j].frameY < 72)
                 {
-                    Main.LocalPlayer.AddBuff(ModLoader.GetMod("CalamityMod").BuffType("AmidiasBlessing"), 20);
+                    player.breath = 1360;
+                    //Main.LocalPlayer.AddBuff(ModLoader.GetMod("CalamityMod").BuffType("AmidiasBlessing"), 20);
                 }
+            }
+            else
+            {
+                player.breath -= 1360;
             }
         }
 
