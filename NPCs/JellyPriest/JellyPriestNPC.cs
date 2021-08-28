@@ -405,6 +405,10 @@ namespace CalValEX.NPCs.JellyPriest
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Plants.MonolithPot>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 95, 0);
                         ++nextSlot;
+
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Statues.Knight>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 95, 0);
+                        ++nextSlot;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "acidrainscourge"))
                     {
@@ -734,6 +738,10 @@ namespace CalValEX.NPCs.JellyPriest
                         ++nextSlot;
 
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Plants.MonolithPot>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 95, 0);
+                        ++nextSlot;
+
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Statues.Knight>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 95, 0);
                         ++nextSlot;
                     }
