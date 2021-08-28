@@ -61,7 +61,7 @@ namespace CalValEX.NPCs.JellyPriest
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money)
         {
-            if (CalValEXWorld.rescuedjelly && !CalValEXConfig.Instance.TownNPC)
+            if (((bool)ModLoader.GetMod("CalamityMod").Call("GetBossDowned", "acidrainscourge") || CalValEXWorld.rescuedjelly) && !CalValEXConfig.Instance.TownNPC)
             {
                 jellyspawn = true;
             }
