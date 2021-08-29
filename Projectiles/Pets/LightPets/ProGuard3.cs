@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 
 namespace CalValEX.Projectiles.Pets.LightPets
 {
@@ -9,6 +10,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             DisplayName.SetDefault("Small Potato");
             Main.projFrames[projectile.type] = 1; //frames
             Main.projPet[projectile.type] = true;
+            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
         public override void SafeSetDefaults() //SafeSetDefaults!!!

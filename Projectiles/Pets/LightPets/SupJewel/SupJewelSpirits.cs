@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
 {
@@ -89,6 +90,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
             DisplayName.SetDefault("Dark Sun Elemental");
             Main.projFrames[projectile.type] = 4;
             Main.projPet[projectile.type] = true;
+            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
         public override void SafeSetDefaults()
@@ -147,6 +149,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
             DisplayName.SetDefault("Phantoshark");
             Main.projFrames[projectile.type] = 8;
             Main.projPet[projectile.type] = true;
+            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
         public override void SafeSetDefaults()
@@ -235,6 +238,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
             DisplayName.SetDefault("Phantofish");
             Main.projFrames[projectile.type] = 1;
             Main.projPet[projectile.type] = true;
+            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
         public override void SafeSetDefaults()
@@ -293,6 +297,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
             DisplayName.SetDefault("Endo Runes");
             Main.projFrames[projectile.type] = 1;
             Main.projPet[projectile.type] = true;
+            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
         public override void SafeSetDefaults()

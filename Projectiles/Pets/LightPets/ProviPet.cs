@@ -13,6 +13,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             DisplayName.SetDefault("large Potato");
             Main.projFrames[projectile.type] = 6;
             Main.projPet[projectile.type] = true;
+            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
         public override void SetDefaults()

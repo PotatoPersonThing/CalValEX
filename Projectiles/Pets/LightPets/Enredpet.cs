@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Projectiles.Pets.LightPets
 {
@@ -14,6 +15,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         {
             DisplayName.SetDefault("Cosmic Assistant");
             Main.projPet[projectile.type] = true;
+            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
         public override void SetDefaults()

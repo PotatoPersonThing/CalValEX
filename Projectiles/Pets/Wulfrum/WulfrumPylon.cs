@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-
+using Terraria.ID;
 namespace CalValEX.Projectiles.Pets.Wulfrum
 {
     public class WulfrumPylon : ModProjectile
@@ -11,6 +11,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
             DisplayName.SetDefault("Wulfrum Pylon");
             Main.projFrames[projectile.type] = 7;
             Main.projPet[projectile.type] = true;
+            ProjectileID.Sets.LightPet[projectile.type] = true;
             drawOriginOffsetY = -15;
             //drawOffsetX = -14;
         }
