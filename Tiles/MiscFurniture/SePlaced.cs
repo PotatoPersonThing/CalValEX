@@ -32,7 +32,6 @@ namespace CalValEX.Tiles.MiscFurniture
 
         private bool shittypostimer = true;
         private bool shittynegatimer = false;
-
         public override void PlaceInWorld(int i, int j, Item item)
         {
             rotationbottom = -35;

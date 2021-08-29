@@ -3,6 +3,7 @@ using Terraria.ID;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using CalValEX.Tiles.MiscFurniture;
+using Terraria;
 
 namespace CalValEX.Items.Tiles
 {
@@ -11,7 +12,8 @@ namespace CalValEX.Items.Tiles
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Sepulcher (new) is Based");
-            Tooltip.SetDefault("Unfinished item");
+            Tooltip.SetDefault("An artifact containing so much power, that placing more than one snaps reality\n" + "Tldr don't place more than one or else suffer\n" + "Unfinished and unobtainable item you filthy hacker");
+
         }
 
         public override void SetDefaults()
