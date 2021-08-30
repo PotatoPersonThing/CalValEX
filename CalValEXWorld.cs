@@ -29,12 +29,18 @@ namespace CalValEX
 
         public static bool TwoMonolith;
 
+        public static bool Rockshrine;
+
+        public static bool RockshrinEX;
+
         public override void Initialize()
         {
             rescuedjelly = false;
             jharim = false;
             amogus = false;
             orthofound = false;
+            Rockshrine = false;
+            RockshrinEX = false;
         }
 
         public override TagCompound Save()
@@ -60,6 +66,16 @@ namespace CalValEX
                 downed.Add("amogus");
             }
 
+            if (Rockshrine)
+            {
+                downed.Add("amogus");
+            }
+
+            if (RockshrinEX)
+            {
+                downed.Add("amogus");
+            }
+
             return new TagCompound
             {
                 {
@@ -75,6 +91,8 @@ namespace CalValEX
             jharim = downed.Contains("jharim");
             orthofound = downed.Contains("orthofound");
             amogus = downed.Contains("amogus");
+            Rockshrine = downed.Contains("Rockshrine");
+            RockshrinEX = downed.Contains("RockshrinEX");
         }
         public override void LoadLegacy(BinaryReader reader)
         {
@@ -86,6 +104,8 @@ namespace CalValEX
                 jharim = flags[1];
                 orthofound = flags[2];
                 amogus = flags[3];
+                Rockshrine = flags[4];
+                RockshrinEX = flags[5];
             }
             else
             {
@@ -99,6 +119,8 @@ namespace CalValEX
             flags[1] = jharim;
             flags[2] = orthofound;
             flags[3] = amogus;
+            flags[4] = Rockshrine;
+            flags[5] = RockshrinEX;
             writer.Write(flags);
         }
         public override void NetReceive(BinaryReader reader)
@@ -108,6 +130,8 @@ namespace CalValEX
             jharim = flags[1];
             orthofound = flags[2];
             amogus = flags[3];
+            Rockshrine = flags[2];
+            RockshrinEX = flags[3];
         }
 
         public override void ResetNearbyTileEffects()
