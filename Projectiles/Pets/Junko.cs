@@ -134,7 +134,8 @@ namespace CalValEX.Projectiles.Pets
                 if (npc.type == calamityMod.NPCType("Signus") && npc.life == 1)
                 {
                     sigdirection = npc.direction;
-                    sigposx = npc.position.X;
+                    projectile.direction = npc.direction;
+                    sigposx = npc.Center.X;
                     sigposy = npc.position.Y;
                     signut = true;
                     projectile.frame = 6;
@@ -154,9 +155,9 @@ namespace CalValEX.Projectiles.Pets
                             dust2 = Main.dust[Terraria.Dust.NewDust(projectile.Center, 64, 46, 173, 0f, 0f, 0, new Color(255, 255, 255), 1.2f)];
                         }
                         dust = true;
+                        projectile.position.Y = sigposy + 5;
                     }
-                    projectile.position.X = sigposx - (sigdirection * 30);
-                    projectile.position.Y = sigposy;
+                    projectile.position.X = sigposx + (sigdirection == -1 ? 30 : -50);
                     projectile.velocity.Y = -0.1f;
                     gravity = 0f;
                     projectile.direction = sigdirection;
