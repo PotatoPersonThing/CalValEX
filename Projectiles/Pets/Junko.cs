@@ -1,4 +1,6 @@
 using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
@@ -9,7 +11,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Lil Junko");
-            Main.projFrames[projectile.type] = 6; //frames
+            Main.projFrames[projectile.type] = 7; //frames
             Main.projPet[projectile.type] = true;
         }
 
@@ -87,6 +89,14 @@ namespace CalValEX.Projectiles.Pets
 
             jumpAnimationLength = -1; //how long the jump animation should stay
         }
+        int sigcounter;
+        private bool signut = false;
+        private bool dust = false;
+        private bool sound = false;
+        private bool finished = false;
+        float sigposx;
+        float sigposy;
+        int sigdirection;
 
         public override void SafeAI(Player player)
         {
@@ -117,6 +127,81 @@ namespace CalValEX.Projectiles.Pets
              *
              * you can still use these, changing thing inside (however it's not recomended unless you want to add custom behaviour to these)
              */
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            for (int x = 0; x < Main.maxNPCs; x++)
+            {
+                NPC npc = Main.npc[x];
+                if (npc.type == calamityMod.NPCType("Signus") && npc.life == 1)
+                {
+                    sigdirection = npc.direction;
+                    sigposx = npc.position.X;
+                    sigposy = npc.position.Y;
+                    signut = true;
+                    projectile.frame = 6;
+                    projectile.localAI[1] = 3;
+                }
+            }
+            if (projectile.localAI[1] == 3 && !finished)
+            {
+                projectile.rotation = 0;
+                if (sigcounter <= 90)
+                {
+                    if (!dust)
+                    {
+                        for (int a = 0; a < 20; a++)
+                        {
+                            Dust dust2;
+                            dust2 = Main.dust[Terraria.Dust.NewDust(projectile.Center, 64, 46, 173, 0f, 0f, 0, new Color(255, 255, 255), 1.2f)];
+                        }
+                        dust = true;
+                    }
+                    projectile.position.X = sigposx - (sigdirection * 30);
+                    projectile.position.Y = sigposy;
+                    projectile.velocity.Y = -0.1f;
+                    gravity = 0f;
+                    projectile.direction = sigdirection;
+                }
+                else if (sigcounter > 90 && sigcounter <= 100)
+                {
+                    if (!sound)
+                    {
+                        Main.PlaySound(SoundID.Item109);
+                        sound = true;
+                    }
+                    projectile.velocity.X = 20 * sigdirection;
+                    gravity = 0.05f * sigcounter;
+                }
+                else if (sigcounter > 110)
+                {
+                    projectile.localAI[1] = 2;
+                    gravity = 0.1f;
+                    finished = true;
+                }
+                else
+                {
+                    projectile.localAI[1] = 2;
+                }
+                if (finished)
+                {
+                    projectile.localAI[1] = 2;
+                }
+            }
+            if (projectile.localAI[1] == 3 && finished)
+            {
+                projectile.localAI[1] = 2;
+            }
+            if (projectile.localAI[1] != 3)
+            {
+                sigcounter = 0;
+                dust = false;
+                signut = false;
+                sound = false;
+                finished = false;
+            }
+            if (signut)
+            {
+                sigcounter++;
+            }
         }
         public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
         {

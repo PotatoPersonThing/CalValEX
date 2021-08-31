@@ -32,5 +32,16 @@ namespace CalValEX.Items.Critters
             }
             item.makeNPC = (short)NPCType<Blightolemur>();
         }
+        public override void AddRecipes()
+        {
+            Mod CalValEX = ModLoader.GetMod("CalamityMod");
+            {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddIngredient(mod.ItemType("ViolemurItem"));
+                recipe.AddTile(mod.TileType("StarstruckSynthesizerPlaced"));
+                recipe.SetResult(this);
+                recipe.AddRecipe();
+            }
+        }
     }
 }

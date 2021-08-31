@@ -102,6 +102,13 @@ namespace CalValEX.Projectiles
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
 						}
+						else if (type == ModContent.TileType<AstralTreeWoodPlaced>())
+						{
+							Main.tile[k, l].type = TileID.LivingWood;
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
 						else if (type == ModContent.TileType<AstralGrassPlaced>())
 						{
 							Main.tile[k, l].type = TileID.Grass;

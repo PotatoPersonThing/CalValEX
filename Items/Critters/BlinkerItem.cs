@@ -30,5 +30,16 @@ namespace CalValEX.Items.Critters
             item.rare = ItemRarityID.Lime;
             item.bait = 20;
         }
+        public override void AddRecipes()
+        {
+            Mod CalValEX = ModLoader.GetMod("CalamityMod");
+            {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("TwinklerItem"));
+                recipe.AddTile(mod.TileType("StarstruckSynthesizerPlaced"));
+                recipe.SetResult(this);
+                recipe.AddRecipe();
+            }
+        }
     }
 }
