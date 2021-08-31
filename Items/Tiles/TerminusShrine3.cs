@@ -7,12 +7,12 @@ using Terraria;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class TerminusShrine : ModItem
+    internal class TerminusShrine3 : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Terminus Shrine");
-            Tooltip.SetDefault("An altar made to hold the apocalyptic artifact");
+            DisplayName.SetDefault("Terminus Shrine Level 3");
+            Tooltip.SetDefault("The End.");
 
         }
 
@@ -28,7 +28,7 @@ namespace CalValEX.Items.Tiles
             item.width = 16;
             item.height = 28;
             item.rare = 10;
-            item.createTile = ModContent.TileType<TerminusShrinePlaced>();
+            item.createTile = ModContent.TileType<TerminusShrineLevel3Placed>();
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -55,8 +55,8 @@ namespace CalValEX.Items.Tiles
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
                 ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("AstralBeacon"), 1);
-                recipe.AddIngredient(ModContent.ItemType<Termipebbles>(), 20);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Rock"), 1);
+                recipe.AddIngredient(ModContent.ItemType<TerminusShrine2>());
                 recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
                 recipe.SetResult(this);
                 recipe.AddRecipe();

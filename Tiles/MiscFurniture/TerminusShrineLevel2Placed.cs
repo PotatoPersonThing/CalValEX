@@ -80,73 +80,9 @@ namespace CalValEX.Tiles.MiscFurniture
 			//spriteBatch.Draw(texture, this.Center - Main.screenPosition, sourceRectangle, lightColor, rotation, origin / 2f, 1f, SpriteEffects.None, 0);
 		}
 
-		public override bool HasSmartInteract()
-		{
-			return true;
-		}
-
 		public override void AnimateTile(ref int frame, ref int frameCounter)
 		{
 			frame = 1;
-		}
-
-		public override void MouseOver(int i, int j)
-		{
-			Player localPlayer = Main.LocalPlayer;
-			localPlayer.noThrow = 2;
-			localPlayer.showItemIcon = true;
-			localPlayer.showItemIcon2 = ModLoader.GetMod("CalamityMod").ItemType("Rock");
-		}
-
-		public override bool NewRightClick(int i, int j)
-		{
-			Player localPlayer = Main.LocalPlayer;
-			if (localPlayer.HasItem(ModLoader.GetMod("CalamityMod").ItemType("Rock")))
-			{
-				CalValEXWorld.RockshrinEX = true;
-				localPlayer.ConsumeItem(ModLoader.GetMod("CalamityMod").ItemType("Rock"));
-				Main.PlaySound(SoundID.Item119);
-				Main.tile[i, j].type = (ushort)ModContent.TileType<TerminusShrineLevel3Placed>();
-				Main.tile[i, j - 1].type = (ushort)ModContent.TileType<TerminusShrineLevel3Placed>();
-				Main.tile[i, j - 2].type = (ushort)ModContent.TileType<TerminusShrineLevel3Placed>();
-
-				Main.tile[i - 1, j].type = (ushort)ModContent.TileType<TerminusShrineLevel3Placed>();
-				Main.tile[i - 1, j - 1].type = (ushort)ModContent.TileType<TerminusShrineLevel3Placed>();
-				Main.tile[i - 1, j - 2].type = (ushort)ModContent.TileType<TerminusShrineLevel3Placed>();
-
-				Main.tile[i - 2, j].type = (ushort)ModContent.TileType<TerminusShrineLevel3Placed>();
-				Main.tile[i - 2, j - 1].type = (ushort)ModContent.TileType<TerminusShrineLevel3Placed>();
-				Main.tile[i - 2, j - 2].type = (ushort)ModContent.TileType<TerminusShrineLevel3Placed>();
-
-				Main.tile[i - 2, j].type = (ushort)ModContent.TileType<TerminusShrineLevel3Placed>();
-				Main.tile[i - 2, j - 1].type = (ushort)ModContent.TileType<TerminusShrineLevel3Placed>();
-				Main.tile[i - 2, j - 2].type = (ushort)ModContent.TileType<TerminusShrineLevel3Placed>();
-				WorldGen.SquareTileFrame(i, j, true);
-				NetMessage.SendTileSquare(-1, i, j, 1);
-			}
-			else 
-			{
-				CalValEXWorld.Rockshrine = false;
-				Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("BossRush"), 1);
-				Main.tile[i, j].type = (ushort)ModContent.TileType<TerminusShrinePlaced>();
-				Main.tile[i, j - 1].type = (ushort)ModContent.TileType<TerminusShrinePlaced>();
-				Main.tile[i, j - 2].type = (ushort)ModContent.TileType<TerminusShrinePlaced>();
-
-				Main.tile[i - 1, j].type = (ushort)ModContent.TileType<TerminusShrinePlaced>();
-				Main.tile[i - 1, j - 1].type = (ushort)ModContent.TileType<TerminusShrinePlaced>();
-				Main.tile[i - 1, j - 2].type = (ushort)ModContent.TileType<TerminusShrinePlaced>();
-
-				Main.tile[i - 2, j].type = (ushort)ModContent.TileType<TerminusShrinePlaced>();
-				Main.tile[i - 2, j - 1].type = (ushort)ModContent.TileType<TerminusShrinePlaced>();
-				Main.tile[i - 2, j - 2].type = (ushort)ModContent.TileType<TerminusShrinePlaced>();
-
-				Main.tile[i - 2, j].type = (ushort)ModContent.TileType<TerminusShrinePlaced>();
-				Main.tile[i - 2, j - 1].type = (ushort)ModContent.TileType<TerminusShrinePlaced>();
-				Main.tile[i - 2, j - 2].type = (ushort)ModContent.TileType<TerminusShrinePlaced>();
-				WorldGen.SquareTileFrame(i, j, true);
-				NetMessage.SendTileSquare(-1, i, j, 1);
-			}
-			return true;
 		}
 	}
 }

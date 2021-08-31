@@ -28,7 +28,7 @@ namespace CalValEX.Tiles.MiscFurniture
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			if (l2)
+			/*if (l2)
             {
 				Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("BossRush"), 1);
 			}
@@ -37,11 +37,11 @@ namespace CalValEX.Tiles.MiscFurniture
 				Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("Rock"), 1);
 			}
 			l2 = false;
-			l3 = false;
+			l3 = false;*/
 			Item.NewItem(i * 16, j * 16, 16, 16, ModContent.ItemType<TerminusShrine>());
 		}
 
-		private int count;
+		/*private int count;
 		private int rotation;
 		private float stonepos;
 		private bool l2;
@@ -101,24 +101,24 @@ namespace CalValEX.Tiles.MiscFurniture
 			if (count >= 12)
 				count = 0;
 			//spriteBatch.Draw(texture, this.Center - Main.screenPosition, sourceRectangle, lightColor, rotation, origin / 2f, 1f, SpriteEffects.None, 0);
-		}
+		}*/
 
-		public override bool HasSmartInteract()
+		/*public override bool HasSmartInteract()
 		{
 			return true;
-		}
+		}*/
 
 		public override void AnimateTile(ref int frame, ref int frameCounter)
 		{
-			if (!l2)
+			//if (!l2)
 				frame = 0;
-			else if (l3)
-				frame = 2;
-			else if (l2)
-				frame = 1;
+			//else if (l3)
+				//frame = 2;
+			//else if (l2)
+				//frame = 1;
 		}
 
-		public override void MouseOver(int i, int j)
+		/*public override void MouseOver(int i, int j)
 		{
 			if (!l2)
 			{
@@ -134,9 +134,9 @@ namespace CalValEX.Tiles.MiscFurniture
 				localPlayer.showItemIcon = true;
 				localPlayer.showItemIcon2 = ModLoader.GetMod("CalamityMod").ItemType("Rock");
 			}
-		}
+		}*/
 
-		public override bool NewRightClick(int i, int j)
+		/*public override bool NewRightClick(int i, int j)
 		{
 			Player localPlayer = Main.LocalPlayer;
 			if (!l2 && localPlayer.HasItem(ModLoader.GetMod("CalamityMod").ItemType("BossRush")))
@@ -177,6 +177,6 @@ namespace CalValEX.Tiles.MiscFurniture
 				Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("BossRush"), 1);
             }
 			return true;
-		}
+		}*/
 	}
 }

@@ -29,6 +29,7 @@ namespace CalValEX.Tiles.MiscFurniture
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
 			Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("Rock"), 1);
+			Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("BossRush"), 1);
 			CalValEXWorld.RockshrinEX = false;
 			Item.NewItem(i * 16, j * 16, 16, 16, ModContent.ItemType<TerminusShrine>());
 		}
@@ -43,6 +44,7 @@ namespace CalValEX.Tiles.MiscFurniture
 		}
 		public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
 		{
+			CalValEXWorld.RockshrinEX = true;
 			rotation++;
 			rotation++;
 			rotation++;
@@ -81,39 +83,9 @@ namespace CalValEX.Tiles.MiscFurniture
 			//spriteBatch.Draw(texture, this.Center - Main.screenPosition, sourceRectangle, lightColor, rotation, origin / 2f, 1f, SpriteEffects.None, 0);
 		}
 
-		public override bool HasSmartInteract()
-		{
-			return true;
-		}
-
 		public override void AnimateTile(ref int frame, ref int frameCounter)
 		{
 			frame = 2;
-		}
-
-		public override bool NewRightClick(int i, int j)
-		{
-			Player localPlayer = Main.LocalPlayer;
-			CalValEXWorld.RockshrinEX = false;
-			Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("Rock"), 1);
-			Main.tile[i, j].type = (ushort)ModContent.TileType<TerminusShrineLevel2Placed>();
-			Main.tile[i, j - 1].type = (ushort)ModContent.TileType<TerminusShrineLevel2Placed>();
-			Main.tile[i, j - 2].type = (ushort)ModContent.TileType<TerminusShrineLevel2Placed>();
-
-			Main.tile[i - 1, j].type = (ushort)ModContent.TileType<TerminusShrineLevel2Placed>();
-			Main.tile[i - 1, j - 1].type = (ushort)ModContent.TileType<TerminusShrineLevel2Placed>();
-			Main.tile[i - 1, j - 2].type = (ushort)ModContent.TileType<TerminusShrineLevel2Placed>();
-
-			Main.tile[i - 2, j].type = (ushort)ModContent.TileType<TerminusShrineLevel2Placed>();
-			Main.tile[i - 2, j - 1].type = (ushort)ModContent.TileType<TerminusShrineLevel2Placed>();
-			Main.tile[i - 2, j - 2].type = (ushort)ModContent.TileType<TerminusShrineLevel2Placed>();
-
-			Main.tile[i - 2, j].type = (ushort)ModContent.TileType<TerminusShrineLevel2Placed>();
-			Main.tile[i - 2, j - 1].type = (ushort)ModContent.TileType<TerminusShrineLevel2Placed>();
-			Main.tile[i - 2, j - 2].type = (ushort)ModContent.TileType<TerminusShrineLevel2Placed>();
-			WorldGen.SquareTileFrame(i, j, true);
-			NetMessage.SendTileSquare(-1, i, j, 1);
-			return true;
 		}
 	}
 }
