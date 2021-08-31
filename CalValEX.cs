@@ -140,6 +140,15 @@ namespace CalValEX
                 "A crab and its mushrooms, a love story.\nIt's interesting how creatures can adapt given certain circumstances.\nFavorite this item to gain the Mushy buff while underground or in the mushroom biome.\nHowever, your movement speed will be decreased while in these areas due to you being covered in fungi.\nThe great crustacean's mushrooms may also grow angry when attacked, though they will also become harmless.");
             cal.GetItem("LaboratoryConsoleItem").Tooltip
                 .AddTranslation(GameCulture.English, "Can be used to print blueprints");
+            cal.GetItem("HeartoftheElements").Tooltip.AddTranslation(GameCulture.English, "The heart of the world\n" +
+                "Increases max life by 20, life regen by 1, and all damage by 5%\n" +
+                "Increases movement speed by 10% and jump speed by 20%\n" +
+                "Increases damage reduction by 5%\n" +
+                "Increases max mana by 50 and reduces mana usage by 5%\n" +
+                "You grow flowers on the grass beneath you, chance to grow very random dye plants on grassless dirt\n" +
+                "Summons all elementals to protect you\n" +
+                "Toggling the visibility of this accessory also toggles the elementals on and off\n" +
+                "Stat increases are slightly higher if the elementals are turned off\n" + "Equipping this item in a vanity slot summons passive versions of the Elementals");
 
             //Census support
             Mod censusMod = ModLoader.GetMod("Census");
@@ -147,7 +156,7 @@ namespace CalValEX
             {
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<OracleNPC>(), "Equip a Pet or Light Pet");
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<JellyPriestNPC>(),
-                    "Find at the Sulphurous Sea after defeating Acid Rain tier 1");
+                    "Find at the Sulphurous Sea after defeating Acid Rain tier 1 or defeat Acid Rain tier 2");
             }
 
             //Compact tile framing support

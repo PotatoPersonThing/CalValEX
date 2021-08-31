@@ -4,7 +4,7 @@ using System;
 using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
-
+using Terraria.ID;
 namespace CalValEX.Projectiles.Pets.LightPets
 {
     public class Minimpious : ModProjectile
@@ -13,6 +13,8 @@ namespace CalValEX.Projectiles.Pets.LightPets
         {
             DisplayName.SetDefault("Minimpious");
             Main.projFrames[projectile.type] = 5;
+            Main.projPet[projectile.type] = true;
+            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
         public override void SetDefaults()

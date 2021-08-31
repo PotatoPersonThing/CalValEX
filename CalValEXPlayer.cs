@@ -892,6 +892,12 @@ namespace CalValEX
                 player.ManageSpecialBiomeVisuals("CalamityMod:Yharon", useYharonMonolith, player.Center);
                 bool useScalMonolith = scalMonolith;
                 player.ManageSpecialBiomeVisuals("CalamityMod:SupremeCalamitas", useScalMonolith, player.Center);
+                bool TerminalMonolith = CalValEXWorld.RockshrinEX;
+                if (!scalMonolith)
+                {
+                    player.ManageSpecialBiomeVisuals("CalamityMod:SupremeCalamitas", TerminalMonolith, player.Center);
+                }
+
             }
         }
 

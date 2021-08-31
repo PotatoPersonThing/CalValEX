@@ -50,6 +50,23 @@ namespace CalValEX.Tiles.MiscFurniture
 
         public override void NearbyEffects(int i, int j, bool closer)
         {
+            if (choking)
+            {
+                choketimer++;
+                if (choketimer == 120 && !feed)
+                {
+                    feed = true;
+                    Main.PlaySound(SoundID.NPCDeath13);
+                    Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("HardenedSulphurousSandstone"), Main.rand.Next(6, 21));
+                }
+                if (choketimer == 160)
+                {
+                    Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Help"));
+                    choking = false;
+                    feed = false;
+                    choketimer = 0;
+                }
+            }
             if (Main.rand.Next(16) < 2)
             {
                 Dust dust = Dust.NewDustDirect(new Vector2(i, j) * 16f, 30, 30, 271, 0f, 0f, 255, new Color(255, 255, 255), 1f);
@@ -62,11 +79,23 @@ namespace CalValEX.Tiles.MiscFurniture
         {
             return true;
         }
+        private bool choking = false;
+        int choketimer = 0;
+        private bool feed = false;
 
         public override bool NewRightClick(int i, int j)
         {
             Player player = Main.LocalPlayer;
-            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Help"));
+            if (player.HasItem(ItemID.GreenMushroom) && !choking)
+            {
+                player.ConsumeItem(ItemID.GreenMushroom);
+                Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Nom"));
+                choking = true;
+            }
+            else if (!choking)
+            {
+                Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Help"));
+            }
             for (int x = 0; x < 100; x++)
             {
                 Dust dust = Dust.NewDustDirect(new Vector2(i, j) * 16f, 30, 30, 271, 0f, 0f, 255, new Color(255, 255, 255), 1f);

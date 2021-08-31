@@ -88,7 +88,8 @@ namespace CalValEX.Projectiles.Pets
 
             jumpAnimationLength = -1; //how long the jump animation should stay
         }
-
+        int idlecounter = 0;
+        int sideflip;
         public override void SafeAI(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
@@ -97,6 +98,9 @@ namespace CalValEX.Projectiles.Pets
                 modPlayer.SmolCrab = false;
             if (modPlayer.SmolCrab)
                 projectile.timeLeft = 2;
+            Player owner = Main.player[projectile.owner];
+            Vector2 vectorToOwner = owner.Center - projectile.Center;
+            float distanceToOwner = vectorToOwner.Length();
 
             /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.
              * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
@@ -118,7 +122,41 @@ namespace CalValEX.Projectiles.Pets
              *
              * you can still use these, changing thing inside (however it's not recomended unless you want to add custom behaviour to these)
              */
-        }
+            sideflip = player.direction == -1 ? 10 : 8;
+            if (player.velocity.X == 0 && player.velocity.Y == 0)
+            {
+                idlecounter++;
+            }
+            else
+            {
+                idlecounter = 0;
+            }
+
+            if (idlecounter == 300 && distanceToOwner < 40 && !modPlayer.rockhat && !modPlayer.conejo && !modPlayer.aesthetic)
+            {
+                projectile.localAI[1] = 3;
+            }
+            switch ((int)projectile.localAI[1])
+             {
+                 case 3:
+
+                    projectile.position.X = player.position.X - sideflip;
+                    projectile.position.Y = player.position.Y - 40;
+                    projectile.frameCounter++;
+                    if (projectile.frameCounter >= animationSpeed[0])
+                    {
+                        projectile.frameCounter = 0;
+                        projectile.frame++;
+                        if (projectile.frame < idleFrameLimits[0] || projectile.frame > idleFrameLimits[1])
+                            projectile.frame = idleFrameLimits[0];
+                    }
+                    if (idlecounter <= 0 || modPlayer.rockhat || modPlayer.conejo || modPlayer.aesthetic)
+                    {
+                            projectile.localAI[1] = 1;
+                    }
+                      break;
+             }
+    }
         public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             Texture2D glowMask = mod.GetTexture("Projectiles/Pets/SmolCrab_Glow");

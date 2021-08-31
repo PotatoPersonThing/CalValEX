@@ -7,12 +7,12 @@ using Terraria;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class Se : ModItem
+    internal class TerminusShrine2 : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sepulcher (new) is Based");
-            Tooltip.SetDefault("An artifact containing so much power, that placing more than one snaps reality\n" + "Tldr don't place more than one or else suffer\n" + "Unfinished and unobtainable item you filthy hacker");
+            DisplayName.SetDefault("Terminus Shrine Level 2");
+            Tooltip.SetDefault("An altar witholding an apocalyptic artifact");
 
         }
 
@@ -28,7 +28,7 @@ namespace CalValEX.Items.Tiles
             item.width = 16;
             item.height = 28;
             item.rare = 10;
-            item.createTile = ModContent.TileType<SePlaced>();
+            item.createTile = ModContent.TileType<TerminusShrineLevel2Placed>();
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -46,8 +46,20 @@ namespace CalValEX.Items.Tiles
             {
                 if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(0, 255, 0); //change the color accordingly to above
+                    tooltipLine.overrideColor = new Color(255, 0, 255); //change the color accordingly to above
                 }
+            }
+        }
+        public override void AddRecipes()
+        {
+            Mod CalValEX = ModLoader.GetMod("CalamityMod");
+            {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("BossRush"), 1);
+                recipe.AddIngredient(ModContent.ItemType<TerminusShrine>());
+                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
+                recipe.SetResult(this);
+                recipe.AddRecipe();
             }
         }
     }

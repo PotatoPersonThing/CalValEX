@@ -32,6 +32,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 
 namespace CalValEX
 {
@@ -1427,6 +1428,14 @@ namespace CalValEX
                     Rectangle deustailsquare2 = new Rectangle(0, deustailheight2, deustailsprite2.Width, deustailsprite2.Height / 1);
                     spriteBatch.Draw(deustailsprite2, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deustailsquare2, Color.White, npc.rotation, Utils.Size(deustailsquare2) / 2f, npc.scale, SpriteEffects.None, 0f);
                 }
+            }
+        }
+        //Disable Astral Blight overworld spawns
+        public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo LocalPlayer)
+        {
+            if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral)
+            {
+                pool[0] = 0;
             }
         }
     }

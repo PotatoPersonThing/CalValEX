@@ -10,8 +10,7 @@ namespace CalValEX.Items
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Blighted Astral Solution");
 			Tooltip.SetDefault("Used by the Clentaminator"
-				+ "\nSpreads the Astral Blight"
-				+ "\nDoes not affect overworld spawns");
+				+ "\nSpreads the Astral Blight");
 		}
 
 		public override void SetDefaults() {

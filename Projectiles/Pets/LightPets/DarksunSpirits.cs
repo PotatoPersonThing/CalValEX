@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Projectiles.Pets.LightPets
 {
@@ -12,6 +13,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             DisplayName.SetDefault("Darksun Fish");
             Main.projFrames[projectile.type] = 4;
             Main.projPet[projectile.type] = true;
+            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
         public override void SafeSetDefaults()
@@ -96,6 +98,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             DisplayName.SetDefault("Darksun Skull");
             Main.projFrames[projectile.type] = 4;
             Main.projPet[projectile.type] = true;
+            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
         public override void SafeSetDefaults()
@@ -154,6 +157,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             DisplayName.SetDefault("Darksun Small Skull");
             Main.projFrames[projectile.type] = 4;
             Main.projPet[projectile.type] = true;
+            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
         public override void SafeSetDefaults()

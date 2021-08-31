@@ -10,7 +10,7 @@ namespace CalValEX.Items.Tiles
         {
             DisplayName.SetDefault("Stuck Orthocera");
             Tooltip
-                .SetDefault("Help me");
+                .SetDefault("Help me\n" + "Can be fed Green Mushrooms");
         }
 
         public override void SetDefaults()

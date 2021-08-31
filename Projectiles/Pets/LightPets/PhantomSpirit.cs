@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 
@@ -15,6 +16,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             Main.projPet[projectile.type] = true;
             drawOriginOffsetY = -15;
             drawOffsetX = -14;
+            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
         public override void SetDefaults()

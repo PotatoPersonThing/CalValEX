@@ -77,16 +77,46 @@ namespace CalValEX.Tiles.MiscFurniture
                 Main.LocalPlayer.AddBuff(146, 20);
             }
         }
+        int choketimer = 0;
+        private bool choking = false;
+        private bool feed = false;
 
         public override bool NewRightClick(int i, int j)
         {
             Player player = Main.LocalPlayer;
-            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Help"));
+            if (player.HasItem(ItemID.GreenMushroom) && !choking)
+            {
+                player.ConsumeItem(ItemID.GreenMushroom);
+                Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Nom"));
+                feed = false;
+                choking = true;
+            }
+            else if (!choking)
+            {
+                Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Help"));
+            }
             return true;
         }
 
         public override void NearbyEffects(int i, int j, bool closer)
         {
+            if (choking)
+            {
+                choketimer++;
+                if (choketimer == 120 && !feed)
+                {
+                    feed = true;
+                    Main.PlaySound(SoundID.NPCDeath13);
+                    Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("HardenedSulphurousSandstone"), Main.rand.Next(6, 21));
+                }
+                if (choketimer == 160)
+                {
+                    Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Help"));
+                    choking = false;
+                    feed = false;
+                    choketimer = 0;
+                }
+            }
             if (closer)
             {
                 if (Main.LocalPlayer.HasItem(ModLoader.GetMod("CalamityMod").ItemType("OrthoceraShell")))
@@ -102,7 +132,7 @@ namespace CalValEX.Tiles.MiscFurniture
                     }
                     else if (Main.LocalPlayer.name == "Mochi")
                     {
-                        Main.LocalPlayer.AddBuff(ModLoader.GetMod("CalamityMod").BuffType("OrthoceraShell"), 10);
+                        Main.LocalPlayer.AddBuff(ModLoader.GetMod("CalamityMod").BuffType("TemporalSadness"), 10);
                     }
                     else
                     {

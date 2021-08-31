@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -49,7 +50,7 @@ namespace CalValEX.Projectiles.Pets
 
         //you usualy don't have to use the lower two unless you want the pet to have an aura, glowmask
         //or if you want the pet to emit light
-
+        private bool sigtep = false;
         public override void SafeAI(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
@@ -77,6 +78,38 @@ namespace CalValEX.Projectiles.Pets
              *
              * you can still use this, changing thing inside (however it's not recomended unless you want to add custom behaviour to this)
              */
+            Player owner = Main.player[projectile.owner];
+            Vector2 vectorToOwner = owner.Center - projectile.Center;
+            float distanceToOwner = vectorToOwner.Length();
+            if (distanceToOwner > 1138)
+            {
+                sigtep = true;
+            }
+            if (distanceToOwner < 1139)
+            {
+                sigtep = false;
+                projectile.alpha--;
+                projectile.alpha--;
+            }
+
+            if (projectile.alpha == 45)
+            {
+                for (int x = 0; x < 20; x++)
+                {
+                    Dust dust;
+                    dust = Main.dust[Terraria.Dust.NewDust(projectile.Center, 30, 30, 173, 0f, 0f, 0, new Color(255, 255, 255), 0.8f)];
+                }
+            }
+
+            if (sigtep == true)
+            {
+                projectile.alpha = 255;
+                for (int x = 0; x < 5; x++)
+                {
+                    Dust dust;
+                    dust = Main.dust[Terraria.Dust.NewDust(projectile.Center, 30, 30, 173, 0f, 0f, 0, new Color(255, 255, 255), 0.8f)];
+                }
+            }
         }
     }
 }

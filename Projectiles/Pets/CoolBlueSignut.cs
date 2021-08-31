@@ -1,9 +1,11 @@
 ﻿using Terraria;
+using Microsoft.Xna.Framework;
 
 namespace CalValEX.Projectiles.Pets
 {
     public class CoolBlueSignut : FlyingPet
     {
+        private bool sigtep = false;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Cool Blue Signut");
@@ -73,6 +75,38 @@ namespace CalValEX.Projectiles.Pets
              *
              * you can still use this, changing thing inside (however it's not recomended unless you want to add custom behaviour to this)
              */
+            Player owner = Main.player[projectile.owner];
+            Vector2 vectorToOwner = owner.Center - projectile.Center;
+            float distanceToOwner = vectorToOwner.Length();
+            if (distanceToOwner > 1138)
+            {
+                sigtep = true;
+            }
+            if (distanceToOwner < 1139)
+            {
+                sigtep = false;
+                projectile.alpha--;
+                projectile.alpha--;
+            }
+
+            if (projectile.alpha == 45)
+            {
+                for (int x = 0; x < 20; x++)
+                {
+                    Dust dust;
+                    dust = Main.dust[Terraria.Dust.NewDust(projectile.Center, 30, 30, 173, 0f, 0f, 0, new Color(255, 255, 255), 0.8f)];
+                }
+            }
+
+            if (sigtep == true)
+            {
+                projectile.alpha = 255;
+                for (int x = 0; x < 5; x++)
+                {
+                    Dust dust;
+                    dust = Main.dust[Terraria.Dust.NewDust(projectile.Center, 30, 30, 173, 0f, 0f, 0, new Color(255, 255, 255), 0.8f)];
+                }
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 
 namespace CalValEX.Projectiles.Pets.LightPets
 {
@@ -10,6 +11,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             DisplayName.SetDefault("Sunfish");
             Main.projFrames[projectile.type] = 1;
             Main.projPet[projectile.type] = true;
+            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
         public override bool PreAI()

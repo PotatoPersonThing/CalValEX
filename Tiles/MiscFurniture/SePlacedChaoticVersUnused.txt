@@ -1,4 +1,4 @@
-﻿using Terraria;
+using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -32,6 +32,7 @@ namespace CalValEX.Tiles.MiscFurniture
 
         private bool shittypostimer = true;
         private bool shittynegatimer = false;
+
         public override void PlaceInWorld(int i, int j, Item item)
         {
             rotationbottom = -35;
@@ -122,14 +123,14 @@ namespace CalValEX.Tiles.MiscFurniture
             //This means left rotations will make it move left, and right rotations will make it move right.
 
             float x1 = 0;
-            float x2 = rotationbottom / 5;
-            float x3 = rotationbottom / 3.75f;
-            float x4 = rotationbottom / 3;
-            float x5 = rotationbottom / 2.5f;
-            float x6 = rotationbottom / 2.14f;
-            float x7 = rotationbottom / 1.875f;
-            float xl = rotationbottom / 2.14f;
-            float xr = rotationbottom / 2.14f;
+            float x2 = rotationbottom / 3;
+            float x3 = rotationbottom / 1.75f;
+            float x4 = rotationbottom / 1;
+            float x5 = rotationbottom / 0.7f;
+            float x6 = rotationbottom / 0.54f;
+            float x7 = rotationbottom / 0.39f;
+            float xl = rotationbottom / 0.54f;
+            float xr = rotationbottom / 0.54f;
 
             //If rotation counter = 30, navgar will be negative
             //If rotation counter = - 30, navgar will be positive
@@ -150,14 +151,14 @@ namespace CalValEX.Tiles.MiscFurniture
             //This means that any rotation will cause the segments to go downwards, while going towards 0 makes it go up, giving a ^ effect to the motion
 
             float y1 = 0;
-            float y2 = rotationbottom / 10 * negavar;
-            float y3 = rotationbottom / 5 * negavar;
-            float y4 = rotationbottom / 3.75f * negavar;
-            float y5 = rotationbottom / 3 * negavar;
-            float y6 = rotationbottom / 2.5f * negavar;
-            float y7 = rotationbottom / 2.14f * negavar;
-            float yl = rotationbottom / 2.5f * negavar;
-            float yr = rotationbottom / 2.5f * negavar;
+            float y2 = -rotationbottom / 8 * negavar;
+            float y3 = -rotationbottom / 4 * negavar;
+            float y4 = -rotationbottom / 2.75f * negavar;
+            float y5 = -rotationbottom / 2 * negavar;
+            float y6 = -rotationbottom / 1.5f * negavar;
+            float y7 = -rotationbottom / 0.9f * negavar;
+            float yl = -rotationbottom / 1.5f * negavar;
+            float yr = -rotationbottom / 1.5f * negavar;
 
             //Sproots
 
@@ -175,6 +176,12 @@ namespace CalValEX.Tiles.MiscFurniture
 
             Vector2 zero = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
             Vector2 position = new Vector2((i * 16) - 7 - Main.screenPosition.X, (j * 16) - 18 - Main.screenPosition.Y) + zero;
+
+            // Fix weird positioning
+
+            Vector2 weirdxoffset = new Vector2(( rotationbottom >= 0 ? -negavar * -7 : 0), (rotationbottom >= 0 ? -negavar * 4 : 4));
+            Vector2 armroffset = new Vector2((rotationbottom >= 0 ? -negavar * 0 : 0), (rotationbottom >= 0 ? -negavar * 16 : 16 * rotationbottom * 0.03f));
+            Vector2 armloffset = new Vector2((rotationbottom >= 0 ? -negavar * 0 : 0), (rotationbottom >= 0 ? -negavar * 16 * rotationbottom * 0.03f : 16));
 
             //Defining the sizes and stuff
 
@@ -217,12 +224,12 @@ namespace CalValEX.Tiles.MiscFurniture
             Vector2 position1 = new Vector2(position.X + x1, position.Y + 6 + y1);
             Vector2 position2 = new Vector2(position.X + x2, position.Y - Seg1.Height + y2);
             Vector2 position3 = new Vector2(position.X - 10 + x3, position.Y - Seg1.Height - Seg2.Height + y3);
-            Vector2 position4 = new Vector2(position.X + x4, position.Y - Seg1.Height - Seg2.Height - Seg3.Height + 6 + y4);
-            Vector2 position5 = new Vector2(position.X + x5, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height + 6 + y5);
-            Vector2 position6 = new Vector2(position.X + x6, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height + 9 + y6);
-            Vector2 position7 = new Vector2(position.X + x7, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height - Seg6.Height + 8 + y7);
-            Vector2 leftposition = new Vector2(position.X + xl - 25, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height + yl);
-            Vector2 rightposition = new Vector2(position.X + xr + 25, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height + yr);
+            Vector2 position4 = new Vector2(position.X + x4 + weirdxoffset.X, position.Y - Seg1.Height - Seg2.Height - Seg3.Height + 6 + y4 + weirdxoffset.Y);
+            Vector2 position5 = new Vector2(position.X + x5 + weirdxoffset.X, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height + 6 + y5 + weirdxoffset.Y);
+            Vector2 position6 = new Vector2(position.X + x6 + weirdxoffset.X, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height + 9 + y6 + weirdxoffset.Y);
+            Vector2 position7 = new Vector2(position.X + x7 + weirdxoffset.X, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height - Seg6.Height + 8 + y7 + weirdxoffset.Y);
+            Vector2 leftposition = new Vector2(position.X + xl - 25 + weirdxoffset.X + armloffset.X, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height + yl + weirdxoffset.Y + armloffset.Y);
+            Vector2 rightposition = new Vector2(position.X + xr + 25 + weirdxoffset.X + armroffset.X, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height + yr + weirdxoffset.Y + armroffset.Y);
 
             //Prevent dividing by 0 errors. If rotation counter is not zero, then absolute value is 30 / 30 or - 30 / 30
 
@@ -237,15 +244,15 @@ namespace CalValEX.Tiles.MiscFurniture
 
             //Rotation of the segment is equal to the rotation counter with an added offset multiplied by negative of the direction. 
             //Segment 2 for example would have 30 rotation at value 30 once we readd the offsets.
-            float rotationbottom1 = (rotationbottom) * 0.01f;
-            float rotationbottom2 = (rotationbottom) * 0.01f;
-            float rotationbottom3 = (rotationbottom) * 0.01f;
-            float rotationbottom4 = (rotationbottom) * 0.01f;
-            float rotationbottom5 = (rotationbottom) * 0.01f;
-            float rotationbottom6 = (rotationbottom) * 0.01f;
-            float rotationbottom7 = (rotationbottom) * 0.01f;
-            float rotationbottoml = (rotationbottom) * 0.01f;
-            float rotationbottomr = (rotationbottom) * 0.01f;
+            float rotationbottom1 = (rotationbottom + (1 * negavar)) * 0.01f;
+            float rotationbottom2 = (rotationbottom + (2 * negavar)) * 0.02f;
+            float rotationbottom3 = (rotationbottom + (3 * negavar)) * 0.03f;
+            float rotationbottom4 = (rotationbottom + (4 * negavar)) * 0.04f;
+            float rotationbottom5 = (rotationbottom + (5 * negavar)) * 0.05f;
+            float rotationbottom6 = (rotationbottom + (6 * negavar)) * 0.06f;
+            float rotationbottom7 = (rotationbottom + (7 * negavar)) * 0.08f;
+            float rotationbottoml = (rotationbottom + (6 * negavar)) * 0.06f;
+            float rotationbottomr = (rotationbottom + (6 * negavar)) * 0.06f;
 
 
             if (!tile.halfBrick() && tile.slope() == 0)
