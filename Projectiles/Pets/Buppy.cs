@@ -1,6 +1,5 @@
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -94,7 +93,6 @@ namespace CalValEX.Projectiles.Pets
         public override void SafeAI(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-
             if (player.dead)
                 modPlayer.buppy = false;
             if (modPlayer.buppy)
@@ -128,7 +126,7 @@ namespace CalValEX.Projectiles.Pets
                     yapcount++;
                     if (yapcount == 300)
                     {
-                        Main.PlaySound(SoundID.NPCHit37);
+                        Main.PlaySound(SoundID.NPCHit46);
                         if (projectile.frame != 7 && projectile.frame != 6)
                         {
                             projectile.frame = 6;
@@ -143,7 +141,7 @@ namespace CalValEX.Projectiles.Pets
                     }
                     if (yapcount == 330)
                     {
-                        Main.PlaySound(SoundID.NPCHit37);
+                        Main.PlaySound(SoundID.NPCHit46);
                         yapcount = 0;
                         if (projectile.frame != 7 && projectile.frame != 6)
                         {
