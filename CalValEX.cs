@@ -184,7 +184,8 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Hive Mind",
                     new List<int> { ModContent.ItemType<MissingFang>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "The Perforators",
-                    new List<int> { ModContent.ItemType<DigestedWormFood>() });
+                    new List<int> { ModContent.ItemType<DigestedWormFood>(), ModContent.ItemType<SmallWorm>(),
+                    ModContent.ItemType<MidWorm>(), ModContent.ItemType<BigWorm>(),});
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Slime God",
                     new List<int> { ModLoader.GetMod("CalamityMod").ItemType("StatigelBlock") });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Slime God",
