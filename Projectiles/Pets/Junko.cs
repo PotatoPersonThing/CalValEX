@@ -11,19 +11,20 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Lil Junko");
-            Main.projFrames[projectile.type] = 7; //frames
+            Main.projFrames[projectile.type] = 13; //frames
             Main.projPet[projectile.type] = true;
         }
 
         public override void SafeSetDefaults()
         {
-            projectile.width = 64;
-            projectile.height = 46;
+            projectile.width = 126;
+            projectile.height = 74;
             projectile.penetrate = -1;
             projectile.netImportant = true;
             projectile.timeLeft *= 5;
             projectile.friendly = true;
             projectile.ignoreWater = true;
+            base.drawOriginOffsetY = 2;
             projectile.tileCollide = true;
             facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
@@ -90,10 +91,12 @@ namespace CalValEX.Projectiles.Pets
             jumpAnimationLength = -1; //how long the jump animation should stay
         }
         int sigcounter;
+        int basetime = 30;
         private bool signut = false;
         private bool dust = false;
         private bool sound = false;
         private bool finished = false;
+        private bool teleported = false;
         float sigposx;
         float sigposy;
         int sigdirection;
@@ -131,21 +134,55 @@ namespace CalValEX.Projectiles.Pets
             for (int x = 0; x < Main.maxNPCs; x++)
             {
                 NPC npc = Main.npc[x];
-                if (npc.type == calamityMod.NPCType("Signus") && npc.life == 1)
+                if (npc.type == calamityMod.NPCType("Signus") && npc.life == 1 && npc.active)
                 {
-                    sigdirection = npc.direction;
-                    projectile.direction = npc.direction;
+                    sigdirection = npc.spriteDirection;
                     sigposx = npc.Center.X;
                     sigposy = npc.position.Y;
                     signut = true;
-                    projectile.frame = 6;
+                    //projectile.frame = 6;
                     projectile.localAI[1] = 3;
                 }
             }
             if (projectile.localAI[1] == 3 && !finished)
             {
                 projectile.rotation = 0;
-                if (sigcounter <= 90)
+                //Framing
+                if (sigcounter < basetime + 6)
+                {
+                    projectile.frame = 6;
+                    projectile.velocity.X = 0;
+                }
+                else if (sigcounter >= basetime + 6 && sigcounter < basetime + 12)
+                {
+                    projectile.frame = 7;
+                }
+                else if (sigcounter >= basetime + 12 && sigcounter < basetime + 18)
+                {
+                    projectile.frame = 8;
+                }
+                else if (sigcounter >= basetime + 18 && sigcounter < basetime + 24)
+                {
+                    projectile.frame = 9;
+                }
+                else if (sigcounter >= basetime + 24 && sigcounter < basetime + 30)
+                {
+                    projectile.frame = 10;
+                }
+                else if (sigcounter > basetime + 30 && sigcounter <= basetime + 40)
+                {
+                    projectile.frame = 11;
+                }
+                else if (sigcounter > basetime + 40 && sigcounter <= basetime + 50)
+                {
+                    projectile.frame = 12;
+                }
+                else
+                {
+                    projectile.frame = 6;
+                }
+                //Attack
+                if (sigcounter <= basetime + 30)
                 {
                     if (sigcounter == 0 || sigcounter == 1)
                     {
@@ -154,7 +191,7 @@ namespace CalValEX.Projectiles.Pets
                             for (int a = 0; a < 20; a++)
                             {
                                 Dust dust2;
-                                dust2 = Main.dust[Terraria.Dust.NewDust(projectile.Center, 64, 46, 173, 0f, 0f, 0, new Color(255, 255, 255), 1.4f)];
+                                dust2 = Main.dust[Terraria.Dust.NewDust(projectile.position, projectile.width, projectile.height, 173, 0f, 0f, 0, new Color(255, 255, 255), 1.4f)];
                             }
                             if (sigcounter > 0)
                             {
@@ -162,13 +199,18 @@ namespace CalValEX.Projectiles.Pets
                             }
                         }
                     }
-                    projectile.position.Y = sigposy + 5;
-                    projectile.position.X = sigposx + (sigdirection == -1 ? 30 : -80);
+                    if (!teleported)
+                    {
+                        projectile.direction = sigdirection;
+                        projectile.spriteDirection = sigdirection;
+                        projectile.position.Y = sigposy + 5;
+                        projectile.position.X = sigposx + (sigdirection == -1 ? 40 : -200);
+                        teleported = true;
+                    }
                     projectile.velocity.Y = -0.1f;
                     gravity = 0f;
-                    projectile.direction = sigdirection;
                 }
-                else if (sigcounter > 90 && sigcounter <= 100)
+                else if (sigcounter > basetime + 30 && sigcounter <= basetime + 40)
                 {
                     if (!sound)
                     {
@@ -178,7 +220,7 @@ namespace CalValEX.Projectiles.Pets
                     projectile.velocity.X = 20 * sigdirection;
                     gravity = 0.05f * sigcounter;
                 }
-                else if (sigcounter > 110)
+                else if (sigcounter > basetime + 50)
                 {
                     projectile.localAI[1] = 2;
                     gravity = 0.1f;
@@ -204,6 +246,7 @@ namespace CalValEX.Projectiles.Pets
                 signut = false;
                 sound = false;
                 finished = false;
+                teleported = false;
             }
             if (signut)
             {

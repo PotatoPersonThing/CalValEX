@@ -28,6 +28,7 @@ using CalValEX.Items.Tiles.Monoliths;
 using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
@@ -347,6 +348,7 @@ namespace CalValEX
         }
         int signuskill;
         private bool signusbackup = false;
+        int signusshaker = 0;
 
         public override void AI(NPC npc)
         {
@@ -355,6 +357,18 @@ namespace CalValEX
             {
                 if ((npc.ai[0] == -33f || signusbackup) && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi)
                 {
+                    Dust dust;
+                    // You need to set position depending on what you are doing. You may need to subtract width/2 and height/2 as well to center the spawn rectangle.
+                    Vector2 position = npc.position;
+                    for (int a = 0; a < 3; a++)
+                    {
+                        dust = Main.dust[Terraria.Dust.NewDust(position, npc.width, npc.height, 16, 0f, 0f, 0, new Color(255, 255, 255), 1.578947f)];
+                        dust.shader = GameShaders.Armor.GetSecondaryShader(121, Main.LocalPlayer);
+                    }
+                    npc.rotation = 0;
+                    npc.direction = -1;
+                    npc.spriteDirection = -1;
+                    signusshaker++;
                     npc.alpha = 0;
                     npc.velocity.X = 0;
                     npc.velocity.Y = 0;
@@ -364,17 +378,27 @@ namespace CalValEX
                     {
                         npc.buffImmune[k] = true;
                     }
-                    if (signuskill == 92)
+                    if (signuskill == 64)
                     {
                         signuskill = 0;
                         npc.knockBackResist = 20f;
-                        npc.StrikeNPC(499999, 30f, npc.direction  * 50, true, false, false);
+                        npc.StrikeNPC(499999, 99f, npc.direction  * 50, true, false, false);
                         signusbackup = false;
+                    }
+                    if (signusshaker == 1)
+                    {
+                        npc.velocity.X = -5;
+                    }
+                    else if (signusshaker == 2)
+                    {
+                        npc.velocity.X = 5;
+                        signusshaker = 0;
                     }
                 }
                 else
                 {
                     signuskill = 0;
+                    signusshaker = 0;
                 }
                 if (!Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi)
                 {
