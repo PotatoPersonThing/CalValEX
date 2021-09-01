@@ -112,13 +112,27 @@ namespace CalValEX.Projectiles
                             NetMessage.SendTileSquare(-1, k, l, 1);
                             break;
                         }
-                        else if (type == TileID.Dirt)
+						else if (type == ModLoader.GetMod("CalamityMod").TileType("AstralMonolith"))
+						{
+							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralTreeWoodPlaced>();
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (type == TileID.Dirt)
                         {
                             Main.tile[k, l].type = (ushort)ModContent.TileType<AstralDirtPlaced>();
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                             break;
                         }
+						else if (type == TileID.LivingWood)
+						{
+							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralTreeWoodPlaced>();
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
 						else if (type == TileID.ClayBlock)
                         {
                             Main.tile[k, l].type = (ushort)ModContent.TileType<AstralClayPlaced>();

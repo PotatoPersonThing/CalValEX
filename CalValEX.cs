@@ -641,6 +641,11 @@ namespace CalValEX
             recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
             recipe.SetResult(calamityMod.ItemType("MonolithDresser"));
             recipe.AddRecipe();
+            recipe = new ModRecipe(this);
+            recipe.AddIngredient(ModContent.ItemType<Items.Critters.BlinkerItem>());
+            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+            recipe.SetResult(calamityMod.ItemType("TwinklerItem"));
+            recipe.AddRecipe();
         }
 
         public void SetupHerosMod()

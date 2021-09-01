@@ -58,7 +58,7 @@ namespace CalValEX.Tiles.MiscFurniture
 
         public override bool NewRightClick(int i, int j)
         {
-            Main.PlaySound(SoundID.Pixie, i * 16, j * 16, 0);
+            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/RespirationShrineSound"));
             HitWire(i, j);
             return true;
         }

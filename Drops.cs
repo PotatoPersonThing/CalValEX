@@ -345,6 +345,72 @@ namespace CalValEX
                 }
             }
         }
+        int signuskill;
+        private bool signusbackup = false;
+
+        public override void AI(NPC npc)
+        {
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            if (npc.type == calamityMod.NPCType("Signus"))
+            {
+                if ((npc.ai[0] == -33f || signusbackup) && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi)
+                {
+                    npc.alpha = 0;
+                    npc.velocity.X = 0;
+                    npc.velocity.Y = 0;
+                    signuskill++;
+                    npc.dontTakeDamage = true;
+                    for (int k = 0; k < npc.buffImmune.Length; k++)
+                    {
+                        npc.buffImmune[k] = true;
+                    }
+                    if (signuskill == 92)
+                    {
+                        signuskill = 0;
+                        npc.knockBackResist = 20f;
+                        npc.StrikeNPC(499999, 30f, npc.direction  * 50, true, false, false);
+                        signusbackup = false;
+                    }
+                }
+                else
+                {
+                    signuskill = 0;
+                }
+                if (!Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi)
+                {
+                    signusbackup = false;
+                    npc.ai[0] = 0f;
+                    npc.ai[1] = 0f;
+                    npc.ai[2] = 0f;
+                    npc.ai[3] = 0f;
+                }
+            }
+        }
+
+        public override bool StrikeNPC(NPC npc, ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
+        {
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            if (npc.type == calamityMod.NPCType("Signus") && !signusbackup && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi)
+            {
+                if (damage >= npc.life)
+                {
+                    npc.dontTakeDamage = true;
+                    damage = npc.life - 1;
+                    npc.ai[0] = -33f;
+                    npc.ai[1] = -33f;
+                    npc.ai[2] = -33f;
+                    npc.ai[3] = -33f;
+                    signusbackup = true;
+                    crit = false;
+                }
+                else
+                {
+                    signusbackup = false;
+                }
+                return false;
+            }
+            return true;
+        }
 
         public override void NPCLoot(NPC npc)
         {

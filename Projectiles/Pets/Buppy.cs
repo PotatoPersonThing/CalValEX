@@ -1,6 +1,5 @@
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -88,11 +87,12 @@ namespace CalValEX.Projectiles.Pets
 
             jumpAnimationLength = 5; //how long the jump animation should stay
         }
+        int yapcount;
+        private bool yapping = false;
 
         public override void SafeAI(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-
             if (player.dead)
                 modPlayer.buppy = false;
             if (modPlayer.buppy)
@@ -118,6 +118,45 @@ namespace CalValEX.Projectiles.Pets
              *
              * you can still use these, changing thing inside (however it's not recomended unless you want to add custom behaviour to these)
              */
+            for (int x = 0; x < Main.maxNPCs; x++)
+            {
+                NPC npc = Main.npc[x];
+                if (npc.rarity > 1 && npc.active)
+                {
+                    yapcount++;
+                    if (yapcount == 300)
+                    {
+                        Main.PlaySound(SoundID.NPCHit46);
+                        if (projectile.frame != 7 && projectile.frame != 6)
+                        {
+                            projectile.frame = 6;
+                        }
+                        if (projectile.frameCounter++ > 8)
+                        {
+                            projectile.frameCounter = 0;
+                            projectile.frame++;
+                            if (projectile.frame >= 7)
+                                projectile.frame = 6;
+                        }
+                    }
+                    if (yapcount == 330)
+                    {
+                        Main.PlaySound(SoundID.NPCHit46);
+                        yapcount = 0;
+                        if (projectile.frame != 7 && projectile.frame != 6)
+                        {
+                            projectile.frame = 6;
+                        }
+                        if (projectile.frameCounter++ > 8)
+                        {
+                            projectile.frameCounter = 0;
+                            projectile.frame++;
+                            if (projectile.frame >= 7)
+                                projectile.frame = 6;
+                        }
+                    }
+                }
+            }
         }
     }
 }
