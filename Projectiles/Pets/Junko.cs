@@ -146,6 +146,7 @@ namespace CalValEX.Projectiles.Pets
             }
             if (projectile.localAI[1] == 3 && !finished)
             {
+                projectile.tileCollide = false;
                 projectile.rotation = 0;
                 //Framing
                 if (sigcounter < basetime + 6)
