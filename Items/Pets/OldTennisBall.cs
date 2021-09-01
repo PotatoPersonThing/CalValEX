@@ -9,7 +9,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Old Tennis Ball");
-            Tooltip.SetDefault("'They used to be everywhere at one point.'");
+            Tooltip.SetDefault("'They used to be everywhere at one point.'\n" + "Barks when any rare enemies are nearby");
         }
 
         public override void SetDefaults()

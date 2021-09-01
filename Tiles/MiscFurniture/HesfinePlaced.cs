@@ -37,9 +37,9 @@ namespace CalValEX.Tiles.MiscFurniture
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
             frameCounter++;
-            if (choketimer < 120)
+            if (choketimer < 120 && choking)
             {
-                if (frameCounter > 3) //make this number lower/bigger for faster/slower animation
+                if (frameCounter > 2) //make this number lower/bigger for faster/slower animation
                 {
                     frameCounter = 0;
                     frame++;

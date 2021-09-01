@@ -147,17 +147,23 @@ namespace CalValEX.Projectiles.Pets
                 projectile.rotation = 0;
                 if (sigcounter <= 90)
                 {
-                    if (!dust)
+                    if (sigcounter == 0 || sigcounter == 1)
                     {
-                        for (int a = 0; a < 20; a++)
+                        if (!dust)
                         {
-                            Dust dust2;
-                            dust2 = Main.dust[Terraria.Dust.NewDust(projectile.Center, 64, 46, 173, 0f, 0f, 0, new Color(255, 255, 255), 1.2f)];
+                            for (int a = 0; a < 20; a++)
+                            {
+                                Dust dust2;
+                                dust2 = Main.dust[Terraria.Dust.NewDust(projectile.Center, 64, 46, 173, 0f, 0f, 0, new Color(255, 255, 255), 1.4f)];
+                            }
+                            if (sigcounter > 0)
+                            {
+                                dust = true;
+                            }
                         }
-                        dust = true;
-                        projectile.position.Y = sigposy + 5;
                     }
-                    projectile.position.X = sigposx + (sigdirection == -1 ? 30 : -50);
+                    projectile.position.Y = sigposy + 5;
+                    projectile.position.X = sigposx + (sigdirection == -1 ? 30 : -80);
                     projectile.velocity.Y = -0.1f;
                     gravity = 0f;
                     projectile.direction = sigdirection;
@@ -193,7 +199,7 @@ namespace CalValEX.Projectiles.Pets
             }
             if (projectile.localAI[1] != 3)
             {
-                sigcounter = 0;
+                sigcounter = -1;
                 dust = false;
                 signut = false;
                 sound = false;
