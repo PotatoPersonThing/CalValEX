@@ -20,7 +20,7 @@ namespace CalValEX.Tiles.Cages
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 }; //
 
-            animationFrameHeight = 58;
+            animationFrameHeight = 54;
             TileObjectData.addTile(Type);
         }
 
