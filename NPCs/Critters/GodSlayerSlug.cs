@@ -140,8 +140,8 @@ namespace CalValEX.NPCs.Critters
             aiType = NPCID.GlowingSnail;
             npc.HitSound = SoundID.NPCHit1;
             npc.lifeMax = 5000;
-            /*banner = npc.type;
-			bannerItem = ItemType<IsopodBanner>();*/
+            banner = npc.type;
+            bannerItem = ItemType<Items.Tiles.Banners.GodSlayerSlugBanner>();
         }
 
         public override void AI()

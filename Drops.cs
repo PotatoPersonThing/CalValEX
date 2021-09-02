@@ -414,7 +414,7 @@ namespace CalValEX
         public override bool StrikeNPC(NPC npc, ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            if (npc.type == calamityMod.NPCType("Signus") && !signusbackup && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi)
+            if (npc.type == calamityMod.NPCType("Signus") && !signusbackup && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi && Main.netMode != NetmodeID.Server)
             {
                 if (damage >= npc.life)
                 {

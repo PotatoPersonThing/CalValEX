@@ -141,8 +141,8 @@ namespace CalValEX.NPCs.Critters
             animationType = NPCID.Squirrel;
             npc.npcSlots = 0.25f;
             npc.lifeMax = 666;
-            //banner = npc.type;
-            //bannerItem = ItemType<ViolemurBanner>();
+            banner = npc.type;
+            bannerItem = ItemType<Items.Tiles.Banners.XerocodileBanner>();
             npc.HitSound = SoundID.NPCHit50;
             npc.DeathSound = SoundID.NPCDeath54;
         }

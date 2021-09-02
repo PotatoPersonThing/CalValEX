@@ -6,6 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
+using CalValEX.Items.Tiles.Banners;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -43,8 +44,8 @@ namespace CalValEX.NPCs.Critters
             {
                 npc.buffImmune[ModLoader.GetMod("CalamityMod").BuffType("AstralInfection")] = false;
             }
-            //banner = npc.type;
-            //bannerItem = ItemType<AstJRBanner>();
+            banner = npc.type;
+            bannerItem = ItemType<AstragellySlimeBanner>();
         }
 
         public override bool? CanBeHitByItem(Player player, Item item)
