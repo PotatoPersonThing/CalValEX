@@ -140,7 +140,7 @@ namespace CalValEX.NPCs.Critters
             npc.lavaImmune = true;
             npc.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             npc.npcSlots = 0.25f;
-            banner = npc.type;
+            banner = NPCType<Eyedol>();
             bannerItem = ItemType<EyedolBanner>();
         }
 

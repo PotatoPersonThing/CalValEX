@@ -134,7 +134,7 @@ namespace CalValEX.NPCs.Critters
             npc.catchItem = (short)ItemType<XerocodileItem>();
             npc.lavaImmune = false;
             npc.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
-            banner = npc.type;
+            banner = NPCType<Xerocodile>();
             bannerItem = ItemType<Items.Tiles.Banners.XerocodileBanner>();
             aiType = NPCID.Goldfish;
             animationType = NPCID.Goldfish;

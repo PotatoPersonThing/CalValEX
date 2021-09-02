@@ -43,8 +43,6 @@ namespace CalValEX.NPCs.Critters
             {
                 npc.buffImmune[ModLoader.GetMod("CalamityMod").BuffType("AstralInfection")] = false;
             }
-            //banner = npc.type;
-            //bannerItem = ItemType<AstJRBanner>();
         }
 
         public override bool? CanBeHitByItem(Player player, Item item)

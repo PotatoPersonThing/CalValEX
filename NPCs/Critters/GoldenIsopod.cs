@@ -138,7 +138,7 @@ namespace CalValEX.NPCs.Critters
             {
                 npc.buffImmune[(ModLoader.GetMod("CalamityMod").BuffType("CrushDepth"))] = false;
             }
-            banner = npc.type;
+            banner = NPCType<Isopod>();
             bannerItem = ItemType<IsopodBanner>();
         }
 
