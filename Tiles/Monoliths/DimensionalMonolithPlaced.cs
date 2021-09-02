@@ -72,7 +72,7 @@ namespace CalValEX.Tiles.Monoliths
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY % animationFrameHeight == 36 ? 18 : 16;
+            int height = tile.frameY % animationFrameHeight == 98 ? 18 : 16;
             int animate = 0;
             if (tile.frameY >= 98)
             {
