@@ -37,7 +37,7 @@ using System.Collections.Generic;
 
 namespace CalValEX
 {
-    public class Drops : GlobalNPC
+    public class CalValEXGlobalNPC : GlobalNPC
     {
         public readonly float bossHookChance = 0.1f; //10%
         public readonly float bossPetChance = 0.2f; //20%

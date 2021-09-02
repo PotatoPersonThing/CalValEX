@@ -156,7 +156,7 @@ namespace CalValEX
             {
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<OracleNPC>(), "Equip a Pet or Light Pet");
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<JellyPriestNPC>(),
-                    "Find at the Sulphurous Sea after defeating Acid Rain tier 1 or defeat Acid Rain tier 2");
+                    "Find at the Sulphurous Sea after defeating Acid Rain tier 1 in singleplayer or defeat Acid Rain tier 2 in multiplayer");
             }
 
             //Compact tile framing support

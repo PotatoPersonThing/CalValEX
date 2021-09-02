@@ -61,7 +61,9 @@ namespace CalValEX.NPCs.JellyPriest
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money)
         {
-            if (CalValEXWorld.rescuedjelly && !CalValEXConfig.Instance.TownNPC)
+            Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
+            
+                if ((CalValEXWorld.rescuedjelly && !CalValEXConfig.Instance.TownNPC && Main.netMode != NetmodeID.Server) || ((bool)clamMod.Call("GetBossDowned", "acidrainscourge") && Main.netMode == NetmodeID.Server && !CalValEXConfig.Instance.TownNPC))
             {
                 jellyspawn = true;
             }
