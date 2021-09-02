@@ -16,14 +16,14 @@ namespace CalValEX.Tiles.Monoliths
         {
             Main.tileFrameImportant[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
-            TileObjectData.newTile.Width = 4;
-            TileObjectData.newTile.Height = 7;
+            TileObjectData.newTile.Width = 3;
+            TileObjectData.newTile.Height = 5;
             TileObjectData.newTile.Origin = new Point16(1, 2);
-            TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 16, 16, 16, 16, 18 };
+            TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 16, 16, 16 };
             TileObjectData.addTile(Type);
             AddMapEntry(new Color(75, 139, 166));
             dustType = 1;
-            animationFrameHeight = 98;
+            animationFrameHeight = 90;
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.LunarMonolith };
         }
@@ -72,9 +72,9 @@ namespace CalValEX.Tiles.Monoliths
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY % animationFrameHeight == 98 ? 18 : 16;
+            int height = 16;
             int animate = 0;
-            if (tile.frameY >= 98)
+            if (tile.frameY >= 90)
             {
                 animate = Main.tileFrame[Type] * animationFrameHeight;
             }
@@ -108,8 +108,8 @@ namespace CalValEX.Tiles.Monoliths
 
         public override void HitWire(int i, int j)
         {
-            int x = i - Main.tile[i, j].frameX / 18 % 2;
-            int y = j - Main.tile[i, j].frameY / 18 % 3;
+            int x = i - Main.tile[i, j].frameX / 18 % 3;
+            int y = j - Main.tile[i, j].frameY / 18 % 5;
             for (int l = x; l < x + 3; l++)
             {
                 for (int m = y; m < y + 6; m++)
@@ -120,13 +120,13 @@ namespace CalValEX.Tiles.Monoliths
                     }
                     if (Main.tile[l, m].active() && Main.tile[l, m].type == Type)
                     {
-                        if (Main.tile[l, m].frameY < 98)
+                        if (Main.tile[l, m].frameY < 90)
                         {
-                            Main.tile[l, m].frameY += 98;
+                            Main.tile[l, m].frameY += 90;
                         }
                         else
                         {
-                            Main.tile[l, m].frameY -= 98;
+                            Main.tile[l, m].frameY -= 90;
                         }
                     }
                 }
@@ -138,29 +138,16 @@ namespace CalValEX.Tiles.Monoliths
                 Wiring.SkipWire(x, y + 2);
                 Wiring.SkipWire(x, y + 3);
                 Wiring.SkipWire(x, y + 4);
-                Wiring.SkipWire(x, y + 5);
-                Wiring.SkipWire(x, y + 6);
                 Wiring.SkipWire(x + 1, y);
                 Wiring.SkipWire(x + 1, y + 1);
                 Wiring.SkipWire(x + 1, y + 2);
                 Wiring.SkipWire(x + 1, y + 3);
                 Wiring.SkipWire(x + 1, y + 4);
-                Wiring.SkipWire(x + 1, y + 5);
-                Wiring.SkipWire(x + 1, y + 6);
                 Wiring.SkipWire(x + 2, y);
                 Wiring.SkipWire(x + 2, y + 1);
                 Wiring.SkipWire(x + 2, y + 2);
                 Wiring.SkipWire(x + 2, y + 3);
                 Wiring.SkipWire(x + 2, y + 4);
-                Wiring.SkipWire(x + 2, y + 5);
-                Wiring.SkipWire(x + 2, y + 6);
-                Wiring.SkipWire(x + 3, y);
-                Wiring.SkipWire(x + 3, y + 1);
-                Wiring.SkipWire(x + 3, y + 2);
-                Wiring.SkipWire(x + 3, y + 3);
-                Wiring.SkipWire(x + 3, y + 4);
-                Wiring.SkipWire(x + 3, y + 5);
-                Wiring.SkipWire(x + 3, y + 6);
             }
             NetMessage.SendTileSquare(-1, x, y + 1, 3);
         }
