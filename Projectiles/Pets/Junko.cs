@@ -205,7 +205,7 @@ namespace CalValEX.Projectiles.Pets
                         projectile.direction = sigdirection;
                         projectile.spriteDirection = sigdirection;
                         projectile.position.Y = sigposy + 5;
-                        projectile.position.X = sigposx + (sigdirection == -1 ? 40 : -200);
+                        projectile.position.X = sigposx + 40; // (sigdirection == -1 ? 40 : -200);
                         teleported = true;
                     }
                     projectile.velocity.Y = -0.1f;
