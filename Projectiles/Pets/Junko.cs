@@ -144,7 +144,7 @@ namespace CalValEX.Projectiles.Pets
                     projectile.localAI[1] = 3;
                 }
             }
-            if (projectile.localAI[1] == 3 && !finished && Main.netMode != NetmodeID.Server)
+            if (projectile.localAI[1] == 3 && !finished && !Program.IsServer)
             {
                 projectile.tileCollide = false;
                 projectile.rotation = 0;

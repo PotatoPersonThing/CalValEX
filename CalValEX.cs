@@ -156,7 +156,7 @@ namespace CalValEX
             {
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<OracleNPC>(), "Equip a Pet or Light Pet");
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<JellyPriestNPC>(),
-                    "Find at the Sulphurous Sea after defeating Acid Rain tier 1 in singleplayer or defeat Acid Rain tier 2 in multiplayer");
+                    "Find at the Sulphurous Sea after defeating Acid Rain tier 1 in singleplayer\n Defeat Acid Rain tier 2 in multiplayer");
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<AprilFools.Jharim>(), "Dropped from the Starter Bag during April Fools");
             }
 
