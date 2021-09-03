@@ -143,6 +143,7 @@ namespace CalValEX.NPCs.Critters
             animationType = -1;
             npc.npcSlots = 0.25f;
             npc.lifeMax = 300;
+            npc.GivenName = Main.rand.NextFloat() < 0.00014f ? "Debrina" : "Sand Turtle";
             banner = npc.type;
             bannerItem = ItemType<Items.Tiles.Banners.SandTurtleBanner>();
             npc.HitSound = SoundID.NPCHit50;
