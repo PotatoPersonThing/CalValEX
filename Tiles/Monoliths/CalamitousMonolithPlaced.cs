@@ -81,7 +81,7 @@ namespace CalValEX.Tiles.Monoliths
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY % animationFrameHeight == 36 ? 16 : 16;
+            int height = 16;
             int animate = 0;
             if (tile.frameY >= 72)
             {
@@ -118,10 +118,10 @@ namespace CalValEX.Tiles.Monoliths
         public override void HitWire(int i, int j)
         {
             int x = i - Main.tile[i, j].frameX / 16 % 3;
-            int y = j - Main.tile[i, j].frameY / 16 % 4;
+            int y = j - Main.tile[i, j].frameY / 18 % 4;
             for (int l = x; l < x + 2; l++)
             {
-                for (int m = y; m < y + 3; m++)
+                for (int m = y; m < y + 4; m++)
                 {
                     if (Main.tile[l, m] == null)
                     {
