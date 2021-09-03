@@ -6,6 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
+using CalamityMod.CalPlayer;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -179,7 +180,7 @@ namespace CalValEX.NPCs.Critters
             Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
             if (clamMod != null)
             {
-                if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "astral") && !CalValEXConfig.Instance.CritterSpawns)
+                if (spawnInfo.player.GetModPlayer<CalamityPlayer>().ZoneAstral && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     if (spawnInfo.playerSafe)
                     {

@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using CalamityMod.CalPlayer;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -132,7 +133,7 @@ namespace CalValEX.NPCs.Critters
             Mod clamMod = ModLoader.GetMod("CalamityMod"); 
             if (clamMod != null)
             {
-                if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") && (bool)clamMod.Call("GetBossDowned", "supremecalamitas") && !NPC.AnyNPCs(ModContent.NPCType<OrthoceraApparition>()) && (!CalValEXWorld.orthofound || orthoceraDLC != null))
+                if (spawnInfo.player.GetModPlayer<CalamityPlayer>().ZoneSulphur && (bool)clamMod.Call("GetBossDowned", "supremecalamitas") && !NPC.AnyNPCs(ModContent.NPCType<OrthoceraApparition>()) && (!CalValEXWorld.orthofound || orthoceraDLC != null))
                 {
                     return 5f;
                 }

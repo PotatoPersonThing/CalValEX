@@ -211,7 +211,7 @@ namespace CalValEX.NPCs.Critters
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (Main.hardMode && !CalValEXConfig.Instance.CritterSpawns && Main.LocalPlayer.ZoneUndergroundDesert)
+            if (Main.hardMode && !CalValEXConfig.Instance.CritterSpawns && spawnInfo.player.ZoneUndergroundDesert)
             {
                 if (spawnInfo.playerSafe)
                 {
