@@ -46,7 +46,10 @@ namespace CalValEX.Tiles.MiscFurniture
             }
             else
             {
-                player.breath = -1;
+                if (player.breath >= 1360)
+                {
+                    player.breath = -1;
+                }
             }
         }
 
