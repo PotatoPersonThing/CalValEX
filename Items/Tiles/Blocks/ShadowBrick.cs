@@ -35,6 +35,11 @@ namespace CalValEX.Items.Tiles.Blocks
             recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
             recipe.SetResult(this, 200);
             recipe.AddRecipe();
+            ModRecipe recipe2 = new ModRecipe(mod);
+            recipe2.AddIngredient(ModContent.ItemType<Items.Walls.ShadowBrickWall>(), 4);
+            recipe2.AddTile(TileID.WorkBenches);
+            recipe2.SetResult(this, 1);
+            recipe2.AddRecipe();
         }
     }
 }

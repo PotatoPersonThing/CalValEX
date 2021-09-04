@@ -36,6 +36,11 @@ namespace CalValEX.Items.Tiles.Blocks
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.SetResult(this, 10);
             recipe.AddRecipe();
+            ModRecipe recipe2 = new ModRecipe(mod);
+            recipe2.AddIngredient(ModContent.ItemType<Items.Walls.EidolicSlabWall>(), 4);
+            recipe2.AddTile(TileID.WorkBenches);
+            recipe2.SetResult(this, 1);
+            recipe2.AddRecipe();
         }
     }
 }

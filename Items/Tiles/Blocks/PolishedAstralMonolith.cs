@@ -38,6 +38,11 @@ namespace CalValEX.Items.Tiles.Blocks
                 recipe2.AddTile(mod.TileType("StarstruckSynthesizerPlaced"));
                 recipe2.SetResult(this);
                 recipe2.AddRecipe();
+                ModRecipe recipe3 = new ModRecipe(mod);
+                recipe3.AddIngredient(ModContent.ItemType<Items.Walls.PolishedAstralMonolithWall>(), 4);
+                recipe3.AddTile(TileID.WorkBenches);
+                recipe3.SetResult(this, 1);
+                recipe3.AddRecipe();
             }
         }
     }
