@@ -337,6 +337,7 @@ namespace CalValEX
         public int conecounter = 0;
         public int coneframe = 0;
         public bool wulfrumjam;
+        public bool cassette;
 
         public override void Initialize()
         {
@@ -499,6 +500,11 @@ namespace CalValEX
             else if (wulfrumjam)
             {
                 player.wings = mod.GetEquipSlot("BlankWings", EquipType.Wings);
+            }
+            else if (cassette)
+            {
+                player.armorEffectDrawShadow = true;
+                player.armorEffectDrawOutlines = true;
             }
         }
 
@@ -700,6 +706,7 @@ namespace CalValEX
             avalon = false;
             wulfrumjam = false;
             conejo = false;
+            cassette = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)

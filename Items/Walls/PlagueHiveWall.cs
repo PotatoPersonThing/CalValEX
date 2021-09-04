@@ -31,7 +31,7 @@ namespace CalValEX.Items.Walls
             ModRecipe recipe = new ModRecipe(mod);
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             recipe.AddIngredient(calamityMod.ItemType("PlagueCellCluster"), 1);
-            recipe.AddIngredient(ItemID.HiveWall);
+            recipe.AddIngredient((ItemID.HiveWall), 30);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this, 30);
             recipe.AddRecipe();

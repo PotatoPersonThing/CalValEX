@@ -197,6 +197,15 @@ namespace CalValEX
             
         }
 
+        public override void ArmorSetShadows(Player player, string set)
+        {
+            if (player.GetModPlayer<CalValEXPlayer>().cassette)
+            {
+                player.armorEffectDrawShadow = true;
+                player.armorEffectDrawOutlines = true;
+            }
+        }
+
         public override void RightClick(Item item, Player player)
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
