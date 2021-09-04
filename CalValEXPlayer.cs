@@ -1,6 +1,6 @@
 //using CalValEX.Buffs.Transformations;
 //using CalValEX.Items.Equips.Transformations;
-using CalamityMod.CalPlayer;
+//using CalamityMod.CalPlayer;
 using System.Collections.Generic;
 using System.IO;
 using CalValEX.Items.Equips.Hats.Draedon;
@@ -540,6 +540,7 @@ namespace CalValEX
 
         public override void PreUpdate()
         {
+            /* //Removing these for now because they broke shit
             //Kill Cadance potion heart particles
             Main.instance.LoadGore(331);
             Player player = Main.LocalPlayer;
@@ -551,7 +552,7 @@ namespace CalValEX
             else
             {
                 Main.goreLoaded[331] = false;
-            }
+            }*/
 
             //Custom player draw frame counters
             int wulfrumflame = 9;
