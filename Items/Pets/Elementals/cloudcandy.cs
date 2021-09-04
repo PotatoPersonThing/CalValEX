@@ -9,7 +9,7 @@ namespace CalValEX.Items.Pets.Elementals
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Cloud Candy");
-            Tooltip.SetDefault("An Elementals favorite sweet!");
+            Tooltip.SetDefault("An elemental's favorite sweet!");
         }
 
         public override void SetDefaults()
