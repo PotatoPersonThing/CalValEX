@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using CalValEX.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
+using CalValEX.Items.Walls;
 
 namespace CalValEX.Items.Tiles.Blocks
 {
@@ -42,11 +43,11 @@ namespace CalValEX.Items.Tiles.Blocks
                 recipe3.AddTile(TileID.WorkBenches);
                 recipe3.SetResult(this, 1);
                 recipe3.AddRecipe();
-                /*ModRecipe recipe2 = new ModRecipe(mod);
-				recipe2.AddIngredient(ModContent.ItemType<ChiseledBloodstoneWall>(), 4);
+                ModRecipe recipe2 = new ModRecipe(mod);
+				recipe2.AddIngredient(ModContent.ItemType<ChiseledBloodstoneBrickWall>(), 4);
 				recipe2.AddTile(TileID.WorkBenches);
 				recipe2.SetResult(this, 4);
-				recipe2.AddRecipe();*/
+				recipe2.AddRecipe();
             }
         }
     }

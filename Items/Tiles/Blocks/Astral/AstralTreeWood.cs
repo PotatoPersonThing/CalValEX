@@ -1,6 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.AstralBlocks;
+using CalValEX.Items.Walls.Astral;
 
 namespace CalValEX.Items.Tiles.Blocks.Astral
 {
@@ -34,6 +35,11 @@ namespace CalValEX.Items.Tiles.Blocks.Astral
                 recipe.AddTile(mod.TileType("StarstruckSynthesizerPlaced"));
                 recipe.SetResult(this);
                 recipe.AddRecipe();
+                ModRecipe recipe2 = new ModRecipe(mod);
+                recipe2.AddIngredient(ModContent.ItemType<XenomonolithWall>(), 4);
+                recipe2.AddTile(TileID.WorkBenches);
+                recipe2.SetResult(this);
+                recipe2.AddRecipe();
             }
         }
     }
