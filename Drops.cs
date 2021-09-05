@@ -403,10 +403,13 @@ namespace CalValEX
                 if (!Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi)
                 {
                     signusbackup = false;
-                    npc.ai[0] = 0f;
-                    npc.ai[1] = 0f;
-                    npc.ai[2] = 0f;
-                    npc.ai[3] = 0f;
+                    if (npc.ai[0] == -33f)
+                    {
+                        npc.ai[0] = 0f;
+                        npc.ai[1] = 0f;
+                        npc.ai[2] = 0f;
+                        npc.ai[3] = 0f;
+                    }
                 }
             }
         }
@@ -581,7 +584,7 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("BoxJellyfish"))
                 {
-                    ChanceDropItem(npc, ModContent.ItemType<BoxBalloon>(), rareChance);
+                    ChanceDropItem(npc, ModContent.ItemType<BoxBalloon>(), normalChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("Catfish"))
@@ -596,12 +599,12 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("Scryllar"))
                 {
-                    ChanceDropItem(npc, ModContent.ItemType<ScryllianWings>(), normalChance);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<ScryllianWings>(), Main.expertMode, normalChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("ScryllarRage"))
                 {
-                    ChanceDropItem(npc, ModContent.ItemType<ScryllianWings>(), normalChance);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<ScryllianWings>(), Main.expertMode, normalChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("DespairStone"))
@@ -839,7 +842,7 @@ namespace CalValEX
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<ProfanedEnergyHook>(), Main.expertMode,
                         bossHookChance);
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<ProfanedBalloon>(), Main.expertMode,
+                    ChanceDropItem(npc, ModContent.ItemType<ProfanedBalloon>(),
                         normalChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<ChewyToy>(),
                         (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.01f); //1%
