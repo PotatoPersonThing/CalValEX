@@ -61,7 +61,7 @@ namespace CalValEX.Tiles.Monoliths
                 {
                     frameCounter = 0;
                     frame++;
-                    if (frame > 4)
+                    if (frame > 3)
                     {
                         frame = 1;
                     }

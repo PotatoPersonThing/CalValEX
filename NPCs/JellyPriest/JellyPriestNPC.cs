@@ -367,6 +367,10 @@ namespace CalValEX.NPCs.JellyPriest
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Ribrod>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 50, 0);
                         ++nextSlot;
+
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Plants.SulphurousCactus>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 30, 0);
+                        ++nextSlot;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "giantclam"))
                     {
@@ -701,6 +705,10 @@ namespace CalValEX.NPCs.JellyPriest
 
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Ribrod>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 50, 0);
+                        ++nextSlot;
+
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Plants.SulphurousCactus>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 30, 0);
                         ++nextSlot;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "giantclam"))

@@ -377,7 +377,7 @@ namespace CalValEX
 
                 if (item.type == calamityMod.ItemType("AbyssalCrate"))
                 {
-                    if (Main.rand.NextFloat() < 0.035f)
+                    if (Main.rand.NextFloat() < 0.01f)
                     {
                         player.QuickSpawnItem(ModContent.ItemType<AcidGun>());
                     }
@@ -395,6 +395,11 @@ namespace CalValEX
                     if (Main.rand.NextFloat() < 0.05f)
                     {
                         player.QuickSpawnItem(ModContent.ItemType<SulphurGeyser>(), Main.rand.Next(2, 3));
+                    }
+
+                    if (Main.rand.NextFloat() < 0.05f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<SulphurousCactus>(), Main.rand.Next(1, 3));
                     }
 
                     if ((bool) calamityMod.Call("GetBossDowned", "calamitas") & (Main.rand.NextFloat() < 0.02f))
