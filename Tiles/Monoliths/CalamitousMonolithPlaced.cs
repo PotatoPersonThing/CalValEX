@@ -16,13 +16,13 @@ namespace CalValEX.Tiles.Monoliths
             Main.tileFrameImportant[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
             TileObjectData.newTile.Width = 2;
-            TileObjectData.newTile.Height = 4;
+            TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.Origin = new Point16(1, 2);
-            TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 16, 16 };
+            TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 16 };
             TileObjectData.addTile(Type);
             AddMapEntry(new Color(75, 139, 166));
             dustType = 1;
-            animationFrameHeight = 72;
+            animationFrameHeight = 54;
             disableSmartCursor = true;
             adjTiles = new int[] { TileID.LunarMonolith };
         }
@@ -39,7 +39,7 @@ namespace CalValEX.Tiles.Monoliths
         {
             Mod clamMod = ModLoader.GetMod("CalamityMod");
             CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
-            if (Main.tile[i, j].frameY >= 72)
+            if (Main.tile[i, j].frameY >= 54)
             {
                 if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas"))
                 {
@@ -83,7 +83,7 @@ namespace CalValEX.Tiles.Monoliths
             }
             int height = 16;
             int animate = 0;
-            if (tile.frameY >= 72)
+            if (tile.frameY >= 54)
             {
                 animate = Main.tileFrame[Type] * animationFrameHeight;
             }
@@ -118,10 +118,10 @@ namespace CalValEX.Tiles.Monoliths
         public override void HitWire(int i, int j)
         {
             int x = i - Main.tile[i, j].frameX / 16 % 3;
-            int y = j - Main.tile[i, j].frameY / 18 % 4;
+            int y = j - Main.tile[i, j].frameY / 18 % 3;
             for (int l = x; l < x + 2; l++)
             {
-                for (int m = y; m < y + 4; m++)
+                for (int m = y; m < y + 3; m++)
                 {
                     if (Main.tile[l, m] == null)
                     {
@@ -129,13 +129,13 @@ namespace CalValEX.Tiles.Monoliths
                     }
                     if (Main.tile[l, m].active() && Main.tile[l, m].type == Type)
                     {
-                        if (Main.tile[l, m].frameY < 72)
+                        if (Main.tile[l, m].frameY < 54)
                         {
-                            Main.tile[l, m].frameY += 72;
+                            Main.tile[l, m].frameY += 54;
                         }
                         else
                         {
-                            Main.tile[l, m].frameY -= 72;
+                            Main.tile[l, m].frameY -= 54;
                         }
                     }
                 }
@@ -145,11 +145,9 @@ namespace CalValEX.Tiles.Monoliths
                 Wiring.SkipWire(x, y);
                 Wiring.SkipWire(x, y + 1);
                 Wiring.SkipWire(x, y + 2);
-                Wiring.SkipWire(x, y + 3);
                 Wiring.SkipWire(x + 1, y);
                 Wiring.SkipWire(x + 1, y + 1);
                 Wiring.SkipWire(x + 1, y + 2);
-                Wiring.SkipWire(x + 1, y + 3);
             }
             NetMessage.SendTileSquare(-1, x, y + 1, 3);
         }
