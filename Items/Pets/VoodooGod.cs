@@ -10,7 +10,7 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ancient God Slayer Doll");
+            DisplayName.SetDefault("God Slayer Doll");
             Tooltip.SetDefault("'The sentinels will recognize a new leader'");
         }
 
