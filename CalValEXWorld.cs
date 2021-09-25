@@ -68,12 +68,12 @@ namespace CalValEX
 
             if (Rockshrine)
             {
-                downed.Add("amogus");
+                downed.Add("Rockshrine");
             }
 
             if (RockshrinEX)
             {
-                downed.Add("amogus");
+                downed.Add("RockshrinEX");
             }
 
             return new TagCompound

@@ -1,5 +1,7 @@
 using CalValEX.Items.Tiles.Banners;
 using MonoMod.Cil;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -25,7 +27,7 @@ namespace CalValEX.NPCs.Critters
 
         public override void SetDefaults()
         {
-            npc.CloneDefaults(NPCID.Firefly);
+            npc.CloneDefaults(NPCID.LightningBug);
             npc.width = 14;
             npc.height = 14;
             npc.damage = 0;
@@ -34,7 +36,7 @@ namespace CalValEX.NPCs.Critters
             npc.catchItem = (short)ItemType<BlinkerItem>();
             npc.lavaImmune = false;
             npc.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
-            aiType = NPCID.Firefly;
+            aiType = NPCID.LightningBug;
             animationType = NPCID.Firefly;
             npc.lifeMax = 100;
             npc.Opacity = 255;
@@ -56,7 +58,24 @@ namespace CalValEX.NPCs.Critters
         }
 
         public override void AI()
-        {
+        { 
+            if (Main.rand.NextFloat() < 0.3421053f)
+            {
+                Dust dust;
+                // You need to set position depending on what you are doing. You may need to subtract width/2 and height/2 as well to center the spawn rectangle.
+                Vector2 positionLeft = new Vector2(npc.position.X + 9, npc.position.Y);
+                Vector2 positionRight = new Vector2(npc.position.X - 9, npc.position.Y);
+                if (npc.direction == -1)
+                {
+                    dust = Main.dust[Terraria.Dust.NewDust(positionLeft, 0, 0, 21, 1f, 1f, 0, new Color(255, 255, 255), 0.5f)];
+                    dust.noGravity = true;
+                }
+                else if (npc.direction != 0)
+                {
+                    dust = Main.dust[Terraria.Dust.NewDust(positionRight, 0, 0, 21, 1f, 1f, 0, new Color(255, 255, 255), 0.5f)];
+                    dust.noGravity = true;
+                }
+            }
             npc.TargetClosest(false);
         }
 
