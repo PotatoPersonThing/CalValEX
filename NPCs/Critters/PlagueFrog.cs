@@ -170,6 +170,13 @@ namespace CalValEX.NPCs.Critters
             item.stack = 1;
         }
 
-        // TODO: Hooks for Collision_MoveSnailOnSlopes and npc.aiStyle = 67 problem
+        public override void HitEffect(int hitDirection, double damage)
+        {
+            if (npc.life <= 0)
+            {
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/PlagueFrog"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/PlagueFrog2"), 1f);
+            }
+        }
     }
 }

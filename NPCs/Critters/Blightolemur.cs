@@ -206,6 +206,8 @@ namespace CalValEX.NPCs.Critters
             {
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Bleamur"), 1f);
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Bleamur2"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Bleamur3"), 1f);
+                Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/Bleamur4"), 1f);
             }
         }
 

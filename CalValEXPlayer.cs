@@ -497,11 +497,11 @@ namespace CalValEX
                 player.body = mod.GetEquipSlot("SandBody", EquipType.Body);
                 player.head = mod.GetEquipSlot("SandHead", EquipType.Head);
             }
-            else if (wulfrumjam)
+            if (wulfrumjam)
             {
                 player.wings = mod.GetEquipSlot("BlankWings", EquipType.Wings);
             }
-            else if (cassette)
+            if (cassette)
             {
                 player.armorEffectDrawShadow = true;
                 player.armorEffectDrawOutlines = true;
