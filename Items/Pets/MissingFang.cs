@@ -9,7 +9,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Rotten Key");
-            Tooltip.SetDefault("The key to pacifying a microbial cluster");
+            Tooltip.SetDefault("The key to pacifying a microbial cluster\n" + "Summons a chunk of The Hive Mind");
         }
 
         public override void SetDefaults()

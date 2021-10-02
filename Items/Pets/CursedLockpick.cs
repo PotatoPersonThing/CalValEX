@@ -10,7 +10,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Cursed Lockpick");
             Tooltip
-                .SetDefault("Crusty");
+                .SetDefault("Crusty\n" + "Summons a Rusty Mimic pet");
         }
 
         public override void SetDefaults()

@@ -10,7 +10,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Slime Deity's Soul");
-            Tooltip.SetDefault("'Power hungry for rot'");
+            Tooltip.SetDefault("'Power hungry for rot'\n" + "Summons a miniature Slime God core, orbitted by its guards");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 6));
             ItemID.Sets.ItemNoGravity[item.type] = true;
         }

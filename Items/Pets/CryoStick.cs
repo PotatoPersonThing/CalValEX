@@ -9,7 +9,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Cool Shades");
-            Tooltip.SetDefault("Rad");
+            Tooltip.SetDefault("Rad\n" + "Summons a miniature Cryogen");
         }
 
         public override void SetDefaults()

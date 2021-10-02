@@ -371,6 +371,10 @@ namespace CalValEX.NPCs.JellyPriest
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Plants.SulphurousCactus>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 30, 0);
                         ++nextSlot;
+
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Plants.SulphurousPlanter>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 40, 0);
+                        ++nextSlot;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "giantclam"))
                     {
@@ -436,6 +440,9 @@ namespace CalValEX.NPCs.JellyPriest
                     }
                     if (((bool)clamMod.Call("GetBossDowned", "leviathan")) && Main.expertMode)
                     {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<ShrineoftheTides>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(5, 0, 0, 0);
+                        ++nextSlot;
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<HeartoftheCommunity>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 0, 0, 0);
                         ++nextSlot;
@@ -710,6 +717,10 @@ namespace CalValEX.NPCs.JellyPriest
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Plants.SulphurousCactus>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 30, 0);
                         ++nextSlot;
+
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tiles.Plants.SulphurousPlanter>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 40, 0);
+                        ++nextSlot;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "giantclam"))
                     {
@@ -775,6 +786,9 @@ namespace CalValEX.NPCs.JellyPriest
                     }
                     if (((bool)clamMod.Call("GetBossDowned", "leviathan")) && Main.expertMode)
                     {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<ShrineoftheTides>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(5, 0, 0, 0);
+                        ++nextSlot;
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<HeartoftheCommunity>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 0, 0, 0);
                         ++nextSlot;

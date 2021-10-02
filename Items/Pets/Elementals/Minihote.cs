@@ -10,7 +10,7 @@ namespace CalValEX.Items.Pets.Elementals
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Miniature Elemental Heart");
-            Tooltip.SetDefault("Its like you're running a daycare or something...");
+            Tooltip.SetDefault("Its like you're running a daycare or something...\n" + "Summons all of the Miniature Elementals");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 4));
             ItemID.Sets.AnimatesAsSoul[item.type] = true;
             ItemID.Sets.ItemIconPulse[item.type] = false;

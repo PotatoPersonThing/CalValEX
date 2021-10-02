@@ -8,7 +8,7 @@ namespace CalValEX.Items.Mounts
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Diseased Joystick");
-            Tooltip.SetDefault("It emits 8 bit buzzing");
+            Tooltip.SetDefault("It emits 8 bit buzzing\n" + "Summons a rideable Plaguebringer");
         }
 
         public override void SetDefaults()

@@ -11,7 +11,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Finality");
-            Tooltip.SetDefault("The stone before was merely a shell for the true creation, \nthe Creator's first and favorite source of entertainment");
+            Tooltip.SetDefault("The stone before was merely a shell for the true creation, \nthe Creator's first and favorite source of entertainment\n" + "Summons a pet Rock");
         }
 
         public override void SetDefaults()

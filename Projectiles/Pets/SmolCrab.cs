@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
@@ -132,7 +133,7 @@ namespace CalValEX.Projectiles.Pets
                 idlecounter = 0;
             }
 
-            if (idlecounter == 300 && distanceToOwner < 40 && !modPlayer.rockhat && !modPlayer.conejo && !modPlayer.aesthetic)
+            if (((idlecounter == 300 && distanceToOwner < 40) || Main.LocalPlayer.HasItem(ModContent.ItemType<Items.PutridShroom>())) && !modPlayer.rockhat && !modPlayer.conejo && !modPlayer.aesthetic)
             {
                 projectile.localAI[1] = 3;
             }
@@ -150,7 +151,7 @@ namespace CalValEX.Projectiles.Pets
                         if (projectile.frame < idleFrameLimits[0] || projectile.frame > idleFrameLimits[1])
                             projectile.frame = idleFrameLimits[0];
                     }
-                    if (idlecounter <= 0 || modPlayer.rockhat || modPlayer.conejo || modPlayer.aesthetic)
+                    if ((idlecounter <= 0 && !Main.LocalPlayer.HasItem(ModContent.ItemType<Items.PutridShroom>())) || modPlayer.rockhat || modPlayer.conejo || modPlayer.aesthetic)
                     {
                             projectile.localAI[1] = 1;
                     }

@@ -12,7 +12,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Strange Bamboo Stick");
             Tooltip
-                .SetDefault("Its scent attracts a unique animal");
+                .SetDefault("Its scent attracts a unique animal\n" + "Summons a Red Panda pet");
         }
 
         public override void SetDefaults()

@@ -12,7 +12,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Purified Fog");
             Tooltip
-                .SetDefault(":Why:");
+                .SetDefault(":Why:\n" + "Summons the Fogbound");
             ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 

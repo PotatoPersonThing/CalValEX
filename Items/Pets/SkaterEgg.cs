@@ -9,7 +9,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Acid Lamp");
-            Tooltip.SetDefault("'There seems to be an egg inside'");
+            Tooltip.SetDefault("'There seems to be an egg inside'\n" + "Summons a Sulphurous Skater Nymph");
         }
 
         public override void SetDefaults()

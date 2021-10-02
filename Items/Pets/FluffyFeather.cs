@@ -11,7 +11,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Extra Fluffy Feather");
-            Tooltip.SetDefault("Attracts the last of a species");
+            Tooltip.SetDefault("Attracts the last of a species\n" + "Summons a mini birb");
         }
 
         public override void SetDefaults()

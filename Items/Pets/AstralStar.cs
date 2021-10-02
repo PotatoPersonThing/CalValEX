@@ -9,7 +9,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Geminga");
-            Tooltip.SetDefault("A highly condensed star");
+            Tooltip.SetDefault("A highly condensed star\n" + "Summons a swarm of 11 lesser star deities");
         }
 
         public override void SetDefaults()

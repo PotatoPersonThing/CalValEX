@@ -9,7 +9,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Despair Mask");
-            Tooltip.SetDefault("It reeks of depression");
+            Tooltip.SetDefault("It reeks of depression\n" + "Summons a sad rock");
         }
 
         public override void SetDefaults()

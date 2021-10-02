@@ -11,7 +11,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Nugget in a Biscuit");
-            Tooltip.SetDefault("An alluring treat no jungle nugget can resist!");
+            Tooltip.SetDefault("An alluring treat no jungle nugget can resist!\n" + "Summons the Jungle Nugget");
         }
 
         public override void SetDefaults()

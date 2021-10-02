@@ -10,7 +10,7 @@ namespace CalValEX.Items.LightPets
         {
             DisplayName.SetDefault("Wulfrum Transmitter");
             Tooltip
-                .SetDefault("'It's making a lot of dial up noises'\n" + "Provides a small amount of light in the abyss");
+                .SetDefault("'It's making a lot of dial up noises'\n" + "Summons a Prototype Wulfrum Pylon\n" + "Provides a small amount of light in the abyss");
         }
 
         public override void SetDefaults()

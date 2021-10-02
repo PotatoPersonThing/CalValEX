@@ -11,7 +11,7 @@ namespace CalValEX.Items.Pets.Scuttlers
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bejeweled Spike");
-            Tooltip.SetDefault("'A blend of every flavor combined into one package'");
+            Tooltip.SetDefault("'A blend of every flavor combined into one package'\n" + "Summons a rainbow Bejeweled Scuttler");
         }
 
         public override void SetDefaults()

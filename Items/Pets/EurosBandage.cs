@@ -12,7 +12,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Ruined Bandage");
             Tooltip
-                .SetDefault("le punch, le smash, and break a hand");
+                .SetDefault("le punch, le smash, and break a hand\n" + "Summons Euros");
         }
 
         public override void SetDefaults()

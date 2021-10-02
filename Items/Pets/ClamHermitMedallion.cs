@@ -9,7 +9,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Clam Hermit Medallion");
-            Tooltip.SetDefault("Holding this makes your hands feel clammy");
+            Tooltip.SetDefault("Holding this makes your hands feel clammy\n" + "Summons a Clam Hermit");
         }
 
         public override void SetDefaults()

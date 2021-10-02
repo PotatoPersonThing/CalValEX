@@ -206,7 +206,7 @@ namespace CalValEX.Projectiles
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}
-						else if (WallID.Sets.Conversion.Sandstone[wall])
+						if (WallID.Sets.Conversion.Sandstone[wall])
 						{
 							Main.tile[k, l].wall = (ushort)ModContent.WallType<AstralSandstoneWallPlaced>();
 							WorldGen.SquareWallFrame(k, l, true);

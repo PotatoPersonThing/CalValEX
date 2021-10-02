@@ -151,6 +151,20 @@ namespace CalValEX.Projectiles
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
 						}
+						else if (type == ModContent.TileType<AstralShortGrass>())
+						{
+							Main.tile[k, l].type = TileID.Plants;
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (type == ModContent.TileType<AstralTallGrass>())
+						{
+							Main.tile[k, l].type = TileID.Plants2;
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
 						/*else if (type == ModContent.TileType<AstralPilesBig>())
 						{
 							//Left top
@@ -192,7 +206,7 @@ namespace CalValEX.Projectiles
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
 						}*/
-						else if (wall == ModContent.WallType<AstralDirtWallPlaced>())
+						if (wall == ModContent.WallType<AstralDirtWallPlaced>())
 						{
 							Main.tile[k, l].wall = WallID.Dirt;
 							WorldGen.SquareWallFrame(k, l, true);
@@ -231,20 +245,6 @@ namespace CalValEX.Projectiles
 						{
 							Main.tile[k, l].wall = WallID.Grass;
 							WorldGen.SquareWallFrame(k, l, true);
-							NetMessage.SendTileSquare(-1, k, l, 1);
-							break;
-						}
-						else if (type == ModContent.TileType<AstralShortGrass>())
-						{
-							Main.tile[k, l].type = TileID.Plants;
-							WorldGen.SquareTileFrame(k, l, true);
-							NetMessage.SendTileSquare(-1, k, l, 1);
-							break;
-						}
-						else if (type == ModContent.TileType<AstralTallGrass>())
-						{
-							Main.tile[k, l].type = TileID.Plants2;
-							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
 						}

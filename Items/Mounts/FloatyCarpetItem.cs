@@ -8,7 +8,7 @@ namespace CalValEX.Items.Mounts
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Floaty Carpet");
-            Tooltip.SetDefault("A floating carpet made out of a Floaty!");
+            Tooltip.SetDefault("A floating carpet made out of a Floaty!\n" + "Summons a floaty carpet that prevents fall damage when hovering");
         }
 
         public override void SetDefaults()

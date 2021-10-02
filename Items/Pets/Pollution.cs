@@ -9,7 +9,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Inky Pollution");
-            Tooltip.SetDefault("Tis a shame what we do to the environment");
+            Tooltip.SetDefault("Tis a shame what we do to the environment\n" + "Summons a baby squid");
         }
 
         public override void SetDefaults()

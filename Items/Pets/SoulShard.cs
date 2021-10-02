@@ -11,7 +11,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Soul Shard");
-            Tooltip.SetDefault("The madness of the abyss echoes through your flesh");
+            Tooltip.SetDefault("The madness of the abyss echoes through your flesh\n" + "Summons an Eidolon Wyrm to follow you");
         }
 
         public override void SetDefaults()

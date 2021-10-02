@@ -9,7 +9,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Meaty Worm Tumor");
-            Tooltip.SetDefault("May contain tied worms");
+            Tooltip.SetDefault("May contain tied worms\n" + "Summons a ball of flesh with a small Perforator sticking out");
         }
 
         public override void SetDefaults()

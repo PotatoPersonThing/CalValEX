@@ -11,7 +11,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault(":Sirember:");
-            Tooltip.SetDefault("Alway Rember...");
+            Tooltip.SetDefault("Alway Rember...\n" + "Summons the wrath of the tide goddess");
         }
 
         public override void SetDefaults()

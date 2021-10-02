@@ -12,7 +12,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Storm Medal");
-            Tooltip.SetDefault("'Heads or worms?'");
+            Tooltip.SetDefault("'Heads or worms?'\n" + "Summons a young Storm Weaver");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 6));
             /// ItemID.Sets.AnimatesAsSoul[item.type] = true;
             ItemID.Sets.ItemIconPulse[item.type] = false;

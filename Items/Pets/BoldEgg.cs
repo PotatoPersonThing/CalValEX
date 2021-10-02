@@ -9,7 +9,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Eggstone");
-            Tooltip.SetDefault("Wait, it's alive?!");
+            Tooltip.SetDefault("Wait, it's alive?!\n" + "Hatches into a baby Bohldohr");
         }
 
         public override void SetDefaults()

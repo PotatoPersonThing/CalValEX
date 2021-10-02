@@ -565,7 +565,7 @@ namespace CalValEX
                 {
                     if (!NPC.AnyNPCs(calamityMod.NPCType("CrabulonIdle")))
                     {
-                        if (Main.LocalPlayer.HasItem(calamityMod.ItemType("KnowledgeCrabulon")))
+                        if (Main.LocalPlayer.HasItem(ModContent.ItemType<PutridShroom>()))
                         {
                             NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Swearshroom>());
                         }
@@ -611,6 +611,11 @@ namespace CalValEX
                 if (npc.type == calamityMod.NPCType("DespairStone"))
                 {
                     ChanceDropItem(npc, ModContent.ItemType<Drock>(), normalChance);
+                }
+
+                if (npc.type == calamityMod.NPCType("Trasher"))
+                {
+                    ChanceDropItem(npc, ModContent.ItemType<OlTrashtooth>(), normalChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("WulfrumRover"))
@@ -1529,7 +1534,12 @@ namespace CalValEX
         {
             if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral)
             {
-                pool[0] = 0;
+                pool.Clear();
+                pool.Add(ModContent.NPCType<NPCs.Critters.Blightolemur>(), 0.1f);
+                pool.Add(ModContent.NPCType<NPCs.Critters.Blinker>(), 0.1f);
+                pool.Add(ModContent.NPCType<NPCs.Critters.AstJR>(), 0.1f);
+                pool.Add(ModContent.NPCType<NPCs.Critters.GAstJR>(), 0.1f);
+
             }
         }
     }

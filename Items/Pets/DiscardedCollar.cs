@@ -8,9 +8,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Radioactive Catnip");
+            DisplayName.SetDefault("Decaying Fishtail");
             Tooltip
-                .SetDefault("Doused in uranium, may morph organic life into terrifying abominations");
+                .SetDefault("Summons a pet catfish...?\n"+"Only an unholy nightmarish abomination would want something this putrid");
         }
 
         public override void SetDefaults()

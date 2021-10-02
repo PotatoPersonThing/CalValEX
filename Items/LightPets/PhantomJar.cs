@@ -12,7 +12,7 @@ namespace CalValEX.Items.LightPets
         {
             DisplayName.SetDefault("Phantom in a Jar");
             Tooltip
-                .SetDefault("'Don't even think about it.'\n" + "Provides a large amount of light in the abyss");
+                .SetDefault("'Don't even think about it.'\n" + "Summons a Phantom Spirit to light your way\n" + "Provides a large amount of light in the abyss");
         }
 
         public override void SetDefaults()

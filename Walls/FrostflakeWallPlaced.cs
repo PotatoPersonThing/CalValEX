@@ -11,7 +11,7 @@ namespace CalValEX.Walls
         {
             Main.wallHouse[Type] = true;
             drop = ModContent.ItemType<FrostflakeWall>();
-            AddMapEntry(new Color(66, 242, 245));
+            AddMapEntry(new Color(7, 99, 133));
             dustType = 92;
         }
     }

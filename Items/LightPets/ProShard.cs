@@ -13,7 +13,7 @@ namespace CalValEX.Items.LightPets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Profaned Heart");
-            Tooltip.SetDefault("Equip this to receive a blessing of light\n" + "Provides a large amount of light in the abyss");
+            Tooltip.SetDefault("Equip this to receive a blessing of light\n" + "Summons a miniature Providence, accompanied by her guardians\n" + "Provides a large amount of light in the abyss");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(9, 8));
         }
 

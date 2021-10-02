@@ -11,7 +11,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Inky Artifact");
-            Tooltip.SetDefault("For Omega version 50% off!!");
+            Tooltip.SetDefault("For Omega version 50% off!!\n" + "Summons an Omega Blue Squid");
         }
 
         public override void SetDefaults()

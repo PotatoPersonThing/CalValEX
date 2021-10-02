@@ -12,7 +12,7 @@ namespace CalValEX.Items.Mounts
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Shadow Shedding");
-            Tooltip.SetDefault("Infestation!");
+            Tooltip.SetDefault("Infestation!\n" + "Summons a smaller Hive Mind that you can ride inside of");
         }
 
         public override void SetDefaults()

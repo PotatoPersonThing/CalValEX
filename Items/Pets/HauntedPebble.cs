@@ -11,7 +11,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Haunted Pebble");
             Tooltip
-                .SetDefault("'Spookay~'");
+                .SetDefault("'Spookay~'\n" + "Summons a Phantom Debris larvae");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(6, 6));
         }
 

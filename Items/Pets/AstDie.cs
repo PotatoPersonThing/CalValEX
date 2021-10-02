@@ -9,7 +9,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Astral Infected Icosahedron");
-            Tooltip.SetDefault("Roll for initiative!");
+            Tooltip.SetDefault("Roll for initiative!\n" + "Transforms into an Aureophage");
         }
 
         public override void SetDefaults()

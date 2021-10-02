@@ -9,7 +9,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Dried Locket");
-            Tooltip.SetDefault("'There's a worm wriggling in it'");
+            Tooltip.SetDefault("'There's a worm wriggling in it'\n" + "Summons a Desert Pest");
         }
 
         public override void SetDefaults()

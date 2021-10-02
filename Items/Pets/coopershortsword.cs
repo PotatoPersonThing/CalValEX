@@ -11,7 +11,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Cooper Shortsword");
-            Tooltip.SetDefault("Unleash the power of cool");
+            Tooltip.SetDefault("Unleash the power of cool\n" + "Summons an oddly shapped small Cryogen");
         }
 
         public override void SetDefaults()

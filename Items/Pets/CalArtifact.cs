@@ -11,7 +11,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Calamitous Soul Artifact");
-            Tooltip.SetDefault("Summons a pet Sepulchling\n'The grave rises'");
+            Tooltip.SetDefault("'The grave rises'\n"+"Summons a pet Sepulchling");
         }
 
         public override void SetDefaults()

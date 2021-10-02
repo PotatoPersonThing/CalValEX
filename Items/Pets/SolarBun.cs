@@ -13,7 +13,7 @@ namespace CalValEX.Items.Pets
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             DisplayName.SetDefault("Sun Bun");
             Tooltip
-                .SetDefault("The bun above all\n" + "Provides a large amount of light in the abyss\n" + ((bool)calamityMod.Call("DifficultyActive", "death") ? "Provides cold protection in Death Mode" : ""));
+                .SetDefault("The bun above all\n" + "Summons the Sun Bun\n" + "Provides a large amount of light in the abyss\n" + ((bool)calamityMod.Call("DifficultyActive", "death") ? "Provides cold protection in Death Mode" : ""));
         }
 
         public override void SetDefaults()

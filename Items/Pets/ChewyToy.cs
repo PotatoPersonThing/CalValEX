@@ -12,7 +12,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Profaned Chew Toy");
             Tooltip
-                .SetDefault("Seems dusty");
+                .SetDefault("Seems dusty\n" + "Summons an ungodly radical dude");
         }
 
         public override void SetDefaults()

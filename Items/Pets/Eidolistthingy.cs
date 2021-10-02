@@ -12,7 +12,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Smol Eldritch Hoodie");
             Tooltip
-                .SetDefault("Baby's first hood");
+                .SetDefault("Baby's first hood\n" + "Summons a hooded Eidolist");
         }
 
         public override void SetDefaults()

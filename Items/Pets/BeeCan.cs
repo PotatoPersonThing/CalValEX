@@ -9,7 +9,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Plaguebringer Power Cell");
-            Tooltip.SetDefault("Full of vitamin Bee!");
+            Tooltip.SetDefault("Full of vitamin Bee!\n" + "Summons a miniature Plaguebringer");
         }
 
         public override void SetDefaults()

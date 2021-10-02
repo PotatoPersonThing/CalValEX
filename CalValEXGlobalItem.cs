@@ -402,6 +402,11 @@ namespace CalValEX
                         player.QuickSpawnItem(ModContent.ItemType<SulphurousCactus>(), Main.rand.Next(1, 3));
                     }
 
+                    if (Main.rand.NextFloat() < 0.04f)
+                    {
+                        player.QuickSpawnItem(ModContent.ItemType<SulphurousPlanter>(), 1);
+                    }
+
                     if ((bool) calamityMod.Call("GetBossDowned", "calamitas") & (Main.rand.NextFloat() < 0.02f))
                     {
                         player.QuickSpawnItem(ModContent.ItemType<Pollution>());

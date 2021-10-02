@@ -9,7 +9,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Clawshroom");
-            Tooltip.SetDefault("Snip snap!");
+            Tooltip.SetDefault("Snip snap!\n" + "Summons a small Crabulon");
         }
 
         public override void SetDefaults()

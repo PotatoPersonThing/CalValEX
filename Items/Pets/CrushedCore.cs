@@ -9,7 +9,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Dusty Badge");
-            Tooltip.SetDefault("Looks tasty");
+            Tooltip.SetDefault("Looks tasty\n" + "Summons the Great Sand Shark's Great Grandson");
         }
 
         public override void SetDefaults()
