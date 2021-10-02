@@ -116,5 +116,57 @@ namespace CalValEX.Tiles.MiscFurniture
             }
             NetMessage.SendTileSquare(-1, x, y + 1, 3);
         }
+        private int count;
+        private int rotation;
+        private float stonepos;
+        private bool stoneup;
+        public override void PlaceInWorld(int i, int j, Item item)
+        {
+            stonepos = -1.00001f;
+        }
+        public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
+        {
+            rotation++;
+            if (stoneup)
+            {
+                stonepos = stonepos + 0.01f;
+            }
+            else
+            {
+                stonepos = stonepos + -0.01f;
+            }
+            if (stonepos <= -1)
+            {
+                stoneup = true;
+            }
+            else if (stonepos >= 1)
+            {
+                stoneup = false;
+            }
+            Texture2D auraTexture = mod.GetTexture("Tiles/MiscFurniture/RespirationStar");
+            Rectangle sourceRectangle = new Rectangle(0, 0, auraTexture.Width, auraTexture.Height);
+            Vector2 zero = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
+            Vector2 position = new Vector2((i * 16) - 8 - Main.screenPosition.X, (j * 16) - 48 - stonepos - Main.screenPosition.Y) + zero;
+            Color color = Color.White;
+            Tile tile = Main.tile[i, j];
+            Vector2 origin = new Vector2(auraTexture.Width, auraTexture.Height);
+
+            if (!tile.halfBrick() && tile.slope() == 0)
+            {
+                if (Main.tile[i, j].frameY < 72)
+                {
+                    if (count == 11)
+                    {
+                        spriteBatch.End();
+                        spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied);
+                        spriteBatch.Draw(auraTexture, position, sourceRectangle, color, rotation * 0.01f, origin / 2f, 1f, SpriteEffects.None, 0f);
+                    }
+                }
+            }
+            count++;
+            if (count >= 12)
+                count = 0;
+            //spriteBatch.Draw(texture, this.Center - Main.screenPosition, sourceRectangle, lightColor, rotation, origin / 2f, 1f, SpriteEffects.None, 0);
+        }
     }
 }

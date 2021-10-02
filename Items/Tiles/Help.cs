@@ -46,6 +46,13 @@ namespace CalValEX.Items.Tiles
                 recipe.SetResult(ModLoader.GetMod("CalamityMod").ItemType("BloodOrb"), 8);
                 recipe.AddRecipe();
             }
+            {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddIngredient(ModContent.ItemType<Help>());
+                recipe.AddTile(TileID.Sawmill);
+                recipe.SetResult(ModLoader.GetMod("CalamityMod").ItemType("SulfuricScale"), 2);
+                recipe.AddRecipe();
+            }
         }
     }
 }
