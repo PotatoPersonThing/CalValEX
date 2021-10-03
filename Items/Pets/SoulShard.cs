@@ -57,22 +57,5 @@ namespace CalValEX.Items.Pets
             type = mod.ProjectileType("JaredHead");
             return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
         }
-
-        public override void AddRecipes()
-        {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<EWail>(), 1);
-                recipe.AddIngredient(ModContent.ItemType<NuclearFumes>(), 500);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Lumenite"), 500);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("SoulEdge"), 5);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("EidolicWail"), 5);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CalamitousEssence"), 20);
-                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }
     }
 }

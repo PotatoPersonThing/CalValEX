@@ -21,6 +21,7 @@ using CalValEX.Items.Pets.Elementals;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Balloons;
 using CalValEX.Items.Tiles.Blocks;
+using CalValEX.Items.Tiles.Plushies;
 using CalValEX.NPCs.Critters;
 using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
 using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
@@ -295,13 +296,6 @@ namespace CalValEX
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedBoB2>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5);
-                        ++nextSlot;
-                    }
-
-                    if ((bool)clamMod.Call("GetBossDowned", "calamitas"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamitasFumo>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 20);
                         ++nextSlot;
                     }
                 }
@@ -919,9 +913,6 @@ namespace CalValEX
                 if (npc.type == calamityMod.NPCType("EidolonWyrmHead"))
                 {
                     ChanceDropItem(npc, ModContent.ItemType<EWail>(), minibossChance);
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<SoulShard>(),
-                        !(bool)calamityMod.Call("GetBossDowned", "cryogen") && !NPC.downedGolemBoss &&
-                        !NPC.downedPlantBoss && !NPC.downedAncientCultist, 1.0f);
                     ChanceDropItem(npc, ModContent.ItemType<OmegaBlue>(), 0.05f);
                 }
 
@@ -1003,6 +994,22 @@ namespace CalValEX
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<SandTooth>(), Main.expertMode, RIVChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<DesertMedallion>(), !Main.expertMode, 0.2f);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<DesertScourgePlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
+                }
+
+                if (npc.type == calamityMod.NPCType("CrabulonIdle"))
+                {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<CrabulonPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
+                }
+
+                if (npc.type == calamityMod.NPCType("PerforatorHive"))
+                {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<PerforatorPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
+                }
+
+                if (npc.type == calamityMod.NPCType("HiveMindP2"))
+                {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<HiveMindPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("PerforatorHeadSmall"))
@@ -1030,6 +1037,17 @@ namespace CalValEX
 
                     ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(),
                         (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.01f);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<SlimeGodPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
+                }
+
+                if (npc.type == calamityMod.NPCType("AquaticScourgeHead"))
+                {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<AquaticScourgePlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
+                }
+
+                if (npc.type == calamityMod.NPCType("Cryogen"))
+                {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<CryogenPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("BrimstoneElemental") && !CalValEXConfig.Instance.ConfigBossBlocks)
@@ -1039,20 +1057,27 @@ namespace CalValEX
                     ConditionalChanceDropItem(npc, ModContent.ItemType<BrimmySpirit>(), !Main.expertMode, 0.15f);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<BrimmyBody>(), !Main.expertMode, 0.15f);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<FoilSpoon>(), !Main.expertMode, 0.035f);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<BrimstoneElementalPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
-                if (npc.type == calamityMod.NPCType("Leviathan") && !NPC.AnyNPCs(calamityMod.NPCType("Siren")) &&
-                    !Main.expertMode)
+                if (npc.type == calamityMod.NPCType("Leviathan") && !NPC.AnyNPCs(calamityMod.NPCType("Siren")))
                 {
+                    if (!Main.expertMode)
+                    { 
                     ChanceDropItem(npc, ModContent.ItemType<AquaticMonolith>(), 0.15f);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<FoilAtlantis>(), !Main.expertMode, 0.2f);
+                    }
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<LeviathanPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
-                if (npc.type == calamityMod.NPCType("Siren") && !NPC.AnyNPCs(calamityMod.NPCType("Leviathan")) &&
-                    !Main.expertMode)
+                if (npc.type == calamityMod.NPCType("Siren") && !NPC.AnyNPCs(calamityMod.NPCType("Leviathan")))
                 {
-                    ChanceDropItem(npc, ModContent.ItemType<AquaticMonolith>(), 0.15f);
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<FoilAtlantis>(), !Main.expertMode, 0.2f);
+                    if (!Main.expertMode)
+                    {
+                        ChanceDropItem(npc, ModContent.ItemType<AquaticMonolith>(), 0.15f);
+                        ConditionalChanceDropItem(npc, ModContent.ItemType<FoilAtlantis>(), !Main.expertMode, 0.2f);
+                    }
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<AnahitaPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("PlaguebringerGoliath") &&
@@ -1060,6 +1085,7 @@ namespace CalValEX
                 {
                     ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("PlaguedPlate"), !Main.expertMode,
                         155, 265);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<PlaguebringerGoliathPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("AstrumDeusHeadSpectral") && !NPC.AnyNPCs(calamityMod.NPCType("AstrumDeusHeadSpectral")))
@@ -1069,6 +1095,7 @@ namespace CalValEX
                     {
                         DropItem(npc, ModContent.ItemType<AstrumDeusMask>());
                     }
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<AstrumDeusPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("Providence") && !CalValEXConfig.Instance.ConfigBossBlocks)
@@ -1077,6 +1104,7 @@ namespace CalValEX
                         155, 265);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<ProviCrystal>(), !Main.expertMode, 0.2f);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<FlareRune>(), !Main.dayTime, 0.01f);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<ProvidencePlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("Polterghast"))
@@ -1100,6 +1128,7 @@ namespace CalValEX
                     {
                         DropItem(npc, ModContent.ItemType<ToyScythe>());
                     }
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<PolterghastPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("StormWeaverHeadNaked") &&
@@ -1110,6 +1139,7 @@ namespace CalValEX
                     ConditionalChanceDropItem(npc,
                         Main.rand.NextBool() ? ModContent.ItemType<ShellScrap>() : ModContent.ItemType<WeaverFlesh>(), Main.expertMode,
                         bossPetChance);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<StormWeaverPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     if (!Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
                     {
                         ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
@@ -1130,6 +1160,7 @@ namespace CalValEX
                         (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<SparrowMeat>(),
                         (bool)calamityMod.Call("DifficultyActive", "armageddon"), bossPetChance);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<BumblefuckPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     if (!Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
                     {
                         ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("SilvaCrystal"),
@@ -1149,6 +1180,7 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("AstrumAureus"))
                 {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<AstrumAureusPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<AureusShield>(), !Main.expertMode, 0.2f);
                     if (geldonSummon)
                     {
@@ -1163,6 +1195,7 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("RavagerBody"))
                 {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<RavagerPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<SkullBalloon>(), !Main.expertMode, 0.2f);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<StonePile>(), !Main.expertMode, 0.2f);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<ScavaHook>(), Main.expertMode, RIVChance);
@@ -1171,6 +1204,7 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("Signus") && CalamityWorld.DoGSecondStageCountdown <= 0)
                 {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<SignusPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     if (Main.expertMode)
                     {
                         ChanceDropItem(npc, ModContent.ItemType<SigCloth>(), bossPetChance);
@@ -1213,6 +1247,7 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("CeaselessVoid") && CalamityWorld.DoGSecondStageCountdown <= 0)
                 {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<CeaselessVoidPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<VoidShard>(), Main.expertMode, bossPetChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<VoidWings>(), Main.expertMode,
                         vanityNormalChance);
@@ -1234,11 +1269,13 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("OldDuke") && Main.expertMode)
                 {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<OldDukePlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     ChanceDropItem(npc, ModContent.ItemType<CharredChopper>(), RIVChance);
                 }
 
-                if (npc.type == calamityMod.NPCType("DevourerofGodsHeadS") && Main.expertMode)
+                if (npc.type == calamityMod.NPCType("DevourerofGodsHeadS"))
                 {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<DevourerofGodsPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<CosmicWormScarf>(), !Main.expertMode, 0.2f);
                     if (NPC.AnyNPCs(calamityMod.NPCType("ProfanedGuardianBoss")) && (bool)calamityMod.Call("DifficultyActive", "death"))
                     {
@@ -1262,6 +1299,7 @@ namespace CalValEX
                 if (npc.type == calamityMod.NPCType("Yharon"))
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<YharonShackle>(), !Main.expertMode, 0.2f);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<YharonPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     if (!Main.expertMode)
                     {
                         ConditionalDropItem(npc, ModContent.ItemType<Termipebbles>(),
@@ -1279,6 +1317,7 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("SupremeCalamitas"))
                 {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<CalamitasFumo>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     ChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), 0.2f); //20%
                 }
 
@@ -1295,6 +1334,7 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("ProfanedGuardianBoss") && Main.expertMode)
                 {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<ProfanedGuardianPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     ChanceDropItem(npc, ModContent.ItemType<ProfanedFrame>(), 0.1f); //10%
                 }
 

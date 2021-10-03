@@ -62,11 +62,6 @@ namespace CalValEX.Items.Tiles
                 recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
                 recipe.SetResult(this);
                 recipe.AddRecipe();
-                ModRecipe recipe2 = new ModRecipe(mod);
-                recipe2.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("HalibutCannon"));
-                recipe2.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
-                recipe2.SetResult(this);
-                recipe2.AddRecipe();
             }
         }
     }

@@ -9,7 +9,7 @@ namespace CalValEX.Items.Equips.Wings
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Extremely faulty\n" + "Horizontal speed: 1\n" + "Acceleration multiplier: 1\n" + "Flight time: 7");
+            Tooltip.SetDefault("Extremely faulty\n" + "Horizontal speed: 0.8\n" + "Acceleration multiplier: 0.8\n" + "Flight time: 4");
         }
 
         public override void SetDefaults()
@@ -27,14 +27,14 @@ namespace CalValEX.Items.Equips.Wings
             {
                 player.GetModPlayer<CalValEXPlayer>().wulfrumjam = false;
             }
-            if (player.wingTime == 0 && player.velocity.Y > 0)
+            if (player.wingTime == 0)
             {
                 player.wingTimeMax = 0;
                 player.GetModPlayer<CalValEXPlayer>().wulfrumjam = true;
             }
             else
             {
-                player.wingTimeMax = 7;
+                player.wingTimeMax = 4;
                 player.GetModPlayer<CalValEXPlayer>().wulfrumjam = false;
             }
         }
@@ -52,18 +52,18 @@ namespace CalValEX.Items.Equips.Wings
             }
             else
             {
-                ascentWhenFalling = 0.45f;
-                ascentWhenRising = 0.05f;
-                maxCanAscendMultiplier = 0.5f;
-                maxAscentMultiplier = 0.7f;
-                constantAscend = 0.11f;
+                ascentWhenFalling = 0.35f;
+                ascentWhenRising = 0.02f;
+                maxCanAscendMultiplier = 0.2f;
+                maxAscentMultiplier = 0.5f;
+                constantAscend = 0.07f;
             }            
         }
 
         public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
         {
-            speed = 1f;
-            acceleration *= 1.0f;
+            speed = 0.8f;
+            acceleration *= 0.8f;
         }
         public override void AddRecipes()
         {
