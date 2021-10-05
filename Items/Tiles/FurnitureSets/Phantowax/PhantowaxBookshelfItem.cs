@@ -9,7 +9,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Phantowax Bookshelf");
+            DisplayName.SetDefault("Phantowax Bookcase");
         }
 
         public override void SetDefaults()

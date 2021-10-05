@@ -23,7 +23,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileObjectData.newTile.CoordinatePadding = 0;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Phantowax Bookshelf");
+            name.SetDefault("Phantowax Bookcase");
             AddMapEntry(new Color(94, 39, 93), name);
             adjTiles = new int[] { TileID.Bookcases };
         }

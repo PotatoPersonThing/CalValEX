@@ -9,7 +9,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Astral
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Xenomonolith Bookshelf");
+            DisplayName.SetDefault("Xenomonolith Bookcase");
         }
 
         public override void SetDefaults()

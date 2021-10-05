@@ -22,7 +22,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16 }; //
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Xenomonolith Bookshelf");
+            name.SetDefault("Xenomonolith Bookcase");
             AddMapEntry(new Color(139, 0, 0), name);
             adjTiles = new int[] { TileID.Bookcases };
         }

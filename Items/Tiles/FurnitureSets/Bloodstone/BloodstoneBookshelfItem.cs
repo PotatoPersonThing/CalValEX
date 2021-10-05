@@ -9,7 +9,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bloodstone Bookshelf");
+            DisplayName.SetDefault("Bloodstone Bookcase");
         }
 
         public override void SetDefaults()
