@@ -66,7 +66,7 @@ namespace CalValEX.Items.Equips.Hats
                 recipe.AddIngredient(calamityMod.ItemType("CosmiliteBar"), 10);
                 recipe.AddIngredient(calamityMod.ItemType("GalacticaSingularity"), 5);
                 recipe.AddIngredient(mod.ItemType("CosmicCone"), 1);
-                recipe.AddTile(calamityMod.TileType("DraedonsForge"));
+                recipe.AddTile(calamityMod.TileType("CosmicAnvil"));
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }

@@ -73,7 +73,7 @@ namespace CalValEX.Items.Equips.Wings
             {
                 recipe.AddIngredient(mod.ItemType("PlaguePack"), 1);
                 recipe.AddIngredient(calamityMod.ItemType("CosmiliteBar"), 2);
-                recipe.AddTile(calamityMod.TileType("DraedonsForge"));
+                recipe.AddTile(calamityMod.TileType("CosmicAnvil"));
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }

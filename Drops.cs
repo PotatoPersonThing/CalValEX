@@ -1168,22 +1168,12 @@ namespace CalValEX
                 if (npc.type == calamityMod.NPCType("StormWeaverHeadNaked") &&
                     CalamityWorld.DoGSecondStageCountdown <= 0)
                 {
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), Main.expertMode, 0.007f); //0.7%
-                    ChanceDropItem(npc, ModContent.ItemType<StormBandana>(), vanityNormalChance);
-                    ConditionalChanceDropItem(npc,
-                        Main.rand.NextBool() ? ModContent.ItemType<ShellScrap>() : ModContent.ItemType<WeaverFlesh>(), Main.expertMode,
-                        bossPetChance);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<StormBandana>(), !Main.expertMode, vanityNormalChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<StormWeaverPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     if (!Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
                     {
                         ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
                             (bool)calamityMod.Call("GetBossDowned", "devourerofgods"), 155, 265);
-                    }
-
-                    if (Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
-                    {
-                        ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
-                            (bool)calamityMod.Call("GetBossDowned", "devourerofgods"), 205, 335);
                     }
                 }
 
@@ -1239,20 +1229,19 @@ namespace CalValEX
                 if (npc.type == calamityMod.NPCType("Signus") && CalamityWorld.DoGSecondStageCountdown <= 0)
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<SignusPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
-                    if (Main.expertMode)
+                    if (!Main.expertMode)
                     {
-                        ChanceDropItem(npc, ModContent.ItemType<SigCloth>(), bossPetChance);
-                    }
-                    int choice = Main.rand.Next(4);
-                    { 
-                        if (choice == 0)
-                            DropItem(npc, ModContent.ItemType<SignusBalloon>());
-                        else if (choice == 1)
-                            DropItem(npc, ModContent.ItemType<SigCape>());
-                        else if (choice == 2)
-                            DropItem(npc, ModContent.ItemType<SignusNether>());
-                        else if (choice == 3)
-                            DropItem(npc, ModContent.ItemType<SignusEmblem>());
+                        int choice = Main.rand.Next(4);
+                        {
+                            if (choice == 0)
+                                DropItem(npc, ModContent.ItemType<SignusBalloon>());
+                            else if (choice == 1)
+                                DropItem(npc, ModContent.ItemType<SigCape>());
+                            else if (choice == 2)
+                                DropItem(npc, ModContent.ItemType<SignusNether>());
+                            else if (choice == 3)
+                                DropItem(npc, ModContent.ItemType<SignusEmblem>());
+                        }
                     }
                     if (junkoReference)
                     {
@@ -1264,40 +1253,21 @@ namespace CalValEX
                             (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.01f);
                     }
 
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), Main.expertMode,
-                        0.007f); //0.7%
                     if (!Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
                     {
                         ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
                             (bool)calamityMod.Call("GetBossDowned", "devourerofgods"), 155, 265);
-                    }
-
-                    if (Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
-                    {
-                        ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
-                            (bool)calamityMod.Call("GetBossDowned", "devourerofgods"), 205, 335);
                     }
                 }
 
                 if (npc.type == calamityMod.NPCType("CeaselessVoid") && CalamityWorld.DoGSecondStageCountdown <= 0)
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<CeaselessVoidPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<VoidShard>(), Main.expertMode, bossPetChance);
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<VoidWings>(), Main.expertMode,
-                        vanityNormalChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<OldVoidWings>(), Main.expertMode, 0.05f); //5%
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), Main.expertMode,
-                        0.007f); //0.7%
                     if (!Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
                     {
                         ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
                             (bool)calamityMod.Call("GetBossDowned", "devourerofgods"), 155, 265);
-                    }
-
-                    if (Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks)
-                    {
-                        ConditionalDropItem(npc, ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
-                            (bool)calamityMod.Call("GetBossDowned", "devourerofgods"), 205, 335);
                     }
                 }
 

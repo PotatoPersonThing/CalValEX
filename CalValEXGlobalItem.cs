@@ -814,7 +814,93 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == calamityMod.ItemType("PolterghastBag"))
+                        if (arg == calamityMod.ItemType("StormWeaverBag"))
+                        {
+                            if (!CalValEXConfig.Instance.ConfigBossBlocks && (bool)calamityMod.Call("GetBossDowned", "devourerofgods"))
+                            {
+                                player.QuickSpawnItem(ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
+                                    Main.rand.Next(205, 335));
+                            }
+
+                            if (Main.rand.NextFloat() < 0.3f)
+                            {
+                                if (Main.rand.NextFloat() < 0.5f)
+                                {
+                                    player.QuickSpawnItem(ModContent.ItemType<WeaverFlesh>());
+                                }
+                                else
+                                {
+                                    player.QuickSpawnItem(ModContent.ItemType<ShellScrap>());
+                                }
+                            }
+                            if (Main.rand.NextFloat() < 0.3f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<StormBandana>());
+                            }
+                            if (Main.rand.NextFloat() < 0.007f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());
+                            }
+                        }
+
+                        if (arg == calamityMod.ItemType("CeaselessVoidBag"))
+                        {
+                            if (!CalValEXConfig.Instance.ConfigBossBlocks && (bool)calamityMod.Call("GetBossDowned", "devourerofgods"))
+                            {
+                                player.QuickSpawnItem(ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
+                                    Main.rand.Next(205, 335));
+                            }
+                            if (Main.rand.NextFloat() < 0.3f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<VoidShard>());
+                            }
+                            if (Main.rand.NextFloat() < 0.3f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<VoidWings>());
+                            }
+                            if (Main.rand.NextFloat() < 0.007f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());
+                            }
+                        }
+
+                        if (arg == calamityMod.ItemType("SignusBag"))
+                        {
+                            if (!CalValEXConfig.Instance.ConfigBossBlocks && (bool)calamityMod.Call("GetBossDowned", "devourerofgods"))
+                            {
+                                player.QuickSpawnItem(ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
+                                    Main.rand.Next(205, 335));
+                            }
+
+                            if (Main.rand.NextFloat() < 0.3f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<SigCloth>());
+                            }
+
+                            int choice = Main.rand.Next(4);
+                            if (choice == 0)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<SignusEmblem>());
+                            }
+                            else if (choice == 1)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<SignusNether>());
+                            }
+                            else if (choice == 2)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<SignusBalloon>());
+                            }
+                            else
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<Items.Equips.Capes.SigCape>());
+                            }
+                            if (Main.rand.NextFloat() < 0.007f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());
+                            }
+                        }
+
+                            if (arg == calamityMod.ItemType("PolterghastBag"))
                         {
                             if (!CalValEXConfig.Instance.ConfigBossBlocks)
                             {

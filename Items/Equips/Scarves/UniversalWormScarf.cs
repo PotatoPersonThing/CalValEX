@@ -54,7 +54,7 @@ namespace CalValEX.Items.Equips.Scarves
                 recipe.AddIngredient(calamityMod.ItemType("ArmoredShell"), 2);
                 recipe.AddIngredient(calamityMod.ItemType("DarkPlasma"), 2);
                 recipe.AddIngredient(calamityMod.ItemType("TwistedNether"), 2);
-                recipe.AddTile(calamityMod.TileType("DraedonsForge"));
+                recipe.AddTile(calamityMod.TileType("CosmicAnvil"));
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }

@@ -59,7 +59,7 @@ namespace CalValEX.Items.Pets
                 recipe.AddIngredient(mod.ItemType("SparrowMeat"), 1);
                 recipe.AddIngredient(mod.ItemType("FluffyFeather"), 1);
                 recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("EffulgentFeather"), 150);
-                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
+                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("CosmicAnvil"));
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }

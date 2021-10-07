@@ -55,7 +55,7 @@ namespace CalValEX.Items.Tiles
                 recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CosmiliteBar"), 10);
                 recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CosmiliteChair"), 1);
                 recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("HellcasterFragment"), 2);
-                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
+                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("CosmicAnvil"));
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }

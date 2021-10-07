@@ -36,7 +36,7 @@ namespace CalValEX.Items.Tiles.Monoliths
             {
                 ModRecipe recipe = new ModRecipe(mod);
                 recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CosmiliteBar"), 15);
-                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
+                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("CosmicAnvil"));
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }

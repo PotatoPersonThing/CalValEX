@@ -17,7 +17,7 @@ namespace CalValEX.Tiles.AstralBlocks
             Main.tileBrick[Type] = true;
             drop = ModContent.ItemType<AstralDirt>();
             dustType = ModContent.DustType<AstralSolutionDust>();
-            AddMapEntry(new Color(40, 0, 50));
+            AddMapEntry(new Color(252, 88, 252));
             TileID.Sets.Grass[Type] = true;
             TileID.Sets.Conversion.Grass[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;

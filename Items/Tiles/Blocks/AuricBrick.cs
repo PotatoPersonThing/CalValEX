@@ -32,7 +32,7 @@ namespace CalValEX.Items.Tiles.Blocks
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient((ItemID.StoneBlock));
             recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("AuricOre"), 1);
-            recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
+            recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("CosmicAnvil"));
             recipe.SetResult(this);
             recipe.AddRecipe();
             ModRecipe recipe2 = new ModRecipe(mod);
