@@ -998,7 +998,7 @@ namespace CalValEX
             recipe.AddIngredient(calamityMod.ItemType("BotanicChair"));
             recipe.AddIngredient(calamityMod.ItemType("SilvaChair"));
             recipe.AddIngredient(calamityMod.ItemType("AuricBar"), 4);
-            recipe.AddTile(calamityMod.TileType("DraedonsForge"));
+            recipe.AddTile(calamityMod.TileType("CosmicAnvil"));
             recipe.SetResult(calamityMod.ItemType("AuricToilet"));
             recipe.AddRecipe();
         }
