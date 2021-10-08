@@ -1,49 +1,30 @@
 ﻿using Terraria;
-using Terraria.ID;
+using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria.ModLoader;
-using CalValEX.Projectiles.Plushies;
-using CalValEX.Items.Tiles.Plushies;
 
-namespace CalValEX.Items.Plushies
+namespace CalValEX.Items.Equips.Shirts
 {
-    public class SignusPlushThrowable : ModItem
+    [AutoloadEquip(EquipType.Body)]
+    internal class DemonshadeRobe : ModItem
     {
-        public override string Texture => "CalValEX/Items/Tiles/Plushies/SignusPlush";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Signus Plushie (Throwable)");
-            Tooltip.SetDefault("Can be thrown");
+            DisplayName.SetDefault("Ancient Demonshade Breastplate");
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.width = 44;
-            item.height = 44;
-            item.consumable = true;
-            item.UseSound = SoundID.Item1;
+            item.width = 18;
+            item.height = 14;
             item.rare = 11;
-            item.useAnimation = 20;
-            item.useTime = 20;
-            item.noUseGraphic = true;
-            item.noMelee = true;
-            item.value = 20;
-            item.shoot = mod.ProjectileType("SignusPlush");
-            item.shootSpeed = 6f;
-            item.maxStack = 99;
+            item.vanity = true;
+            item.value = Item.sellPrice(0, 3, 0, 0);
         }
 
-        public override void AddRecipes()
+        public override void DrawHands(ref bool drawHands, ref bool drawArms)
         {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<Items.Tiles.Plushies.SignusPlush>());
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
+            drawHands = true;
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {

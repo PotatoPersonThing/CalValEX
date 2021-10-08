@@ -11,8 +11,8 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sepulcher (new) is Based");
-            Tooltip.SetDefault("An artifact containing so much power, that placing more than one snaps reality\n" + "Tldr don't place more than one or else suffer\n" + "Unfinished and unobtainable item you filthy hacker");
+            DisplayName.SetDefault("Tubeman of Entropy");
+            Tooltip.SetDefault("'Embrace chaos'\n"+"Inflates into a flailing Sepulcher balloon\n"+"You really feel like you shouldn't place more than one...");
 
         }
 
@@ -27,7 +27,7 @@ namespace CalValEX.Items.Tiles
             item.consumable = true;
             item.width = 16;
             item.height = 28;
-            item.rare = 10;
+            item.rare = 11;
             item.createTile = ModContent.TileType<SePlaced>();
         }
 

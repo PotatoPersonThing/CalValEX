@@ -644,6 +644,13 @@ namespace CalValEX
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());
                             }
+
+                            if ((bool)calamityMod.Call("GetBossDowned", "providence") && Main.rand.NextFloat() < 0.2f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<DemonshadeHood>(), 1);
+                                player.QuickSpawnItem(ModContent.ItemType<DemonshadeRobe>(), 1);
+                                player.QuickSpawnItem(ModContent.ItemType<DemonshadePants>(), 1);
+                            }
                         }
 
                         if (arg == calamityMod.ItemType("LeviathanBag"))

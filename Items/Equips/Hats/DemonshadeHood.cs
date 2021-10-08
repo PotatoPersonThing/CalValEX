@@ -1,49 +1,30 @@
 ﻿using Terraria;
-using Terraria.ID;
+using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria.ModLoader;
-using CalValEX.Projectiles.Plushies;
-using CalValEX.Items.Tiles.Plushies;
 
-namespace CalValEX.Items.Plushies
+namespace CalValEX.Items.Equips.Hats
 {
-    public class SignusPlushThrowable : ModItem
+    [AutoloadEquip(EquipType.Head)]
+    public class DemonshadeHood : ModItem
     {
-        public override string Texture => "CalValEX/Items/Tiles/Plushies/SignusPlush";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Signus Plushie (Throwable)");
-            Tooltip.SetDefault("Can be thrown");
+            DisplayName.SetDefault("Ancient Demonshade Helm");
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.width = 44;
-            item.height = 44;
-            item.consumable = true;
-            item.UseSound = SoundID.Item1;
+            item.width = 28;
+            item.height = 20;
             item.rare = 11;
-            item.useAnimation = 20;
-            item.useTime = 20;
-            item.noUseGraphic = true;
-            item.noMelee = true;
-            item.value = 20;
-            item.shoot = mod.ProjectileType("SignusPlush");
-            item.shootSpeed = 6f;
-            item.maxStack = 99;
+            item.vanity = true;
+            item.value = Item.sellPrice(0, 3, 0, 0);
         }
 
-        public override void AddRecipes()
+        public override bool DrawHead()
         {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<Items.Tiles.Plushies.SignusPlush>());
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
+            return false;
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {

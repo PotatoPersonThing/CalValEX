@@ -481,6 +481,9 @@ namespace CalValEX.NPCs.JellyPriest
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Provibust>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50, 0, 0);
                         ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Se>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(6, 66, 66, 66);
+                        ++nextSlot;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "stormweaver"))
                     {
@@ -826,6 +829,9 @@ namespace CalValEX.NPCs.JellyPriest
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Provibust>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50, 0, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Se>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(6, 66, 66, 66);
                         ++nextSlot;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "stormweaver"))
