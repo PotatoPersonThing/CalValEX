@@ -20,7 +20,7 @@ namespace CalValEX.Items.Tiles.Plushies
             item.height = 44;
             item.consumable = true;
             item.UseSound = SoundID.Item1;
-            item.rare = 10;
+            item.rare = 11;
             item.useAnimation = 20;
             item.useTime = 20;
             item.noUseGraphic = true;
@@ -45,7 +45,7 @@ namespace CalValEX.Items.Tiles.Plushies
             {
                 if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(0, 255, 0); //change the color accordingly to above
+                    tooltipLine.overrideColor = new Color(0, 255, 200); //change the color accordingly to above
                 }
             }
         }

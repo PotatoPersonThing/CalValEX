@@ -41,7 +41,7 @@ namespace CalValEX.Items.Equips.Scarves
             {
                 if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(255, 140, 0); //change the color accordingly to above
+                    tooltipLine.overrideColor = new Color(43, 96, 222); //change the color accordingly to above
                 }
             }
         }

@@ -20,24 +20,13 @@ namespace CalValEX.Items.Equips.Hats
             item.width = 24;
             item.height = 28;
             item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = ItemRarityID.Red;
+            item.rare = ItemRarityID.Purple;
             item.vanity = true;
         }
 
         public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
         {
             drawAltHair = true;
-        }
-
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
-        {
-            foreach (TooltipLine tooltipLine in tooltips)
-            {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
-                {
-                    tooltipLine.overrideColor = new Color(0, 255, 200);
-                }
-            }
         }
     }
 }

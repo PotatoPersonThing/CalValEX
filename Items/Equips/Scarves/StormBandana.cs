@@ -19,7 +19,7 @@ namespace CalValEX.Items.Equips.Scarves
             item.width = 24;
             item.height = 30;
             item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 10;
+            item.rare = 11;
             item.accessory = true;
             item.vanity = true;
         }
@@ -39,7 +39,7 @@ namespace CalValEX.Items.Equips.Scarves
             {
                 if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(43, 96, 222); //change the color accordingly to above
+                    tooltipLine.overrideColor = new Color(0, 255, 200); //change the color accordingly to above
                 }
             }
         }

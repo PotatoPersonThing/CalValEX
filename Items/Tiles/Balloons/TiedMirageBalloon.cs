@@ -22,7 +22,7 @@ namespace CalValEX.Items.Tiles.Balloons
             item.createTile = ModContent.TileType<TiedMirageBalloonPlaced>();
             item.width = 16;
             item.height = 40;
-            item.rare = 4;
+            item.rare = 6;
         }
     }
 }

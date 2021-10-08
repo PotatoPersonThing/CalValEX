@@ -49,7 +49,7 @@ namespace CalValEX.Items.Plushies
             {
                 if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(0, 255, 0); //change the color accordingly to above
+                    tooltipLine.overrideColor = new Color(0, 255, 200); //change the color accordingly to above
                 }
             }
         }

@@ -34,7 +34,7 @@ namespace CalValEX.Items.Tiles.Paintings
             {
                 if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(0, 255, 0);
+                    tooltipLine.overrideColor = new Color(0, 255, 200);
                 }
             }
         }
