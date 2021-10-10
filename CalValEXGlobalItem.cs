@@ -778,16 +778,12 @@ namespace CalValEX
                                     Main.rand.Next(205, 335));
                             }
 
-                            int choice = Main.rand.Next(4);
+                            int choice = Main.rand.Next(3);
                             if (choice == 0)
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<FollyWings>());
                             }
                             else if (choice == 1)
-                            {
-                                player.QuickSpawnItem(ModContent.ItemType<OrbSummon>());
-                            }
-                            else if (choice == 2)
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<Birbhat>());
                             }

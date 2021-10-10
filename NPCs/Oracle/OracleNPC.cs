@@ -436,23 +436,17 @@ namespace CalValEX.NPCs.Oracle
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 75, 0, 0);
                     nextSlot++;
                 }
-                if ((bool)clamMod.Call("GetBossDowned", "hivemind") && Main.expertMode)
+                if ((bool)clamMod.Call("GetBossDowned", "hivemind") && Main.expertMode && WorldGen.crimson)
                 {
-                    if ((bool)clamMod.Call("GetBossDowned", "slimegod"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<DigestedWormFood>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 80, 0, 0);
-                        ++nextSlot;
-                    }
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<DigestedWormFood>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 80, 0, 0);
+                    ++nextSlot;
                 }
-                if ((bool)clamMod.Call("GetBossDowned", "perforator") && Main.expertMode)
+                if ((bool)clamMod.Call("GetBossDowned", "perforator") && Main.expertMode && !WorldGen.crimson)
                 {
-                    if ((bool)clamMod.Call("GetBossDowned", "slimegod"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<MissingFang>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 80, 0, 0);
-                        ++nextSlot;
-                    }
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<MissingFang>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 80, 0, 0);
+                    ++nextSlot;
                 }
                 if ((bool)clamMod.Call("GetBossDowned", "cryogen") && Main.expertMode)
                 {
