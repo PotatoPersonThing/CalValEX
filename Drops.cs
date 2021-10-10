@@ -1345,22 +1345,82 @@ namespace CalValEX
                 //Goozma slimes
                 if ((bool)calamityMod.Call("DifficultyActive", "revengeance"))
                 {
+                    if (npc.type == NPCID.Grasshopper)
+                    {
+                        ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(), Main.expertMode, 0.00000002f);
+                    }
+                    if (npc.type == NPCID.GoldGrasshopper)
+                    {
+                        ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(), Main.expertMode, 0.00000003f);
+                    }
+                    if (npc.type == NPCID.BlueSlime ||
+                       npc.type == NPCID.GreenSlime ||
+                       npc.type == NPCID.PurpleSlime ||
+                       npc.type == NPCID.YellowSlime ||
+                       npc.type == NPCID.RedSlime ||
+                       npc.type == NPCID.ArmedZombieSlimed ||
+                       npc.type == NPCID.BigSlimedZombie ||
+                       npc.type == NPCID.SmallSlimedZombie ||
+                       npc.type == NPCID.SlimedZombie)
+                    {
+                        ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(), Main.expertMode, 0.00005f);
+                    }
+                    if (npc.type == NPCID.CorruptSlime ||
+                        npc.type == NPCID.Crimslime ||
+                        npc.type == NPCID.BigCrimslime ||
+                        npc.type == NPCID.LittleCrimslime ||
+                        npc.type == NPCID.Slimer2 ||
+                        npc.type == NPCID.SandSlime ||
+                        npc.type == NPCID.Pinky ||
+                        npc.type == NPCID.BlueSlime ||
+                        npc.type == NPCID.GreenSlime ||
+                        npc.type == NPCID.PurpleSlime ||
+                        npc.type == NPCID.YellowSlime ||
+                        npc.type == NPCID.RedSlime ||
+                        npc.type == NPCID.BlackSlime ||
+                        npc.type == NPCID.MotherSlime ||
+                        npc.type == NPCID.ToxicSludge ||
+                        npc.type == NPCID.RainbowSlime ||
+                        npc.type == NPCID.IceSlime ||
+                        npc.type == NPCID.SpikedIceSlime ||
+                        npc.type == NPCID.JungleSlime ||
+                        npc.type == NPCID.SpikedJungleSlime ||
+                        npc.type == NPCID.DungeonSlime ||
+                        npc.type == NPCID.LavaSlime ||
+                        npc.type == NPCID.UmbrellaSlime ||
+                        npc.type == NPCID.BunnySlimed ||
+                        npc.type == NPCID.SlimeRibbonGreen ||
+                        npc.type == NPCID.SlimeRibbonRed ||
+                        npc.type == NPCID.SlimeRibbonWhite ||
+                        npc.type == NPCID.SlimeRibbonYellow ||
+                        npc.type == NPCID.HoppinJack ||
+                        npc.type == NPCID.CorruptSlime)
+                    {
+                        ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(), Main.expertMode, 0.0002f);
+                    }
                     if (npc.type == calamityMod.NPCType("AeroSlime") || npc.type == calamityMod.NPCType("CryoSlime") ||
                         npc.type == calamityMod.NPCType("PerennialSlime") ||
                         npc.type == calamityMod.NPCType("WulfrumSlime") ||
                         npc.type == calamityMod.NPCType("PlaguedJungleSlime") ||
-                        npc.type == calamityMod.NPCType("BloomSlime"))
+                        npc.type == calamityMod.NPCType("BloomSlime") ||
+                        npc.type == calamityMod.NPCType("IrradiatedSlime") ||
+                        npc.type == calamityMod.NPCType("GammaSlime"))
                     {
                         ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(), Main.expertMode, 0.001f);
                     }
 
-                    if (npc.type == calamityMod.NPCType("IrradiatedSlime") ||
-                        npc.type == calamityMod.NPCType("GammaSlime") ||
-                        npc.type == calamityMod.NPCType("EbonianBlightSlime") ||
+                    if (npc.type == calamityMod.NPCType("EbonianBlightSlime") ||
                         npc.type == calamityMod.NPCType("CrimulanBlightSlime") ||
-                        npc.type == calamityMod.NPCType("AstralSlime"))
+                        npc.type == calamityMod.NPCType("AstralSlime") ||
+                        npc.type == NPCID.IlluminantSlime ||
+                        npc.type == calamityMod.NPCType("CragmawMire"))
                     {
                         ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(), Main.expertMode, 0.002f);
+                    }
+
+                    if (npc.type == NPCID.KingSlime)
+                    {
+                        ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(), Main.expertMode, 0.005f);
                     }
 
                     /*if ((npc.type == calamityMod.NPCType("AstrageldonSlime"))
