@@ -1291,11 +1291,11 @@ namespace CalValEX
                     }
                     if ((bool)calamityMod.Call("DifficultyActive", "death"))
                     {
-                        ChanceDropItem(npc, ModContent.ItemType<DogPetItem>(), 0.5f);
+                        ChanceDropItem(npc, ModContent.ItemType<DogPetItem>(), 0.3f);
                     }
                     else if ((bool)calamityMod.Call("DifficultyActive", "revengeance") && !(bool)calamityMod.Call("DifficultyActive", "death"))
                     {
-                        ChanceDropItem(npc, ModContent.ItemType<DogPetItem>(), 0.05f);
+                        ChanceDropItem(npc, ModContent.ItemType<DogPetItem>(), 0.075f);
                     }
                     //(NPC.AnyNPCs(calamityMod.NPCType("DevourerofGods")))
                 }
