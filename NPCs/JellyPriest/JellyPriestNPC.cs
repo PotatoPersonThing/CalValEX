@@ -467,8 +467,6 @@ namespace CalValEX.NPCs.JellyPriest
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
                             ++nextSlot;
                         }
-                        else
-                            return;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "plaguebringergoliath"))
                     {
@@ -816,8 +814,6 @@ namespace CalValEX.NPCs.JellyPriest
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
                             ++nextSlot;
                         }
-                        else
-                            return;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "plaguebringergoliath"))
                     {
