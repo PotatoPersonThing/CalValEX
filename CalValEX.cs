@@ -28,6 +28,7 @@ using CalValEX.Items.Pets.Elementals;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
+using CalValEX.Items.Tiles.Plushies;
 using CalValEX.NPCs.Oracle;
 using CalValEX.NPCs.JellyPriest;
 using CalValEX.Items.Tiles.Blocks.Astral;
@@ -173,32 +174,33 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Desert Scourge",
                     new List<int>
                     {
-                        ModContent.ItemType<DesertMedallion>(), ModContent.ItemType<DriedMandible>(),
-                        ModContent.ItemType<SandTooth>()
+                        ModContent.ItemType<DesertScourgePlush>(), ModContent.ItemType<DesertMedallion>(), 
+                        ModContent.ItemType<DriedMandible>(), ModContent.ItemType<SandTooth>()
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Giant Clam",
                     new List<int> { ModContent.ItemType<ClamMask>(), ModContent.ItemType<ClamHermitMedallion>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Crabulon",
-                    new List<int> { ModContent.ItemType<ClawShroom>() });
+                    new List<int> { ModContent.ItemType<CrabulonPlush>(), ModContent.ItemType<ClawShroom>()});
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Hive Mind",
-                    new List<int> { ModContent.ItemType<MissingFang>() });
+                    new List<int> { ModContent.ItemType<HiveMindPlush>(), ModContent.ItemType<MissingFang>()});
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "The Perforators",
-                    new List<int> { ModContent.ItemType<DigestedWormFood>(), ModContent.ItemType<SmallWorm>(),
-                    ModContent.ItemType<MidWorm>(), ModContent.ItemType<BigWorm>(),});
+                    new List<int> { ModContent.ItemType<PerforatorPlush>(), 
+                        ModContent.ItemType<DigestedWormFood>(), ModContent.ItemType<SmallWorm>(),
+                        ModContent.ItemType<MidWorm>(), ModContent.ItemType<BigWorm>()});
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Slime God",
                     new List<int> { ModLoader.GetMod("CalamityMod").ItemType("StatigelBlock") });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Slime God",
-                    new List<int> { ModContent.ItemType<ImpureStick>() });
+                    new List<int> { ModContent.ItemType<SlimeGodPlush>(), ModContent.ItemType<ImpureStick>()});
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Cryogen",
-                    new List<int> { ModContent.ItemType<CryoStick>() });
+                    new List<int> { ModContent.ItemType<CryogenPlush>(), ModContent.ItemType<CryoStick>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Aquatic Scourge",
-                    new List<int> { ModContent.ItemType<AquaticHide>() });
+                    new List<int> { ModContent.ItemType<AquaticScourgePlush>(), ModContent.ItemType<AquaticHide>() });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Brimstone Elemental",
                     new List<int> { ModLoader.GetMod("CalamityMod").ItemType("BrimstoneSlag") });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Brimstone Elemental",
                     new List<int>
                     {
-                        ModContent.ItemType<BrimmyBody>(),
+                        ModContent.ItemType<BrimstoneElementalPlush>(), ModContent.ItemType<BrimmyBody>(),
                         ModContent.ItemType<BrimmySpirit>(), ModContent.ItemType<FoilSpoon>(),
                         ModContent.ItemType<brimtulip>()
                     });
@@ -207,13 +209,14 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Leviathan",
                     new List<int>
                     {
+                        ModContent.ItemType<AnahitaPlush>(), ModContent.ItemType<LeviathanPlush>(),
                         ModContent.ItemType<LeviWings>(), ModContent.ItemType<FoilAtlantis>(), ModContent.ItemType<LeviathanEgg>(),
                         ModContent.ItemType<WetBubble>()
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Astrum Aureus",
                     new List<int>
                     {
-                        ModContent.ItemType<AureusShield>(), ModContent.ItemType<AstDie>(),
+                        ModContent.ItemType<AstrumAureusPlush>(), ModContent.ItemType<AureusShield>(), ModContent.ItemType<AstDie>(),
                         ModContent.ItemType<JellyBottle>(), ModContent.ItemType<AncientAuricTeslaHelm>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Plaguebringer Goliath",
@@ -221,7 +224,7 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Plaguebringer Goliath",
                     new List<int>
                     {
-                        ModContent.ItemType<PlaguePack>(),
+                        ModContent.ItemType<PlaguebringerGoliathPlush>(), ModContent.ItemType<PlaguePack>(),
                         ModContent.ItemType<InfectedController>(), ModContent.ItemType<AncientAuricTeslaHelm>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Ravager",
@@ -229,24 +232,26 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Ravager",
                     new List<int>
                     {
-                        ModContent.ItemType<SkullBalloon>(),
+                        ModContent.ItemType<RavagerPlush>(), ModContent.ItemType<SkullBalloon>(),
                         ModContent.ItemType<RavaHook>(), ModContent.ItemType<ScavaHook>(),
                         ModContent.ItemType<AncientChoker>()
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Astrum Deus",
-                    new List<int> { ModContent.ItemType<AstBandana>(), ModContent.ItemType<AstralStar>() });
+                    new List<int> { 
+                        ModContent.ItemType<AstrumDeusPlush>(), ModContent.ItemType<AstBandana>(), 
+                        ModContent.ItemType<AstralStar>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Profaned Guardians",
                     new List<int>
                     {
-                        ModContent.ItemType<ProfanedFrame>(), ModContent.ItemType<ProfanedBattery>(),
-                        ModContent.ItemType<ProfanedWheels>()
+                        ModContent.ItemType<ProfanedGuardianPlush>(), ModContent.ItemType<ProfanedFrame>(), 
+                        ModContent.ItemType<ProfanedBattery>(), ModContent.ItemType<ProfanedWheels>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Dragonfolly",
                     new List<int> { ModLoader.GetMod("CalamityMod").ItemType("SilvaCrystal") });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Dragonfolly",
                     new List<int>
                     {
-                        ModContent.ItemType<FollyWings>(),
+                        ModContent.ItemType<BumblefuckPlush>(), ModContent.ItemType<FollyWings>(),
                         ModContent.ItemType<Birbhat>(), ModContent.ItemType<FollyWing>(),
                         ModContent.ItemType<OrbSummon>(), ModContent.ItemType<FluffyFeather>(),
                         ModContent.ItemType<SparrowMeat>(), ModContent.ItemType<FluffyFur>(),
@@ -257,7 +262,7 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Providence",
                     new List<int>
                     {
-                        ModContent.ItemType<ProviCrystal>(),
+                        ModContent.ItemType<ProvidencePlush>(), ModContent.ItemType<ProviCrystal>(),
                         ModContent.ItemType<ProShard>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Ceaseless Void",
@@ -265,7 +270,7 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Ceaseless Void",
                     new List<int>
                     {
-                        ModContent.ItemType<VoidWings>(),
+                        ModContent.ItemType<CeaselessVoidPlush>(), ModContent.ItemType<VoidWings>(),
                         ModContent.ItemType<OldVoidWings>(), ModContent.ItemType<VoidShard>(),
                         ModContent.ItemType<AncientAuricTeslaHelm>()
                     });
@@ -274,7 +279,7 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Storm Weaver",
                     new List<int>
                     {
-                        ModContent.ItemType<StormBandana>(),
+                        ModContent.ItemType<StormWeaverPlush>(), ModContent.ItemType<StormBandana>(),
                         ModContent.ItemType<ShellScrap>(), ModContent.ItemType<WeaverFlesh>(),
                         ModContent.ItemType<AncientAuricTeslaHelm>()
                     });
@@ -283,7 +288,7 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Signus",
                     new List<int>
                     {
-                        ModContent.ItemType<SignusEmblem>(),
+                        ModContent.ItemType<SignusPlush>(), ModContent.ItemType<SignusEmblem>(),
                         ModContent.ItemType<SigCape>(), ModContent.ItemType<SignusNether>(),
                         ModContent.ItemType<SigCloth>(), ModContent.ItemType<SignusBalloon>(), ModContent.ItemType<JunkoHat>(),
                         ModContent.ItemType<AncientAuricTeslaHelm>()
@@ -291,16 +296,20 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Polterghast",
                     new List<int> { ModLoader.GetMod("CalamityMod").ItemType("StratusBricks"), ModContent.ItemType<PhantowaxBlock>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Polterghast",
-                    new List<int> { ModContent.ItemType<Polterhook>(), ModContent.ItemType<ToyScythe>() });
+                    new List<int> {
+                        ModContent.ItemType<PolterghastPlush>(),
+                        ModContent.ItemType<Polterhook>(), ModContent.ItemType<ToyScythe>() 
+                    });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Old Duke",
                     new List<int>
                     {
-                        ModContent.ItemType<OldWings>(), ModContent.ItemType<CorrodedCleaver>(),
-                        ModContent.ItemType<CharredChopper>()
+                        ModContent.ItemType<OldDukePlush>(), ModContent.ItemType<OldWings>(),
+                        ModContent.ItemType<CorrodedCleaver>(), ModContent.ItemType<CharredChopper>()
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Devourer of Gods",
                     new List<int>
                     {
+                        ModContent.ItemType<DevourerofGodsPlush>(),
                         ModContent.ItemType<CosmicWormScarf>(), ModContent.ItemType<RapturedWormScarf>(),
                         ModContent.ItemType<DogPetItem>(), ModContent.ItemType<AncientAuricTeslaHelm>()
                     });
@@ -309,12 +318,12 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Yharon",
                     new List<int>
                     {
-                        ModContent.ItemType<JunglePhoenixWings>(),
+                        ModContent.ItemType<YharonPlush>(), ModContent.ItemType<JunglePhoenixWings>(),
                         ModContent.ItemType<YharonShackle>(), ModContent.ItemType<NuggetBiscuit>(), ModContent.ItemType<YharonsAnklet>(),
                         ModContent.ItemType<AncientAuricTeslaHelm>()
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Supreme Calamitas",
-                    new List<int> { ModContent.ItemType<AncientAuricTeslaHelm>() });
+                    new List<int> { ModContent.ItemType<CalamitasFumo>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Acid Rain (Post-AS)",
                     new List<int>
                     {
