@@ -1,12 +1,12 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
-using CalValEX.Dusts;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ObjectData;
+using CalValEX.Dusts;
 
 namespace CalValEX.Tiles.AstralMisc
 {
@@ -18,6 +18,7 @@ namespace CalValEX.Tiles.AstralMisc
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
             Main.tileCut[Type] = true;
+            dustType = ModContent.DustType<AstralDust>();
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
             TileObjectData.newTile.UsesCustomCanPlace = true;
             TileObjectData.newTile.Width = 1;

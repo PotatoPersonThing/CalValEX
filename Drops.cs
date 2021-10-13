@@ -542,6 +542,7 @@ namespace CalValEX
             float rareChance = rareEnemyChance;
             //1%
             float mountChance = 0.01f;
+            Mod catalyst = ModLoader.GetMod("Catalyst");
             if (!CalValEXConfig.Instance.DisableVanityDrops)
             {
                 if (npc.type == calamityMod.NPCType("DILF"))
@@ -1212,8 +1213,11 @@ namespace CalValEX
                     }
                     else
                     {
-                        ConditionalChanceDropItem(npc, ModContent.ItemType<JellyBottle>(),
-                            (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.1f);
+                        if (catalyst == null)
+                        {
+                            ConditionalChanceDropItem(npc, ModContent.ItemType<JellyBottle>(),
+                                (bool)calamityMod.Call("DifficultyActive", "revengeance"), 0.1f);
+                        }
                     }
                 }
 

@@ -484,6 +484,7 @@ namespace CalValEX
         public override void OpenVanillaBag(string context, Player player, int arg)
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            Mod catalyst = ModLoader.GetMod("Catalyst");
 
             if (context == "bossBag")
             {
@@ -978,6 +979,16 @@ namespace CalValEX
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());
                             }
+                        }
+                    }
+                }
+                if (catalyst != null)
+                {
+                    if (arg == catalyst.ItemType("AstrageldonBag"))
+                    {
+                        if (Main.rand.NextFloat() < 0.3f)
+                        {
+                            player.QuickSpawnItem(ModContent.ItemType<JellyBottle>());
                         }
                     }
                 }
