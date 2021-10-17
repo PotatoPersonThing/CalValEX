@@ -205,7 +205,7 @@ namespace CalValEX
                         ModContent.ItemType<brimtulip>()
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Calamitas",
-                    new List<int> { ModContent.ItemType<Calacirclet>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
+                    new List<int> { ModContent.ItemType<ClonePlush>(), ModContent.ItemType<Calacirclet>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Leviathan",
                     new List<int>
                     {
@@ -324,6 +324,8 @@ namespace CalValEX
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Supreme Calamitas",
                     new List<int> { ModContent.ItemType<CalamitasFumo>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
+                /*bossChecklist.Call("AddToBossCollection", "CalamityMod", "Adult Eidolon Wyrm",
+                    new List<int> { ModContent.ItemType<JaredPlush>(), ModContent.ItemType<SoulShard>(), ModContent.ItemType<OmegaBlue>() });*/
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Acid Rain (Post-AS)",
                     new List<int>
                     {

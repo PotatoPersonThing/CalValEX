@@ -921,6 +921,8 @@ namespace CalValEX
                 {
                     DropItem(npc, ModContent.ItemType<SoulShard>());
                     DropItem(npc, ModContent.ItemType<OmegaBlue>());
+                    //DropItem(npc, ModContent.ItemType<RespirationShrine>());
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<JaredPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("Horse"))
@@ -1088,6 +1090,11 @@ namespace CalValEX
                     ConditionalChanceDropItem(npc, ModContent.ItemType<BrimmyBody>(), !Main.expertMode, 0.15f);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<FoilSpoon>(), !Main.expertMode, 0.035f);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<BrimstoneElementalPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
+                }
+
+                if (npc.type == calamityMod.NPCType("Calamitas"))
+                {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<ClonePlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("Leviathan") && !NPC.AnyNPCs(calamityMod.NPCType("Siren")))
