@@ -1,14 +1,14 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
 namespace CalValEX.Items.Equips.Shirts
 {
     [AutoloadEquip(EquipType.Body)]
-    internal class CultistRobe : ModItem
+    internal class EarthenBreastplate : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cultist Assassin Robe");
+            DisplayName.SetDefault("Earthen Breastplate");
         }
 
         public override void SetDefaults()

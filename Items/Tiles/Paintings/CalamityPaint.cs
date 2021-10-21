@@ -1,31 +1,33 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria.ModLoader;
+using CalValEX.Tiles.Paintings;
 
-namespace CalValEX.Items.Equips.Shirts
+namespace CalValEX.Items.Tiles.Paintings
 {
-    [AutoloadEquip(EquipType.Body)]
-    internal class DemonshadeRobe : ModItem
+    internal class CalamityPaint : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ancient Demonshade Breastplate");
+            DisplayName.SetDefault("Calamity");
+            Tooltip.SetDefault("'Blockaroz'");
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 14;
+            item.useStyle = 1;
+            item.useTurn = true;
+            item.useAnimation = 15;
+            item.useTime = 10;
+            item.autoReuse = true;
+            item.maxStack = 99;
+            item.consumable = true;
+            item.createTile = ModContent.TileType<CalamityPaintPlaced>();
+            item.width = 12;
+            item.height = 12;
             item.rare = 11;
-            item.vanity = true;
-            item.value = Item.sellPrice(0, 3, 0, 0);
         }
 
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = false;
-        }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             //rarity 12 (Turquoise) = new Color(0, 255, 200)
@@ -41,7 +43,7 @@ namespace CalValEX.Items.Equips.Shirts
             {
                 if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(0, 255, 200); //change the color accordingly to above
+                    tooltipLine.overrideColor = new Color(255, 0, 255); //change the color accordingly to above
                 }
             }
         }

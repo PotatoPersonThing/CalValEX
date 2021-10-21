@@ -1,14 +1,14 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace CalValEX.Items.Equips.Shirts
+namespace CalValEX.Items.Equips.Legs
 {
-    [AutoloadEquip(EquipType.Body)]
-    internal class CultistRobe : ModItem
+    [AutoloadEquip(EquipType.Legs)]
+    internal class EarthenLeggings: ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cultist Assassin Robe");
+            DisplayName.SetDefault("Earthen Leggings");
         }
 
         public override void SetDefaults()
@@ -18,11 +18,6 @@ namespace CalValEX.Items.Equips.Shirts
             item.rare = 4;
             item.vanity = true;
             item.value = Item.sellPrice(0, 2, 0, 0);
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = false;
         }
     }
 }

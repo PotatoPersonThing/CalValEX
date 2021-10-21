@@ -11,7 +11,7 @@ namespace CalValEX.Items.Equips.Wings
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Wings of Termina");
-            Tooltip.SetDefault("Through death and destruction new heights are attained, \non wings of a pandemonic butterfly \n" + "Horizontal speed: 14\n" + "Acceleration multiplier: 3\n" + "Flight time: 300");
+            Tooltip.SetDefault("Through death and destruction new heights are attained, \non wings of a pandemonic butterfly \n" + "Horizontal speed: 1\n" + "Acceleration multiplier: 1\n" + "Flight time: 60");
             Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(10, 6));
             /// ItemID.Sets.AnimatesAsSoul[item.type] = true;
             ItemID.Sets.ItemIconPulse[item.type] = false;
@@ -32,23 +32,23 @@ namespace CalValEX.Items.Equips.Wings
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.wingTimeMax = 300;
+            player.wingTimeMax = 60;
         }
 
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
             ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
         {
-            ascentWhenFalling = 1.85f;
-            ascentWhenRising = 0.95f;
-            maxCanAscendMultiplier = 1.5f;
-            maxAscentMultiplier = 3f;
-            constantAscend = 0.535f;
+            ascentWhenFalling = 1;
+            ascentWhenRising = 1f;
+            maxCanAscendMultiplier = 1f;
+            maxAscentMultiplier = 1f;
+            constantAscend = 1f;
         }
 
         public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
         {
-            speed = 14f;
-            acceleration *= 3.0f;
+            speed = 1f;
+            acceleration *= 1f;
         }
 
         public override void AddRecipes()

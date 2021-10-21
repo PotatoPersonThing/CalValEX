@@ -10,7 +10,7 @@ namespace CalValEX.Items.Mounts
         {
             mountData.buff = mod.BuffType("HadarianBuff");
             mountData.heightBoost = 5;
-            mountData.fallDamage = 0.1f;
+            mountData.fallDamage = 0f;
             mountData.runSpeed = 10f;
             mountData.dashSpeed = 3f;
             mountData.flightTimeMax = 165;

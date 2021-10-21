@@ -11,15 +11,15 @@ namespace CalValEX.Items.Mounts
         public override void SetDefaults()
         {
             mountData.buff = mod.BuffType("BikeBuff");
-            mountData.heightBoost = 20;
-            mountData.fallDamage = 0.1f;
+            mountData.heightBoost = 15;
+            mountData.fallDamage = 0f;
             mountData.runSpeed = 20f;
             mountData.dashSpeed = 7f;
             mountData.flightTimeMax = 0;
             mountData.fatigueMax = 0;
-            mountData.jumpHeight = 25;
-            mountData.acceleration = 0.20f;
-            mountData.jumpSpeed = 6f;
+            mountData.jumpHeight = 15;
+            mountData.acceleration = 0.1f;
+            mountData.jumpSpeed = 4f;
             mountData.blockExtraJumps = false;
             mountData.totalFrames = 13;
             mountData.constantJump = true;
@@ -70,7 +70,7 @@ namespace CalValEX.Items.Mounts
 
         public override void UpdateEffects(Player player)
         {
-            if ((Math.Abs(player.velocity.X) > 20))
+            if (Math.Abs(player.velocity.X) > 20)
             {
                 mountData.runningFrameCount = 4;
                 mountData.runningFrameDelay = 65;
@@ -79,7 +79,7 @@ namespace CalValEX.Items.Mounts
                 mountData.inAirFrameDelay = 12;
                 mountData.inAirFrameStart = 12;
                 mountData.runSpeed = 20f;
-                mountData.acceleration = 0.25f;
+                mountData.acceleration = 0.11f;
 
                 if (player.whoAmI == Main.myPlayer)
                     Dust.NewDust(player.position, 47, 30, 6, 3.684211f, 0f, 0, new Color(255, 255, 255), 1f);

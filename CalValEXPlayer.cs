@@ -338,6 +338,7 @@ namespace CalValEX
         public int coneframe = 0;
         public bool wulfrumjam;
         public bool cassette;
+        public bool specan;
 
         public override void Initialize()
         {
@@ -708,6 +709,7 @@ namespace CalValEX
             wulfrumjam = false;
             conejo = false;
             cassette = false;
+            specan = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
@@ -984,6 +986,17 @@ namespace CalValEX
                 {
                     shader = drawInfo.headArmorShader
                 }; 
+                Main.playerDrawData.Add(data);
+            }
+            if (modPlayer.specan)
+            {
+                Texture2D texture = mod.GetTexture("Items/Equips/Hats/SpectralstormHat");
+                int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);
+                int drawY = (int)(drawInfo.position.Y + drawPlayer.height - 32 - Main.screenPosition.Y - secondyoffset);
+                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Color.White * alb, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0)
+                {
+                    shader = drawInfo.headArmorShader
+                };
                 Main.playerDrawData.Add(data);
             }
             if (modPlayer.conejo)

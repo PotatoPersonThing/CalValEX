@@ -10,7 +10,7 @@ namespace CalValEX.Items.Mounts
         {
             mountData.buff = mod.BuffType("PBGMountBuff");
             mountData.heightBoost = 5;
-            mountData.fallDamage = 0.1f;
+            mountData.fallDamage = 0f;
             mountData.runSpeed = 7f;
             mountData.dashSpeed = 3f;
             mountData.flightTimeMax = 195;

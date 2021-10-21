@@ -789,9 +789,12 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("CultistAssassin"))
                 {
-                    ChanceDropItem(npc, ModContent.ItemType<CultistRobe>(), normalChance);
-                    ChanceDropItem(npc, ModContent.ItemType<CultistHood>(), normalChance);
-                    ChanceDropItem(npc, ModContent.ItemType<CultistLegs>(), normalChance);
+                    if (Main.rand.NextFloat() < 0.05f)
+                    {
+                        DropItem(npc, ModContent.ItemType<CultistRobe>());
+                        DropItem(npc, ModContent.ItemType<CultistHood>());
+                        DropItem(npc, ModContent.ItemType<CultistLegs>());
+                    }
                 }
 
                 if (npc.type == calamityMod.NPCType("HeatSpirit"))
@@ -928,6 +931,12 @@ namespace CalValEX
                 if (npc.type == calamityMod.NPCType("Horse"))
                 {
                     ChanceDropItem(npc, ModContent.ItemType<EarthShield>(), minibossChance);
+                    if (Main.rand.NextFloat() < 0.1f)
+                    {
+                        DropItem(npc, ModContent.ItemType<EarthenHelmet>());
+                        DropItem(npc, ModContent.ItemType<EarthenBreastplate>());
+                        DropItem(npc, ModContent.ItemType<EarthenLeggings>());
+                    }
                 }
 
                 if (npc.type == calamityMod.NPCType("GiantClam") && Main.expertMode)

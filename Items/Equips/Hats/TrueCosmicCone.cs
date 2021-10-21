@@ -63,6 +63,7 @@ namespace CalValEX.Items.Equips.Hats
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (calamityMod != null)
             {
+                recipe.AddIngredient(ModContent.ItemType<SpectralstormHat>());
                 recipe.AddIngredient(calamityMod.ItemType("CosmiliteBar"), 10);
                 recipe.AddIngredient(calamityMod.ItemType("GalacticaSingularity"), 5);
                 recipe.AddIngredient(mod.ItemType("CosmicCone"), 1);
