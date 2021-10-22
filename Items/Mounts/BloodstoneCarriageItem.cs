@@ -4,29 +4,30 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace CalValEX.Items.Equips.Hats
+namespace CalValEX.Items.Mounts
 {
-    [AutoloadEquip(EquipType.Head)]
-    public class BloodyMaryHat : ModItem
+    public class BloodstoneCarriageItem : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bloody Mary Hat");
-            Tooltip.SetDefault("You feel elegant");
+            DisplayName.SetDefault("Bloodstone Carriage Item");
+            Tooltip.SetDefault("When you need to get somewhere, in style.\nThe Profaned Goddess' curse haunts the cycle, cutting your damage and health dramatically if a boss is nearby");
         }
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 28;
+            item.width = 20;
+            item.height = 30;
+            item.useTime = 20;
+            item.useAnimation = 20;
+            item.useStyle = 1;
             item.value = Item.sellPrice(0, 3, 0, 0);
-            item.vanity = true;
+            item.rare = 11;
+            item.UseSound = SoundID.Item23;
+            item.noMelee = true;
+            item.mountType = mod.MountType("BloodstoneCarriage");
         }
 
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
-        {
-            drawAltHair = true;
-        }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             //rarity 12 (Turquoise) = new Color(0, 255, 200)
@@ -46,12 +47,12 @@ namespace CalValEX.Items.Equips.Hats
                 }
             }
         }
+
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            recipe.AddIngredient(calamityMod.ItemType("BloodstoneCore"), 4);
-            recipe.AddIngredient((ItemID.TheBrideHat), 1);
+            recipe.AddIngredient(mod.ItemType("BloodstoneCore"), 16);
+            recipe.AddIngredient(ModContent.ItemType<Items.Tiles.Blocks.ChiseledBloodstone>(), 50);
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.SetResult(this);
             recipe.AddRecipe();

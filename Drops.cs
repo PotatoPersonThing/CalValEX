@@ -1019,7 +1019,7 @@ namespace CalValEX
                     ConditionalChanceDropItem(npc, ModContent.ItemType<PerforatorPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
-                if (npc.type == calamityMod.NPCType("HiveMindP2"))
+                if (npc.type == calamityMod.NPCType("HiveMind"))
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<HiveMindPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
@@ -1101,7 +1101,7 @@ namespace CalValEX
                     ConditionalChanceDropItem(npc, ModContent.ItemType<BrimstoneElementalPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
-                if (npc.type == calamityMod.NPCType("Calamitas"))
+                if (npc.type == calamityMod.NPCType("CalamitasRun3"))
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<ClonePlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
@@ -1182,7 +1182,7 @@ namespace CalValEX
                     ConditionalChanceDropItem(npc, ModContent.ItemType<PolterghastPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
-                if (npc.type == calamityMod.NPCType("StormWeaverHeadNaked") &&
+                if (npc.type == calamityMod.NPCType("StormWeaverHead") &&
                     CalamityWorld.DoGSecondStageCountdown <= 0)
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<StormBandana>(), !Main.expertMode, vanityNormalChance);
