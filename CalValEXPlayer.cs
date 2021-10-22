@@ -877,6 +877,9 @@ namespace CalValEX
 
         public override void UpdateBiomeVisuals()
         {
+            bool useAstralBiome = ZoneAstral;
+            player.ManageSpecialBiomeVisuals("CalValEX:AstralBiome", useAstralBiome);
+
             bool bossIsAlive2 = false;
             for (int i = 0; i < Main.maxNPCs; i++)
             {

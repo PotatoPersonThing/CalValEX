@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using CalValEX.ExtraTextures.ChristmasPets;
+using CalValEX.Backgrounds;
 using CalValEX.Items;
 using CalValEX.Items.Dyes;
 using CalValEX.Items.Equips.Balloons;
@@ -35,8 +36,10 @@ using CalValEX.Items.Tiles.Blocks.Astral;
 using CalValEX.Tiles.MiscFurniture;
 using CalValEX.Items.Tiles.FurnitureSets.Astral;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Graphics.Shaders;
+using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -80,6 +83,7 @@ namespace CalValEX
 
             if (Main.dedServ)
                 return;
+            AddEquipTexture(null, EquipType.Legs, "BloodyMaryDress_Legs", "CalValEX/Items/Equips/Shirts/BloodyMaryDress_Legs");
             //Signus transformation
             AddEquipTexture(new SignusHead(), null, EquipType.Head, "SignusHead", "CalValEX/Items/Equips/Transformations/SignusTrans_Head");
             AddEquipTexture(new SignusBody(), null, EquipType.Body, "SignusBody", "CalValEX/Items/Equips/Transformations/SignusTrans_Body", "CalValEX/Items/Equips/Transformations/SignusTrans_Arms");
@@ -110,7 +114,10 @@ namespace CalValEX
             DraedonHelmetTextureCache.Load();
             DraedonChestplateCache.Load();
 
-            AddMusicBox(GetSoundSlot(SoundType.Music, "Sounds/Music/AstralBlight"), ItemType("AstralMusicBox"), TileType("AstralMusicBoxPlaced"));
+            Filters.Scene["CalValEX:AstralBiome"] = new Filter(new AstralSkyData("FilterMiniTower").UseColor(Color.Purple).UseOpacity(0.15f), EffectPriority.VeryHigh);
+            SkyManager.Instance["CalValEX:AstralBiome"] = new AstralSky();
+
+        AddMusicBox(GetSoundSlot(SoundType.Music, "Sounds/Music/AstralBlight"), ItemType("AstralMusicBox"), TileType("AstralMusicBoxPlaced"));
         }
 
         public override void Unload()
