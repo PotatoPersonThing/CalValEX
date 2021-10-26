@@ -21,6 +21,8 @@ using CalValEX.Items.Equips.Blanks;
 using CalValEX.Items.Hooks;
 using CalValEX.Items.LightPets;
 using CalValEX.Items.Mounts;
+using CalValEX.Items.Mounts.LimitedFlight;
+using CalValEX.Items.Mounts.InfiniteFlight;
 using CalValEX.Walls;
 using CalValEX.Items.Walls.Astral;
 using CalValEX.Items.Walls;
@@ -346,7 +348,7 @@ namespace CalValEX
                     new List<int>
                     {
                         ModContent.ItemType<MawHook>(), ModContent.ItemType<FlakHeadCrab>(),
-                        ModContent.ItemType<SkaterEgg>(), ModContent.ItemType<Help>(),
+                        ModContent.ItemType<SkaterEgg>(), ModContent.ItemType<Help>(), ModContent.ItemType<Items.Mounts.Ground.RadJuice>(),
                         ModContent.ItemType<TrilobiteShield>(),
                         ModContent.ItemType<GammaHelmet>()
                     });

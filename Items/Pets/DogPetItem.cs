@@ -13,8 +13,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Cosmic Rapture");
-            Tooltip.SetDefault("Summons the Devourer of the cosmos to follow you\n" +
-                "The Devourer will only appear when you have proven yourself worthy");
+            Tooltip.SetDefault("Summons the Devourer of the cosmos to follow you");
         }
 
         public override void SetDefaults()
@@ -46,12 +45,6 @@ namespace CalValEX.Items.Pets
                     tooltipLine.overrideColor = new Color(43, 96, 222); //change the color accordingly to above
                 }
             }
-        }
-
-        public override bool CanUseItem(Player player)
-        {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            return NPC.downedMoonlord;
         }
 
         public override void UseStyle(Player player)

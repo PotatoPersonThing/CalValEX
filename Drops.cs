@@ -14,6 +14,9 @@ using CalValEX.Items.Equips.Wings;
 using CalValEX.Items.Hooks;
 using CalValEX.Items.LightPets;
 using CalValEX.Items.Mounts;
+using CalValEX.Items.Mounts.InfiniteFlight;
+using CalValEX.Items.Mounts.Ground;
+using CalValEX.Items.Mounts.LimitedFlight;
 using CalValEX.Items.Mounts.Morshu;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Pets.Scuttlers;
@@ -764,6 +767,11 @@ namespace CalValEX
                     ChanceDropItem(npc, ModContent.ItemType<CoralMask>(), normalChance);
                 }
 
+                if (npc.type == calamityMod.NPCType("AnthozoanCrab"))
+                {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<CrackedFossil>(), Main.expertMode, normalChance);
+                }
+
                 if (npc.type == calamityMod.NPCType("IceClasper"))
                 {
                     ChanceDropItem(npc, ModContent.ItemType<AntarcticEssence>(), normalChance);
@@ -885,6 +893,7 @@ namespace CalValEX
                 //Minibosses
                 if (npc.type == calamityMod.NPCType("NuclearTerror"))
                 {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<RadJuice>(), Main.expertMode, minibossChance); 
                     DropItem(npc, ModContent.ItemType<NuclearFumes>(), 3, 5); //garanteed 3 to 5
                     ConditionalDropItem(npc, ModContent.ItemType<NuclearFumes>(), Main.expertMode, 1,
                         3); //when expert mode you get 1 to 3
@@ -979,15 +988,6 @@ namespace CalValEX
                     ConditionalChanceDropItem(npc, ModContent.ItemType<NuclearFumes>(),
                             (bool)calamityMod.Call("GetBossDowned", "polterghast"), 0.3f, 1, 3);
                 }
-
-                //if (npc.type == mod.NPCType("NuclearTerror"))
-                //{
-                //if (Main.rand.NextFloat() < 0.1f && Main.expertMode)
-                //{
-                //Item.NewItem(npc.getRect(),
-                //ModContent.ItemType<RadJuice>());
-                //}
-                //}
                 if (npc.type == calamityMod.NPCType("ThiccWaifu"))
                 {
                     ChanceDropItem(npc, ModContent.ItemType<cloudcandy>(), 0.1f);
@@ -1297,7 +1297,7 @@ namespace CalValEX
                     ChanceDropItem(npc, ModContent.ItemType<CharredChopper>(), RIVChance);
                 }
 
-                if (npc.type == calamityMod.NPCType("DevourerofGodsHeadS"))
+                if (npc.type == calamityMod.NPCType("DevourerofGodsHead"))
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<DevourerofGodsPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     ConditionalChanceDropItem(npc, ModContent.ItemType<CosmicWormScarf>(), !Main.expertMode, 0.2f);

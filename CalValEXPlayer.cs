@@ -13,6 +13,7 @@ using CalValEX.Items.Equips.Backs;
 using CalValEX.Projectiles.Pets.Elementals;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Graphics.Shaders;
@@ -339,6 +340,8 @@ namespace CalValEX
         public bool wulfrumjam;
         public bool cassette;
         public bool specan;
+        public bool carriage;
+        public float bcarriagewheel = 0.0f;
 
         public override void Initialize()
         {
@@ -571,6 +574,14 @@ namespace CalValEX
                 coneframe = coneframe == coneflame - 1 ? 0 : coneframe + 1;
             }
             conecounter++;
+            if (Main.LocalPlayer.velocity.X > 0)
+            {
+                bcarriagewheel += 1.0f;
+            }
+            else if (Main.LocalPlayer.velocity.X < 0)
+            {
+                bcarriagewheel -= 1.0f;
+            }
         }
 
         private void ResetMyStuff()
@@ -710,6 +721,7 @@ namespace CalValEX
             conejo = false;
             cassette = false;
             specan = false;
+            carriage = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
@@ -1018,6 +1030,30 @@ namespace CalValEX
             }
         });
 
+        public static readonly PlayerLayer BCarriage = new PlayerLayer("CalValEX", "BCarriage", PlayerLayer.Arms, delegate (PlayerDrawInfo drawInfo)
+        {
+            if (drawInfo.shadow != 0f)
+            {
+                return;
+            }
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("CalValEX");
+            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
+            if (modPlayer.carriage)
+            {
+                int flipoffset;
+                int gnuflip = 56 * -drawPlayer.direction;
+                Texture2D texture = mod.GetTexture("Items/Mounts/Ground/BloodstoneCarriageWheel");
+                int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X + gnuflip);
+                int drawX2 = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X - gnuflip);
+                int drawY = (int)(drawInfo.position.Y + drawPlayer.height - Main.screenPosition.Y + 16);
+                DrawData data = new DrawData(texture, new Vector2(drawX + (drawPlayer.direction == 1 ? 6 : -8), drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - texture.Height / 2f) / 16f)), modPlayer.bcarriagewheel / 15.0f, new Vector2(texture.Width / 2f, texture.Height /2f), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
+                DrawData data2 = new DrawData(texture, new Vector2(drawX2 + (drawPlayer.direction == -1 ? -8 : 6), drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - texture.Height / 2f) / 16f)), modPlayer.bcarriagewheel / 15.0f, new Vector2(texture.Width / 2f, texture.Height /2f), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
+                Main.playerDrawData.Add(data);
+                Main.playerDrawData.Add(data2);
+            }
+        });
+
         public static readonly PlayerLayer Mimigun = new PlayerLayer("CalValEX", "Mimigun", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
         {
             if (drawInfo.shadow != 0f)
@@ -1132,6 +1168,7 @@ namespace CalValEX
             int armLayer = layers.FindIndex(l => l == PlayerLayer.Arms);
             int wingLayer = layers.FindIndex(l => l == PlayerLayer.Wings);
             int backLayer = layers.FindIndex(l => l == PlayerLayer.BackAcc);
+            int carriageLayer = layers.FindIndex(l => l == PlayerLayer.MountFront);
 
             if (headLayer > -1)
             {
@@ -1155,6 +1192,8 @@ namespace CalValEX
             layers.Insert(armLayer + 1, Mimigun2);
             Prismshell.visible = true;
             layers.Insert(backLayer + 1, Prismshell);
+            BCarriage.visible = true;
+            layers.Insert(armLayer + 1, BCarriage);
         }
 
         public override void ModifyDrawHeadLayers(List<PlayerHeadLayer> layers)

@@ -19,6 +19,7 @@ namespace CalValEX.Items.Pets
             item.shoot = mod.ProjectileType("StarJelly");
             item.value = Item.sellPrice(0, 2, 0, 0);
             item.rare = 6;
+            item.CloneDefaults(ItemID.ZephyrFish);
             item.buffType = mod.BuffType("JellyBuff");
         }
 
