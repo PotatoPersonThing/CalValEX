@@ -9,7 +9,7 @@ namespace CalValEX.Buffs.Mounts
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Bloodstone Carriage");
-            Description.SetDefault("For when you really need to get somewhere, in style.");
+            Description.SetDefault("You could even call it a mi-");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

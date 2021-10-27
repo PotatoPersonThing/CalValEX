@@ -10,8 +10,8 @@ namespace CalValEX.Items.Mounts.Ground
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bloodstone Carriage Item");
-            Tooltip.SetDefault("When you need to get somewhere, in style.\nThe Profaned Goddess' curse haunts the cycle, cutting your damage and health dramatically if a boss is nearby");
+            DisplayName.SetDefault("Bloody Carriage Wheel");
+            Tooltip.SetDefault("Take a merry little stroll on a ride made of the deceased!\nReduces damage and health while a boss is nearby");
         }
 
         public override void SetDefaults()

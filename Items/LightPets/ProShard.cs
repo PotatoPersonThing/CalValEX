@@ -19,11 +19,13 @@ namespace CalValEX.Items.LightPets
 
         public override void SetDefaults()
         {
+            item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.Item20;
             item.shoot = mod.ProjectileType("ProGuard1");
             item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = 10;
             item.buffType = ModContent.BuffType<ProBuff>();
+            ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

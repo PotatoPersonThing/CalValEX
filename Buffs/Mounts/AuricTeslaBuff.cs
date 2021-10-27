@@ -9,7 +9,7 @@ namespace CalValEX.Buffs.Mounts
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Auric Tesla");
-            Description.SetDefault("Yharim Car, Yharim Car");
+            Description.SetDefault("Yharim Car\nYharim Car");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

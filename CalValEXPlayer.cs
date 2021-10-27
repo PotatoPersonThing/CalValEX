@@ -298,6 +298,9 @@ namespace CalValEX
         public bool polterthigh;
         public bool bSignut;
         public bool bSlime;
+        public bool buffboi;
+        public bool smaul;
+        public bool shart;
         public bool morshu;
         public bool morshugun;
         public bool scaldown;
@@ -712,6 +715,9 @@ namespace CalValEX
             SupJ = false;
             bSignut = false;
             bSlime = false;
+            buffboi = false;
+            smaul = false;
+            shart = false;
             morshu = false;
             morshugun = false;
             scaldown = false;

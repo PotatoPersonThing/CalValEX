@@ -9,7 +9,7 @@ namespace CalValEX.Buffs.Mounts
         public override void SetDefaults()
         {
             DisplayName.SetDefault("God Rider");
-            Description.SetDefault("Ridin' through dimensions");
+            Description.SetDefault("Ridin' the dimensional tides");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

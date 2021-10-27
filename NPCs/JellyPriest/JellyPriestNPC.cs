@@ -476,8 +476,17 @@ namespace CalValEX.NPCs.JellyPriest
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "providence"))
                     {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<BotanicPot>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<HolyStudedBonsai>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
+                        ++nextSlot;
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Provibust>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50, 0, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<BloodstoneRoses>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
                         ++nextSlot;
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Se>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(6, 66, 66, 66);
@@ -823,8 +832,17 @@ namespace CalValEX.NPCs.JellyPriest
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "providence"))
                     {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<BotanicPot>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<HolyStudedBonsai>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
+                        ++nextSlot;
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Provibust>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50, 0, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<BloodstoneRoses>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
                         ++nextSlot;
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Se>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(6, 66, 66, 66);

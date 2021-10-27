@@ -534,6 +534,11 @@ namespace CalValEX
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<DriedMandible>());
                             }
+
+                            if (Main.rand.NextFloat() < 0.07f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<SandTooth>());
+                            }
                         }
 
                         if (arg == calamityMod.ItemType("CrabulonBag"))
@@ -744,6 +749,11 @@ namespace CalValEX
                                 player.QuickSpawnItem(ModContent.ItemType<AncientChoker>());
                             }
 
+                            if (Main.rand.NextFloat() < 0.07f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<ScavaHook>());
+                            }
+
                             if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<RavaHook>());
@@ -940,13 +950,23 @@ namespace CalValEX
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<CorrodedCleaver>());
                             }
+
+                            if (Main.rand.NextFloat() < 0.07f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<CharredChopper>());
+                            }
                         }
 
                         if (arg == calamityMod.ItemType("DevourerofGodsBag"))
                         {
-                            if (Main.rand.NextFloat() < 0.1f)
+                            if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<CosmicWormScarf>());
+                            }
+
+                            if (Main.rand.NextFloat() < 0.2f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<DogPetItem>());
                             }
 
                             if (Main.rand.NextFloat() < 0.07f)
@@ -966,6 +986,11 @@ namespace CalValEX
                             if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<JunglePhoenixWings>());
+                            }
+
+                            if (Main.rand.NextFloat() < 0.3f && !(CalValEX.month == 6 && CalValEX.day == 1))
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<YharonsAnklet>());
                             }
 
                             if (Main.rand.NextFloat() < 0.3f)

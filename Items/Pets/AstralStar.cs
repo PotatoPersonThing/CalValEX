@@ -20,6 +20,7 @@ namespace CalValEX.Items.Pets
             item.value = Item.sellPrice(0, 2, 0, 0);
             item.rare = 9;
             item.buffType = mod.BuffType("DeusBuff");
+            ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 
         public override void UseStyle(Player player)

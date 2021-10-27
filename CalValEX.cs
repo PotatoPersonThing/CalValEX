@@ -199,7 +199,7 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Slime God",
                     new List<int> { ModLoader.GetMod("CalamityMod").ItemType("StatigelBlock") });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Slime God",
-                    new List<int> { ModContent.ItemType<SlimeGodPlush>(), ModContent.ItemType<ImpureStick>()});
+                    new List<int> { ModContent.ItemType<SlimeGodMask>(), ModContent.ItemType<SlimeGodPlush>(), ModContent.ItemType<ImpureStick>()});
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Cryogen",
                     new List<int> { ModContent.ItemType<CryogenPlush>(), ModContent.ItemType<CryoStick>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Aquatic Scourge",

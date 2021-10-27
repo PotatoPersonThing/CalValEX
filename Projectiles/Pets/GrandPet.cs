@@ -33,13 +33,15 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetUpFlyingPet()
         {
+            Player player = Main.player[projectile.owner];
+            CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             distance[0] = 1440f; //teleport distance
             distance[1] = 560f; //faster speed distance
             speed = 12f;
             inertia = 60f;
             animationSpeed = 12; //how fast the animation should play
             spinRotationSpeedMult = 0.2f; //rotation speed multiplier, keep it positive for it to spin in the right direction
-            offSetX = 48f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
+            offSetX = modPlayer.shart ? (-48f) : (48f * -Main.player[projectile.owner].direction);
             offSetY = -50f; //how much higher from the center the pet should float
         }
 

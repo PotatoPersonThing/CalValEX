@@ -16,6 +16,7 @@ namespace CalValEX.Items.Pets
 
         public override void SetDefaults()
         {
+            item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit5;
             item.shoot = mod.ProjectileType("cryokid");
             item.value = Item.sellPrice(0, 2, 0, 0);

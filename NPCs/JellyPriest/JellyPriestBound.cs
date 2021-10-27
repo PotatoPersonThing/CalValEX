@@ -37,22 +37,34 @@ namespace CalValEX.NPCs.JellyPriest
         public override void AI()
         {
             npc.breath += 2;
+            for (int i = 0; i < 255; i++)
+            {
+                if (Main.player[i].active && Main.player[i].talkNPC == npc.whoAmI)
+                {
+                    CalValEXWorld.rescuedjelly = true;
+                    CalValEXWorld.UpdateWorldBool();
+                    npc.Transform(ModContent.NPCType<JellyPriestNPC>());
+                    return;
+                }
+            }
         }
 
         public override string GetChat()
         {
-            CalValEXWorld.rescuedjelly = true;
-            CalValEXWorld.UpdateWorldBool();
-            npc.Transform(ModContent.NPCType<JellyPriestNPC>());
-            switch (Main.rand.Next(2))
-            {
-                case 0:
-                    return "Being free from those vines is great and all, but I need a place to settle for my sculpting.";
-
-                default:
-                    return "Greetings, land creature! I rise from this old sea in hopes of traveling and finding a certain deity from the old times, from when the sea was a beautiful reign for many. Do you have any hint about where I could find them?";
-            }
+            return "Greetings, land creature! I rise from this old sea in hopes of traveling and finding a certain deity from the old times, from when the sea was a beautiful reign for many. Do you have any hint about where I could find them?";         
         }
+
+        /*void Awaken()
+        {
+            for (int blah = 0; blah <= 20; blah++)
+            {
+                npc.ai[3]++;
+            }
+            if (npc.ai[3] >= 4)
+            {
+                npc.Transform(ModContent.NPCType<JellyPriestNPC>());
+            }
+        }*/
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

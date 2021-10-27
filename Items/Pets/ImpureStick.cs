@@ -17,6 +17,7 @@ namespace CalValEX.Items.Pets
 
         public override void SetDefaults()
         {
+            item.CloneDefaults(ItemID.ZephyrFish);
             item.width = 36;
             item.height = 32;
             item.UseSound = SoundID.Item81;
