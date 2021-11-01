@@ -3,30 +3,26 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Items.Mounts;
 
-namespace CalValEX.Items.Mounts.Ground
+namespace CalValEX.Items.Pets
 {
-    public class GodRiderItem : ModItem
+    public class RoverSpindle : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("God Rider Kit");
-            Tooltip.SetDefault("Devour miles in the blink of an eye\nSummons a rideable God Rider Hoverbike\nReduces damage and health when a boss is nearby");
+            DisplayName.SetDefault("Rover Spindle");
+            Tooltip
+                .SetDefault("Crusty\n" + "Summons a suspiciously familiar Wulfrum Robot");
         }
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 30;
-            item.useTime = 20;
-            item.useAnimation = 20;
-            item.useStyle = 1;
+            item.CloneDefaults(ItemID.ZephyrFish);
+            item.UseSound = SoundID.NPCHit4;
+            item.shoot = mod.ProjectileType("RoverSpindlePet");
             item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = 11;
-            item.UseSound = SoundID.Item23;
-            item.noMelee = true;
-            item.mountType = mod.MountType("GoDrider");
+            item.buffType = mod.BuffType("RoverSpindleBuff");
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -44,19 +40,17 @@ namespace CalValEX.Items.Mounts.Ground
             {
                 if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(43, 96, 222); //change the color accordingly to above
+                    tooltipLine.overrideColor = new Color(108, 45, 199); //change the color accordingly to above
                 }
             }
         }
 
-        public override void AddRecipes()
+        public override void UseStyle(Player player)
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CosmiliteBar"), 10);
-            recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("AscendantSpiritEssence"), 5);
-            recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
+            {
+                player.AddBuff(item.buffType, 3600, true);
+            }
         }
     }
 }

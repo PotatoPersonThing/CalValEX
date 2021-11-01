@@ -72,6 +72,7 @@ namespace CalValEX
         public static int month;
 
         public static MethodInfo compactFraming;
+        public static MethodInfo brimstoneFraming;
 
         public override void Load()
         {
@@ -134,6 +135,7 @@ namespace CalValEX
             day = -1;
             month = -1;
             compactFraming = null;
+            brimstoneFraming = null;
 
             if (Main.dedServ)
                 return;
@@ -172,6 +174,11 @@ namespace CalValEX
             Type tileFraming = cal.Code.GetType("CalamityMod.TileFraming");
 
             compactFraming = tileFraming.GetMethod("CompactFraming", BindingFlags.Static | BindingFlags.NonPublic);
+
+            //Compact tile framing support
+            Type tileFraming2 = cal.Code.GetType("CalamityMod.TileFraming");
+
+            brimstoneFraming = tileFraming2.GetMethod("BrimstoneFraming", BindingFlags.Static | BindingFlags.NonPublic);
 
             //Christmas textures
             ChristmasTextureChange.Load();

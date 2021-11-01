@@ -2,19 +2,19 @@
 
 namespace CalValEX.Projectiles.Pets
 {
-    public class BuffReaper : WalkingPet
+    public class RoverSpindlePet : WalkingPet
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Buff lil man");
-            Main.projFrames[projectile.type] = 15; //frames
+            DisplayName.SetDefault("RoverdriveZ");
+            Main.projFrames[projectile.type] = 13; //frames
             Main.projPet[projectile.type] = true;
         }
 
         public override void SafeSetDefaults()
         {
-            projectile.width = 44;
-            projectile.height = 36;
+            projectile.width = 28;
+            projectile.height = 38;
             projectile.penetrate = -1;
             projectile.netImportant = true;
             projectile.timeLeft *= 5;
@@ -23,7 +23,7 @@ namespace CalValEX.Projectiles.Pets
             projectile.tileCollide = true;
             /*base.drawOffsetX = -7;*/
             base.drawOriginOffsetY = 1;
-            facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
+            facingLeft = false; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
             shouldFlip = true;
         }
@@ -67,25 +67,25 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetFrameLimitsAndFrameSpeed()
         {
-            idleFrameLimits[0] = idleFrameLimits[1] = 13; //what your min idle frame is (start of idle animation)
+            idleFrameLimits[0] = idleFrameLimits[1] = 0; //what your min idle frame is (start of idle animation)
 
-            walkingFrameLimits[0] = 8; //what your min walking frame is (start of walking animation)
-            walkingFrameLimits[1] = 14; //what your max walking frame is (end of walking animation)
+            walkingFrameLimits[0] = 2; //what your min walking frame is (start of walking animation)
+            walkingFrameLimits[1] = 9; //what your max walking frame is (end of walking animation)
 
-            flyingFrameLimits[0] = 0;
-            flyingFrameLimits[1] = 7; //what your min flying frame is (start of flying animation)
+            flyingFrameLimits[0] = 10;
+            flyingFrameLimits[1] = 12; //what your min flying frame is (start of flying animation)
 
             animationSpeed[0] = 30; //idle animation speed
             animationSpeed[1] = 8; //walking animation speed
             animationSpeed[2] = 10; //flying animation speed
             spinRotationSpeedMult = 2.5f; //how fast it should spin
             //put the below to -1 if you dont want a jump animation (so its just gonna continue it's walk animation
-            animationSpeed[3] = -1; //jumping animation speed
+            animationSpeed[3] = 12; //jumping animation speed
 
-            jumpFrameLimits[0] = -1; //what your min jump frame is (start of jump animation)
-            jumpFrameLimits[1] = -1; //what your max jump frame is (end of jump animation)
+            jumpFrameLimits[0] = 1; //what your min jump frame is (start of jump animation)
+            jumpFrameLimits[1] = 1; //what your max jump frame is (end of jump animation)
 
-            jumpAnimationLength = -1; //how long the jump animation should stay
+            jumpAnimationLength = 30; //how long the jump animation should stay
         }
 
         public override void SafeAI(Player player)
@@ -93,8 +93,8 @@ namespace CalValEX.Projectiles.Pets
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
-                modPlayer.buffboi = false;
-            if (modPlayer.buffboi)
+                modPlayer.roverd = false;
+            if (modPlayer.roverd)
                 projectile.timeLeft = 2;
 
             /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.

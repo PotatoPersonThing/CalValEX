@@ -301,6 +301,7 @@ namespace CalValEX
         public bool buffboi;
         public bool smaul;
         public bool shart;
+        public bool roverd;
         public bool morshu;
         public bool morshugun;
         public bool scaldown;
@@ -676,6 +677,7 @@ namespace CalValEX
             sirember = false;
             deusmain = false;
             deussmall = false;
+            roverd = false;
             rusty = false;
             sepet = false;
             pylon = false;

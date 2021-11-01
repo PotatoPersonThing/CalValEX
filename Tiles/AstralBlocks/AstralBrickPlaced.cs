@@ -15,12 +15,12 @@ namespace CalValEX.Tiles.AstralBlocks
             Main.tileBlendAll[this.Type] = true;
             drop = ModContent.ItemType<AstralBrick>();
             AddMapEntry(new Color(171, 103, 171));
-            animationFrameHeight = 90;
+            animationFrameHeight = 198;
             minPick = 100;
             soundType = SoundID.Tink;
         }
 
-        private readonly int animationFrameWidth = 234;
+        private readonly int animationFrameWidth = 450;
 
         public override void AnimateIndividualTile(int type, int i, int j, ref int frameXOffset, ref int frameYOffset)
         {

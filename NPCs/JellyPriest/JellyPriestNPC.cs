@@ -653,6 +653,9 @@ namespace CalValEX.NPCs.JellyPriest
                         shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("StratusBricks"));
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
                         ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ItemType<AzufreSludge>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
+                        ++nextSlot;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "devourerofgods"))
                     {
@@ -1003,6 +1006,9 @@ namespace CalValEX.NPCs.JellyPriest
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
                         ++nextSlot;
                         shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("StratusBricks"));
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ItemType<AzufreSludge>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
                         ++nextSlot;
                     }
