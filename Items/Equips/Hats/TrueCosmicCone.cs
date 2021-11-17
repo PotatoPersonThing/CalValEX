@@ -21,7 +21,7 @@ namespace CalValEX.Items.Equips.Hats
             item.width = 24;
             item.height = 28;
             item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 10;
+            item.rare = 11;
             item.vanity = true;
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips)

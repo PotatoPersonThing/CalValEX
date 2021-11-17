@@ -74,12 +74,12 @@ namespace CalValEX.Items.Mounts.Morshu
             if (scaldying)
             {
                 morshuscal++;
-                if (!morshuplaysound)
+                if (!morshuplaysound && morshuscal >= 60)
                 {
-                    Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/MorshuScal"));
+                    Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/MorshuDraedon"));
                     morshuplaysound = true;
                 }
-                if (morshuscal >= 200)
+                if (morshuscal >= 240)
                 {
                     player.GetModPlayer<CalValEXPlayer>().morshugun = true;
                     if (!gunsound)
@@ -88,7 +88,7 @@ namespace CalValEX.Items.Mounts.Morshu
                         gunsound = true;
                     }
                 }
-                if (morshuscal >= 360)
+                if (morshuscal >= 480)
                 {
                     Vector2 perturbedSpeed = new Vector2(40, 0).RotatedByRandom(MathHelper.ToRadians(10));
                     Main.PlaySound(SoundID.Item11);
@@ -104,16 +104,20 @@ namespace CalValEX.Items.Mounts.Morshu
                 morshuplaysound = false;
                 gunsound = false;
             }
-            if (NPC.AnyNPCs(calamityMod.NPCType("SupremeCalamitas")))
+            if (NPC.AnyNPCs(calamityMod.NPCType("Draedon")))
             {
                 for (int x = 0; x < Main.maxNPCs; x++)
                 {
                     NPC npc = Main.npc[x];
-                    if (npc.type == calamityMod.NPCType("SupremeCalamitas") && npc.life <= npc.lifeMax * 0.01)
+                    if (npc.type == calamityMod.NPCType("Draedon"))
                     {
                         if (npc.dontTakeDamage == false)
                         {
                             scaldying = true;
+                        }
+                        if (scaldying)
+                        {
+                            npc.dontTakeDamage = false; //YOU AREN'T HOLOGRAMMIN THIS TIME BISH
                         }
                     }
                     //npc.dontTakeDamage = false && npc.life <= npc.lifeMax * 0.99 && 
@@ -121,7 +125,7 @@ namespace CalValEX.Items.Mounts.Morshu
                 }
             }
             
-             if (!NPC.AnyNPCs(calamityMod.NPCType("SupremeCalamitas")))
+            if (!NPC.AnyNPCs(calamityMod.NPCType("Draedon")))
             {
                 scaldying = false;
             }

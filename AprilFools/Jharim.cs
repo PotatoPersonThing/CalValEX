@@ -87,10 +87,19 @@ namespace CalValEX.AprilFools
                 return "Hyu Hyu Hyu... That purple lady stole my booze.";
             }
 
+            int Cal = NPC.FindFirstNPC((ModLoader.GetMod("CalamityMod").NPCType("WITCH")));
+            if (Cal >= 0 && Main.rand.NextFloat() < 0.25f)
+            {
+                return "GET THAT ACURSED WITCH AWAY FROM ME";
+            }
+
             int SEAHOE = NPC.FindFirstNPC((ModLoader.GetMod("CalamityMod").NPCType("SEAHOE")));
             if (SEAHOE >= 0 && Main.rand.NextFloat() < 0.25f)
             {
+                if (Cal >= 0)
                 return "How is Amidas still alive, I thought that he got burnt by Soup Ree Calamitoad.";
+                else
+                return "How is Amidas still alive, I thought that he got burnt by that DUMB witch.";
             }
             CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
 
@@ -111,7 +120,7 @@ namespace CalValEX.AprilFools
                 }
             }
 
-            if ((calPlayer.sirenWaifu || calPlayer.elementalHeart) && Main.rand.NextFloat() < 0.25f)
+            if ((calPlayer.sirenWaifu || calPlayer.elementalHeart || (CalValEXPlayer.vanityhote && !CalValEXConfig.Instance.HeartVanity)) && Main.rand.NextFloat() < 0.25f)
             {
                 return "OoooooO Fish Lady, tell me! Where's my fish tacos!";
             }
@@ -144,16 +153,19 @@ namespace CalValEX.AprilFools
             {
                 if (Main.dayTime)
                 {
-                    switch (Main.rand.Next(3))
+                    switch (Main.rand.Next(4))
                     {
                         case 0:
-                            return "Run.";
+                            return "Hyuck Hyuck Hyuck, Jharim the Great orders you to get fish for me! ... what do you mean you don't want to!?";
 
                         case 1:
-                            return "The red moon... a cursed thing... Anyways where's my eggos, chop chop little one.";
+                            return "Yharim is a faker, I AM THE ONLY JUNGLE TYRANT!";
+
+                        case 2:
+                            return "HYuHck HYuHck HYuHck. Why am I spelling like this?";
 
                         default:
-                            return "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.";
+                            return "When I was younger, I tortured a bee for a minute straight then bashed nails into its body. It was funny and got a lot of views on TubeYou.";
                     }
                 }
                 else
@@ -161,7 +173,7 @@ namespace CalValEX.AprilFools
                     switch (Main.rand.Next(4))
                     {
                         case 0:
-                            return "I'ts dark.";
+                            return "It's dark.";
 
                         case 1:
                             return "Hyuck Hyuck Hyuck, nights remind me of the time that I went to the beach and was almost assassinated!";
@@ -173,19 +185,16 @@ namespace CalValEX.AprilFools
             }
             else
             {
-                switch (Main.rand.Next(4))
+                switch (Main.rand.Next(3))
                 {
                     case 0:
-                        return "Hyuck Hyuck Hyuck, Jharim the Great orders you to get fish for me! ... what do you mean you don't want to!?";
+                        return "Run.";
 
                     case 1:
-                        return "Yharim is a faker, I AM THE ONLY JUNGLE TYRANT!";
-
-                    case 2:
-                        return "HYuHck HYuHck HYuHck. Why am I spelling like this?";
+                        return "The red moon... a cursed thing... Anyways where's my eggos, chop chop little one.";
 
                     default:
-                        return "When I was younger, I tortured a bee for a minute straight then bashed nails into its body. It was funny and got a lot of views on TubeYou.";
+                        return "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.";
                 }
             }
         }

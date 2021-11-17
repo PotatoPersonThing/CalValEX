@@ -19,6 +19,7 @@ namespace CalValEX.Buffs.Mounts
             player.mount.SetMount(ModContent.MountType<YharimCar>(), player);
             player.buffTime[buffIndex] = 10;
             CalValEX.MountNerf(player, 0.95f, 0.95f);
+            player.GetModPlayer<CalValEXPlayer>().yharcar = true;
         }
     }
 }

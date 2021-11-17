@@ -27,7 +27,7 @@ namespace CalValEX.Items.Tiles.Cages
             item.createTile = ModContent.TileType<GoldenIsopodTerrariumPlaced>();
             item.width = 12;
             item.height = 12;
-            item.rare = 10;
+            item.rare = 11;
             item.value = Item.sellPrice(0, 20, 0, 0);
         }
 

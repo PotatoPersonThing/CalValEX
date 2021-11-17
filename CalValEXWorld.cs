@@ -33,6 +33,8 @@ namespace CalValEX
 
         public static bool RockshrinEX;
 
+        public static bool jharinter;
+
         public override void Initialize()
         {
             rescuedjelly = false;
@@ -41,6 +43,7 @@ namespace CalValEX
             orthofound = false;
             Rockshrine = false;
             RockshrinEX = false;
+            jharinter = false;
         }
 
         public override TagCompound Save()
@@ -76,6 +79,11 @@ namespace CalValEX
                 downed.Add("RockshrinEX");
             }
 
+            if (jharinter)
+            {
+                downed.Add("jharinter");
+            }
+
             return new TagCompound
             {
                 {
@@ -93,6 +101,7 @@ namespace CalValEX
             amogus = downed.Contains("amogus");
             Rockshrine = downed.Contains("Rockshrine");
             RockshrinEX = downed.Contains("RockshrinEX");
+            jharinter = downed.Contains("jharinter");
         }
         public override void LoadLegacy(BinaryReader reader)
         {
@@ -106,6 +115,7 @@ namespace CalValEX
                 amogus = flags[3];
                 Rockshrine = flags[4];
                 RockshrinEX = flags[5];
+                jharinter = flags[6];
             }
             else
             {
@@ -121,6 +131,7 @@ namespace CalValEX
             flags[3] = amogus;
             flags[4] = Rockshrine;
             flags[5] = RockshrinEX;
+            flags[6] = jharinter;
             writer.Write(flags);
         }
         public override void NetReceive(BinaryReader reader)
@@ -130,8 +141,9 @@ namespace CalValEX
             jharim = flags[1];
             orthofound = flags[2];
             amogus = flags[3];
-            Rockshrine = flags[2];
-            RockshrinEX = flags[3];
+            Rockshrine = flags[4];
+            RockshrinEX = flags[5];
+            jharinter = flags[6];
         }
 
         public override void ResetNearbyTileEffects()

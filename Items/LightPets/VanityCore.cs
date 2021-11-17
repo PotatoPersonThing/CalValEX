@@ -48,7 +48,7 @@ namespace CalValEX.Items.LightPets
             {
                 recipe.AddIngredient(ModContent.ItemType<SkeetCrest>());
                 recipe.AddIngredient(ModContent.ItemType<ChaosEssence>());
-                recipe.AddIngredient(ModContent.ItemType<AntarcticEssence>());
+                recipe.AddIngredient(calamityMod.ItemType("CryoStone"));
                 recipe.AddIngredient(calamityMod.ItemType("CoreofCalamity"));
                 recipe.AddTile(TileID.MythrilAnvil);
                 recipe.SetResult(this);

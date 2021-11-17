@@ -12,7 +12,7 @@ namespace CalValEX.Items.Tiles
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Tubeman of Entropy");
-            Tooltip.SetDefault("'Embrace chaos'\n"+"Inflates into a flailing Sepulcher balloon\n"+"You really feel like you shouldn't place more than one...");
+            Tooltip.SetDefault("'Embrace chaos'\n"+"Inflates into a flailing Sepulcher balloon\n");
 
         }
 

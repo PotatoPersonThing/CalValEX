@@ -27,7 +27,7 @@ namespace CalValEX.Items.Tiles
             item.consumable = true;
             item.width = 16;
             item.height = 28;
-            item.rare = 10;
+            item.rare = ItemRarityID.Purple;
             item.createTile = ModContent.TileType<TerminusShrineLevel3Placed>();
         }
 

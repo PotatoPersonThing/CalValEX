@@ -91,6 +91,12 @@ namespace CalValEX
         [Tooltip("Disables Heart of the Elements from spawning its Elementals while in vanity slots")]
         public bool HeartVanity { get; set; }
 
+        [Label("Disable Vanity Cryo Stone")]
+        [BackgroundColor(192, 54, 64, 192)]
+        [DefaultValue(false)]
+        [Tooltip("Disables Cryo Stone from summoning its Ice Shield while in vanity slots")]
+        public bool ColdShield { get; set; }
+
         [Header("Config Access")]
         [Label("Enable Server Owner Exclusive Config Access")]
         [BackgroundColor(192, 54, 64, 192)]

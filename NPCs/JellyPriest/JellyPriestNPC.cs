@@ -175,6 +175,19 @@ namespace CalValEX.NPCs.JellyPriest
                 }
             }
 
+            int WITCH = NPC.FindFirstNPC((ModLoader.GetMod("CalamityMod").NPCType("WITCH")));
+            if (WITCH >= 0 && Main.rand.NextFloat() < 0.25f)
+            {
+                switch (Main.rand.Next(2))
+                {
+                    case 0:
+                        return "That witch... she does not give me any good memories...";
+
+                    default:
+                        return "Have you heard of the Brimstone Witch's destruction of the capital of the underworld? It was quite a tragedy... a lot of architecture ruined!";
+                }
+            }
+
             int SEAHOE = NPC.FindFirstNPC((ModLoader.GetMod("CalamityMod").NPCType("SEAHOE")));
             if (SEAHOE >= 0 && Main.rand.NextFloat() < 0.25f)
             {
@@ -200,7 +213,7 @@ namespace CalValEX.NPCs.JellyPriest
                 }
             }
 
-            if ((calPlayer.sirenWaifu || calPlayer.elementalHeart) && Main.rand.NextFloat() < 0.25f)
+            if ((calPlayer.sirenWaifu || calPlayer.elementalHeart || (CalValEXPlayer.vanityhote && !CalValEXConfig.Instance.HeartVanity)) && Main.rand.NextFloat() < 0.25f)
             {
                 return "You were successfully able to befriend the grand Water Elemental? I'm impressed.";
             }
@@ -532,6 +545,12 @@ namespace CalValEX.NPCs.JellyPriest
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(76, 0, 0, 0);
                         ++nextSlot;
                     }
+                    if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Se>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(6, 66, 66, 66);
+                        ++nextSlot;
+                    }
                 }
             }
             else if (shop2)
@@ -847,9 +866,6 @@ namespace CalValEX.NPCs.JellyPriest
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<BloodstoneRoses>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
                         ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Se>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(6, 66, 66, 66);
-                        ++nextSlot;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "stormweaver"))
                     {
@@ -885,6 +901,12 @@ namespace CalValEX.NPCs.JellyPriest
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Help>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(76, 0, 0, 0);
+                        ++nextSlot;
+                    }
+                    if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Se>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(6, 66, 66, 66);
                         ++nextSlot;
                     }
                 }

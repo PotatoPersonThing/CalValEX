@@ -1008,6 +1008,22 @@ namespace CalValEX
                                 player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());
                             }
                         }
+
+                        if (arg == calamityMod.ItemType("DraedonTreasureBag"))
+                        {
+                            if (Main.rand.NextFloat() < 0.1f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());
+                            }
+                        }
+
+                        if (arg == calamityMod.ItemType("SCalBag"))
+                        {
+                            if (Main.rand.NextFloat() < 0.1f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());
+                            }
+                        }
                     }
                 }
                 if (catalyst != null)

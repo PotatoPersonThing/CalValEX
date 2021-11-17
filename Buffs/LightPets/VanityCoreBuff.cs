@@ -45,14 +45,14 @@ namespace CalValEX.Buffs.LightPets
                     0f, 0f, mod.ProjectileType("Skeetyeet"), 0, 0f, player.whoAmI);
             }
 
-            player.buffTime[buffIndex] = 18000;
+            /*player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().Lightshield = true;
             bool petProjectileNotSpawned4 = player.ownedProjectileCounts[ModContent.ProjectileType<Lightshield>()] <= 0;
             if (petProjectileNotSpawned4 && player.whoAmI == Main.myPlayer)
             {
                 Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, mod.ProjectileType("Lightshield"), 0, 0f, player.whoAmI);
-            }
+            }*/
         }
     }
 }

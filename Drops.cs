@@ -54,10 +54,11 @@ namespace CalValEX
 
         public readonly float vanityMinChance = 0.05f; //5%
         public readonly float vanityNormalChance = 0.1f; //10%
-        private bool bdogeMount;
 
+        private bool bdogeMount;
         private bool geldonSummon;
         private bool junkoReference;
+        private bool wolfram;
 
         public override bool InstancePerEntity => true;
 
@@ -176,8 +177,14 @@ namespace CalValEX
                     }
                 }
 
-                if (type == clamMod.NPCType("DILF"))
-                {
+                if (type == clamMod.NPCType("DILF")) //Permafrost
+                {/*
+                    if (Main.rand.Next(9999) == 0)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamitasFumo>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 99, 99);
+                        ++nextSlot;
+                    }*/
                     if ((bool)clamMod.Call("GetBossDowned", "cryogen"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<FrostflakeBrick>());
@@ -331,6 +338,17 @@ namespace CalValEX
                     bdogeMount = false;
                 }
             }
+            else if (npc.type == calamityMod.NPCType("Yharon"))
+            {
+                if (projectile.type == calamityMod.ProjectileType("WulfrumBoltMinion") || projectile.type == calamityMod.ProjectileType("WulfrumDroid"))
+                {
+                    wolfram = true;
+                }
+                else
+                {
+                    wolfram = false;
+                }
+            }
             else if (npc.type == calamityMod.NPCType("Signus"))
             {
                 if (projectile.type == calamityMod.ProjectileType("PristineFire") ||
@@ -347,21 +365,58 @@ namespace CalValEX
         int signuskill;
         private bool signusbackup = false;
         int signusshaker = 0;
+        Vector2 jharimpos;
+        int calashoot = 0;
 
         public override void AI(NPC npc)
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            if (npc.type == calamityMod.NPCType("WITCH") && (!CalValEXWorld.jharinter || !NPC.downedMoonlord))
+            {
+                if (NPC.AnyNPCs(ModContent.NPCType<AprilFools.Jharim>()))
+                {
+                    for (int x = 0; x < Main.maxNPCs; x++)
+                    {
+                        NPC npc3 = Main.npc[x];
+                        if (npc3.type == ModContent.NPCType<AprilFools.Jharim>() && npc3.active)
+                        {
+                            jharimpos.X = npc3.Center.X;
+                            jharimpos.Y = npc3.Center.Y;
+                            calashoot++;
+                            if (npc3.position.X - npc.position.X >= 0)
+                            {
+                                npc.direction = 1;
+                            }
+                            else
+                            {
+                                npc.direction = -1;
+                            }
+                        }
+                    }
+                }
+                if (calashoot >= 5)
+                {
+                    Vector2 position = npc.Center;
+                    position.X = npc.Center.X + (20f * npc.direction);
+                    Vector2 direction = jharimpos - position;
+                    direction.Normalize();
+                    float speed = 10f;
+                    int type = ModContent.ProjectileType<Projectiles.JharimKiller>();
+                    int damage = 6666;
+                    Projectile.NewProjectile(position, direction * speed, type, damage, 0f, Main.myPlayer);
+                    calashoot = 0;
+                }
+            }
             if (npc.type == calamityMod.NPCType("Signus"))
             {
                 if ((npc.ai[0] == -33f || signusbackup) && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi)
                 {
                     Dust dust;
-                    // You need to set position depending on what you are doing. You may need to subtract width/2 and height/2 as well to center the spawn rectangle.
                     Vector2 position = npc.position;
                     for (int a = 0; a < 3; a++)
                     {
                         dust = Main.dust[Terraria.Dust.NewDust(position, npc.width, npc.height, 16, 0f, 0f, 0, new Color(255, 255, 255), 1.578947f)];
-                        dust.shader = GameShaders.Armor.GetSecondaryShader(121, Main.LocalPlayer);
+                        dust.shader = GameShaders.Armor.GetSecondaryShader(131, Main.LocalPlayer);
                     }
                     npc.rotation = 0;
                     npc.direction = -1;
@@ -620,6 +675,7 @@ namespace CalValEX
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<WulfrumKeys>(), Main.expertMode, mountChance);
                     ChanceDropItem(npc, ModContent.ItemType<WulfrumController>(), 0.02f);
+                    ChanceDropItem(npc, ModContent.ItemType<RoverSpindle>(), 0.02f);
                 }
 
                 if (npc.type == calamityMod.NPCType("WulfrumDrone"))
@@ -774,7 +830,7 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("IceClasper"))
                 {
-                    ChanceDropItem(npc, ModContent.ItemType<AntarcticEssence>(), normalChance);
+                    //ChanceDropItem(npc, ModContent.ItemType<AntarcticEssence>(), normalChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("Cryon"))
@@ -934,7 +990,7 @@ namespace CalValEX
                 {
                     DropItem(npc, ModContent.ItemType<SoulShard>());
                     DropItem(npc, ModContent.ItemType<OmegaBlue>());
-                    //DropItem(npc, ModContent.ItemType<RespirationShrine>());
+                    DropItem(npc, ModContent.ItemType<RespirationShrine>());
                     ConditionalChanceDropItem(npc, ModContent.ItemType<JaredPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
@@ -1368,12 +1424,20 @@ namespace CalValEX
                     {
                         DropItem(npc, ModContent.ItemType<YharonsAnklet>());
                     }
+                    if (wolfram)
+                    {
+                        ChanceDropItem(npc, ModContent.ItemType<RoverSpindle>(), 1.0f);
+                    }
+                }
+
+                if (npc.type == calamityMod.NPCType("Draedon"))
+                {
+                    //ConditionalChanceDropItem(npc, ModContent.ItemType<DraedonPlushie>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("SupremeCalamitas"))
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<CalamitasFumo>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
-                    ChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), 0.2f); //20%
                 }
 
                 //Profaned bike
@@ -1391,6 +1455,12 @@ namespace CalValEX
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<ProfanedGuardianPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     ChanceDropItem(npc, ModContent.ItemType<ProfanedFrame>(), 0.1f); //10%
+                }
+
+                //Catalyst support
+                if (npc.type == catalyst.NPCType("Astrageldon") && !Main.expertMode)
+                {
+                    ChanceDropItem(npc, ModContent.ItemType<JellyBottle>(), bossPetChance); //10%
                 }
 
                 //Goozma slimes
@@ -1474,6 +1544,11 @@ namespace CalValEX
                         ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(), Main.expertMode, 0.005f);
                     }
 
+                    if (npc.type == catalyst.NPCType("Astrageldon"))
+                    {
+                        ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(), Main.expertMode, 0.01f);
+                    }
+
                     /*if ((npc.type == calamityMod.NPCType("AstrageldonSlime"))
                     {
                         ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(), Main.expertMode, 0.0375f);
@@ -1517,6 +1592,37 @@ namespace CalValEX
                     }
                 }
             }
+        }
+
+        public override bool PreNPCLoot(NPC npc) //These guys are in Pre because they won't work right otherwise
+        {
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+
+            if (npc.type == calamityMod.NPCType("Apollo") && !NPC.AnyNPCs(calamityMod.NPCType("ThanatosHead")) && !NPC.AnyNPCs(calamityMod.NPCType("AresBody")))
+            {
+                if ((bool)calamityMod.Call("DifficultyActive", "revengeance"))//&& Main.rand.Next(5) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<ArtemisPlush>(), 1, false, 0, false, false);
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<ApolloPlush>(), 1, false, 0, false, false);
+                }
+            }
+
+            if (npc.type == calamityMod.NPCType("AresBody") && !NPC.AnyNPCs(calamityMod.NPCType("ThanatosHead")) && !NPC.AnyNPCs(calamityMod.NPCType("Apollo")))
+            {
+                if ((bool)calamityMod.Call("DifficultyActive", "revengeance"))// && Main.rand.Next(5) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<AresPlush>(), 1, false, 0, false, false);
+                }
+            }
+
+            if (npc.type == calamityMod.NPCType("ThanatosHead") && !NPC.AnyNPCs(calamityMod.NPCType("AresBody")) && !NPC.AnyNPCs(calamityMod.NPCType("Apollo")))
+            {
+                if ((bool)calamityMod.Call("DifficultyActive", "revengeance") && Main.rand.Next(5) == 0)
+                {
+                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<ThanatosPlush>(), 1, false, 0, false, false);
+                }
+            }
+            return true;
         }
 
         private static int DropItem(NPC npc, int itemID, bool dropPerPlayer, int min = 1, int max = 0)

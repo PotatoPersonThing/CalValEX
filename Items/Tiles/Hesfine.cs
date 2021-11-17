@@ -27,7 +27,7 @@ namespace CalValEX.Items.Tiles
             item.createTile = ModContent.TileType<HesfinePlaced>();
             item.width = 12;
             item.height = 12;
-            item.rare = ItemRarityID.Red;
+            item.rare = ItemRarityID.Purple;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

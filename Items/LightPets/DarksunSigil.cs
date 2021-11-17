@@ -26,7 +26,7 @@ namespace CalValEX.Items.LightPets
             item.useAnimation = 20;
             item.useTime = 20;
             item.buffType = ModContent.BuffType<DarksunSpiritBuff>();
-            item.rare = ItemRarityID.Red;
+            item.rare = 11;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

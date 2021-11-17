@@ -25,7 +25,7 @@ namespace CalValEX.Items.Tiles.Paintings
             item.createTile = ModContent.TileType<SnoutsPlaced>();
             item.width = 12;
             item.height = 12;
-            item.rare = 10;
+            item.rare = 11;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

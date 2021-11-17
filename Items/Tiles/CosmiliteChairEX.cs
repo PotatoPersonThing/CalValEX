@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ModLoader;
 using CalValEX.Tiles.MiscFurniture;
+using Terraria.ID;
 
 namespace CalValEX.Items.Tiles
 {
@@ -24,7 +25,7 @@ namespace CalValEX.Items.Tiles
             item.createTile = ModContent.TileType<CosmiliteChairEXPlaced>();
             item.width = 12;
             item.height = 12;
-            item.rare = 10;
+            item.rare = ItemRarityID.Purple;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

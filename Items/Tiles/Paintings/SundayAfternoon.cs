@@ -23,7 +23,7 @@ namespace CalValEX.Items.Tiles.Paintings
             item.createTile = ModContent.TileType<SundayAfternoonPlaced>();
             item.width = 12;
             item.height = 12;
-            item.rare = 10;
+            item.rare = 11;
             item.expert = true;
         }
     }

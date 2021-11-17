@@ -18,7 +18,7 @@ namespace CalValEX.AprilFools
             else
             {
                 DisplayName.SetDefault("Polus Communicator");
-                Tooltip.SetDefault("'summons a Stratus Astronaut'");
+                Tooltip.SetDefault("'summons a Stratus Astronaut'\nUNOBTAINABLE\nCheating this item in may have disastrous consequences");
             }
             
         }

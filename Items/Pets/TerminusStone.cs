@@ -20,7 +20,7 @@ namespace CalValEX.Items.Pets
             item.UseSound = SoundID.Item117;
             item.shoot = mod.ProjectileType("TerminalRock");
             item.value = Item.sellPrice(0, 0, 0, 1);
-            item.rare = 10;
+            item.rare = 11;
             item.buffType = mod.BuffType("TerminalRockBuff");
         }
 
@@ -61,6 +61,7 @@ namespace CalValEX.Items.Pets
                 recipe.AddIngredient(ModContent.ItemType<Termipebbles>(), 5);
                 recipe.AddIngredient(calamityMod.ItemType("Rock"));
                 recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CalamitousEssence"), 5);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("ExoPrism"), 5);
                 recipe.AddIngredient(mod.ItemType("VoodooGod"), 1);
                 recipe.AddIngredient(mod.ItemType("NuggetBiscuit"), 1);
                 recipe.AddTile(calamityMod.TileType("DraedonsForge"));

@@ -9,7 +9,7 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Calamity");
+            DisplayName.SetDefault("An Ancient Calamity");
             Tooltip.SetDefault("'Blockaroz'");
         }
 

@@ -20,7 +20,7 @@ namespace CalValEX.Items.Pets
             item.UseSound = SoundID.NPCHit13;
             item.shoot = mod.ProjectileType("JaredHead");
             item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 2;
+            item.rare = 11;
             item.buffType = mod.BuffType("JaredBuff");
         }
 

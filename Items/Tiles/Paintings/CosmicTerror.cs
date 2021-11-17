@@ -22,7 +22,7 @@ namespace CalValEX.Items.Tiles.Paintings
             item.createTile = ModContent.TileType<CosmicTerrorPlaced>();
             item.width = 12;
             item.height = 12;
-            item.rare = ItemRarityID.LightRed;
+            item.rare = 11;
         }
     }
 }

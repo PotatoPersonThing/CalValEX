@@ -21,6 +21,7 @@ namespace CalValEX.Items.Equips.Hats
             item.height = 28;
             item.value = Item.sellPrice(0, 3, 0, 0);
             item.vanity = true;
+            item.rare = 11;
         }
 
         public override void DrawHair(ref bool drawHair, ref bool drawAltHair)

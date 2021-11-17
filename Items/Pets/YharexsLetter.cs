@@ -23,7 +23,7 @@ namespace CalValEX.Items.Pets
             item.height = 42;
             item.shoot = ModContent.ProjectileType<CalamityBABY>();
             item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = ItemRarityID.Red;
+            item.rare = 11;
             item.buffType = ModContent.BuffType<CalamityBABYBuff>();
             item.useTime = 30;
             item.useAnimation = 30;

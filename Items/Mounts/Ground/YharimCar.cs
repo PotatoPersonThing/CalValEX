@@ -28,7 +28,7 @@ namespace CalValEX.Items.Mounts.Ground
             int[] array = new int[mountData.totalFrames];
             for (int l = 0; l < array.Length; l++)
             {
-                array[l] = 999;
+                array[l] = 8;
             }
             mountData.playerYOffsets = array;
             mountData.xOffset = 4;

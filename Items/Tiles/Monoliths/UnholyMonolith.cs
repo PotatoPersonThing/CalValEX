@@ -11,7 +11,7 @@ namespace CalValEX.Items.Tiles.Monoliths
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Imbues the sky with profaned embers when activated\n" + "Cannot be used if two Monoliths are currently active");
+            Tooltip.SetDefault("Imbues the sky with profaned embers when activated\n" + "Cannot be used if any other Calamity monoliths are currently active");
         }
 
         public override void SetDefaults()

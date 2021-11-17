@@ -30,7 +30,8 @@ namespace CalValEX.Items.Tiles.Blocks
         {
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient((ItemID.StoneBlock), 200);
+            recipe.AddIngredient((ModContent.ItemType<AuricBrick>()), 200);
+            recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("ExoPrism"), 1);
             recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CalamitousEssence"), 1);
             recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
             recipe.SetResult(this, 200);

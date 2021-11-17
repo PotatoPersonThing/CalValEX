@@ -10,7 +10,7 @@ namespace CalValEX.Buffs.Pets
         public override void SetDefaults()
         {
             // DisplayName and Description are automatically set from the .lang files, but below is how it is done normally.
-            DisplayName.SetDefault("Sepulchling");
+            DisplayName.SetDefault("Fallen Sepulchling");
             Description.SetDefault("A dark construct composed of the long deceased souls of the innocent...\nCute");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;

@@ -21,6 +21,7 @@ namespace CalValEX.Items.Pets
             item.shoot = mod.ProjectileType("MiniDoge");
             item.value = Item.sellPrice(5, 9, 6, 6);
             item.buffType = mod.BuffType("MiniDogeBuff");
+            item.rare = 11;
         }
 
         public override void UseStyle(Player player)

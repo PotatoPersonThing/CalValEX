@@ -23,7 +23,7 @@ namespace CalValEX.Items.Equips.Transformations
 			item.width = 24;
 			item.height = 28;
 			item.accessory = true;
-			item.rare = ItemRarityID.Red;
+			item.rare = 11;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)

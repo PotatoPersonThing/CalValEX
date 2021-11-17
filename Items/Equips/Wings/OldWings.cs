@@ -19,7 +19,7 @@ namespace CalValEX.Items.Equips.Wings
             item.width = 22;
             item.height = 20;
             item.value = 10000;
-            item.rare = 10;
+            item.rare = 11;
             item.accessory = true;
             item.value = Item.sellPrice(0, 3, 0, 0);
         }

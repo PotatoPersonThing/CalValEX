@@ -22,7 +22,7 @@ namespace CalValEX.Items.Pets
             item.UseSound = SoundID.NPCHit51;
             item.shoot = mod.ProjectileType("SolarBunny");
             item.value = Item.sellPrice(0, 0, 0, 1);
-            item.rare = 11;
+            item.rare = 9;
             item.buffType = mod.BuffType("SolarBunBuff");
         }
 

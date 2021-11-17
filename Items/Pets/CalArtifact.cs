@@ -10,7 +10,7 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Calamitous Soul Artifact");
+            DisplayName.SetDefault("Rotting Calamitous Artifact");
             Tooltip.SetDefault("'The grave rises'\n"+"Summons a pet Sepulchling");
         }
 
@@ -20,7 +20,7 @@ namespace CalValEX.Items.Pets
             item.UseSound = SoundID.NPCHit4;
             item.shoot = mod.ProjectileType("SepulcherHead");
             item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 10;
+            item.rare = 11;
             item.buffType = mod.BuffType("SepulcherBuff");
         }
 

@@ -66,6 +66,7 @@ namespace CalValEX.Items.LightPets
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (calamityMod != null)
             {
+                recipe.AddIngredient(calamityMod.ItemType("HellcasterFragment"), 5);
                 recipe.AddIngredient(calamityMod.ItemType("AscendantSpiritEssence"), 5);
                 recipe.AddIngredient(ModContent.ItemType<DarksunSigil>());
                 recipe.AddIngredient(ModContent.ItemType<CryoStick>());
@@ -73,7 +74,7 @@ namespace CalValEX.Items.LightPets
                 recipe.AddIngredient(ModContent.ItemType<HolyTorch>());
                 recipe.AddIngredient(ModContent.ItemType<ShuttleBalloon>());
                 recipe.AddIngredient(ItemID.CrystalShard, 20);
-                recipe.AddTile(TileID.LunarCraftingStation);
+                recipe.AddTile(calamityMod.TileType("CosmicAnvil"));
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }

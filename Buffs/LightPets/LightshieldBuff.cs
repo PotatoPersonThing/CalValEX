@@ -1,4 +1,4 @@
-﻿using Terraria;
+﻿/*using Terraria;
 using Terraria.ModLoader;
 
 namespace CalValEX.Buffs.LightPets
@@ -27,4 +27,4 @@ namespace CalValEX.Buffs.LightPets
             }
         }
     }
-}
+}*/

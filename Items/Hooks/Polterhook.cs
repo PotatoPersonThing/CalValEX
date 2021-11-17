@@ -21,6 +21,7 @@ namespace CalValEX.Items.Hooks
             item.value = Item.sellPrice(1, 1, 0, 0);
             item.shootSpeed = 18f;
             item.shoot = ProjectileType<Phantomhook>();
+            item.rare = 11;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

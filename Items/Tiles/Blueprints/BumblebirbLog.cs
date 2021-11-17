@@ -26,7 +26,7 @@ namespace CalValEX.Items.Tiles.Blueprints
             item.createTile = ModContent.TileType<BumblebirbLogPlaced>();
             item.width = 46;
             item.height = 32;
-            item.rare = 6;
+            item.rare = 11;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

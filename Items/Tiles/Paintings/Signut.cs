@@ -25,7 +25,7 @@ namespace CalValEX.Items.Tiles.Paintings
             item.createTile = ModContent.TileType<SignutPlaced>();
             item.width = 12;
             item.height = 12;
-            item.rare = ItemRarityID.Red;
+            item.rare = 11;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

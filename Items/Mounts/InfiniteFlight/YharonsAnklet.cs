@@ -23,7 +23,7 @@ namespace CalValEX.Items.Mounts.InfiniteFlight
             item.useAnimation = 20;
             item.useStyle = 1;
             item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 10;
+            item.rare = 11;
             item.UseSound = SoundID.NPCHit56;
             item.noMelee = true;
             item.mountType = mod.MountType("YharonMount");

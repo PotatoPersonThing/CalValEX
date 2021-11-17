@@ -20,7 +20,7 @@ namespace CalValEX.Items.Pets
             item.UseSound = SoundID.NPCHit13;
             item.shoot = mod.ProjectileType("OmegaSquid");
             item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 10;
+            item.rare = 11;
             item.buffType = mod.BuffType("OmegaSquidBuff");
         }
 
@@ -58,24 +58,12 @@ namespace CalValEX.Items.Pets
             {
                 {
                     ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient(calamityMod.ItemType("HalibutCannon"), 1);
+                    recipe.AddIngredient(calamityMod.ItemType("Lumenite"), 200);
+                    recipe.AddIngredient(calamityMod.ItemType("DepthCells"), 200);
+                    recipe.AddIngredient(calamityMod.ItemType("Tenebris"), 200);
+                    recipe.AddIngredient(calamityMod.ItemType("ReaperTooth"), 200);
                     recipe.AddIngredient(mod.ItemType("Pollution"), 1);
-                    recipe.AddTile(TileID.LunarCraftingStation);
-                    recipe.SetResult(this);
-                    recipe.AddRecipe();
-                }
-                {
-                    ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient(calamityMod.ItemType("Lumenite"), 3996);
-                    recipe.AddIngredient(calamityMod.ItemType("DepthCells"), 3996);
-                    recipe.AddIngredient(calamityMod.ItemType("Tenebris"), 3996);
-                    recipe.AddIngredient(calamityMod.ItemType("ReaperTooth"), 3996);
-                    recipe.AddIngredient(calamityMod.ItemType("EidolicWail"), 5);
-                    recipe.AddIngredient(calamityMod.ItemType("Valediction"), 5);
-                    recipe.AddIngredient(calamityMod.ItemType("CalamarisLament"), 5);
-                    recipe.AddIngredient(calamityMod.ItemType("Reaper"), 2);
-                    recipe.AddIngredient(calamityMod.ItemType("SoulEdge"), 5);
-                    recipe.AddIngredient(mod.ItemType("Pollution"), 1);
+                    recipe.AddIngredient(ModContent.ItemType<Items.Equips.Hats.OmegaBlue>(), 1);
                     recipe.AddTile(TileID.LunarCraftingStation);
                     recipe.SetResult(this);
                     recipe.AddRecipe();

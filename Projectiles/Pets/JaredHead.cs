@@ -11,7 +11,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class JaredHead : ModProjectile
     {
-        private static readonly int Size = 86;
+        private static readonly int Size = 126;
         private static readonly int SegmentCount = 20;
         private bool SpawnedSegments = false;
 
@@ -24,7 +24,7 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetDefaults()
         {
-            projectile.width = 126;
+            projectile.width = 74;
             projectile.height = Size;
             projectile.friendly = true;
             projectile.hostile = false;
@@ -42,7 +42,7 @@ namespace CalValEX.Projectiles.Pets
                 int tail = Projectile.NewProjectile(projectile.Center, Vector2.Zero, ModContent.ProjectileType<JaredTail>(),
                     projectile.damage, projectile.knockBack, 0, projectile.whoAmI);
                 // The minus one is because this segment and the tail are incorporated in the worm as well
-                for (int i = 0; i < 18; i++)
+                for (int i = 0; i < 8; i++)
                 {
                     float uuid = (float)Projectile.GetByUUID(Main.myPlayer, Main.projectile[tail].ai[0]);
 					int body = Projectile.NewProjectile(projectile.Center, Vector2.Zero,
@@ -316,7 +316,7 @@ namespace CalValEX.Projectiles.Pets
             }
 
 			projectile.position = projectile.Center;
-            projectile.width = 126;
+            projectile.width = 74;
             projectile.height = Size;
             projectile.Center = projectile.position;
         }

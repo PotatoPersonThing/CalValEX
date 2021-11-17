@@ -23,7 +23,7 @@ namespace CalValEX.Items.LightPets
             item.UseSound = SoundID.Item20;
             item.shoot = mod.ProjectileType("ProGuard1");
             item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 10;
+            item.rare = 11;
             item.buffType = ModContent.BuffType<ProBuff>();
             ItemID.Sets.ItemNoGravity[item.type] = true;
         }

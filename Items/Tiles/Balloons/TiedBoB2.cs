@@ -24,7 +24,7 @@ namespace CalValEX.Items.Tiles.Balloons
             item.createTile = ModContent.TileType<TiedBoB2Placed>();
             item.width = 16;
             item.height = 40;
-            item.rare = 10;
+            item.rare = 11;
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {

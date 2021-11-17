@@ -18,7 +18,7 @@ namespace CalValEX.AprilFools
             item.damage = 47;
             item.melee = true;
             item.value = Item.sellPrice(0, 5);
-            item.rare = ItemRarityID.Lime;
+            item.rare = ItemRarityID.Red;
             item.useTime = 9;
             item.useAnimation = 9;
             item.useStyle = ItemUseStyleID.SwingThrow;

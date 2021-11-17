@@ -21,7 +21,7 @@ namespace CalValEX.Items.Pets
             item.UseSound = SoundID.Item92;
             item.shoot = mod.ProjectileType("StasisArmored");
             item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 2;
+            item.rare = 11;
             item.buffType = mod.BuffType("StasisArmoredBuff");
         }
 

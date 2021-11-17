@@ -28,7 +28,7 @@ namespace CalValEX.AprilFools
 			item.shootSpeed = 16f;
 			item.knockBack = 2.5f;
 			item.damage = 27;
-			item.rare = ItemRarityID.Lime;
+			item.rare = ItemRarityID.Red;
 
 			item.melee = true;
 			item.channel = true;

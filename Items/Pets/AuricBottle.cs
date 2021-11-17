@@ -20,7 +20,7 @@ namespace CalValEX.Items.Pets
             item.UseSound = SoundID.NPCHit13;
             item.shoot = mod.ProjectileType("YharimSquid");
             item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 4;
+            item.rare = 11;
             item.buffType = mod.BuffType("YharimSquidBuff");
         }
 
@@ -58,16 +58,7 @@ namespace CalValEX.Items.Pets
             {
                 {
                     ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient(calamityMod.ItemType("YharimsCrystal"), 1);
-                    recipe.AddIngredient(mod.ItemType("InkyArtifact"), 1);
-                    recipe.AddTile(calamityMod.TileType("DraedonsForge"));
-                    recipe.SetResult(this);
-                    recipe.AddRecipe();
-                }
-                {
-                    ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient(mod.ItemType("InkyArtifact"), 1);
-                    recipe.AddIngredient(calamityMod.ItemType("AuricBar"), 100);
+                    recipe.AddIngredient(calamityMod.ItemType("AuricBar"), 20);
                     recipe.AddIngredient(calamityMod.ItemType("DraedonsExoblade"), 1);
                     recipe.AddIngredient(calamityMod.ItemType("SubsumingVortex"), 1);
                     recipe.AddIngredient(calamityMod.ItemType("Celestus"), 1);
@@ -78,6 +69,8 @@ namespace CalValEX.Items.Pets
                     recipe.AddIngredient(calamityMod.ItemType("ExoGladius"), 1);
                     recipe.AddIngredient(calamityMod.ItemType("CosmicImmaterializer"), 1);
                     recipe.AddIngredient(calamityMod.ItemType("Supernova"), 1);
+                    recipe.AddIngredient(mod.ItemType("InkyArtifact"), 1);
+                    recipe.AddIngredient(ModContent.ItemType<Items.Equips.Hats.AncientAuricTeslaHelm>(), 1);
                     recipe.AddTile(calamityMod.TileType("DraedonsForge"));
                     recipe.SetResult(this);
                     recipe.AddRecipe();

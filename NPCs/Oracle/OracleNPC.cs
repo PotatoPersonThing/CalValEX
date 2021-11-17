@@ -182,6 +182,12 @@ namespace CalValEX.NPCs.Oracle
                 return "That little birb over there seems to have a lot of little friends you can recover!";
             }
 
+            int WITCH = NPC.FindFirstNPC((ModLoader.GetMod("CalamityMod").NPCType("WITCH")));
+            if (WITCH >= 0 && Main.rand.NextFloat() < 0.25f)
+            {
+                return "Some people may fear Calamitas, but she's got a lot of cute little ones with her like those bats and the necropede! She can't be that bad.";
+            }
+
             int wizard = NPC.FindFirstNPC(NPCID.Wizard);
             if (wizard >= 0 && Main.rand.NextFloat() < 0.25f)
             {

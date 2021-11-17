@@ -27,7 +27,7 @@ namespace CalValEX.Items.Tiles
             item.createTile = ModContent.TileType<RespirationShrinePlaced>();
             item.width = 50;
             item.height = 64;
-            item.rare = ItemRarityID.Cyan;
+            item.rare = ItemRarityID.Purple;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -47,21 +47,6 @@ namespace CalValEX.Items.Tiles
                 {
                     tooltipLine.overrideColor = new Color(255, 0, 255); //change the color accordingly to above
                 }
-            }
-        }
-
-        public override void AddRecipes()
-        {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Lumenite"), 333);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Voidstone"), 200);
-                recipe.AddIngredient((ItemID.Ectoplasm), 100);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CalamitousEssence"), 100);
-                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
-                recipe.SetResult(this);
-                recipe.AddRecipe();
             }
         }
     }

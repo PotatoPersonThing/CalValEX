@@ -24,7 +24,7 @@ namespace CalValEX.Items.Plushies
             item.height = 44;
             item.consumable = true;
             item.UseSound = SoundID.Item1;
-            item.rare = 10;
+            item.rare = 11;
             item.useAnimation = 20;
             item.useTime = 20;
             item.noUseGraphic = true;

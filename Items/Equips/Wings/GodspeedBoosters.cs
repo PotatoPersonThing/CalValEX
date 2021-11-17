@@ -18,7 +18,7 @@ namespace CalValEX.Items.Equips.Wings
         {
             item.width = 42;
             item.height = 30;
-            item.rare = 10;
+            item.rare = 11;
             item.accessory = true;
             item.value = Item.sellPrice(0, 3, 0, 0);
             Mod calamityMod = ModLoader.GetMod("CalamityMod");

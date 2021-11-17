@@ -75,7 +75,7 @@ namespace CalValEX.Buffs.LightPets
                     ModContent.ProjectileType<HeatPet>(),
                     ModContent.ProjectileType<HeatBaby>(),
                     ModContent.ProjectileType<Skeetyeet>(),
-                    ModContent.ProjectileType<Lightshield>(),
+                    //ModContent.ProjectileType<Lightshield>(),
                     ModContent.ProjectileType<DarksunSpirit_Fish>(),
                     ModContent.ProjectileType<DarksunSpiritSkull_1>(),
                     ModContent.ProjectileType<DarksunSpiritSkull_2>(),
@@ -88,7 +88,7 @@ namespace CalValEX.Buffs.LightPets
                 player.GetModPlayer<CalValEXPlayer>().mHeat = true;
                 player.GetModPlayer<CalValEXPlayer>().mHeat2 = true;
                 player.GetModPlayer<CalValEXPlayer>().Skeetyeet = true;
-                player.GetModPlayer<CalValEXPlayer>().Lightshield = true;
+                //player.GetModPlayer<CalValEXPlayer>().Lightshield = true;
                 player.GetModPlayer<CalValEXPlayer>().darksunSpirits = true;
                 player.GetModPlayer<CalValEXPlayer>().MiniCryo = true;
                 player.GetModPlayer<CalValEXPlayer>().mPhan = true;

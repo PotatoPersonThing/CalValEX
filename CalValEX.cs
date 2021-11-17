@@ -144,6 +144,7 @@ namespace CalValEX
             DraedonHelmetTextureCache.Unload();
             DraedonChestplateCache.Unload();
         }
+
         public override void PostSetupContent()
         {
             //Tooltip changes
@@ -151,14 +152,17 @@ namespace CalValEX
             cal.GetItem("LaboratoryConsoleItem").Tooltip
                 .AddTranslation(GameCulture.English, "Can be used to print blueprints");
             cal.GetItem("HeartoftheElements").Tooltip.AddTranslation(GameCulture.English, "The heart of the world\n" +
-                "Increases max life by 20, life regen by 1, and all damage by 5%\n" +
-                "Increases movement speed by 10% and jump speed by 20%\n" +
-                "Increases damage reduction by 5%\n" +
-                "Increases max mana by 50 and reduces mana usage by 5%\n" +
-                "You grow flowers on the grass beneath you, chance to grow very random dye plants on grassless dirt\n" +
-                "Summons all elementals to protect you\n" +
-                "Toggling the visibility of this accessory also toggles the elementals on and off\n" +
-                "Stat increases are slightly higher if the elementals are turned off\n" + "Equipping this item in a vanity slot summons passive versions of the Elementals");
+                "Summons all elementals to protect you\n" + "Equipping this item in a vanity slot summons passive versions of the Elementals");
+            cal.GetItem("CryoStone").Tooltip.AddTranslation(GameCulture.English, "One of the ancient relics\n"+
+            "Creates a rotating ice shield around you that damages and slows enemies on contact\n"+
+            "Equipping the item in a vanity slot summons a friendly version of the ice shield that\n"+
+            "Can be dyed with the light pet dye slot when equipped in a vanity slot");
+
+            //Want to exhume the old cal artifact into the new one but dont know how
+           /* cal.Call("RegisterEnchantment", "Exhume", "Transforms this item into something significantly stronger.", 2, Predicate<Item>predicate, (Action<Item>)delegate (Item item)
+            {
+                item.type = ModContent.ItemType<CalamitousSoulArtifact>();
+            }, null, ModContent.ItemType<CalArtifact>());*/
 
             //Census support
             Mod censusMod = ModLoader.GetMod("Census");
@@ -182,6 +186,16 @@ namespace CalValEX
 
             //Christmas textures
             ChristmasTextureChange.Load();
+
+            //Boss Rush support?
+            /*CalamityMod.Events.BossRushEvent.Bosses.Clear();
+            CalamityMod.Events.BossRushEvent.BossIDsAfterDeath.Clear();
+            CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(ModLoader.GetMod("Catalyst").NPCType("Astrageldon"), CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false));
+            CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(222, CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false));
+            CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(ModLoader.GetMod("CalValPlus").NPCType("JohnWulfrum"), CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false, ModLoader.GetMod("CalValPlus").NPCType("WulfrumDroid")));
+            CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(ModLoader.GetMod("CalamityMod").NPCType("Yharon"), CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false));
+            CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(ModLoader.GetMod("CalamityMod").NPCType("Cnidrion"), CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false));
+            CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(ModLoader.GetMod("CalamityMod").NPCType("DevourerofGodsHead"), CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false));*/
 
             //Boss log support
             Mod bossChecklist = ModLoader.GetMod("BossChecklist");
@@ -340,8 +354,10 @@ namespace CalValEX
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Supreme Calamitas",
                     new List<int> { ModContent.ItemType<CalamitasFumo>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
-                /*bossChecklist.Call("AddToBossCollection", "CalamityMod", "Adult Eidolon Wyrm",
-                    new List<int> { ModContent.ItemType<JaredPlush>(), ModContent.ItemType<SoulShard>(), ModContent.ItemType<OmegaBlue>() });*/
+                bossChecklist.Call("AddToBossCollection", "CalamityMod", "Exo Mechs",
+                    new List<int> { /*ModContent.ItemType<DraedonPlush>(),*/ ModContent.ItemType<AresPlush>(), ModContent.ItemType<ApolloPlush>(), ModContent.ItemType<ArtemisPlush>(), ModContent.ItemType<ThanatosPlush>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
+                bossChecklist.Call("AddToBossCollection", "CalamityMod", "Adult Eidolon Wyrm",
+                    new List<int> { ModContent.ItemType<JaredPlush>(), ModContent.ItemType<SoulShard>(), ModContent.ItemType<OmegaBlue>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Acid Rain (Post-AS)",
                     new List<int>
                     {

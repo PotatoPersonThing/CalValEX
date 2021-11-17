@@ -3,12 +3,14 @@
 //using CalamityMod.CalPlayer;
 using System.Collections.Generic;
 using System.IO;
+using CalamityMod.Events;
 using CalValEX.Items.Equips.Hats.Draedon;
 using CalValEX.Items.Equips.Shirts.Draedon;
 using CalValEX.Items.Equips.Transformations;
 using CalValEX.Buffs.Transformations;
 using CalValEX.Items.Mounts.Morshu;
 using CalValEX.Projectiles.Pets;
+using CalValEX.Projectiles.Pets.LightPets;
 using CalValEX.Items.Equips.Backs;
 using CalValEX.Projectiles.Pets.Elementals;
 using Microsoft.Xna.Framework;
@@ -279,6 +281,8 @@ namespace CalValEX
         public bool voreworm;
         public bool worb;
         public bool yharonMonolith = false;
+        public bool brMonolith = false;
+        public bool exoMonolith = false;
         public bool ySquid;
         public bool amogus;
         public bool buppy;
@@ -305,6 +309,8 @@ namespace CalValEX
         public bool morshu;
         public bool morshugun;
         public bool scaldown;
+        public bool yharcar;
+        public bool sepneo;
         //Signus Transformation bools
         public bool signutHide;
         public bool signutForce;
@@ -346,6 +352,14 @@ namespace CalValEX
         public bool specan;
         public bool carriage;
         public float bcarriagewheel = 0.0f;
+        //Pong stuff
+        public bool pongactive;
+        public int pongstage = 0;
+        public int pongoutcome = 0;
+        /*public float pongballposx;
+        public float pongballposy;
+        public float sliderposx;
+        public float sliderposy;*/
 
         public override void Initialize()
         {
@@ -441,28 +455,16 @@ namespace CalValEX
                     }
                     vanityhote = true;
                 }
-                /*if (n == 13 && item.type != calamityMod.ItemType("HeartoftheElements"))
+                else if (item.type == calamityMod.ItemType("CryoStone") && !CalValEXConfig.Instance.ColdShield && antisocial == null)
                 {
-                    if (n == 14 && item.type != calamityMod.ItemType("HeartoftheElements"))
+                    bool cryospawned = player.ownedProjectileCounts[ProjectileType<Lightshield>()] <= 0;
+                    if (cryospawned && player.whoAmI == Main.myPlayer)
                     {
-                        if (n == 15 && item.type != calamityMod.ItemType("HeartoftheElements"))
-                        {
-                            if (n == 16 && item.type != calamityMod.ItemType("HeartoftheElements"))
-                            {
-                                if (n == 17 && item.type != calamityMod.ItemType("HeartoftheElements"))
-                                {
-                                    if (n == 18 && item.type != calamityMod.ItemType("HeartoftheElements"))
-                                    {
-                                        if (n == 19 && item.type != calamityMod.ItemType("HeartoftheElements"))
-                                        {
-                                            vanityhote = false;
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                            0f, 0f, ProjectileType<Lightshield>(), 0, 0f, player.whoAmI);
                     }
-                }*/
+                    Lightshield = true;
+                }
             }
             for (int n = 3; n < 10 + player.extraAccessorySlots; n++)
             {
@@ -470,6 +472,10 @@ namespace CalValEX
                 if (item.type == calamityMod.ItemType("HeartoftheElements"))
                 {
                     vanityhote = false;
+                }
+                if (item.type == calamityMod.ItemType("CryoStone"))
+                {
+                    Lightshield = false;
                 }
             }
         }
@@ -528,6 +534,25 @@ namespace CalValEX
                 player.AddBuff(ModContent.BuffType<CloudTransformationBuff>(), 60, true);
             else if (sandTrans)
                 player.AddBuff(ModContent.BuffType<SandTransformationBuff>(), 60, true);
+        }
+
+        public override void PreUpdateMovement()
+        {
+            /*if (pongactive)
+            {
+                player.releaseHook = true;
+                player.releaseMount = true;
+                player.velocity.X = 0;
+                if (player.velocity.Y < 0)
+                {
+                    player.velocity.Y = 0;
+                }
+            }
+            if (!pongactive)
+            {
+                pongstage = 0;
+                pongoutcome = 0;
+            }*/
         }
 
         public override void PostUpdateBuffs()
@@ -730,6 +755,11 @@ namespace CalValEX
             cassette = false;
             specan = false;
             carriage = false;
+            yharcar = false;
+            sepneo = false;
+            /*pongactive = false;
+            pongoutcome = 0;
+            pongstage = 0;*/
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
@@ -912,25 +942,56 @@ namespace CalValEX
             if (!bossIsAlive2)
             {
                 bool useCalMonolith = calMonolith;
-                player.ManageSpecialBiomeVisuals("CalamityMod:CalamitasRun3", useCalMonolith, player.Center);
                 bool useLeviMonolith = leviMonolith;
-                player.ManageSpecialBiomeVisuals("CalamityMod:Leviathan", useLeviMonolith, player.Center);
                 bool usePBGMonolith = pbgMonolith;
-                player.ManageSpecialBiomeVisuals("CalamityMod:PlaguebringerGoliath", usePBGMonolith, player.Center);
                 bool useProvMonolith = provMonolith;
-                player.ManageSpecialBiomeVisuals("CalamityMod:Providence", useProvMonolith, player.Center);
                 bool useDogMonolith = dogMonolith;
-                player.ManageSpecialBiomeVisuals("CalamityMod:DevourerofGodsHead", useDogMonolith, player.Center);
                 bool useYharonMonolith = yharonMonolith;
-                player.ManageSpecialBiomeVisuals("CalamityMod:Yharon", useYharonMonolith, player.Center);
+                bool useExoMonolith = exoMonolith;
+                bool useBRMonolith = brMonolith;
                 bool useScalMonolith = scalMonolith;
-                player.ManageSpecialBiomeVisuals("CalamityMod:SupremeCalamitas", useScalMonolith, player.Center);
                 bool TerminalMonolith = CalValEXWorld.RockshrinEX;
-                if (!scalMonolith)
+                if (calMonolith)
+                {
+                    player.ManageSpecialBiomeVisuals("CalamityMod:CalamitasRun3", useCalMonolith, player.Center);
+                }
+                else if (leviMonolith)
+                {
+                    player.ManageSpecialBiomeVisuals("CalamityMod:Leviathan", useLeviMonolith, player.Center);
+                }
+                else if (pbgMonolith)
+                {
+                    player.ManageSpecialBiomeVisuals("CalamityMod:PlaguebringerGoliath", usePBGMonolith, player.Center);
+                }
+                else if (provMonolith)
+                {
+                    player.ManageSpecialBiomeVisuals("CalamityMod:Providence", useProvMonolith, player.Center);
+                }
+                else if (dogMonolith)
+                {
+                    player.ManageSpecialBiomeVisuals("CalamityMod:DevourerofGodsHead", useDogMonolith, player.Center);
+                }
+                else if (yharonMonolith)
+                {
+                    player.ManageSpecialBiomeVisuals("CalamityMod:Yharon", useYharonMonolith, player.Center);
+                }
+                else if (exoMonolith)
+                {
+                    player.ManageSpecialBiomeVisuals("CalamityMod:ExoMechs", useExoMonolith, player.Center);
+                }
+                //player.ManageSpecialBiomeVisuals("CalamityMod:BossRush", useExoMonolith, player.Center); //"Boss Rush" effect seems closer to the Draedon effect for some reason, so they have been swapped
+                else if (scalMonolith)
+                {
+                    player.ManageSpecialBiomeVisuals("CalamityMod:SupremeCalamitas", useScalMonolith, player.Center);
+                }
+                else if (CalValEXWorld.RockshrinEX)
                 {
                     player.ManageSpecialBiomeVisuals("CalamityMod:SupremeCalamitas", TerminalMonolith, player.Center);
                 }
-
+                /*if (useBRMonolith)
+                {
+                    CalamityMod.Events.BossRushEvent.EndTimer = -1;
+                }*/
             }
         }
 
@@ -1135,6 +1196,133 @@ namespace CalValEX
             }
         });
 
+        //Welcome to pong hell
+        /*public static readonly PlayerLayer PongUI = new PlayerLayer("CalValEX", "PongUI", PlayerLayer.SolarShield, delegate (PlayerDrawInfo drawInfo)
+        {
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("CalValEX");
+            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
+            if (drawPlayer.controlMount)
+            {
+                modPlayer.pongactive = false;
+            }
+            if (modPlayer.pongactive)
+            {
+                //Stage logic
+                if (modPlayer.pongstage == 0)
+                {
+                    if (drawPlayer.controlUseItem)
+                    {
+                        modPlayer.pongstage = 3;
+                    }
+                }
+
+                Texture2D texture = mod.GetTexture("ExtraTextures/Pong/PongBG");
+                int drawX = (int)(drawInfo.position.X + drawPlayer.width - Main.screenPosition.X);
+                int drawY = (int)(drawInfo.position.Y + drawPlayer.height - Main.screenPosition.Y);
+                DrawData data = new DrawData(texture, new Vector2(drawX, drawY + 200), null, Color.White, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0);
+                Main.playerDrawData.Add(data);
+            }
+        });*/
+
+        /*public static readonly PlayerLayer PongOverlay = new PlayerLayer("CalValEX", "PongOverlay", PlayerLayer.MiscEffectsFront, delegate (PlayerDrawInfo drawInfo)
+        {
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("CalValEX");
+            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
+
+            if (modPlayer.pongactive)
+            {
+                if (modPlayer.pongstage == 0)
+                {
+                    Texture2D texture = mod.GetTexture("ExtraTextures/Pong/PongInitialPrompt");
+                    int drawX2 = (int)(drawInfo.position.X + drawPlayer.width - Main.screenPosition.X);
+                    int drawY2 = (int)(drawInfo.position.Y + drawPlayer.height - Main.screenPosition.Y);
+                    DrawData data2 = new DrawData(texture, new Vector2(drawX2, drawY2 + 200), null, Color.White, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0);
+                    Main.playerDrawData.Add(data2);
+                }
+                else if (modPlayer.pongstage == 1)
+                {
+                    Texture2D texture = mod.GetTexture("ExtraTextures/Pong/PongLossPrompt");
+                    int drawX2 = (int)(drawInfo.position.X + drawPlayer.width - Main.screenPosition.X);
+                    int drawY2 = (int)(drawInfo.position.Y + drawPlayer.height - Main.screenPosition.Y);
+                    DrawData data2 = new DrawData(texture, new Vector2(drawX2, drawY2 + 200), null, Color.White, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0);
+                    Main.playerDrawData.Add(data2);
+                }
+                else if (modPlayer.pongstage == 2)
+                {
+                    Texture2D texture = mod.GetTexture("ExtraTextures/Pong/PongWinPrompt");
+                    int drawX2 = (int)(drawInfo.position.X + drawPlayer.width - Main.screenPosition.X);
+                    int drawY2 = (int)(drawInfo.position.Y + drawPlayer.height - Main.screenPosition.Y);
+                    DrawData data2 = new DrawData(texture, new Vector2(drawX2, drawY2 + 200), null, Color.White, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0);
+                    Main.playerDrawData.Add(data2);
+                }
+                else
+                {
+
+                    Texture2D texture = mod.GetTexture("ExtraTextures/Pong/InnerBarriers");
+                    int drawX2 = (int)(drawInfo.position.X + drawPlayer.width - Main.screenPosition.X);
+                    int drawY2 = (int)(drawInfo.position.Y + drawPlayer.height - Main.screenPosition.Y);
+                    DrawData data2 = new DrawData(texture, new Vector2(drawX2, drawY2 + 200), null, Color.White, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0);
+                    Main.playerDrawData.Add(data2);
+                    bool anahitaspawned = drawPlayer.ownedProjectileCounts[ProjectileType<Projectiles.Pong.PlayerSlider>()] <= 0;
+                    if (anahitaspawned && drawPlayer.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(drawPlayer.position.X + drawPlayer.width / 2 - 80, drawPlayer.position.Y + drawPlayer.height / 2 - 40,
+                            0f, 0f, ProjectileType<Projectiles.Pong.PlayerSlider>(), 0, 0f, drawPlayer.whoAmI);
+                    }
+                    bool ballspawned = drawPlayer.ownedProjectileCounts[ProjectileType<Projectiles.Pong.PongBall>()] <= 0;
+                    if (anahitaspawned && drawPlayer.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(drawPlayer.position.X + drawPlayer.width / 2 + 180, drawPlayer.position.Y + drawPlayer.height / 2 - 40,
+                            -4f, 4f, ProjectileType<Projectiles.Pong.PongBall>(), 0, 0f, drawPlayer.whoAmI);
+                    }
+                    for (int x = 0; x < Main.maxProjectiles; x++)
+                    {
+                        Projectile projectile = Main.projectile[x];
+                        if (projectile.type == ProjectileType<Projectiles.Pong.PongBall>())
+                        {
+                            modPlayer.pongballposx = projectile.position.X;
+                            modPlayer.pongballposy = projectile.position.Y;
+                        }
+                    }
+                    for (int x = 0; x < Main.maxProjectiles; x++)
+                    {
+                        Projectile projectile = Main.projectile[x];
+                        if (projectile.type == ProjectileType<Projectiles.Pong.PlayerSlider>())
+                        {
+                            modPlayer.sliderposx = projectile.position.X;
+                            modPlayer.sliderposy = projectile.position.Y;
+                        }
+                    }
+
+                    Vector2 pball;
+                    pball.X = modPlayer.pongballposx;
+                    pball.Y = modPlayer.pongballposy;
+
+                    Vector2 slider;
+                    slider.X = modPlayer.sliderposx;
+                    slider.Y = modPlayer.sliderposy;
+
+                    Texture2D textureball = mod.GetTexture("ExtraTextures/Pong/PongBall");
+                    int drawXde2 = (int)(modPlayer.pongballposx + 36 - Main.screenPosition.X);
+                    int drawYde2 = (int)(modPlayer.pongballposy + 36 - Main.screenPosition.Y);
+                    DrawData datae2 = new DrawData(textureball, new Vector2(drawXde2, drawYde2), null, Color.White, 0f, new Vector2(textureball.Width / 2f, textureball.Height), 1f, SpriteEffects.None, 0);
+                    Main.playerDrawData.Add(datae2);
+
+
+
+                    Texture2D textureslider = mod.GetTexture("ExtraTextures/Pong/PongSlider");
+                    int drawXd2 = (int)(modPlayer.sliderposx + 25 - Main.screenPosition.X);
+                    int drawYd2 = (int)(modPlayer.sliderposy + 78 - Main.screenPosition.Y);
+                    DrawData datad2 = new DrawData(textureslider, new Vector2(drawXd2, drawYd2 + 200), null, Color.White, 0f, new Vector2(textureslider.Width / 2f, textureslider.Height), 1f, SpriteEffects.None, 0);
+                    Main.playerDrawData.Add(datad2);
+
+
+                }
+            }
+        });*/
+
         public static readonly PlayerLayer Chopper = new PlayerLayer("CalValEX", "Chopper", PlayerLayer.Wings, delegate (PlayerDrawInfo drawInfo)
         {
             Player drawPlayer = drawInfo.drawPlayer;
@@ -1177,6 +1365,8 @@ namespace CalValEX
             int wingLayer = layers.FindIndex(l => l == PlayerLayer.Wings);
             int backLayer = layers.FindIndex(l => l == PlayerLayer.BackAcc);
             int carriageLayer = layers.FindIndex(l => l == PlayerLayer.MountFront);
+            int shieldLaer = layers.FindIndex(l => l == PlayerLayer.SolarShield);
+            int highLaer = layers.FindIndex(l => l == PlayerLayer.MiscEffectsFront);
 
             if (headLayer > -1)
             {
@@ -1202,6 +1392,34 @@ namespace CalValEX
             layers.Insert(backLayer + 1, Prismshell);
             BCarriage.visible = true;
             layers.Insert(armLayer + 1, BCarriage);
+            if (yharcar)
+            {
+                foreach (PlayerLayer layer in layers)
+                {
+                    if (layer != PlayerLayer.MountBack && layer != PlayerLayer.MountFront && layer != PlayerLayer.MiscEffectsFront && layer != PlayerLayer.MiscEffectsBack)
+                    {
+                        ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = false;
+                    }
+                }
+            }
+            /*if (pongactive)
+            {
+                foreach (PlayerLayer layer in layers)
+                {
+                    ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = false;
+                }
+            }
+            else
+            {
+                foreach (PlayerLayer layer in layers)
+                {
+                    ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = true;
+                }
+            }*/
+            /*PongUI.visible = true;
+            layers.Insert(shieldLaer + 14, PongUI);
+            PongOverlay.visible = true;
+            layers.Insert(highLaer + 15, PongOverlay);*/
         }
 
         public override void ModifyDrawHeadLayers(List<PlayerHeadLayer> layers)
