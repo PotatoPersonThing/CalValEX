@@ -1458,9 +1458,12 @@ namespace CalValEX
                 }
 
                 //Catalyst support
-                if (npc.type == catalyst.NPCType("Astrageldon") && !Main.expertMode)
+                if (catalyst != null)
                 {
-                    ChanceDropItem(npc, ModContent.ItemType<JellyBottle>(), bossPetChance); //10%
+                    if (npc.type == catalyst.NPCType("Astrageldon") && !Main.expertMode)
+                    {
+                        ChanceDropItem(npc, ModContent.ItemType<JellyBottle>(), bossPetChance); //10%
+                    }
                 }
 
                 //Goozma slimes
@@ -1544,9 +1547,12 @@ namespace CalValEX
                         ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(), Main.expertMode, 0.005f);
                     }
 
-                    if (npc.type == catalyst.NPCType("Astrageldon"))
+                    if (catalyst != null)
                     {
-                        ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(), Main.expertMode, 0.01f);
+                        if (npc.type == catalyst.NPCType("Astrageldon"))
+                        {
+                            ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(), Main.expertMode, 0.01f);
+                        }
                     }
 
                     /*if ((npc.type == calamityMod.NPCType("AstrageldonSlime"))

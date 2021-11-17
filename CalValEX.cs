@@ -145,6 +145,9 @@ namespace CalValEX
             DraedonChestplateCache.Unload();
         }
 
+        //public static Dictionary<int, int> ItemUpgradeRelationship { get; internal set; } = new Dictionary<int, int>();
+        //internal Action<Item> OnItemChanged;
+
         public override void PostSetupContent()
         {
             //Tooltip changes
@@ -153,16 +156,24 @@ namespace CalValEX
                 .AddTranslation(GameCulture.English, "Can be used to print blueprints");
             cal.GetItem("HeartoftheElements").Tooltip.AddTranslation(GameCulture.English, "The heart of the world\n" +
                 "Summons all elementals to protect you\n" + "Equipping this item in a vanity slot summons passive versions of the Elementals");
-            cal.GetItem("CryoStone").Tooltip.AddTranslation(GameCulture.English, "One of the ancient relics\n"+
-            "Creates a rotating ice shield around you that damages and slows enemies on contact\n"+
-            "Equipping the item in a vanity slot summons a friendly version of the ice shield that\n"+
+            cal.GetItem("CryoStone").Tooltip.AddTranslation(GameCulture.English, "One of the ancient relics\n" +
+            "Creates a rotating ice shield around you that damages and slows enemies on contact\n" +
+            "Equipping the item in a vanity slot summons a friendly version of the ice shield that\n" +
             "Can be dyed with the light pet dye slot when equipped in a vanity slot");
 
             //Want to exhume the old cal artifact into the new one but dont know how
-           /* cal.Call("RegisterEnchantment", "Exhume", "Transforms this item into something significantly stronger.", 2, Predicate<Item>predicate, (Action<Item>)delegate (Item item)
+            /*cal.Call("RegisterEnchantment", "Exhume", "Transforms this item into something significantly stronger.", 2, (Predicate<Item>)delegate (Item item)
+           {
+               if (ItemUpgradeRelationship.ContainsKey(item.type))
+               {
+                   return true;
+               }
+               return false;
+           }, "CalValEX/Items/Pets/Cube");
+            ItemUpgradeRelationship = new Dictionary<int, int>()
             {
-                item.type = ModContent.ItemType<CalamitousSoulArtifact>();
-            }, null, ModContent.ItemType<CalArtifact>());*/
+                [ModContent.ItemType<CalArtifact>()] = ModContent.ItemType<CalamitousSoulArtifact>()
+            };*/
 
             //Census support
             Mod censusMod = ModLoader.GetMod("Census");

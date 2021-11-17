@@ -690,21 +690,24 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == calamityMod.ItemType("AstrageldonBag"))
+                        if (catalyst != null)
                         {
-                            if (Main.rand.NextFloat() < 0.2f)
+                            if (arg == calamityMod.ItemType("AstrageldonBag"))
                             {
-                                player.QuickSpawnItem(ModContent.ItemType<AstDie>());
-                            }
+                                if (Main.rand.NextFloat() < 0.2f)
+                                {
+                                    player.QuickSpawnItem(ModContent.ItemType<AstDie>());
+                                }
 
-                            if (Main.rand.NextFloat() < 0.2f)
-                            {
-                                player.QuickSpawnItem(ModContent.ItemType<AureusShield>());
-                            }
+                                if (Main.rand.NextFloat() < 0.2f)
+                                {
+                                    player.QuickSpawnItem(ModContent.ItemType<AureusShield>());
+                                }
 
-                            if (Main.rand.NextFloat() < 0.001f)
-                            {
-                                player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());
+                                if (Main.rand.NextFloat() < 0.001f)
+                                {
+                                    player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());
+                                }
                             }
                         }
 
