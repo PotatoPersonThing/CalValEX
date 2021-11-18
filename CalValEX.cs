@@ -361,7 +361,8 @@ namespace CalValEX
                     {
                         ModContent.ItemType<YharonPlush>(), ModContent.ItemType<JunglePhoenixWings>(),
                         ModContent.ItemType<YharonShackle>(), ModContent.ItemType<NuggetBiscuit>(), ModContent.ItemType<YharonsAnklet>(),
-                        ModContent.ItemType<AncientAuricTeslaHelm>()
+                        ModContent.ItemType<AncientAuricTeslaHelm>(),
+                        ModContent.ItemType<DemonshadeHood>(), ModContent.ItemType<DemonshadeRobe>(), ModContent.ItemType<DemonshadePants>()
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Supreme Calamitas",
                     new List<int> { ModContent.ItemType<CalamitasFumo>(), ModContent.ItemType<AncientAuricTeslaHelm>() });

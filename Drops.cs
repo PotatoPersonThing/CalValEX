@@ -1428,6 +1428,12 @@ namespace CalValEX
                     {
                         ChanceDropItem(npc, ModContent.ItemType<RoverSpindle>(), 1.0f);
                     }
+                    if (Main.rand.Next(10) == 0 && !Main.expertMode)
+                    {
+                        DropItem(npc, ModContent.ItemType<DemonshadeHood>());
+                        DropItem(npc, ModContent.ItemType<DemonshadeRobe>());
+                        DropItem(npc, ModContent.ItemType<DemonshadePants>());
+                    }
                 }
 
                 if (npc.type == calamityMod.NPCType("Draedon"))

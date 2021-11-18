@@ -1010,6 +1010,13 @@ namespace CalValEX
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());
                             }
+
+                            if (Main.rand.NextFloat() < 0.1f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<DemonshadeHood>());
+                                player.QuickSpawnItem(ModContent.ItemType<DemonshadeRobe>());
+                                player.QuickSpawnItem(ModContent.ItemType<DemonshadePants>());
+                            }
                         }
 
                         if (arg == calamityMod.ItemType("DraedonTreasureBag"))
