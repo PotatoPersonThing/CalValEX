@@ -25,6 +25,7 @@ namespace CalValEX.Items.Pets
             item.value = Item.sellPrice(0, 1, 0, 0);
             item.rare = 3;
             item.buffType = mod.BuffType("SlimeBuff");
+            item.noUseGraphic = true;
         }
 
         public override void UseStyle(Player player)
