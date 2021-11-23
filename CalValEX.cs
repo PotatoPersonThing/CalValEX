@@ -71,6 +71,13 @@ namespace CalValEX
         public static int day;
         public static int month;
 
+        public Action<Player> careationElement;
+        public Action<Item> creationElement = new Action<Item>(item =>
+        {
+            item.type = ModContent.ItemType<CalamitousSoulArtifact>();
+        });
+        public Predicate<Item> caldetec;
+
         public static MethodInfo compactFraming;
         public static MethodInfo brimstoneFraming;
 
@@ -145,9 +152,6 @@ namespace CalValEX
             DraedonChestplateCache.Unload();
         }
 
-        //public static Dictionary<int, int> ItemUpgradeRelationship { get; internal set; } = new Dictionary<int, int>();
-        //internal Action<Item> OnItemChanged;
-
         public override void PostSetupContent()
         {
             //Tooltip changes
@@ -162,18 +166,14 @@ namespace CalValEX
             "Can be dyed with the light pet dye slot when equipped in a vanity slot");
 
             //Want to exhume the old cal artifact into the new one but dont know how
-            /*cal.Call("RegisterEnchantment", "Exhume", "Transforms this item into something significantly stronger.", 2, (Predicate<Item>)delegate (Item item)
-           {
-               if (ItemUpgradeRelationship.ContainsKey(item.type))
-               {
-                   return true;
-               }
-               return false;
-           }, "CalValEX/Items/Pets/Cube");
-            ItemUpgradeRelationship = new Dictionary<int, int>()
+            /*cal.Call("RegisterEnchantment", "Exhume...?", "Transforms this item into something significantly stronger...", 2, caldetec = item =>
             {
-                [ModContent.ItemType<CalArtifact>()] = ModContent.ItemType<CalamitousSoulArtifact>()
-            };*/
+                if (item.type == ModContent.ItemType<CalamitousSoulArtifact>())
+                {
+                    return true;
+                }
+                return false;
+            }, "CalValEX/AprilFools/AmogusBuff", creationElement);*/
 
             //Census support
             Mod censusMod = ModLoader.GetMod("Census");
@@ -365,7 +365,7 @@ namespace CalValEX
                         ModContent.ItemType<DemonshadeHood>(), ModContent.ItemType<DemonshadeRobe>(), ModContent.ItemType<DemonshadePants>()
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Supreme Calamitas",
-                    new List<int> { ModContent.ItemType<CalamitasFumo>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
+                    new List<int> { ModContent.ItemType<CalamitasFumo>(), ModContent.ItemType<GruelingMask>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Exo Mechs",
                     new List<int> { /*ModContent.ItemType<DraedonPlush>(),*/ ModContent.ItemType<AresPlush>(), ModContent.ItemType<ApolloPlush>(), ModContent.ItemType<ArtemisPlush>(), ModContent.ItemType<ThanatosPlush>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Adult Eidolon Wyrm",

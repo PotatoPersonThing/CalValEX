@@ -118,7 +118,7 @@ namespace CalValEX
                             ++nextSlot;
                         }
 
-                        if ((bool)clamMod.Call("GetBossDowned", "buffedeclipse"))
+                        if ((bool)clamMod.Call("GetBossDowned", "yharon"))
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamityFriends>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1);
@@ -155,7 +155,7 @@ namespace CalValEX
                             ++nextSlot;
                         }
 
-                        if ((bool)clamMod.Call("GetBossDowned", "buffedeclipse"))
+                        if ((bool)clamMod.Call("GetBossDowned", "yharon"))
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamityFriends>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(10);
@@ -1417,8 +1417,7 @@ namespace CalValEX
                     ConditionalChanceDropItem(npc, ModContent.ItemType<YharonPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     if (!Main.expertMode)
                     {
-                        ConditionalDropItem(npc, ModContent.ItemType<Termipebbles>(),
-                            (bool)calamityMod.Call("GetBossDowned", "buffedeclipse"), 2, 8);
+                        DropItem(npc, ModContent.ItemType<Termipebbles>(), 2, 8);
                     }
                     if (CalValEX.month == 6 && CalValEX.day == 1)
                     {
@@ -1444,6 +1443,7 @@ namespace CalValEX
                 if (npc.type == calamityMod.NPCType("SupremeCalamitas"))
                 {
                     ConditionalChanceDropItem(npc, ModContent.ItemType<CalamitasFumo>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<GruelingMask>(), !Main.expertMode, 0.2f);
                 }
 
                 //Profaned bike

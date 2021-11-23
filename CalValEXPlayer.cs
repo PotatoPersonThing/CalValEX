@@ -360,6 +360,8 @@ namespace CalValEX
         public float pongballposy;
         public float sliderposx;
         public float sliderposy;*/
+        //Enchants
+        public bool soupench = false;
 
         public override void Initialize()
         {
@@ -760,6 +762,7 @@ namespace CalValEX
             /*pongactive = false;
             pongoutcome = 0;
             pongstage = 0;*/
+            soupench = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
