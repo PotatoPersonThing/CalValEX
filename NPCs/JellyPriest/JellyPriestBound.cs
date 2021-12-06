@@ -44,6 +44,12 @@ namespace CalValEX.NPCs.JellyPriest
                     CalValEXWorld.rescuedjelly = true;
                     CalValEXWorld.UpdateWorldBool();
                     npc.Transform(ModContent.NPCType<JellyPriestNPC>());
+                    npc.netUpdate = true;
+                    if (!NPC.AnyNPCs(ModContent.NPCType<JellyPriestNPC>()))
+                    {
+                        NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, ModContent.NPCType<JellyPriestNPC>());
+                        npc.active = false;
+                    }
                     return;
                 }
             }

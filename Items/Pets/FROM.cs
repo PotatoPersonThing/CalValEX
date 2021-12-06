@@ -4,6 +4,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Items.Critters;
+using CalamityMod;
+using CalamityMod.CustomRecipes;
+using CalamityMod.Items;
 
 namespace CalValEX.Items.Pets
 {
@@ -27,6 +30,8 @@ namespace CalValEX.Items.Pets
             item.buffType = mod.BuffType("MechaGeorgeBuff");
         }
 
+	public override void ModifyTooltips(List<TooltipLine> tooltips) => CalamityGlobalItem.InsertKnowledgeTooltip(tooltips, 3);
+
         public override void UseStyle(Player player)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
@@ -37,10 +42,10 @@ namespace CalValEX.Items.Pets
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (calamityMod != null)
             {
+		ArsenalTierGatedRecipe recipe = new ArsenalTierGatedRecipe(mod, 3);
                 recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 5);
                 recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 5);
                 recipe.AddIngredient(calamityMod.ItemType("InfectedArmorPlating"), 1);

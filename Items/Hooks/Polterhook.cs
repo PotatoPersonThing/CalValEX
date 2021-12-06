@@ -12,14 +12,14 @@ namespace CalValEX.Items.Hooks
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Ghastly Chains");
-            Tooltip.SetDefault("Let the eternally suffering souls pull you forward!\nReach: 46\nLaunch Velocity: 18\nPull Velocity: 26");
+            Tooltip.SetDefault("Let the eternally suffering souls pull you forward!\nReach: 46\nLaunch Velocity: 16\nPull Velocity: 20");
         }
 
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.BatHook);
             item.value = Item.sellPrice(1, 1, 0, 0);
-            item.shootSpeed = 18f;
+            item.shootSpeed = 16f;
             item.shoot = ProjectileType<Phantomhook>();
             item.rare = 11;
         }

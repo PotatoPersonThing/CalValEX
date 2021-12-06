@@ -986,14 +986,6 @@ namespace CalValEX
                     ChanceDropItem(npc, ModContent.ItemType<OmegaBlue>(), 0.05f);
                 }
 
-                if (npc.type == calamityMod.NPCType("EidolonWyrmHeadHuge"))
-                {
-                    DropItem(npc, ModContent.ItemType<SoulShard>());
-                    DropItem(npc, ModContent.ItemType<OmegaBlue>());
-                    DropItem(npc, ModContent.ItemType<RespirationShrine>());
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<JaredPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
-                }
-
                 if (npc.type == calamityMod.NPCType("Horse"))
                 {
                     ChanceDropItem(npc, ModContent.ItemType<EarthShield>(), minibossChance);
@@ -1446,6 +1438,14 @@ namespace CalValEX
                     ConditionalChanceDropItem(npc, ModContent.ItemType<GruelingMask>(), !Main.expertMode, 0.2f);
                 }
 
+                if (npc.type == calamityMod.NPCType("EidolonWyrmHeadHuge"))
+                {
+                    DropItem(npc, ModContent.ItemType<SoulShard>());
+                    DropItem(npc, ModContent.ItemType<OmegaBlue>());
+                    DropItem(npc, ModContent.ItemType<RespirationShrine>());
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<JaredPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
+                }
+
                 //Profaned bike
                 if (npc.type == calamityMod.NPCType("ProfanedGuardianBoss3") && Main.expertMode)
                 {
@@ -1466,9 +1466,10 @@ namespace CalValEX
                 //Catalyst support
                 if (catalyst != null)
                 {
-                    if (npc.type == catalyst.NPCType("Astrageldon") && !Main.expertMode)
+                    if (npc.type == catalyst.NPCType("Astrageldon"))
                     {
-                        ChanceDropItem(npc, ModContent.ItemType<JellyBottle>(), bossPetChance); //10%
+                        ConditionalChanceDropItem(npc, ModContent.ItemType<JellyBottle>(), !Main.expertMode, bossPetChance); //10%
+                        ConditionalChanceDropItem(npc, ModContent.ItemType<AstrageldonPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     }
                 }
 

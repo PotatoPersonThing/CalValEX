@@ -123,6 +123,14 @@ namespace CalValEX.Projectiles.Pets
         public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             Texture2D glowMask = mod.GetTexture("Projectiles/Pets/MechaGeorge_Glow");
+	    if (CalValEX.month == 12)
+	    {
+		glowMask = mod.GetTexture("ExtraTextures/ChristmasPets/MechaGeorgeGlow");
+ 	    }
+	    else
+	    {
+		glowMask = mod.GetTexture("Projectiles/Pets/MechaGeorge_Glow");
+ 	    }
             Rectangle frame = glowMask.Frame(1, Main.projFrames[projectile.type], 0, projectile.frame);
             frame.Height -= 1;
             float originOffsetX = (glowMask.Width - projectile.width) * 0.5f + projectile.width * 0.5f + drawOriginOffsetX;

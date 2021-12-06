@@ -8,7 +8,8 @@ namespace CalValEX.Items.Walls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mossy Abyss Gravel Wall");
+            DisplayName.SetDefault("Compensation");
+            Tooltip.SetDefault("Can be sold");
         }
 
         public override void SetDefaults()
@@ -17,16 +18,17 @@ namespace CalValEX.Items.Walls
             item.height = 12;
             item.maxStack = 999;
             item.rare = 0;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 7;
-            item.useStyle = ItemUseStyleID.SwingThrow;
-            item.consumable = true;
-            item.createWall = ModContent.WallType<MossyGravelWallPlaced>();
+            item.value = 1;
+            //item.useTurn = true;
+           // item.autoReuse = true;
+            //item.useAnimation = 15;
+            //item.useTime = 7;
+            //item.useStyle = ItemUseStyleID.SwingThrow;
+            //item.consumable = true;
+            //item.createWall = ModContent.WallType<MossyGravelWallPlaced>();
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
@@ -35,6 +37,6 @@ namespace CalValEX.Items.Walls
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(this, 4);
             recipe.AddRecipe();
-        }
+        }*/
     }
 }

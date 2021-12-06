@@ -66,7 +66,7 @@ namespace CalValEX
             {
                 if (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7))
                 {
-                    item.damage = 67;
+                    item.damage = 60;
                 }
             }
             Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");

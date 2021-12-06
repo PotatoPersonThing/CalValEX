@@ -60,8 +60,8 @@ namespace CalValEX.Projectiles.Pets
                 modPlayer.mChan = false;
             if (modPlayer.mChan)
                 projectile.timeLeft = 2;
-
-            if ((bool)calamityMod.Call("DifficultyActive", "armageddon") && (bool)calamityMod.Call("DifficultyActive", "death") && (bool)calamityMod.Call("DifficultyActive", "malice"))
+            //MAID mode
+            if ((bool)calamityMod.Call("DifficultyActive", "armageddon") && (bool)calamityMod.Call("DifficultyActive", "death") && (bool)calamityMod.Call("DifficultyActive", "malice") && (bool)calamityMod.Call("DifficultyActive", "ironheart"))
             {
                 if (projectile.frameCounter++ > 8)
                 {
@@ -71,7 +71,7 @@ namespace CalValEX.Projectiles.Pets
                         projectile.frame = 4;
                 }
             }
-            else if (!((bool)calamityMod.Call("DifficultyActive", "armageddon") && (bool)calamityMod.Call("DifficultyActive", "death") && (bool)calamityMod.Call("DifficultyActive", "malice")))
+            else if (!((bool)calamityMod.Call("DifficultyActive", "ironheart") && (bool)calamityMod.Call("DifficultyActive", "armageddon") && (bool)calamityMod.Call("DifficultyActive", "death") && (bool)calamityMod.Call("DifficultyActive", "malice")))
             {
                 if (projectile.frameCounter++ % 8 == 7)
                 {

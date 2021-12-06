@@ -42,7 +42,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         }
         public override void SetUpAuraAndGlowmask()
         {
-            glowmaskTexture = "Projectiles/Pets/LightPets/DarksunSpirit_Fish_Glow";
+            glowmaskTexture = CalValEX.month == 12 ? "ExtraTextures/ChristmasPets/DarksunSpiritFishGlow" : "Projectiles/Pets/DarksunSpirit_Fish_Glow";
         }
 
         public override void SetUpLight()
@@ -128,7 +128,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
         public override void SetUpAuraAndGlowmask()
         {
-            glowmaskTexture = "Projectiles/Pets/LightPets/DarksunSpiritSkull_1_Glow";
+            glowmaskTexture = CalValEX.month == 12 ? "ExtraTextures/ChristmasPets/DarksunSpiritSkull1Glow" : "Projectiles/Pets/DarksunSpiritSkull_1_Glow";
         }
 
         public override void SetUpLight()
@@ -187,7 +187,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
         public override void SetUpAuraAndGlowmask()
         {
-            glowmaskTexture = "Projectiles/Pets/LightPets/DarksunSpiritSkull_2_Glow";
+		glowmaskTexture = CalValEX.month == 12 ? "ExtraTextures/ChristmasPets/DarksunSpiritSkull2" : "Projectiles/Pets/DarksunSpiritSkull_2_Glow";
         }
 
         public override void SetUpLight()

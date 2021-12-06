@@ -96,6 +96,14 @@ namespace CalValEX.ExtraTextures.ChristmasPets
                 Main.projectileTexture[ModContent.ProjectileType<WulfrumHover>()] = ModContent.GetTexture(path + "WulfrumHover");
                 Main.projectileTexture[ModContent.ProjectileType<WulfrumRover>()] = ModContent.GetTexture(path + "WulfrumRover");
                 Main.projectileTexture[ModContent.ProjectileType<cryokid>()] = ModContent.GetTexture(path + "cryokid");
+                Main.projectileTexture[ModContent.ProjectileType<Avalon>()] = ModContent.GetTexture(path + "Avalon");
+                Main.projectileTexture[ModContent.ProjectileType<BabyMonster>()] = ModContent.GetTexture(path + "BabyMonster");
+                Main.projectileTexture[ModContent.ProjectileType<Blockaroz>()] = ModContent.GetTexture(path + "Blockaroz");
+                Main.projectileTexture[ModContent.ProjectileType<Buppy>()] = ModContent.GetTexture(path + "Buppy");
+                Main.projectileTexture[ModContent.ProjectileType<CoolBlueSignut>()] = ModContent.GetTexture(path + "CoolBlueSignut");
+                Main.projectileTexture[ModContent.ProjectileType<CoolBlueSlime>()] = ModContent.GetTexture(path + "CoolBlueSlime");
+                Main.projectileTexture[ModContent.ProjectileType<RoverSpindlePet>()] = ModContent.GetTexture(path + "RoverSpindlePet");
+                Main.projectileTexture[ModContent.ProjectileType<Smauler>()] = ModContent.GetTexture(path + "Smauler");
             }
         }
 

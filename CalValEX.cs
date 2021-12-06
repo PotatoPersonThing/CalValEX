@@ -162,18 +162,10 @@ namespace CalValEX
                 "Summons all elementals to protect you\n" + "Equipping this item in a vanity slot summons passive versions of the Elementals");
             cal.GetItem("CryoStone").Tooltip.AddTranslation(GameCulture.English, "One of the ancient relics\n" +
             "Creates a rotating ice shield around you that damages and slows enemies on contact\n" +
-            "Equipping the item in a vanity slot summons a friendly version of the ice shield that\n" +
+            "Equipping the item in a vanity slot summons a harmless ice shield\n" +
             "Can be dyed with the light pet dye slot when equipped in a vanity slot");
 
-            //Want to exhume the old cal artifact into the new one but dont know how
-            /*cal.Call("RegisterEnchantment", "Exhume...?", "Transforms this item into something significantly stronger...", 2, caldetec = item =>
-            {
-                if (item.type == ModContent.ItemType<CalamitousSoulArtifact>())
-                {
-                    return true;
-                }
-                return false;
-            }, "CalValEX/AprilFools/AmogusBuff", creationElement);*/
+            cal.Call("MakeItemExhumable", ModContent.ItemType<CalArtifact>(), ModContent.ItemType<CalamitousSoulArtifact>());
 
             //Census support
             Mod censusMod = ModLoader.GetMod("Census");
@@ -209,6 +201,7 @@ namespace CalValEX
             CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(ModLoader.GetMod("CalamityMod").NPCType("DevourerofGodsHead"), CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false));*/
 
             //Boss log support
+            Mod catal = ModLoader.GetMod("Catalyst");
             Mod bossChecklist = ModLoader.GetMod("BossChecklist");
             if (bossChecklist != null)
             {
@@ -387,6 +380,12 @@ namespace CalValEX
                         ModContent.ItemType<TrilobiteShield>(),
                         ModContent.ItemType<GammaHelmet>()
                     });
+                //Catalyst Support
+                if (catal != null)
+                {
+                    bossChecklist.Call("AddToBossCollection", "Catalyst", "Astrageldon",
+                           new List<int> { ModContent.ItemType<Items.Tiles.Plushies.AstrageldonPlush>() });
+                }
             }
         }
 

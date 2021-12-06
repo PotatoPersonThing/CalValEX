@@ -11,7 +11,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Calamitous Soul Artifact");
-            Tooltip.SetDefault("Entropy\n" + "'The graveyard screams'\n" + "Summons a benevolent necropede");
+            Tooltip.SetDefault("Entropy\n" + "Summons a benevolent necropede\n" + "[c/C61B40:After crawling for decades in everlasting agony]\n"+ "[c/C61B40:the mobile graveyard finally finds a true friend.]");
         }
 
         public override void SetDefaults()
@@ -41,6 +41,7 @@ namespace CalValEX.Items.Pets
                 {
                     tooltipLine.overrideColor = new Color(108, 45, 199); //change the color accordingly to above
                 }
+                //new Color(198, 27, 64)
             }
         }
 

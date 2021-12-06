@@ -44,7 +44,7 @@ namespace CalValEX.Projectiles.Pets
         }
         public override void SetUpAuraAndGlowmask()
         {
-            glowmaskTexture = "Projectiles/Pets/VoidOrb_Glow";
+            glowmaskTexture = CalValEX.month == 12 ? "ExtraTextures/ChristmasPets/VoidOrbGlow" : "Projectiles/Pets/VoidOrb_Glow";
         }
 
         //you usualy don't have to use the lower two unless you want the pet to have an aura, glowmask

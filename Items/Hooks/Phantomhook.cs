@@ -47,7 +47,7 @@ namespace CalValEX.Items.Hooks
 
         public override void GrappleRetreatSpeed(Player player, ref float speed)
         {
-            speed = 26f;
+            speed = 18f;
         }
 
         public override void GrapplePullSpeed(Player player, ref float speed)
