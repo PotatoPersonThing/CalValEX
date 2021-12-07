@@ -18,7 +18,6 @@ namespace CalValEX.Items.Equips.Hats
             item.height = 22;
             item.value = Item.sellPrice(0, 1, 0, 0);
             item.rare = 4;
-            item.accessory = true;
             item.vanity = true;
         }
     }

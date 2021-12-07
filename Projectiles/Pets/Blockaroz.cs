@@ -23,7 +23,7 @@ namespace CalValEX.Projectiles.Pets
             projectile.friendly = true;
             projectile.ignoreWater = true;
             projectile.tileCollide = true;
-            base.drawOriginOffsetY = 2;
+            base.drawOriginOffsetY = CalValEX.month == 12 ? -10 : 2;
             facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
             shouldFlip = true;
@@ -120,6 +120,14 @@ namespace CalValEX.Projectiles.Pets
         public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             Texture2D glowMask = mod.GetTexture("Projectiles/Pets/Blockaroz_Glow");
+	    if (CalValEX.month == 12)
+	    {
+		glowMask = mod.GetTexture("ExtraTextures/ChristmasPets/BlockarozGlow");
+ 	    }
+	    else
+	    {
+		glowMask = mod.GetTexture("Projectiles/Pets/Blockaroz_Glow");
+ 	    }
             Rectangle frame = glowMask.Frame(1, Main.projFrames[projectile.type], 0, projectile.frame);
             frame.Height -= 1;
             float originOffsetX = (glowMask.Width - projectile.width) * 0.5f + projectile.width * 0.5f + drawOriginOffsetX;

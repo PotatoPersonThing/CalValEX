@@ -7,7 +7,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Yharim Squid");
-            Main.projFrames[projectile.type] = 15; //frames
+            Main.projFrames[projectile.type] = 8; //frames
             Main.projPet[projectile.type] = true;
         }
 
@@ -39,8 +39,8 @@ namespace CalValEX.Projectiles.Pets
             inertia = 60f;
             animationSpeed = 12; //how fast the animation should play
             spinRotationSpeedMult = 0.2f; //rotation speed multiplier, keep it positive for it to spin in the right direction
-            offSetX = 48f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
-            offSetY = -50f; //how much higher from the center the pet should float
+            offSetX = 68f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
+            offSetY = -70f; //how much higher from the center the pet should float
         }
 
         //you usualy don't have to use the lower two unless you want the pet to have an aura, glowmask

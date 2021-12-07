@@ -1033,6 +1033,39 @@ namespace CalValEX
             }
         }
 
+        public static readonly PlayerLayer HeadFront = new PlayerLayer("CalValEX", "HeadFront", PlayerLayer.Hair, delegate (PlayerDrawInfo drawInfo)
+        {
+            if (drawInfo.shadow != 0f)
+            {
+                return;
+            }
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("CalValEX");
+            Player player = Main.LocalPlayer;
+            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
+            int secondyoffset = 0;
+            float alb = (255 - drawPlayer.immuneAlpha) / 255f;
+            if (drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 8 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 9 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 15 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 16 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 17)
+            {
+                secondyoffset = 2;
+            }
+            else
+            {
+                secondyoffset = 0;
+            }
+            if (modPlayer.specan)
+            {
+                Texture2D texture = mod.GetTexture("Items/Equips/Hats/SpectralstormHat");
+                int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);
+                int drawY = (int)(drawInfo.position.Y + drawPlayer.height - 32 - Main.screenPosition.Y - secondyoffset);
+                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Color.White * alb, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0)
+                {
+                    shader = drawInfo.headArmorShader
+                };
+                Main.playerDrawData.Add(data);
+            }
+        });
+
         public static readonly PlayerLayer Head = new PlayerLayer("CalValEX", "Head", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
         {
             if (drawInfo.shadow != 0f)
@@ -1073,17 +1106,6 @@ namespace CalValEX
                 {
                     shader = drawInfo.headArmorShader
                 }; 
-                Main.playerDrawData.Add(data);
-            }
-            if (modPlayer.specan)
-            {
-                Texture2D texture = mod.GetTexture("Items/Equips/Hats/SpectralstormHat");
-                int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);
-                int drawY = (int)(drawInfo.position.Y + drawPlayer.height - 32 - Main.screenPosition.Y - secondyoffset);
-                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Color.White * alb, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0)
-                {
-                    shader = drawInfo.headArmorShader
-                };
                 Main.playerDrawData.Add(data);
             }
             if (modPlayer.conejo)
@@ -1370,6 +1392,7 @@ namespace CalValEX
             int carriageLayer = layers.FindIndex(l => l == PlayerLayer.MountFront);
             int shieldLaer = layers.FindIndex(l => l == PlayerLayer.SolarShield);
             int highLaer = layers.FindIndex(l => l == PlayerLayer.MiscEffectsFront);
+            int hairLayer = layers.FindIndex(l => l == PlayerLayer.Hair);
 
             if (headLayer > -1)
             {
@@ -1387,6 +1410,8 @@ namespace CalValEX
             }
             Head.visible = true;
             layers.Insert(headLayer + 1, Head);
+            HeadFront.visible = true;
+            layers.Insert(headLayer + 4, HeadFront);
             Mimigun.visible = true;
             layers.Insert(headLayer + 2, Mimigun);
             Mimigun2.visible = true;

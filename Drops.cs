@@ -1041,7 +1041,7 @@ namespace CalValEX
                 {
                     ChanceDropItem(npc, ModContent.ItemType<cloudcandy>(), 0.1f);
                     ChanceDropItem(npc, ModContent.ItemType<CloudWaistbelt>(), 0.1f);
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<FogG>(), (bool)calamityMod.Call("GetBossDowned", "supremecalamitas"), 0.0001f);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<FogG>(), ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") && (bool)calamityMod.Call("GetBossDowned", "exomechs")), 0.0001f);
                 }
 
                 if (npc.type == calamityMod.NPCType("Mauler") && (bool)calamityMod.Call("GetBossDowned", "polterghast"))
@@ -1630,6 +1630,8 @@ namespace CalValEX
 
             if (npc.type == calamityMod.NPCType("ThanatosHead") && !NPC.AnyNPCs(calamityMod.NPCType("AresBody")) && !NPC.AnyNPCs(calamityMod.NPCType("Apollo")))
             {
+                DropItem(npc, ModContent.ItemType<DraedonBody>());
+                DropItem(npc, ModContent.ItemType<DraedonLegs>());
                 if ((bool)calamityMod.Call("DifficultyActive", "revengeance") && Main.rand.Next(5) == 0)
                 {
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<ThanatosPlush>(), 1, false, 0, false, false);

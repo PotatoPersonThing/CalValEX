@@ -187,7 +187,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
         public override void SetUpAuraAndGlowmask()
         {
-		glowmaskTexture = CalValEX.month == 12 ? "ExtraTextures/ChristmasPets/DarksunSpiritSkull2" : "Projectiles/Pets/DarksunSpiritSkull_2_Glow";
+		glowmaskTexture = CalValEX.month == 12 ? "ExtraTextures/ChristmasPets/DarksunSpiritSkull2Glow" : "Projectiles/Pets/DarksunSpiritSkull_2_Glow";
         }
 
         public override void SetUpLight()

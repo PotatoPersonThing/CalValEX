@@ -217,21 +217,29 @@ namespace CalValEX.AprilFools
             }
             else if (!firstButton)
             {
-            {
-                if (Main.myPlayer == Main.LocalPlayer.whoAmI)
                 {
-                    Mod clamMod = ModLoader.GetMod("CalamityMod");
-                    if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas"))
+                    if (Main.myPlayer == Main.LocalPlayer.whoAmI)
                     {
-                        npc.active = false;
-                        NPC.SpawnOnPlayer(Main.player[Main.myPlayer].whoAmI, mod.NPCType("Fogbound"));
-                    }
-                    else
-                    {
-                        Main.npcChatText = "The time is not here yet. He will only appear after the great brimstone witch has been bested in combat.";
+                        Mod clamMod = ModLoader.GetMod("CalamityMod");
+                        if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas") && (bool)clamMod.Call("GetBossDowned", "exomechs"))
+                        {
+                            npc.active = false;
+                            NPC.SpawnOnPlayer(Main.player[Main.myPlayer].whoAmI, mod.NPCType("Fogbound"));
+                        }
+                        else if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas") && !(bool)clamMod.Call("GetBossDowned", "exomechs"))
+                        {
+                            Main.npcChatText = "The time is not here yet. He will only appear after the ultimate mechanical horrors have been destroyed.";
+                        }
+                        else if (!(bool)clamMod.Call("GetBossDowned", "supremecalamitas") && (bool)clamMod.Call("GetBossDowned", "exomechs"))
+                        {
+                            Main.npcChatText = "The time is not here yet. He will only appear after the great brimstone witch has been bested in combat.";
+                        }
+                        else
+                        {
+                            Main.npcChatText = "The time is not here yet. He will only appear after the great brimstone witch and the ultimate mechanical horrors have been defeated.";
+                        }
                     }
                 }
-            }
             }
         }
 
@@ -247,7 +255,7 @@ namespace CalValEX.AprilFools
                 if (clamMod != null)
                 {
                     shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("CheatTestThing"));
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(3, 99, 99, 6);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 99, 99, 6);
                     ++nextSlot;
                 }
             }
@@ -265,7 +273,7 @@ namespace CalValEX.AprilFools
                 if (clamMod != null)
                 {
                     shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("Lol"));
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(3, 99, 99, 6);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 99, 99, 6);
                     ++nextSlot;
                 }
             }

@@ -58,7 +58,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         }
         public override void SetUpAuraAndGlowmask()
         {
-            glowmaskTexture = "Projectiles/Pets/LightPets/SeerS_Glow";
+            glowmaskTexture = CalValEX.month == 12 ? "ExtraTextures/ChristmasPets/SeerSGlow" : "Projectiles/Pets/LightPets/SeerS_Glow";
         }
 
         public override void SafeAI(Player player)
