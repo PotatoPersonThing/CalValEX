@@ -2,6 +2,8 @@ using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
 // If you don't know what to change this to, don't mess with this code.
@@ -170,6 +172,13 @@ namespace CalValEX.Projectiles.Pets
             projectile.width = 26;
             projectile.height = 36;
             projectile.Center = projectile.position;
+        }
+        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/FathomEelHead_Glow");
+            int frameHeight = texture.Height / Main.projFrames[projectile.type];
+            int hei = frameHeight * projectile.frame;
+            spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * projectile.frame, texture.Width, frameHeight)), lightColor, projectile.rotation, projectile.Size / 2f, 1f, SpriteEffects.None, 0f);
         }
     }
 }

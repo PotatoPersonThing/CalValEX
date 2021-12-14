@@ -15,7 +15,6 @@ namespace CalValEX.Tiles.Blocks
             drop = calamityMod.ItemType("Bloodstone");
             AddMapEntry(new Color(126, 94, 87));
             animationFrameHeight = 90;
-            minPick = 275;
         }
 
         private readonly int animationFrameWidth = 234;

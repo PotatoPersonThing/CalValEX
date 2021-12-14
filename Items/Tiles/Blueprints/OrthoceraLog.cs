@@ -7,6 +7,7 @@ namespace CalValEX.Items.Tiles.Blueprints
 {
     internal class OrthoceraLog : ModItem
     {
+        public override string Texture => "CalValEX/Items/Tiles/Blueprints/Blueprint";
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Orthocera Exile Plan");
@@ -23,7 +24,7 @@ namespace CalValEX.Items.Tiles.Blueprints
             item.autoReuse = true;
             item.maxStack = 99;
             item.consumable = true;
-            item.createTile = ModContent.TileType<OrthoceraLogPlaced>();
+            item.createTile = ModContent.TileType<OrthoceraBlueprintPlaced>();
             item.width = 46;
             item.height = 32;
             item.rare = 6;

@@ -16,7 +16,6 @@ namespace CalValEX.Tiles.Blocks
             drop = ModContent.ItemType<EidolicSlab>();
             AddMapEntry(new Color(0, 76, 82));
             dustType = 187;
-            minPick = 275;
         }
     }
 }

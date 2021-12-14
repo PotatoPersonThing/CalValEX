@@ -16,7 +16,6 @@ namespace CalValEX.Tiles.Blocks
             Main.tileLighted[Type] = true;
             drop = ModContent.ItemType<ChiseledBloodstone>();
             AddMapEntry(new Color(126, 94, 87));
-            minPick = 275;
             soundType = SoundID.Tink;
         }
     }

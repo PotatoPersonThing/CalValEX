@@ -46,7 +46,7 @@ namespace CalValEX.Projectiles.Pets
             float segmentAheadRotation;
 
             // This, and Size will likely need to be changed based on the sprite size of the segment
-            float travelFactor = 16f;
+            float travelFactor = 20f;
 
             Vector2 segmentAheadCenter;
             int segmentAhead = (int)projectile.ai[0];

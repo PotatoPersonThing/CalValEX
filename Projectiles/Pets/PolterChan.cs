@@ -49,7 +49,9 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetUpAuraAndGlowmask()
         {
-            glowmaskTexture = "Projectiles/Pets/PolterChan_Glow";
+            Player player = Main.player[projectile.owner];
+            CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
+            glowmaskTexture = (modPlayer.signutTrans || modPlayer.signutForce) && !CalValEXConfig.Instance.Polterskin ? "Projectiles/Pets/EvilPolterChan_Glow" : "Projectiles/Pets/PolterChan_Glow";
         }
 
         public override void SafeAI(Player player)
@@ -61,7 +63,7 @@ namespace CalValEX.Projectiles.Pets
             if (modPlayer.mChan)
                 projectile.timeLeft = 2;
             //MAID mode
-            if ((bool)calamityMod.Call("DifficultyActive", "armageddon") && (bool)calamityMod.Call("DifficultyActive", "death") && (bool)calamityMod.Call("DifficultyActive", "malice") && (bool)calamityMod.Call("DifficultyActive", "ironheart"))
+            if (!CalValEXConfig.Instance.Polterskin && (bool)calamityMod.Call("DifficultyActive", "armageddon") && (bool)calamityMod.Call("DifficultyActive", "death") && (bool)calamityMod.Call("DifficultyActive", "malice") && (bool)calamityMod.Call("DifficultyActive", "ironheart"))
             {
                 if (projectile.frameCounter++ > 8)
                 {
@@ -71,7 +73,7 @@ namespace CalValEX.Projectiles.Pets
                         projectile.frame = 4;
                 }
             }
-            else if (!((bool)calamityMod.Call("DifficultyActive", "ironheart") && (bool)calamityMod.Call("DifficultyActive", "armageddon") && (bool)calamityMod.Call("DifficultyActive", "death") && (bool)calamityMod.Call("DifficultyActive", "malice")))
+            else
             {
                 if (projectile.frameCounter++ % 8 == 7)
                 {

@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -131,6 +132,9 @@ namespace CalValEX.Projectiles.Pets
             Rectangle frame = glowMask.Frame(1, Main.projFrames[projectile.type], 0, projectile.frame);
             frame.Height -= 1;
             float originOffsetX = (glowMask.Width - projectile.width) * 0.5f + projectile.width * 0.5f + drawOriginOffsetX;
+	    Mod ortho = ModLoader.GetMod("CalValPlus");
+	    if ((ortho != null) || (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7)))
+	    { 
             spriteBatch.Draw
             (
                 glowMask,
@@ -143,6 +147,7 @@ namespace CalValEX.Projectiles.Pets
                 projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
                 0f
             );
+	    }
         }
     }
 }

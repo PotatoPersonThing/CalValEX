@@ -213,6 +213,11 @@ namespace CalValEX.NPCs.JellyPriest
                 }
             }
 
+            if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas") && Main.rand.NextFloat() < 0.25f)
+            {
+                    return "Yeesh, through all of your adventures, I've stocked up quite the inventory!";
+            }
+
             if ((calPlayer.sirenWaifu || calPlayer.elementalHeart || (CalValEXPlayer.vanityhote && !CalValEXConfig.Instance.HeartVanity)) && Main.rand.NextFloat() < 0.25f)
             {
                 return "You were successfully able to befriend the grand Water Elemental? I'm impressed.";
@@ -351,6 +356,10 @@ namespace CalValEX.NPCs.JellyPriest
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 10, 0);
                     ++nextSlot;
 
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<FleshThing>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 60, 0);
+                    ++nextSlot;
+
                     shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryConsoleItem"));
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
                     ++nextSlot;
@@ -481,7 +490,7 @@ namespace CalValEX.NPCs.JellyPriest
                             ++nextSlot;
                         }
                     }
-                    if ((bool)clamMod.Call("GetBossDowned", "plaguebringergoliath"))
+                    if ((bool)clamMod.Call("GetBossDowned", "bumblebirb"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<PlagueDialysis>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
@@ -522,6 +531,9 @@ namespace CalValEX.NPCs.JellyPriest
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<NetherTree>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 5, 0, 0);
                         ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<NetherTreeBig>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 50, 0, 0);
+                        ++nextSlot;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "polterghast") && Main.expertMode)
                     {
@@ -547,6 +559,15 @@ namespace CalValEX.NPCs.JellyPriest
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas"))
                     {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<BrimstoneHeart>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamitasBanner>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 60, 0, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<DemonShield>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 60, 0, 0);
+                        ++nextSlot;
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Se>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(6, 66, 66, 66);
                         ++nextSlot;
@@ -716,6 +737,10 @@ namespace CalValEX.NPCs.JellyPriest
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 10, 0);
                     ++nextSlot;
 
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<FleshThing>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 60, 0);
+                    ++nextSlot;
+
                     shop.item[nextSlot].SetDefaults(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryConsoleItem"));
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
                     ++nextSlot;
@@ -846,7 +871,7 @@ namespace CalValEX.NPCs.JellyPriest
                             ++nextSlot;
                         }
                     }
-                    if ((bool)clamMod.Call("GetBossDowned", "plaguebringergoliath"))
+                    if ((bool)clamMod.Call("GetBossDowned", "bumblebirb"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<PlagueDialysis>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
@@ -884,6 +909,9 @@ namespace CalValEX.NPCs.JellyPriest
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<NetherTree>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 5, 0, 0);
                         ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<NetherTreeBig>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 50, 0, 0);
+                        ++nextSlot;
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "polterghast") && Main.expertMode)
                     {
@@ -905,6 +933,15 @@ namespace CalValEX.NPCs.JellyPriest
                     }
                     if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas"))
                     {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<BrimstoneHeart>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamitasBanner>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 60, 0, 0);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<DemonShield>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 60, 0, 0);
+                        ++nextSlot;
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Se>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(6, 66, 66, 66);
                         ++nextSlot;

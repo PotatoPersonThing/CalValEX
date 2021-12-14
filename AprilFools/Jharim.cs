@@ -97,9 +97,9 @@ namespace CalValEX.AprilFools
             if (SEAHOE >= 0 && Main.rand.NextFloat() < 0.25f)
             {
                 if (Cal >= 0)
-                return "How is Amidas still alive, I thought that he got burnt by Soup Ree Calamitoad.";
-                else
                 return "How is Amidas still alive, I thought that he got burnt by that DUMB witch.";
+                else
+                return "How is Amidas still alive, I thought that he got burnt by Soup Ree Calamitoad.";
             }
             CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
 
@@ -108,7 +108,7 @@ namespace CalValEX.AprilFools
                 return "Hyuck Hyuck Hyuck, my loyal friend Yharon! I demand you to stop atacking! ... Guess he doesn't recognize me...";
             }
             Mod clamMod = ModLoader.GetMod("CalamityMod");
-            if (((bool)clamMod.Call("GetBossDowned", "supremecalamitas")) && Main.rand.NextFloat() < 0.25)
+            if (((bool)clamMod.Call("GetBossDowned", "supremecalamitas")) && ((bool)clamMod.Call("GetBossDowned", "exomechs")) && Main.rand.NextFloat() < 0.25)
             {
                 switch (Main.rand.Next(2))
                 {

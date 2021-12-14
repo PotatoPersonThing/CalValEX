@@ -10,7 +10,7 @@ namespace CalValEX.Items.Tiles.Paintings
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Calamity's Vanities");
-            Tooltip.SetDefault("'Yharex'");
+            Tooltip.SetDefault("'IbanPlay and Starr'");
         }
 
         public override void SetDefaults()

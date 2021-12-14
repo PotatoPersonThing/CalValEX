@@ -31,6 +31,8 @@ using CalValEX.AprilFools;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 
 namespace CalValEX
 {
@@ -61,6 +63,36 @@ namespace CalValEX
                 item.useStyle = ItemUseStyleID.SwingThrow;
                 item.consumable = true;
                 item.createTile = ModContent.TileType<MeldConstructPlaced>();
+            }
+            if (item.type == calamityMod.ItemType("EyeofExtinction"))
+            {
+                item.useTurn = true;
+                item.autoReuse = true;
+                item.useAnimation = 15;
+                item.useTime = 10;
+                item.useStyle = ItemUseStyleID.SwingThrow;
+                item.consumable = true;
+                item.createTile = ModContent.TileType<CeremonialUrnPlaced>();
+            }
+            if (item.type == calamityMod.ItemType("SCalBag"))
+            {
+                item.useTurn = true;
+                item.autoReuse = true;
+                item.useAnimation = 15;
+                item.useTime = 10;
+                item.useStyle = ItemUseStyleID.SwingThrow;
+                item.consumable = true;
+                item.createTile = ModContent.TileType<CalamitasCofferPlaced>();
+            }
+            if (item.type == calamityMod.ItemType("DraedonTreasureBag"))
+            {
+                item.useTurn = true;
+                item.autoReuse = true;
+                item.useAnimation = 15;
+                item.useTime = 10;
+                item.useStyle = ItemUseStyleID.SwingThrow;
+                item.consumable = true;
+                item.createTile = ModContent.TileType<DraedonQuoteonQuoteBagPlaced>();
             }
             else if (item.type == calamityMod.ItemType("ElementalBlaster"))
             {
@@ -322,6 +354,8 @@ namespace CalValEX
                             case "Mathew Maple":
                             case "Maple":
                                 player.QuickSpawnItem(ModContent.ItemType<DeepseaLantern>());
+                                player.QuickSpawnItem(ModContent.ItemType<SwearingShroom>());
+                                player.QuickSpawnItem(ModContent.ItemType<FleshThing>());
                                 break;
 
                             case "Emerald":
@@ -336,6 +370,7 @@ namespace CalValEX
                                 break;
 
                             case "Scarfy":
+                            case "ScarfyScout":
                             case "Krysmun":
                             case "DodoNation":
                             case "Dodo":
@@ -695,24 +730,21 @@ namespace CalValEX
                             }
                         }
 
-                        if (catalyst != null)
+                        if (arg == calamityMod.ItemType("AstrageldonBag"))
                         {
-                            if (arg == calamityMod.ItemType("AstrageldonBag"))
+                            if (Main.rand.NextFloat() < 0.2f)
                             {
-                                if (Main.rand.NextFloat() < 0.2f)
-                                {
-                                    player.QuickSpawnItem(ModContent.ItemType<AstDie>());
-                                }
+                                player.QuickSpawnItem(ModContent.ItemType<AstDie>());
+                            }
 
-                                if (Main.rand.NextFloat() < 0.2f)
-                                {
-                                    player.QuickSpawnItem(ModContent.ItemType<AureusShield>());
-                                }
+                            if (Main.rand.NextFloat() < 0.2f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<AureusShield>());
+                            }
 
-                                if (Main.rand.NextFloat() < 0.001f)
-                                {
-                                    player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());
-                                }
+                            if (Main.rand.NextFloat() < 0.001f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());
                             }
                         }
 
@@ -1026,6 +1058,15 @@ namespace CalValEX
 
                         if (arg == calamityMod.ItemType("DraedonTreasureBag"))
                         {
+                            if (Main.rand.NextFloat() < 0.1f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<XMLightningHook>());
+                            }
+                            if (Main.rand.NextFloat() < 0.3f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<ApolloBalloonSmall>());
+                                player.QuickSpawnItem(ModContent.ItemType<ArtemisBalloonSmall>());
+                            }
                             if (Main.rand.NextFloat() < 0.1f)
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());

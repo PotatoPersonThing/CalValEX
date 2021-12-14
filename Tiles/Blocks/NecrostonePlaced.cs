@@ -15,7 +15,6 @@ namespace CalValEX.Tiles.Blocks
             Main.tileLighted[Type] = true;
             drop = ModContent.ItemType<Necrostone>();
             AddMapEntry(new Color(108, 59, 16));
-            minPick = 210;
         }
     }
 }

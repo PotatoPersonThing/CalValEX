@@ -105,6 +105,7 @@ namespace CalValEX.ExtraTextures.ChristmasPets
                 Main.projectileTexture[ModContent.ProjectileType<RoverSpindlePet>()] = ModContent.GetTexture(path + "RoverSpindlePet");
                 Main.projectileTexture[ModContent.ProjectileType<Smauler>()] = ModContent.GetTexture(path + "Smauler");
                 Main.npcTexture[ModLoader.GetMod("CalamityMod").NPCType("FlakBaby")] = ModContent.GetTexture(path + "ChrismasFlak");
+                Main.projectileTexture[ModContent.ProjectileType<FathomEelHead>()] = ModContent.GetTexture(path + "FathomEelHead");
             }
         }
 

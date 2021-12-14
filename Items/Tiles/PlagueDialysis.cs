@@ -10,9 +10,9 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Plague Dialysis Machine");
+            DisplayName.SetDefault("Yharon Cloning Vat");
             Tooltip
-                .SetDefault("'We aren't allowed to inject you with the Plague. Sorry.'");
+                .SetDefault("'Sealed away for eternity'");
         }
 
         public override void SetDefaults()
@@ -27,7 +27,7 @@ namespace CalValEX.Items.Tiles
             item.createTile = ModContent.TileType<PlagueDialysisPlaced>();
             item.width = 32;
             item.height = 50;
-            item.rare = ItemRarityID.LightRed;
+            item.rare = ItemRarityID.Purple;
         }
     }
 }

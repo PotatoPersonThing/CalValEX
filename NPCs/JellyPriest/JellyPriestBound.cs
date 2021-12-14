@@ -27,6 +27,7 @@ namespace CalValEX.NPCs.JellyPriest
             npc.DeathSound = SoundID.NPCDeath1;
             npc.knockBackResist = 0.5f;
             npc.rarity = 1;
+            npc.dontTakeDamageFromHostiles = true;
         }
 
         public override bool CanChat()
@@ -83,6 +84,32 @@ namespace CalValEX.NPCs.JellyPriest
             {
                 return 0f;
             }
+        }
+
+        public override bool? CanBeHitByItem(Player player, Item item)
+        {
+            return true;
+        }
+
+        public override bool? CanBeHitByProjectile(Projectile projectile)
+        {
+            if (projectile.friendly)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public override bool StrikeNPC(ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
+        {
+            damage = 1;
+            crit = false;
+            knockback = 0;
+            npc.Transform(ModContent.NPCType<JellyPriestNPC>());
+            return false;
         }
 
         public override void HitEffect(int hitDirection, double damage)

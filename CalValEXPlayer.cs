@@ -347,11 +347,21 @@ namespace CalValEX
         public int chopperframe = 0;
         public int conecounter = 0;
         public int coneframe = 0;
+        public int twincounter = 0;
+        public int twinframe = 0;
+        public int stwincounter = 0;
+        public int stwinframe = 0;
         public bool wulfrumjam;
         public bool cassette;
         public bool specan;
         public bool carriage;
         public float bcarriagewheel = 0.0f;
+        public bool twinballoon;
+        public bool artballoon;
+        public bool apballoon;
+        public bool sapballoon;
+        public bool sartballoon;
+        //344
         //Pong stuff
         public bool pongactive;
         public int pongstage = 0;
@@ -605,6 +615,23 @@ namespace CalValEX
                 coneframe = coneframe == coneflame - 1 ? 0 : coneframe + 1;
             }
             conecounter++;
+
+            int twinflame = 5;
+            if (twincounter >= 12)
+            {
+                twincounter = -1;
+                twinframe = twinframe == twinflame - 1 ? 0 : twinframe + 1;
+            }
+            twincounter++;
+
+            int stwinflame = 12;
+            if (stwincounter >= 12)
+            {
+                stwincounter = -1;
+                stwinframe = stwinframe == stwinflame - 1 ? 0 : stwinframe + 1;
+            }
+            stwincounter++;
+
             if (Main.LocalPlayer.velocity.X > 0)
             {
                 bcarriagewheel += 1.0f;
@@ -759,6 +786,11 @@ namespace CalValEX
             carriage = false;
             yharcar = false;
             sepneo = false;
+            twinballoon = false;
+            artballoon = false;
+            apballoon = false;
+            sapballoon = false;
+            sartballoon = false;
             /*pongactive = false;
             pongoutcome = 0;
             pongstage = 0;*/
@@ -1221,6 +1253,115 @@ namespace CalValEX
             }
         });
 
+        public static readonly PlayerLayer Sexoballoon = new PlayerLayer("CalValEX", "Sexoballoon", PlayerLayer.BalloonAcc, delegate (PlayerDrawInfo drawInfo)
+        {
+            if (drawInfo.shadow != 0f)
+            {
+                return;
+            }
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("CalValEX");
+            Player player = Main.LocalPlayer;
+            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
+            int secondyoffset = 0;
+            int xflip = 0;
+            xflip = (player.direction == -1 ? -40 : 0);
+            float alb = (255 - drawPlayer.immuneAlpha) / 255f;
+            if (modPlayer.sartballoon)
+            {
+                int winflip = 1 * -drawPlayer.direction;
+                Texture2D texture = mod.GetTexture("Items/Equips/Balloons/ArtemisBalloonSmallEquipped");
+                Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * player.direction + 20 + xflip, drawPlayer.gfxOffY + 8- secondyoffset);
+                Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
+                Rectangle conesquare = texture.Frame(1, 12, 0, modPlayer.stwinframe);
+                DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, 0f, origin, 1, player.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0
+                )
+                {
+                    shader = drawInfo.balloonShader
+                };
+                Main.playerDrawData.Add(data);
+            }
+            if (modPlayer.sapballoon)
+            {
+                int winflip = 1 * -drawPlayer.direction;
+                Texture2D texture = mod.GetTexture("Items/Equips/Balloons/ApolloBalloonSmallEquipped");
+                texture = modPlayer.sapballoon ? mod.GetTexture("Items/Equips/Balloons/ApolloBalloonSmallEquipped") : mod.GetTexture("Items/Equips/Balloons/ArtemisBalloonSmallEquipped");
+                Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * player.direction + 20 + xflip, drawPlayer.gfxOffY + 8- secondyoffset);
+                Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
+                Rectangle conesquare = texture.Frame(1, 12, 0, modPlayer.stwinframe);
+                DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, 0f, origin, 1, player.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0
+                )
+                {
+                    shader = drawInfo.balloonShader
+                };
+                Main.playerDrawData.Add(data);
+            }
+        });
+
+        public static readonly PlayerLayer Exoballoon = new PlayerLayer("CalValEX", "Exoballoon", PlayerLayer.BalloonAcc, delegate (PlayerDrawInfo drawInfo)
+        {
+            if (drawInfo.shadow != 0f)
+            {
+                return;
+            }
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("CalValEX");
+            Player player = Main.LocalPlayer;
+            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
+            int secondyoffset = 0;
+            float alb = (255 - drawPlayer.immuneAlpha) / 255f;
+            if (modPlayer.apballoon)
+            {
+                int winflip = 1 * -drawPlayer.direction;
+                Texture2D texture = mod.GetTexture("Items/Equips/Balloons/ApolloBalloonEquipped");
+                Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * player.direction + 40 , drawPlayer.gfxOffY - 170 - secondyoffset);
+                Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
+                Rectangle conesquare = texture.Frame(1, 5, 0, modPlayer.twinframe);
+                DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, 0f, origin, 1, SpriteEffects.None, 0
+                )
+                {
+                    shader = drawInfo.balloonShader
+                };
+                Main.playerDrawData.Add(data);
+            }
+            else if (modPlayer.artballoon)
+            {
+                int winflip = 1 * -drawPlayer.direction;
+                Texture2D texture = mod.GetTexture("Items/Equips/Balloons/ArtemisBalloonEquipped");
+                Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * player.direction - 140, drawPlayer.gfxOffY - 170 - secondyoffset);
+                Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
+                Rectangle conesquare = texture.Frame(1, 5, 0, modPlayer.twinframe);
+                DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, 0f, origin, 1, SpriteEffects.None, 0
+                )
+                {
+                    shader = drawInfo.balloonShader
+                };
+                Main.playerDrawData.Add(data);
+            }
+            else if (modPlayer.twinballoon)
+            {
+                int winflip = 1 * -drawPlayer.direction;
+                Texture2D texture = mod.GetTexture("Items/Equips/Balloons/ArtemisBalloonEquipped");
+                Texture2D texture2 = mod.GetTexture("Items/Equips/Balloons/ApolloBalloonEquipped");
+                Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * player.direction - 140, drawPlayer.gfxOffY - 170 - secondyoffset);
+                Vector2 wtf2 = drawPlayer.Center - Main.screenPosition + new Vector2(0f * player.direction + 40, drawPlayer.gfxOffY - 170 - secondyoffset);
+                Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
+                Rectangle conesquare = texture.Frame(1, 5, 0, modPlayer.twinframe);
+                DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, 0f, origin, 1, SpriteEffects.None, 0
+                )
+                {
+                    shader = drawInfo.balloonShader
+                };
+                DrawData data2 = new DrawData(texture2, wtf2, conesquare, Color.White * alb, 0f, origin, 1, SpriteEffects.None, 0
+                )
+                {
+                    shader = drawInfo.balloonShader
+                };
+                Main.playerDrawData.Add(data);
+                Main.playerDrawData.Add(data2);
+            }
+        });
+
         //Welcome to pong hell
         /*public static readonly PlayerLayer PongUI = new PlayerLayer("CalValEX", "PongUI", PlayerLayer.SolarShield, delegate (PlayerDrawInfo drawInfo)
         {
@@ -1393,6 +1534,7 @@ namespace CalValEX
             int shieldLaer = layers.FindIndex(l => l == PlayerLayer.SolarShield);
             int highLaer = layers.FindIndex(l => l == PlayerLayer.MiscEffectsFront);
             int hairLayer = layers.FindIndex(l => l == PlayerLayer.Hair);
+            int ballLayer = layers.FindIndex(l => l == PlayerLayer.BalloonAcc);
 
             if (headLayer > -1)
             {
@@ -1420,6 +1562,10 @@ namespace CalValEX
             layers.Insert(backLayer + 1, Prismshell);
             BCarriage.visible = true;
             layers.Insert(armLayer + 1, BCarriage);
+            Exoballoon.visible = true;
+            layers.Insert(ballLayer + 2, Exoballoon);
+            Sexoballoon.visible = true;
+            layers.Insert(ballLayer + 3, Sexoballoon);
             if (yharcar)
             {
                 foreach (PlayerLayer layer in layers)

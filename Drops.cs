@@ -104,30 +104,10 @@ namespace CalValEX
                 {
                     if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sunkensea"))
                     {
-                        if (Main.hardMode)
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<VVanities>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
-                            ++nextSlot;
-                        }
-
                         if ((bool)clamMod.Call("GetBossDowned", "oldduke"))
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<BloodwormScarf>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50);
-                            ++nextSlot;
-                        }
-
-                        if ((bool)clamMod.Call("GetBossDowned", "yharon"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamityFriends>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<WilliamPainting>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamiteaTime>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1);
                             ++nextSlot;
                         }
 
@@ -141,30 +121,10 @@ namespace CalValEX
 
                     if (!(bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sunkensea"))
                     {
-                        if (Main.hardMode)
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<VVanities>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
-                            ++nextSlot;
-                        }
-
                         if ((bool)clamMod.Call("GetBossDowned", "oldduke"))
                         {
                             shop.item[nextSlot].SetDefaults(ModContent.ItemType<BloodwormScarf>());
                             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(15);
-                            ++nextSlot;
-                        }
-
-                        if ((bool)clamMod.Call("GetBossDowned", "yharon"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamityFriends>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(10);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<WilliamPainting>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(10);
-                            ++nextSlot;
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamiteaTime>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(10);
                             ++nextSlot;
                         }
 
@@ -214,6 +174,16 @@ namespace CalValEX
                         ++nextSlot;
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidCranium>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
+                        ++nextSlot;
+                    }
+                }
+
+                if (type == clamMod.NPCType("FAP"))
+                {
+                    if ((bool)clamMod.Call("GetBossDowned", "astrumaureus"))
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<OddMushroomPot>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 30);
                         ++nextSlot;
                     }
                 }
@@ -646,6 +616,11 @@ namespace CalValEX
                     ChanceDropItem(npc, ModContent.ItemType<DiscardedCollar>(), normalChance);
                 }
 
+                if (npc.type == calamityMod.NPCType("RepairUnitCritter"))
+                {
+                    ChanceDropItem(npc, ModContent.ItemType<DisrepairUnit>(), bossPetChance); //Change to normalChance in 1.5.4
+                }
+
                 if (npc.type == calamityMod.NPCType("PrismTurtle"))
                 {
                     ChanceDropItem(npc, ModContent.ItemType<PrismShell>(), normalChance);
@@ -1001,6 +976,7 @@ namespace CalValEX
                 {
                     ChanceDropItem(npc, ModContent.ItemType<ClamHermitMedallion>(), minibossChance);
                     ChanceDropItem(npc, ModContent.ItemType<ClamMask>(), vanityMaxChance);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<GiantClamPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance") && Main.hardMode, bossPetChance);
                 }
 
                 if (npc.type == NPCID.SandElemental)
@@ -1427,6 +1403,52 @@ namespace CalValEX
                     }
                 }
 
+                if (npc.type == calamityMod.NPCType("Apollo") && !NPC.AnyNPCs(calamityMod.NPCType("ThanatosHead")) && !NPC.AnyNPCs(calamityMod.NPCType("AresBody")))
+                {
+                    if (Main.rand.Next(7) == 0)
+                    {
+                        DropItem(npc, ModContent.ItemType<DraedonBody>());
+                        DropItem(npc, ModContent.ItemType<DraedonLegs>());
+                    }
+                    if (Main.rand.Next(2) == 0 && !Main.expertMode)
+                    {
+                        DropItem(npc, ModContent.ItemType<ApolloBalloonSmall>());
+                        DropItem(npc, ModContent.ItemType<ArtemisBalloonSmall>());
+                    }
+                    if ((bool)calamityMod.Call("DifficultyActive", "revengeance") && Main.rand.Next(5) == 0)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<ArtemisPlush>(), 1, false, 0, false, false);
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<ApolloPlush>(), 1, false, 0, false, false);
+                    }
+                }
+
+                if (npc.type == calamityMod.NPCType("AresBody") && !NPC.AnyNPCs(calamityMod.NPCType("ThanatosHead")) && !NPC.AnyNPCs(calamityMod.NPCType("Apollo")))
+                {
+                    if (Main.rand.Next(7) == 0)
+                    {
+                        DropItem(npc, ModContent.ItemType<DraedonBody>());
+                        DropItem(npc, ModContent.ItemType<DraedonLegs>());
+                    }
+                    //DropItem(npc, ModContent.ItemType<AresChestplate>());
+                    if ((bool)calamityMod.Call("DifficultyActive", "revengeance") && Main.rand.Next(5) == 0)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<AresPlush>(), 1, false, 0, false, false);
+                    }
+                }
+
+                if (npc.type == calamityMod.NPCType("ThanatosHead") && !NPC.AnyNPCs(calamityMod.NPCType("AresBody")) && !NPC.AnyNPCs(calamityMod.NPCType("Apollo")))
+                {
+                    if (Main.rand.Next(7) == 0)
+                    {
+                        DropItem(npc, ModContent.ItemType<DraedonBody>());
+                        DropItem(npc, ModContent.ItemType<DraedonLegs>());
+                    }
+                    if ((bool)calamityMod.Call("DifficultyActive", "revengeance") && Main.rand.Next(5) == 0)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<ThanatosPlush>(), 1, false, 0, false, false);
+                    }
+                }
+
                 if (npc.type == calamityMod.NPCType("Draedon"))
                 {
                     //ConditionalChanceDropItem(npc, ModContent.ItemType<DraedonPlushie>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
@@ -1607,39 +1629,6 @@ namespace CalValEX
             }
         }
 
-        public override bool PreNPCLoot(NPC npc) //These guys are in Pre because they won't work right otherwise
-        {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-
-            if (npc.type == calamityMod.NPCType("Apollo") && !NPC.AnyNPCs(calamityMod.NPCType("ThanatosHead")) && !NPC.AnyNPCs(calamityMod.NPCType("AresBody")))
-            {
-                if ((bool)calamityMod.Call("DifficultyActive", "revengeance"))//&& Main.rand.Next(5) == 0)
-                {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<ArtemisPlush>(), 1, false, 0, false, false);
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<ApolloPlush>(), 1, false, 0, false, false);
-                }
-            }
-
-            if (npc.type == calamityMod.NPCType("AresBody") && !NPC.AnyNPCs(calamityMod.NPCType("ThanatosHead")) && !NPC.AnyNPCs(calamityMod.NPCType("Apollo")))
-            {
-                if ((bool)calamityMod.Call("DifficultyActive", "revengeance"))// && Main.rand.Next(5) == 0)
-                {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<AresPlush>(), 1, false, 0, false, false);
-                }
-            }
-
-            if (npc.type == calamityMod.NPCType("ThanatosHead") && !NPC.AnyNPCs(calamityMod.NPCType("AresBody")) && !NPC.AnyNPCs(calamityMod.NPCType("Apollo")))
-            {
-                DropItem(npc, ModContent.ItemType<DraedonBody>());
-                DropItem(npc, ModContent.ItemType<DraedonLegs>());
-                if ((bool)calamityMod.Call("DifficultyActive", "revengeance") && Main.rand.Next(5) == 0)
-                {
-                    Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<ThanatosPlush>(), 1, false, 0, false, false);
-                }
-            }
-            return true;
-        }
-
         private static int DropItem(NPC npc, int itemID, bool dropPerPlayer, int min = 1, int max = 0)
         {
             int numberOfItems;
@@ -1808,13 +1797,20 @@ namespace CalValEX
         //Disable Astral Blight overworld spawns
         public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo LocalPlayer)
         {
-            if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral)
+            Player player = LocalPlayer.player;
+            CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
+            Mod cata = ModLoader.GetMod("Catalyst");
+            if (modPlayer.ZoneAstral && !player.ZoneTowerSolar && !player.ZoneTowerNebula && !player.ZoneTowerStardust && !player.ZoneTowerVortex && !Main.pumpkinMoon && !Main.snowMoon && !Main.eclipse && Main.invasionType == InvasionID.None)
             {
                 pool.Clear();
                 pool.Add(ModContent.NPCType<NPCs.Critters.Blightolemur>(), 0.1f);
                 pool.Add(ModContent.NPCType<NPCs.Critters.Blinker>(), 0.1f);
                 pool.Add(ModContent.NPCType<NPCs.Critters.AstJR>(), 0.1f);
                 pool.Add(ModContent.NPCType<NPCs.Critters.GAstJR>(), 0.1f);
+                if (cata != null)
+                {
+                    pool.Add(cata.NPCType("AstrageldonSlime"), 0.0175f);
+                }
 
             }
         }

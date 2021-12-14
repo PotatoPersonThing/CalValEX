@@ -247,12 +247,24 @@ namespace CalValEX
                         ModContent.ItemType<LeviWings>(), ModContent.ItemType<FoilAtlantis>(), ModContent.ItemType<LeviathanEgg>(),
                         ModContent.ItemType<WetBubble>()
                     });
-                bossChecklist.Call("AddToBossCollection", "CalamityMod", "Astrum Aureus",
-                    new List<int>
-                    {
+                //Remove pet from Aureus' boss log if Catalyst is enabled
+                if (catal == null)
+                {
+                    bossChecklist.Call("AddToBossCollection", "CalamityMod", "Astrum Aureus",
+                        new List<int>
+                        {
                         ModContent.ItemType<AstrumAureusPlush>(), ModContent.ItemType<AureusShield>(), ModContent.ItemType<AstDie>(),
                         ModContent.ItemType<JellyBottle>(), ModContent.ItemType<AncientAuricTeslaHelm>()
-                    });
+                        });
+                }
+                else
+                {
+                    bossChecklist.Call("AddToBossCollection", "CalamityMod", "Astrum Aureus",
+                        new List<int>
+                        {
+                        ModContent.ItemType<AstrumAureusPlush>(), ModContent.ItemType<AureusShield>(), ModContent.ItemType<AstDie>(), ModContent.ItemType<AncientAuricTeslaHelm>()
+                        });
+                }
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Plaguebringer Goliath",
                     new List<int> { ModLoader.GetMod("CalamityMod").ItemType("PlaguedPlate"), ModContent.ItemType<PlagueHiveWand>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Plaguebringer Goliath",
@@ -359,8 +371,10 @@ namespace CalValEX
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Supreme Calamitas",
                     new List<int> { ModContent.ItemType<CalamitasFumo>(), ModContent.ItemType<GruelingMask>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Exo Mechs",
+                    new List<int> { ModContent.ItemType<XMLightningHook>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Exo Mechs",
-                    new List<int> { ModContent.ItemType<DraedonBody>(), ModContent.ItemType<DraedonLegs>(), /*ModContent.ItemType<DraedonPlush>(),*/ ModContent.ItemType<AresPlush>(), ModContent.ItemType<ApolloPlush>(), ModContent.ItemType<ArtemisPlush>(), ModContent.ItemType<ThanatosPlush>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
+                    new List<int> { ModContent.ItemType<DraedonBody>(), ModContent.ItemType<DraedonLegs>(), /*ModContent.ItemType<DraedonPlush>(),*/ ModContent.ItemType<AresPlush>(), ModContent.ItemType<ApolloPlush>(), ModContent.ItemType<ArtemisPlush>(), ModContent.ItemType<ThanatosPlush>(), ModContent.ItemType<AncientAuricTeslaHelm>(), ModContent.ItemType<ArtemisBalloonSmall>(), ModContent.ItemType<ApolloBalloonSmall>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Adult Eidolon Wyrm",
                     new List<int> { ModContent.ItemType<JaredPlush>(), ModContent.ItemType<SoulShard>(), ModContent.ItemType<OmegaBlue>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Acid Rain (Post-AS)",
@@ -384,7 +398,7 @@ namespace CalValEX
                 if (catal != null)
                 {
                     bossChecklist.Call("AddToBossCollection", "Catalyst", "Astrageldon",
-                           new List<int> { ModContent.ItemType<Items.Tiles.Plushies.AstrageldonPlush>() });
+                           new List<int> { ModContent.ItemType<JellyBottle>(), ModContent.ItemType<Items.Tiles.Plushies.AstrageldonPlush>() });
                 }
             }
         }
@@ -504,6 +518,13 @@ namespace CalValEX
 
         public override void AddRecipes()
         {
+            Mod catalyst = ModLoader.GetMod("Catalyst");
+            if (catalyst != null)
+            {
+                catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<AstrageldonPlush>(), true);
+                catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<Items.Plushies.AstrageldonPlushThrowable>(), true);
+                catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<JellyBottle>(), true);
+            }
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             //Wulfrum
             ModRecipe recipe = new ModRecipe(this);

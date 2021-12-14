@@ -15,7 +15,6 @@ namespace CalValEX.Tiles.Blocks
             Main.tileLighted[Type] = true;
             AddMapEntry(new Color(0, 76, 82));
             dustType = 214;
-            minPick = 210;
         }
     }
 }

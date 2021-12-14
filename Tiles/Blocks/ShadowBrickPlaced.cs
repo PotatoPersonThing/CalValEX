@@ -16,7 +16,6 @@ namespace CalValEX.Tiles.Blocks
             drop = ModContent.ItemType<ShadowBrick>();
             AddMapEntry(new Color(47, 1, 51));
             dustType = 187;
-            minPick = 275;
         }
     }
 }

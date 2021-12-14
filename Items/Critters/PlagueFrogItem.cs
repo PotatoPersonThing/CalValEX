@@ -23,7 +23,6 @@ namespace CalValEX.Items.Critters
             item.width = 22;
             item.height = 18;
             item.noUseGraphic = true;
-            item.bait = 15;
             item.rare = 8;
 
             Mod mod = ModLoader.GetMod("CalamityMod");

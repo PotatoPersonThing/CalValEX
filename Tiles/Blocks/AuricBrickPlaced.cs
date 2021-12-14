@@ -18,7 +18,7 @@ namespace CalValEX.Tiles.Blocks
             soundType = SoundID.Tink;
             AddMapEntry(new Color(242, 202, 39));
             dustType = 159;
-            minPick = 249;
+            //minPick = 249;
         }
     }
 }

@@ -17,9 +17,10 @@ namespace CalValEX.Tiles.Paintings
             Main.tileLavaDeath[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3Wall);
-            TileObjectData.newTile.Width = 11;
-            TileObjectData.newTile.Height = 7;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16, 16, 16 }; //
+            TileObjectData.newTile.Width = 10;
+            TileObjectData.newTile.Height = 6;
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16, 16 }; //
+            TileObjectData.newTile.CoordinatePadding = 0;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("A Sunday Afternoon in the World of Calamity.");

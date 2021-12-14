@@ -18,7 +18,7 @@ namespace CalValEX.Items
             item.width = 20;
             item.height = 20;
             item.rare = ItemRarityID.Blue;
-            item.maxStack = 20;
+            item.maxStack = 9999;
         }
 
         public override bool CanRightClick()
@@ -28,7 +28,7 @@ namespace CalValEX.Items
 
         public override void RightClick(Player player)
         {
-            int choice = Main.rand.Next(28);
+            int choice = Main.rand.Next(31);
             if (choice == 0)
             {
                 player.QuickSpawnItem(ModContent.ItemType<BlazingConflict>());
@@ -136,6 +136,18 @@ namespace CalValEX.Items
             else if (choice == 26)
             {
                 player.QuickSpawnItem(ModContent.ItemType<CalamityPaint>());
+            }
+            else if (choice == 27)
+            {
+                player.QuickSpawnItem(ModContent.ItemType<CalamityPaintRetold>());
+            }
+            else if (choice == 28)
+            {
+                player.QuickSpawnItem(ModContent.ItemType<OldModIconPainting>());
+            }
+            else if (choice == 29)
+            {
+                player.QuickSpawnItem(ModContent.ItemType<DraedonPopcorn>());
             }
             else
             {

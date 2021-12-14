@@ -97,6 +97,12 @@ namespace CalValEX
         [Tooltip("Disables Cryo Stone from summoning its Ice Shield while in vanity slots")]
         public bool ColdShield { get; set; }
 
+        [Label("Disable Toy Scythe Skins")]
+        [BackgroundColor(192, 54, 64, 192)]
+        [DefaultValue(false)]
+        [Tooltip("Makes it so that the Toy Scythe's pet always uses its default skin")]
+        public bool Polterskin { get; set; }
+
         [Header("Config Access")]
         [Label("Enable Server Owner Exclusive Config Access")]
         [BackgroundColor(192, 54, 64, 192)]
