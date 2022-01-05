@@ -81,7 +81,7 @@ namespace CalValEX.NPCs.JellyPriest
 
         public override string TownNPCName()
         {
-            switch (WorldGen.genRand.Next(14))
+            switch (WorldGen.genRand.Next(15))
             {
                 case 0:
                     return "Eika";
@@ -118,6 +118,9 @@ namespace CalValEX.NPCs.JellyPriest
 
                 case 12:
                     return "Crasqua";
+                
+                case 13:
+                    return "Kuti";
 
                 default:
                     return "Ooma";
