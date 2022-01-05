@@ -5,7 +5,7 @@ using CalValEX.Tiles.Cages;
 
 namespace CalValEX.Items.Tiles.Cages
 {
-    internal class GoldEyedolTerrarium : ModItem
+    public class GoldEyedolTerrarium : ModItem
     {
         public override void SetStaticDefaults()
         {

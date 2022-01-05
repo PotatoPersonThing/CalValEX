@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace CalValEX.Items.Tiles.Balloons
 {
-    internal class TiedBoB2 : ModItem
+    public class TiedBoB2 : ModItem
     {
         public override void SetStaticDefaults()
         {

@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Hooks
 {
-    internal class Phantomhook : ModProjectile
+    public class Phantomhook : ModProjectile
     {
         public override void SetStaticDefaults()
         {

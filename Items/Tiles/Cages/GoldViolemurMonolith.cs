@@ -5,7 +5,7 @@ using CalValEX.Tiles.Cages;
 
 namespace CalValEX.Items.Tiles.Cages
 {
-    internal class GoldViolemurMonolith : ModItem
+    public class GoldViolemurMonolith : ModItem
     {
         public override void SetStaticDefaults()
         {

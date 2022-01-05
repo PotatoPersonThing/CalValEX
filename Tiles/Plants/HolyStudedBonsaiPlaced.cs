@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Plants;
 
 namespace CalValEX.Tiles.Plants
 {
-    internal class HolyStudedBonsaiPlaced : ModTile
+    public class HolyStudedBonsaiPlaced : ModTile
     {
         public override void SetDefaults()
         {

@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.FurnitureSets.Arsenal;
 
 namespace CalValEX.Tiles.FurnitureSets.Arsenal
 {
-    internal class RustGamingTablePlaced : ModTile
+    public class RustGamingTablePlaced : ModTile
     {
         public override void SetDefaults()
         {

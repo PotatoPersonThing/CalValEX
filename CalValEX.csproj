@@ -15,7 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="CalamityMod">
-      <HintPath>..\..\Mod Reader\CalamityMod\CalamityMod.XNA.dll</HintPath>
+      <HintPath>..\..\Mods\DraeupdateBeta\CalamityMod.XNA.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class SleepingGiantPlaced : ModTile
+    public class SleepingGiantPlaced : ModTile
     {
         public override void SetDefaults()
         {

@@ -14,7 +14,7 @@ namespace CalValEX.NPCs.Critters
     /// The important bits are: Main.npcCatchable, npc.catchItem, and item.makeNPC
     /// We will also show off adding an item to an existing RecipeGroup (see ExampleMod.AddRecipeGroups)
     /// </summary>
-    internal class SandTurtle : ModNPC
+    public class SandTurtle : ModNPC
     {
         int heal = 0;
         private bool shellin;

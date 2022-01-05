@@ -5,7 +5,7 @@ using CalValEX.NPCs.Critters;
 
 namespace CalValEX.Items.Critters
 {
-    internal class NukeFlyItem : ModItem
+    public class NukeFlyItem : ModItem
     {
         public override void SetStaticDefaults()
         {

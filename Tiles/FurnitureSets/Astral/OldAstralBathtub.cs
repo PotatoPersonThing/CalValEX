@@ -7,7 +7,7 @@ using CalValEX.Items.Tiles.FurnitureSets.Astral;
 
 namespace CalValEX.Tiles.FurnitureSets.Astral
 {
-    internal class OldAstralBathtub : ModTile
+    public class OldAstralBathtub : ModTile
     {
         public override void SetDefaults()
         {

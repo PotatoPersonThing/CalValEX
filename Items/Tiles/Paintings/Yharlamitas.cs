@@ -5,7 +5,7 @@ using CalValEX.Tiles.Paintings;
 
 namespace CalValEX.Items.Tiles.Paintings
 {
-    internal class Yharlamitas : ModItem
+    public class Yharlamitas : ModItem
     {
         public override void SetStaticDefaults()
         {

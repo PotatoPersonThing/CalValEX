@@ -9,7 +9,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-    internal class HesfinePlaced : ModTile
+    public class HesfinePlaced : ModTile
     {
         public override void SetDefaults()
         {

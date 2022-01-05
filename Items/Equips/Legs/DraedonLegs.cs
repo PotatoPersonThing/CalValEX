@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace CalValEX.Items.Equips.Legs
 {
     [AutoloadEquip(EquipType.Legs)]
-    internal class DraedonLegs : ModItem
+    public class DraedonLegs : ModItem
     {
         public override void SetStaticDefaults()
         {

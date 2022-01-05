@@ -8,7 +8,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Tiles.FurnitureSets.Bloodstone
 {
-    internal class BloodstoneWorkbench : ModTile
+    public class BloodstoneWorkbench : ModTile
     {
         public override void SetDefaults()
         {

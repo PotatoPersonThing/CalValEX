@@ -4,7 +4,7 @@ using CalValEX.NPCs.Critters;
 
 namespace CalValEX.Items.Critters
 {
-    internal class PlagueFrogItem : ModItem
+    public class PlagueFrogItem : ModItem
     {
         public override void SetStaticDefaults()
         {

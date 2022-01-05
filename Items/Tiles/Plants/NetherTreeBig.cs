@@ -5,7 +5,7 @@ using CalValEX.Tiles.Plants;
 
 namespace CalValEX.Items.Tiles.Plants
 {
-    internal class NetherTreeBig : ModItem
+    public class NetherTreeBig : ModItem
     {
         public override void SetStaticDefaults()
         {

@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
 
 namespace CalValEX.Tiles.FurnitureSets.Bloodstone
 {
-    internal class BloodstonePiano : ModTile
+    public class BloodstonePiano : ModTile
     {
         public override void SetDefaults()
         {

@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Plants;
 
 namespace CalValEX.Tiles.Plants
 {
-    internal class OddMushromPotPlaced : ModTile
+    public class OddMushromPotPlaced : ModTile
     {
         public override void SetDefaults()
         {

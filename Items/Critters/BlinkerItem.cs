@@ -7,7 +7,7 @@ using CalValEX.NPCs.Critters;
 
 namespace CalValEX.Items.Critters
 {
-    internal class BlinkerItem : ModItem
+    public class BlinkerItem : ModItem
     {
         public override void SetStaticDefaults()
         {

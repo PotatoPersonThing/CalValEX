@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Plants;
 
 namespace CalValEX.Tiles.Plants
 {
-    internal class EidolonTreePlaced : ModTile
+    public class EidolonTreePlaced : ModTile
     {
         public override void SetDefaults()
         {

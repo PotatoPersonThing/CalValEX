@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class InactivePowerFactory : ModItem
+    public class InactivePowerFactory : ModItem
     {
         public override void SetStaticDefaults()
         {

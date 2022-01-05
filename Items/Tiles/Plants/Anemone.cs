@@ -3,7 +3,7 @@ using CalValEX.Tiles.Plants;
 
 namespace CalValEX.Items.Tiles.Plants
 {
-    internal class Anemone : ModItem
+    public class Anemone : ModItem
     {
         public override void SetStaticDefaults()
         {

@@ -669,11 +669,6 @@ namespace CalValEX
                     ChanceDropItem(npc, ModContent.ItemType<WulfrumBalloon>(), rareChance);
                 }
 
-                if (npc.type == calamityMod.NPCType("WulfrumSlime")) //Lol
-                {
-                    ChanceDropItem(npc, ModContent.ItemType<WulfrumController>(), 0.02f);
-                }
-
                 if (npc.type == calamityMod.NPCType("WulfrumPylon"))
                 {
                     ChanceDropItem(npc, ModContent.ItemType<PylonRemote>(), rareChance);
@@ -1553,7 +1548,6 @@ namespace CalValEX
                     }
                     if (npc.type == calamityMod.NPCType("AeroSlime") || npc.type == calamityMod.NPCType("CryoSlime") ||
                         npc.type == calamityMod.NPCType("PerennialSlime") ||
-                        npc.type == calamityMod.NPCType("WulfrumSlime") ||
                         npc.type == calamityMod.NPCType("PlaguedJungleSlime") ||
                         npc.type == calamityMod.NPCType("BloomSlime") ||
                         npc.type == calamityMod.NPCType("IrradiatedSlime") ||
@@ -1800,7 +1794,7 @@ namespace CalValEX
             Player player = LocalPlayer.player;
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             Mod cata = ModLoader.GetMod("Catalyst");
-            if (modPlayer.ZoneAstral && !player.ZoneTowerSolar && !player.ZoneTowerNebula && !player.ZoneTowerStardust && !player.ZoneTowerVortex && !Main.pumpkinMoon && !Main.snowMoon && !Main.eclipse && Main.invasionType == InvasionID.None)
+            if (modPlayer.ZoneAstral)
             {
                 pool.Clear();
                 pool.Add(ModContent.NPCType<NPCs.Critters.Blightolemur>(), 0.1f);
@@ -1809,7 +1803,10 @@ namespace CalValEX
                 pool.Add(ModContent.NPCType<NPCs.Critters.GAstJR>(), 0.1f);
                 if (cata != null)
                 {
-                    pool.Add(cata.NPCType("AstrageldonSlime"), 0.0175f);
+                    if (player.ZoneOverworldHeight)
+                    {
+                        pool.Add(cata.NPCType("AstrageldonSlime"), 0.0175f);
+                    }
                 }
 
             }

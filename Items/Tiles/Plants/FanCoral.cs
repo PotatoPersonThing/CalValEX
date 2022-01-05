@@ -3,7 +3,7 @@ using CalValEX.Tiles.Plants;
 
 namespace CalValEX.Items.Tiles.Plants
 {
-    internal class FanCoral : ModItem
+    public class FanCoral : ModItem
     {
         public override void SetStaticDefaults()
         {

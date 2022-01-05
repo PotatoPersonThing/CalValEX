@@ -9,7 +9,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-    internal class PlagueDialysisPlaced : ModTile
+    public class PlagueDialysisPlaced : ModTile
     {
         public override void SetDefaults()
         {

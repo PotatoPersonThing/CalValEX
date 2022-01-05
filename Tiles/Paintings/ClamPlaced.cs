@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class ClamPlaced : ModTile
+    public class ClamPlaced : ModTile
     {
         public override void SetDefaults()
         {

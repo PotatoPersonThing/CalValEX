@@ -5,7 +5,7 @@ using CalValEX.Tiles.Cages;
 
 namespace CalValEX.Items.Tiles.Cages
 {
-    internal class AstJar : ModItem
+    public class AstJar : ModItem
     {
         public override void SetStaticDefaults()
         {

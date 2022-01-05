@@ -3,7 +3,7 @@ using CalValEX.Tiles.MiscFurniture;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class SunkenLamp : ModItem
+    public class SunkenLamp : ModItem
     {
         public override void SetStaticDefaults()
         {

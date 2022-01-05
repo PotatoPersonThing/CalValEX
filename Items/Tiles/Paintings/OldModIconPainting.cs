@@ -5,7 +5,7 @@ using CalValEX.Tiles.Paintings;
 
 namespace CalValEX.Items.Tiles.Paintings
 {
-    internal class OldModIconPainting : ModItem
+    public class OldModIconPainting : ModItem
     {
         public override void SetStaticDefaults()
         {

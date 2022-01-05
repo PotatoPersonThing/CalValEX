@@ -3,7 +3,7 @@ using CalValEX.Tiles.Plants;
 
 namespace CalValEX.Items.Tiles.Plants
 {
-    internal class SulphurousCactus : ModItem
+    public class SulphurousCactus : ModItem
     {
         public override void SetStaticDefaults()
         {

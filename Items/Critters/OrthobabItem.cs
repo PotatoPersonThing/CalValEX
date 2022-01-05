@@ -4,7 +4,7 @@ using CalValEX.NPCs.Critters;
 
 namespace CalValEX.Items.Critters
 {
-    internal class OrthobabItem : ModItem
+    public class OrthobabItem : ModItem
     {
         public override void SetStaticDefaults()
         {

@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Plants;
 
 namespace CalValEX.Tiles.Plants
 {
-    internal class FleshThingPlaced : ModTile
+    public class FleshThingPlaced : ModTile
     {
         public override void SetDefaults()
         {

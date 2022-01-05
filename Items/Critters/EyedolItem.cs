@@ -4,7 +4,7 @@ using CalValEX.NPCs.Critters;
 
 namespace CalValEX.Items.Critters
 {
-    internal class EyedolItem : ModItem
+    public class EyedolItem : ModItem
     {
         public override void SetStaticDefaults()
         {

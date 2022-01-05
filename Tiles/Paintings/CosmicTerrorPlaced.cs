@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class CosmicTerrorPlaced : ModTile
+    public class CosmicTerrorPlaced : ModTile
     {
         public override void SetDefaults()
         {

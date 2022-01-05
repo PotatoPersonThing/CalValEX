@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class NotLikeHomePlaced : ModTile
+    public class NotLikeHomePlaced : ModTile
     {
         public override void SetDefaults()
         {

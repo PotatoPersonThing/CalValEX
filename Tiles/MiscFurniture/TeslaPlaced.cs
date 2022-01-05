@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-    internal class TeslaPlaced : ModTile
+    public class TeslaPlaced : ModTile
     {
         public override void SetDefaults()
         {

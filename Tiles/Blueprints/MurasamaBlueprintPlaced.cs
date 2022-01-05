@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Blueprints;
 
 namespace CalValEX.Tiles.Blueprints
 {
-    internal class MurasamaBlueprintPlaced : ModTile
+    public class MurasamaBlueprintPlaced : ModTile
     {
         public override void SetDefaults()
         {

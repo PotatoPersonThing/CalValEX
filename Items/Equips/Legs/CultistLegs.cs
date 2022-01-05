@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Legs
 {
     [AutoloadEquip(EquipType.Legs)]
-    internal class CultistLegs : ModItem
+    public class CultistLegs : ModItem
     {
         public override void SetStaticDefaults()
         {

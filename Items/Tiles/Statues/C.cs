@@ -3,7 +3,7 @@ using CalValEX.Tiles.Statues;
 
 namespace CalValEX.Items.Tiles.Statues
 {
-    internal class C : ModItem
+    public class C : ModItem
     {
         public override void SetStaticDefaults()
         {

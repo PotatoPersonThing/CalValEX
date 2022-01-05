@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Balloons;
 
 namespace CalValEX.Tiles.Balloons
 {
-    internal class TiedBoB2Placed : ModTile
+    public class TiedBoB2Placed : ModTile
     {
         public override void SetDefaults()
         {

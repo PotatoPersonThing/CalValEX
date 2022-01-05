@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class WormHeavenPlaced : ModTile
+    public class WormHeavenPlaced : ModTile
     {
         public override void SetDefaults()
         {

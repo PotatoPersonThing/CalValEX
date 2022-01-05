@@ -5,7 +5,7 @@ using CalValEX.Items.Tiles.Blocks.Astral;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Astral
 {
-    internal class OldAstralBathtubItem : ModItem
+    public class OldAstralBathtubItem : ModItem
     {
         public override void SetStaticDefaults()
         {

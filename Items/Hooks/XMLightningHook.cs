@@ -7,7 +7,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Items.Hooks
 {
-    internal class XMLightningHook : ModItem
+    public class XMLightningHook : ModItem
     {
         public override void SetStaticDefaults()
         {

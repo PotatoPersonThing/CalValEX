@@ -7,7 +7,7 @@ using Terraria;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class TerminusShrine2 : ModItem
+    public class TerminusShrine2 : ModItem
     {
         public override void SetStaticDefaults()
         {

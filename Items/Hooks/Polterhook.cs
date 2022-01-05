@@ -7,7 +7,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Items.Hooks
 {
-    internal class Polterhook : ModItem
+    public class Polterhook : ModItem
     {
         public override void SetStaticDefaults()
         {

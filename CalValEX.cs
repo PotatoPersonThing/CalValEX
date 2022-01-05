@@ -45,6 +45,7 @@ using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using CalamityMod;
 
 namespace CalValEX
 {
@@ -526,19 +527,6 @@ namespace CalValEX
                 catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<JellyBottle>(), true);
             }
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            //Wulfrum
-            ModRecipe recipe = new ModRecipe(this);
-            recipe.AddIngredient(calamityMod.ItemType("EnergyCore"), 50);
-            recipe.AddIngredient(ItemID.SlimeBanner);
-            recipe.AddTile(TileID.Solidifier);
-            recipe.SetResult(calamityMod.ItemType("WulfrumSlimeBanner"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(calamityMod.ItemType("EnergyCore"), 50);
-            recipe.AddIngredient(ItemID.SlimeBanner);
-            recipe.AddTile(calamityMod.TileType("StaticRefiner"));
-            recipe.SetResult(calamityMod.ItemType("WulfrumSlimeBanner"));
-            recipe.AddRecipe();
             //Irradiated
             recipe = new ModRecipe(this);
             recipe.AddIngredient(calamityMod.ItemType("GammaSlimeBanner"));

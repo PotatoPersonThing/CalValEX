@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Legs
 {
     [AutoloadEquip(EquipType.Legs)]
-    internal class TerrorLegs : ModItem
+    public class TerrorLegs : ModItem
     {
         public override void SetStaticDefaults()
         {

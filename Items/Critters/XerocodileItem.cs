@@ -8,7 +8,7 @@ using CalValEX.NPCs.Critters;
 
 namespace CalValEX.Items.Critters
 {
-    internal class XerocodileItem : ModItem
+    public class XerocodileItem : ModItem
     {
         public override void SetStaticDefaults()
         {

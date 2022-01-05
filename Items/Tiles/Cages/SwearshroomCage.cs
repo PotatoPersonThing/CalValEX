@@ -5,7 +5,7 @@ using CalValEX.Tiles.Cages;
 
 namespace CalValEX.Items.Tiles.Cages
 {
-    internal class SwearshroomCage : ModItem
+    public class SwearshroomCage : ModItem
     {
         public override void SetStaticDefaults()
         {

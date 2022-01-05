@@ -5,7 +5,7 @@ using CalValEX.Tiles.FurnitureSets.Astral;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Astral
 {
-    internal class OldAstralLampItem : ModItem
+    public class OldAstralLampItem : ModItem
     {
         public override void SetStaticDefaults()
         {

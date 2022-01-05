@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class ScourgyPlaced : ModTile
+    public class ScourgyPlaced : ModTile
     {
         public override void SetDefaults()
         {

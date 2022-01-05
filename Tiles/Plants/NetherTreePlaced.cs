@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Plants;
 
 namespace CalValEX.Tiles.Plants
 {
-    internal class NetherTreePlaced : ModTile
+    public class NetherTreePlaced : ModTile
     {
         public override void SetDefaults()
         {

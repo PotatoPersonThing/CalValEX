@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Blueprints;
 
 namespace CalValEX.Tiles.Blueprints
 {
-    internal class BumblebirbBlueprintPlaced : ModTile
+    public class BumblebirbBlueprintPlaced : ModTile
     {
         public override void SetDefaults()
         {

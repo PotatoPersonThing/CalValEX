@@ -6,7 +6,7 @@ using CalValEX.Tiles.MiscFurniture;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class Hesfine : ModItem
+    public class Hesfine : ModItem
     {
         public override void SetStaticDefaults()
         {

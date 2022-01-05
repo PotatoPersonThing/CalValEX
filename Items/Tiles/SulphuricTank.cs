@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class SulphuricTank : ModItem
+    public class SulphuricTank : ModItem
     {
         public override void SetStaticDefaults()
         {

@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.FurnitureSets.Astral;
 
 namespace CalValEX.Tiles.FurnitureSets.Astral
 {
-    internal class OldAstralBookshelf : ModTile
+    public class OldAstralBookshelf : ModTile
     {
         public override void SetDefaults()
         {

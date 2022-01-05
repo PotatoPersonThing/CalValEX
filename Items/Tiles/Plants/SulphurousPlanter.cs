@@ -5,7 +5,7 @@ using CalValEX.Tiles.Plants;
 
 namespace CalValEX.Items.Tiles.Plants
 {
-    internal class SulphurousPlanter : ModItem
+    public class SulphurousPlanter : ModItem
     {
         public override void SetStaticDefaults()
         {

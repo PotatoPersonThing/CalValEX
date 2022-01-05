@@ -8,7 +8,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Tiles.FurnitureSets.Phantowax
 {
-    internal class PhantowaxWorkbench : ModTile
+    public class PhantowaxWorkbench : ModTile
     {
         public override void SetDefaults()
         {

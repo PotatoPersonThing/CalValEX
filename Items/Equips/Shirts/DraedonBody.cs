@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace CalValEX.Items.Equips.Shirts
 {
     [AutoloadEquip(EquipType.Body)]
-    internal class DraedonBody : ModItem
+    public class DraedonBody : ModItem
     {
         public override void SetStaticDefaults()
         {

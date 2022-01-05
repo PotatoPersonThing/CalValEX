@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Blueprints;
 
 namespace CalValEX.Tiles.Blueprints
 {
-    internal class PlagueBlueprintPlaced : ModTile
+    public class PlagueBlueprintPlaced : ModTile
     {
         public override void SetDefaults()
         {

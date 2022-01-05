@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Plants;
 
 namespace CalValEX.Tiles.Plants
 {
-    internal class FanCoralPlaced : ModTile
+    public class FanCoralPlaced : ModTile
     {
         public override void SetDefaults()
         {

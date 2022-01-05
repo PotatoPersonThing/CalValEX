@@ -3,7 +3,7 @@ using CalValEX.Tiles.Plants;
 
 namespace CalValEX.Items.Tiles.Plants
 {
-    internal class SSCoral : ModItem
+    public class SSCoral : ModItem
     {
         public override void SetStaticDefaults()
         {

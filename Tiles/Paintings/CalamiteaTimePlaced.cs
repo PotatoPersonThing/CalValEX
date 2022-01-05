@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class CalamiteaTimePlaced : ModTile
+    public class CalamiteaTimePlaced : ModTile
     {
         public override void SetDefaults()
         {

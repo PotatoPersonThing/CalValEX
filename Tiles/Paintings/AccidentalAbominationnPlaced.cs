@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class AccidentalAbominationnPlaced : ModTile
+    public class AccidentalAbominationnPlaced : ModTile
     {
         public override void SetDefaults()
         {

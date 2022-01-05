@@ -12,7 +12,7 @@ using Terraria.Localization;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-    internal class SePlaced : ModTile
+    public class SePlaced : ModTile
     {
         int rotationbottom;
         int negavar;
@@ -239,6 +239,7 @@ namespace CalValEX.Tiles.MiscFurniture
 
                 //Rotation of the segment is equal to the rotation counter with an added offset multiplied by negative of the direction. 
                 //Segment 2 for example would have 30 rotation at value 30 once we readd the offsets.
+		//These are all currently equal, but can be modified for future use
                 float rotationbottom1 = (rotationbottom) * 0.01f;
                 float rotationbottom2 = (rotationbottom) * 0.01f;
                 float rotationbottom3 = (rotationbottom) * 0.01f;

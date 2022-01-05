@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Hooks
 {
-    internal class THanosHook : ModProjectile
+    public class THanosHook : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -23,10 +23,7 @@ namespace CalValEX.Items.Hooks
         public override void AI()
         {
             Player player = Main.player[projectile.owner];
-            if (player.pulley)
-            {
-                player.AddBuff(BuffID.ChaosState, 180);
-            }
+            player.AddBuff(BuffID.ChaosState, 180);
         }
 
         public override bool? CanUseGrapple(Player player)

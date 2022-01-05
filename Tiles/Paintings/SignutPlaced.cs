@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class SignutPlaced : ModTile
+    public class SignutPlaced : ModTile
     {
         public override void SetDefaults()
         {

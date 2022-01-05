@@ -8,7 +8,7 @@ using CalValEX.Tiles.Cages;
 
 namespace CalValEX.Items.Tiles.Cages
 {
-    internal class SandTurtleCage : ModItem
+    public class SandTurtleCage : ModItem
     {
         public override void SetStaticDefaults()
         {

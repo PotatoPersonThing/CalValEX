@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class RogueExtractorPlaced : ModTile
+    public class RogueExtractorPlaced : ModTile
     {
         public override void SetDefaults()
         {

@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class VoidPortal : ModItem
+    public class VoidPortal : ModItem
     {
         public override void SetStaticDefaults()
         {

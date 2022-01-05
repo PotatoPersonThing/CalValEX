@@ -9,7 +9,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-    internal class RoxFakePlaced : ModTile
+    public class RoxFakePlaced : ModTile
     {
         public override void SetDefaults()
         {

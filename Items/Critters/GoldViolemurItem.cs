@@ -6,7 +6,7 @@ using CalValEX.NPCs.Critters;
 
 namespace CalValEX.Items.Critters
 {
-    internal class GoldViolemurItem : ModItem
+    public class GoldViolemurItem : ModItem
     {
         public override void SetStaticDefaults()
         {

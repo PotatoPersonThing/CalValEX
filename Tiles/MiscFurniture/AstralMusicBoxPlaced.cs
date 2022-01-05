@@ -7,7 +7,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-	internal class AstralMusicBoxPlaced : ModTile
+	public class AstralMusicBoxPlaced : ModTile
 	{
 		public override void SetDefaults()
 		{

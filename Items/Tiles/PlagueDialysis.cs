@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class PlagueDialysis : ModItem
+    public class PlagueDialysis : ModItem
     {
         public override void SetStaticDefaults()
         {

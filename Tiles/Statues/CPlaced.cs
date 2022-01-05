@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Statues;
 
 namespace CalValEX.Tiles.Statues
 {
-    internal class CPlaced : ModTile
+    public class CPlaced : ModTile
     {
         public override void SetDefaults()
         {

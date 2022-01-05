@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class DualityPlaced : ModTile
+    public class DualityPlaced : ModTile
     {
         public override void SetDefaults()
         {

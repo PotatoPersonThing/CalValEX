@@ -6,7 +6,7 @@ using CalValEX.Tiles.MiscFurniture;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class RespirationShrine : ModItem
+    public class RespirationShrine : ModItem
     {
         public override void SetStaticDefaults()
         {

@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Shirts
 {
     [AutoloadEquip(EquipType.Body)]
-    internal class BrimmyBody : ModItem
+    public class BrimmyBody : ModItem
     {
         public override void SetStaticDefaults()
         {

@@ -5,7 +5,7 @@ using CalValEX.Tiles.Statues;
 
 namespace CalValEX.Items.Tiles.Statues
 {
-    internal class Provibust : ModItem
+    public class Provibust : ModItem
     {
         public override void SetStaticDefaults()
         {

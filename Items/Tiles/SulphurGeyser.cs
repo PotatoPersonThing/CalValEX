@@ -2,7 +2,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class SulphurGeyser : ModItem
+    public class SulphurGeyser : ModItem
     {
         public override void SetStaticDefaults()
         {

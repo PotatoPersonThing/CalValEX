@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class DarkMagicPlaced : ModTile
+    public class DarkMagicPlaced : ModTile
     {
         public override void SetDefaults()
         {

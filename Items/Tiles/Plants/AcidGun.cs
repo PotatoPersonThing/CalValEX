@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles.Plants
 {
-    internal class AcidGun : ModItem
+    public class AcidGun : ModItem
     {
         public override void SetStaticDefaults()
         {

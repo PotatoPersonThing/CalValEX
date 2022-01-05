@@ -6,7 +6,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Items.Hooks
 {
-    internal class ScavaHook : ModItem
+    public class ScavaHook : ModItem
     {
         public override void SetStaticDefaults()
         {

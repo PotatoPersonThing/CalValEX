@@ -7,7 +7,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Tiles
 {
-    internal class CeremonialUrnPlaced : ModTile
+    public class CeremonialUrnPlaced : ModTile
     {
         public override void SetDefaults()
         {

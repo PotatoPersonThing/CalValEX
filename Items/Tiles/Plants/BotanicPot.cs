@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles.Plants
 {
-    internal class BotanicPot : ModItem
+    public class BotanicPot : ModItem
     {
         public override void SetStaticDefaults()
         {

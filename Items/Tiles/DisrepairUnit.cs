@@ -5,7 +5,7 @@ using CalValEX.Tiles.MiscFurniture;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class DisrepairUnit : ModItem
+    public class DisrepairUnit : ModItem
     {
         public override void SetStaticDefaults()
         {

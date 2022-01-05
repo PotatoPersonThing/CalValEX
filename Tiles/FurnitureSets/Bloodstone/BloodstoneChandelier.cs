@@ -8,7 +8,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Tiles.FurnitureSets.Bloodstone
 {
-    internal class BloodstoneChandelier : ModTile
+    public class BloodstoneChandelier : ModTile
     {
         public override void SetDefaults()
         {

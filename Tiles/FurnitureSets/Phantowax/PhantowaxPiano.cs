@@ -8,7 +8,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Tiles.FurnitureSets.Phantowax
 {
-    internal class PhantowaxPiano : ModTile
+    public class PhantowaxPiano : ModTile
     {
         public override void SetDefaults()
         {

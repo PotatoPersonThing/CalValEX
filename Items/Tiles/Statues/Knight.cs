@@ -4,7 +4,7 @@ using Terraria.ID;
 
 namespace CalValEX.Items.Tiles.Statues
 {
-    internal class Knight : ModItem
+    public class Knight : ModItem
     {
         public override void SetStaticDefaults()
         {

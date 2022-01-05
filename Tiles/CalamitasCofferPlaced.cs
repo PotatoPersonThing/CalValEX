@@ -9,7 +9,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles
 {
-    internal class CalamitasCofferPlaced : ModTile
+    public class CalamitasCofferPlaced : ModTile
     {
         public override void SetDefaults()
         {

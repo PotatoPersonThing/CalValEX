@@ -5,7 +5,7 @@ using CalValEX.Tiles.FurnitureSets.Phantowax;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
 {
-    internal class PhantowaxClockItem : ModItem
+    public class PhantowaxClockItem : ModItem
     {
         public override void SetStaticDefaults()
         {

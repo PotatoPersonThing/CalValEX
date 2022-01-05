@@ -6,7 +6,7 @@ using CalValEX.Tiles.MiscFurniture;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class RoxFake : ModItem
+    public class RoxFake : ModItem
     {
         public override void SetStaticDefaults()
         {

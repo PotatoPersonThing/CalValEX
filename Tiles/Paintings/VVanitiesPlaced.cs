@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class VVanitiesPlaced : ModTile
+    public class VVanitiesPlaced : ModTile
     {
         public override void SetDefaults()
         {

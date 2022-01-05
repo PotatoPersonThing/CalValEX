@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Plants;
 
 namespace CalValEX.Tiles.Plants
 {
-    internal class BotanicPotPlaced : ModTile
+    public class BotanicPotPlaced : ModTile
     {
         public override void SetDefaults()
         {

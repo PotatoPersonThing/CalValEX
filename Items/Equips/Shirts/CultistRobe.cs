@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Shirts
 {
     [AutoloadEquip(EquipType.Body)]
-    internal class CultistRobe : ModItem
+    public class CultistRobe : ModItem
     {
         public override void SetStaticDefaults()
         {

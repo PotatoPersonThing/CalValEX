@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace CalValEX.Items.Tiles.Banners
 {
-    internal class CalamitasBanner : ModItem
+    public class CalamitasBanner : ModItem
     {
         public override void SetStaticDefaults()
         {

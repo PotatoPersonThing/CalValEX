@@ -7,7 +7,7 @@ using CalValEX.Items.Tiles.Cages;
 
 namespace CalValEX.Tiles.Cages
 {
-    internal class GoldEyedolTerrariumPlaced : ModTile
+    public class GoldEyedolTerrariumPlaced : ModTile
     {
         public override void SetDefaults()
         {

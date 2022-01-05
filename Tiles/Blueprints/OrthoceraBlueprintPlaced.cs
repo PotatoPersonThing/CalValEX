@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Blueprints;
 
 namespace CalValEX.Tiles.Blueprints
 {
-    internal class OrthoceraBlueprintPlaced : ModTile
+    public class OrthoceraBlueprintPlaced : ModTile
     {
         public override void SetDefaults()
         {

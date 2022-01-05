@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-    internal class SulphuricTankPlaced : ModTile
+    public class SulphuricTankPlaced : ModTile
     {
         public override void SetDefaults()
         {

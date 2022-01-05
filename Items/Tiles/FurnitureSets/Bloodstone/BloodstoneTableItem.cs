@@ -5,7 +5,7 @@ using CalValEX.Items.Tiles.Blocks;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
 {
-    internal class BloodstoneTableItem : ModItem
+    public class BloodstoneTableItem : ModItem
     {
         public override void SetStaticDefaults()
         {

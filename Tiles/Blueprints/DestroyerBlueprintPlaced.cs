@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Blueprints;
 
 namespace CalValEX.Tiles.Blueprints
 {
-    internal class DestroyerBlueprintPlaced : ModTile
+    public class DestroyerBlueprintPlaced : ModTile
     {
         public override void SetDefaults()
         {

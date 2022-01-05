@@ -5,7 +5,7 @@ using CalValEX.Tiles.Cages;
 
 namespace CalValEX.Items.Tiles.Cages
 {
-    internal class BlinkerInABottle : ModItem
+    public class BlinkerInABottle : ModItem
     {
         public override void SetStaticDefaults()
         {

@@ -7,7 +7,7 @@ using CalValEX.Tiles.Cages;
 
 namespace CalValEX.Items.Tiles.Cages
 {
-    internal class SlugTerrarium : ModItem
+    public class SlugTerrarium : ModItem
     {
         public override void SetStaticDefaults()
         {

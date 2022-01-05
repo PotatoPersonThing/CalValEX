@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Blueprints;
 
 namespace CalValEX.Tiles.Blueprints
 {
-    internal class YharmorBlueprintPlaced : ModTile
+    public class YharmorBlueprintPlaced : ModTile
     {
         public override void SetDefaults()
         {

@@ -3,7 +3,7 @@ using CalValEX.Tiles.Plants;
 
 namespace CalValEX.Items.Tiles.Plants
 {
-    internal class TableCoral : ModItem
+    public class TableCoral : ModItem
     {
         public override void SetStaticDefaults()
         {

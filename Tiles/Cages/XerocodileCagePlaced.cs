@@ -7,7 +7,7 @@ using CalValEX.Items.Tiles.Cages;
 
 namespace CalValEX.Tiles.Cages
 {
-    internal class XerocodileCagePlaced : ModTile
+    public class XerocodileCagePlaced : ModTile
     {
         public override void SetDefaults()
         {

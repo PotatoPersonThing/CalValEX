@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class CirrusBoozePlaced : ModTile
+    public class CirrusBoozePlaced : ModTile
     {
         public override void SetDefaults()
         {

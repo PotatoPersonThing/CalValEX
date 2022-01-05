@@ -7,7 +7,7 @@ using CalValEX.Tiles.MiscFurniture;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class HeartoftheCommunity : ModItem
+    public class HeartoftheCommunity : ModItem
     {
         public override void SetStaticDefaults()
         {

@@ -4,7 +4,7 @@ using CalValEX.NPCs.Critters;
 
 namespace CalValEX.Items.Critters
 {
-    internal class SwearshroomItem : ModItem
+    public class SwearshroomItem : ModItem
     {
         public override void SetStaticDefaults()
         {

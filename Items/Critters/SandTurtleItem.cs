@@ -4,7 +4,7 @@ using CalValEX.NPCs.Critters;
 
 namespace CalValEX.Items.Critters
 {
-    internal class SandTurtleItem : ModItem
+    public class SandTurtleItem : ModItem
     {
         public override void SetStaticDefaults()
         {

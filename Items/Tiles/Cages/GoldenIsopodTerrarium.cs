@@ -8,7 +8,7 @@ using CalValEX.Tiles.Cages;
 
 namespace CalValEX.Items.Tiles.Cages
 {
-    internal class GoldenIsopodTerrarium : ModItem
+    public class GoldenIsopodTerrarium : ModItem
     {
         public override void SetStaticDefaults()
         {

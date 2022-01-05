@@ -3,7 +3,7 @@ using CalValEX.Tiles.Plants;
 
 namespace CalValEX.Items.Tiles.Plants
 {
-    internal class BrainCoral : ModItem
+    public class BrainCoral : ModItem
     {
         public override void SetStaticDefaults()
         {

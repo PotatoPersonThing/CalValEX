@@ -15,7 +15,7 @@ namespace CalValEX.NPCs.Critters
     /// The important bits are: Main.npcCatchable, npc.catchItem, and item.makeNPC
     /// We will also show off adding an item to an existing RecipeGroup (see ExampleMod.AddRecipeGroups)
     /// </summary>
-    internal class GAstJR : ModNPC
+    public class GAstJR : ModNPC
     {
         public override void SetStaticDefaults()
         {

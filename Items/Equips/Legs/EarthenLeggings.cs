@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Legs
 {
     [AutoloadEquip(EquipType.Legs)]
-    internal class EarthenLeggings: ModItem
+    public class EarthenLeggings: ModItem
     {
         public override void SetStaticDefaults()
         {

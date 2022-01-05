@@ -6,7 +6,7 @@ using Terraria;
 
 namespace CalValEX.Items.Tiles.Plants
 {
-    internal class OddMushroomPot : ModItem
+    public class OddMushroomPot : ModItem
     {
         public override void SetStaticDefaults()
         {

@@ -9,7 +9,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles
 {
-    internal class DraedonQuoteonQuoteBagPlaced : ModTile
+    public class DraedonQuoteonQuoteBagPlaced : ModTile
     {
         public override void SetDefaults()
         {

@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class BlazingConflictPlaced : ModTile
+    public class BlazingConflictPlaced : ModTile
     {
         public override void SetDefaults()
         {

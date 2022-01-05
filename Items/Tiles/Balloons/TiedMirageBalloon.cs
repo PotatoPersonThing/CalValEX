@@ -3,7 +3,7 @@ using CalValEX.Tiles.Balloons;
 
 namespace CalValEX.Items.Tiles.Balloons
 {
-    internal class TiedMirageBalloon : ModItem
+    public class TiedMirageBalloon : ModItem
     {
         public override void SetStaticDefaults()
         {

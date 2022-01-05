@@ -8,7 +8,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Tiles.FurnitureSets.Astral
 {
-    internal class OldAstralSofa : ModTile
+    public class OldAstralSofa : ModTile
     {
         public override void SetDefaults()
         {

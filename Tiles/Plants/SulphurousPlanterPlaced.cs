@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Plants;
 
 namespace CalValEX.Tiles.Plants
 {
-    internal class SulphurousPlanterPlaced : ModTile
+    public class SulphurousPlanterPlaced : ModTile
     {
         public override void SetDefaults()
         {

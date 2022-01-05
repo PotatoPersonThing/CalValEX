@@ -7,7 +7,7 @@ using CalValEX.NPCs.Critters;
 
 namespace CalValEX.Items.Critters
 {
-    internal class GodSlayerSlugItem : ModItem
+    public class GodSlayerSlugItem : ModItem
     {
         public override void SetStaticDefaults()
         {

@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class SwearingShroomPlaced : ModTile
+    public class SwearingShroomPlaced : ModTile
     {
         public override void SetDefaults()
         {

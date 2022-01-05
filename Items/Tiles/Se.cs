@@ -7,7 +7,7 @@ using Terraria;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class Se : ModItem
+    public class Se : ModItem
     {
         public override void SetStaticDefaults()
         {

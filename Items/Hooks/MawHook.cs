@@ -4,7 +4,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Items.Hooks
 {
-    internal class MawHook : ModItem
+    public class MawHook : ModItem
     {
         public override void SetStaticDefaults()
         {

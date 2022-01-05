@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Hooks
 {
-    internal class MawTeeth : ModProjectile
+    public class MawTeeth : ModProjectile
     {
         public override void SetStaticDefaults()
         {

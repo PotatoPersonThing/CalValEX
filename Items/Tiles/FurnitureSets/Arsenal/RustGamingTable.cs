@@ -5,7 +5,7 @@ using CalValEX.Tiles.FurnitureSets.Arsenal;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Arsenal
 {
-    internal class RustGamingTable : ModItem
+    public class RustGamingTable : ModItem
     {
         public override void SetStaticDefaults()
         {

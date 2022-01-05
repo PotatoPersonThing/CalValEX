@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Cages;
 
 namespace CalValEX.Tiles.Cages
 {
-    internal class ViolemurMonolithPlaced : ModTile
+    public class ViolemurMonolithPlaced : ModTile
     {
         public override void SetDefaults()
         {

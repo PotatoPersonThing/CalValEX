@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class Plague22Placed : ModTile
+    public class Plague22Placed : ModTile
     {
         public override void SetDefaults()
         {

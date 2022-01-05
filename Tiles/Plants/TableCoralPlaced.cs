@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Plants;
 
 namespace CalValEX.Tiles.Plants
 {
-    internal class TableCoralPlaced : ModTile
+    public class TableCoralPlaced : ModTile
     {
         public override void SetDefaults()
         {

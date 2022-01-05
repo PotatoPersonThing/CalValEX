@@ -5,7 +5,7 @@ using CalValEX.Tiles.Paintings;
 
 namespace CalValEX.Items.Tiles.Paintings
 {
-    internal class DraedonPopcorn : ModItem
+    public class DraedonPopcorn : ModItem
     {
         public override void SetStaticDefaults()
         {

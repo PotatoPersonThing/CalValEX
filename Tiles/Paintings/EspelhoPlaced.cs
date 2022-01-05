@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class EspelhoPlaced : ModTile
+    public class EspelhoPlaced : ModTile
     {
         public override void SetDefaults()
         {

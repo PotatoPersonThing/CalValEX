@@ -6,7 +6,7 @@ using Terraria.ID;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class CosmiliteChairEX : ModItem
+    public class CosmiliteChairEX : ModItem
     {
         public override void SetStaticDefaults()
         {

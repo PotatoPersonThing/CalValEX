@@ -25,7 +25,7 @@ namespace CalValEX.Projectiles.Pets
             */
             facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
-            shouldFlip = true; //should the sprite flip? set true if it should, false if it shouldnt
+            shouldFlip = false; //should the sprite flip? set true if it should, false if it shouldnt
             usesAura = false; //does this pet use an aura?
             usesGlowmask = true; //does this pet use a glowmask?
             auraUsesGlowmask = false; //does the aura use a glowmask?

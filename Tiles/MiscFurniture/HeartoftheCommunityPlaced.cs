@@ -9,7 +9,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-    internal class HeartoftheCommunityPlaced : ModTile
+    public class HeartoftheCommunityPlaced : ModTile
     {
         public override void SetDefaults()
         {

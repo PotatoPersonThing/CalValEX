@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class BrimstoneHeart : ModItem
+    public class BrimstoneHeart : ModItem
     {
         public override void SetStaticDefaults()
         {

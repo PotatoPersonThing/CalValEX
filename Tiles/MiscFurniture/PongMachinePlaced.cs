@@ -7,7 +7,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-    internal class PongMachinePlaced : ModTile
+    public class PongMachinePlaced : ModTile
     {
         public override void SetDefaults()
         {

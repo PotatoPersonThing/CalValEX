@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class TheYharPlaced : ModTile
+    public class TheYharPlaced : ModTile
     {
         public override void SetDefaults()
         {

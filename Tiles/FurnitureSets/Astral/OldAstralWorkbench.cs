@@ -8,7 +8,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Tiles.FurnitureSets.Astral
 {
-    internal class OldAstralWorkbench : ModTile
+    public class OldAstralWorkbench : ModTile
     {
         public override void SetDefaults()
         {

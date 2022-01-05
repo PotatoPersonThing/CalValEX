@@ -9,7 +9,7 @@ using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
 
 namespace CalValEX.Tiles.FurnitureSets.Necrotic
 {
-    internal class RavamperPlaced : ModTile
+    public class RavamperPlaced : ModTile
     {
         public override void SetDefaults()
         {

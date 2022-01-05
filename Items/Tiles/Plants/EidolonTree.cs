@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles.Plants
 {
-    internal class EidolonTree : ModItem
+    public class EidolonTree : ModItem
     {
         public override void SetStaticDefaults()
         {

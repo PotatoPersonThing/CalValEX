@@ -69,6 +69,11 @@ namespace CalValEX.Items.Plushies
                     type = mod.ProjectileType("ItsReal");
                     Main.PlaySound(SoundID.NPCHit49, (int)player.position.X, (int)player.position.Y);
                 }
+		else if (Main.rand.NextFloat() < 0.002f)
+                {
+                    type = mod.ProjectileType("ItsRealAlt");
+                    Main.PlaySound(SoundID.NPCHit49, (int)player.position.X, (int)player.position.Y);
+                }
                 else
                 {
                     type = mod.ProjectileType("CalaFumo");

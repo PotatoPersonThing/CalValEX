@@ -5,7 +5,7 @@ using CalValEX.Items.Tiles.Blocks;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
 {
-    internal class BloodstoneLanternItem : ModItem
+    public class BloodstoneLanternItem : ModItem
     {
         public override void SetStaticDefaults()
         {

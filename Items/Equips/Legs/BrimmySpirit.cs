@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Legs
 {
     [AutoloadEquip(EquipType.Legs)]
-    internal class BrimmySpirit : ModItem
+    public class BrimmySpirit : ModItem
     {
         public override void SetStaticDefaults()
         {

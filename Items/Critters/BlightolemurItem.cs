@@ -4,7 +4,7 @@ using CalValEX.NPCs.Critters;
 
 namespace CalValEX.Items.Critters
 {
-    internal class BlightolemurItem : ModItem
+    public class BlightolemurItem : ModItem
     {
         public override void SetStaticDefaults()
         {

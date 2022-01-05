@@ -12,7 +12,7 @@ using Terraria.Localization;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-    internal class SePlaced : ModTile
+    public class SePlaced : ModTile
     {
         int rotationbottom;
         int negavar;

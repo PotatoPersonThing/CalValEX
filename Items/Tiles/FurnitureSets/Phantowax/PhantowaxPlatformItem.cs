@@ -5,7 +5,7 @@ using CalValEX.Tiles.FurnitureSets.Phantowax;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
 {
-    internal class PhantowaxPlatformItem : ModItem
+    public class PhantowaxPlatformItem : ModItem
     {
         public override void SetStaticDefaults()
         {

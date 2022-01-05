@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class DraedonPopcornPlaced : ModTile
+    public class DraedonPopcornPlaced : ModTile
     {
         public override void SetDefaults()
         {

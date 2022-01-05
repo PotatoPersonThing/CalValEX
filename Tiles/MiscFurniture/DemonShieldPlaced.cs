@@ -10,7 +10,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-    internal class DemonShieldPlaced : ModTile
+    public class DemonShieldPlaced : ModTile
     {
         public override void SetDefaults()
         {

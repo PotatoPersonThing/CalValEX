@@ -7,7 +7,7 @@ using Terraria.ID;
 namespace CalValEX.Items.Equips.Shirts
 {
     [AutoloadEquip(EquipType.Body)]
-    internal class BloodyMaryDress : ModItem
+    public class BloodyMaryDress : ModItem
     {
         public override void SetStaticDefaults()
         {

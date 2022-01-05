@@ -5,7 +5,7 @@ using CalValEX.Tiles.Cages;
 
 namespace CalValEX.Items.Tiles.Cages
 {
-    internal class BleamurPerch : ModItem
+    public class BleamurPerch : ModItem
     {
         public override void SetStaticDefaults()
         {

@@ -9,7 +9,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-    internal class RespirationShrinePlaced : ModTile
+    public class RespirationShrinePlaced : ModTile
     {
         public override void SetDefaults()
         {

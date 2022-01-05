@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-    internal class SchematicDisplayPlaced : ModTile
+    public class SchematicDisplayPlaced : ModTile
     {
         private int framer;
         public override void SetDefaults()
@@ -65,12 +65,13 @@ namespace CalValEX.Tiles.MiscFurniture
                         else
                         {
                             if (m <= y / 2)
-                            Main.tile[l, m].frameY -= 36 * 26 + 36;
+                            Main.tile[l, m].frameY = 18;
                             else
-                            Main.tile[l, m].frameY -= 36 * 26 + 18;
+                            Main.tile[l, m].frameY = 18;
 
                         }
                     }
+
                 }
             }
             if (Wiring.running)

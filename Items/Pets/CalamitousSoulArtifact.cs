@@ -58,18 +58,5 @@ namespace CalValEX.Items.Pets
             type = mod.ProjectileType("SepulcherHeadNeo");
             return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
         }
-
-        public override void AddRecipes()
-        {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(mod.ItemType("CalArtifact"), 1);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CalamitousEssence"), 10);
-                recipe.AddTile(TileID.DemonAltar);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }
     }
 }

@@ -3,7 +3,7 @@ using CalValEX.Tiles.MiscFurniture;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class SulphurColumn : ModItem
+    public class SulphurColumn : ModItem
     {
         public override void SetStaticDefaults()
         {

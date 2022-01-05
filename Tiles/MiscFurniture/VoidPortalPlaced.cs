@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-    internal class VoidPortalPlaced : ModTile
+    public class VoidPortalPlaced : ModTile
     {
         public override void SetDefaults()
         {

@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class SnoutsPlaced : ModTile
+    public class SnoutsPlaced : ModTile
     {
         public override void SetDefaults()
         {

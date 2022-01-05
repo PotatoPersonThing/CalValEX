@@ -3,7 +3,7 @@ using CalValEX.Tiles.MiscFurniture;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Wulfrum
 {
-    internal class WulfrumGlobe : ModItem
+    public class WulfrumGlobe : ModItem
     {
         public override void SetStaticDefaults()
         {

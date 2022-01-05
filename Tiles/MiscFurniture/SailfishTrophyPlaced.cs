@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-    internal class SailfishTrophyPlaced : ModTile
+    public class SailfishTrophyPlaced : ModTile
     {
         public override void SetDefaults()
         {

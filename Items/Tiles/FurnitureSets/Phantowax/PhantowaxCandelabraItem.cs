@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
 {
-    internal class PhantowaxCandelabraItem : ModItem
+    public class PhantowaxCandelabraItem : ModItem
     {
         public override void SetStaticDefaults()
         {

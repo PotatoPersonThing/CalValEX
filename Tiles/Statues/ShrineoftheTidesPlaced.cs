@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Statues;
 
 namespace CalValEX.Tiles.Statues
 {
-    internal class ShrineoftheTidesPlaced : ModTile
+    public class ShrineoftheTidesPlaced : ModTile
     {
         public override void SetDefaults()
         {

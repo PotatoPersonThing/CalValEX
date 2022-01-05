@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles.Plants
 {
-    internal class HolyStudedBonsai : ModItem
+    public class HolyStudedBonsai : ModItem
     {
         public override void SetStaticDefaults()
         {

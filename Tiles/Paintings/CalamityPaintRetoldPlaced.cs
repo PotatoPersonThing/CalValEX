@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class CalamityPaintRetoldPlaced : ModTile
+    public class CalamityPaintRetoldPlaced : ModTile
     {
         public override void SetDefaults()
         {

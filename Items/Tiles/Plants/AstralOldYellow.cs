@@ -3,7 +3,7 @@ using CalValEX.Tiles.Plants;
 
 namespace CalValEX.Items.Tiles.Plants
 {
-    internal class AstralOldYellow : ModItem
+    public class AstralOldYellow : ModItem
     {
         public override void SetStaticDefaults()
         {

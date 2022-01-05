@@ -4,7 +4,7 @@ using CalValEX.Tiles.MiscFurniture;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class JunkArt : ModItem
+    public class JunkArt : ModItem
     {
         public override void SetStaticDefaults()
         {

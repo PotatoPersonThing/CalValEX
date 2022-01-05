@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Legs
 {
     [AutoloadEquip(EquipType.Legs)]
-    internal class PolterStockings : ModItem
+    public class PolterStockings : ModItem
     {
         public override void SetStaticDefaults()
         {

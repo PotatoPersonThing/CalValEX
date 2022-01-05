@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Shirts
 {
     [AutoloadEquip(EquipType.Body)]
-    internal class EarthenBreastplate : ModItem
+    public class EarthenBreastplate : ModItem
     {
         public override void SetStaticDefaults()
         {

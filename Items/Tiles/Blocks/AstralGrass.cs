@@ -2,7 +2,7 @@
 
 namespace CalValEX.Items.Tiles.Blocks
 {
-    internal class AstralGrass : ModItem
+    public class AstralGrass : ModItem
     {
         public override void SetStaticDefaults()
         {

@@ -5,7 +5,7 @@ using CalValEX.Tiles.MiscFurniture;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class StarstruckSynthesizer : ModItem
+    public class StarstruckSynthesizer : ModItem
     {
         public override void SetStaticDefaults()
         {

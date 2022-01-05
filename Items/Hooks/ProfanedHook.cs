@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Hooks
 {
-    internal class ProfanedHook : ModProjectile
+    public class ProfanedHook : ModProjectile
     {
         public override void SetStaticDefaults()
         {

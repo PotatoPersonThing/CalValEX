@@ -4,7 +4,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Items.Hooks
 {
-    internal class RavaHook : ModItem
+    public class RavaHook : ModItem
     {
         public override void SetStaticDefaults()
         {

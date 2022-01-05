@@ -6,7 +6,7 @@ using CalValEX.Tiles.Blueprints;
 
 namespace CalValEX.Items.Tiles.Blueprints
 {
-    internal class TwinsLog : ModItem
+    public class TwinsLog : ModItem
     {
         public override string Texture => "CalValEX/Items/Tiles/Blueprints/Blueprint";
         public override void SetStaticDefaults()

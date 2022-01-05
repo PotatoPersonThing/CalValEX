@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Blueprints;
 
 namespace CalValEX.Tiles.Blueprints
 {
-    internal class DogBlueprintPlaced : ModTile
+    public class DogBlueprintPlaced : ModTile
     {
         public override void SetDefaults()
         {

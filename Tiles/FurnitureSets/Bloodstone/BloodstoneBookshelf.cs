@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
 
 namespace CalValEX.Tiles.FurnitureSets.Bloodstone
 {
-    internal class BloodstoneBookshelf : ModTile
+    public class BloodstoneBookshelf : ModTile
     {
         public override void SetDefaults()
         {

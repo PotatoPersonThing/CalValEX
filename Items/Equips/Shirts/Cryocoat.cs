@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Shirts
 {
     [AutoloadEquip(EquipType.Body)]
-    internal class Cryocoat : ModItem
+    public class Cryocoat : ModItem
     {
         public override void SetStaticDefaults()
         {

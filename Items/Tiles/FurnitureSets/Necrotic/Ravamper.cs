@@ -4,7 +4,7 @@ using CalValEX.Tiles.FurnitureSets.Necrotic;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
 {
-    internal class Ravamper : ModItem
+    public class Ravamper : ModItem
     {
         public override void SetStaticDefaults()
         {

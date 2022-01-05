@@ -5,7 +5,7 @@ using CalValEX.Tiles.FurnitureSets.Arsenal;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Arsenal
 {
-    internal class AgedRustGamingTable : ModItem
+    public class AgedRustGamingTable : ModItem
     {
         public override void SetStaticDefaults()
         {

@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-    internal class DisrepairUnitPlaced : ModTile
+    public class DisrepairUnitPlaced : ModTile
     {
         public override void SetDefaults()
         {

@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles.Plants
 {
-    internal class BloodstoneRoses : ModItem
+    public class BloodstoneRoses : ModItem
     {
         public override void SetStaticDefaults()
         {

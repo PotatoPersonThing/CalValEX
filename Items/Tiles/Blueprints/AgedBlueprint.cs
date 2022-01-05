@@ -5,7 +5,7 @@ using CalValEX.Tiles.Blueprints;
 
 namespace CalValEX.Items.Tiles.Blueprints
 {
-    internal class AgedBlueprint : ModItem
+    public class AgedBlueprint : ModItem
     {
         public override void SetStaticDefaults()
         {

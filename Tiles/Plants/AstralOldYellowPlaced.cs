@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Plants;
 
 namespace CalValEX.Tiles.Plants
 {
-    internal class AstralOldYellowPlaced : ModTile
+    public class AstralOldYellowPlaced : ModTile
     {
         public override void SetDefaults()
         {

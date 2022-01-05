@@ -6,7 +6,7 @@ using Terraria.ID;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class AuricTrashCan : ModItem
+    public class AuricTrashCan : ModItem
     {
         public override void SetStaticDefaults()
         {

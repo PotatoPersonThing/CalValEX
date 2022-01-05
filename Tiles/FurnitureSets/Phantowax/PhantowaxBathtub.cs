@@ -7,7 +7,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Tiles.FurnitureSets.Phantowax
 {
-    internal class PhantowaxBathtub : ModTile
+    public class PhantowaxBathtub : ModTile
     {
         public override void SetDefaults()
         {

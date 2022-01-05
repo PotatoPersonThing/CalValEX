@@ -6,7 +6,7 @@ using Terraria.ID;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class SchematicDisplay : ModItem
+    public class SchematicDisplay : ModItem
     {
         public override void SetStaticDefaults()
         {

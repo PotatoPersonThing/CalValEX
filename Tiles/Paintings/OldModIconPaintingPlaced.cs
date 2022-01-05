@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class OldModIconPaintingPlaced : ModTile
+    public class OldModIconPaintingPlaced : ModTile
     {
         public override void SetDefaults()
         {

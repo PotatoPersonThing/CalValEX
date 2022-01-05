@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Hooks
 {
-    internal class RavaClaw : ModProjectile
+    public class RavaClaw : ModProjectile
     {
         public override void SetStaticDefaults()
         {

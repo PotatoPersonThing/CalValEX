@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class UnholyTripPlaced : ModTile
+    public class UnholyTripPlaced : ModTile
     {
         public override void SetDefaults()
         {

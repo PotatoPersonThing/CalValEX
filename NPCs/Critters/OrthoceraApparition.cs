@@ -11,7 +11,7 @@ using CalamityMod.CalPlayer;
 
 namespace CalValEX.NPCs.Critters
 {
-    internal class OrthoceraApparition : ModNPC
+    public class OrthoceraApparition : ModNPC
     {
         public override string Texture => "CalamityMod/NPCs/AcidRain/Orthocera";
 

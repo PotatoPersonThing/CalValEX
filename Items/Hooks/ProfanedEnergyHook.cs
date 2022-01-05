@@ -7,7 +7,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Items.Hooks
 {
-    internal class ProfanedEnergyHook : ModItem
+    public class ProfanedEnergyHook : ModItem
     {
         public override void SetStaticDefaults()
         {

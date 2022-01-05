@@ -7,7 +7,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Items.Critters
 {
-    internal class IsopodItem : ModItem
+    public class IsopodItem : ModItem
     {
         public override void SetStaticDefaults()
         {

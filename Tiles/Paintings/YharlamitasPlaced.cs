@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class YharlamitasPlaced : ModTile
+    public class YharlamitasPlaced : ModTile
     {
         public override void SetDefaults()
         {

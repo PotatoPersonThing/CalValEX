@@ -3,7 +3,7 @@ using CalValEX.Tiles.Plants;
 
 namespace CalValEX.Items.Tiles.Plants
 {
-    internal class MonolithPot : ModItem
+    public class MonolithPot : ModItem
     {
         public override void SetStaticDefaults()
         {

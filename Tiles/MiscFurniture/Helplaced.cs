@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-    internal class Helplaced : ModTile
+    public class Helplaced : ModTile
     {
         public override void SetDefaults()
         {

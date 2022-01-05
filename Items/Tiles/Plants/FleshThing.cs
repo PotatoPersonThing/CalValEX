@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles.Plants
 {
-    internal class FleshThing : ModItem
+    public class FleshThing : ModItem
     {
         public override void SetStaticDefaults()
         {

@@ -5,7 +5,7 @@ using CalValEX.Tiles.Cages;
 
 namespace CalValEX.Items.Tiles.Cages
 {
-    internal class PlagueFrogTerrarium : ModItem
+    public class PlagueFrogTerrarium : ModItem
     {
         public override void SetStaticDefaults()
         {

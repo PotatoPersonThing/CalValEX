@@ -7,7 +7,7 @@ using CalValEX.Items.Tiles.Cages;
 
 namespace CalValEX.Tiles.Cages
 {
-    internal class CrystalFlyJarPlaced : ModTile
+    public class CrystalFlyJarPlaced : ModTile
     {
         public override void SetDefaults()
         {

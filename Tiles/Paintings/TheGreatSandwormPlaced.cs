@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class TheGreatSandwormPlaced : ModTile
+    public class TheGreatSandwormPlaced : ModTile
     {
         public override void SetDefaults()
         {

@@ -5,7 +5,7 @@ using CalValEX.Tiles.MiscFurniture;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class Tesla : ModItem
+    public class Tesla : ModItem
     {
         public override void SetStaticDefaults()
         {

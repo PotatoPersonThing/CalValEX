@@ -8,7 +8,7 @@ using CalValEX.NPCs.Critters;
 
 namespace CalValEX.Items.Critters
 {
-    internal class GoldenIsopodItem : ModItem
+    public class GoldenIsopodItem : ModItem
     {
         public override void SetStaticDefaults()
         {

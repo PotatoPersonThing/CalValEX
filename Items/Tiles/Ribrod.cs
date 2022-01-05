@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles
 {
-    internal class Ribrod : ModItem
+    public class Ribrod : ModItem
     {
         public override void SetStaticDefaults()
         {

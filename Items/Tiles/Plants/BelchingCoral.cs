@@ -3,7 +3,7 @@ using CalValEX.Tiles.Plants;
 
 namespace CalValEX.Items.Tiles.Plants
 {
-    internal class BelchingCoral : ModItem
+    public class BelchingCoral : ModItem
     {
         public override void SetStaticDefaults()
         {

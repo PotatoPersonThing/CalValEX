@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Blueprints;
 
 namespace CalValEX.Tiles.Blueprints
 {
-    internal class AgedLogPlaced : ModTile
+    public class AgedLogPlaced : ModTile
     {
         public override void SetDefaults()
         {

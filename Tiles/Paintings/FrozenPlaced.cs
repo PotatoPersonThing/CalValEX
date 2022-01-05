@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    internal class FrozenPlaced : ModTile
+    public class FrozenPlaced : ModTile
     {
         public override void SetDefaults()
         {

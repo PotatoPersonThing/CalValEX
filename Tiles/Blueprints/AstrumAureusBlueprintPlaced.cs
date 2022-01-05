@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Blueprints;
 
 namespace CalValEX.Tiles.Blueprints
 {
-    internal class AstrumAureusBlueprintPlaced : ModTile
+    public class AstrumAureusBlueprintPlaced : ModTile
     {
         public override void SetDefaults()
         {
