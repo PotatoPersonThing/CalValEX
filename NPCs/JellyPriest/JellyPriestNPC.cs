@@ -1143,8 +1143,8 @@ namespace CalValEX.NPCs.JellyPriest
 
         public override void TownNPCAttackCooldown(ref int cooldown, ref int randExtraCooldown)
         {
-            cooldown = 20;
-            randExtraCooldown = 20;
+            cooldown = 16;
+            randExtraCooldown = 16;
         }
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)

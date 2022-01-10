@@ -25,21 +25,6 @@ namespace CalValEX.Projectiles.NPCs
             projectile.penetrate = 2;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            int randNumb = Main.rand.Next(0, 2); //change this to higher or lower, depending on how many debuffs it can potentially inflict
-            switch (randNumb)
-            {
-                case 0:
-                    target.AddBuff(BuffID.Slow, Main.rand.Next(300, 1200)); //5 to 25 seconds (each second is 60 ticks)
-                    break;
-
-                default:
-                    target.AddBuff(BuffID.Oiled, Main.rand.Next(300, 1200));
-                    break;
-            }
-        }
-
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             Texture2D texture = Main.projectileTexture[projectile.type];
