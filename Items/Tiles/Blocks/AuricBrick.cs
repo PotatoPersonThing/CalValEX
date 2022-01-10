@@ -2,6 +2,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.Blocks;
 using CalValEX.Items.Walls;
+using CalValEX.Items.Tiles.FurnitureSets.Auric;
 
 namespace CalValEX.Items.Tiles.Blocks
 {
@@ -40,6 +41,11 @@ namespace CalValEX.Items.Tiles.Blocks
             recipe2.AddTile(TileID.WorkBenches);
             recipe2.SetResult(this, 4);
             recipe2.AddRecipe();
+            ModRecipe recipe3 = new ModRecipe(mod);
+            recipe3.AddIngredient(ModContent.ItemType<AuricPlatformItem>(), 2);
+            recipe3.AddTile(TileID.WorkBenches);
+            recipe3.SetResult(this);
+            recipe3.AddRecipe();
         }
     }
 }

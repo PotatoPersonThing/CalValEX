@@ -1067,6 +1067,10 @@ namespace CalValEX
                                 player.QuickSpawnItem(ModContent.ItemType<ApolloBalloonSmall>());
                                 player.QuickSpawnItem(ModContent.ItemType<ArtemisBalloonSmall>());
                             }
+                            if (Main.rand.NextFloat() < 0.3f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>());
+                            }
                             if (Main.rand.NextFloat() < 0.1f)
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());

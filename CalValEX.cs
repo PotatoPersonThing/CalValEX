@@ -375,7 +375,7 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Exo Mechs",
                     new List<int> { ModContent.ItemType<XMLightningHook>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Exo Mechs",
-                    new List<int> { ModContent.ItemType<DraedonBody>(), ModContent.ItemType<DraedonLegs>(), /*ModContent.ItemType<DraedonPlush>(),*/ ModContent.ItemType<AresPlush>(), ModContent.ItemType<ApolloPlush>(), ModContent.ItemType<ArtemisPlush>(), ModContent.ItemType<ThanatosPlush>(), ModContent.ItemType<AncientAuricTeslaHelm>(), ModContent.ItemType<ArtemisBalloonSmall>(), ModContent.ItemType<ApolloBalloonSmall>() });
+                    new List<int> { ModContent.ItemType<DraedonBody>(), ModContent.ItemType<DraedonLegs>(), ModContent.ItemType<DraedonPlush>(), ModContent.ItemType<AresPlush>(), ModContent.ItemType<ApolloPlush>(), ModContent.ItemType<ArtemisPlush>(), ModContent.ItemType<ThanatosPlush>(), ModContent.ItemType<AncientAuricTeslaHelm>(), ModContent.ItemType<ArtemisBalloonSmall>(), ModContent.ItemType<ApolloBalloonSmall>(), ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Adult Eidolon Wyrm",
                     new List<int> { ModContent.ItemType<JaredPlush>(), ModContent.ItemType<SoulShard>(), ModContent.ItemType<OmegaBlue>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Acid Rain (Post-AS)",
@@ -528,6 +528,7 @@ namespace CalValEX
             }
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             //Irradiated
+            ModRecipe recipe = new ModRecipe(this);
             recipe = new ModRecipe(this);
             recipe.AddIngredient(calamityMod.ItemType("GammaSlimeBanner"));
             recipe.AddIngredient(ModContent.ItemType<NuclearFumes>(), 50);

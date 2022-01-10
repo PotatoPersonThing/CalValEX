@@ -12,6 +12,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
     {
         public override void SetDefaults()
         {
+            Main.tileSolidTop[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileTable[Type] = true;

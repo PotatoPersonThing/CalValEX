@@ -18,7 +18,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
+            TileObjectData.newTile.CopyFrom(TileObjectData.StyleOnTable1x1);
             TileObjectData.newTile.Width = 1;
             TileObjectData.newTile.Height = 1;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16 }; //
@@ -46,6 +46,16 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             Wiring.SkipWire(i, topY + 1);
             Wiring.SkipWire(i, topY + 2);
             NetMessage.SendTileSquare(-1, i, topY + 1, 1, TileChangeType.None);
+        }
+        public override bool NewRightClick(int i, int j)
+        {
+            WorldGen.KillTile(i, j);
+            Item.NewItem(i * 16, j * 16, 16, 32, ModContent.ItemType<BloodstoneCandleItem>());
+            if (!Main.tile[i, j].active() && Main.netMode != NetmodeID.SinglePlayer)
+            {
+                NetMessage.SendData(17, -1, -1, null, 0, i, j);
+            }
+            return true;
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

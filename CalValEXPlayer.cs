@@ -372,6 +372,8 @@ namespace CalValEX
         public float sliderposy;*/
         //Enchants
         public bool soupench = false;
+        public int bossded;
+        public bool aresarms;
 
         public override void Initialize()
         {
@@ -640,6 +642,10 @@ namespace CalValEX
             {
                 bcarriagewheel -= 1.0f;
             }
+            if (bossded > 0)
+            {
+                bossded--;
+            }
         }
 
         private void ResetMyStuff()
@@ -795,6 +801,7 @@ namespace CalValEX
             pongoutcome = 0;
             pongstage = 0;*/
             soupench = false;
+            aresarms = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
@@ -1535,6 +1542,7 @@ namespace CalValEX
             int highLaer = layers.FindIndex(l => l == PlayerLayer.MiscEffectsFront);
             int hairLayer = layers.FindIndex(l => l == PlayerLayer.Hair);
             int ballLayer = layers.FindIndex(l => l == PlayerLayer.BalloonAcc);
+            int waybackLayer = layers.FindIndex(l => l == PlayerLayer.MiscEffectsBack);
 
             if (headLayer > -1)
             {

@@ -571,6 +571,12 @@ namespace CalValEX
             //1%
             float mountChance = 0.01f;
             Mod catalyst = ModLoader.GetMod("Catalyst");
+            if (npc.boss)
+            {
+                Player player = Main.LocalPlayer;
+                CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
+                modPlayer.bossded = 480;
+            }
             if (!CalValEXConfig.Instance.DisableVanityDrops)
             {
                 if (npc.type == calamityMod.NPCType("DILF"))
@@ -1001,9 +1007,6 @@ namespace CalValEX
                     {
                         ConditionalChanceDropItem(npc, ModContent.ItemType<MawHook>(),
                             (bool)calamityMod.Call("GetBossDowned", "polterghast"), 0.1f); //10%
-                        ConditionalChanceDropItem(npc, ModContent.ItemType<MawHook>(),
-                            !(bool)calamityMod.Call("GetBossDowned", "polterghast"),
-                            0.5f); //50% ?? why more?? :Polterc
                     }
                     ConditionalChanceDropItem(npc, ModContent.ItemType<NuclearFumes>(),
                             (bool)calamityMod.Call("GetBossDowned", "polterghast"), 0.3f, 1, 3);
@@ -1410,10 +1413,11 @@ namespace CalValEX
                         DropItem(npc, ModContent.ItemType<ApolloBalloonSmall>());
                         DropItem(npc, ModContent.ItemType<ArtemisBalloonSmall>());
                     }
-                    if ((bool)calamityMod.Call("DifficultyActive", "revengeance") && Main.rand.Next(5) == 0)
+                    if ((bool)calamityMod.Call("DifficultyActive", "revengeance") && Main.rand.Next(2) == 0)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<ArtemisPlush>(), 1, false, 0, false, false);
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<ApolloPlush>(), 1, false, 0, false, false);
+                        ConditionalChanceDropItem(npc, ModContent.ItemType<DraedonPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     }
                 }
 
@@ -1424,10 +1428,11 @@ namespace CalValEX
                         DropItem(npc, ModContent.ItemType<DraedonBody>());
                         DropItem(npc, ModContent.ItemType<DraedonLegs>());
                     }
-                    //DropItem(npc, ModContent.ItemType<AresChestplate>());
-                    if ((bool)calamityMod.Call("DifficultyActive", "revengeance") && Main.rand.Next(5) == 0)
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>(), !Main.expertMode, 0.5f);
+                    if ((bool)calamityMod.Call("DifficultyActive", "revengeance") && Main.rand.Next(2) == 0)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<AresPlush>(), 1, false, 0, false, false);
+                        ConditionalChanceDropItem(npc, ModContent.ItemType<DraedonPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     }
                 }
 
@@ -1438,15 +1443,11 @@ namespace CalValEX
                         DropItem(npc, ModContent.ItemType<DraedonBody>());
                         DropItem(npc, ModContent.ItemType<DraedonLegs>());
                     }
-                    if ((bool)calamityMod.Call("DifficultyActive", "revengeance") && Main.rand.Next(5) == 0)
+                    if ((bool)calamityMod.Call("DifficultyActive", "revengeance") && Main.rand.Next(2) == 0)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<ThanatosPlush>(), 1, false, 0, false, false);
+                        ConditionalChanceDropItem(npc, ModContent.ItemType<DraedonPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     }
-                }
-
-                if (npc.type == calamityMod.NPCType("Draedon"))
-                {
-                    //ConditionalChanceDropItem(npc, ModContent.ItemType<DraedonPlushie>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                 }
 
                 if (npc.type == calamityMod.NPCType("SupremeCalamitas"))
@@ -1805,7 +1806,14 @@ namespace CalValEX
                 {
                     if (player.ZoneOverworldHeight)
                     {
-                        pool.Add(cata.NPCType("AstrageldonSlime"), 0.0175f);
+                        if ((bool)cata.Call("worlddefeats.astrageldon"))
+                        {
+                            pool.Add(cata.NPCType("MetanovaSlime"), 0.1f);
+                        }
+                        else
+                        {
+                            pool.Add(cata.NPCType("AstrageldonSlime"), 0.02f);
+                        }
                     }
                 }
 

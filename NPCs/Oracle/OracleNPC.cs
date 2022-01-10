@@ -71,7 +71,7 @@ namespace CalValEX.NPCs.Oracle
 
         public override string TownNPCName()
         {
-            switch (WorldGen.genRand.Next(14))
+            switch (WorldGen.genRand.Next(15))
             {
                 case 0:
                     rachelname = false;
@@ -120,6 +120,10 @@ namespace CalValEX.NPCs.Oracle
                 case 12:
                     rachelname = false;
                     return "Rebecca";
+
+                case 13:
+                    rachelname = false;
+                    return "Mabel";
 
                 default:
                     rachelname = false;
