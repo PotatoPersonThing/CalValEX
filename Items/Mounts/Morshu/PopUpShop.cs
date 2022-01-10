@@ -11,8 +11,8 @@ namespace CalValEX.Items.Mounts.Morshu
         {
             DisplayName.SetDefault("Pop-up Shop");
             Tooltip.SetDefault("Summons a rideable Morshu" +
-                "\nConsumes a copper coin from the coin slots every 5 seconds and becomes super-sonic" +
-                "\nIf there are no copper coins in the coin slots then morshu becomes crippled");
+                "\nConsumes a Copper Coin from the coin slots every 5 seconds and becomes super-sonic" +
+                "\nIf there are no Copper Coins in the coin slots then Morshu becomes crippled");
         }
 
         public override void SetDefaults()
