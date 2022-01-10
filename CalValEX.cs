@@ -128,7 +128,7 @@ namespace CalValEX
             Filters.Scene["CalValEX:AstralBiome"] = new Filter(new AstralSkyData("FilterMiniTower").UseColor(Color.Purple).UseOpacity(0.15f), EffectPriority.VeryHigh);
             SkyManager.Instance["CalValEX:AstralBiome"] = new AstralSky();
 
-        AddMusicBox(GetSoundSlot(SoundType.Music, "Sounds/Music/AstralBlight"), ItemType("AstralMusicBox"), TileType("AstralMusicBoxPlaced"));
+            AddMusicBox(GetSoundSlot(SoundType.Music, "Sounds/Music/AstralBlight"), ItemType("AstralMusicBox"), TileType("AstralMusicBoxPlaced"));
         }
 
         public override void Unload()
@@ -400,6 +400,28 @@ namespace CalValEX
                 {
                     bossChecklist.Call("AddToBossCollection", "Catalyst", "Astrageldon",
                            new List<int> { ModContent.ItemType<JellyBottle>(), ModContent.ItemType<Items.Tiles.Plushies.AstrageldonPlush>() });
+                }
+            }
+
+            if (ModContent.GetInstance<CalValEXConfig>().DiscordRichPresence)
+            {
+                try
+                {
+                    var drp = ModLoader.GetMod("DiscordRP");
+                    if (drp != null)
+                    {
+                        // This discord rich presence stuff is very wacky.
+                        // Get in contact with (Discord: nalyddd#9372, Github: NalydddNobel) if you want to change any of this.
+                        // (even if you are completely removing this, atleast tell me so I can get rid of my Discord-Developer-Application which hosts these images)
+                        drp.Call("AddClient", "929973580178010152", "mod_calvalex");
+                        drp.Call("AddBiome", (Func<bool>)(() => Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral), "Astral Blight",
+                            "biome_astralblight", 50f, "mod_calvalex");
+                    
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("There was an error when adding Discord Rich Presence support!", ex);
                 }
             }
         }

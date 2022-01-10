@@ -9,7 +9,7 @@ using Terraria.ModLoader.Config;
 namespace CalValEX
 {
     [Label("Config")]
-    [BackgroundColor(192, 54, 64, 192)]
+    [BackgroundColor(49, 32, 36, 216)]
     public class CalValEXConfig : ModConfig
     {
         public static CalValEXConfig Instance;
@@ -102,6 +102,13 @@ namespace CalValEX
         [DefaultValue(false)]
         [Tooltip("Makes it so that the Toy Scythe's pet always uses its default skin")]
         public bool Polterskin { get; set; }
+
+        [Label("Discord Rich Presence ([c/ffaa11:Requires DRP Mod!])")]
+        [BackgroundColor(192, 54, 64, 192)]
+        [DefaultValue(true)]
+        [ReloadRequired()]
+        [Tooltip("Whether or not to initialize the Discord Rich Presence addons for the Discord Rich Presence mod by Purplefin Neptuna.\nRequires that mod to be active in order to do anything.")]
+        public bool DiscordRichPresence { get; set; }
 
         [Header("Config Access")]
         [Label("Enable Server Owner Exclusive Config Access")]
