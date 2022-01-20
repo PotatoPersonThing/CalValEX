@@ -57,13 +57,17 @@ namespace CalValEX.Projectiles.Pets
         public override void SafeAI(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
+            Mod master = ModLoader.GetMod("MasterMode");
+            Mod armasortof = ModLoader.GetMod("EfficientNohits");
+            Mod arma2 = ModLoader.GetMod("ArmaUnerf");
+            Mod infernum = ModLoader.GetMod("InfernumMode");
 
             if (player.dead)
                 modPlayer.mChan = false;
             if (modPlayer.mChan)
                 projectile.timeLeft = 2;
             //MAID mode
-            if (!CalValEXConfig.Instance.Polterskin && (bool)calamityMod.Call("DifficultyActive", "armageddon") && (bool)calamityMod.Call("DifficultyActive", "death") && (bool)calamityMod.Call("DifficultyActive", "malice") && (bool)calamityMod.Call("DifficultyActive", "ironheart"))
+            if (!CalValEXConfig.Instance.Polterskin && master != null && (bool)calamityMod.Call("DifficultyActive", "death") && infernum != null && (armasortof != null || arma2 != null))
             {
                 if (projectile.frameCounter++ > 8)
                 {

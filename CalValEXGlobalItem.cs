@@ -619,7 +619,6 @@ namespace CalValEX
                                 {
                                     player.QuickSpawnItem(ModContent.ItemType<BigWorm>());
                                 }
-
                             }
                         }
 
@@ -915,6 +914,10 @@ namespace CalValEX
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<VoidWings>());
                             }
+                            if (Main.rand.NextFloat() < 0.05f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<OldVoidWings>());
+                            }
                             if (Main.rand.NextFloat() < 0.007f)
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());
@@ -1116,7 +1119,7 @@ namespace CalValEX
             recipe.AddIngredient(calamityMod.ItemType("BotanicChair"));
             recipe.AddIngredient(calamityMod.ItemType("SilvaChair"));
             recipe.AddIngredient(calamityMod.ItemType("AuricBar"), 4);
-            recipe.AddTile(calamityMod.TileType("CosmicAnvil"));
+            recipe.AddTile(ModContent.TileType<Tiles.FurnitureSets.Auric.AuricManufacturerPlaced>());
             recipe.SetResult(calamityMod.ItemType("AuricToilet"));
             recipe.AddRecipe();
         }

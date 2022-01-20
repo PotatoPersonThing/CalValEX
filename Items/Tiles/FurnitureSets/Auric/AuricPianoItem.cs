@@ -37,7 +37,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Auric
                 recipe.AddIngredient(calamityMod.ItemType("BotanicPiano"));
                 recipe.AddIngredient(calamityMod.ItemType("SilvaPiano"));
                 recipe.AddIngredient(calamityMod.ItemType("AuricBar"), 15);
-                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("CosmicAnvil"));
+                recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }

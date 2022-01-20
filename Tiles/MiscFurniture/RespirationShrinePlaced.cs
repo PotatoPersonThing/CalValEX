@@ -126,6 +126,7 @@ namespace CalValEX.Tiles.MiscFurniture
         }
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
+            CalValEXGlobalTile.TileGlowmask(i, j, ModContent.GetTexture("CalValEX/Tiles/MiscFurniture/RespirationShrinePlaced_Glow"), spriteBatch);
             Tile tile = Main.tile[i, j];
             if (tile.frameX == 0 && tile.frameY == 0)
             {

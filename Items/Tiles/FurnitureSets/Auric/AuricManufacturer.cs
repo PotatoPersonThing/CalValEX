@@ -1,15 +1,16 @@
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Tiles.FurnitureSets.Auric;
+using CalValEX.Items.Tiles.Blocks;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Auric
 {
-    public class AuricClockItem : ModItem
+    public class AuricManufacturer : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Auric Grandfather Clock");
+            DisplayName.SetDefault("Auric Manufacturer");
+            Tooltip.SetDefault("Used for special crafting");
         }
 
         public override void SetDefaults()
@@ -21,7 +22,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Auric
             item.autoReuse = true;
             item.maxStack = 99;
             item.consumable = true;
-            item.createTile = ModContent.TileType<AuricClock>();
+            item.createTile = ModContent.TileType<AuricManufacturerPlaced>();
             item.width = 12;
             item.height = 12;
             item.rare = 0;
@@ -32,12 +33,9 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Auric
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             {
                 ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(calamityMod.ItemType("CosmiliteClock"));
-                recipe.AddIngredient(ModContent.ItemType<Items.Tiles.FurnitureSets.Bloodstone.BloodstoneClockItem>());
-                recipe.AddIngredient(calamityMod.ItemType("BotanicClock"));
-                recipe.AddIngredient(calamityMod.ItemType("SilvaClock"));
+                recipe.AddIngredient(calamityMod.ItemType("AscendedSpiritEssence"), 4);
                 recipe.AddIngredient(calamityMod.ItemType("AuricBar"), 10);
-                recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("CosmicAnvil"));
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }

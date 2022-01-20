@@ -27,6 +27,7 @@ using CalValEX.Walls;
 using CalValEX.Items.Walls.Astral;
 using CalValEX.Items.Walls;
 using CalValEX.Items.Pets;
+using CalValEX.Items.Plushies;
 using CalValEX.Items.Pets.Elementals;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Blocks;
@@ -547,6 +548,9 @@ namespace CalValEX
                 catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<AstrageldonPlush>(), true);
                 catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<Items.Plushies.AstrageldonPlushThrowable>(), true);
                 catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<JellyBottle>(), true);
+                catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<JaredPlush>(), true);
+                catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<JaredPlushThrowable>(), true);
+                catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<RespirationShrine>(), true);
             }
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             //Irradiated

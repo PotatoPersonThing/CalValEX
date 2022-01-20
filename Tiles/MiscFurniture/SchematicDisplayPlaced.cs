@@ -3,15 +3,14 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Tiles;
 using Microsoft.Xna.Framework.Graphics;
+using CalValEX;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
     public class SchematicDisplayPlaced : ModTile
     {
-        private int framer;
         public override void SetDefaults()
         {
             Main.tileFrameImportant[Type] = true;
@@ -31,7 +30,7 @@ namespace CalValEX.Tiles.MiscFurniture
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 24, 24, ItemType<SchematicDisplay>());
+            Item.NewItem(i * 16, j * 16, 24, 24, ModContent.ItemType<SchematicDisplay>());
         }
         public override bool HasSmartInteract()
         {
@@ -87,17 +86,7 @@ namespace CalValEX.Tiles.MiscFurniture
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
-            int xFrameOffset = Main.tile[i, j].frameX;
-            int yFrameOffset = Main.tile[i, j].frameY;
-            Texture2D glowmask = ModContent.GetTexture("CalValEX/Tiles/MiscFurniture/SchematicDisplayPlaced_Glow");
-            Vector2 drawOffest = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
-            Vector2 drawPosition = new Vector2(i * 16 - Main.screenPosition.X, j * 16 - Main.screenPosition.Y) + drawOffest;
-            Color drawColour = Color.White;
-            Tile trackTile = Main.tile[i, j];
-            if (!trackTile.halfBrick() && trackTile.slope() == 0)
-                spriteBatch.Draw(glowmask, drawPosition, new Rectangle(xFrameOffset, yFrameOffset, 16, 16), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
-            else if (trackTile.halfBrick())
-                spriteBatch.Draw(glowmask, drawPosition + new Vector2(0f, 8f), new Rectangle(xFrameOffset, yFrameOffset, 16, 8), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
+            CalValEXGlobalTile.TileGlowmask(i, j, ModContent.GetTexture("CalValEX/Tiles/MiscFurniture/SchematicDisplayPlaced_Glow"), spriteBatch);
         }
 
         public override void MouseOver(int i, int j)
@@ -105,7 +94,7 @@ namespace CalValEX.Tiles.MiscFurniture
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
             player.showItemIcon = true;
-            player.showItemIcon2 = ItemType<SchematicDisplay>();
+            player.showItemIcon2 = ModContent.ItemType<SchematicDisplay>();
         }
     }
 }
