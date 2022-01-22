@@ -52,18 +52,19 @@ namespace CalValEX.Projectiles.Pets.Elementals
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (player.dead)
                 projectile.timeLeft = 0;
-            if (!modPlayer.vanityhote)
+            if (!modPlayer.vanityhote && !modPlayer.vanitysand)
                 projectile.timeLeft = 0;
-            if (modPlayer.vanityhote)
+            if (modPlayer.vanityhote || modPlayer.vanitysand)
                 projectile.timeLeft = 2;
 
-            if (projectile.frameCounter++ > 5)
+            projectile.frameCounter++;
+            if (projectile.frameCounter > 6)
             {
-                projectile.frameCounter = 0;
                 projectile.frame++;
-                if (projectile.frame >= 5)
-                    projectile.frame = 0;
+                projectile.frameCounter = 0;
             }
+            if (projectile.frame >= 5)
+                projectile.frame = 0;
             projectile.rotation = 0;
             /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.
              * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]

@@ -2,14 +2,12 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using System.IO;
 
 namespace CalValEX.Projectiles.Pets
 {
     public class SiremberSpook : ModProjectile
     {
-        private bool theterror = false;
-
-        int apocalypse = 0;
         int countdown = 0;
         public override void SetStaticDefaults()
         {
@@ -68,6 +66,15 @@ namespace CalValEX.Projectiles.Pets
                 Dust dust;
                 dust = Main.dust[Terraria.Dust.NewDust(projectile.Center, 30, 30, 16, 0f, 0f, 0, new Color(255, 255, 255), 1.644737f)];
             }
+        }
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            writer.Write(countdown);
+        }
+
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            countdown = reader.ReadInt32();
         }
     }
 }

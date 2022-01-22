@@ -4,33 +4,33 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
-using CalValEX.Items.Tiles.FurnitureSets.Auric;
+using CalValEX.Items.Tiles;
 
-namespace CalValEX.Tiles.FurnitureSets.Auric
+namespace CalValEX.Tiles.MiscFurniture
 {
-    public class AuricManufacturerPlaced : ModTile
+    public class MireAquariumPlaced : ModTile
     {
         public override void SetDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileLavaDeath[Type] = true;
-            TileID.Sets.FramesOnKillWall[Type] = true; 
+            TileID.Sets.FramesOnKillWall[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
-            TileObjectData.newTile.Width = 3;
-            TileObjectData.newTile.Height = 3;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 }; 
+            TileObjectData.newTile.Width = 6;
+            TileObjectData.newTile.Height = 4;
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16 };
             TileObjectData.newTile.CoordinatePadding = 0;
-            animationFrameHeight = 48;
+            animationFrameHeight = 64;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Auric Manufacturer");
+            name.SetDefault("Mire Aquarium");
             AddMapEntry(new Color(0, 167, 255), name);
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 32, ItemType<AuricManufacturer>());
+            Item.NewItem(i * 16, j * 16, 32, 32, ItemType<MireAquarium>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
@@ -40,7 +40,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             {
                 frameCounter = 0;
                 frame++;
-                if (frame > 25)
+                if (frame > 1)
                 {
                     frame = 0;
                 }

@@ -5,25 +5,24 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pong
 {
-    public class PongBall : ModProjectile
+    public class SGSlider : ModProjectile
     {
         public bool checkpos = false;
-        int hitcooldown = 0;
-        int grace = 0;
+        public int hitcooldown = 0;
 
         Vector2 nipah;
-        public override string Texture => "CalValEX/ExtraTextures/Pong/PongBall";
+        public override string Texture => "CalValEX/ExtraTextures/Pong/PongSlider";
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Pong Ball");
+            DisplayName.SetDefault("Slime God Slider");
             Main.projFrames[projectile.type] = 1;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 23;
-            projectile.height = 23;
+            projectile.width = 25;
+            projectile.height = 78;
             projectile.aiStyle = -1;
             projectile.ignoreWater = true;
             projectile.tileCollide = false;
@@ -32,8 +31,6 @@ namespace CalValEX.Projectiles.Pong
 
         public override void AI()
         {
-            grace--;
-
             Player player = Main.player[projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (checkpos == false)
@@ -43,17 +40,19 @@ namespace CalValEX.Projectiles.Pong
                 checkpos = true;
             }
 
-            if (projectile.position.X > player.Center.X + 392 || projectile.position.X < player.Center.X - 413)
+            if (projectile.position.Y < player.Center.Y - 258)
             {
-                projectile.velocity.X *= -1;
-                grace = 90;
+                projectile.velocity.Y *= -1;
             }
-            if (projectile.position.Y > player.Center.Y + 228 || projectile.position.Y < player.Center.Y - 253)
+            else if (projectile.position.Y > player.Center.Y + 173)
             {
                 projectile.velocity.Y *= -1;
             }
 
-            hitcooldown--;
+            if (!modPlayer.pongactive)
+            {
+                projectile.active = false;
+            }
 
             var thisRect = projectile.getRect();
 
@@ -61,24 +60,11 @@ namespace CalValEX.Projectiles.Pong
             {
                 var proj = Main.projectile[i];
 
-                if (grace <= 0 && proj != null && proj.active && proj.getRect().Intersects(thisRect) && hitcooldown <= 0 && 
-                    (proj.type == ModContent.ProjectileType<PlayerSlider>() ||
-                    proj.type == ModContent.ProjectileType<DSSlider>() ||
-                    proj.type == ModContent.ProjectileType<HiveSlider>() ||
-                    proj.type == ModContent.ProjectileType<PerfSlider>() ||
-                    proj.type == ModContent.ProjectileType<SGSlider>() ||
-                    proj.type == ModContent.ProjectileType<CrabSlider>()
-                    ))
+                if (proj != null && proj.active && proj.getRect().Intersects(thisRect) && proj.type == ModContent.ProjectileType<SGSlider>() && hitcooldown <= 0)
                 {
-                    projectile.velocity.X *= -1;
-                    //projectile.velocity.Y *= -1;
-                    hitcooldown = 20;
+                    projectile.velocity.Y *= -1;
+                    hitcooldown = 40;
                 }
-            }
-
-            if (!modPlayer.pongactive)
-            {
-                projectile.active = false;
             }
         }
 
@@ -88,7 +74,7 @@ namespace CalValEX.Projectiles.Pong
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (modPlayer.pongactive)
             {
-                Texture2D texture2 = ModContent.GetTexture("CalValEX/ExtraTextures/Pong/PongBall");
+                Texture2D texture2 = ModContent.GetTexture("CalValEX/ExtraTextures/Pong/PongSlider");
                 Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[projectile.type] * projectile.frame, texture2.Width, texture2.Height / Main.projFrames[projectile.type]);
                 Vector2 position2 = projectile.Center - Main.screenPosition;
                 position2.X += drawOffsetX;

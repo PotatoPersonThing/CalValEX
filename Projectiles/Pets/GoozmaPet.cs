@@ -13,7 +13,6 @@ namespace CalValEX.Projectiles.Pets
 {
     public class GoozmaPet : ModProjectile
     {
-        private static readonly int Size = 66;
 
         public override void SetStaticDefaults()
         {

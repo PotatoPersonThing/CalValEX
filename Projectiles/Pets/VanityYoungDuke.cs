@@ -2,21 +2,21 @@
 
 namespace CalValEX.Projectiles.Pets.Elementals
 {
-    public class VanityBrimstone : FlyingPet
+    public class VanityYoungDuke : FlyingPet
     {
-        public override string Texture => "CalamityMod/Projectiles/Summon/BrimstoneElementalMinion";
+        public override string Texture => "CalamityMod/Projectiles/Summon/YoungDuke";
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Passive Brimstone");
-            Main.projFrames[projectile.type] = 4; //frames
+            DisplayName.SetDefault("Passive Young Duke");
+            Main.projFrames[projectile.type] = 16; //frames
             Main.projPet[projectile.type] = true;
         }
 
         public override void SafeSetDefaults() //SafeSetDefaults!!!
         {
-            projectile.width = 78;
-            projectile.height = 126;
+            projectile.width = 30;
+            projectile.height = 30;
             projectile.ignoreWater = true;
             /* you don't need to set these anymore!
             projectile.penetrate = -1;
@@ -25,7 +25,7 @@ namespace CalValEX.Projectiles.Pets.Elementals
             projectile.friendly = true;
             projectile.tileCollide = false;
             */
-            facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
+            facingLeft = false; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
             shouldFlip = true; //should the sprite flip? set true if it should, false if it shouldnt
             usesAura = false; //does this pet use an aura?
@@ -41,7 +41,7 @@ namespace CalValEX.Projectiles.Pets.Elementals
             inertia = 60f;
             animationSpeed = 16; //how fast the animation should play
             spinRotationSpeedMult = 0.2f; //rotation speed multiplier, keep it positive for it to spin in the right direction
-            offSetX = -408f; //this is needed so it's always behind the player.
+            offSetX = -108f; //this is needed so it's always behind the player.
             offSetY = -50f; //how much higher from the center the pet should float
         }
 
@@ -53,10 +53,20 @@ namespace CalValEX.Projectiles.Pets.Elementals
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (player.dead)
                 projectile.timeLeft = 0;
-            if (!modPlayer.vanityhote && !modPlayer.vanitybrim)
+            if (!modPlayer.vanityyound)
                 projectile.timeLeft = 0;
-            if (modPlayer.vanityhote || modPlayer.vanitybrim)
+            if (modPlayer.vanityyound)
                 projectile.timeLeft = 2;
+            projectile.rotation = 0;
+
+            projectile.frameCounter++;
+            if (projectile.frameCounter > 6)
+            {
+                projectile.frame++;
+                projectile.frameCounter = 0;
+            }
+            if (projectile.frame >= 6)
+                projectile.frame = 0;
             projectile.rotation = 0;
             /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.
              * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]

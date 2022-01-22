@@ -35,9 +35,9 @@ namespace CalValEX.Projectiles.Pets.Elementals
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (player.dead)
                 projectile.timeLeft = 0;
-            if (!modPlayer.vanityhote)
+            if (!modPlayer.vanityhote && !modPlayer.vanitysiren)
                 projectile.timeLeft = 0;
-            if (modPlayer.vanityhote)
+            if (modPlayer.vanityhote || modPlayer.vanitysiren)
                 projectile.timeLeft = 2;
 
             Vector2 vectorToOwner = player.Center;

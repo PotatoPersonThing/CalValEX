@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using System.IO;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -133,7 +134,7 @@ namespace CalValEX.Projectiles.Pets
                 idlecounter = 0;
             }
 
-            if (((idlecounter == 300 && distanceToOwner < 40) || Main.LocalPlayer.HasItem(ModContent.ItemType<Items.PutridShroom>())) && !modPlayer.rockhat && !modPlayer.conejo && !modPlayer.aesthetic)
+            if (((idlecounter == 300 && distanceToOwner < 40) || player.HasItem(ModContent.ItemType<Items.PutridShroom>())) && !modPlayer.rockhat && !modPlayer.conejo && !modPlayer.aesthetic)
             {
                 projectile.localAI[1] = 3;
             }
@@ -151,7 +152,7 @@ namespace CalValEX.Projectiles.Pets
                         if (projectile.frame < idleFrameLimits[0] || projectile.frame > idleFrameLimits[1])
                             projectile.frame = idleFrameLimits[0];
                     }
-                    if ((idlecounter <= 0 && !Main.LocalPlayer.HasItem(ModContent.ItemType<Items.PutridShroom>())) || modPlayer.rockhat || modPlayer.conejo || modPlayer.aesthetic)
+                    if ((idlecounter <= 0 && !player.HasItem(ModContent.ItemType<Items.PutridShroom>())) || modPlayer.rockhat || modPlayer.conejo || modPlayer.aesthetic)
                     {
                             projectile.localAI[1] = 1;
                     }
@@ -184,6 +185,18 @@ namespace CalValEX.Projectiles.Pets
                 projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
                 0f
             );
+        }
+
+        public override void SafeSendExtraAI(BinaryWriter writer)
+        {
+            writer.Write(idlecounter);
+            writer.Write(sideflip);
+        }
+
+        public override void SafeReceiveExtraAI(BinaryReader reader)
+        {
+            sideflip = reader.ReadInt32();
+            idlecounter = reader.ReadInt32();
         }
     }
 }

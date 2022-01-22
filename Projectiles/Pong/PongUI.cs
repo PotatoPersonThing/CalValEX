@@ -64,12 +64,18 @@ namespace CalValEX.Projectiles.Pong
                     {
                         if (!setfield)
                         {
-                            int choice = Main.rand.Next(2);
+                            int choice = Main.rand.Next(5);
                             {
                                 if (choice == 0)
                                     modPlayer.pongstage = 3;
-                                else
+                                else if (choice == 1)
                                     modPlayer.pongstage = 4;
+                                else if (choice == 2)
+                                    modPlayer.pongstage = 6;
+                                else if (choice == 3)
+                                    modPlayer.pongstage = 7;
+                                else
+                                    modPlayer.pongstage = 5;
                             }
                             setfield = true;
                         }
@@ -88,6 +94,20 @@ namespace CalValEX.Projectiles.Pong
                                 case 4:
                                     Projectile.NewProjectile(player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
                                         0f, -4f, ModContent.ProjectileType<Projectiles.Pong.CrabSlider>(), 0, 0f, player.whoAmI);
+                                    break;
+                                case 5:
+                                    Projectile.NewProjectile(player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
+                                        0f, -4f, ModContent.ProjectileType<Projectiles.Pong.HiveSlider>(), 0, 0f, player.whoAmI);
+                                    break;
+                                case 6:
+                                    Projectile.NewProjectile(player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
+                                        0f, -4f, ModContent.ProjectileType<Projectiles.Pong.PerfSlider>(), 0, 0f, player.whoAmI);
+                                    break;
+                                case 7:
+                                    Projectile.NewProjectile(player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 20,
+                                        0f, 4f, ModContent.ProjectileType<Projectiles.Pong.SGSlider>(), 0, 0f, player.whoAmI);
+                                    Projectile.NewProjectile(player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 80,
+                                        0f, -4f, ModContent.ProjectileType<Projectiles.Pong.SGSlider>(), 0, 0f, player.whoAmI);
                                     break;
                                 default:
                                     Projectile.NewProjectile(player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
@@ -146,9 +166,21 @@ namespace CalValEX.Projectiles.Pong
                 {
                     mapicon = ModContent.GetTexture("CalValEX/Buffs/Pets/DesertBuff");
                 }
-                else
+                else if (modPlayer.pongstage == 4)
                 {
                     mapicon = ModContent.GetTexture("CalValEX/Buffs/Pets/CrabBuff");
+                }
+                else if (modPlayer.pongstage == 6)
+                {
+                    mapicon = ModContent.GetTexture("CalValEX/Buffs/Pets/FistuloidBuff");
+                }
+                else if (modPlayer.pongstage == 7)
+                {
+                    mapicon = ModContent.GetTexture("CalValEX/Buffs/Pets/SlimeBuff");
+                }
+                else
+                {
+                    mapicon = ModContent.GetTexture("CalValEX/Buffs/Pets/HivelingBuff");
                 }
                 Rectangle rectangle3 = new Rectangle(0, mapicon.Height / Main.projFrames[projectile.type] * projectile.frame, mapicon.Width, mapicon.Height / Main.projFrames[projectile.type]);
                 Vector2 position3 = projectile.Center - Main.screenPosition;

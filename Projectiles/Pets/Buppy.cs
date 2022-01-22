@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using System.IO;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -88,7 +89,6 @@ namespace CalValEX.Projectiles.Pets
             jumpAnimationLength = 5; //how long the jump animation should stay
         }
         int yapcount;
-        private bool yapping = false;
 
         public override void SafeAI(Player player)
         {
@@ -157,6 +157,15 @@ namespace CalValEX.Projectiles.Pets
                     }
                 }
             }
+        }
+        public override void SafeSendExtraAI(BinaryWriter writer)
+        {
+            writer.Write(yapcount);
+        }
+
+        public override void SafeReceiveExtraAI(BinaryReader reader)
+        {
+            yapcount = reader.ReadInt32();
         }
     }
 }

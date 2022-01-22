@@ -1,6 +1,6 @@
 ﻿using CalValEX.Buffs.LightPets;
 using Terraria;
-using Terraria.ModLoader;
+using System.IO;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -127,6 +127,17 @@ namespace CalValEX.Projectiles.Pets
              *
              * you can still use these, changing thing inside (however it's not recomended unless you want to add custom behaviour to these)
              */
+        }
+        public override void SafeSendExtraAI(BinaryWriter writer)
+        {
+            writer.Write(extramultiplier);
+            writer.Write(lifebonus);
+        }
+
+        public override void SafeReceiveExtraAI(BinaryReader reader)
+        {
+            extramultiplier = reader.ReadInt32();
+            lifebonus = reader.ReadInt32();
         }
     }
 }

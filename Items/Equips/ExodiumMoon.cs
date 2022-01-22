@@ -6,7 +6,6 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Equips
 {
-    [AutoloadEquip(EquipType.Shield)]
     public class ExodiumMoon : ModItem
     {
         public override void SetStaticDefaults()
@@ -24,6 +23,16 @@ namespace CalValEX.Items.Equips
             item.rare = 11;
             item.accessory = true;
             item.vanity = true;
+        }
+
+        public override void UpdateEquip(Player player)
+        {
+            player.GetModPlayer<CalValEXPlayer>().exorb = true;
+        }
+
+        public override void UpdateVanity(Player player, EquipType type)
+        {
+            player.GetModPlayer<CalValEXPlayer>().exorb = true;
         }
     }
 }

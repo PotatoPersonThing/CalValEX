@@ -5,25 +5,26 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pong
 {
-    public class PongBall : ModProjectile
+    public class PerfSlider : ModProjectile
     {
         public bool checkpos = false;
-        int hitcooldown = 0;
-        int grace = 0;
+        int movementdev = -1;
+        int movementdevtype = -1;
+        int devcooldown = 0;
 
         Vector2 nipah;
-        public override string Texture => "CalValEX/ExtraTextures/Pong/PongBall";
+        public override string Texture => "CalValEX/ExtraTextures/Pong/PongSlider";
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Pong Ball");
+            DisplayName.SetDefault("Perforator Slider");
             Main.projFrames[projectile.type] = 1;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 23;
-            projectile.height = 23;
+            projectile.width = 25;
+            projectile.height = 78;
             projectile.aiStyle = -1;
             projectile.ignoreWater = true;
             projectile.tileCollide = false;
@@ -32,8 +33,6 @@ namespace CalValEX.Projectiles.Pong
 
         public override void AI()
         {
-            grace--;
-
             Player player = Main.player[projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (checkpos == false)
@@ -43,37 +42,53 @@ namespace CalValEX.Projectiles.Pong
                 checkpos = true;
             }
 
-            if (projectile.position.X > player.Center.X + 392 || projectile.position.X < player.Center.X - 413)
+            devcooldown--;
+
+            if (Main.rand.Next(120) == 0 && devcooldown <= 0)
             {
-                projectile.velocity.X *= -1;
-                grace = 90;
+                movementdev = 120;
+                if (Main.rand.Next(2) == 0)
+                {
+                    movementdevtype = 1;
+                }
+                else
+                {
+                    movementdevtype = -1;
+                }
             }
-            if (projectile.position.Y > player.Center.Y + 228 || projectile.position.Y < player.Center.Y - 253)
+
+            if (movementdev > 0)
             {
+                movementdev--;
+                if (movementdev == 24 || movementdev == 48 || movementdev == 72 || movementdev == 96 || movementdev == 120)
+                {
+                    movementdevtype *= -1;
+                }
+                if (movementdevtype == -1)
+                {
+                    projectile.velocity.Y = -15;
+                }
+                else
+                {
+                    projectile.velocity.Y = 15;
+                }
+                devcooldown = 120;
+            }
+
+            if (movementdev == 0)
+            {
+                projectile.velocity.Y = 5;
+            }
+
+            if (projectile.position.Y < player.Center.Y - 258)
+            {
+                movementdev = -1;
                 projectile.velocity.Y *= -1;
             }
-
-            hitcooldown--;
-
-            var thisRect = projectile.getRect();
-
-            for (int i = 0; i < Main.maxProjectiles; i++)
+            else if (projectile.position.Y > player.Center.Y + 173)
             {
-                var proj = Main.projectile[i];
-
-                if (grace <= 0 && proj != null && proj.active && proj.getRect().Intersects(thisRect) && hitcooldown <= 0 && 
-                    (proj.type == ModContent.ProjectileType<PlayerSlider>() ||
-                    proj.type == ModContent.ProjectileType<DSSlider>() ||
-                    proj.type == ModContent.ProjectileType<HiveSlider>() ||
-                    proj.type == ModContent.ProjectileType<PerfSlider>() ||
-                    proj.type == ModContent.ProjectileType<SGSlider>() ||
-                    proj.type == ModContent.ProjectileType<CrabSlider>()
-                    ))
-                {
-                    projectile.velocity.X *= -1;
-                    //projectile.velocity.Y *= -1;
-                    hitcooldown = 20;
-                }
+                movementdev = -1;
+                projectile.velocity.Y *= -1;
             }
 
             if (!modPlayer.pongactive)
@@ -88,7 +103,7 @@ namespace CalValEX.Projectiles.Pong
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (modPlayer.pongactive)
             {
-                Texture2D texture2 = ModContent.GetTexture("CalValEX/ExtraTextures/Pong/PongBall");
+                Texture2D texture2 = ModContent.GetTexture("CalValEX/ExtraTextures/Pong/PongSlider");
                 Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[projectile.type] * projectile.frame, texture2.Width, texture2.Height / Main.projFrames[projectile.type]);
                 Vector2 position2 = projectile.Center - Main.screenPosition;
                 position2.X += drawOffsetX;
