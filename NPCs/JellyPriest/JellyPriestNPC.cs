@@ -152,9 +152,19 @@ namespace CalValEX.NPCs.JellyPriest
                 }
             }
 
-            if (CalValEXPlayer.sirember)
+            if (CalValEXPlayer.sirember && CalValEXPlayer.bossded <= 0)
             {
                 return "WHAT IS THAT HORRIBLE MONSTROSITY";
+            }
+
+            if (CalValEXPlayer.sirember && CalValEXPlayer.bossded > 0 && npc.GivenName != "Kuti")
+            {
+                return "...Actually, that thing is sort of cute.";
+            }
+
+            if (CalValEXPlayer.sirember && CalValEXPlayer.bossded > 0 && npc.GivenName == "Kuti")
+            {
+                return "Aww, that floating blob you got there is adorable! Reminds me of my magnificent childhood home! I miss it...";
             }
 
             if (npc.homeless)

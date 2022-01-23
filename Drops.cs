@@ -1827,7 +1827,7 @@ namespace CalValEX
             if (modPlayer.ZoneAstral)
             {
                 pool.Clear();
-                if (CalValEXConfig.Instance.CritterSpawns)
+                if (!CalValEXConfig.Instance.CritterSpawns)
                 {
                     pool.Add(ModContent.NPCType<NPCs.Critters.Blightolemur>(), 0.1f);
                     pool.Add(ModContent.NPCType<NPCs.Critters.Blinker>(), 0.1f);

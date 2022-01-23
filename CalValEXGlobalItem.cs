@@ -95,16 +95,6 @@ namespace CalValEX
                 item.consumable = true;
                 item.createTile = ModContent.TileType<DraedonQuoteonQuoteBagPlaced>();
             }
-            if (item.type == calamityMod.ItemType("TheEvolution"))
-            {
-                item.useTurn = true;
-                item.autoReuse = true;
-                item.useAnimation = 15;
-                item.useTime = 10;
-                item.useStyle = ItemUseStyleID.SwingThrow;
-                item.consumable = true;
-                item.createTile = ModContent.TileType<EvolutionPlaced>();
-            }
             else if (item.type == calamityMod.ItemType("ElementalBlaster"))
             {
                 if (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7))

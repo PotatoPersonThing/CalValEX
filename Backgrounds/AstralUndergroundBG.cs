@@ -1,4 +1,4 @@
-﻿using Terraria;
+﻿/*using Terraria;
 using Terraria.ModLoader;
 
 namespace CalValEX.Backgrounds
@@ -18,4 +18,4 @@ namespace CalValEX.Backgrounds
 			textureSlots[3] = mod.GetBackgroundSlot("Backgrounds/AstralCavernMain");
 		}
 	}
-}
+}*/

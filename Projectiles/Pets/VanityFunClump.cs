@@ -41,7 +41,7 @@ namespace CalValEX.Projectiles.Pets.Elementals
             inertia = 60f;
             animationSpeed = 16; //how fast the animation should play
             spinRotationSpeedMult = 0.2f; //rotation speed multiplier, keep it positive for it to spin in the right direction
-            offSetX = -48f; //this is needed so it's always behind the player.
+            offSetX = 68f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
             offSetY = -50f; //how much higher from the center the pet should float
         }
 

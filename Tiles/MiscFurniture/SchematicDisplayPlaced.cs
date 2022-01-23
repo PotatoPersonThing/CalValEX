@@ -39,7 +39,7 @@ namespace CalValEX.Tiles.MiscFurniture
 
         public override bool NewRightClick(int i, int j)
         {
-            Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+            Main.PlaySound(mod.GetSoundSlot(SoundType.Custom, "Sounds/ScreenChange"), i * 16, j * 16, 0);
             HitWire(i, j);
             return true;
         }
