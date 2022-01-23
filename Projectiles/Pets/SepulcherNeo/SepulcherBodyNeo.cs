@@ -10,8 +10,6 @@ namespace CalValEX.Projectiles.Pets.SepulcherNeo
 {
     public class SepulcherBody1Neo : ModProjectile
     {
-        private static readonly int Size = 66;
-
         public bool segmentalt = false;
         //private bool segmentcheck = false;
 

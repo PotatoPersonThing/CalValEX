@@ -292,6 +292,7 @@ namespace CalValEX
         public bool ZoneAstral;
         public bool ZoneLab;
         public bool aesthetic;
+        public bool exorb;
         public bool rockhat;
         public bool prismshell;
         public bool rainbow;
@@ -343,7 +344,17 @@ namespace CalValEX
         public bool sandTrans;
         //More stuff ig
         public bool vanityhote;
+        public bool vanitysand;
+        public bool vanityrare;
+        public bool vanitysiren;
+        public bool vanitybrim;
+        public bool vanitycloud;
+        public bool vanityfunclump;
+        public bool vanityyound;
         public int choppercounter = 0;
+        public double rotcounter = 0;
+        public double rotdeg = 0;
+        public double rotsin = 0;
         public int chopperframe = 0;
         public int conecounter = 0;
         public int coneframe = 0;
@@ -374,6 +385,7 @@ namespace CalValEX
         public bool soupench = false;
         public int bossded;
         public bool aresarms;
+        public bool lumpe;
 
         public override void Initialize()
         {
@@ -431,9 +443,14 @@ namespace CalValEX
                     sandHide = false;
                     sandForce = true;
                 }
+                //Update vanity won't work for these two so they are detected here
                 else if (item.type == ModContent.ItemType<PrismShell>())
                 {
                     prismshell = true;
+                }
+                else if (item.type == ModContent.ItemType<Items.Equips.ExodiumMoon>())
+                {
+                    exorb = true;
                 }
                 else if (item.type == calamityMod.ItemType("HeartoftheElements") && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
                 {
@@ -469,6 +486,56 @@ namespace CalValEX
                     }
                     vanityhote = true;
                 }
+                else if (item.type == calamityMod.ItemType("RoseStone") && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
+                {
+                    bool cryospawned = player.ownedProjectileCounts[ProjectileType<VanityBrimstone>()] <= 0;
+                    if (cryospawned && player.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                            0f, 0f, ProjectileType<VanityBrimstone>(), 0, 0f, player.whoAmI);
+                    }
+                    vanitybrim = true;
+                }
+                else if (item.type == calamityMod.ItemType("EyeoftheStorm") && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
+                {
+                    bool cryospawned = player.ownedProjectileCounts[ProjectileType<VanityCloud>()] <= 0;
+                    if (cryospawned && player.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                            0f, 0f, ProjectileType<VanityCloud>(), 0, 0f, player.whoAmI);
+                    }
+                    vanitycloud = true;
+                }
+                else if (item.type == calamityMod.ItemType("WifeinaBottle") && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
+                {
+                    bool cryospawned = player.ownedProjectileCounts[ProjectileType<VanitySand>()] <= 0;
+                    if (cryospawned && player.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                            0f, 0f, ProjectileType<VanitySand>(), 0, 0f, player.whoAmI);
+                    }
+                    vanitysand = true;
+                }
+                else if (item.type == calamityMod.ItemType("WifeinaBottlewithBoobs") && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
+                {
+                    bool cryospawned = player.ownedProjectileCounts[ProjectileType<VanityRareSand>()] <= 0;
+                    if (cryospawned && player.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                            0f, 0f, ProjectileType<VanityRareSand>(), 0, 0f, player.whoAmI);
+                    }
+                    vanityrare = true;
+                }
+                else if (item.type == calamityMod.ItemType("LureofEnthrallment") && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
+                {
+                    bool cryospawned = player.ownedProjectileCounts[ProjectileType<VanityAnahita>()] <= 0;
+                    if (cryospawned && player.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                            0f, 0f, ProjectileType<VanityAnahita>(), 0, 0f, player.whoAmI);
+                    }
+                    vanitysiren = true;
+                }
                 else if (item.type == calamityMod.ItemType("CryoStone") && !CalValEXConfig.Instance.ColdShield && antisocial == null)
                 {
                     bool cryospawned = player.ownedProjectileCounts[ProjectileType<Lightshield>()] <= 0;
@@ -479,7 +546,28 @@ namespace CalValEX
                     }
                     Lightshield = true;
                 }
+                else if (item.type == calamityMod.ItemType("MutatedTruffle") && !CalValEXConfig.Instance.YoungDukePSS && antisocial == null)
+                {
+                    bool cryospawned = player.ownedProjectileCounts[ProjectileType<VanityYoungDuke>()] <= 0;
+                    if (cryospawned && player.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                            0f, 0f, ProjectileType<VanityYoungDuke>(), 0, 0f, player.whoAmI);
+                    }
+                    vanityyound = true;
+                }
+                else if (item.type == calamityMod.ItemType("FungalClump") && !CalValEXConfig.Instance.FungusClump && antisocial == null)
+                {
+                    bool cryospawned = player.ownedProjectileCounts[ProjectileType<VanityFunClump>()] <= 0;
+                    if (cryospawned && player.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                            0f, 0f, ProjectileType<VanityFunClump>(), 0, 0f, player.whoAmI);
+                    }
+                    vanityfunclump = true;
+                }
             }
+            //Despawn vanity elementals and cryo shield if in functional slots
             for (int n = 3; n < 10 + player.extraAccessorySlots; n++)
             {
                 Item item = player.armor[n];
@@ -487,9 +575,37 @@ namespace CalValEX
                 {
                     vanityhote = false;
                 }
+                if (item.type == calamityMod.ItemType("WifeinaBottle"))
+                {
+                    vanitysand = false;
+                }
+                if (item.type == calamityMod.ItemType("WifeinaBottlewithBoobs"))
+                {
+                    vanityrare = false;
+                }
+                if (item.type == calamityMod.ItemType("EyeoftheStorm"))
+                {
+                    vanitycloud = false;
+                }
+                if (item.type == calamityMod.ItemType("RoseStone"))
+                {
+                    vanitybrim = false;
+                }
+                if (item.type == calamityMod.ItemType("LureofEnthrallment"))
+                {
+                    vanitysiren = false;
+                }
                 if (item.type == calamityMod.ItemType("CryoStone"))
                 {
                     Lightshield = false;
+                }
+                if (item.type == calamityMod.ItemType("FungalClump"))
+                {
+                    vanityfunclump = false;
+                }
+                if (item.type == calamityMod.ItemType("MutatedTruffle"))
+                {
+                    vanityyound = false;
                 }
             }
         }
@@ -552,7 +668,7 @@ namespace CalValEX
 
         public override void PreUpdateMovement()
         {
-            /*if (pongactive)
+            if (pongactive)
             {
                 player.releaseHook = true;
                 player.releaseMount = true;
@@ -566,7 +682,7 @@ namespace CalValEX
             {
                 pongstage = 0;
                 pongoutcome = 0;
-            }*/
+            }
         }
 
         public override void PostUpdateBuffs()
@@ -646,6 +762,9 @@ namespace CalValEX
             {
                 bossded--;
             }
+            rotcounter += Math.PI / 80;
+            rotdeg = Math.Cos(rotcounter);
+            rotsin = -Math.Sin(rotcounter);
         }
 
         private void ResetMyStuff()
@@ -768,6 +887,7 @@ namespace CalValEX
             hage = false;
             Blok = false;
             aesthetic = false;
+            exorb = false;
             poltermask = false;
             polterchest = false;
             polterthigh = false;
@@ -784,6 +904,13 @@ namespace CalValEX
             morshugun = false;
             scaldown = false;
             vanityhote = false;
+            vanitybrim = false;
+            vanityrare = false;
+            vanitysand = false;
+            vanitysiren = false;
+            vanitycloud = false;
+            vanityyound = false;
+            vanityfunclump = false;
             avalon = false;
             wulfrumjam = false;
             conejo = false;
@@ -802,6 +929,7 @@ namespace CalValEX
             pongstage = 0;*/
             soupench = false;
             aresarms = false;
+            lumpe = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
@@ -929,7 +1057,7 @@ namespace CalValEX
             {
                 caughtType = mod.ItemType("AstralOldYellow");
             }
-            if ((bool)calamityMod.Call("GetInZone", Main.player[Main.myPlayer], "sunkensea") && power > 80 && Main.rand.NextFloat() < 0.021f)
+            if ((bool)calamityMod.Call("GetInZone", Main.player[Main.myPlayer], "sunkensea") && (bool)calamityMod.Call("GetBossDowned", "hmclam") && power > 80 && Main.rand.NextFloat() < 0.021f)
             {
                 caughtType = mod.ItemType("SailfishTrophy");
             }
@@ -1255,8 +1383,46 @@ namespace CalValEX
                 DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Color.White * alb, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0)
                 {
                     shader = drawInfo.backShader
-                }; 
+                };
                 Main.playerDrawData.Add(data);
+            }
+        });
+
+        public static readonly PlayerLayer Rotator = new PlayerLayer("CalValEX", "Rotator", PlayerLayer.MiscEffectsBack, delegate (PlayerDrawInfo drawInfo)
+        {
+            if (drawInfo.shadow != 0f)
+            {
+                return;
+            }
+            Player drawPlayer = drawInfo.drawPlayer;
+            float alb = (255 - drawPlayer.immuneAlpha) / 255f;
+            Mod mod = ModLoader.GetMod("CalValEX");
+            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
+            int secondyoffset = 0;
+            if (drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 8 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 9 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 15 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 16 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 17)
+            {
+                secondyoffset = 2;
+            }
+            else
+            {
+                secondyoffset = 0;
+            }
+            if (modPlayer.exorb)
+            {
+                Texture2D texture = mod.GetTexture("Items/Equips/ExodiumMoon");
+                Vector2 Circle = drawPlayer.Center + new Vector2(0, 300).RotatedBy(modPlayer.rotcounter);
+                Vector2 draw = Circle - Main.screenPosition;
+                Vector2 draw2 = Circle - Main.screenPosition;
+                DrawData data = new DrawData(texture, draw, null, Color.White * alb, (float)modPlayer.rotsin, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0)
+                {
+                    shader = drawInfo.backShader
+                };
+                DrawData data2 = new DrawData(texture, draw2, null, Color.White * alb, (float)modPlayer.rotsin, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0)
+                {
+                    shader = drawInfo.frontShader
+                };
+                Main.playerDrawData.Add(data);
+                Main.playerDrawData.Add(data2);
             }
         });
 
@@ -1321,10 +1487,10 @@ namespace CalValEX
             {
                 int winflip = 1 * -drawPlayer.direction;
                 Texture2D texture = mod.GetTexture("Items/Equips/Balloons/ApolloBalloonEquipped");
-                Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * player.direction + 40 , drawPlayer.gfxOffY - 170 - secondyoffset);
+                Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * player.direction + (40 * player.direction), drawPlayer.gfxOffY - 170 - secondyoffset);
                 Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
                 Rectangle conesquare = texture.Frame(1, 5, 0, modPlayer.twinframe);
-                DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, 0f, origin, 1, SpriteEffects.None, 0
+                DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, 0f, origin, 1, player.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0
                 )
                 {
                     shader = drawInfo.balloonShader
@@ -1333,12 +1499,11 @@ namespace CalValEX
             }
             else if (modPlayer.artballoon)
             {
-                int winflip = 1 * -drawPlayer.direction;
                 Texture2D texture = mod.GetTexture("Items/Equips/Balloons/ArtemisBalloonEquipped");
-                Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * player.direction - 140, drawPlayer.gfxOffY - 170 - secondyoffset);
+                Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * player.direction - (140 * player.direction), drawPlayer.gfxOffY - 170 - secondyoffset);
                 Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
                 Rectangle conesquare = texture.Frame(1, 5, 0, modPlayer.twinframe);
-                DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, 0f, origin, 1, SpriteEffects.None, 0
+                DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, 0f, origin, 1, player.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0
                 )
                 {
                     shader = drawInfo.balloonShader
@@ -1350,16 +1515,16 @@ namespace CalValEX
                 int winflip = 1 * -drawPlayer.direction;
                 Texture2D texture = mod.GetTexture("Items/Equips/Balloons/ArtemisBalloonEquipped");
                 Texture2D texture2 = mod.GetTexture("Items/Equips/Balloons/ApolloBalloonEquipped");
-                Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * player.direction - 140, drawPlayer.gfxOffY - 170 - secondyoffset);
-                Vector2 wtf2 = drawPlayer.Center - Main.screenPosition + new Vector2(0f * player.direction + 40, drawPlayer.gfxOffY - 170 - secondyoffset);
+                Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * player.direction - (140 * player.direction), drawPlayer.gfxOffY - 170 - secondyoffset);
+                Vector2 wtf2 = drawPlayer.Center - Main.screenPosition + new Vector2(0f * player.direction + (40 * player.direction), drawPlayer.gfxOffY - 170 - secondyoffset);
                 Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
                 Rectangle conesquare = texture.Frame(1, 5, 0, modPlayer.twinframe);
-                DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, 0f, origin, 1, SpriteEffects.None, 0
+                DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, 0f, origin, 1, player.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0
                 )
                 {
                     shader = drawInfo.balloonShader
                 };
-                DrawData data2 = new DrawData(texture2, wtf2, conesquare, Color.White * alb, 0f, origin, 1, SpriteEffects.None, 0
+                DrawData data2 = new DrawData(texture2, wtf2, conesquare, Color.White * alb, 0f, origin, 1, player.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0
                 )
                 {
                     shader = drawInfo.balloonShader
@@ -1568,12 +1733,14 @@ namespace CalValEX
             layers.Insert(armLayer + 1, Mimigun2);
             Prismshell.visible = true;
             layers.Insert(backLayer + 1, Prismshell);
+            Prismshell.visible = true;
+            layers.Insert(backLayer + 2, Rotator);
             BCarriage.visible = true;
             layers.Insert(armLayer + 1, BCarriage);
             Exoballoon.visible = true;
             layers.Insert(ballLayer + 2, Exoballoon);
             Sexoballoon.visible = true;
-            layers.Insert(ballLayer + 3, Sexoballoon);
+            layers.Insert(waybackLayer + 3, Sexoballoon);
             if (yharcar)
             {
                 foreach (PlayerLayer layer in layers)
@@ -1584,7 +1751,7 @@ namespace CalValEX
                     }
                 }
             }
-            /*if (pongactive)
+            if (pongactive)
             {
                 foreach (PlayerLayer layer in layers)
                 {
@@ -1597,7 +1764,7 @@ namespace CalValEX
                 {
                     ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = true;
                 }
-            }*/
+            }
             /*PongUI.visible = true;
             layers.Insert(shieldLaer + 14, PongUI);
             PongOverlay.visible = true;

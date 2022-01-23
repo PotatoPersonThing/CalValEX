@@ -64,11 +64,14 @@ namespace CalValEX.Projectiles.Pong
                 if (grace <= 0 && proj != null && proj.active && proj.getRect().Intersects(thisRect) && hitcooldown <= 0 && 
                     (proj.type == ModContent.ProjectileType<PlayerSlider>() ||
                     proj.type == ModContent.ProjectileType<DSSlider>() ||
+                    proj.type == ModContent.ProjectileType<HiveSlider>() ||
+                    proj.type == ModContent.ProjectileType<PerfSlider>() ||
+                    proj.type == ModContent.ProjectileType<SGSlider>() ||
                     proj.type == ModContent.ProjectileType<CrabSlider>()
                     ))
                 {
                     projectile.velocity.X *= -1;
-                    projectile.velocity.Y *= -1;
+                    //projectile.velocity.Y *= -1;
                     hitcooldown = 20;
                 }
             }

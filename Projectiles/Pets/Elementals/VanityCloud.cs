@@ -52,9 +52,9 @@ namespace CalValEX.Projectiles.Pets.Elementals
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (player.dead)
                 projectile.timeLeft = 0;
-            if (!modPlayer.vanityhote)
+            if (!modPlayer.vanityhote && !modPlayer.vanitycloud)
                 projectile.timeLeft = 0;
-            if (modPlayer.vanityhote)
+            if (modPlayer.vanityhote || modPlayer.vanitycloud)
                 projectile.timeLeft = 2;
             projectile.rotation = 0;
             /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.

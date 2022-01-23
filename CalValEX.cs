@@ -166,6 +166,17 @@ namespace CalValEX
             "Creates a rotating ice shield around you that damages and slows enemies on contact\n" +
             "Equipping the item in a vanity slot summons a harmless ice shield\n" +
             "Can be dyed with the light pet dye slot when equipped in a vanity slot");
+            cal.GetItem("EyeoftheStorm").Tooltip.AddTranslation(GameCulture.English, "Summons a cloud elemental to fight for you\n" + "Equipping this item in a vanity slot summons a passive version");
+            cal.GetItem("RoseStone").Tooltip.AddTranslation(GameCulture.English, "Summons a brimstone elemental to fight for you\n" + "Equipping this item in a vanity slot summons a passive version");
+            cal.GetItem("WifeinaBottle").Tooltip.AddTranslation(GameCulture.English, "Summons a sand elemental to fight for you\n" + "Equipping this item in a vanity slot summons a passive version");
+            cal.GetItem("WifeinaBottlewithBoobs").Tooltip.AddTranslation(GameCulture.English, "Summons a sand elemental to heal you\n" + "Equipping this item in a vanity slot summons a passive version\n" +
+                ";D");
+            cal.GetItem("LureofEnthrallment").Tooltip.AddTranslation(GameCulture.English, "Summons a water elemental to fight for you\n" +
+                "The elemental stays above you, shooting water spears, ice mist, and treble clefs at nearby enemies\n" + "Equipping this item in a vanity slot summons a passive version");
+            cal.GetItem("MutatedTruffle").Tooltip.AddTranslation(GameCulture.English, "Summons a small Old Duke to fight for you\n" +
+                               "When below 50% life, it moves much faster\n" + "Equipping this item in a vanity slot summons a passive version");
+            cal.GetItem("FungalClump").Tooltip.AddTranslation(GameCulture.English, "Summons a fungal clump to fight for you\n" +
+                       "The clump latches onto enemies and steals their life for you\n" + "Equipping this item in a vanity slot summons a passive version");
 
             cal.Call("MakeItemExhumable", ModContent.ItemType<CalArtifact>(), ModContent.ItemType<CalamitousSoulArtifact>());
 

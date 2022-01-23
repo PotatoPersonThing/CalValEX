@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using System.IO;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -110,6 +111,16 @@ namespace CalValEX.Projectiles.Pets
                     dust = Main.dust[Terraria.Dust.NewDust(projectile.Center, 30, 30, 173, 0f, 0f, 0, new Color(255, 255, 255), 0.8f)];
                 }
             }
+        }
+
+        public override void SafeSendExtraAI(BinaryWriter writer)
+        {
+            writer.Write(sigtep);
+        }
+
+        public override void SafeReceiveExtraAI(BinaryReader reader)
+        {
+            sigtep = reader.ReadBoolean();
         }
     }
 }

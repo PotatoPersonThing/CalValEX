@@ -8,7 +8,7 @@ namespace CalValEX.Items.Equips.Shields
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Aureus Plating");
+            DisplayName.SetDefault("Aureus Bulwark");
             Tooltip.SetDefault("Smaller in execution");
         }
 

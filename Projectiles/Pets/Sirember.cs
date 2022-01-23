@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using System.IO;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -147,6 +148,25 @@ namespace CalValEX.Projectiles.Pets
                 apocalypse = 0;
                 entropy = false;
             }*/
+        }
+        public override void SafeSendExtraAI(BinaryWriter writer)
+        {
+            writer.Write(orthod);
+            writer.Write(theterror);
+            writer.Write(entropy);
+            writer.Write(apocalypse);
+            writer.Write(time1);
+            writer.Write(time2);
+        }
+
+        public override void SafeReceiveExtraAI(BinaryReader reader)
+        {
+            time1 = reader.ReadInt32();
+            time2 = reader.ReadInt32();
+            apocalypse = reader.ReadInt32();
+            entropy = reader.ReadBoolean();
+            theterror = reader.ReadBoolean();
+            orthod = reader.ReadBoolean();
         }
     }
 }

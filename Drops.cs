@@ -906,15 +906,10 @@ namespace CalValEX
                 }
 
                 //Post-ml misc
-                /*if (npc.type == mod.NPCType("ShockstormShuttle"))
+                if (npc.type == mod.NPCType("ShockstormShuttle"))
                 {
-                if (Main.rand.NextFloat() < 0.075f && NPC.downedMoonlord)
-
-                 {
-                Item.NewItem(npc.getRect(),
-                     ModContent.ItemType<ExodiumMoon>());
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<Items.Equips.ExodiumMoon>(), NPC.downedMoonlord, vanityNormalChance);
                 }
-                 }*/
                 if (npc.type == calamityMod.NPCType("ChaoticPuffer"))
                 {
                     ChanceDropItem(npc, ModContent.ItemType<ChaosBalloon>(), vanityNormalChance);
@@ -1832,22 +1827,18 @@ namespace CalValEX
             if (modPlayer.ZoneAstral)
             {
                 pool.Clear();
-                pool.Add(ModContent.NPCType<NPCs.Critters.Blightolemur>(), 0.1f);
-                pool.Add(ModContent.NPCType<NPCs.Critters.Blinker>(), 0.1f);
-                pool.Add(ModContent.NPCType<NPCs.Critters.AstJR>(), 0.1f);
-                pool.Add(ModContent.NPCType<NPCs.Critters.GAstJR>(), 0.1f);
+                if (!CalValEXConfig.Instance.CritterSpawns)
+                {
+                    pool.Add(ModContent.NPCType<NPCs.Critters.Blightolemur>(), 0.1f);
+                    pool.Add(ModContent.NPCType<NPCs.Critters.Blinker>(), 0.1f);
+                    pool.Add(ModContent.NPCType<NPCs.Critters.AstJR>(), 0.1f);
+                    pool.Add(ModContent.NPCType<NPCs.Critters.GAstJR>(), 0.1f);
+                }
                 if (cata != null)
                 {
                     if (player.ZoneOverworldHeight)
                     {
-                        if ((bool)cata.Call("worlddefeats.astrageldon"))
-                        {
-                            pool.Add(cata.NPCType("MetanovaSlime"), 0.1f);
-                        }
-                        else
-                        {
-                            pool.Add(cata.NPCType("AstrageldonSlime"), 0.02f);
-                        }
+                        pool.Add(cata.NPCType("AstrageldonSlime"), 0.02f);
                     }
                 }
 

@@ -23,6 +23,7 @@ using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
 using CalValEX.Tiles.Blocks;
 using CalValEX.Tiles;
+using CalValEX.Tiles.MiscFurniture;
 using CalValEX.Items.Tiles.Monoliths;
 using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;

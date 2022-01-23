@@ -3,7 +3,8 @@
     "Terraria": {
       "commandName": "Executable",
       "executablePath": "$(tMLPath)",
-      "workingDirectory": "$(TerrariaSteamPath)"
+      "workingDirectory": "$(TerrariaSteamPath)",
+      "nativeDebugging": true
     },
     "TerrariaServer": {
       "commandName": "Executable",

@@ -17,9 +17,9 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             Main.tileLavaDeath[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true; 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
-            TileObjectData.newTile.Width = 4;
-            TileObjectData.newTile.Height = 4;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16 }; 
+            TileObjectData.newTile.Width = 3;
+            TileObjectData.newTile.Height = 3;
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 }; 
             TileObjectData.newTile.CoordinatePadding = 0;
             animationFrameHeight = 48;
             TileObjectData.addTile(Type);

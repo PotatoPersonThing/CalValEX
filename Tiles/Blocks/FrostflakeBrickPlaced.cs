@@ -18,7 +18,7 @@ namespace CalValEX.Tiles.Blocks
             drop = ModContent.ItemType<FrostflakeBrick>();
             AddMapEntry(new Color(66, 242, 245));
             dustType = 92;
-            minPick = 149;
+            minPick = 65;
             soundType = SoundID.Tink;
         }
     }

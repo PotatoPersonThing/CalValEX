@@ -47,6 +47,12 @@ namespace CalValEX
         [Tooltip("Disables the easter egg caused by the Dragonball pet")]
         public bool DragonballName { get; set; }
 
+        [Label("Disable Toy Scythe Skins")]
+        [BackgroundColor(192, 54, 64, 192)]
+        [DefaultValue(false)]
+        [Tooltip("Makes it so that the Toy Scythe's pet always uses its default skin")]
+        public bool Polterskin { get; set; }
+
         [Header("NPCs")]
         [Label("Disable Town NPCs")]
         [BackgroundColor(192, 54, 64, 192)]
@@ -72,23 +78,18 @@ namespace CalValEX
         [Tooltip("Makes it so that all Calamity's Vanities critters no longer spawn naturally")]
         public bool CritterSpawns { get; set; }
 
-        [Header("Other")]
-        [Label("Disable Mount Nerf")]
-        [BackgroundColor(192, 54, 64, 192)]
-        [DefaultValue(false)]
-        [Tooltip("Disables the stat cripple which ground mounts give")]
-        public bool GroundMountLol { get; set; }
-
         /*[Label("Disable Cadance Heart Particles")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("Disables Cadance Potion's heart particle effect")]
         public bool Cadance { get; set; }*/
 
+        [Header("Vanity Minions")]
+
         [Label("Disable Vanity Elementals")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
-        [Tooltip("Disables Heart of the Elements from spawning its Elementals while in vanity slots")]
+        [Tooltip("Disables the elemental accessories from spawning their Elementals while in vanity slots")]
         public bool HeartVanity { get; set; }
 
         [Label("Disable Vanity Cryo Stone")]
@@ -97,11 +98,24 @@ namespace CalValEX
         [Tooltip("Disables Cryo Stone from summoning its Ice Shield while in vanity slots")]
         public bool ColdShield { get; set; }
 
-        [Label("Disable Toy Scythe Skins")]
+        [Label("Disable Vanity Fungal Clump")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
-        [Tooltip("Makes it so that the Toy Scythe's pet always uses its default skin")]
-        public bool Polterskin { get; set; }
+        [Tooltip("Disables Fungal Clump from summoning its Fungal Clump minion while in vanity slots")]
+        public bool FungusClump { get; set; }
+
+        [Label("Disable Vanity Young Duke")]
+        [BackgroundColor(192, 54, 64, 192)]
+        [DefaultValue(false)]
+        [Tooltip("Disables Mutated Truffle from summoning its Young Duke while in vanity slots")]
+        public bool YoungDukePSS { get; set; }
+
+        [Header("Other")]
+        [Label("Disable Mount Nerf")]
+        [BackgroundColor(192, 54, 64, 192)]
+        [DefaultValue(false)]
+        [Tooltip("Disables the stat cripple which ground mounts give")]
+        public bool GroundMountLol { get; set; }
 
         [Label("Discord Rich Presence ([c/ffaa11:Requires DRP Mod!])")]
         [BackgroundColor(192, 54, 64, 192)]
