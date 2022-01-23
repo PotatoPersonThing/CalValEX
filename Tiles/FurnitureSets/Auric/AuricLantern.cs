@@ -12,6 +12,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
     // If you can't figure out how to recreate a vanilla tile, see that guide for instructions on how to figure it out yourself.
     public class AuricLantern : ModTile
     {
+        bool tileFlip = true;
         public override void SetDefaults()
         {
             // Main.tileFlame[Type] = true; This breaks it.
@@ -32,17 +33,34 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
         }
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
-            int xFrameOffset = Main.tile[i, j].frameX;
-            int yFrameOffset = Main.tile[i, j].frameY;
-            Texture2D glowmask = ModContent.GetTexture("CalValEX/Tiles/FurnitureSets/Auric/AuricLantern_Glow");
-            Vector2 drawOffest = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
-            Vector2 drawPosition = new Vector2(i * 16 - Main.screenPosition.X, j * 16 - Main.screenPosition.Y) + drawOffest;
-            Color drawColour = Color.White;
-            Tile trackTile = Main.tile[i, j];
-            if (!trackTile.halfBrick() && trackTile.slope() == 0)
-                spriteBatch.Draw(glowmask, drawPosition, new Rectangle(xFrameOffset, yFrameOffset, 18, 18), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
-            else if (trackTile.halfBrick())
-                spriteBatch.Draw(glowmask, drawPosition + new Vector2(0f, 8f), new Rectangle(xFrameOffset, yFrameOffset, 18, 8), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
+            if (tileFlip == true)
+            {
+                int xFrameOffset = Main.tile[i, j].frameX;
+                int yFrameOffset = Main.tile[i, j].frameY;
+                Texture2D glowmask = ModContent.GetTexture("CalValEX/Tiles/FurnitureSets/Auric/AuricLantern_Glow");
+                Vector2 drawOffest = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
+                Vector2 drawPosition = new Vector2(i * 15 - Main.screenPosition.X, j * 16 - Main.screenPosition.Y) + drawOffest;
+                Color drawColour = Color.White;
+                Tile trackTile = Main.tile[i, j];
+                if (!trackTile.halfBrick() && trackTile.slope() == 0)
+                    spriteBatch.Draw(glowmask, drawPosition, new Rectangle(xFrameOffset, yFrameOffset, 18, 18), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
+                else if (trackTile.halfBrick())
+                    spriteBatch.Draw(glowmask, drawPosition + new Vector2(0f, 8f), new Rectangle(xFrameOffset, yFrameOffset, 18, 8), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
+            }
+            else
+            {
+                int xFrameOffset = Main.tile[i, j].frameX;
+                int yFrameOffset = Main.tile[i, j].frameY;
+                Texture2D glowmask = ModContent.GetTexture("CalValEX/Tiles/FurnitureSets/Auric/AuricLantern_Glow");
+                Vector2 drawOffest = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
+                Vector2 drawPosition = new Vector2(i * 14 - Main.screenPosition.X, j * 16 - Main.screenPosition.Y) + drawOffest;
+                Color drawColour = Color.White;
+                Tile trackTile = Main.tile[i, j];
+                if (!trackTile.halfBrick() && trackTile.slope() == 0)
+                    spriteBatch.Draw(glowmask, drawPosition, new Rectangle(xFrameOffset, yFrameOffset, 18, 18), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
+                else if (trackTile.halfBrick())
+                    spriteBatch.Draw(glowmask, drawPosition + new Vector2(0f, 8f), new Rectangle(xFrameOffset, yFrameOffset, 18, 8), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
+            }
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
@@ -69,6 +87,11 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             if (i % 2 == 1)
             {
                 spriteEffects = SpriteEffects.FlipHorizontally;
+                tileFlip = true;
+            }
+            else
+            {
+                tileFlip = false;
             }
         }
 
