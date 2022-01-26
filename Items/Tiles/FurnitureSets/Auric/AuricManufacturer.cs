@@ -1,4 +1,4 @@
-﻿using Terraria.ID;
+using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.FurnitureSets.Auric;
 using CalValEX.Items.Tiles.Blocks;
@@ -30,12 +30,13 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Auric
 
         public override void AddRecipes()
         {
+            ModRecipe recipe = new ModRecipe(mod);
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            if (calamityMod != null)
             {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(calamityMod.ItemType("AscendedSpiritEssence"), 4);
                 recipe.AddIngredient(calamityMod.ItemType("AuricBar"), 10);
-                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("CosmicAnvil"));
+                recipe.AddIngredient(calamityMod.ItemType("AscendantSpiritEssence"), 4);
+                recipe.AddTile(calamityMod.TileType("CosmicAnvil"));
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
