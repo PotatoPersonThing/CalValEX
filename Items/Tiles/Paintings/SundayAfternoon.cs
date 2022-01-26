@@ -20,7 +20,7 @@ namespace CalValEX.Items.Tiles.Paintings
             item.autoReuse = true;
             item.maxStack = 99;
             item.consumable = true;
-            item.createTile = ModContent.TileType<SundayAfternoonPlaced>();
+            item.createTile = ModContent.TileType<SundayAfternoonCalPlaced>();
             item.width = 12;
             item.height = 12;
             item.rare = 11;

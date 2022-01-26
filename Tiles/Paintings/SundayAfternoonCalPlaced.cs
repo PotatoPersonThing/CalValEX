@@ -8,7 +8,7 @@ using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX.Tiles.Paintings
 {
-    public class SundayAfternoonPlaced : ModTile
+    public class SundayAfternoonCalPlaced : ModTile
     {
         public override void SetDefaults()
         {

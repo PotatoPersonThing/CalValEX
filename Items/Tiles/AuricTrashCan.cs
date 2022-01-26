@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CalValEX.Tiles.MiscFurniture;
 using Terraria.ModLoader;
 using Terraria.ID;
+using CalValEX.Tiles.FurnitureSets.Auric;
 
 namespace CalValEX.Items.Tiles
 {
@@ -36,7 +37,7 @@ namespace CalValEX.Items.Tiles
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.TrashCan);
             recipe.AddIngredient(calamityMod.ItemType("AuricBar"), 4);
-            recipe.AddTile(calamityMod.TileType("CosmicAnvil"));
+                recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
             recipe.SetResult(this);
             recipe.AddRecipe();
         }
