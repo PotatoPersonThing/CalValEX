@@ -9,7 +9,7 @@ namespace CalValEX.Items.Walls.Astral
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hardened Astral Sand Wall");
+            DisplayName.SetDefault("Hardened Blighted Astral Sand Wall");
         }
 
         public override void SetDefaults()

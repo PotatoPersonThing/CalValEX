@@ -23,18 +23,19 @@ namespace CalValEX.Items.Equips.Wings
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
+            player.wingTimeMax = 5;
             if (hideVisual)
             {
                 player.GetModPlayer<CalValEXPlayer>().wulfrumjam = false;
             }
-            else if (player.wingTime == 0)
+            else if (player.wingTime <= 0)
             {
-                player.wingTimeMax = 0;
+                //player.wingTimeMax = 0;
                 player.GetModPlayer<CalValEXPlayer>().wulfrumjam = true;
             }
             if (player.wingTime > 0)
             {
-                player.wingTimeMax = 5;
+                //player.wingTimeMax = 5;
                 player.GetModPlayer<CalValEXPlayer>().wulfrumjam = false;
             }
         }

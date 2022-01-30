@@ -37,7 +37,7 @@ namespace CalValEX.Items.Tiles
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.TrashCan);
             recipe.AddIngredient(calamityMod.ItemType("AuricBar"), 4);
-                recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+            recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

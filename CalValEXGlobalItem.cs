@@ -1087,6 +1087,10 @@ namespace CalValEX
                             {
                                 player.QuickSpawnItem(ModContent.ItemType<AncientAuricTeslaHelm>());
                             }
+                            if (Main.rand.NextFloat() < 0.33f)
+                            {
+                                player.QuickSpawnItem(ModContent.ItemType<GruelingMask>());
+                            }
                         }
                     }
                 }

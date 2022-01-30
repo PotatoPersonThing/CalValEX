@@ -4,6 +4,7 @@
 using System.Collections.Generic;
 using System.IO;
 using CalamityMod.Events;
+using CalamityMod.Particles;
 using CalValEX.Items.Equips.Hats.Draedon;
 using CalValEX.Items.Equips.Shirts.Draedon;
 using CalValEX.Items.Equips.Transformations;
@@ -765,6 +766,12 @@ namespace CalValEX
             rotcounter += Math.PI / 80;
             rotdeg = Math.Cos(rotcounter);
             rotsin = -Math.Sin(rotcounter);
+            if (wulfrumjam && Main.rand.Next(2) == 0)
+            {
+                Particle smoke = new SmallSmokeParticle(player.Center, Vector2.Zero, Color.GreenYellow, new Color(40, 40, 40), Main.rand.NextFloat(0.4f, 0.8f), 145 - Main.rand.Next(50));
+                smoke.Velocity = (smoke.Position - player.Center) * 0.3f + player.velocity;
+                GeneralParticleHandler.SpawnParticle(smoke);
+            }
         }
 
         private void ResetMyStuff()

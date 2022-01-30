@@ -11,7 +11,7 @@ namespace CalValEX.Items.Equips.Balloons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("XS Leash-05");
+            DisplayName.SetDefault("XS Leash-01");
             Tooltip.SetDefault("'Hunting has never been easier'");
         }
         public override void SetDefaults()

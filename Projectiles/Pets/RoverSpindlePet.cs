@@ -1,4 +1,8 @@
 ﻿using Terraria;
+using CalamityMod.Particles;
+using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -96,7 +100,6 @@ namespace CalValEX.Projectiles.Pets
                 modPlayer.roverd = false;
             if (modPlayer.roverd)
                 projectile.timeLeft = 2;
-
             /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.
              * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
              * you should make new custom behaviour with numbers higher than 2, or less than 0

@@ -533,22 +533,50 @@ namespace CalValEX
 
         public override void AddRecipeGroups()
         {
+            RecipeGroup sand = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Sand"]];
+            sand.ValidItems.Add(ModContent.ItemType<AstralSand>());
+
+            RecipeGroup fieref = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Fireflies"]];
+            fieref.ValidItems.Add(ModContent.ItemType<Items.Critters.NukeFlyItem>());
+            fieref.ValidItems.Add(ModContent.ItemType<Items.Critters.BlinkerItem>());
+
+            RecipeGroup bf = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Butterflies"]];
+            bf.ValidItems.Add(ModContent.ItemType<Items.Critters.ProvFlyItem>());
+            bf.ValidItems.Add(ModContent.ItemType<Items.Critters.CrystalFlyItem>());
+
             if (RecipeGroup.recipeGroupIDs.ContainsKey("WingsGroup"))
             {
                 int index = RecipeGroup.recipeGroupIDs["WingsGroup"];
-                RecipeGroup group = RecipeGroup.recipeGroups[index];
-                group.ValidItems.Add(ModContent.ItemType<WulfrumHelipack>());
-                group.ValidItems.Add(ModContent.ItemType<AeroWings>());
-                group.ValidItems.Add(ModContent.ItemType<GodspeedBoosters>());
-                group.ValidItems.Add(ModContent.ItemType<FollyWings>());
-                group.ValidItems.Add(ModContent.ItemType<JunglePhoenixWings>());
-                group.ValidItems.Add(ModContent.ItemType<LeviWings>());
-                group.ValidItems.Add(ModContent.ItemType<OldVoidWings>());
-                group.ValidItems.Add(ModContent.ItemType<VoidWings>());
-                group.ValidItems.Add(ModContent.ItemType<PlaugeWings>());
-                group.ValidItems.Add(ModContent.ItemType<ScryllianWings>());
-                group.ValidItems.Add(ModContent.ItemType<TerminalWings>());
+                RecipeGroup groupe = RecipeGroup.recipeGroups[index];
+                groupe.ValidItems.Add(ModContent.ItemType<WulfrumHelipack>());
+                groupe.ValidItems.Add(ModContent.ItemType<AeroWings>());
+                groupe.ValidItems.Add(ModContent.ItemType<GodspeedBoosters>());
+                groupe.ValidItems.Add(ModContent.ItemType<FollyWings>());
+                groupe.ValidItems.Add(ModContent.ItemType<JunglePhoenixWings>());
+                groupe.ValidItems.Add(ModContent.ItemType<LeviWings>());
+                groupe.ValidItems.Add(ModContent.ItemType<OldVoidWings>());
+                groupe.ValidItems.Add(ModContent.ItemType<VoidWings>());
+                groupe.ValidItems.Add(ModContent.ItemType<PlaugeWings>());
+                groupe.ValidItems.Add(ModContent.ItemType<ScryllianWings>());
+                groupe.ValidItems.Add(ModContent.ItemType<TerminalWings>());
             }
+
+            if (RecipeGroup.recipeGroupIDs.ContainsKey("AnyIceBlock"))
+            {
+                int index = RecipeGroup.recipeGroupIDs["AnyIceBlock"];
+                RecipeGroup groupe = RecipeGroup.recipeGroups[index];
+                groupe.ValidItems.Add(ModContent.ItemType<AstralIce>());
+            }
+
+            RecipeGroup group = new RecipeGroup(() => "Any Plate", new int[]
+            {
+                ModLoader.GetMod("CalamityMod").ItemType("PlagueContainmentCells"),
+                ModLoader.GetMod("CalamityMod").ItemType("Cinderplate"),
+                ModLoader.GetMod("CalamityMod").ItemType("Chaosplate"),
+                ModLoader.GetMod("CalamityMod").ItemType("Navyplate"),
+                ModLoader.GetMod("CalamityMod").ItemType("Elumplate")
+            });
+            RecipeGroup.RegisterGroup("AnyPlate", group);
         }
 
         public override void AddRecipes()
@@ -595,6 +623,7 @@ namespace CalValEX
             recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
             recipe.SetResult(calamityMod.ItemType("AstralSand"));
             recipe.AddRecipe();
+            recipe = new ModRecipe(this);
             recipe.AddIngredient(ModContent.ItemType<AstralSandstone>());
             recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
             recipe.SetResult(calamityMod.ItemType("AstralSandstone"));

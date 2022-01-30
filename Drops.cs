@@ -918,7 +918,8 @@ namespace CalValEX
                 //Minibosses
                 if (npc.type == calamityMod.NPCType("NuclearTerror"))
                 {
-                    ChanceDropItem(npc, ModContent.ItemType<RadJuice>(), minibossChance); 
+                    ChanceDropItem(npc, ModContent.ItemType<RadJuice>(), minibossChance);
+                    ChanceDropItem(npc, ModContent.ItemType<TerrorLegs>(), minibossChance);
                     DropItem(npc, ModContent.ItemType<NuclearFumes>(), 3, 5); //garanteed 3 to 5
                     ConditionalDropItem(npc, ModContent.ItemType<NuclearFumes>(), Main.expertMode, 1,
                         3); //when expert mode you get 1 to 3
