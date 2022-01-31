@@ -121,7 +121,17 @@ namespace CalValEX
 
             GameShaders.Armor.BindShader(ModContent.ItemType<DraedonHologramDye>(),
                 new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/DraedonHologramDye")),
-                    "DraedonHologramDyePass"));
+                    "DraedonHologramDyePass"));        
+            GameShaders.Armor.BindShader(ModContent.ItemType<BlightedAstralDye>(),
+                new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/BlightedDye")),
+                    "BlightedAstralDyePass")).UseColor(0.9098f, 0.5294f, 0.9764f).UseSecondaryColor(1f,0.8588f,0.3098f); //UseColor - the rgb code for blight purple. UseSecondaryColor - the rgb code for blight yellow.
+            GameShaders.Armor.BindShader(ModContent.ItemType<BlightedAstralPinkDye>(),
+                new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/BlightedPinkDye")),
+                    "BlightedAstralPinkDyePass")).UseColor(0.9098f, 0.5294f, 0.9764f).UseSecondaryColor(0.6235f,0.3647f,0.6666f); //UseColor - the rgb code for blight purple. UseSecondaryColor - the rgb code for blight darker purple.
+            GameShaders.Armor.BindShader(ModContent.ItemType<BlightedAstralYellowDye>(),
+                new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/BlightedYellowDye")),
+                    "BlightedAstralYellowDyePass")).UseColor(0.8588f, 0.5725f, 0.1137f).UseSecondaryColor(1f,0.8588f,0.3098f); //UseColor - the rgb code for blight darker yellow. UseSecondaryColor - the rgb code for blight yellow.
+
 
             DraedonHelmetTextureCache.Load();
             DraedonChestplateCache.Load();
