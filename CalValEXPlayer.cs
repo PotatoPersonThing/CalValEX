@@ -292,6 +292,7 @@ namespace CalValEX
         public bool Blok;
         public bool ZoneAstral;
         public bool ZoneLab;
+        public bool ZoneMockDungeon;
         public bool aesthetic;
         public bool exorb;
         public bool rockhat;
@@ -1074,15 +1075,22 @@ namespace CalValEX
         {
             ZoneAstral = CalValEXWorld.astralTiles > 400;
             HellLab = CalValEXWorld.hellTiles > 50;
+            ZoneMockDungeon = CalValEXWorld.dungeontiles > 100;
             ZoneLab = CalValEXWorld.labTiles > 100;
         }
 
         public override bool CustomBiomesMatch(Player other)
         {
             CalValEXPlayer modOther = other.GetModPlayer<CalValEXPlayer>();
-            return ZoneAstral == modOther.ZoneAstral;
-            return HellLab == modOther.HellLab;
-            return ZoneLab = modOther.ZoneLab;
+            if (modOther.ZoneAstral)
+                return ZoneAstral;
+            if (modOther.HellLab)
+                return HellLab;
+            if (modOther.ZoneLab)
+                return ZoneLab;
+            if (modOther.ZoneMockDungeon)
+                return ZoneMockDungeon;
+            return true;
         }
 
         public override void CopyCustomBiomesTo(Player other)
@@ -1091,6 +1099,7 @@ namespace CalValEX
             modOther.ZoneAstral = ZoneAstral;
             modOther.HellLab = HellLab;
             modOther.ZoneLab = ZoneLab;
+            modOther.ZoneMockDungeon = ZoneMockDungeon;
         }
 
         public override void SendCustomBiomes(BinaryWriter writer)
@@ -1099,6 +1108,7 @@ namespace CalValEX
             flags[0] = ZoneAstral;
             flags[1] = HellLab;
             flags[2] = ZoneLab;
+            flags[3] = ZoneMockDungeon;
             writer.Write(flags);
         }
 
@@ -1177,6 +1187,7 @@ namespace CalValEX
             BitsByte flags = reader.ReadByte();
             ZoneAstral = flags[0];
             HellLab = flags[1];
+            ZoneMockDungeon = flags[3];
         }
 
         public override void clientClone(ModPlayer clientClone)

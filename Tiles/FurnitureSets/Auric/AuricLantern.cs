@@ -41,7 +41,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             Color drawColour = Color.White;
             var effects = SpriteEffects.None;
             SetSpriteEffects(i, j, ref effects);
-            if (!effects.HasFlag(SpriteEffects.FlipHorizontally))
+            if (effects.HasFlag(SpriteEffects.FlipHorizontally))
             {
                 drawPosition.X -= 2f;
             }

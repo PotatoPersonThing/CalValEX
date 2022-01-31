@@ -16,6 +16,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Projectiles.NPCs;
+using System.IO;
 
 namespace CalValEX.NPCs.JellyPriest
 {
@@ -582,6 +583,22 @@ namespace CalValEX.NPCs.JellyPriest
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/JellyPriest2"), 1f);
                 Gore.NewGore(npc.position, npc.velocity, mod.GetGoreSlot("Gores/JellyPriest3"), 1f);
             }
+        }
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            writer.Write(shoptype);
+            writer.Write(shop1);
+            writer.Write(shop2);
+            writer.Write(shop3);
+            writer.Write(twue);
+        }
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            shop1 = reader.ReadBoolean();
+            shop2 = reader.ReadBoolean();
+            shop3 = reader.ReadBoolean();
+            twue = reader.ReadBoolean();
+            shoptype = reader.ReadInt32();
         }
     }
 }

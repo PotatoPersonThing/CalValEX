@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Tiles.Plants;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace CalValEX.Tiles.Plants
 {
@@ -24,6 +25,11 @@ namespace CalValEX.Tiles.Plants
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Acid Vine Planter");
             AddMapEntry(new Color(67, 235, 45), name);
+        }
+
+        public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
+        {
+            CalValEXGlobalTile.TileGlowmask(i, j, ModContent.GetTexture("CalValEX/Tiles/Plants/SulphurousPlanterPlaced_Glow"), spriteBatch);
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)

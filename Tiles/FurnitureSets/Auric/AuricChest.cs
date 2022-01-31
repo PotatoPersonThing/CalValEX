@@ -44,29 +44,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
         }
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
-            Tile tile = Main.tile[i, j];
-            int left = i;
-            int top = j;
-            if (tile.frameX % 36 != 0)
-            {
-                left--;
-            }
-            if (tile.frameY != 0)
-            {
-                top--;
-            }
-            int chestI = Chest.FindChest(left, top);
-            Chest chest = Main.chest[chestI];
-            int cFrame = chest.frame;
-            Texture2D glowmask = ModContent.GetTexture("CalValEX/Tiles/FurnitureSets/Auric/AuricChest_Glow");
-            Rectangle frame = new Rectangle(tile.frameX, 38 * cFrame + tile.frameY, 16, 16);
-            Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
-            if (Main.drawToScreen)
-            {
-                zero = Vector2.Zero;
-            }
-            Vector2 pos = new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero;
-            Main.spriteBatch.Draw(glowmask, pos, frame, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            CalValEXGlobalTile.ChestGlowmask(i, j, ModContent.GetTexture("CalValEX/Tiles/FurnitureSets/Auric/AuricChest_Glow"), spriteBatch);
         }
 
         public override ushort GetMapOption(int i, int j) => (ushort)(Main.tile[i, j].frameX / 36);

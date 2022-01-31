@@ -206,7 +206,7 @@ namespace CalValEX
                         ++nextSlot;
                     }
 
-                    if (Main.LocalPlayer.ZoneDungeon)
+                    if (Main.LocalPlayer.ZoneDungeon || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneMockDungeon)
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<PolterMask>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
@@ -1839,7 +1839,11 @@ namespace CalValEX
                 {
                     if (player.ZoneOverworldHeight)
                     {
-                        pool.Add(cata.NPCType("AstrageldonSlime"), 0.02f);
+                        pool.Add(cata.NPCType("AstrageldonSlime"), 0.002f);
+                        if ((bool)cata.Call("worlddefeats.astrageldon"))
+                        {
+                            pool.Add(cata.NPCType("ArmoredAstralSlime"), 0.02f);
+                        }
                     }
                 }
 

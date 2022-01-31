@@ -18,7 +18,7 @@ namespace CalValEX.Items.Dyes
             byte dye = item.dye;
             item.CloneDefaults(ItemID.GelDye);
             item.width = 22;
-            item.height = 26;
+            item.height = 28;
             item.value = Item.sellPrice(0, 0, 0, 5);
             item.dye = dye;
         }

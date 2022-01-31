@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using System.IO;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -272,6 +273,33 @@ namespace CalValEX.Projectiles.Pets
                 projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
                 0f
             );
+        }
+
+        public override void SafeSendExtraAI(BinaryWriter writer)
+        {
+            writer.Write(sigcounter);
+            writer.Write(basetime);
+            writer.Write(sigdirection);
+            writer.Write(sigposx);
+            writer.Write(sigposy);
+            writer.Write(signut);
+            writer.Write(dust);
+            writer.Write(sound);
+            writer.Write(teleported);
+            writer.Write(finished);
+        }
+        public override void SafeReceiveExtraAI(BinaryReader reader)
+        {
+            signut = reader.ReadBoolean();
+            dust = reader.ReadBoolean();
+            sound = reader.ReadBoolean();
+            teleported = reader.ReadBoolean();
+            finished = reader.ReadBoolean();
+            sigcounter = reader.ReadInt32();
+            basetime = reader.ReadInt32();
+            sigdirection = reader.ReadInt32();
+            sigposx = reader.ReadInt32();
+            sigposy = reader.ReadInt32();
         }
     }
 }

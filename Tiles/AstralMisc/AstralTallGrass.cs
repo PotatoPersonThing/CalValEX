@@ -18,7 +18,7 @@ namespace CalValEX.Tiles.AstralMisc
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
             Main.tileCut[Type] = true;
-            dustType = ModContent.DustType<AstralDust>();
+            dustType = ModContent.DustType<AstralSolutionDust>();
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
             TileObjectData.newTile.UsesCustomCanPlace = true;
             TileObjectData.newTile.Width = 1;

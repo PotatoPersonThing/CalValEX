@@ -82,7 +82,7 @@ namespace CalValEX.Projectiles
 						Mod CalValEX = ModLoader.GetMod("CalamityMod");
 
 						//Stone
-						if (TileID.Sets.Conversion.Stone[type]) {
+						if (TileID.Sets.Conversion.Stone[type] || type == TileID.BlueMoss || type == TileID.BrownMoss || type == TileID.LavaMoss || type == TileID.GreenMoss || type == TileID.PurpleMoss || type == TileID.LongMoss || type == TileID.RedMoss) {
 							Main.tile[k, l].type = (ushort)ModContent.TileType<XenostonePlaced>();
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
@@ -224,7 +224,7 @@ namespace CalValEX.Projectiles
 							WorldGen.SquareWallFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}
-						else if (WallID.Sets.Conversion.Stone[wall])
+						else if (WallID.Sets.Conversion.Stone[wall] || wall == WallID.RocksUnsafe1 || wall == WallID.RocksUnsafe2 || wall == WallID.RocksUnsafe3 || wall == WallID.RocksUnsafe4 || wall == WallID.CaveWall || wall == WallID.CaveWall2 || wall == WallID.CaveUnsafe || wall == WallID.Cave2Unsafe || wall == WallID.Cave3Unsafe || wall == WallID.Cave4Unsafe || wall == WallID.Cave5Unsafe || wall == WallID.Cave6Unsafe || wall == WallID.Cave7Unsafe || wall == WallID.Cave8Unsafe)
 						{
 							Main.tile[k, l].wall = (ushort)ModContent.WallType<XenostoneWallPlaced>();
 							WorldGen.SquareWallFrame(k, l, true);

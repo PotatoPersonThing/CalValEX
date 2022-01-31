@@ -21,7 +21,7 @@ namespace CalValEX.Items.Mounts.Ground
             mountData.acceleration = 0.4f;
             mountData.jumpSpeed = 3f;
             mountData.blockExtraJumps = false;
-            mountData.totalFrames = 4;
+            mountData.totalFrames = 7;
             mountData.constantJump = true;
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             mountData.spawnDust = calamityMod.DustType("HolyFireDust");
@@ -35,12 +35,12 @@ namespace CalValEX.Items.Mounts.Ground
             mountData.bodyFrame = 3;
             mountData.yOffset = 12;
             mountData.playerHeadOffset = 0;
-            mountData.standingFrameCount = 4;
+            mountData.standingFrameCount = 1;
             mountData.standingFrameDelay = 12;
             mountData.standingFrameStart = 0;
-            mountData.runningFrameCount = 4;
+            mountData.runningFrameCount = 6;
             mountData.runningFrameDelay = 12;
-            mountData.runningFrameStart = 0;
+            mountData.runningFrameStart = 1;
             // mountData.runningFrameCount = 4;
             // mountData.runningFrameDelay = 65;
             // mountData.runningFrameStart = 4;
@@ -54,8 +54,8 @@ namespace CalValEX.Items.Mounts.Ground
             mountData.flyingFrameStart = 0;
             mountData.inAirFrameCount = 1;
             mountData.inAirFrameDelay = 12;
-            mountData.inAirFrameStart = 0;
-            mountData.idleFrameCount = 4;
+            mountData.inAirFrameStart = 5;
+            mountData.idleFrameCount = 1;
             mountData.idleFrameDelay = 12;
             mountData.idleFrameStart = 0;
             mountData.idleFrameLoop = true;

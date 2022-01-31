@@ -49,19 +49,22 @@ namespace CalValEX.Tiles.AstralBlocks
             if (Main.rand.Next(7) == 0)
             {
                 int grassspawned;
+                int pos;
                 int choice = Main.rand.Next(2);
                 if (choice == 0)
                 {
                     grassspawned = mod.TileType("AstralTallGrass");
+                    pos = 2;
                 }
                 else
                 {
                     grassspawned = mod.TileType("AstralShortGrass");
+                    pos = 1;
                 }
 
                 if (!Main.tile[i, j - 1].active() && Main.tileSolid[Main.tile[i, j + 1].type] && Main.tile[i, j].slope() == 0 && !Main.tile[i, j].halfBrick())
                 {
-                    WorldGen.PlaceTile(i, j - 1, grassspawned, true, false, -1, Main.rand.Next(18));
+                    WorldGen.PlaceTile(i, j - pos, grassspawned, true, false, -1, Main.rand.Next(18));
                 }
 
                 int LocationX = i;

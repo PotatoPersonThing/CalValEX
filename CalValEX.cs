@@ -388,6 +388,8 @@ namespace CalValEX
                     new List<int> { ModContent.ItemType<XMLightningHook>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Exo Mechs",
                     new List<int> { ModContent.ItemType<DraedonBody>(), ModContent.ItemType<DraedonLegs>(), ModContent.ItemType<DraedonPlush>(), ModContent.ItemType<AresPlush>(), ModContent.ItemType<ApolloPlush>(), ModContent.ItemType<ArtemisPlush>(), ModContent.ItemType<ThanatosPlush>(), ModContent.ItemType<AncientAuricTeslaHelm>(), ModContent.ItemType<ArtemisBalloonSmall>(), ModContent.ItemType<ApolloBalloonSmall>(), ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Adult Eidolon Wyrm",
+                    new List<int> { ModContent.ItemType<RespirationShrine>()});
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Adult Eidolon Wyrm",
                     new List<int> { ModContent.ItemType<JaredPlush>(), ModContent.ItemType<SoulShard>(), ModContent.ItemType<OmegaBlue>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Acid Rain (Post-AS)",
@@ -403,7 +405,7 @@ namespace CalValEX
                     new List<int>
                     {
                         ModContent.ItemType<MawHook>(), ModContent.ItemType<FlakHeadCrab>(),
-                        ModContent.ItemType<SkaterEgg>(), ModContent.ItemType<Help>(), ModContent.ItemType<Items.Mounts.Ground.RadJuice>(),
+                        ModContent.ItemType<SkaterEgg>(), ModContent.ItemType<Help>(), ModContent.ItemType<Items.Mounts.Ground.RadJuice>(), ModContent.ItemType<Items.Equips.Legs.TerrorLegs>(),
                         ModContent.ItemType<TrilobiteShield>(),
                         ModContent.ItemType<GammaHelmet>()
                     });
@@ -585,11 +587,12 @@ namespace CalValEX
             if (catalyst != null)
             {
                 catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<AstrageldonPlush>(), true);
-                catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<Items.Plushies.AstrageldonPlushThrowable>(), true);
+                catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<AstrageldonPlushThrowable>(), true);
                 catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<JellyBottle>(), true);
                 catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<JaredPlush>(), true);
                 catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<JaredPlushThrowable>(), true);
                 catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<RespirationShrine>(), true);
+                catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<SoulShard>(), true);
             }
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             //Irradiated

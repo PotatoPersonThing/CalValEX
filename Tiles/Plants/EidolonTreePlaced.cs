@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
+using Microsoft.Xna.Framework.Graphics;
 using CalValEX.Items.Tiles.Plants;
 
 namespace CalValEX.Tiles.Plants
@@ -22,6 +23,11 @@ namespace CalValEX.Tiles.Plants
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16, 16, 16, 16 }; //
             TileObjectData.newTile.Origin = new Point16(0, 6);
             TileObjectData.addTile(Type);
+        }
+
+        public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
+        {
+            CalValEXGlobalTile.TileGlowmask(i, j, ModContent.GetTexture("CalValEX/Tiles/Plants/EidolonTreePlaced_Glow"), spriteBatch);
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
