@@ -62,6 +62,7 @@ namespace CalValEX
 
         public static CalValEX instance;
         public Mod herosmod;
+        public Mod infernum;
         public const string heropermission = "CalValEX";
         public const string heropermissiondisplayname = "Calamity's Vanities";
         public bool hasPermission;
@@ -87,6 +88,7 @@ namespace CalValEX
         {
             instance = this;
             herosmod = ModLoader.GetMod("HEROsMod");
+            infernum = ModLoader.GetMod("InfernumMode");
 
             DateTime dateTime = DateTime.Now;
             currentDate = dateTime.ToString("dd/MM/yyyy");
@@ -151,6 +153,7 @@ namespace CalValEX
         {
             instance = null;
             herosmod = null;
+            infernum = null;
             hasPermission = false;
 
             currentDate = null;
