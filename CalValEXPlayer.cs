@@ -394,6 +394,9 @@ namespace CalValEX
         public bool lumpe;
         public bool geldonalive;
         public bool fargocancel;
+        public bool ares;
+        public bool thanos;
+        public bool twins;
 
         public override void Initialize()
         {
@@ -983,6 +986,9 @@ namespace CalValEX
             aresarms = false;
             lumpe = false;
             fargocancel = false;
+            ares = false;
+            thanos = false;
+            twins = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
