@@ -8,8 +8,8 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Old Tennis Ball");
-            Tooltip.SetDefault("'They used to be everywhere at one point.'\n" + "Summons a Pitbull puppy\n" + "Barks when any rare enemies are nearby");
+            DisplayName.SetDefault("Rotten Hotdog");
+            Tooltip.SetDefault("'Delicious...'\n" + "Summons a Pitbull puppy\n" + "Barks when any rare enemies are nearby");
         }
 
         public override void SetDefaults()

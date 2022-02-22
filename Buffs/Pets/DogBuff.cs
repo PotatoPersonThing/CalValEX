@@ -18,19 +18,11 @@ namespace CalValEX.Buffs.Pets
         public override void Update(Player player, ref int buffIndex)
         {
             player.buffTime[buffIndex] = 18000;
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            if ((bool)calamityMod.Call("GetBossDowned", "devourerofgods"))
+            player.GetModPlayer<CalValEXPlayer>().voreworm = true;
+            bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<Projectiles.Pets.DogHead>()] <= 0;
+            if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                player.GetModPlayer<CalValEXPlayer>().voreworm = true;
-                bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<Projectiles.Pets.DogHead>()] <= 0;
-                if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
-                {
-                    Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ProjectileType<Projectiles.Pets.DogHead>(), 0, 0f, player.whoAmI, 0f, 0f);
-                }
-            }
-            else
-            {
-                return;
+                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ProjectileType<Projectiles.Pets.DogHead>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
         }
     }

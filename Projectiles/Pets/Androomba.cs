@@ -9,21 +9,21 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Androomba");
-            Main.projFrames[projectile.type] = 10; //frames
+            Main.projFrames[projectile.type] = 16; //frames
             Main.projPet[projectile.type] = true;
         }
 
         public override void SafeSetDefaults()
         {
-            projectile.width = 40;
-            projectile.height = 30;
+            projectile.width = 38;
+            projectile.height = 36;
             projectile.penetrate = -1;
             projectile.netImportant = true;
             projectile.timeLeft *= 5;
             projectile.friendly = true;
             projectile.ignoreWater = true;
             projectile.tileCollide = true;
-            base.drawOriginOffsetY = 2;
+            //base.drawOriginOffsetY = 2;
             facingLeft = false; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
             shouldFlip = true;
@@ -71,10 +71,10 @@ namespace CalValEX.Projectiles.Pets
             idleFrameLimits[0] = idleFrameLimits[1] = 0; //what your min idle frame is (start of idle animation)
 
             walkingFrameLimits[0] = 0; //what your min walking frame is (start of walking animation)
-            walkingFrameLimits[1] = 5; //what your max walking frame is (end of walking animation)
+            walkingFrameLimits[1] = 3; //what your max walking frame is (end of walking animation)
 
-            flyingFrameLimits[0] = 6; //what your min flying frame is (start of flying animation)
-            flyingFrameLimits[1] = 9; //what your max flying frame is (end of flying animation)
+            flyingFrameLimits[0] = 4; //what your min flying frame is (start of flying animation)
+            flyingFrameLimits[1] = 15; //what your max flying frame is (end of flying animation)
 
             animationSpeed[0] = 30; //idle animation speed
             animationSpeed[1] = 8; //walking animation speed

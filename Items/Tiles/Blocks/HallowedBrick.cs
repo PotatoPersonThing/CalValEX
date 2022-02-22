@@ -34,6 +34,11 @@ namespace CalValEX.Items.Tiles.Blocks
                 recipe2.AddTile(TileID.Furnaces);
                 recipe2.SetResult(this, 10);
                 recipe2.AddRecipe();
+                ModRecipe recipe3 = new ModRecipe(mod);
+                recipe3.AddIngredient(ModContent.ItemType<Items.Walls.HallowedBrickWall>(), 4);
+                recipe3.AddTile(TileID.WorkBenches);
+                recipe3.SetResult(this, 1);
+                recipe3.AddRecipe();
             }
         }
     }

@@ -7,7 +7,7 @@ namespace CalValEX.Backgrounds
     {
 
         public override bool ChooseBgStyle() =>
-            !Main.gameMenu && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral && ModLoader.GetMod("Catalyst") != null ? !NPC.AnyNPCs(ModLoader.GetMod("Catalyst").NPCType("Astrageldon")) : Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral;
+            !Main.gameMenu && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral;
 
         public override void ModifyFarFades(float[] fades, float transitionSpeed)
         {

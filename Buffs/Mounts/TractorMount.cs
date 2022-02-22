@@ -18,7 +18,7 @@ namespace CalValEX.Buffs.Mounts
         {
             player.mount.SetMount(ModContent.MountType<WulfrumTractor>(), player, false);
             player.buffTime[buffIndex] = 10;
-            CalValEX.MountNerf(player, 0.75f, 0.75f);
+            CalValEX.MountNerf(player, 0.95f, 0.95f);
         }
     }
 }

@@ -140,7 +140,14 @@ namespace CalValEX.Projectiles
                             NetMessage.SendTileSquare(-1, k, l, 1);
                             break;
                         }
-                        else if (TileID.Sets.Conversion.HardenedSand[type]) {
+						else if (type == TileID.SnowBlock)
+						{
+							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralSnowPlaced>();
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (TileID.Sets.Conversion.HardenedSand[type]) {
 							Main.tile[k, l].type = (ushort)ModContent.TileType<AstralHardenedSandPlaced>();
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);

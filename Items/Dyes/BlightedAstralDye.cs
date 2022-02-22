@@ -10,7 +10,7 @@ namespace CalValEX.Items.Dyes
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Blighted Astral Dye");
+            DisplayName.SetDefault("Ethereal Dye");
         }
 
         public override void SetDefaults()
@@ -19,16 +19,15 @@ namespace CalValEX.Items.Dyes
             item.CloneDefaults(ItemID.GelDye);
             item.width = 22;
             item.height = 26;
-            item.value = Item.sellPrice(0, 0, 0, 5);
+            item.value = Item.sellPrice(0, 3, 0, 0);
             item.dye = dye;
         }
 
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.BottledWater);
-            recipe.AddIngredient(ModContent.ItemType<Items.Dyes.BlightedAstralPinkDye>(), 3);
-            recipe.AddIngredient(ModContent.ItemType<Items.Dyes.BlightedAstralYellowDye>(), 3);
+            recipe.AddIngredient(ItemID.BottledWater, 3);
+            recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("TwistingNether"), 1);
             recipe.AddTile(TileID.DyeVat);
             recipe.SetResult(this, 3);
             recipe.AddRecipe();

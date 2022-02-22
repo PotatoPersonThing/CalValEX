@@ -60,6 +60,8 @@ namespace CalValEX
         private bool junkoReference;
         private bool wolfram;
 
+        public static int meldodon = -1;
+
         public override bool InstancePerEntity => true;
 
         public override void SetupShop(int type, Chest shop, ref int nextSlot)
@@ -180,12 +182,9 @@ namespace CalValEX
 
                 if (type == clamMod.NPCType("FAP"))
                 {
-                    if ((bool)clamMod.Call("GetBossDowned", "astrumaureus"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<OddMushroomPot>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 30);
-                        ++nextSlot;
-                    }
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<OddMushroomPot>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 30);
+                    ++nextSlot;
                 }
 
                 if (type == NPCID.Clothier)
@@ -276,6 +275,13 @@ namespace CalValEX
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedBoB2>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5);
+                        ++nextSlot;
+                    }
+
+                    if (CalamityMod.World.CalamityWorld.downedPolterghast)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<ChaoticPuffball>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1);
                         ++nextSlot;
                     }
                 }
@@ -607,7 +613,7 @@ namespace CalValEX
                     ChanceDropItem(npc, ModContent.ItemType<TundraBall>(), rareChance);
                 }
 
-                if (npc.type == calamityMod.NPCType("Pitbull"))
+                if (npc.type == calamityMod.NPCType("Rotdog"))
                 {
                     ChanceDropItem(npc, ModContent.ItemType<OldTennisBall>(), rareChance);
                 }
@@ -1432,12 +1438,12 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("Apollo") && !NPC.AnyNPCs(calamityMod.NPCType("ThanatosHead")) && !NPC.AnyNPCs(calamityMod.NPCType("AresBody")))
                 {
-                    if (Main.rand.Next(7) == 0)
+                    if (Main.rand.Next(7) == 0 && !Main.expertMode)
                     {
                         DropItem(npc, ModContent.ItemType<DraedonBody>());
                         DropItem(npc, ModContent.ItemType<DraedonLegs>());
                     }
-                    if (Main.rand.Next(2) == 0 && !Main.expertMode)
+                    if (Main.rand.Next(3) == 0 && !Main.expertMode)
                     {
                         DropItem(npc, ModContent.ItemType<ApolloBalloonSmall>());
                         DropItem(npc, ModContent.ItemType<ArtemisBalloonSmall>());
@@ -1452,12 +1458,12 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("AresBody") && !NPC.AnyNPCs(calamityMod.NPCType("ThanatosHead")) && !NPC.AnyNPCs(calamityMod.NPCType("Apollo")))
                 {
-                    if (Main.rand.Next(7) == 0)
+                    if (Main.rand.Next(7) == 0 && !Main.expertMode)
                     {
                         DropItem(npc, ModContent.ItemType<DraedonBody>());
                         DropItem(npc, ModContent.ItemType<DraedonLegs>());
                     }
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>(), !Main.expertMode, 0.5f);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>(), !Main.expertMode, 0.33f);
                     if ((bool)calamityMod.Call("DifficultyActive", "revengeance") && Main.rand.Next(2) == 0)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<AresPlush>(), 1, false, 0, false, false);
@@ -1467,12 +1473,12 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("ThanatosHead") && !NPC.AnyNPCs(calamityMod.NPCType("AresBody")) && !NPC.AnyNPCs(calamityMod.NPCType("Apollo")))
                 {
-                    if (Main.rand.Next(7) == 0)
+                    if (Main.rand.Next(7) == 0 && !Main.expertMode)
                     {
                         DropItem(npc, ModContent.ItemType<DraedonBody>());
                         DropItem(npc, ModContent.ItemType<DraedonLegs>());
                     }
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<XMLightningHook>(), !Main.expertMode, vanityMaxChance); //15%
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<XMLightningHook>(), !Main.expertMode, 0.33f); 
                     if ((bool)calamityMod.Call("DifficultyActive", "revengeance") && Main.rand.Next(2) == 0)
                     {
                         Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<ThanatosPlush>(), 1, false, 0, false, false);
@@ -1819,13 +1825,20 @@ namespace CalValEX
                 }
             }
         }
+
         //Disable Astral Blight overworld spawns
         public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo LocalPlayer)
         {
             Player player = LocalPlayer.player;
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
+            CalamityMod.CalPlayer.CalamityPlayer calp = player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>();
+            bool noevents = !(CalamityWorld.rainingAcid && calp.ZoneSulphur) && !Main.eclipse && !Main.snowMoon && !Main.pumpkinMoon && Main.invasionType == 0 && !player.ZoneTowerSolar && !player.ZoneTowerStardust && !player.ZoneTowerVortex & !player.ZoneTowerNebula && !player.ZoneOldOneArmy;
             Mod cata = ModLoader.GetMod("Catalyst");
-            if (modPlayer.ZoneAstral)
+            if (modPlayer.sBun)
+            {
+                pool.Add(NPCID.Bunny, 0.001f);
+            }
+            if (modPlayer.ZoneAstral && noevents)
             {
                 pool.Clear();
                 if (!CalValEXConfig.Instance.CritterSpawns)
@@ -1839,7 +1852,10 @@ namespace CalValEX
                 {
                     if (player.ZoneOverworldHeight)
                     {
-                        pool.Add(cata.NPCType("AstrageldonSlime"), 0.002f);
+                        if (!player.HasItem(cata.ItemType("AstralCommunicator")))
+                        {
+                            pool.Add(cata.NPCType("AstrageldonSlime"), 0.002f);
+                        }
                         if ((bool)cata.Call("worlddefeats.astrageldon"))
                         {
                             pool.Add(cata.NPCType("ArmoredAstralSlime"), 0.02f);

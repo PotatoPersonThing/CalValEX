@@ -151,6 +151,13 @@ namespace CalValEX.Projectiles
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
 						}
+						else if (type == ModContent.TileType<AstralSnowPlaced>())
+						{
+							Main.tile[k, l].type = TileID.SnowBlock;
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
 						else if (type == ModContent.TileType<AstralShortGrass>())
 						{
 							Main.tile[k, l].type = TileID.Plants;

@@ -60,7 +60,7 @@ namespace CalValEX.NPCs.Critters
 
         public override void AI()
         {
-            npc.spriteDirection = npc.direction;
+            npc.spriteDirection = -npc.direction;
             npc.TargetClosest(false);
         }
 

@@ -13,7 +13,7 @@ namespace CalValEX.Items.Pets
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             DisplayName.SetDefault("Sun Bun");
             Tooltip
-                .SetDefault("The bun above all\n" + "Summons the Sun Bun\n" + "Provides a large amount of light in the abyss\n" + ((bool)calamityMod.Call("DifficultyActive", "death") ? "Provides cold protection in Death Mode" : ""));
+                .SetDefault("The bun above all\n" + "Summons the Sun Bun\n" + "Provides a large amount of light in the abyss\n"+"Boosts Bunny spawnrates...");
         }
 
         public override void SetDefaults()
@@ -22,7 +22,7 @@ namespace CalValEX.Items.Pets
             item.UseSound = SoundID.NPCHit51;
             item.shoot = mod.ProjectileType("SolarBunny");
             item.value = Item.sellPrice(0, 0, 0, 1);
-            item.rare = 9;
+            item.rare = 10;
             item.buffType = mod.BuffType("SolarBunBuff");
         }
 

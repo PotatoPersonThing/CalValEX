@@ -12,6 +12,7 @@ namespace CalValEX.Backgrounds
 {
     public class AstralSky : CustomSky
     {
+        public static bool DeactivateBGs;
         public bool Active;
         public float Intensity;
 
@@ -19,6 +20,11 @@ namespace CalValEX.Backgrounds
 
         public override void Update(GameTime gameTime)
         {
+            Mod catalyst = ModLoader.GetMod("Catalyst");
+            if (catalyst != null)
+            {
+                DeactivateBGs = (bool)catalyst.Call("anyimportantbgsactive");
+            }
             if (Active)
             {
                 Intensity = Math.Min(1f, 0.01f + Intensity);
@@ -38,14 +44,14 @@ namespace CalValEX.Backgrounds
         {
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
-                if (Main.player[Main.myPlayer].GetModPlayer<CalValEXPlayer>().ZoneAstral)
+                if (Main.player[Main.myPlayer].GetModPlayer<CalValEXPlayer>().ZoneAstral && !DeactivateBGs)
                 {
                     //Draw the sky box texture
                     spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Lime);
                 }
             }
             //deactivate the sky if in the menu
-            if (Main.gameMenu || !Main.LocalPlayer.active)
+            if (Main.gameMenu || !Main.LocalPlayer.active || DeactivateBGs)
             {
                 Active = false;
             }
@@ -58,8 +64,6 @@ namespace CalValEX.Backgrounds
 
         public override void Activate(Vector2 position, params object[] args)
         {
-            int num = 200;
-            int num2 = 10;
             Intensity = 0.002f;
             Active = true;
         }

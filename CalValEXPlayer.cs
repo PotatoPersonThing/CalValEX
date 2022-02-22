@@ -4,7 +4,6 @@
 using System.Collections.Generic;
 using System.IO;
 using CalamityMod.Events;
-using CalamityMod.Particles;
 using CalValEX.Items.Equips.Hats.Draedon;
 using CalValEX.Items.Equips.Shirts.Draedon;
 using CalValEX.Items.Equips.Transformations;
@@ -23,6 +22,9 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+using static CalamityMod.Events.BossRushEvent;
+using static CalamityMod.NPCs.ExoMechs.Ares.AresBody;
+using CalamityMod.Projectiles.Boss;
 
 namespace CalValEX
 {
@@ -282,6 +284,7 @@ namespace CalValEX
         public bool voreworm;
         public bool worb;
         public bool yharonMonolith = false;
+        public bool cryoMonolith = false;
         public bool brMonolith = false;
         public bool exoMonolith = false;
         public bool ySquid;
@@ -353,6 +356,7 @@ namespace CalValEX
         public bool vanitycloud;
         public bool vanityfunclump;
         public bool vanityyound;
+        public bool vanityearth;
         public int choppercounter = 0;
         public double rotcounter = 0;
         public double rotdeg = 0;
@@ -388,6 +392,8 @@ namespace CalValEX
         public int bossded;
         public bool aresarms;
         public bool lumpe;
+        public bool geldonalive;
+        public bool fargocancel;
 
         public override void Initialize()
         {
@@ -416,6 +422,7 @@ namespace CalValEX
         public override void UpdateVanityAccessories()
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            Mod fargo = ModLoader.GetMod("FargowiltasSouls");
             Mod antisocial = ModLoader.GetMod("Antisocial");
             for (int n = 13; n < 18 + player.extraAccessorySlots; n++)
             {
@@ -460,6 +467,7 @@ namespace CalValEX
                     bool cloudspawned = player.ownedProjectileCounts[ProjectileType<VanityCloud>()] <= 0;
                     bool sandspawned = player.ownedProjectileCounts[ProjectileType<VanitySand>()] <= 0;
                     bool raresandspawned = player.ownedProjectileCounts[ProjectileType<VanityRareSand>()] <= 0;
+                    bool earthspawned = player.ownedProjectileCounts[ProjectileType<VanityEarth>()] <= 0;
                     bool anahitaspawned = player.ownedProjectileCounts[ProjectileType<VanityAnahita>()] <= 0;
                     if (brimmyspawned && player.whoAmI == Main.myPlayer)
                     {
@@ -476,7 +484,12 @@ namespace CalValEX
                         Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
                             0f, 0f, ProjectileType<VanitySand>(), 0, 0f, player.whoAmI);
                     }
-                    if (raresandspawned && player.whoAmI == Main.myPlayer)
+                    if (earthspawned && player.whoAmI == Main.myPlayer && ((CalValEX.month == 4 && CalValEX.day == 1) || ModLoader.GetMod("CalValPlus") != null))
+                    {
+                        Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                            0f, 0f, ProjectileType<VanityEarth>(), 0, 0f, player.whoAmI);
+                    }
+                    if (raresandspawned && player.whoAmI == Main.myPlayer && (!(CalValEX.month == 4 && CalValEX.day == 1) || ModLoader.GetMod("CalValPlus") != null))
                     {
                         Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
                             0f, 0f, ProjectileType<VanityRareSand>(), 0, 0f, player.whoAmI);
@@ -520,13 +533,27 @@ namespace CalValEX
                 }
                 else if (item.type == calamityMod.ItemType("WifeinaBottlewithBoobs") && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
                 {
-                    bool cryospawned = player.ownedProjectileCounts[ProjectileType<VanityRareSand>()] <= 0;
-                    if (cryospawned && player.whoAmI == Main.myPlayer)
+                    if ((CalValEX.month == 4 && CalValEX.day == 1) || ModLoader.GetMod("CalValPlus") != null)
                     {
-                        Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
-                            0f, 0f, ProjectileType<VanityRareSand>(), 0, 0f, player.whoAmI);
+                        bool cryospawned = player.ownedProjectileCounts[ProjectileType<VanityEarth>()] <= 0;
+                        if (cryospawned && player.whoAmI == Main.myPlayer)
+                        {
+                            Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                                0f, 0f, ProjectileType<VanityEarth>(), 0, 0f, player.whoAmI);
+                        }
+                        vanityearth = true;
+
                     }
-                    vanityrare = true;
+                    else
+                    {
+                        bool cryospawned = player.ownedProjectileCounts[ProjectileType<VanityRareSand>()] <= 0;
+                        if (cryospawned && player.whoAmI == Main.myPlayer)
+                        {
+                            Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                                0f, 0f, ProjectileType<VanityRareSand>(), 0, 0f, player.whoAmI);
+                        }
+                        vanityrare = true;
+                    }
                 }
                 else if (item.type == calamityMod.ItemType("LureofEnthrallment") && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
                 {
@@ -608,6 +635,13 @@ namespace CalValEX
                 if (item.type == calamityMod.ItemType("MutatedTruffle"))
                 {
                     vanityyound = false;
+                }
+                if (fargo != null)
+                {
+                    if (item.type == fargo.ItemType("BetsysHeart") || item.type == fargo.ItemType("TurtleEnchant") || item.type == fargo.ItemType("GoldEnchant") || item.type == fargo.ItemType("WillForce") || item.type == fargo.ItemType("TerrariaSoul") || item.type == fargo.ItemType("EternitySoul") || item.type == fargo.ItemType("LifeForce") || item.type == fargo.ItemType("HeartoftheMasochist") || item.type == fargo.ItemType("MasochistSoul"))
+                    {
+                        fargocancel = true;
+                    }
                 }
             }
         }
@@ -769,9 +803,18 @@ namespace CalValEX
             rotsin = -Math.Sin(rotcounter);
             if (wulfrumjam && Main.rand.Next(2) == 0)
             {
-                Particle smoke = new SmallSmokeParticle(player.Center, Vector2.Zero, Color.GreenYellow, new Color(40, 40, 40), Main.rand.NextFloat(0.4f, 0.8f), 145 - Main.rand.Next(50));
-                smoke.Velocity = (smoke.Position - player.Center) * 0.3f + player.velocity;
-                GeneralParticleHandler.SpawnParticle(smoke);
+            }
+            Mod cata = ModLoader.GetMod("Catalyst");
+            if (cata != null)
+            {
+                if (NPC.AnyNPCs(cata.NPCType("Astrageldon")))
+                {
+                    geldonalive = true;
+                }
+                else
+                {
+                    geldonalive = false;
+                }
             }
         }
 
@@ -919,6 +962,7 @@ namespace CalValEX
             vanitycloud = false;
             vanityyound = false;
             vanityfunclump = false;
+            vanityearth = false;
             avalon = false;
             wulfrumjam = false;
             conejo = false;
@@ -938,6 +982,7 @@ namespace CalValEX
             soupench = false;
             aresarms = false;
             lumpe = false;
+            fargocancel = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
@@ -966,6 +1011,149 @@ namespace CalValEX
             if (cloudTrans) playSound = false;
             if (classicTrans) playSound = false;
             if (sandTrans) playSound = false;
+            /*if (rockhat)
+            {
+                Bosses.Clear();
+                BossIDsAfterDeath.Clear();
+                Bosses.Add(new Boss(NPCID.QueenBee));
+                Bosses.Add(new Boss(NPCID.BrainofCthulhu, TimeChangeContext.None, null, -1, false, 0f, new int[] { NPCID.Creeper }));
+                Bosses.Add(new Boss(NPCID.KingSlime, TimeChangeContext.None, null, -1, false, 0f, new int[] { NPCID.GreenSlime, NPCID.BlueSlime, NPCID.YellowSlime, NPCID.RedSlime, NPCID.PurpleSlime, NPCID.UmbrellaSlime, NPCID.SlimeSpiked, NPCID.RainbowSlime, NPCID.IceSlime, NPCID.Pinky, NPCType<CalamityMod.NPCs.NormalNPCs.KingSlimeJewel>() }));
+                Bosses.Add(new Boss(NPCID.EyeofCthulhu, TimeChangeContext.Night, null, -1, false, 0f, new int[] { NPCID.ServantofCthulhu }));
+                Bosses.Add(new Boss(NPCID.SkeletronPrime, TimeChangeContext.Night, null, -1, false, 0f, new int[] { NPCID.PrimeSaw, NPCID.PrimeCannon, NPCID.PrimeVice, NPCID.PrimeLaser, NPCID.Probe }));
+                Bosses.Add(new Boss(NPCID.Golem, TimeChangeContext.Day, delegate
+                {
+                    int dwane = NPC.NewNPC((int)(Main.player[ClosestPlayerToWorldCenter].position.X + Main.rand.Next(-100, 101)), (int)(Main.player[ClosestPlayerToWorldCenter].position.Y - 400f), NPCID.Golem, 1);
+                    Main.npc[dwane].timeLeft *= 20;
+                    CalamityMod.CalamityUtils.BossAwakenMessage(dwane);
+                }, -1, false, 0f, new int[] { NPCID.GolemFistLeft, NPCID.GolemFistRight, NPCID.GolemHead, NPCID.GolemHeadFree }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.ProfanedGuardians.ProfanedGuardianBoss>(), TimeChangeContext.Day, null, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.ProfanedGuardians.ProfanedGuardianBoss2>(), NPCType<CalamityMod.NPCs.ProfanedGuardians.ProfanedGuardianBoss3>() }));
+                Bosses.Add(new Boss(NPCID.EaterofWorldsHead, TimeChangeContext.None, null, -1, false, 0f, new int[] { NPCID.EaterofWorldsBody, NPCID.EaterofWorldsTail, NPCID.VileSpit }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.AstrumAureus.AstrumAureus>(), TimeChangeContext.Night, null, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.AstrumAureus.AureusSpawn>()}));
+                Bosses.Add(new Boss(NPCID.TheDestroyer, TimeChangeContext.Night, null, 300, false, 0f, new int[] { NPCID.TheDestroyerBody, NPCID.TheDestroyerTail, NPCID.Probe}));
+                Bosses.Add(new Boss(NPCID.Spazmatism, TimeChangeContext.Night, delegate
+                {
+                    NPC.SpawnOnPlayer(ClosestPlayerToWorldCenter, NPCID.Spazmatism);
+                    NPC.SpawnOnPlayer(ClosestPlayerToWorldCenter, NPCID.Retinazer);
+                }, -1, false, 0f, new int[] { NPCID.Retinazer }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.Bumblebirb.Bumblefuck>(), TimeChangeContext.Day, null, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.Bumblebirb.Bumblefuck2>(), NPCID.Retinazer, NPCID.Spazmatism}));
+                Bosses.Add(new Boss(NPCID.WallofFlesh, TimeChangeContext.None, delegate
+                {
+                    Player dude = Main.player[ClosestPlayerToWorldCenter];
+                    NPC.SpawnWOF(dude.position);
+                }, -1, false, 0f, new int[] { NPCID.WallofFleshEye, NPCID.LeechHead, NPCID.LeechBody, NPCID.LeechTail, NPCID.TheHungry, NPCID.TheHungryII }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.HiveMind.HiveMind>(), TimeChangeContext.Day, null, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.HiveMind.HiveBlob>(), NPCType<CalamityMod.NPCs.HiveMind.HiveBlob2>(), NPCType<CalamityMod.NPCs.HiveMind.DankCreeper>(), NPCType<CalamityMod.NPCs.HiveMind.DarkHeart>() }));
+                Bosses.Add(new Boss(NPCID.SkeletronHead, TimeChangeContext.Day, delegate
+                {
+                    Player dude = Main.player[ClosestPlayerToWorldCenter];
+                    int jack = NPC.NewNPC((int)(dude.position.X + Main.rand.Next(-100, 101)), (int)(dude.position.Y - 400f), NPCID.SkeletronHead, 1);
+                    Main.npc[jack].timeLeft *= 20;
+                    CalamityMod.CalamityUtils.BossAwakenMessage(jack);
+                }, -1, false, 0f, new int[] { NPCID.SkeletronHand }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.StormWeaver.StormWeaverHead>(), TimeChangeContext.Day, null, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.StormWeaver.StormWeaverBody>(), NPCType<CalamityMod.NPCs.StormWeaver.StormWeaverTail>()}));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.AquaticScourge.AquaticScourgeHead>(), TimeChangeContext.None, null, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.AquaticScourge.AquaticScourgeBody>(), NPCType<CalamityMod.NPCs.AquaticScourge.AquaticScourgeBodyAlt>(), NPCType<CalamityMod.NPCs.AquaticScourge.AquaticScourgeTail>() }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.DesertScourge.DesertScourgeHead>(), TimeChangeContext.None, delegate
+                {
+                    NPC.SpawnOnPlayer(ClosestPlayerToWorldCenter, NPCType<CalamityMod.NPCs.DesertScourge.DesertScourgeHead>());
+                    NPC.SpawnOnPlayer(ClosestPlayerToWorldCenter, NPCType<CalamityMod.NPCs.DesertScourge.DesertNuisanceHead>());
+                    NPC.SpawnOnPlayer(ClosestPlayerToWorldCenter, NPCType<CalamityMod.NPCs.DesertScourge.DesertNuisanceHead>());
+                }, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.DesertScourge.DesertScourgeBody>(), NPCType<CalamityMod.NPCs.DesertScourge.DesertScourgeBody>(), NPCType<CalamityMod.NPCs.DesertScourge.DesertNuisanceHead>(), NPCType<CalamityMod.NPCs.DesertScourge.DesertNuisanceBody>(), NPCType<CalamityMod.NPCs.DesertScourge.DesertNuisanceTail>() }));
+                Bosses.Add(new Boss(NPCID.CultistBoss, TimeChangeContext.None, delegate
+                {
+                    Player dude = Main.player[ClosestPlayerToWorldCenter];
+                    int maurice = NPC.NewNPC((int)dude.Center.X, (int)dude.Center.Y - 400, NPCID.CultistBoss, 1);
+                    Main.npc[maurice].direction = Main.npc[maurice].spriteDirection = Math.Sign(player.Center.X - player.Center.X - 90f); 
+                    Main.npc[maurice].timeLeft *= 20;
+                    CalamityMod.CalamityUtils.BossAwakenMessage(maurice);
+                }, -1, false, 0f, new int[] { NPCID.CultistBossClone, NPCID.AncientDoom, NPCID.AncientLight, NPCID.AncientCultistSquidhead, NPCID.CultistDragonBody1, NPCID.CultistDragonBody2, NPCID.CultistDragonBody3, NPCID.CultistDragonBody4, NPCID.CultistDragonHead, NPCID.CultistDragonTail}));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.Crabulon.CrabulonIdle>(), TimeChangeContext.None, delegate
+                {
+                    for (int KILL = 0; KILL < Main.maxNPCs; KILL++)
+                    {
+                        bool pillardude = Main.npc[KILL].type == NPCID.LunarTowerNebula || Main.npc[KILL].type == NPCID.LunarTowerVortex || Main.npc[KILL].type == NPCID.LunarTowerSolar || Main.npc[KILL].type == NPCID.LunarTowerStardust;
+                        if (Main.npc[KILL].active && pillardude)
+                        {
+                            Main.npc[KILL].active = false;
+                            Main.npc[KILL].netUpdate = true;
+                        }
+                    }
+                    Player dude = Main.player[ClosestPlayerToWorldCenter];
+                    int dabulon = NPC.NewNPC((int)(dude.position.X + Main.rand.Next(-100, 101)), (int)(player.position.Y - 400f), NPCType<CalamityMod.NPCs.Crabulon.CrabulonIdle>(), 1);
+                    Main.npc[dabulon].timeLeft *= 20;
+                    CalamityMod.CalamityUtils.BossAwakenMessage(dabulon);
+                }, -1, false, 0f, new int[] { NPCID.SkeletronHand }));
+                Bosses.Add(new Boss(NPCID.Plantera, TimeChangeContext.None, null, -1, false, 0f, new int[] { NPCID.PlanterasHook, NPCID.PlanterasTentacle, NPCID.Spore }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.CeaselessVoid.CeaselessVoid>(), TimeChangeContext.None, null, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.CeaselessVoid.DarkEnergy>() }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.Perforator.PerforatorHive>(), TimeChangeContext.None, null, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.Perforator.PerforatorBodyLarge>(), NPCType<CalamityMod.NPCs.Perforator.PerforatorBodyMedium>(), NPCType<CalamityMod.NPCs.Perforator.PerforatorBodySmall>(), NPCType<CalamityMod.NPCs.Perforator.PerforatorHeadLarge>(), NPCType<CalamityMod.NPCs.Perforator.PerforatorHeadMedium>(), NPCType<CalamityMod.NPCs.Perforator.PerforatorHeadSmall>(), NPCType<CalamityMod.NPCs.Perforator.PerforatorTailLarge>(), NPCType<CalamityMod.NPCs.Perforator.PerforatorTailMedium>(), NPCType<CalamityMod.NPCs.Perforator.PerforatorTailSmall>() }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.Cryogen.Cryogen>(), TimeChangeContext.None, null, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.Cryogen.CryogenIce>() }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.BrimstoneElemental.BrimstoneElemental>(), TimeChangeContext.None, null, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.BrimstoneElemental.Brimling>() }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.Signus.Signus>(), TimeChangeContext.None, null, 360, false, 0f, new int[] { NPCType<CalamityMod.NPCs.Signus.SignusBomb>(), NPCType<CalamityMod.NPCs.Signus.CosmicLantern>() }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.Ravager.RavagerBody>(), TimeChangeContext.None, delegate
+                {
+                    Player dude = Main.player[ClosestPlayerToWorldCenter];
+                    Main.PlaySound(SoundID.Roar, dude.position, 2);
+                    int packagre = NPC.NewNPC((int)(dude.position.X + Main.rand.Next(-100, 101)), (int)(player.position.Y - 400f), NPCType<CalamityMod.NPCs.Ravager.RavagerBody>(), 1);
+                    Main.npc[packagre].timeLeft *= 20;
+                    CalamityMod.CalamityUtils.BossAwakenMessage(packagre);
+                }, -1, true, 0f, new int[] { NPCType<CalamityMod.NPCs.Ravager.RavagerClawLeft>(), NPCType<CalamityMod.NPCs.Ravager.RavagerClawRight>(), NPCType<CalamityMod.NPCs.Ravager.RavagerLegRight>(), NPCType<CalamityMod.NPCs.Ravager.RavagerLegLeft>(), NPCType<CalamityMod.NPCs.Ravager.RavagerHead>(), NPCType<CalamityMod.NPCs.Ravager.RavagerHead2>(), NPCType<CalamityMod.NPCs.Ravager.FlamePillar>(), NPCType<CalamityMod.NPCs.Ravager.RockPillar>() }));
+                Bosses.Add(new Boss(NPCID.DukeFishron, TimeChangeContext.None, delegate
+                {
+                    Player dude = Main.player[ClosestPlayerToWorldCenter];
+                    int sebastian = NPC.NewNPC((int)(dude.position.X + Main.rand.Next(-100, 101)), (int)(dude.position.Y - 400f), NPCID.DukeFishron, 1);
+                    Main.npc[sebastian].timeLeft *= 20;
+                    CalamityMod.CalamityUtils.BossAwakenMessage(sebastian);
+                }, -1, false, 0f, new int[] { NPCID.Sharkron, NPCID.Sharkron2, NPCID.DetonatingBubble }));
+                Bosses.Add(new Boss(NPCID.MoonLordCore, TimeChangeContext.None, delegate
+                {
+                    CalamityMod.CalamityUtils.DisplayLocalizedText("Mods.CalamityMod.BossRushTierThreeEndText2", XerocTextColor);
+                    NPC.SpawnOnPlayer(ClosestPlayerToWorldCenter, NPCID.MoonLordCore);
+                }, -1, false, 0f, new int[] { NPCID.MoonLordFreeEye, NPCID.MoonLordHand, NPCID.MoonLordHead, NPCID.MoonLordLeechBlob }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusHeadSpectral>(), TimeChangeContext.Night, delegate
+                {
+                    Player dude = Main.player[ClosestPlayerToWorldCenter];
+                    //INSERT SOUND
+                    NPC.SpawnOnPlayer(ClosestPlayerToWorldCenter, NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusHeadSpectral>());
+                }, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusBodySpectral>(), NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusTailSpectral>() }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.Polterghast.Polterghast>(), TimeChangeContext.Day, null, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.Polterghast.PolterghastHook>(), NPCType<CalamityMod.NPCs.Polterghast.PolterPhantom>(), NPCType<CalamityMod.NPCs.NormalNPCs.PhantomSpiritL>(), NPCType<CalamityMod.NPCs.Polterghast.PhantomFuckYou>() }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.PlaguebringerGoliath.PlaguebringerGoliath>(), TimeChangeContext.None, null, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.PlaguebringerGoliath.PlagueHomingMissile>(), NPCType<CalamityMod.NPCs.PlaguebringerGoliath.PlagueMine>() }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.Calamitas.CalamitasRun3>(), TimeChangeContext.Night, null, 420, false, 0.6f, new int[] { NPCType<CalamityMod.NPCs.Leviathan.Leviathan>(), NPCType<CalamityMod.NPCs.Leviathan.AquaticAberration>(), NPCID.DetonatingBubble, NPCType<CalamityMod.NPCs.Leviathan.SirenIce>() }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.Leviathan.Siren>(), TimeChangeContext.Day, null, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.Calamitas.CalamitasRun>(), NPCType<CalamityMod.NPCs.Calamitas.CalamitasRun2>(), NPCType<CalamityMod.NPCs.Calamitas.SoulSeeker>() }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.OldDuke.OldDuke>(), TimeChangeContext.None, delegate
+                {
+                    Player dude = Main.player[ClosestPlayerToWorldCenter];
+                    int sebastiansdad = NPC.NewNPC((int)(dude.position.X + Main.rand.Next(-100, 101)), (int)(dude.position.Y - 400f), NPCType<CalamityMod.NPCs.OldDuke.OldDuke>(), 1);
+                    Main.npc[sebastiansdad].timeLeft *= 20;
+                    CalamityMod.CalamityUtils.BossAwakenMessage(sebastiansdad);
+                }, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.OldDuke.OldDukeSharkron>(), NPCType<CalamityMod.NPCs.OldDuke.OldDukeToothBall>() }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodCore>(), TimeChangeContext.None, null, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.SlimeGod.SlimeGod>(), NPCType<CalamityMod.NPCs.SlimeGod.SlimeGod>(), NPCType<CalamityMod.NPCs.SlimeGod.SlimeSpawnCorrupt2>(), NPCType<CalamityMod.NPCs.SlimeGod.SlimeSpawnCorrupt>(), NPCType<CalamityMod.NPCs.SlimeGod.SlimeSpawnCrimson2>(), NPCType<CalamityMod.NPCs.SlimeGod.SlimeSpawnCrimson>(), NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodRunSplit>(), NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodSplit>(), NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodRun>() }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.Providence.Providence>(), TimeChangeContext.Day, delegate
+                {
+                    Player dude = Main.player[ClosestPlayerToWorldCenter];
+                    //INSERT SOUND
+                    CalamityMod.CalamityUtils.SpawnBossBetter(dude.Top - new Vector2(42f, 84f), NPCType<CalamityMod.NPCs.Providence.Providence>());
+                }, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.Providence.ProvSpawnDefense>(), NPCType<CalamityMod.NPCs.Providence.ProvSpawnOffense>(), NPCType<CalamityMod.NPCs.Providence.ProvSpawnHealer>() }));
+                Bosses.Add(new Boss(ModLoader.GetMod("Catalyst").NPCType("Astrageldon"), TimeChangeContext.None, delegate
+                {
+                    CalamityMod.CalamityUtils.DisplayLocalizedText("Mods.CalamityMod.BossRushTierFourEndText2", XerocTextColor);
+                    Player dude = Main.player[ClosestPlayerToWorldCenter];
+                    int bean = NPC.NewNPC((int)(dude.position.X + Main.rand.Next(-100, 101)), (int)(dude.position.Y - 1400f), ModLoader.GetMod("Catalyst").NPCType("Astrageldon"), 1);
+                    Main.npc[bean].timeLeft *= 20;
+                    CalamityMod.CalamityUtils.BossAwakenMessage(bean);
+                }, -1, false, 0f, new int[] { ModLoader.GetMod("Catalyst").NPCType("AstragldonSlimer"), ModLoader.GetMod("Catalyst").NPCType("ArmoredAstralSlime") }));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.SupremeCalamitas.SupremeCalamitas>(), TimeChangeContext.None, delegate
+                {
+                    Player dude = Main.player[ClosestPlayerToWorldCenter];
+                    int witch = NPC.NewNPC((int)(player.position.X + Main.rand.Next(-500, 501)), (int)(player.position.Y - 250f), NPCType<CalamityMod.NPCs.SupremeCalamitas.SupremeCalamitas>(), 1);
+                    Main.npc[witch].timeLeft *= 20;
+                    CalamityMod.CalamityUtils.BossAwakenMessage(witch);
+                }, -1, false, 0.6f, new int[] { NPCType<CalamityMod.NPCs.SupremeCalamitas.SupremeCataclysm>(), NPCType<CalamityMod.NPCs.SupremeCalamitas.SupremeCatastrophe>(), NPCType<CalamityMod.NPCs.SupremeCalamitas.SoulSeekerSupreme>(), NPCType<CalamityMod.NPCs.SupremeCalamitas.SCalWormArm>(), NPCType<CalamityMod.NPCs.SupremeCalamitas.SCalWormHead>(), NPCType<CalamityMod.NPCs.SupremeCalamitas.SCalWormBody>(), NPCType<CalamityMod.NPCs.SupremeCalamitas.SCalWormBodyWeak>(), NPCType<CalamityMod.NPCs.SupremeCalamitas.SCalWormTail>(), NPCType<CalamityMod.NPCs.SupremeCalamitas.BrimstoneHeart>() })); 
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.Yharon.Yharon>(), TimeChangeContext.Day, null, -1, false, 0f));
+                Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.DevourerofGods.DevourerofGodsHead>(), TimeChangeContext.Day, delegate
+                {
+                    Player duuuude = Main.player[ClosestPlayerToWorldCenter];
+                    //INSERT SOUND
+                    NPC.SpawnOnPlayer(ClosestPlayerToWorldCenter, NPCType<CalamityMod.NPCs.DevourerofGods.DevourerofGodsHead>());
+                }, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.DevourerofGods.DevourerofGodsBody>(), NPCType<CalamityMod.NPCs.DevourerofGods.DevourerofGodsTail>() }));
+            }*/
             return base.PreHurt(pvp, quiet, ref damage, ref hitDirection, ref crit, ref customDamage, ref playSound, ref genGore, ref damageSource);
         }
         public override void OnHitByNPC(NPC npc, int damage, bool crit)
@@ -1038,8 +1226,12 @@ namespace CalValEX
                             {
                                 player.AddBuff(BuffID.Lovestruck, Main.rand.Next(600, 3601));
                             }
-                            else if (!player.HasBuff(ModLoader.GetMod("CalamityMod").BuffType("AstrageldonBuff")) ||
-                                     !Main.LocalPlayer.HasItem(ItemID.LandMine))
+                            else if (player.HasBuff(ModLoader.GetMod("CalamityMod").BuffType("AstrageldonBuff")) ||
+                                     Main.LocalPlayer.HasItem(ItemID.LandMine))
+                            {
+
+                            }
+                            else
                             {
                                 CalamityBabyGotHit = true;
                             }
@@ -1134,6 +1326,7 @@ namespace CalValEX
                 bool useProvMonolith = provMonolith;
                 bool useDogMonolith = dogMonolith;
                 bool useYharonMonolith = yharonMonolith;
+                bool useCryogenMonolith = cryoMonolith;
                 bool useExoMonolith = exoMonolith;
                 bool useBRMonolith = brMonolith;
                 bool useScalMonolith = scalMonolith;
@@ -1166,19 +1359,18 @@ namespace CalValEX
                 {
                     player.ManageSpecialBiomeVisuals("CalamityMod:ExoMechs", useExoMonolith, player.Center);
                 }
-                //player.ManageSpecialBiomeVisuals("CalamityMod:BossRush", useExoMonolith, player.Center); //"Boss Rush" effect seems closer to the Draedon effect for some reason, so they have been swapped
                 else if (scalMonolith)
                 {
                     player.ManageSpecialBiomeVisuals("CalamityMod:SupremeCalamitas", useScalMonolith, player.Center);
                 }
                 else if (CalValEXWorld.RockshrinEX)
                 {
-                    player.ManageSpecialBiomeVisuals("CalamityMod:SupremeCalamitas", TerminalMonolith, player.Center);
+                    CalamityMod.Events.BossRushSky.ShouldDrawRegularly = true;
                 }
-                /*if (useBRMonolith)
+                else if (cryoMonolith)
                 {
-                    CalamityMod.Events.BossRushEvent.EndTimer = -1;
-                }*/
+                    CalamityMod.Skies.CryogenSky.ShouldDrawRegularly = true;
+                }
             }
         }
 
@@ -1547,8 +1739,11 @@ namespace CalValEX
                 {
                     shader = drawInfo.balloonShader
                 };
+
                 Main.playerDrawData.Add(data);
                 Main.playerDrawData.Add(data2);
+
+
             }
         });
 
@@ -1759,28 +1954,31 @@ namespace CalValEX
             layers.Insert(ballLayer + 2, Exoballoon);
             Sexoballoon.visible = true;
             layers.Insert(waybackLayer + 3, Sexoballoon);
-            if (yharcar)
+            if (!fargocancel)
             {
-                foreach (PlayerLayer layer in layers)
+                if (yharcar)
                 {
-                    if (layer != PlayerLayer.MountBack && layer != PlayerLayer.MountFront && layer != PlayerLayer.MiscEffectsFront && layer != PlayerLayer.MiscEffectsBack)
+                    foreach (PlayerLayer layer in layers)
+                    {
+                        if (layer != PlayerLayer.MountBack && layer != PlayerLayer.MountFront && layer != PlayerLayer.MiscEffectsFront && layer != PlayerLayer.MiscEffectsBack)
+                        {
+                            ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = false;
+                        }
+                    }
+                }
+                if (pongactive)
+                {
+                    foreach (PlayerLayer layer in layers)
                     {
                         ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = false;
                     }
                 }
-            }
-            if (pongactive)
-            {
-                foreach (PlayerLayer layer in layers)
+                else
                 {
-                    ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = false;
-                }
-            }
-            else
-            {
-                foreach (PlayerLayer layer in layers)
-                {
-                    ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = true;
+                    foreach (PlayerLayer layer in layers)
+                    {
+                        ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = true;
+                    }
                 }
             }
             /*PongUI.visible = true;

@@ -7,7 +7,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Great Grandson Shark");
-            Main.projFrames[projectile.type] = 4; //frames
+            Main.projFrames[projectile.type] = 10; //frames
             Main.projPet[projectile.type] = true;
         }
 
