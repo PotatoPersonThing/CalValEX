@@ -57,6 +57,10 @@ namespace CalValEX.Projectiles.Pets
 		/// </summary>
 		public virtual int BodyVariants => 1;
 		/// <summary>
+		/// How many pixels down should the head be bashed into the body. Useful if the head doesnt have a flat surface at the bottom of its sprite
+		/// </summary>
+		public virtual float BashHeadIn => 0;
+		/// <summary>
 		/// How many iterations of the verlet chain simulation gets run every frame. More iterations = less gaps in the chain at higher speed
 		/// </summary>
 		public virtual int NumSimulationIterations => 15;
@@ -67,7 +71,9 @@ namespace CalValEX.Projectiles.Pets
 		/// <summary>
 		/// The speed at which the worm head moves
 		/// </summary>
-		public virtual float GetSpeed() => MathHelper.Lerp(15, 40, MathHelper.Clamp(projectile.Distance(IdealPosition) / (WanderDistance * 2.2f) - 1f, 0, 1));
+		public virtual float GetSpeed => MathHelper.Lerp(15, 40, MathHelper.Clamp(projectile.Distance(IdealPosition) / (WanderDistance * 2.2f) - 1f, 0, 1));
+
+
 
 		public Player Owner => Main.player[projectile.owner];
 		public CalValEXPlayer ModOwner => Owner.GetModPlayer<CalValEXPlayer>();
@@ -164,7 +170,7 @@ namespace CalValEX.Projectiles.Pets
 			}
 
 			//Reset the ideal position if the ideal position was reached
-			if (projectile.Distance(IdealPosition) < GetSpeed())
+			if (projectile.Distance(IdealPosition) < GetSpeed)
 				RelativeIdealPosition = Vector2.Zero;
 
 			//Get a new ideal position
@@ -181,7 +187,7 @@ namespace CalValEX.Projectiles.Pets
 		{
 			//Rotate towards its ideal position
 			projectile.rotation = projectile.rotation.AngleTowards((IdealPosition - projectile.Center).ToRotation(), MathHelper.Lerp(MaximumSteerAngle, MinimumSteerAngle, MathHelper.Clamp(projectile.Distance(IdealPosition) / 80f, 0, 1)));
-			projectile.velocity = projectile.rotation.ToRotationVector2() * GetSpeed();
+			projectile.velocity = projectile.rotation.ToRotationVector2() * GetSpeed;
 
 			//Update its segment
 			Segments[0].oldPosition = Segments[0].position;
@@ -288,6 +294,9 @@ namespace CalValEX.Projectiles.Pets
 
 				Rectangle frame = new Rectangle(frameStartX, frameStartY, frameWidth, frameHeight);
 				Vector2 origin = bodySegment ? frame.Size() / 2f : i == 0 ? new Vector2(frame.Width / 2f, frame.Height - SegmentSize() / 2f) : new Vector2(frame.Width / 2f, SegmentSize() / 2f);
+
+				if (i == 0)
+					origin -= Vector2.UnitY * BashHeadIn;
 
 				float rotation = i == 0 ? projectile.rotation + MathHelper.PiOver2 : (Segments[i].position - Segments[i - 1].position).ToRotation() - MathHelper.PiOver2;
 

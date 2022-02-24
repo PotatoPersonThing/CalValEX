@@ -23,9 +23,10 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
 
         public override bool ExistenceCondition() => ModOwner.thanos;
 
-        public override float GetSpeed() => MathHelper.Lerp(20, 40, MathHelper.Clamp(projectile.Distance(IdealPosition) / (WanderDistance * 2.2f) - 1f, 0, 1));
+        public override float GetSpeed => MathHelper.Lerp(20, 40, MathHelper.Clamp(projectile.Distance(IdealPosition) / (WanderDistance * 2.2f) - 1f, 0, 1));
 
         public override int BodyVariants => 2;
+        public override float BashHeadIn => 5;
 
         public override void SetStaticDefaults()
         {
@@ -44,7 +45,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
 
             //Rotate towards its ideal position
             projectile.rotation = projectile.rotation.AngleTowards((IdealPosition - projectile.Center).ToRotation(), MathHelper.Lerp(MaximumSteerAngle, MinimumSteerAngle, MathHelper.Clamp(projectile.Distance(IdealPosition) / 80f, 0, 1)));
-            projectile.velocity = projectile.rotation.ToRotationVector2() * GetSpeed();
+            projectile.velocity = projectile.rotation.ToRotationVector2() * GetSpeed;
 
             //Update its segment
             Segments[0].oldPosition = Segments[0].position;
