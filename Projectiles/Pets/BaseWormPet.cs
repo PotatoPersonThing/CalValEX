@@ -63,7 +63,7 @@ namespace CalValEX.Projectiles.Pets
 		/// <summary>
 		/// How far away the worm should wander away from the players center. This is only useful if UpdateIdealPosition isn't overridden.
 		/// </summary>
-		public virtual float WanderDistance => 200;
+		public virtual float WanderDistance => Owner.velocity.Length() < 10 ? 200 : 100;
 		/// <summary>
 		/// The speed at which the worm head moves
 		/// </summary>
@@ -73,6 +73,8 @@ namespace CalValEX.Projectiles.Pets
 		public CalValEXPlayer ModOwner => Owner.GetModPlayer<CalValEXPlayer>();
 
 		public List<WormPetSegment> Segments;
+
+		public ref float TimeTillReset => ref projectile.ai[1];
 
 		public override void SetStaticDefaults()
 		{
@@ -154,6 +156,13 @@ namespace CalValEX.Projectiles.Pets
 		/// </summary>
 		public virtual void UpdateIdealPosition()
 		{
+			TimeTillReset++;
+			if (TimeTillReset > 150)
+			{
+				RelativeIdealPosition = Vector2.Zero;
+				TimeTillReset = 0;
+			}
+
 			//Reset the ideal position if the ideal position was reached
 			if (projectile.Distance(IdealPosition) < GetSpeed())
 				RelativeIdealPosition = Vector2.Zero;
