@@ -45,5 +45,9 @@ namespace CalValEX.Tiles.Blueprints
                 }
             }
         }
+        public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
+        {
+            CalValEXGlobalTile.TileGlowmask(i, j, ModContent.GetTexture("CalValEX/Tiles/Blueprints/PrimeBlueprintPlaced_Glow"), spriteBatch);
+        }
     }
 }

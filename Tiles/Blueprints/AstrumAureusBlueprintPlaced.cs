@@ -45,5 +45,10 @@ namespace CalValEX.Tiles.Blueprints
                 }
             }
         }
+
+        public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
+        {
+            CalValEXGlobalTile.TileGlowmask(i, j, ModContent.GetTexture("CalValEX/Tiles/Blueprints/AstrumAureusBlueprintPlaced_Glow"), spriteBatch);
+        }
     }
 }
