@@ -12,13 +12,70 @@ namespace CalValEX.Projectiles.Pets
     {
 		public Vector2 position, oldPosition;
 		public bool head;
+
+		public WormPetVisualSegment visual;
+	}
+
+	public class WormPetVisualSegment : ICloneable
+    {
+		public string TexturePath;
+		public bool Glows;
+		public int Variants;
+		public int FrameCount;
+		public int Frame;
+		public int FrameDuration;
+		public int FrameCounter;
+		public bool Directional;
+		public int LateralShift;
+
+		/// <summary>
+		/// The visual half of a worm pet segment
+		/// </summary>
+		/// <param name="path">The texture path of the segment</param>
+		/// <param name="glows">Does the segment glow</param>
+		/// <param name="variants">How many variants (sheeted horizontally) does the segment have</param>
+		/// <param name="frames">Is the segment animated?</param>
+		/// <param name="frameDuration">How many frames does a frame last</param>
+		/// <param name="directional">Should the segment face "up"? or does it not care. If set to true, it will try to keep the left side of the segment up, and the right side down</param>
+		/// <param name="lateralShift">How many pixels from the horizontal center should the origin of a segment be displaced. Useful for segments with arms or stuff that sticks out assymetrically</param>
+		public WormPetVisualSegment(string path, bool glows = false, int variants = 1, int frames = 1, int frameDuration = 6, bool directional = false, int lateralShift = 0)
+        {
+			TexturePath = path;
+			Glows = glows;
+			Variants = variants;
+			FrameCount = frames;
+			Frame = 0;
+			FrameCounter = 0;
+			FrameDuration = frameDuration;
+			Directional = directional;
+			LateralShift = lateralShift;
+		}
+
+		public object Clone()
+		{
+			return MemberwiseClone();
+		}
 	}
 
 	public abstract class BaseWormPet : ModProjectile
 	{
-		public abstract string HeadTexture();
-		public abstract string BodyTexture();
-		public abstract string TailTexture();
+		public abstract WormPetVisualSegment HeadSegment();
+		public abstract WormPetVisualSegment BodySegment();
+		public abstract WormPetVisualSegment TailSegment();
+
+		private Dictionary<string, WormPetVisualSegment> DefaultSegments => new Dictionary<string, WormPetVisualSegment>()
+		{
+			{ "Head" , HeadSegment() },
+			{ "Body" , BodySegment() },
+			{ "Tail" , TailSegment() }
+		};
+
+		/// <summary>
+		/// A dictionary that contains custom segment types if you need to use them
+		/// If you want to add custom segments, please remember to not use the "Head", "Body" and "Tail" keys since those are used by the base worm.
+		/// </summary>
+		public virtual Dictionary<string, WormPetVisualSegment> CustomSegments => new Dictionary<string, WormPetVisualSegment>() { };
+
 		/// <summary>
 		/// The "height" of a segment. Only counted for the body, the head and tail may be longer and it will be automatically adjusted for it
 		/// </summary>
@@ -72,8 +129,22 @@ namespace CalValEX.Projectiles.Pets
 		/// The speed at which the worm head moves
 		/// </summary>
 		public virtual float GetSpeed => MathHelper.Lerp(15, 40, MathHelper.Clamp(projectile.Distance(IdealPosition) / (WanderDistance * 2.2f) - 1f, 0, 1));
+		/// <summary>
+		/// The string of text at the end of your texture files if you're going to have a glowmask on the worm (Like, "_Glow" or something)
+		/// </summary>
+		public virtual string GlowmaskSuffix => "Glow";
+		/// <summary>
+		/// How opaque the glowmask is
+		/// </summary>
+		public virtual float GlowmaskOpacity => 1;
 
-
+		/// <summary>
+		/// The texture progression. If you need to introduce custom textures in the progression, add them to the TexturePaths dictionary under a new key, and use that key into the list.
+		/// The list starts from the first segment and goes toward the tail. You don't need to put the tail into the list, its automatically taken into account
+		/// If the list is shorter than the worm itself, it will continue to use regular body segments after the list stops. If its longer, everything thats further than the tail is not taken into account
+		/// For example, if i wanted to have a custom "arm" segment for the first 2 body segments, i'd set the TextureProgression to a new String[] {"Arm", "Arm"}.
+		/// </summary>
+		public virtual string[] TextureProgression => new string[0];
 
 		public Player Owner => Main.player[projectile.owner];
 		public CalValEXPlayer ModOwner => Owner.GetModPlayer<CalValEXPlayer>();
@@ -122,6 +193,38 @@ namespace CalValEX.Projectiles.Pets
 		/// </summary>
 		public virtual void Initialize()
 		{
+			//Initialize the visual segments
+			Dictionary<string, WormPetVisualSegment> defaultPool = DefaultSegments;
+			Dictionary<string, WormPetVisualSegment> customPool = CustomSegments;
+			//Create an ordered list of all the segments 
+			WormPetVisualSegment[] visualSegments = new WormPetVisualSegment[SegmentCount()];
+
+			//Start by filling the list with body segments
+			for (int i = 0; i < visualSegments.Length; i++)
+			{
+				visualSegments[i] = (WormPetVisualSegment)defaultPool["Body"].Clone();
+			}
+
+			//If any custom segment progression exists, replace the body segments appropriately
+			for (int i = 1; i < visualSegments.Length && i < TextureProgression.Length + 1; i++)
+			{
+				WormPetVisualSegment segment;
+				string key = TextureProgression[i - 1];
+
+				//Get the segment from the proper pool of segments
+				if (defaultPool.ContainsKey(key))
+					segment = defaultPool[key];
+				else
+					segment = customPool[key];
+
+				//add it to the progression
+				visualSegments[i] = (WormPetVisualSegment)segment.Clone();
+			}
+			//Make the first element be the head and the last element be the tail, obviously
+			visualSegments[0] = (WormPetVisualSegment)defaultPool["Head"].Clone();
+			visualSegments[visualSegments.Length - 1] = (WormPetVisualSegment)defaultPool["Tail"].Clone();
+
+
 			//Initialize the segments
 			Segments = new List<WormPetSegment>(SegmentCount());
 			for (int i = 0; i < SegmentCount(); i++)
@@ -130,6 +233,7 @@ namespace CalValEX.Projectiles.Pets
 				segment.head = false;
 				segment.position = projectile.Center + Vector2.UnitY * SegmentSize() * i;
 				segment.oldPosition = segment.position;
+				segment.visual = visualSegments[i];
 				Segments.Add(segment);
             }
 
@@ -239,9 +343,23 @@ namespace CalValEX.Projectiles.Pets
         }
 
 		/// <summary>
-		/// Mess with the frames here. Does nothing by default
+		/// Mess with the frames here if you want a custom animation. By default, simply makes all frames cycle forward
 		/// </summary>
-		public virtual void Animate() { }
+		public virtual void Animate()
+		{
+			foreach (WormPetSegment segment in Segments)
+			{
+				segment.visual.FrameCounter++;
+				if (segment.visual.FrameCounter > segment.visual.FrameDuration)
+                {
+					segment.visual.Frame++;
+					if (segment.visual.Frame >= segment.visual.FrameCount)
+						segment.visual.Frame = 0;
+
+					segment.visual.FrameCounter = 0;
+                }
+			}
+		}
 		/// <summary>
 		/// Gets ran after everything else. Do whatever you want
 		/// </summary>
@@ -263,33 +381,53 @@ namespace CalValEX.Projectiles.Pets
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-			Texture2D headTex = ModContent.GetTexture(HeadTexture());
-			Texture2D bodyTex = ModContent.GetTexture(BodyTexture());
-			Texture2D tailTex = ModContent.GetTexture(TailTexture());
-
 			if (Initialized == 0f)
 				return false;
-			DrawWorm(spriteBatch, lightColor, headTex, bodyTex, tailTex);
+			DrawWorm(spriteBatch, lightColor);
 			return false;
 		}
 
+		public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+		{
+			if (Initialized == 0f)
+				return;
+
+			DrawWorm(spriteBatch, lightColor, true);
+		}
+
+
 		/// <summary>
 		/// Draws the worm. Override this if you want to draw it yourself. 
+		/// Glow indicates wether or not this is the glowmask. You can use it to just change the segmentlight to always be white, or use it to do custom drawing when in the glowmask
 		/// </summary>
-		public virtual void DrawWorm(SpriteBatch spriteBatch, Color lightColor, Texture2D head, Texture2D body, Texture2D tail) 
+		public virtual void DrawWorm(SpriteBatch spriteBatch, Color lightColor, bool glow = false) 
 		{
+			
+
 			for (int i = SegmentCount() - 1; i >= 0; i--)
 			{
+				WormPetVisualSegment currentSegment = Segments[i].visual;
+				//If the segment doesn't have a glowmask on the glow pass, simply don't draw it lol?
+				if (glow & !currentSegment.Glows)
+					continue;
+
 				bool bodySegment = i != 0 && i != SegmentCount() - 1;
-				Texture2D sprite = bodySegment ? body : i == 0 ? head : tail;
+				Texture2D sprite =  ModContent.GetTexture(currentSegment.TexturePath + (glow ? GlowmaskSuffix : ""));
 
-				int frameStartX = bodySegment ? ((i % BodyVariants) * sprite.Width / BodyVariants) : 0;
-				int frameStartY = sprite.Height / Main.projFrames[projectile.type] * projectile.frame;
+				Vector2 angleVector = (i == 0 ? projectile.rotation.ToRotationVector2() : (Segments[i - 1].position - Segments[i].position));
+				bool flipped = Math.Sign(angleVector.X) < 0 && currentSegment.Directional; 
 
-				int frameWidth = sprite.Width / (bodySegment ? BodyVariants : 1);
-				frameWidth -= (bodySegment && BodyVariants > 1) ? 2 : 0;
+				//Get the horizontal start of the frame (for segments with variants)
+				int frameStartX = (i % currentSegment.Variants) * sprite.Width / currentSegment.Variants;
 
-				int frameHeight = (sprite.Height / Main.projFrames[projectile.type]);
+				//Get the vertical segment of the frame
+				int frameStartY = sprite.Height / currentSegment.FrameCount * currentSegment.Frame;
+
+				int frameWidth = sprite.Width / currentSegment.Variants;
+				int frameHeight = (sprite.Height / currentSegment.FrameCount);
+
+				//Remove 2 from the width and height of the frame if the segment has variants/is animated to account for the extra gap of 2 pixels
+				frameWidth -= currentSegment.Variants > 1 ? 2 : 0; 
 				frameHeight -= (Main.projFrames[projectile.type] > 1) ? 2 : 0;
 
 				Rectangle frame = new Rectangle(frameStartX, frameStartY, frameWidth, frameHeight);
@@ -298,11 +436,13 @@ namespace CalValEX.Projectiles.Pets
 				if (i == 0)
 					origin -= Vector2.UnitY * BashHeadIn;
 
+				origin -= Vector2.UnitX * currentSegment.LateralShift * (flipped ? -1 : 1);
+
 				float rotation = i == 0 ? projectile.rotation + MathHelper.PiOver2 : (Segments[i].position - Segments[i - 1].position).ToRotation() - MathHelper.PiOver2;
 
-				Color segmentLight = Lighting.GetColor((int)Segments[i].position.X / 16, (int)Segments[i].position.Y / 16); //Lighting of the position of the segment
+				Color segmentLight = glow ? Color.White * GlowmaskOpacity : Lighting.GetColor((int)Segments[i].position.X / 16, (int)Segments[i].position.Y / 16); //Lighting of the position of the segment. Pure white if its a glowmask
 
-				spriteBatch.Draw(sprite, Segments[i].position - Main.screenPosition, frame, segmentLight, rotation, origin, projectile.scale, SpriteEffects.None, 0);
+				spriteBatch.Draw(sprite, Segments[i].position - Main.screenPosition, frame, segmentLight, rotation, origin, projectile.scale, flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
 			}
 		}
     }
