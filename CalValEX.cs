@@ -51,7 +51,7 @@ using CalamityMod;
 namespace CalValEX
 {
     public class CalValEX : Mod
-    {
+    { 
         public enum MessageType
         {
             SyncOraclePlayer = 0,
