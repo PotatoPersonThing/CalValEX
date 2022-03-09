@@ -23,7 +23,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
 
         public override bool ExistenceCondition() => ModOwner.thanos;
 
-        public override float GetSpeed => MathHelper.Lerp(20, 40, MathHelper.Clamp(projectile.Distance(IdealPosition) / (WanderDistance * 2.2f) - 1f, 0, 1));
+        public override float GetSpeed => MathHelper.Lerp(17, 40, MathHelper.Clamp(projectile.Distance(IdealPosition) / (WanderDistance * 2.2f) - 1f, 0, 1));
 
         public override int BodyVariants => 2;
         public override float BashHeadIn => 5;
@@ -37,11 +37,9 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
 
         public override void MoveTowardsIdealPosition()
         {
-            //THIS CODE NEEDS CALAMITY 1.5.1.001 STUFF TO WORK PROPERLY!
-
             //If the owner is holding right click, shift its goal from the worms ideal position tothe mouse cursor
-            //if (Owner.Calamity().mouseRight && Owner.HeldItem.type == ModContent.ItemType<GunmetalRemote>())
-            //    RelativeIdealPosition = Owner.Calamity().mouseWorld - Owner.Center;
+            if (Owner.Calamity().mouseRight && Owner.HeldItem.type == ModContent.ItemType<GunmetalRemote>())
+                RelativeIdealPosition = Owner.Calamity().mouseWorld - Owner.Center;
 
             //Rotate towards its ideal position
             projectile.rotation = projectile.rotation.AngleTowards((IdealPosition - projectile.Center).ToRotation(), MathHelper.Lerp(MaximumSteerAngle, MinimumSteerAngle, MathHelper.Clamp(projectile.Distance(IdealPosition) / 80f, 0, 1)));

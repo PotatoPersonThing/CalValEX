@@ -137,7 +137,6 @@ namespace CalValEX.Projectiles.Pets
 		/// How opaque the glowmask is
 		/// </summary>
 		public virtual float GlowmaskOpacity => 1;
-
 		/// <summary>
 		/// The texture progression. If you need to introduce custom textures in the progression, add them to the TexturePaths dictionary under a new key, and use that key into the list.
 		/// The list starts from the first segment and goes toward the tail. You don't need to put the tail into the list, its automatically taken into account
