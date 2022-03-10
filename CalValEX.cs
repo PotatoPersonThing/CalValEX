@@ -195,6 +195,8 @@ namespace CalValEX
                                "When below 50% life, it moves much faster\n" + "Equipping this item in a vanity slot summons a passive version");
             cal.GetItem("FungalClump").Tooltip.AddTranslation(GameCulture.English, "Summons a fungal clump to fight for you\n" +
                        "The clump latches onto enemies and steals their life for you\n" + "Equipping this item in a vanity slot summons a passive version");
+            cal.GetItem("FungalClump").Tooltip.AddTranslation(GameCulture.English, "Summons a fungal clump to fight for you\n" +
+                       "Weapons fire unique projectiles based on the damage type they haveb\nSome weapons are unable to receive this bonus\nEquipping this item in a vanity slot will summon a magical glyph");
 
             cal.Call("MakeItemExhumable", ModContent.ItemType<CalArtifact>(), ModContent.ItemType<CalamitousSoulArtifact>());
 
