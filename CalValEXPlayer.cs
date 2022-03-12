@@ -397,6 +397,8 @@ namespace CalValEX
         public bool ares;
         public bool thanos;
         public bool twins;
+        public bool luxorsglyph;
+        public bool digger;
 
         public override void Initialize()
         {
@@ -598,6 +600,16 @@ namespace CalValEX
                     }
                     vanityfunclump = true;
                 }
+                else if (item.type == calamityMod.ItemType("LuxorsGift") && !CalValEXConfig.Instance.FungusClump && antisocial == null)
+                {
+                    bool cryospawned = player.ownedProjectileCounts[ProjectileType<LuxorsGlyph>()] <= 0;
+                    if (cryospawned && player.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                            0f, 0f, ProjectileType<LuxorsGlyph>(), 0, 0f, player.whoAmI);
+                    }
+                    luxorsglyph = true;
+                }
             }
             //Despawn vanity elementals and cryo shield if in functional slots
             for (int n = 3; n < 10 + player.extraAccessorySlots; n++)
@@ -638,6 +650,10 @@ namespace CalValEX
                 if (item.type == calamityMod.ItemType("MutatedTruffle"))
                 {
                     vanityyound = false;
+                }
+                if (item.type == calamityMod.ItemType("LuxorsGift"))
+                {
+                    luxorsglyph = false;
                 }
                 if (fargo != null)
                 {
@@ -989,6 +1005,8 @@ namespace CalValEX
             ares = false;
             thanos = false;
             twins = false;
+            luxorsglyph = false;
+            digger = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
@@ -1369,14 +1387,14 @@ namespace CalValEX
                 {
                     player.ManageSpecialBiomeVisuals("CalamityMod:SupremeCalamitas", useScalMonolith, player.Center);
                 }
-                else if (CalValEXWorld.RockshrinEX)
+                /*else if (CalValEXWorld.RockshrinEX)
                 {
                     CalamityMod.Events.BossRushSky.ShouldDrawRegularly = true;
                 }
                 else if (cryoMonolith)
                 {
                     CalamityMod.Skies.CryogenSky.ShouldDrawRegularly = true;
-                }
+                }*/
             }
         }
 
