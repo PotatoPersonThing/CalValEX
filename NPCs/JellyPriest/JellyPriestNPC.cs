@@ -238,7 +238,7 @@ namespace CalValEX.NPCs.JellyPriest
                     return "Yeesh, through all of your adventures, I've stocked up quite the inventory!";
             }
 
-            if ((calPlayer.sirenWaifu || calPlayer.elementalHeart || (CalValEXPlayer.vanityhote && !CalValEXConfig.Instance.HeartVanity)) && Main.rand.NextFloat() < 0.25f)
+            if ((calPlayer.sirenWaifu || calPlayer.elementalHeart || (CalValEXPlayer.vanityhote && !CalValEXConfig.Instance.HeartVanity) || (CalValEXPlayer.vanitysiren && !CalValEXConfig.Instance.HeartVanity)) && Main.rand.NextFloat() < 0.25f)
             {
                 return "You were successfully able to befriend the grand Water Elemental? I'm impressed.";
             }
@@ -246,6 +246,11 @@ namespace CalValEX.NPCs.JellyPriest
             if ((calPlayer.sirenBoobs && !calPlayer.sirenBoobsHide) && Main.rand.NextFloat() < 0.25f)
             {
                 return "OH! Please, welcome yourself to my shop. I've been preparing these just for you.";
+            }
+
+            if (calPlayer.cirrusDress && Main.rand.NextFloat() < 0.25f)
+            {
+                return "That's a pretty dress! I know someone who was working on a similar one, but it took so long that they gave up.";
             }
 
             if ((calPlayer.sirenPet) && Main.rand.NextFloat() < 0.25f)
@@ -464,6 +469,7 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<SunkenLamp>(), Item.buyPrice(0, 0, 50, 0), clam, ref shop, ref nextSlot);
                 AddItem(ItemType<RoxFake>(), Item.buyPrice(0, 1, 0, 0), Main.hardMode, ref shop, ref nextSlot);
                 AddItem(ItemType<Knight>(), Item.buyPrice(0, 0, 95, 0), Main.hardMode, ref shop, ref nextSlot);
+                AddItem(ItemType<DecommissionedDaedalusGolem>(), Item.buyPrice(0, 2, 50, 0), (bool)clamMod.Call("GetBossDowned", "cryogen"), ref shop, ref nextSlot);
                 AddItem(ItemType<VeilBanner>(), Item.buyPrice(0, 5, 0, 0), (bool)clamMod.Call("GetBossDowned", "calamitas"), ref shop, ref nextSlot);
                 AddItem(ItemType<JunkArt>(), Item.buyPrice(0, 10, 0, 0), NPC.downedPlantBoss, ref shop, ref nextSlot);
                 AddItem(ItemType<HeartoftheCommunity>(), Item.buyPrice(0, 2, 0, 0), lev, ref shop, ref nextSlot);
@@ -472,7 +478,7 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<Provibust>(), Item.buyPrice(1, 50, 0, 0), prov, ref shop, ref nextSlot);
                 AddItem(ItemType<Tesla>(), Item.buyPrice(2, 75, 0, 0), (bool)clamMod.Call("GetBossDowned", "stormweaver"), ref shop, ref nextSlot);
                 AddItem(ItemType<Evolution>(), Item.buyPrice(1, 75, 0, 0), toaster, ref shop, ref nextSlot);
-                AddItem(ItemType<VoidPortal>(), Item.buyPrice(2, 75, 0, 0), prov, ref shop, ref nextSlot);
+                AddItem(ItemType<VoidPortal>(), Item.buyPrice(2, 75, 0, 0), toaster, ref shop, ref nextSlot);
                 AddItem(ItemType<SamLog>(), Item.buyPrice(5, 0, 0, 0), sammy, ref shop, ref nextSlot);
                 AddItem(ItemType<MireAquarium>(), Item.buyPrice(2, 0, 0, 0), boomer, ref shop, ref nextSlot);
                 AddItem(ItemType<SulphuricTank>(), Item.buyPrice(0, 50, 0, 0), boomer, ref shop, ref nextSlot);
@@ -492,6 +498,7 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<TableCoral>(), Item.buyPrice(0, 0, 20, 0), clam, ref shop, ref nextSlot);
                 AddItem(ItemType<SulphurousCactus>(), Item.buyPrice(0, 0, 30, 0), acid, ref shop, ref nextSlot);
                 AddItem(ItemType<SulphurousPlanter>(), Item.buyPrice(0, 0, 40, 0), acid, ref shop, ref nextSlot);
+                AddItem(ItemType<PottedDecapoditaSprout>(), Item.buyPrice(0, 0, 50, 0), (bool)clamMod.Call("GetBossDowned", "crabulon"), ref shop, ref nextSlot);
                 AddItem(ItemType<MonolithPot>(), Item.buyPrice(0, 0, 95, 0), Main.hardMode, ref shop, ref nextSlot);
                 AddItem(ItemType<BelchingCoral>(), Item.buyPrice(0, 2, 0, 0), (bool)clamMod.Call("GetBossDowned", "acidrainscourge"), ref shop, ref nextSlot);
                 if ((bool)clamMod.Call("GetBossDowned", "astrumaureus"))

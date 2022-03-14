@@ -117,6 +117,12 @@ namespace CalValEX
         [Tooltip("Disables the stat cripple which ground mounts give")]
         public bool GroundMountLol { get; set; }
 
+        [Label("Disable Murasama Easter Egg")]
+        [BackgroundColor(192, 54, 64, 192)]
+        [DefaultValue(true)]
+        [Tooltip("Disables the music played while swinging Murasama while using Demonshade enrage or any ripper")]
+        public bool Sama { get; set; }
+
         [Label("Discord Rich Presence ([c/ffaa11:Requires DRP Mod!])")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(true)]

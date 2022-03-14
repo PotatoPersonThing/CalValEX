@@ -16,7 +16,7 @@ namespace CalValEX.Items.Pets
         {
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit4;
-            item.shoot = mod.ProjectileType("DeusHead");
+            item.shoot = mod.ProjectileType("DeusPet");
             item.value = Item.sellPrice(0, 2, 0, 0);
             item.rare = 9;
             item.buffType = mod.BuffType("DeusBuff");
@@ -35,27 +35,27 @@ namespace CalValEX.Items.Pets
 
         public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            type = mod.ProjectileType("DeusHead");
+            type = mod.ProjectileType("DeusPet");
             return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-            type = mod.ProjectileType("DeusSmallHead");
+            type = mod.ProjectileType("DeusPetSmall");
             return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-            type = mod.ProjectileType("DeusSmallHead");
+            type = mod.ProjectileType("DeusPetSmall");
             return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-            type = mod.ProjectileType("DeusSmallHead");
+            type = mod.ProjectileType("DeusPetSmall");
             return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-            type = mod.ProjectileType("DeusSmallHead");
+            type = mod.ProjectileType("DeusPetSmall");
             return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-            type = mod.ProjectileType("DeusSmallHead");
+            type = mod.ProjectileType("DeusPetSmall");
             return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-            type = mod.ProjectileType("DeusSmallHead");
+            type = mod.ProjectileType("DeusPetSmall");
             return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-            type = mod.ProjectileType("DeusSmallHead");
+            type = mod.ProjectileType("DeusPetSmall");
             return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-            type = mod.ProjectileType("DeusSmallHead");
+            type = mod.ProjectileType("DeusPetSmall");
             return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-            type = mod.ProjectileType("DeusSmallHead");
+            type = mod.ProjectileType("DeusPetSmall");
             return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-            type = mod.ProjectileType("DeusSmallHead");
+            type = mod.ProjectileType("DeusPetSmall");
             return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
         }
     }

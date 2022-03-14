@@ -18,7 +18,7 @@ namespace CalValEX.Items.Pets
         {
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit13;
-            item.shoot = mod.ProjectileType("AquaHead");
+            item.shoot = mod.ProjectileType("AquaPet");
             item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = 11;
             item.buffType = mod.BuffType("ScourgeBuff");
@@ -66,11 +66,9 @@ namespace CalValEX.Items.Pets
             }
         }
 
-        private int scourge2 = 180;
-
         public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            type = mod.ProjectileType("AquaHead");
+            type = mod.ProjectileType("AquaPet");
             return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
         }
     }

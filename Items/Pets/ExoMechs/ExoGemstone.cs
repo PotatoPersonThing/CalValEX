@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using CalamityMod.World;
+using CalamityMod.NPCs;
+using CalamityMod.World.Planets;
+using System.Threading;
 
 namespace CalValEX.Items.Pets.ExoMechs
 {
@@ -32,6 +36,21 @@ namespace CalValEX.Items.Pets.ExoMechs
             }
         }
 
+        public override void AddRecipes()
+        {
+            Mod CalValEX = ModLoader.GetMod("CalamityMod");
+            {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddIngredient(ModContent.ItemType<GeminiMarkImplants>(), 1);
+                recipe.AddIngredient(ModContent.ItemType<GunmetalRemote>(), 1);
+                recipe.AddIngredient(ModContent.ItemType<OminousCore>(), 1);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("ExoPrism"), 8);
+                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
+                recipe.SetResult(this);
+                recipe.AddRecipe();
+            }
+        }
+
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             //rarity 12 (Turquoise) = new Color(0, 255, 200)
@@ -54,7 +73,6 @@ namespace CalValEX.Items.Pets.ExoMechs
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-
             Projectile.NewProjectile(player.Center, Vector2.Zero, mod.ProjectileType("ThanatosPet"), 0, 0, player.whoAmI);
             Projectile.NewProjectile(player.Center, Vector2.Zero, mod.ProjectileType("AresBody"), 0, 0, player.whoAmI);
             Projectile.NewProjectile(player.Center, Vector2.Zero, mod.ProjectileType("TwinsPet"), 0, 0, player.whoAmI);

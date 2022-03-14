@@ -176,6 +176,8 @@ namespace CalValEX.NPCs.Oracle
                 }
             }
 
+            CalamityMod.CalPlayer.CalamityPlayer calPlayer = Main.LocalPlayer.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>();
+
             if (Main.hardMode && Main.rand.NextFloat() < 0.12f)
             {
                 return "Y'know, if you're trying to find a certain little Water Elemental, you may have better luck if you take a fishing trip instead of resorting to violence.";
@@ -203,6 +205,11 @@ namespace CalValEX.NPCs.Oracle
                     default:
                         return "Hey punk, can you talk to " + Main.npc[wizard].GivenName + "? I have a buddy that he might enjoy having!";
                 }
+            }
+
+            if (calPlayer.cirrusDress && Main.rand.NextFloat() < 0.25f)
+            {
+                return "Hey, ya'd rather wear those alcohol drenched rags than something more stylish? Not judging.";
             }
 
             if (!Main.expertMode)
@@ -416,13 +423,13 @@ namespace CalValEX.NPCs.Oracle
                 if ((bool)clamMod.Call("GetBossDowned", "hivemind"))
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<AeroPebble>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 50, 0);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 50, 0);
                     ++nextSlot;
                 }
                 else if ((bool)clamMod.Call("GetBossDowned", "perforator"))
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<AeroPebble>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 50, 0);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 50, 0);
                     ++nextSlot;
                 }
                 if ((bool)NPC.downedPlantBoss)
@@ -432,72 +439,78 @@ namespace CalValEX.NPCs.Oracle
                     ++nextSlot;
                 }
                 shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.UglyTentacle>());
-                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
+                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
                 nextSlot++;
                 if (rachelname)
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<BubbleGum>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 40, 0, 0);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
                     nextSlot++;
                 }
-                else if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") || CalamityMod.World.CalamityWorld.rainingAcid)
+                else if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sulphursea") || CalamityMod.World.CalamityWorld.rainingAcid || CalamityMod.World.CalamityWorld.downedEoCAcidRain)
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<BubbleGum>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 75, 0, 0);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 0, 0);
                     nextSlot++;
                 }
-                if ((bool)clamMod.Call("GetBossDowned", "hivemind") && Main.expertMode && WorldGen.crimson)
+                if ((bool)clamMod.Call("GetBossDowned", "hivemind") && WorldGen.crimson)
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<DigestedWormFood>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 80, 0, 0);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
                     ++nextSlot;
                 }
-                if ((bool)clamMod.Call("GetBossDowned", "perforator") && Main.expertMode && !WorldGen.crimson)
+                if ((bool)clamMod.Call("GetBossDowned", "perforator") && !WorldGen.crimson)
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<MissingFang>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 80, 0, 0);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
                     ++nextSlot;
                 }
-                if ((bool)clamMod.Call("GetBossDowned", "cryogen") && Main.expertMode)
+                if ((bool)clamMod.Call("GetBossDowned", "cryogen"))
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<coopershortsword>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 0, 0);
                     ++nextSlot;
                 }
-                if ((bool)clamMod.Call("GetBossDowned", "calamitas") && Main.expertMode)
+                if ((bool)clamMod.Call("GetBossDowned", "calamitas"))
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<AndroombaGBC>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 50, 0, 0);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
                     ++nextSlot;
                 }
-                if ((bool)clamMod.Call("GetBossDowned", "calamitas") && Main.expertMode)
+                if ((bool)clamMod.Call("GetBossDowned", "calamitas"))
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<DeepseaLantern>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
                     ++nextSlot;
                 }
-                if ((bool)clamMod.Call("GetBossDowned", "dragonfolly") && Main.expertMode)
+                if ((bool)clamMod.Call("GetBossDowned", "dragonfolly"))
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<OrbSummon>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(2, 75, 0, 0);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 75, 0, 0);
                     ++nextSlot;
                 }
-                if ((bool)clamMod.Call("GetBossDowned", "providence") && Main.expertMode)
+                if ((bool)clamMod.Call("GetBossDowned", "providence"))
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<ChewyToy>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(5, 0, 0, 0);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 80, 0, 0);
                     ++nextSlot;
                 }
-                if ((bool)clamMod.Call("GetBossDowned", "signus") && Main.expertMode)
+                if ((bool)clamMod.Call("GetBossDowned", "signus"))
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<JunkoHat>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(10, 75, 0, 0);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 95, 0, 0);
                     ++nextSlot;
                 }
-                if ((bool)clamMod.Call("GetBossDowned", "devourerofgods") && Main.expertMode)
+                if ((bool)clamMod.Call("GetBossDowned", "devourerofgods"))
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<Enredenitem>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(10, 0, 0, 0);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
+                    ++nextSlot;
+                }
+                if ((bool)clamMod.Call("GetBossDowned", "yharon"))
+                {
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<NuggetBiscuit>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 10, 0, 0);
                     ++nextSlot;
                 }
             }

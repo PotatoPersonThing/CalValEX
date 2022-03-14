@@ -20,11 +20,11 @@ namespace CalValEX.Buffs.Pets
         {
             player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().SWPet = true;
-            bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<SWPetHead>()] <= 0;
+            bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<SWPet>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
                 Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
-                    0f, 0f, ProjectileType<SWPetHead>(), 0, 0f, player.whoAmI);
+                    0f, 0f, ProjectileType<SWPet>(), 0, 0f, player.whoAmI);
             }
 
             player.buffTime[buffIndex] = 18000;

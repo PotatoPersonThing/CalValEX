@@ -31,7 +31,7 @@ namespace CalValEX
 
         public override bool? CanHitNPC(Projectile projectile, NPC target)
         {
-            if (projectile.type == ModLoader.GetMod("CalamityMod").ProjectileType("CosmicFire") && target.type == ModContent.NPCType<AprilFools.Jharim>())
+            if (projectile.type == ModLoader.GetMod("CalamityMod").ProjectileType("CosmicFire") && target.type == ModContent.NPCType< AprilFools.Jharim.Jharim >())
             {
                 return true;
             }

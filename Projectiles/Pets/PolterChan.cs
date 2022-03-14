@@ -61,13 +61,14 @@ namespace CalValEX.Projectiles.Pets
             Mod armasortof = ModLoader.GetMod("EfficientNohits");
             Mod arma2 = ModLoader.GetMod("ArmaUnerf");
             Mod infernum = ModLoader.GetMod("InfernumMode");
+            Mod cplus = ModLoader.GetMod("CalValPlus");
 
             if (player.dead)
                 modPlayer.mChan = false;
             if (modPlayer.mChan)
                 projectile.timeLeft = 2;
             //MAID mode
-            if (!CalValEXConfig.Instance.Polterskin && master != null && (bool)calamityMod.Call("DifficultyActive", "death") && infernum != null && (armasortof != null || arma2 != null))
+            if (!CalValEXConfig.Instance.Polterskin && ((master != null && (bool)calamityMod.Call("DifficultyActive", "death") && (infernum != null && (bool)infernum.Call("GetInfernumActive")) && (armasortof != null || arma2 != null)) || cplus != null))
             {
                 if (projectile.frameCounter++ > 8)
                 {

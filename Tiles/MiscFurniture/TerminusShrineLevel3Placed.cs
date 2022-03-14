@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using CalValEX.Items.Tiles;
 using Terraria.ObjectData;
+using CalamityMod;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
@@ -30,6 +31,7 @@ namespace CalValEX.Tiles.MiscFurniture
 		{
 			Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("Rock"), 1);
 			Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("BossRush"), 1);
+			CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
 			CalValEXWorld.RockshrinEX = false;
 			Item.NewItem(i * 16, j * 16, 16, 16, ModContent.ItemType<TerminusShrine>());
 		}
@@ -42,6 +44,10 @@ namespace CalValEX.Tiles.MiscFurniture
 			stonepos = -1.00001f;
 			CalValEXWorld.RockshrinEX = true;
 		}
+		/*public override void NearbyEffects(int i, int j, bool closer)
+		{
+			CalValEXWorld.RockshrinEX = true;
+		}*/
 		public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
 		{
 			Tile tile = Main.tile[i, j];

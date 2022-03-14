@@ -26,11 +26,11 @@ using CalValEX.Items.Tiles.Balloons;
 using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.Plushies;
 using CalValEX.NPCs.Critters;
-using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
-using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
 using CalValEX.Items.Tiles.Monoliths;
 using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
+using CalValEX.NPCs.JellyPriest;
+using CalValEX.NPCs.Oracle;
 using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -61,6 +61,7 @@ namespace CalValEX
         private bool wolfram;
 
         public static int meldodon = -1;
+        public static int jharim = -1;
 
         public override bool InstancePerEntity => true;
 
@@ -349,12 +350,12 @@ namespace CalValEX
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (npc.type == calamityMod.NPCType("WITCH") && (!CalValEXWorld.jharinter || !NPC.downedMoonlord))
             {
-                if (NPC.AnyNPCs(ModContent.NPCType<AprilFools.Jharim>()))
+                if (NPC.AnyNPCs(ModContent.NPCType<AprilFools.Jharim.Jharim>()))
                 {
                     for (int x = 0; x < Main.maxNPCs; x++)
                     {
                         NPC npc3 = Main.npc[x];
-                        if (npc3.type == ModContent.NPCType<AprilFools.Jharim>() && npc3.active)
+                        if (npc3.type == ModContent.NPCType<AprilFools.Jharim.Jharim>() && npc3.active)
                         {
                             jharimpos.X = npc3.Center.X;
                             jharimpos.Y = npc3.Center.Y;
@@ -576,7 +577,7 @@ namespace CalValEX
             float rareChance = rareEnemyChance;
             //1%
             float mountChance = 0.01f;
-            Mod catalyst = ModLoader.GetMod("Catalyst");
+            Mod catalyst = ModLoader.GetMod("CatalystMod");
             if (npc.boss)
             {
                 Player player = Main.LocalPlayer;
@@ -938,7 +939,7 @@ namespace CalValEX
                     ChanceDropItem(npc, ModContent.ItemType<DryShrimp>(), minibossChance);
                 }
 
-                if (npc.type == calamityMod.NPCType("Bumblefolly"))
+                if (npc.type == calamityMod.NPCType("WildBumblefuck"))
                 {
                     ChanceDropItem(npc, ModContent.ItemType<OrbSummon>(), minibossChance);
                 }
@@ -1015,11 +1016,15 @@ namespace CalValEX
                     ConditionalChanceDropItem(npc, ModContent.ItemType<FogG>(), ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") && (bool)calamityMod.Call("GetBossDowned", "exomechs")), 0.0001f);
                 }
 
-                if (npc.type == calamityMod.NPCType("Mauler") && (bool)calamityMod.Call("GetBossDowned", "polterghast"))
+                if (npc.type == calamityMod.NPCType("Mauler"))
                 {
                     ChanceDropItem(npc, ModContent.ItemType<MaulerMask>(), vanityNormalChance);
                     ChanceDropItem(npc, ModContent.ItemType<BubbledFin>(), minibossChance);
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<OmegaBlue>(), Main.expertMode, 0.05f);
+                    DropItem(npc, ModContent.ItemType<NuclearFumes>(), 3, 5); //garanteed 3 to 5
+                    ConditionalDropItem(npc, ModContent.ItemType<NuclearFumes>(), Main.expertMode, 1,
+                        3); //when expert mode you get 1 to 3
+                    ChanceDropItem(npc, ModContent.ItemType<NuclearFumes>(), 0.5f); //50% chance to get 1 extra
+                    ChanceDropItem(npc, ModContent.ItemType<NuclearFumes>(), 0.3f); //30% chance to get 1 extra
                 }
 
                 //Bosses
@@ -1158,6 +1163,7 @@ namespace CalValEX
                         ConditionalChanceDropItem(npc, ModContent.ItemType<LeviathanEgg>(), !Main.expertMode, vanityMaxChance); //15%
                     }
                     ConditionalChanceDropItem(npc, ModContent.ItemType<AnahitaPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<LeviathanPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance * 0.1f);
                 }
 
                 if (npc.type == calamityMod.NPCType("Leviathan") && !NPC.AnyNPCs(calamityMod.NPCType("Siren")))
@@ -1171,6 +1177,7 @@ namespace CalValEX
                         ConditionalChanceDropItem(npc, ModContent.ItemType<LeviathanEgg>(), !Main.expertMode, vanityMaxChance); //15%
                     }
                     ConditionalChanceDropItem(npc, ModContent.ItemType<LeviathanPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<AnahitaPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance * 0.1f);
                 }
 
                 if (npc.type == calamityMod.NPCType("AstrumAureus"))
@@ -1435,9 +1442,10 @@ namespace CalValEX
                         DropItem(npc, ModContent.ItemType<DemonshadePants>());
                     }
                 }
-
+                //Exo Twin drops
                 if (npc.type == calamityMod.NPCType("Apollo") && !NPC.AnyNPCs(calamityMod.NPCType("ThanatosHead")) && !NPC.AnyNPCs(calamityMod.NPCType("AresBody")))
                 {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<Items.Pets.ExoMechs.GeminiMarkImplants>(), !Main.expertMode, bossPetChance);
                     if (Main.rand.Next(7) == 0 && !Main.expertMode)
                     {
                         DropItem(npc, ModContent.ItemType<DraedonBody>());
@@ -1455,9 +1463,10 @@ namespace CalValEX
                         ConditionalChanceDropItem(npc, ModContent.ItemType<DraedonPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     }
                 }
-
+                //Ares drops
                 if (npc.type == calamityMod.NPCType("AresBody") && !NPC.AnyNPCs(calamityMod.NPCType("ThanatosHead")) && !NPC.AnyNPCs(calamityMod.NPCType("Apollo")))
                 {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<Items.Pets.ExoMechs.OminousCore>(), !Main.expertMode, bossPetChance);
                     if (Main.rand.Next(7) == 0 && !Main.expertMode)
                     {
                         DropItem(npc, ModContent.ItemType<DraedonBody>());
@@ -1470,9 +1479,10 @@ namespace CalValEX
                         ConditionalChanceDropItem(npc, ModContent.ItemType<DraedonPlush>(), (bool)calamityMod.Call("DifficultyActive", "revengeance"), bossPetChance);
                     }
                 }
-
+                //Thanatos drops
                 if (npc.type == calamityMod.NPCType("ThanatosHead") && !NPC.AnyNPCs(calamityMod.NPCType("AresBody")) && !NPC.AnyNPCs(calamityMod.NPCType("Apollo")))
                 {
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<Items.Pets.ExoMechs.GunmetalRemote>(), !Main.expertMode, bossPetChance);
                     if (Main.rand.Next(7) == 0 && !Main.expertMode)
                     {
                         DropItem(npc, ModContent.ItemType<DraedonBody>());
@@ -1660,6 +1670,75 @@ namespace CalValEX
             }
         }
 
+        public void BossExclam(NPC npc, int[] types, bool downed, int boss)
+        {
+            if (npc.type == boss && !downed)
+            {
+                CalamityMod.NPCs.CalamityGlobalNPC.SetNewShopVariable(types, downed);
+            }
+        }
+
+        public override bool PreNPCLoot(NPC npc)
+        {
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedCLAM, ModContent.NPCType<CalamityMod.NPCs.SunkenSea.GiantClam>());
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedCrabulon, ModContent.NPCType<CalamityMod.NPCs.Crabulon.CrabulonIdle>());
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, NPC.downedBoss3, NPCID.SkeletronHead);
+            //Fuck slime god btw
+            if (!NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodSplit>())&& !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodRun>()) && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodRunSplit>()) && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGod>()))
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedSlimeGod, ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodCore>());
+            if (NPC.CountNPCS(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodSplit>()) == 1 && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodCore>()) && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodRun>()) && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodRunSplit>()) && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGod>()))
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedSlimeGod, ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodSplit>());
+            if (NPC.CountNPCS(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodRunSplit>()) == 1 && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodCore>()) && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodRun>()) && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodSplit>()) && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGod>()))
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedSlimeGod, ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodSplit>());
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, Main.hardMode, NPCID.WallofFlesh);
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedCryogen, ModContent.NPCType<CalamityMod.NPCs.Cryogen.Cryogen>());
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedCalamitas, ModContent.NPCType<CalamityMod.NPCs.Calamitas.CalamitasRun3>());
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, NPC.downedPlantBoss, NPCID.Plantera);
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedAstrageldon, ModContent.NPCType<CalamityMod.NPCs.AstrumAureus.AstrumAureus>());
+            if (!NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.Leviathan.Siren>()))
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedLeviathan, ModContent.NPCType<CalamityMod.NPCs.Leviathan.Leviathan>());
+            if (!NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.Leviathan.Leviathan>()))
+                BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedLeviathan, ModContent.NPCType<CalamityMod.NPCs.Leviathan.Siren>());
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, NPC.downedGolemBoss, NPCID.Golem);
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedPlaguebringer, ModContent.NPCType<CalamityMod.NPCs.PlaguebringerGoliath.PlaguebringerGoliath>());
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedScavenger, ModContent.NPCType<CalamityMod.NPCs.Ravager.RavagerBody>());
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedBumble, ModContent.NPCType<CalamityMod.NPCs.Bumblebirb.Bumblefuck>());
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedProvidence, ModContent.NPCType<CalamityMod.NPCs.Providence.Providence>());
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedSentinel1, ModContent.NPCType<CalamityMod.NPCs.CeaselessVoid.CeaselessVoid>());
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedSentinel2, ModContent.NPCType<CalamityMod.NPCs.StormWeaver.StormWeaverHead>());
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedSentinel3, ModContent.NPCType<CalamityMod.NPCs.Signus.Signus>());
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedPolterghast, ModContent.NPCType<CalamityMod.NPCs.Polterghast.Polterghast>());
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedBoomerDuke, ModContent.NPCType<CalamityMod.NPCs.OldDuke.OldDuke>());
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedDoG, ModContent.NPCType<CalamityMod.NPCs.DevourerofGods.DevourerofGodsHead>());
+            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedYharon, ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>());
+            if (npc.type == NPCID.WallofFlesh && !Main.hardMode)
+            {
+                CalamityMod.NPCs.CalamityGlobalNPC.SetNewShopVariable(new int[] { ModContent.NPCType<NPCs.Oracle.OracleNPC>() }, Main.hardMode);
+            }
+            if (!CalamityWorld.downedPerforator)
+                BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, CalamityWorld.downedHiveMind, ModContent.NPCType<CalamityMod.NPCs.HiveMind.HiveMind>());
+            if (!CalamityWorld.downedHiveMind)
+                BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, CalamityWorld.downedPerforator, ModContent.NPCType<CalamityMod.NPCs.Perforator.PerforatorHive>());
+            BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, CalamityWorld.downedCryogen, ModContent.NPCType<CalamityMod.NPCs.Cryogen.Cryogen>());
+            BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, NPC.downedPlantBoss, NPCID.Plantera);
+            BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, CalamityWorld.downedCalamitas, ModContent.NPCType<CalamityMod.NPCs.Calamitas.CalamitasRun3>());
+            BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, CalamityWorld.downedBumble, ModContent.NPCType<CalamityMod.NPCs.Bumblebirb.Bumblefuck>());
+            BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, CalamityWorld.downedProvidence, ModContent.NPCType<CalamityMod.NPCs.Providence.Providence>());
+            BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, CalamityWorld.downedSentinel3, ModContent.NPCType<CalamityMod.NPCs.Signus.Signus>());
+            BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, CalamityWorld.downedDoG, ModContent.NPCType<CalamityMod.NPCs.DevourerofGods.DevourerofGodsHead>());
+            BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, CalamityWorld.downedYharon, ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>());
+
+            BossExclam(npc, new int[] { ModContent.NPCType<CalamityMod.NPCs.TownNPCs.SEAHOE>() }, CalamityWorld.downedBoomerDuke, ModContent.NPCType<CalamityMod.NPCs.OldDuke.OldDuke>());
+            BossExclam(npc, new int[] { ModContent.NPCType<CalamityMod.NPCs.TownNPCs.SEAHOE>() }, CalamityWorld.downedSCal, ModContent.NPCType<CalamityMod.NPCs.SupremeCalamitas.SupremeCalamitas>());
+
+            BossExclam(npc, new int[] { ModContent.NPCType<CalamityMod.NPCs.TownNPCs.DILF>() }, CalamityWorld.downedSentinel3, ModContent.NPCType<CalamityMod.NPCs.Signus.Signus>());
+
+            BossExclam(npc, new int[] { ModContent.NPCType<CalamityMod.NPCs.TownNPCs.THIEF>() }, CalamityWorld.downedAstrageldon, ModContent.NPCType<CalamityMod.NPCs.AstrumAureus.AstrumAureus>());
+
+            BossExclam(npc, new int[] { NPCID.PartyGirl }, CalamityWorld.downedPolterghast, ModContent.NPCType<CalamityMod.NPCs.Polterghast.Polterghast>());
+            return true;
+        }
+
         private static int DropItem(NPC npc, int itemID, bool dropPerPlayer, int min = 1, int max = 0)
         {
             int numberOfItems;
@@ -1833,7 +1912,7 @@ namespace CalValEX
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             CalamityMod.CalPlayer.CalamityPlayer calp = player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>();
             bool noevents = !(CalamityWorld.rainingAcid && calp.ZoneSulphur) && !Main.eclipse && !Main.snowMoon && !Main.pumpkinMoon && Main.invasionType == 0 && !player.ZoneTowerSolar && !player.ZoneTowerStardust && !player.ZoneTowerVortex & !player.ZoneTowerNebula && !player.ZoneOldOneArmy;
-            Mod cata = ModLoader.GetMod("Catalyst");
+            Mod cata = ModLoader.GetMod("CatalystMod");
             if (modPlayer.sBun)
             {
                 pool.Add(NPCID.Bunny, 0.001f);

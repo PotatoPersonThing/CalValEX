@@ -28,7 +28,7 @@ namespace CalValEX.AprilFools
 			item.shootSpeed = 16f;
 			item.knockBack = 2.5f;
 			item.damage = 27;
-			item.rare = ItemRarityID.Red;
+			item.rare = ItemRarityID.Cyan;
 
 			item.melee = true;
 			item.channel = true;
@@ -74,26 +74,5 @@ namespace CalValEX.AprilFools
 			// Don't reroll
 			return true;
 		}
-
-		public override void AddRecipes()
-        {
-            Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            if (CalValEX.month != 4 && orthoceraDLC == null)
-            {
-                return;
-            }
-            else
-            {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
-                {
-                    ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("GalacticaSingularity"), 10);
-                    recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Voidstone"), 100);
-                    recipe.AddTile(TileID.LunarCraftingStation);
-                    recipe.SetResult(this);
-                    recipe.AddRecipe();
-                }
-            }
-        }
     }
 }

@@ -4,6 +4,9 @@
 using System.Collections.Generic;
 using System.IO;
 using CalamityMod.Events;
+using CalamityMod;
+using CalamityMod.DataStructures;
+using CalamityMod.Particles;
 using CalValEX.Items.Equips.Hats.Draedon;
 using CalValEX.Items.Equips.Shirts.Draedon;
 using CalValEX.Items.Equips.Transformations;
@@ -23,8 +26,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using static CalamityMod.Events.BossRushEvent;
-using static CalamityMod.NPCs.ExoMechs.Ares.AresBody;
-using CalamityMod.Projectiles.Boss;
+using static CalamityMod.CalamityUtils;
 
 namespace CalValEX
 {
@@ -470,7 +472,7 @@ namespace CalValEX
                     bool cloudspawned = player.ownedProjectileCounts[ProjectileType<VanityCloud>()] <= 0;
                     bool sandspawned = player.ownedProjectileCounts[ProjectileType<VanitySand>()] <= 0;
                     bool raresandspawned = player.ownedProjectileCounts[ProjectileType<VanityRareSand>()] <= 0;
-                    bool earthspawned = player.ownedProjectileCounts[ProjectileType<VanityEarth>()] <= 0;
+                    //bool earthspawned = player.ownedProjectileCounts[ProjectileType<VanityEarth>()] <= 0;
                     bool anahitaspawned = player.ownedProjectileCounts[ProjectileType<VanityAnahita>()] <= 0;
                     if (brimmyspawned && player.whoAmI == Main.myPlayer)
                     {
@@ -487,12 +489,12 @@ namespace CalValEX
                         Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
                             0f, 0f, ProjectileType<VanitySand>(), 0, 0f, player.whoAmI);
                     }
-                    if (earthspawned && player.whoAmI == Main.myPlayer && ((CalValEX.month == 4 && CalValEX.day == 1) || ModLoader.GetMod("CalValPlus") != null))
+                    //if (earthspawned && player.whoAmI == Main.myPlayer && ((CalValEX.month == 4 && CalValEX.day == 1) || ModLoader.GetMod("CalValPlus") != null))
                     {
-                        Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
-                            0f, 0f, ProjectileType<VanityEarth>(), 0, 0f, player.whoAmI);
+                        //Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                         //   0f, 0f, ProjectileType<VanityEarth>(), 0, 0f, player.whoAmI);
                     }
-                    if (raresandspawned && player.whoAmI == Main.myPlayer && (!(CalValEX.month == 4 && CalValEX.day == 1) || ModLoader.GetMod("CalValPlus") != null))
+                    if (raresandspawned && player.whoAmI == Main.myPlayer /*&& (!(CalValEX.month == 4 && CalValEX.day == 1) || ModLoader.GetMod("CalValPlus") != null)*/)
                     {
                         Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
                             0f, 0f, ProjectileType<VanityRareSand>(), 0, 0f, player.whoAmI);
@@ -538,13 +540,20 @@ namespace CalValEX
                 {
                     if ((CalValEX.month == 4 && CalValEX.day == 1) || ModLoader.GetMod("CalValPlus") != null)
                     {
-                        bool cryospawned = player.ownedProjectileCounts[ProjectileType<VanityEarth>()] <= 0;
+                        /*bool cryospawned = player.ownedProjectileCounts[ProjectileType<VanityEarth>()] <= 0;
                         if (cryospawned && player.whoAmI == Main.myPlayer)
                         {
                             Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
                                 0f, 0f, ProjectileType<VanityEarth>(), 0, 0f, player.whoAmI);
                         }
-                        vanityearth = true;
+                      vanityearth = true;*/
+                        bool cryospawned = player.ownedProjectileCounts[ProjectileType<VanityRareSand>()] <= 0;
+                        if (cryospawned && player.whoAmI == Main.myPlayer)
+                        {
+                            Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                                0f, 0f, ProjectileType<VanityRareSand>(), 0, 0f, player.whoAmI);
+                        }
+                        vanityrare = true;
 
                     }
                     else
@@ -806,8 +815,11 @@ namespace CalValEX
             rotsin = -Math.Sin(rotcounter);
             if (wulfrumjam && Main.rand.Next(2) == 0)
             {
+                Particle smoke = new SmallSmokeParticle(player.Center, Vector2.Zero, Color.GreenYellow, new Color(40, 40, 40), Main.rand.NextFloat(0.4f, 0.8f), 145 - Main.rand.Next(50));
+                smoke.Velocity = (smoke.Position - player.Center) * 0.3f + player.velocity;
+                GeneralParticleHandler.SpawnParticle(smoke);
             }
-            Mod cata = ModLoader.GetMod("Catalyst");
+            Mod cata = ModLoader.GetMod("CatalystMod");
             if (cata != null)
             {
                 if (NPC.AnyNPCs(cata.NPCType("Astrageldon")))
@@ -1137,14 +1149,14 @@ namespace CalValEX
                     //INSERT SOUND
                     CalamityMod.CalamityUtils.SpawnBossBetter(dude.Top - new Vector2(42f, 84f), NPCType<CalamityMod.NPCs.Providence.Providence>());
                 }, -1, false, 0f, new int[] { NPCType<CalamityMod.NPCs.Providence.ProvSpawnDefense>(), NPCType<CalamityMod.NPCs.Providence.ProvSpawnOffense>(), NPCType<CalamityMod.NPCs.Providence.ProvSpawnHealer>() }));
-                Bosses.Add(new Boss(ModLoader.GetMod("Catalyst").NPCType("Astrageldon"), TimeChangeContext.None, delegate
+                Bosses.Add(new Boss(ModLoader.GetMod("CatalystMod").NPCType("Astrageldon"), TimeChangeContext.None, delegate
                 {
                     CalamityMod.CalamityUtils.DisplayLocalizedText("Mods.CalamityMod.BossRushTierFourEndText2", XerocTextColor);
                     Player dude = Main.player[ClosestPlayerToWorldCenter];
-                    int bean = NPC.NewNPC((int)(dude.position.X + Main.rand.Next(-100, 101)), (int)(dude.position.Y - 1400f), ModLoader.GetMod("Catalyst").NPCType("Astrageldon"), 1);
+                    int bean = NPC.NewNPC((int)(dude.position.X + Main.rand.Next(-100, 101)), (int)(dude.position.Y - 1400f), ModLoader.GetMod("CatalystMod").NPCType("Astrageldon"), 1);
                     Main.npc[bean].timeLeft *= 20;
                     CalamityMod.CalamityUtils.BossAwakenMessage(bean);
-                }, -1, false, 0f, new int[] { ModLoader.GetMod("Catalyst").NPCType("AstragldonSlimer"), ModLoader.GetMod("Catalyst").NPCType("ArmoredAstralSlime") }));
+                }, -1, false, 0f, new int[] { ModLoader.GetMod("CatalystMod").NPCType("AstragldonSlimer"), ModLoader.GetMod("CatalystMod").NPCType("ArmoredAstralSlime") }));
                 Bosses.Add(new Boss(NPCType<CalamityMod.NPCs.SupremeCalamitas.SupremeCalamitas>(), TimeChangeContext.None, delegate
                 {
                     Player dude = Main.player[ClosestPlayerToWorldCenter];
@@ -1372,10 +1384,15 @@ namespace CalValEX
                 else if (CalValEXWorld.RockshrinEX)
                 {
                     CalamityMod.Events.BossRushSky.ShouldDrawRegularly = true;
+                    player.ManageSpecialBiomeVisuals("CalamityMod:BossRush", TerminalMonolith, player.Center);
                 }
                 else if (cryoMonolith)
                 {
                     CalamityMod.Skies.CryogenSky.ShouldDrawRegularly = true;
+                    //Terraria.Graphics.Effects.SkyManager.Instance.Activate("CalamityMod:Cryogen", player.Center);
+                    CalamityMod.Skies.CryogenSky.UpdateDrawEligibility();
+                    //SkyManager.Instance.Activate("CalamityMod:Cryogen", player.Center);
+                    //CalamityMod.CryogenSky.UpdateDrawEligibility();
                 }
             }
         }
@@ -1699,7 +1716,7 @@ namespace CalValEX
             CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
             int secondyoffset = 0;
             float alb = (255 - drawPlayer.immuneAlpha) / 255f;
-            if (modPlayer.apballoon)
+            if (modPlayer.apballoon || modPlayer.twinballoon)
             {
                 int winflip = 1 * -drawPlayer.direction;
                 Texture2D texture = mod.GetTexture("Items/Equips/Balloons/ApolloBalloonEquipped");
@@ -1713,7 +1730,7 @@ namespace CalValEX
                 };
                 Main.playerDrawData.Add(data);
             }
-            else if (modPlayer.artballoon)
+            if ((modPlayer.artballoon && !modPlayer.apballoon) || modPlayer.twinballoon)
             {
                 Texture2D texture = mod.GetTexture("Items/Equips/Balloons/ArtemisBalloonEquipped");
                 Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * player.direction - (140 * player.direction), drawPlayer.gfxOffY - 170 - secondyoffset);
@@ -1726,21 +1743,80 @@ namespace CalValEX
                 };
                 Main.playerDrawData.Add(data);
             }
-            else if (modPlayer.twinballoon)
+            /*else if (modPlayer.twinballoon)
             {
+
                 int winflip = 1 * -drawPlayer.direction;
-                Texture2D texture = mod.GetTexture("Items/Equips/Balloons/ArtemisBalloonEquipped");
-                Texture2D texture2 = mod.GetTexture("Items/Equips/Balloons/ApolloBalloonEquipped");
-                Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * player.direction - (140 * player.direction), drawPlayer.gfxOffY - 170 - secondyoffset);
-                Vector2 wtf2 = drawPlayer.Center - Main.screenPosition + new Vector2(0f * player.direction + (40 * player.direction), drawPlayer.gfxOffY - 170 - secondyoffset);
+                Texture2D texture = mod.GetTexture("Items/Equips/Balloons/ExoTwins/Artemis");
+                Texture2D texture2 = mod.GetTexture("Items/Equips/Balloons/ExoTwins/Apollo");
+                Vector2 wtf = drawPlayer.Center + new Vector2(0f * player.direction - (320 * player.direction), drawPlayer.gfxOffY - 270 - secondyoffset) - Main.screenPosition;
+                Vector2 wtf2 = drawPlayer.Center + new Vector2(0f * player.direction + (-60 * player.direction), drawPlayer.gfxOffY - 270 - secondyoffset) - Main.screenPosition;
+
+                {
+
+                    Texture2D chainTex = ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresChain");
+
+                    float curvature = MathHelper.Clamp(Math.Abs(drawPlayer.Center.X - wtf.X) / 50f * 80, 15, 80);
+
+                    Vector2 controlPoint1 = drawPlayer.Center - Vector2.UnitY * curvature - new Vector2(180 * drawPlayer.direction, -80);
+                    Vector2 controlPoint2 = wtf + Vector2.UnitY * curvature + Main.screenPosition;
+
+                    BezierCurve curve = new BezierCurve(new Vector2[] { drawPlayer.Center, controlPoint1, controlPoint2, wtf + Main.screenPosition });
+                    int numPoints = 20; //"Should make dynamic based on curve length, but I'm not sure how to smoothly do that while using a bezier curve" -Graydee, from the code i referenced. I do agree.
+                    Vector2[] chainPositions = curve.GetPoints(numPoints).ToArray();
+
+                    //Draw each chain segment bar the very first one
+                    for (int i = 1; i < numPoints; i++)
+                    {
+                        Vector2 position = chainPositions[i];
+                        float rotation = (chainPositions[i] - chainPositions[i - 1]).ToRotation() - MathHelper.PiOver2; //Calculate rotation based on direction from last point
+                        float yScale = Vector2.Distance(chainPositions[i], chainPositions[i - 1]) / chainTex.Height; //Calculate how much to squash/stretch for smooth chain based on distance between points
+                        Vector2 scale = new Vector2(1, yScale);
+                        Color chainLightColor = Lighting.GetColor((int)position.X / 16, (int)position.Y / 16); //Lighting of the position of the chain segment
+                        Vector2 origine = new Vector2(chainTex.Width / 2, chainTex.Height); //Draw from center bottom of texture
+                        DrawData data3 = new DrawData(chainTex, position - Main.screenPosition, null, chainLightColor, rotation, origine, scale, SpriteEffects.None, 0);
+                        Main.playerDrawData.Add(data3);
+
+                    }
+                }
+                {
+                    Texture2D chainTex = ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresChain");
+
+                    float curvature = MathHelper.Clamp(Math.Abs(drawPlayer.Center.X - wtf2.X) / 50f * 80, 15, 80);
+
+                    Vector2 controlPoint1 = drawPlayer.Center - Vector2.UnitY * curvature - new Vector2 (80 * drawPlayer.direction, 80);
+                    Vector2 controlPoint2 = wtf2 + Vector2.UnitY * curvature + Main.screenPosition;
+
+                    BezierCurve curve = new BezierCurve(new Vector2[] { drawPlayer.Center, controlPoint1, controlPoint2, wtf2 + Main.screenPosition });
+                    int numPoints = 20; //"Should make dynamic based on curve length, but I'm not sure how to smoothly do that while using a bezier curve" -Graydee, from the code i referenced. I do agree.
+                    Vector2[] chainPositions = curve.GetPoints(numPoints).ToArray();
+
+                    //Draw each chain segment bar the very first one
+                    for (int i = 1; i < numPoints; i++)
+                    {
+                        Vector2 position = chainPositions[i];
+                        float rotation = (chainPositions[i] - chainPositions[i - 1]).ToRotation() - MathHelper.PiOver2; //Calculate rotation based on direction from last point
+                        float yScale = Vector2.Distance(chainPositions[i], chainPositions[i - 1]) / chainTex.Height; //Calculate how much to squash/stretch for smooth chain based on distance between points
+                        Vector2 scale = new Vector2(1, yScale);
+                        Color chainLightColor = Lighting.GetColor((int)position.X / 16, (int)position.Y / 16); //Lighting of the position of the chain segment
+                        Vector2 origine = new Vector2(chainTex.Width / 2, chainTex.Height); //Draw from center bottom of texture
+                        DrawData data4 = new DrawData(chainTex, position - Main.screenPosition, null, chainLightColor, rotation, origine, scale, SpriteEffects.None, 0);
+                        Main.playerDrawData.Add(data4);
+
+                    }
+                }
+
+
+
+
                 Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
                 Rectangle conesquare = texture.Frame(1, 5, 0, modPlayer.twinframe);
-                DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, 0f, origin, 1, player.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0
+                DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, (float)Math.PI / 2, origin, 1, player.direction == -1 ? SpriteEffects.FlipVertically : SpriteEffects.None, 0
                 )
                 {
                     shader = drawInfo.balloonShader
                 };
-                DrawData data2 = new DrawData(texture2, wtf2, conesquare, Color.White * alb, 0f, origin, 1, player.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0
+                DrawData data2 = new DrawData(texture2, wtf2, conesquare, Color.White * alb, (float)Math.PI/2, origin, 1, player.direction == -1 ? SpriteEffects.FlipVertically : SpriteEffects.None, 0
                 )
                 {
                     shader = drawInfo.balloonShader
@@ -1750,7 +1826,7 @@ namespace CalValEX
                 Main.playerDrawData.Add(data2);
 
 
-            }
+            }*/
         });
 
         //Welcome to pong hell

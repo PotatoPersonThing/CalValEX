@@ -18,7 +18,7 @@ namespace CalValEX.AprilFools
             item.damage = 47;
             item.melee = true;
             item.value = Item.sellPrice(0, 5);
-            item.rare = ItemRarityID.Red;
+            item.rare = ItemRarityID.Cyan;
             item.useTime = 9;
             item.useAnimation = 9;
             item.useStyle = ItemUseStyleID.SwingThrow;
@@ -145,27 +145,6 @@ public override void ModifyHitNPC(Player player, NPC target, ref int damage, ref
             Projectile.NewProjectile(player.position.X, player.position.Y, twidir, twidir2, ProjectileID.CursedFlameFriendly, 201, 0.1f, item.owner);
             Projectile.NewProjectile(player.position.X, player.position.Y, twidir, twidir2, 661, 401, 0.1f, item.owner);
             return true;
-            }
-        }
-
-        public override void AddRecipes()
-        {
-            Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            if (CalValEX.month != 4 && orthoceraDLC == null)
-            {
-                return;
-            }
-            else
-            {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
-                {
-                    ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("GalacticaSingularity"), 10);
-                    recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Voidstone"), 100);
-                    recipe.AddTile(TileID.LunarCraftingStation);
-                    recipe.SetResult(this);
-                    recipe.AddRecipe();
-                }
             }
         }
     }

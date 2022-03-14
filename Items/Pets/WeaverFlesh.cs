@@ -62,7 +62,7 @@ namespace CalValEX.Items.Pets
 
         public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            type = mod.ProjectileType("SWPetHead");
+            type = mod.ProjectileType("SWPet");
             return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
             type = mod.ProjectileType("StasisNaked");
             return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);

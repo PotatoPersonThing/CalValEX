@@ -35,7 +35,7 @@ namespace CalValEX.Items.Plushies
 
         public override void AddRecipes()
         {
-            Mod Cata = ModLoader.GetMod("Catalyst");
+            Mod Cata = ModLoader.GetMod("CatalystMod");
             if (Cata != null)
             {
                 Mod CalValEX = ModLoader.GetMod("CalamityMod");

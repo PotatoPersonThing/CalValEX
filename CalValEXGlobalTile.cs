@@ -10,8 +10,16 @@ namespace CalValEX
 {
 	public class CalValEXGlobalTile : GlobalTile
     {
-        public static void TileGlowmask(int i, int j, Texture2D text, SpriteBatch sprit)
+        /// <summary>This function lets you easily set a tile glowmask. Compatible with both blocks and furniture.</summary>
+        /// <param name="i">The x coord of the tile</param>
+        /// <param name="j">The y coord of the tile</param> 
+        /// <param name="text">The glowmask's file path</param>
+        /// <param name="sprit">Just put 'spriteBatch' here</param> 
+        /// <param name="frameheight">Amount of frames the glowmask uses, typically you'll just need to put 'animationFrameHeight'</param> 
+        /// <param name="type">Id the tile, needed for an animated glowmask because YuHcode doesn't know how to automate this</param>
+        public static void TileGlowmask(int i, int j, Texture2D text, SpriteBatch sprit, int frameheight = 0, ushort type = 0)
         {
+            var frame = new Rectangle(Main.tile[i, j].frameX, Main.tile[i, j].frameY + frameheight * Main.tileFrame[type], 16, 16);
             int xFrameOffset = Main.tile[i, j].frameX;
             int yFrameOffset = Main.tile[i, j].frameY;
             Texture2D glowmask = text;
@@ -19,10 +27,20 @@ namespace CalValEX
             Vector2 drawPosition = new Vector2(i * 16 - Main.screenPosition.X, j * 16 - Main.screenPosition.Y) + drawOffest;
             Color drawColour = Color.White;
             Tile trackTile = Main.tile[i, j];
-            if (!trackTile.halfBrick() && trackTile.slope() == 0)
-                sprit.Draw(glowmask, drawPosition, new Rectangle(xFrameOffset, yFrameOffset, 16, 16), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
-            else if (trackTile.halfBrick())
-                sprit.Draw(glowmask, drawPosition + new Vector2(0f, 8f), new Rectangle(xFrameOffset, yFrameOffset, 16, 8), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
+            if (frameheight == 0)
+            {
+                if (!trackTile.halfBrick() && trackTile.slope() == 0)
+                    sprit.Draw(glowmask, drawPosition, new Rectangle(xFrameOffset, yFrameOffset, 16, 16), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
+                else if (trackTile.halfBrick())
+                    sprit.Draw(glowmask, drawPosition + new Vector2(0f, 8f), new Rectangle(xFrameOffset, yFrameOffset, 16, 8), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
+            }
+            else
+            {
+                if (!trackTile.halfBrick() && trackTile.slope() == 0)
+                    sprit.Draw(glowmask, drawPosition, frame, drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
+                else if (trackTile.halfBrick())
+                    sprit.Draw(glowmask, drawPosition + new Vector2(0f, 8f), frame, drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
+            }
         }
 
         public static void ChestGlowmask(int i, int j, Texture2D text, SpriteBatch sprit)

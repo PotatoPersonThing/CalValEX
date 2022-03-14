@@ -27,7 +27,7 @@ namespace CalValEX.Projectiles
 
         public override bool? CanHitNPC(NPC target)
         {
-            if (target.type == ModContent.NPCType<AprilFools.Jharim>())
+            if (target.type == ModContent.NPCType<AprilFools.Jharim.Jharim>())
             {
                 return true;
             }
@@ -44,7 +44,7 @@ namespace CalValEX.Projectiles
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            if (target.type == ModContent.NPCType<AprilFools.Jharim>() && target.life <= 0)
+            if (target.type == ModContent.NPCType<AprilFools.Jharim.Jharim>() && target.life <= 0)
             {
                 CalValEXWorld.jharinter = true;
             }

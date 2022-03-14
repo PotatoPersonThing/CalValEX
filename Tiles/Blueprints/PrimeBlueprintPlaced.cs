@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Tiles.Blueprints;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace CalValEX.Tiles.Blueprints
 {
@@ -47,7 +48,7 @@ namespace CalValEX.Tiles.Blueprints
         }
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
-            CalValEXGlobalTile.TileGlowmask(i, j, ModContent.GetTexture("CalValEX/Tiles/Blueprints/PrimeBlueprintPlaced_Glow"), spriteBatch);
+            CalValEXGlobalTile.TileGlowmask(i, j, ModContent.GetTexture("CalValEX/Tiles/Blueprints/PrimeBlueprintPlaced_Glow"), spriteBatch, animationFrameHeight, Type);
         }
     }
 }

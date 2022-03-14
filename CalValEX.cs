@@ -205,7 +205,7 @@ namespace CalValEX
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<OracleNPC>(), "Equip a Pet or Light Pet");
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<JellyPriestNPC>(),
                     "Find at the Sulphurous Sea after defeating Acid Rain tier 1");
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<AprilFools.Jharim>(), "Dropped from the Starter Bag during April Fools");
+                censusMod.Call("TownNPCCondition", ModContent.NPCType<AprilFools.Jharim.Jharim>(), "Dropped from the Starter Bag during April Fools");
             }
 
             //Compact tile framing support
@@ -224,7 +224,7 @@ namespace CalValEX
             //Boss Rush support?
             /*CalamityMod.Events.BossRushEvent.Bosses.Clear();
             CalamityMod.Events.BossRushEvent.BossIDsAfterDeath.Clear();
-            CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(ModLoader.GetMod("Catalyst").NPCType("Astrageldon"), CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false));
+            CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(ModLoader.GetMod("CatalystMod").NPCType("Astrageldon"), CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false));
             CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(222, CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false));
             CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(ModLoader.GetMod("CalValPlus").NPCType("JohnWulfrum"), CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false, ModLoader.GetMod("CalValPlus").NPCType("WulfrumDroid")));
             CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(ModLoader.GetMod("CalamityMod").NPCType("Yharon"), CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false));
@@ -232,7 +232,7 @@ namespace CalValEX
             CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(ModLoader.GetMod("CalamityMod").NPCType("DevourerofGodsHead"), CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false));*/
 
             //Boss log support
-            Mod catal = ModLoader.GetMod("Catalyst");
+            Mod catal = ModLoader.GetMod("CatalystMod");
             Mod bossChecklist = ModLoader.GetMod("BossChecklist");
             if (bossChecklist != null)
             {
@@ -405,7 +405,7 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Exo Mechs",
                     new List<int> { ModContent.ItemType<XMLightningHook>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Exo Mechs",
-                    new List<int> { ModContent.ItemType<DraedonBody>(), ModContent.ItemType<DraedonLegs>(), ModContent.ItemType<DraedonPlush>(), ModContent.ItemType<AresPlush>(), ModContent.ItemType<ApolloPlush>(), ModContent.ItemType<ArtemisPlush>(), ModContent.ItemType<ThanatosPlush>(), ModContent.ItemType<AncientAuricTeslaHelm>(), ModContent.ItemType<ArtemisBalloonSmall>(), ModContent.ItemType<ApolloBalloonSmall>(), ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>() });
+                    new List<int> { ModContent.ItemType<DraedonBody>(), ModContent.ItemType<DraedonLegs>(), ModContent.ItemType<DraedonPlush>(), ModContent.ItemType<AresPlush>(), ModContent.ItemType<ApolloPlush>(), ModContent.ItemType<ArtemisPlush>(), ModContent.ItemType<ThanatosPlush>(), ModContent.ItemType<AncientAuricTeslaHelm>(), ModContent.ItemType<ArtemisBalloonSmall>(), ModContent.ItemType<ApolloBalloonSmall>(), ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>(), ModContent.ItemType<Items.Pets.ExoMechs.GunmetalRemote>(), ModContent.ItemType<Items.Pets.ExoMechs.GeminiMarkImplants>(), ModContent.ItemType<Items.Pets.ExoMechs.OminousCore>() });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Adult Eidolon Wyrm",
                     new List<int> { ModContent.ItemType<RespirationShrine>()});
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Adult Eidolon Wyrm",
@@ -430,7 +430,7 @@ namespace CalValEX
                 //Catalyst Support
                 if (catal != null)
                 {
-                    bossChecklist.Call("AddToBossCollection", "Catalyst", "Astrageldon",
+                    bossChecklist.Call("AddToBossCollection", "CatalystMod", "Astrageldon",
                            new List<int> { ModContent.ItemType<JellyBottle>(), ModContent.ItemType<Items.Tiles.Plushies.AstrageldonPlush>() });
                 }
             }
@@ -548,6 +548,11 @@ namespace CalValEX
                 music = GetSoundSlot(SoundType.Music, "Sounds/Music/AstralBlight");
                 priority = MusicPriority.Environment;
             }
+            if ((Main.LocalPlayer.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().enraged || Main.LocalPlayer.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().adrenaline > 0f || Main.LocalPlayer.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().rage > 0f) && (Main.LocalPlayer.HeldItem.type == ModContent.ItemType<CalamityMod.Items.Weapons.Melee.Murasama>()/* || Main.LocalPlayer.HeldItem.type == ModContent.ItemType<CalamityMod.Items.Weapons.Melee.UHFMurasama>() One day my love...*/) && Main.LocalPlayer.controlUseItem && !CalValEXConfig.Instance.Sama)
+            {
+                music = GetSoundSlot(SoundType.Music, "Sounds/Music/Murasama");
+                priority = MusicPriority.BossHigh + 1;
+            }
 
         }
 
@@ -601,16 +606,16 @@ namespace CalValEX
 
         public override void AddRecipes()
         {
-            Mod catalyst = ModLoader.GetMod("Catalyst");
+            Mod catalyst = ModLoader.GetMod("CatalystMod");
             if (catalyst != null)
             {
-                catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<AstrageldonPlush>(), true);
-                catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<AstrageldonPlushThrowable>(), true);
-                catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<JellyBottle>(), true);
-                catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<JaredPlush>(), true);
-                catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<JaredPlushThrowable>(), true);
-                catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<RespirationShrine>(), true);
-                catalyst.Call("itemset_superbossrarity_set", ModContent.ItemType<SoulShard>(), true);
+                catalyst.Call("itemset_superbossrarity", ModContent.ItemType<AstrageldonPlush>(), true);
+                catalyst.Call("itemset_superbossrarity", ModContent.ItemType<AstrageldonPlushThrowable>(), true);
+                catalyst.Call("itemset_superbossrarity", ModContent.ItemType<JellyBottle>(), true);
+                catalyst.Call("itemset_superbossrarity", ModContent.ItemType<JaredPlush>(), true);
+                catalyst.Call("itemset_superbossrarity", ModContent.ItemType<JaredPlushThrowable>(), true);
+                catalyst.Call("itemset_superbossrarity", ModContent.ItemType<RespirationShrine>(), true);
+                catalyst.Call("itemset_superbossrarity", ModContent.ItemType<SoulShard>(), true);
             }
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             //Irradiated

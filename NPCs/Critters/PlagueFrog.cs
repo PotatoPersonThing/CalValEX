@@ -120,29 +120,31 @@ namespace CalValEX.NPCs.Critters
 
         public override void SetDefaults()
         {
-            //npc.width = 56;
-            //npc.height = 26;
-            //npc.aiStyle = 67;
-            //npc.damage = 0;
-            //npc.defense = 0;
-            //npc.lifeMax = 2000;
-            //npc.HitSound = SoundID.NPCHit38;
-            //npc.DeathSound = SoundID.NPCDeath1;
-            //npc.npcSlots = 0.5f;
-            //npc.noGravity = true;
-            //npc.catchItem = 2007;
-
             npc.CloneDefaults(NPCID.Frog);
             npc.catchItem = (short)ItemType<PlagueFrogItem>();
             npc.lavaImmune = false;
-            //npc.aiStyle = 0;
-            npc.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
+            npc.friendly = true;
             aiType = NPCID.Frog;
             animationType = NPCID.Frog;
             npc.lifeMax = 20;
             for (int i = 0; i < npc.buffImmune.Length; i++)
             {
                 npc.buffImmune[(ModLoader.GetMod("CalamityMod").BuffType("Plague"))] = false;
+            }
+        }
+
+        public override void AI()
+        {
+            var thisRect = npc.getRect();
+
+            for (int i = 0; i < Main.maxProjectiles; i++)
+            {
+                var proj = Main.projectile[i];
+
+                if (proj != null && proj.active && proj.getRect().Intersects(thisRect) & proj.type == ProjectileID.PurificationPowder)
+                {
+                    npc.Transform(NPCID.Frog);
+                }
             }
         }
 

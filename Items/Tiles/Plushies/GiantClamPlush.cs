@@ -9,6 +9,7 @@ namespace CalValEX.Items.Tiles.Plushies
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Giant Clam Plushie (Placeable)");
+            Tooltip.SetDefault("Revengeance drop");
         }
 
         public override void SetDefaults()

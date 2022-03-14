@@ -47,6 +47,10 @@ namespace CalValEX.Tiles.Cages
             }
             Item.NewItem(i * 16, j * 16, 16, 48, mod.ItemType(item));
         }
+        public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
+        {
+            CalValEXGlobalTile.TileGlowmask(i, j, ModContent.GetTexture("CalValEX/Tiles/Cages/NukeJarPlaced_Glow"), spriteBatch);
+        }
 
         public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)
         {

@@ -21,11 +21,11 @@ namespace CalValEX.Buffs.Pets
 
             player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().sepet = true;
-            bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<SepulcherHead>()] <= 0;
+            bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<Sepulchling>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
                 Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
-                    0f, 0f, ProjectileType<SepulcherHead>(), 0, 0f, player.whoAmI);
+                    0f, 0f, ProjectileType<Sepulchling>(), 0, 0f, player.whoAmI);
             }
             Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
             if (CalValEX.month != 4 && orthoceraDLC == null)

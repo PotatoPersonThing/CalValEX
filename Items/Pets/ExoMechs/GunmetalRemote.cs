@@ -57,8 +57,8 @@ namespace CalValEX.Items.Pets.ExoMechs
         public override void HoldItem(Player player)
         {
             //THIS CODE NEEDS CALAMITY 1.5.1.001 STUFF TO WORK PROPERLY!
-            //player.Calamity().rightClickListener = true;
-            //player.Calamity().mouseWorldListener = true;
+            player.Calamity().rightClickListener = true;
+            player.Calamity().mouseWorldListener = true;
         }
 
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)

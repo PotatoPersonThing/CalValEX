@@ -15,16 +15,6 @@ namespace CalValEX.AprilFools
     {
         int deathcounter = 0;
         int lifecounter = 0;
-        private bool talk1 = false;
-        private bool talk2 = false;
-        private bool talk3 = false;
-        private bool talk4 = false;
-        private bool talk5 = false;
-        private bool talk6 = false;
-        private bool talk7 = false;
-        private bool talk8 = false;
-        private bool talk9 = false;
-        private bool talk10 = false;
         int sandblasttimer = 0;
         int mushroom = 0;
         int birb = 1200;
@@ -33,6 +23,11 @@ namespace CalValEX.AprilFools
         int polterdart = 0;
         int mine;
         int raintype;
+        int attackphase;
+        int attackcounter1;
+        int attackcounter2;
+        int attackmoment = 0;
+        int chargetype = 0;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Amogus");
@@ -143,15 +138,6 @@ namespace CalValEX.AprilFools
             { 
                 modPlayer.amogus = false;
                 projectile.active = false;
-                talk1 = false;
-                talk2 = false;
-                talk3 = false;
-                talk4 = false;
-                talk5 = false;
-                talk6 = false;
-                talk7 = false;
-                talk8 = false;
-                talk9 = false;
             }
             if (modPlayer.amogus)
                 projectile.timeLeft = 2;
@@ -176,6 +162,13 @@ namespace CalValEX.AprilFools
              *
              * you can still use these, changing thing inside (however it's not recomended unless you want to add custom behaviour to these)
              */
+
+            /*if (NPC.AnyNPCs(ModContent.NPCType<Meldosaurus.Meldosaurus>()) && deathcounter <= 0)
+            {
+                projectile.tileCollide = false;
+                projectile.localAI[1] = 5;
+            }*/
+
             if ((CalValEX.month != 4 && projectile.localAI[1] != 4 && !CalValEXWorld.amogus) || modPlayer.rockhat)
             {
                 deathcounter++;
@@ -212,7 +205,7 @@ namespace CalValEX.AprilFools
                         {
                             if (Main.rand.Next(2) == 0)
                             {
-                                raintype = calamityMod.ProjectileType("BrimstoneLaser");
+                                raintype = calamityMod.ProjectileType("BrimstoneHellblast");
                             }
                             else
                             {
@@ -232,14 +225,18 @@ namespace CalValEX.AprilFools
                         }
                         else if (deathcounter > 3600)
                         {
-                            if (Main.rand.Next(2) == 0)
+                            if (Main.rand.Next(3) == 0)
                             {
                                 raintype = calamityMod.ProjectileType("SignusScythe");
                             }
+                            else if (Main.rand.Next(2) == 0)
+                            {
+                                raintype = calamityMod.ProjectileType("ApolloRocket");
+                            }
                             else
                             {
-                                raintype = calamityMod.ProjectileType("BrimstoneHellblast");
-                            }
+                                raintype = calamityMod.ProjectileType("BrimstoneGigaBlast");
+                            }    
                         }
 
                         if (sandblasttimer >= 10)
@@ -356,31 +353,26 @@ namespace CalValEX.AprilFools
                                 projectile.frame = 0;
                         }
                     }
-                    if (deathcounter == 300 && !talk1)
+                    if (deathcounter == 300)
                     {
                         EdgyTalk("HOOOOOOOOOOOOOOOOLD UP", Color.White, true);
-                        talk1 = true;
                     }
-                    if (deathcounter == 420 && !talk2)
+                    if (deathcounter == 420)
                     {
                         EdgyTalk("This isn't April... why am I here...", Color.White, true);
-                        talk2 = true;
                     }
-                    if (deathcounter == 540 && !talk3)
+                    if (deathcounter == 540)
                     {
                         EdgyTalk("Could it be that... Someone has been cheating!? AN IMPOSTER EVEN?!?!?!", Color.White, true);
-                        talk3 = true;
                         projectile.rotation = 0;
                     }
-                    if (deathcounter == 680 && !talk4)
+                    if (deathcounter == 680)
                     {
                         EdgyTalk("That's pretty sus kid, and you know what we do to sussy little ones right?", Color.White, true);
-                        talk4 = true;
                     }
-                    if (deathcounter == 820 && !talk5)
+                    if (deathcounter == 820)
                     {
                         EdgyTalk("We eject them.", Color.DarkRed, true);
-                        talk5 = true;
                         projectile.alpha = 50;
                         projectile.rotation = 0;
                     }
@@ -403,40 +395,293 @@ namespace CalValEX.AprilFools
                         projectile.position.X = player.position.X - 256;
                         projectile.position.Y = player.position.Y;
                     }
-                    if (lifecounter == 300 && !talk6)
+                    if (lifecounter == 300)
                     {
                         EdgyTalk("Interesting, you survived...", Color.White, true);
-                        talk6 = true;
                     }
-                    if (lifecounter == 420 && !talk7)
+                    if (lifecounter == 420)
                     {
                         EdgyTalk("You probably cheated tbh, or the attacks weren't working properly.", Color.White, true);
-                        talk7 = true;
                     }
-                    if (lifecounter == 540 && !talk8)
+                    if (lifecounter == 540)
                     {
-                        EdgyTalk("Oh well, guess you prooved your worthiness to me. Wear the stone hat if you wanna go again.", Color.White, true);
-                        talk8 = true;
+                        EdgyTalk("Oh well, guess you proved your worthiness to me. Wear the stone hat if you wanna go again.", Color.White, true);
                         CalValEXWorld.amogus = true;
                         CalValEXWorld.UpdateWorldBool();
                     }
-                    if (lifecounter == 680 && !talk9)
+                    if (lifecounter == 680)
                     {
                         projectile.scale = 1;
                         projectile.localAI[1] = 0;
                         deathcounter = 0;
                         lifecounter = 0;
-                        talk1 = false;
-                        talk2 = false;
-                        talk3 = false;
-                        talk4 = false;
-                        talk5 = false;
-                        talk6 = false;
-                        talk7 = false;
-                        talk8 = false;
-                        talk9 = false;
                     }
                     break;
+                /*case 5:
+                    {
+                        if (!NPC.AnyNPCs(ModContent.NPCType<Meldosaurus.Meldosaurus>()))
+                        {
+                            attackcounter1 = 0;
+                            attackcounter2 = 0;
+                            attackphase = 0;
+                            projectile.localAI[1] = 0;
+                        }
+                        if (attackphase == 0)
+                        {
+                            attackcounter2--;
+                            var thisRect = projectile.getRect();
+
+                            for (int i = 0; i < Main.maxNPCs; i++)
+                            {
+                                var npc = Main.npc[i];
+
+                                if (npc != null && npc.active && npc.getRect().Intersects(thisRect) && npc.type == ModContent.NPCType<Meldosaurus.Meldosaurus>() && attackcounter2 <= 20)
+                                {
+                                    Projectile.NewProjectile((int)npc.Center.X, (int)npc.Center.Y, 0, 0, ModContent.ProjectileType<CalamityMod.Projectiles.Typeless.FuckYou>(), 1020, 0, Main.myPlayer);
+                                    attackcounter2 = 40;
+                                }
+                            }
+                            int chargedelay = 30;
+                            int chargedist = 10;
+                            attackcounter1++;
+                            if (chargetype == 0)
+                            {
+                                if (attackcounter1 <= chargedelay) //Less than or equal to 30
+                                {
+                                    projectile.position.X = Main.npc[CalValEXGlobalNPC.meldodon].Center.X - 100;
+                                    projectile.position.Y = Main.npc[CalValEXGlobalNPC.meldodon].Center.Y;
+                                }
+                                if (attackcounter1 == chargedelay + 1) //Exactly 31
+                                {
+                                    projectile.velocity.X = 20;
+                                    projectile.velocity.Y = 0;
+                                    attackmoment = 0 + chargedelay + chargedist; //Set the counter to 40
+                                    chargetype = 1;
+                                }
+                            }
+                            if (chargetype == 1)
+                            {
+                                if (attackcounter1 >= attackmoment && attackcounter1 <= attackmoment + chargedelay) //Between 40 and 70
+                                {
+                                    projectile.position.Y = Main.npc[CalValEXGlobalNPC.meldodon].Center.Y - 100;
+                                    projectile.position.X = Main.npc[CalValEXGlobalNPC.meldodon].Center.X;
+                                }
+                                if (attackcounter1 == attackmoment + chargedelay + 1) //71
+                                {
+                                    projectile.velocity.Y = 20;
+                                    projectile.velocity.X = 0;
+                                    attackmoment = attackmoment + chargedelay + chargedist; //80
+                                    chargetype = 2;
+                                }
+                            }
+                            if (chargetype == 2)
+                            {
+                                if (attackcounter1 >= attackmoment && attackcounter1 <= attackmoment + chargedelay) //Between 80 and 110
+                                {
+                                    projectile.position.Y = Main.npc[CalValEXGlobalNPC.meldodon].Center.Y + 100;
+                                    projectile.position.X = Main.npc[CalValEXGlobalNPC.meldodon].Center.X - 100;
+                                }
+                                if (attackcounter1 == attackmoment + chargedelay + 1) //111
+                                {
+                                    projectile.velocity.X = 20;
+                                    projectile.velocity.Y = -20;
+                                    attackmoment = attackmoment + chargedelay + chargedist; //120
+                                    chargetype = 3;
+                                }
+                            }
+                            if (chargetype == 3)
+                            {
+                                if (attackcounter1 >= attackmoment && attackcounter1 <= attackmoment + chargedelay) //Between 120 and 150
+                                {
+                                    projectile.position.Y = Main.npc[CalValEXGlobalNPC.meldodon].Center.Y - 100;
+                                    projectile.position.X = Main.npc[CalValEXGlobalNPC.meldodon].Center.X + 100;
+                                }
+                                if (attackcounter1 == attackmoment + chargedelay + 1) //151
+                                {
+                                    projectile.velocity.X = -20;
+                                    projectile.velocity.Y = +20;
+                                    attackmoment = attackmoment + chargedelay + chargedist; //160
+                                    chargetype = 4;
+                                }
+                            }
+                            if (chargetype == 4)
+                            {
+                                if (attackcounter1 >= attackmoment + chargedist) //170
+                                {
+                                    chargetype = 0;
+                                    attackmoment = 0;
+                                    attackcounter1 = 0;
+                                    attackcounter2 = 0;
+                                    attackphase = 1;
+                                }
+                            }
+                        }
+                        if (attackphase == 1)
+                        {
+                            attackcounter1++;
+                            attackcounter2++;
+                            int num412 = 1;
+                            float num413 = 25f;
+                            float num414 = 1.2f;
+                            float distanceX = 480f;
+                            float yoffset = 0f;
+
+                            Vector2 vector40 = new Vector2(projectile.position.X + (float)projectile.width * 0.5f, projectile.position.Y + (float)projectile.height * 0.5f);
+                            float num415 = Main.npc[CalValEXGlobalNPC.meldodon].position.X + (float)(Main.npc[CalValEXGlobalNPC.meldodon].width / 2) + (float)(num412 * distanceX) - vector40.X;
+                            float num416 = Main.npc[CalValEXGlobalNPC.meldodon].position.Y + (float)(Main.npc[CalValEXGlobalNPC.meldodon].height / 2) + yoffset - vector40.Y;
+                            float num417 = (float)Math.Sqrt(num415 * num415 + num416 * num416);
+                            num417 = num413 / num417;
+                            num415 *= num417;
+                            num416 *= num417;
+                            if (projectile.velocity.X < num415)
+                            {
+                                projectile.velocity.X += num414;
+                                if (projectile.velocity.X < 0f && num415 > 0f)
+                                {
+                                    projectile.velocity.X += num414;
+                                }
+                            }
+                            else if (projectile.velocity.X > num415)
+                            {
+                                projectile.velocity.X -= num414;
+                                if (projectile.velocity.X > 0f && num415 < 0f)
+                                {
+                                    projectile.velocity.X -= num414;
+                                }
+                            }
+                            if (projectile.velocity.Y < num416)
+                            {
+                                projectile.velocity.Y += num414;
+                                if (projectile.velocity.Y < 0f && num416 > 0f)
+                                {
+                                    projectile.velocity.Y += num414;
+                                }
+                            }
+                            else if (projectile.velocity.Y > num416)
+                            {
+                                projectile.velocity.Y -= num414;
+                                if (projectile.velocity.Y > 0f && num416 < 0f)
+                                {
+                                    projectile.velocity.Y -= num414;
+                                }
+                            }
+                            if (attackcounter1 >= 5)
+                            {
+                                Main.PlaySound(SoundID.Item, (int)projectile.Center.X, (int)projectile.Center.Y, 41);
+                                Vector2 position = projectile.Center;
+                                position.X = projectile.Center.X + (10f * projectile.direction);
+                                Vector2 targetPosition = Main.npc[CalValEXGlobalNPC.meldodon].Center;
+                                Vector2 direction = targetPosition - position;
+                                direction.Normalize();
+                                float speed = 15f;
+                                int type = ModContent.ProjectileType<CalamityMod.Projectiles.Ranged.AccelerationBulletProj>();
+                                int damage = Main.expertMode ? 60 : 95;
+                                Projectile.NewProjectile(position, direction * speed, type, damage, 0f, Main.myPlayer);
+                                attackcounter1 = 0;
+                            }
+                            if (attackcounter2 >= 360)
+                            {
+                                attackcounter1 = 0;
+                                attackcounter2 = 0;
+                                attackphase = 2;
+                            }
+                        }
+                        if (attackphase == 2)
+                        {
+                            attackcounter1++;
+                            projectile.velocity.X = 0;
+                            projectile.velocity.Y = 0;
+                            if (attackcounter1 == 60)
+                            {
+                                Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/LargeWeaponFire"), projectile.Center);
+                                Vector2 position = projectile.Center;
+                                position.X = projectile.Center.X + (10f * projectile.direction);
+                                Vector2 targetPosition = Main.npc[CalValEXGlobalNPC.meldodon].Center;
+                                Vector2 direction = targetPosition - position;
+                                direction.Normalize();
+                                float speed = 18f;
+                                int type = ModContent.ProjectileType<CalamityMod.Projectiles.Ranged.AMRShot>();
+                                int damage = Main.expertMode ? 1702 : 2040;
+                                Projectile.NewProjectile(position, direction * speed, type, damage, 0f, Main.myPlayer);
+                            }
+                            if (attackcounter1 >= 120)
+                            {
+                                attackcounter1 = 0;
+                                attackphase = 3;
+                            }
+                        } 
+                        if (attackphase == 3)
+                        {
+                            attackcounter1++;
+                            attackcounter2++;
+                            int num412 = 1;
+                            float num413 = 25f;
+                            float num414 = 1.2f;
+                            float distanceX = 580f;
+                            float yoffset = -300f;
+
+                            Vector2 vector40 = new Vector2(projectile.position.X + (float)projectile.width * 0.5f, projectile.position.Y + (float)projectile.height * 0.5f);
+                            float num415 = Main.npc[CalValEXGlobalNPC.meldodon].position.X + (float)(Main.npc[CalValEXGlobalNPC.meldodon].width / 2) + (float)(num412 * distanceX) - vector40.X;
+                            float num416 = Main.npc[CalValEXGlobalNPC.meldodon].position.Y + (float)(Main.npc[CalValEXGlobalNPC.meldodon].height / 2) + yoffset - vector40.Y;
+                            float num417 = (float)Math.Sqrt(num415 * num415 + num416 * num416);
+                            num417 = num413 / num417;
+                            num415 *= num417;
+                            num416 *= num417;
+                            if (projectile.velocity.X < num415)
+                            {
+                                projectile.velocity.X += num414;
+                                if (projectile.velocity.X < 0f && num415 > 0f)
+                                {
+                                    projectile.velocity.X += num414;
+                                }
+                            }
+                            else if (projectile.velocity.X > num415)
+                            {
+                                projectile.velocity.X -= num414;
+                                if (projectile.velocity.X > 0f && num415 < 0f)
+                                {
+                                    projectile.velocity.X -= num414;
+                                }
+                            }
+                            if (projectile.velocity.Y < num416)
+                            {
+                                projectile.velocity.Y += num414;
+                                if (projectile.velocity.Y < 0f && num416 > 0f)
+                                {
+                                    projectile.velocity.Y += num414;
+                                }
+                            }
+                            else if (projectile.velocity.Y > num416)
+                            {
+                                projectile.velocity.Y -= num414;
+                                if (projectile.velocity.Y > 0f && num416 < 0f)
+                                {
+                                    projectile.velocity.Y -= num414;
+                                }
+                            }
+                            if (attackcounter1 >= 40)
+                            {
+                                Main.PlaySound(SoundID.Item, (int)projectile.Center.X, (int)projectile.Center.Y, 21);
+                                Vector2 position = projectile.Center;
+                                position.X = projectile.Center.X + (10f * projectile.direction);
+                                Vector2 targetPosition = Main.npc[CalValEXGlobalNPC.meldodon].Center;
+                                Vector2 direction = targetPosition - position;
+                                direction.Normalize();
+                                float speed = 10f;
+                                int type = ProjectileID.RainCloudRaining;
+                                int damage = Main.expertMode ? 120 : 152;
+                                Projectile.NewProjectile(position, direction * speed, type, damage, 0f, Main.myPlayer);
+                                attackcounter1 = 0;
+                            }
+                            if (attackcounter2 >= 460)
+                            {
+                                attackcounter1 = 0;
+                                attackcounter2 = 0;
+                                attackphase = 0;
+                            }
+                        }
+                    }
+                    break;*/
             }
         }
         public override Color? GetAlpha(Color lightColor)
@@ -449,6 +694,63 @@ namespace CalValEX.AprilFools
             {
                 return null;
             }
+        }
+
+        public override void SafeSendExtraAI(BinaryWriter writer)
+        {
+            writer.Write(deathcounter);
+            writer.Write(lifecounter);
+            writer.Write(sandblasttimer);
+            writer.Write(mushroom);
+            writer.Write(birb);
+            writer.Write(minetimer);
+            writer.Write(infernadotimer);
+            writer.Write(polterdart);
+            writer.Write(mine);
+            writer.Write(raintype);
+            writer.Write(attackphase);
+            writer.Write(attackcounter1);
+            writer.Write(attackcounter2);
+        }
+
+        public override void SafeReceiveExtraAI(BinaryReader reader)
+        {
+            deathcounter = reader.ReadInt32();
+            lifecounter = reader.ReadInt32();
+            sandblasttimer = reader.ReadInt32();
+            mushroom = reader.ReadInt32();
+            birb = reader.ReadInt32();
+            minetimer = reader.ReadInt32();
+            infernadotimer = reader.ReadInt32();
+            polterdart = reader.ReadInt32();
+            mine = reader.ReadInt32();
+            raintype = reader.ReadInt32();
+            attackphase = reader.ReadInt32();
+            attackcounter1 = reader.ReadInt32();
+            attackcounter2 = reader.ReadInt32();
+        }
+
+        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            Texture2D deusheadsprite;
+            if ((attackphase == 1 || attackphase == 2) && projectile.localAI[1] == 5)
+            {
+                deusheadsprite = (ModContent.GetTexture("CalValEX/AprilFools/AmogusGun"));
+            }
+            else if (attackphase == 0 && projectile.localAI[1] == 5)
+            {
+                deusheadsprite = (ModContent.GetTexture("CalValEX/AprilFools/AmogusKnife"));
+            }
+            else
+            {
+                deusheadsprite = (ModContent.GetTexture("CalValEX/Items/Equips/Shields/Invishield_Shield"));
+            }
+
+            int deusheadheight = deusheadsprite.Height;
+
+            Rectangle deusheadsquare = new Rectangle(0, 0, deusheadsprite.Width, deusheadsprite.Height);
+            Color deusheadalpha = projectile.GetAlpha(lightColor);
+            spriteBatch.Draw(deusheadsprite, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY + 10), deusheadsquare, deusheadalpha, projectile.rotation, Utils.Size(deusheadsquare) / 2f, projectile.scale, projectile.spriteDirection != -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
         }
     }
 }

@@ -28,7 +28,7 @@ namespace CalValEX.Items
 
         public override void RightClick(Player player)
         {
-            int choice = Main.rand.Next(32);
+            int choice = Main.rand.Next(34);
             if (choice == 0)
             {
                 player.QuickSpawnItem(ModContent.ItemType<BlazingConflict>());
@@ -152,6 +152,14 @@ namespace CalValEX.Items
             else if (choice == 30)
             {
                 player.QuickSpawnItem(ModContent.ItemType<EyeofXeroc>());
+            }
+            else if (choice == 31)
+            {
+                player.QuickSpawnItem(ModContent.ItemType<UCMMPainting>());
+            }
+            else if (choice == 32)
+            {
+                player.QuickSpawnItem(ModContent.ItemType<OldUCMMPainting>());
             }
             else
             {

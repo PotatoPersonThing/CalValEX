@@ -12,7 +12,7 @@ namespace CalValEX.AprilFools
             if (CalValEX.month == 4)
             {
                 DisplayName.SetDefault("Stratus Astronaut");
-                Tooltip.SetDefault("'amogus'");
+                Tooltip.SetDefault("'amogus'\nHe seems to really hate alien dinosaurs");
                 Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 4));
             }
             else

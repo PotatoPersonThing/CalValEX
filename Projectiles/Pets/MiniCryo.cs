@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using CalamityMod.Particles;
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -70,6 +71,15 @@ namespace CalValEX.Projectiles.Pets
                 projectile.timeLeft = 2;
 
 
+            Vector2 vectorToOwner = player.Center - projectile.Center;
+            float distanceToOwner = vectorToOwner.Length();
+            Vector2 placementrun = new Vector2(projectile.Center.X + Main.rand.Next(-5, 5), projectile.Center.Y + Main.rand.Next(-6, 6));
+            if ((Math.Abs(projectile.velocity.X) > 5 || Math.Abs(projectile.velocity.Y) > 5) && Main.rand.Next(2) == 0)
+            {
+                Particle mist = new MediumMistParticle(placementrun, Vector2.Zero, new Color(172, 238, 255), new Color(145, 170, 188), Main.rand.NextFloat(0.15f, 0.45f), 245 - Main.rand.Next(50), 0.02f);
+                mist.Velocity = (mist.Position - projectile.Center) * 0.2f + projectile.velocity;
+                GeneralParticleHandler.SpawnParticle(mist);
+            }
             /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.
              * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
              * you should make new custom behaviour with numbers higher than 0, or less than 0

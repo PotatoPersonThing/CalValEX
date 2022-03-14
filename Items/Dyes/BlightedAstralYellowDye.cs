@@ -11,6 +11,7 @@ namespace CalValEX.Items.Dyes
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Blighted Astral Yellow Dye");
+            Tooltip.SetDefault("Unobtainable");
         }
 
         public override void SetDefaults()
@@ -23,7 +24,7 @@ namespace CalValEX.Items.Dyes
             item.dye = dye;
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.BottledWater);
@@ -31,6 +32,6 @@ namespace CalValEX.Items.Dyes
             recipe.AddTile(TileID.DyeVat);
             recipe.SetResult(this, 3);
             recipe.AddRecipe();
-        }
+        }*/
     }
 }

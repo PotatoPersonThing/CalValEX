@@ -30,7 +30,7 @@ namespace CalValEX.AprilFools
 			Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
 			if (Main.netMode != 1)
 			{
-				NPC.SpawnOnPlayer(player.whoAmI, (ModContent.NPCType<Jharim>()));
+				NPC.SpawnOnPlayer(player.whoAmI, (ModContent.NPCType<AprilFools.Jharim.Jharim>()));
 			}
 			return true;
 		}
@@ -42,7 +42,7 @@ namespace CalValEX.AprilFools
             {
             return false;
             }
-			else if (NPC.AnyNPCs(ModContent.NPCType<Jharim>()))
+			else if (NPC.AnyNPCs(ModContent.NPCType<AprilFools.Jharim.Jharim>()))
 			{
 				return false;
 			}

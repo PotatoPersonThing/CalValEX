@@ -20,7 +20,7 @@ namespace CalValEX.Backgrounds
 
         public override void Update(GameTime gameTime)
         {
-            Mod catalyst = ModLoader.GetMod("Catalyst");
+            Mod catalyst = ModLoader.GetMod("CatalystMod");
             if (catalyst != null)
             {
                 DeactivateBGs = (bool)catalyst.Call("anyimportantbgsactive");

@@ -190,11 +190,11 @@ namespace CalValEX
                         Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
                         if (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7))
                         {
-                            NPC.NewNPC((int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<Jharim>(), 0, 0f, 0f, 0f, 0f, 255);	
+                            NPC.NewNPC((int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<AprilFools.Jharim.Jharim>(), 0, 0f, 0f, 0f, 0f, 255);	
                         }
                         else if (orthoceraDLC != null)
                         {
-                            NPC.NewNPC((int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<Jharim>(), 0, 0f, 0f, 0f, 0f, 255);
+                            NPC.NewNPC((int)player.Center.X, (int)player.Center.Y, ModContent.NPCType< AprilFools.Jharim.Jharim>(), 0, 0f, 0f, 0f, 0f, 255);
                         }
                         player.QuickSpawnItem(ModContent.ItemType<C>());
                         switch (player.name)
@@ -464,7 +464,7 @@ namespace CalValEX
         public override void OpenVanillaBag(string context, Player player, int arg)
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            Mod catalyst = ModLoader.GetMod("Catalyst");
+            Mod catalyst = ModLoader.GetMod("CatalystMod");
 
             if (context == "bossBag")
             {
@@ -998,18 +998,39 @@ namespace CalValEX
 
                         if (arg == calamityMod.ItemType("DraedonTreasureBag"))
                         {
-                            if (Main.rand.NextFloat() < 0.5f && CalamityWorld.downedThanatos)
+                            if (CalamityWorld.downedThanatos)
                             {
-                                player.QuickSpawnItem(ModContent.ItemType<XMLightningHook>());
+                                if (Main.rand.NextFloat() < 0.5f)
+                                {
+                                    player.QuickSpawnItem(ModContent.ItemType<XMLightningHook>());
+                                }
+                                if (Main.rand.NextFloat() < 0.5f)
+                                {
+                                    player.QuickSpawnItem(ModContent.ItemType<Items.Pets.ExoMechs.GunmetalRemote>());
+                                }
                             }
-                            if (Main.rand.NextFloat() < 0.5f && CalamityWorld.downedArtemisAndApollo)
+                            if (CalamityWorld.downedArtemisAndApollo)
                             {
-                                player.QuickSpawnItem(ModContent.ItemType<ApolloBalloonSmall>());
-                                player.QuickSpawnItem(ModContent.ItemType<ArtemisBalloonSmall>());
+                                if (Main.rand.NextFloat() < 0.5f)
+                                {
+                                    player.QuickSpawnItem(ModContent.ItemType<ApolloBalloonSmall>());
+                                    player.QuickSpawnItem(ModContent.ItemType<ArtemisBalloonSmall>());
+                                }
+                                if (Main.rand.NextFloat() < 0.5f)
+                                {
+                                    player.QuickSpawnItem(ModContent.ItemType<Items.Pets.ExoMechs.GeminiMarkImplants>());
+                                }
                             }
-                            if (Main.rand.NextFloat() < 0.5f && CalamityWorld.downedAres)
+                            if (CalamityWorld.downedAres)
                             {
-                                player.QuickSpawnItem(ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>());
+                                if (Main.rand.NextFloat() < 0.5f)
+                                {
+                                    player.QuickSpawnItem(ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>());
+                                }
+                                if (Main.rand.NextFloat() < 0.5f)
+                                {
+                                    player.QuickSpawnItem(ModContent.ItemType<Items.Pets.ExoMechs.OminousCore>());
+                                }
                             }
                             if (Main.rand.NextFloat() < 0.1f)
                             {
