@@ -13,9 +13,9 @@ namespace CalValEX.Projectiles.Pets
     public class DeusPet : BaseWormPet
     {
         public override string Texture => "CalValEX/Projectiles/Pets/DeusHead";
-        public override string HeadTexture() => "CalValEX/Projectiles/Pets/DeusHead";
-        public override string BodyTexture() => "CalValEX/Projectiles/Pets/DeusBody";
-        public override string TailTexture() => "CalValEX/Projectiles/Pets/DeusTail";
+        public override WormPetVisualSegment HeadSegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/DeusHead");
+        public override WormPetVisualSegment BodySegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/DeusBody");
+        public override WormPetVisualSegment TailSegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/DeusTail");
 
         public override int SegmentSize() => 10;
 

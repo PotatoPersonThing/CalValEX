@@ -13,9 +13,9 @@ namespace CalValEX.Projectiles.Pets
     public class Sepulchling : BaseWormPet
     {
         public override string Texture => "CalValEX/Projectiles/Pets/SepulcherHead";
-        public override string HeadTexture() => "CalValEX/Projectiles/Pets/SepulcherHead";
-        public override string BodyTexture() => "CalValEX/Projectiles/Pets/SepulcherBody";
-        public override string TailTexture() => "CalValEX/Projectiles/Pets/SepulcherTail";
+        public override WormPetVisualSegment HeadSegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/SepulcherHead");
+        public override WormPetVisualSegment BodySegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/SepulcherBody");
+        public override WormPetVisualSegment TailSegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/SepulcherTail");
 
         public override int SegmentSize() => 25;
 
