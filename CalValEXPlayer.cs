@@ -401,7 +401,8 @@ namespace CalValEX
         public bool thanos;
         public bool twins;
         //Æ: Drae's bools
-        public bool ThanHook;
+        public bool digger;
+
 
         public override void Initialize()
         {
@@ -1004,7 +1005,7 @@ namespace CalValEX
             ares = false;
             thanos = false;
             twins = false;
-            ThanHook = false;
+            digger = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
