@@ -11,6 +11,11 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
 {
     public class AresBody : ModProjectile
     {
+        Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
+        public override string Texture => CalValEX.month == 4 || orthoceraDLC != null ?
+            "CalValEX/AprilFools/AresEggo"
+            :"CalValEX/Projectiles/Pets/ExoMechs/AresBody";
+
         bool isInfernumActive;
         //A list of the ideal positions for each arm. The first 2 variables of the Vector2 represent the relative position of the arm to the body and the last variable represents the rotation of the hand
         internal readonly List<Vector3> IdealPositions = new List<Vector3>()
@@ -111,10 +116,19 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             if (ArmPositions == null)
                 return true;
 
-            Texture2D teslaTex = (ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresTesla"));
-            Texture2D laserTex = (ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresLaser"));
-            Texture2D nukeTex = (ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresNuke"));
-            Texture2D plasmaTex = (ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresPlasma"));
+            Texture2D teslaTex = CalValEX.month == 4 || orthoceraDLC != null ?
+                (ModContent.GetTexture("CalValEX/AprilFools/TeslaEggo"))
+                : (ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresTesla"));
+            Texture2D laserTex = CalValEX.month == 4 || orthoceraDLC != null ?
+                (ModContent.GetTexture("CalValEX/AprilFools/LaserEggo"))
+                : (ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresLaser"));
+            Texture2D nukeTex = CalValEX.month == 4 || orthoceraDLC != null ?
+                (ModContent.GetTexture("CalValEX/AprilFools/NukeEggo"))
+                : (ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresNuke"));
+            Texture2D plasmaTex = CalValEX.month == 4 || orthoceraDLC != null ?
+                (ModContent.GetTexture("CalValEX/AprilFools/PlasmaEggo"))
+                : (ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresPlasma"));
+
             Mod infern = ModLoader.GetMod("InfernumMode");
             if (infern != null)
             {
@@ -144,8 +158,12 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             Vector2 position = handPosition - projectile.Center;
             bool flipped = Math.Sign(position.X) != -1;
 
-            Texture2D armTex = ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresArm");
-            Texture2D forearmTex = ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresForearm");
+            Texture2D armTex = CalValEX.month == 4 || orthoceraDLC != null ?
+                (ModContent.GetTexture("CalValEX/AprilFools/AresArmEggo"))
+                :(ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresArm"));
+            Texture2D forearmTex = CalValEX.month == 4 || orthoceraDLC != null ?
+                (ModContent.GetTexture("CalValEX/AprilFools/AresForearmEggo"))
+                : (ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresForearm"));
 
             Rectangle armFrame = new Rectangle(0, top ? 0 : 42, armTex.Width, 40);
             Rectangle handFrame = new Rectangle(0, infernum ? 40 : 0, 60, 38);
@@ -182,7 +200,9 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
 
         private void DrawChain(SpriteBatch spriteBatch)
         {
-            Texture2D chainTex = ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresChain");
+            Texture2D chainTex = CalValEX.month == 4 || orthoceraDLC != null ?
+                (ModContent.GetTexture("CalValEX/AprilFools/AresChainEggo"))
+                : (ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresChain"));
 
             float curvature = MathHelper.Clamp(Math.Abs(Owner.Center.X - projectile.Center.X) / 50f * 80, 15, 80);
 
@@ -208,7 +228,9 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
 
         public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            Texture2D eyesTex = ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresEyes");
+            Texture2D eyesTex = CalValEX.month == 4 || orthoceraDLC != null ?
+                (ModContent.GetTexture("CalValEX/AprilFools/AresEyesEggo"))
+                : (ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresEyes"));
 
             Vector2 offset = Utils.SafeNormalize(Main.MouseWorld - (projectile.Center - Vector2.UnitY * 10), Vector2.Zero) * MathHelper.Clamp((projectile.Center - Vector2.UnitY * 10 - Main.MouseWorld).Length(), 0, 1);
             float eyeOpacity = (1 - MathHelper.Clamp((float)Math.Sin(Main.GlobalTime % MathHelper.Pi) * 2f, 0, 1)) * 0.5f;

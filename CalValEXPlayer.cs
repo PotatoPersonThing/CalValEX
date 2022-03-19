@@ -396,9 +396,12 @@ namespace CalValEX
         public bool lumpe;
         public bool geldonalive;
         public bool fargocancel;
+        //Exo pets
         public bool ares;
         public bool thanos;
         public bool twins;
+        //Æ: Drae's bools
+        public bool ThanHook;
 
         public override void Initialize()
         {
@@ -1001,6 +1004,7 @@ namespace CalValEX
             ares = false;
             thanos = false;
             twins = false;
+            ThanHook = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)

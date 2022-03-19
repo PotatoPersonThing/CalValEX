@@ -144,7 +144,22 @@ namespace CalValEX.Projectiles.Pets
 		/// For example, if i wanted to have a custom "arm" segment for the first 2 body segments, i'd set the TextureProgression to a new String[] {"Arm", "Arm"}.
 		/// </summary>
 		public virtual string[] TextureProgression => new string[0];
-
+		/// <summary>
+		/// RGB values for the emitted light, leave as 0, 0, 0 for black (no light) and 255, 255, 255 for white light.
+		/// </summary>
+		public virtual Vector3 RGB => new Vector3(0, 0, 0);
+		/// <summary>
+		/// The color the emitted light will be lit in, leave as black for no light
+		/// </summary>
+		public virtual Color lightcolor => Color.Black;
+		/// <summary>
+		/// How intense the light is.
+		/// </summary>
+		public virtual float intensity => 1f;
+		/// <summary>
+		/// The level of light emitted, check wiki for values.
+		/// </summary>
+		public virtual int abyssLightLevel => 0;
 		public Player Owner => Main.player[projectile.owner];
 		public CalValEXPlayer ModOwner => Owner.GetModPlayer<CalValEXPlayer>();
 
@@ -176,6 +191,7 @@ namespace CalValEX.Projectiles.Pets
 		/// </summary>
 		public virtual void WormAI()
 		{
+
 			bool shouldDoAI = CheckIfAlive();
 			if (shouldDoAI)
 			{
@@ -337,6 +353,15 @@ namespace CalValEX.Projectiles.Pets
 
 					Segments[j] = pointA;
 					Segments[j + 1] = pointB;
+
+					Player owner = Main.player[projectile.owner];
+					Lighting.AddLight(segmentCenter, lightcolor.ToVector3());
+					
+					Mod calamityMod = ModLoader.GetMod("CalamityMod");
+					if (calamityMod != null)
+					{
+						calamityMod.Call("AddAbyssLightStrength", owner, abyssLightLevel);
+					}
 				}
 			}
         }

@@ -15,12 +15,15 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
     {
         internal PrimitiveTrail ArtemisRibbon;
         internal PrimitiveTrail ApolloRibbon;
+        internal PrimitiveTrail AthenaRibbon;
 
         public Vector2[] PositionsApollo;
         public Vector2[] PositionsArtemis;
+        public Vector2[] PositionsAthena;
 
         public float ApolloRotation;
         public float ArtemisRotation;
+        public float AthenaRotation;
 
         public Color RibbonStartColor = new Color(34, 40, 48);
 
@@ -152,7 +155,12 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
         {
-            Texture2D tex = (ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/TwinsPet"));
+
+            Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
+            
+            Texture2D tex = CalValEX.month == 4 || orthoceraDLC != null ?
+                (ModContent.GetTexture("CalValEX/AprilFools/TwinsEggos"))
+                :(ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/TwinsPet"));
 
 
             bool secondPhase = false;
@@ -169,11 +177,14 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             if (ApolloRibbon is null)
                 ApolloRibbon = new PrimitiveTrail(RibbonTrailWidthFunction, GreenRibbonTrailColorFunction);
 
-            ApolloRibbon.Draw(PositionsApollo, Owner.velocity - Main.screenPosition, 66);
-            ArtemisRibbon.Draw(PositionsArtemis, Owner.velocity - Main.screenPosition, 66);
+            if (PositionsApollo != null && PositionsArtemis != null)
+            { 
+                ApolloRibbon.Draw(PositionsApollo, Owner.velocity - Main.screenPosition, 66);
+                ArtemisRibbon.Draw(PositionsArtemis, Owner.velocity - Main.screenPosition, 66);
 
-            spriteBatch.Draw(tex, PositionsApollo[TrailLenght - 1] - Main.screenPosition, apolloFrame, drawColor, ApolloRotation, origin, projectile.scale, 0f, 0f);
-            spriteBatch.Draw(tex, PositionsArtemis[TrailLenght - 1] - Main.screenPosition, artemisFrame, drawColor, ArtemisRotation, origin, projectile.scale, 0f, 0f);
+                spriteBatch.Draw(tex, PositionsApollo[TrailLenght - 1] - Main.screenPosition, apolloFrame, drawColor, ApolloRotation, origin, projectile.scale, 0f, 0f);
+                spriteBatch.Draw(tex, PositionsArtemis[TrailLenght - 1] - Main.screenPosition, artemisFrame, drawColor, ArtemisRotation, origin, projectile.scale, 0f, 0f);
+            }
             return false;
         }
     }
