@@ -998,8 +998,8 @@ namespace CalValEX
 
                 if (npc.type == calamityMod.NPCType("ArmoredDiggerHead"))
                 {
-                    ConditionalChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), Main.expertMode,
-                        0.0012f);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<AncientAuricTeslaHelm>(), Main.expertMode, 0.0012f);
+                    ConditionalChanceDropItem(npc, ModContent.ItemType<DiggerRemote>(), Main.expertMode, 0.05f);
                 }
 
                 if (npc.type == calamityMod.NPCType("CragmawMire"))

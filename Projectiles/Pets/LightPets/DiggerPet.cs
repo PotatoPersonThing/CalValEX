@@ -17,6 +17,9 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override WormPetVisualSegment HeadSegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/LightPets/DiggerHead", true, 1, 1);
         public override WormPetVisualSegment BodySegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/LightPets/DiggerSegment", true, 1, 1);
         public override WormPetVisualSegment TailSegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/LightPets/DiggerTail", true, 1, 1);
+        /*public override ArmSegment Arm() => new ArmSegment("CalValEX/Projectiles/Pets/LightPets/DiggerArm", true, 1, 1);
+        public override ArmSegment Forearm() => new ArmSegment("CalValEX/Projectiles/Pets/LightPets/DiggerForearm", true, 1, 1);
+        public override ArmSegment Hand() => new ArmSegment("CalValEX/Projectiles/Pets/LightPets/DiggerClaw", true, 1, 1);*/
 
         public override int SegmentSize() => 26;
 
@@ -34,6 +37,14 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
         public override float BashHeadIn => 5;
 
+        public Vector2 Center;
+
+        public float Rotation;
+        public void ArmSegment(Vector2 center, float rotation)
+        {
+            Center = center;
+            Rotation = rotation;
+        }
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Miniature Digger");

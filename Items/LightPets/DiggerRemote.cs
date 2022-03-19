@@ -11,7 +11,7 @@ namespace CalValEX.Items.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Miniature Digger Remote");
+            DisplayName.SetDefault("Armored Digger Remote");
             Tooltip.SetDefault("Summons a small digger to follow you and light your way\nCaution: Pairing with a repair unit will result in supercharging!");
         }
 
@@ -57,6 +57,21 @@ namespace CalValEX.Items.LightPets
         {
             type = mod.ProjectileType("DiggerPet");
             return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
+        }
+        public override void AddRecipes()
+        {
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            if (calamityMod != null)
+            {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddRecipeGroup("AnyHardmodeDrill", 1);
+                recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 15);
+                recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 5);
+                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("PowerCell"), 10);
+                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("LaboratoryConsole"));
+                recipe.SetResult(this);
+                recipe.AddRecipe();
+            }
         }
     }
 }
