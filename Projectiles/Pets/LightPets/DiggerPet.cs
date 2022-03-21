@@ -17,9 +17,9 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override WormPetVisualSegment HeadSegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/LightPets/DiggerHead", true, 1, 1);
         public override WormPetVisualSegment BodySegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/LightPets/DiggerSegment", true, 1, 1);
         public override WormPetVisualSegment TailSegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/LightPets/DiggerTail", true, 1, 1);
-        /*public override ArmSegment Arm() => new ArmSegment("CalValEX/Projectiles/Pets/LightPets/DiggerArm", true, 1, 1);
-        public override ArmSegment Forearm() => new ArmSegment("CalValEX/Projectiles/Pets/LightPets/DiggerForearm", true, 1, 1);
-        public override ArmSegment Hand() => new ArmSegment("CalValEX/Projectiles/Pets/LightPets/DiggerClaw", true, 1, 1);*/
+        public override string ArmTexture => "CalValEX/Projectiles/Pets/LightPets/DiggerArm";
+        public override string ForearmTexture => "CalValEX/Projectiles/Pets/LightPets/DiggerForearm";
+        public override string HandTexture => "CalValEX/Projectiles/Pets/LightPets/DiggerClaw";
 
         public override int SegmentSize() => 26;
 

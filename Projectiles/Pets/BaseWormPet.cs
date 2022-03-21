@@ -14,7 +14,6 @@ namespace CalValEX.Projectiles.Pets
 		public bool head;
 
 		public WormPetVisualSegment visual;
-		//public ArmSegment armVisual;
 	}
 
 	public class WormPetVisualSegment : ICloneable
@@ -57,46 +56,6 @@ namespace CalValEX.Projectiles.Pets
 			return MemberwiseClone();
 		}
 	}
-	/*public class ArmSegment : ICloneable
-	{
-		public string ArmTexturePath;
-		public bool ArmGlows;
-		public int ArmVariants;
-		public int ArmFrameCount;
-		public int ArmFrame;
-		public int ArmFrameDuration;
-		public int ArmFrameCounter;
-		public bool ArmDirectional;
-		public int ArmLateralShift;
-
-		/// <summary>
-		/// The visual half of a worm pet segment
-		/// </summary>
-		/// <param name="path">The texture path of the segment</param>
-		/// <param name="glows">Does the segment glow</param>
-		/// <param name="variants">How many variants (sheeted horizontally) does the segment have</param>
-		/// <param name="frames">Is the segment animated?</param>
-		/// <param name="frameDuration">How many frames does a frame last</param>
-		/// <param name="directional">Should the segment face "up"? or does it not care. If set to true, it will try to keep the left side of the segment up, and the right side down</param>
-		/// <param name="lateralShift">How many pixels from the horizontal center should the origin of a segment be displaced. Useful for segments with arms or stuff that sticks out assymetrically</param>
-		public ArmSegment(string path, bool glows = false, int variants = 1, int frames = 1, int frameDuration = 6, bool directional = false, int lateralShift = 0)
-		{
-			ArmTexturePath = path;
-			ArmGlows = glows;
-			ArmVariants = variants;
-			ArmFrameCount = frames;
-			ArmFrame = 0;
-			ArmFrameCounter = 0;
-			ArmFrameDuration = frameDuration;
-			ArmDirectional = directional;
-			ArmLateralShift = lateralShift;
-		}
-
-		public object Clone()
-		{
-			return MemberwiseClone();
-		}
-	}*/
 	public abstract class BaseWormPet : ModProjectile
 	{
 		public abstract WormPetVisualSegment HeadSegment();
@@ -109,17 +68,6 @@ namespace CalValEX.Projectiles.Pets
 			{ "Body" , BodySegment() },
 			{ "Tail" , TailSegment() }
 		};
-
-		/*public abstract ArmSegment Arm();
-		public abstract ArmSegment Forearm();
-		public abstract ArmSegment Hand();
-
-		private Dictionary<string, ArmSegment> defaultArmSegments => new Dictionary<string, ArmSegment>()
-		{
-			{ "Arm" , Arm() },
-			{ "Forearm" , Forearm() },
-			{ "Hand" , Hand() }
-		};*/
 
 		/// <summary>
 		/// A dictionary that contains custom segment types if you need to use them
@@ -211,6 +159,9 @@ namespace CalValEX.Projectiles.Pets
 		/// The level of light emitted, check wiki for values.
 		/// </summary>
 		public virtual int abyssLightLevel => 0;
+		public virtual string ArmTexture => "";
+		public virtual string ForearmTexture => "";
+		public virtual string HandTexture => "";
 		public Player Owner => Main.player[projectile.owner];
 		public CalValEXPlayer ModOwner => Owner.GetModPlayer<CalValEXPlayer>();
 
@@ -242,7 +193,6 @@ namespace CalValEX.Projectiles.Pets
 		/// </summary>
 		public virtual void WormAI()
 		{
-
 			bool shouldDoAI = CheckIfAlive();
 			if (shouldDoAI)
 			{
@@ -262,7 +212,6 @@ namespace CalValEX.Projectiles.Pets
 			//Initialize the visual segments
 			Dictionary<string, WormPetVisualSegment> defaultPool = DefaultSegments;
 			Dictionary<string, WormPetVisualSegment> customPool = CustomSegments;
-			//Dictionary<string, ArmSegment> defaultArmPool = DefaultArmSegments;
 			//Create an ordered list of all the segments 
 			WormPetVisualSegment[] visualSegments = new WormPetVisualSegment[SegmentCount()];
 
@@ -328,6 +277,7 @@ namespace CalValEX.Projectiles.Pets
 
 			return true;
 		}
+
 		/// <summary>
 		/// Updates the ideal position the worm head wants to reach
 		/// </summary>
