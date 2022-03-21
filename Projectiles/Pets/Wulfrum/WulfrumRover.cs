@@ -6,6 +6,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
 {
     public class WulfrumRover : WalkingPet
     {
+        public Player Owner => Main.player[projectile.owner];
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Wulfrom Rover");
@@ -53,8 +54,8 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
 
         public override void SetPetSpeedsAndInertia()
         {
-            speed[0] = 14f; //walking speed
-            speed[1] = 14f; //flying speed
+            speed[0] = Owner.GetModPlayer<CalValEXPlayer>().DustChime ? 16f : 14f; //walking speed
+            speed[1] = Owner.GetModPlayer<CalValEXPlayer>().DustChime ? 16f : 14f; //flying speed
 
             inertia[0] = 20f; //walking inertia
             inertia[1] = 80f; //flight inertia

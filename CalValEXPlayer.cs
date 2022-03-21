@@ -402,6 +402,9 @@ namespace CalValEX
         public bool twins;
         //Æ: Drae's bools
         public bool digger;
+        public bool BestInst;
+        public bool DustChime;
+        public bool NurseryBell;
 
 
         public override void Initialize()
@@ -1006,6 +1009,9 @@ namespace CalValEX
             thanos = false;
             twins = false;
             digger = false;
+            BestInst = false;
+            DustChime = false;
+            NurseryBell = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)

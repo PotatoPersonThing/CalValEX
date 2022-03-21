@@ -8,6 +8,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class RoverSpindlePet : WalkingPet
     {
+        public Player Owner => Main.player[projectile.owner];
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("RoverdriveZ");

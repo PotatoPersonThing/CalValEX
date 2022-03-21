@@ -7,6 +7,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class ClamHermit : WalkingPet
     {
+        public Player Owner => Main.player[projectile.owner];
         public override string Texture => "CalValEX/Projectiles/Pets/ClamHermit_Normal";
         private readonly string HalloweenTexture = "CalValEX/Projectiles/Pets/ClamHermit_Halloween";
         private readonly string ChristmasTexture = "CalValEX/Projectiles/Pets/ClamHermit_Christmas";
@@ -51,8 +52,8 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetPetSpeedsAndInertia()
         {
-            speed[0] = 10f;
-            speed[1] = 12f;
+            speed[0] = Owner.GetModPlayer<CalValEXPlayer>().BestInst ? 14f : 10f;
+            speed[1] = Owner.GetModPlayer<CalValEXPlayer>().BestInst ? 16f : 12f;
 
             inertia[0] = 20f;
             inertia[1] = 80f;

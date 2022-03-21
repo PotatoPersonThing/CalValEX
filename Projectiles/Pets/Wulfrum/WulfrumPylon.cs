@@ -6,6 +6,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
 {
     public class WulfrumPylon : ModProjectile
     {
+        public Player Owner => Main.player[projectile.owner];
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Wulfrum Pylon");

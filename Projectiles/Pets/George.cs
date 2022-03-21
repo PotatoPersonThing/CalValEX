@@ -4,6 +4,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class George : WalkingPet
     {
+        public Player Owner => Main.player[projectile.owner];
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("George");
@@ -49,8 +50,8 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetPetSpeedsAndInertia()
         {
-            speed[0] = 10f; //walking speed
-            speed[1] = 12f; //flying speed
+            speed[0] = Owner.GetModPlayer<CalValEXPlayer>().BestInst ? 6f : 10f; //walking speed
+            speed[1] = Owner.GetModPlayer<CalValEXPlayer>().BestInst ? 8f : 12f; //flying speed
 
             inertia[0] = 20f; //walking inertia
             inertia[1] = 80f; //flight inertia

@@ -4,6 +4,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class RustyMimic : WalkingPet
     {
+        public Player Owner => Main.player[projectile.owner];
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Rusty Mimic");
@@ -48,7 +49,7 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetPetSpeedsAndInertia()
         {
-            speed[0] = 10f; //walking speed
+            speed[0] = Owner.GetModPlayer<CalValEXPlayer>().DustChime ? 8f : 10f; //walking speed
             speed[1] = 12f; //flying speed
 
             inertia[0] = 20f; //walking inertia

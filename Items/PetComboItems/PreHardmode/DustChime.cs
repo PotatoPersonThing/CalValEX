@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using CalValEX.Items.Pets;
+using CalValEX.Items.LightPets;
 
 namespace CalValEX.Items.PetComboItems.PreHardmode
 {
@@ -20,7 +22,7 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
             item.UseSound = SoundID.NPCHit4;
             item.shoot = mod.ProjectileType("AeroBaby");
             item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 11;
+            item.rare = 4;
             item.buffType = mod.BuffType("DustChimeBuff");
         }
 
@@ -31,12 +33,27 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
                 player.AddBuff(item.buffType, 3600, true);
             }
         }
-        public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            type = mod.ProjectileType("AeroBaby");
+            string[] summonedPets = new string[] { "AeroBaby", "AeroSlimePet", "RustyMimic", "RepairBot", "WulfrumDrone", "WulfrumRover", "WulfrumHover", "WulfrumOrb", "WulfrumPylon", "RoverSpindlePet" };
+            foreach (string pet in summonedPets)
+            {
+                Projectile.NewProjectile(player.Center, new Vector2(speedX, speedY), mod.ProjectileType(pet), 0, 0, player.whoAmI);
+            }
             return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-            type = mod.ProjectileType("AeroSlimePet");
-            return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ModContent.ItemType<AeroPebble>());
+            recipe.AddIngredient(ModContent.ItemType<CursedLockpick>());
+            recipe.AddIngredient(ModContent.ItemType<RepurposedMonitor>());
+            recipe.AddIngredient(ModContent.ItemType<WulfrumController>());
+            recipe.AddIngredient(ModContent.ItemType<PylonRemote>());
+            recipe.AddIngredient(ModContent.ItemType<RoverSpindle>());
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

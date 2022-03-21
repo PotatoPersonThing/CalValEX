@@ -5,6 +5,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class Angrypup : WalkingPet
     {
+        public Player Owner => Main.player[projectile.owner];
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Angry Pupper");
@@ -22,7 +23,6 @@ namespace CalValEX.Projectiles.Pets
             projectile.friendly = true;
             projectile.ignoreWater = true;
             projectile.tileCollide = true;
-            //base.drawOffsetX = -13;
             base.drawOriginOffsetY = 1;
             facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
@@ -50,8 +50,8 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetPetSpeedsAndInertia()
         {
-            speed[0] = 10f; //walking speed
-            speed[1] = 12f; //flying speed
+            speed[0] = Owner.GetModPlayer<CalValEXPlayer>().NurseryBell ? 6f : 10f; //walking speed
+            speed[1] = Owner.GetModPlayer<CalValEXPlayer>().NurseryBell ? 8f : 12f; //flying speed
 
             inertia[0] = 20f; //walking inertia
             inertia[1] = 80f; //flight inertia
