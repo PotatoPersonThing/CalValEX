@@ -8,22 +8,22 @@ using CalValEX.Items.LightPets;
 
 namespace CalValEX.Items.PetComboItems.PreHardmode
 {
-    public class DustChime : ModItem
+    public class AlarmClock : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dust Chime");
-            Tooltip.SetDefault("The winds of progress");
+            DisplayName.SetDefault("Alarm Clock");
+            Tooltip.SetDefault("Spare parts for your travels");
         }
 
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit4;
-            item.shoot = mod.ProjectileType("AeroBaby");
+            item.shoot = mod.ProjectileType("RepairBot");
             item.value = Item.sellPrice(0, 3, 0, 0);
             item.rare = 4;
-            item.buffType = mod.BuffType("DustChimeBuff");
+            item.buffType = mod.BuffType("AlarmClockBuff");
         }
 
         public override void UseStyle(Player player)
@@ -35,7 +35,7 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            string[] summonedPets = new string[] { "AeroBaby", "AeroSlimePet", "RustyMimic", "TUB", "Blockaroz", "Euros"};
+            string[] summonedPets = new string[] {"RepairBot", "WulfrumDrone", "WulfrumRover", "WulfrumHover", "WulfrumOrb", "WulfrumPylon", "RoverSpindlePet" };
             foreach (string pet in summonedPets)
             {
                 Projectile.NewProjectile(player.Center, new Vector2(speedX, speedY), mod.ProjectileType(pet), 0, 0, player.whoAmI);
@@ -44,15 +44,18 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
         }
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModContent.ItemType<AeroPebble>());
-            recipe.AddIngredient(ModContent.ItemType<CursedLockpick>());
-            recipe.AddIngredient(ModContent.ItemType<UglyTentacle>());
-            recipe.AddIngredient(ModContent.ItemType<Cube>());
-            recipe.AddIngredient(ModContent.ItemType<EurosBandage>());
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            if (calamityMod != null)
+            {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddIngredient(ModContent.ItemType<RepurposedMonitor>());
+                recipe.AddIngredient(ModContent.ItemType<WulfrumController>());
+                recipe.AddIngredient(ModContent.ItemType<PylonRemote>());
+                recipe.AddIngredient(ModContent.ItemType<RoverSpindle>());
+                recipe.AddTile(calamityMod.TileType("LaboratoryConsole"));
+                recipe.SetResult(this);
+                recipe.AddRecipe();
+            }
         }
     }
 }

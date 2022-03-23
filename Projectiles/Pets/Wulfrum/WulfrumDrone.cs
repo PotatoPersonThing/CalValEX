@@ -38,7 +38,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
         {
             distance[0] = 1440f; //teleport distance
             distance[1] = 560f; //faster speed distance
-            speed = Owner.GetModPlayer<CalValEXPlayer>().DustChime ? 13f : 12f;
+            speed = Owner.GetModPlayer<CalValEXPlayer>().AlarmClock ? 13f : 12f;
             inertia = 60f;
             animationSpeed = 12; //how fast the animation should play
             spinRotationSpeedMult = 0.2f; //rotation speed multiplier, keep it positive for it to spin in the right direction

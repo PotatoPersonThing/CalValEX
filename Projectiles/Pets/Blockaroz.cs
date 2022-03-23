@@ -52,8 +52,8 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetPetSpeedsAndInertia()
         {
-            speed[0] = 10f; //walking speed
-            speed[1] = 12f; //flying speed
+            speed[0] = Owner.GetModPlayer<CalValEXPlayer>().DustChime ? 14f : 10f; //walking speed
+            speed[1] = Owner.GetModPlayer<CalValEXPlayer>().DustChime ? 16f : 12f; //flying speed
 
             inertia[0] = 20f; //walking inertia
             inertia[1] = 80f; //flight inertia

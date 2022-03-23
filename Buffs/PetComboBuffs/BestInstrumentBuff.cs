@@ -43,30 +43,6 @@ namespace CalValEX.Buffs.PetComboBuffs
             }
 
             player.buffTime[buffIndex] = 18000;
-            player.GetModPlayer<CalValEXPlayer>().tub = true;
-            bool petProjectileNotSpawnedE = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.TUB>()] <= 0;
-            if (petProjectileNotSpawnedE && player.whoAmI == Main.myPlayer)
-            {
-                Projectile.NewProjectile(player.position.X + player.width / 2 + 96, player.position.Y + player.height / 2, 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.TUB>(), 0, 0f, player.whoAmI);
-            }
-
-            player.buffTime[buffIndex] = 19000;
-            player.GetModPlayer<CalValEXPlayer>().Blok = true;
-            bool petProjectileNotSpawnedF = (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.Blockaroz>()] <= 0);
-            if (petProjectileNotSpawnedF && player.whoAmI == Main.myPlayer)
-            {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2) - 96, player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.Blockaroz>(), 0, 0f, player.whoAmI, 0f, 0f);
-            }
-
-            player.buffTime[buffIndex] = 18000;
-            player.GetModPlayer<CalValEXPlayer>().euros = true;
-            bool petProjectileNotSpawnedG = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.Euros>()] <= 0;
-            if (petProjectileNotSpawnedG && player.whoAmI == Main.myPlayer)
-            {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2) + 128, player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.Euros>(), 0, 0f, player.whoAmI, 0f, 0f);
-            }
-
-            player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().mPerf = true;
             bool petProjectileNotSpawnedH = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.Fistuloid>()] <= 0;
             if (petProjectileNotSpawnedH && player.whoAmI == Main.myPlayer)

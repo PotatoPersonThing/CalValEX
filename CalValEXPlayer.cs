@@ -405,6 +405,7 @@ namespace CalValEX
         public bool BestInst;
         public bool DustChime;
         public bool NurseryBell;
+        public bool AlarmClock;
 
 
         public override void Initialize()
@@ -1012,6 +1013,7 @@ namespace CalValEX
             BestInst = false;
             DustChime = false;
             NurseryBell = false;
+            AlarmClock = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)

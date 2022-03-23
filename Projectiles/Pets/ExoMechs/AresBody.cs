@@ -231,11 +231,15 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             Texture2D eyesTex = CalValEX.month == 4 || orthoceraDLC != null ?
                 (ModContent.GetTexture("CalValEX/AprilFools/AresEyesEggo"))
                 : (ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresEyes"));
+            Texture2D bodyGlowTex = CalValEX.month == 4 || orthoceraDLC != null ?
+                (ModContent.GetTexture("CalValEX/AprilFools/AresEggo"))
+                : (ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresBodyGlow"));
 
             Vector2 offset = Utils.SafeNormalize(Main.MouseWorld - (projectile.Center - Vector2.UnitY * 10), Vector2.Zero) * MathHelper.Clamp((projectile.Center - Vector2.UnitY * 10 - Main.MouseWorld).Length(), 0, 1);
             float eyeOpacity = (1 - MathHelper.Clamp((float)Math.Sin(Main.GlobalTime % MathHelper.Pi) * 2f, 0, 1)) * 0.5f;
 
             spriteBatch.Draw(eyesTex, projectile.Center + offset - Main.screenPosition, null, Color.White * eyeOpacity, projectile.rotation, eyesTex.Size() / 2f, projectile.scale, 0f, 0f);
+            spriteBatch.Draw(bodyGlowTex, projectile.Center - Main.screenPosition, null, Color.White, projectile.rotation, new Vector2 (bodyGlowTex.Width / 2, bodyGlowTex.Height / 2), projectile.scale, 0f, 0f);
         }
     }
 }

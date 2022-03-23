@@ -161,6 +161,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             Texture2D tex = CalValEX.month == 4 || orthoceraDLC != null ?
                 (ModContent.GetTexture("CalValEX/AprilFools/TwinsEggos"))
                 :(ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/TwinsPet"));
+            Texture2D glowTex = ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/TwinsPetGlow");
 
 
             bool secondPhase = false;
@@ -184,6 +185,10 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
 
                 spriteBatch.Draw(tex, PositionsApollo[TrailLenght - 1] - Main.screenPosition, apolloFrame, drawColor, ApolloRotation, origin, projectile.scale, 0f, 0f);
                 spriteBatch.Draw(tex, PositionsArtemis[TrailLenght - 1] - Main.screenPosition, artemisFrame, drawColor, ArtemisRotation, origin, projectile.scale, 0f, 0f);
+
+                //Æ: Glomasks
+                spriteBatch.Draw(glowTex, PositionsApollo[TrailLenght - 1] - Main.screenPosition, apolloFrame, Color.White, ApolloRotation, origin, projectile.scale, 0f, 0f);
+                spriteBatch.Draw(glowTex, PositionsArtemis[TrailLenght - 1] - Main.screenPosition, artemisFrame, Color.White, ArtemisRotation, origin, projectile.scale, 0f, 0f);
             }
             return false;
         }
