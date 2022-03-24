@@ -20,9 +20,9 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
         {
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit4;
-            item.shoot = mod.ProjectileType("RepairBot");
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 4;
+            item.shoot = mod.ProjectileType("Wu.lfrumPylon");
+            item.value = Item.sellPrice(0, 6, 50, 0);
+            item.rare = 5;
             item.buffType = mod.BuffType("AlarmClockBuff");
         }
 
@@ -35,7 +35,7 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            string[] summonedPets = new string[] {"RepairBot", "WulfrumDrone", "WulfrumRover", "WulfrumHover", "WulfrumOrb", "WulfrumPylon", "RoverSpindlePet" };
+            string[] summonedPets = new string[] { "WulfrumPylon", "WulfrumDrone", "WulfrumRover", "WulfrumHover", "WulfrumOrb", "RoverSpindlePet" };
             foreach (string pet in summonedPets)
             {
                 Projectile.NewProjectile(player.Center, new Vector2(speedX, speedY), mod.ProjectileType(pet), 0, 0, player.whoAmI);
@@ -48,7 +48,6 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
             if (calamityMod != null)
             {
                 ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<RepurposedMonitor>());
                 recipe.AddIngredient(ModContent.ItemType<WulfrumController>());
                 recipe.AddIngredient(ModContent.ItemType<PylonRemote>());
                 recipe.AddIngredient(ModContent.ItemType<RoverSpindle>());

@@ -66,6 +66,14 @@ namespace CalValEX.Buffs.PetComboBuffs
                 Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<Projectiles.Pets.SlimeDemi>(), 0, 0f, player.whoAmI);
             }
+
+            player.buffTime[buffIndex] = 18000;
+            player.GetModPlayer<CalValEXPlayer>().Dstone = true;
+            bool petProjectileNotSpawnedK = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.Dstone>()] <= 0;
+            if (petProjectileNotSpawnedK && player.whoAmI == Main.myPlayer)
+            {
+                Projectile.NewProjectile(player.position.X + (float)(player.width / 2) - 160, player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.Dstone>(), 0, 0f, player.whoAmI, 0f, 0f);
+            }
         }
     }
 }

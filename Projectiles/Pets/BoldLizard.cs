@@ -6,6 +6,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class BoldLizard : ModProjectile
     {
+        public Player Owner => Main.player[projectile.owner];
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Rocc Lizard");

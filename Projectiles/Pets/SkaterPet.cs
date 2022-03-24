@@ -9,6 +9,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class SkaterPet : ModProjectile
     {
+        public Player Owner => Main.player[projectile.owner];
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Skater Nymph");

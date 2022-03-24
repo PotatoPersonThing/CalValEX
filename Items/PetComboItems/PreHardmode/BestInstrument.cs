@@ -20,7 +20,7 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit4;
             item.shoot = mod.ProjectileType("ClamHermit");
-            item.value = Item.sellPrice(0, 3, 0, 0);
+            item.value = Item.sellPrice(0, 4, 60, 0);
             item.rare = 5;
             item.buffType = mod.BuffType("BestInstrumentBuff");
         }
@@ -34,7 +34,7 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            string[] summonedPets = new string[] {"ClamHermit", "SmolCrab", "George", "Fistuloid", "Hiveling", "SlimeDemi"};
+            string[] summonedPets = new string[] {"ClamHermit", "SmolCrab", "George", "Fistuloid", "Hiveling", "SlimeDemi", "Dstone"};
             foreach (string pet in summonedPets)
             {
                 Projectile.NewProjectile(player.Center, new Vector2(speedX, speedY), mod.ProjectileType(pet), 0, 0, player.whoAmI);
@@ -50,6 +50,7 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
             recipe.AddIngredient(ModContent.ItemType<DigestedWormFood>());
             recipe.AddIngredient(ModContent.ItemType<MissingFang>());
             recipe.AddIngredient(ModContent.ItemType<ImpureStick>());
+            recipe.AddIngredient(ModContent.ItemType<Drock>());
             recipe.AddTile(TileID.TinkerersWorkbench);
             recipe.SetResult(this);
             recipe.AddRecipe();

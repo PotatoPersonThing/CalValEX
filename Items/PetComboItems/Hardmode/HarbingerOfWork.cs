@@ -6,24 +6,24 @@ using Terraria.ModLoader;
 using CalValEX.Items.Pets;
 using CalValEX.Items.LightPets;
 
-namespace CalValEX.Items.PetComboItems.PreHardmode
+namespace CalValEX.Items.PetComboItems.Hardmode
 {
-    public class DustChime : ModItem
+    public class HarbingerOfWork : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dust Chime");
-            Tooltip.SetDefault("The winds of progress");
+            DisplayName.SetDefault("Harbinger Of Work");
+            Tooltip.SetDefault("Robot love");
         }
 
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit4;
-            item.shoot = mod.ProjectileType("AeroBaby");
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.rare = 4;
-            item.buffType = mod.BuffType("DustChimeBuff");
+            item.shoot = mod.ProjectileType("RepairBot");
+            item.value = Item.sellPrice(0, 10, 30, 0);
+            item.rare = 7;
+            item.buffType = mod.BuffType("HarbingerOfWorkBuff");
         }
 
         public override void UseStyle(Player player)
@@ -35,7 +35,7 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            string[] summonedPets = new string[] { "AeroBaby", "AeroSlimePet", "RustyMimic", "TUB", "Blockaroz", "Euros"};
+            string[] summonedPets = new string[] {"RepairBot", "DiggerPet", "Androomba", "AstPhage", "PBGMini"};
             foreach (string pet in summonedPets)
             {
                 Projectile.NewProjectile(player.Center, new Vector2(speedX, speedY), mod.ProjectileType(pet), 0, 0, player.whoAmI);
@@ -45,12 +45,12 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModContent.ItemType<AeroPebble>());
-            recipe.AddIngredient(ModContent.ItemType<CursedLockpick>());
-            recipe.AddIngredient(ModContent.ItemType<UglyTentacle>());
-            recipe.AddIngredient(ModContent.ItemType<Cube>());
-            recipe.AddIngredient(ModContent.ItemType<EurosBandage>());
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddIngredient(ModContent.ItemType<RepurposedMonitor>());
+            recipe.AddIngredient(ModContent.ItemType<DiggerRemote>());
+            recipe.AddIngredient(ModContent.ItemType<AndroombaGBC>());
+            recipe.AddIngredient(ModContent.ItemType<AstDie>());
+            recipe.AddIngredient(ModContent.ItemType<BeeCan>());
+            recipe.AddTile(TileID.AdamantiteForge);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

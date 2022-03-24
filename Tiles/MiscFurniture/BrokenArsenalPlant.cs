@@ -42,7 +42,10 @@ namespace CalValEX.Tiles.MiscFurniture
             animationFrameHeight = 108;
             TileObjectData.addTile(Type);
         }
-
+        public override bool CanExplode(int i, int j)
+        {
+            return false;
+        }
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
             Item.NewItem(i * 16, j * 16, 24, 16, ItemType<BrokenArsenalPlantItem>());
@@ -51,6 +54,10 @@ namespace CalValEX.Tiles.MiscFurniture
         {
             //Main.PlaySound(mod.GetSoundSlot(SoundType.Custom, "Sounds/ScreenChange"), i * 16, j * 16, 0);
             if (STstate == state.IdleOff)
+            {
+                STstate = state.StartUp;
+            }
+            if (STstate == state.StartUp)
             {
                 STstate = state.StartUp;
             }

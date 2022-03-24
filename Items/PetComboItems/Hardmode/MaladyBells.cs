@@ -4,26 +4,25 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Items.Pets;
-using CalValEX.Items.LightPets;
 
-namespace CalValEX.Items.PetComboItems.PreHardmode
+namespace CalValEX.Items.PetComboItems.Hardmode
 {
-    public class DustChime : ModItem
+    public class MaladyBells : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dust Chime");
-            Tooltip.SetDefault("The winds of progress");
+            DisplayName.SetDefault("Malady Bells");
+            Tooltip.SetDefault("Start anew");
         }
 
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit4;
-            item.shoot = mod.ProjectileType("AeroBaby");
-            item.value = Item.sellPrice(0, 5, 0, 0);
-            item.rare = 4;
-            item.buffType = mod.BuffType("DustChimeBuff");
+            item.shoot = mod.ProjectileType("cryokid");
+            item.value = Item.sellPrice(0, 8, 40, 15);
+            item.rare = 6;
+            item.buffType = mod.BuffType("MaladyBellsBuff");
         }
 
         public override void UseStyle(Player player)
@@ -35,7 +34,7 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            string[] summonedPets = new string[] { "AeroBaby", "AeroSlimePet", "RustyMimic", "TUB", "Blockaroz", "Euros"};
+            string[] summonedPets = new string[] {"cryokid", "PhantomPet", "Hoodieeidolist", "FathomEelHead", "MoistScourgePet", "BoldLizard", "SkaterPet"};
             foreach (string pet in summonedPets)
             {
                 Projectile.NewProjectile(player.Center, new Vector2(speedX, speedY), mod.ProjectileType(pet), 0, 0, player.whoAmI);
@@ -45,12 +44,14 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModContent.ItemType<AeroPebble>());
-            recipe.AddIngredient(ModContent.ItemType<CursedLockpick>());
-            recipe.AddIngredient(ModContent.ItemType<UglyTentacle>());
-            recipe.AddIngredient(ModContent.ItemType<Cube>());
-            recipe.AddIngredient(ModContent.ItemType<EurosBandage>());
-            recipe.AddTile(TileID.Anvils);
+            recipe.AddIngredient(ModContent.ItemType<coopershortsword>());
+            recipe.AddIngredient(ModContent.ItemType<HauntedPebble>());
+            recipe.AddIngredient(ModContent.ItemType<Eidolistthingy>());
+            recipe.AddIngredient(ModContent.ItemType<DeepseaLantern>());
+            recipe.AddIngredient(ModContent.ItemType<SandTooth>());
+            recipe.AddIngredient(ModContent.ItemType<BoldEgg>());
+            recipe.AddIngredient(ModContent.ItemType<SkaterEgg>());
+            recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }
