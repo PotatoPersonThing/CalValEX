@@ -6,6 +6,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
 {
     public class SeerS : FlyingPet
     {
+        public Player Owner => Main.player[projectile.owner];
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Micro Sightseer");
@@ -38,7 +39,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         {
             distance[0] = 1840f; //teleport distance
             distance[1] = 560f; //faster speed distance
-            speed = 25f;
+            speed = Owner.GetModPlayer<CalValEXPlayer>().Harbinger ? 27f : 25f;
             inertia = 60f;
             animationSpeed = 4; //how fast the animation should play
             spinRotationSpeedMult = 0f; //rotation speed multiplier, keep it positive for it to spin in the right direction

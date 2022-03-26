@@ -7,6 +7,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
 {
     public class SolarBunny : FlyingPet
     {
+        public Player Owner => Main.player[projectile.owner];
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Solar Bunny");
@@ -31,7 +32,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         {
             distance[0] = 1840f;
             distance[1] = 560f;
-            speed = 12f;
+            speed = Owner.GetModPlayer<CalValEXPlayer>().SpiritDiner ? 16f : 12f;
             inertia = 60f;
             animationSpeed = 30;
             spinRotationSpeedMult = 0.2f;

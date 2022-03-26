@@ -408,6 +408,7 @@ namespace CalValEX
         public bool AlarmClock;
         public bool MaladyBells;
         public bool Harbinger;
+        public bool SpiritDiner;
 
 
         public override void Initialize()
@@ -1018,6 +1019,7 @@ namespace CalValEX
             AlarmClock = false;
             MaladyBells = false;
             Harbinger = false;
+            SpiritDiner = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)

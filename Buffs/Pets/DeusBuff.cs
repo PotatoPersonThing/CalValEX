@@ -20,16 +20,10 @@ namespace CalValEX.Buffs.Pets
             bool petProjectileNotSpawned = player.ownedProjectileCounts[mod.ProjectileType("DeusPetSmall")] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, mod.ProjectileType("DeusPetSmall"), 0, 0f, player.whoAmI, 0f, 0f);
-                Projectile.NewProjectile(player.position.X + (float)(player.width * 2), player.position.Y + (float)(player.height / 2), 0f, 0f, mod.ProjectileType("DeusPetSmall"), 0, 0f, player.whoAmI, 0f, 0f);
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 3), player.position.Y + (float)(player.height * 4), 0f, 0f, mod.ProjectileType("DeusPetSmall"), 0, 0f, player.whoAmI, 0f, 0f);
-                Projectile.NewProjectile(player.position.X + (float)(player.width * 3), player.position.Y + (float)(player.height * 5), 0f, 0f, mod.ProjectileType("DeusPetSmall"), 0, 0f, player.whoAmI, 0f, 0f);
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height * 7), 0f, 0f, mod.ProjectileType("DeusPetSmall"), 0, 0f, player.whoAmI, 0f, 0f);
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height * 9), 0f, 0f, mod.ProjectileType("DeusPetSmall"), 0, 0f, player.whoAmI, 0f, 0f);
-                Projectile.NewProjectile(player.position.X + (float)(player.width * 6), player.position.Y + (float)(player.height / 2), 0f, 0f, mod.ProjectileType("DeusPetSmall"), 0, 0f, player.whoAmI, 0f, 0f);
-                Projectile.NewProjectile(player.position.X + (float)(player.width * 10), player.position.Y + (float)(player.height / 2), 0f, 0f, mod.ProjectileType("DeusPetSmall"), 0, 0f, player.whoAmI, 0f, 0f);
-                Projectile.NewProjectile(player.position.X + (float)(player.width * 6), player.position.Y + (float)(player.height * 6), 0f, 0f, mod.ProjectileType("DeusPetSmall"), 0, 0f, player.whoAmI, 0f, 0f);
-                Projectile.NewProjectile(player.position.X + (float)(player.width * 10), player.position.Y + (float)(player.height * 10), 0f, 0f, mod.ProjectileType("DeusPetSmall"), 0, 0f, player.whoAmI, 0f, 0f);
+                for (int k = 0; k < 10; k++)
+                {
+                    Projectile.NewProjectile(player.position.X + (float)(player.width / 2) + (32 * k), player.position.Y + (float)(player.height / 2), 0f, 0f, mod.ProjectileType("DeusPetSmall"), 0, 0f, player.whoAmI, 0f, 0f);
+                }
             }
             player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().deusmain = true;

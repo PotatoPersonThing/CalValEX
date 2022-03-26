@@ -59,6 +59,35 @@ namespace CalValEX.Buffs.PetComboBuffs
             {
                 Projectile.NewProjectile(player.position.X + (float)(player.width / 2) + 64, player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<PBGmini>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
+
+            Mod clamMod = ModLoader.GetMod("CalamityMod");
+            clamMod.Call("AddAbyssLightStrength", Main.player[Main.myPlayer], 2);
+            player.buffTime[buffIndex] = 18000;
+            player.GetModPlayer<CalValEXPlayer>().seerS = true;
+            bool petProjectileNotSpawnedFA = player.ownedProjectileCounts[ModContent.ProjectileType<SeerS>()] <= 0;
+            if (petProjectileNotSpawnedFA && player.whoAmI == Main.myPlayer)
+            {
+                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                    0f, 0f, ModContent.ProjectileType<SeerS>(), 0, 0f, player.whoAmI);
+            }
+
+            player.buffTime[buffIndex] = 18000;
+            player.GetModPlayer<CalValEXPlayer>().seerM = true;
+            bool petProjectileNotSpawnedFB = player.ownedProjectileCounts[ModContent.ProjectileType<SeerM>()] <= 0;
+            if (petProjectileNotSpawnedFB && player.whoAmI == Main.myPlayer)
+            {
+                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                    0f, 0f, ModContent.ProjectileType<SeerM>(), 0, 0f, player.whoAmI);
+            }
+
+            player.buffTime[buffIndex] = 18000;
+            player.GetModPlayer<CalValEXPlayer>().seerL = true;
+            bool petProjectileNotSpawnedFC = player.ownedProjectileCounts[ModContent.ProjectileType<SeerL>()] <= 0;
+            if (petProjectileNotSpawnedFC && player.whoAmI == Main.myPlayer)
+            {
+                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                    0f, 0f, ModContent.ProjectileType<SeerL>(), 0, 0f, player.whoAmI);
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ namespace CalValEX.Buffs.PetComboBuffs
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Malady Bells");
-            Description.SetDefault("Your path is not over, they will look after you");
+            Description.SetDefault("Your journey is not over, they will look after you");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

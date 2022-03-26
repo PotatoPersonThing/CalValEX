@@ -4,26 +4,26 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Items.Pets;
-using CalValEX.Items.LightPets;
+using CalValEX.Items.Pets.Elementals;
 
 namespace CalValEX.Items.PetComboItems.Hardmode
 {
-    public class HarbingerOfWork : ModItem
+    public class SpiritDinerBell : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Harbinger Of Work");
-            Tooltip.SetDefault("Robot love");
+            DisplayName.SetDefault("Spirit Diner Bell");
+            Tooltip.SetDefault("Almost there");
         }
 
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit4;
-            item.shoot = mod.ProjectileType("RepairBot");
-            item.value = Item.sellPrice(0, 10, 30, 0);
-            item.rare = 7;
-            item.buffType = mod.BuffType("HarbingerOfWorkBuff");
+            item.shoot = mod.ProjectileType("Pillager");
+            item.value = Item.sellPrice(0, 12, 70, 0);
+            item.rare = 8;
+            item.buffType = mod.BuffType("SpiritDinerBuff");
         }
 
         public override void UseStyle(Player player)
@@ -35,7 +35,7 @@ namespace CalValEX.Items.PetComboItems.Hardmode
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            string[] summonedPets = new string[] {"RepairBot", "DiggerPet", "Androomba", "AstPhage", "PBGMini", "SeerS", "SeerM", "SeerL"};
+            string[] summonedPets = new string[] {"Pillager", "SolarBunny", "rarebrimling", "cloudmini", "raresandmini", "sandmini", "babywaterclone"};
             foreach (string pet in summonedPets)
             {
                 Projectile.NewProjectile(player.Center, new Vector2(speedX, speedY), mod.ProjectileType(pet), 0, 0, player.whoAmI);
@@ -45,13 +45,10 @@ namespace CalValEX.Items.PetComboItems.Hardmode
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModContent.ItemType<RepurposedMonitor>());
-            recipe.AddIngredient(ModContent.ItemType<DiggerRemote>());
-            recipe.AddIngredient(ModContent.ItemType<AndroombaGBC>());
-            recipe.AddIngredient(ModContent.ItemType<AstDie>());
-            recipe.AddIngredient(ModContent.ItemType<BeeCan>());
-            recipe.AddIngredient(ModContent.ItemType<Binoculars>());
-            recipe.AddTile(TileID.AdamantiteForge);
+            recipe.AddIngredient(ModContent.ItemType<AncientChoker>());
+            recipe.AddIngredient(ModContent.ItemType<SolarBun>());
+            recipe.AddIngredient(ModContent.ItemType<Minihote>());
+            recipe.AddTile(TileID.LunarCraftingStation);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

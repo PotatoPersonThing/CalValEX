@@ -6,6 +6,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
 {
     public class SeerL : FlyingPet
     {
+        public Player Owner => Main.player[projectile.owner];
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Small Sightseer");
@@ -31,7 +32,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         {
             distance[0] = 1840f;
             distance[1] = 560f;
-            speed = 10f;
+            speed = Owner.GetModPlayer<CalValEXPlayer>().Harbinger ? 14f : 10f;
             inertia = 60f;
             animationSpeed = 4;
             spinRotationSpeedMult = 0f;
