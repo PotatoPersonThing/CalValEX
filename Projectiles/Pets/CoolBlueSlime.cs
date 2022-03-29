@@ -5,6 +5,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class CoolBlueSlime : FlyingPet
     {
+        public Player Owner => Main.player[projectile.owner];
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Cool Blue Slime God");
@@ -28,7 +29,7 @@ namespace CalValEX.Projectiles.Pets
         {
             distance[0] = 1840f; //teleport distance
             distance[1] = 560f; //faster speed distance
-            speed = 12f;
+            speed = Owner.GetModPlayer<CalValEXPlayer>().TubRune ? 10f : 12f;
             inertia = 60f;
             animationSpeed = 30;
             spinRotationSpeedMult = 0.2f;

@@ -16,7 +16,7 @@ namespace CalValEX.Items.PetComboItems
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Pandemonium Box");
-            Tooltip.SetDefault("And I wish I was the only one to leave\nSummons every pet you've met in your path\nThe end of our journey, your zenith");
+            Tooltip.SetDefault("And I wish I was the only one to leave\nThe end of our journey, your zenith\nSummons every pet you've met in your path");
         }
 
         public override void SetDefaults()
@@ -83,6 +83,7 @@ namespace CalValEX.Items.PetComboItems
             recipe.AddIngredient(ModContent.ItemType<WormBell>());
             recipe.AddIngredient(ModContent.ItemType<AltarBell>());
             recipe.AddIngredient(ModContent.ItemType<ScratchedGong>());
+            recipe.AddIngredient(ModContent.ItemType<TubRune>());
             recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
             recipe.SetResult(this);
             recipe.AddRecipe();

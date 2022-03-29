@@ -413,6 +413,7 @@ namespace CalValEX
         public bool WormBell;
         public bool Vaseline;
         public bool ScratchedGong;
+        public bool TubRune;
         public bool Pandora;
 
 
@@ -1029,6 +1030,7 @@ namespace CalValEX
             WormBell = false;
             Vaseline = false;
             ScratchedGong = false;
+            TubRune = false;
             Pandora = false;
         }
 

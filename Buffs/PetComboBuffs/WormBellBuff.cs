@@ -35,7 +35,7 @@ namespace CalValEX.Buffs.PetComboBuffs
             bool petProjectileNotSpawnedAB = player.ownedProjectileCounts[ModContent.ProjectileType<StasisNaked>()] <= 0;
             if (petProjectileNotSpawnedAB && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.position.X + player.width / 2 + 32, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<StasisNaked>(), 0, 0f, player.whoAmI);
             }
 
@@ -44,7 +44,7 @@ namespace CalValEX.Buffs.PetComboBuffs
             bool petProjectileNotSpawnedBA = player.ownedProjectileCounts[ModContent.ProjectileType<AquaPet>()] <= 0;
             if (petProjectileNotSpawnedBA && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height * 10,
+                Projectile.NewProjectile(player.position.X + player.width / 2 - 32, player.position.Y + player.height * 10,
                     0f, 0f, ModContent.ProjectileType<AquaPet>(), 0, 0f, player.whoAmI);
             }
 
@@ -53,7 +53,7 @@ namespace CalValEX.Buffs.PetComboBuffs
             bool petProjectileNotSpawnedBB = player.ownedProjectileCounts[ModContent.ProjectileType<DesertPet>()] <= 0;
             if (petProjectileNotSpawnedBB && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.position.X + player.width / 2 + 64, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<DesertPet>(), 0, 0f, player.whoAmI);
             }
 
@@ -72,7 +72,7 @@ namespace CalValEX.Buffs.PetComboBuffs
             bool petProjectileNotSpawnedCB = player.ownedProjectileCounts[ModContent.ProjectileType<DeusPet>()] <= 0;
             if (petProjectileNotSpawnedCB && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height * 20), 0f, 0f, ModContent.ProjectileType<DeusPet>(), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.position.X + (float)(player.width / 2) - 64, player.position.Y + (float)(player.height * 20), 0f, 0f, ModContent.ProjectileType<DeusPet>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
             player.buffTime[buffIndex] = 18000;
@@ -80,7 +80,7 @@ namespace CalValEX.Buffs.PetComboBuffs
             bool petProjectileNotSpawnedD = player.ownedProjectileCounts[ModContent.ProjectileType<DogHead>()] <= 0;
             if (petProjectileNotSpawnedD && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<DogHead>(), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.position.X + (float)(player.width / 2) + 96, player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<DogHead>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
             player.buffTime[buffIndex] = 18000;
@@ -88,7 +88,7 @@ namespace CalValEX.Buffs.PetComboBuffs
             bool petProjectileNotSpawnedE = player.ownedProjectileCounts[ModContent.ProjectileType<JaredHead>()] <= 0;
             if (petProjectileNotSpawnedE && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<JaredHead>(), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.position.X + (float)(player.width / 2) - 96, player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<JaredHead>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
             player.buffTime[buffIndex] = 18000;
@@ -96,7 +96,7 @@ namespace CalValEX.Buffs.PetComboBuffs
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<SepulcherHeadNeo>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.position.X + (player.width / 2) + 128, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<SepulcherHeadNeo>(), 0, 0f, player.whoAmI);
             }
         }

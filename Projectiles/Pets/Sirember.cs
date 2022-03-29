@@ -7,6 +7,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class Sirember : FlyingPet
     {
+        public Player Owner => Main.player[projectile.owner];
         Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
 
         public bool orthod = false;
@@ -68,8 +69,8 @@ namespace CalValEX.Projectiles.Pets
         {
             distance[0] = 1200f; //teleport distance
             distance[1] = 560f; //faster speed distance
-            speed = (theterror? 0 : 12f);
-            inertia = (theterror? 0: 60f);
+            speed = Owner.GetModPlayer<CalValEXPlayer>().TubRune ? (theterror ? 0 : 18f) : (theterror ? 0 : 12f);
+            inertia = Owner.GetModPlayer<CalValEXPlayer>().TubRune ? (theterror ? 0 : 66f) : (theterror? 0: 60f);
             animationSpeed = (theterror ? 0 : 7); //how fast the animation should play
             spinRotationSpeedMult = 0.2f; //rotation speed multiplier, keep it positive for it to spin in the right direction
             offSetX = 54f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.

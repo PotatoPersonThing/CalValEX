@@ -12,6 +12,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class CalamityBABY : FlyingPet
     {
+        public Player Owner => Main.player[projectile.owner];
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Calamity BABY");
@@ -45,7 +46,7 @@ namespace CalValEX.Projectiles.Pets
         {
             distance[0] = 1840f;
             distance[1] = 560f;
-            speed = 12f;
+            speed = Owner.GetModPlayer<CalValEXPlayer>().TubRune ? 14f : 12f;
             inertia = 60f;
             animationSpeed = -1;
             spinRotationSpeedMult = 1f;
