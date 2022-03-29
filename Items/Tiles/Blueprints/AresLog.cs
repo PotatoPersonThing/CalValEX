@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+/*using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ModLoader;
 using CalValEX.Tiles.Blueprints;
@@ -49,7 +49,7 @@ namespace CalValEX.Items.Tiles.Blueprints
             }
         }
 
-        /*public override void AddRecipes()
+        public override void AddRecipes()
         {
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
@@ -60,6 +60,6 @@ namespace CalValEX.Items.Tiles.Blueprints
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }*/
+        }
     }
-}
+}*/

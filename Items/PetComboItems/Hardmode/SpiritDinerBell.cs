@@ -35,7 +35,7 @@ namespace CalValEX.Items.PetComboItems.Hardmode
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            string[] summonedPets = new string[] {"Pillager", "SolarBunny", "rarebrimling", "cloudmini", "raresandmini", "sandmini", "babywaterclone"};
+            string[] summonedPets = new string[] {"Pillager", "SolarBunny", "rarebrimling", "cloudmini", "raresandmini", "sandmini", "babywaterclone", "StarJelly"};
             foreach (string pet in summonedPets)
             {
                 Projectile.NewProjectile(player.Center, new Vector2(speedX, speedY), mod.ProjectileType(pet), 0, 0, player.whoAmI);
@@ -48,6 +48,7 @@ namespace CalValEX.Items.PetComboItems.Hardmode
             recipe.AddIngredient(ModContent.ItemType<AncientChoker>());
             recipe.AddIngredient(ModContent.ItemType<SolarBun>());
             recipe.AddIngredient(ModContent.ItemType<Minihote>());
+            recipe.AddIngredient(ModContent.ItemType<JellyBottle>());
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.SetResult(this);
             recipe.AddRecipe();

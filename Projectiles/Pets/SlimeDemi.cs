@@ -8,7 +8,6 @@ namespace CalValEX.Projectiles.Pets
 {
     public class SlimeDemi : FlyingPet
     {
-        public Player Owner => Main.player[projectile.owner];
         double ballcounter = 0;
         double ballcounter2 = MathHelper.Pi;
         public override void SetStaticDefaults()
@@ -34,7 +33,7 @@ namespace CalValEX.Projectiles.Pets
         {
             distance[0] = 1840f; //teleport distance
             distance[1] = 560f; //faster speed distance
-            speed = Owner.GetModPlayer<CalValEXPlayer>().BestInst ? 18f : 12f;
+            speed = 12f;
             inertia = 60f;
             animationSpeed = 30;
             spinRotationSpeedMult = 0.2f;

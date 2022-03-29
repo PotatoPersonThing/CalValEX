@@ -4,6 +4,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class BugDoge : FlyingPet
     {
+        public Player Owner => Main.player[projectile.owner];
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bugdoge");
@@ -35,7 +36,7 @@ namespace CalValEX.Projectiles.Pets
         {
             distance[0] = 1440f; //teleport distance
             distance[1] = 560f; //faster speed distance
-            speed = 14f;
+            speed = Owner.GetModPlayer<CalValEXPlayer>().Vaseline ? 22f : 14f;
             inertia = 62f;
             animationSpeed = 8; //how fast the animation should play
             spinRotationSpeedMult = 0.2f; //rotation speed multiplier, keep it positive for it to spin in the right direction

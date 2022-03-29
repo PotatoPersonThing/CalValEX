@@ -1,4 +1,4 @@
-using Terraria;
+/*using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -136,4 +136,4 @@ namespace CalValEX.Tiles.MiscFurniture
             spriteBatch.Draw(tex, new Rectangle(), Color.White);
         }
     }
-}
+}*/

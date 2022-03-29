@@ -6,6 +6,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class MiniDoge : ModProjectile
     {
+        public Player Owner => Main.player[projectile.owner];
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mini Bumbledoge");

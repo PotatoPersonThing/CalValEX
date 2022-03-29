@@ -39,7 +39,8 @@ namespace CalValEX.Projectiles.Pets.LightPets
         {
             distance[0] = 1840f; //teleport distance
             distance[1] = 560f; //faster speed distance
-            speed = Owner.GetModPlayer<CalValEXPlayer>().Harbinger ? 22f : 20f;
+            speed = Owner.GetModPlayer<CalValEXPlayer>().Harbinger ? 22f :
+                    Owner.GetModPlayer<CalValEXPlayer>().ScratchedGong ? 22f : 20f;
             inertia = 60f;
             animationSpeed = 4; //how fast the animation should play
             spinRotationSpeedMult = 0f; //rotation speed multiplier, keep it positive for it to spin in the right direction

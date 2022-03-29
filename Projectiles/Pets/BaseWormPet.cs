@@ -144,11 +144,7 @@ namespace CalValEX.Projectiles.Pets
 		/// </summary>
 		public virtual string[] TextureProgression => new string[0];
 		/// <summary>
-		/// RGB values for the emitted light, leave as 0, 0, 0 for black (no light) and 255, 255, 255 for white light.
-		/// </summary>
-		public virtual Vector3 RGB => new Vector3(0, 0, 0);
-		/// <summary>
-		/// The color the emitted light will be lit in, leave as black for no light
+		/// The color the emitted light will be lit in, leave as black for no light.
 		/// </summary>
 		public virtual Color lightcolor => Color.Black;
 		/// <summary>

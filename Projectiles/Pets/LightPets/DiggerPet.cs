@@ -26,10 +26,11 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override int SegmentCount() => ModOwner.RepairBot ? 24 : 9;
 
         public override bool ExistenceCondition() => ModOwner.digger;
-        public override Color lightcolor => Color.Orange;
+        public override Color lightcolor => ModOwner.RepairBot ? Color.Red : Color.Orange;
         public override int abyssLightLevel => 3;
         public override float GlowmaskOpacity => ModOwner.RepairBot ? 2 : 0.6f;
         public override float WanderDistance => ModOwner.RepairBot ? 160 : 60;
+        public override float intensity => ModOwner.RepairBot ? 2f : 0.7f;
         public override float GetSpeed => MathHelper.Lerp(
             ModOwner.RepairBot ? 20 : 10,
             ModOwner.RepairBot ? 40 : 16,

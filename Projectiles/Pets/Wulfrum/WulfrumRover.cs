@@ -54,8 +54,10 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
 
         public override void SetPetSpeedsAndInertia()
         {
-            speed[0] = Owner.GetModPlayer<CalValEXPlayer>().AlarmClock ? 16f : 14f; //walking speed
-            speed[1] = Owner.GetModPlayer<CalValEXPlayer>().AlarmClock ? 16f : 14f; //flying speed
+            speed[0] = Owner.GetModPlayer<CalValEXPlayer>().AlarmClock ? 16f :
+                       Owner.GetModPlayer<CalValEXPlayer>().ScratchedGong ? 14f : 14f; //walking speed
+            speed[1] = Owner.GetModPlayer<CalValEXPlayer>().AlarmClock ? 16f :
+                       Owner.GetModPlayer<CalValEXPlayer>().ScratchedGong ? 14f : 14f; //flying speed
 
             inertia[0] = 20f; //walking inertia
             inertia[1] = 80f; //flight inertia

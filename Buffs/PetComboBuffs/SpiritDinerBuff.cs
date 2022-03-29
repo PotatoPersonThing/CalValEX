@@ -65,6 +65,14 @@ namespace CalValEX.Buffs.PetComboBuffs
                 Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<babywaterclone>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
+            player.buffTime[buffIndex] = 18000;
+            player.GetModPlayer<CalValEXPlayer>().StarJelly = true;
+            bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<StarJelly>()] <= 0;
+            if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
+            {
+                Projectile.NewProjectile(player.position.X + (float)(player.width / 2) + 32, player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<StarJelly>(), 0, 0f, player.whoAmI, 0f, 0f);
+            }
+
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             calamityMod.Call("AddAbyssLightStrength", Main.player[Main.myPlayer], 3);
             player.buffTime[buffIndex] = 18000;
@@ -72,7 +80,7 @@ namespace CalValEX.Buffs.PetComboBuffs
             bool petProjectileNotSpawnedC = player.ownedProjectileCounts[ModContent.ProjectileType<SolarBunny>()] <= 0;
             if (petProjectileNotSpawnedC && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2 + 32, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.position.X + player.width / 2 - 32, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<SolarBunny>(), 0, 0f, player.whoAmI);
             }
         }

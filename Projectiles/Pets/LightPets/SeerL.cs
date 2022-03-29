@@ -32,7 +32,8 @@ namespace CalValEX.Projectiles.Pets.LightPets
         {
             distance[0] = 1840f;
             distance[1] = 560f;
-            speed = Owner.GetModPlayer<CalValEXPlayer>().Harbinger ? 14f : 10f;
+            speed = Owner.GetModPlayer<CalValEXPlayer>().Harbinger ? 14f :
+                    Owner.GetModPlayer<CalValEXPlayer>().ScratchedGong ? 18f : 10f;
             inertia = 60f;
             animationSpeed = 4;
             spinRotationSpeedMult = 0f;

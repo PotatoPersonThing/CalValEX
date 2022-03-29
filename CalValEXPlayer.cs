@@ -409,6 +409,10 @@ namespace CalValEX
         public bool MaladyBells;
         public bool Harbinger;
         public bool SpiritDiner;
+        public bool AltarBell;
+        public bool WormBell;
+        public bool Vaseline;
+        public bool ScratchedGong;
 
 
         public override void Initialize()
@@ -1020,6 +1024,10 @@ namespace CalValEX
             MaladyBells = false;
             Harbinger = false;
             SpiritDiner = false;
+            AltarBell = false;
+            WormBell = false;
+            Vaseline = false;
+            ScratchedGong = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)

@@ -4,26 +4,27 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Items.Pets;
+using CalValEX.Items.Pets.Scuttlers;
 using CalValEX.Items.LightPets;
 
-namespace CalValEX.Items.PetComboItems.Hardmode
+namespace CalValEX.Items.PetComboItems.PostMoonLord
 {
-    public class HarbingerOfWork : ModItem
+    public class AltarBell : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Harbinger Of Work");
-            Tooltip.SetDefault("Robot love");
+            DisplayName.SetDefault("Altar Bell");
+            Tooltip.SetDefault("The gods from the heavens on the palm of your hand");
         }
 
         public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit4;
-            item.shoot = mod.ProjectileType("RoverSpindlePet");
-            item.value = Item.sellPrice(0, 10, 30, 0);
-            item.rare = 7;
-            item.buffType = mod.BuffType("HarbingerOfWorkBuff");
+            item.shoot = mod.ProjectileType("Dragonball");
+            item.value = Item.sellPrice(0, 25, 80, 15);
+            item.rare = 16;
+            item.buffType = mod.BuffType("AltarBellBuff");
         }
 
         public override void UseStyle(Player player)
@@ -35,7 +36,7 @@ namespace CalValEX.Items.PetComboItems.Hardmode
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            string[] summonedPets = new string[] {"RoverSpindlePet", "DiggerPet", "Androomba", "AstPhage", "PBGMini", "SeerS", "SeerM", "SeerL"};
+            string[] summonedPets = new string[] {"Dragonball", "Godrge", "Avalon", "YharimSquid", "TerminalRock", "BejeweledScuttler", "ProGuard1", "ProGuard2", "ProGuard3", "ProviPet"};
             foreach (string pet in summonedPets)
             {
                 Projectile.NewProjectile(player.Center, new Vector2(speedX, speedY), mod.ProjectileType(pet), 0, 0, player.whoAmI);
@@ -45,13 +46,14 @@ namespace CalValEX.Items.PetComboItems.Hardmode
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModContent.ItemType<RoverSpindle>());
-            recipe.AddIngredient(ModContent.ItemType<DiggerRemote>());
-            recipe.AddIngredient(ModContent.ItemType<AndroombaGBC>());
-            recipe.AddIngredient(ModContent.ItemType<AstDie>());
-            recipe.AddIngredient(ModContent.ItemType<BeeCan>());
-            recipe.AddIngredient(ModContent.ItemType<Binoculars>());
-            recipe.AddTile(TileID.AdamantiteForge);
+            recipe.AddIngredient(ModContent.ItemType<OrbSummon>());
+            recipe.AddIngredient(ModContent.ItemType<NuclearFly>());
+            recipe.AddIngredient(ModContent.ItemType<FlareRune>());
+            recipe.AddIngredient(ModContent.ItemType<AuricBottle>());
+            recipe.AddIngredient(ModContent.ItemType<TerminusStone>());
+            recipe.AddIngredient(ModContent.ItemType<BejeweledSpike>());
+            recipe.AddIngredient(ModContent.ItemType<ProShard>());
+            recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

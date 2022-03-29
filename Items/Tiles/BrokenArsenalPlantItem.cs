@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿/*using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using CalValEX.Tiles.MiscFurniture;
 using Terraria.ModLoader;
@@ -31,4 +31,4 @@ namespace CalValEX.Items.Tiles
 
         public override void ModifyTooltips(List<TooltipLine> tooltips) => ItemUtils.CheckRarity(CalamityRarity.Violet, tooltips);
     }
-}
+}*/

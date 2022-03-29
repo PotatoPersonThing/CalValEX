@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
+using CalValEX.Projectiles.Pets;
 using CalValEX.Projectiles.Pets.Wulfrum;
 
 namespace CalValEX.Buffs.PetComboBuffs
@@ -61,11 +62,11 @@ namespace CalValEX.Buffs.PetComboBuffs
             }
 
             player.buffTime[buffIndex] = 18000;
-            player.GetModPlayer<CalValEXPlayer>().roverd = true;
-            bool petProjectileNotSpawnedC = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.RoverSpindlePet>()] <= 0;
+            player.GetModPlayer<CalValEXPlayer>().RepairBot = true;
+            bool petProjectileNotSpawnedC = player.ownedProjectileCounts[ModContent.ProjectileType<RepairBot>()] <= 0;
             if (petProjectileNotSpawnedC && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2) + 32, player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.RoverSpindlePet>(), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<RepairBot>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
         }
     }

@@ -47,7 +47,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             auraRotation = true;
             auraRotationSpeedMult = 0.05f;
 
-            glowmaskTexture = "";
+            glowmaskTexture = "Projectiles/Pets/LightPets/SolarBunnyGlow";
             auraGlowmaskTexture = "Projectiles/Pets/LightPets/SolarBunnyAuraGlow";
         }
 
