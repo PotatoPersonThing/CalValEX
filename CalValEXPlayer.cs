@@ -413,6 +413,7 @@ namespace CalValEX
         public bool WormBell;
         public bool Vaseline;
         public bool ScratchedGong;
+        public bool Pandora;
 
 
         public override void Initialize()
@@ -1028,6 +1029,7 @@ namespace CalValEX
             WormBell = false;
             Vaseline = false;
             ScratchedGong = false;
+            Pandora = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
