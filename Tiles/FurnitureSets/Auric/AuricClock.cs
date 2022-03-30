@@ -81,7 +81,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
         {
             if (closer)
             {
-                Main.clock = true;
+                //Main.clock = true;
             }
         }
 

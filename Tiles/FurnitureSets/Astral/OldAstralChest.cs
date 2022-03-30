@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿/*using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.DataStructures;
@@ -202,4 +202,4 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             }
         }
     }
-}
+}*/

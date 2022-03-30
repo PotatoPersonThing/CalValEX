@@ -21,7 +21,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
             Item.autoReuse = true;
             Item.maxStack = 99;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<PhantowaxDresser>();
+           // Item.createTile = ModContent.TileType<PhantowaxDresser>();
             Item.width = 12;
             Item.height = 12;
             Item.rare = 0;

@@ -12,6 +12,15 @@ namespace CalValEX.Items.Equips.Shirts
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bloody Mary Dress");
+            SetupDrawing();
+        }
+
+        public override void Load()
+        {
+            if (Main.netMode != NetmodeID.Server)
+            {
+                Mod.AddEquipTexture(new BloodyMaryDressLegs(), this, EquipType.Legs, "CalValEX/Items/Equips/Shirts/BloodyMaryDress_Legs");
+            }
         }
 
         public override void SetDefaults()
@@ -27,6 +36,12 @@ namespace CalValEX.Items.Equips.Shirts
         {
             robes = true;
             equipSlot = Mod.GetEquipSlot("BloodyMaryDress_Legs", EquipType.Legs);
+        }
+
+        private void SetupDrawing()
+        {
+            int equipSlotLegs = Mod.GetEquipSlot(Name, EquipType.Legs);
+            ArmorIDs.Legs.Sets.HidesBottomSkin[equipSlotLegs] = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -58,5 +73,9 @@ namespace CalValEX.Items.Equips.Shirts
             recipe.SetResult(this);
             recipe.AddRecipe();
         }*/
+    }
+
+    public class BloodyMaryDressLegs : EquipTexture
+    {
     }
 }

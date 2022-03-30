@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+/*using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using CalValEX.Items.Tiles.FurnitureSets.Auric;
@@ -246,4 +246,4 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             Chest.DestroyChest(i, j);
         }
     }
-}
+}*/

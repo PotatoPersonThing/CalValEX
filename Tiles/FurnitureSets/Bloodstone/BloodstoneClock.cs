@@ -66,7 +66,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
         {
             if (closer)
             {
-                Main.clock = true;
+                //Main.clock = true;
             }
         }
 

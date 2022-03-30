@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+/*using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
@@ -231,4 +231,4 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             Chest.DestroyChest(i, j);
         }
     }
-}
+}*/

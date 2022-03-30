@@ -67,7 +67,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
         {
             if (closer)
             {
-                Main.clock = true;
+                //Main.clock = true;
             }
         }
 

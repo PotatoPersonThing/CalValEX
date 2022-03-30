@@ -10,9 +10,9 @@ using CalamityMod.Particles;
 using CalValEX.Items.Equips.Hats.Draedon;
 using CalValEX.Items.Equips.Shirts.Draedon;
 using CalValEX.Items.Equips.Transformations;
-using CalValEX.Buffs.Transformations;
+using CalValEX.Buffs.Transformations;*/
 using CalValEX.Items.Mounts.Morshu;
-using CalValEX.Projectiles.Pets;
+/*using CalValEX.Projectiles.Pets;
 using CalValEX.Projectiles.Pets.LightPets;
 using CalValEX.Items.Equips.Backs;
 using CalValEX.Projectiles.Pets.Elementals;*/
@@ -424,40 +424,40 @@ namespace CalValEX
         }
 
         
-        /*public override void UpdateVisibleVanityAccessories()
+        public override void UpdateVisibleVanityAccessories()
         {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            Mod antisocial = ModLoader.GetMod("Antisocial");
+            //Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            //Mod antisocial = ModLoader.GetMod("Antisocial");
             for (int n = 13; n < 18 + Player.extraAccessorySlots; n++)
             {
                 Item item = Player.armor[n];
-                if (item.type == ModContent.ItemType<Signus>())
+                if (item.type == ModContent.ItemType<Items.Equips.Transformations.Signus>())
                 {
                     signutHide = false;
                     signutForce = true;
                 }
-                else if (item.type == ModContent.ItemType<ProtoRing>())
+                else if (item.type == ModContent.ItemType<Items.Equips.Transformations.ProtoRing>())
                 {
                     androHide = false;
                     androForce = true;
                 }
-                else if (item.type == ModContent.ItemType<BurningEye>())
+                else if (item.type == ModContent.ItemType<Items.Equips.Transformations.BurningEye>())
                 {
                     classicHide = false;
                     classicForce = true;
                 }
-                else if (item.type == ModContent.ItemType<CloudWaistbelt>())
+                else if (item.type == ModContent.ItemType<Items.Equips.Transformations.CloudWaistbelt>())
                 {
                     cloudHide = false;
                     cloudForce = true;
                 }
-                else if (item.type == ModContent.ItemType<SandyBangles>())
+                else if (item.type == ModContent.ItemType<Items.Equips.Transformations.SandyBangles>())
                 {
                     sandHide = false;
                     sandForce = true;
                 }
                 //Update vanity won't work for these two so they are detected here
-                else if (item.type == ModContent.ItemType<PrismShell>())
+                else if (item.type == ModContent.ItemType<Items.Equips.Backs.PrismShell>())
                 {
                     prismshell = true;
                 }
@@ -465,7 +465,7 @@ namespace CalValEX
                 {
                     exorb = true;
                 }
-                else if (item.type == calamityMod.ItemType("HeartoftheElements") && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
+                /*else if (item.type == calamityMod.ItemType("HeartoftheElements") && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
                 {
                     bool brimmyspawned = Player.ownedProjectileCounts[ProjectileType<VanityBrimstone>()] <= 0;
                     bool cloudspawned = Player.ownedProjectileCounts[ProjectileType<VanityCloud>()] <= 0;
@@ -599,50 +599,50 @@ namespace CalValEX
                     }
                     vanityfunclump = true;
                 }
+            }*/
+                //Despawn vanity elementals and cryo shield if in functional slots
+                /*for (int n = 3; n < 10 + Player.extraAccessorySlots; n++)
+                {
+                    Item item = Player.armor[n];
+                    if (item.type == calamityMod.ItemType("HeartoftheElements"))
+                    {
+                        vanityhote = false;
+                    }
+                    if (item.type == calamityMod.ItemType("WifeinaBottle"))
+                    {
+                        vanitysand = false;
+                    }
+                    if (item.type == calamityMod.ItemType("WifeinaBottlewithBoobs"))
+                    {
+                        vanityrare = false;
+                    }
+                    if (item.type == calamityMod.ItemType("EyeoftheStorm"))
+                    {
+                        vanitycloud = false;
+                    }
+                    if (item.type == calamityMod.ItemType("RoseStone"))
+                    {
+                        vanitybrim = false;
+                    }
+                    if (item.type == calamityMod.ItemType("LureofEnthrallment"))
+                    {
+                        vanitysiren = false;
+                    }
+                    if (item.type == calamityMod.ItemType("CryoStone"))
+                    {
+                        Lightshield = false;
+                    }
+                    if (item.type == calamityMod.ItemType("FungalClump"))
+                    {
+                        vanityfunclump = false;
+                    }
+                    if (item.type == calamityMod.ItemType("MutatedTruffle"))
+                    {
+                        vanityyound = false;
+                    }*/
             }
-            //Despawn vanity elementals and cryo shield if in functional slots
-            for (int n = 3; n < 10 + Player.extraAccessorySlots; n++)
-            {
-                Item item = Player.armor[n];
-                if (item.type == calamityMod.ItemType("HeartoftheElements"))
-                {
-                    vanityhote = false;
-                }
-                if (item.type == calamityMod.ItemType("WifeinaBottle"))
-                {
-                    vanitysand = false;
-                }
-                if (item.type == calamityMod.ItemType("WifeinaBottlewithBoobs"))
-                {
-                    vanityrare = false;
-                }
-                if (item.type == calamityMod.ItemType("EyeoftheStorm"))
-                {
-                    vanitycloud = false;
-                }
-                if (item.type == calamityMod.ItemType("RoseStone"))
-                {
-                    vanitybrim = false;
-                }
-                if (item.type == calamityMod.ItemType("LureofEnthrallment"))
-                {
-                    vanitysiren = false;
-                }
-                if (item.type == calamityMod.ItemType("CryoStone"))
-                {
-                    Lightshield = false;
-                }
-                if (item.type == calamityMod.ItemType("FungalClump"))
-                {
-                    vanityfunclump = false;
-                }
-                if (item.type == calamityMod.ItemType("MutatedTruffle"))
-                {
-                    vanityyound = false;
-                }
-            }
-        }*/
-        /*public override void FrameEffects()
+        }
+        public override void FrameEffects()
         {
             if ((signutTrans || signutForce) && !signutHide)
             {
@@ -687,18 +687,18 @@ namespace CalValEX
         public override void UpdateVisibleAccessories()
         { 
             if (signutTrans)
-                Player.AddBuff(ModContent.BuffType<SignutTransformationBuff>(), 60, true);
+                Player.AddBuff(ModContent.BuffType<Buffs.Transformations.SignutTransformationBuff>(), 60, true);
             else if (androTrans)
-                Player.AddBuff(ModContent.BuffType<ProtoRingBuff>(), 60, true);
+                Player.AddBuff(ModContent.BuffType<Buffs.Transformations.ProtoRingBuff>(), 60, true);
             else if (classicTrans)
-                Player.AddBuff(ModContent.BuffType<ClassicBrimmyBuff>(), 60, true);
+                Player.AddBuff(ModContent.BuffType<Buffs.Transformations.ClassicBrimmyBuff>(), 60, true);
             else if (cloudTrans)
-                Player.AddBuff(ModContent.BuffType<CloudTransformationBuff>(), 60, true);
+                Player.AddBuff(ModContent.BuffType<Buffs.Transformations.CloudTransformationBuff>(), 60, true);
             else if (sandTrans)
-                Player.AddBuff(ModContent.BuffType<SandTransformationBuff>(), 60, true);
-        }*/
+                Player.AddBuff(ModContent.BuffType<Buffs.Transformations.SandTransformationBuff>(), 60, true);
+        }
 
-        public override void PreUpdateMovement()
+        /*public override void PreUpdateMovement()
         {
             if (pongactive)
             {

@@ -15,6 +15,7 @@ namespace CalValEX.Items.Equips.Transformations
 		{
 			DisplayName.SetDefault("Valkyrian Garments");
 			Tooltip.SetDefault("Surrounds the wearer with clouds");
+			SetupDrawing();
 		}
 		/*public override void AddRecipes()
 		{

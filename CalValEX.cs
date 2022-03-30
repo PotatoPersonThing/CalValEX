@@ -103,7 +103,8 @@ namespace CalValEX
 
             if (Main.dedServ)
                 return;
-          /* AddEquipTexture(null, EquipType.Legs, "BloodyMaryDress_Legs", "CalValEX/Items/Equips/Shirts/BloodyMaryDress_Legs");
+            /*AddEquipTexture(ModContent.ItemType<ProtoRing>(), EquipType.Head, "CalValEX/Items/Equips/Transformations/ProtoRing_Head");
+           AddEquipTexture(null, EquipType.Legs, "BloodyMaryDress_Legs", "CalValEX/Items/Equips/Shirts/BloodyMaryDress_Legs");
             //Signus transformation
             AddEquipTexture(new SignusHead(), null, EquipType.Head, "SignusHead", "CalValEX/Items/Equips/Transformations/SignusTrans_Head");
             AddEquipTexture(new SignusBody(), null, EquipType.Body, "SignusBody", "CalValEX/Items/Equips/Transformations/SignusTrans_Body", "CalValEX/Items/Equips/Transformations/SignusTrans_Arms");

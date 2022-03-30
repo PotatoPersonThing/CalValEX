@@ -24,7 +24,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 500;
-            Item.createTile = ModContent.TileType<PhantowaxChest>();
+            //Item.createTile = ModContent.TileType<PhantowaxChest>();
         }
 
         /*public override void AddRecipes()

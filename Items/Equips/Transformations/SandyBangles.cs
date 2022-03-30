@@ -15,6 +15,7 @@ namespace CalValEX.Items.Equips.Transformations
 		{
 			DisplayName.SetDefault("Sandy Bangles");
 			Tooltip.SetDefault("Encompasses the wearer in sand");
+			SetupDrawing();
 		}
 		/*public override void AddRecipes()
 		{
