@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "qD8YgAlVRKCKvbaTWtTMvpBV+xE7HkqYdnQsFSbYjAVZ6Xc1fE94Mnd78tX2GVZVCcGqt72u+LuoQbHxiaXpYg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hdnp2\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Beta\\Mod Sources\\CalValEX\\CalValEX.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hdnp2\\.nuget\\packages\\tmodloader.codeassist\\0.1.3\\tmodloader.codeassist.0.1.3.nupkg.sha512"
+  ],
+  "logs": []
+}

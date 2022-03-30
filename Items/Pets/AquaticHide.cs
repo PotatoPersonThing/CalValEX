@@ -1,6 +1,8 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
+using Microsoft.Xna.Framework;
 
 namespace CalValEX.Items.Pets
 {
@@ -14,26 +16,19 @@ namespace CalValEX.Items.Pets
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.ZephyrFish);
-            item.UseSound = SoundID.NPCHit13;
-            item.shoot = mod.ProjectileType("AquaPet");
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            item.rare = 6;
-            item.buffType = mod.BuffType("AquaBuff");
+            Item.CloneDefaults(ItemID.ZephyrFish);
+            Item.UseSound = SoundID.NPCHit13;
+            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.AquaPet>();
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Item.rare = 6;
+            Item.buffType = ModContent.BuffType<Buffs.Pets.AquaBuff>();
         }
-
-        public override void UseStyle(Player player)
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
-        }
-
-        public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-        {
-            type = mod.ProjectileType("AquaPet");
-            return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
         }
     }
 }

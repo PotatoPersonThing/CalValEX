@@ -17,35 +17,35 @@ namespace CalValEX.Items.Critters
 
         public override void SetDefaults()
         {
-            //item.useStyle = 1;
-            //item.autoReuse = true;
-            //item.useTurn = true;
-            //item.useAnimation = 15;
-            //item.useTime = 10;
-            //item.maxStack = 999;
-            //item.consumable = true;
-            //item.width = 12;
-            //item.height = 12;
-            //item.makeNPC = 360;
-            //item.noUseGraphic = true;
-            //item.bait = 15;
+            //Item.useStyle = 1;
+            //Item.autoReuse = true;
+            //Item.useTurn = true;
+            //Item.useAnimation = 15;
+            //Item.useTime = 10;
+            //Item.maxStack = 999;
+            //Item.consumable = true;
+            //Item.width = 12;
+            //Item.height = 12;
+            //Item.makeNPC = 360;
+            //Item.noUseGraphic = true;
+            //Item.bait = 15;
 
-            item.CloneDefaults(ItemID.GlowingSnail);
-            Mod mod = ModLoader.GetMod("CalamityMod");
+            Item.CloneDefaults(ItemID.GlowingSnail);
+            /*Mod mod = ModLoader.GetMod("CalamityMod");
             if (mod == null)
             {
                 return;
-            }
-            if (((bool)mod.Call("GetBossDowned", "polterghast")) || CalValEXConfig.Instance.IsopodBait)
+            }*/
+            if (/*((bool)mod.Call("GetBossDowned", "polterghast"))*/ NPC.downedMoonlord || CalValEXConfig.Instance.IsopodBait)
             {
-                item.bait = 75;
+                Item.bait = 75;
             }
-            else if (!((bool)mod.Call("GetBossDowned", "polterghast")) && !CalValEXConfig.Instance.IsopodBait)
+            else if (!(/*(bool)mod.Call("GetBossDowned", "polterghast")*/NPC.downedMoonlord) && !CalValEXConfig.Instance.IsopodBait)
             {
-                item.bait = 1;
+                Item.bait = 1;
             }
-            item.makeNPC = (short)NPCType<GoldenIsopod>();
-            item.value = Item.sellPrice(0, 20, 0, 0);
+            Item.makeNPC = (short)NPCType<GoldenIsopod>();
+            Item.value = Item.sellPrice(0, 20, 0, 0);
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -68,7 +68,7 @@ namespace CalValEX.Items.Critters
             }
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             Mod mod = ModLoader.GetMod("FargowiltasSouls");
             if (mod == null)
@@ -83,6 +83,6 @@ namespace CalValEX.Items.Critters
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

@@ -11,7 +11,7 @@ namespace CalValEX.Tiles.MiscFurniture
 {
     public class PlagueDialysisPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolidTop[Type] = true;
             Main.tileFrameImportant[Type] = true;
@@ -23,16 +23,16 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.Height = 8;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16, 16, 16, 16 }; //
             TileObjectData.newTile.CoordinatePadding = 0;
-            animationFrameHeight = 128;
+            AnimationFrameHeight = 128;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Bumbletube");
             AddMapEntry(new Color(128, 188, 67), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(i * 16, j * 16, 24, 24, ItemType<PlagueDialysis>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ItemType<PlagueDialysis>());
         }
     }
 }

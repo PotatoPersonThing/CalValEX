@@ -10,7 +10,7 @@ namespace CalValEX.Tiles.Plants
 {
     public class BelchingCoralPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -21,7 +21,7 @@ namespace CalValEX.Tiles.Plants
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 }; //
 
-            animationFrameHeight = 54;
+            AnimationFrameHeight = 54;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Sulphuric Coral");
@@ -30,7 +30,7 @@ namespace CalValEX.Tiles.Plants
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 24, 24, ItemType<BelchingCoral>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ItemType<BelchingCoral>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

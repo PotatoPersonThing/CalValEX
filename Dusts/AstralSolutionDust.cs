@@ -4,8 +4,8 @@ namespace CalValEX.Dusts
 {
 	public class AstralSolutionDust : ModDust
 	{
-		public override void SetDefaults() {
-			updateType = 110;
+		public override void SetStaticDefaults() {
+			UpdateType = 110;
 		}
 	}
 }

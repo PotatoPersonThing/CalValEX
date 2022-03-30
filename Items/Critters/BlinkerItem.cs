@@ -16,21 +16,21 @@ namespace CalValEX.Items.Critters
 
         public override void SetDefaults()
         {
-            item.useStyle = ItemUseStyleID.SwingThrow;
-            item.autoReuse = true;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 22;
-            item.height = 24;
-            item.noUseGraphic = true;
-            item.makeNPC = (short)NPCType<Blinker>();
-            item.rare = ItemRarityID.Lime;
-            item.bait = 20;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.autoReuse = true;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 22;
+            Item.height = 24;
+            Item.noUseGraphic = true;
+            Item.makeNPC = (short)NPCType<Blinker>();
+            Item.rare = ItemRarityID.Lime;
+            Item.bait = 20;
         }
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
@@ -40,6 +40,6 @@ namespace CalValEX.Items.Critters
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

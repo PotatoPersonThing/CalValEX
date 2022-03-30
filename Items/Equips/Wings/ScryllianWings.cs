@@ -14,19 +14,19 @@ namespace CalValEX.Items.Equips.Wings
 
         public override void SetDefaults()
         {
-            item.width = 42;
-            item.height = 26;
-            item.rare = 3;
-            item.accessory = true;
-            item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.width = 42;
+            Item.height = 26;
+            Item.rare = 3;
+            Item.accessory = true;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.wingTimeMax = 60;
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+           
             if (!Main.hardMode)
-                player.AddBuff(calamityMod.BuffType("BrimstoneFlames"), 2);
+                player.AddBuff(Terraria.ID.BuffID.CursedInferno, 2);
         }
 
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)

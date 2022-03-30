@@ -13,20 +13,20 @@ namespace CalValEX.Items.Critters
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.autoReuse = true;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 22;
-            item.height = 22;
-            item.makeNPC = 360;
-            item.noUseGraphic = true;
-            item.bait = 5;
-            item.rare = 1;
-            item.makeNPC = (short)NPCType<Orthobab>();
+            Item.useStyle = 1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 22;
+            Item.height = 22;
+            Item.makeNPC = 360;
+            Item.noUseGraphic = true;
+            Item.bait = 5;
+            Item.rare = 1;
+            Item.makeNPC = (short)NPCType<Orthobab>();
         }
     }
 }

@@ -9,12 +9,12 @@ namespace CalValEX.Walls
 {
     public class AstralBrickWallPlaced : ModWall
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = false;
             AddMapEntry(new Color(37, 10, 38));
-            dustType = ModContent.DustType<AstralDust>();
-            drop = ModContent.ItemType<AstralBrickWall>();
+            DustType = ModContent.DustType<AstralDust>();
+            ItemDrop = ModContent.ItemType<AstralBrickWall>();
         }
     }
 }

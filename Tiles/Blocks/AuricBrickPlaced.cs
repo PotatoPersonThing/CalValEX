@@ -8,16 +8,16 @@ namespace CalValEX.Tiles.Blocks
 {
     public class AuricBrickPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            drop = ModContent.ItemType<AuricBrick>();
-            soundType = SoundID.Tink;
+            ItemDrop = ModContent.ItemType<AuricBrick>();
+            SoundType = SoundID.Tink;
             AddMapEntry(new Color(242, 202, 39));
-            dustType = 159;
+            DustType = 159;
             //minPick = 249;
         }
     }

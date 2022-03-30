@@ -5,13 +5,13 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using CalValEX.Items.Tiles;
 using Terraria.ObjectData;
-using CalamityMod;
+//using CalamityMod;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
 	public class TerminusShrineLevel3Placed : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLighted[Type] = true;
@@ -21,19 +21,19 @@ namespace CalValEX.Tiles.MiscFurniture
 			TileObjectData.newTile.Height = 3;
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 };
 			TileObjectData.addTile(Type);
-			animationFrameHeight = 54;
+			AnimationFrameHeight = 54;
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Terminus Shrine");
 			AddMapEntry(new Color(113, 142, 162), name);
 		}
 
-		public override void KillMultiTile(int i, int j, int frameX, int frameY)
+		public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
 		{
-			Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("Rock"), 1);
-			Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("BossRush"), 1);
+			//Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("Rock"), 1);
+			//Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("BossRush"), 1);
 			CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
-			CalValEXWorld.RockshrinEX = false;
-			Item.NewItem(i * 16, j * 16, 16, 16, ModContent.ItemType<TerminusShrine>());
+			//CalValEXWorld.RockshrinEX = false;
+			Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModContent.ItemType<TerminusShrine>());
 		}
 
 		private int count;
@@ -42,7 +42,7 @@ namespace CalValEX.Tiles.MiscFurniture
 		public override void PlaceInWorld(int i, int j, Item item)
 		{
 			stonepos = -1.00001f;
-			CalValEXWorld.RockshrinEX = true;
+			//CalValEXWorld.RockshrinEX = true;
 		}
 		/*public override void NearbyEffects(int i, int j, bool closer)
 		{
@@ -51,9 +51,9 @@ namespace CalValEX.Tiles.MiscFurniture
 		public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
 		{
 			Tile tile = Main.tile[i, j];
-			if (tile.frameX == 0 && tile.frameY == 0)
+			if (tile.TileFrameX == 0 && tile.TileFrameY == 0)
 			{
-				CalValEXWorld.RockshrinEX = true;
+			//	CalValEXWorld.RockshrinEX = true;
 				rotation += 30;
 				if (stonepos <= -6)
 				{
@@ -63,8 +63,8 @@ namespace CalValEX.Tiles.MiscFurniture
 				{
 					stonepos = stonepos * -0.001f;
 				}
-				Texture2D auraTexture = mod.GetTexture("Tiles/MiscFurniture/TerminusShrineStone_Aura");
-				Texture2D stoneTexture = mod.GetTexture("Tiles/MiscFurniture/TerminusShrineStone");
+				Texture2D auraTexture = ModContent.Request<Texture2D>("CalValEX/Tiles/MiscFurniture/TerminusShrineStone_Aura").Value;
+				Texture2D stoneTexture = ModContent.Request<Texture2D>("CalValEX/Tiles/MiscFurniture/TerminusShrineStone").Value;
 				Rectangle sourceRectangle = new Rectangle(0, 0, auraTexture.Width, auraTexture.Height);
 				Rectangle stoneRectangle = new Rectangle(0, 0, stoneTexture.Width, stoneTexture.Height);
 				Vector2 zero = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
@@ -73,7 +73,7 @@ namespace CalValEX.Tiles.MiscFurniture
 				Color color = Color.White;
 				Vector2 origin = new Vector2(auraTexture.Width, auraTexture.Height);
 
-				if (!tile.halfBrick() && tile.slope() == 0)
+				//if (!tile.halfBrick() && tile.slope() == 0)
 				{
 						spriteBatch.End();
 						spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied);

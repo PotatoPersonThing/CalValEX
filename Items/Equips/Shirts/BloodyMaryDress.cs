@@ -16,22 +16,19 @@ namespace CalValEX.Items.Equips.Shirts
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 14;
-            item.rare = 11;
-            item.vanity = true;
-            item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.width = 18;
+            Item.height = 14;
+            Item.rare = 11;
+            Item.vanity = true;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Terraria.ID.ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = false;
         }
         public override void SetMatch(bool male, ref int equipSlot, ref bool robes)
         {
             robes = true;
-            equipSlot = mod.GetEquipSlot("BloodyMaryDress_Legs", EquipType.Legs);
+            equipSlot = Mod.GetEquipSlot("BloodyMaryDress_Legs", EquipType.Legs);
         }
 
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = false;
-        }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             //rarity 12 (Turquoise) = new Color(0, 255, 200)
@@ -51,15 +48,15 @@ namespace CalValEX.Items.Equips.Shirts
                 }
             }
         }
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+           
             recipe.AddIngredient(calamityMod.ItemType("BloodstoneCore"), 8);
             recipe.AddIngredient((ItemID.TheBrideDress), 1);
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.SetResult(this);
             recipe.AddRecipe();
-        }
+        }*/
     }
 }

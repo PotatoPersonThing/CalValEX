@@ -10,7 +10,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
 {
     public class BloodstoneChair : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
@@ -29,13 +29,13 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Bloodstone Chair");
             AddMapEntry(new Color(139, 0, 0), name);
-            disableSmartCursor = true;
-            adjTiles = new int[] { TileID.Chairs };
+            
+            AdjTiles = new int[] { TileID.Chairs };
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 32, ModContent.ItemType<BloodstoneChairItem>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<BloodstoneChairItem>());
         }
     }
 }

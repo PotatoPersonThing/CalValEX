@@ -13,11 +13,11 @@ namespace CalValEX.Items.Equips.Wings
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 20;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 4;
-            item.accessory = true;
+            Item.width = 22;
+            Item.height = 20;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 4;
+            Item.accessory = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

@@ -11,7 +11,7 @@ namespace CalValEX.Tiles.MiscFurniture
 {
     public class RoxFakePlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -25,9 +25,9 @@ namespace CalValEX.Tiles.MiscFurniture
             AddMapEntry(new Color(249, 119, 48), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(i * 16, j * 16, 24, 24, ItemType<RoxFake>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ItemType<RoxFake>());
         }
     }
 }

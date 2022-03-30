@@ -9,7 +9,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
 {
     public class PhantowaxPlatform : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
@@ -30,9 +30,9 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             AddMapEntry(new Color(94, 39, 93));
-            drop = ModContent.ItemType<PhantowaxPlatformItem>();
-            disableSmartCursor = true;
-            adjTiles = new int[] { TileID.Platforms };
+            ItemDrop = ModContent.ItemType<PhantowaxPlatformItem>();
+            
+            AdjTiles = new int[] { TileID.Platforms };
         }
 
         public override void PostSetDefaults()

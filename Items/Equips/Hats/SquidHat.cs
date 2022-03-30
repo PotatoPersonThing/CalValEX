@@ -16,12 +16,12 @@ namespace CalValEX.Items.Equips.Hats
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 28;
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            item.rare = 11;
-            item.vanity = true;
+            Item.width = 24;
+            Item.height = 28;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+           
+            Item.rare = 11;
+            Item.vanity = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

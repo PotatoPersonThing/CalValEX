@@ -16,10 +16,10 @@ namespace CalValEX.Items.Equips.Wings
 
         public override void SetDefaults()
         {
-            item.value = 10000;
-            item.rare = 11;
-            item.accessory = true;
-            item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.value = 10000;
+            Item.rare = 11;
+            Item.accessory = true;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)

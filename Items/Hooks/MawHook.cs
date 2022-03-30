@@ -16,10 +16,10 @@ namespace CalValEX.Items.Hooks
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.BatHook);
-            item.shootSpeed = 18f;
-            item.shoot = ProjectileType<MawTeeth>();
-            item.rare = 5;
+            Item.CloneDefaults(ItemID.BatHook);
+            Item.shootSpeed = 18f;
+            Item.shoot = ProjectileType<MawTeeth>();
+            Item.rare = 5;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

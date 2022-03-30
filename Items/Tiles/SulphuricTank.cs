@@ -1,5 +1,5 @@
-using CalValEX.Items.Equips.Hats;
-using CalValEX.Items.Equips.Shields;
+//using CalValEX.Items.Equips.Hats;
+//using CalValEX.Items.Equips.Shields;
 using CalValEX.Items.Pets;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
@@ -20,17 +20,17 @@ namespace CalValEX.Items.Tiles
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.autoReuse = true;
-            item.maxStack = 99;
-            item.consumable = true;
-            item.createTile = ModContent.TileType<SulphuricTankPlaced>();
-            item.width = 12;
-            item.height = 12;
-            item.rare = 10;
+            Item.useStyle = 1;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.maxStack = 99;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<SulphuricTankPlaced>();
+            Item.width = 12;
+            Item.height = 12;
+            Item.rare = 10;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -53,7 +53,7 @@ namespace CalValEX.Items.Tiles
             }
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
@@ -68,6 +68,6 @@ namespace CalValEX.Items.Tiles
                 recipe.SetResult(this, 16);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

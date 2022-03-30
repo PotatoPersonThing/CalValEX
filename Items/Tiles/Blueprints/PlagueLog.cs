@@ -17,17 +17,17 @@ namespace CalValEX.Items.Tiles.Blueprints
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.autoReuse = true;
-            item.maxStack = 99;
-            item.consumable = true;
-            item.createTile = ModContent.TileType<PlagueBlueprintPlaced>();
-            item.width = 46;
-            item.height = 32;
-            item.rare = 6;
+            Item.useStyle = 1;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.maxStack = 99;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<PlagueBlueprintPlaced>();
+            Item.width = 46;
+            Item.height = 32;
+            Item.rare = 6;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -50,7 +50,7 @@ namespace CalValEX.Items.Tiles.Blueprints
             }
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
@@ -61,6 +61,6 @@ namespace CalValEX.Items.Tiles.Blueprints
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

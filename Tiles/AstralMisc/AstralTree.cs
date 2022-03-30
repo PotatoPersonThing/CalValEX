@@ -14,15 +14,15 @@ namespace CalValEX.Tiles.AstralMisc
 		}
 
 		public override Texture2D GetTexture() {
-			return mod.GetTexture("Tiles/AstralMisc/AstralTree");
+			return ModContent.Request<Texture2D>("Tiles/AstralMisc/AstralTree").Value;
 		}
 
 		public override Texture2D GetTopTextures(int i, int j, ref int frame, ref int frameWidth, ref int frameHeight, ref int xOffsetLeft, ref int yOffset) {
-			return mod.GetTexture("Tiles/AstralMisc/AstralTreeTop");
+			return ModContent.Request<Texture2D>("Tiles/AstralMisc/AstralTreeTop").Value;
 		}
 
 		public override Texture2D GetBranchTextures(int i, int j, int trunkOffset, ref int frame) {
-			return mod.GetTexture("Tiles/AstralMisc/AstralTreeBranch");
+			return ModContent.Request < Texture2D > ("Tiles/AstralMisc/AstralTreeBranch").Value;
 		}
 	}
 } 

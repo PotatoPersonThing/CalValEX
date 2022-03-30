@@ -8,15 +8,15 @@ namespace CalValEX.Tiles.Blocks
 {
     public class AzufreSludgePlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            drop = ModContent.ItemType<AzufreSludge>();
+            ItemDrop = ModContent.ItemType<AzufreSludge>();
             AddMapEntry(new Color(242, 202, 39));
-            dustType = 75;
+            DustType = 75;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace CalValEX.Tiles.MiscFurniture
     {
         int rotationbottom;
         int negavar;
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -49,9 +49,9 @@ namespace CalValEX.Tiles.MiscFurniture
             }
         }*/
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 64, ItemType<Se>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 64, ItemType<Se>());
         }
 
         float count;
@@ -59,7 +59,7 @@ namespace CalValEX.Tiles.MiscFurniture
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
             Tile tile = Main.tile[i, j];
-            if (tile.frameX == 0 && tile.frameY == 0)
+            if (tile.TileFrameX == 0 && tile.TileFrameY == 0)
             {
                 Player player = Main.LocalPlayer;
                 CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
@@ -164,15 +164,15 @@ namespace CalValEX.Tiles.MiscFurniture
 
                 //Sproots
 
-                Texture2D Seg1 = mod.GetTexture("ExtraTextures/Sepulcher/SepulcherBottomOrb");
-                Texture2D Seg2 = mod.GetTexture("ExtraTextures/Sepulcher/SepulcherBottomSegment");
-                Texture2D Seg3 = mod.GetTexture("ExtraTextures/Sepulcher/SepulcherLowerSegment");
-                Texture2D Seg4 = mod.GetTexture("ExtraTextures/Sepulcher/SepulcherMiddleOrb");
-                Texture2D Seg5 = mod.GetTexture("ExtraTextures/Sepulcher/SepulcherMiddleSegment");
-                Texture2D Seg6 = mod.GetTexture("ExtraTextures/Sepulcher/SepulcherTopOrb");
-                Texture2D Seg7 = mod.GetTexture("ExtraTextures/Sepulcher/SepulcherHead");
-                Texture2D ArmL = mod.GetTexture("ExtraTextures/Sepulcher/SepulcherLeftArm");
-                Texture2D ArmR = mod.GetTexture("ExtraTextures/Sepulcher/SepulcherRightArm");
+                Texture2D Seg1 = Request<Texture2D>("CalValEX/ExtraTextures/Sepulcher/SepulcherBottomOrb").Value;
+                Texture2D Seg2 = Request<Texture2D>("CalValEX/ExtraTextures/Sepulcher/SepulcherBottomSegment").Value;
+                Texture2D Seg3 = Request<Texture2D>("CalValEX/ExtraTextures/Sepulcher/SepulcherLowerSegment").Value;
+                Texture2D Seg4 = Request<Texture2D>("CalValEX/ExtraTextures/Sepulcher/SepulcherMiddleOrb").Value;
+                Texture2D Seg5 = Request<Texture2D>("CalValEX/ExtraTextures/Sepulcher/SepulcherMiddleSegment").Value;
+                Texture2D Seg6 = Request<Texture2D>("CalValEX/ExtraTextures/Sepulcher/SepulcherTopOrb").Value;
+                Texture2D Seg7 = Request<Texture2D>("CalValEX/ExtraTextures/Sepulcher/SepulcherHead").Value;
+                Texture2D ArmL = Request<Texture2D>("CalValEX/ExtraTextures/Sepulcher/SepulcherLeftArm").Value;
+                Texture2D ArmR = Request<Texture2D>("CalValEX/ExtraTextures/Sepulcher/SepulcherRightArm").Value;
 
                 //Base positions
 
@@ -251,7 +251,7 @@ namespace CalValEX.Tiles.MiscFurniture
                 float rotationbottomr = (rotationbottom) * 0.01f;
 
 
-                if (!tile.halfBrick() && tile.slope() == 0)
+                //if (!tile.halfBrick() && tile.slope() == 0)
                 {
                     spriteBatch.End();
                     spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied);

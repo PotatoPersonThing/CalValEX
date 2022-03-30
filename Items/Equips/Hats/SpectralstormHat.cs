@@ -18,36 +18,33 @@ namespace CalValEX.Items.Equips.Hats
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 28;
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            item.rare = 9;
-            item.vanity = true;
-        }
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
-        {
-            drawAltHair = true;
+            Item.width = 24;
+            Item.height = 28;
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Item.rare = 9;
+            Item.vanity = true;
+            Terraria.ID.ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
         }
         public override void UpdateEquip(Player player)
         {
             player.GetModPlayer<CalValEXPlayer>().specan = true;
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             player.GetModPlayer<CalValEXPlayer>().specan = true;
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+           
             recipe.AddIngredient((ItemID.FragmentVortex), 5);
             recipe.AddIngredient((ItemID.Ectoplasm), 5);
             recipe.AddIngredient(ModContent.ItemType<Aestheticrown>(), 1);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
-        }
+        }*/
     }
 }

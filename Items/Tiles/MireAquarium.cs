@@ -17,17 +17,17 @@ namespace CalValEX.Items.Tiles
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.autoReuse = true;
-            item.maxStack = 99;
-            item.consumable = true;
-            item.createTile = ModContent.TileType<MireAquariumPlaced>();
-            item.width = 32;
-            item.height = 50;
-            item.rare = ItemRarityID.Purple;
+            Item.useStyle = 1;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.maxStack = 99;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<MireAquariumPlaced>();
+            Item.width = 32;
+            Item.height = 50;
+            Item.rare = ItemRarityID.Purple;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

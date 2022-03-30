@@ -15,12 +15,12 @@ namespace CalValEX.Items.Equips.Balloons
 
         public override void SetDefaults()
         {
-            item.width = 26;
-            item.height = 44;
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            item.rare = ItemRarityID.LightPurple;
-            item.accessory = true;
-            item.vanity = true;
+            Item.width = 26;
+            Item.height = 44;
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Item.rare = ItemRarityID.LightPurple;
+            Item.accessory = true;
+            Item.vanity = true;
         }
     }
 }

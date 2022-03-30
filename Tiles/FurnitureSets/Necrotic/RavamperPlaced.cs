@@ -11,7 +11,7 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
 {
     public class RavamperPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -23,7 +23,7 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
             TileObjectData.newTile.Width = 3;
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
-            animationFrameHeight = 36;
+            AnimationFrameHeight = 36;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Necrotic Bonfire");
@@ -32,14 +32,14 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 24, 16, ItemType<Ravamper>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 16, ItemType<Ravamper>());
         }
 
         public override void NearbyEffects(int i, int j, bool closer)
         {
             if (closer)
             {
-                if (Main.tile[i, j].frameY >= 36)
+                if (Main.tile[i, j].TileFrameY >= 36)
                 {
                     Main.LocalPlayer.AddBuff(87, 20);
                 }
@@ -63,19 +63,19 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY % animationFrameHeight == 36 ? 18 : 16;
+            int height = tile.TileFrameY % AnimationFrameHeight == 36 ? 18 : 16;
             int animate = 0;
-            if (tile.frameY >= 36)
+            if (tile.TileFrameY >= 36)
             {
-                animate = Main.tileFrame[Type] * animationFrameHeight;
+                animate = Main.tileFrame[Type] * AnimationFrameHeight;
             }
-            Main.spriteBatch.Draw(texture, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY + animate, 16, height), Lighting.GetColor(i, j), 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY + animate, 16, height), Lighting.GetColor(i, j), 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
             return false;
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
-            if (Main.tile[i, j].frameY >= 36)
+            if (Main.tile[i, j].TileFrameY >= 36)
             {
                 Tile tile = Main.tile[i, j];
                 r = 0.9f;
@@ -95,9 +95,9 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
             return true;
         }
 
-        public override bool NewRightClick(int i, int j)
+        public override bool RightClick(int i, int j)
         {
-            Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+            Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
             HitWire(i, j);
             return true;
         }
@@ -106,14 +106,14 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
         {
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
-            player.showItemIcon = true;
-            player.showItemIcon2 = ItemType<Ravamper>();
+            player.cursorItemIconEnabled = true;
+            player.cursorItemIconID = ItemType<Ravamper>();
         }
 
         public override void HitWire(int i, int j)
         {
-            int x = i - Main.tile[i, j].frameX / 18 % 3;
-            int y = j - Main.tile[i, j].frameY / 18 % 2;
+            int x = i - Main.tile[i, j].TileFrameX / 18 % 3;
+            int y = j - Main.tile[i, j].TileFrameY / 18 % 2;
             for (int l = x; l < x + 3; l++)
             {
                 for (int m = y; m < y + 2; m++)
@@ -124,13 +124,13 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
                     }
                     if (Main.tile[l, m].active() && Main.tile[l, m].type == Type)
                     {
-                        if (Main.tile[l, m].frameY < 36)
+                        if (Main.tile[l, m].TileFrameY < 36)
                         {
-                            Main.tile[l, m].frameY += 36;
+                            Main.tile[l, m].TileFrameY += 36;
                         }
                         else
                         {
-                            Main.tile[l, m].frameY -= 36;
+                            Main.tile[l, m].TileFrameY -= 36;
                         }
                     }
                 }

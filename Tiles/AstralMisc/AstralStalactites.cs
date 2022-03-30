@@ -8,7 +8,7 @@ namespace CalValEX.Tiles.AstralMisc
 {
     public class AstralStalactites : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoFail[Type] = true;
@@ -17,12 +17,12 @@ namespace CalValEX.Tiles.AstralMisc
 
 
 
-            dustType = ModContent.DustType<AstralDust>();
+            DustType = ModContent.DustType<AstralDust>();
             AddMapEntry(new Color(217, 36, 64));
-            base.SetDefaults();
+            base.SetStaticDefaults();
         }
 
-        public override void SetDrawPositions(int i, int j, ref int width, ref int offsetY, ref int height)
+        /*public override void SetDrawPositions(int i, int j, ref int width, ref int offsetY, ref int height)
         {
             Tile tile = Main.tile[i, j];
             if (tile.frameY <= 18 || tile.frameY == 72)
@@ -33,7 +33,7 @@ namespace CalValEX.Tiles.AstralMisc
             {
                 offsetY = 2;
             }
-        }
+        }*/
 
         public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak)
         {

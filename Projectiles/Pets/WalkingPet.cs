@@ -43,10 +43,10 @@ namespace CalValEX.Projectiles.Pets
         {
             doJumpAnim = true;
             SafeSetDefaults();
-            projectile.penetrate = -1;
-            projectile.netImportant = true;
-            projectile.timeLeft *= 5;
-            projectile.friendly = true;
+            Projectile.penetrate = -1;
+            Projectile.netImportant = true;
+            Projectile.timeLeft *= 5;
+            Projectile.friendly = true;
         }
 
         /// <summary>
@@ -153,10 +153,10 @@ namespace CalValEX.Projectiles.Pets
 
         public sealed override void SendExtraAI(BinaryWriter writer)
         {
-            writer.Write(projectile.tileCollide);
+            writer.Write(Projectile.tileCollide);
             //local ai is not synchronized, as it normaly is local. however, since this is a pet, there is no harm using it like this
-            writer.Write(projectile.localAI[0]);
-            writer.Write(projectile.localAI[1]); //the state it is in, aka if its flying, walking or idling. 0 = idling, 1 = walking, 2 = flying for this example
+            writer.Write(Projectile.localAI[0]);
+            writer.Write(Projectile.localAI[1]); //the state it is in, aka if its flying, walking or idling. 0 = idling, 1 = walking, 2 = flying for this example
             writer.Write(jumpCounter);
 
             SafeSendExtraAI(writer);
@@ -168,9 +168,9 @@ namespace CalValEX.Projectiles.Pets
 
         public sealed override void ReceiveExtraAI(BinaryReader reader) //first in, first out. make sure the first thing you send is the first thing you read.
         {
-            projectile.tileCollide = reader.ReadBoolean();
-            projectile.localAI[0] = reader.ReadSingle();
-            projectile.localAI[1] = reader.ReadSingle();
+            Projectile.tileCollide = reader.ReadBoolean();
+            Projectile.localAI[0] = reader.ReadSingle();
+            Projectile.localAI[1] = reader.ReadSingle();
             jumpCounter = reader.ReadInt32();
 
             SafeReceiveExtraAI(reader);
@@ -181,29 +181,29 @@ namespace CalValEX.Projectiles.Pets
         public sealed override void AI()
         {
             SetTheseValues();
-            Player owner = Main.player[projectile.owner];
+            Player owner = Main.player[Projectile.owner];
             if (!owner.active)
             {
-                projectile.active = false;
+                Projectile.active = false;
                 return;
             }
 
             float offsetX = 48 * -owner.direction;
             Vector2 offset = new Vector2(offsetX, -50f);
 
-            Vector2 vectorToOwner = owner.Center - projectile.Center;
+            Vector2 vectorToOwner = owner.Center - Projectile.Center;
             float distanceToOwner = vectorToOwner.Length();
 
             if (facingLeft && shouldFlip)
-                projectile.spriteDirection = projectile.velocity.X > 0 ? -1 : 1;
+                Projectile.spriteDirection = Projectile.velocity.X > 0 ? -1 : 1;
             else if (!facingLeft && shouldFlip)
-                projectile.spriteDirection = projectile.velocity.X > 0 ? 1 : -1;
+                Projectile.spriteDirection = Projectile.velocity.X > 0 ? 1 : -1;
 
             if (distanceToOwner > distance[0])
             {
-                projectile.position = owner.Center;
-                projectile.velocity *= 0.1f;
-                projectile.netUpdate = true;
+                Projectile.position = owner.Center;
+                Projectile.velocity *= 0.1f;
+                Projectile.netUpdate = true;
             }
 
             if (distanceToOwner > distance[1])
@@ -214,63 +214,63 @@ namespace CalValEX.Projectiles.Pets
                 inertia[1] *= 0.75f;
             }
 
-            switch ((int)projectile.localAI[1])
+            switch ((int)Projectile.localAI[1])
             {
                 case 0: //idling
-                    projectile.tileCollide = true;
-                    projectile.velocity.X *= drag[0];
+                    Projectile.tileCollide = true;
+                    Projectile.velocity.X *= drag[0];
                     if (distanceToOwner > distance[2])
                     {
                         ResetMe();
-                        projectile.localAI[1] = 1; //start walking
+                        Projectile.localAI[1] = 1; //start walking
                     }
 
                     //gravity
-                    projectile.velocity.Y += gravity;
+                    Projectile.velocity.Y += gravity;
 
                     //animation
-                    projectile.frameCounter++;
-                    if (projectile.frameCounter >= animationSpeed[0])
+                    Projectile.frameCounter++;
+                    if (Projectile.frameCounter >= animationSpeed[0])
                     {
-                        projectile.frameCounter = 0;
-                        projectile.frame++;
-                        if (projectile.frame < idleFrameLimits[0] || projectile.frame > idleFrameLimits[1])
-                            projectile.frame = idleFrameLimits[0];
+                        Projectile.frameCounter = 0;
+                        Projectile.frame++;
+                        if (Projectile.frame < idleFrameLimits[0] || Projectile.frame > idleFrameLimits[1])
+                            Projectile.frame = idleFrameLimits[0];
                     }
                     if (!spinRotation)
                     {
-                        projectile.rotation = 0;
+                        Projectile.rotation = 0;
                     }
                     break;
 
                 case 1: //walking
-                    projectile.tileCollide = true;
-                    projectile.velocity.X *= drag[1];
+                    Projectile.tileCollide = true;
+                    Projectile.velocity.X *= drag[1];
                     if (distanceToOwner < distance[3])
                     {
                         ResetMe();
-                        projectile.localAI[1] = 0;
+                        Projectile.localAI[1] = 0;
                     }
                     //check if the owner is far away, if so, go to flying
                     if (distanceToOwner > distance[4])
                     {
                         ResetMe();
-                        projectile.localAI[1] = 2;
+                        Projectile.localAI[1] = 2;
                     }
 
                     //gravity
-                    projectile.velocity.Y += gravity;
+                    Projectile.velocity.Y += gravity;
 
                     //this is for tile detection
-                    int i = (int)(projectile.position.X + (float)(projectile.width / 2)) / 16;
-                    int j = (int)(projectile.position.Y + (float)(projectile.height / 2)) / 16;
-                    if (projectile.velocity.X <= 0.1 && projectile.velocity.X >= -0.1)
+                    int i = (int)(Projectile.position.X + (float)(Projectile.width / 2)) / 16;
+                    int j = (int)(Projectile.position.Y + (float)(Projectile.height / 2)) / 16;
+                    if (Projectile.velocity.X <= 0.1 && Projectile.velocity.X >= -0.1)
                     {
-                        i += projectile.direction;
+                        i += Projectile.direction;
                     }
                     else
                     {
-                        i += (int)projectile.velocity.X;
+                        i += (int)Projectile.velocity.X;
                     }
                     //this is for jumping
                     if (doJumpAnim)
@@ -278,50 +278,50 @@ namespace CalValEX.Projectiles.Pets
                         if (jumpCounter > -1)
                             jumpCounter--;
                     }
-                    Collision.StepUp(ref projectile.position, ref projectile.velocity, projectile.width, projectile.height, ref projectile.stepSpeed, ref projectile.gfxOffY);
+                    Collision.StepUp(ref Projectile.position, ref Projectile.velocity, Projectile.width, Projectile.height, ref Projectile.stepSpeed, ref Projectile.gfxOffY);
                     if (WorldGen.SolidTile(i, j))
                     {
-                        int i2 = (int)(projectile.position.X + (float)(projectile.width / 2)) / 16;
-                        int j2 = (int)(projectile.position.Y + (float)projectile.height) / 16 + 1;
-                        if (WorldGen.SolidTile(i2, j2) || Main.tile[i2, j2].halfBrick() || Main.tile[i2, j2].slope() > 0)
+                        int i2 = (int)(Projectile.position.X + (float)(Projectile.width / 2)) / 16;
+                        int j2 = (int)(Projectile.position.Y + (float)Projectile.height) / 16 + 1;
+                        //!!if (WorldGen.SolidTile(i2, j2) || Main.tile[i2, j2].halfBrick() || Main.tile[i2, j2].slope() > 0)
                         {
                             try
                             {
-                                i2 = (int)(projectile.position.X + (float)(projectile.width / 2)) / 16;
-                                j2 = (int)(projectile.position.Y + (float)(projectile.height / 2)) / 16;
-                                int num = projectile.velocity.X < 0f ? 1 : -1;
+                                i2 = (int)(Projectile.position.X + (float)(Projectile.width / 2)) / 16;
+                                j2 = (int)(Projectile.position.Y + (float)(Projectile.height / 2)) / 16;
+                                int num = Projectile.velocity.X < 0f ? 1 : -1;
                                 i2 += num;
-                                i2 += (int)projectile.velocity.X;
+                                i2 += (int)Projectile.velocity.X;
 
                                 if (!WorldGen.SolidTile(i2, j2 - 1) && !WorldGen.SolidTile(i2, j2 - 2))
                                 {
-                                    projectile.velocity.Y = jumpSpeed[0];
+                                    Projectile.velocity.Y = jumpSpeed[0];
                                     jumpCounter = jumpAnimationLength;
                                 }
                                 else if (!WorldGen.SolidTile(i2, j2 - 2))
                                 {
-                                    projectile.velocity.Y = jumpSpeed[1];
+                                    Projectile.velocity.Y = jumpSpeed[1];
                                     jumpCounter = jumpAnimationLength;
                                 }
                                 else if (WorldGen.SolidTile(i2, j2 - 5))
                                 {
-                                    projectile.velocity.Y = jumpSpeed[2];
+                                    Projectile.velocity.Y = jumpSpeed[2];
                                     jumpCounter = jumpAnimationLength;
                                 }
                                 else if (WorldGen.SolidTile(i2, j2 - 4))
                                 {
-                                    projectile.velocity.Y = jumpSpeed[3];
+                                    Projectile.velocity.Y = jumpSpeed[3];
                                     jumpCounter = jumpAnimationLength;
                                 }
                                 else
                                 {
-                                    projectile.velocity.Y = jumpSpeed[4];
+                                    Projectile.velocity.Y = jumpSpeed[4];
                                     jumpCounter = jumpAnimationLength;
                                 }
                             }
                             catch
                             {
-                                projectile.velocity.Y = jumpSpeed[4];
+                                Projectile.velocity.Y = jumpSpeed[4];
                             }
                         }
                     }
@@ -329,16 +329,16 @@ namespace CalValEX.Projectiles.Pets
                     //this is for moving
                     vectorToOwner.Normalize();
                     vectorToOwner *= speed[0];
-                    projectile.velocity.X = (projectile.velocity.X * (inertia[0] - 1) + vectorToOwner.X) / inertia[0];
+                    Projectile.velocity.X = (Projectile.velocity.X * (inertia[0] - 1) + vectorToOwner.X) / inertia[0];
 
                     //animation
-                    projectile.frameCounter++;
-                    if (projectile.frameCounter >= animationSpeed[1])
+                    Projectile.frameCounter++;
+                    if (Projectile.frameCounter >= animationSpeed[1])
                     {
-                        projectile.frameCounter = 0;
-                        projectile.frame++;
-                        if (projectile.frame < walkingFrameLimits[0] || projectile.frame > walkingFrameLimits[1])
-                            projectile.frame = walkingFrameLimits[0];
+                        Projectile.frameCounter = 0;
+                        Projectile.frame++;
+                        if (Projectile.frame < walkingFrameLimits[0] || Projectile.frame > walkingFrameLimits[1])
+                            Projectile.frame = walkingFrameLimits[0];
                     }
 
                     //jump animation
@@ -348,18 +348,18 @@ namespace CalValEX.Projectiles.Pets
                         {
                             if (jumpCounter > 0)
                             {
-                                if (projectile.frameCounter >= animationSpeed[3])
+                                if (Projectile.frameCounter >= animationSpeed[3])
                                 {
-                                    if (projectile.frame == jumpFrameLimits[1])
+                                    if (Projectile.frame == jumpFrameLimits[1])
                                     {
-                                        projectile.frameCounter = 0;
+                                        Projectile.frameCounter = 0;
                                     }
-                                    projectile.frameCounter = 0;
-                                    projectile.frame++;
+                                    Projectile.frameCounter = 0;
+                                    Projectile.frame++;
 
-                                    if (projectile.frame < jumpFrameLimits[0] || projectile.frame > jumpFrameLimits[1])
+                                    if (Projectile.frame < jumpFrameLimits[0] || Projectile.frame > jumpFrameLimits[1])
                                     {
-                                        projectile.frame = jumpFrameLimits[0];
+                                        Projectile.frame = jumpFrameLimits[0];
                                     }
                                 }
                             }
@@ -368,19 +368,19 @@ namespace CalValEX.Projectiles.Pets
 
                     if (!spinRotation)
                     {
-                        projectile.rotation = 0;
+                        Projectile.rotation = 0;
                     }
                     break;
 
                 case 2: //flying
-                    projectile.tileCollide = false;
-                    if (distanceToOwner < distance[5] && Collision.CanHit(projectile.position, projectile.width, projectile.height, owner.position, owner.width, owner.height))
+                    Projectile.tileCollide = false;
+                    if (distanceToOwner < distance[5] && Collision.CanHit(Projectile.position, Projectile.width, Projectile.height, owner.position, owner.width, owner.height))
                     {
                         int i3 = (int)(owner.position.X + (float)(owner.width / 2)) / 16;
                         int j3 = (int)(owner.position.Y + (float)owner.height) / 16;
-                        if (WorldGen.SolidTile(i3, j3) || Main.tile[i3, j3].halfBrick() || Main.tile[i3, j3].slope() > 0 || Main.tile[i3, j3].type == TileID.Platforms)
+                        //!!if (WorldGen.SolidTile(i3, j3) || Main.tile[i3, j3].halfBrick() || Main.tile[i3, j3].slope() > 0 || Main.tile[i3, j3].type == TileID.Platforms)
                         {
-                            projectile.localAI[1] = 1;
+                            Projectile.localAI[1] = 1;
                             ResetMe();
                         }
                     }
@@ -392,37 +392,37 @@ namespace CalValEX.Projectiles.Pets
                     {
                         vectorToOwner.Normalize();
                         vectorToOwner *= speed[1];
-                        projectile.velocity = (projectile.velocity * (inertia[1] - 1) + vectorToOwner) / inertia[1];
+                        Projectile.velocity = (Projectile.velocity * (inertia[1] - 1) + vectorToOwner) / inertia[1];
                     }
-                    else if (projectile.velocity == Vector2.Zero)
+                    else if (Projectile.velocity == Vector2.Zero)
                     {
                         //boop it so it moves
-                        projectile.velocity.X = -0.15f;
-                        projectile.velocity.Y = -0.15f;
+                        Projectile.velocity.X = -0.15f;
+                        Projectile.velocity.Y = -0.15f;
                     }
 
                     //animation
-                    projectile.frameCounter++;
-                    if (projectile.frameCounter >= animationSpeed[2])
+                    Projectile.frameCounter++;
+                    if (Projectile.frameCounter >= animationSpeed[2])
                     {
-                        projectile.frameCounter = 0;
-                        projectile.frame++;
-                        if (projectile.frame < flyingFrameLimits[0] || projectile.frame > flyingFrameLimits[1])
-                            projectile.frame = flyingFrameLimits[0];
+                        Projectile.frameCounter = 0;
+                        Projectile.frame++;
+                        if (Projectile.frame < flyingFrameLimits[0] || Projectile.frame > flyingFrameLimits[1])
+                            Projectile.frame = flyingFrameLimits[0];
                     }
                     if (!spinRotation)
                     {
-                        projectile.rotation = projectile.velocity.X * 0.1f; //so that it turns towards where its flying
+                        Projectile.rotation = Projectile.velocity.X * 0.1f; //so that it turns towards where its flying
                     }
                     break;
             }
 
             if (spinRotation)
             {
-                if (Math.Abs(projectile.velocity.X) != 0)
+                if (Math.Abs(Projectile.velocity.X) != 0)
                 {
-                    float spinRotationSpeed = ((projectile.velocity.X / 20f) / 10) * spinRotationSpeedMult;
-                    projectile.rotation += spinRotationSpeed;
+                    float spinRotationSpeed = ((Projectile.velocity.X / 20f) / 10) * spinRotationSpeedMult;
+                    Projectile.rotation += spinRotationSpeed;
                 }
             }
         }
@@ -433,16 +433,16 @@ namespace CalValEX.Projectiles.Pets
 
         public override void PostAI()
         {
-            SafeAI(Main.player[projectile.owner]);
+            SafeAI(Main.player[Projectile.owner]);
         }
 
         public void ResetMe()
         {
-            projectile.ai[0] = 0;
-            projectile.ai[1] = 0;
-            projectile.localAI[0] = 0;
-            projectile.frameCounter = 0;
-            projectile.netUpdate = true;
+            Projectile.ai[0] = 0;
+            Projectile.ai[1] = 0;
+            Projectile.localAI[0] = 0;
+            Projectile.frameCounter = 0;
+            Projectile.netUpdate = true;
         }
     }
 }

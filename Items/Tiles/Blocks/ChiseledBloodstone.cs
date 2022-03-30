@@ -1,8 +1,6 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.Blocks;
-using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
-using CalValEX.Items.Walls;
 
 namespace CalValEX.Items.Tiles.Blocks
 {
@@ -15,20 +13,20 @@ namespace CalValEX.Items.Tiles.Blocks
 
         public override void SetDefaults()
         {
-            item.width = 12;
-            item.height = 12;
-            item.maxStack = 999;
-            item.rare = 0;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = ItemUseStyleID.SwingThrow;
-            item.consumable = true;
-            item.createTile = ModContent.TileType<ChiseledBloodstoneTile>();
+            Item.width = 12;
+            Item.height = 12;
+            Item.maxStack = 999;
+            Item.rare = 0;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<ChiseledBloodstoneTile>();
         }
 
-        public override void AddRecipes()
+        /*
         {
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
@@ -49,6 +47,6 @@ namespace CalValEX.Items.Tiles.Blocks
 				recipe2.SetResult(this, 4);
 				recipe2.AddRecipe();
             }
-        }
+        }*/
     }
 }

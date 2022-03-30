@@ -9,11 +9,11 @@ namespace CalValEX.Walls.AstralUnsafe
 {
     public class AstralIceWallPlaced : ModWall
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = false;
             AddMapEntry(new Color(37, 10, 38));
-            dustType = ModContent.DustType<AstralDust>();
+            DustType = ModContent.DustType<AstralDust>();
         }
     }
 }

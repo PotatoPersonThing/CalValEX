@@ -10,7 +10,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
 {
     public class BloodstoneTable : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolidTop[Type] = true;
             Main.tileFrameImportant[Type] = true;
@@ -23,16 +23,16 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 }; //
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-            disableSmartCursor = true;
+            
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Bloodstone Table");
             AddMapEntry(new Color(139, 0, 0), name);
-            adjTiles = new int[] { TileID.Tables };
+            AdjTiles = new int[] { TileID.Tables };
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 48, 32, ItemType<BloodstoneTableItem>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, ItemType<BloodstoneTableItem>());
         }
     }
 }

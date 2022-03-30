@@ -14,7 +14,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
 {
     public class AuricDresser : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolidTop[Type] = true;
             Main.tileFrameImportant[Type] = true;
@@ -37,23 +37,23 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Auric Dresser");
             AddMapEntry(new Color(139, 0, 0), name);
-            disableSmartCursor = true;
-            adjTiles = new int[] { TileID.Dressers };
+            
+            AdjTiles = new int[] { TileID.Dressers };
             dresser = "Auric Dresser";
-            dresserDrop = ModContent.ItemType<AuricDresserItem>();
+            DresserDrop = ModContent.ItemType<AuricDresserItem>();
         }
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
-            int xFrameOffset = Main.tile[i, j].frameX;
-            int yFrameOffset = Main.tile[i, j].frameY;
-            Texture2D glowmask = ModContent.GetTexture("CalValEX/Tiles/FurnitureSets/Auric/AuricDresser_Glow");
+            int xFrameOffset = Main.tile[i, j].TileFrameX;
+            int yFrameOffset = Main.tile[i, j].TileFrameY;
+            Texture2D glowmask = ModContent.Request<Texture2D>("CalValEX/Tiles/FurnitureSets/Auric/AuricDresser_Glow").Value;
             Vector2 drawOffest = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
             Vector2 drawPosition = new Vector2(i * 16 - Main.screenPosition.X, j * 16 - Main.screenPosition.Y) + drawOffest;
             Color drawColour = Color.White;
             Tile trackTile = Main.tile[i, j];
-            if (!trackTile.halfBrick() && trackTile.slope() == 0)
+            if (!trackTile.IsHalfBlock && trackTile.Slope == 0)
                 spriteBatch.Draw(glowmask, drawPosition, new Rectangle(xFrameOffset, yFrameOffset, 18, 18), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
-            else if (trackTile.halfBrick())
+            else if (trackTile.IsHalfBlock)
                 spriteBatch.Draw(glowmask, drawPosition + new Vector2(0f, 8f), new Rectangle(xFrameOffset, yFrameOffset, 18, 8), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
         }
 
@@ -62,27 +62,27 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             return true;
         }
 
-        public override bool NewRightClick(int i, int j)
+        public override bool RightClick(int i, int j)
         {
             Player player = Main.LocalPlayer;
-            if (Main.tile[Player.tileTargetX, Player.tileTargetY].frameY == 0)
+            if (Main.tile[Player.tileTargetX, Player.tileTargetY].TileFrameY == 0)
             {
                 Main.CancelClothesWindow(true);
                 Main.mouseRightRelease = false;
-                int left = (int)(Main.tile[Player.tileTargetX, Player.tileTargetY].frameX / 18);
+                int left = (int)(Main.tile[Player.tileTargetX, Player.tileTargetY].TileFrameX / 18);
                 left %= 3;
                 left = Player.tileTargetX - left;
-                int top = Player.tileTargetY - (int)(Main.tile[Player.tileTargetX, Player.tileTargetY].frameY / 18);
+                int top = Player.tileTargetY - (int)(Main.tile[Player.tileTargetX, Player.tileTargetY].TileFrameY / 18);
                 if (player.sign > -1)
                 {
-                    Main.PlaySound(SoundID.MenuClose);
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.MenuClose);
                     player.sign = -1;
                     Main.editSign = false;
                     Main.npcChatText = string.Empty;
                 }
                 if (Main.editChest)
                 {
-                    Main.PlaySound(SoundID.MenuTick);
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.MenuTick);
                     Main.editChest = false;
                     Main.npcChatText = string.Empty;
                 }
@@ -97,7 +97,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
                     {
                         player.chest = -1;
                         Recipe.FindRecipes();
-                        Main.PlaySound(SoundID.MenuClose);
+                        Terraria.Audio.SoundEngine.PlaySound(SoundID.MenuClose);
                     }
                     else
                     {
@@ -116,14 +116,14 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
                         {
                             player.chest = -1;
                             Recipe.FindRecipes();
-                            Main.PlaySound(SoundID.MenuClose);
+                            Terraria.Audio.SoundEngine.PlaySound(SoundID.MenuClose);
                         }
                         else if (num213 != player.chest && player.chest == -1)
                         {
                             player.chest = num213;
                             Main.playerInventory = true;
                             Main.recBigList = false;
-                            Main.PlaySound(SoundID.MenuOpen);
+                            Terraria.Audio.SoundEngine.PlaySound(SoundID.MenuOpen);
                             player.chestX = left;
                             player.chestY = top;
                         }
@@ -132,7 +132,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
                             player.chest = num213;
                             Main.playerInventory = true;
                             Main.recBigList = false;
-                            Main.PlaySound(SoundID.MenuTick);
+                            Terraria.Audio.SoundEngine.PlaySound(SoundID.MenuTick);
                             player.chestX = left;
                             player.chestY = top;
                         }
@@ -158,13 +158,13 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             Tile tile = Main.tile[Player.tileTargetX, Player.tileTargetY];
             int left = Player.tileTargetX;
             int top = Player.tileTargetY;
-            left -= (int)(tile.frameX % 54 / 18);
-            if (tile.frameY % 36 != 0)
+            left -= (int)(tile.TileFrameX % 54 / 18);
+            if (tile.TileFrameY % 36 != 0)
             {
                 top--;
             }
             int chestIndex = Chest.FindChest(left, top);
-            player.showItemIcon2 = -1;
+            player.cursorItemIconID = -1;
             if (chestIndex < 0)
             {
                 player.showItemIconText = Language.GetTextValue("LegacyDresserType.0");
@@ -181,16 +181,16 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
                 }
                 if (player.showItemIconText == chest)
                 {
-                    player.showItemIcon2 = ModContent.ItemType<AuricDresserItem>();
+                    player.cursorItemIconID = ModContent.ItemType<AuricDresserItem>();
                     player.showItemIconText = "";
                 }
             }
             player.noThrow = 2;
-            player.showItemIcon = true;
+            player.cursorItemIconEnabled = true;
             if (player.showItemIconText == "")
             {
                 player.showItemIcon = false;
-                player.showItemIcon2 = 0;
+                player.cursorItemIconID = 0;
             }
         }
 
@@ -200,13 +200,13 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             Tile tile = Main.tile[Player.tileTargetX, Player.tileTargetY];
             int left = Player.tileTargetX;
             int top = Player.tileTargetY;
-            left -= (int)(tile.frameX % 54 / 18);
-            if (tile.frameY % 36 != 0)
+            left -= (int)(tile.TileFrameX % 54 / 18);
+            if (tile.TileFrameY % 36 != 0)
             {
                 top--;
             }
             int num138 = Chest.FindChest(left, top);
-            player.showItemIcon2 = -1;
+            player.cursorItemIconID = -1;
             if (num138 < 0)
             {
                 player.showItemIconText = Language.GetTextValue("LegacyDresserType.0");
@@ -223,15 +223,15 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
                 }
                 if (player.showItemIconText == chest)
                 {
-                    player.showItemIcon2 = ModContent.ItemType<AuricDresserItem>();
+                    player.cursorItemIconID = ModContent.ItemType<AuricDresserItem>();
                     player.showItemIconText = "";
                 }
             }
             player.noThrow = 2;
-            player.showItemIcon = true;
-            if (Main.tile[Player.tileTargetX, Player.tileTargetY].frameY > 0)
+            player.cursorItemIconEnabled = true;
+            if (Main.tile[Player.tileTargetX, Player.tileTargetY].TileFrameY > 0)
             {
-                player.showItemIcon2 = ItemID.FamiliarShirt;
+                player.cursorItemIconID = ItemID.FamiliarShirt;
             }
         }
 
@@ -242,7 +242,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 48, 32, dresserDrop);
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, DresserDrop);
             Chest.DestroyChest(i, j);
         }
     }

@@ -7,10 +7,10 @@ namespace CalValEX.Walls
 {
     public class NecrostoneWallPlaced : ModWall
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            drop = ModContent.ItemType<NecrostoneWall>();
+            ItemDrop = ModContent.ItemType<NecrostoneWall>();
             AddMapEntry(new Color(108, 59, 16));
         }
     }

@@ -1,4 +1,4 @@
-﻿using CalValEX.Projectiles.Pets;
+﻿/*using CalValEX.Projectiles.Pets;
 using CalValEX.Projectiles.Pets.LightPets;
 using CalValEX.Projectiles.Pets.Wulfrum;
 using CalValEX.Projectiles.Pets.Scuttlers;
@@ -116,4 +116,4 @@ namespace CalValEX.ExtraTextures.ChristmasPets
             }
         }
     }
-}
+}*/

@@ -16,27 +16,27 @@ namespace CalValEX.Items.Critters
 
         public override void SetDefaults()
         {
-            //item.useStyle = 1;
-            //item.autoReuse = true;
-            //item.useTurn = true;
-            //item.useAnimation = 15;
-            //item.useTime = 10;
-            //item.maxStack = 999;
-            //item.consumable = true;
-            //item.width = 12;
-            //item.height = 12;
-            //item.makeNPC = 360;
-            //item.noUseGraphic = true;
-            //item.bait = 15;
+            //Item.useStyle = 1;
+            //Item.autoReuse = true;
+            //Item.useTurn = true;
+            //Item.useAnimation = 15;
+            //Item.useTime = 10;
+            //Item.maxStack = 999;
+            //Item.consumable = true;
+            //Item.width = 12;
+            //Item.height = 12;
+            //Item.makeNPC = 360;
+            //Item.noUseGraphic = true;
+            //Item.bait = 15;
 
-            item.CloneDefaults(ItemID.GlowingSnail);
-            Mod mod = ModLoader.GetMod("CalamityMod");
+            Item.CloneDefaults(ItemID.GlowingSnail);
+            /*Mod mod = ModLoader.GetMod("CalamityMod");
             if (mod == null)
             {
                 return;
-            }
-            item.bait = 60;
-            item.makeNPC = (short)NPCType<GodSlayerSlug>();
+            }*/
+            Item.bait = 60;
+            Item.makeNPC = (short)NPCType<GodSlayerSlug>();
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

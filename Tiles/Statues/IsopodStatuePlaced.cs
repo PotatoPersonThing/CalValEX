@@ -11,7 +11,7 @@ namespace CalValEX.Tiles.Statues
 {
     public class IsopodStatuePlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileObsidianKill[Type] = true;
@@ -23,20 +23,20 @@ namespace CalValEX.Tiles.Statues
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Isopod Statue");
             AddMapEntry(new Color(144, 148, 144), name);
-            dustType = 11;
-            disableSmartCursor = true;
+            DustType = 11;
+            
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 32, ItemType<IsopodStatue>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<IsopodStatue>());
         }
 
         public override void HitWire(int i, int j)
         {
             // Find the coordinates of top left tile square through math
-            int y = j - Main.tile[i, j].frameY / 18;
-            int x = i - Main.tile[i, j].frameX / 18;
+            int y = j - Main.tile[i, j].TileFrameY / 18;
+            int x = i - Main.tile[i, j].TileFrameX / 18;
 
             Wiring.SkipWire(x, y);
             Wiring.SkipWire(x, y + 1);
@@ -56,7 +56,7 @@ namespace CalValEX.Tiles.Statues
             // 30 is the time before it can be used again. NPC.MechSpawn checks nearby for other spawns to prevent too many spawns. 3 in immediate vicinity, 6 nearby, 10 in world.
             if (Wiring.CheckMech(x, y, 30) && NPC.MechSpawn((float)spawnX, (float)spawnY, (ModContent.NPCType<Isopod>())))
             {
-                npcIndex = NPC.NewNPC(spawnX, spawnY - 12, (ModContent.NPCType<Isopod>()));
+                npcIndex = NPC.NewNPC(new Terraria.DataStructures.EntitySource_SpawnNPC(),spawnX, spawnY - 12, (ModContent.NPCType<Isopod>()));
             }
             if (npcIndex >= 0)
             {

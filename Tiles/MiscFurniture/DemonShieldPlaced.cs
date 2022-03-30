@@ -12,7 +12,7 @@ namespace CalValEX.Tiles.MiscFurniture
 {
     public class DemonShieldPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -37,9 +37,9 @@ namespace CalValEX.Tiles.MiscFurniture
             AddMapEntry(new Color(255, 0, 251), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 16, ItemType<DemonShield>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ItemType<DemonShield>());
         }
     }
 }

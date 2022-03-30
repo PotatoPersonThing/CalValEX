@@ -11,7 +11,7 @@ namespace CalValEX.Tiles.Banners
 {
     public class VeilBannerPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
@@ -23,16 +23,16 @@ namespace CalValEX.Tiles.Banners
             TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.SolidBottom, TileObjectData.newTile.Width, 0);
             TileObjectData.newTile.StyleWrapLimit = 111;
             TileObjectData.addTile(Type);
-            dustType = -1;
-            disableSmartCursor = true;
+            DustType = -1;
+            
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Veil Banner");
             AddMapEntry(new Color(0, 255, 242), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int frameY)
         {
-            int style = frameX / 18;
+            int style = TileFrameX / 18;
             string item;
             switch (style)
             {
@@ -43,7 +43,7 @@ namespace CalValEX.Tiles.Banners
                 default:
                     return;
             }
-            Item.NewItem(i * 16, j * 16, 16, 48, mod.ItemType(item));
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 48, ModContent.ItemType<VeilBanner>());
         }
 
         public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)

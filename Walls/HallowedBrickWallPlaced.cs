@@ -7,10 +7,10 @@ namespace CalValEX.Walls
 {
     public class HallowedBrickWallPlaced : ModWall
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            drop = ModContent.ItemType<HallowedBrickWall>();
+            ItemDrop = ModContent.ItemType<HallowedBrickWall>();
             AddMapEntry(new Color(78, 105, 77));
         }
     }

@@ -9,7 +9,7 @@ namespace CalValEX.Tiles.Cages
 {
     public class EyedolTerrariumPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -18,13 +18,13 @@ namespace CalValEX.Tiles.Cages
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             TileObjectData.newTile.Width = 3;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
-            animationFrameHeight = 38;
+            AnimationFrameHeight = 38;
             TileObjectData.addTile(Type);
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 48, 24, ItemType<EyedolTerrarium>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 24, ItemType<EyedolTerrarium>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

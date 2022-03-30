@@ -6,12 +6,12 @@ namespace CalValEX.Sounds.Item
 {
 	public class MorshuScal : ModSound
 	{
-		public override SoundEffectInstance PlaySound(ref SoundEffectInstance soundInstance, float volume, float pan, SoundType type)
+		public override SoundEffectInstance PlaySound(ref SoundEffectInstance soundInstance, float volume, float pan)
 		{
-			soundInstance = sound.CreateInstance();
+			SoundEffectInstance instance = Sound.Value.CreateInstance();
+			instance.Play();
 			soundInstance.Volume = volume * 1f;
 			soundInstance.Pan = pan;
-			Main.PlaySoundInstance(soundInstance);
 			return soundInstance;
 		}
 	}

@@ -7,10 +7,10 @@ namespace CalValEX.Walls
 {
     public class AstralPlatingWallPlaced : ModWall
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            drop = ModContent.ItemType<AstralPlatingWall>();
+            ItemDrop = ModContent.ItemType<AstralPlatingWall>();
             AddMapEntry(new Color(59, 77, 75));
         }
     }

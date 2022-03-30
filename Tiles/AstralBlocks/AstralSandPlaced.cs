@@ -12,7 +12,7 @@ namespace CalValEX.Tiles.AstralBlocks
 {
 	public class AstralSandPlaced : ModTile
 	{
-		public override void SetDefaults() 
+		public override void SetStaticDefaults() 
         {
 			Main.tileSolid[Type] = true;
 			Main.tileBrick[Type] = true;
@@ -20,12 +20,12 @@ namespace CalValEX.Tiles.AstralBlocks
 			Main.tileBlockLight[Type] = true;
 			Main.tileSand[Type] = true;
 			TileID.Sets.TouchDamageSands[Type] = 15;
-			dustType = ModContent.DustType<AstralDust>();
+			DustType = ModContent.DustType<AstralDust>();
 			TileID.Sets.Conversion.Sand[Type] = true;
 			TileID.Sets.ForAdvancedCollision.ForSandshark[Type] = true;
 			TileID.Sets.Falling[Type] = true;
 			AddMapEntry(new Color(104, 127, 164));
-			drop = ModContent.ItemType<AstralSand>();
+			ItemDrop = ModContent.ItemType<AstralSand>();
             SetModCactus(new AstralCactus());
 			Main.tileBlendAll[this.Type] = true;
 			SetModPalmTree(new AstralPalm());
@@ -35,7 +35,7 @@ namespace CalValEX.Tiles.AstralBlocks
 			num = fail ? 1 : 3;
 		}
 
-		public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak) {
+		/*public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak) {
 			if (WorldGen.noTileActions)
 				return true;
 
@@ -90,7 +90,7 @@ namespace CalValEX.Tiles.AstralBlocks
 
         public override void ChangeWaterfallStyle(ref int style) {
 			style = mod.GetWaterfallStyleSlot("AstralWaterfallStyle");
-		}
+		}*/
 		public override int SaplingGrowthType(ref int style)
 		{
 			style = 1;

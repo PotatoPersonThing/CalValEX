@@ -14,16 +14,16 @@ namespace CalValEX.Items.Equips.Hats
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 22;
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            item.rare = 7;
-            item.vanity = true;
+            Item.width = 20;
+            Item.height = 22;
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Item.rare = 7;
+            Item.vanity = true;
         }
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+           
             recipe.AddIngredient(calamityMod.ItemType("CalamityDust"), 1);
             recipe.AddIngredient(calamityMod.ItemType("CoreofChaos"), 1);
             recipe.AddIngredient(calamityMod.ItemType("CruptixBar"), 2);
@@ -31,6 +31,6 @@ namespace CalValEX.Items.Equips.Hats
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
-        }
+        }*/
     }
 }

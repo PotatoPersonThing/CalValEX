@@ -11,7 +11,7 @@ namespace CalValEX.Tiles.Blueprints
 {
     public class SamBlueprintPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -22,7 +22,7 @@ namespace CalValEX.Tiles.Blueprints
             TileObjectData.newTile.Height = 5;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16 }; //
             TileObjectData.newTile.CoordinatePadding = 0;
-            animationFrameHeight = 80;
+            AnimationFrameHeight = 80;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Murasama Blueprint EX");
@@ -31,7 +31,7 @@ namespace CalValEX.Tiles.Blueprints
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 48, 48, ItemType<SamLog>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 48, ItemType<SamLog>());
         }
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
@@ -48,7 +48,7 @@ namespace CalValEX.Tiles.Blueprints
         }
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
-            CalValEXGlobalTile.TileGlowmask(i, j, ModContent.GetTexture("CalValEX/Tiles/Blueprints/SamBlueprintPlaced_Glow"), spriteBatch, animationFrameHeight, Type);
+            CalValEXGlobalTile.TileGlowmask(i, j, ModContent.Request<Texture2D>("CalValEX/Tiles/Blueprints/SamBlueprintPlaced_Glow").Value, spriteBatch, AnimationFrameHeight, Type);
         }
     }
 }

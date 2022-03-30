@@ -11,21 +11,21 @@ namespace CalValEX.Items.Tiles.Blocks
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.autoReuse = true;
-            item.maxStack = 99;
-            item.consumable = true;
-            item.width = 16;
-            item.height = 28;
-            item.rare = 0;
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            Item.useStyle = 1;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.maxStack = 99;
+            Item.consumable = true;
+            Item.width = 16;
+            Item.height = 28;
+            Item.rare = 0;
+            /*Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (calamityMod != null)
             {
-                item.createTile = (calamityMod.TileType("AstralGrass"));
-            }
+                Item.createTile = (calamityMod.TileType("AstralGrass"));
+            }*/
         }
     }
 }

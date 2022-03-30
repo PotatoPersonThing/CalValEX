@@ -16,20 +16,20 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
 
         public override void SetDefaults()
         {
-            item.width = 10;
-            item.height = 12;
-            item.maxStack = 99;
-            item.holdStyle = 1;
-            item.noWet = true;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = ItemUseStyleID.SwingThrow;
-            item.consumable = true;
-            item.createTile = TileType<NecroticTorchPlaced>();
-            item.flame = true;
-            item.value = 50;
+            Item.width = 10;
+            Item.height = 12;
+            Item.maxStack = 99;
+            Item.holdStyle = 1;
+            Item.noWet = true;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.consumable = true;
+            Item.createTile = TileType<NecroticTorchPlaced>();
+            Item.flame = true;
+            Item.value = 50;
         }
 
         public override void HoldItem(Player player)
@@ -40,9 +40,9 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
 
         public override void PostUpdate()
         {
-            if (!item.wet)
+            if (!Item.wet)
             {
-                Lighting.AddLight((int)((item.position.X + item.width / 2) / 16f), (int)((item.position.Y + item.height / 2) / 16f), 1f, 1f, 1f);
+                Lighting.AddLight((int)((Item.position.X + Item.width / 2) / 16f), (int)((Item.position.Y + Item.height / 2) / 16f), 1f, 1f, 1f);
             }
         }
 
@@ -51,13 +51,13 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
             dryTorch = true;
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Torch, 5);
             recipe.AddIngredient(ItemType<Necrostone>(), 1);
             recipe.SetResult(this, 5);
             recipe.AddRecipe();
-        }
+        }*/
     }
 }

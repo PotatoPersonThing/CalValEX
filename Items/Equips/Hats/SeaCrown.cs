@@ -15,19 +15,15 @@ namespace CalValEX.Items.Equips.Hats
 
         public override void SetDefaults()
         {
-            item.width = 28;
-            item.height = 20;
-            item.rare = ItemRarityID.Green;
-            item.vanity = true;
-            item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.width = 28;
+            Item.height = 20;
+            Item.rare = ItemRarityID.Green;
+            Item.vanity = true;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Terraria.ID.ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
         }
 
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
-        {
-            drawAltHair = true;
-        }
-
-        public override void AddRecipes()
+       /* public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("SeaPrism"), 5);
@@ -44,6 +40,6 @@ namespace CalValEX.Items.Equips.Hats
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();
-        }
+        }*/
     }
 }

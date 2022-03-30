@@ -10,21 +10,21 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bl0ckar0z");
-            Main.projFrames[projectile.type] = 2; //frames
-            Main.projPet[projectile.type] = true;
+            Main.projFrames[Projectile.type] = 2; //frames
+            Main.projPet[Projectile.type] = true;
         }
 
         public override void SafeSetDefaults()
         {
-            projectile.width = 34;
-            projectile.height = 38;
-            projectile.penetrate = -1;
-            projectile.netImportant = true;
-            projectile.timeLeft *= 5;
-            projectile.friendly = true;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = true;
-            base.drawOriginOffsetY = CalValEX.month == 12 ? -10 : 2;
+            Projectile.width = 34;
+            Projectile.height = 38;
+            Projectile.penetrate = -1;
+            Projectile.netImportant = true;
+            Projectile.timeLeft *= 5;
+            Projectile.friendly = true;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+            DrawOriginOffsetY = 2;
             facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
             spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
             shouldFlip = true;
@@ -95,14 +95,14 @@ namespace CalValEX.Projectiles.Pets
             if (player.dead)
                 modPlayer.Blok = false;
             if (modPlayer.Blok)
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
 
             /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.
-             * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
+             * for custom behaviour, you can check if the projectile is walking or not via Projectile.localAI[1]
              * you should make new custom behaviour with numbers higher than 2, or less than 0
              * the next few lines is an example on how to implement this
              *
-             * switch ((int)projectile.localAI[1])
+             * switch ((int)Projectile.localAI[1])
              * {
              *     case -1:
              *         break;
@@ -118,34 +118,34 @@ namespace CalValEX.Projectiles.Pets
              * you can still use these, changing thing inside (however it's not recomended unless you want to add custom behaviour to these)
              */
         }
-        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override void PostDraw(Color lightColor)
         {
-            Texture2D glowMask = mod.GetTexture("Projectiles/Pets/Blockaroz_Glow");
+            Texture2D glowMask = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/Blockaroz_Glow").Value;
 	    if (CalValEX.month == 12)
 	    {
-		glowMask = mod.GetTexture("ExtraTextures/ChristmasPets/BlockarozGlow");
+		glowMask = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/ChristmasPets/BlockarozGlow").Value;
  	    }
 	    else
 	    {
-		glowMask = mod.GetTexture("Projectiles/Pets/Blockaroz_Glow");
+		glowMask = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/Blockaroz_Glow").Value;
  	    }
-            Rectangle frame = glowMask.Frame(1, Main.projFrames[projectile.type], 0, projectile.frame);
+            Rectangle frame = glowMask.Frame(1, Main.projFrames[Projectile.type], 0, Projectile.frame);
             frame.Height -= 1;
-            float originOffsetX = (glowMask.Width - projectile.width) * 0.5f + projectile.width * 0.5f + drawOriginOffsetX;
-	    Mod ortho = ModLoader.GetMod("CalValPlus");
-	    if ((ortho != null) || (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7)))
-	    { 
-            spriteBatch.Draw
-            (
+            float originOffsetX = (glowMask.Width - Projectile.width) * 0.5f + Projectile.width * 0.5f + DrawOriginOffsetX;
+	    //Mod ortho = ModLoader.GetMod("CalValPlus");
+	    if (/*(ortho != null) ||*/ (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7)))
+	    {
+                Main.EntitySpriteDraw
+                (
                 glowMask,
-                projectile.position - Main.screenPosition + new Vector2(originOffsetX + drawOffsetX, projectile.height / 2 + projectile.gfxOffY),
+                Projectile.position - Main.screenPosition + new Vector2(originOffsetX + DrawOffsetX, Projectile.height / 2 + Projectile.gfxOffY),
                 frame,
                 Color.White,
-                projectile.rotation,
-                new Vector2(originOffsetX, projectile.height / 2 - drawOriginOffsetY),
-                projectile.scale,
-                projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
-                0f
+                Projectile.rotation,
+                new Vector2(originOffsetX, Projectile.height / 2 - DrawOriginOffsetY),
+                Projectile.scale,
+                Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
+                0
             );
 	    }
         }

@@ -16,12 +16,12 @@ namespace CalValEX.Items.Equips.Wings
 
         public override void SetDefaults()
         {
-            item.width = 42;
-            item.height = 30;
-            item.rare = 11;
-            item.accessory = true;
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            Item.width = 42;
+            Item.height = 30;
+            Item.rare = 11;
+            Item.accessory = true;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+           
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -65,10 +65,10 @@ namespace CalValEX.Items.Equips.Wings
             acceleration *= 2.7f;
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+           
             if (calamityMod != null)
             {
                 recipe.AddIngredient(mod.ItemType("PlaguePack"), 1);
@@ -77,6 +77,6 @@ namespace CalValEX.Items.Equips.Wings
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

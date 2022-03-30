@@ -12,16 +12,16 @@ namespace CalValEX.Items
         {
             DisplayName.SetDefault("Nuclear Fumes");
             Tooltip.SetDefault("Don't inhale them");
-            ItemID.Sets.ItemNoGravity[item.type] = true;
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
         public override void SetDefaults()
         {
-            item.width = 28;
-            item.height = 18;
-            item.value = Item.sellPrice(0, 10, 0, 0);
-            item.maxStack = 999;
-            item.rare = 10;
+            Item.width = 28;
+            Item.height = 18;
+            Item.value = Item.sellPrice(0, 10, 0, 0);
+            Item.maxStack = 999;
+            Item.rare = 10;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

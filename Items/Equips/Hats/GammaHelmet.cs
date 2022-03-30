@@ -17,11 +17,11 @@ namespace CalValEX.Items.Equips.Hats
 
         public override void SetDefaults()
         {
-            item.width = 28;
-            item.height = 20;
-            item.rare = 11;
-            item.vanity = true;
-            item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.width = 28;
+            Item.height = 20;
+            Item.rare = 11;
+            Item.vanity = true;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -42,11 +42,6 @@ namespace CalValEX.Items.Equips.Hats
                     tooltipLine.overrideColor = new Color(0, 255, 0); //change the color accordingly to above
                 }
             }
-        }
-
-        public override bool DrawHead()
-        {
-            return false;
         }
     }
 }

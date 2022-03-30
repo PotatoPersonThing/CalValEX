@@ -7,10 +7,10 @@ namespace CalValEX.Walls
 {
     public class PlagueHiveWallPlaced : ModWall
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            drop = ModContent.ItemType<PlagueHiveWall>();
+            ItemDrop = ModContent.ItemType<PlagueHiveWall>();
             AddMapEntry(new Color(1, 92, 30));
         }
     }

@@ -13,18 +13,18 @@ namespace CalValEX.Items
         {
             DisplayName.SetDefault("Termipebbles");
             Tooltip.SetDefault("Used to craft Terminus-themed vanitites\n" + "'Do NOT eat.'");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 4));
-            ItemID.Sets.ItemNoGravity[item.type] = true;
-            ItemID.Sets.ItemIconPulse[item.type] = false;
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
+            ItemID.Sets.ItemIconPulse[Item.type] = false;
         }
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 36;
-            item.value = Item.sellPrice(0, 0, 5, 0);
-            item.maxStack = 999;
-            item.rare = ItemRarityID.Blue;
+            Item.width = 20;
+            Item.height = 36;
+            Item.value = Item.sellPrice(0, 0, 5, 0);
+            Item.maxStack = 999;
+            Item.rare = ItemRarityID.Blue;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

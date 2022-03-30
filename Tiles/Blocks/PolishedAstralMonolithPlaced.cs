@@ -8,18 +8,18 @@ namespace CalValEX.Tiles.Blocks
 {
     public class PolishedAstralMonolithPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            drop = ModContent.ItemType<PolishedAstralMonolith>();
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            dustType = calamityMod.DustType("AstralBlue");
+            ItemDrop = ModContent.ItemType<PolishedAstralMonolith>();
+            //Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            //DustType = calamityMod.DustType("AstralBlue");
             AddMapEntry(new Color(260, 42, 24));
             Main.tileBlendAll[this.Type] = true;
-            soundType = SoundID.Item;
+            SoundType = SoundID.Item;
         }
     }
 }

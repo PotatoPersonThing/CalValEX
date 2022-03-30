@@ -10,18 +10,18 @@ namespace CalValEX.Tiles.AstralBlocks
 {
     public class AstralSnowPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            drop = ModContent.ItemType<AstralSnow>();
-            dustType = ModContent.DustType<AstralDust>();
+            ItemDrop = ModContent.ItemType<AstralSnow>();
+            DustType = ModContent.DustType<AstralDust>();
             AddMapEntry(new Color(243, 213, 245));
             Main.tileBlendAll[this.Type] = true;
-            soundType = SoundID.Item;
-            soundStyle = 50;
+            SoundType = SoundID.Item;
+            SoundStyle = 50;
             SetModTree(new SnowAstralTree());
             TileID.Sets.IcesSnow[Type] = true;
             TileID.Sets.ChecksForMerge[Type] = true;
@@ -33,9 +33,9 @@ namespace CalValEX.Tiles.AstralBlocks
             return ModContent.TileType<SnowAstralSapling>();
         }
 
-        public override void ChangeWaterfallStyle(ref int style)
+        /*public override void ChangeWaterfallStyle(ref int style)
         {
             style = mod.GetWaterfallStyleSlot("AstralWaterfallStyle");
-        }
+        }*/
     }
 }

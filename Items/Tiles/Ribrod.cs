@@ -14,14 +14,14 @@ namespace CalValEX.Items.Tiles
 
         public override void SetDefaults()
         {
-            item.maxStack = 1;
-            item.width = 16;
-            item.height = 28;
-            item.rare = ItemRarityID.LightRed;
-            item.useStyle = ItemUseStyleID.SwingThrow;
-            item.useAnimation = 30;
-            item.useTurn = true;
-            item.autoReuse = false;
+            Item.maxStack = 1;
+            Item.width = 16;
+            Item.height = 28;
+            Item.rare = ItemRarityID.LightRed;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.useAnimation = 30;
+            Item.useTurn = true;
+            Item.autoReuse = false;
         }
 
         public override bool AltFunctionUse(Player player)
@@ -31,7 +31,7 @@ namespace CalValEX.Items.Tiles
 
         private int RibCount;
 
-        public override bool UseItem(Player player)
+        /*public override bool UseItem(Player player)
         {
             if (player.altFunctionUse == 2)
             {
@@ -40,38 +40,38 @@ namespace CalValEX.Items.Tiles
                 {
                     RibCount = 0;
                 }
-                item.createTile = -1;
-                item.useStyle = ItemUseStyleID.HoldingUp;
-                item.useAnimation = 30;
-                item.useTime = 30;
+                Item.createTile = -1;
+                Item.useStyle = ItemUseStyleID.HoldingUp;
+                Item.useAnimation = 30;
+                Item.useTime = 30;
             }
             else
             {
-                item.useStyle = ItemUseStyleID.SwingThrow;
-                item.useTurn = true;
-                item.useAnimation = 30;
-                item.useTime = 30;
+                Item.useStyle = ItemUseStyleID.SwingThrow;
+                Item.useTurn = true;
+                Item.useAnimation = 30;
+                Item.useTime = 30;
                 Mod calamityMod = ModLoader.GetMod("CalamityMod");
                 switch (RibCount)
                 {
                     case 0:
-                        item.createTile = calamityMod.TileType("SulphurousRib2");
+                        Item.createTile = calamityMod.TileType("SulphurousRib2");
                         return true;
 
                     case 1:
-                        item.createTile = calamityMod.TileType("SulphurousRib3");
+                        Item.createTile = calamityMod.TileType("SulphurousRib3");
                         return true;
 
                     case 2:
-                        item.createTile = calamityMod.TileType("SulphurousRib4");
+                        Item.createTile = calamityMod.TileType("SulphurousRib4");
                         return true;
 
                     case 3:
-                        item.createTile = calamityMod.TileType("SulphurousRib5");
+                        Item.createTile = calamityMod.TileType("SulphurousRib5");
                         return true;
                 }
             }
             return true;
-        }
+        }*/
     }
 }

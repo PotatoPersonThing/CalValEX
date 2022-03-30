@@ -12,7 +12,7 @@ namespace CalValEX.Tiles.Banners
     // If you can't figure out how to recreate a vanilla tile, see that guide for instructions on how to figure it out yourself.
     public class CalamitasBannerPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             // Main.tileFlame[Type] = true; This breaks it.
             Main.tileLighted[Type] = true;
@@ -28,9 +28,9 @@ namespace CalValEX.Tiles.Banners
             AddMapEntry(new Color(139, 0, 0), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 32, ModContent.ItemType<CalamitasBanner>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<CalamitasBanner>());
         }
 
         /*public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)

@@ -16,16 +16,12 @@ namespace CalValEX.Items.Equips.Shirts.AresChestplate
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 14;
-            item.rare = 11;
-            item.vanity = true;
-            item.value = Item.sellPrice(0, 3, 0, 0);
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = false;
+            Item.width = 18;
+            Item.height = 14;
+            Item.rare = 11;
+            Item.vanity = true;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Terraria.ID.ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -56,28 +52,28 @@ namespace CalValEX.Items.Equips.Shirts.AresChestplate
             bool plasmaspawned = player.ownedProjectileCounts[ModContent.ProjectileType<PlasmaArm>()] <= 0;
             if (gausspawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
-                    0f, 0f, ModContent.ProjectileType<GaussArm>(), 0, 0f, player.whoAmI);
+                Projectile.NewProjectile(player.GetProjectileSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                    0, 0, ModContent.ProjectileType<GaussArm>(), 0, 0f, player.whoAmI);
             }
             if (laserpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
-                    0f, 0f, ModContent.ProjectileType<LaserArm>(), 0, 0f, player.whoAmI);
+                Projectile.NewProjectile(player.GetProjectileSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                    0, 0, ModContent.ProjectileType<LaserArm>(), 0, 0f, player.whoAmI);
             }
             if (teslaspawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
-                    0f, 0f, ModContent.ProjectileType<TeslaArm>(), 0, 0f, player.whoAmI);
+                Projectile.NewProjectile(player.GetProjectileSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                   0, 0, ModContent.ProjectileType<TeslaArm>(), 0, 0f, player.whoAmI);
             }
             if (plasmaspawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
-                    0f, 0f, ModContent.ProjectileType<PlasmaArm>(), 0, 0f, player.whoAmI);
+                Projectile.NewProjectile(player.GetProjectileSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                    0, 0, ModContent.ProjectileType<PlasmaArm>(), 0, 0f, player.whoAmI);
             }
             player.GetModPlayer<CalValEXPlayer>().aresarms = true;
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             bool gausspawned = player.ownedProjectileCounts[ModContent.ProjectileType<GaussArm>()] <= 0;
             bool laserpawned = player.ownedProjectileCounts[ModContent.ProjectileType<LaserArm>()] <= 0;
@@ -85,23 +81,23 @@ namespace CalValEX.Items.Equips.Shirts.AresChestplate
             bool plasmaspawned = player.ownedProjectileCounts[ModContent.ProjectileType<PlasmaArm>()] <= 0;
             if (gausspawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
-                    0f, 0f, ModContent.ProjectileType<GaussArm>(), 0, 0f, player.whoAmI);
+                Projectile.NewProjectile(player.GetProjectileSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                    0, 0, ModContent.ProjectileType<GaussArm>(), 0, 0f, player.whoAmI);
             }
             if (laserpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
-                    0f, 0f, ModContent.ProjectileType<LaserArm>(), 0, 0f, player.whoAmI);
+                Projectile.NewProjectile(player.GetProjectileSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                   0, 0, ModContent.ProjectileType<LaserArm>(), 0, 0f, player.whoAmI);
             }
             if (teslaspawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
-                    0f, 0f, ModContent.ProjectileType<TeslaArm>(), 0, 0f, player.whoAmI);
+                Projectile.NewProjectile(player.GetProjectileSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                   0, 0, ModContent.ProjectileType<TeslaArm>(), 0, 0f, player.whoAmI);
             }
             if (plasmaspawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
-                    0f, 0f, ModContent.ProjectileType<PlasmaArm>(), 0, 0f, player.whoAmI);
+                Projectile.NewProjectile(player.GetProjectileSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                   0, 0, ModContent.ProjectileType<PlasmaArm>(), 0, 0f, player.whoAmI);
             }
             player.GetModPlayer<CalValEXPlayer>().aresarms = true;
         }

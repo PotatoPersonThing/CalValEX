@@ -14,20 +14,20 @@ namespace CalValEX.Items.Tiles.Cages
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.autoReuse = true;
-            item.maxStack = 99;
-            item.consumable = true;
-            item.createTile = ModContent.TileType<GoldEyedolTerrariumPlaced>();
-            item.width = 32;
-            item.height = 28;
-            item.rare = 3;
+            Item.useStyle = 1;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.maxStack = 99;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<GoldEyedolTerrariumPlaced>();
+            Item.width = 32;
+            Item.height = 28;
+            Item.rare = 3;
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
@@ -39,6 +39,6 @@ namespace CalValEX.Items.Tiles.Cages
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

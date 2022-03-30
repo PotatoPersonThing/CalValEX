@@ -14,17 +14,17 @@ namespace CalValEX.Items.Tiles
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.autoReuse = true;
-            item.maxStack = 99;
-            item.consumable = true;
-            item.createTile = ModContent.TileType<DecommissionedDaedalusGolemPlaced>();
-            item.width = 48;
-            item.height = 32;
-            item.rare = 5;
+            Item.useStyle = 1;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.maxStack = 99;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<DecommissionedDaedalusGolemPlaced>();
+            Item.width = 48;
+            Item.height = 32;
+            Item.rare = 5;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
 {
     public class PhantowaxChair : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
@@ -30,13 +30,13 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Phantowax Chair");
             AddMapEntry(new Color(94, 39, 93), name);
-            disableSmartCursor = true;
-            adjTiles = new int[] { TileID.Chairs };
+            
+            AdjTiles = new int[] { TileID.Chairs };
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 32, ModContent.ItemType<PhantowaxChairItem>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<PhantowaxChairItem>());
         }
     }
 }

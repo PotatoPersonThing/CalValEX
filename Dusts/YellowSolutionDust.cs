@@ -4,9 +4,9 @@ namespace CalValEX.Dusts
 {
 	public class YellowSolutionDust : ModDust
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			updateType = 110;
+			UpdateType = 110;
 		}
 	}
 }

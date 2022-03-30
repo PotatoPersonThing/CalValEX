@@ -10,7 +10,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
 {
     public class BloodstoneBookshelf : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolidTop[Type] = true;
             Main.tileFrameImportant[Type] = true;
@@ -25,12 +25,12 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Bloodstone Bookcase");
             AddMapEntry(new Color(139, 0, 0), name);
-            adjTiles = new int[] { TileID.Bookcases };
+            AdjTiles = new int[] { TileID.Bookcases };
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 24, 32, ItemType<BloodstoneBookshelfItem>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 32, ItemType<BloodstoneBookshelfItem>());
         }
     }
 }

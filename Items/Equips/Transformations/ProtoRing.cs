@@ -16,24 +16,6 @@ namespace CalValEX.Items.Equips.Transformations
 			DisplayName.SetDefault("Prototype Ring");
 			Tooltip.SetDefault("Transforms the wearer into a small mech");
 		}
-
-		public override void SetDefaults()
-		{
-			item.width = 24;
-			item.height = 28;
-			item.accessory = true;
-			item.rare = ItemRarityID.Red;
-		}
-
-		public override void UpdateAccessory(Player player, bool hideVisual)
-		{
-			CalValEXPlayer p = player.GetModPlayer<CalValEXPlayer>();
-			p.androTrans = true;
-			if (hideVisual)
-			{
-				p.androHide = true;
-			}
-		}
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
 			//rarity 12 (Turquoise) = new Color(0, 255, 200)
@@ -53,7 +35,7 @@ namespace CalValEX.Items.Equips.Transformations
 				}
 			}
 		}
-		public override void AddRecipes()
+		/*public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			Mod calamityMod = ModLoader.GetMod("CalamityMod");
@@ -65,30 +47,56 @@ namespace CalValEX.Items.Equips.Transformations
 				recipe.SetResult(this);
 				recipe.AddRecipe();
 			}
+		}*/
+		public override void Load()
+		{
+			if (Main.netMode != NetmodeID.Server)
+			{
+				Mod.AddEquipTexture(new TinyIbanRobotOfDoomHead(), this, EquipType.Head, $"{Texture}_{EquipType.Head}");
+				Mod.AddEquipTexture(new TinyIbanRobotOfDoomBody(), this, EquipType.Body, $"{Texture}_{EquipType.Body}");
+				Mod.AddEquipTexture(new TinyIbanRobotOfDoomLegs(), this, EquipType.Legs, $"{Texture}_{EquipType.Legs}");
+			}
 		}
+		private void SetupDrawing()
+		{
+			int equipSlotHead = Mod.GetEquipSlot(Name, EquipType.Head);
+			int equipSlotBody = Mod.GetEquipSlot(Name, EquipType.Body);
+			int equipSlotLegs = Mod.GetEquipSlot(Name, EquipType.Legs);
+
+			ArmorIDs.Head.Sets.DrawHead[equipSlotHead] = false;
+			ArmorIDs.Body.Sets.HidesTopSkin[equipSlotBody] = true;
+			ArmorIDs.Body.Sets.HidesArms[equipSlotBody] = true;
+			ArmorIDs.Legs.Sets.HidesBottomSkin[equipSlotLegs] = true;
+		}
+
+		public override void SetDefaults()
+		{
+			Item.width = 24;
+			Item.height = 28;
+			Item.accessory = true;
+			Item.rare = 11;
+			Item.canBePlacedInVanityRegardlessOfConditions = true;
+		}
+
+		public override void UpdateAccessory(Player player, bool hideVisual)
+		{
+			var p = player.GetModPlayer<CalValEXPlayer>();
+			p.androTrans = true;
+			p.androHide = hideVisual;
+		}
+		public override bool IsVanitySet(int head, int body, int legs) => true;
+
 	}
 
 	public class TinyIbanRobotOfDoomHead : EquipTexture
 	{
-		public override bool DrawHead()
-		{
-			return false;
-		}
 	}
 
 	public class TinyIbanRobotOfDoomBody : EquipTexture
 	{
-		public override bool DrawBody()
-		{
-			return false;
-		}
 	}
 
 	public class TinyIbanRobotOfDoomLegs : EquipTexture
 	{
-		public override bool DrawLegs()
-		{
-			return false;
-		}
 	}
 }

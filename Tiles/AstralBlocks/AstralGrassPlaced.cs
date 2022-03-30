@@ -10,18 +10,18 @@ namespace CalValEX.Tiles.AstralBlocks
 {
     public class AstralGrassPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileBrick[Type] = true;
-            drop = ModContent.ItemType<AstralDirt>();
-            dustType = ModContent.DustType<AstralSolutionDust>();
+            ItemDrop = ModContent.ItemType<AstralDirt>();
+            DustType = ModContent.DustType<AstralSolutionDust>();
             AddMapEntry(new Color(252, 88, 252));
             TileID.Sets.Grass[Type] = true;
             TileID.Sets.Conversion.Grass[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
-            TileID.Sets.NeedsGrassFramingDirt[Type] = mod.TileType("AstralDirtPlaced");
+            TileID.Sets.NeedsGrassFramingDirt[Type] = ModContent.TileType<AstralDirtPlaced>();
             SetModTree(new AstralTree());
             Main.tileBlendAll[this.Type] = true;
         }
@@ -32,10 +32,10 @@ namespace CalValEX.Tiles.AstralBlocks
 
         public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
         {
-            if (fail && !effectOnly)
+            /*if (fail && !effectOnly)
             {
                 Main.tile[i, j].type = (ushort)ModContent.TileType<AstralDirtPlaced>();
-            }
+            }*/
         }
 
         public override int SaplingGrowthType(ref int style)
@@ -46,23 +46,23 @@ namespace CalValEX.Tiles.AstralBlocks
 
         public override void RandomUpdate(int i, int j)
         {
-            if (Main.rand.Next(7) == 0)
+            /*if (Main.rand.Next(7) == 0)
             {
                 int grassspawned;
                 int pos;
                 int choice = Main.rand.Next(2);
                 if (choice == 0)
                 {
-                    grassspawned = mod.TileType("AstralTallGrass");
+                    grassspawned = ModContent.TileType<AstralTallGrass>();
                     pos = 2;
                 }
                 else
                 {
-                    grassspawned = mod.TileType("AstralShortGrass");
+                    grassspawned = ModContent.TileType<AstralShortGrass>();
                     pos = 1;
                 }
 
-                if (!Main.tile[i, j - 1].active() && Main.tileSolid[Main.tile[i, j + 1].type] && Main.tile[i, j].slope() == 0 && !Main.tile[i, j].halfBrick())
+                if (!Main.tile[i, j - 1].TileType == 0 && Main.tile[i, j].Slope == 0 && !Main.tile[i, j].halfBrick())
                 {
                     WorldGen.PlaceTile(i, j - pos, grassspawned, true, false, -1, Main.rand.Next(18));
                 }
@@ -91,7 +91,7 @@ namespace CalValEX.Tiles.AstralBlocks
                         }
                     }
                 }
-            }
+            }*/
         }
     }
 }

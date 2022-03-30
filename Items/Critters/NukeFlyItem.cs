@@ -14,22 +14,22 @@ namespace CalValEX.Items.Critters
 
         public override void SetDefaults()
         {
-            //item.useStyle = 1;
-            //item.autoReuse = true;
-            //item.useTurn = true;
-            //item.useAnimation = 15;
-            //item.useTime = 10;
-            //item.maxStack = 999;
-            //item.consumable = true;
-            //item.width = 12;
-            //item.height = 12;
-            //item.makeNPC = 360;
-            //item.noUseGraphic = true;
-            //item.bait = 15;
+            //Item.useStyle = 1;
+            //Item.autoReuse = true;
+            //Item.useTurn = true;
+            //Item.useAnimation = 15;
+            //Item.useTime = 10;
+            //Item.maxStack = 999;
+            //Item.consumable = true;
+            //Item.width = 12;
+            //Item.height = 12;
+            //Item.makeNPC = 360;
+            //Item.noUseGraphic = true;
+            //Item.bait = 15;
 
-            item.CloneDefaults(ItemID.GlowingSnail);
-            item.bait = 5;
-            item.makeNPC = (short)NPCType<NukeFly>();
+            Item.CloneDefaults(ItemID.GlowingSnail);
+            Item.bait = 5;
+            Item.makeNPC = (short)NPCType<NukeFly>();
         }
     }
 }

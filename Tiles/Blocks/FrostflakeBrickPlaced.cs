@@ -8,18 +8,18 @@ namespace CalValEX.Tiles.Blocks
 {
     public class FrostflakeBrickPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileBlendAll[this.Type] = true;
-            drop = ModContent.ItemType<FrostflakeBrick>();
+            ItemDrop = ModContent.ItemType<FrostflakeBrick>();
             AddMapEntry(new Color(66, 242, 245));
-            dustType = 92;
-            minPick = 65;
-            soundType = SoundID.Tink;
+            DustType = 92;
+            MinPick = 65;
+            SoundType = SoundID.Tink;
         }
     }
 }

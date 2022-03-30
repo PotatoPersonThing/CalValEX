@@ -8,31 +8,31 @@ namespace CalValEX.Projectiles.Plushies
     {
         public override void SetStaticDefaults()
         {
-            Main.projFrames[projectile.type] = 8;
+            Main.projFrames[Projectile.type] = 8;
         }
         public override void SetDefaults()
         {
-            projectile.netImportant = true;
-            projectile.width = 44;
-            projectile.height = 44;
-            projectile.aiStyle = 32;
-            projectile.friendly = true;
+            Projectile.netImportant = true;
+            Projectile.width = 44;
+            Projectile.height = 44;
+            Projectile.aiStyle = 32;
+            Projectile.friendly = true;
         }
 
         public override void Kill(int timeLeft)
         {
-            Item.NewItem(projectile.getRect(), ModContent.ItemType<CalaFumoYeetable>());
+            Item.NewItem(Projectile.GetItemSource_DropAsItem(), Projectile.getRect(), ModContent.ItemType<CalaFumoYeetable>());
         }
 
         public override void AI()
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 6)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 6)
             {
-                projectile.frameCounter = 0;
-                projectile.frame++;
-                if (projectile.frame >= Main.projFrames[projectile.type])
-                    projectile.frame = 0;
+                Projectile.frameCounter = 0;
+                Projectile.frame++;
+                if (Projectile.frame >= Main.projFrames[Projectile.type])
+                    Projectile.frame = 0;
             }
         }
     }

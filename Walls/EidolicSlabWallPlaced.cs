@@ -7,10 +7,10 @@ namespace CalValEX.Walls
 {
     public class EidolicSlabWallPlaced : ModWall
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            drop = ModContent.ItemType<EidolicSlabWall>();
+            ItemDrop = ModContent.ItemType<EidolicSlabWall>();
             AddMapEntry(new Color(3, 1, 33));
         }
     }

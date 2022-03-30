@@ -7,9 +7,9 @@ namespace CalValEX.Tiles.AstralMisc
 {
 	public class AstralPalm : ModPalmTree
 	{
-		public override Texture2D GetTexture() => ModContent.GetTexture("CalValEX/Tiles/AstralMisc/AstralPalm");
+		public override Texture2D GetTexture() => ModContent.Request<Texture2D>("CalValEX/Tiles/AstralMisc/AstralPalm").Value;
 
-		public override Texture2D GetTopTextures() => ModContent.GetTexture("CalValEX/Tiles/AstralMisc/AstralPalmTop");
+		public override Texture2D GetTopTextures() => ModContent.Request<Texture2D>("CalValEX/Tiles/AstralMisc/AstralPalmTop").Value;
 
 		public override int DropWood() => ModContent.ItemType<AstralTreeWood>(); // TODO
 	}

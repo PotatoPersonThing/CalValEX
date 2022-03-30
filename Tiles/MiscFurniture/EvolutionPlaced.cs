@@ -10,7 +10,7 @@ namespace CalValEX.Tiles.MiscFurniture
 {
     public class EvolutionPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -20,16 +20,16 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
 
-            animationFrameHeight = 36;
+            AnimationFrameHeight = 36;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Evolution");
             AddMapEntry(new Color(0, 167, 255), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 32, ItemType<Evolution>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<Evolution>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

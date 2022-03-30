@@ -16,23 +16,23 @@ namespace CalValEX.Items.Tiles.Blocks
 
         public override void SetDefaults()
         {
-            item.width = 10;
-            item.height = 24;
-            item.maxStack = 1;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = ItemUseStyleID.SwingThrow;
-            item.consumable = false;
-            item.rare = 7;
-            item.value = Item.buyPrice(0, 0, 50, 0);
-            item.tileWand = 1124;
-            item.createTile = TileType<PlagueHivePlaced>();
-            item.placeStyle = 0;
+            Item.width = 10;
+            Item.height = 24;
+            Item.maxStack = 1;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.consumable = false;
+            Item.rare = 7;
+            Item.value = Item.buyPrice(0, 0, 50, 0);
+            Item.tileWand = 1124;
+            Item.createTile = TileType<PlagueHivePlaced>();
+            Item.placeStyle = 0;
         }
 
-        public override void AddRecipes()
+        /*
         {
             ModRecipe recipe = new ModRecipe(mod);
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
@@ -44,6 +44,6 @@ namespace CalValEX.Items.Tiles.Blocks
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

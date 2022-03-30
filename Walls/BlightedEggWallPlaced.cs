@@ -7,10 +7,10 @@ namespace CalValEX.Walls
 {
     public class BlightedEggWallPlaced : ModWall
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            drop = ModContent.ItemType<BlightedEggWall>();
+            ItemDrop = ModContent.ItemType<BlightedEggWall>();
             AddMapEntry(new Color(176, 39, 160));
         }
     }

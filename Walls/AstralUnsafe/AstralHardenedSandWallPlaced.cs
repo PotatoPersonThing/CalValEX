@@ -9,12 +9,12 @@ namespace CalValEX.Walls.AstralUnsafe
 {
     public class AstralHardenedSandWallPlaced : ModWall
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = false;
             AddMapEntry(new Color(37, 10, 38));
             WallID.Sets.Conversion.HardenedSand[Type] = true;
-            dustType = ModContent.DustType<AstralDust>();
+            DustType = ModContent.DustType<AstralDust>();
         }
     }
 }

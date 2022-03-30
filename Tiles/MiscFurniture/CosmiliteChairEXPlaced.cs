@@ -10,7 +10,7 @@ namespace CalValEX.Tiles.MiscFurniture
 {
     public class CosmiliteChairEXPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
@@ -29,13 +29,12 @@ namespace CalValEX.Tiles.MiscFurniture
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Cosmlite Chair EX");
             AddMapEntry(new Color(221, 116, 242), name);
-            disableSmartCursor = true;
-            adjTiles = new int[] { TileID.Chairs };
+            AdjTiles = new int[] { TileID.Chairs };
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 32, ModContent.ItemType<CosmiliteChairEX>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ModContent.ItemType<CosmiliteChairEX>());
         }
     }
 }

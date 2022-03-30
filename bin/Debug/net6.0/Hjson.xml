@@ -1,0 +1,519 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hjson</name>
+    </assembly>
+    <members>
+        <member name="T:Hjson.IHjsonDsfProvider">
+            <summary>
+            A interface to support Domain Specific Formats for Hjson.
+            </summary>
+        </member>
+        <member name="P:Hjson.IHjsonDsfProvider.Name">
+            <summary>Gets the name of this DSF.</summary>
+        </member>
+        <member name="P:Hjson.IHjsonDsfProvider.Description">
+            <summary>Gets the description of this DSF.</summary>
+        </member>
+        <member name="M:Hjson.IHjsonDsfProvider.Parse(System.String)">
+            <summary>Tries to parse the text as a DSF value.</summary>
+        </member>
+        <member name="M:Hjson.IHjsonDsfProvider.Stringify(Hjson.JsonValue)">
+            <summary>Stringifies DSF values.</summary>
+        </member>
+        <member name="T:Hjson.HjsonDsf">
+            <summary>
+            Provides standard DSF providers.
+            </summary>
+        </member>
+        <member name="M:Hjson.HjsonDsf.Math">
+            <summary>Returns a math DSF provider.</summary>
+        </member>
+        <member name="M:Hjson.HjsonDsf.Hex(System.Boolean)">
+            <summary>Returns a hex DSF provider.</summary>
+        </member>
+        <member name="M:Hjson.HjsonDsf.Date">
+            <summary>Returns a date DSF provider.</summary>
+        </member>
+        <member name="T:Hjson.HjsonOptions">
+            <summary>Options for Save.</summary>
+        </member>
+        <member name="M:Hjson.HjsonOptions.#ctor">
+            <summary>Initializes a new instance of this class.</summary>
+        </member>
+        <member name="P:Hjson.HjsonOptions.KeepWsc">
+            <summary>Keep white space and comments.</summary>
+        </member>
+        <member name="P:Hjson.HjsonOptions.EmitRootBraces">
+            <summary>Show braces at the root level (default true).</summary>
+        </member>
+        <member name="P:Hjson.HjsonOptions.DsfProviders">
+            <summary>
+            Gets or sets DSF providers.
+            </summary>
+        </member>
+        <member name="T:Hjson.HjsonValue">
+            <summary>Contains functions to load and save in the Hjson format.</summary>
+        </member>
+        <member name="M:Hjson.HjsonValue.Load(System.String)">
+            <summary>Loads Hjson/JSON from a file.</summary>
+        </member>
+        <member name="M:Hjson.HjsonValue.Load(System.String,Hjson.HjsonOptions)">
+            <summary>Loads Hjson/JSON from a file, optionally preserving whitespace and comments.</summary>
+        </member>
+        <member name="M:Hjson.HjsonValue.Load(System.IO.Stream)">
+            <summary>Loads Hjson/JSON from a stream.</summary>
+        </member>
+        <member name="M:Hjson.HjsonValue.Load(System.IO.Stream,Hjson.HjsonOptions)">
+            <summary>Loads Hjson/JSON from a stream, optionally preserving whitespace and comments.</summary>
+        </member>
+        <member name="M:Hjson.HjsonValue.Load(System.IO.TextReader,Hjson.IJsonReader)">
+            <summary>Loads Hjson/JSON from a TextReader.</summary>
+        </member>
+        <member name="M:Hjson.HjsonValue.Load(System.IO.TextReader,Hjson.HjsonOptions,Hjson.IJsonReader)">
+            <summary>Loads Hjson/JSON from a TextReader, optionally preserving whitespace and comments.</summary>
+        </member>
+        <member name="M:Hjson.HjsonValue.LoadWsc(System.IO.TextReader)">
+            <summary>Loads Hjson/JSON from a TextReader, preserving whitespace and comments.</summary>
+        </member>
+        <member name="M:Hjson.HjsonValue.Parse(System.String)">
+            <summary>Parses the specified Hjson/JSON string.</summary>
+        </member>
+        <member name="M:Hjson.HjsonValue.Parse(System.String,Hjson.HjsonOptions)">
+            <summary>Parses the specified Hjson/JSON string, optionally preserving whitespace and comments.</summary>
+        </member>
+        <member name="M:Hjson.HjsonValue.Save(Hjson.JsonValue,System.String,Hjson.HjsonOptions)">
+            <summary>Saves Hjson to a file.</summary>
+        </member>
+        <member name="M:Hjson.HjsonValue.Save(Hjson.JsonValue,System.IO.Stream,Hjson.HjsonOptions)">
+            <summary>Saves Hjson to a stream.</summary>
+        </member>
+        <member name="M:Hjson.HjsonValue.Save(Hjson.JsonValue,System.IO.TextWriter,Hjson.HjsonOptions)">
+            <summary>Saves Hjson to a TextWriter.</summary>
+        </member>
+        <member name="M:Hjson.HjsonValue.Load(System.String,System.Boolean)">
+            <summary>Loads Hjson/JSON from a file, optionally preserving whitespace and comments.</summary>
+        </member>
+        <member name="M:Hjson.HjsonValue.Load(System.IO.Stream,System.Boolean)">
+            <summary>Loads Hjson/JSON from a stream, optionally preserving whitespace and comments.</summary>
+        </member>
+        <member name="M:Hjson.HjsonValue.Load(System.IO.TextReader,System.Boolean,Hjson.IJsonReader)">
+            <summary>Loads Hjson/JSON from a TextReader, optionally preserving whitespace and comments.</summary>
+        </member>
+        <member name="M:Hjson.HjsonValue.Parse(System.String,System.Boolean)">
+            <summary>Parses the specified Hjson/JSON string, optionally preserving whitespace and comments.</summary>
+        </member>
+        <member name="T:Hjson.WscJsonObject">
+            <summary>Implements an object value, including whitespace and comments.</summary>
+        </member>
+        <member name="M:Hjson.WscJsonObject.#ctor">
+            <summary>Initializes a new instance of this class.</summary>
+        </member>
+        <member name="P:Hjson.WscJsonObject.RootBraces">
+            <summary>Defines if braces are shown (root object only).</summary>
+        </member>
+        <member name="P:Hjson.WscJsonObject.Order">
+            <summary>Defines the order of the keys.</summary>
+        </member>
+        <member name="P:Hjson.WscJsonObject.Comments">
+            <summary>Defines a comment for each key. The "" entry is emitted before any element.</summary>
+        </member>
+        <member name="T:Hjson.WscJsonArray">
+            <summary>Implements an array value, including whitespace and comments.</summary>
+        </member>
+        <member name="M:Hjson.WscJsonArray.#ctor">
+            <summary>Initializes a new instance of this class.</summary>
+        </member>
+        <member name="P:Hjson.WscJsonArray.Comments">
+            <summary>Defines a comment for each item. The [0] entry is emitted before any element.</summary>
+        </member>
+        <member name="T:Hjson.IJsonReader">
+            <summary>Defines the reader interface.</summary>
+        </member>
+        <member name="M:Hjson.IJsonReader.Key(System.String)">
+            <summary>Triggered when an item for an object is read.</summary>
+        </member>
+        <member name="M:Hjson.IJsonReader.Index(System.Int32)">
+            <summary>Triggered when an item for an array is read.</summary>
+        </member>
+        <member name="M:Hjson.IJsonReader.Value(Hjson.JsonValue)">
+            <summary>Triggered when a value is read.</summary>
+        </member>
+        <member name="T:Hjson.JsonArray">
+            <summary>Implements an array value.</summary>
+        </member>
+        <member name="M:Hjson.JsonArray.#ctor(Hjson.JsonValue[])">
+            <summary>Initializes a new instance of this class.</summary>
+        </member>
+        <member name="M:Hjson.JsonArray.#ctor(System.Collections.Generic.IEnumerable{Hjson.JsonValue})">
+            <summary>Initializes a new instance of this class.</summary>
+        </member>
+        <member name="P:Hjson.JsonArray.Count">
+            <summary>Gets the count of the contained items.</summary>
+        </member>
+        <member name="P:Hjson.JsonArray.Item(System.Int32)">
+            <summary>Gets or sets the value for the specified index.</summary>
+        </member>
+        <member name="P:Hjson.JsonArray.JsonType">
+            <summary>The type of this value.</summary>
+        </member>
+        <member name="M:Hjson.JsonArray.Add(Hjson.JsonValue)">
+            <summary>Adds a new item.</summary>
+        </member>
+        <member name="M:Hjson.JsonArray.AddRange(System.Collections.Generic.IEnumerable{Hjson.JsonValue})">
+            <summary>Adds a range of items.</summary>
+        </member>
+        <member name="M:Hjson.JsonArray.Clear">
+            <summary>Clears the array.</summary>
+        </member>
+        <member name="M:Hjson.JsonArray.Contains(Hjson.JsonValue)">
+            <summary>Determines whether the array contains a specific value.</summary>
+        </member>
+        <member name="M:Hjson.JsonArray.CopyTo(Hjson.JsonValue[],System.Int32)">
+            <summary>Copies the elements to an System.Array, starting at a particular System.Array index.</summary>
+        </member>
+        <member name="M:Hjson.JsonArray.IndexOf(Hjson.JsonValue)">
+            <summary>Determines the index of a specific item.</summary>
+        </member>
+        <member name="M:Hjson.JsonArray.Insert(System.Int32,Hjson.JsonValue)">
+            <summary>Inserts an item.</summary>
+        </member>
+        <member name="M:Hjson.JsonArray.Remove(Hjson.JsonValue)">
+            <summary>Removes the specified item.</summary>
+        </member>
+        <member name="M:Hjson.JsonArray.RemoveAt(System.Int32)">
+            <summary>Removes the item with the specified index.</summary>
+        </member>
+        <member name="T:Hjson.JsonObject">
+            <summary>Implements an object value.</summary>
+        </member>
+        <member name="M:Hjson.JsonObject.#ctor(System.Collections.Generic.KeyValuePair{System.String,Hjson.JsonValue}[])">
+            <summary>Initializes a new instance of this class.</summary>
+            <remarks>You can also initialize an object using the C# add syntax: new JsonObject { { "key", "value" }, ... }</remarks>
+        </member>
+        <member name="M:Hjson.JsonObject.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,Hjson.JsonValue}})">
+            <summary>Initializes a new instance of this class.</summary>
+            <remarks>You can also initialize an object using the C# add syntax: new JsonObject { { "key", "value" }, ... }</remarks>
+        </member>
+        <member name="P:Hjson.JsonObject.Count">
+            <summary>Gets the count of the contained items.</summary>
+        </member>
+        <member name="P:Hjson.JsonObject.Item(System.String)">
+            <summary>Gets or sets the value for the specified key.</summary>
+        </member>
+        <member name="P:Hjson.JsonObject.JsonType">
+            <summary>The type of this value.</summary>
+        </member>
+        <member name="P:Hjson.JsonObject.Keys">
+            <summary>Gets the keys of this object.</summary>
+        </member>
+        <member name="P:Hjson.JsonObject.Values">
+            <summary>Gets the values of this object.</summary>
+        </member>
+        <member name="M:Hjson.JsonObject.Add(System.String,Hjson.JsonValue)">
+            <summary>Adds a new item.</summary>
+            <remarks>You can also initialize an object using the C# add syntax: new JsonObject { { "key", "value" }, ... }</remarks>
+        </member>
+        <member name="M:Hjson.JsonObject.Add(System.Collections.Generic.KeyValuePair{System.String,Hjson.JsonValue})">
+            <summary>Adds a new item.</summary>
+        </member>
+        <member name="M:Hjson.JsonObject.AddRange(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,Hjson.JsonValue}})">
+            <summary>Adds a range of items.</summary>
+        </member>
+        <member name="M:Hjson.JsonObject.Clear">
+            <summary>Clears the object.</summary>
+        </member>
+        <member name="M:Hjson.JsonObject.ContainsKey(System.String)">
+            <summary>Determines whether the array contains a specific key.</summary>
+        </member>
+        <member name="M:Hjson.JsonObject.CopyTo(System.Collections.Generic.KeyValuePair{System.String,Hjson.JsonValue}[],System.Int32)">
+            <summary>Copies the elements to an System.Array, starting at a particular System.Array index.</summary>
+        </member>
+        <member name="M:Hjson.JsonObject.Remove(System.String)">
+            <summary>Removes the item with the specified key.</summary>
+            <param name="key">The key of the element to remove.</param>
+            <returns>true if the element is successfully found and removed; otherwise, false.</returns>
+        </member>
+        <member name="M:Hjson.JsonObject.TryGetValue(System.String,Hjson.JsonValue@)">
+            <summary>Gets the value associated with the specified key.</summary>
+        </member>
+        <member name="T:Hjson.JsonPrimitive">
+            <summary>Implements a primitive value.</summary>
+        </member>
+        <member name="M:Hjson.JsonPrimitive.#ctor(System.String)">
+            <summary>Initializes a new string.</summary>
+        </member>
+        <member name="M:Hjson.JsonPrimitive.#ctor(System.Char)">
+            <summary>Initializes a new char.</summary>
+        </member>
+        <member name="M:Hjson.JsonPrimitive.#ctor(System.Boolean)">
+            <summary>Initializes a new bool.</summary>
+        </member>
+        <member name="M:Hjson.JsonPrimitive.#ctor(System.Decimal)">
+            <summary>Initializes a new decimal.</summary>
+        </member>
+        <member name="M:Hjson.JsonPrimitive.#ctor(System.Double)">
+            <summary>Initializes a new double.</summary>
+        </member>
+        <member name="M:Hjson.JsonPrimitive.#ctor(System.Single)">
+            <summary>Initializes a new float.</summary>
+        </member>
+        <member name="M:Hjson.JsonPrimitive.#ctor(System.Int64)">
+            <summary>Initializes a new long.</summary>
+        </member>
+        <member name="M:Hjson.JsonPrimitive.#ctor(System.Int32)">
+            <summary>Initializes a new int.</summary>
+        </member>
+        <member name="M:Hjson.JsonPrimitive.#ctor(System.Byte)">
+            <summary>Initializes a new byte.</summary>
+        </member>
+        <member name="M:Hjson.JsonPrimitive.#ctor(System.Int16)">
+            <summary>Initializes a new short.</summary>
+        </member>
+        <member name="P:Hjson.JsonPrimitive.JsonType">
+            <summary>The type of this value.</summary>
+        </member>
+        <member name="T:Hjson.JsonType">
+            <summary>Defines the known json types.</summary>
+            <remarks>There is no null type as the primitive will be null instead of the JsonPrimitive containing null.</remarks>
+        </member>
+        <member name="F:Hjson.JsonType.String">
+            <summary>Json value of type string.</summary>
+        </member>
+        <member name="F:Hjson.JsonType.Number">
+            <summary>Json value of type number.</summary>
+        </member>
+        <member name="F:Hjson.JsonType.Object">
+            <summary>Json value of type object.</summary>
+        </member>
+        <member name="F:Hjson.JsonType.Array">
+            <summary>Json value of type array.</summary>
+        </member>
+        <member name="F:Hjson.JsonType.Boolean">
+            <summary>Json value of type boolean.</summary>
+        </member>
+        <member name="F:Hjson.JsonType.Unknown">
+            <summary>Json value of an unknown type.</summary>
+        </member>
+        <member name="T:Hjson.JsonUtil">
+            <summary>Provides Json extension methods.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.Qb(Hjson.JsonValue)">
+            <summary>For JsonValues with type boolean, this method will return its
+            value as bool, otherwise it will throw.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.Qb(Hjson.JsonObject,System.String,System.Boolean)">
+            <summary>Gets the value of the member specified by key, then calls <see cref="M:Hjson.JsonUtil.Qb(Hjson.JsonValue)"/>.
+            If the object does not contain the key, the defaultValue is returned.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.Qi(Hjson.JsonValue)">
+            <summary>For JsonValues with type number, this method will return its
+            value as int, otherwise it will throw.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.Qi(Hjson.JsonObject,System.String,System.Int32)">
+            <summary>Gets the value of the member specified by key, then calls <see cref="M:Hjson.JsonUtil.Qi(Hjson.JsonValue)"/>.
+            If the object does not contain the key, the defaultValue is returned.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.Ql(Hjson.JsonValue)">
+            <summary>For JsonValues with type number, this method will return its
+            value as long, otherwise it will throw.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.Ql(Hjson.JsonObject,System.String,System.Int64)">
+            <summary>Gets the value of the member specified by key, then calls <see cref="M:Hjson.JsonUtil.Ql(Hjson.JsonValue)"/>.
+            If the object does not contain the key, the defaultValue is returned.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.Qd(Hjson.JsonValue)">
+            <summary>For JsonValues with type number, this method will return its
+            value as double, otherwise it will throw.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.Qd(Hjson.JsonObject,System.String,System.Double)">
+            <summary>Gets the value of the member specified by key, then calls <see cref="M:Hjson.JsonUtil.Qd(Hjson.JsonValue)"/>.
+            If the object does not contain the key, the defaultValue is returned.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.Qs(Hjson.JsonValue)">
+            <summary>For JsonValues with type string, this method will return its
+            value as string, otherwise it will throw. Use <see cref="M:Hjson.JsonUtil.Qstr(Hjson.JsonValue)"/>
+            to get a string value from number or boolean types as well.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.Qs(Hjson.JsonObject,System.String,System.String)">
+            <summary>Gets the value of the member specified by key, then calls <see cref="M:Hjson.JsonUtil.Qs(Hjson.JsonValue)"/>.
+            If the object does not contain the key, the defaultValue is returned.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.Qstr(Hjson.JsonValue)">
+            <summary>For JsonValues with type string, number or boolean, this method will return
+            its value as a string (converted if necessary). For arrays or objects it will throw.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.Qstr(Hjson.JsonObject,System.String,System.String)">
+            <summary>Gets the value of the member specified by key, then,
+            for string, number or boolean JsonValues, this method will return
+            its value as a string (converted if necessary).</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.Qv(Hjson.JsonObject,System.String)">
+            <summary>Gets the JsonValue of the member specified by key.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.Qo(Hjson.JsonObject,System.String)">
+            <summary>Gets a JsonObject from a JsonObject.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.Qo(Hjson.JsonValue)">
+            <summary>Gets the JsonObject from a JsonValue.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.Qa(Hjson.JsonObject,System.String)">
+            <summary>Gets a JsonArray from a JsonObject.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.Qa(Hjson.JsonValue)">
+            <summary>Gets the JsonArray from a JsonValue.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.Qqo(Hjson.JsonObject)">
+            <summary>Enumerates JsonObjects from a JsonObject.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.ToJsonDate(System.DateTime)">
+            <summary>Convert the date to json (unix epoch date offset).</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.ToDateTime(System.Int64)">
+            <summary>Convert the json date (unix epoch date offset) to a DateTime.</summary>
+        </member>
+        <member name="M:Hjson.JsonUtil.ToJson(System.DateTime)">
+            <summary>Convert the date to JSON/ISO 8601, compatible with ES5 Date.toJSON().</summary>
+            <remarks>Use DateTime.Parse() to convert back (will be of local kind).</remarks>
+        </member>
+        <member name="M:Hjson.JsonUtil.ToPrecise(System.DateTime)">
+            <summary>Convert the date to a precise string representations (ten millionths of a second).</summary>
+            <remarks>Use DateTime.Parse() to convert back (will be of local kind).</remarks>
+        </member>
+        <member name="M:Hjson.JsonUtil.ToJson(System.TimeSpan)">
+            <summary>Convert the timespan to JSON/ISO 8601.</summary>
+        </member>
+        <member name="T:Hjson.Stringify">
+            <summary>The ToString format.</summary>
+        </member>
+        <member name="F:Hjson.Stringify.Plain">
+            <summary>JSON (no whitespace).</summary>
+        </member>
+        <member name="F:Hjson.Stringify.Formatted">
+            <summary>Formatted JSON.</summary>
+        </member>
+        <member name="F:Hjson.Stringify.Hjson">
+            <summary>Hjson.</summary>
+        </member>
+        <member name="T:Hjson.JsonValue">
+            <summary>
+            JsonValue is the abstract base class for all values (string, number, true, false, null, object or array).
+            </summary>
+        </member>
+        <member name="P:Hjson.JsonValue.Eol">
+            <summary>Gets or sets the newline charater(s).</summary>
+            <remarks>Defaults to Environment.NewLine.</remarks>
+        </member>
+        <member name="P:Hjson.JsonValue.Count">
+            <summary>Gets the count of the contained items for arrays/objects.</summary>
+        </member>
+        <member name="P:Hjson.JsonValue.JsonType">
+            <summary>The type of this value.</summary>
+        </member>
+        <member name="P:Hjson.JsonValue.Item(System.Int32)">
+            <summary>Gets or sets the value for the specified index.</summary>
+        </member>
+        <member name="P:Hjson.JsonValue.Item(System.String)">
+            <summary>Gets or sets the value for the specified key.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.ContainsKey(System.String)">
+            <summary>Returns true if the object contains the specified key.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.Save(System.String,Hjson.Stringify)">
+            <summary>Saves the JSON to a file.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.Save(System.IO.Stream,Hjson.Stringify)">
+            <summary>Saves the JSON to a stream.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.Save(System.IO.TextWriter,Hjson.Stringify)">
+            <summary>Saves the JSON to a TextWriter.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.ToString(Hjson.HjsonOptions)">
+            <summary>Saves as Hjson to a string.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.ToString(Hjson.Stringify)">
+            <summary>Saves the JSON to a string.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.ToString">
+            <summary>Saves the JSON to a string.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.ToValue">
+            <summary>Returns the contained primitive value.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.FromObject(System.Object)">
+            <summary>Wraps an unknown object into a JSON value (to be used with DSF).</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.Load(System.String)">
+            <summary>Loads JSON from a file.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.Load(System.IO.Stream)">
+            <summary>Loads JSON from a stream.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.Load(System.IO.TextReader,Hjson.IJsonReader)">
+            <summary>Loads JSON from a TextReader.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.Parse(System.String)">
+            <summary>Parses the specified JSON string.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(System.Boolean)~Hjson.JsonValue">
+            <summary>Converts from bool.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(System.Byte)~Hjson.JsonValue">
+            <summary>Converts from byte.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(System.Char)~Hjson.JsonValue">
+            <summary>Converts from char.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(System.Decimal)~Hjson.JsonValue">
+            <summary>Converts from decimal.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(System.Double)~Hjson.JsonValue">
+            <summary>Converts from double.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(System.Single)~Hjson.JsonValue">
+            <summary>Converts from float.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(System.Int32)~Hjson.JsonValue">
+            <summary>Converts from int.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(System.Int64)~Hjson.JsonValue">
+            <summary>Converts from long.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(System.Int16)~Hjson.JsonValue">
+            <summary>Converts from short.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(System.String)~Hjson.JsonValue">
+            <summary>Converts from string.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(Hjson.JsonValue)~System.Boolean">
+            <summary>Converts to bool. Also see <see cref="T:Hjson.JsonUtil"/>.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(Hjson.JsonValue)~System.Byte">
+            <summary>Converts to byte. Also see <see cref="T:Hjson.JsonUtil"/>.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(Hjson.JsonValue)~System.Char">
+            <summary>Converts to char. Also see <see cref="T:Hjson.JsonUtil"/>.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(Hjson.JsonValue)~System.Decimal">
+            <summary>Converts to decimal. Also see <see cref="T:Hjson.JsonUtil"/>.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(Hjson.JsonValue)~System.Double">
+            <summary>Converts to double. Also see <see cref="T:Hjson.JsonUtil"/>.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(Hjson.JsonValue)~System.Single">
+            <summary>Converts to float. Also see <see cref="T:Hjson.JsonUtil"/>.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(Hjson.JsonValue)~System.Int32">
+            <summary>Converts to int. Also see <see cref="T:Hjson.JsonUtil"/>.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(Hjson.JsonValue)~System.Int64">
+            <summary>Converts to long. Also see <see cref="T:Hjson.JsonUtil"/>.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(Hjson.JsonValue)~System.Int16">
+            <summary>Converts to short. Also see <see cref="T:Hjson.JsonUtil"/>.</summary>
+        </member>
+        <member name="M:Hjson.JsonValue.op_Implicit(Hjson.JsonValue)~System.String">
+            <summary>Converts to string. Also see <see cref="T:Hjson.JsonUtil"/>.</summary>
+        </member>
+    </members>
+</doc>

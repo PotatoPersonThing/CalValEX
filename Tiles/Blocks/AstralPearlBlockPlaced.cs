@@ -8,18 +8,18 @@ namespace CalValEX.Tiles.Blocks
 {
     public class AstralPearlBlockPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            drop = ModContent.ItemType<AstralPearlBlock>();
-            dustType = 173;
+            ItemDrop = ModContent.ItemType<AstralPearlBlock>();
+            DustType = 173;
             AddMapEntry(new Color(183, 69, 60));
             Main.tileBlendAll[this.Type] = true;
-            soundType = SoundID.Item;
-            soundStyle = 50;
+            SoundType = SoundID.Item;
+            SoundStyle = 50;
         }
     }
 }

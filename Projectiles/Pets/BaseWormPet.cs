@@ -100,7 +100,7 @@ namespace CalValEX.Projectiles.Pets
 		/// <summary>
 		/// Has the projectile been initialized? This variable is automatically set so please don't use it yourself
 		/// </summary>
-		public ref float Initialized => ref projectile.ai[0];
+		public ref float Initialized => ref Projectile.ai[0];
 		/// <summary>
 		/// The steering angle of the worm head if its far away from the ideal position
 		/// </summary>
@@ -128,7 +128,7 @@ namespace CalValEX.Projectiles.Pets
 		/// <summary>
 		/// The speed at which the worm head moves
 		/// </summary>
-		public virtual float GetSpeed => MathHelper.Lerp(15, 40, MathHelper.Clamp(projectile.Distance(IdealPosition) / (WanderDistance * 2.2f) - 1f, 0, 1));
+		public virtual float GetSpeed => MathHelper.Lerp(15, 40, MathHelper.Clamp(Projectile.Distance(IdealPosition) / (WanderDistance * 2.2f) - 1f, 0, 1));
 		/// <summary>
 		/// The string of text at the end of your texture files if you're going to have a glowmask on the worm (Like, "_Glow" or something)
 		/// </summary>
@@ -145,30 +145,30 @@ namespace CalValEX.Projectiles.Pets
 		/// </summary>
 		public virtual string[] TextureProgression => new string[0];
 
-		public Player Owner => Main.player[projectile.owner];
+		public Player Owner => Main.player[Projectile.owner];
 		public CalValEXPlayer ModOwner => Owner.GetModPlayer<CalValEXPlayer>();
 
 		public List<WormPetSegment> Segments;
 
-		public ref float TimeTillReset => ref projectile.ai[1];
+		public ref float TimeTillReset => ref Projectile.ai[1];
 
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Base Worm Head");
-			ProjectileID.Sets.NeedsUUID[projectile.type] = true;
-			Main.projPet[projectile.type] = true;
+			ProjectileID.Sets.NeedsUUID[Projectile.type] = true;
+			Main.projPet[Projectile.type] = true;
 		}
 
 		public override void SetDefaults()
 		{
-			projectile.width = projectile.height = SegmentSize();
-			projectile.friendly = true;
-			projectile.hostile = false;
-			projectile.ignoreWater = true;
-			projectile.netImportant = true;
-			projectile.penetrate = -1;
-			projectile.timeLeft = 300;
-			projectile.tileCollide = false;
+			Projectile.width = Projectile.height = SegmentSize();
+			Projectile.friendly = true;
+			Projectile.hostile = false;
+			Projectile.ignoreWater = true;
+			Projectile.netImportant = true;
+			Projectile.penetrate = -1;
+			Projectile.timeLeft = 300;
+			Projectile.tileCollide = false;
 		}
 
 		/// <summary>
@@ -230,7 +230,7 @@ namespace CalValEX.Projectiles.Pets
             {
 				WormPetSegment segment = new WormPetSegment();
 				segment.head = false;
-				segment.position = projectile.Center + Vector2.UnitY * SegmentSize() * i;
+				segment.position = Projectile.Center + Vector2.UnitY * SegmentSize() * i;
 				segment.oldPosition = segment.position;
 				segment.visual = visualSegments[i];
 				Segments.Add(segment);
@@ -249,12 +249,12 @@ namespace CalValEX.Projectiles.Pets
         {
 			if (ExistenceCondition())
 			{
-				projectile.timeLeft = 2;
+				Projectile.timeLeft = 2;
 			}
 
-			if (Owner.dead || !Owner.active || Owner.Distance(projectile.Center) > 4000)
+			if (Owner.dead || !Owner.active || Owner.Distance(Projectile.Center) > 4000)
 			{
-				projectile.timeLeft = 0;
+				Projectile.timeLeft = 0;
 				return false;
 			}
 
@@ -273,7 +273,7 @@ namespace CalValEX.Projectiles.Pets
 			}
 
 			//Reset the ideal position if the ideal position was reached
-			if (projectile.Distance(IdealPosition) < GetSpeed)
+			if (Projectile.Distance(IdealPosition) < GetSpeed)
 				RelativeIdealPosition = Vector2.Zero;
 
 			//Get a new ideal position
@@ -289,12 +289,12 @@ namespace CalValEX.Projectiles.Pets
 		public virtual void MoveTowardsIdealPosition()
 		{
 			//Rotate towards its ideal position
-			projectile.rotation = projectile.rotation.AngleTowards((IdealPosition - projectile.Center).ToRotation(), MathHelper.Lerp(MaximumSteerAngle, MinimumSteerAngle, MathHelper.Clamp(projectile.Distance(IdealPosition) / 80f, 0, 1)));
-			projectile.velocity = projectile.rotation.ToRotationVector2() * GetSpeed;
+			Projectile.rotation = Projectile.rotation.AngleTowards((IdealPosition - Projectile.Center).ToRotation(), MathHelper.Lerp(MaximumSteerAngle, MinimumSteerAngle, MathHelper.Clamp(Projectile.Distance(IdealPosition) / 80f, 0, 1)));
+			Projectile.velocity = Projectile.rotation.ToRotationVector2() * GetSpeed;
 
 			//Update its segment
 			Segments[0].oldPosition = Segments[0].position;
-			Segments[0].position = projectile.Center;
+			Segments[0].position = Projectile.Center;
 		}
 
 		/// <summary>
@@ -304,7 +304,7 @@ namespace CalValEX.Projectiles.Pets
         {
 			//https://youtu.be/PGk0rnyTa1U?t=400 we use verlet integration chains here
 			int i = 0;
-			float movementLenght = projectile.velocity.Length();
+			float movementLenght = Projectile.velocity.Length();
 			foreach(WormPetSegment segment in Segments)
             {
 				if (!segment.head)
@@ -374,24 +374,24 @@ namespace CalValEX.Projectiles.Pets
             // Consistently update the worm
             if ((int)Main.time % 120 == 0)
             {
-                projectile.netUpdate = true;
+                Projectile.netUpdate = true;
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
 			if (Initialized == 0f)
 				return false;
-			DrawWorm(spriteBatch, lightColor);
+			DrawWorm(lightColor);
 			return false;
 		}
 
-		public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+		public override void PostDraw(Color lightColor)
 		{
 			if (Initialized == 0f)
 				return;
 
-			DrawWorm(spriteBatch, lightColor, true);
+			DrawWorm(lightColor, true);
 		}
 
 
@@ -399,7 +399,7 @@ namespace CalValEX.Projectiles.Pets
 		/// Draws the worm. Override this if you want to draw it yourself. 
 		/// Glow indicates wether or not this is the glowmask. You can use it to just change the segmentlight to always be white, or use it to do custom drawing when in the glowmask
 		/// </summary>
-		public virtual void DrawWorm(SpriteBatch spriteBatch, Color lightColor, bool glow = false) 
+		public virtual void DrawWorm(Color lightColor, bool glow = false) 
 		{
 			
 
@@ -411,9 +411,9 @@ namespace CalValEX.Projectiles.Pets
 					continue;
 
 				bool bodySegment = i != 0 && i != SegmentCount() - 1;
-				Texture2D sprite =  ModContent.GetTexture(currentSegment.TexturePath + (glow ? GlowmaskSuffix : ""));
+				Texture2D sprite = ModContent.Request<Texture2D>(currentSegment.TexturePath + (glow ? GlowmaskSuffix : "")).Value;
 
-				Vector2 angleVector = (i == 0 ? projectile.rotation.ToRotationVector2() : (Segments[i - 1].position - Segments[i].position));
+				Vector2 angleVector = (i == 0 ? Projectile.rotation.ToRotationVector2() : (Segments[i - 1].position - Segments[i].position));
 				bool flipped = Math.Sign(angleVector.X) < 0 && currentSegment.Directional; 
 
 				//Get the horizontal start of the frame (for segments with variants)
@@ -427,7 +427,7 @@ namespace CalValEX.Projectiles.Pets
 
 				//Remove 2 from the width and height of the frame if the segment has variants/is animated to account for the extra gap of 2 pixels
 				frameWidth -= currentSegment.Variants > 1 ? 2 : 0; 
-				frameHeight -= (Main.projFrames[projectile.type] > 1) ? 2 : 0;
+				frameHeight -= (Main.projFrames[Projectile.type] > 1) ? 2 : 0;
 
 				Rectangle frame = new Rectangle(frameStartX, frameStartY, frameWidth, frameHeight);
 				Vector2 origin = bodySegment ? frame.Size() / 2f : i == 0 ? new Vector2(frame.Width / 2f, frame.Height - SegmentSize() / 2f) : new Vector2(frame.Width / 2f, SegmentSize() / 2f);
@@ -437,11 +437,11 @@ namespace CalValEX.Projectiles.Pets
 
 				origin -= Vector2.UnitX * currentSegment.LateralShift * (flipped ? -1 : 1);
 
-				float rotation = i == 0 ? projectile.rotation + MathHelper.PiOver2 : (Segments[i].position - Segments[i - 1].position).ToRotation() - MathHelper.PiOver2;
+				float rotation = i == 0 ? Projectile.rotation + MathHelper.PiOver2 : (Segments[i].position - Segments[i - 1].position).ToRotation() - MathHelper.PiOver2;
 
 				Color segmentLight = glow ? Color.White * GlowmaskOpacity : Lighting.GetColor((int)Segments[i].position.X / 16, (int)Segments[i].position.Y / 16); //Lighting of the position of the segment. Pure white if its a glowmask
 
-				spriteBatch.Draw(sprite, Segments[i].position - Main.screenPosition, frame, segmentLight, rotation, origin, projectile.scale, flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+				Main.EntitySpriteDraw(sprite, Segments[i].position - Main.screenPosition, frame, segmentLight, rotation, origin, Projectile.scale, flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
 			}
 		}
     }

@@ -7,10 +7,10 @@ namespace CalValEX.Walls
 {
     public class PolishedAstralMonolithWallPlaced : ModWall
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            drop = ModContent.ItemType<PolishedAstralMonolithWall>();
+            ItemDrop = ModContent.ItemType<PolishedAstralMonolithWall>();
             AddMapEntry(new Color(47, 30, 54));
         }
     }

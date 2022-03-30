@@ -9,7 +9,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
 {
     public class BloodstoneBed : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             TileID.Sets.HasOutlines[Type] = true;
@@ -19,9 +19,9 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Bloodstone Bed");
             AddMapEntry(new Color(139, 0, 0), name);
-            disableSmartCursor = true;
-            adjTiles = new int[] { TileID.Beds };
-            bed = true;
+            
+            AdjTiles = new int[] { TileID.Beds };
+            
         }
 
         public override bool HasSmartInteract()
@@ -36,17 +36,17 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 64, 32, ModContent.ItemType<BloodstoneBedItem>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 64, 32, ModContent.ItemType<BloodstoneBedItem>());
         }
 
-        public override bool NewRightClick(int i, int j)
+        public override bool RightClick(int i, int j)
         {
             Player player = Main.LocalPlayer;
             Tile tile = Main.tile[i, j];
-            int spawnX = i - tile.frameX / 18;
+            int spawnX = i - tile.TileFrameX / 18;
             int spawnY = j + 2;
-            spawnX += tile.frameX >= 72 ? 5 : 2;
-            if (tile.frameY % 38 != 0)
+            spawnX += tile.TileFrameX >= 72 ? 5 : 2;
+            if (tile.TileFrameY % 38 != 0)
             {
                 spawnY--;
             }
@@ -54,12 +54,12 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             if (player.SpawnX == spawnX && player.SpawnY == spawnY)
             {
                 player.RemoveSpawn();
-                Main.NewText("Spawn point removed!", 255, 240, 20, false);
+                Main.NewText(Terraria.Localization.Language.GetTextValue("Game.SpawnPointRemoved"), byte.MaxValue, 240, 20);
             }
             else if (Player.CheckSpawn(spawnX, spawnY))
             {
                 player.ChangeSpawn(spawnX, spawnY);
-                Main.NewText("Spawn point set!", 255, 240, 20, false);
+                Main.NewText(Terraria.Localization.Language.GetTextValue("Game.SpawnPointSet"), byte.MaxValue, 240, 20);
             }
             return true;
         }
@@ -68,8 +68,8 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
         {
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
-            player.showItemIcon = true;
-            player.showItemIcon2 = ModContent.ItemType<BloodstoneBedItem>();
+            player.cursorItemIconEnabled = true;
+            player.cursorItemIconID = ModContent.ItemType<BloodstoneBedItem>();
         }
     }
 }

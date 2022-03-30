@@ -9,7 +9,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
 {
     public class OldAstralBathtub : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -26,7 +26,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 64, 32, ItemType<OldAstralBathtubItem>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 64, 32, ItemType<OldAstralBathtubItem>());
         }
     }
 }

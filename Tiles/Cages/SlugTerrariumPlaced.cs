@@ -10,7 +10,7 @@ namespace CalValEX.Tiles.Cages
 {
     public class SlugTerrariumPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -22,13 +22,13 @@ namespace CalValEX.Tiles.Cages
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
             TileObjectData.newTile.Origin = new Point16(1, 0);
 
-            animationFrameHeight = 36;
+            AnimationFrameHeight = 36;
             TileObjectData.addTile(Type);
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 24, 16, ItemType<SlugTerrarium>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 16, ItemType<SlugTerrarium>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

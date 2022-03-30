@@ -15,7 +15,7 @@ namespace CalValEX.Items.Hooks
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.BatHook);
+            Projectile.CloneDefaults(ProjectileID.BatHook);
         }
 
         public override bool? CanUseGrapple(Player player)
@@ -23,7 +23,7 @@ namespace CalValEX.Items.Hooks
             int hooksOut = 0;
             for (int l = 0; l < 1000; l++)
             {
-                if (Main.projectile[l].active && Main.projectile[l].owner == Main.myPlayer && Main.projectile[l].type == projectile.type)
+                if (Main.projectile[l].active && Main.projectile[l].owner == Main.myPlayer && Main.projectile[l].type == Projectile.type)
                 {
                     hooksOut++;
                 }
@@ -55,13 +55,13 @@ namespace CalValEX.Items.Hooks
             speed = 20;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Player player = Main.player[projectile.owner];
-            Vector2 distToProj = projectile.Center;
-            float projRotation = projectile.AngleTo(player.MountedCenter) - 1.57f;
+            Player player = Main.player[Projectile.owner];
+            Vector2 distToProj = Projectile.Center;
+            float projRotation = Projectile.AngleTo(player.MountedCenter) - 1.57f;
             bool doIDraw = true;
-            Texture2D texture = mod.GetTexture("Items/Hooks/Polterchain"); //change this accordingly to your chain texture
+            Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Items/Hooks/Polterchain").Value; //change this accordingly to your chain texture
 
             while (doIDraw)
             {
@@ -73,10 +73,10 @@ namespace CalValEX.Items.Hooks
                 else if (!float.IsNaN(distance))
                 {
                     Color drawColor = Lighting.GetColor((int)distToProj.X / 16, (int)(distToProj.Y / 16f));
-                    distToProj += projectile.DirectionTo(player.MountedCenter) * texture.Height;
-                    spriteBatch.Draw(texture, distToProj - Main.screenPosition,
+                    distToProj += Projectile.DirectionTo(player.MountedCenter) * texture.Height;
+                    Main.EntitySpriteDraw(texture, distToProj - Main.screenPosition,
                         new Rectangle(0, 0, texture.Width, texture.Height), drawColor, projRotation,
-                        Utils.Size(texture) / 2f, 1f, SpriteEffects.None, 0f);
+                        Utils.Size(texture) / 2f, 1f, SpriteEffects.None, 0);
                 }
             }
             return true;

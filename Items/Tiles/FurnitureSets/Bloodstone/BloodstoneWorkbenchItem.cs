@@ -14,20 +14,20 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.autoReuse = true;
-            item.maxStack = 99;
-            item.consumable = true;
-            item.createTile = ModContent.TileType<BloodstoneWorkbench>();
-            item.width = 12;
-            item.height = 12;
-            item.rare = 0;
+            Item.useStyle = 1;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.maxStack = 99;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<BloodstoneWorkbench>();
+            Item.width = 12;
+            Item.height = 12;
+            Item.rare = 0;
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
@@ -37,6 +37,6 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

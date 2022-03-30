@@ -17,12 +17,12 @@ namespace CalValEX.Items.Equips.Backs
 
         public override void SetDefaults()
         {
-            item.width = 14;
-            item.height = 34;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 2;
-            item.accessory = true;
-            item.vanity = true;
+            Item.width = 14;
+            Item.height = 34;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 2;
+            Item.accessory = true;
+            Item.vanity = true;
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
@@ -44,10 +44,10 @@ namespace CalValEX.Items.Equips.Backs
             }
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+           
             if (calamityMod != null)
             {
                 recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 5);
@@ -56,6 +56,6 @@ namespace CalValEX.Items.Equips.Backs
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

@@ -14,10 +14,10 @@ namespace CalValEX.Items.Equips.Shields
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 28;
-            item.value = Item.sellPrice(0, 0, 0, 5);
-            item.rare = -1;
+            Item.width = 24;
+            Item.height = 28;
+            Item.value = Item.sellPrice(0, 0, 0, 5);
+            Item.rare = -1;
         }
     }
 }

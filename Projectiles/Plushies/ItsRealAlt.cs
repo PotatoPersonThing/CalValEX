@@ -10,12 +10,12 @@ namespace CalValEX.Projectiles.Plushies
         int counter;
         public override void SetDefaults()
         {
-            projectile.netImportant = true;
-            projectile.width = 84;
-            projectile.height = 154;
-            projectile.aiStyle = 32;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
+            Projectile.netImportant = true;
+            Projectile.width = 84;
+            Projectile.height = 154;
+            Projectile.aiStyle = 32;
+            Projectile.friendly = true;
+            Projectile.tileCollide = false;
         }
 
         public override void AI()
@@ -23,13 +23,13 @@ namespace CalValEX.Projectiles.Plushies
             counter++;
             if (counter == 60)
             {
-                projectile.tileCollide = true;
+                Projectile.tileCollide = true;
             }
         }
 
         public override void Kill(int timeLeft)
         {
-            Item.NewItem(projectile.getRect(), ModContent.ItemType<CalaFumoYeetable>());
+            Item.NewItem(Projectile.GetItemSource_DropAsItem(), Projectile.getRect(), ModContent.ItemType<CalaFumoYeetable>());
         }
     }
 }

@@ -7,17 +7,18 @@ namespace CalValEX.Tiles.Blocks
 {
     public class BloodstonePlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            //Mod calamityMod = ModLoader.GetMod("CalamityMod");
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
-            drop = calamityMod.ItemType("Bloodstone");
+            //ItemDrop = calamityMod.ItemType("Bloodstone");
+            ItemDrop = ModContent.ItemType<Bloodstone>();
             AddMapEntry(new Color(126, 94, 87));
-            animationFrameHeight = 90;
+            AnimationFrameHeight = 90;
         }
 
-        private readonly int animationFrameWidth = 234;
+        private readonly int AnimationFrameWidth = 234;
 
         public override void AnimateIndividualTile(int type, int i, int j, ref int frameXOffset, ref int frameYOffset)
         {
@@ -87,8 +88,8 @@ namespace CalValEX.Tiles.Blocks
                     }
                     break;
             }
-            frameXOffset = uniqueAnimationFrameX * animationFrameWidth;
-            frameYOffset = uniqueAnimationFrameY * animationFrameHeight;
+            frameXOffset = uniqueAnimationFrameX * AnimationFrameWidth;
+            frameYOffset = uniqueAnimationFrameY * AnimationFrameHeight;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace CalValEX.Tiles.MiscFurniture
     // If you can't figure out how to recreate a vanilla tile, see that guide for instructions on how to figure it out yourself.
     public class SunkenLampPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             // Main.tileFlame[Type] = true; This breaks it.
             Main.tileLighted[Type] = true;
@@ -21,7 +21,7 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.Width = 2;
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 }; //
-            animationFrameHeight = 54;
+            AnimationFrameHeight = 54;
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
@@ -29,17 +29,17 @@ namespace CalValEX.Tiles.MiscFurniture
             AddMapEntry(new Color(91, 198, 201), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 48, ModContent.ItemType<SunkenLamp>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 48, ModContent.ItemType<SunkenLamp>());
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
             Tile tile = Main.tile[i, j];
-            if (tile.frameX == 0)
+            if (tile.TileFrameX == 0)
             {
-                // We can support different light colors for different styles here: switch (tile.frameY / 54)
+                // We can support different light colors for different styles here: switch (tile.TileFrameY / 54)
                 r = 0.5f;
                 g = 0.75f;
                 b = 1f;

@@ -5,6 +5,6 @@ namespace CalValEX.Tiles.AstralMisc
 {
 	public class AstralCactus : ModCactus
 	{
-		public override Texture2D GetTexture() => ModContent.GetTexture("CalValEX/Tiles/AstralMisc/AstralCactus");
+		public override Texture2D GetTexture() => ModContent.Request<Texture2D>("CalValEX/Tiles/AstralMisc/AstralCactus").Value;
 	}
 }

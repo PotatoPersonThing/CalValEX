@@ -14,11 +14,11 @@ namespace CalValEX.Items.Equips.Wings
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 20;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 1;
-            item.accessory = true;
+            Item.width = 22;
+            Item.height = 20;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 1;
+            Item.accessory = true;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -66,9 +66,9 @@ namespace CalValEX.Items.Equips.Wings
             speed = 0.8f;
             acceleration *= 0.8f;
         }
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+           
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(calamityMod.ItemType("WulfrumShard"), 12);
             recipe.AddIngredient(calamityMod.ItemType("EnergyCore"), 3);
@@ -76,6 +76,6 @@ namespace CalValEX.Items.Equips.Wings
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();
-        }
+        }*/
     }
 }

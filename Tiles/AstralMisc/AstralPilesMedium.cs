@@ -14,7 +14,7 @@ namespace CalValEX.Tiles.AstralMisc
 {
     public class AstralPilesMedium : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoFail[Type] = true;
@@ -36,9 +36,9 @@ namespace CalValEX.Tiles.AstralMisc
             TileObjectData.newTile.RandomStyleRange = 6;
 
             TileObjectData.addTile(Type);
-            dustType = ModContent.DustType<AstralDust>();
+            DustType = ModContent.DustType<AstralDust>();
             AddMapEntry(new Color(217, 36, 64));
-            base.SetDefaults();
+            base.SetStaticDefaults();
         }
 
         /*public override void SetDrawPositions(int i, int j, ref int width, ref int offsetY, ref int height)

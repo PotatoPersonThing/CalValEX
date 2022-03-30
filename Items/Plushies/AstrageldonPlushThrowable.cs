@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Projectiles.Plushies;
-using CalValEX.Items.Tiles.Plushies;
+//using CalValEX.Items.Tiles.Plushies;
 
 namespace CalValEX.Items.Plushies
 {
@@ -17,28 +17,28 @@ namespace CalValEX.Items.Plushies
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.width = 44;
-            item.height = 44;
-            item.consumable = true;
-            item.UseSound = SoundID.Item1;
-            item.rare = 10;
-            item.useAnimation = 20;
-            item.useTime = 20;
-            item.noUseGraphic = true;
-            item.noMelee = true;
-            item.value = 20;
-            item.shoot = mod.ProjectileType("AstrageldonPlush");
-            item.shootSpeed = 6f;
-            item.maxStack = 99;
+            Item.useStyle = 1;
+            Item.width = 44;
+            Item.height = 44;
+            Item.consumable = true;
+            Item.UseSound = SoundID.Item1;
+            Item.rare = 10;
+            Item.useAnimation = 20;
+            Item.useTime = 20;
+            Item.noUseGraphic = true;
+            Item.noMelee = true;
+            Item.value = 20;
+            Item.shoot = ModContent.ProjectileType<AstrageldonPlush>();
+            Item.shootSpeed = 6f;
+            Item.maxStack = 99;
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             Mod Cata = ModLoader.GetMod("CatalystMod");
             if (Cata != null)
             {
-                Mod CalValEX = ModLoader.GetMod("CalamityMod");
+                
                 {
                     ModRecipe recipe = new ModRecipe(mod);
                     recipe.AddIngredient(ModContent.ItemType<Tiles.Plushies.AstrageldonPlush>());
@@ -46,6 +46,6 @@ namespace CalValEX.Items.Plushies
                     recipe.AddRecipe();
                 }
             }
-        }
+        }*/
     }
 }

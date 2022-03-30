@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -17,10 +18,10 @@ namespace CalValEX.Items.Hooks
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.StaticHook);
-            item.shootSpeed = 62f;
-            item.shoot = ProjectileType<THanosHook>();
-            item.rare = 11;
+            Item.CloneDefaults(ItemID.StaticHook);
+            Item.shootSpeed = 62f;
+            Item.shoot = ProjectileType<THanosHook>();
+            Item.rare = 11;
         }
 
         public override bool CanUseItem(Player player)
@@ -35,12 +36,13 @@ namespace CalValEX.Items.Hooks
             }
         }
 
-        public override bool UseItem(Player player)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
             if (player.whoAmI == Main.myPlayer)
-            player.AddBuff(BuffID.ChaosState, 300);
-            return true;
+                player.AddBuff(BuffID.ChaosState, 300);
+            return base.Shoot(player, source, position, velocity, type, damage, knockback);
         }
+
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             //rarity 12 (Turquoise) = new Color(0, 255, 200)

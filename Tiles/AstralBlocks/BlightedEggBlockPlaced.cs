@@ -9,23 +9,23 @@ namespace CalValEX.Tiles.AstralBlocks
 {
     public class BlightedEggBlockPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            drop = ModContent.ItemType<BlightedEggBlock>();
-            dustType = ModContent.DustType<AstralDust>();
+            ItemDrop = ModContent.ItemType<BlightedEggBlock>();
+            DustType = ModContent.DustType<AstralDust>();
             AddMapEntry(new Color(57, 69, 100));
             Main.tileBlendAll[this.Type] = true;
-            soundType = SoundID.Item;
-            soundStyle = 50;
+            SoundType = SoundID.Item;
+            SoundStyle = 50;
         }
 
-        public override void ChangeWaterfallStyle(ref int style)
+        /*public override void ChangeWaterfallStyle(ref int style)
         {
             style = mod.GetWaterfallStyleSlot("AstralWaterfallStyle");
-        }
+        }*/
     }
 }

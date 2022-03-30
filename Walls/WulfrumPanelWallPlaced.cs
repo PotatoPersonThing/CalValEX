@@ -7,10 +7,10 @@ namespace CalValEX.Walls
 {
     public class WulfrumPanelWallPlaced : ModWall
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            drop = ModContent.ItemType<WulfrumPanelWall>();
+            ItemDrop = ModContent.ItemType<WulfrumPanelWall>();
             AddMapEntry(new Color(50, 92, 61));
         }
     }

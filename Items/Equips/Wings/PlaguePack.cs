@@ -14,11 +14,11 @@ namespace CalValEX.Items.Equips.Wings
 
         public override void SetDefaults()
         {
-            item.width = 40;
-            item.height = 34;
-            item.value = Item.buyPrice(0, 2, 0, 0);
-            item.rare = 8;
-            item.accessory = true;
+            Item.width = 40;
+            Item.height = 34;
+            Item.value = Item.buyPrice(0, 2, 0, 0);
+            Item.rare = 8;
+            Item.accessory = true;
         }
 
         //these wings use the same values as the solar wings

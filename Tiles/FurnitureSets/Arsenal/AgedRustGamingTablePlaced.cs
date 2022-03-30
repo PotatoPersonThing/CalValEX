@@ -10,7 +10,7 @@ namespace CalValEX.Tiles.FurnitureSets.Arsenal
 {
     public class AgedRustGamingTablePlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -20,19 +20,18 @@ namespace CalValEX.Tiles.FurnitureSets.Arsenal
             TileObjectData.newTile.Width = 5;
             TileObjectData.newTile.Height = 4;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16 }; //
-            animationFrameHeight = 72;
+            AnimationFrameHeight = 72;
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-            disableSmartCursor = true;
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Aged Lab Gaming Table");
             AddMapEntry(new Color(80, 87, 87), name);
-            adjTiles = new int[] { TileID.Tables };
+            AdjTiles = new int[] { TileID.Tables };
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 80, 64, ItemType<AgedRustGamingTable>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 80, 64, ItemType<AgedRustGamingTable>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

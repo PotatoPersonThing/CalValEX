@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using CalValEX.Tiles.Blocks;
 
 
 namespace CalValEX.Items.Tiles.Blocks
@@ -8,17 +9,18 @@ namespace CalValEX.Items.Tiles.Blocks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Compensation");
-            Tooltip.SetDefault("Can be sold");
+            DisplayName.SetDefault("Bloodstone (placeable)");
+            Tooltip.SetDefault("It's back");
         }
 
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.maxStack = 999;
-            item.value = Item.sellPrice(0, 0, 1, 0);
-            item.rare = -1;
+            Item.width = 16;
+            Item.height = 16;
+            Item.maxStack = 999;
+            Item.value = Item.sellPrice(0, 0, 1, 0);
+            Item.rare = -1;
+            Item.createTile = ModContent.TileType<BloodstonePlaced>();
         }
     }
 }

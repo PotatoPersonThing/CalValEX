@@ -10,7 +10,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
 {
     public class PhantowaxPiano : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -22,7 +22,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 18 }; //
             TileObjectData.newTile.CoordinatePadding = 0;
             TileObjectData.addTile(Type);
-            disableSmartCursor = true;
+            
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Phantowax Piano");
             AddMapEntry(new Color(94, 39, 93), name);
@@ -30,7 +30,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 48, 48, ItemType<PhantowaxPianoItem>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 48, ItemType<PhantowaxPianoItem>());
         }
     }
 }

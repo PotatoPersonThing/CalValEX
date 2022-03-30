@@ -13,17 +13,17 @@ namespace CalValEX.Items.Tiles.Paintings
 
         public override void SetDefaults()
         {
-            item.useStyle = ItemUseStyleID.SwingThrow;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.autoReuse = true;
-            item.maxStack = 99;
-            item.consumable = true;
-            item.createTile = ModContent.TileType<DualityPlaced>();
-            item.width = 12;
-            item.height = 12;
-            item.rare = 3;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.maxStack = 99;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<DualityPlaced>();
+            Item.width = 12;
+            Item.height = 12;
+            Item.rare = 3;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace CalValEX.Tiles.Plants
 {
     public class AstralOldPurplePlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -28,7 +28,7 @@ namespace CalValEX.Tiles.Plants
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 40, ItemType<AstralOldPurple>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 40, ItemType<AstralOldPurple>());
         }
     }
 }

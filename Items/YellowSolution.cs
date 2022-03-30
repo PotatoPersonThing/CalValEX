@@ -16,22 +16,22 @@ namespace CalValEX.Items
 
 		public override void SetDefaults()
 		{
-			item.shoot = ModContent.ProjectileType<YellowSolutionProj>() - ProjectileID.PureSpray;
-			item.ammo = AmmoID.Solution;
-			item.width = 10;
-			item.height = 12;
-			item.value = Item.buyPrice(0, 0, 25, 0);
-			item.rare = 4;
-			item.maxStack = 999;
-			item.consumable = true;
+			Item.shoot = ModContent.ProjectileType<YellowSolutionProj>() - ProjectileID.PureSpray;
+			Item.ammo = AmmoID.Solution;
+			Item.width = 10;
+			Item.height = 12;
+			Item.value = Item.buyPrice(0, 0, 25, 0);
+			Item.rare = 4;
+			Item.maxStack = 999;
+			Item.consumable = true;
 		}
 
-		public override void AddRecipes() {
+		/*public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ModContent.ItemType<XenoSolution>(), 1);
 			recipe.AddIngredient(ItemID.GreenSolution);
 			recipe.SetResult(this, 2);
 			recipe.AddRecipe();
-		}
+		}*/
 	}
 }

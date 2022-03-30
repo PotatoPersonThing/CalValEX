@@ -15,11 +15,11 @@ namespace CalValEX.Items.Equips.Legs
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 14;
-            item.rare = 11;
-            item.vanity = true;
-            item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.width = 18;
+            Item.height = 14;
+            Item.rare = 11;
+            Item.vanity = true;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
         }
 
         public override void UpdateEquip(Player player)
@@ -27,7 +27,7 @@ namespace CalValEX.Items.Equips.Legs
             player.GetModPlayer<CalValEXPlayer>().polterthigh = true;
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             player.GetModPlayer<CalValEXPlayer>().polterthigh = true;
         }

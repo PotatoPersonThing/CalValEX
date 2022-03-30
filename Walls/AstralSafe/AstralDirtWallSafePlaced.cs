@@ -9,12 +9,12 @@ namespace CalValEX.Walls.AstralSafe
 {
     public class AstralDirtWallSafePlaced : ModWall
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            drop = ModContent.ItemType<AstralDirtWall>();
+            ItemDrop = ModContent.ItemType<AstralDirtWall>();
             AddMapEntry(new Color(37, 10, 38));
-            dustType = ModContent.DustType<AstralDust>();
+            DustType = ModContent.DustType<AstralDust>();
         }
     }
 }

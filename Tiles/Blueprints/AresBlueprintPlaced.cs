@@ -13,7 +13,7 @@ namespace CalValEX.Tiles.Blueprints
     {
         int xswitch;
 
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -24,7 +24,7 @@ namespace CalValEX.Tiles.Blueprints
             TileObjectData.newTile.Height = 9;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16, 16, 16, 16, 16 }; //
             TileObjectData.newTile.CoordinatePadding = 0;
-            animationFrameHeight = 144;
+            AnimationFrameHeight = 144;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Ares Blueprint");
@@ -33,7 +33,7 @@ namespace CalValEX.Tiles.Blueprints
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 48, 48, ItemType<AresLog>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 48, ItemType<AresLog>());
         }
         public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
         {
@@ -56,7 +56,7 @@ namespace CalValEX.Tiles.Blueprints
             int animate = 0;
             if (tile.frameY >= 144)
             {
-                animate = Main.tileFrame[Type] * animationFrameHeight;
+                animate = Main.tileFrame[Type] * AnimationFrameHeight;
             }
             Main.spriteBatch.Draw(texture, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY + animate, 16, height), Lighting.GetColor(i, j), 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
             return false;

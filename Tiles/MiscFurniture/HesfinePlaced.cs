@@ -11,7 +11,7 @@ namespace CalValEX.Tiles.MiscFurniture
 {
     public class HesfinePlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -22,22 +22,22 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 }; //
 
-            animationFrameHeight = 54;
+            AnimationFrameHeight = 54;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("I'm still not fine");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(i * 16, j * 16, 24, 24, ItemType<Hesfine>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ItemType<Hesfine>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
             frameCounter++;
-            if (choketimer < 120 && choking)
+            if (choketimer < 360 && choking)
             {
                 if (frameCounter > 2) //make this number lower/bigger for faster/slower animation
                 {
@@ -68,21 +68,21 @@ namespace CalValEX.Tiles.MiscFurniture
             if (choking)
             {
                 choketimer++;
-                if (choketimer == 120 && !feed)
+                if (choketimer == 360 && !feed)
                 {
                     feed = true;
-                    Main.PlaySound(SoundID.NPCDeath13);
-                    Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("HardenedSulphurousSandstone"), Main.rand.Next(6, 21));
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath13);
+                    Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ItemID.Sandstone, Main.rand.Next(6, 21));
                 }
-                if (choketimer == 160)
+                if (choketimer == 460)
                 {
-                    Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Help"));
+                    Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(Mod, "Sounds/Help"));
                     choking = false;
                     feed = false;
                     choketimer = 0;
                 }
             }
-            if (Main.rand.Next(16) < 2)
+            if (Main.rand.Next(24) < 2)
             {
                 Dust dust = Dust.NewDustDirect(new Vector2(i, j) * 16f, 30, 30, 271, 0f, 0f, 255, new Color(255, 255, 255), 1f);
                 dust.shader = GameShaders.Armor.GetSecondaryShader(29, Main.LocalPlayer);
@@ -98,18 +98,18 @@ namespace CalValEX.Tiles.MiscFurniture
         int choketimer = 0;
         private bool feed = false;
 
-        public override bool NewRightClick(int i, int j)
+        public override bool RightClick(int i, int j)
         {
             Player player = Main.LocalPlayer;
             if (player.HasItem(ItemID.GreenMushroom) && !choking)
             {
                 player.ConsumeItem(ItemID.GreenMushroom);
-                Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Nom"));
+                Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(Mod, "Sounds/Nom"));
                 choking = true;
             }
             else if (!choking)
             {
-                Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Help"));
+                Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(Mod, "Sounds/Help"));
             }
             for (int x = 0; x < 100; x++)
             {

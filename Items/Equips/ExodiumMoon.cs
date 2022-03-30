@@ -12,17 +12,17 @@ namespace CalValEX.Items.Equips
         {
             DisplayName.SetDefault("Exodium Orbiter");
             Tooltip.SetDefault("A world revolving");
-            ItemID.Sets.ItemNoGravity[item.type] = true;
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 28;
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 11;
-            item.accessory = true;
-            item.vanity = true;
+            Item.width = 24;
+            Item.height = 28;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.rare = 11;
+            Item.accessory = true;
+            Item.vanity = true;
         }
 
         public override void UpdateEquip(Player player)
@@ -30,7 +30,7 @@ namespace CalValEX.Items.Equips
             player.GetModPlayer<CalValEXPlayer>().exorb = true;
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             player.GetModPlayer<CalValEXPlayer>().exorb = true;
         }

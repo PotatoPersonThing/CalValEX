@@ -12,7 +12,7 @@ namespace CalValEX.Tiles.AstralMisc
 {
 	public class AstralSapling : ModTile
 	{
-		public override void SetDefaults() {
+		public override void SetStaticDefaults() {
 			Main.tileFrameImportant[Type] = true;
 			Main.tileNoAttach[Type] = true;
 			Main.tileLavaDeath[Type] = true;
@@ -32,6 +32,7 @@ namespace CalValEX.Tiles.AstralMisc
 			TileObjectData.newTile.LavaDeath = true;
 			TileObjectData.newTile.RandomStyleRange = 3;
 			TileObjectData.newTile.StyleMultiplier = 3;
+			TileID.Sets.TreeSapling[Type] = true;
 			TileObjectData.newSubTile.CopyFrom(TileObjectData.newTile);
 			TileObjectData.addSubTile(1);
 			TileObjectData.addTile(Type);
@@ -40,8 +41,7 @@ namespace CalValEX.Tiles.AstralMisc
 			name.SetDefault("Blighted Astral Sapling");
 			AddMapEntry(new Color(200, 200, 200), name);
 
-			sapling = true;
-			adjTiles = new int[] { TileID.Saplings };
+			AdjTiles = new int[] { TileID.Saplings };
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;

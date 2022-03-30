@@ -21,12 +21,12 @@ namespace CalValEX.Items.Equips.Hats.Draedon
 
         public static void Load()
         {
-            DraedonDefaultHelm = ModContent.GetTexture(Path);
-            DraedonMeleeHelm = ModContent.GetTexture($"{Path}_Melee");
-            DraedonRangerHelm = ModContent.GetTexture($"{Path}_Ranger");
-            DraedonRogueHelm = ModContent.GetTexture($"{Path}_Rogue");
-            DraedonMagicHelm = ModContent.GetTexture($"{Path}_Magic");
-            DraedonSummonerHelm = ModContent.GetTexture($"{Path}_Summoner");
+            DraedonDefaultHelm = ModContent.Request<Texture2D>(Path).Value;
+            DraedonMeleeHelm = ModContent.Request<Texture2D>($"{Path}_Melee").Value;
+            DraedonRangerHelm = ModContent.Request<Texture2D>($"{Path}_Ranger").Value;
+            DraedonRogueHelm = ModContent.Request<Texture2D>($"{Path}_Rogue").Value;
+            DraedonMagicHelm = ModContent.Request<Texture2D>($"{Path}_Magic").Value;
+            DraedonSummonerHelm = ModContent.Request<Texture2D>($"{Path}_Summoner").Value;
         }
 
         public static void Unload()

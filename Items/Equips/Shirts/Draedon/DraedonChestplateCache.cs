@@ -21,12 +21,12 @@ namespace CalValEX.Items.Equips.Shirts.Draedon
 
         public static void Load()
         {
-            DraedonDefaultChest = ModContent.GetTexture(Path);
-            DraedonMeleeChest = ModContent.GetTexture($"{Path}_Melee");
-            DraedonRangerChest = ModContent.GetTexture($"{Path}_Ranger");
-            DraedonRogueChest = ModContent.GetTexture($"{Path}_Rogue");
-            DraedonMagicChest = ModContent.GetTexture($"{Path}_Magic");
-            DraedonSummonerChest = ModContent.GetTexture($"{Path}_Summoner");
+            DraedonDefaultChest = ModContent.Request<Texture2D>(Path).Value;
+            DraedonMeleeChest = ModContent.Request<Texture2D>($"{Path}_Melee").Value;
+            DraedonRangerChest = ModContent.Request<Texture2D>($"{Path}_Ranger").Value;
+            DraedonRogueChest = ModContent.Request<Texture2D>($"{Path}_Rogue").Value;
+            DraedonMagicChest = ModContent.Request<Texture2D>($"{Path}_Magic").Value;
+            DraedonSummonerChest = ModContent.Request<Texture2D>($"{Path}_Summoner").Value;
         }
 
         public static void Unload()

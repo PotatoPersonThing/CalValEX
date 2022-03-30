@@ -7,39 +7,50 @@ using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using CalamityMod.CalPlayer;
+//using CalamityMod.CalPlayer;
 
 namespace CalValEX.NPCs.Critters
 {
     public class OrthoceraApparition : ModNPC
     {
-        public override string Texture => "CalamityMod/NPCs/AcidRain/Orthocera";
+        //public override string Texture => "CalamityMod/NPCs/AcidRain/Orthocera";
+        public override string Texture => "CalValEX/NPCs/Critters/Orthobab";
 
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Orthocera?");
-            Main.npcFrameCount[npc.type] = 5;
+            //Main.npcFrameCount[NPC.type] = 5;
+            Main.npcFrameCount[NPC.type] = 6;
         }
 
         public override void SetDefaults()
         {
-            npc.width = 62;
-            npc.height = 34;
-            npc.aiStyle = -1;
-            npc.damage = 0;
-            npc.defense = 62821;
-            npc.lifeMax = 62821;
-            npc.noGravity = true;
-            npc.lavaImmune = false;
-            npc.noTileCollide = true;
-            npc.dontTakeDamage = true;
-            npc.chaseable = false;
-            aiType = -1;
-            npc.npcSlots = 0.25f;
-            for (int i = 0; i < npc.buffImmune.Length; i++)
+            NPC.width = 62;
+            NPC.height = 34;
+            NPC.aiStyle = -1;
+            NPC.damage = 0;
+            NPC.defense = 62821;
+            NPC.lifeMax = 62821;
+            NPC.noGravity = true;
+            NPC.lavaImmune = false;
+            NPC.noTileCollide = true;
+            NPC.dontTakeDamage = true;
+            NPC.chaseable = false;
+            AIType = -1;
+            NPC.scale = 4f;
+            NPC.npcSlots = 0.25f;
+            for (int i = 0; i < NPC.buffImmune.Length; i++)
             {
-                npc.buffImmune[(ModLoader.GetMod("CalamityMod").BuffType("SulphuricPoisoning"))] = false;
+                //NPC.buffImmune[(ModLoader.GetMod("CalamityMod").BuffType("SulphuricPoisoning"))] = false;
             }
+        }
+
+        public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
+                Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Ocean,
+                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A harbinger of an apocalypse to come. Do not take its warning lightly."),
+            });
         }
 
         public override bool? CanBeHitByItem(Player player, Item item)
@@ -57,12 +68,12 @@ namespace CalValEX.NPCs.Critters
         int orthocount = 0;
         public override void AI()
         {
-            npc.spriteDirection = -npc.direction;
+            NPC.spriteDirection = -NPC.direction;
 
             Player player = Main.LocalPlayer;
 
-            float xDist = npc.position.X - player.position.X;
-            float yDist = npc.position.Y - player.position.Y;
+            float xDist = NPC.position.X - player.position.X;
+            float yDist = NPC.position.Y - player.position.Y;
 
             int DungeonDirection = 1;
             if (Main.dungeonX < Main.spawnTileX)
@@ -79,22 +90,22 @@ namespace CalValEX.NPCs.Critters
                 if (!soundplayed)
                 {
                     Vector2 orthopos = new Vector2(player.position.X + 500 * DungeonDirection, player.position.Y);
-                    npc.position = orthopos;
-                    Main.PlaySound(SoundID.NPCDeath13, (int)npc.position.X, (int)npc.position.Y);
+                    NPC.position = orthopos;
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath13, (int)NPC.position.X, (int)NPC.position.Y);
                     soundplayed = true;
-                    npc.direction = 1;
+                    NPC.direction = 1;
                     for (int x = 0; x < 60; x++)
                     {
                         Dust dust;
-                        dust = Main.dust[Terraria.Dust.NewDust(npc.Center, 63, 63, 57, 0f, 0f, 0, new Color(8, 255, 0), 0.9210526f)];
+                        dust = Main.dust[Terraria.Dust.NewDust(NPC.Center, 63, 63, 57, 0f, 0f, 0, new Color(8, 255, 0), 0.9210526f)];
                     }
                 }
                 orthocount++;
 
                 if (orthocount == 120)
                 {
-                    npc.velocity.X = 20 * DungeonDirection;
-                    npc.direction = -1 * DungeonDirection;
+                    NPC.velocity.X = 20 * DungeonDirection;
+                    NPC.direction = -1 * DungeonDirection;
                 }
 
                 if (orthocount == 210)
@@ -102,11 +113,11 @@ namespace CalValEX.NPCs.Critters
                     soundplayed = false;
                     orthocount = 0;
                     orthogod = false;
-                    npc.active = false;
+                    NPC.active = false;
                     for (int x = 0; x < 60; x++)
                     {
                         Dust dust;
-                        dust = Main.dust[Terraria.Dust.NewDust(npc.Center, 63, 63, 57, 0f, 0f, 0, new Color(8, 255, 0), 0.9210526f)];
+                        dust = Main.dust[Terraria.Dust.NewDust(NPC.Center, 63, 63, 57, 0f, 0f, 0, new Color(8, 255, 0), 0.9210526f)];
                     }
                     CalValEXWorld.orthofound = true;
                     CalValEXWorld.UpdateWorldBool();
@@ -115,25 +126,25 @@ namespace CalValEX.NPCs.Critters
         }
         public override void FindFrame(int frameHeight)
         {
-            npc.frameCounter++;
-            if (npc.frameCounter >= 6)
+            NPC.frameCounter++;
+            if (NPC.frameCounter >= 6)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += frameHeight;
-                if (npc.frame.Y >= Main.npcFrameCount[npc.type] * frameHeight)
+                NPC.frameCounter = 0;
+                NPC.frame.Y += frameHeight;
+                if (NPC.frame.Y >= Main.npcFrameCount[NPC.type] * frameHeight)
                 {
-                    npc.frame.Y = 0;
+                    NPC.frame.Y = 0;
                 }
             }
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            Mod clamMod = ModLoader.GetMod("CalamityMod"); 
-            if (clamMod != null)
+            //Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
+            //Mod clamMod = ModLoader.GetMod("CalamityMod"); 
+            //if (clamMod != null)
             {
-                if (spawnInfo.player.GetModPlayer<CalamityPlayer>().ZoneSulphur && (bool)clamMod.Call("GetBossDowned", "supremecalamitas") && !NPC.AnyNPCs(ModContent.NPCType<OrthoceraApparition>()) && (!CalValEXWorld.orthofound || orthoceraDLC != null))
+                if (/*spawnInfo.player.GetModPlayer<CalamityPlayer>().ZoneSulphur && (bool)clamMod.Call("CalValEX/GetBossDowned", "supremecalamitas")*/ spawnInfo.player.ZoneBeach && !NPC.AnyNPCs(ModContent.NPCType<OrthoceraApparition>()) && (!CalValEXWorld.orthofound/* || orthoceraDLC != null*/))
                 {
                     return 5f;
                 }
