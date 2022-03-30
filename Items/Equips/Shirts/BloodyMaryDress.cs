@@ -19,7 +19,7 @@ namespace CalValEX.Items.Equips.Shirts
         {
             if (Main.netMode != NetmodeID.Server)
             {
-                Mod.AddEquipTexture(new BloodyMaryDressLegs(), this, EquipType.Legs, "CalValEX/Items/Equips/Shirts/BloodyMaryDress_Legs");
+                Mod.AddEquipTexture(new BloodyMaryDress_Legs(), this, EquipType.Legs, "CalValEX/Items/Equips/Shirts/BloodyMaryDress_Legs");
             }
         }
 
@@ -75,7 +75,7 @@ namespace CalValEX.Items.Equips.Shirts
         }*/
     }
 
-    public class BloodyMaryDressLegs : EquipTexture
+    public class BloodyMaryDress_Legs : EquipTexture
     {
     }
 }

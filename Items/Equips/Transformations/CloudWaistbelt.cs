@@ -34,9 +34,9 @@ namespace CalValEX.Items.Equips.Transformations
 		{
 			if (Main.netMode != NetmodeID.Server)
 			{
-				Mod.AddEquipTexture(new CloudHead(), this, EquipType.Head, $"{Texture}_{EquipType.Head}");
-				Mod.AddEquipTexture(new CloudBody(), this, EquipType.Body, $"{Texture}_{EquipType.Body}");
-				Mod.AddEquipTexture(new CloudLegs(), this, EquipType.Legs, $"{Texture}_{EquipType.Legs}");
+				Mod.AddEquipTexture(new CloudWaistbelt_Head(), this, EquipType.Head, "CalValEX/Items/Equips/Transformations/CloudWaistbelt_Head");
+				Mod.AddEquipTexture(new CloudWaistbelt_Body(), this, EquipType.Body, "CalValEX/Items/Equips/Transformations/CloudWaistbelt_Body");
+				Mod.AddEquipTexture(new CloudWaistbelt_Legs(), this, EquipType.Legs, "CalValEX/Items/Equips/Transformations/CloudWaistbelt_Legs");
 			}
 		}
 		private void SetupDrawing()
@@ -70,15 +70,15 @@ namespace CalValEX.Items.Equips.Transformations
 
 	}
 
-	public class CloudHead : EquipTexture
+	public class CloudWaistbelt_Head : EquipTexture
 	{
 	}
 
-	public class CloudBody : EquipTexture
+	public class CloudWaistbelt_Body : EquipTexture
 	{
 	}
 
-	public class CloudLegs : EquipTexture
+	public class CloudWaistbelt_Legs : EquipTexture
 	{
 	}
 }
