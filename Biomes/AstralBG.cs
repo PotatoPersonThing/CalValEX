@@ -39,6 +39,7 @@ namespace CalValEX.Biomes
 
 		public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b)
 		{
+			b -= 180f;
 			return BackgroundTextureLoader.GetBackgroundSlot("CalValEX/Backgrounds/AstralClose");
 		}
 	}
