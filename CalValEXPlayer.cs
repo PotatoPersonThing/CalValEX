@@ -395,7 +395,6 @@ namespace CalValEX
         public bool aresarms;
         public bool lumpe;
         public bool geldonalive;
-        public bool fargocancel;
         //Exo pets
         public bool ares;
         public bool thanos;
@@ -444,7 +443,6 @@ namespace CalValEX
         public override void UpdateVanityAccessories()
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            Mod fargo = ModLoader.GetMod("FargowiltasSouls");
             Mod antisocial = ModLoader.GetMod("Antisocial");
             for (int n = 13; n < 18 + player.extraAccessorySlots; n++)
             {
@@ -489,7 +487,7 @@ namespace CalValEX
                     bool cloudspawned = player.ownedProjectileCounts[ProjectileType<VanityCloud>()] <= 0;
                     bool sandspawned = player.ownedProjectileCounts[ProjectileType<VanitySand>()] <= 0;
                     bool raresandspawned = player.ownedProjectileCounts[ProjectileType<VanityRareSand>()] <= 0;
-                    //bool earthspawned = player.ownedProjectileCounts[ProjectileType<VanityEarth>()] <= 0;
+                    bool earthspawned = player.ownedProjectileCounts[ProjectileType<VanityEarth>()] <= 0;
                     bool anahitaspawned = player.ownedProjectileCounts[ProjectileType<VanityAnahita>()] <= 0;
                     if (brimmyspawned && player.whoAmI == Main.myPlayer)
                     {
@@ -506,12 +504,12 @@ namespace CalValEX
                         Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
                             0f, 0f, ProjectileType<VanitySand>(), 0, 0f, player.whoAmI);
                     }
-                    //if (earthspawned && player.whoAmI == Main.myPlayer && ((CalValEX.month == 4 && CalValEX.day == 1) || ModLoader.GetMod("CalValPlus") != null))
+                    if (earthspawned && player.whoAmI == Main.myPlayer && ((CalValEX.month == 4 && CalValEX.day == 1) || ModLoader.GetMod("CalValPlus") != null))
                     {
-                        //Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
-                         //   0f, 0f, ProjectileType<VanityEarth>(), 0, 0f, player.whoAmI);
+                        Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                            0f, 0f, ProjectileType<VanityEarth>(), 0, 0f, player.whoAmI);
                     }
-                    if (raresandspawned && player.whoAmI == Main.myPlayer /*&& (!(CalValEX.month == 4 && CalValEX.day == 1) || ModLoader.GetMod("CalValPlus") != null)*/)
+                    if (raresandspawned && player.whoAmI == Main.myPlayer && (!(CalValEX.month == 4 && CalValEX.day == 1) || ModLoader.GetMod("CalValPlus") != null))
                     {
                         Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
                             0f, 0f, ProjectileType<VanityRareSand>(), 0, 0f, player.whoAmI);
@@ -557,19 +555,13 @@ namespace CalValEX
                 {
                     if ((CalValEX.month == 4 && CalValEX.day == 1) || ModLoader.GetMod("CalValPlus") != null)
                     {
-                        /*bool cryospawned = player.ownedProjectileCounts[ProjectileType<VanityEarth>()] <= 0;
+                        bool cryospawned = player.ownedProjectileCounts[ProjectileType<VanityEarth>()] <= 0;
                         if (cryospawned && player.whoAmI == Main.myPlayer)
                         {
                             Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
                                 0f, 0f, ProjectileType<VanityEarth>(), 0, 0f, player.whoAmI);
                         }
-                      vanityearth = true;*/
-                        bool cryospawned = player.ownedProjectileCounts[ProjectileType<VanityRareSand>()] <= 0;
-                        if (cryospawned && player.whoAmI == Main.myPlayer)
-                        {
-                            Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
-                                0f, 0f, ProjectileType<VanityRareSand>(), 0, 0f, player.whoAmI);
-                        }
+                        vanityearth = true;
                         vanityrare = true;
 
                     }
@@ -664,13 +656,6 @@ namespace CalValEX
                 if (item.type == calamityMod.ItemType("MutatedTruffle"))
                 {
                     vanityyound = false;
-                }
-                if (fargo != null)
-                {
-                    if (item.type == fargo.ItemType("BetsysHeart") || item.type == fargo.ItemType("TurtleEnchant") || item.type == fargo.ItemType("GoldEnchant") || item.type == fargo.ItemType("WillForce") || item.type == fargo.ItemType("TerrariaSoul") || item.type == fargo.ItemType("EternitySoul") || item.type == fargo.ItemType("LifeForce") || item.type == fargo.ItemType("HeartoftheMasochist") || item.type == fargo.ItemType("MasochistSoul"))
-                    {
-                        fargocancel = true;
-                    }
                 }
             }
         }
@@ -1014,7 +999,6 @@ namespace CalValEX
             soupench = false;
             aresarms = false;
             lumpe = false;
-            fargocancel = false;
             ares = false;
             thanos = false;
             twins = false;
@@ -2067,31 +2051,28 @@ namespace CalValEX
             layers.Insert(ballLayer + 2, Exoballoon);
             Sexoballoon.visible = true;
             layers.Insert(waybackLayer + 3, Sexoballoon);
-            if (!fargocancel)
+            if (yharcar)
             {
-                if (yharcar)
+                foreach (PlayerLayer layer in layers)
                 {
-                    foreach (PlayerLayer layer in layers)
-                    {
-                        if (layer != PlayerLayer.MountBack && layer != PlayerLayer.MountFront && layer != PlayerLayer.MiscEffectsFront && layer != PlayerLayer.MiscEffectsBack)
-                        {
-                            ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = false;
-                        }
-                    }
-                }
-                if (pongactive)
-                {
-                    foreach (PlayerLayer layer in layers)
+                    if (layer != PlayerLayer.MountBack && layer != PlayerLayer.MountFront && layer != PlayerLayer.MiscEffectsFront && layer != PlayerLayer.MiscEffectsBack)
                     {
                         ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = false;
                     }
                 }
-                else
+            }
+            if (pongactive)
+            {
+                foreach (PlayerLayer layer in layers)
                 {
-                    foreach (PlayerLayer layer in layers)
-                    {
-                        ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = true;
-                    }
+                    ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = false;
+                }
+            }
+            else
+            {
+                foreach (PlayerLayer layer in layers)
+                {
+                    ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = true;
                 }
             }
             /*PongUI.visible = true;
