@@ -4,9 +4,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 using static CalamityMod.CalamityUtils;
 
 namespace CalValEX.Projectiles.Pets.LightPets
@@ -31,10 +33,10 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override float GlowmaskOpacity => ModOwner.RepairBot ? 2 : 0.6f;
         public override float WanderDistance => ModOwner.RepairBot ? 160 : 60;
         public override float intensity => ModOwner.RepairBot ? 2f : 0.7f;
-        public override float GetSpeed => MathHelper.Lerp(
+        /*public override float GetSpeed => MathHelper.Lerp(
             ModOwner.RepairBot ? 20 : 10,
             ModOwner.RepairBot ? 40 : 16,
-            MathHelper.Clamp(projectile.Distance(IdealPosition) / (WanderDistance * 2.2f) - 1f, 0, 1));
+            MathHelper.Clamp(projectile.Distance(IdealPosition) / (WanderDistance * 2.2f) - 1f, 0, 1));*/
 
         public override float BashHeadIn => 5;
 
@@ -53,7 +55,6 @@ namespace CalValEX.Projectiles.Pets.LightPets
             Main.projPet[projectile.type] = true;
             ProjectileID.Sets.LightPet[projectile.type] = true;
         }
-
         public override void MoveTowardsIdealPosition()
         {
             //Rotate towards its ideal position
