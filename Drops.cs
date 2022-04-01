@@ -31,6 +31,7 @@ using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
 using CalValEX.NPCs.JellyPriest;
 using CalValEX.NPCs.Oracle;
+using Terraria.GameContent.ItemDropRules;
 using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -67,228 +68,569 @@ namespace CalValEX
 
         //public override void SetupShop(int type, Chest shop, ref int nextSlot)
         //{
-            
-            /*Mod alchLite =
-                ModLoader.GetMod(
-                    "AlchemistNPCLite");
-            if (alchLite != null)
+
+        /*Mod alchLite =
+            ModLoader.GetMod(
+                "AlchemistNPCLite");
+        if (alchLite != null)
+        {
+            if (type == alchLite.NPCType("Musician"))
             {
-                if (type == alchLite.NPCType("Musician"))
+                if (Main.hardMode)
                 {
-                    if (Main.hardMode)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralMusicBox>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10);
-                        ++nextSlot;
-                    }
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralMusicBox>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10);
+                    ++nextSlot;
                 }
             }
-            Mod alchFull =
-                ModLoader.GetMod(
-                    "AlchemistNPC");
-            if (alchFull != null)
+        }
+        Mod alchFull =
+            ModLoader.GetMod(
+                "AlchemistNPC");
+        if (alchFull != null)
+        {
+            if (type == alchFull.NPCType("Musician"))
             {
-                if (type == alchFull.NPCType("Musician"))
+                if (Main.hardMode)
                 {
-                    if (Main.hardMode)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralMusicBox>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10);
-                        ++nextSlot;
-                    }
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralMusicBox>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10);
+                    ++nextSlot;
                 }
             }
-            Mod clamMod =
-                ModLoader.GetMod(
-                    "CalamityMod");
-            if (clamMod != null)
+        }
+        Mod clamMod =
+            ModLoader.GetMod(
+                "CalamityMod");
+        if (clamMod != null)
+        {
+            if (type == clamMod.NPCType("SEAHOE"))
             {
-                if (type == clamMod.NPCType("SEAHOE"))
+                if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sunkensea"))
                 {
-                    if ((bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sunkensea"))
+                    if ((bool)clamMod.Call("GetBossDowned", "oldduke"))
                     {
-                        if ((bool)clamMod.Call("GetBossDowned", "oldduke"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<BloodwormScarf>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50);
-                            ++nextSlot;
-                        }
-
-                        if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Yharlamitas>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(42);
-                            ++nextSlot;
-                        }
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<BloodwormScarf>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50);
+                        ++nextSlot;
                     }
 
-                    if (!(bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sunkensea"))
+                    if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas"))
                     {
-                        if ((bool)clamMod.Call("GetBossDowned", "oldduke"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<BloodwormScarf>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(15);
-                            ++nextSlot;
-                        }
-
-                        if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas"))
-                        {
-                            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Yharlamitas>());
-                            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(420);
-                            ++nextSlot;
-                        }
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Yharlamitas>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(42);
+                        ++nextSlot;
                     }
                 }
 
-                if (type == clamMod.NPCType("DILF")) //Permafrost
-                {/*
-                    if (Main.rand.Next(9999) == 0)
+                if (!(bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "sunkensea"))
+                {
+                    if ((bool)clamMod.Call("GetBossDowned", "oldduke"))
                     {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamitasFumo>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 99, 99);
-                        ++nextSlot;
-                    }*/
-                    /*if ((bool)clamMod.Call("GetBossDowned", "cryogen"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<FrostflakeBrick>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 10);
-                        ++nextSlot;
-                    }
-                    if ((bool)clamMod.Call("GetBossDowned", "signus"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Signut>());
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<BloodwormScarf>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(15);
                         ++nextSlot;
                     }
-                }
 
-                if (type == clamMod.NPCType("THIEF"))
-                {
-                    if ((bool)clamMod.Call("GetBossDowned", "astrumaureus"))
+                    if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas"))
                     {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AureicFedora>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10);
-                        ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidTentacles>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
-                        ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidThorax>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
-                        ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidCranium>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
-                        ++nextSlot;
-                    }
-                }
-
-                if (type == clamMod.NPCType("FAP"))
-                {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<OddMushroomPot>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 30);
-                    ++nextSlot;
-                }
-
-                if (type == NPCID.Clothier)
-                {
-                    int bandit = NPC.FindFirstNPC(clamMod.NPCType("THIEF"));
-                    int archmage = NPC.FindFirstNPC(clamMod.NPCType("DILF"));
-                    if (bandit != -1)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<BanditHat>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
-                        ++nextSlot;
-                    }
-
-                    if (archmage != -1)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Permascarf>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
-                        ++nextSlot;
-                    }
-
-                    if (Main.LocalPlayer.ZoneDungeon || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneMockDungeon)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<PolterMask>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
-                        ++nextSlot;
-
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Polterskirt>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
-                        ++nextSlot;
-
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<PolterStockings>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
-                        ++nextSlot;
-                    }
-                }*/
-
-                /*if (type == NPCID.Dryad && Main.hardMode)
-                {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralGrass>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 50);
-                    ++nextSlot;
-                }
-
-                if (type == NPCID.Truffle)
-                {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<SwearshroomItem>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2);
-                    ++nextSlot;
-                }
-
-                if (type == NPCID.Steampunker)
-                {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<XenoSolution>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5);
-                    ++nextSlot;
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<StarstruckSynthesizer>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
-                    ++nextSlot;
-                }
-
-                if (type == NPCID.PartyGirl)
-                {
-                    if (Main.LocalPlayer.HasItem(ModContent.ItemType<Mirballoon>()) ||
-                        Main.LocalPlayer.HasItem(ModContent.ItemType<BoB2>()))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedMirageBalloon>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5);
-                        ++nextSlot;
-                    }
-
-                    if (Main.LocalPlayer.HasItem(ModContent.ItemType<BoxBalloon>()) ||
-                        Main.LocalPlayer.HasItem(ModContent.ItemType<BoB2>()))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedBoxBalloon>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5);
-                        ++nextSlot;
-                    }
-
-                    if (Main.LocalPlayer.HasItem(ModContent.ItemType<ChaosBalloon>()) ||
-                        Main.LocalPlayer.HasItem(ModContent.ItemType<BoB2>()))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedChaosBalloon>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5);
-                        ++nextSlot;
-                    }
-
-                    if (Main.LocalPlayer.HasItem(ModContent.ItemType<BoB2>()))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedBoB2>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5);
-                        ++nextSlot;
-                    }
-
-                    if (CalamityMod.World.CalamityWorld.downedPolterghast)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<ChaoticPuffball>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1);
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Yharlamitas>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(420);
                         ++nextSlot;
                     }
                 }
             }
-        }*/
 
+            if (type == clamMod.NPCType("DILF")) //Permafrost
+            {/*
+                if (Main.rand.Next(9999) == 0)
+                {
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamitasFumo>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 99, 99);
+                    ++nextSlot;
+                }*/
+        /*if ((bool)clamMod.Call("GetBossDowned", "cryogen"))
+        {
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<FrostflakeBrick>());
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 10);
+            ++nextSlot;
+        }
+        if ((bool)clamMod.Call("GetBossDowned", "signus"))
+        {
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Signut>());
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(15);
+            ++nextSlot;
+        }
+    }
+
+    if (type == clamMod.NPCType("THIEF"))
+    {
+        if ((bool)clamMod.Call("GetBossDowned", "astrumaureus"))
+        {
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<AureicFedora>());
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10);
+            ++nextSlot;
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidTentacles>());
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
+            ++nextSlot;
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidThorax>());
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
+            ++nextSlot;
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidCranium>());
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
+            ++nextSlot;
+        }
+    }
+
+    if (type == clamMod.NPCType("FAP"))
+    {
+        shop.item[nextSlot].SetDefaults(ModContent.ItemType<OddMushroomPot>());
+        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 30);
+        ++nextSlot;
+    }
+
+    if (type == NPCID.Clothier)
+    {
+        int bandit = NPC.FindFirstNPC(clamMod.NPCType("THIEF"));
+        int archmage = NPC.FindFirstNPC(clamMod.NPCType("DILF"));
+        if (bandit != -1)
+        {
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<BanditHat>());
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
+            ++nextSlot;
+        }
+
+        if (archmage != -1)
+        {
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Permascarf>());
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
+            ++nextSlot;
+        }
+
+        if (Main.LocalPlayer.ZoneDungeon || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneMockDungeon)
+        {
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<PolterMask>());
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
+            ++nextSlot;
+
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Polterskirt>());
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
+            ++nextSlot;
+
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<PolterStockings>());
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
+            ++nextSlot;
+        }
+    }*/
+
+        /*if (type == NPCID.Dryad && Main.hardMode)
+        {
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralGrass>());
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 50);
+            ++nextSlot;
+        }
+
+        if (type == NPCID.Truffle)
+        {
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<SwearshroomItem>());
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2);
+            ++nextSlot;
+        }
+
+        if (type == NPCID.Steampunker)
+        {
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<XenoSolution>());
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5);
+            ++nextSlot;
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<StarstruckSynthesizer>());
+            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
+            ++nextSlot;
+        }
+
+        if (type == NPCID.PartyGirl)
+        {
+            if (Main.LocalPlayer.HasItem(ModContent.ItemType<Mirballoon>()) ||
+                Main.LocalPlayer.HasItem(ModContent.ItemType<BoB2>()))
+            {
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedMirageBalloon>());
+                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5);
+                ++nextSlot;
+            }
+
+            if (Main.LocalPlayer.HasItem(ModContent.ItemType<BoxBalloon>()) ||
+                Main.LocalPlayer.HasItem(ModContent.ItemType<BoB2>()))
+            {
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedBoxBalloon>());
+                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5);
+                ++nextSlot;
+            }
+
+            if (Main.LocalPlayer.HasItem(ModContent.ItemType<ChaosBalloon>()) ||
+                Main.LocalPlayer.HasItem(ModContent.ItemType<BoB2>()))
+            {
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedChaosBalloon>());
+                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5);
+                ++nextSlot;
+            }
+
+            if (Main.LocalPlayer.HasItem(ModContent.ItemType<BoB2>()))
+            {
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedBoB2>());
+                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5);
+                ++nextSlot;
+            }
+
+            if (CalamityMod.World.CalamityWorld.downedPolterghast)
+            {
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<ChaoticPuffball>());
+                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1);
+                ++nextSlot;
+            }
+        }
+    }
+}*/
+
+        public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
+        {
+            if (!CalValEXConfig.Instance.DisableVanityDrops)
+            {
+                if (npc.type == NPCID.Wizard)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Permascarf>(), 1));
+                }
+                if (npc.type == NPCID.Steampunker)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BanditHat>(), 1));
+                }
+                if (npc.type == NPCID.GreenJellyfish)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BoxBalloon>(), 10));
+                }
+                if (npc.type == NPCID.IceTortoise)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PrismShell>(), 10));
+                }
+                if (npc.type == NPCID.Lavabat)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ScryllianWings>(), 20));
+                }
+                if (npc.type == NPCID.Gnome)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumKeys>(), 10));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumHelipack>(), 20));
+                }
+                if (npc.type == NPCID.GreenSlime)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumBalloon>(), 100));
+                }
+                if (npc.type == NPCID.GraniteFlyer)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CosmicCone>(), 20));
+                }
+                if (npc.type == NPCID.MartianSaucer)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShuttleBalloon>(), 5));
+                }
+                if (npc.type == NPCID.Slimer2)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AeroWings>(), 20));
+                }
+                if (npc.type == NPCID.Shark)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FloatyCarpetItem>(), 20));
+                }
+                if (npc.type == NPCID.Squid)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Help>(), 20));
+                }
+                if (npc.type == NPCID.SeaSnail)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TrilobiteShield>(), 10));
+                }
+                if (npc.type == NPCID.DukeFishron)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NuclearFumes>(), 1, 20, 45));
+                }
+                if (npc.type == NPCID.Crab)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FlakHeadCrab>(), 20));
+                }
+                if (npc.type == NPCID.JungleSlime)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PerennialFlower>(), 20));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PerennialDress>(), 20));
+                }
+                if (npc.type == NPCID.SpikedJungleSlime)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientPerennialFlower>(), 30));
+                }
+                if (npc.type == NPCID.PinkJellyfish)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CoralMask>(), 25));
+                }
+                if (npc.type == NPCID.IceGolem)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Cryocap>(), 10));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Cryocoat>(), 10));
+                }
+                if (npc.type == NPCID.HellArmoredBones)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CultistHood>(), 30));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CultistRobe>(), 30));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CultistLegs>(), 30));
+                }
+                if (npc.type == NPCID.GiantCursedSkull)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<UnloadedHelm>(), 20));
+                }
+                if (npc.type == NPCID.RedDevil)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilfishMask1>(), 20));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilfishMask2>(), 20));
+                }
+                if (npc.type == NPCID.BloodSquid)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Mirballoon>(), 10));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<OldMirage>(), 20));
+                }
+                if (npc.type == NPCID.GiantFlyingFox)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HadarianTail>(), 20));
+                }
+                if (npc.type == NPCID.BlueArmoredBones)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EidoMask>(), 30));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Eidcape>(), 30));
+                }
+                if (npc.type == NPCID.SolarCrawltipedeHead)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedEnergyHook>(), 20));
+                }
+                if (npc.type == NPCID.FireImp)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedBalloon>(), 20));
+                }
+                if (npc.type == NPCID.Demon)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ScornEaterMask>(), 20));
+                }
+                if (npc.type == NPCID.BloodNautilus)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChaosBalloon>(), 5));
+                }
+                if (npc.type == NPCID.Shark)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ReaperSharkArms>(), 40));
+                }
+                if (npc.type == NPCID.Shark)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<OmegaBlue>(), 100));
+                }
+                if (npc.type == NPCID.StardustJellyfishBig)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SquidHat>(), 20));
+                }
+                if (npc.type == NPCID.RockGolem)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EarthShield>(), 20));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EarthenHelmet>(), 30));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EarthenBreastplate>(), 30));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EarthenLeggings>(), 30));
+                }
+                if (npc.type == NPCID.Crab)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ClamMask>(), 20));
+                }
+                if (npc.type == NPCID.MossHornet)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PlaugeWings>(), 20));
+                }
+                if (npc.type == NPCID.MoonLordCore)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 50));
+                }
+                if (npc.type == NPCID.AngryTrapper)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MawHook>(), 20));
+                }
+                if (npc.type == NPCID.WyvernHead)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CloudWaistbelt>(), 20));
+                }
+                if (npc.type == NPCID.SandElemental)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandyBangles>(), 20));
+                }
+                //Scourge
+                if (npc.type == NPCID.TombCrawlerHead)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<DesertMedallion>(), 20));
+                }
+                //Perfs
+                if (npc.type == NPCID.LittleCrimera)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SmallWorm>(), 20));
+                }
+                if (npc.type == NPCID.Crimera)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<MidWorm>(), 20));
+                }
+                if (npc.type == NPCID.BigCrimera)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<BigWorm>(), 20));
+                }
+                //Slime Gods
+                if (npc.type == NPCID.QueenSlimeBoss)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SlimeGodMask>(), 7));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<GoozmaPetItem>(), 30));
+                }
+                //Brimmy
+                if (npc.type == NPCID.WallofFlesh)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<BrimmySpirit>(), 10));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<BrimmyBody>(), 10));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<FoilSpoon>(), 20));
+                }
+                //Clone
+                if (npc.type == NPCID.Retinazer)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Calacirclet>(), 5));
+                }
+                //Levihita
+                if (npc.type == NPCID.DukeFishron)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Items.Tiles.Monoliths.AquaticMonolith>(), 10));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<FoilAtlantis>(), 20));
+                }
+                //Astrum Aureus
+                if (npc.type == NPCID.QueenSlimeBoss)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AureusShield>(), 5));
+                }
+                //PBG
+                if (npc.type == NPCID.Plantera)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<InfectedController>(), 5));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<PlaguePack>(), 5));
+                }
+                //Ravager
+                if (npc.type == NPCID.Golem)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SkullBalloon>(), 5));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<StonePile>(), 5));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ScavaHook>(), 15));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<RavaHook>(), 10));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Necrostone>(), 1, 100, 300));
+                }
+                //Deus
+                if (npc.type == NPCID.WyvernHead)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AstBandana>(), 20));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AstrumDeusMask>(), 40));
+                }
+                //Bumblebirb
+                if (npc.type == NPCID.DD2Betsy)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Birbhat>(), 2));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SparrowMeat>(), 20));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<FollyWings>(), 10));
+                }
+                //Providence
+                if (npc.type == NPCID.HallowBoss)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProviCrystal>(), 20));
+                }
+                //Storm Weaver
+                if (npc.type == NPCID.TheDestroyer)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<StormBandana>(), 10));
+                }
+                //Signus
+                if (npc.type == NPCID.Wraith)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SignusBalloon>(), 30));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SigCape>(), 30));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SignusNether>(), 30));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SignusEmblem>(), 30));
+                }
+                //CV
+                if (npc.type == NPCID.GiantCursedSkull)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<VoidWings>(), 20));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<OldVoidWings>(), 20));
+                }
+                //Polterghast
+                if (npc.type == NPCID.DungeonSpirit)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Polterhook>(), 20));
+                }
+                //Old Duke
+                if (npc.type == NPCID.GiantCursedSkull)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<OldWings>(), 20));
+                }
+                //DoG
+                if (npc.type == NPCID.TheDestroyer)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<CosmicWormScarf>(), 5));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<RapturedWormScarf>(), 20));
+                }
+                //Yharon
+                if (npc.type == NPCID.DD2Betsy)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<YharonShackle>(), 3));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<JunglePhoenixWings>(), 5));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<YharonsAnklet>(), 10));
+                }
+                //Supreme Cal
+                if (npc.type == NPCID.Retinazer)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<GruelingMask>(), 3));
+                }
+                //Ares
+                if (npc.type == NPCID.SkeletronPrime)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>(), 3));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<DraedonBody>(), 5));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<DraedonLegs>(), 5));
+                }
+                //Thanatos
+                if (npc.type == NPCID.TheDestroyer)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<XMLightningHook>(), 5));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<DraedonBody>(), 5));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<DraedonLegs>(), 5));
+                }
+                //Apollo
+                if (npc.type == NPCID.Spazmatism)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ApolloBalloonSmall>(), 3));
+                }
+                //Artemis
+                if (npc.type == NPCID.Retinazer)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ArtemisBalloonSmall>(), 3));
+                }
+                //Wyrm
+                if (npc.type == NPCID.DungeonGuardian)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Tiles.RespirationShrine>(), 1));
+                }
+                //Donuts
+                if (npc.type == NPCID.SolarCorite)
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedFrame>(), 15));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedBattery>(), 15));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedWheels>(), 15));
+                }
+                //Yharon 2 idk idk
+                if (npc.type == NPCID.MoonLordCore)
+                {
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Termipebbles>(), 1, 3, 8));
+                }
+            }
+        }
         /*public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback,
             ref bool crit, ref int hitDirection)
         {

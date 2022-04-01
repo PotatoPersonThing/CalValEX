@@ -715,15 +715,15 @@ namespace CalValEX
                 pongstage = 0;
                 pongoutcome = 0;
             }
-        }
+        }*/
 
-        /*public override void PostUpdateBuffs()
+        public override void PostUpdateBuffs()
         {
             if (!Player.HasBuff(ModContent.BuffType<MorshuBuff>()))
             {
                 morshuTimer = 0;
             }
-        }*/
+        }
 
         public override void UpdateDead()
         {
@@ -1271,96 +1271,7 @@ namespace CalValEX
             }
         }
 
-        /*public static readonly PlayerDrawLayer HeadFront = new PlayerDrawLayer("CalValEX", "HeadFront", PlayerLayer.Hair, delegate (PlayerDrawInfo drawInfo)
-        {
-            if (drawInfo.shadow != 0f)
-            {
-                return;
-            }
-            Player drawPlayer = drawInfo.drawPlayer;
-            Mod mod = ModLoader.GetMod("CalValEX");
-            Player player = Main.LocalPlayer;
-            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
-            int secondyoffset = 0;
-            float alb = (255 - drawPlayer.immuneAlpha) / 255f;
-            if (drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 8 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 9 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 15 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 16 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 17)
-            {
-                secondyoffset = 2;
-            }
-            else
-            {
-                secondyoffset = 0;
-            }
-            if (modPlayer.specan)
-            {
-                Texture2D texture = mod.GetTexture("Items/Equips/Hats/SpectralstormHat");
-                int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);
-                int drawY = (int)(drawInfo.position.Y + drawPlayer.height - 32 - Main.screenPosition.Y - secondyoffset);
-                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Color.White * alb, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0)
-                {
-                    shader = drawInfo.headArmorShader
-                };
-                Main.playerDrawData.Add(data);
-            }
-        });
-
-        public static readonly PlayerLayer Head = new PlayerLayer("CalValEX", "Head", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
-        {
-            if (drawInfo.shadow != 0f)
-            {
-                return;
-            }
-            Player drawPlayer = drawInfo.drawPlayer;
-            Mod mod = ModLoader.GetMod("CalValEX");
-            Player player = Main.LocalPlayer;
-            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
-            int secondyoffset = 0;
-            float alb = (255 - drawPlayer.immuneAlpha) / 255f;
-            if (drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 8 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 9 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 15 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 16 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 17)
-            {
-                secondyoffset = 2;
-            }
-            else
-            {
-                secondyoffset = 0;
-            }
-            if (modPlayer.aesthetic)
-            {
-                Texture2D texture = mod.GetTexture("Items/Equips/Hats/AestheticrownEquipped");
-                int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);
-                int drawY = (int)(drawInfo.position.Y + drawPlayer.height - 32 - Main.screenPosition.Y - secondyoffset);
-                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Color.White * alb, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0)
-                {
-                    shader = drawInfo.headArmorShader
-                }; 
-                Main.playerDrawData.Add(data);
-            }
-            if (modPlayer.rockhat)
-            {
-                Texture2D texture = mod.GetTexture("Items/Equips/Hats/StonePileEquipped");
-                int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);
-                int drawY = (int)(drawInfo.position.Y + drawPlayer.height - 32 - Main.screenPosition.Y - secondyoffset);
-                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Color.White * alb, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0)
-                {
-                    shader = drawInfo.headArmorShader
-                }; 
-                Main.playerDrawData.Add(data);
-            }
-            if (modPlayer.conejo)
-            {
-                int winflip = 1 * -drawPlayer.direction;
-                    Texture2D texture = mod.GetTexture("Items/Equips/Hats/TrueCosmicConeEquipped");
-                    Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * Player.direction, drawPlayer.gfxOffY - 85 - secondyoffset);
-                    Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
-                    Rectangle conesquare = texture.Frame(1, 6, 0, modPlayer.coneframe);
-                    DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, 0f, origin, 1, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0
-                    )
-                    {
-                        shader = drawInfo.headArmorShader
-                    };
-                Main.playerDrawData.Add(data);
-            }
-        });
+        /*
 
         public static readonly PlayerLayer BCarriage = new PlayerLayer("CalValEX", "BCarriage", PlayerLayer.Arms, delegate (PlayerDrawInfo drawInfo)
         {
@@ -1426,40 +1337,7 @@ namespace CalValEX
             }
         });*/
 
-        /*public static readonly PlayerLayer Prismshell = new PlayerLayer("CalValEX", "Prismshell", PlayerLayer.BackAcc, delegate (PlayerDrawInfo drawInfo)
-        {
-            if (drawInfo.shadow != 0f)
-            {
-                return;
-            }
-            Player drawPlayer = drawInfo.drawPlayer;
-            float alb = (255 - drawPlayer.immuneAlpha) / 255f;
-            Mod mod = ModLoader.GetMod("CalValEX");
-            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
-            int secondyoffset = 0;
-            if (drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 8 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 9 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 15 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 16 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 17)
-            {
-                secondyoffset = 2;
-            }
-            else
-            {
-                secondyoffset = 0;
-            }
-            if (modPlayer.prismshell)
-            {
-                int gnuflip = *//*66 */ /*-drawPlayer.direction;
-                Texture2D texture = mod.GetTexture("Items/Equips/Backs/PrismShell");
-                int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X - gnuflip + (15 * gnuflip));
-                int drawY = (int)(drawInfo.position.Y + drawPlayer.height - Main.screenPosition.Y - 4 - secondyoffset/*+ 56*//*);
-                DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Color.White * alb, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0)
-                {
-                    shader = drawInfo.backShader
-                };
-                Main.playerDrawData.Add(data);
-            }
-        });
-
-        public static readonly PlayerLayer Rotator = new PlayerLayer("CalValEX", "Rotator", PlayerLayer.MiscEffectsBack, delegate (PlayerDrawInfo drawInfo)
+        /*public static readonly PlayerLayer Rotator = new PlayerLayer("CalValEX", "Rotator", PlayerLayer.MiscEffectsBack, delegate (PlayerDrawInfo drawInfo)
         {
             if (drawInfo.shadow != 0f)
             {

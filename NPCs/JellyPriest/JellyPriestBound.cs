@@ -76,7 +76,7 @@ namespace CalValEX.NPCs.JellyPriest
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (!CalValEXConfig.Instance.TownNPC && !CalValEXWorld.rescuedjelly && spawnInfo.player.ZoneBeach && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestBound>()) && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestNPC>()))
+            if (NPC.downedBoss1 && !CalValEXConfig.Instance.TownNPC && !CalValEXWorld.rescuedjelly && spawnInfo.player.ZoneBeach && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestBound>()) && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestNPC>()))
             {
                 return 0.5f;
             }

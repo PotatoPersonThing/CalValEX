@@ -32,10 +32,10 @@ using CalValEX.Items.Pets.Elementals;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
-using CalValEX.Items.Tiles.Plushies;
+using CalValEX.Items.Tiles.Plushies;*/
 using CalValEX.NPCs.Oracle;
 using CalValEX.NPCs.JellyPriest;
-using CalValEX.Items.Tiles.Blocks.Astral;
+/*using CalValEX.Items.Tiles.Blocks.Astral;
 using CalValEX.Tiles.MiscFurniture;
 using CalValEX.Items.Tiles.FurnitureSets.Astral;*/
 using CalValEX.Items.Equips.Transformations;
@@ -212,14 +212,14 @@ namespace CalValEX
             cal.Call("MakeItemExhumable", ModContent.ItemType<CalArtifact>(), ModContent.ItemType<CalamitousSoulArtifact>());*/
 
             //Census support
-           /* Mod censusMod = ModLoader.GetMod("Census");
+            ModLoader.TryGetMod("Census", out Mod censusMod);
             if (censusMod != null)
             {
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<OracleNPC>(), "Equip a Pet or Light Pet");
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<JellyPriestNPC>(),
-                    "Find at the Sulphurous Sea after defeating Acid Rain tier 1");
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<AprilFools.Jharim.Jharim>(), "Dropped from the Starter Bag during April Fools");
-            }*/
+                    "Find at the Ocean after defeating the Eye of Cthulhu");
+                censusMod.Call("TownNPCCondition", ModContent.NPCType<AprilFools.Jharim.Jharim>(), "It's a secret");
+            }
 
             //Compact tile framing support
             //Type tileFraming = cal.Code.GetType("CalamityMod.TileFraming");

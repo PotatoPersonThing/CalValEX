@@ -41,6 +41,7 @@ namespace CalValEX.NPCs.Critters
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
         {
+
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
                 Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Events.BloodMoon,
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("An ancient species of reptile that only comes out during Blood Moons. They are otherwise too frail to linger, and any sunlight exposure is lethal."),
@@ -48,7 +49,6 @@ namespace CalValEX.NPCs.Critters
         }
         public override void AI()
         {
-            Mod clamMod = ModLoader.GetMod("CalamityMod");
             if (!NPC.wet)
             {
                 NPC.Transform(ModContent.NPCType<Xerocodile>());

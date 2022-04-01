@@ -40,6 +40,7 @@ namespace CalValEX.Biomes
 
         public override void SpecialVisuals(Player player)
         {
+			Terraria.Graphics.Effects.SkyManager.Instance.Activate("CalValEX:AstralBiome");
 			player.ManageSpecialBiomeVisuals("CalValEX:AstralBiome", true);
 		}
     }
