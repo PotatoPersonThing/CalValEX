@@ -395,26 +395,9 @@ namespace CalValEX
         public bool aresarms;
         public bool lumpe;
         public bool geldonalive;
-        //Exo pets
         public bool ares;
         public bool thanos;
         public bool twins;
-        //Æ: Drae's bools
-        public bool digger;
-        public bool BestInst;
-        public bool DustChime;
-        public bool NurseryBell;
-        public bool AlarmClock;
-        public bool MaladyBells;
-        public bool Harbinger;
-        public bool SpiritDiner;
-        public bool AltarBell;
-        public bool WormBell;
-        public bool Vaseline;
-        public bool ScratchedGong;
-        public bool TubRune;
-        public bool Pandora;
-
 
         public override void Initialize()
         {
@@ -507,7 +490,7 @@ namespace CalValEX
                     if (earthspawned && player.whoAmI == Main.myPlayer && ((CalValEX.month == 4 && CalValEX.day == 1) || ModLoader.GetMod("CalValPlus") != null))
                     {
                         Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
-                            0f, 0f, ProjectileType<VanityEarth>(), 0, 0f, player.whoAmI);
+                        0f, 0f, ProjectileType<VanityEarth>(), 0, 0f, player.whoAmI);
                     }
                     if (raresandspawned && player.whoAmI == Main.myPlayer && (!(CalValEX.month == 4 && CalValEX.day == 1) || ModLoader.GetMod("CalValPlus") != null))
                     {
@@ -561,8 +544,7 @@ namespace CalValEX
                             Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
                                 0f, 0f, ProjectileType<VanityEarth>(), 0, 0f, player.whoAmI);
                         }
-                        vanityearth = true;
-                        vanityrare = true;
+                      vanityearth = true;
 
                     }
                     else
@@ -1002,20 +984,6 @@ namespace CalValEX
             ares = false;
             thanos = false;
             twins = false;
-            digger = false;
-            BestInst = false;
-            DustChime = false;
-            NurseryBell = false;
-            AlarmClock = false;
-            MaladyBells = false;
-            Harbinger = false;
-            SpiritDiner = false;
-            AltarBell = false;
-            WormBell = false;
-            Vaseline = false;
-            ScratchedGong = false;
-            TubRune = false;
-            Pandora = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
@@ -2051,30 +2019,30 @@ namespace CalValEX
             layers.Insert(ballLayer + 2, Exoballoon);
             Sexoballoon.visible = true;
             layers.Insert(waybackLayer + 3, Sexoballoon);
-            if (yharcar)
-            {
-                foreach (PlayerLayer layer in layers)
+                if (yharcar)
                 {
-                    if (layer != PlayerLayer.MountBack && layer != PlayerLayer.MountFront && layer != PlayerLayer.MiscEffectsFront && layer != PlayerLayer.MiscEffectsBack)
+                    foreach (PlayerLayer layer in layers)
+                    {
+                        if (layer != PlayerLayer.MountBack && layer != PlayerLayer.MountFront && layer != PlayerLayer.MiscEffectsFront && layer != PlayerLayer.MiscEffectsBack)
+                        {
+                            ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = false;
+                        }
+                    }
+                }
+                if (pongactive)
+                {
+                    foreach (PlayerLayer layer in layers)
                     {
                         ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = false;
                     }
                 }
-            }
-            if (pongactive)
-            {
-                foreach (PlayerLayer layer in layers)
+                else
                 {
-                    ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = false;
+                    foreach (PlayerLayer layer in layers)
+                    {
+                        ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = true;
+                    }
                 }
-            }
-            else
-            {
-                foreach (PlayerLayer layer in layers)
-                {
-                    ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = true;
-                }
-            }
             /*PongUI.visible = true;
             layers.Insert(shieldLaer + 14, PongUI);
             PongOverlay.visible = true;
