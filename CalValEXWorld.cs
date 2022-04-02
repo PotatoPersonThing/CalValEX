@@ -37,6 +37,8 @@ namespace CalValEX
 
         public static bool jharinter;
 
+        public static bool downedMeldosaurus;
+
         public override void Initialize()
         {
             rescuedjelly = false;
@@ -46,6 +48,7 @@ namespace CalValEX
             Rockshrine = false;
             RockshrinEX = false;
             jharinter = false;
+            downedMeldosaurus = false;
         }
 
         public override TagCompound Save()
@@ -86,6 +89,11 @@ namespace CalValEX
                 downed.Add("jharinter");
             }
 
+            if (downedMeldosaurus)
+            {
+                downed.Add("downedMeldosaurus");
+            }
+
             return new TagCompound
             {
                 {
@@ -104,10 +112,12 @@ namespace CalValEX
             Rockshrine = downed.Contains("Rockshrine");
             RockshrinEX = downed.Contains("RockshrinEX");
             jharinter = downed.Contains("jharinter");
+            jharinter = downed.Contains("downedMeldosaurus");
         }
         public override void LoadLegacy(BinaryReader reader)
         {
             int loadVersion = reader.ReadInt32();
+            int loadVersion2 = reader.ReadInt32();
             if (loadVersion == 0)
             {
                 BitsByte flags = reader.ReadByte();
@@ -119,14 +129,21 @@ namespace CalValEX
                 RockshrinEX = flags[5];
                 jharinter = flags[6];
             }
+            if (loadVersion2 == 0)
+            {
+                BitsByte flags2 = reader.ReadByte();
+                downedMeldosaurus = flags2[0];
+            }
             else
             {
                 ErrorLogger.Log("CalValEX: Unknown loadVersion: " + loadVersion);
+                ErrorLogger.Log("CalValEX: Unknown loadVersion: " + loadVersion2);
             }
         }
         public override void NetSend(BinaryWriter writer)
         {
             BitsByte flags = new BitsByte();
+            BitsByte flags2 = new BitsByte();
             flags[0] = rescuedjelly;
             flags[1] = jharim;
             flags[2] = orthofound;
@@ -134,11 +151,13 @@ namespace CalValEX
             flags[4] = Rockshrine;
             flags[5] = RockshrinEX;
             flags[6] = jharinter;
+            flags2[0] = downedMeldosaurus;
             writer.Write(flags);
         }
         public override void NetReceive(BinaryReader reader)
         {
             BitsByte flags = reader.ReadByte();
+            BitsByte flags2 = reader.ReadByte();
             rescuedjelly = flags[0];
             jharim = flags[1];
             orthofound = flags[2];
@@ -146,6 +165,7 @@ namespace CalValEX
             Rockshrine = flags[4];
             RockshrinEX = flags[5];
             jharinter = flags[6];
+            downedMeldosaurus = flags[0];
         }
 
         public override void ResetNearbyTileEffects()

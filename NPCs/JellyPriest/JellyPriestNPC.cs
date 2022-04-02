@@ -29,8 +29,6 @@ namespace CalValEX.NPCs.JellyPriest
 
         private static bool shop3;
 
-        private static bool twue = true;
-
         public int shoptype = 1;
 
         public override string Texture => "CalValEX/NPCs/JellyPriest/JellyPriestNPC";
@@ -422,14 +420,14 @@ namespace CalValEX.NPCs.JellyPriest
 
             if (shop1)
             {
-                AddItem(clamMod.ItemType("LaboratoryPlating"), Item.buyPrice(0, 0, 0, 25), twue, ref shop, ref nextSlot);
-                AddItem(clamMod.ItemType("LaboratoryPanels"), Item.buyPrice(0, 0, 0, 25), twue, ref shop, ref nextSlot);
-                AddItem(clamMod.ItemType("HazardChevronPanels"), Item.buyPrice(0, 0, 0, 25), twue, ref shop, ref nextSlot);
-                AddItem(clamMod.ItemType("RustedPlating"), Item.buyPrice(0, 0, 0, 25), twue, ref shop, ref nextSlot);
-                AddItem(clamMod.ItemType("LaboratoryPipePlating"), Item.buyPrice(0, 0, 0, 25), twue, ref shop, ref nextSlot);
-                AddItem(clamMod.ItemType("Acidwood"), Item.buyPrice(0, 0, 5, 0), twue, ref shop, ref nextSlot);
-                AddItem(clamMod.ItemType("SulphurousSandstone"), Item.buyPrice(0, 0, 0, 35), twue, ref shop, ref nextSlot);
-                AddItem(clamMod.ItemType("HardenedSulphurousSandstone"), Item.buyPrice(0, 0, 0, 50), twue, ref shop, ref nextSlot);
+                AddItem(clamMod.ItemType("LaboratoryPlating"), Item.buyPrice(0, 0, 0, 25), true, ref shop, ref nextSlot);
+                AddItem(clamMod.ItemType("LaboratoryPanels"), Item.buyPrice(0, 0, 0, 25), true, ref shop, ref nextSlot);
+                AddItem(clamMod.ItemType("HazardChevronPanels"), Item.buyPrice(0, 0, 0, 25), true, ref shop, ref nextSlot);
+                AddItem(clamMod.ItemType("RustedPlating"), Item.buyPrice(0, 0, 0, 25), true, ref shop, ref nextSlot);
+                AddItem(clamMod.ItemType("LaboratoryPipePlating"), Item.buyPrice(0, 0, 0, 25), true, ref shop, ref nextSlot);
+                AddItem(clamMod.ItemType("Acidwood"), Item.buyPrice(0, 0, 5, 0), true, ref shop, ref nextSlot);
+                AddItem(clamMod.ItemType("SulphurousSandstone"), Item.buyPrice(0, 0, 0, 35), true, ref shop, ref nextSlot);
+                AddItem(clamMod.ItemType("HardenedSulphurousSandstone"), Item.buyPrice(0, 0, 0, 50), true, ref shop, ref nextSlot);
                 AddItem(clamMod.ItemType("EutrophicSand"), Item.buyPrice(0, 0, 5, 5), clam, ref shop, ref nextSlot);
                 AddItem(clamMod.ItemType("SmoothNavystone"), Item.buyPrice(0, 0, 2, 5), clam, ref shop, ref nextSlot);
                 AddItem(clamMod.ItemType("AbyssGravel"), Item.buyPrice(0, 0, 2, 5), NPC.downedBoss3, ref shop, ref nextSlot);
@@ -454,15 +452,17 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(clamMod.ItemType("OccultStone"), Item.buyPrice(0, 3, 0, 0), (bool)clamMod.Call("GetBossDowned", "devourerofgods"), ref shop, ref nextSlot);
                 AddItem(clamMod.ItemType("SilvaCrystal"), Item.buyPrice(0, 3, 0, 0), (bool)clamMod.Call("GetBossDowned", "devourerofgods"), ref shop, ref nextSlot);
                 AddItem(ItemType<AuricBrick>(), Item.buyPrice(0, 30, 0, 0), (bool)clamMod.Call("GetBossDowned", "yharon"), ref shop, ref nextSlot);
+                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPlating>(), Item.buyPrice(0, 40, 0, 0), (bool)clamMod.Call("GetBossDowned", "exomechs"), ref shop, ref nextSlot);
+                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPrismPanel>(), Item.buyPrice(0, 40, 0, 0), (bool)clamMod.Call("GetBossDowned", "exomechs"), ref shop, ref nextSlot);
             }
             else if (shop2)
             {
-                AddItem(ItemType<C>(), Item.buyPrice(0, 1, 0, 0), twue, ref shop, ref nextSlot);
-                AddItem(ItemType<WulfrumGlobe>(), Item.buyPrice(0, 1, 0, 0), twue, ref shop, ref nextSlot);
-                AddItem(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryConsoleItem"), Item.buyPrice(0, 2, 50, 0), twue, ref shop, ref nextSlot);
-                AddItem(ItemType<AgedRustGamingTable>(), Item.buyPrice(0, 15, 0, 0), twue, ref shop, ref nextSlot);
-                AddItem(ItemType<RustGamingTable>(), Item.buyPrice(0, 15, 0, 0), twue, ref shop, ref nextSlot);
-                AddItem(ItemType<RustGamingTable2>(), Item.buyPrice(0, 15, 0, 0), twue, ref shop, ref nextSlot);
+                AddItem(ItemType<C>(), Item.buyPrice(0, 1, 0, 0), true, ref shop, ref nextSlot);
+                AddItem(ItemType<WulfrumGlobe>(), Item.buyPrice(0, 1, 0, 0), true, ref shop, ref nextSlot);
+                AddItem(ModLoader.GetMod("CalamityMod").ItemType("LaboratoryConsoleItem"), Item.buyPrice(0, 2, 50, 0), true, ref shop, ref nextSlot);
+                AddItem(ItemType<AgedRustGamingTable>(), Item.buyPrice(0, 15, 0, 0), true, ref shop, ref nextSlot);
+                AddItem(ItemType<RustGamingTable>(), Item.buyPrice(0, 15, 0, 0), true, ref shop, ref nextSlot);
+                AddItem(ItemType<RustGamingTable2>(), Item.buyPrice(0, 15, 0, 0), true, ref shop, ref nextSlot);
                 AddItem(ItemType<SulphurColumn>(), Item.buyPrice(0, 0, 5, 0), acid, ref shop, ref nextSlot);
                 AddItem(ItemType<SulphurGeyser>(), Item.buyPrice(0, 0, 10, 0), acid, ref shop, ref nextSlot);
                 AddItem(ItemType<Ribrod>(), Item.buyPrice(0, 0, 50, 0), acid, ref shop, ref nextSlot);
@@ -490,7 +490,7 @@ namespace CalValEX.NPCs.JellyPriest
             }
             else if (shop3)
             {
-                AddItem(ItemType<FleshThing>(), Item.buyPrice(0, 0, 60, 0), twue, ref shop, ref nextSlot);
+                AddItem(ItemType<FleshThing>(), Item.buyPrice(0, 0, 60, 0), true, ref shop, ref nextSlot);
                 AddItem(ItemType<Anemone>(), Item.buyPrice(0, 0, 20, 0), clam, ref shop, ref nextSlot);
                 AddItem(ItemType<BrainCoral>(), Item.buyPrice(0, 0, 20, 0), clam, ref shop, ref nextSlot);
                 AddItem(ItemType<FanCoral>(), Item.buyPrice(0, 0, 20, 0), clam, ref shop, ref nextSlot);
@@ -517,7 +517,7 @@ namespace CalValEX.NPCs.JellyPriest
             }
             else
             {
-                AddItem(ItemType<Items.Equips.Shields.Invishield>(), Item.buyPrice(8, 0, 0, 0), twue, ref shop, ref nextSlot);
+                AddItem(ItemType<Items.Equips.Shields.Invishield>(), Item.buyPrice(8, 0, 0, 0), true, ref shop, ref nextSlot);
             }            
         }
 
@@ -597,14 +597,12 @@ namespace CalValEX.NPCs.JellyPriest
             writer.Write(shop1);
             writer.Write(shop2);
             writer.Write(shop3);
-            writer.Write(twue);
         }
         public override void ReceiveExtraAI(BinaryReader reader)
         {
             shop1 = reader.ReadBoolean();
             shop2 = reader.ReadBoolean();
             shop3 = reader.ReadBoolean();
-            twue = reader.ReadBoolean();
             shoptype = reader.ReadInt32();
         }
     }
