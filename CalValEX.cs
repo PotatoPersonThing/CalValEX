@@ -51,7 +51,7 @@ using CalamityMod;
 namespace CalValEX
 {
     public class CalValEX : Mod
-    { 
+    {
         public enum MessageType
         {
             SyncOraclePlayer = 0,
@@ -123,20 +123,20 @@ namespace CalValEX
 
             GameShaders.Armor.BindShader(ModContent.ItemType<DraedonHologramDye>(),
                 new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/DraedonHologramDye")),
-                    "DraedonHologramDyePass"));        
+                    "DraedonHologramDyePass"));
             GameShaders.Armor.BindShader(ModContent.ItemType<BlightedAstralDye>(),
                 new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/BlightedDye")),
                     "BlightedAstralDyePass")).UseColor(0.9882f, 0.7804f, 0.9686f).UseSecondaryColor(0.9098f, 0.5294f, 0.9764f); //UseColor - the rgb code for blight yel. UseSecondaryColor - the rgb code for blight puro.
             //
             GameShaders.Armor.BindShader(ModContent.ItemType<BlightedAstralPinkDye>(),
                 new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/BlightedPinkDye")),
-                    "BlightedAstralPinkDyePass")).UseColor(0.4431f, 0.3019f, 0.5725f).UseSecondaryColor(0.6235f,0.3647f,0.6666f); //UseColor - the rgb code for blight purple. UseSecondaryColor - the rgb code for blight darker purple.
+                    "BlightedAstralPinkDyePass")).UseColor(0.4431f, 0.3019f, 0.5725f).UseSecondaryColor(0.6235f, 0.3647f, 0.6666f); //UseColor - the rgb code for blight purple. UseSecondaryColor - the rgb code for blight darker purple.
             GameShaders.Armor.BindShader(ModContent.ItemType<BlightedAstralYellowDye>(),
                 new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/BlightedYellowDye")),
-                "BlightedAstralYellowDyePass")).UseColor(0.8588f, 0.5725f, 0.1137f).UseSecondaryColor(1f,0.8588f,0.3098f); //UseColor - the rgb code for blight darker yellow. UseSecondaryColor - the rgb code for blight yellow.
-            //GameShaders.Armor.BindShader(ModContent.ItemType<BlightedAstralPinkDye>(),
-           // new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/AstralBlightPurple")),
-              //  "AstralBlightPurplePass")).UseColor(0.8588f, 0.5725f, 0.1137f).UseSecondaryColor(1f, 0.8588f, 0.3098f); //UseColor - the rgb code for blight darker yellow. UseSecondaryColor - the rgb code for blight yellow.
+                "BlightedAstralYellowDyePass")).UseColor(0.8588f, 0.5725f, 0.1137f).UseSecondaryColor(1f, 0.8588f, 0.3098f); //UseColor - the rgb code for blight darker yellow. UseSecondaryColor - the rgb code for blight yellow.
+                                                                                                                             //GameShaders.Armor.BindShader(ModContent.ItemType<BlightedAstralPinkDye>(),
+                                                                                                                             // new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/AstralBlightPurple")),
+                                                                                                                             //  "AstralBlightPurplePass")).UseColor(0.8588f, 0.5725f, 0.1137f).UseSecondaryColor(1f, 0.8588f, 0.3098f); //UseColor - the rgb code for blight darker yellow. UseSecondaryColor - the rgb code for blight yellow.
 
 
 
@@ -146,7 +146,7 @@ namespace CalValEX
             Filters.Scene["CalValEX:AstralBiome"] = new Filter(new AstralSkyData("FilterMiniTower").UseColor(Color.Purple).UseOpacity(0.15f), EffectPriority.VeryHigh);
             SkyManager.Instance["CalValEX:AstralBiome"] = new AstralSky();
 
-            AddMusicBox(GetSoundSlot(SoundType.Music, "Sounds/Music/AstralBlight"), ItemType("AstralMusicBox"), TileType("AstralMusicBoxPlaced")); 
+            AddMusicBox(GetSoundSlot(SoundType.Music, "Sounds/Music/AstralBlight"), ItemType("AstralMusicBox"), TileType("AstralMusicBoxPlaced"));
             AddMusicBox(GetSoundSlot(SoundType.Music, "Sounds/Music/Meldosaurus"), ItemType("MeldosaurusMusicBox"), TileType("MeldosaurusMusicBoxPlaced"));
         }
 
@@ -196,6 +196,7 @@ namespace CalValEX
                                "When below 50% life, it moves much faster\n" + "Equipping this item in a vanity slot summons a passive version");
             cal.GetItem("FungalClump").Tooltip.AddTranslation(GameCulture.English, "Summons a fungal clump to fight for you\n" +
                        "The clump latches onto enemies and steals their life for you\n" + "Equipping this item in a vanity slot summons a passive version");
+
             if ((CalValEX.day == 1 && CalValEX.month == 4) || ModLoader.GetMod("CalValPlus") != null)
             {
                 cal.GetItem("TheEmpyrean").Tooltip.AddTranslation(GameCulture.English, "70% chance to not consume gel\n" + "Keep away from the jester...");
@@ -234,23 +235,23 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Desert Scourge",
                     new List<int>
                     {
-                        ModContent.ItemType<DesertScourgePlush>(), ModContent.ItemType<DesertMedallion>(), 
+                        ModContent.ItemType<DesertScourgePlush>(), ModContent.ItemType<DesertMedallion>(),
                         ModContent.ItemType<DriedMandible>(), ModContent.ItemType<SandTooth>()
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Giant Clam",
                     new List<int> { ModContent.ItemType<ClamMask>(), ModContent.ItemType<ClamHermitMedallion>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Crabulon",
-                    new List<int> { ModContent.ItemType<CrabulonPlush>(), ModContent.ItemType<ClawShroom>()});
+                    new List<int> { ModContent.ItemType<CrabulonPlush>(), ModContent.ItemType<ClawShroom>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Hive Mind",
-                    new List<int> { ModContent.ItemType<HiveMindPlush>(), ModContent.ItemType<MissingFang>()});
+                    new List<int> { ModContent.ItemType<HiveMindPlush>(), ModContent.ItemType<MissingFang>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "The Perforators",
-                    new List<int> { ModContent.ItemType<PerforatorPlush>(), 
+                    new List<int> { ModContent.ItemType<PerforatorPlush>(),
                         ModContent.ItemType<DigestedWormFood>(), ModContent.ItemType<SmallWorm>(),
                         ModContent.ItemType<MidWorm>(), ModContent.ItemType<BigWorm>()});
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Slime God",
                     new List<int> { ModLoader.GetMod("CalamityMod").ItemType("StatigelBlock") });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Slime God",
-                    new List<int> { ModContent.ItemType<SlimeGodMask>(), ModContent.ItemType<SlimeGodPlush>(), ModContent.ItemType<ImpureStick>()});
+                    new List<int> { ModContent.ItemType<SlimeGodMask>(), ModContent.ItemType<SlimeGodPlush>(), ModContent.ItemType<ImpureStick>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Cryogen",
                     new List<int> { ModContent.ItemType<CryogenPlush>(), ModContent.ItemType<CryoStick>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Aquatic Scourge",
@@ -309,13 +310,13 @@ namespace CalValEX
                         ModContent.ItemType<AncientChoker>()
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Astrum Deus",
-                    new List<int> { 
-                        ModContent.ItemType<AstrumDeusPlush>(), ModContent.ItemType<AstBandana>(), 
+                    new List<int> {
+                        ModContent.ItemType<AstrumDeusPlush>(), ModContent.ItemType<AstBandana>(),
                         ModContent.ItemType<AstralStar>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Profaned Guardians",
                     new List<int>
                     {
-                        ModContent.ItemType<ProfanedGuardianPlush>(), ModContent.ItemType<ProfanedFrame>(), 
+                        ModContent.ItemType<ProfanedGuardianPlush>(), ModContent.ItemType<ProfanedFrame>(),
                         ModContent.ItemType<ProfanedBattery>(), ModContent.ItemType<ProfanedWheels>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Dragonfolly",
@@ -370,7 +371,7 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Polterghast",
                     new List<int> {
                         ModContent.ItemType<PolterghastPlush>(),
-                        ModContent.ItemType<Polterhook>(), ModContent.ItemType<ToyScythe>() 
+                        ModContent.ItemType<Polterhook>(), ModContent.ItemType<ToyScythe>()
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Old Duke",
                     new List<int>
@@ -402,7 +403,7 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Exo Mechs",
                     new List<int> { ModContent.ItemType<DraedonBody>(), ModContent.ItemType<DraedonLegs>(), ModContent.ItemType<DraedonPlush>(), ModContent.ItemType<AresPlush>(), ModContent.ItemType<ApolloPlush>(), ModContent.ItemType<ArtemisPlush>(), ModContent.ItemType<ThanatosPlush>(), ModContent.ItemType<AncientAuricTeslaHelm>(), ModContent.ItemType<ArtemisBalloonSmall>(), ModContent.ItemType<ApolloBalloonSmall>(), ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>(), ModContent.ItemType<Items.Pets.ExoMechs.GunmetalRemote>(), ModContent.ItemType<Items.Pets.ExoMechs.GeminiMarkImplants>(), ModContent.ItemType<Items.Pets.ExoMechs.OminousCore>() });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Adult Eidolon Wyrm",
-                    new List<int> { ModContent.ItemType<RespirationShrine>()});
+                    new List<int> { ModContent.ItemType<RespirationShrine>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Adult Eidolon Wyrm",
                     new List<int> { ModContent.ItemType<JaredPlush>(), ModContent.ItemType<SoulShard>(), ModContent.ItemType<OmegaBlue>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Acid Rain (Post-AS)",
@@ -431,31 +432,31 @@ namespace CalValEX
                 if ((month == 4 && day == 1) || ModLoader.GetMod("CalValPlus") != null)
                 {
                     bossChecklist.Call(new object[12]
-                    {
-                        "AddBoss",
-                        13f,
-                        ModContent.NPCType<AprilFools.Meldosaurus.Meldosaurus>(),
-                        this,
-                        "Meldosaurus",
-                        (Func<bool>)(() => CalValEXWorld.downedMeldosaurus),
-                        ModContent.ItemType<CalamityMod.Items.Weapons.Ranged.TheEmpyrean>(),
-                        new List<int>
-                        {
-                            ModLoader.GetMod("CalValEX").ItemType("MeldosaurusMask"),
-                            ModLoader.GetMod("CalValEX").ItemType("KnowledgeMeldosaurus"),
-                            ModLoader.GetMod("CalValEX").ItemType("MeldosaurusTrophy"),
-                            ModLoader.GetMod("CalValEX").ItemType("MeldosaurusMusicBox")
-                        },
-                        new List<int>
-                        {
-                            ModLoader.GetMod("CalamityMod").ItemType("MeldBlob"),
-                            ModLoader.GetMod("CalValEX").ItemType("Nyanthrop"),
-                            ModLoader.GetMod("CalValEX").ItemType("ShadesBane")
-                        },
-                        $"Shoot the Jungle Tyrant Town NPC with [i:{ModContent.ItemType<CalamityMod.Items.Weapons.Ranged.TheEmpyrean>()}]",
-                        "Get melded!",
-                        null
-                    });
+                {
+                "AddBoss",
+                13f,
+                ModContent.NPCType<AprilFools.Meldosaurus.Meldosaurus>(),
+                this,
+                "Meldosaurus",
+                (Func<bool>)(() => CalValEXWorld.downedMeldosaurus),
+                ModContent.ItemType<CalamityMod.Items.Weapons.Ranged.TheEmpyrean>(),
+                new List<int>
+                {
+                    ModLoader.GetMod("CalValEX").ItemType("MeldosaurusMask"),
+                    ModLoader.GetMod("CalValEX").ItemType("KnowledgeMeldosaurus"),
+                    ModLoader.GetMod("CalValEX").ItemType("MeldosaurusTrophy"),
+                    ModLoader.GetMod("CalValEX").ItemType("MeldosaurusMusicBox")
+                },
+                new List<int>
+                {
+                    ModLoader.GetMod("CalamityMod").ItemType("MeldBlob"),
+                    ModLoader.GetMod("CalValEX").ItemType("Nyanthrop"),
+                    ModLoader.GetMod("CalValEX").ItemType("ShadesBane")
+                },
+                $"Shoot the Jungle Tyrant Town NPC with [i:{ModContent.ItemType<CalamityMod.Items.Weapons.Ranged.TheEmpyrean>()}]",
+                "Get melded!",
+                null
+                });
                 }
             }
 
@@ -472,7 +473,7 @@ namespace CalValEX
                         drp.Call("AddClient", "929973580178010152", "mod_calvalex");
                         drp.Call("AddBiome", (Func<bool>)(() => Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral), "Astral Blight",
                             "biome_astralblight", 50f, "mod_calvalex");
-                    
+
                     }
                 }
                 catch (Exception ex)
@@ -496,7 +497,7 @@ namespace CalValEX
 
             if (bossIsAlive && !CalValEXConfig.Instance.GroundMountLol)
             {
-                int calculateLife = (int) (player.statLifeMax2 * reduceHealthBy);
+                int calculateLife = (int)(player.statLifeMax2 * reduceHealthBy);
                 player.statLifeMax2 -= calculateLife;
                 player.allDamage -= reduceDamageBy;
             }
@@ -504,7 +505,7 @@ namespace CalValEX
 
         public override void HandlePacket(BinaryReader reader, int whoAmI)
         {
-            MessageType msgType = (MessageType) reader.ReadByte();
+            MessageType msgType = (MessageType)reader.ReadByte();
             byte playerNumber;
             OraclePlayer oraclePlayer;
             CalValEXPlayer calValEXPlayer;
@@ -524,7 +525,7 @@ namespace CalValEX
                     if (Main.netMode == NetmodeID.Server)
                     {
                         var packet = GetPacket();
-                        packet.Write((byte) MessageType.PlayerBagChanged);
+                        packet.Write((byte)MessageType.PlayerBagChanged);
                         packet.Write(playerNumber);
                         packet.Write(oraclePlayer.playerHasGottenBag);
                         packet.Send(-1, playerNumber);
@@ -547,7 +548,7 @@ namespace CalValEX
                     if (Main.netMode == NetmodeID.Server)
                     {
                         var packet = GetPacket();
-                        packet.Write((byte) MessageType.SyncSCalHits);
+                        packet.Write((byte)MessageType.SyncSCalHits);
                         packet.Write(playerNumber);
                         packet.Write(calValEXPlayer.SCalHits);
                         packet.Send(-1, playerNumber);
