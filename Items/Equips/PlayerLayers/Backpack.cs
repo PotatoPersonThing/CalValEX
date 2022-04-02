@@ -31,6 +31,18 @@ namespace CalValEX.Items.Equips.PlayerLayers
             Player drawPlayer = drawInfo.drawPlayer;
             float alb = (255 - drawPlayer.immuneAlpha) / 255f;
             CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
+            int dyeShader = drawPlayer.dye?[1].dye ?? 0;
+            for (int n = 0; n < 18 + drawInfo.drawPlayer.extraAccessorySlots; n++)
+            {
+                Item item = drawInfo.drawPlayer.armor[n];
+                if (item.type == ModContent.ItemType<Items.Equips.Backs.PrismShell>())
+                {
+                    if (n > 9)
+                    dyeShader = drawPlayer.dye?[n - 10].dye ?? 0;
+                    else
+                    dyeShader = drawPlayer.dye?[n].dye ?? 0;
+                }
+            }
             int secondyoffset = 0;
             if (drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 8 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 9 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 15 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 16 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 17)
             {
@@ -46,8 +58,11 @@ namespace CalValEX.Items.Equips.PlayerLayers
                 Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Items/Equips/Backs/PrismShell").Value;
                 int drawX = (int)(drawPlayer.position.X + drawPlayer.width / 2f - Main.screenPosition.X - gnuflip + (15 * gnuflip));
                 int drawY = (int)(drawPlayer.position.Y + drawPlayer.height - Main.screenPosition.Y - 4 - secondyoffset);
-                drawInfo.DrawDataCache.Add(new DrawData(texture, new Vector2(drawX, drawY), null, Color.White * alb, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0));
-                
+                if (drawPlayer.mount.Active)
+                    drawY += drawPlayer.mount.HeightBoost;
+                DrawData dat = new DrawData(texture, new Vector2(drawX, drawY), null, Color.White * alb, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
+                dat.shader = dyeShader;
+                drawInfo.DrawDataCache.Add(dat);
             }
         }
     }

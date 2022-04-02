@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
+using CalValEX.Items.Equips.Hats;
 
 namespace CalValEX.Items.Equips.PlayerLayers
 {
@@ -12,9 +13,8 @@ namespace CalValEX.Items.Equips.PlayerLayers
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
         {
-            bool hastallhat = (drawInfo.drawPlayer.GetModPlayer<CalValEXPlayer>().specan);
-            Item item = drawInfo.drawPlayer.armor[10];
-            if (item.type == ModContent.ItemType<Items.Equips.Hats.SpectralstormHat>())
+            bool hastallhat = false;
+            if (drawInfo.drawPlayer.GetModPlayer<CalValEXPlayer>().specan)
             {
                 hastallhat = true;
             }
@@ -32,6 +32,7 @@ namespace CalValEX.Items.Equips.PlayerLayers
             CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
             int secondyoffset = 0;
             float alb = (255 - drawPlayer.immuneAlpha) / 255f;
+            int dyeShader = drawPlayer.dye?[0].dye ?? 0;
             if (drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 8 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 9 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 15 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 16 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 17)
             {
                 secondyoffset = 2;
@@ -45,7 +46,11 @@ namespace CalValEX.Items.Equips.PlayerLayers
                 Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Items/Equips/Hats/SpectralstormHat").Value;
                 int drawX = (int)(drawPlayer.position.X + drawPlayer.width / 2f - Main.screenPosition.X);
                 int drawY = (int)(drawPlayer.position.Y + drawPlayer.height - 32 - Main.screenPosition.Y - secondyoffset);
-                drawInfo.DrawDataCache.Add(new DrawData(texture, new Vector2(drawX, drawY), null, Color.White * alb, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0));
+                if (drawPlayer.mount.Active)
+                    drawY += drawPlayer.mount.HeightBoost; 
+                DrawData dat = new DrawData(texture, new Vector2(drawX, drawY), null, drawInfo.colorArmorHead, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
+                dat.shader = dyeShader;
+                drawInfo.DrawDataCache.Add(dat);
             }
         }
     }

@@ -36,11 +36,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hdnp2\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Beta\\Mod Sources\\CalValEX\\CalValEX.csproj",
+      "projectUniqueName": "C:\\Users\\hdnp2\\OneDrive\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\CalValEX\\CalValEX.csproj",
       "projectName": "CalValNOTEX",
-      "projectPath": "C:\\Users\\hdnp2\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Beta\\Mod Sources\\CalValEX\\CalValEX.csproj",
+      "projectPath": "C:\\Users\\hdnp2\\OneDrive\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\CalValEX\\CalValEX.csproj",
       "packagesPath": "C:\\Users\\hdnp2\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hdnp2\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Beta\\Mod Sources\\CalValEX\\obj\\",
+      "outputPath": "C:\\Users\\hdnp2\\OneDrive\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\CalValEX\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hdnp2\\AppData\\Roaming\\NuGet\\NuGet.Config",

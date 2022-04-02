@@ -6,12 +6,15 @@ using System.IO;
 /*using CalamityMod.Events;
 using CalamityMod;
 using CalamityMod.DataStructures;
-using CalamityMod.Particles;
+using CalamityMod.Particles;*/
 using CalValEX.Items.Equips.Hats.Draedon;
 using CalValEX.Items.Equips.Shirts.Draedon;
 using CalValEX.Items.Equips.Transformations;
-using CalValEX.Buffs.Transformations;*/
+using CalValEX.Items.Equips.Hats;
+using CalValEX.Buffs.Transformations;
 using CalValEX.Items.Mounts.Morshu;
+using CalValEX.Items.Equips.Shirts.AresChestplate;
+using CalValEX.Items.Equips.Balloons;
 /*using CalValEX.Projectiles.Pets;
 using CalValEX.Projectiles.Pets.LightPets;
 using CalValEX.Items.Equips.Backs;
@@ -423,7 +426,55 @@ namespace CalValEX
             ResetMyStuff();
         }
 
-        
+        //Update vanity is fucking broken so they are detected here
+        public override void UpdateEquips()
+        {
+            if (Player.armor[10].type == ItemType<Aestheticrown>())
+            {
+                aesthetic = true;
+            }
+            if (Player.armor[10].type == ItemType<StonePile>())
+            {
+                rockhat = true;
+            }
+            if (Player.armor[10].type == ItemType<TrueCosmicCone>())
+            {
+                conejo = true;
+            }
+            if (Player.armor[10].type == ItemType<SpectralstormHat>())
+            {
+                specan = true;
+            }
+            if (Player.armor[11].type == ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>())
+            {
+                bool gausspawned = Player.ownedProjectileCounts[ModContent.ProjectileType<GaussArm>()] <= 0;
+                bool laserpawned = Player.ownedProjectileCounts[ModContent.ProjectileType<LaserArm>()] <= 0;
+                bool teslaspawned = Player.ownedProjectileCounts[ModContent.ProjectileType<TeslaArm>()] <= 0;
+                bool plasmaspawned = Player.ownedProjectileCounts[ModContent.ProjectileType<PlasmaArm>()] <= 0;
+                if (gausspawned && Player.whoAmI == Main.myPlayer)
+                {
+                    Projectile.NewProjectile(Player.GetProjectileSource_Accessory(Player.armor[11]), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
+                        0, 0, ModContent.ProjectileType<GaussArm>(), 0, 0f, Player.whoAmI);
+                }
+                if (laserpawned && Player.whoAmI == Main.myPlayer)
+                {
+                    Projectile.NewProjectile(Player.GetProjectileSource_Accessory(Player.armor[11]), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
+                       0, 0, ModContent.ProjectileType<LaserArm>(), 0, 0f, Player.whoAmI);
+                }
+                if (teslaspawned && Player.whoAmI == Main.myPlayer)
+                {
+                    Projectile.NewProjectile(Player.GetProjectileSource_Accessory(Player.armor[11]), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
+                       0, 0, ModContent.ProjectileType<TeslaArm>(), 0, 0f, Player.whoAmI);
+                }
+                if (plasmaspawned && Player.whoAmI == Main.myPlayer)
+                {
+                    Projectile.NewProjectile(Player.GetProjectileSource_Accessory(Player.armor[11]), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
+                       0, 0, ModContent.ProjectileType<PlasmaArm>(), 0, 0f, Player.whoAmI);
+                }
+                aresarms = true;
+            }
+        }
+
         public override void UpdateVisibleVanityAccessories()
         {
             //Mod calamityMod = ModLoader.GetMod("CalamityMod");
@@ -456,7 +507,7 @@ namespace CalValEX
                     sandHide = false;
                     sandForce = true;
                 }
-                //Update vanity won't work for these two so they are detected here
+                //Update vanity is fucking broken so they are detected here
                 else if (item.type == ModContent.ItemType<Items.Equips.Backs.PrismShell>())
                 {
                     prismshell = true;
@@ -464,6 +515,26 @@ namespace CalValEX
                 else if (item.type == ModContent.ItemType<Items.Equips.ExodiumMoon>())
                 {
                     exorb = true;
+                }
+                else if (item.type == ModContent.ItemType<ArtemisBalloonSmall>())
+                {
+                    sartballoon = true;
+                }
+                else if (item.type == ModContent.ItemType<ApolloBalloonSmall>())
+                {
+                    sapballoon = true;
+                }
+                else if (item.type == ModContent.ItemType<ApolloBalloon>())
+                {
+                    apballoon = true;
+                }
+                else if (item.type == ModContent.ItemType<ArtemisBalloon>())
+                {
+                    artballoon = true;
+                }
+                else if (item.type == ModContent.ItemType<ExoTwinsBalloon>())
+                {
+                    twinballoon = true;
                 }
                 /*else if (item.type == calamityMod.ItemType("HeartoftheElements") && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
                 {
@@ -988,7 +1059,7 @@ namespace CalValEX
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
         {
-            //DoCalamityBabyThings((int)damage);
+            DoCalamityBabyThings((int)damage);
             if (signutTrans)
             {
                 Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit49, (int)Player.position.X, (int)Player.position.Y);
@@ -1273,30 +1344,6 @@ namespace CalValEX
 
         /*
 
-        public static readonly PlayerLayer BCarriage = new PlayerLayer("CalValEX", "BCarriage", PlayerLayer.Arms, delegate (PlayerDrawInfo drawInfo)
-        {
-            if (drawInfo.shadow != 0f)
-            {
-                return;
-            }
-            Player drawPlayer = drawInfo.drawPlayer;
-            Mod mod = ModLoader.GetMod("CalValEX");
-            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
-            if (modPlayer.carriage)
-            {
-                int flipoffset;
-                int gnuflip = 56 * -drawPlayer.direction;
-                Texture2D texture = mod.GetTexture("Items/Mounts/Ground/BloodstoneCarriageWheel");
-                int drawX = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X + gnuflip);
-                int drawX2 = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X - gnuflip);
-                int drawY = (int)(drawInfo.position.Y + drawPlayer.height - Main.screenPosition.Y + 16);
-                DrawData data = new DrawData(texture, new Vector2(drawX + (drawPlayer.direction == 1 ? 6 : -8), drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - texture.Height / 2f) / 16f)), modPlayer.bcarriagewheel / 15.0f, new Vector2(texture.Width / 2f, texture.Height /2f), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
-                DrawData data2 = new DrawData(texture, new Vector2(drawX2 + (drawPlayer.direction == -1 ? -8 : 6), drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - texture.Height / 2f) / 16f)), modPlayer.bcarriagewheel / 15.0f, new Vector2(texture.Width / 2f, texture.Height /2f), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
-                Main.playerDrawData.Add(data);
-                Main.playerDrawData.Add(data2);
-            }
-        });
-
         public static readonly PlayerLayer Mimigun = new PlayerLayer("CalValEX", "Mimigun", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
         {
             if (drawInfo.shadow != 0f)
@@ -1373,304 +1420,6 @@ namespace CalValEX
                 Main.playerDrawData.Add(data);
                 Main.playerDrawData.Add(data2);
             }
-        });
-
-        public static readonly PlayerLayer Sexoballoon = new PlayerLayer("CalValEX", "Sexoballoon", PlayerLayer.BalloonAcc, delegate (PlayerDrawInfo drawInfo)
-        {
-            if (drawInfo.shadow != 0f)
-            {
-                return;
-            }
-            Player drawPlayer = drawInfo.drawPlayer;
-            Mod mod = ModLoader.GetMod("CalValEX");
-            Player player = Main.LocalPlayer;
-            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
-            int secondyoffset = 0;
-            int xflip = 0;
-            xflip = (Player.direction == -1 ? -40 : 0);
-            float alb = (255 - drawPlayer.immuneAlpha) / 255f;
-            if (modPlayer.sartballoon)
-            {
-                int winflip = 1 * -drawPlayer.direction;
-                Texture2D texture = mod.GetTexture("Items/Equips/Balloons/ArtemisBalloonSmallEquipped");
-                Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * Player.direction + 20 + xflip, drawPlayer.gfxOffY + 8- secondyoffset);
-                Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
-                Rectangle conesquare = texture.Frame(1, 12, 0, modPlayer.stwinframe);
-                DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, 0f, origin, 1, Player.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0
-                )
-                {
-                    shader = drawInfo.balloonShader
-                };
-                Main.playerDrawData.Add(data);
-            }
-            if (modPlayer.sapballoon)
-            {
-                int winflip = 1 * -drawPlayer.direction;
-                Texture2D texture = mod.GetTexture("Items/Equips/Balloons/ApolloBalloonSmallEquipped");
-                texture = modPlayer.sapballoon ? mod.GetTexture("Items/Equips/Balloons/ApolloBalloonSmallEquipped") : mod.GetTexture("Items/Equips/Balloons/ArtemisBalloonSmallEquipped");
-                Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * Player.direction + 20 + xflip, drawPlayer.gfxOffY + 8- secondyoffset);
-                Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
-                Rectangle conesquare = texture.Frame(1, 12, 0, modPlayer.stwinframe);
-                DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, 0f, origin, 1, Player.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0
-                )
-                {
-                    shader = drawInfo.balloonShader
-                };
-                Main.playerDrawData.Add(data);
-            }
-        });
-
-        public static readonly PlayerLayer Exoballoon = new PlayerLayer("CalValEX", "Exoballoon", PlayerLayer.BalloonAcc, delegate (PlayerDrawInfo drawInfo)
-        {
-            if (drawInfo.shadow != 0f)
-            {
-                return;
-            }
-            Player drawPlayer = drawInfo.drawPlayer;
-            Mod mod = ModLoader.GetMod("CalValEX");
-            Player player = Main.LocalPlayer;
-            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
-            int secondyoffset = 0;
-            float alb = (255 - drawPlayer.immuneAlpha) / 255f;
-            if (modPlayer.apballoon || modPlayer.twinballoon)
-            {
-                int winflip = 1 * -drawPlayer.direction;
-                Texture2D texture = mod.GetTexture("Items/Equips/Balloons/ApolloBalloonEquipped");
-                Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * Player.direction + (40 * Player.direction), drawPlayer.gfxOffY - 170 - secondyoffset);
-                Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
-                Rectangle conesquare = texture.Frame(1, 5, 0, modPlayer.twinframe);
-                DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, 0f, origin, 1, Player.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0
-                )
-                {
-                    shader = drawInfo.balloonShader
-                };
-                Main.playerDrawData.Add(data);
-            }
-            if ((modPlayer.artballoon && !modPlayer.apballoon) || modPlayer.twinballoon)
-            {
-                Texture2D texture = mod.GetTexture("Items/Equips/Balloons/ArtemisBalloonEquipped");
-                Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * Player.direction - (140 * Player.direction), drawPlayer.gfxOffY - 170 - secondyoffset);
-                Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
-                Rectangle conesquare = texture.Frame(1, 5, 0, modPlayer.twinframe);
-                DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, 0f, origin, 1, Player.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0
-                )
-                {
-                    shader = drawInfo.balloonShader
-                };
-                Main.playerDrawData.Add(data);
-            }
-            */
-        /*else if (modPlayer.twinballoon)
-            {
-
-                int winflip = 1 * -drawPlayer.direction;
-                Texture2D texture = mod.GetTexture("Items/Equips/Balloons/ExoTwins/Artemis");
-                Texture2D texture2 = mod.GetTexture("Items/Equips/Balloons/ExoTwins/Apollo");
-                Vector2 wtf = drawPlayer.Center + new Vector2(0f * Player.direction - (320 * Player.direction), drawPlayer.gfxOffY - 270 - secondyoffset) - Main.screenPosition;
-                Vector2 wtf2 = drawPlayer.Center + new Vector2(0f * Player.direction + (-60 * Player.direction), drawPlayer.gfxOffY - 270 - secondyoffset) - Main.screenPosition;
-
-                {
-
-                    Texture2D chainTex = ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresChain");
-
-                    float curvature = MathHelper.Clamp(Math.Abs(drawPlayer.Center.X - wtf.X) / 50f * 80, 15, 80);
-
-                    Vector2 controlPoint1 = drawPlayer.Center - Vector2.UnitY * curvature - new Vector2(180 * drawPlayer.direction, -80);
-                    Vector2 controlPoint2 = wtf + Vector2.UnitY * curvature + Main.screenPosition;
-
-                    BezierCurve curve = new BezierCurve(new Vector2[] { drawPlayer.Center, controlPoint1, controlPoint2, wtf + Main.screenPosition });
-                    int numPoints = 20; //"Should make dynamic based on curve length, but I'm not sure how to smoothly do that while using a bezier curve" -Graydee, from the code i referenced. I do agree.
-                    Vector2[] chainPositions = curve.GetPoints(numPoints).ToArray();
-
-                    //Draw each chain segment bar the very first one
-                    for (int i = 1; i < numPoints; i++)
-                    {
-                        Vector2 position = chainPositions[i];
-                        float rotation = (chainPositions[i] - chainPositions[i - 1]).ToRotation() - MathHelper.PiOver2; //Calculate rotation based on direction from last point
-                        float yScale = Vector2.Distance(chainPositions[i], chainPositions[i - 1]) / chainTex.Height; //Calculate how much to squash/stretch for smooth chain based on distance between points
-                        Vector2 scale = new Vector2(1, yScale);
-                        Color chainLightColor = Lighting.GetColor((int)position.X / 16, (int)position.Y / 16); //Lighting of the position of the chain segment
-                        Vector2 origine = new Vector2(chainTex.Width / 2, chainTex.Height); //Draw from center bottom of texture
-                        DrawData data3 = new DrawData(chainTex, position - Main.screenPosition, null, chainLightColor, rotation, origine, scale, SpriteEffects.None, 0);
-                        Main.playerDrawData.Add(data3);
-
-                    }
-                }
-                {
-                    Texture2D chainTex = ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/AresChain");
-
-                    float curvature = MathHelper.Clamp(Math.Abs(drawPlayer.Center.X - wtf2.X) / 50f * 80, 15, 80);
-
-                    Vector2 controlPoint1 = drawPlayer.Center - Vector2.UnitY * curvature - new Vector2 (80 * drawPlayer.direction, 80);
-                    Vector2 controlPoint2 = wtf2 + Vector2.UnitY * curvature + Main.screenPosition;
-
-                    BezierCurve curve = new BezierCurve(new Vector2[] { drawPlayer.Center, controlPoint1, controlPoint2, wtf2 + Main.screenPosition });
-                    int numPoints = 20; //"Should make dynamic based on curve length, but I'm not sure how to smoothly do that while using a bezier curve" -Graydee, from the code i referenced. I do agree.
-                    Vector2[] chainPositions = curve.GetPoints(numPoints).ToArray();
-
-                    //Draw each chain segment bar the very first one
-                    for (int i = 1; i < numPoints; i++)
-                    {
-                        Vector2 position = chainPositions[i];
-                        float rotation = (chainPositions[i] - chainPositions[i - 1]).ToRotation() - MathHelper.PiOver2; //Calculate rotation based on direction from last point
-                        float yScale = Vector2.Distance(chainPositions[i], chainPositions[i - 1]) / chainTex.Height; //Calculate how much to squash/stretch for smooth chain based on distance between points
-                        Vector2 scale = new Vector2(1, yScale);
-                        Color chainLightColor = Lighting.GetColor((int)position.X / 16, (int)position.Y / 16); //Lighting of the position of the chain segment
-                        Vector2 origine = new Vector2(chainTex.Width / 2, chainTex.Height); //Draw from center bottom of texture
-                        DrawData data4 = new DrawData(chainTex, position - Main.screenPosition, null, chainLightColor, rotation, origine, scale, SpriteEffects.None, 0);
-                        Main.playerDrawData.Add(data4);
-
-                    }
-                }
-
-
-
-
-                Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
-                Rectangle conesquare = texture.Frame(1, 5, 0, modPlayer.twinframe);
-                DrawData data = new DrawData(texture, wtf, conesquare, Color.White * alb, (float)Math.PI / 2, origin, 1, Player.direction == -1 ? SpriteEffects.FlipVertically : SpriteEffects.None, 0
-                )
-                {
-                    shader = drawInfo.balloonShader
-                };
-                DrawData data2 = new DrawData(texture2, wtf2, conesquare, Color.White * alb, (float)Math.PI/2, origin, 1, Player.direction == -1 ? SpriteEffects.FlipVertically : SpriteEffects.None, 0
-                )
-                {
-                    shader = drawInfo.balloonShader
-                };
-
-                Main.playerDrawData.Add(data);
-                Main.playerDrawData.Add(data2);
-
-
-            }*/
-        //});*/
-
-        //Welcome to pong hell
-        /*public static readonly PlayerLayer PongUI = new PlayerLayer("CalValEX", "PongUI", PlayerLayer.SolarShield, delegate (PlayerDrawInfo drawInfo)
-        {
-            Player drawPlayer = drawInfo.drawPlayer;
-            Mod mod = ModLoader.GetMod("CalValEX");
-            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
-            if (drawPlayer.controlMount)
-            {
-                modPlayer.pongactive = false;
-            }
-            if (modPlayer.pongactive)
-            {
-                //Stage logic
-                if (modPlayer.pongstage == 0)
-                {
-                    if (drawPlayer.controlUseItem)
-                    {
-                        modPlayer.pongstage = 3;
-                    }
-                }
-
-                Texture2D texture = mod.GetTexture("ExtraTextures/Pong/PongBG");
-                int drawX = (int)(drawInfo.position.X + drawPlayer.width - Main.screenPosition.X);
-                int drawY = (int)(drawInfo.position.Y + drawPlayer.height - Main.screenPosition.Y);
-                DrawData data = new DrawData(texture, new Vector2(drawX, drawY + 200), null, Color.White, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0);
-                Main.playerDrawData.Add(data);
-            }
-        });*/
-
-        /*public static readonly PlayerLayer PongOverlay = new PlayerLayer("CalValEX", "PongOverlay", PlayerLayer.MiscEffectsFront, delegate (PlayerDrawInfo drawInfo)
-        {
-            Player drawPlayer = drawInfo.drawPlayer;
-            Mod mod = ModLoader.GetMod("CalValEX");
-            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
-
-            if (modPlayer.pongactive)
-            {
-                if (modPlayer.pongstage == 0)
-                {
-                    Texture2D texture = mod.GetTexture("ExtraTextures/Pong/PongInitialPrompt");
-                    int drawX2 = (int)(drawInfo.position.X + drawPlayer.width - Main.screenPosition.X);
-                    int drawY2 = (int)(drawInfo.position.Y + drawPlayer.height - Main.screenPosition.Y);
-                    DrawData data2 = new DrawData(texture, new Vector2(drawX2, drawY2 + 200), null, Color.White, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0);
-                    Main.playerDrawData.Add(data2);
-                }
-                else if (modPlayer.pongstage == 1)
-                {
-                    Texture2D texture = mod.GetTexture("ExtraTextures/Pong/PongLossPrompt");
-                    int drawX2 = (int)(drawInfo.position.X + drawPlayer.width - Main.screenPosition.X);
-                    int drawY2 = (int)(drawInfo.position.Y + drawPlayer.height - Main.screenPosition.Y);
-                    DrawData data2 = new DrawData(texture, new Vector2(drawX2, drawY2 + 200), null, Color.White, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0);
-                    Main.playerDrawData.Add(data2);
-                }
-                else if (modPlayer.pongstage == 2)
-                {
-                    Texture2D texture = mod.GetTexture("ExtraTextures/Pong/PongWinPrompt");
-                    int drawX2 = (int)(drawInfo.position.X + drawPlayer.width - Main.screenPosition.X);
-                    int drawY2 = (int)(drawInfo.position.Y + drawPlayer.height - Main.screenPosition.Y);
-                    DrawData data2 = new DrawData(texture, new Vector2(drawX2, drawY2 + 200), null, Color.White, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0);
-                    Main.playerDrawData.Add(data2);
-                }
-                else
-                {
-
-                    Texture2D texture = mod.GetTexture("ExtraTextures/Pong/InnerBarriers");
-                    int drawX2 = (int)(drawInfo.position.X + drawPlayer.width - Main.screenPosition.X);
-                    int drawY2 = (int)(drawInfo.position.Y + drawPlayer.height - Main.screenPosition.Y);
-                    DrawData data2 = new DrawData(texture, new Vector2(drawX2, drawY2 + 200), null, Color.White, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0);
-                    Main.playerDrawData.Add(data2);
-                    bool anahitaspawned = drawPlayer.ownedProjectileCounts[ProjectileType<Projectiles.Pong.PlayerSlider>()] <= 0;
-                    if (anahitaspawned && drawPlayer.whoAmI == Main.myPlayer)
-                    {
-                        Projectile.NewProjectile(drawPlayer.position.X + drawPlayer.width / 2 - 80, drawPlayer.position.Y + drawPlayer.height / 2 - 40,
-                            0f, 0f, ProjectileType<Projectiles.Pong.PlayerSlider>(), 0, 0f, drawPlayer.whoAmI);
-                    }
-                    bool ballspawned = drawPlayer.ownedProjectileCounts[ProjectileType<Projectiles.Pong.PongBall>()] <= 0;
-                    if (anahitaspawned && drawPlayer.whoAmI == Main.myPlayer)
-                    {
-                        Projectile.NewProjectile(drawPlayer.position.X + drawPlayer.width / 2 + 180, drawPlayer.position.Y + drawPlayer.height / 2 - 40,
-                            -4f, 4f, ProjectileType<Projectiles.Pong.PongBall>(), 0, 0f, drawPlayer.whoAmI);
-                    }
-                    for (int x = 0; x < Main.maxProjectiles; x++)
-                    {
-                        Projectile projectile = Main.projectile[x];
-                        if (projectile.type == ProjectileType<Projectiles.Pong.PongBall>())
-                        {
-                            modPlayer.pongballposx = projectile.position.X;
-                            modPlayer.pongballposy = projectile.position.Y;
-                        }
-                    }
-                    for (int x = 0; x < Main.maxProjectiles; x++)
-                    {
-                        Projectile projectile = Main.projectile[x];
-                        if (projectile.type == ProjectileType<Projectiles.Pong.PlayerSlider>())
-                        {
-                            modPlayer.sliderposx = projectile.position.X;
-                            modPlayer.sliderposy = projectile.position.Y;
-                        }
-                    }
-
-                    Vector2 pball;
-                    pball.X = modPlayer.pongballposx;
-                    pball.Y = modPlayer.pongballposy;
-
-                    Vector2 slider;
-                    slider.X = modPlayer.sliderposx;
-                    slider.Y = modPlayer.sliderposy;
-
-                    Texture2D textureball = mod.GetTexture("ExtraTextures/Pong/PongBall");
-                    int drawXde2 = (int)(modPlayer.pongballposx + 36 - Main.screenPosition.X);
-                    int drawYde2 = (int)(modPlayer.pongballposy + 36 - Main.screenPosition.Y);
-                    DrawData datae2 = new DrawData(textureball, new Vector2(drawXde2, drawYde2), null, Color.White, 0f, new Vector2(textureball.Width / 2f, textureball.Height), 1f, SpriteEffects.None, 0);
-                    Main.playerDrawData.Add(datae2);
-
-
-
-                    Texture2D textureslider = mod.GetTexture("ExtraTextures/Pong/PongSlider");
-                    int drawXd2 = (int)(modPlayer.sliderposx + 25 - Main.screenPosition.X);
-                    int drawYd2 = (int)(modPlayer.sliderposy + 78 - Main.screenPosition.Y);
-                    DrawData datad2 = new DrawData(textureslider, new Vector2(drawXd2, drawYd2 + 200), null, Color.White, 0f, new Vector2(textureslider.Width / 2f, textureslider.Height), 1f, SpriteEffects.None, 0);
-                    Main.playerDrawData.Add(datad2);
-
-
-                }
-            }
         });*/
 
         /*public static readonly PlayerLayer Chopper = new PlayerLayer("CalValEX", "Chopper", PlayerLayer.Wings, delegate (PlayerDrawInfo drawInfo)
@@ -1711,15 +1460,6 @@ namespace CalValEX
         {
             int headLayer = layers.FindIndex(l => l == PlayerLayer.Head);
             int bodyLayer = layers.FindIndex(l => l == PlayerLayer.Body);
-            int armLayer = layers.FindIndex(l => l == PlayerLayer.Arms);
-            int wingLayer = layers.FindIndex(l => l == PlayerLayer.Wings);
-            int backLayer = layers.FindIndex(l => l == PlayerLayer.BackAcc);
-            int carriageLayer = layers.FindIndex(l => l == PlayerLayer.MountFront);
-            int shieldLaer = layers.FindIndex(l => l == PlayerLayer.SolarShield);
-            int highLaer = layers.FindIndex(l => l == PlayerLayer.MiscEffectsFront);
-            int hairLayer = layers.FindIndex(l => l == PlayerLayer.Hair);
-            int ballLayer = layers.FindIndex(l => l == PlayerLayer.BalloonAcc);
-            int waybackLayer = layers.FindIndex(l => l == PlayerLayer.MiscEffectsBack);
 
             if (headLayer > -1)
             {
@@ -1730,57 +1470,6 @@ namespace CalValEX
             {
                 layers.Insert(bodyLayer + 1, DraedonChestplate);
             }
-
-            if (wingLayer > -1)
-            {
-                layers.Insert(wingLayer + 1, Chopper);
-            }
-            Head.visible = true;
-            layers.Insert(headLayer + 1, Head);
-            HeadFront.visible = true;
-            layers.Insert(headLayer + 4, HeadFront);
-            Mimigun.visible = true;
-            layers.Insert(headLayer + 2, Mimigun);
-            Mimigun2.visible = true;
-            layers.Insert(armLayer + 1, Mimigun2);
-            Prismshell.visible = true;
-            layers.Insert(backLayer + 1, Prismshell);
-            Prismshell.visible = true;
-            layers.Insert(backLayer + 2, Rotator);
-            BCarriage.visible = true;
-            layers.Insert(armLayer + 1, BCarriage);
-            Exoballoon.visible = true;
-            layers.Insert(ballLayer + 2, Exoballoon);
-            Sexoballoon.visible = true;
-            layers.Insert(waybackLayer + 3, Sexoballoon);
-                if (yharcar)
-                {
-                    foreach (PlayerLayer layer in layers)
-                    {
-                        if (layer != PlayerLayer.MountBack && layer != PlayerLayer.MountFront && layer != PlayerLayer.MiscEffectsFront && layer != PlayerLayer.MiscEffectsBack)
-                        {
-                            ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = false;
-                        }
-                    }
-                }
-                if (pongactive)
-                {
-                    foreach (PlayerLayer layer in layers)
-                    {
-                        ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = false;
-                    }
-                }
-                else
-                {
-                    foreach (PlayerLayer layer in layers)
-                    {
-                        ((DrawLayer<PlayerDrawInfo>)(object)layer).visible = true;
-                    }
-                }
-            /*PongUI.visible = true;
-            layers.Insert(shieldLaer + 14, PongUI);
-            PongOverlay.visible = true;
-            layers.Insert(highLaer + 15, PongOverlay);*/
         /*}
 
         public override void ModifyDrawHeadLayers(List<PlayerHeadLayer> layers)

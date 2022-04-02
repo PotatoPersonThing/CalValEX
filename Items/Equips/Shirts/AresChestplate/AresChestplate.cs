@@ -73,7 +73,7 @@ namespace CalValEX.Items.Equips.Shirts.AresChestplate
             player.GetModPlayer<CalValEXPlayer>().aresarms = true;
         }
 
-        public override void UpdateVanity(Player player)
+        /*public override void UpdateVanity(Player player)
         {
             bool gausspawned = player.ownedProjectileCounts[ModContent.ProjectileType<GaussArm>()] <= 0;
             bool laserpawned = player.ownedProjectileCounts[ModContent.ProjectileType<LaserArm>()] <= 0;
@@ -100,6 +100,6 @@ namespace CalValEX.Items.Equips.Shirts.AresChestplate
                    0, 0, ModContent.ProjectileType<PlasmaArm>(), 0, 0f, player.whoAmI);
             }
             player.GetModPlayer<CalValEXPlayer>().aresarms = true;
-        }
+        }*/
     }
 }

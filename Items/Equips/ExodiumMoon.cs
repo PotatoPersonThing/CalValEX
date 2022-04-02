@@ -23,6 +23,7 @@ namespace CalValEX.Items.Equips
             Item.rare = 11;
             Item.accessory = true;
             Item.vanity = true;
+            Item.canBePlacedInVanityRegardlessOfConditions = true;
         }
 
         public override void UpdateEquip(Player player)
