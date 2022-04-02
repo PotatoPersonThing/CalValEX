@@ -15,6 +15,8 @@ namespace CalValEX.Items.Equips.Wings
             DisplayName.SetDefault("Void Wings");
             Tooltip.SetDefault("Let the darkness carry you\n" + "Horizontal speed: 9\n" + "Acceleration multiplier: 2.5\n" + "Flight time: 230");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(230, 9f, 2.5f);
             ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
@@ -27,12 +29,6 @@ namespace CalValEX.Items.Equips.Wings
             Item.accessory = true;
         }
 
-        //these wings use the same values as the solar wings
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            player.wingTimeMax = 230;
-        }
-
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
             ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
         {
@@ -41,12 +37,6 @@ namespace CalValEX.Items.Equips.Wings
             maxCanAscendMultiplier = 1f;
             maxAscentMultiplier = 3f;
             constantAscend = 0.135f;
-        }
-
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-        {
-            speed = 9f;
-            acceleration *= 2.5f;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

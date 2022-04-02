@@ -16,6 +16,8 @@ namespace CalValEX.Items.Equips.Wings
             /// ItemID.Sets.AnimatesAsSoul[Item.type] = true;
             ItemID.Sets.ItemIconPulse[Item.type] = false;
             ItemID.Sets.ItemNoGravity[Item.type] = false;
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(60, 1f, 1f);
         }
 
         public override void SetDefaults()
@@ -30,11 +32,6 @@ namespace CalValEX.Items.Equips.Wings
             //Item.vanity = true;
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            player.wingTimeMax = 60;
-        }
-
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
             ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
         {
@@ -43,12 +40,6 @@ namespace CalValEX.Items.Equips.Wings
             maxCanAscendMultiplier = 1f;
             maxAscentMultiplier = 1f;
             constantAscend = 1f;
-        }
-
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-        {
-            speed = 1f;
-            acceleration *= 1f;
         }
 
         /*public override void AddRecipes()

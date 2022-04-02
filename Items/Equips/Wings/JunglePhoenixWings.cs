@@ -2,6 +2,9 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.GameContent.Creative;
 
 namespace CalValEX.Items.Equips.Wings
 {
@@ -12,6 +15,8 @@ namespace CalValEX.Items.Equips.Wings
         {
             DisplayName.SetDefault("Chicken Wings");
             Tooltip.SetDefault("Hot\n" + "Horizontal speed: 11.5\n" + "Acceleration multiplier: 2.9\n" + "Flight time: 140");
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(140, 11.5f, 2.9f);
         }
 
         public override void SetDefaults()
@@ -55,12 +60,6 @@ namespace CalValEX.Items.Equips.Wings
             maxCanAscendMultiplier = 4f;
             maxAscentMultiplier = 6f;
             constantAscend = 0.135f;
-        }
-
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-        {
-            speed = 11.5f;
-            acceleration *= 2.9f;
         }
     }
 }

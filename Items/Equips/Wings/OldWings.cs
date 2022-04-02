@@ -12,6 +12,8 @@ namespace CalValEX.Items.Equips.Wings
         {
             DisplayName.SetDefault("Old Duke Wings");
             Tooltip.SetDefault("Toxic propulsion!\n" + "Horizontal speed: 9.5\n" + "Acceleration multiplier: 2.7\n" + "Flight time: 190");
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(190, 9.5f, 2.7f);
         }
 
         public override void SetDefaults()
@@ -22,11 +24,6 @@ namespace CalValEX.Items.Equips.Wings
             Item.rare = 11;
             Item.accessory = true;
             Item.value = Item.sellPrice(0, 3, 0, 0);
-        }
-
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            player.wingTimeMax = 190;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -57,12 +54,6 @@ namespace CalValEX.Items.Equips.Wings
             maxCanAscendMultiplier = 1f;
             maxAscentMultiplier = 3.1f;
             constantAscend = 0.145f;
-        }
-
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-        {
-            speed = 9.5f;
-            acceleration *= 2.7f;
         }
     }
 }

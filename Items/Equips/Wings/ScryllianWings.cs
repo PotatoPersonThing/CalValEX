@@ -9,7 +9,9 @@ namespace CalValEX.Items.Equips.Wings
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Scryllian Wings");
-            Tooltip.SetDefault("RISE!\n" + "Inflicts intense burns when worn before the flesh wall falls\n" + "Horizontal speed: 6.5\n" + "Flight time: 60");
+            Tooltip.SetDefault("RISE!\n" + "Inflicts intense burns when worn before the flesh wall falls\n" + "Horizontal speed: 6.5\n" + "Acceleration multiplier: 1\n" + "Flight time: 60");
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(60, 6.5f, 1f);
         }
 
         public override void SetDefaults()
@@ -22,9 +24,7 @@ namespace CalValEX.Items.Equips.Wings
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            player.wingTimeMax = 60;
-           
+        {           
             if (!Main.hardMode)
                 player.AddBuff(Terraria.ID.BuffID.CursedInferno, 2);
         }
@@ -36,11 +36,6 @@ namespace CalValEX.Items.Equips.Wings
             maxCanAscendMultiplier = 0.5f;
             maxAscentMultiplier = 1.5f;
             constantAscend = 0.1f;
-        }
-
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-        {
-            speed = 6.5f;
         }
     }
 }

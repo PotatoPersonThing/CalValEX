@@ -12,6 +12,8 @@ namespace CalValEX.Items.Equips.Wings
         {
             DisplayName.SetDefault("Godspeed Boosters");
             Tooltip.SetDefault("Devout propulsion!\n" + "Horizontal speed: 9\n" + "Acceleration multiplier: 2.7\n" + "Flight time: 200");
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(200, 9f, 2.7f);
         }
 
         public override void SetDefaults()
@@ -22,11 +24,6 @@ namespace CalValEX.Items.Equips.Wings
             Item.accessory = true;
             Item.value = Item.sellPrice(0, 3, 0, 0);
            
-        }
-
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            player.wingTimeMax = 200;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -58,25 +55,5 @@ namespace CalValEX.Items.Equips.Wings
             maxAscentMultiplier = 3f;
             constantAscend = 0.135f;
         }
-
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-        {
-            speed = 9f;
-            acceleration *= 2.7f;
-        }
-
-        /*public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-           
-            if (calamityMod != null)
-            {
-                recipe.AddIngredient(mod.ItemType("PlaguePack"), 1);
-                recipe.AddIngredient(calamityMod.ItemType("CosmiliteBar"), 2);
-                recipe.AddTile(calamityMod.TileType("CosmicAnvil"));
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

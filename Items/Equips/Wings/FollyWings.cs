@@ -11,6 +11,8 @@ namespace CalValEX.Items.Equips.Wings
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("Fly like an eagle\n" + "Horizontal speed: 9\n" + "Acceleration multiplier: 2.5\n" + "Flight time: 210");
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(210, 9f, 2.5f);
         }
 
         public override void SetDefaults()
@@ -23,11 +25,6 @@ namespace CalValEX.Items.Equips.Wings
             Item.value = Item.sellPrice(0, 3, 0, 0);
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            player.wingTimeMax = 210;
-        }
-
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
             ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
         {
@@ -36,12 +33,6 @@ namespace CalValEX.Items.Equips.Wings
             maxCanAscendMultiplier = 1f;
             maxAscentMultiplier = 3f;
             constantAscend = 0.135f;
-        }
-
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-        {
-            speed = 9f;
-            acceleration *= 2.5f;
         }
     }
 }

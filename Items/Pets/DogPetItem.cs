@@ -14,6 +14,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Cosmic Rapture");
             Tooltip.SetDefault("Summons the Devourer of the cosmos to follow you");
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()
