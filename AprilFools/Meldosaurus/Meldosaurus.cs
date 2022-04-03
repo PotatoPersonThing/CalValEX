@@ -41,7 +41,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 			NPC.noTileCollide = false;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
-			Music = MusicID.LunarBoss;
+			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/Meldosaurus");
 			NPC.netAlways = true;
 			//NPC.Calamity().canBreakPlayerDefense = true;
 			//NPC.Calamity().DR = 0.1f;

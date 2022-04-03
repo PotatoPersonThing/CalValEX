@@ -2,9 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using Terraria.Audio;
 //using CalValEX.ExtraTextures.ChristmasPets;
 using CalValEX.Biomes;
-/*using CalValEX.Items;
+using Terraria.ModLoader;
+using CalValEX.AprilFools.Meldosaurus;
+using CalValEX.Items;
 using CalValEX.Items.Dyes;
 using CalValEX.Items.Equips.Balloons;
 using CalValEX.Items.Equips.Capes;
@@ -19,7 +22,7 @@ using CalValEX.Items.Equips.Transformations;
 using CalValEX.Items.Equips.Wings;
 using CalValEX.Items.Equips.Blanks;
 using CalValEX.Items.Hooks;
-using CalValEX.Items.LightPets;
+//using CalValEX.Items.LightPets;
 using CalValEX.Items.Mounts;
 using CalValEX.Items.Mounts.LimitedFlight;
 using CalValEX.Items.Mounts.InfiniteFlight;
@@ -28,30 +31,25 @@ using CalValEX.Items.Walls.Astral;
 using CalValEX.Items.Walls;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Plushies;
-using CalValEX.Items.Pets.Elementals;
+//using CalValEX.Items.Pets.Elementals;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
-using CalValEX.Items.Tiles.Plushies;*/
+using CalValEX.Items.Tiles.Plushies;
 using CalValEX.NPCs.Oracle;
 using CalValEX.NPCs.JellyPriest;
 /*using CalValEX.Items.Tiles.Blocks.Astral;
 using CalValEX.Tiles.MiscFurniture;
 using CalValEX.Items.Tiles.FurnitureSets.Astral;*/
-using CalValEX.Items.Equips.Transformations;
-using CalValEX.Items.Equips.Shirts.Draedon;
 using CalValEX.Items.Equips.Legs.Draedon;
-using CalValEX.Items.Equips.Hats.Draedon;
-using CalValEX.Items.Equips.Legs;
-using CalValEX.Items.Equips.Shirts;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Graphics.Shaders;
+using CalValEX.Tiles.MiscFurniture;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.Localization;
-using Terraria.ModLoader;
 //using CalamityMod;
 
 namespace CalValEX
@@ -93,7 +91,7 @@ namespace CalValEX
         public override void Load()
         {
             instance = this;
-            herosmod = ModLoader.GetMod("HEROsMod");
+            ModLoader.TryGetMod("HEROsMod", out Mod herosmod);
            // infernum = ModLoader.GetMod("InfernumMode");
 
             DateTime dateTime = DateTime.Now;
@@ -152,9 +150,9 @@ namespace CalValEX
 
             Filters.Scene["CalValEX:AstralBiome"] = new Filter(new AstralSkyData("FilterMiniTower").UseColor(Color.Purple).UseOpacity(0.15f), EffectPriority.VeryHigh);
             SkyManager.Instance["CalValEX:AstralBiome"] = new AstralSky();
-            
-            //AddMusicBox(GetSoundSlot(SoundType.Music, "Sounds/Music/AstralBlight"), ItemType("AstralMusicBox"), TileType("AstralMusicBoxPlaced"));
-            //AddMusicBox(GetSoundSlot(SoundType.Music, "Sounds/Music/Meldosaurus"), ItemType("MeldosaurusMusicBox"), TileType("MeldosaurusMusicBoxPlaced"));
+
+            MusicLoader.AddMusicBox(CalValEX.instance, MusicLoader.GetMusicSlot(CalValEX.instance, "Sounds/Music/AstralBlight"), ModContent.ItemType<AstralMusicBox>(), ModContent.TileType<AstralMusicBoxPlaced>());
+            MusicLoader.AddMusicBox(CalValEX.instance, MusicLoader.GetMusicSlot(CalValEX.instance, "Sounds/Music/Meldosaurus"), ModContent.ItemType<MeldosaurusMusicBox>(), ModContent.TileType<MeldosaurusMusicBoxPlaced>());
         }
 
         public override void Unload()
@@ -481,7 +479,7 @@ namespace CalValEX
             }
         }
 
-        /*public override void HandlePacket(BinaryReader reader, int whoAmI)
+        public override void HandlePacket(BinaryReader reader, int whoAmI)
         {
             MessageType msgType = (MessageType)reader.ReadByte();
             byte playerNumber;
@@ -538,7 +536,7 @@ namespace CalValEX
                     Logger.WarnFormat("CalValEX: Unknown Message type: {0}", msgType);
                     break;
             }
-        }*/
+        }
 
         /*public override void UpdateMusic(ref int music, ref MusicPriority priority)
         {
