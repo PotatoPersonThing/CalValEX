@@ -15,9 +15,9 @@ namespace CalValEX.Items.Equips.Transformations
 		{
 			if (Main.netMode != NetmodeID.Server)
 			{
-				Mod.AddEquipTexture(this, EquipType.Head, $"{Texture}_{EquipType.Head}");
-				Mod.AddEquipTexture(this, EquipType.Body, $"{Texture}_{EquipType.Body}");
-				Mod.AddEquipTexture(this, EquipType.Legs, $"{Texture}_{EquipType.Legs}");
+				Mod.AddEquipTexture(new EquipTexture(), this, EquipType.Head, $"{Texture}_{EquipType.Head}");
+				Mod.AddEquipTexture(new EquipTexture(), this, EquipType.Body, $"{Texture}_{EquipType.Body}");
+				Mod.AddEquipTexture(new EquipTexture(), this, EquipType.Legs, $"{Texture}_{EquipType.Legs}");
 			}
 		}
 		private void SetupDrawing()
@@ -92,17 +92,5 @@ namespace CalValEX.Items.Equips.Transformations
 				recipe.AddRecipe();
 			}
 		}*/
-	}
-
-	public class SignusHead : EquipTexture
-	{
-	}
-
-	public class SignusBody : EquipTexture
-	{
-	}
-
-	public class SignusLegs : EquipTexture
-	{
 	}
 }

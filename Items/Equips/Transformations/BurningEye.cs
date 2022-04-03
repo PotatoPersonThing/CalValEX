@@ -20,26 +20,14 @@ namespace CalValEX.Items.Equips.Transformations
 			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 5));
 			SetupDrawing();
 		}
-		/*public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			Mod calamityMod = ModLoader.GetMod("CalamityMod");
-			if (calamityMod != null)
-			{
-				recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 18);
-				recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 47);
-				recipe.AddTile(TileID.Anvils);
-				recipe.SetResult(this);
-				recipe.AddRecipe();
-			}
-		}*/
+
 		public override void Load()
 		{
 			if (Main.netMode != NetmodeID.Server)
 			{
-				Mod.AddEquipTexture(new ClassicBrimmyHead(), this, EquipType.Head, $"{Texture}_{EquipType.Head}");
-				Mod.AddEquipTexture(new ClassicBrimmyBody(), this, EquipType.Body, $"{Texture}_{EquipType.Body}");
-				Mod.AddEquipTexture(new ClassicBrimmyLegs(), this, EquipType.Legs, $"{Texture}_{EquipType.Legs}");
+				Mod.AddEquipTexture(new EquipTexture(), this, EquipType.Head, $"{Texture}_{EquipType.Head}");
+				Mod.AddEquipTexture(new EquipTexture(), this, EquipType.Body, $"{Texture}_{EquipType.Body}");
+				Mod.AddEquipTexture(new EquipTexture(), this, EquipType.Legs, $"{Texture}_{EquipType.Legs}");
 			}
 		}
 		private void SetupDrawing()
@@ -60,6 +48,7 @@ namespace CalValEX.Items.Equips.Transformations
 			Item.height = 28;
 			Item.accessory = true;
 			Item.rare = 6;
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			Item.canBePlacedInVanityRegardlessOfConditions = true;
 		}
 
@@ -70,18 +59,5 @@ namespace CalValEX.Items.Equips.Transformations
 			p.classicHide = hideVisual;
 		}
 		public override bool IsVanitySet(int head, int body, int legs) => true;
-
-	}
-
-	public class ClassicBrimmyHead : EquipTexture
-	{
-	}
-
-	public class ClassicBrimmyBody : EquipTexture
-	{
-	}
-
-	public class ClassicBrimmyLegs : EquipTexture
-	{
 	}
 }

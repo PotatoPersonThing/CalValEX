@@ -19,7 +19,7 @@ namespace CalValEX.Items.Equips.Shirts
         {
             if (Main.netMode != NetmodeID.Server)
             {
-                Mod.AddEquipTexture(new BloodyMaryDress_Legs(), this, EquipType.Legs, "CalValEX/Items/Equips/Shirts/BloodyMaryDress_Legs");
+                Mod.AddEquipTexture(new EquipTexture(), this, EquipType.Legs, $"{Texture}_{EquipType.Legs}");
             }
         }
 
@@ -32,11 +32,12 @@ namespace CalValEX.Items.Equips.Shirts
             Item.value = Item.sellPrice(0, 3, 0, 0);
             Terraria.ID.ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = false;
         }
-        public override void SetMatch(bool male, ref int equipSlot, ref bool robes)
+        /*public override void SetMatch(bool male, ref int equipSlot, ref bool robes)
         {
             robes = true;
             equipSlot = Mod.GetEquipSlot("BloodyMaryDress_Legs", EquipType.Legs);
-        }
+        }*/
+
 
         private void SetupDrawing()
         {
@@ -63,19 +64,16 @@ namespace CalValEX.Items.Equips.Shirts
                 }
             }
         }
-        /*public override void AddRecipes()
+        public override void UpdateEquip(Player player)
         {
-            ModRecipe recipe = new ModRecipe(mod);
-           
-            recipe.AddIngredient(calamityMod.ItemType("BloodstoneCore"), 8);
-            recipe.AddIngredient((ItemID.TheBrideDress), 1);
-            recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }*/
-    }
+            var p = player.GetModPlayer<CalValEXPlayer>();
+            p.maryTrans = true;
+        }
 
-    public class BloodyMaryDress_Legs : EquipTexture
-    {
+        public override void UpdateVanity(Player player)
+        {
+            var p = player.GetModPlayer<CalValEXPlayer>();
+            p.maryHide = true;
+        }
     }
 }

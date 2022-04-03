@@ -353,6 +353,12 @@ namespace CalValEX
         public bool sandPrevious;
         public bool sandPower;
         public bool sandTrans;
+        //Bloody mary bools
+        public bool maryHide;
+        public bool maryForce;
+        public bool maryPrevious;
+        public bool maryPower;
+        public bool maryTrans;
         //More stuff ig
         public bool vanityhote;
         public bool vanitysand;
@@ -423,6 +429,8 @@ namespace CalValEX
             cloudTrans = cloudHide = cloudForce = cloudPower = false;
             sandPrevious = sandTrans;
             sandTrans = sandHide = sandForce = sandPower = false;
+            maryPrevious = maryTrans;
+            maryTrans = maryHide = maryForce = maryPower = false;
             ResetMyStuff();
         }
 
@@ -479,6 +487,12 @@ namespace CalValEX
         {
             //Mod calamityMod = ModLoader.GetMod("CalamityMod");
             //Mod antisocial = ModLoader.GetMod("Antisocial");
+            Item mary = Player.armor[11];
+            if (mary.type == ModContent.ItemType<Items.Equips.Shirts.BloodyMaryDress>())
+            {
+                maryHide = false;
+                maryForce = true;
+            }
             for (int n = 13; n < 18 + Player.extraAccessorySlots; n++)
             {
                 Item item = Player.armor[n];
@@ -715,35 +729,45 @@ namespace CalValEX
         }
         public override void FrameEffects()
         {
+            if ((maryTrans || maryForce) && !maryHide)
+            {
+                var costume = GetInstance<Items.Equips.Shirts.BloodyMaryDress>();
+                Player.legs = Mod.GetEquipSlot(costume.Name, EquipType.Legs);
+            }
             if ((signutTrans || signutForce) && !signutHide)
             {
-                Player.legs = Mod.GetEquipSlot("SignusLegs", EquipType.Legs);
-                Player.body = Mod.GetEquipSlot("SignusBody", EquipType.Body);
-                Player.head = Mod.GetEquipSlot("SignusHead", EquipType.Head);
+                var costume = GetInstance<Signus>();
+                Player.head = Mod.GetEquipSlot(costume.Name, EquipType.Head);
+                Player.body = Mod.GetEquipSlot(costume.Name, EquipType.Body);
+                Player.legs = Mod.GetEquipSlot(costume.Name, EquipType.Legs);
             }
             else if ((androTrans || androForce) && !androHide)
             {
-                Player.legs = Mod.GetEquipSlot("TinyIbanRobotOfDoomLegs", EquipType.Legs);
-                Player.body = Mod.GetEquipSlot("TinyIbanRobotOfDoomBody", EquipType.Body);
-                Player.head = Mod.GetEquipSlot("TinyIbanRobotOfDoomHead", EquipType.Head);
+                var costume = GetInstance<ProtoRing>();
+                Player.head = Mod.GetEquipSlot(costume.Name, EquipType.Head);
+                Player.body = Mod.GetEquipSlot(costume.Name, EquipType.Body);
+                Player.legs = Mod.GetEquipSlot(costume.Name, EquipType.Legs);
             }
             else if ((classicTrans || classicForce) && !classicHide)
             {
-                Player.legs = Mod.GetEquipSlot("ClassicBrimmyLegs", EquipType.Legs);
-                Player.body = Mod.GetEquipSlot("ClassicBrimmyBody", EquipType.Body);
-                Player.head = Mod.GetEquipSlot("ClassicBrimmyHead", EquipType.Head);
+                var costume = GetInstance<BurningEye>();
+                Player.head = Mod.GetEquipSlot(costume.Name, EquipType.Head);
+                Player.body = Mod.GetEquipSlot(costume.Name, EquipType.Body);
+                Player.legs = Mod.GetEquipSlot(costume.Name, EquipType.Legs);
             }
             else if ((cloudTrans || cloudForce) && !cloudHide)
             {
-                Player.legs = Mod.GetEquipSlot("CloudLegs", EquipType.Legs);
-                Player.body = Mod.GetEquipSlot("CloudBody", EquipType.Body);
-                Player.head = Mod.GetEquipSlot("CloudHead", EquipType.Head);
+                var costume = GetInstance<CloudWaistbelt>();
+                Player.head = Mod.GetEquipSlot(costume.Name, EquipType.Head);
+                Player.body = Mod.GetEquipSlot(costume.Name, EquipType.Body);
+                Player.legs = Mod.GetEquipSlot(costume.Name, EquipType.Legs);
             }
             else if ((sandTrans || sandForce) && !sandHide)
             {
-                Player.legs = Mod.GetEquipSlot("SandLegs", EquipType.Legs);
-                Player.body = Mod.GetEquipSlot("SandBody", EquipType.Body);
-                Player.head = Mod.GetEquipSlot("SandHead", EquipType.Head);
+                var costume = GetInstance<SandyBangles>();
+                Player.head = Mod.GetEquipSlot(costume.Name, EquipType.Head);
+                Player.body = Mod.GetEquipSlot(costume.Name, EquipType.Body);
+                Player.legs = Mod.GetEquipSlot(costume.Name, EquipType.Legs);
             }
             if (wulfrumjam)
             {

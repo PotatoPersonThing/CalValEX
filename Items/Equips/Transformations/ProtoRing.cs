@@ -53,9 +53,9 @@ namespace CalValEX.Items.Equips.Transformations
 		{
 			if (Main.netMode != NetmodeID.Server)
 			{
-				Mod.AddEquipTexture(new TinyIbanRobotOfDoomHead(), this, EquipType.Head, $"{Texture}_{EquipType.Head}");
-				Mod.AddEquipTexture(new TinyIbanRobotOfDoomBody(), this, EquipType.Body, $"{Texture}_{EquipType.Body}");
-				Mod.AddEquipTexture(new TinyIbanRobotOfDoomLegs(), this, EquipType.Legs, $"{Texture}_{EquipType.Legs}");
+				Mod.AddEquipTexture(new EquipTexture(), this, EquipType.Head, $"{Texture}_{EquipType.Head}");
+				Mod.AddEquipTexture(new EquipTexture(), this, EquipType.Body, $"{Texture}_{EquipType.Body}");
+				Mod.AddEquipTexture(new EquipTexture(), this, EquipType.Legs, $"{Texture}_{EquipType.Legs}");
 			}
 		}
 		private void SetupDrawing()
@@ -87,17 +87,5 @@ namespace CalValEX.Items.Equips.Transformations
 		}
 		public override bool IsVanitySet(int head, int body, int legs) => true;
 
-	}
-
-	public class TinyIbanRobotOfDoomHead : EquipTexture
-	{
-	}
-
-	public class TinyIbanRobotOfDoomBody : EquipTexture
-	{
-	}
-
-	public class TinyIbanRobotOfDoomLegs : EquipTexture
-	{
 	}
 }

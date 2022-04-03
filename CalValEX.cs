@@ -92,7 +92,7 @@ namespace CalValEX
         {
             instance = this;
             ModLoader.TryGetMod("HEROsMod", out Mod herosmod);
-           // infernum = ModLoader.GetMod("InfernumMode");
+            //infernum = ModLoader.GetMod("InfernumMode");
 
             DateTime dateTime = DateTime.Now;
             currentDate = dateTime.ToString("dd/MM/yyyy");
@@ -101,52 +101,8 @@ namespace CalValEX
 
             if (Main.dedServ)
                 return;
-            /*AddEquipTexture(ModContent.ItemType<ProtoRing>(), EquipType.Head, "CalValEX/Items/Equips/Transformations/ProtoRing_Head");
-           AddEquipTexture(null, EquipType.Legs, "BloodyMaryDress_Legs", "CalValEX/Items/Equips/Shirts/BloodyMaryDress_Legs");
-            //Signus transformation
-            AddEquipTexture(new SignusHead(), null, EquipType.Head, "SignusHead", "CalValEX/Items/Equips/Transformations/SignusTrans_Head");
-            AddEquipTexture(new SignusBody(), null, EquipType.Body, "SignusBody", "CalValEX/Items/Equips/Transformations/SignusTrans_Body", "CalValEX/Items/Equips/Transformations/SignusTrans_Arms");
-            AddEquipTexture(new SignusLegs(), null, EquipType.Legs, "SignusLegs", "CalValEX/Items/Equips/Transformations/SignusTrans_Legs");
-            //TinyIbanRobotofDoom
-            AddEquipTexture(new TinyIbanRobotOfDoomHead(), null, EquipType.Head, "TinyIbanRobotOfDoomHead", "CalValEX/Items/Equips/Transformations/TinyIbanRobotOfDoom_Head");
-            AddEquipTexture(new TinyIbanRobotOfDoomBody(), null, EquipType.Body, "TinyIbanRobotOfDoomBody", "CalValEX/Items/Equips/Transformations/TinyIbanRobotOfDoom_Body", "CalValEX/Items/Equips/Transformations/TinyIbanRobotOfDoom_Arms");
-            AddEquipTexture(new TinyIbanRobotOfDoomLegs(), null, EquipType.Legs, "TinyIbanRobotOfDoomLegs", "CalValEX/Items/Equips/Transformations/TinyIbanRobotOfDoom_Legs");
-            //Classic Brimmy
-            AddEquipTexture(new ClassicBrimmyHead(), null, EquipType.Head, "ClassicBrimmyHead", "CalValEX/Items/Equips/Transformations/ClassicBrimmy_Head");
-            AddEquipTexture(new ClassicBrimmyBody(), null, EquipType.Body, "ClassicBrimmyBody", "CalValEX/Items/Equips/Transformations/ClassicBrimmy_Body", "CalValEX/Items/Equips/Transformations/ClassicBrimmy_Arms");
-            AddEquipTexture(new ClassicBrimmyLegs(), null, EquipType.Legs, "ClassicBrimmyLegs", "CalValEX/Items/Equips/Transformations/ClassicBrimmy_Legs");
-            //Cloud transformation
-            AddEquipTexture(new CloudHead(), null, EquipType.Head, "CloudHead", "CalValEX/Items/Equips/Transformations/Cloud_Head");
-            AddEquipTexture(new CloudBody(), null, EquipType.Body, "CloudBody", "CalValEX/Items/Equips/Transformations/Cloud_Body", "CalValEX/Items/Equips/Transformations/Cloud_Arms");
-            AddEquipTexture(new CloudLegs(), null, EquipType.Legs, "CloudLegs", "CalValEX/Items/Equips/Transformations/Cloud_Legs");
-            //Sand transformation
-            AddEquipTexture(new SandHead(), null, EquipType.Head, "SandHead", "CalValEX/Items/Equips/Transformations/Sand_Head");
-            AddEquipTexture(new SandBody(), null, EquipType.Body, "SandBody", "CalValEX/Items/Equips/Transformations/Sand_Body", "CalValEX/Items/Equips/Transformations/Sand_Arms");
-            AddEquipTexture(new SandLegs(), null, EquipType.Legs, "SandLegs", "CalValEX/Items/Equips/Transformations/Sand_Legs");
-            //Blanks
-            AddEquipTexture(new BlankWings(), null, EquipType.Wings, "BlankWings", "CalValEX/Items/Equips/Shields/Invishield_Shield");
-          */
-            /*GameShaders.Armor.BindShader(ModContent.ItemType<DraedonHologramDye>(),
-                new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/DraedonHologramDye")),
-                    "DraedonHologramDyePass"));
-            GameShaders.Armor.BindShader(ModContent.ItemType<BlightedAstralDye>(),
-                new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/BlightedDye")),
-                    "BlightedAstralDyePass")).UseColor(0.9882f, 0.7804f, 0.9686f).UseSecondaryColor(0.9098f, 0.5294f, 0.9764f); //UseColor - the rgb code for blight yel. UseSecondaryColor - the rgb code for blight puro.
-            //
-            GameShaders.Armor.BindShader(ModContent.ItemType<BlightedAstralPinkDye>(),
-                new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/BlightedPinkDye")),
-                    "BlightedAstralPinkDyePass")).UseColor(0.4431f, 0.3019f, 0.5725f).UseSecondaryColor(0.6235f, 0.3647f, 0.6666f); //UseColor - the rgb code for blight purple. UseSecondaryColor - the rgb code for blight darker purple.
-            GameShaders.Armor.BindShader(ModContent.ItemType<BlightedAstralYellowDye>(),
-                new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/BlightedYellowDye")),
-                "BlightedAstralYellowDyePass")).UseColor(0.8588f, 0.5725f, 0.1137f).UseSecondaryColor(1f, 0.8588f, 0.3098f); //UseColor - the rgb code for blight darker yellow. UseSecondaryColor - the rgb code for blight yellow.
-                                                                                                                             //GameShaders.Armor.BindShader(ModContent.ItemType<BlightedAstralPinkDye>(),
-                                                                                                                             // new ArmorShaderData(new Ref<Effect>(GetEffect("Effects/AstralBlightPurple")),
-                                                                                                                             //  "AstralBlightPurplePass")).UseColor(0.8588f, 0.5725f, 0.1137f).UseSecondaryColor(1f, 0.8588f, 0.3098f); //UseColor - the rgb code for blight darker yellow. UseSecondaryColor - the rgb code for blight yellow.
-
-            */
-            
             DraedonHelmetTextureCache.Load();
-           DraedonChestplateCache.Load();
+            DraedonChestplateCache.Load();
 
             Filters.Scene["CalValEX:AstralBiome"] = new Filter(new AstralSkyData("FilterMiniTower").UseColor(Color.Purple).UseOpacity(0.15f), EffectPriority.VeryHigh);
             SkyManager.Instance["CalValEX:AstralBiome"] = new AstralSky();

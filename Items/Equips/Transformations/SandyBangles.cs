@@ -34,9 +34,9 @@ namespace CalValEX.Items.Equips.Transformations
 		{
 			if (Main.netMode != NetmodeID.Server)
 			{
-				Mod.AddEquipTexture(new SandHead(), this, EquipType.Head, $"{Texture}_{EquipType.Head}");
-				Mod.AddEquipTexture(new SandBody(), this, EquipType.Body, $"{Texture}_{EquipType.Body}");
-				Mod.AddEquipTexture(new SandLegs(), this, EquipType.Legs, $"{Texture}_{EquipType.Legs}");
+				Mod.AddEquipTexture(new EquipTexture(), this, EquipType.Head, $"{Texture}_{EquipType.Head}");
+				Mod.AddEquipTexture(new EquipTexture(), this, EquipType.Body, $"{Texture}_{EquipType.Body}");
+				Mod.AddEquipTexture(new EquipTexture(), this, EquipType.Legs, $"{Texture}_{EquipType.Legs}");
 			}
 		}
 		private void SetupDrawing()
@@ -68,17 +68,5 @@ namespace CalValEX.Items.Equips.Transformations
 		}
 		public override bool IsVanitySet(int head, int body, int legs) => true;
 
-	}
-
-	public class SandHead : EquipTexture
-	{
-	}
-
-	public class SandBody : EquipTexture
-	{
-	}
-
-	public class SandLegs : EquipTexture
-	{
 	}
 }
