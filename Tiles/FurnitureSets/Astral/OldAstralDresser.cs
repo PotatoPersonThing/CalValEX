@@ -25,8 +25,6 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
             TileObjectData.newTile.Origin = new Point16(1, 1);
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16 };
-            TileObjectData.newTile.HookCheck = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
-            TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.AfterPlacement_Hook), -1, 0, false);
             TileObjectData.newTile.AnchorInvalidTiles = new[] { 127 };
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.LavaDeath = false;
@@ -38,7 +36,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             AddMapEntry(new Color(139, 0, 0), name);
             
             AdjTiles = new int[] { TileID.Dressers };
-            dresser = "Xenomonolith Dresser";
+            ContainerName.SetDefault("Xenomonolith Dresser");
             DresserDrop = ModContent.ItemType<OldAstralDresserItem>();
         }
 
@@ -152,27 +150,27 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             player.cursorItemIconID = -1;
             if (chestIndex < 0)
             {
-                player.showItemIconText = Language.GetTextValue("LegacyDresserType.0");
+                player.cursorItemIconText = Language.GetTextValue("LegacyDresserType.0");
             }
             else
             {
                 if (Main.chest[chestIndex].name != "")
                 {
-                    player.showItemIconText = Main.chest[chestIndex].name;
+                    player.cursorItemIconText = Main.chest[chestIndex].name;
                 }
                 else
                 {
-                    player.showItemIconText = chest;
+                    player.cursorItemIconText = chest;
                 }
-                if (player.showItemIconText == chest)
+                if (player.cursorItemIconText == dresser)
                 {
                     player.cursorItemIconID = ModContent.ItemType<OldAstralDresserItem>();
-                    player.showItemIconText = "";
+                    player.cursorItemIconText = "";
                 }
             }
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            if (player.showItemIconText == "")
+            if (player.cursorItemIconText == "")
             {
                 player.showItemIcon = false;
                 player.cursorItemIconID = 0;
@@ -194,22 +192,22 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             player.cursorItemIconID = -1;
             if (num138 < 0)
             {
-                player.showItemIconText = Language.GetTextValue("LegacyDresserType.0");
+                player.cursorItemIconText = Language.GetTextValue("LegacyDresserType.0");
             }
             else
             {
                 if (Main.chest[num138].name != "")
                 {
-                    player.showItemIconText = Main.chest[num138].name;
+                    player.cursorItemIconText = Main.chest[num138].name;
                 }
                 else
                 {
-                    player.showItemIconText = chest;
+                    player.cursorItemIconText = chest;
                 }
-                if (player.showItemIconText == chest)
+                if (player.cursorItemIconText == chest)
                 {
                     player.cursorItemIconID = ModContent.ItemType<OldAstralDresserItem>();
-                    player.showItemIconText = "";
+                    player.cursorItemIconText = "";
                 }
             }
             player.noThrow = 2;

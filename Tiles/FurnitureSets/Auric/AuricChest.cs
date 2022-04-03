@@ -1,4 +1,4 @@
-﻿/*using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.DataStructures;
@@ -22,30 +22,33 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             Main.tileShine[Type] = 1200;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
-            Main.tileValue[Type] = 500;
+            Main.tileOreFinderPriority[Type] = 500;
             TileID.Sets.HasOutlines[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
-            TileObjectData.newTile.Origin = new Point16(0, 1);
-            TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
-            TileObjectData.newTile.HookCheck = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
-            TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.AfterPlacement_Hook), -1, 0, false);
-            TileObjectData.newTile.AnchorInvalidTiles = new[] { 127 };
-            TileObjectData.newTile.StyleHorizontal = true;
-            TileObjectData.newTile.LavaDeath = false;
-            TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
-            TileObjectData.addTile(Type);
+            TileID.Sets.BasicChest[Type] = true;
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Auric Chest");
             AddMapEntry(new Color(36, 18, 38), name, MapChestName);
             
             AdjTiles = new int[] { TileID.Containers };
-            chest = "Auric Chest";
+            ContainerName.SetDefault("Auric Chest");
             ChestDrop = ModContent.ItemType<AuricChestItem>();
+
+
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
+            TileObjectData.newTile.Origin = new Point16(0, 1);
+            TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
+            TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook(Chest.FindEmptyChest, -1, 0, true);
+            TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(Chest.AfterPlacement_Hook, -1, 0, false);
+            TileObjectData.newTile.AnchorInvalidTiles = new int[] { TileID.MagicalIceBlock };
+            TileObjectData.newTile.StyleHorizontal = true;
+            TileObjectData.newTile.LavaDeath = false;
+            TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
+            TileObjectData.addTile(Type);
         }
-        public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
+        /*public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
-            CalValEXGlobalTile.ChestGlowmask(i, j, ModContent.Request<Texture2D>("CalValEX/Tiles/FurnitureSets/Auric/AuricChest_Glow"), spriteBatch);
-        }
+            CalValEXGlobalTile.ChestGlowmask(i, j, ModContent.Request<Texture2D>("CalValEX/Tiles/FurnitureSets/Auric/AuricChest_Glow").Value, spriteBatch);
+        }*/
 
         public override ushort GetMapOption(int i, int j) => (ushort)(Main.tile[i, j].TileFrameX / 36);
 
@@ -181,15 +184,15 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             player.cursorItemIconID = -1;
             if (chest < 0)
             {
-                player.showItemIconText = Language.GetTextValue("LegacyChestType.0");
+                player.cursorItemIconText = Language.GetTextValue("LegacyChestType.0");
             }
             else
             {
-                player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Auric Chest";
-                if (player.showItemIconText == "Auric Chest")
+                player.cursorItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Auric Chest";
+                if (player.cursorItemIconText == "Auric Chest")
                 {
                     player.cursorItemIconID = ModContent.ItemType<AuricChestItem>();
-                    player.showItemIconText = "";
+                    player.cursorItemIconText = "";
                 }
             }
             player.noThrow = 2;
@@ -200,11 +203,11 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
         {
             MouseOver(i, j);
             Player player = Main.LocalPlayer;
-            if (player.showItemIconText == "")
+            if (player.cursorItemIconText == "")
             {
-                player.showItemIcon = false;
+                player.cursorItemIconEnabled = false;
                 player.cursorItemIconID = 0;
             }
         }
     }
-}*/
+}

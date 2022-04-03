@@ -24,7 +24,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Auric
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 500;
-            //Item.createTile = ModContent.TileType<AuricChest>();
+            Item.createTile = ModContent.TileType<AuricChest>();
         }
 
         /*public override void AddRecipes()

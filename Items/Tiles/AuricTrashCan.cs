@@ -24,7 +24,7 @@ namespace CalValEX.Items.Tiles
             Item.autoReuse = true;
             Item.maxStack = 99;
             Item.consumable = true;
-            //Item.createTile = ModContent.TileType<AuricTrashCanPlaced>();
+            Item.createTile = ModContent.TileType<AuricTrashCanPlaced>();
             Item.width = 12;
             Item.height = 12;
             Item.rare = 11;

@@ -38,7 +38,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             AddMapEntry(new Color(94, 39, 93), name);
             
             AdjTiles = new int[] { TileID.Dressers };
-            dresser = "Phantowax Dresser";
+            ContainerName.SetDefault("Phantowax Dresser");
             DresserDrop = ModContent.ItemType<PhantowaxDresserItem>();
         }
 
@@ -152,27 +152,27 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             player.cursorItemIconID = -1;
             if (chestIndex < 0)
             {
-                player.showItemIconText = Language.GetTextValue("LegacyDresserType.0");
+                player.cursorItemIconText = Language.GetTextValue("LegacyDresserType.0");
             }
             else
             {
                 if (Main.chest[chestIndex].name != "")
                 {
-                    player.showItemIconText = Main.chest[chestIndex].name;
+                    player.cursorItemIconText = Main.chest[chestIndex].name;
                 }
                 else
                 {
-                    player.showItemIconText = chest;
+                    player.cursorItemIconText = chest;
                 }
-                if (player.showItemIconText == chest)
+                if (player.cursorItemIconText == chest)
                 {
                     player.cursorItemIconID = ModContent.ItemType<PhantowaxDresserItem>();
-                    player.showItemIconText = "";
+                    player.cursorItemIconText = "";
                 }
             }
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            if (player.showItemIconText == "")
+            if (player.cursorItemIconText == "")
             {
                 player.showItemIcon = false;
                 player.cursorItemIconID = 0;
@@ -194,22 +194,22 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             player.cursorItemIconID = -1;
             if (num138 < 0)
             {
-                player.showItemIconText = Language.GetTextValue("LegacyDresserType.0");
+                player.cursorItemIconText = Language.GetTextValue("LegacyDresserType.0");
             }
             else
             {
                 if (Main.chest[num138].name != "")
                 {
-                    player.showItemIconText = Main.chest[num138].name;
+                    player.cursorItemIconText = Main.chest[num138].name;
                 }
                 else
                 {
-                    player.showItemIconText = chest;
+                    player.cursorItemIconText = chest;
                 }
-                if (player.showItemIconText == chest)
+                if (player.cursorItemIconText == chest)
                 {
                     player.cursorItemIconID = ModContent.ItemType<PhantowaxDresserItem>();
-                    player.showItemIconText = "";
+                    player.cursorItemIconText = "";
                 }
             }
             player.noThrow = 2;

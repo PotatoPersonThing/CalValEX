@@ -24,7 +24,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
             Item.value = 500;
-           // Item.createTile = ModContent.TileType<BloodstoneChest>();
+            Item.createTile = ModContent.TileType<BloodstoneChest>();
         }
 
         /*public override void AddRecipes()

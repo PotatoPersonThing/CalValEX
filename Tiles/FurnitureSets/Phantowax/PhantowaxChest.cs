@@ -1,4 +1,4 @@
-﻿/*using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.DataStructures;
@@ -21,25 +21,27 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             Main.tileShine[Type] = 1200;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
-            Main.tileValue[Type] = 500;
-            TileID.Sets.HasOutlines[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
-            TileObjectData.newTile.Origin = new Point16(0, 1);
-            TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
-            TileObjectData.newTile.HookCheck = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
-            TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(new Func<int, int, int, int, int, int>(Chest.AfterPlacement_Hook), -1, 0, false);
-            TileObjectData.newTile.AnchorInvalidTiles = new[] { 127 };
-            TileObjectData.newTile.StyleHorizontal = true;
-            TileObjectData.newTile.LavaDeath = false;
-            TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
-            TileObjectData.addTile(Type);
+            Main.tileOreFinderPriority[Type] = 500;
+            TileID.Sets.BasicChest[Type] = true;
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Phantowax Chest");
             AddMapEntry(new Color(36, 18, 38), name, MapChestName);
             
             AdjTiles = new int[] { TileID.Containers };
-            chest = "Phantowax Chest";
+            ContainerName.SetDefault("Phantowax Chest");
             ChestDrop = ModContent.ItemType<PhantowaxChestItem>();
+
+
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
+            TileObjectData.newTile.Origin = new Point16(0, 1);
+            TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
+            TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook(Chest.FindEmptyChest, -1, 0, true);
+            TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(Chest.AfterPlacement_Hook, -1, 0, false);
+            TileObjectData.newTile.AnchorInvalidTiles = new int[] { TileID.MagicalIceBlock };
+            TileObjectData.newTile.StyleHorizontal = true;
+            TileObjectData.newTile.LavaDeath = false;
+            TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
+            TileObjectData.addTile(Type);
         }
 
         public override ushort GetMapOption(int i, int j) => (ushort)(Main.tile[i, j].TileFrameX / 36);
@@ -158,7 +160,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             return true;
         }
 
-        public override void MouseOver(int i, int j)
+		public override void MouseOver(int i, int j) 
         {
             Player player = Main.LocalPlayer;
             Tile tile = Main.tile[i, j];
@@ -168,38 +170,41 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             {
                 left--;
             }
+
             if (tile.TileFrameY != 0)
             {
                 top--;
             }
+
             int chest = Chest.FindChest(left, top);
-            player.cursorItemIconID = -1;
             if (chest < 0)
             {
-                player.showItemIconText = Language.GetTextValue("LegacyChestType.0");
+                player.cursorItemIconText = Language.GetTextValue("LegacyChestType.0");
             }
             else
             {
-                player.showItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Phantowax Chest";
-                if (player.showItemIconText == "Phantowax Chest")
+                player.cursorItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Phantowax Chest";
+                if (player.cursorItemIconText == "Example Chest")
                 {
                     player.cursorItemIconID = ModContent.ItemType<PhantowaxChestItem>();
-                    player.showItemIconText = "";
+
+                    player.cursorItemIconText = "";
                 }
             }
+
             player.noThrow = 2;
-            player.cursorItemIconEnabled = true;
+            player.cursorItemIconEnabled = false;
         }
 
         public override void MouseOverFar(int i, int j)
         {
             MouseOver(i, j);
             Player player = Main.LocalPlayer;
-            if (player.showItemIconText == "")
+            if (player.cursorItemIconText == "")
             {
-                player.showItemIcon = false;
+                player.cursorItemIconEnabled = false;
                 player.cursorItemIconID = 0;
             }
         }
     }
-}*/
+}
