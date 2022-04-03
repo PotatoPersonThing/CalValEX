@@ -16,6 +16,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileTable[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x1);
             TileObjectData.newTile.Width = 2;

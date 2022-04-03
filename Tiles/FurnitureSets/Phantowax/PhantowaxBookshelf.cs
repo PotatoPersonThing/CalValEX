@@ -14,6 +14,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
         {
             Main.tileSolidTop[Type] = true;
             Main.tileFrameImportant[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileTable[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall

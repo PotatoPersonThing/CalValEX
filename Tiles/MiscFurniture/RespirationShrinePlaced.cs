@@ -15,6 +15,7 @@ namespace CalValEX.Tiles.MiscFurniture
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = false;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileLavaDeath[Type] = false;
             Main.tileFrameImportant[Type] = true;
             TileID.Sets.HasOutlines[Type] = false;
@@ -154,7 +155,7 @@ namespace CalValEX.Tiles.MiscFurniture
                 Color color = Color.White;
                 Vector2 origin = new Vector2(auraTexture.Width, auraTexture.Height);
 
-                //if (!tile.halfBrick() && tile.slope() == 0)
+                if (!tile.IsHalfBlock)
                 {
                     if (Main.tile[i, j].TileFrameY < 72)
                     {

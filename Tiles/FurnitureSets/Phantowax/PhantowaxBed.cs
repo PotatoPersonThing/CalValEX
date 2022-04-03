@@ -15,6 +15,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileID.Sets.HasOutlines[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2);
             TileObjectData.newTile.Width = 4;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
             TileObjectData.addTile(Type);

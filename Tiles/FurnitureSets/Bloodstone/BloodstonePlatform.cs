@@ -16,6 +16,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             Main.tileSolidTop[Type] = true;
             Main.tileSolid[Type] = true;
             Main.tileNoAttach[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileTable[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileID.Sets.Platforms[Type] = true;

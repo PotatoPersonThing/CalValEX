@@ -16,6 +16,7 @@ namespace CalValEX.Tiles.Monoliths
         {
             Main.tileFrameImportant[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.Width = 3;
             TileObjectData.newTile.Height = 5;
             TileObjectData.newTile.Origin = new Point16(1, 2);

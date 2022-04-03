@@ -23,6 +23,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileID.Sets.DrawsWalls[Type] = true;
             TileID.Sets.HasOutlines[Type] = true;
             TileObjectData.newTile.Width = 1;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.Origin = new Point16(0, 0);
             TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);

@@ -17,6 +17,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             // Main.tileFlame[Type] = true; This breaks it.
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileNoAttach[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.StyleOnTable1x1);
             TileObjectData.newTile.Width = 1;

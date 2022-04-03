@@ -20,6 +20,7 @@ namespace CalValEX.Tiles.MiscFurniture
             Main.tileShine2[Type] = true;
             Main.tileShine[Type] = 1200;
             Main.tileFrameImportant[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileNoAttach[Type] = true;
             TileID.Sets.BasicChest[Type] = true;
             Main.tileOreFinderPriority[Type] = 500;

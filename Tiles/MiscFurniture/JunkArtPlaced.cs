@@ -12,6 +12,7 @@ namespace CalValEX.Tiles.MiscFurniture
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
             TileObjectData.newTile.Width = 3;

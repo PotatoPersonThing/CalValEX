@@ -18,6 +18,7 @@ namespace CalValEX.Tiles.Banners
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
             TileObjectData.newTile.Width = 3;
             TileObjectData.newTile.Height = 5;

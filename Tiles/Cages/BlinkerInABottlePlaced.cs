@@ -19,6 +19,7 @@ namespace CalValEX.Tiles.Cages
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
             TileObjectData.addTile(Type);

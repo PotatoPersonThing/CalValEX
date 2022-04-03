@@ -14,6 +14,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileLavaDeath[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2);
             TileObjectData.newTile.Width = 4;
             TileObjectData.newTile.Height = 2;

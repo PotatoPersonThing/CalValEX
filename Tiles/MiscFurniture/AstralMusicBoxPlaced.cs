@@ -16,6 +16,7 @@ namespace CalValEX.Tiles.MiscFurniture
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
 			TileObjectData.newTile.Origin = new Point16(0, 1);
 			TileObjectData.newTile.LavaDeath = false;
+			Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
 			TileObjectData.newTile.DrawYOffset = 2;
 			TileObjectData.addTile(Type);
 			ModTranslation name = CreateMapEntryName();

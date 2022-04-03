@@ -15,6 +15,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             Main.tileFrameImportant[Type] = true;
             TileID.Sets.HasOutlines[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2);
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();

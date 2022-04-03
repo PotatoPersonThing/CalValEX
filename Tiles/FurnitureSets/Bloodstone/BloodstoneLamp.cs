@@ -16,6 +16,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
         {
             // Main.tileFlame[Type] = true; This breaks it.
             Main.tileLighted[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);

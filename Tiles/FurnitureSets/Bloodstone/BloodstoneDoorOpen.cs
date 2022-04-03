@@ -17,6 +17,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             Main.tileSolid[Type] = false;
             Main.tileNoSunLight[Type] = true;
             TileObjectData.newTile.Width = 2;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.Origin = new Point16(0, 0);
             TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile, 1, 0);

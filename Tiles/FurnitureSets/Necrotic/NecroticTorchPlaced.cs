@@ -18,6 +18,7 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileSolid[Type] = false;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileNoFail[Type] = true;
             Main.tileWaterDeath[Type] = true;

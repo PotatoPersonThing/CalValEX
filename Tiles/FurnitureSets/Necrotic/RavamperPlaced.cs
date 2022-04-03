@@ -1,4 +1,4 @@
-/*using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
@@ -18,6 +18,7 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
             Main.tileLavaDeath[Type] = true;
             Main.tileFrameImportant[Type] = true;
             TileID.Sets.HasOutlines[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
             TileObjectData.newTile.Width = 3;
@@ -49,15 +50,7 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
         public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
         {
             Tile tile = Main.tile[i, j];
-            Texture2D texture;
-            if (Main.canDrawColorTile(i, j))
-            {
-                texture = Main.tileAltTexture[Type, (int)tile.color()];
-            }
-            else
-            {
-                texture = Main.tileTexture[Type];
-            }
+            Texture2D texture = Request<Texture2D>("CalValEX/Tiles/FurnitureSets/Necrotic/RavamperPlaced").Value;
             Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
             if (Main.drawToScreen)
             {
@@ -118,11 +111,7 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
             {
                 for (int m = y; m < y + 2; m++)
                 {
-                    if (Main.tile[l, m] == null)
-                    {
-                        Main.tile[l, m] = new Tile();
-                    }
-                    if (Main.tile[l, m].active() && Main.tile[l, m].type == Type)
+                    if (Main.tile[l, m].TileType == Type)
                     {
                         if (Main.tile[l, m].TileFrameY < 36)
                         {
@@ -147,4 +136,4 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
             NetMessage.SendTileSquare(-1, x, y + 1, 3);
         }
     }
-}*/
+}

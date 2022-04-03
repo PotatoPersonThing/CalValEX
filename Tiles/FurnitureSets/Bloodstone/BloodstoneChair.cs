@@ -14,6 +14,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2);
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };

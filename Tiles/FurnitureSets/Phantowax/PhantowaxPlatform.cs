@@ -18,6 +18,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             Main.tileNoAttach[Type] = true;
             Main.tileTable[Type] = true;
             Main.tileLavaDeath[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileID.Sets.Platforms[Type] = true;
             TileObjectData.newTile.CoordinateHeights = new[] { 16 };
             TileObjectData.newTile.CoordinateWidth = 16;

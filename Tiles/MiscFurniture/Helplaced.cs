@@ -14,6 +14,7 @@ namespace CalValEX.Tiles.MiscFurniture
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall
             TileID.Sets.HasOutlines[Type] = true;

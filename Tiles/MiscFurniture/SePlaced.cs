@@ -18,6 +18,7 @@ namespace CalValEX.Tiles.MiscFurniture
         int negavar;
         public override void SetStaticDefaults()
         {
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileLavaDeath[Type] = true;

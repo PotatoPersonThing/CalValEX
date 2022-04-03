@@ -19,6 +19,7 @@ namespace CalValEX.Tiles.Balloons
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2);
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 }; //
+            TileID.Sets.DisableSmartCursor[Type] = true;
             AnimationFrameHeight = 54;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();

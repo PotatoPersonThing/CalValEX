@@ -17,6 +17,7 @@ namespace CalValEX.Tiles.Cages
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16 };

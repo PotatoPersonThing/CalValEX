@@ -20,6 +20,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             Main.tileNoAttach[Type] = true;
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1xX);
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Xenomonolith Lamp");

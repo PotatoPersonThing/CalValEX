@@ -14,6 +14,7 @@ namespace CalValEX.Tiles.Monoliths
         public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
             TileObjectData.newTile.Width = 2;
             TileObjectData.newTile.Height = 3;

@@ -13,7 +13,8 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
-            TileID.Sets.HasOutlines[Type] = true;
+			Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+			TileID.Sets.HasOutlines[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
             TileObjectData.newTile.Height = 5;
 			TileID.Sets.Clock[Type] = true;

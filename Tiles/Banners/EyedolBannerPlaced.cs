@@ -16,6 +16,7 @@ namespace CalValEX.Tiles.Banners
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 16 };

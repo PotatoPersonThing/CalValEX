@@ -18,6 +18,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             // Main.tileFlame[Type] = true; This breaks it.
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileNoAttach[Type] = true;
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1xX);

@@ -18,6 +18,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.StyleOnTable1x1);
             TileObjectData.newTile.Width = 1;
             TileObjectData.newTile.Height = 1;

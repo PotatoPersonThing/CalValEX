@@ -17,6 +17,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileTable[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
             TileObjectData.newTile.Width = 3;

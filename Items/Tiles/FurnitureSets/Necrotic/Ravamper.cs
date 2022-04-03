@@ -22,7 +22,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
             Item.autoReuse = true;
             Item.maxStack = 99;
             Item.consumable = true;
-            //Item.createTile = ModContent.TileType<RavamperPlaced>();
+            Item.createTile = ModContent.TileType<RavamperPlaced>();
             Item.width = 12;
             Item.height = 12;
             Item.rare = 9;

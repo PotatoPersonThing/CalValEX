@@ -11,6 +11,7 @@ namespace CalValEX.Tiles.Plushies
     {
         public override void SetStaticDefaults()
         {
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileObsidianKill[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
