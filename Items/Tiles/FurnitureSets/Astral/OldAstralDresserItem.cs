@@ -21,7 +21,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Astral
             Item.autoReuse = true;
             Item.maxStack = 99;
             Item.consumable = true;
-            //Item.createTile = ModContent.TileType<OldAstralDresser>();
+            Item.createTile = ModContent.TileType<OldAstralDresser>();
             Item.width = 12;
             Item.height = 12;
             Item.rare = 0;

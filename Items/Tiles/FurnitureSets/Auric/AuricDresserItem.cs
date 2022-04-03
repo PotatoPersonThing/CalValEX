@@ -21,7 +21,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Auric
             Item.autoReuse = true;
             Item.maxStack = 99;
             Item.consumable = true;
-            //Item.createTile = ModContent.TileType<AuricDresser>();
+            Item.createTile = ModContent.TileType<AuricDresser>();
             Item.width = 12;
             Item.height = 12;
             Item.rare = 0;

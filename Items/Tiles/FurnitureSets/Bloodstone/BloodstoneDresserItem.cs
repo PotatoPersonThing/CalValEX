@@ -21,7 +21,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
             Item.autoReuse = true;
             Item.maxStack = 99;
             Item.consumable = true;
-           // Item.createTile = ModContent.TileType<BloodstoneDresser>();
+            Item.createTile = ModContent.TileType<BloodstoneDresser>();
             Item.width = 12;
             Item.height = 12;
             Item.rare = 0;
