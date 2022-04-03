@@ -91,7 +91,7 @@ namespace CalValEX
         public override void Load()
         {
             instance = this;
-            ModLoader.TryGetMod("HEROsMod", out Mod herosmod);
+            ModLoader.TryGetMod("HEROsMod", out herosmod);
             //infernum = ModLoader.GetMod("InfernumMode");
 
             DateTime dateTime = DateTime.Now;

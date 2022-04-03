@@ -38,10 +38,11 @@ namespace CalValEX.Biomes
 			return CalValEXWorld.astralTiles >= 200;
 		}
 
-        public override void SpecialVisuals(Player player)
+		public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
+
+		public override void SpecialVisuals(Player player)
         {
-			Terraria.Graphics.Effects.SkyManager.Instance.Activate("CalValEX:AstralBiome");
-			player.ManageSpecialBiomeVisuals("CalValEX:AstralBiome", true);
+			player.ManageSpecialBiomeVisuals("CalValEX:AstralBiome", player.InModBiome(ModContent.GetInstance<AstralBlight>()), player.Center); // TODO: && !dreamsong
 		}
     }
 }

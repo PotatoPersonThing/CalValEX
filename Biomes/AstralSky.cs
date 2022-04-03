@@ -12,11 +12,16 @@ namespace CalValEX.Biomes
 {
     public class AstralSky : CustomSky
     {
-        public static bool DeactivateBGs;
+        //public static bool DeactivateBGs;
         public bool Active;
         public float Intensity;
 
         public static Texture2D SkyTexture;
+
+        public override void OnLoad()
+        {
+            SkyTexture = ModContent.Request<Texture2D>("CalValEX/Backgrounds/AstralSky").Value;
+        }
 
         public override void Update(GameTime gameTime)
         {
@@ -35,23 +40,19 @@ namespace CalValEX.Biomes
             }
         }
 
-        public override void OnLoad()
-        {
-            SkyTexture = ModContent.Request<Texture2D>("CalValEX/Backgrounds/AstralSky").Value;
-        }
-
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
+            spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Lime);
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
-                if (Main.player[Main.myPlayer].GetModPlayer<CalValEXPlayer>().ZoneAstral && !DeactivateBGs)
+                if (Main.player[Main.myPlayer].InModBiome(ModContent.GetInstance<AstralBlight>())/* && !DeactivateBGs*/)
                 {
                     //Draw the sky box texture
                     spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Lime);
                 }
             }
             //deactivate the sky if in the menu
-            if (Main.gameMenu || !Main.LocalPlayer.active || DeactivateBGs)
+            if (Main.gameMenu || !Main.LocalPlayer.active /*|| DeactivateBGs*/)
             {
                 Active = false;
             }
