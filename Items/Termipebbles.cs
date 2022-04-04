@@ -12,7 +12,7 @@ namespace CalValEX.Items
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Termipebbles");
-            Tooltip.SetDefault("Used to craft Terminus-themed vanitites\n" + "'Do NOT eat.'");
+            Tooltip.SetDefault("Used to craft Terminus-themed vanities\n" + "'Do NOT eat.'");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             ItemID.Sets.ItemIconPulse[Item.type] = false;

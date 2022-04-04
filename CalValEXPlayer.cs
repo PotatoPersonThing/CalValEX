@@ -1408,44 +1408,6 @@ namespace CalValEX
             }
         });*/
 
-        /*public static readonly PlayerLayer Rotator = new PlayerLayer("CalValEX", "Rotator", PlayerLayer.MiscEffectsBack, delegate (PlayerDrawInfo drawInfo)
-        {
-            if (drawInfo.shadow != 0f)
-            {
-                return;
-            }
-            Player drawPlayer = drawInfo.drawPlayer;
-            float alb = (255 - drawPlayer.immuneAlpha) / 255f;
-            Mod mod = ModLoader.GetMod("CalValEX");
-            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
-            int secondyoffset = 0;
-            if (drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 8 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 9 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 15 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 16 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 17)
-            {
-                secondyoffset = 2;
-            }
-            else
-            {
-                secondyoffset = 0;
-            }
-            if (modPlayer.exorb)
-            {
-                Texture2D texture = mod.GetTexture("Items/Equips/ExodiumMoon");
-                Vector2 Circle = drawPlayer.Center + new Vector2(0, 300).RotatedBy(modPlayer.rotcounter);
-                Vector2 draw = Circle - Main.screenPosition;
-                Vector2 draw2 = Circle - Main.screenPosition;
-                DrawData data = new DrawData(texture, draw, null, Color.White * alb, (float)modPlayer.rotsin, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0)
-                {
-                    shader = drawInfo.backShader
-                };
-                DrawData data2 = new DrawData(texture, draw2, null, Color.White * alb, (float)modPlayer.rotsin, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0)
-                {
-                    shader = drawInfo.frontShader
-                };
-                Main.playerDrawData.Add(data);
-                Main.playerDrawData.Add(data2);
-            }
-        });*/
-
         /*public static readonly PlayerLayer Chopper = new PlayerLayer("CalValEX", "Chopper", PlayerLayer.Wings, delegate (PlayerDrawInfo drawInfo)
         {
             Player drawPlayer = drawInfo.drawPlayer;
@@ -1536,9 +1498,9 @@ namespace CalValEX
         }*/
         public override Texture2D GetMapBackgroundImage()
         {
-            if (Player.InModBiome(ModContent.GetInstance<AstralBlight>()))
+            if (Player.InModBiome(GetInstance<AstralBlight>()))
             {
-                return ModContent.Request<Texture2D>("CalValEX/Backgrounds/AstralMap").Value;
+                return Request<Texture2D>("CalValEX/Backgrounds/AstralMap").Value;
             }
             return null;
         }
