@@ -286,7 +286,7 @@ namespace CalValEX.Projectiles.Pets
                     Texture2D texture = mod.GetTexture(auraGlowmaskTexture);
                     Rectangle sourceRectangle = new Rectangle(0, 0, texture.Width, texture.Height);
                     Vector2 origin = new Vector2(texture.Width, texture.Height);
-                    spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition, sourceRectangle, Color.White, rotation, origin / 2f, 1f, SpriteEffects.None, 0f);
+                    Main.EntitySpriteDraw(texture, Projectile.Center - Main.screenPosition, sourceRectangle, Color.White, rotation, origin / 2f, 1f, SpriteEffects.None, 0f);
                 }
             }
             */

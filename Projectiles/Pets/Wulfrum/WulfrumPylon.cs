@@ -13,7 +13,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
             Main.projPet[Projectile.type] = true;
             ProjectileID.Sets.LightPet[Projectile.type] = true;
             DrawOriginOffsetY = -15;
-            //drawOffsetX = -14;
+            //DrawOffsetX = -14;
         }
 
         public override void SetDefaults()

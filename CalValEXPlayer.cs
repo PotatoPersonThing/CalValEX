@@ -15,10 +15,10 @@ using CalValEX.Buffs.Transformations;
 using CalValEX.Items.Mounts.Morshu;
 using CalValEX.Items.Equips.Shirts.AresChestplate;
 using CalValEX.Items.Equips.Balloons;
-/*using CalValEX.Projectiles.Pets;
+using CalValEX.Projectiles.Pets;
 using CalValEX.Projectiles.Pets.LightPets;
 using CalValEX.Items.Equips.Backs;
-using CalValEX.Projectiles.Pets.Elementals;*/
+using CalValEX.Projectiles.Pets.Elementals;
 using CalValEX.Biomes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -1175,11 +1175,11 @@ namespace CalValEX
 
                         if (Main.rand.NextFloat() < 0.08f)
                         {
-                            /*if (CalamityBABY.nameList.Contains(Player.name))
+                            if (CalamityBABY.nameList.Contains(Player.name))
                             {
                                 Player.AddBuff(BuffID.Lovestruck, Main.rand.Next(600, 3601));
                             }
-                            else*/ if (Player.HasBuff(BuffID.BabySlime) ||
+                            else if (Player.HasBuff(BuffID.BabySlime) ||
                                      Main.LocalPlayer.HasItem(ItemID.LandMine))
                             {
 
@@ -1196,10 +1196,10 @@ namespace CalValEX
         public override void CatchFish(FishingAttempt attempt, ref int itemDrop, ref int npcSpawn, ref AdvancedPopupRequest sonar, ref Vector2 sonarPosition)
         {
             //Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            /*if (Player.ZoneBeach && Player.fishingSkill > 80 && Main.rand.NextFloat() < 0.021f)
+            if (Player.ZoneBeach && Player.fishingSkill > 80 && Main.rand.NextFloat() < 0.021f)
             {
-                itemDrop = ItemType<WetBubble>();
-            }*/
+                itemDrop = ItemType<Items.Pets.Elementals.WetBubble>();
+            }
             if (ZoneAstral && Player.fishingSkill > 80 && Main.rand.NextFloat() < 0.0105f)
             {
                 itemDrop = ItemType<Items.Tiles.Plants.AstralOldPurple>();
