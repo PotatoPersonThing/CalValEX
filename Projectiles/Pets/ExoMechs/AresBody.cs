@@ -35,8 +35,8 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             DisplayName.SetDefault("Toy Ares");
             Main.projFrames[Projectile.type] = 1;
             Main.projPet[Projectile.type] = true;
-            //drawOriginOffsetY = -15;
-            //drawOffsetX = -14;
+            //DrawOriginOffsetY = -15;
+            //DrawOffsetX = -14;
         }
 
         public override void SetDefaults()
@@ -199,7 +199,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
                 Vector2 scale = new Vector2(1, yScale);
                 Color chainLightColor = Lighting.GetColor((int)position.X / 16, (int)position.Y / 16); //Lighting of the position of the chain segment
                 Vector2 origin = new Vector2(chainTex.Width / 2, chainTex.Height); //Draw from center bottom of texture
-                spriteBatch.Draw(chainTex, position - Main.screenPosition, null, chainLightColor, rotation, origin, scale, SpriteEffects.None, 0);
+                Main.EntitySpriteDraw(chainTex, position - Main.screenPosition, null, chainLightColor, rotation, origin, scale, SpriteEffects.None, 0);
             }*/
         }
 

@@ -18,6 +18,8 @@ namespace CalValEX.NPCs.Critters
             DisplayName.SetDefault("Gold Isopod");
             Main.npcFrameCount[NPC.type] = 8;
             Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.NormalGoldCritterBestiaryPriority.Add(Type);
+            NPCID.Sets.GoldCrittersCollection.Add(Type);
         }
 
         public override void SetDefaults()
@@ -44,6 +46,7 @@ namespace CalValEX.NPCs.Critters
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
         {
+            bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
                 Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Ocean,
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("Even in the darkest of places, gilded entities such as the Gold Isopod can be found."),

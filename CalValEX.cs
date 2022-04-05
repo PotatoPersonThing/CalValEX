@@ -104,7 +104,7 @@ namespace CalValEX
             DraedonHelmetTextureCache.Load();
             DraedonChestplateCache.Load();
 
-            Filters.Scene["CalValEX:AstralBiome"] = new Filter(new AstralSkyData("FilterMiniTower").UseColor(Color.Purple).UseOpacity(0.15f), EffectPriority.VeryHigh);
+            //Filters.Scene["CalValEX:AstralBiome"] = new Filter(new AstralSkyData("FilterMiniTower").UseColor(Color.Purple).UseOpacity(0.15f), EffectPriority.VeryHigh);
             SkyManager.Instance["CalValEX:AstralBiome"] = new AstralSky();
 
             MusicLoader.AddMusicBox(CalValEX.instance, MusicLoader.GetMusicSlot(CalValEX.instance, "Sounds/Music/AstralBlight"), ModContent.ItemType<AstralMusicBox>(), ModContent.TileType<AstralMusicBoxPlaced>());
@@ -174,16 +174,6 @@ namespace CalValEX
                     "Find at the Ocean after defeating the Eye of Cthulhu");
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<AprilFools.Jharim.Jharim>(), "It's a secret");
             }
-
-            //Compact tile framing support
-            //Type tileFraming = cal.Code.GetType("CalamityMod.TileFraming");
-
-           // compactFraming = tileFraming.GetMethod("CompactFraming", BindingFlags.Static | BindingFlags.NonPublic);
-
-            //Compact tile framing support
-           // Type tileFraming2 = cal.Code.GetType("CalamityMod.TileFraming");
-
-          //  brimstoneFraming = tileFraming2.GetMethod("BrimstoneFraming", BindingFlags.Static | BindingFlags.NonPublic);
 
             //Christmas textures
             //ChristmasTextureChange.Load();
@@ -499,11 +489,6 @@ namespace CalValEX
             if (Main.myPlayer == -1 || Main.gameMenu || !Main.LocalPlayer.active)
             {
                 return;
-            }
-            if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral)
-            {
-                music = GetSoundSlot(SoundType.Music, "Sounds/Music/AstralBlight");
-                priority = MusicPriority.Environment;
             }
             if ((Main.LocalPlayer.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().enraged || Main.LocalPlayer.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().adrenaline > 0f || Main.LocalPlayer.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().rage > 0f) && (Main.LocalPlayer.HeldItem.type == ModContent.ItemType<CalamityMod.Items.Weapons.Melee.Murasama>()/* || Main.LocalPlayer.HeldItem.type == ModContent.ItemType<CalamityMod.Items.Weapons.Melee.UHFMurasama>() One day my love... && Main.LocalPlayer.controlUseItem && !CalValEXConfig.Instance.Sama)
             {

@@ -46,6 +46,10 @@ namespace CalValEX.AprilFools.Meldosaurus
 			//NPC.Calamity().canBreakPlayerDefense = true;
 			//NPC.Calamity().DR = 0.1f;
 			//bossBag = ModContent.ItemType<MeldosaurusBag>();
+			NPCID.Sets.NPCBestiaryDrawModifiers bestiaryData = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+			{
+				Hide = true // Hides this NPC from the bestiary
+			};
 		}
 		public override void AI()
 		{

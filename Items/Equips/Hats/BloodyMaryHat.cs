@@ -43,15 +43,5 @@ namespace CalValEX.Items.Equips.Hats
                 }
             }
         }
-        /*public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-           
-            recipe.AddIngredient(calamityMod.ItemType("BloodstoneCore"), 4);
-            recipe.AddIngredient((ItemID.TheBrideHat), 1);
-            recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }*/
     }
 }

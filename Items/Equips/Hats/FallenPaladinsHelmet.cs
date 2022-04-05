@@ -20,17 +20,5 @@ namespace CalValEX.Items.Equips.Hats
             Item.rare = 7;
             Item.vanity = true;
         }
-        /*public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-           
-            recipe.AddIngredient(calamityMod.ItemType("CalamityDust"), 1);
-            recipe.AddIngredient(calamityMod.ItemType("CoreofChaos"), 1);
-            recipe.AddIngredient(calamityMod.ItemType("CruptixBar"), 2);
-            recipe.AddIngredient((ItemID.HallowedBar), 2);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }*/
     }
 }

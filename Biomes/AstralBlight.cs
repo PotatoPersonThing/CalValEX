@@ -22,9 +22,10 @@ namespace CalValEX.Biomes
 		public override int Music => MusicLoader.GetMusicSlot(Mod, "Sounds/Music/AstralBlight");
 
 		// Populate the Bestiary Filter
-		public override string BestiaryIcon => base.BestiaryIcon;
-		public override string BackgroundPath => base.BackgroundPath;
-		public override Color? BackgroundColor => base.BackgroundColor;
+		public override string BestiaryIcon => "Biomes/AstralBlightIcon";
+		public override string BackgroundPath => "Biomes/AstralMap";
+		public override Color? BackgroundColor => Color.Magenta;
+		//public override string Name => "Astral Blight";
 
 		// Use SetStaticDefaults to assign the display name
 		public override void SetStaticDefaults()
@@ -42,7 +43,7 @@ namespace CalValEX.Biomes
 
 		public override void SpecialVisuals(Player player)
         {
-			player.ManageSpecialBiomeVisuals("CalValEX:AstralBiome", player.InModBiome(ModContent.GetInstance<AstralBlight>()), player.Center); // TODO: && !dreamsong
+			Terraria.Graphics.Effects.SkyManager.Instance.Activate("CalValEX:AstralBiome");
 		}
     }
 }

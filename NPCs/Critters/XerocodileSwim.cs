@@ -16,6 +16,10 @@ namespace CalValEX.NPCs.Critters
             DisplayName.SetDefault("Xerocodile");
             Main.npcFrameCount[NPC.type] = 6;
             Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.NPCBestiaryDrawModifiers bestiaryData = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+            {
+                Hide = true // Hides this NPC from the bestiary
+            };
         }
 
         public override void SetDefaults()
@@ -37,15 +41,6 @@ namespace CalValEX.NPCs.Critters
             BannerItem = ItemType<Items.Tiles.Banners.XerocodileBanner>();
             AIType = NPCID.Goldfish;
             AnimationType = NPCID.Goldfish;
-        }
-
-        public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
-        {
-
-            bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
-                Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Events.BloodMoon,
-                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("An ancient species of reptile that only comes out during Blood Moons. They are otherwise too frail to linger, and any sunlight exposure is lethal."),
-            });
         }
         public override void AI()
         {
