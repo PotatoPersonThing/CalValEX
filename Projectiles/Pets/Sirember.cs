@@ -105,7 +105,7 @@ namespace CalValEX.Projectiles.Pets
                 if (!entropy)
                 {
                     entropy = true;
-                    //Terraria.Audio.SoundEngine.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/ReaperEnragedRoar"));
+                    Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(Mod, "Sounds/ReaperEnragedRoar"));
                     Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0, 0, ModContent.ProjectileType<SiremberSpook>(), 0, 0, Projectile.owner, 0);
                     Projectile.alpha = 255;
                 }

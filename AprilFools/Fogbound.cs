@@ -52,6 +52,10 @@ namespace CalValEX.AprilFools
 			NPC.DeathSound = SoundID.NPCDeath3;
 			Music = MusicID.LunarBoss;
 			NPC.netAlways = true;
+			NPCID.Sets.NPCBestiaryDrawModifiers bestiaryData = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+			{
+				Hide = true // Hides this NPC from the bestiary
+			};
 		}
 		public override void AI()
 		{

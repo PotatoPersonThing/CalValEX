@@ -14,7 +14,7 @@ namespace CalValEX.Projectiles.Pets
             Main.projPet[Projectile.type] = true;
         }
 
-        private readonly string auraTexture = "Projectiles/Pets/ChibiiEuros_Aura";
+        private readonly string auraTexture = "CalValEX/Projectiles/Pets/ChibiiEuros_Aura";
         private readonly int auraFrames = 4;
 
         public override void SafeSetDefaults()

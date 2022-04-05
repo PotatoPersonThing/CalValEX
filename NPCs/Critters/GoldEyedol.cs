@@ -18,6 +18,8 @@ namespace CalValEX.NPCs.Critters
             DisplayName.SetDefault("Gold Eyedol");
             Main.npcFrameCount[NPC.type] = 4;
             Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.NormalGoldCritterBestiaryPriority.Add(Type);
+            NPCID.Sets.GoldCrittersCollection.Add(Type);
         }
 
         public override void SetDefaults()
@@ -47,6 +49,7 @@ namespace CalValEX.NPCs.Critters
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
         {
+            bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
                 Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheUnderworld,
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A specially crafted idol possessed by a spirit. The construct was previously used by the ruler of the capital themself."),

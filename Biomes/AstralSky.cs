@@ -42,8 +42,9 @@ namespace CalValEX.Biomes
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Lime);
-            if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
+            float depth = 3;
+            //spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Lime);
+            if (maxDepth >= depth && minDepth < depth)
             {
                 if (Main.player[Main.myPlayer].InModBiome(ModContent.GetInstance<AstralBlight>())/* && !DeactivateBGs*/)
                 {
@@ -65,7 +66,7 @@ namespace CalValEX.Biomes
 
         public override void Activate(Vector2 position, params object[] args)
         {
-            Intensity = 0.002f;
+            //Intensity = 0.002f;
             Active = true;
         }
 
@@ -81,11 +82,11 @@ namespace CalValEX.Biomes
 
         public override bool IsActive()
         {
-            return Active || Intensity > 0.001f;
+            return Active;
         }
     }
 
-    public class AstralSkyData : ScreenShaderData
+    /*public class AstralSkyData : ScreenShaderData
     {
         public AstralSkyData(string passName)
             : base(passName)
@@ -108,5 +109,5 @@ namespace CalValEX.Biomes
             }
             base.Apply();
         }
-    }
+    }*/
 }

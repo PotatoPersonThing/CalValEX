@@ -42,6 +42,14 @@ namespace CalValEX.NPCs.Critters
             Banner = NPC.type;
             BannerItem = ItemType<Items.Tiles.Banners.GodSlayerSlugBanner>();
         }
+        public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
+        {
+            bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
+            bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
+                Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Ocean,
+                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("Mimicking the purple worm-like appearance of the cosmic worms, this little bug peacefully wanders the upper atmosphere."),
+            });
+        }
 
         public override void AI()
         {

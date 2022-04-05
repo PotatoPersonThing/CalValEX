@@ -51,6 +51,10 @@ namespace CalValEX.AprilFools.Jharim
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
             AnimationType = NPCID.PartyGirl;
+            NPCID.Sets.NPCBestiaryDrawModifiers bestiaryData = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+            {
+                Hide = true // Hides this NPC from the bestiary
+            };
         }
         private void EdgyTalk(string text, Color color, bool combatText = false)
         {

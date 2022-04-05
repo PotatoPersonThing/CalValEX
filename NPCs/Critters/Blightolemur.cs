@@ -1,6 +1,4 @@
 ﻿using CalValEX.Items.Tiles.Banners;
-using MonoMod.Cil;
-using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,6 +6,7 @@ using static Terraria.ModLoader.ModContent;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using CalValEX.Items.Critters;
+using Terraria.GameContent.Bestiary;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -49,11 +48,12 @@ namespace CalValEX.NPCs.Critters
             BannerItem = ItemType<BleamurBanner>();
             NPC.HitSound = SoundLoader.GetLegacySoundSlot(Mod, "Sounds/ViolemurHit");
             NPC.DeathSound = SoundLoader.GetLegacySoundSlot(Mod, "Sounds/ViolemurDeath");
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<Biomes.AstralBlight>().Type };
         }
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
         {
+            bestiaryEntry.UIInfoProvider = new CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
-                Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Meteor,
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("On another fractal of the light spectrum from the Violemurs, the Bleamurs frollic peacefully in the Astral Blight, while using their tail patterns to attract prey."),
             });
         }
@@ -87,7 +87,7 @@ namespace CalValEX.NPCs.Critters
             //Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
             //if (clamMod != null)
             {
-                if (spawnInfo.player.GetModPlayer<CalValEXPlayer>().ZoneAstral && !CalValEXConfig.Instance.CritterSpawns)
+                if (spawnInfo.player.InModBiome(ModContent.GetInstance<Biomes.AstralBlight>()) && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     if (spawnInfo.playerSafe)
                     {

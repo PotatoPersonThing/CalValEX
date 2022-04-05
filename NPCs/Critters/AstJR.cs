@@ -6,15 +6,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
-using CalValEX.Items.Tiles.Banners;
 
 namespace CalValEX.NPCs.Critters
 {
-    /// <summary>
-    /// This file shows off a critter NPC. The unique thing about critters is how you can catch them with a bug net.
-    /// The important bits are: Main.npcCatchable, NPC.catchItem, and item.makeNPC
-    /// We will also show off adding an item to an existing RecipeGroup (see ExampleMod.AddRecipeGroups)
-    /// </summary>
     public class AstJR : ModNPC
     {
         public override void SetStaticDefaults()
@@ -25,8 +19,8 @@ namespace CalValEX.NPCs.Critters
         }
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
         {
+            bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
-                Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Meteor,
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A sentient glob from the alien environment. Unlike other slimes, it possesses no offensive capabilities."),
             });
         }
@@ -53,6 +47,7 @@ namespace CalValEX.NPCs.Critters
             }
             Banner = NPC.type;
             BannerItem = ItemType<AstragellySlimeBanner>();
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<Biomes.AstralBlight>().Type };
         }
 
         public override bool? CanBeHitByItem(Player player, Item item)
@@ -76,7 +71,7 @@ namespace CalValEX.NPCs.Critters
             //Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
             //if (clamMod != null)
             {
-                if (spawnInfo.player.GetModPlayer<CalValEXPlayer>().ZoneAstral && !CalValEXConfig.Instance.CritterSpawns)
+                if (spawnInfo.player.InModBiome(ModContent.GetInstance<Biomes.AstralBlight>()) && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     if (spawnInfo.playerSafe)
                     {

@@ -11,13 +11,13 @@ using CalValEX.Items.Equips.Shirts;
 using CalValEX.Items.Equips.Transformations;
 using CalValEX.Items.Equips.Wings;
 using CalValEX.Items.Hooks;
-//using CalValEX.Items.LightPets;
+using CalValEX.Items.LightPets;
 using CalValEX.Buffs.Mounts;
 using CalValEX.Items.Mounts.InfiniteFlight;
 using CalValEX.Items.Mounts.Ground;
 using CalValEX.Items.Mounts.LimitedFlight;
 using CalValEX.Items.Pets;
-//using CalValEX.Items.Pets.Elementals;
+using CalValEX.Items.Pets.Elementals;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
@@ -180,7 +180,7 @@ namespace CalValEX
 
         public override void RightClick(Item item, Player player)
         {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            //Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (!CalValEXConfig.Instance.DisableVanityDrops)
             {
                 /*if (item.type == calamityMod.ItemType("StarterBag"))
@@ -362,10 +362,10 @@ namespace CalValEX
                         player.QuickSpawnItem(player.GetItemSource_OpenItem(item.type), ModContent.ItemType<AcidGun>());
                     }
 
-                    /*if (Main.rand.NextFloat() < 0.02f)
+                    if (Main.rand.NextFloat() < 0.02f)
                     {
                         player.QuickSpawnItem(player.GetItemSource_OpenItem(item.type), ModContent.ItemType<CursedLockpick>());
-                    }*/
+                    }
 
                     if (Main.rand.NextFloat() < 0.05f)
                     {
@@ -387,10 +387,10 @@ namespace CalValEX
                         player.QuickSpawnItem(player.GetItemSource_OpenItem(item.type), ModContent.ItemType<SulphurousPlanter>(), 1);
                     }
 
-                    /*if ((bool) calamityMod.Call("GetBossDowned", "calamitas") & (Main.rand.NextFloat() < 0.02f))
+                    if (NPC.downedPlantBoss & (Main.rand.NextFloat() < 0.02f))
                     {
                         player.QuickSpawnItem(player.GetItemSource_OpenItem(item.type), ModContent.ItemType<Pollution>());
-                    }*/
+                    }
 
                     if (NPC.downedAncientCultist & (Main.rand.NextFloat() < 0.025f))
                     {
@@ -507,7 +507,7 @@ namespace CalValEX
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<DesertMedallion>());
                             }
 
-                            /*if (Main.rand.NextFloat() < 0.2f)
+                            if (Main.rand.NextFloat() < 0.2f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<DriedMandible>());
                             }
@@ -515,31 +515,31 @@ namespace CalValEX
                             if (Main.rand.NextFloat() < 0.07f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<SandTooth>());
-                            }*/
+                            }
                         }
 
                         if (arg == ItemID.EyeOfCthulhuBossBag)
                         {
-                            /*if (Main.rand.NextFloat() < 0.3f)
+                            if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<ClawShroom>());
-                            }*/
+                            }
                         }
 
                         if (arg == ItemID.EaterOfWorldsBossBag)
                         {
-                            /*if (Main.rand.NextFloat() < 0.3f)
+                            if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<MissingFang>());
-                            }*/
+                            }
                         }
 
                         if (arg == ItemID.BrainOfCthulhuBossBag)
                         {
-                            /*if (Main.rand.NextFloat() < 0.3f)
+                            if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<DigestedWormFood>());
-                            }*/
+                            }
 
                             if (Main.rand.NextFloat() < 0.4f)
                             {
@@ -565,20 +565,20 @@ namespace CalValEX
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModLoader.GetMod("CalamityMod").ItemType("StatigelBlock"),
                                     Main.rand.Next(205, 335));
-                            }
+                            }*/
 
                             if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<ImpureStick>());
-                            }*/
+                            }
                         }
 
                         if (arg == ItemID.DestroyerBossBag)
                         {
-                            /*if (Main.rand.NextFloat() < 0.3f)
+                            if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<CryoStick>());
-                            }*/
+                            }
                         }
 
                         if (arg == ItemID.TwinsBossBag)
@@ -607,10 +607,10 @@ namespace CalValEX
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<BrimmySpirit>());
                             }
 
-                            /*if (Main.rand.NextFloat() < 0.2f)
+                            if (Main.rand.NextFloat() < 0.2f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<brimtulip>());
-                            }*/
+                            }
 
                             if (Main.rand.NextFloat() < 0.05f)
                             {
@@ -660,18 +660,18 @@ namespace CalValEX
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<FoilAtlantis>());
                             }
 
-                            /*if (Main.rand.NextFloat() < 0.01f)
+                            if (Main.rand.NextFloat() < 0.01f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<WetBubble>());
-                            }*/
+                            }
                         }
 
                         if (arg == ItemID.QueenSlimeBossBag)
                         {
-                            /*if (Main.rand.NextFloat() < 0.2f)
+                            if (Main.rand.NextFloat() < 0.2f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<AstDie>());
-                            }*/
+                            }
 
                             if (Main.rand.NextFloat() < 0.2f)
                             {
@@ -720,10 +720,10 @@ namespace CalValEX
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<Necrostone>(), Main.rand.Next(205, 335));
                             }
 
-                            /*if (Main.rand.NextFloat() < 0.3f)
+                            if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<AncientChoker>());
-                            }*/
+                            }
 
                             if (Main.rand.NextFloat() < 0.07f)
                             {
@@ -748,10 +748,10 @@ namespace CalValEX
 
                         if (arg == ItemID.DestroyerBossBag)
                         {
-                            /*if (Main.rand.NextFloat() < 0.3f)
+                            if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<AstralStar>());
-                            }*/
+                            }
 
                             if (Main.rand.NextFloat() < 0.2f)
                             {
@@ -768,19 +768,19 @@ namespace CalValEX
                                     Main.rand.Next(205, 335));
                             }*/
 
-                            int choice = Main.rand.Next(2);
+                            int choice = Main.rand.Next(3);
                             if (choice == 0)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<FollyWings>());
                             }
-                            else /*if (choice == 1)*/
+                            else if (choice == 1)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<Birbhat>());
                             }
-                            /*else
+                            else
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<FollyWing>());
-                            }*/
+                            }
 
                             if (Main.rand.NextFloat() < 0.005f)
                             {
@@ -794,12 +794,12 @@ namespace CalValEX
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModLoader.GetMod("CalamityMod").ItemType("ProfanedRock"),
                                     Main.rand.Next(205, 335));
-                            }
+                            }*/
 
                             if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<ProShard>());
-                            }*/
+                            }
 
                             if (Main.rand.NextFloat() < 0.3f)
                             {
@@ -815,7 +815,7 @@ namespace CalValEX
                                     Main.rand.Next(205, 335));
                             }*/
 
-                            /*if (Main.rand.NextFloat() < 0.3f)
+                            if (Main.rand.NextFloat() < 0.3f)
                             {
                                 if (Main.rand.NextFloat() < 0.5f)
                                 {
@@ -825,7 +825,7 @@ namespace CalValEX
                                 {
                                     player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<ShellScrap>());
                                 }
-                            }*/
+                            }
                             if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<StormBandana>());
@@ -842,11 +842,11 @@ namespace CalValEX
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
                                     Main.rand.Next(205, 335));
-                            }
+                            }*/
                             if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<VoidShard>());
-                            }*/
+                            }
                             if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<VoidWings>());
@@ -869,10 +869,10 @@ namespace CalValEX
                                     Main.rand.Next(205, 335));
                             }*/
 
-                            /*if (Main.rand.NextFloat() < 0.3f)
+                            if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<SigCloth>());
-                            }*/
+                            }
 
                             int choice = Main.rand.Next(4);
                             if (choice == 0)
@@ -926,7 +926,7 @@ namespace CalValEX
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<OldWings>());
                             }
 
-                            /*if (Main.rand.NextFloat() < 0.3f)
+                            if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<CorrodedCleaver>());
                             }
@@ -934,7 +934,7 @@ namespace CalValEX
                             if (Main.rand.NextFloat() < 0.07f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<CharredChopper>());
-                            }*/
+                            }
                         }
 
                         if (arg == ItemID.DestroyerBossBag)
@@ -973,10 +973,10 @@ namespace CalValEX
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<YharonsAnklet>());
                             }
 
-                            /*if (Main.rand.NextFloat() < 0.3f)
+                            if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<NuggetBiscuit>());
-                            }*/
+                            }
 
                             if (Main.rand.NextFloat() < 0.3f)
                             {
@@ -1004,10 +1004,10 @@ namespace CalValEX
                                 {
                                     player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<XMLightningHook>());
                                 }
-                                /*if (Main.rand.NextFloat() < 0.5f)
+                                if (Main.rand.NextFloat() < 0.5f)
                                 {
                                     player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<Items.Pets.ExoMechs.GunmetalRemote>());
-                                }*/
+                                }
                             }
                             if (NPC.downedMechBossAny)
                             {
@@ -1016,10 +1016,10 @@ namespace CalValEX
                                     player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<ApolloBalloonSmall>());
                                     player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<ArtemisBalloonSmall>());
                                 }
-                                /*if (Main.rand.NextFloat() < 0.5f)
+                                if (Main.rand.NextFloat() < 0.5f)
                                 {
                                     player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<Items.Pets.ExoMechs.GeminiMarkImplants>());
-                                }*/
+                                }
                             }
                             if (NPC.downedMechBossAny)
                             {
@@ -1027,10 +1027,10 @@ namespace CalValEX
                                 {
                                     player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>());
                                 }
-                                /*if (Main.rand.NextFloat() < 0.5f)
+                                if (Main.rand.NextFloat() < 0.5f)
                                 {
                                     player.QuickSpawnItem(player.GetItemSource_OpenItem(arg), ModContent.ItemType<Items.Pets.ExoMechs.OminousCore>());
-                                }*/
+                                }
                             }
                             if (Main.rand.NextFloat() < 0.1f)
                             {
