@@ -362,7 +362,13 @@ namespace CalValEX.Projectiles.Pets
 		/// <summary>
 		/// Gets ran after everything else. Do whatever you want
 		/// </summary>
+<<<<<<< Updated upstream
 		public virtual void CustomAI() { }
+=======
+		public virtual void CustomAI()
+		{
+		}
+>>>>>>> Stashed changes
 
 
 		public override void AI()

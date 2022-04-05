@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Terraria.Audio;
-//using CalValEX.ExtraTextures.ChristmasPets;
+using CalValEX.ExtraTextures.ChristmasPets;
 using CalValEX.Biomes;
 using Terraria.ModLoader;
 using CalValEX.AprilFools.Meldosaurus;
@@ -559,6 +559,17 @@ namespace CalValEX
                 ModLoader.GetMod("CalamityMod").ItemType("Elumplate")
             });
             RecipeGroup.RegisterGroup("AnyPlate", group);
+
+            group = new RecipeGroup(() => "Any Hardmode Drill", new int[]
+            {
+                ItemID.CobaltDrill,
+                ItemID.PalladiumDrill,
+                ItemID.MythrilDrill,
+                ItemID.OrichalcumDrill,
+                ItemID.AdamantiteDrill,
+                ItemID.TitaniumDrill,
+            });
+            RecipeGroup.RegisterGroup("AnyHardmodeDrill", group);
         }
 
         public override void AddRecipes()

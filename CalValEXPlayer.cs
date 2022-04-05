@@ -408,6 +408,21 @@ namespace CalValEX
         public bool ares;
         public bool thanos;
         public bool twins;
+        //Æ: Drae's bools
+        public bool digger;
+        public bool BestInst;
+        public bool DustChime;
+        public bool NurseryBell;
+        public bool AlarmClock;
+        public bool MaladyBells;
+        public bool Harbinger;
+        public bool SpiritDiner;
+        public bool AltarBell;
+        public bool WormBell;
+        public bool Vaseline;
+        public bool ScratchedGong;
+        public bool TubRune;
+        public bool Pandora;
 
         public override void Initialize()
         {
@@ -1079,6 +1094,20 @@ namespace CalValEX
             ares = false;
             thanos = false;
             twins = false;
+            digger = false;
+            BestInst = false;
+            DustChime = false;
+            NurseryBell = false;
+            AlarmClock = false;
+            MaladyBells = false;
+            Harbinger = false;
+            SpiritDiner = false;
+            AltarBell = false;
+            WormBell = false;
+            Vaseline = false;
+            ScratchedGong = false;
+            TubRune = false;
+            Pandora = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
