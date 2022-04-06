@@ -2,6 +2,7 @@
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using System;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 
 namespace CalValEX.Items.Mounts.Morshu
@@ -92,8 +93,8 @@ namespace CalValEX.Items.Mounts.Morshu
                 {
                     Vector2 perturbedSpeed = new Vector2(40, 0).RotatedByRandom(MathHelper.ToRadians(10));
                     Terraria.Audio.SoundEngine.PlaySound(SoundID.Item11);
-                    Projectile.NewProjectile(player.GetProjectileSource_Misc(1), player.position.X + (104 * player.direction), player.position.Y + 78, 40 * player.direction, perturbedSpeed.Y, ProjectileID.GoldenBullet/*calamityMod.ProjectileType("AccelerationBulletProj")*/, 30000, 0.1f, player.whoAmI, 0f, 0f);
-                    Projectile.NewProjectile(player.GetProjectileSource_Misc(1), player.position.X + (74 * player.direction), player.position.Y + 78, 40 * player.direction, perturbedSpeed.Y, ProjectileID.GoldenBullet/*calamityMod.ProjectileType("AccelerationBulletProj")*/, 30000, 0.1f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(new EntitySource_Parent(player), player.position.X + (104 * player.direction), player.position.Y + 78, 40 * player.direction, perturbedSpeed.Y, ProjectileID.GoldenBullet/*calamityMod.ProjectileType("AccelerationBulletProj")*/, 30000, 0.1f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(new EntitySource_Parent(player), player.position.X + (74 * player.direction), player.position.Y + 78, 40 * player.direction, perturbedSpeed.Y, ProjectileID.GoldenBullet/*calamityMod.ProjectileType("AccelerationBulletProj")*/, 30000, 0.1f, player.whoAmI, 0f, 0f);
                 }
             }
 
@@ -324,7 +325,7 @@ namespace CalValEX.Items.Mounts.Morshu
             }
 
             if (!coinBool) //if all else fails, spawn the coins outside.
-                player.QuickSpawnItem(player.GetItemSource_Misc(1), coinType, coinCount);
+                player.QuickSpawnItem(new EntitySource_Parent(player), coinType, coinCount);
         }
     }
 }

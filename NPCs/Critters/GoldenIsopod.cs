@@ -29,7 +29,6 @@ namespace CalValEX.NPCs.Critters
             NPC.CloneDefaults(NPCID.GlowingSnail);
             NPC.catchItem = (short)ItemType<GoldenIsopodItem>();
             NPC.lavaImmune = false;
-            //NPC.aiStyle = 0;
             NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.GlowingSnail;
             AnimationType = NPCID.GlowingSnail;
