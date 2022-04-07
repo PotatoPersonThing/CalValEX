@@ -10,7 +10,7 @@ namespace CalValEX.AprilFools.Meldosaurus
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Meld Blob");
+            //DisplayName.SetDefault("Meld Blob");
         }
 
         public override void SetDefaults()

@@ -7,8 +7,6 @@ namespace CalValEX.Buffs.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fogbound");
-            Description.SetDefault("Augh");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

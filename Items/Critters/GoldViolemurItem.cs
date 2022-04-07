@@ -10,7 +10,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gold Violemur");
+            //DisplayName.SetDefault("Gold Violemur");
         }
 
         public override void SetDefaults()

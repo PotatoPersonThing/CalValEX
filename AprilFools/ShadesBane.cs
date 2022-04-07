@@ -10,8 +10,8 @@ namespace CalValEX.AprilFools
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Shade's Bane");
-            Tooltip.SetDefault("Edgy sword #2940358304");
+            //DisplayName.SetDefault("The Shade's Bane");
+           // Tooltip.SetDefault("Edgy sword #2940358304");
         }
         public override void SetDefaults()
         {

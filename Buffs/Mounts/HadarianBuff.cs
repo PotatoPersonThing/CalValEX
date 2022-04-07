@@ -8,8 +8,8 @@ namespace CalValEX.Buffs.Mounts
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hadarian Fledgling");
-            Description.SetDefault("SCREEEE");
+            //DisplayName.SetDefault("Hadarian Fledgling");
+            //Description.SetDefault("SCREEEE");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

@@ -15,7 +15,7 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gold Violemur");
+            //DisplayName.SetDefault("Gold Violemur");
             Main.npcFrameCount[NPC.type] = 7;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.NormalGoldCritterBestiaryPriority.Add(Type);

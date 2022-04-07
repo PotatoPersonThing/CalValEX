@@ -10,9 +10,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Purified Fog");
-            Tooltip
-                .SetDefault(":Why:\n" + "Summons the Fogbound");
+            //DisplayName.SetDefault("Purified Fog");
+           // Tooltip
+             //   .SetDefault(":Why:\n" + "Summons the Fogbound");
             ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 

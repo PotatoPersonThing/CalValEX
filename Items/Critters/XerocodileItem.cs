@@ -12,7 +12,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Awakened Xerocodile");
+            //DisplayName.SetDefault("Awakened Xerocodile");
         }
 
         public override void SetDefaults()

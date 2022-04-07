@@ -7,8 +7,6 @@ namespace CalValEX.Buffs.Transformations
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Proto-Andromeda");
-			Description.SetDefault("Still working out the kinks");
 			Main.debuff[Type] = true;
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;

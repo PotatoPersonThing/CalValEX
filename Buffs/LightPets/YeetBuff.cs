@@ -7,8 +7,8 @@ namespace CalValEX.Buffs.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Litfish");
-            Description.SetDefault("A baby sunskater will follow you now.");
+            //DisplayName.SetDefault("Litfish");
+            //Description.SetDefault("A baby sunskater will follow you now.");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }

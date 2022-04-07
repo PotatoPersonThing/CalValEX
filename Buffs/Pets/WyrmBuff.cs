@@ -7,8 +7,6 @@ namespace CalValEX.Buffs.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Eidolon Inchwyrm");
-            Description.SetDefault("Ew, its all slimey...");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

@@ -7,8 +7,6 @@ namespace CalValEX.Buffs.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Giant Decapitated Floating Siren Head");
-            Description.SetDefault("Awaiting arrival since 2018!");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

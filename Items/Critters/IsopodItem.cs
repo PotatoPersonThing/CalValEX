@@ -11,7 +11,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Abyssal Isopod");
+            //DisplayName.SetDefault("Abyssal Isopod");
         }
 
         public override void SetDefaults()

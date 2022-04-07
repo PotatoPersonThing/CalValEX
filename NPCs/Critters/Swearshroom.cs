@@ -12,7 +12,7 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Swearshroom");
+            //DisplayName.SetDefault("Swearshroom");
             Main.npcFrameCount[NPC.type] = 5;
             Main.npcCatchable[NPC.type] = true;
         }

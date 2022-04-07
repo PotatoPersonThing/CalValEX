@@ -7,7 +7,7 @@ namespace CalValEX.AprilFools.Meldosaurus
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("God's Fire");
+            //DisplayName.SetDefault("God's Fire");
         }
 
         public override void SetDefaults()

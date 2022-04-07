@@ -7,8 +7,8 @@ namespace CalValEX.Buffs.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cosmic Assistant");
-            Description.SetDefault("He's here to help!");
+           // //DisplayName.SetDefault("Cosmic Assistant");
+           // //Description.SetDefault("He's here to help!");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }

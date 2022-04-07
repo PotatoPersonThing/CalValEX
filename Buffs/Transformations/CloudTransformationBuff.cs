@@ -7,8 +7,6 @@ namespace CalValEX.Buffs.Transformations
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Cloud Elemental Transformation");
-			Description.SetDefault("Feelin' Cloudy");
 			Main.debuff[Type] = true;
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;

@@ -8,8 +8,8 @@ namespace CalValEX.Buffs.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chaos Skulls");
-            Description.SetDefault("Here to judge you for your sins... not really");
+          //  //DisplayName.SetDefault("Chaos Skulls");
+           // //Description.SetDefault("Here to judge you for your sins... not really");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }

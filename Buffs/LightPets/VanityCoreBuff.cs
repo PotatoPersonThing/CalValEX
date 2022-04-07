@@ -8,8 +8,8 @@ namespace CalValEX.Buffs.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Core of Vanity");
-            Description.SetDefault("Everyone gets along!");
+            //DisplayName.SetDefault("Core of Vanity");
+            //Description.SetDefault("Everyone gets along!");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }

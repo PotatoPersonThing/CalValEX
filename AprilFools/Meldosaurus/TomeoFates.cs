@@ -10,7 +10,7 @@ namespace CalValEX.AprilFools.Meldosaurus
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Tome of Fates");
+            //DisplayName.SetDefault("Tome of Fates");
         }
 
         public override void SetDefaults()

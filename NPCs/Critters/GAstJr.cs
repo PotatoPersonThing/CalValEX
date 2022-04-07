@@ -14,7 +14,7 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gold Astragelly Slime");
+            //DisplayName.SetDefault("Gold Astragelly Slime");
             Main.npcFrameCount[NPC.type] = 2;
             Main.npcCatchable[NPC.type] = true;
         }

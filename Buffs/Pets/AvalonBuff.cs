@@ -8,10 +8,7 @@ namespace CalValEX.Buffs.Pets
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName and Description are automatically set from the .lang files, but below is how it is done normally.
-            DisplayName.SetDefault("Ascended Profaned Guardian");
-            Description.SetDefault("Because blue fire is cooler looking");
-            Main.buffNoTimeDisplay[Type] = true;
+           Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
 

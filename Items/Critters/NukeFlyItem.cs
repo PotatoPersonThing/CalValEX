@@ -9,7 +9,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Vaporofly");
+            //DisplayName.SetDefault("Vaporofly");
         }
 
         public override void SetDefaults()

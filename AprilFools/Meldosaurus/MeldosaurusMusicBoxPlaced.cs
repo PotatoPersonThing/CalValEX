@@ -18,7 +18,6 @@ namespace CalValEX.AprilFools.Meldosaurus
 			TileObjectData.newTile.DrawYOffset = 2;
 			TileObjectData.addTile(Type);
 			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Music Box");
 			AddMapEntry(new Color(200, 200, 200), name);
 		}
 

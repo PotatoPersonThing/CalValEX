@@ -17,7 +17,7 @@ namespace CalValEX.NPCs.Critters
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sand Turtle");
+            //DisplayName.SetDefault("Sand Turtle");
             Main.npcFrameCount[NPC.type] = 6;
             Main.npcCatchable[NPC.type] = true;
         }

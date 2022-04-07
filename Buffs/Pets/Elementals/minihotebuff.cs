@@ -7,8 +7,8 @@ namespace CalValEX.Buffs.Pets.Elementals
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Childish Heart");
-            Description.SetDefault("Its like you're running a day-care or something.");
+            //DisplayName.SetDefault("Childish Heart");
+            //Description.SetDefault("Its like you're running a day-care or something.");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

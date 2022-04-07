@@ -11,7 +11,7 @@ namespace CalValEX.AprilFools.Meldosaurus
         public override string Texture => "CalValEX/AprilFools/Meldosaurus/Meldosaurus";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Meldosaurid Clone");
+            //DisplayName.SetDefault("Meldosaurid Clone");
             Main.projFrames[Projectile.type] = 7;
         }
 

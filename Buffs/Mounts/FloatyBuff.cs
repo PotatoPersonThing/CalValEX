@@ -8,8 +8,8 @@ namespace CalValEX.Buffs.Mounts
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Floaty Rug");
-            Description.SetDefault("Warning: flight not included.");
+            //DisplayName.SetDefault("Floaty Rug");
+            //Description.SetDefault("Warning: flight not included.");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

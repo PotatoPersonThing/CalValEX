@@ -20,7 +20,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 		public int framecounter = 0;
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Meldosaurus");
+			//DisplayName.SetDefault("Meldosaurus");
 			NPCID.Sets.TrailingMode[NPC.type] = 2;
 			NPCID.Sets.TrailCacheLength[NPC.type] = 21;
 		}

@@ -15,7 +15,7 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gold Isopod");
+            //DisplayName.SetDefault("Gold Isopod");
             Main.npcFrameCount[NPC.type] = 8;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.NormalGoldCritterBestiaryPriority.Add(Type);

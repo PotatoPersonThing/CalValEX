@@ -12,7 +12,7 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Plagued Frog");
+            //DisplayName.SetDefault("Plagued Frog");
             Main.npcFrameCount[NPC.type] = 11;
             Main.npcCatchable[NPC.type] = true;
         }

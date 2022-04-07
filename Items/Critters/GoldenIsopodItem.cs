@@ -12,7 +12,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gold Isopod");
+            //DisplayName.SetDefault("Gold Isopod");
         }
 
         public override void SetDefaults()

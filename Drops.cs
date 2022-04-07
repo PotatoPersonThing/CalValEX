@@ -61,6 +61,7 @@ namespace CalValEX
         private bool junkoReference;
         private bool wolfram;
 
+
         public static int meldodon = -1;
         public static int jharim = -1;
 

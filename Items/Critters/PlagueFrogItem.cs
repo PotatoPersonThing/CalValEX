@@ -8,7 +8,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Plagued Frog");
+            //DisplayName.SetDefault("Plagued Frog");
         }
 
         public override void SetDefaults()

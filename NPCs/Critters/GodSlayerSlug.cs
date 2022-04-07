@@ -12,7 +12,7 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("God Slayer Slug");
+            //DisplayName.SetDefault("God Slayer Slug");
             Main.npcFrameCount[NPC.type] = 4;
             Main.npcCatchable[NPC.type] = true;
         }
