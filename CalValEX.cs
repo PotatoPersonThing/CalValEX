@@ -139,10 +139,6 @@ namespace CalValEX
               //  "AstralBlightPurplePass")).UseColor(0.8588f, 0.5725f, 0.1137f).UseSecondaryColor(1f, 0.8588f, 0.3098f); //UseColor - the rgb code for blight darker yellow. UseSecondaryColor - the rgb code for blight yellow.
 
 
-
-            DraedonHelmetTextureCache.Load();
-            DraedonChestplateCache.Load();
-
             Filters.Scene["CalValEX:AstralBiome"] = new Filter(new AstralSkyData("FilterMiniTower").UseColor(Color.Purple).UseOpacity(0.15f), EffectPriority.VeryHigh);
             SkyManager.Instance["CalValEX:AstralBiome"] = new AstralSky();
 
@@ -169,8 +165,6 @@ namespace CalValEX
                 return;
 
             //ChristmasTextureChange.Unload();
-            DraedonHelmetTextureCache.Unload();
-            DraedonChestplateCache.Unload();
         }
 
         public override void PostSetupContent()
