@@ -70,7 +70,7 @@ namespace CalValEX.ExtraTextures.ChristmasPets
                 Main.projectileTexture[ModContent.ProjectileType<ScoriaDuke>()] = ModContent.GetTexture(path + "ScoriaDuke");
                 Main.projectileTexture[ModContent.ProjectileType<SapphirePet>()] = ModContent.GetTexture(path + "SapphirePet");
                 Main.projectileTexture[ModContent.ProjectileType<George>()] = ModContent.GetTexture(path + "George");
-                Main.projectileTexture[ModContent.ProjectileType<sandmini>()] = ModContent.GetTexture(path + "sandmini");
+                Main.projectileTexture[ModContent.ProjectileType<Sandmini>()] = ModContent.GetTexture(path + "sandmini");
                 Main.projectileTexture[ModContent.ProjectileType<GrandPet>()] = ModContent.GetTexture(path + "GrandPet");
                 Main.projectileTexture[ModContent.ProjectileType<Headoge>()] = ModContent.GetTexture(path + "Headoge");
                 Main.projectileTexture[ModContent.ProjectileType<RustyMimic>()] = ModContent.GetTexture(path + "RustyMimic");
@@ -78,9 +78,9 @@ namespace CalValEX.ExtraTextures.ChristmasPets
                 Main.projectileTexture[ModContent.ProjectileType<RepairBot>()] = ModContent.GetTexture(path + "RepairBot");
                 Main.projectileTexture[ModContent.ProjectileType<RedPanda>()] = ModContent.GetTexture(path + "RedPanda");
                 Main.projectileTexture[ModContent.ProjectileType<Hiveling>()] = ModContent.GetTexture(path + "Hiveling");
-                Main.projectileTexture[ModContent.ProjectileType<raresandmini>()] = ModContent.GetTexture(path + "raresandmini");
+                Main.projectileTexture[ModContent.ProjectileType<RaresandMini>()] = ModContent.GetTexture(path + "raresandmini");
                 Main.projectileTexture[ModContent.ProjectileType<Hoodieidolist>()] = ModContent.GetTexture(path + "Hoodieidolist");
-                Main.projectileTexture[ModContent.ProjectileType<rarebrimling>()] = ModContent.GetTexture(path + "rarebrimling");
+                Main.projectileTexture[ModContent.ProjectileType<RareBrimling>()] = ModContent.GetTexture(path + "rarebrimling");
                 Main.projectileTexture[ModContent.ProjectileType<PolterChan>()] = ModContent.GetTexture(path + "PolterChan");
                 Main.projectileTexture[ModContent.ProjectileType<Junko>()] = ModContent.GetTexture(path + "Junko");
                 Main.projectileTexture[ModContent.ProjectileType<Pillager>()] = ModContent.GetTexture(path + "Pillager");
@@ -95,7 +95,7 @@ namespace CalValEX.ExtraTextures.ChristmasPets
                 Main.projectileTexture[ModContent.ProjectileType<WulfrumDrone>()] = ModContent.GetTexture(path + "WulfrumDrone");
                 Main.projectileTexture[ModContent.ProjectileType<WulfrumHover>()] = ModContent.GetTexture(path + "WulfrumHover");
                 Main.projectileTexture[ModContent.ProjectileType<WulfrumRover>()] = ModContent.GetTexture(path + "WulfrumRover");
-                Main.projectileTexture[ModContent.ProjectileType<cryokid>()] = ModContent.GetTexture(path + "cryokid");
+                Main.projectileTexture[ModContent.ProjectileType<Cryokid>()] = ModContent.GetTexture(path + "cryokid");
                 Main.projectileTexture[ModContent.ProjectileType<Avalon>()] = ModContent.GetTexture(path + "Avalon");
                 Main.projectileTexture[ModContent.ProjectileType<BabyMonster>()] = ModContent.GetTexture(path + "BabyMonster");
                 Main.projectileTexture[ModContent.ProjectileType<Blockaroz>()] = ModContent.GetTexture(path + "Blockaroz");

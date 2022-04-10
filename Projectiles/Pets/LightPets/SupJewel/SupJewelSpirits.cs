@@ -83,125 +83,112 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
     }
    */
 
-    public class Bishop : FlyingPet
+    public class Bishop : ModFlyingPet
     {
+        public override bool ShouldFlip => false;
+
+        public override float TeleportThreshold => 1600f;
+
+        public override Vector2 FlyingOffset => new Vector2(-120f, -70f);
+
+        public override float FlyingSpeed => 10f;
+
+        public override float FlyingInertia => 80f;
+
+        public override float SpeedupThreshold => 640f;
+
         public override void SetStaticDefaults()
         {
+            PetSetStaticDefaults(lightPet: true);
             DisplayName.SetDefault("Dark Sun Elemental");
             Main.projFrames[projectile.type] = 4;
-            Main.projPet[projectile.type] = true;
-            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
-        public override void SafeSetDefaults()
+        public override void SetDefaults()
         {
+            PetSetDefaults();
             projectile.width = 100;
             projectile.height = 174;
             projectile.ignoreWater = true;
-            facingLeft = true;
-            spinRotation = false;
-            shouldFlip = false;
-            usesAura = false;
-            usesGlowmask = true;
-            auraUsesGlowmask = false;
         }
 
-        public override void SetUpFlyingPet()
-        {
-            distance[0] = 1600f; //teleport distance
-            distance[1] = 640f; //faster speed distance
-            speed = 10;
-            inertia = 80f;
-            animationSpeed = 6; //how fast the animation should play
-            spinRotationSpeedMult = 0f;
-            offSetX = -120f;
-            offSetY = -70f; //how much higher from the center the pet should float
-        }
-
-        public override void SetUpAuraAndGlowmask()
-        {
-            glowmaskTexture = "Projectiles/Pets/LightPets/SupJewel/Bishop_Glow";
-        }
-
-        public override void SetUpLight()
-        {
-            shouldLightUp = true;
-            RGB = new Vector3(207, 117, 56);
-            intensity = 2f;
-            abyssLightLevel = 5;
-        }
-
-        public override void SafeAI(Player player)
+        public override void PetFunctionality(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
                 modPlayer.SupJ = false;
+
             if (modPlayer.SupJ)
                 projectile.timeLeft = 2;
+        }
+
+        public override void CustomBehaviour(Player player, ref int state, float flyingSpeed, float flyingInertia)
+        {
+            AddLight(new Color(207, 117, 56), 2f, 5);
+        }
+
+        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            SimpleGlowmask(spriteBatch);
+        }
+
+        public override void Animation(int state)
+        {
+            SimpleAnimation(speed: 6);
         }
     }
 
-    public class SpookShark : FlyingPet
+    public class SpookShark : ModFlyingPet
     {
+        public override float TeleportThreshold => 3400f;
+
+        public override float SpeedupThreshold => 640f;
+
+        public override Vector2 FlyingOffset => new Vector2(100f * - Main.player[projectile.owner].direction, -60f);
+
         public override void SetStaticDefaults()
         {
+            PetSetStaticDefaults(lightPet: true);
             DisplayName.SetDefault("Phantoshark");
             Main.projFrames[projectile.type] = 8;
-            Main.projPet[projectile.type] = true;
-            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
-        public override void SafeSetDefaults()
+        public override void SetDefaults()
         {
+            PetSetDefaults();
             projectile.width = 76;
             projectile.height = 36;
             projectile.ignoreWater = true;
-            facingLeft = true;
-            spinRotation = false;
-            shouldFlip = true;
-            usesAura = false;
-            usesGlowmask = true;
-            auraUsesGlowmask = false;
         }
 
-        public override void SetUpFlyingPet()
-        {
-            distance[0] = 3400f; //teleport distance
-            distance[1] = 640f; //faster speed distance
-            speed = 12f;
-            inertia = 60f;
-            animationSpeed = 12; //how fast the animation should play
-            spinRotationSpeedMult = 0.2f;
-            offSetX = 100f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
-            offSetY = -60f; //how much higher from the center the pet should float
-        }
-        public override void SetUpAuraAndGlowmask()
-        {
-            glowmaskTexture = "Projectiles/Pets/LightPets/SupJewel/SpookShark_Glow";
-        }
-
-        public override void SetUpLight()
-        {
-            shouldLightUp = true;
-            RGB = new Vector3(200, 111, 145);
-            intensity = 1.25f;
-            abyssLightLevel = 5;
-        }
-
-        private float extraScale;
-        private float rotation;
-        private bool yep = false;
-
-        public override void SafeAI(Player player)
+        public override void PetFunctionality(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
                 modPlayer.SupJ = false;
+
             if (modPlayer.SupJ)
                 projectile.timeLeft = 2;
+        }
 
+        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            SimpleGlowmask(spriteBatch);
+        }
+
+        public override void Animation(int state)
+        {
+            SimpleAnimation(speed: 6);
+        }
+
+        //private float extraScale;
+        //private float rotation;
+        //private bool yep = false;
+
+        public override void CustomBehaviour(Player player, ref int state, float flyingSpeed, float flyingInertia)
+        {
             /*
             rotation += 0.22f;
             if (extraScale > 0f && !yep)
@@ -214,11 +201,13 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
             if (yep)
                 extraScale -= 0.005f;
             */
+
+            AddLight(new Color(200, 111, 145), 1.25f, 5);
         }
 
-        /*
-        public override void SafePreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
+            /*
             Player player = Main.player[projectile.owner];
             Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/LightPets/SupJewel/EndoAura");
             Texture2D texture2 = ModContent.GetTexture("CalValEX/Projectiles/Pets/LightPets/SupJewel/EndoAura_Glow");
@@ -227,125 +216,116 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
             Lighting.AddLight(player.position, new Vector3(1.01470588f, 0.573529411f, 0.274509804f));
             spriteBatch.Draw(texture, player.Center - Main.screenPosition, sourceRectangle, lightColor, rotation, origin / 2f, 1f + extraScale, SpriteEffects.None, 0);
             spriteBatch.Draw(texture2, player.Center - Main.screenPosition, sourceRectangle, Color.White, rotation, origin / 2f, 1f + extraScale, SpriteEffects.None, 0);
+            */
+            return base.PreDraw(spriteBatch, lightColor);
         }
-        */
     }
 
-    public class SpookSmall : FlyingPet
+    public class SpookSmall : ModFlyingPet
     {
+        public override float TeleportThreshold => 3400f;
+
+        public override Vector2 FlyingOffset => new Vector2(80f * -Main.player[projectile.owner].direction, -20f);
+
+        public override float FlyingSpeed => 15f;
+
+        public override float SpeedupThreshold => 640f;
+
+        public override float FlyingInertia => 80f;
+
         public override void SetStaticDefaults()
         {
+            PetSetStaticDefaults(lightPet: true);
             DisplayName.SetDefault("Phantofish");
             Main.projFrames[projectile.type] = 1;
-            Main.projPet[projectile.type] = true;
-            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
-        public override void SafeSetDefaults()
+        public override void SetDefaults()
         {
+            PetSetDefaults();
             projectile.width = 40;
             projectile.height = 22;
             projectile.ignoreWater = true;
-            facingLeft = true;
-            spinRotation = false;
-            shouldFlip = true;
-            usesAura = false;
-            usesGlowmask = true;
-            auraUsesGlowmask = false;
         }
 
-        public override void SetUpFlyingPet()
+        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            distance[0] = 3400f; //teleport distance
-            distance[1] = 640f; //faster speed distance
-            speed = 15f;
-            inertia = 80f;
-            animationSpeed = 12; //how fast the animation should play
-            spinRotationSpeedMult = 0.2f;
-            offSetX = 80f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
-            offSetY = -20f; //how much higher from the center the pet should float
+            SimpleGlowmask(spriteBatch);
         }
 
-        public override void SetUpAuraAndGlowmask()
-        {
-            glowmaskTexture = "Projectiles/Pets/LightPets/SupJewel/SpookSmall_Glow";
-        }
-
-        public override void SetUpLight()
-        {
-            shouldLightUp = true;
-            RGB = new Vector3(200, 111, 145);
-            intensity = 1.25f;
-            abyssLightLevel = 5;
-        }
-
-        public override void SafeAI(Player player)
+        public override void PetFunctionality(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
                 modPlayer.SupJ = false;
+
             if (modPlayer.SupJ)
                 projectile.timeLeft = 2;
+        }
+
+        public override void Animation(int state)
+        {
+        }
+
+        public override void CustomBehaviour(Player player, ref int state, float flyingSpeed, float flyingInertia)
+        {
+            AddLight(new Color(200, 111, 145), 1.25f, 5);
         }
     }
 
-    public class EndoRune : FlyingPet
+    public class EndoRune : ModFlyingPet
     {
+        public override float TeleportThreshold => 3400f;
+
+        public override bool ShouldFlip => false;
+
+        public override Vector2 FlyingOffset => Vector2.One;
+
+        public override float FlyingSpeed => 20f;
+
+        public override float FlyingInertia => 20f;
+
+        public override float SpeedupThreshold => 640f;
+
         public override void SetStaticDefaults()
         {
+            PetSetStaticDefaults(lightPet: true);
             DisplayName.SetDefault("Endo Runes");
             Main.projFrames[projectile.type] = 1;
-            Main.projPet[projectile.type] = true;
-            ProjectileID.Sets.LightPet[projectile.type] = true;
         }
 
-        public override void SafeSetDefaults()
+        public override void SetDefaults()
         {
+            PetSetDefaults();
             projectile.width = 200;
             projectile.height = 200;
             projectile.ignoreWater = true;
-            facingLeft = true;
-            spinRotation = false;
-            shouldFlip = false;
-            usesAura = false;
-            usesGlowmask = true;
-            auraUsesGlowmask = false;
         }
 
-        public override void SetUpFlyingPet()
+        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            distance[0] = 3400f; //teleport distance
-            distance[1] = 640f; //faster speed distance
-            speed = 20f;
-            inertia = 20f;
-            animationSpeed = 12; //how fast the animation should play
-            spinRotationSpeedMult = 0f;
-            offSetX = 1f; //this is needed so it's always behind the player.
-            offSetY = 1f; //how much higher from the center the pet should float
+            SimpleGlowmask(spriteBatch);
         }
 
-        public override void SetUpAuraAndGlowmask()
-        {
-            glowmaskTexture = "Projectiles/Pets/LightPets/SupJewel/EndoRune_Glow";
-        }
-
-        public override void SetUpLight()
-        {
-            shouldLightUp = true;
-            RGB = new Vector3(171, 255, 231);
-            intensity = 1.25f;
-            abyssLightLevel = 5;
-        }
-
-        public override void SafeAI(Player player)
+        public override void PetFunctionality(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
                 modPlayer.SupJ = false;
+
             if (modPlayer.SupJ)
                 projectile.timeLeft = 2;
+        }
+
+        public override void Animation(int state)
+        {
+        }
+
+        public override void CustomBehaviour(Player player, ref int state, float flyingSpeed, float flyingInertia)
+        {
+            AddLight(new Color(171, 255, 231), 1.25f, 5);
         }
     }
 }
