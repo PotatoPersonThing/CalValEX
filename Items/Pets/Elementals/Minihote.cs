@@ -21,7 +21,7 @@ namespace CalValEX.Items.Pets.Elementals
         {
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit5;
-            item.shoot = mod.ProjectileType("rarebrimling");
+            item.shoot = mod.ProjectileType("RareBrimling");
             item.value = Item.sellPrice(0, 3, 0, 0);
             item.expert = true;
             item.rare = 10;

@@ -34,123 +34,7 @@ namespace CalValEX
     {
         private const int saveVersion = 0;
 
-        public static readonly PlayerHeadLayer HeadDraedonHelmet = new PlayerHeadLayer("CalValEX", "HeadDraedonHelmet",
-            delegate (PlayerHeadDrawInfo drawInfo)
-            {
-                Player drawPlayer = drawInfo.drawPlayer;
-                Mod mod = ModLoader.GetMod("CalValEX");
-
-                if (drawPlayer.head != mod.GetEquipSlot("DraedonHelmet", EquipType.Head))
-                    return;
-
-                Texture2D texture = drawPlayer.HeldItem.magic ? DraedonHelmetTextureCache.DraedonMagicHelm
-                    : drawPlayer.HeldItem.summon ? DraedonHelmetTextureCache.DraedonSummonerHelm
-                    : drawPlayer.HeldItem.ranged ? DraedonHelmetTextureCache.DraedonRangerHelm
-                    : drawPlayer.HeldItem.thrown ? DraedonHelmetTextureCache.DraedonRogueHelm
-                    : drawPlayer.HeldItem.melee ? DraedonHelmetTextureCache.DraedonMeleeHelm
-                    : DraedonHelmetTextureCache.DraedonDefaultHelm;
-
-                if (texture == DraedonHelmetTextureCache.DraedonDefaultHelm)
-                    return;
-
-                float drawX = (int)(drawPlayer.position.X - Main.screenPosition.X - drawPlayer.bodyFrame.Width / 2f + drawPlayer.width / 2f);
-                float drawY = (int)(drawPlayer.position.Y - Main.screenPosition.Y + drawPlayer.height -
-                    drawPlayer.bodyFrame.Height + 4);
-                Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition + drawInfo.drawOrigin;
-                float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
-                float scale = drawInfo.scale;
-                DrawData drawData = new DrawData(texture, position, drawPlayer.bodyFrame, Color.White * alpha,
-                    drawPlayer.headRotation, drawInfo.drawOrigin, scale, drawInfo.spriteEffects, 0);
-
-                GameShaders.Armor.Apply(drawInfo.armorShader, drawPlayer, drawData);
-                drawData.Draw(Main.spriteBatch);
-                Main.pixelShader.CurrentTechnique.Passes[0].Apply();
-            });
-
-        public static readonly PlayerLayer DraedonHelmet = new PlayerLayer("CalValEX", "DraedonHelmet",
-            PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
-                              {
-                                  if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
-                                      return;
-
-                                  Player drawPlayer = drawInfo.drawPlayer;
-                                  Mod mod = ModLoader.GetMod("CalValEX");
-
-                                  if (drawPlayer.head != mod.GetEquipSlot("DraedonHelmet", EquipType.Head))
-                                      return;
-
-                                  Texture2D texture = drawPlayer.HeldItem.magic ? DraedonHelmetTextureCache.DraedonMagicHelm
-                                      : drawPlayer.HeldItem.summon ? DraedonHelmetTextureCache.DraedonSummonerHelm
-                                      : drawPlayer.HeldItem.ranged ? DraedonHelmetTextureCache.DraedonRangerHelm
-                                      : drawPlayer.HeldItem.thrown ? DraedonHelmetTextureCache.DraedonRogueHelm
-                                      : drawPlayer.HeldItem.melee ? DraedonHelmetTextureCache.DraedonMeleeHelm
-                                      : DraedonHelmetTextureCache.DraedonDefaultHelm;
-
-                                  if (texture == DraedonHelmetTextureCache.DraedonDefaultHelm)
-                                      return;
-
-                                  float drawX = (int)(drawInfo.position.X - Main.screenPosition.X -
-                                      drawPlayer.bodyFrame.Width / 2f + drawPlayer.width / 2f);
-                                  float drawY = (int)(drawInfo.position.Y - Main.screenPosition.Y + drawPlayer.height -
-                                      drawPlayer.bodyFrame.Height + 4);
-
-                                  Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition + drawInfo.headOrigin;
-                                  Color color = Lighting.GetColor(
-                                      (int)(drawInfo.position.X + drawPlayer.width * 0.5) / 16,
-                                      (int)(drawInfo.position.Y + drawPlayer.height * 0.25) / 16,
-                                      Color.White);
-                                  float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
-                                  Vector2 origin = drawInfo.headOrigin;
-                                  DrawData drawData = new DrawData(texture, position, drawPlayer.bodyFrame,
-                                      color * alpha, drawPlayer.headRotation, origin, 1f, drawInfo.spriteEffects, 0)
-                                  {
-                                      shader = drawInfo.headArmorShader
-                                  };
-                                  Main.playerDrawData.Add(drawData);
-                              });
-
-        public static readonly PlayerLayer DraedonChestplate = new PlayerLayer("CalValEX", "DraedonChestplate",
-            PlayerLayer.Body, delegate (PlayerDrawInfo drawInfo)
-                              {
-                                  if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
-                                      return;
-
-                                  Player drawPlayer = drawInfo.drawPlayer;
-                                  Mod mod = ModLoader.GetMod("CalValEX");
-
-                                  if (drawPlayer.body != mod.GetEquipSlot("DraedonChestplate", EquipType.Body))
-                                      return;
-
-                                  Texture2D texture = drawPlayer.HeldItem.magic ? DraedonChestplateCache.DraedonMagicChest
-                                      : drawPlayer.HeldItem.summon ? DraedonChestplateCache.DraedonSummonerChest
-                                      : drawPlayer.HeldItem.ranged ? DraedonChestplateCache.DraedonRangerChest
-                                      : drawPlayer.HeldItem.thrown ? DraedonChestplateCache.DraedonRogueChest
-                                      : drawPlayer.HeldItem.melee ? DraedonChestplateCache.DraedonMeleeChest
-                                      : DraedonChestplateCache.DraedonDefaultChest;
-
-                                  if (texture == DraedonHelmetTextureCache.DraedonDefaultHelm)
-                                      return;
-
-                                  float drawX = (int)drawInfo.position.X + drawPlayer.width / 2;
-                                  float drawY = (int)drawInfo.position.Y + drawPlayer.height -
-                                      drawPlayer.bodyFrame.Height / 2 + 4f;
-                                  Vector2 position = new Vector2(drawX, drawY) + drawPlayer.bodyPosition -
-                                                     Main.screenPosition;
-                                  float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
-                                  Color color = Lighting.GetColor(
-                                      (int)(drawInfo.position.X + drawPlayer.width * 0.5) / 16,
-                                      (int)(drawInfo.position.Y + drawPlayer.height * 0.5) / 16,
-                                      Color.White);
-                                  DrawData drawData = new DrawData(texture, position, drawPlayer.bodyFrame,
-                                      color * alpha, drawPlayer.bodyRotation, drawInfo.bodyOrigin, 1f,
-                                      drawInfo.spriteEffects, 0)
-                                  {
-                                      shader = drawInfo.bodyArmorShader
-                                  };
-
-
-                                  Main.playerDrawData.Add(drawData);
-                              });
+        public static readonly ClassSpecificPlayerLayer DraedonSet = new ClassSpecificPlayerLayer("CalValEX/Items/Equips/Shirts/Draedon/", "CalValEX/Items/Equips/Hats/Draedon/", "DraedonChestplate", "DraedonHelmet");
 
         public bool aero;
         public bool andro;
@@ -1989,12 +1873,12 @@ namespace CalValEX
 
             if (headLayer > -1)
             {
-                layers.Insert(headLayer + 1, DraedonHelmet);
+                layers.Insert(headLayer + 1, DraedonSet.head);
             }
 
             if (bodyLayer > -1)
             {
-                layers.Insert(bodyLayer + 1, DraedonChestplate);
+                layers.Insert(bodyLayer + 1, DraedonSet.body);
             }
 
             if (wingLayer > -1)
@@ -2019,6 +1903,9 @@ namespace CalValEX
             layers.Insert(ballLayer + 2, Exoballoon);
             Sexoballoon.visible = true;
             layers.Insert(waybackLayer + 3, Sexoballoon);
+
+            DraedonSet.Visible = true;
+
                 if (yharcar)
                 {
                     foreach (PlayerLayer layer in layers)
@@ -2055,7 +1942,7 @@ namespace CalValEX
 
             if (headLayer > -1)
             {
-                layers.Insert(headLayer + 1, HeadDraedonHelmet);
+                layers.Insert(headLayer + 1, DraedonSet.map);
             }
         }
 

@@ -1,68 +1,87 @@
 using Terraria;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using System;
 
 namespace CalValEX.Projectiles.Pets
 {
-    public class RepairBot : WalkingPet
+    public class RepairBot : ModWalkingPet
     {
+        public override float TeleportThreshold => 1000f;
+
+        public override bool ShouldFlyRotate => false;
+
         public override void SetStaticDefaults()
         {
+            PetSetStaticDefaults(lightPet: false);
             DisplayName.SetDefault("Repair Bot");
-            Main.projFrames[projectile.type] = 17; //frames
-            Main.projPet[projectile.type] = true;
+            Main.projFrames[projectile.type] = 17;
         }
 
-        public override void SafeSetDefaults() //SAFE SET DEFAULTS!!!
+        public override void SetDefaults()
         {
+            PetSetDefaults();
             projectile.width = 24;
             projectile.height = 30;
             projectile.ignoreWater = true;
             projectile.tileCollide = true;
-            facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
-            spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
-            shouldFlip = true; //should the sprite flip? if that's the case, set to true. else, put it to false.
         }
 
-        public override void SetPetDistances()
+        public override void Animation(int state)
         {
-            distance[0] = 1000f; //teleport
-            distance[1] = 560f; //speed increase
-            distance[2] = 100f; //when to walk
-            distance[3] = 50f; //when to stop walking
-            distance[4] = 280f; //when to fly
-            distance[5] = 180f; //when to stop flying
+            switch(state)
+            {
+                case States.Walking:
+                    if (projectile.velocity.X != 0f)
+                    {
+                        if (++projectile.frameCounter > 3)
+                        {
+                            projectile.frameCounter = 0;
+                            projectile.frame++;
+
+                            if (projectile.frame > 8 || projectile.frame < 1)
+                                projectile.frame = 1;
+                        }
+                    }
+                    else
+                    {
+                        projectile.frameCounter = 0;
+                        projectile.frame = 0;
+                    }
+                    break;
+
+                case States.Flying:
+                    if (++projectile.frameCounter > 5)
+                    {
+                        projectile.frameCounter = 0;
+                        projectile.frame++;
+
+                        if (projectile.frame > 16 || projectile.frame < 9)
+                            projectile.frame = 9;
+                    }
+                    break;
+            }
         }
 
-        public override void SetFrameLimitsAndFrameSpeed()
+        public override void CustomBehaviour(Player player, ref int state, float walkingSpeed, float walkingInertia, float flyingSpeed, float flyingInertia)
         {
-            idleFrameLimits[0] = idleFrameLimits[1] = 0; //what your min idle frame is (start of idle animation)
-            walkingFrameLimits[0] = 1; //what your min walking frame is (start of walking animation)
-            walkingFrameLimits[1] = 8; //what your max walking frame is (end of walking animation)
-
-            flyingFrameLimits[0] = 9; //what your min flying frame is (start of flying animation)
-            flyingFrameLimits[1] = 16; //what your max flying frame is (end of flying animation)
-
-            jumpFrameLimits[0] = -1; //what your min jump frame is (start of jump animation)
-            jumpFrameLimits[1] = -1; //what your max jump frame is (end of jump animation)
-
-            animationSpeed[0] = 30; //idle animation speed
-            animationSpeed[1] = 3; //walking animation speed
-            animationSpeed[2] = 5; //flying animation speed
-            animationSpeed[3] = -1; //jumping animation speed
-
-            jumpAnimationLength = -1; //how long the jump animation should stay
+            if (state == States.Flying)
+            {
+                projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + MathHelper.PiOver2;
+            }
         }
 
-        public override void SafeAI(Player player)
+        public override void PetFunctionality(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
                 modPlayer.RepairBot = false;
+
             if (modPlayer.RepairBot)
                 projectile.timeLeft = 2;
         }
+
         public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             Texture2D glowMask = mod.GetTexture("Projectiles/Pets/RepairBot_Glow");

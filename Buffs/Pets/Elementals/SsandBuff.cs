@@ -17,11 +17,11 @@ namespace CalValEX.Buffs.Pets.Elementals
         {
             player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().sandmini = true;
-            bool petProjectileNotSpawned = player.ownedProjectileCounts[mod.ProjectileType("sandmini")] <= 0;
+            bool petProjectileNotSpawned = player.ownedProjectileCounts[mod.ProjectileType("Sandmini")] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
                 Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
-                    0f, 0f, mod.ProjectileType("sandmini"), 0, 0f, player.whoAmI);
+                    0f, 0f, mod.ProjectileType("Sandmini"), 0, 0f, player.whoAmI);
             }
         }
     }
