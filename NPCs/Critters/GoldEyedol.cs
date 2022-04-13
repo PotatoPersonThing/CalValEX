@@ -15,7 +15,7 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gold Eyedol");
+            //DisplayName.SetDefault("Gold Eyedol");
             Main.npcFrameCount[NPC.type] = 4;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.NormalGoldCritterBestiaryPriority.Add(Type);
@@ -41,6 +41,7 @@ namespace CalValEX.NPCs.Critters
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.catchItem = (short)ItemType<GoldEyedolItem>();
             NPC.lavaImmune = true;
+            NPC.rarity = 3;
             NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             NPC.npcSlots = 0.25f;
             Banner = NPCType<Eyedol>();

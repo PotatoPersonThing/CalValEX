@@ -28,7 +28,7 @@ namespace CalValEX.AprilFools
 		
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Hyper Ultra Omega Fogbound GOD EX: Prepare to Stygian Edition");
+			//DisplayName.SetDefault("Hyper Ultra Omega Fogbound GOD EX: Prepare to Stygian Edition");
 		}
 		public override void SetDefaults()
 		{

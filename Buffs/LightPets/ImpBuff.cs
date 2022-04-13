@@ -8,8 +8,8 @@ namespace CalValEX.Buffs.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Minimpious");
-            Description.SetDefault("Hey!");
+            //DisplayName.SetDefault("Minimpious");
+           // //Description.SetDefault("Hey!");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }

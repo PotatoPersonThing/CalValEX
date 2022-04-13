@@ -11,7 +11,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("God Slayer Slug");
+            //DisplayName.SetDefault("God Slayer Slug");
         }
 
         public override void SetDefaults()

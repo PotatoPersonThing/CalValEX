@@ -15,7 +15,7 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gold Isopod");
+            //DisplayName.SetDefault("Gold Isopod");
             Main.npcFrameCount[NPC.type] = 8;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.NormalGoldCritterBestiaryPriority.Add(Type);
@@ -29,7 +29,6 @@ namespace CalValEX.NPCs.Critters
             NPC.CloneDefaults(NPCID.GlowingSnail);
             NPC.catchItem = (short)ItemType<GoldenIsopodItem>();
             NPC.lavaImmune = false;
-            //NPC.aiStyle = 0;
             NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.GlowingSnail;
             AnimationType = NPCID.GlowingSnail;

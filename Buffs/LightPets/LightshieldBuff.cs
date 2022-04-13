@@ -7,8 +7,8 @@ namespace CalValEX.Buffs.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Arctic Shield");
-            Description.SetDefault("You've mastered the spin!");
+            //DisplayName.SetDefault("Arctic Shield");
+            //Description.SetDefault("You've mastered the spin!");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }

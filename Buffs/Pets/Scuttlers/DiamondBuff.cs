@@ -7,8 +7,8 @@ namespace CalValEX.Buffs.Pets.Scuttlers
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Diamond Scuttler");
-            Description.SetDefault("Still won't let go of its gem");
+            //DisplayName.SetDefault("Diamond Scuttler");
+            //Description.SetDefault("Still won't let go of its gem");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

@@ -9,8 +9,8 @@ namespace CalValEX.Buffs.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Darksun Spirits");
-            Description.SetDefault("The Darksun Spirits have decided to follow you!");
+            //DisplayName.SetDefault("Darksun Spirits");
+            //Description.SetDefault("The Darksun Spirits have decided to follow you!");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }

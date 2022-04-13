@@ -8,8 +8,8 @@ namespace CalValEX.Buffs.Mounts
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cambrian Crustacean");
-            Description.SetDefault("This one won't throw rocks at you");
+            //DisplayName.SetDefault("Cambrian Crustacean");
+            //Description.SetDefault("This one won't throw rocks at you");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

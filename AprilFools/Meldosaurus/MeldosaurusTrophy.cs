@@ -8,7 +8,7 @@ namespace CalValEX.AprilFools.Meldosaurus
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Meldosaurus Trophy");
+            //DisplayName.SetDefault("Meldosaurus Trophy");
         }
 
         public override void SetDefaults()

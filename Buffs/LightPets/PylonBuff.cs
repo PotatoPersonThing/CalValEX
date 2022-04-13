@@ -8,8 +8,8 @@ namespace CalValEX.Buffs.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Proto-Pylon");
-            Description.SetDefault("Supercharges other proto-bots");
+            //DisplayName.SetDefault("Proto-Pylon");
+            //Description.SetDefault("Supercharges other proto-bots");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }

@@ -22,7 +22,6 @@ namespace CalValEX.AprilFools.Meldosaurus
             TileObjectData.newTile.CoordinatePadding = 0;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Meldosaurus Trophy");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 

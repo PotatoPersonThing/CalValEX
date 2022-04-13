@@ -11,8 +11,8 @@ namespace CalValEX.Buffs.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Superstitious Jewel");
-            Description.SetDefault("Pure is impure");
+            //DisplayName.SetDefault("Superstitious Jewel");
+            //Description.SetDefault("Pure is impure");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }

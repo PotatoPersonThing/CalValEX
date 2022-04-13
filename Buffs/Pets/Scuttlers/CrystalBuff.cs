@@ -7,8 +7,8 @@ namespace CalValEX.Buffs.Pets.Scuttlers
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Crystal Scuttler");
-            Description.SetDefault("Still won't let go of its crystal");
+            //DisplayName.SetDefault("Crystal Scuttler");
+            //Description.SetDefault("Still won't let go of its crystal");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

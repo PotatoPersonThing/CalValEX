@@ -7,7 +7,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Music Box (Meldosaurus)");
+			//DisplayName.SetDefault("Music Box (Meldosaurus)");
 		}
 
 		public override void SetDefaults()

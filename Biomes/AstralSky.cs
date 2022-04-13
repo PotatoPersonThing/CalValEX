@@ -42,7 +42,7 @@ namespace CalValEX.Biomes
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            float depth = 3;
+            float depth = 7;
             //spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Lime);
             if (maxDepth >= depth && minDepth < depth)
             {

@@ -10,7 +10,7 @@ namespace CalValEX.AprilFools.Meldosaurus
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Antumbral Shard");
+            //DisplayName.SetDefault("Antumbral Shard");
         }
 
         public override void SetDefaults()

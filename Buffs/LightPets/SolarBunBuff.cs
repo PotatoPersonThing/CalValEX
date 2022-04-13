@@ -8,8 +8,8 @@ namespace CalValEX.Buffs.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Solar Bunny");
-            Description.SetDefault("Bask under thy divine light");
+            //DisplayName.SetDefault("Solar Bunny");
+            //Description.SetDefault("Bask under thy divine light");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }

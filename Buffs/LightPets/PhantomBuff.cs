@@ -8,8 +8,8 @@ namespace CalValEX.Buffs.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Freed Phantom Spirit");
-            Description.SetDefault("Finally free, but still follows you!");
+           // //DisplayName.SetDefault("Freed Phantom Spirit");
+            //Description.SetDefault("Finally free, but still follows you!");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }

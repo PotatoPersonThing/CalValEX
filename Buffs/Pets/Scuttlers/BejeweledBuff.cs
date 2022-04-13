@@ -7,8 +7,8 @@ namespace CalValEX.Buffs.Pets.Scuttlers
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bejeweled Scuttler");
-            Description.SetDefault("Still won't let go of its gems");
+            //DisplayName.SetDefault("Bejeweled Scuttler");
+            //Description.SetDefault("Still won't let go of its gems");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

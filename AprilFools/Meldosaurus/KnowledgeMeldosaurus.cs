@@ -10,9 +10,9 @@ namespace CalValEX.AprilFools.Meldosaurus
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Meldosaurus");
-            Tooltip.SetDefault("The Meldosaurus...\n" +
-                "A dreaded creature birthed from the wills of decay. Nobody knows why it exists, and what it wants...\n"+"HUGH! Glad he's gone now!!! Him being inside me was making me itchy!");
+            //DisplayName.SetDefault("Meldosaurus");
+            //Tooltip.SetDefault("The Meldosaurus...\n" +
+             //   "A dreaded creature birthed from the wills of decay. Nobody knows why it exists, and what it wants...\n"+"HUGH! Glad he's gone now!!! Him being inside me was making me itchy!");
         }
 
         public override void SetDefaults()

@@ -11,7 +11,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Blinker");
+            //DisplayName.SetDefault("Blinker");
         }
 
         public override void SetDefaults()

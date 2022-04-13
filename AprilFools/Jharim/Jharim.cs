@@ -9,6 +9,8 @@ using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
+using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.Personalities;
 
 namespace CalValEX.AprilFools.Jharim
 {
@@ -27,7 +29,7 @@ namespace CalValEX.AprilFools.Jharim
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Jungle Tyrant");
+           // DisplayName.SetDefault("Jungle Tyrant");
             Main.npcFrameCount[NPC.type] = 23;
             NPCID.Sets.ExtraFramesCount[NPC.type] = 9;
             NPCID.Sets.AttackFrameCount[NPC.type] = 4;
@@ -35,6 +37,16 @@ namespace CalValEX.AprilFools.Jharim
             NPCID.Sets.AttackType[NPC.type] = 0;
             NPCID.Sets.AttackTime[NPC.type] = 90;
             NPCID.Sets.AttackAverageChance[NPC.type] = 30;
+            NPC.Happiness
+                .SetBiomeAffection<JungleBiome>(AffectionLevel.Like) // Example Person prefers the forest.
+                .SetBiomeAffection<SnowBiome>(AffectionLevel.Dislike) // Example Person dislikes the snow.
+                .SetBiomeAffection<OceanBiome>(AffectionLevel.Hate) // Example Person dislikes the snow.
+                .SetBiomeAffection<MushroomBiome>(AffectionLevel.Love) // Example Person likes the Example Surface Biome
+                .SetNPCAffection(NPCID.Dryad, AffectionLevel.Love) // Loves living near the dryad.
+                .SetNPCAffection(NPCID.Pirate, AffectionLevel.Like) // Likes living near the guide.
+                .SetNPCAffection(NPCID.WitchDoctor, AffectionLevel.Dislike) // Dislikes living near the merchant.
+                .SetNPCAffection(NPCID.TaxCollector, AffectionLevel.Hate) // Hates living near the demolitionist.
+            ;
         }
 
         public override void SetDefaults()

@@ -12,7 +12,7 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Profaned Butterfly");
+            //DisplayName.SetDefault("Profaned Butterfly");
             Main.npcFrameCount[NPC.type] = 3;
             Main.npcCatchable[NPC.type] = true;
         }

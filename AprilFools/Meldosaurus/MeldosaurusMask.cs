@@ -8,7 +8,7 @@ namespace CalValEX.AprilFools.Meldosaurus
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Meldosaurus Mask");
+            //DisplayName.SetDefault("Meldosaurus Mask");
         }
 
         public override void SetDefaults()

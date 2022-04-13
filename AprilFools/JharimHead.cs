@@ -9,8 +9,6 @@ namespace CalValEX.AprilFools
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Jungle Tyrant Jharim's Decapitated Head");
-			Tooltip.SetDefault("Summons the Jungle Tyrant\nDoes not work outside of April Fools");
 		}
 		public override void SetDefaults()
 		{

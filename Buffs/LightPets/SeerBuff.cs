@@ -8,8 +8,8 @@ namespace CalValEX.Buffs.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sightseeing Tour");
-            Description.SetDefault("Seeing the world together");
+            //DisplayName.SetDefault("Sightseeing Tour");
+            //Description.SetDefault("Seeing the world together");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }

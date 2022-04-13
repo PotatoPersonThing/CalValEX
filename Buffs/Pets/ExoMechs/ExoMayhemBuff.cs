@@ -7,8 +7,8 @@ namespace CalValEX.Buffs.Pets.ExoMechs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Toy Exo Mechs");
-            Description.SetDefault("Perfected entertainment providers");
+            //DisplayName.SetDefault("Toy Exo Mechs");
+            //Description.SetDefault("Perfected entertainment providers");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

@@ -11,7 +11,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Blazing Butterfly");
+            //DisplayName.SetDefault("Blazing Butterfly");
         }
 
         public override void SetDefaults()

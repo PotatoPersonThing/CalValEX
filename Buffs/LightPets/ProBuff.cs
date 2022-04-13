@@ -7,8 +7,8 @@ namespace CalValEX.Buffs.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Profaned Armada");
-            Description.SetDefault("Providence and her army shines holy light through the dark.");
+            //DisplayName.SetDefault("The Profaned Armada");
+            //Description.SetDefault("Providence and her army shines holy light through the dark.");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }

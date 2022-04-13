@@ -15,7 +15,7 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gold Violemur");
+            //DisplayName.SetDefault("Gold Violemur");
             Main.npcFrameCount[NPC.type] = 7;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.NormalGoldCritterBestiaryPriority.Add(Type);
@@ -24,17 +24,6 @@ namespace CalValEX.NPCs.Critters
 
         public override void SetDefaults()
         {
-            //NPC.width = 56;
-            //NPC.height = 26;
-            //NPC.aiStyle = 67;
-            //NPC.damage = 0;
-            //NPC.defense = 0;
-            //NPC.lifeMax = 2000;
-            //NPC.HitSound = SoundID.NPCHit38;
-            //NPC.DeathSound = SoundID.NPCDeath1;
-            //NPC.noGravity = true;
-            //NPC.catchItem = 2007;
-
             NPC.CloneDefaults(NPCID.Squirrel);
             NPC.catchItem = (short)ItemType<GoldViolemurItem>();
             NPC.lavaImmune = false;
@@ -44,6 +33,7 @@ namespace CalValEX.NPCs.Critters
             AnimationType = NPCID.Squirrel;
             NPC.npcSlots = 0.25f;
             NPC.lifeMax = 20;
+            NPC.rarity = 3;
             for (int i = 0; i < NPC.buffImmune.Length; i++)
             {
                 //NPC.buffImmune[(ModLoader.GetMod("CalamityMod").BuffType("AstralInfectionDebuff"))] = false;

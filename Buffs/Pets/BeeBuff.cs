@@ -7,9 +7,7 @@ namespace CalValEX.Buffs.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Reprogramed Plaguebringer");
-            Description.SetDefault("BEEp. Boop. Buzz.");
-            Main.buffNoTimeDisplay[Type] = true;
+           Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
 

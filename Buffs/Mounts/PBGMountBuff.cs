@@ -8,8 +8,8 @@ namespace CalValEX.Buffs.Mounts
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Plague Rider");
-            Description.SetDefault("Ya gotta beelieve in yourself");
+            //DisplayName.SetDefault("Plague Rider");
+            //Description.SetDefault("Ya gotta beelieve in yourself");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

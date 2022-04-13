@@ -8,8 +8,8 @@ namespace CalValEX.Buffs.Mounts
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Profaned Bike");
-            Description.SetDefault("For when you really need to get somewhere, in style.");
+            //DisplayName.SetDefault("Profaned Bike");
+            //Description.SetDefault("For when you really need to get somewhere, in style.");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

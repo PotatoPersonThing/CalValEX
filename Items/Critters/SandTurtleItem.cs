@@ -8,7 +8,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sand Turtle");
+            //DisplayName.SetDefault("Sand Turtle");
         }
 
         public override void SetDefaults()

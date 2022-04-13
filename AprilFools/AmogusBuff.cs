@@ -7,8 +7,8 @@ namespace CalValEX.AprilFools
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Stratus Astronaut");
-            Description.SetDefault("amogus");
+            //DisplayName.SetDefault("Stratus Astronaut");
+            //Description.SetDefault("amogus");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
