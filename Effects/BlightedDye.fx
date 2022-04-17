@@ -12,6 +12,8 @@ float uDirection;
 float3 uLightSource;
 float2 uImageSize0;
 float2 uImageSize1;
+float4 uShaderSpecificData;
+
 bool isBlank(float4 clr)
 {
     return clr.a != 0;
