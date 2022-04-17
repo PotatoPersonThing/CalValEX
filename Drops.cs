@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 //using CalamityMod.World;
 using CalValEX.Items;
 using CalValEX.Items.Critters;
@@ -493,7 +492,7 @@ namespace CalValEX
                 }
                 if (npc.type == NPCID.SandElemental)
                 {
-                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandBottle>(), 10)); 
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandBottle>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandPlush>(), 3));
                 }
                 if (npc.type == NPCID.SolarCrawltipedeHead)
@@ -714,7 +713,7 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<CorrodedCleaver>(), 3));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<CharredChopper>(), 6));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<OldDukePlush>(), 4));
-                }  
+                }
                 //DoG
                 if (npc.type == NPCID.TheDestroyer)
                 {
@@ -2466,8 +2465,9 @@ namespace CalValEX
             }
         }
     }
-=======
-using CalamityMod.World;
+}
+
+/*using CalamityMod.World;
 using CalValEX.Items;
 using CalValEX.Items.Critters;
 using CalValEX.Items.Equips.Backs;
@@ -2616,7 +2616,7 @@ namespace CalValEX
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<CalamitasFumo>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 99, 99);
                         ++nextSlot;
-                    }*/
+                    }
                     if ((bool)clamMod.Call("GetBossDowned", "cryogen"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<FrostflakeBrick>());
@@ -4097,7 +4097,7 @@ namespace CalValEX
                     /*if ((npc.type == calamityMod.NPCType("AstrageldonSlime"))
                     {
                         ConditionalChanceDropItem(npc, ModContent.ItemType<GoozmaPetItem>(), Main.expertMode, 0.0375f);
-                    }      lol   */
+                    }      lol   
                 }
             }
 
@@ -4426,5 +4426,4 @@ namespace CalValEX
             }
         }
     }
->>>>>>> Stashed changes
-}
+}*/

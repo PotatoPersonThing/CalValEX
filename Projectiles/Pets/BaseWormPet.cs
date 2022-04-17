@@ -145,6 +145,25 @@ namespace CalValEX.Projectiles.Pets
 		/// </summary>
 		public virtual string[] TextureProgression => new string[0];
 
+		/// <summary>
+		/// The color the emitted light will be lit in, leave as black for no light.
+		/// </summary>
+		public virtual Color lightcolor => Color.Black;
+		/// <summary>
+		/// How intense the light is.
+		/// </summary>
+		public virtual float intensity => 1f;
+		/// <summary>
+		/// The level of light emitted, check wiki for values.
+		/// </summary>
+		public virtual int abyssLightLevel => 0;
+		public virtual string ArmTexture => "";
+		public virtual string ForearmTexture => "";
+		public virtual string HandTexture => "";
+		/// <summary>
+		/// Does it use the old worm movement?
+		/// </summary>
+		public virtual bool oldWormCode => false;
 		public Player Owner => Main.player[Projectile.owner];
 		public CalValEXPlayer ModOwner => Owner.GetModPlayer<CalValEXPlayer>();
 
@@ -337,6 +356,14 @@ namespace CalValEX.Projectiles.Pets
 
 					Segments[j] = pointA;
 					Segments[j + 1] = pointB;
+					Player owner = Main.player[Projectile.owner];
+					Lighting.AddLight(segmentCenter, lightcolor.ToVector3());
+
+					/*Mod calamityMod = ModLoader.GetMod("CalamityMod");
+					if (calamityMod != null)
+					{
+						calamityMod.Call("AddAbyssLightStrength", owner, abyssLightLevel);
+					}*/
 				}
 			}
         }
@@ -362,13 +389,7 @@ namespace CalValEX.Projectiles.Pets
 		/// <summary>
 		/// Gets ran after everything else. Do whatever you want
 		/// </summary>
-<<<<<<< Updated upstream
 		public virtual void CustomAI() { }
-=======
-		public virtual void CustomAI()
-		{
-		}
->>>>>>> Stashed changes
 
 
 		public override void AI()

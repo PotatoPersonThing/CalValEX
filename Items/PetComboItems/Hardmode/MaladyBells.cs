@@ -1,9 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using CalValEX.Buffs.PetComboBuffs;
 using CalValEX.Items.Pets;
+using CalValEX.Projectiles.Pets;
 
 namespace CalValEX.Items.PetComboItems.Hardmode
 {
@@ -17,49 +19,43 @@ namespace CalValEX.Items.PetComboItems.Hardmode
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.ZephyrFish);
-            item.UseSound = SoundID.NPCHit4;
-            item.shoot = mod.ProjectileType("cryokid");
-            item.value = Item.sellPrice(0, 8, 40, 15);
-            item.rare = 6;
-            item.buffType = mod.BuffType("MaladyBellsBuff");
+            Item.CloneDefaults(ItemID.ZephyrFish);
+            Item.UseSound = SoundID.NPCHit4;
+            Item.value = Item.sellPrice(0, 8, 40, 15);
+            Item.rare = 6;
+            Item.buffType = ModContent.BuffType<MaladyBellsBuff>();
         }
 
-        public override void UseStyle(Player player)
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
         }
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            string[] summonedPets = new string[] {"cryokid", "PhantomPet", "Hoodieeidolist", "FathomEelHead", "MoistScourgePet", "BoldLizard", "SkaterPet"/*, ModLoader.GetMod("PET") != null ? "BloodEel_Projectile" : "", ModLoader.GetMod("PET") != null ? "Dreadnautilus_Projectile" : ""*/};
-            foreach (string pet in summonedPets)
-            {
-                Projectile.NewProjectile(player.Center, new Vector2(speedX, speedY), mod.ProjectileType(pet), 0, 0, player.whoAmI);
-            }
-            return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
+            type = ModContent.ProjectileType<cryokid>();
+            type = ModContent.ProjectileType<PhantomPet>();
+            type = ModContent.ProjectileType<Hoodieidolist>();
+            type = ModContent.ProjectileType<FathomEelHead>();
+            type = ModContent.ProjectileType<MoistScourgePet>();
+            type = ModContent.ProjectileType<BoldLizard>();
+            type = ModContent.ProjectileType<SkaterPet>();
+            return base.Shoot(player, source, position, velocity, type, damage, knockback);
         }
         public override void AddRecipes()
         {
-            Mod TrisPetMod = ModLoader.GetMod("PET");
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModContent.ItemType<coopershortsword>());
-            recipe.AddIngredient(ModContent.ItemType<HauntedPebble>());
-            recipe.AddIngredient(ModContent.ItemType<Eidolistthingy>());
-            recipe.AddIngredient(ModContent.ItemType<DeepseaLantern>());
-            recipe.AddIngredient(ModContent.ItemType<SandTooth>());
-            recipe.AddIngredient(ModContent.ItemType<BoldEgg>());
-            recipe.AddIngredient(ModContent.ItemType<SkaterEgg>());
-            /*if (TrisPetMod != null)
-            {
-                recipe.AddIngredient(TrisPetMod.ItemType("BloodEel_Item"));
-                recipe.AddIngredient(TrisPetMod.ItemType("Dreadnautilus_Item"));
-            }*/
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddIngredient(ModContent.ItemType<coopershortsword>())
+                .AddIngredient(ModContent.ItemType<HauntedPebble>())
+                .AddIngredient(ModContent.ItemType<Eidolistthingy>())
+                .AddIngredient(ModContent.ItemType<DeepseaLantern>())
+                .AddIngredient(ModContent.ItemType<SandTooth>())
+                .AddIngredient(ModContent.ItemType<BoldEgg>())
+                .AddIngredient(ModContent.ItemType<SkaterEgg>())
+                .AddTile(TileID.MythrilAnvil)
+                .Register();
         }
     }
 }

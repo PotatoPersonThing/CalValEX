@@ -1021,6 +1021,7 @@ namespace CalValEX
             ares = false;
             thanos = false;
             twins = false;
+            // Æ: Drae's bools but false !!
             digger = false;
             BestInst = false;
             DustChime = false;

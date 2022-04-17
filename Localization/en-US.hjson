@@ -232,6 +232,20 @@
 			ProtoRingBuff: Proto-Andromeda
 			SandTransformationBuff: Sand Elemental Transformation
 			SignutTransformationBuff: Ethereal Assassin
+			# Æ: Drae's stuff
+			AlarmClockBuff: Alarm Clock
+			AlterBellBuff: Altar Bell
+			BestInstrumentBuff: Best Instrument
+			DustChimeBuff: Dust Chime
+			HarbingerOfWorkBuff: Harbinger Of Work
+			MaladyBellsBuff: Malady Bells
+			NurseryBellsBuff: Nursery Bells
+			ScratchedGongBuff: Scratched Gong
+			SpiritDinerBuff: Spirit Diner Bell
+			TubRuneBuff: T.U.B. Rune
+			VaselineBuff: Vaseline Bell
+			WormBellBuff: Slither Charm
+			PandoraBuff: Pandemonium Box
 		}
 		
 		BuffDescription: {
@@ -371,6 +385,20 @@
 			ProtoRingBuff: Still working out the kinks
 			SandTransformationBuff: '''heh.'''
 			SignutTransformationBuff: Never been more edgy
+			# Æ: Drae's stuff
+			AlarmClockBuff: They might short circuit if left alone
+			AltarBellBuff: The guiding stars
+			BestInstrumentBuff: Fragments of your journey, keep them safe
+			DustChimeBuff: The Adventure begins!
+			HarbingerOfWorkBuff: Watch out if their eyes turn red
+			MaladyBellsBuff: Your journey is not over, they will look after you
+			NurseryBellsBuff: A terrarian's best friends will now follow you!
+			ScratchedGongBuff: The fruits of your magnum opera nears completion
+			SpiritDinerBuff: It's a dark path ahead of you, they'll help
+			TubRuneBuff: Our final message
+			VaselineBuff: The sunrays shine through
+			WormBellBuff: Keep going
+			PandoraBuff: Dream, it's all over\nWe've been waiting for another sight to see
 		}
 
 		BiomeName: {

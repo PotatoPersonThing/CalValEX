@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Terraria.Audio;
-using CalValEX.ExtraTextures.ChristmasPets;
+//using CalValEX.ExtraTextures.ChristmasPets;
 using CalValEX.Biomes;
 using Terraria.ModLoader;
 using CalValEX.AprilFools.Meldosaurus;
