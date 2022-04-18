@@ -101,9 +101,6 @@ namespace CalValEX
 
             if (Main.dedServ)
                 return;
-            DraedonHelmetTextureCache.Load();
-            DraedonChestplateCache.Load();
-
             //Filters.Scene["CalValEX:AstralBiome"] = new Filter(new AstralSkyData("FilterMiniTower").UseColor(Color.Purple).UseOpacity(0.15f), EffectPriority.VeryHigh);
             SkyManager.Instance["CalValEX:AstralBiome"] = new AstralSky();
 
@@ -130,8 +127,6 @@ namespace CalValEX
                 return;
 
             //ChristmasTextureChange.Unload();
-            //DraedonHelmetTextureCache.Unload();
-            //DraedonChestplateCache.Unload();
         }
 
         public override void PostSetupContent()

@@ -36,53 +36,10 @@ namespace CalValEX
 {
     public class CalValEXPlayer : ModPlayer
     {
+        public static readonly ClassSpecificPlayerLayer DraedonSet = new ClassSpecificPlayerLayer("CalValEX/Items/Equips/Shirts/Draedon/", "CalValEX/Items/Equips/Hats/Draedon/", "DraedonChestplate", "DraedonHelmet");
+        
         private const int saveVersion = 0;
-
-        /*
-
-        public static readonly PlayerLayer DraedonChestplate = new PlayerLayer("CalValEX", "DraedonChestplate",
-            PlayerLayer.Body, delegate (PlayerDrawInfo drawInfo)
-                              {
-                                  if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
-                                      return;
-
-                                  Player drawPlayer = drawInfo.drawPlayer;
-                                  Mod mod = ModLoader.GetMod("CalValEX");
-
-                                  if (drawPlayer.body != mod.GetEquipSlot("DraedonChestplate", EquipType.Body))
-                                      return;
-
-                                  Texture2D texture = drawPlayer.HeldItem.magic ? DraedonChestplateCache.DraedonMagicChest
-                                      : drawPlayer.HeldItem.summon ? DraedonChestplateCache.DraedonSummonerChest
-                                      : drawPlayer.HeldItem.ranged ? DraedonChestplateCache.DraedonRangerChest
-                                      : drawPlayer.HeldItem.thrown ? DraedonChestplateCache.DraedonRogueChest
-                                      : drawPlayer.HeldItem.melee ? DraedonChestplateCache.DraedonMeleeChest
-                                      : DraedonChestplateCache.DraedonDefaultChest;
-
-                                  if (texture == DraedonHelmetTextureCache.DraedonDefaultHelm)
-                                      return;
-
-                                  float drawX = (int)drawInfo.position.X + drawPlayer.width / 2;
-                                  float drawY = (int)drawInfo.position.Y + drawPlayer.height -
-                                      drawPlayer.bodyFrame.Height / 2 + 4f;
-                                  Vector2 position = new Vector2(drawX, drawY) + drawPlayer.bodyPosition -
-                                                     Main.screenPosition;
-                                  float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
-                                  Color color = Lighting.GetColor(
-                                      (int)(drawInfo.position.X + drawPlayer.width * 0.5) / 16,
-                                      (int)(drawInfo.position.Y + drawPlayer.height * 0.5) / 16,
-                                      Color.White);
-                                  DrawData drawData = new DrawData(texture, position, drawPlayer.bodyFrame,
-                                      color * alpha, drawPlayer.bodyRotation, drawInfo.bodyOrigin, 1f,
-                                      drawInfo.spriteEffects, 0)
-                                  {
-                                      shader = drawInfo.bodyArmorShader
-                                  };
-
-
-                                  Main.playerDrawData.Add(drawData);
-                              });*/
-
+    
         public bool aero;
         public bool andro;
         public bool Angrypup;
@@ -101,7 +58,7 @@ namespace CalValEX
         public bool Chihuahua;
         public bool cloudmini;
         public bool cr;
-        public bool cryokid;
+        public bool Cryokid;
         public bool darksunSpirits;
         public bool dBall;
         public bool deusmain;
@@ -1401,17 +1358,20 @@ namespace CalValEX
 
         public override void ModifyDrawLayers(List<PlayerLayer> layers)
         {
+                
+            DraedonSet.Visible = true;
             int headLayer = layers.FindIndex(l => l == PlayerLayer.Head);
             int bodyLayer = layers.FindIndex(l => l == PlayerLayer.Body);
 
             if (headLayer > -1)
             {
-                layers.Insert(headLayer + 1, DraedonHelmet);
+                layers.Insert(headLayer + 1, DraedonSet.head);
             }
 
             if (bodyLayer > -1)
             {
-                layers.Insert(bodyLayer + 1, DraedonChestplate);
+                
+            DraedonSet.Visible = true;layers.Insert(bodyLayer + 1, DraedonSet.body);
             }
         /*}
 
@@ -1421,7 +1381,7 @@ namespace CalValEX
 
             if (headLayer > -1)
             {
-                layers.Insert(headLayer + 1, HeadDraedonHelmet);
+                layers.Insert(headLayer + 1, DraedonSet.map);
             }
         }
 

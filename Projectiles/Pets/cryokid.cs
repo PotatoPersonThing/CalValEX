@@ -55,8 +55,8 @@ namespace CalValEX.Projectiles.Pets
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
-                modPlayer.cryokid = false;
-            if (modPlayer.cryokid)
+                modPlayer.Cryokid = false;
+            if (modPlayer.Cryokid)
                 Projectile.timeLeft = 2;
 
             /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.
