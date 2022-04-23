@@ -13,7 +13,7 @@
             body = new ClassSpecificBodyPlayerLayer(bodyPath, bodyName);
         }
 
-        public bool Visible
+        /*public bool Visible
         {
             get
             {
@@ -26,6 +26,6 @@
                 map.visible = value;
                 body.visible = value;
             }
-        }
+        }*/
     }
 }

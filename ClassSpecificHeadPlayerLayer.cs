@@ -8,6 +8,8 @@ namespace CalValEX
 {
     public class ClassSpecificHeadPlayerLayer : PlayerLayer
     {
+        internal bool visible;
+
         public ClassSpecificHeadPlayerLayer(string vanityPath, string vanityName) : base("CalValEX", vanityName + "HeadLayer", Head, delegate(PlayerDrawInfo drawInfo)
         {
             if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)

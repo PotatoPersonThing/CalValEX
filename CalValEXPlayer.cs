@@ -46,7 +46,7 @@ namespace CalValEX
         public bool asPet;
         public bool AstPhage;
         public bool BabyCnidrion;
-        public bool babywaterclone;
+            public bool babywaterclone;
         public bool bDoge;
         public bool BoldLizard;
         public bool CalamityBABYBool;

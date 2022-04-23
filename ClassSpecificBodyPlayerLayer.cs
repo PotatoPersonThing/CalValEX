@@ -1,19 +1,29 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ReLogic.Content;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 
 namespace CalValEX
 {
-    public class ClassSpecificBodyPlayerLayer : PlayerLayer
+    public class ClassSpecificBodyPlayerLayer : PlayerDrawLayer
     {
-        public ClassSpecificBodyPlayerLayer(string vanityPath, string vanityName) : base("CalValEX", vanityName + "BodyLayer", Body, delegate(PlayerDrawInfo drawInfo)
+        internal bool visible;
+
+        public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
+        {
+            return true;
+        }
+        protected override void Draw(ref PlayerDrawSet drawInfo)
+        {
+            if (!visible)
+            {
+                Hide();
+            }
+        }
+        public override Position GetDefaultPosition() => new Between(PlayerDrawLayers.Head, PlayerDrawLayers.Leggings);
+        public ClassSpecificBodyPlayerLayer(string vanityPath, string vanityName) : base("CalValEX", vanityName + "BodyLayer", Body, delegate(PlayerDrawSet drawInfo)
         {
             if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
                 return;

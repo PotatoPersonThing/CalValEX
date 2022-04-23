@@ -24,8 +24,8 @@ namespace CalValEX.Projectiles.Pets
             Projectile.friendly = true;
             Projectile.ignoreWater = true;
             Projectile.tileCollide = true;
-            DrawOffsetX = 6;
-            DrawOriginOffsetY = 8;
+            base.DrawOffsetX = 6;
+            base.DrawOriginOffsetY = 8;
         }
 
         //all things should be synchronized. most things vanilla already does for us, however you should sync the things you
@@ -151,7 +151,7 @@ namespace CalValEX.Projectiles.Pets
             Vector2 vectorToOwner = owner.Center - Projectile.Center;
             float distanceToOwner = vectorToOwner.Length();
 
-            //here we make the projectile image flip depending what their velocity is.
+            //here we make the Projectile image flip depending what their velocity is.
             //this depends where the sprite is facing initialy (on the sprite).
             //if the sprite is directed towards the right (facing right on the sprite), it should be this:
             Projectile.spriteDirection = Projectile.velocity.X > 0 ? 1 : -1;

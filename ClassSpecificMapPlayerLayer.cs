@@ -9,6 +9,8 @@ namespace CalValEX
 {
     public class ClassSpecificMapPlayerLayer : PlayerHeadLayer
     {
+        internal bool visible;
+
         public ClassSpecificMapPlayerLayer(string vanityPath, string vanityName) : base("CalValEX", vanityName + "MapLayer", Armor, delegate(PlayerHeadDrawInfo drawInfo)
         {
             Player drawPlayer = drawInfo.drawPlayer;
