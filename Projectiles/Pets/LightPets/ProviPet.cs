@@ -25,7 +25,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
         public override void PostDraw(Color lightColor)
         {
-            Texture2D glowMask = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/LightPets/ProviPet_Glowmask").Value;
+            Texture2D glowMask = ModContent.Request<Texture2D>("Projectiles/Pets/LightPets/ProviPet_Glow").Value;
             Rectangle frame = glowMask.Frame(1, Main.projFrames[Projectile.type], 0, Projectile.frame);
             frame.Height -= 1;
             float originOffsetX = (glowMask.Width - Projectile.width) * 0.5f + Projectile.width * 0.5f + DrawOriginOffsetX;

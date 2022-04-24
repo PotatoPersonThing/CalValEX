@@ -38,40 +38,45 @@ namespace CalValEX.Buffs.PetComboBuffs
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<Pillager>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
-            bool petProjectileNotSpawnedBA = player.ownedProjectileCounts[ModContent.ProjectileType<rarebrimling>()] <= 0;
-            if (petProjectileNotSpawnedBA && player.whoAmI == Main.myPlayer){
+            bool petProjectileNotSpawnedBA = player.ownedProjectileCounts[ModContent.ProjectileType<RareBrimling>()] <= 0;
+            if (petProjectileNotSpawnedBA && player.whoAmI == Main.myPlayer)
+            {
                 Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
-                    player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<rarebrimling>(), 0, 0f, player.whoAmI, 0f, 0f);
+                       player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<RareBrimling>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
-            bool petProjectileNotSpawnedBB = player.ownedProjectileCounts[ModContent.ProjectileType<cloudmini>()] <= 0;
-            if (petProjectileNotSpawnedBB && player.whoAmI == Main.myPlayer){
+            bool petProjectileNotSpawnedBB = player.ownedProjectileCounts[ModContent.ProjectileType<CloudMini>()] <= 0;
+            if (petProjectileNotSpawnedBB && player.whoAmI == Main.myPlayer)
+            {
                 Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
-                    player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<cloudmini>(), 0, 0f, player.whoAmI, 0f, 0f);
+                       player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<CloudMini>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
-            bool petProjectileNotSpawnedBC = player.ownedProjectileCounts[ModContent.ProjectileType<raresandmini>()] <= 0;
-            if (petProjectileNotSpawnedBC && player.whoAmI == Main.myPlayer){
+            bool petProjectileNotSpawnedBC = player.ownedProjectileCounts[ModContent.ProjectileType<RaresandMini>()] <= 0;
+            if (petProjectileNotSpawnedBC && player.whoAmI == Main.myPlayer)
+            {
                 Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
-                    player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<raresandmini>(), 0, 0f, player.whoAmI, 0f, 0f);
+                       player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<RaresandMini>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
-            bool petProjectileNotSpawnedBD = player.ownedProjectileCounts[ModContent.ProjectileType<sandmini>()] <= 0;
-            if (petProjectileNotSpawnedBD && player.whoAmI == Main.myPlayer){
+            bool petProjectileNotSpawnedBD = player.ownedProjectileCounts[ModContent.ProjectileType<Sandmini>()] <= 0;
+            if (petProjectileNotSpawnedBD && player.whoAmI == Main.myPlayer)
+            {
                 Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
-                    player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<sandmini>(), 0, 0f, player.whoAmI, 0f, 0f);
+                       player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<Sandmini>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
-            bool petProjectileNotSpawnedBE = player.ownedProjectileCounts[ModContent.ProjectileType<babywaterclone>()] <= 0;
-            if (petProjectileNotSpawnedBE && player.whoAmI == Main.myPlayer){
+            bool petProjectileNotSpawnedBE = player.ownedProjectileCounts[ModContent.ProjectileType<BabyWaterClone>()] <= 0;
+            if (petProjectileNotSpawnedBE && player.whoAmI == Main.myPlayer)
+            {
                 Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
-                    player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<babywaterclone>(), 0, 0f, player.whoAmI, 0f, 0f);
+                       player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<BabyWaterClone>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
-            bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<StarJelly>()] <= 0;
-            if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer){
+            bool petProjectileNotSpawnedC = player.ownedProjectileCounts[ModContent.ProjectileType<StarJelly>()] <= 0;
+            if (petProjectileNotSpawnedC && player.whoAmI == Main.myPlayer){
                 Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<StarJelly>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
-            bool petProjectileNotSpawnedC = player.ownedProjectileCounts[ModContent.ProjectileType<SolarBunny>()] <= 0;
-            if (petProjectileNotSpawnedC && player.whoAmI == Main.myPlayer){
+            bool petProjectileNotSpawnedD = player.ownedProjectileCounts[ModContent.ProjectileType<SolarBunny>()] <= 0;
+            if (petProjectileNotSpawnedD && player.whoAmI == Main.myPlayer){
                 Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<SolarBunny>(), 0, 0f, player.whoAmI, 0f, 0f);
             }

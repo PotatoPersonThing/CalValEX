@@ -1,62 +1,38 @@
 using CalValEX.Buffs.LightPets;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets.Wulfrum
 {
-    public class WulfrumHover : FlyingPet
+    public class WulfrumHover : ModFlyingPet
     {
+        public override bool FacesLeft => false;
+
+        public override float TeleportThreshold => 1440f;
+
+        public override float FlyingSpeed => 16f;
+
+        public override Vector2 FlyingOffset => new Vector2(48 * -Main.player[Projectile.owner].direction, -90f);
+
         public override void SetStaticDefaults()
         {
+            PetSetStaticDefaults(lightPet: false);
             DisplayName.SetDefault("Wulfrum Hovercraft");
-            Main.projFrames[Projectile.type] = 8; //frames
-            Main.projPet[Projectile.type] = true;
+            Main.projFrames[Projectile.type] = 8;
         }
 
-        public override void SafeSetDefaults() //SafeSetDefaults!!!
+        public override void SetDefaults()
         {
+            PetSetDefaults();
             Projectile.width = 22;
             Projectile.height = 22;
             Projectile.ignoreWater = true;
-            /* you don't need to set these anymore!
-            Projectile.penetrate = -1;
-            Projectile.netImportant = true;
-            Projectile.timeLeft *= 5;
-            Projectile.friendly = true;
-            Projectile.tileCollide = false;
-            */
-            facingLeft = false; ; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
-            spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
-            shouldFlip = true; //should the sprite flip? set true if it should, false if it shouldnt
-            usesAura = false; //does this pet use an aura?
-            usesGlowmask = false; //does this pet use a glowmask?
-            auraUsesGlowmask = false; //does the aura use a glowmask?
         }
 
-        public override void SetUpFlyingPet()
+        public override void Animation(int state)
         {
-            distance[0] = 1440f; //teleport distance
-            distance[1] = 560f; //faster speed distance
-            speed = 16f;
-            inertia = 60f;
-            animationSpeed = 12; //how fast the animation should play
-            spinRotationSpeedMult = 0.2f; //rotation speed multiplier, keep it positive for it to spin in the right direction
-            offSetX = 48f * -Main.player[Projectile.owner].direction; //this is needed so it's always behind the player.
-            offSetY = -90f; //how much higher from the center the pet should float
-        }
-
-        //you usualy don't have to use the lower two unless you want the pet to have an aura, glowmask
-        //or if you want the pet to emit light
-
-        public override void SafeAI(Player player)
-        {
-            CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-
-            if (player.dead)
-                modPlayer.hover = false;
-            if (modPlayer.hover)
-                Projectile.timeLeft = 2;
-            if (player.HasBuff(ModContent.BuffType<PylonBuff>()))
+            if (Main.player[Projectile.owner].HasBuff(ModContent.BuffType<PylonBuff>()))
             {
                 if (Projectile.frameCounter++ > 8)
                 {
@@ -66,7 +42,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
                         Projectile.frame = 4;
                 }
             }
-            else if (!player.HasBuff(ModContent.BuffType<PylonBuff>()))
+            else
             {
                 if (Projectile.frameCounter++ % 8 == 7)
                 {
@@ -78,11 +54,22 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
                 }
             }
         }
+
+        public override void PetFunctionality(Player player)
+        {
+            CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
+
+            if (player.dead)
+                modPlayer.hover = false;
+
+            if (modPlayer.hover)
+                Projectile.timeLeft = 2;
+        }
     }
 }
 
 /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.
- * for custom behaviour, you can check if the projectile is walking or not via Projectile.localAI[1]
+ * for custom behaviour, you can check if the Projectile is walking or not via Projectile.localAI[1]
  * you should make new custom behaviour with numbers higher than 0, or less than 0
  * the next few lines is an example on how to implement this
  *
@@ -104,11 +91,11 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
  public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
  {if (player.HasBuff(ModContent.BuffType<PylonBuff>()))
  {
-Main.projectileTexture[ModContent.BuffType<WulfrumHover>()] = Modcontent.GetTexture("CalValEX/Projectiles/Pets/Wulfrum/WulfrumHoverCharge");
+Main.ProjectileTexture[ModContent.BuffType<WulfrumHover>()] = Modcontent.GetTexture("CalValEX/Projectiles/Pets/Wulfrum/WulfrumHoverCharge");
 }
 else
 {
-Main.projectileTexture[ModContent.BuffType<WulfrumHover>()] = Modcontent.GetTexture("CalValEX/Projectiles/Pets/Wulfrum/WulfrumHover");
+Main.ProjectileTexture[ModContent.BuffType<WulfrumHover>()] = Modcontent.GetTexture("CalValEX/Projectiles/Pets/Wulfrum/WulfrumHover");
 }
 }
  }

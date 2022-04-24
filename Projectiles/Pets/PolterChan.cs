@@ -20,10 +20,7 @@ namespace CalValEX.Projectiles.Pets
             Main.projFrames[Projectile.type] = 8;
         }
 
-       // Mod calamityMod = ModLoader.GetMod("CalamityMod");
-        //if ((bool)calamityMod.Call("DifficultyActive", "armageddon") && (bool)calamityMod.Call("DifficultyActive", "death") && (bool)calamityMod.Call("DifficultyActive", "ironheart"))
-
-        public override void SetDefaults() //SafeSetDefaults!!!
+        public override void SetDefaults()
         {
             PetSetDefaults();
             Projectile.width = 82;
@@ -33,14 +30,14 @@ namespace CalValEX.Projectiles.Pets
 
         public override void Animation(int state)
         {
-            /*Mod master = ModLoader.GetMod("MasterMode");
+            Mod master = ModLoader.GetMod("MasterMode");
             Mod armasortof = ModLoader.GetMod("EfficientNohits");
             Mod infernum = ModLoader.GetMod("InfernumMode");
             Mod cplus = ModLoader.GetMod("CalValPlus");
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");*/
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
 
             //MAID mode
-            /*if (!CalValEXConfig.Instance.Polterskin && ((master != null && (bool)calamityMod.Call("DifficultyActive", "death") && (infernum != null && (bool)infernum.Call("GetInfernumActive")) && (armasortof != null && (bool)armasortof.Call("GetModifier", "instantdeathalways"))) || cplus != null))
+            if (!CalValEXConfig.Instance.Polterskin && ((master != null && (bool)calamityMod.Call("DifficultyActive", "death") && (infernum != null && (bool)infernum.Call("GetInfernumActive")) && (armasortof != null && (bool)armasortof.Call("GetModifier", "instantdeathalways"))) || cplus != null))
             {
                 if (Projectile.frameCounter++ > 8)
                 {
@@ -50,7 +47,7 @@ namespace CalValEX.Projectiles.Pets
                         Projectile.frame = 4;
                 }
             }
-            else*/
+            else
             {
                 if (Projectile.frameCounter++ % 8 == 7)
                 {
@@ -62,12 +59,13 @@ namespace CalValEX.Projectiles.Pets
                 }
             }
         }
+
         public override void PostDraw(Color lightColor)
         {
             Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             string glowmaskTexture = (modPlayer.signutTrans || modPlayer.signutForce) && !CalValEXConfig.Instance.Polterskin ? "CalValEX/Projectiles/Pets/EvilPolterChan_Glow" : "CalValEX/Projectiles/Pets/PolterChan_Glow";
-            SimpleGlowmask(Main.spriteBatch, glowmaskTexture);
+            //SimpleGlowmask(spriteBatch, glowmaskTexture);
         }
 
         public override void PetFunctionality(Player player)

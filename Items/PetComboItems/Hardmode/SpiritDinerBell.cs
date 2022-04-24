@@ -41,11 +41,11 @@ namespace CalValEX.Items.PetComboItems.Hardmode
         {
             type = ModContent.ProjectileType<Pillager>();
             type = ModContent.ProjectileType<SolarBunny>();
-            type = ModContent.ProjectileType<rarebrimling>();
-            type = ModContent.ProjectileType<cloudmini>();
-            type = ModContent.ProjectileType<raresandmini>();
-            type = ModContent.ProjectileType<sandmini>();
-            type = ModContent.ProjectileType<babywaterclone>();
+            type = ModContent.ProjectileType<RareBrimling>();
+            type = ModContent.ProjectileType<CloudMini>();
+            type = ModContent.ProjectileType<RaresandMini>();
+            type = ModContent.ProjectileType<Sandmini>();
+            type = ModContent.ProjectileType<BabyWaterClone>();
             type = ModContent.ProjectileType<StarJelly>();
             return base.Shoot(player, source, position, velocity, type, damage, knockback);
         }

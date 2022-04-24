@@ -27,7 +27,7 @@ namespace CalValEX.Projectiles.Pets
 
         public override void PostDraw(Color lightColor)
         {
-            //SimpleGlowmask(spriteBatch);
+            SimpleGlowmask(Main.spriteBatch);
         }
 
         public override void Animation(int state)

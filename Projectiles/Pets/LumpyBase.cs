@@ -1,60 +1,50 @@
 ﻿using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.GameContent;
 
 namespace CalValEX.Projectiles.Pets
 {
-    public class LumpyBase : FlyingPet
+    public class LumpyBase : ModFlyingPet
     {
         public bool checkpos = false;
         int i = 0;
         public override string Texture => "CalValEX/Projectiles/Plushies/ItsReal";
 
+        public override Vector2 FlyingOffset => new Vector2(68f * -Main.player[Projectile.owner].direction, -50f);
+
         public override void SetStaticDefaults()
         {
+            PetSetStaticDefaults(lightPet: false);
             DisplayName.SetDefault("Lumpy");
-            Main.projFrames[Projectile.type] = 1; //frames
-            Main.projPet[Projectile.type] = true;
+            Main.projFrames[Projectile.type] = 1;
         }
 
-        public override void SafeSetDefaults() //SafeSetDefaults!!!
+        public override void SetDefaults()
         {
+            PetSetDefaults();
             Projectile.width = 78;
             Projectile.height = 68;
             Projectile.ignoreWater = true;
-            facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
-            spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
-            shouldFlip = true; //should the sprite flip? set true if it should, false if it shouldnt
-            usesAura = false; //does this pet use an aura?
-            usesGlowmask = false; //does this pet use a glowmask?
-            auraUsesGlowmask = false; //does the aura use a glowmask?
-        }
-        public override void SetUpAuraAndGlowmask()
-        {
-            glowmaskTexture = "";
         }
 
-        public override void SetUpFlyingPet()
+        public override void Animation(int state)
         {
-            distance[0] = 1440f; //teleport distance
-            distance[1] = 560f; //faster speed distance
-            speed = 12f;
-            inertia = 60f;
-            animationSpeed = 12; //how fast the animation should play
-            spinRotationSpeedMult = 0.2f; //rotation speed multiplier, keep it positive for it to spin in the right direction
-            offSetX = 68f * -Main.player[Projectile.owner].direction; //this is needed so it's always behind the player.
-            offSetY = -50f; //how much higher from the center the pet should float
         }
 
-        public override void SafeAI(Player player)
+        public override void PetFunctionality(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
                 modPlayer.lumpe = false;
+
             if (modPlayer.lumpe)
                 Projectile.timeLeft = 2;
+        }
 
+        public override void CustomBehaviour(Player player, ref int state, float flyingSpeed, float flyingInertia)
+        {
             if (checkpos)
             {
                 Projectile.alpha = 255;
@@ -63,10 +53,9 @@ namespace CalValEX.Projectiles.Pets
             {
                 Projectile.alpha = 0;
             }
-
         }
 
-        /*public override void SafePostDraw(Color lightColor)
+        public override void PostDraw(Color lightColor)
         {
             var thisRect = Projectile.getRect();
 
@@ -83,7 +72,7 @@ namespace CalValEX.Projectiles.Pets
                     }
                     if (checkpos)
                     {
-                        Texture2D projTexture = Main.projectileTexture[projmim.type];
+                        Texture2D projTexture = TextureAssets.Projectile[projmim.type].Value;
 
                         int frameHeight = projTexture.Height / Main.projFrames[projmim.type];
                         int frameWidth = projTexture.Width / 1;
@@ -94,11 +83,11 @@ namespace CalValEX.Projectiles.Pets
                         {
                             rainbowy = SpriteEffects.FlipHorizontally;
                         }
-                        Main.EntitySpriteDraw(projTexture, Projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(wid, hei, frameWidth, frameHeight)), Color.White, Projectile.rotation, new Vector2(frameWidth / 2f, frameHeight / 2f), projmim.scale, rainbowy, 0f);
+                        Main.EntitySpriteDraw(projTexture, Projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(wid, hei, frameWidth, frameHeight)), Color.White, Projectile.rotation, new Vector2(frameWidth / 2f, frameHeight / 2f), projmim.scale, rainbowy, 0);
                     }
                 }
             //}
             
-        }*/
+        }
     }
 }

@@ -1,4 +1,5 @@
 //using CalamityMod.CalPlayer;
+using Terraria.GameContent;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -41,7 +42,7 @@ namespace CalValEX.Projectiles.Pets
             // Custom AI here
             Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-            //CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
+            //((CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
             if (player.dead)
             {
                 modPlayer.goozmaPet = false;
@@ -152,7 +153,7 @@ namespace CalValEX.Projectiles.Pets
                     19,19,19,19,
                 };
             }
-            else*/ if (Main.eclipse) //Darksun
+            else if (Main.eclipse) //Darksun
             {
                 GoozmaSlimeGods = new List<int>
                 {
@@ -198,7 +199,7 @@ namespace CalValEX.Projectiles.Pets
                 {
                     AddDeity(2);
                 }
-                else if (player.ZoneHallow) //Crystalline
+                else if (player.ZoneHoly) //Crystalline
                 {
                     AddDeity(3);
                 }
@@ -206,14 +207,14 @@ namespace CalValEX.Projectiles.Pets
                 {
                     AddDeity(29);
                 }
-                /*else if (calPlayer.ZoneAstral) //I wonder what this could be
+                else if (calPlayer.ZoneAstral) //I wonder what this could be
                 {
                     AddDeity(4);
                 }
                 else if (calPlayer.ZoneCalamity) //Charred
                 {
                     AddDeity(6);
-                }*/
+                }
                 else if (player.ZoneDesert) //Victide
                 {
                     AddDeity(18);
@@ -226,7 +227,7 @@ namespace CalValEX.Projectiles.Pets
                 {
                     AddDeity(9);
                 }
-                /*else if (calPlayer.ZoneAbyssLayer1 || calPlayer.ZoneAbyssLayer2) //Scoria
+                else if (calPlayer.ZoneAbyssLayer1 || calPlayer.ZoneAbyssLayer2) //Scoria
                 {
                     AddDeity(21);
                 }
@@ -241,7 +242,7 @@ namespace CalValEX.Projectiles.Pets
                 else if (calPlayer.ZoneSunkenSea) //Prism
                 {
                     AddDeity(14);
-                }*/
+                }
                 else if (player.ZoneJungle && player.ZoneRockLayerHeight) //Plague
                 {
                     AddDeity(10);
@@ -270,7 +271,7 @@ namespace CalValEX.Projectiles.Pets
                 {
                     AddDeity(20);
                 }
-                /*else if (calPlayer.ZoneSulphur)
+                else if (calPlayer.ZoneSulphur)
                 {
                     if (CalamityMod.World.CalamityWorld.rainingAcid) //Gamma
                     {
@@ -280,7 +281,7 @@ namespace CalValEX.Projectiles.Pets
                     {
                         AddDeity(17);
                     }
-                }*/
+                }
                 else if (player.ZoneBeach) //Box Jelly
                 {
                     AddDeity(8);
@@ -293,19 +294,19 @@ namespace CalValEX.Projectiles.Pets
                 {
                     AddDeity(5);
                 }
-            }
+            }*/
         }
 
         public Rectangle getFrameFromTexture(int frame)
         {
-            //Texture2D texture = Main.projectileTexture[Projectile.type];
+            //Texture2D texture = Main.ProjectileTexture[Projectile.type];
 
             return new Rectangle(0, 66 * frame, 66, 66);
         }
 
         public Vector2 getOriginFromFrame(int frame)
         {
-            //Texture2D texture = Main.projectileTexture[Projectile.type];
+            //Texture2D texture = Main.ProjectileTexture[Projectile.type];
 
             return new Vector2(33, (66 * frame) + 33);
         }
@@ -322,9 +323,10 @@ namespace CalValEX.Projectiles.Pets
                 }
             }
         }
+
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D projTexture = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/GoozmaPet").Value;
+            Texture2D projTexture = TextureAssets.Projectile[Projectile.type].Value;
 
             float textureRotation = MathHelper.Lerp((float)Math.PI / -4f, (float)Math.PI / 4f, 0.5f + MathHelper.Clamp(Projectile.velocity.X / 33f, -0.5f, 0.5f));
 

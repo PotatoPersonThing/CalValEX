@@ -17,7 +17,7 @@ namespace CalValEX.Buffs.PetComboBuffs
             player.buffTime[buffIndex] = 18000;
 
             player.GetModPlayer<CalValEXPlayer>().MaladyBells = true;
-            player.GetModPlayer<CalValEXPlayer>().cryokid = true;
+            player.GetModPlayer<CalValEXPlayer>().Cryokid = true;
             player.GetModPlayer<CalValEXPlayer>().mDebris = true;
             player.GetModPlayer<CalValEXPlayer>().eidolist = true;
             player.GetModPlayer<CalValEXPlayer>().feel = true;
@@ -25,10 +25,10 @@ namespace CalValEX.Buffs.PetComboBuffs
             player.GetModPlayer<CalValEXPlayer>().BoldLizard = true;
             player.GetModPlayer<CalValEXPlayer>().mSkater = true;
 
-            bool petProjectileNotSpawnedA = player.ownedProjectileCounts[ModContent.ProjectileType<cryokid>()] <= 0;
+            bool petProjectileNotSpawnedA = player.ownedProjectileCounts[ModContent.ProjectileType<Cryokid>()] <= 0;
             if (petProjectileNotSpawnedA && player.whoAmI == Main.myPlayer){
                 Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
-                    player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<cryokid>(), 0, 0f, player.whoAmI, 0f, 0f);
+                    player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<Cryokid>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
             bool petProjectileNotSpawnedB = player.ownedProjectileCounts[ModContent.ProjectileType<PhantomPet>()] <= 0;

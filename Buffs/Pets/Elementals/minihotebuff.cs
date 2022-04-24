@@ -1,11 +1,12 @@
 using Terraria;
 using Terraria.ModLoader;
+using CalValEX.Projectiles.Pets.Elementals;
 
 namespace CalValEX.Buffs.Pets.Elementals
 {
     public class minihotebuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Childish Heart");
             Description.SetDefault("Its like you're running a day-care or something.");
@@ -16,39 +17,37 @@ namespace CalValEX.Buffs.Pets.Elementals
         public override void Update(Player player, ref int buffIndex)
         {
             player.buffTime[buffIndex] = 18000;
+
             player.GetModPlayer<CalValEXPlayer>().rarebrimling = true;
-            bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.Elementals.RareBrimling>()] <= 0;
-            if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
-            {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.Elementals.RareBrimling>(), 0, 0f, player.whoAmI, 0f, 0f);
-            }
-            player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().cloudmini = true;
-            bool petProjectileNotSpawnedf = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.Elementals.CloudMini>()] <= 0;
-            if (petProjectileNotSpawnedf && player.whoAmI == Main.myPlayer)
-            {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.Elementals.CloudMini>(), 0, 0f, player.whoAmI, 0f, 0f);
-            }
-            player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().raresandmini = true;
-            bool petProjectileNotSpawnedfl = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.Elementals.RaresandMini>()] <= 0;
-            if (petProjectileNotSpawnedfl && player.whoAmI == Main.myPlayer)
-            {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.Elementals.RaresandMini>(), 0, 0f, player.whoAmI, 0f, 0f);
-            }
-            player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().sandmini = true;
-            bool petProjectileNotSpawnedf2 = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.Elementals.Sandmini>()] <= 0;
-            if (petProjectileNotSpawnedf2 && player.whoAmI == Main.myPlayer)
-            {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.Elementals.Sandmini>(), 0, 0f, player.whoAmI, 0f, 0f);
-            }
-            player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().babywaterclone = true;
-            bool petProjectileNotSpawnedf3 = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.Elementals.BabyWaterClone>()] <= 0;
-            if (petProjectileNotSpawnedf3 && player.whoAmI == Main.myPlayer)
-            {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.Elementals.BabyWaterClone>(), 0, 0f, player.whoAmI, 0f, 0f);
+
+            bool petProjectileNotSpawnedA = player.ownedProjectileCounts[ModContent.ProjectileType<RareBrimling>()] <= 0;
+            if (petProjectileNotSpawnedA && player.whoAmI == Main.myPlayer){
+                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                       player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<RareBrimling>(), 0, 0f, player.whoAmI, 0f, 0f);
+            }
+            bool petProjectileNotSpawnedB = player.ownedProjectileCounts[ModContent.ProjectileType<CloudMini>()] <= 0;
+            if (petProjectileNotSpawnedB && player.whoAmI == Main.myPlayer){
+                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                       player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<CloudMini>(), 0, 0f, player.whoAmI, 0f, 0f);
+            }
+            bool petProjectileNotSpawnedC = player.ownedProjectileCounts[ModContent.ProjectileType<RaresandMini>()] <= 0;
+            if (petProjectileNotSpawnedC && player.whoAmI == Main.myPlayer){
+                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                       player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<RaresandMini>(), 0, 0f, player.whoAmI, 0f, 0f);
+            }
+            bool petProjectileNotSpawnedD = player.ownedProjectileCounts[ModContent.ProjectileType<Sandmini>()] <= 0;
+            if (petProjectileNotSpawnedD && player.whoAmI == Main.myPlayer){
+                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                       player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<Sandmini>(), 0, 0f, player.whoAmI, 0f, 0f);
+            }
+            bool petProjectileNotSpawnedE = player.ownedProjectileCounts[ModContent.ProjectileType<BabyWaterClone>()] <= 0;
+            if (petProjectileNotSpawnedE && player.whoAmI == Main.myPlayer){
+                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                       player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<BabyWaterClone>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
         }
     }

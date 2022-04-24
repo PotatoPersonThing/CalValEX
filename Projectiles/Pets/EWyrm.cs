@@ -39,7 +39,7 @@ namespace CalValEX.Projectiles.Pets
                 new Vector2(originOffsetX, Projectile.height / 2 - DrawOriginOffsetY),
                 Projectile.scale,
                 Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
-                0f
+                0
             );
         }
 

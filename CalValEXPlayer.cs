@@ -19,6 +19,7 @@ using CalValEX.Projectiles.Pets;
 using CalValEX.Projectiles.Pets.LightPets;
 using CalValEX.Items.Equips.Backs;
 using CalValEX.Projectiles.Pets.Elementals;
+using CalValEX.Items.Equips.PlayerLayers.ClassSpecific;
 using CalValEX.Biomes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -36,7 +37,7 @@ namespace CalValEX
 {
     public class CalValEXPlayer : ModPlayer
     {
-        public static readonly ClassSpecificPlayerLayer DraedonSet = new ClassSpecificPlayerLayer("CalValEX/Items/Equips/Shirts/Draedon/", "CalValEX/Items/Equips/Hats/Draedon/", "DraedonChestplate", "DraedonHelmet");
+        //public static readonly ClassSpecificPlayerLayer DraedonSet = new ClassSpecificPlayerLayer("CalValEX/Items/Equips/Shirts/Draedon/", "CalValEX/Items/Equips/Hats/Draedon/", "DraedonChestplate", "DraedonHelmet");
         
         private const int saveVersion = 0;
     
@@ -883,7 +884,7 @@ namespace CalValEX
             cloudmini = false;
             Skeetyeet = false;
             Angrypup = false;
-            cryokid = false;
+            Cryokid = false;
             TerminalRock = false;
             BabyCnidrion = false;
             sVoid = false;
