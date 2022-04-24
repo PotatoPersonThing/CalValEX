@@ -18,7 +18,7 @@ namespace CalValEX.Items.Pets
         {
             Item.CloneDefaults(ItemID.ZephyrFish);
             Item.UseSound = SoundID.NPCHit5;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.cryokid>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.Cryokid>();
             Item.value = Item.sellPrice(0, 2, 0, 0);
             Item.buffType = ModContent.BuffType<Buffs.Pets.ckidbuff>();
             Item.rare = 5;

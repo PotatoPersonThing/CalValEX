@@ -531,7 +531,8 @@ namespace CalValEX
                 ModLoader.GetMod("CalamityMod").ItemType("Elumplate")
             });
             RecipeGroup.RegisterGroup("AnyPlate", group);
-            group = new RecipeGroup(() => "Any Hardmode Drill", new int[]
+            
+            RecipeGroup group2 = new RecipeGroup(() => "Any Hardmode Drill", new int[]
             {
                 ItemID.CobaltDrill,
                 ItemID.PalladiumDrill,
@@ -540,7 +541,7 @@ namespace CalValEX
                 ItemID.AdamantiteDrill,
                 ItemID.TitaniumDrill,
             });
-            RecipeGroup.RegisterGroup("AnyHardmodeDrill", group);
+            RecipeGroup.RegisterGroup("AnyHardmodeDrill", group2);
         }
         public override void AddRecipes()
         {

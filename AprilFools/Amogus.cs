@@ -8,10 +8,11 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using CalValEX.Projectiles.Pets;
+using Terraria.Chat;
 
 namespace CalValEX.AprilFools
 {
-    public class Amogus : WalkingPet
+    public class Amogus : ModWalkingPet
     {
         int deathcounter = 0;
         int lifecounter = 0;
@@ -30,13 +31,15 @@ namespace CalValEX.AprilFools
         int chargetype = 0;
         public override void SetStaticDefaults()
         {
+            PetSetStaticDefaults(lightPet: false);
             DisplayName.SetDefault("Amogus");
             Main.projFrames[Projectile.type] = 4; //frames
             Main.projPet[Projectile.type] = true;
         }
 
-        public override void SafeSetDefaults()
+        public override void SetDefaults()
         {
+            PetSetDefaults();
             Projectile.width = 26;
             Projectile.height = 26;
             Projectile.penetrate = -1;
@@ -47,69 +50,48 @@ namespace CalValEX.AprilFools
             Projectile.tileCollide = true;
             base.DrawOffsetX = -7;
             base.DrawOriginOffsetY = 0;
-            facingLeft = false; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
-            spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
-            shouldFlip = true;
+            DrawOffsetX = -7;
+            DrawOriginOffsetY = 0;
         }
-
-        //all things should be synchronized. most things vanilla already does for us, however you should sync the things you
-        //made yourself as they are not synchronized alone by the server.
-        public override void SetPetGravityAndDrag()
+        public override void ModifyJumpHeight(ref float oneTileHigherAndNotTwoTilesHigher, ref float twoTilesHigher, ref float fourTilesHigher, ref float fiveTilesHigher, ref float anyOtherJump)
         {
-            gravity = 0.1f; //needs to be positive for the pet to be pushed down platforms plus for it to have gravity
-            drag[0] = 0.92f; //idle drag
-            drag[1] = 0.95f; //walking drag
+            oneTileHigherAndNotTwoTilesHigher = -4f;
+            twoTilesHigher = -6f;
+            fiveTilesHigher = -8f;
+            fourTilesHigher = -7f;
+            anyOtherJump = -6.5f;
         }
-
-        public override void SetPetDistances()
+        public override void Animation(int state)
         {
-            distance[0] = 2400f; //teleport
-            distance[1] = 560f; //speed increase
-            distance[2] = 140f; //when to walk
-            distance[3] = 40f; //when to stop walking
-            distance[4] = 448f; //when to fly
-            distance[5] = 180f; //when to stop flying
-        }
-
-        public override void SetPetSpeedsAndInertia()
-        {
-            speed[0] = 10f; //walking speed
-            speed[1] = 12f; //flying speed
-
-            inertia[0] = 20f; //walking inertia
-            inertia[1] = 80f; //flight inertia
-        }
-
-        public override void SetJumpSpeeds()
-        {
-            jumpSpeed[0] = -4f; //1 tile above pet
-            jumpSpeed[1] = -6f; //2 tiles above pet
-            jumpSpeed[2] = -8f; //5 tiles above pet
-            jumpSpeed[3] = -7f; //4 tiles above pet
-            jumpSpeed[4] = -6.5f; //any other tile number above pet
-        }
-
-        public override void SetFrameLimitsAndFrameSpeed()
-        {
-            idleFrameLimits[0] = idleFrameLimits[1] = 0; //what your min idle frame is (start of idle animation)
-
-            walkingFrameLimits[0] = 0; //what your min walking frame is (start of walking animation)
-            walkingFrameLimits[1] = 3; //what your max walking frame is (end of walking animation)
-
-            flyingFrameLimits[0] = 0;
-            flyingFrameLimits[1] = 3; //what your min flying frame is (start of flying animation)
-
-            animationSpeed[0] = 30; //idle animation speed
-            animationSpeed[1] = 8; //walking animation speed
-            animationSpeed[2] = 10; //flying animation speed
-            spinRotationSpeedMult = 2.5f; //how fast it should spin
-            //put the below to -1 if you dont want a jump animation (so its just gonna continue it's walk animation
-            animationSpeed[3] = -1; //jumping animation speed
-
-            jumpFrameLimits[0] = -1; //what your min jump frame is (start of jump animation)
-            jumpFrameLimits[1] = -1; //what your max jump frame is (end of jump animation)
-
-            jumpAnimationLength = -1; //how long the jump animation should stay
+            switch (state)
+            {
+                case States.Walking:
+                    if (Projectile.velocity.X != 0f)
+                    {
+                        if (++Projectile.frameCounter > 8)
+                        {
+                            Projectile.frameCounter = 0;
+                            Projectile.frame++;
+                            if (Projectile.frame > 3)
+                                Projectile.frame = 0;
+                        }
+                    }
+                    else
+                    {
+                        Projectile.frameCounter = 0;
+                        Projectile.frame = 0;
+                    }
+                    break;
+                case States.Flying:
+                    if (++Projectile.frameCounter > 10)
+                    {
+                        Projectile.frameCounter = 0;
+                        Projectile.frame++;
+                        if (Projectile.frame > 3)
+                            Projectile.frame = 0;
+                    }
+                    break;
+            }
         }
         private void EdgyTalk(string text, Color color, bool combatText = false)
         {
@@ -125,44 +107,26 @@ namespace CalValEX.AprilFools
                 }
                 else if (Main.netMode == NetmodeID.Server)
                 {
-                    //NetMessage.BroadcastChatMessage(NetworkText.FromKey(text), color);
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey(text), color);
                 }
             }
         }
 
-        public override void SafeAI(Player player)
+        public override void PetFunctionality(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
-            { 
+            {
                 modPlayer.amogus = false;
                 Projectile.active = false;
             }
             if (modPlayer.amogus)
                 Projectile.timeLeft = 2;
-
-            /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.
-             * for custom behaviour, you can check if the projectile is walking or not via Projectile.localAI[1]
-             * you should make new custom behaviour with numbers higher than 2, or less than 0
-             * the next few lines is an example on how to implement this
-             *
-             * switch ((int)Projectile.localAI[1])
-             * {
-             *     case -1:
-             *         break;
-             *     case 3:
-             *         break;
-             * }
-             *
-             * 0, 1 and 2 are already in use.
-             * 0 = idling
-             * 1 = walking
-             * 2 = flying
-             *
-             * you can still use these, changing thing inside (however it's not recomended unless you want to add custom behaviour to these)
-             */
-
+        }
+        public override void CustomBehaviour(Player player, ref int state, float walkingSpeed, float walkingInertia, float flyingSpeed, float flyingInertia)
+        {
+            CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (deathcounter <= 0 && !player.HasBuff(ModContent.BuffType<AprilFools.AmogusBuff>()) && !NPC.AnyNPCs(ModContent.NPCType<Meldosaurus.Meldosaurus>()))
             {
                 Projectile.active = false;
@@ -171,19 +135,19 @@ namespace CalValEX.AprilFools
             if (NPC.AnyNPCs(ModContent.NPCType<Meldosaurus.Meldosaurus>()) && deathcounter <= 0)
             {
                 Projectile.tileCollide = false;
-                Projectile.localAI[1] = 5;
+                state = 5;
             }
 
-            if ((CalValEX.month != 4 && Projectile.localAI[1] != 4 && !CalValEXWorld.amogus) || modPlayer.rockhat)
+            if ((CalValEX.month != 4 && state != 4 && !CalValEXWorld.amogus) || modPlayer.rockhat)
             {
                 deathcounter++;
                 if (deathcounter >= 300)
                 {
-                    Projectile.localAI[1] = 3;
+                    state = 3;
                     Projectile.timeLeft = 2;
                 }
             }
-            switch ((int)Projectile.localAI[1])
+            switch (state)
             {
                 case 3:
                     //Main.sunTexture = mod.GetTexture(("AprilFools/AmogusBuff"));
@@ -241,7 +205,7 @@ namespace CalValEX.AprilFools
                             else
                             {
                                 raintype = ProjectileID.InfernoHostileBlast;
-                            }    
+                            }
                         }
 
                         if (sandblasttimer >= 10)
@@ -373,7 +337,7 @@ namespace CalValEX.AprilFools
                     }
                     if (deathcounter >= 4200 && !modPlayer.rockhat)
                     {
-                        Projectile.localAI[1] = 4;
+                        state = 4;
                     }
                     break;
 
@@ -407,7 +371,7 @@ namespace CalValEX.AprilFools
                     if (lifecounter == 680)
                     {
                         Projectile.scale = 1;
-                        Projectile.localAI[1] = 0;
+                        state = 0;
                         deathcounter = 0;
                         lifecounter = 0;
                     }
@@ -419,7 +383,7 @@ namespace CalValEX.AprilFools
                             attackcounter1 = 0;
                             attackcounter2 = 0;
                             attackphase = 0;
-                            Projectile.localAI[1] = 0;
+                            state = 0;
                         }
                         if (attackphase == 0)
                         {
@@ -686,6 +650,7 @@ namespace CalValEX.AprilFools
                     break;
             }
         }
+
         public override Color? GetAlpha(Color lightColor)
         {
             if (deathcounter >= 820)
@@ -698,7 +663,7 @@ namespace CalValEX.AprilFools
             }
         }
 
-        public override void SafeSendExtraAI(BinaryWriter writer)
+        public override void SendExtraAI(BinaryWriter writer)
         {
             writer.Write(deathcounter);
             writer.Write(lifecounter);
@@ -715,7 +680,7 @@ namespace CalValEX.AprilFools
             writer.Write(attackcounter2);
         }
 
-        public override void SafeReceiveExtraAI(BinaryReader reader)
+        public override void ReceiveExtraAI(BinaryReader reader)
         {
             deathcounter = reader.ReadInt32();
             lifecounter = reader.ReadInt32();
@@ -730,16 +695,17 @@ namespace CalValEX.AprilFools
             attackphase = reader.ReadInt32();
             attackcounter1 = reader.ReadInt32();
             attackcounter2 = reader.ReadInt32();
+            base.ReceiveExtraAI(reader);
         }
 
         public override void PostDraw(Color lightColor)
         {
             Texture2D deusheadsprite;
-            if ((attackphase == 1 || attackphase == 2) && Projectile.localAI[1] == 5)
+            if ((attackphase == 1 || attackphase == 2) && state == 5)
             {
                 deusheadsprite = (ModContent.Request<Texture2D>("CalValEX/AprilFools/AmogusGun").Value);
             }
-            else if (attackphase == 0 && Projectile.localAI[1] == 5)
+            else if (attackphase == 0 && state == 5)
             {
                 deusheadsprite = (ModContent.Request<Texture2D>("CalValEX/AprilFools/AmogusKnife").Value);
             }

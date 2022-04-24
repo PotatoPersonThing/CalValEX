@@ -1,4 +1,4 @@
-﻿/*using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -6,14 +6,15 @@ namespace CalValEX.Projectiles.Pets.Elementals
 {
     public class VanityAnahita : ModProjectile
     {
-        public override string Texture => "CalamityMod/NPCs/Leviathan/Siren";
+        //public override string Texture => "CalamityMod/NPCs/Leviathan/Siren";
+        public override string Texture => "CalValEx/Projectiles/Pets/Elementals/BabyWaterClone";
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Passive Anahita");
             Main.projFrames[Projectile.type] = 6;
             Main.projPet[Projectile.type] = true;
             DrawOriginOffsetY = -15;
-            //DrawOffsetX = -14;
+            //drawOffsetX = -14;
         }
 
         public override void SetDefaults()
@@ -66,4 +67,4 @@ namespace CalValEX.Projectiles.Pets.Elementals
             }
         }
     }
-}*/
+}

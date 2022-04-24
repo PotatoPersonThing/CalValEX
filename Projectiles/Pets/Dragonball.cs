@@ -11,7 +11,7 @@ namespace CalValEX.Projectiles.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL EXPLOSION");
+            DisplayName.SetDefault("BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALL EXPLOSION");
             Main.projFrames[Projectile.type] = 3;
             Main.projPet[Projectile.type] = true;
         }

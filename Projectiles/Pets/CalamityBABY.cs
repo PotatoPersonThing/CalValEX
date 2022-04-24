@@ -10,47 +10,44 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets
 {
-    public class CalamityBABY : FlyingPet
+    public class CalamityBABY : ModFlyingPet
     {
-        public override void SetStaticDefaults()
+        public new class States
         {
-            DisplayName.SetDefault("Calamity BABY");
-            Main.projFrames[Projectile.type] = 15;
-            Main.projPet[Projectile.type] = true;
+            public const int Transition = -1;
+            public const int Flying = 0;
+            public const int LayingDown = 1;
         }
 
-        public override void SafeSetDefaults()
+        public override float TeleportThreshold => 1840f;
+
+        public override void SetStaticDefaults()
         {
+            PetSetStaticDefaults(lightPet: false);
+            DisplayName.SetDefault("Calamity BABY");
+            Main.projFrames[Projectile.type] = 15;
+        }
+
+        public override void SetDefaults()
+        {
+            PetSetDefaults();
             Projectile.width = 76;
             Projectile.height = 76;
             Projectile.ignoreWater = true;
             Projectile.tileCollide = true;
             DrawOffsetX = 2;
-            facingLeft = true;
-            spinRotation = false;
-            shouldFlip = true;
         }
 
-        public override void SafeSendExtraAI(BinaryWriter writer)
+        public override void SendExtraAI(BinaryWriter writer)
         {
             writer.Write(MyDudeJustGotHitLikeTheIdiotItIs);
+            base.SendExtraAI(writer);
         }
 
-        public override void SafeReceiveExtraAI(BinaryReader reader)
+        public override void ReceiveExtraAI(BinaryReader reader)
         {
             MyDudeJustGotHitLikeTheIdiotItIs = reader.ReadBoolean();
-        }
-
-        public override void SetUpFlyingPet()
-        {
-            distance[0] = 1840f;
-            distance[1] = 560f;
-            speed = 12f;
-            inertia = 60f;
-            animationSpeed = -1;
-            spinRotationSpeedMult = 1f;
-            offSetX = 48f * -Main.player[Projectile.owner].direction;
-            offSetY = -50f;
+            base.ReceiveExtraAI(reader);
         }
 
         private bool firstTick = false;
@@ -77,7 +74,7 @@ namespace CalValEX.Projectiles.Pets
                 if (Main.player[Projectile.owner].GetModPlayer<CalValEXPlayer>().CalamityBabyGotHit)
                 {
                     MyDudeJustGotHitLikeTheIdiotItIs = true;
-                    Projectile.localAI[1] = -1;
+                    state = States.Transition;
                     Projectile.ai[0] = 0;
                     Projectile.ai[1] = 0;
                     Projectile.localAI[0] = 0;
@@ -92,9 +89,9 @@ namespace CalValEX.Projectiles.Pets
         private float[] myRotation = new float[2];
         private float scale = 0.25f;
 
-        public override void SafePreDraw(Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            if (Projectile.localAI[1] == -1)
+            if (state == States.Transition)
             {
                 Texture2D auraTexture_1 = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/CalamityBABY_Aura_1").Value;
                 Rectangle sourceRectangle_1 = new Rectangle(0, 0, auraTexture_1.Width, auraTexture_1.Height);
@@ -105,26 +102,38 @@ namespace CalValEX.Projectiles.Pets
                 Vector2 origin_2 = new Vector2(auraTexture_2.Width, auraTexture_2.Height);
                 Main.EntitySpriteDraw(auraTexture_2, Projectile.Center - Main.screenPosition, sourceRectangle_2, Color.White, myRotation[1], origin_2 / 2f, scale * 0.75f, SpriteEffects.None, 0);
             }
+            return base.PreDraw(ref lightColor);
         }
 
-        public override void SafeAI(Player player)
+        public override void PetFunctionality(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
                 modPlayer.CalamityBABYBool = false;
+
             if (modPlayer.CalamityBABYBool)
                 Projectile.timeLeft = 2;
+        }
 
+        public override void Animation(int state) //I am too lazy to put the animation code in here.
+        {
+        }
+
+        //this is a bad example of having all the custom code here instead of putting the animation in the right method
+        //Animation() gets called before this, so it can matter
+        //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
+        public override void CustomBehaviour(Player player, ref int state, float flyingSpeed, float flyingInertia)
+        {
             Vector2 vectorToOwner = player.Center - Projectile.Center;
             float distanceToOwner = vectorToOwner.Length();
 
-            myRotation[0] += 0.025f;
-            myRotation[1] -= 0.025f;
+            myRotation[0] = MathHelper.WrapAngle(myRotation[0] + (0.025f * (Projectile.ai[0] / 180f)));
+            myRotation[1] = MathHelper.WrapAngle(myRotation[1] - (0.025f * (Projectile.ai[0] / 180f)));
 
-            switch (Projectile.localAI[1])
+            switch (state)
             {
-                case -1: //TRANSITION
+                case States.Transition: //TRANSITION
                     Projectile.tileCollide = false;
                     Projectile.rotation = 0;
                     if (scale < 2f)
@@ -164,13 +173,13 @@ namespace CalValEX.Projectiles.Pets
                         //Mod calamityMod = ModLoader.GetMod("CalamityMod");
                         for (int i = 0; i < bossList.Count; i++)
                         {
-                            //NPC.NewNPC((int)Projectile.position.X, (int)Projectile.position.Y, calamityMod.NPCType(bossList[i]));
+                           // NPC.NewNPC((int)Projectile.position.X, (int)Projectile.position.Y, calamityMod.NPCType(bossList[i]));
                         }
                     }
                     if (Projectile.ai[0] == (timeBetweenTexts * 5) + 30)
                     {
                         Projectile.ai[0] = 0;
-                        Projectile.localAI[1] = 0;
+                        state = States.Flying;
 
                         for (int i = 0; i < Main.maxPlayers; i++)
                         {
@@ -185,18 +194,18 @@ namespace CalValEX.Projectiles.Pets
                     }
                     break;
 
-                case 0:
+                case States.Flying:
                     Projectile.tileCollide = false;
                     Projectile.rotation = Projectile.velocity.X * 0.025f;
                     scale = 0.25f;
-                    Vector2 offset = new Vector2(offSetX, offSetY);
+                    Vector2 offset = FlyingOffset;
                     vectorToOwner += offset;
                     distanceToOwner = vectorToOwner.Length();
                     if (Math.Abs(player.velocity.X) < 0.05 && Math.Abs(player.velocity.Y) < 0.05)
                     {
                         if (++Projectile.ai[0] >= 210 && distanceToOwner < 50f)
                         {
-                            Projectile.localAI[1] = 1;
+                            state = States.LayingDown;
                             Projectile.ai[0] = 0;
                         }
                     }
@@ -212,7 +221,7 @@ namespace CalValEX.Projectiles.Pets
                     }
                     break;
 
-                case 1: //laying down
+                case States.LayingDown:
                     Projectile.tileCollide = true;
                     Projectile.velocity *= 0.98f;
                     Projectile.velocity.Y += 0.1f;
@@ -221,9 +230,9 @@ namespace CalValEX.Projectiles.Pets
 
                     if (distanceToOwner > 320f)
                     {
-                        if (++Projectile.ai[0] >= 210)
+                        if (++Projectile.ai[0] >= (420 * (1 - (distanceToOwner / 640f))))
                         {
-                            Projectile.localAI[1] = 0;
+                            state = States.Flying;
                             Projectile.ai[0] = 0;
                         }
                     }
@@ -255,7 +264,7 @@ namespace CalValEX.Projectiles.Pets
                 }
                 else if (Main.netMode == NetmodeID.Server)
                 {
-                    //NetMessage.BroadcastChatMessage(NetworkText.FromKey(text), color);
+                    Terraria.Chat.ChatHelper.BroadcastChatMessage(NetworkText.FromKey(text), color);
                 }
             }
         }

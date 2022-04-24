@@ -1,14 +1,16 @@
-/*using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.GameContent;
 
 namespace CalValEX.Projectiles.Pets.LightPets
 {
     public class Lightshield : ModProjectile
     {
-        public override string Texture => "CalamityMod/NPCs/Cryogen/CryogenIce";
+        //public override string Texture => "CalamityMod/NPCs/Cryogen/CryogenIce";
+        public override string Texture => "CalValEx/Projectiles/Pets/Elementals/Sandmini";
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Arctic Shield");
@@ -35,11 +37,11 @@ namespace CalValEX.Projectiles.Pets.LightPets
             return false;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
             //Lighting.AddLight(Projectile.Center, new Vector3(0.541176471f, 1f, 1f));
-            Texture2D texture = Main.projectileTexture[Projectile.type];
-            Main.EntitySpriteDraw(texture, Projectile.Center - Main.screenPosition, null, Projectile.GetAlpha(lightColor), Projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, Projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.None, 0f);
+            Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+            Main.EntitySpriteDraw(texture, Projectile.Center - Main.screenPosition, null, Projectile.GetAlpha(lightColor), Projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, Projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.None, 0);
             return false;
         }
 
@@ -69,6 +71,12 @@ namespace CalValEX.Projectiles.Pets.LightPets
             {
                 Projectile.rotation += MathHelper.TwoPi;
             }
+
+            /*Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            if (calamityMod != null)
+            {
+                calamityMod.Call("AddAbyssLightStrength", Projectile.owner, 2);
+            }*/
         }
     }
-}*/
+}

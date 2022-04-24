@@ -31,13 +31,13 @@ namespace CalValEX.Items.LightPets
             }
         }
        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
+       {
             type = ModContent.ProjectileType<Projectiles.Pets.LightPets.SeerS>();
             return base.Shoot(player, source, position, velocity, type, damage, knockback);
             type = ModContent.ProjectileType<Projectiles.Pets.LightPets.SeerM>();
             return base.Shoot(player, source, position, velocity, type, damage, knockback);
             type = ModContent.ProjectileType<Projectiles.Pets.LightPets.SeerL>();
             return base.Shoot(player, source, position, velocity, type, damage, knockback);
-        }
+       }
     }
 }

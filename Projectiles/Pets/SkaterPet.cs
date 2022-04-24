@@ -189,18 +189,18 @@ namespace CalValEX.Projectiles.Pets
                     Projectile.frame = 0;
 
                     //SEEK BUBBLE AND DESTROY THAT BASTARD (TRANSFORM INTO CONSTANT FLYING)
-                    //if (calamityMod != null)
+                    /*if (calamityMod != null)
                     {
                         float bubbleDistance = float.PositiveInfinity;
                         Projectile myBubble = null;
-                        /*for (int i = 0; i < Main.maxProjectiles; i++)
+                        for (int i = 0; i < Main.maxProjectiles; i++)
                         {
-                            if ((Main.projectile[i].type == calamityMod.ProjectileType("CragmawBubble") || Main.projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubble") || Main.projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubbleFriendly") || Main.projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubble2")) && Main.projectile[i].active && Math.Abs(Projectile.Center.X - Main.projectile[i].Center.X) < bubbleDistance && Collision.CanHit(Projectile.position, Projectile.width, Projectile.height, Main.projectile[i].position, Main.projectile[i].width, Main.projectile[i].height) && Main.projectile[i].Center.Y > Projectile.Bottom.Y)
+                            if ((Main.Projectile[i].type == calamityMod.ProjectileType("CragmawBubble") || Main.Projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubble") || Main.Projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubbleFriendly") || Main.Projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubble2")) && Main.Projectile[i].active && Math.Abs(Projectile.Center.X - Main.Projectile[i].Center.X) < bubbleDistance && Collision.CanHit(Projectile.position, Projectile.width, Projectile.height, Main.Projectile[i].position, Main.Projectile[i].width, Main.Projectile[i].height) && Main.Projectile[i].Center.Y > Projectile.Bottom.Y)
                             {
-                                bubbleDistance = Projectile.Distance(Main.projectile[i].Center);
-                                myBubble = Main.projectile[i];
+                                bubbleDistance = Projectile.Distance(Main.Projectile[i].Center);
+                                myBubble = Main.Projectile[i];
                             }
-                        }*/
+                        }
 
                         if (bubbleDistance >= 2000f)
                             myBubble = null;
@@ -238,7 +238,7 @@ namespace CalValEX.Projectiles.Pets
                             vectorToBubblePosition *= 20f;
                             Projectile.velocity.X = (Projectile.velocity.X * (20f - 1) + vectorToBubblePosition.X) / 20f;
                         }
-                    }
+                    }*/
                     break;
 
                 case 1: //walking
