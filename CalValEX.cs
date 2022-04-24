@@ -101,7 +101,6 @@ namespace CalValEX
 
             if (Main.dedServ)
                 return;
-
             //Filters.Scene["CalValEX:AstralBiome"] = new Filter(new AstralSkyData("FilterMiniTower").UseColor(Color.Purple).UseOpacity(0.15f), EffectPriority.VeryHigh);
             SkyManager.Instance["CalValEX:AstralBiome"] = new AstralSky();
 
@@ -128,8 +127,6 @@ namespace CalValEX
                 return;
 
             //ChristmasTextureChange.Unload();
-            //DraedonHelmetTextureCache.Unload();
-            //DraedonChestplateCache.Unload();
         }
 
         public override void PostSetupContent()
@@ -534,6 +531,16 @@ namespace CalValEX
                 ModLoader.GetMod("CalamityMod").ItemType("Elumplate")
             });
             RecipeGroup.RegisterGroup("AnyPlate", group);
+            group = new RecipeGroup(() => "Any Hardmode Drill", new int[]
+            {
+                ItemID.CobaltDrill,
+                ItemID.PalladiumDrill,
+                ItemID.MythrilDrill,
+                ItemID.OrichalcumDrill,
+                ItemID.AdamantiteDrill,
+                ItemID.TitaniumDrill,
+            });
+            RecipeGroup.RegisterGroup("AnyHardmodeDrill", group);
         }
         public override void AddRecipes()
         {
