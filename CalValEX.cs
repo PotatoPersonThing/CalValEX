@@ -157,7 +157,6 @@ namespace CalValEX
             {
                 cal.GetItem("TheEmpyrean").Tooltip.AddTranslation(GameCulture.English, "70% chance to not consume gel\n" + "Keep away from the jester...");
             }
-
             cal.Call("MakeItemExhumable", ModContent.ItemType<CalArtifact>(), ModContent.ItemType<CalamitousSoulArtifact>());*/
 
             //Census support
@@ -390,7 +389,6 @@ namespace CalValEX
                         drp.Call("AddClient", "929973580178010152", "mod_calvalex");
                         drp.Call("AddBiome", (Func<bool>)(() => Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral), "Astral Blight",
                             "biome_astralblight", 50f, "mod_calvalex");
-
                     }
                 }
                 catch (Exception ex)
@@ -490,22 +488,18 @@ namespace CalValEX
                 music = GetSoundSlot(SoundType.Music, "Sounds/Music/Murasama");
                 priority = MusicPriority.BossHigh + 1;
            }
-
         }*/
 
         /*public override void AddRecipeGroups()
         {
             RecipeGroup sand = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Sand"]];
             sand.ValidItems.Add(ModContent.ItemType<AstralSand>());
-
             RecipeGroup fieref = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Fireflies"]];
             fieref.ValidItems.Add(ModContent.ItemType<Items.Critters.NukeFlyItem>());
             fieref.ValidItems.Add(ModContent.ItemType<Items.Critters.BlinkerItem>());
-
             RecipeGroup bf = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Butterflies"]];
             bf.ValidItems.Add(ModContent.ItemType<Items.Critters.ProvFlyItem>());
             bf.ValidItems.Add(ModContent.ItemType<Items.Critters.CrystalFlyItem>());
-
             if (RecipeGroup.recipeGroupIDs.ContainsKey("WingsGroup"))
             {
                 int index = RecipeGroup.recipeGroupIDs["WingsGroup"];
@@ -522,14 +516,12 @@ namespace CalValEX
                 groupe.ValidItems.Add(ModContent.ItemType<ScryllianWings>());
                 groupe.ValidItems.Add(ModContent.ItemType<TerminalWings>());
             }
-
             if (RecipeGroup.recipeGroupIDs.ContainsKey("AnyIceBlock"))
             {
                 int index = RecipeGroup.recipeGroupIDs["AnyIceBlock"];
                 RecipeGroup groupe = RecipeGroup.recipeGroups[index];
                 groupe.ValidItems.Add(ModContent.ItemType<AstralIce>());
             }
-
             RecipeGroup group = new RecipeGroup(() => "Any Plate", new int[]
             {
                 ModLoader.GetMod("CalamityMod").ItemType("PlagueContainmentCells"),
@@ -539,8 +531,8 @@ namespace CalValEX
                 ModLoader.GetMod("CalamityMod").ItemType("Elumplate")
             });
             RecipeGroup.RegisterGroup("AnyPlate", group);
-
-            group = new RecipeGroup(() => "Any Hardmode Drill", new int[]
+            
+            RecipeGroup group2 = new RecipeGroup(() => "Any Hardmode Drill", new int[]
             {
                 ItemID.CobaltDrill,
                 ItemID.PalladiumDrill,
@@ -549,9 +541,8 @@ namespace CalValEX
                 ItemID.AdamantiteDrill,
                 ItemID.TitaniumDrill,
             });
-            RecipeGroup.RegisterGroup("AnyHardmodeDrill", group);
+            RecipeGroup.RegisterGroup("AnyHardmodeDrill", group2);
         }
-
         public override void AddRecipes()
         {
             Mod catalyst = ModLoader.GetMod("CatalystMod");
