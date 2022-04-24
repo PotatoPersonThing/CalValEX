@@ -10,7 +10,7 @@ namespace CalValEX.Projectiles.Pets
         {
             PetSetStaticDefaults(lightPet: false);
             DisplayName.SetDefault("Aero Slime");
-            Main.projFrames[Projectile.type] = 4;
+            Main.projFrames[Projectile.type] = 6;
         }
 
         public override void SetDefaults()

@@ -66,20 +66,20 @@ namespace CalValEX.Projectiles.Pets
 
         public override void PostDraw(Color lightColor)
         {
-            Texture2D glowMask = ModContent.Request<Texture2D>("Projectiles/Pets/Blockaroz_Glow").Value;
+            Texture2D glowMask;
             if (CalValEX.month == 12)
             {
-                glowMask = ModContent.Request<Texture2D>("ExtraTextures/ChristmasPets/BlockarozGlow").Value;
+                glowMask = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/ChristmasPets/BlockarozGlow").Value;
             }
             else
             {
-                glowMask = ModContent.Request<Texture2D>("Projectiles/Pets/Blockaroz_Glow").Value;
+                glowMask = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/Blockaroz_Glow").Value;
             }
             Rectangle frame = glowMask.Frame(1, Main.projFrames[Projectile.type], 0, Projectile.frame);
             frame.Height -= 1;
             float originOffsetX = (glowMask.Width - Projectile.width) * 0.5f + Projectile.width * 0.5f + DrawOriginOffsetX;
-            Mod ortho = ModLoader.GetMod("CalValPlus");
-            if ((ortho != null) || (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7)))
+            //Mod ortho = ModLoader.GetMod("CalValPlus");
+            if (/*(ortho != null) ||*/ (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7)))
             {
                 Main.EntitySpriteDraw
                 (

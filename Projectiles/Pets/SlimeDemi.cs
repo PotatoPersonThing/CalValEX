@@ -37,8 +37,8 @@ namespace CalValEX.Projectiles.Pets
         public override bool PreDraw(ref Color lightColor)
         {
             float textureRotation = MathHelper.Lerp((float)Math.PI / -4f, (float)Math.PI / 4f, 0.5f + MathHelper.Clamp(Projectile.velocity.X / 50f, -0.5f, 0.5f));
-            Texture2D texture = ModContent.Request<Texture2D>("Projectiles/Pets/SlimeDemi_Crimson").Value;
-            Texture2D texture2 = ModContent.Request<Texture2D>("Projectiles/Pets/SlimeDemi_Corruption").Value;
+            Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/SlimeDemi_Crimson").Value;
+            Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/SlimeDemi_Corruption").Value;
             Vector2 Circle = Projectile.Center + new Vector2(0, 50).RotatedBy(ballcounter);
             Vector2 draw = Circle - Main.screenPosition;
             Main.EntitySpriteDraw(texture, draw, null, Color.White, textureRotation, new Vector2(texture.Width / 2f, texture.Height / 2), 1f, SpriteEffects.None, 0);

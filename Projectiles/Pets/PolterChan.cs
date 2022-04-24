@@ -30,7 +30,7 @@ namespace CalValEX.Projectiles.Pets
 
         public override void Animation(int state)
         {
-            Mod master = ModLoader.GetMod("MasterMode");
+            /*Mod master = ModLoader.GetMod("MasterMode");
             Mod armasortof = ModLoader.GetMod("EfficientNohits");
             Mod infernum = ModLoader.GetMod("InfernumMode");
             Mod cplus = ModLoader.GetMod("CalValPlus");
@@ -48,7 +48,7 @@ namespace CalValEX.Projectiles.Pets
                 }
             }
             else
-            {
+            {*/
                 if (Projectile.frameCounter++ % 8 == 7)
                 {
                     Projectile.frame++;
@@ -57,7 +57,7 @@ namespace CalValEX.Projectiles.Pets
                 {
                     Projectile.frame = 0;
                 }
-            }
+            //}
         }
 
         public override void PostDraw(Color lightColor)

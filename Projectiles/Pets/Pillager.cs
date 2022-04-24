@@ -92,10 +92,10 @@ namespace CalValEX.Projectiles.Pets
 
         public override void PostDraw(Color lightColor)
         {
-            Texture2D glowMask = ModContent.Request<Texture2D>("Projectiles/Pets/Pillager_Glow").Value;
+            Texture2D glowMask = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/Pillager_Glow").Value;
             if (CalValEX.month == 12)
             {
-                glowMask = ModContent.Request<Texture2D>("ExtraTextures/ChristmasPets/PillagerGlow").Value;
+                glowMask = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/ChristmasPets/PillagerGlow").Value;
             }
 
             Rectangle frame = glowMask.Frame(1, Main.projFrames[Projectile.type], 0, Projectile.frame);
