@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Shirts.Draedon
         {
             DisplayName.SetDefault("Arsenal Soldier Chestplate");
             Tooltip.SetDefault("Changes appearance depending on held item damage type");
+            ArmorIDs.Body.Sets.HidesArms[Mod.GetEquipSlot(Name, EquipType.Body)] = true;
         }
 
         public override void SetDefaults()
