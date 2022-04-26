@@ -1,65 +1,17 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.GameContent;
 using Terraria.Graphics.Effects;
-using Terraria.Graphics.Shaders;
-using Terraria.Utilities;
+using Terraria.ID;
 
 namespace CalValEX.Biomes
 {
     public class AstralSky : CustomSky
     {
-        //public static bool DeactivateBGs;
-        public bool Active;
-        public float Intensity;
-
-        public static Texture2D SkyTexture;
-
-        public override void OnLoad()
-        {
-            SkyTexture = ModContent.Request<Texture2D>("CalValEX/Backgrounds/AstralSky").Value;
-        }
-
-        public override void Update(GameTime gameTime)
-        {
-            if (!Main.LocalPlayer.InModBiome(ModContent.GetInstance<AstralBlight>()))
-                Active = false;
-
-            if (Active && Intensity < 1f)
-            {
-                Intensity += 0.02f;
-            }
-            else if (!Active && Intensity > 0f)
-            {
-                Intensity -= 0.02f;
-            }
-        }
-
-        public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
-        {
-            if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
-            {
-                if (Main.player[Main.myPlayer].InModBiome(ModContent.GetInstance<AstralBlight>())/* && !DeactivateBGs*/)
-                {
-                    //Draw the sky box texture
-                    spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Lime);
-                }
-            }
-        }
-
-        public override float GetCloudAlpha()
-        {
-            return 1f - Intensity;
-        }
-
-        public override void Activate(Vector2 position, params object[] args)
-        {
-            //Intensity = 0.002f;
-            Active = true;
-        }
+        private bool Active;
+        private float intensity;
 
         public override void Deactivate(params object[] args)
         {
@@ -73,32 +25,40 @@ namespace CalValEX.Biomes
 
         public override bool IsActive()
         {
-            return Active || Intensity > 0f;
+            return Active || intensity > 0f;
+        }
+
+        public override void Activate(Vector2 position, params object[] args)
+        {
+            Active = true;
+        }
+
+        public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
+        {
+            if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
+            {
+                spriteBatch.Draw(CalValEX.AstralSky, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Main.ColorOfTheSkies * intensity);
+            }
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            if (!Main.LocalPlayer.InModBiome(ModContent.GetInstance<AstralBlight>()))
+                Active = false;
+
+            if (Active && intensity < 1f)
+            {
+                intensity += 0.02f;
+            }
+            else if (!Active && intensity > 0f)
+            {
+                intensity -= 0.02f;
+            }
+        }
+
+        public override float GetCloudAlpha()
+        {
+            return (1f - intensity) * 0.97f + 0.03f;
         }
     }
-
-    /*public class AstralSkyData : ScreenShaderData
-    {
-        public AstralSkyData(string passName)
-            : base(passName)
-        {
-        }
-        private void UpdateAstralIndex()
-        {
-
-        }
-
-        public override void Apply()
-        {
-            UpdateAstralIndex();
-            if (Main.player[Main.myPlayer].InModBiome(ModContent.GetInstance<AstralBlight>()))
-            {
-                for (int i = 0; i < Main.npc.Length; i++)
-                {
-                    UseTargetPosition(Main.player[(int)Player.FindClosest(Main.npc[i].position, Main.npc[i].width, Main.npc[i].height)].Center);
-                }
-            }
-            base.Apply();
-        }
-    }*/
 }

@@ -14,11 +14,12 @@ namespace CalValEX.Items.Dyes
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Draedon's Hologram Dye");
-            if(!Main.dedServ) {
+            if (!Main.dedServ) 
+            {
                 // The following code creates an effect (shader) reference and associates it with this item's type Id.
                 GameShaders.Armor.BindShader(
                     Item.type,
-                    new ArmorShaderData(new Ref<Effect>(Mod.Assets.Request<Effect>("Effects/DraedonHologramDye").Value), "DraedonHologramDyePass") // Be sure to update the effect path and pass name here.
+                    new ArmorShaderData(new Ref<Effect>(Mod.Assets.Request<Effect>("Effects/DraedonHologramDye", AssetRequestMode.ImmediateLoad).Value), "DraedonHologramDyePass") // Be sure to update the effect path and pass name here.
                 );
             }
 

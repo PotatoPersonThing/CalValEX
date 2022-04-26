@@ -18,13 +18,13 @@ namespace CalValEX
         [Header("Drops")]
         [Label("Disable All Drops")]
         [BackgroundColor(192, 54, 64, 192)]
-        [DefaultValue(false)]
+        [DefaultValue(true)]
         [Tooltip("Disables all of the mod's direct drops")]
         public bool DisableVanityDrops { get; set; }
 
         [Label("Disable Boss Block Drops")]
         [BackgroundColor(192, 54, 64, 192)]
-        [DefaultValue(false)]
+        [DefaultValue(true)]
         [Tooltip("Makes it so that bosses and their bags no longer drop blocks")]
         public bool ConfigBossBlocks { get; set; }
 

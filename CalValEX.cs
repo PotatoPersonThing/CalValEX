@@ -50,6 +50,7 @@ using CalValEX.Tiles.MiscFurniture;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.Localization;
+using ReLogic.Content;
 //using CalamityMod;
 
 namespace CalValEX
@@ -77,6 +78,7 @@ namespace CalValEX
         public static string currentDate;
         public static int day;
         public static int month;
+        public static Texture2D AstralSky;
 
         public Action<Player> careationElement;
         /*public Action<Item> creationElement = new Action<Item>(item =>
@@ -98,6 +100,8 @@ namespace CalValEX
             currentDate = dateTime.ToString("dd/MM/yyyy");
             day = dateTime.Day;
             month = dateTime.Month;
+
+            AstralSky = ModContent.Request<Texture2D>("CalValEX/Biomes/AstralSky", AssetRequestMode.ImmediateLoad).Value;
 
             if (Main.dedServ)
                 return;
@@ -122,6 +126,7 @@ namespace CalValEX
             month = -1;
             compactFraming = null;
             brimstoneFraming = null;
+            AstralSky = null;
 
             if (Main.dedServ)
                 return;
