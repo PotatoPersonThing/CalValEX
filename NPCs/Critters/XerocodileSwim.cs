@@ -16,10 +16,11 @@ namespace CalValEX.NPCs.Critters
             //DisplayName.SetDefault("Xerocodile");
             Main.npcFrameCount[NPC.type] = 6;
             Main.npcCatchable[NPC.type] = true;
-            NPCID.Sets.NPCBestiaryDrawModifiers bestiaryData = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
             {
-                Hide = true // Hides this NPC from the bestiary
+                Hide = true
             };
+            NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
         }
 
         public override void SetDefaults()

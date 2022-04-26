@@ -28,6 +28,8 @@ using CalValEX.Items.Pets.Elementals;
 using CalValEX.Items.Pets.ExoMechs;
 using CalValEX.Items.Pets.Scuttlers;
 using CalValEX.Items.Plushies;
+using CalValEX.Items.Tiles.Blocks;
+using CalValEX.Items.Tiles.Blocks.Astral;
 using CalValEX.Items.Tiles.Plushies;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Blueprints;
@@ -41,6 +43,7 @@ using CalValEX.Items.Tiles.Monoliths;
 using CalValEX.Items.Tiles.Statues;
 using CalValEX.Items.Walls;
 using CalValEX.Tiles.MiscFurniture;
+using CalValEX.Tiles.FurnitureSets.Auric;
 using CalValEX.Tiles.Plants;
 
 
@@ -614,6 +617,25 @@ namespace CalValEX
 			MonolithRecipe(ItemID.ChlorophyteBar, ModContent.ItemType<PlagueMonolith>(), TileID.MythrilAnvil);
 			MonolithRecipe(ItemID.Ectoplasm, ModContent.ItemType<CalamitousMonolith>(), TileID.MythrilAnvil);
 			MonolithRecipe(ModContent.ItemType<Termipebbles>(), ModContent.ItemType<TerminusShrine>(), TileID.LunarCraftingStation);
+			//Wall Block conversion
+			WallRecipe(ModContent.ItemType<AuricBrick>(), ModContent.ItemType<AuricBrickWall>());
+			WallRecipe(ModContent.ItemType<BlightedEggBlock>(), ModContent.ItemType<BlightedEggWall>());
+			WallRecipe(ModContent.ItemType<AstralSandstone>(), ModContent.ItemType<Items.Walls.Astral.AstralSandstoneWall>());
+			WallRecipe(ModContent.ItemType<AstralDirt>(), ModContent.ItemType<Items.Walls.Astral.AstralDirtWall>());
+			WallRecipe(ModContent.ItemType<AstralHardenedSand>(), ModContent.ItemType<Items.Walls.Astral.AstralHardenedSandWall>());
+			WallRecipe(ModContent.ItemType<AstralIce>(), ModContent.ItemType<Items.Walls.Astral.AstralIceWall>());
+			WallRecipe(ModContent.ItemType<AstralTreeWood>(), ModContent.ItemType<Items.Walls.Astral.XenomonolithWall>());
+			WallRecipe(ModContent.ItemType<Xenostone>(), ModContent.ItemType<Items.Walls.Astral.XenostoneWall>());
+			WallRecipe(ModContent.ItemType<AstralPlating>(), ModContent.ItemType<AstralPlatingWall>());
+			WallRecipe(ModContent.ItemType<AstralPearlBlock>(), ModContent.ItemType<AstralPearlWall>());
+			WallRecipe(ModContent.ItemType<ChiseledBloodstone>(), ModContent.ItemType<ChiseledBloodstoneBrickWall>());
+			WallRecipe(ModContent.ItemType<PhantowaxBlock>(), ModContent.ItemType<PhantowaxWall>());
+			WallRecipe(ModContent.ItemType<EidolicSlab>(), ModContent.ItemType<EidolicSlabWall>());
+			WallRecipe(ModContent.ItemType<ShadowBrick>(), ModContent.ItemType<ShadowBrickWall>());
+			WallRecipe(ModContent.ItemType<PolishedAstralMonolith>(), ModContent.ItemType<PolishedAstralMonolithWall>());
+			WallRecipe(ModContent.ItemType<PolishedXenomonolith>(), ModContent.ItemType<PolishedXenomonolithWall>());
+			WallRecipe(ModContent.ItemType<Necrostone>(), ModContent.ItemType<NecrostoneWall>());
+			WallRecipe(ModContent.ItemType<WulfrumPlating>(), ModContent.ItemType<WulfrumPanelWall>());
 			//Misc furniture
 			{
 				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricTrashCan>());
@@ -656,6 +678,497 @@ namespace CalValEX
 				recipe.AddTile(TileID.LunarCraftingStation);
 				recipe.Register();
 			}
+			//Astral furniture
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<OldAstralBathtubItem>());
+				recipe.AddIngredient(ModContent.ItemType<AstralTreeWood>(), 14);
+				recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<OldAstralBedItem>());
+				recipe.AddIngredient(ModContent.ItemType<AstralTreeWood>(), 15);
+				recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<OldAstralSofaItem>());
+				recipe.AddIngredient(ModContent.ItemType<AstralTreeWood>(), 5);
+				recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<OldAstralBookshelfItem>());
+				recipe.AddIngredient(ModContent.ItemType<AstralTreeWood>(), 20);
+				recipe.AddIngredient(ItemID.Book, 10);
+				recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<OldAstralCandelabraItem>());
+				recipe.AddIngredient(ModContent.ItemType<AstralTreeWood>(), 5);
+				recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<OldAstralCandleItem>());
+				recipe.AddIngredient(ModContent.ItemType<AstralTreeWood>(), 4);
+				recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<OldAstralChairItem>());
+				recipe.AddIngredient(ModContent.ItemType<AstralTreeWood>(), 5);
+				recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<OldAstralChandelierItem>());
+				recipe.AddIngredient(ModContent.ItemType<AstralTreeWood>(), 4);
+				recipe.AddIngredient(ItemID.Chain, 1);
+				recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<OldAstralChestItem>());
+				recipe.AddIngredient(ModContent.ItemType<AstralTreeWood>(), 8);
+				recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<OldAstralClockItem>());
+				recipe.AddIngredient(ModContent.ItemType<AstralTreeWood>(), 10);
+				recipe.AddRecipeGroup(RecipeGroupID.IronBar, 3);
+				recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<OldAstralDoorItem>());
+				recipe.AddIngredient(ModContent.ItemType<AstralTreeWood>(), 6);
+				recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<OldAstralDresserItem>());
+				recipe.AddIngredient(ModContent.ItemType<AstralTreeWood>(), 16);
+				recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<OldAstralLampItem>());
+				recipe.AddIngredient(ModContent.ItemType<AstralTreeWood>(), 3);
+				recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<OldAstralLanternItem>());
+				recipe.AddIngredient(ModContent.ItemType<AstralTreeWood>(), 6);
+				recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<OldAstralPianoItem>());
+				recipe.AddIngredient(ModContent.ItemType<AstralTreeWood>(), 15);
+				recipe.AddIngredient(ItemID.Bone, 4);
+				recipe.AddIngredient(ItemID.Book, 1);
+				recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<OldAstralSinkItem>());
+				recipe.AddIngredient(ModContent.ItemType<AstralTreeWood>(), 6);
+				recipe.AddIngredient(ItemID.EmptyBucket, 1);
+				recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<OldAstralTableItem>());
+				recipe.AddIngredient(ModContent.ItemType<AstralTreeWood>(), 8);
+				recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
+				recipe.Register();
+			}
+			//Auric
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricManufacturer>());
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>(), 20);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricBathtubItem>());
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>(), 14);
+				recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricBedItem>());
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>(), 15);
+				recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricSofaItem>());
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>(), 5);
+				recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricBookshelfItem>());
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>(), 20);
+				recipe.AddIngredient(ItemID.Book, 10);
+				recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricCandelabraItem>());
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>(), 5);
+				recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricCandleItem>());
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>(), 4);
+				recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricChairItem>());
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>(), 5);
+				recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricChandelierItem>());
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>(), 4);
+				recipe.AddIngredient(ItemID.Chain, 1);
+				recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricChestItem>());
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>(), 8);
+				recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricClockItem>());
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>(), 10);
+				recipe.AddRecipeGroup(RecipeGroupID.IronBar, 3);
+				recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricDoorItem>());
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>(), 6);
+				recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricDresserItem>());
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>(), 16);
+				recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricLampItem>());
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>(), 3);
+				recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricLanternItem>());
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>(), 6);
+				recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricPianoItem>());
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>(), 15);
+				recipe.AddIngredient(ItemID.Bone, 4);
+				recipe.AddIngredient(ItemID.Book, 1);
+				recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricSinkItem>());
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>(), 6);
+				recipe.AddIngredient(ItemID.EmptyBucket, 1);
+				recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricTableItem>());
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>(), 8);
+				recipe.AddTile(ModContent.TileType<AuricManufacturerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricPlatformItem>(), 2);
+				recipe.AddIngredient(ModContent.ItemType<AuricBrick>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<AuricBrick>());
+				recipe.AddIngredient(ModContent.ItemType<AuricPlatformItem>(), 2);
+				recipe.Register();
+			}
+			//Bloodstone
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<BloodstoneBathtubItem>());
+				recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>(), 14);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<BloodstoneBedItem>());
+				recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>(), 15);
+				recipe.AddIngredient(ItemID.Ectoplasm, 5);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<BloodstoneSofaItem>());
+				recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>(), 5);
+				recipe.AddIngredient(ItemID.Ectoplasm, 2);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<BloodstoneBookshelfItem>());
+				recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>(), 20);
+				recipe.AddIngredient(ItemID.Book, 10);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<BloodstoneCandelabraItem>());
+				recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>(), 5);
+				recipe.AddIngredient(ItemID.Ectoplasm, 3);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<BloodstoneCandleItem>());
+				recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>(), 4);
+				recipe.AddIngredient(ItemID.Ectoplasm, 1);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<BloodstoneChairItem>());
+				recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>(), 5);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<BloodstoneChandelierItem>());
+				recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>(), 4);
+				recipe.AddIngredient(ItemID.Ectoplasm, 4);
+				recipe.AddIngredient(ItemID.Chain, 1);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<BloodstoneChestItem>());
+				recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>(), 8);
+				recipe.AddIngredient(ItemID.Ectoplasm, 2);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<BloodstoneClockItem>());
+				recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>(), 10);
+				recipe.AddRecipeGroup(RecipeGroupID.IronBar, 3);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<BloodstoneDoorItem>());
+				recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>(), 6);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<BloodstoneDresserItem>());
+				recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>(), 16);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<BloodstoneLampItem>());
+				recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>(), 3);
+				recipe.AddIngredient(ItemID.Ectoplasm, 1);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<BloodstoneLanternItem>());
+				recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>(), 6);
+				recipe.AddIngredient(ItemID.Ectoplasm, 1);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<BloodstonePianoItem>());
+				recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>(), 15);
+				recipe.AddIngredient(ItemID.Bone, 4);
+				recipe.AddIngredient(ItemID.Book, 1);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<BloodstoneSinkItem>());
+				recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>(), 6);
+				recipe.AddIngredient(ItemID.Ectoplasm, 1);
+				recipe.AddIngredient(ItemID.EmptyBucket, 1);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<BloodstoneTableItem>());
+				recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>(), 8);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<BloodstonePlatformItem>(), 2);
+				recipe.AddIngredient(ModContent.ItemType<ChiseledBloodstone>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<ChiseledBloodstone>());
+				recipe.AddIngredient(ModContent.ItemType<BloodstonePlatformItem>(), 2);
+				recipe.Register();
+			}
+			//Phantowax
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxBathtubItem>());
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>(), 14);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxBedItem>());
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>(), 15);
+				recipe.AddIngredient(ItemID.Ectoplasm, 5);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxSofaItem>());
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>(), 5);
+				recipe.AddIngredient(ItemID.Ectoplasm, 2);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxBookshelfItem>());
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>(), 20);
+				recipe.AddIngredient(ItemID.Book, 10);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxCandelabraItem>());
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>(), 5);
+				recipe.AddIngredient(ItemID.Ectoplasm, 3);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxCandleItem>());
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>(), 4);
+				recipe.AddIngredient(ItemID.Ectoplasm, 1);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxChairItem>());
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>(), 5);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxChandelierItem>());
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>(), 4);
+				recipe.AddIngredient(ItemID.Ectoplasm, 4);
+				recipe.AddIngredient(ItemID.Chain, 1);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxChestItem>());
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>(), 8);
+				recipe.AddIngredient(ItemID.Ectoplasm, 2);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxClockItem>());
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>(), 10);
+				recipe.AddRecipeGroup(RecipeGroupID.IronBar, 3);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxDoorItem>());
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>(), 6);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxDresserItem>());
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>(), 16);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxLampItem>());
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>(), 3);
+				recipe.AddIngredient(ItemID.Ectoplasm, 1);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxLanternItem>());
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>(), 6);
+				recipe.AddIngredient(ItemID.Ectoplasm, 1);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxPianoItem>());
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>(), 15);
+				recipe.AddIngredient(ItemID.Bone, 4);
+				recipe.AddIngredient(ItemID.Book, 1);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxSinkItem>());
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>(), 6);
+				recipe.AddIngredient(ItemID.Ectoplasm, 1);
+				recipe.AddIngredient(ItemID.EmptyBucket, 1);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxTableItem>());
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>(), 8);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxPlatformItem>(), 2);
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxBlock>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ModContent.ItemType<PhantowaxBlock>());
+				recipe.AddIngredient(ModContent.ItemType<PhantowaxPlatformItem>(), 2);
+				recipe.Register();
+			}
+
 
 
 		}
@@ -710,6 +1223,19 @@ namespace CalValEX
 			recipe.AddIngredient(ingredient, 15);
 			recipe.AddTile(station);
 			recipe.Register();
+		}
+		void WallRecipe(int block, int wall)
+		{
+			{
+				Recipe recipe = Mod.CreateRecipe(wall, 4);
+				recipe.AddIngredient(block);
+				recipe.Register();
+			}
+            {
+				Recipe recipe = Mod.CreateRecipe(block);
+				recipe.AddIngredient(wall, 4);
+				recipe.Register();
+			}
 		}
 	}
 }

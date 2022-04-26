@@ -28,7 +28,14 @@ namespace CalValEX.AprilFools
 		
 		public override void SetStaticDefaults()
 		{
-			//DisplayName.SetDefault("Hyper Ultra Omega Fogbound GOD EX: Prepare to Stygian Edition");
+			if (CalValEX.month != 4)
+			{
+				NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+				{
+					Hide = true
+				};
+				NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
+			}
 		}
 		public override void SetDefaults()
 		{
@@ -52,10 +59,16 @@ namespace CalValEX.AprilFools
 			NPC.DeathSound = SoundID.NPCDeath3;
 			Music = MusicID.LunarBoss;
 			NPC.netAlways = true;
-			NPCID.Sets.NPCBestiaryDrawModifiers bestiaryData = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+		}
+		public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
+		{
+			if (CalValEX.month == 4)
 			{
-				Hide = true // Hides this NPC from the bestiary
-			};
+				bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
+				Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
+				new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A viscious and unfitting creature for this universe. We call it the Fogbound."),
+			});
+			}
 		}
 		public override void AI()
 		{

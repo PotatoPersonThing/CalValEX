@@ -25,37 +25,28 @@ namespace CalValEX.Biomes
 
         public override void Update(GameTime gameTime)
         {
-            /*Mod catalyst = ModLoader.GetMod("CatalystMod");
-            if (catalyst != null)
+            if (!Main.LocalPlayer.InModBiome(ModContent.GetInstance<AstralBlight>()))
+                Active = false;
+
+            if (Active && Intensity < 1f)
             {
-                DeactivateBGs = (bool)catalyst.Call("anyimportantbgsactive");
-            }*/
-            if (Active)
-            {
-                Intensity = Math.Min(1f, 0.01f + Intensity);
+                Intensity += 0.02f;
             }
-            else
+            else if (!Active && Intensity > 0f)
             {
-                Intensity = Math.Max(0f, Intensity - 0.01f);
+                Intensity -= 0.02f;
             }
         }
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            float depth = 7;
-            //spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Lime);
-            if (maxDepth >= depth && minDepth < depth)
+            if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
             {
                 if (Main.player[Main.myPlayer].InModBiome(ModContent.GetInstance<AstralBlight>())/* && !DeactivateBGs*/)
                 {
                     //Draw the sky box texture
                     spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Lime);
                 }
-            }
-            //deactivate the sky if in the menu
-            if (Main.gameMenu || !Main.LocalPlayer.active /*|| DeactivateBGs*/)
-            {
-                Active = false;
             }
         }
 
@@ -82,7 +73,7 @@ namespace CalValEX.Biomes
 
         public override bool IsActive()
         {
-            return Active;
+            return Active || Intensity > 0f;
         }
     }
 

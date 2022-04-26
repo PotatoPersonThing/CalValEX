@@ -12,6 +12,11 @@ namespace CalValEX.NPCs.JellyPriest
         {
             DisplayName.SetDefault("Bound Jelly Priestess");
             Main.npcFrameCount[NPC.type] = 1;
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+            {
+                Hide = true
+            };
+            NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
         }
 
         public override void SetDefaults()
@@ -61,18 +66,6 @@ namespace CalValEX.NPCs.JellyPriest
         {
             return "Greetings, land creature! I rise from this old sea in hopes of traveling and finding a certain deity from the old times, from when the sea was a beautiful reign for many. Do you have any hint about where I could find them?";         
         }
-
-        /*void Awaken()
-        {
-            for (int blah = 0; blah <= 20; blah++)
-            {
-                NPC.ai[3]++;
-            }
-            if (NPC.ai[3] >= 4)
-            {
-                NPC.Transform(ModContent.NPCType<JellyPriestNPC>());
-            }
-        }*/
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

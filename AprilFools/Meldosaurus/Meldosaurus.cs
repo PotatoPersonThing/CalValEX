@@ -20,9 +20,16 @@ namespace CalValEX.AprilFools.Meldosaurus
 		public int framecounter = 0;
 		public override void SetStaticDefaults()
 		{
-			//DisplayName.SetDefault("Meldosaurus");
 			NPCID.Sets.TrailingMode[NPC.type] = 2;
 			NPCID.Sets.TrailCacheLength[NPC.type] = 21;
+			if (CalValEX.month != 4)
+			{
+				NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+				{
+					Hide = true
+				};
+				NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
+			}
 		}
 		public override void SetDefaults()
 		{
@@ -46,10 +53,16 @@ namespace CalValEX.AprilFools.Meldosaurus
 			//NPC.Calamity().canBreakPlayerDefense = true;
 			//NPC.Calamity().DR = 0.1f;
 			//bossBag = ModContent.ItemType<MeldosaurusBag>();
-			NPCID.Sets.NPCBestiaryDrawModifiers bestiaryData = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+		}
+		public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
+		{
+			if (CalValEX.month == 4)
 			{
-				Hide = true // Hides this NPC from the bestiary
-			};
+				bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
+				Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
+				new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("Evolution corrupted by the remains of the dark gods. It seeks acceptance from the other celestial creatures to no success."),
+			});
+			}
 		}
 		public override void AI()
 		{

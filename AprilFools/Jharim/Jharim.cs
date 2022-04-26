@@ -48,6 +48,14 @@ namespace CalValEX.AprilFools.Jharim
                 .SetNPCAffection(NPCID.WitchDoctor, AffectionLevel.Dislike) // Dislikes living near the merchant.
                 .SetNPCAffection(NPCID.TaxCollector, AffectionLevel.Hate) // Hates living near the demolitionist.
             ;
+            if (CalValEX.month != 4)
+            {
+                NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+                {
+                    Hide = true
+                };
+                NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
+            }
         }
 
         public override void SetDefaults()
@@ -64,10 +72,16 @@ namespace CalValEX.AprilFools.Jharim
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
             AnimationType = NPCID.PartyGirl;
-            NPCID.Sets.NPCBestiaryDrawModifiers bestiaryData = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+        }
+        public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
+        {
+            if (CalValEX.month == 4)
             {
-                Hide = true // Hides this NPC from the bestiary
-            };
+                bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
+                Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.SurfaceMushroom,
+                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A bumbling idiot."),
+            });
+            }
         }
         private void EdgyTalk(string text, Color color, bool combatText = false)
         {

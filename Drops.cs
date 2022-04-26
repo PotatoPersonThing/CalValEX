@@ -793,6 +793,20 @@ namespace CalValEX
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Termipebbles>(), 1, 3, 8));
                 }
+                //Meldosaurus
+                if (npc.type == ModContent.NPCType<AprilFools.Meldosaurus.Meldosaurus>())
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusTrophy>(), 10));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusMask>(), 7));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AprilFools.ShadesBane>(), 2));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AprilFools.Nyanthrop>(), 2));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusBag>()));
+                }
+                //Meldosaurus
+                if (npc.type == ModContent.NPCType<AprilFools.Fogbound>())
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FogG>(), 1));
+                }
             }
         }
         /*public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback,
