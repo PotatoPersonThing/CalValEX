@@ -23,19 +23,19 @@ namespace CalValEX.Buffs.Pets.ExoMechs
             bool thanosNotHere = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.ExoMechs.ThanatosPet>()] <= 0;
             if (thanosNotHere && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.ExoMechs.ThanatosPet>(), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.ExoMechs.ThanatosPet>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
             bool aresNotHere = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.ExoMechs.AresBody>()] <= 0;
             if (aresNotHere && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.ExoMechs.AresBody>(), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.ExoMechs.AresBody>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
             bool twinsNotHere = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.ExoMechs.TwinsPet>()] <= 0;
             if (twinsNotHere && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.ExoMechs.TwinsPet>(), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.ExoMechs.TwinsPet>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
         }
     }

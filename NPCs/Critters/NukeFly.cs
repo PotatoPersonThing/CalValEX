@@ -62,9 +62,9 @@ namespace CalValEX.NPCs.Critters
             //Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
             //if (clamMod != null)
             {
-                if (spawnInfo.player.ZoneBeach/*GetModPlayer<CalamityPlayer>().ZoneSulphur*/ && !CalValEXConfig.Instance.CritterSpawns)
+                if (spawnInfo.Player.ZoneBeach/*GetModPlayer<CalamityPlayer>().ZoneSulphur*/ && !CalValEXConfig.Instance.CritterSpawns)
                 {
-                    if (spawnInfo.player.ZoneOverworldHeight)
+                    if (spawnInfo.Player.ZoneOverworldHeight)
                     {
                         return Terraria.ModLoader.Utilities.SpawnCondition.OverworldNight.Chance * 0.5f;
                     }

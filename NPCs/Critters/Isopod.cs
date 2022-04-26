@@ -74,9 +74,9 @@ namespace CalValEX.NPCs.Critters
             //Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
             //if (clamMod != null)
             {
-                if (spawnInfo.player.ZoneNormalCaverns/*GetModPlayer<CalamityPlayer>().ZoneAbyssLayer4*/ && !CalValEXConfig.Instance.CritterSpawns)
+                if (spawnInfo.Player.ZoneNormalCaverns/*GetModPlayer<CalamityPlayer>().ZoneAbyssLayer4*/ && !CalValEXConfig.Instance.CritterSpawns)
                 {
-                    if (spawnInfo.water)
+                    if (spawnInfo.Water)
                     {
                         return Terraria.ModLoader.Utilities.SpawnCondition.CaveJellyfish.Chance * 1.2f;
                     }
@@ -94,10 +94,10 @@ namespace CalValEX.NPCs.Critters
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("Isopod").Type, 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("Isopod2").Type, 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("Isopod3").Type, 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("Isopod4").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Isopod").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Isopod2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Isopod3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Isopod4").Type, 1f);
             }
         }
 

@@ -67,7 +67,7 @@ namespace CalValEX.NPCs.Critters
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (spawnInfo.playerSafe || !NPC.downedGolemBoss || CalValEXConfig.Instance.CritterSpawns)
+            if (spawnInfo.PlayerSafe || !NPC.downedGolemBoss || CalValEXConfig.Instance.CritterSpawns)
             {
                 return 0f;
             }
@@ -83,8 +83,8 @@ namespace CalValEX.NPCs.Critters
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("PlagueFrog").Type, 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("PlagueFrog2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PlagueFrog").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("PlagueFrog2").Type, 1f);
             }
         }
     }

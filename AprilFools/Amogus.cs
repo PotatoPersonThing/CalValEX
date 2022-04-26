@@ -210,7 +210,7 @@ namespace CalValEX.AprilFools
 
                         if (sandblasttimer >= 10)
                         {
-                            Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), playerpos.X, playerpos.Y, 0, 5, raintype, 80, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 0, 5, raintype, 80, 0f, Main.myPlayer, 0f, 0f);
                             sandblasttimer = 0;
                         }
                     }
@@ -223,16 +223,16 @@ namespace CalValEX.AprilFools
                             {
                                 Terraria.Audio.SoundEngine.PlaySound(SoundID.Item11);
                             }
-                            Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileID.OrnamentHostileShrapnel, 180, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileID.OrnamentHostileShrapnel, 90, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileID.OrnamentHostileShrapnel, 180, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileID.OrnamentHostileShrapnel, 120, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileID.OrnamentHostileShrapnel, 80, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileID.OrnamentHostileShrapnel, 80, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileID.OrnamentHostileShrapnel, 180, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileID.OrnamentHostileShrapnel, 90, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileID.OrnamentHostileShrapnel, 180, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileID.OrnamentHostileShrapnel, 120, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileID.OrnamentHostileShrapnel, 80, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileID.OrnamentHostileShrapnel, 80, 0f, Main.myPlayer, 0f, 0f);
                             if (deathcounter >= 2700)
                             {
-                                Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileID.EyeBeam, 80, 0f, Main.myPlayer, 0f, 0f);
-                                Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileID.HornetStinger, 80, 0f, Main.myPlayer, 0f, 0f);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileID.EyeBeam, 80, 0f, Main.myPlayer, 0f, 0f);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileID.HornetStinger, 80, 0f, Main.myPlayer, 0f, 0f);
                             }
                             for (int x = 0; x < 20; x++)
                             {
@@ -247,8 +247,8 @@ namespace CalValEX.AprilFools
                         birb++;
                         if (birb >= 1200)
                         {
-                            Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), playerpos.X, playerpos.Y, 1, 20, ProjectileID.SharknadoBolt, 0, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), playerpos.X, playerpos.Y, 0, 0, ProjectileID.NebulaSphere, 0, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 1, 20, ProjectileID.SharknadoBolt, 0, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 0, 0, ProjectileID.NebulaSphere, 0, 0f, Main.myPlayer, 0f, 0f);
                             birb = 0;
                         }
                     }
@@ -272,7 +272,7 @@ namespace CalValEX.AprilFools
                         {
                             for (int x = 0; x < 8; x++)
                             {
-                                Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), Projectile.position.X, Projectile.position.Y, Main.rand.Next(-2, 2), Main.rand.Next(-2, 2), mine, 80, 0f, Main.myPlayer, 0f, 0f);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Main.rand.Next(-2, 2), Main.rand.Next(-2, 2), mine, 80, 0f, Main.myPlayer, 0f, 0f);
                                 minetimer = 0;
                             }
                         }
@@ -282,7 +282,7 @@ namespace CalValEX.AprilFools
                         infernadotimer++;
                         if (infernadotimer >= 1200)
                         {
-                            Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), playerpos.X, playerpos.Y, 0, 20, ProjectileID.Cthulunado, 80, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 0, 20, ProjectileID.Cthulunado, 80, 0f, Main.myPlayer, 0f, 0f);
                             polterdart = 0;
                         }
                     }
@@ -398,11 +398,11 @@ namespace CalValEX.AprilFools
                                 {
                                     if (chargetype == 4)
                                     {
-                                        Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, 0, 0, ProjectileID.InfernoFriendlyBlast, 2020, 0, Main.myPlayer);
+                                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, 0, 0, ProjectileID.InfernoFriendlyBlast, 2020, 0, Main.myPlayer);
                                     }
                                     else
                                     {
-                                        Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, 0, 0, ProjectileID.DaybreakExplosion, 1020, 0, Main.myPlayer);
+                                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, 0, 0, ProjectileID.DaybreakExplosion, 1020, 0, Main.myPlayer);
                                     }
                                     attackcounter2 = 40;
                                 }
@@ -542,7 +542,7 @@ namespace CalValEX.AprilFools
                                 float speed = 15f;
                                 int type = ProjectileID.GoldenBullet;
                                 int damage = Main.expertMode ? 60 : 95;
-                                Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), position, direction * speed, type, damage, 0f, Main.myPlayer);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), position, direction * speed, type, damage, 0f, Main.myPlayer);
                                 attackcounter1 = 0;
                             }
                             if (attackcounter2 >= 360)
@@ -568,7 +568,7 @@ namespace CalValEX.AprilFools
                                 float speed = 18f;
                                 int type = ProjectileID.IchorBullet;
                                 int damage = Main.expertMode ? 1702 : 2040;
-                                Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), position, direction * speed, type, damage, 0f, Main.myPlayer);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), position, direction * speed, type, damage, 0f, Main.myPlayer);
                             }
                             if (attackcounter1 >= 120)
                             {
@@ -636,7 +636,7 @@ namespace CalValEX.AprilFools
                                 float speed = 10f;
                                 int type = ProjectileID.RainCloudRaining;
                                 int damage = Main.expertMode ? 120 : 152;
-                                Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), position, direction * speed, type, damage, 0f, Main.myPlayer);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), position, direction * speed, type, damage, 0f, Main.myPlayer);
                                 attackcounter1 = 0;
                             }
                             if (attackcounter2 >= 460)

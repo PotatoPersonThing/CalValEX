@@ -47,7 +47,7 @@ namespace CalValEX.Tiles.MiscFurniture
 
         public override ushort GetMapOption(int i, int j) => (ushort)(Main.tile[i, j].TileFrameX / 36);
 
-        public override bool HasSmartInteract() => true;
+        public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
 
         public string MapChestName(string name, int i, int j)
         {

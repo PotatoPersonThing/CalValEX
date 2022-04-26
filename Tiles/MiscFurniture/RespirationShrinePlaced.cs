@@ -54,11 +54,7 @@ namespace CalValEX.Tiles.MiscFurniture
             }
         }
 
-
-        public override bool HasSmartInteract()
-        {
-            return true;
-        }
+        public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
 
         public override bool RightClick(int i, int j)
         {

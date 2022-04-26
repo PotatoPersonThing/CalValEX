@@ -29,7 +29,7 @@ namespace CalValEX.AprilFools
         {
 			if (Main.rand.Next(5) == 0) 
 			{
-				Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), Projectile.position.X, Projectile.position.Y, Main.rand.Next(-4,4), Main.rand.Next(-4, 4), ProjectileID.Typhoon, 20, 2f, Projectile.owner);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Main.rand.Next(-4,4), Main.rand.Next(-4, 4), ProjectileID.Typhoon, 20, 2f, Projectile.owner);
             }
         }
     }

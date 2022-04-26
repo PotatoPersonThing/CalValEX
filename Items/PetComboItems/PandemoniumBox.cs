@@ -47,9 +47,9 @@ namespace CalValEX.Items.PetComboItems
                 int colorIndex = (int)(Main.GlobalTimeWrappedHourly / 2 % devColors.Count);
                 Color currentColor = devColors[colorIndex];
                 Color nextColor = devColors[(colorIndex + 1) % devColors.Count];
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = Color.Lerp(currentColor, nextColor, Main.GlobalTimeWrappedHourly % 2f > 1f ? 1f : Main.GlobalTimeWrappedHourly % 1f);
+                    tooltipLine.OverrideColor = Color.Lerp(currentColor, nextColor, Main.GlobalTimeWrappedHourly % 2f > 1f ? 1f : Main.GlobalTimeWrappedHourly % 1f);
                 }
             }
         }

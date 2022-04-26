@@ -32,9 +32,9 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(108, 45, 199);
+                    tooltipLine.OverrideColor = new Color(108, 45, 199);
                 }
             }
         }

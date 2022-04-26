@@ -33,10 +33,7 @@ namespace CalValEX.Tiles.MiscFurniture
         {
             Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ModContent.ItemType<SchematicDisplay>());
         }
-        public override bool HasSmartInteract()
-        {
-            return true;
-        }
+        public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
 
         public override bool RightClick(int i, int j)
         {

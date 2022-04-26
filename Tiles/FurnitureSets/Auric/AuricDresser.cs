@@ -45,10 +45,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
 			DresserDrop = ModContent.ItemType<AuricDresserItem>();
 			DustType = 227;
 		}
-		public override bool HasSmartInteract()
-		{
-			return true;
-		}
+		public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
 
 		public override bool RightClick(int i, int j)
 		{

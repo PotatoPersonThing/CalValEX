@@ -1,13 +1,9 @@
 //using CalamityMod.CalPlayer;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Banners;
-//using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.Blueprints;
-//using CalValEX.Items.Tiles.FurnitureSets.Arsenal;
-using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 using CalValEX.Items.Tiles.Plants;
 using CalValEX.Items.Tiles.Statues;
-//using CalValEX.Items.Walls;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -15,7 +11,7 @@ using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-
+using System.Collections.Generic;
 using Terraria.GameContent.Bestiary;
 using Terraria.DataStructures;
 using CalValEX.Projectiles.NPCs;
@@ -105,53 +101,11 @@ namespace CalValEX.NPCs.JellyPriest
             }
         }
 
-        public override string TownNPCName()
+        public static List<string> PossibleNames = new List<string>()
         {
-            switch (WorldGen.genRand.Next(15))
-            {
-                case 0:
-                    return "Eika";
-
-                case 1:
-                    return "Feferi";
-
-                case 3:
-                    return "Netlia";
-
-                case 4:
-                    return "Atollia";
-
-                case 5:
-                    return "Melodi";
-
-                case 6:
-                    return "Signathia";
-
-                case 7:
-                    return "Manawa";
-
-                case 8:
-                    return "Kanji";
-
-                case 9:
-                    return "Mariacala";
-
-                case 10:
-                    return "Cuboza";
-
-                case 11:
-                    return "Nidaria";
-
-                case 12:
-                    return "Crasqua";
-                
-                case 13:
-                    return "Kuti";
-
-                default:
-                    return "Ooma";
-            }
-        }
+            "Eika", "Feferi", "Netlia", "Atollia", "Melodi", "Signathia", "Manawa", "Kanji", "Mariacala", "Cuboza", "Nidaria", "Crasqua", "Kuti", "Ooma"
+        };
+        public override List<string> SetNPCNameList() => PossibleNames;
 
         public override string GetChat()
         {

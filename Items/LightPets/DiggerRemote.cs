@@ -39,9 +39,9 @@ namespace CalValEX.Items.LightPets
         {
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(107, 240, 255);
+                    tooltipLine.OverrideColor = new Color(107, 240, 255);
                 }
             }
         }

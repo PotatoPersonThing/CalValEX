@@ -35,8 +35,8 @@ namespace CalValEX.Items.Pets
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             foreach (TooltipLine tooltipLine in tooltips)
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
-                    tooltipLine.overrideColor = new Color(107, 240, 255);
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
+                    tooltipLine.OverrideColor = new Color(107, 240, 255);
         }
 
         public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)

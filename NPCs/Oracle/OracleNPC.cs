@@ -1,6 +1,5 @@
 using CalValEX.Items;
 using CalValEX.Items.Equips.Hats;
-//using CalValEX.Items.LightPets;
 using CalValEX.Items.Pets;
 using Microsoft.Xna.Framework;
 using System;
@@ -11,6 +10,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Projectiles.NPCs;
+using System.Collections.Generic;
 
 namespace CalValEX.NPCs.Oracle
 {
@@ -76,67 +76,13 @@ namespace CalValEX.NPCs.Oracle
 
         private bool rachelname = false;
 
-        public override string TownNPCName()
+
+
+        public static List<string> PossibleNames = new List<string>()
         {
-            switch (WorldGen.genRand.Next(15))
-            {
-                case 0:
-                    rachelname = false;
-                    return "Maddi";
-
-                case 1:
-                    rachelname = false;
-                    return "Tiggy";
-
-                case 3:
-                    rachelname = false;
-                    return "Gabriel";
-
-                case 4:
-                    rachelname = false;
-                    return "Lex";
-
-                case 5:
-                    rachelname = false;
-                    return "Gwyn";
-
-                case 6:
-                    rachelname = false;
-                    return "Sammy";
-
-                case 7:
-                    rachelname = false;
-                    return "Eve";
-
-                case 8:
-                    rachelname = false;
-                    return "Emily";
-
-                case 9:
-                    rachelname = false;
-                    return "Lilith";
-
-                case 10:
-                    rachelname = true;
-                    return "Rachel";
-
-                case 11:
-                    rachelname = false;
-                    return "Leah";
-
-                case 12:
-                    rachelname = false;
-                    return "Rebecca";
-
-                case 13:
-                    rachelname = false;
-                    return "Mabel";
-
-                default:
-                    rachelname = false;
-                    return "Alex";
-            }
-        }
+            "Maddi", "Tiggy", "Gabriel", "Lex", "Gwyn", "Sammy", "Eve", "Emily", "Lilith", "Rachel", "Leah", "Rebecca", "Alex", "Mabel"
+        };
+        public override List<string> SetNPCNameList() => PossibleNames;
 
         public override string GetChat()
         {
@@ -359,45 +305,45 @@ namespace CalValEX.NPCs.Oracle
                         {
                             if (Main.rand.NextFloat() < 0.3f)
                             {
-                                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetItemSource_Misc(1), ItemID.GoodieBag);
+                                Main.LocalPlayer.QuickSpawnItem(NPC.GetSource_Loot(), ItemID.GoodieBag);
                             }
                             else if (Main.rand.NextFloat() < 0.1f)
                             {
-                                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetItemSource_Misc(1), ItemID.Present);
+                                Main.LocalPlayer.QuickSpawnItem(NPC.GetSource_Loot(), ItemID.Present);
                             }
                             else
                             {
-                                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetItemSource_Misc(1), ItemType<MysteryPainting>());
+                                Main.LocalPlayer.QuickSpawnItem(NPC.GetSource_Loot(), ItemType<MysteryPainting>());
                             }
                         }
                         else if (CalValEX.month == 12)
                         {
                             if (Main.rand.NextFloat() < 0.1f)
                             {
-                                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetItemSource_Misc(1), ItemID.GoodieBag);
+                                Main.LocalPlayer.QuickSpawnItem(NPC.GetSource_Loot(), ItemID.GoodieBag);
                             }
                             else if (Main.rand.NextFloat() < 0.3f)
                             {
-                                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetItemSource_Misc(1), ItemID.Present);
+                                Main.LocalPlayer.QuickSpawnItem(NPC.GetSource_Loot(), ItemID.Present);
                             }
                             else
                             {
-                                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetItemSource_Misc(1), ItemType<MysteryPainting>());
+                                Main.LocalPlayer.QuickSpawnItem(NPC.GetSource_Loot(), ItemType<MysteryPainting>());
                             }
                         }
                         else
                         {
                             if (Main.rand.NextFloat() < 0.2f)
                             {
-                                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetItemSource_Misc(1), ItemID.GoodieBag);
+                                Main.LocalPlayer.QuickSpawnItem(NPC.GetSource_Loot(), ItemID.GoodieBag);
                             }
                             else if (Main.rand.NextFloat() < 0.2f)
                             {
-                                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetItemSource_Misc(1), ItemID.Present);
+                                Main.LocalPlayer.QuickSpawnItem(NPC.GetSource_Loot(), ItemID.Present);
                             }
                             else
                             {
-                                Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetItemSource_Misc(1), ItemType<MysteryPainting>());
+                                Main.LocalPlayer.QuickSpawnItem(NPC.GetSource_Loot(), ItemType<MysteryPainting>());
                             }
                         }
                     }
@@ -628,7 +574,7 @@ namespace CalValEX.NPCs.Oracle
 
             if (!iExist)
                 if (Main.netMode != NetmodeID.MultiplayerClient)
-                    Projectile.NewProjectile(NPC.GetSpawnSource_ForProjectile(), position, NPC.velocity, ModContent.ProjectileType<OracleNPCPet_Pet>(), NPC.damage, 0f, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromAI(), position, NPC.velocity, ModContent.ProjectileType<OracleNPCPet_Pet>(), NPC.damage, 0f, Main.myPlayer);
         }
 
         /*public override void NPCLoot()
@@ -640,10 +586,10 @@ namespace CalValEX.NPCs.Oracle
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("OracleNPC").Type, 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("OracleNPC2").Type, 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("OracleNPC3").Type, 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("OracleNPC4").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OracleNPC").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OracleNPC2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OracleNPC3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OracleNPC4").Type, 1f);
             }
         }
     }

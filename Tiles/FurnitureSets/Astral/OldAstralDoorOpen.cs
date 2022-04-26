@@ -66,10 +66,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             CloseDoorID = ModContent.TileType<OldAstralDoorClosed>();
         }
 
-        public override bool HasSmartInteract()
-        {
-            return true;
-        }
+        public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {

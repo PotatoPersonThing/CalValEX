@@ -38,16 +38,16 @@ namespace CalValEX.Projectiles.Pets
         {
             if (!SpawnedSegments)
             {
-                int tail = Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<FathomEelTail>(),
+                int tail = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<FathomEelTail>(),
                     Projectile.damage, Projectile.knockBack, 0, Projectile.whoAmI);
                 // The minus one is because this segment and the tail are incorporated in the worm as well
                 for (int i = 0; i < SegmentCount - 2; i++)
                 {
                     float uuid = (float)Projectile.GetByUUID(Main.myPlayer, Main.projectile[tail].ai[0]);
-                    int body = Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), Projectile.Center, Vector2.Zero,
+                    int body = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero,
                         ModContent.ProjectileType<FathomEelBody>(), Projectile.damage, 1f,
                         0, uuid);
-                    int back = Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), Projectile.Center, Vector2.Zero,
+                    int back = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero,
                         ModContent.ProjectileType<FathomEelBody>(), Projectile.damage, 1f,
                         0, (float)body);
                     if (i == 1 || i == 3)

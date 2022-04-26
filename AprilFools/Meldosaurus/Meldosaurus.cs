@@ -81,7 +81,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 				{
 					if (CalValEXWorld.amogus && !Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().amogus)
 					{
-						Projectile.NewProjectile(NPC.GetSpawnSource_ForProjectile(), NPC.Center, new Vector2(0, 0), ModContent.ProjectileType<Amogus>(), 0, 0, Main.myPlayer);
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, new Vector2(0, 0), ModContent.ProjectileType<Amogus>(), 0, 0, Main.myPlayer);
 					}
 					NPC.velocity.Y = -4f;
 					NewPhase(1);
@@ -114,7 +114,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 					Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, (int)NPC.Center.X, (int)NPC.Center.Y, 13);
 					for (int x = 0; x < 12; x++)
                     {
-						Projectile.NewProjectile(NPC.GetSpawnSource_ForProjectile(), NPC.position.X, NPC.position.Y, Main.rand.Next(-30, 30), Main.rand.Next(-20, -12), ModContent.ProjectileType<EntropicVomit>(), Main.expertMode ? 25 : 30, 0f, Main.myPlayer, Main.rand.Next(1,4));
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, Main.rand.Next(-30, 30), Main.rand.Next(-20, -12), ModContent.ProjectileType<EntropicVomit>(), Main.expertMode ? 25 : 30, 0f, Main.myPlayer, Main.rand.Next(1,4));
                     }
 					NPC.ai[2] = 0;
                 }
@@ -151,7 +151,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 				if (NPC.ai[2] >= 5)
 				{
 					Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)NPC.Center.X, (int)NPC.Center.Y, 20);
-					Projectile.NewProjectile(NPC.GetSpawnSource_ForProjectile(), NPC.position.X, NPC.position.Y, NPC.velocity.X *-0.1f, NPC.velocity.Y *-0.1f, ModContent.ProjectileType<GodsFire>(), Main.expertMode ? 25 : 30, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, NPC.velocity.X *-0.1f, NPC.velocity.Y *-0.1f, ModContent.ProjectileType<GodsFire>(), Main.expertMode ? 25 : 30, 0f);
 					NPC.ai[2] = 0;
 				}
 				if (NPC.ai[1] <= 90)
@@ -171,10 +171,10 @@ namespace CalValEX.AprilFools.Meldosaurus
 					direction.Normalize();
 					NPC.velocity = direction * chargespeed;
 					int dmg = Main.expertMode ? 25 : 30;
-					Projectile.NewProjectile(NPC.GetSpawnSource_ForProjectile(), NPC.Center.X, NPC.Center.Y, 10, 10, ModContent.ProjectileType<EntropicVomit>(), dmg, 0, Main.myPlayer, Main.rand.Next(1, 4));
-					Projectile.NewProjectile(NPC.GetSpawnSource_ForProjectile(), NPC.Center.X, NPC.Center.Y, 10, -10, ModContent.ProjectileType<EntropicVomit>(), dmg, 0, Main.myPlayer, Main.rand.Next(1, 4));
-					Projectile.NewProjectile(NPC.GetSpawnSource_ForProjectile(), NPC.Center.X, NPC.Center.Y, -10, 10, ModContent.ProjectileType<EntropicVomit>(), dmg, 0, Main.myPlayer, Main.rand.Next(1, 4));
-					Projectile.NewProjectile(NPC.GetSpawnSource_ForProjectile(), NPC.Center.X, NPC.Center.Y, -10, -10, ModContent.ProjectileType<EntropicVomit>(), dmg, 0, Main.myPlayer, Main.rand.Next(1, 4));
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, 10, 10, ModContent.ProjectileType<EntropicVomit>(), dmg, 0, Main.myPlayer, Main.rand.Next(1, 4));
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, 10, -10, ModContent.ProjectileType<EntropicVomit>(), dmg, 0, Main.myPlayer, Main.rand.Next(1, 4));
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, -10, 10, ModContent.ProjectileType<EntropicVomit>(), dmg, 0, Main.myPlayer, Main.rand.Next(1, 4));
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, -10, -10, ModContent.ProjectileType<EntropicVomit>(), dmg, 0, Main.myPlayer, Main.rand.Next(1, 4));
 				}
 				if (NPC.ai[1] >= 381)
                 {
@@ -231,7 +231,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 					float speed = 10f;
 					int type = ModContent.ProjectileType<TomeoFates>();
 					int damage = Main.expertMode ? 5 : 10;
-					Projectile.NewProjectile(NPC.GetSpawnSource_ForProjectile(), position, direction * speed, type, damage, 0f, Main.myPlayer);
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), position, direction * speed, type, damage, 0f, Main.myPlayer);
 				}
 				if (NPC.ai[1] >= 60)
                 {
@@ -253,8 +253,8 @@ namespace CalValEX.AprilFools.Meldosaurus
 				}
 				if (NPC.ai[3] >= 5)
                 {
-					Projectile.NewProjectile(NPC.GetSpawnSource_ForProjectile(), NPC.Center.X - 1400, NPC.Center.Y - 200, 0, 80, ModContent.ProjectileType<GodsFire>(), Main.expertMode ? 25 : 30, 20, 0);
-					Projectile.NewProjectile(NPC.GetSpawnSource_ForProjectile(), NPC.Center.X + 600, NPC.Center.Y - 200, 0, 80, ModContent.ProjectileType<GodsFire>(), Main.expertMode ? 25 : 30, 20, 0);
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X - 1400, NPC.Center.Y - 200, 0, 80, ModContent.ProjectileType<GodsFire>(), Main.expertMode ? 25 : 30, 20, 0);
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X + 600, NPC.Center.Y - 200, 0, 80, ModContent.ProjectileType<GodsFire>(), Main.expertMode ? 25 : 30, 20, 0);
 					NPC.ai[3] = 0;
                 }
 				if (NPC.ai[1] >= 140)
@@ -287,7 +287,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 				if (NPC.ai[2] >= 3)
 				{
 					Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)NPC.Center.X, (int)NPC.Center.Y, 61);
-					Projectile.NewProjectile(NPC.GetSpawnSource_ForProjectile(), NPC.position.X, NPC.position.Y, 0, 0, ModContent.ProjectileType<ShardofAntumbra>(), Main.expertMode ? 30 : 40, 0f, NPC.target);
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, 0, 0, ModContent.ProjectileType<ShardofAntumbra>(), Main.expertMode ? 30 : 40, 0f, NPC.target);
 					NPC.ai[2] = 0;
                 }
 				if (NPC.ai[1] >= 100)
@@ -325,7 +325,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 				if (NPC.ai[2] >= 3)
 				{
 					Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)NPC.Center.X, (int)NPC.Center.Y, 61);
-					Projectile.NewProjectile(NPC.GetSpawnSource_ForProjectile(), NPC.position.X, NPC.position.Y, 0, 0, ModContent.ProjectileType<ShardofAntumbra>(), Main.expertMode ? 30 : 40, 0f, Main.myPlayer, NPC.target);
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, 0, 0, ModContent.ProjectileType<ShardofAntumbra>(), Main.expertMode ? 30 : 40, 0f, Main.myPlayer, NPC.target);
 					NPC.ai[2] = 0;
 				}
 				if (NPC.ai[1] >= 100)
@@ -365,9 +365,9 @@ namespace CalValEX.AprilFools.Meldosaurus
 				int dmg = Main.expertMode ? 33 : 55;
 				if (NPC.ai[1] == 0)
 				{
-					Projectile.NewProjectile(NPC.GetSpawnSource_ForProjectile(), Main.player[NPC.target].position.X - distance, Main.player[NPC.target].position.Y + distance, 0, 0, ModContent.ProjectileType<MeldosaurusClone>(), dmg, 0, Main.myPlayer, NPC.target, 1);
-					Projectile.NewProjectile(NPC.GetSpawnSource_ForProjectile(), Main.player[NPC.target].position.X + distance, Main.player[NPC.target].position.Y - distance, 0, 0, ModContent.ProjectileType<MeldosaurusClone>(), dmg, 0, Main.myPlayer, NPC.target, 2);
-					Projectile.NewProjectile(NPC.GetSpawnSource_ForProjectile(), Main.player[NPC.target].position.X - distance, Main.player[NPC.target].position.Y - distance, 0, 0, ModContent.ProjectileType<MeldosaurusClone>(), dmg, 0, Main.myPlayer, NPC.target, 3);
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), Main.player[NPC.target].position.X - distance, Main.player[NPC.target].position.Y + distance, 0, 0, ModContent.ProjectileType<MeldosaurusClone>(), dmg, 0, Main.myPlayer, NPC.target, 1);
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), Main.player[NPC.target].position.X + distance, Main.player[NPC.target].position.Y - distance, 0, 0, ModContent.ProjectileType<MeldosaurusClone>(), dmg, 0, Main.myPlayer, NPC.target, 2);
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), Main.player[NPC.target].position.X - distance, Main.player[NPC.target].position.Y - distance, 0, 0, ModContent.ProjectileType<MeldosaurusClone>(), dmg, 0, Main.myPlayer, NPC.target, 3);
 				}
 				NPC.alpha = 0;
 				NPC.ai[1]++;
@@ -411,7 +411,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 					Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, (int)NPC.Center.X, (int)NPC.Center.Y, 13);
 					for (int x = 0; x <= Main.rand.Next(4,6); x++)
                     {
-						Projectile.NewProjectile(NPC.GetSpawnSource_ForProjectile(), NPC.Center.X, NPC.Center.Y, Main.rand.Next(-30, 30), Main.rand.Next(-40, 30), ModContent.ProjectileType<EntropicVomit>(), 30, 0f, Main.myPlayer, Main.rand.Next(1, 4));
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, Main.rand.Next(-30, 30), Main.rand.Next(-40, 30), ModContent.ProjectileType<EntropicVomit>(), 30, 0f, Main.myPlayer, Main.rand.Next(1, 4));
                     }
 					NPC.ai[1] = 0;
                 }

@@ -111,7 +111,7 @@ namespace CalValEX.Projectiles.Pets
                 {
                     entropy = true;
                     SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(Mod, "Sounds/ReaperEnragedRoar"));
-                    Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), 0, 0, ModContent.ProjectileType<SiremberSpook>(), 0, 0, Projectile.owner, 0);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), 0, 0, ModContent.ProjectileType<SiremberSpook>(), 0, 0, Projectile.owner, 0);
                     Projectile.alpha = 255;
                 }
 

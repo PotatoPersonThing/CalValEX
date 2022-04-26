@@ -28,36 +28,36 @@ namespace CalValEX.Buffs.PetComboBuffs
 
             bool petProjectileNotSpawnedA = player.ownedProjectileCounts[ModContent.ProjectileType<CalamityBABY>()] <= 0;
             if (petProjectileNotSpawnedA && player.whoAmI == Main.myPlayer){
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<CalamityBABY>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
             bool petProjectileNotSpawnedBA = player.ownedProjectileCounts[ModContent.ProjectileType<CoolBlueSignut>()] <= 0;
             if (petProjectileNotSpawnedBA && player.whoAmI == Main.myPlayer){
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<CoolBlueSignut>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
             bool petProjectileNotSpawnedBB = player.ownedProjectileCounts[ModContent.ProjectileType<CoolBlueSlime>()] <= 0;
             if (petProjectileNotSpawnedBB && player.whoAmI == Main.myPlayer){
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<CoolBlueSlime>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
             bool petProjectileNotSpawnedC = player.ownedProjectileCounts[ModContent.ProjectileType<GoozmaPet>()] <= 0;
             if (petProjectileNotSpawnedC && player.whoAmI == Main.myPlayer){
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<GoozmaPet>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
             bool petProjectileNotSpawnedD = player.ownedProjectileCounts[ModContent.ProjectileType<UngodlySerpent>()] <= 0;
             if (petProjectileNotSpawnedD && player.whoAmI == Main.myPlayer){
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<UngodlySerpent>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
             bool petProjectileNotSpawnedE = player.ownedProjectileCounts[ModContent.ProjectileType<Sirember>()] <= 0;
             if (petProjectileNotSpawnedE && player.whoAmI == Main.myPlayer){
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<Sirember>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
         }

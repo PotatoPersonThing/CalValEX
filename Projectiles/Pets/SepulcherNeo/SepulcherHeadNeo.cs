@@ -39,16 +39,16 @@ namespace CalValEX.Projectiles.Pets.SepulcherNeo
 		{
 			if (!SpawnedSegments)
 			{
-				int tail = Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<SepulcherTailNeo>(),
+				int tail = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<SepulcherTailNeo>(),
 					Projectile.damage, Projectile.knockBack, 0, Projectile.whoAmI);
 				// The minus one is because this segment and the tail are incorporated in the worm as well
 				for (int i = 0; i < 13; i++)
 				{
 					float uuid = (float)Projectile.GetByUUID(Main.myPlayer, Main.projectile[tail].ai[0]);
-					int body = Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), Projectile.Center, Vector2.Zero,
+					int body = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero,
 					ModContent.ProjectileType<SepulcherBody1Neo>(), Projectile.damage, 1f,
 					0, uuid);
-					int back = Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), Projectile.Center, Vector2.Zero,
+					int back = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero,
 					ModContent.ProjectileType<SepulcherBody1Neo>(), Projectile.damage, 1f,
 					0, (float)body);
 					//1f = normal seg. 2f = skull seg. 3f = orb

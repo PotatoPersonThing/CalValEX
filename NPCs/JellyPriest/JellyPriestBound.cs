@@ -49,7 +49,7 @@ namespace CalValEX.NPCs.JellyPriest
                     NPC.netUpdate = true;
                     if (!NPC.AnyNPCs(ModContent.NPCType<JellyPriestNPC>()))
                     {
-                        NPC.NewNPC(NPC.GetSpawnSourceForNPCFromNPCAI(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<JellyPriestNPC>());
+                        NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.position.X, (int)NPC.position.Y, ModContent.NPCType<JellyPriestNPC>());
                         NPC.active = false;
                     }
                     return;
@@ -76,7 +76,7 @@ namespace CalValEX.NPCs.JellyPriest
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (NPC.downedBoss1 && !CalValEXConfig.Instance.TownNPC && !CalValEXWorld.rescuedjelly && spawnInfo.player.ZoneBeach && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestBound>()) && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestNPC>()))
+            if (NPC.downedBoss1 && !CalValEXConfig.Instance.TownNPC && !CalValEXWorld.rescuedjelly && spawnInfo.Player.ZoneBeach && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestBound>()) && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestNPC>()))
             {
                 return 0.5f;
             }

@@ -37,9 +37,9 @@ namespace CalValEX.Items.Equips.Shirts.AresChestplate
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(108, 45, 199); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(108, 45, 199); //change the color accordingly to above
                 }
             }
         }
@@ -52,22 +52,22 @@ namespace CalValEX.Items.Equips.Shirts.AresChestplate
             bool plasmaspawned = player.ownedProjectileCounts[ModContent.ProjectileType<PlasmaArm>()] <= 0;
             if (gausspawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0, 0, ModContent.ProjectileType<GaussArm>(), 0, 0f, player.whoAmI);
             }
             if (laserpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0, 0, ModContent.ProjectileType<LaserArm>(), 0, 0f, player.whoAmI);
             }
             if (teslaspawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                    0, 0, ModContent.ProjectileType<TeslaArm>(), 0, 0f, player.whoAmI);
             }
             if (plasmaspawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0, 0, ModContent.ProjectileType<PlasmaArm>(), 0, 0f, player.whoAmI);
             }
             player.GetModPlayer<CalValEXPlayer>().aresarms = true;
@@ -81,22 +81,22 @@ namespace CalValEX.Items.Equips.Shirts.AresChestplate
             bool plasmaspawned = player.ownedProjectileCounts[ModContent.ProjectileType<PlasmaArm>()] <= 0;
             if (gausspawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0, 0, ModContent.ProjectileType<GaussArm>(), 0, 0f, player.whoAmI);
             }
             if (laserpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                    0, 0, ModContent.ProjectileType<LaserArm>(), 0, 0f, player.whoAmI);
             }
             if (teslaspawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                    0, 0, ModContent.ProjectileType<TeslaArm>(), 0, 0f, player.whoAmI);
             }
             if (plasmaspawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                    0, 0, ModContent.ProjectileType<PlasmaArm>(), 0, 0f, player.whoAmI);
             }
             player.GetModPlayer<CalValEXPlayer>().aresarms = true;

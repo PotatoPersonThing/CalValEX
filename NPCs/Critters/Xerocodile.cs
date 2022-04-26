@@ -86,7 +86,7 @@ namespace CalValEX.NPCs.Critters
             {
                 if (/*(bool)clamMod.Call("CalValEX/GetBossDowned", "providence")*/ NPC.downedEmpressOfLight && Main.bloodMoon && !CalValEXConfig.Instance.CritterSpawns)
                 {
-                    if (spawnInfo.playerSafe)
+                    if (spawnInfo.PlayerSafe)
                     {
                         return Terraria.ModLoader.Utilities.SpawnCondition.TownCritter.Chance * 0.01f;
                     }
@@ -115,9 +115,9 @@ namespace CalValEX.NPCs.Critters
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("Xerocodile").Type, 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("Xerocodile2").Type, 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("Xerocodile3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Xerocodile").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Xerocodile2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Xerocodile3").Type, 1f);
             }
         }
     }

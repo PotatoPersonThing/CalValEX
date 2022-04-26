@@ -26,7 +26,7 @@ namespace CalValEX.Buffs.LightPets
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<SpookShark>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<SpookShark>(), 0, 0f, player.whoAmI);
             }
 
@@ -35,7 +35,7 @@ namespace CalValEX.Buffs.LightPets
             bool petProjectileNotSpawned2 = player.ownedProjectileCounts[ModContent.ProjectileType<SpookSmall>()] <= 0;
             if (petProjectileNotSpawned2 && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<SpookSmall>(), 0, 0f, player.whoAmI);
             }
 
@@ -44,7 +44,7 @@ namespace CalValEX.Buffs.LightPets
             bool petProjectileNotSpawned3 = player.ownedProjectileCounts[ModContent.ProjectileType<Bishop>()] <= 0;
             if (petProjectileNotSpawned3 && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<Bishop>(), 0, 0f, player.whoAmI);
             }
 
@@ -53,7 +53,7 @@ namespace CalValEX.Buffs.LightPets
             bool petProjectileNotSpawned4 = player.ownedProjectileCounts[ModContent.ProjectileType<EndoRune>()] <= 0;
             if (petProjectileNotSpawned4 && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<EndoRune>(), 0, 0f, player.whoAmI);
             }
 
@@ -63,7 +63,7 @@ namespace CalValEX.Buffs.LightPets
             bool petProjectileNotSpawned5 = player.ownedProjectileCounts[ModContent.ProjectileType<NWings>()] <= 0;
             if (petProjectileNotSpawned5 && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<NWings>(), 0, 0f, player.whoAmI);
             }
             */
@@ -103,7 +103,7 @@ namespace CalValEX.Buffs.LightPets
                 if (petProjectileNotSpawnedcombo && player.whoAmI == Main.myPlayer)
                 {
                     for (int i = 0; i < petscombo.Count; i++)
-                        Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + player.width / 2,
+                        Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2,
                             player.position.Y + player.height / 2, 0f, 0f, petscombo[i], 0, 0f, player.whoAmI);
                 }
             }

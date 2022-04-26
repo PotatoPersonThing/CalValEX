@@ -17,11 +17,11 @@ namespace CalValEX.Projectiles
 
         public override void Kill(int timeLeft)
         {
-            Item.NewItem(Projectile.GetItemSource_DropAsItem(), Projectile.getRect(), ModContent.ItemType<ChaoticPuffball>());
+            Item.NewItem(Projectile.GetSource_DropAsItem(), Projectile.getRect(), ModContent.ItemType<ChaoticPuffball>());
             if (Main.rand.Next(10) == 0)
             {
                 Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.Item20, Projectile.position);
-                Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), Projectile.position, new Microsoft.Xna.Framework.Vector2 (0, 0), Terraria.ID.ProjectileID.InfernoHostileBlast, 222, 10, Main.myPlayer);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, new Microsoft.Xna.Framework.Vector2 (0, 0), Terraria.ID.ProjectileID.InfernoHostileBlast, 222, 10, Main.myPlayer);
             }
         }
     }

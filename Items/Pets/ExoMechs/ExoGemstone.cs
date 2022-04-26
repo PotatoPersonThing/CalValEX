@@ -47,18 +47,18 @@ namespace CalValEX.Items.Pets.ExoMechs
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(108, 45, 199); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(108, 45, 199); //change the color accordingly to above
                 }
             }
         }
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Projectile.NewProjectile(player.GetProjectileSource_Item(Item), player.Center, Vector2.Zero, ModContent.ProjectileType < Projectiles.Pets.ExoMechs.ThanatosPet>(), 0, 0, player.whoAmI);
-            Projectile.NewProjectile(player.GetProjectileSource_Item(Item), player.Center, Vector2.Zero, ModContent.ProjectileType < Projectiles.Pets.ExoMechs.AresBody>(), 0, 0, player.whoAmI);
-            Projectile.NewProjectile(player.GetProjectileSource_Item(Item), player.Center, Vector2.Zero, ModContent.ProjectileType < Projectiles.Pets.ExoMechs.TwinsPet>(), 0, 0, player.whoAmI);
+            Projectile.NewProjectile(source, player.Center, Vector2.Zero, ModContent.ProjectileType < Projectiles.Pets.ExoMechs.ThanatosPet>(), 0, 0, player.whoAmI);
+            Projectile.NewProjectile(source, player.Center, Vector2.Zero, ModContent.ProjectileType < Projectiles.Pets.ExoMechs.AresBody>(), 0, 0, player.whoAmI);
+            Projectile.NewProjectile(source, player.Center, Vector2.Zero, ModContent.ProjectileType < Projectiles.Pets.ExoMechs.TwinsPet>(), 0, 0, player.whoAmI);
 
             return false;
         }

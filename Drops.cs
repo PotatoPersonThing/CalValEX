@@ -2421,7 +2421,7 @@ namespace CalValEX
         //Disable Astral Blight overworld spawns
         public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo LocalPlayer)
         {
-            Player player = LocalPlayer.player;
+            Player player = LocalPlayer.Player;
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             //CalamityMod.CalPlayer.CalamityPlayer calp = player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>();
             bool noevents = (/*CalamityWorld.rainingAcid && calp.ZoneSulphur) && */!Main.eclipse && !Main.snowMoon && !Main.pumpkinMoon && Main.invasionType == 0 && !player.ZoneTowerSolar && !player.ZoneTowerStardust && !player.ZoneTowerVortex & !player.ZoneTowerNebula && !player.ZoneOldOneArmy);

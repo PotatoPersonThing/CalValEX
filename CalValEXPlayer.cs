@@ -361,22 +361,22 @@ namespace CalValEX
                 bool plasmaspawned = Player.ownedProjectileCounts[ModContent.ProjectileType<PlasmaArm>()] <= 0;
                 if (gausspawned && Player.whoAmI == Main.myPlayer)
                 {
-                    Projectile.NewProjectile(Player.GetProjectileSource_Accessory(Player.armor[11]), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
+                    Projectile.NewProjectile(Player.GetSource_Accessory(Player.armor[11]), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
                         0, 0, ModContent.ProjectileType<GaussArm>(), 0, 0f, Player.whoAmI);
                 }
                 if (laserpawned && Player.whoAmI == Main.myPlayer)
                 {
-                    Projectile.NewProjectile(Player.GetProjectileSource_Accessory(Player.armor[11]), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
+                    Projectile.NewProjectile(Player.GetSource_Accessory(Player.armor[11]), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
                        0, 0, ModContent.ProjectileType<LaserArm>(), 0, 0f, Player.whoAmI);
                 }
                 if (teslaspawned && Player.whoAmI == Main.myPlayer)
                 {
-                    Projectile.NewProjectile(Player.GetProjectileSource_Accessory(Player.armor[11]), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
+                    Projectile.NewProjectile(Player.GetSource_Accessory(Player.armor[11]), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
                        0, 0, ModContent.ProjectileType<TeslaArm>(), 0, 0f, Player.whoAmI);
                 }
                 if (plasmaspawned && Player.whoAmI == Main.myPlayer)
                 {
-                    Projectile.NewProjectile(Player.GetProjectileSource_Accessory(Player.armor[11]), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
+                    Projectile.NewProjectile(Player.GetSource_Accessory(Player.armor[11]), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
                        0, 0, ModContent.ProjectileType<PlasmaArm>(), 0, 0f, Player.whoAmI);
                 }
                 aresarms = true;

@@ -39,9 +39,9 @@ namespace CalValEX.Items.Equips.Hats
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(255, 0, 255); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(255, 0, 255); //change the color accordingly to above
                 }
             }
         }

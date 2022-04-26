@@ -98,9 +98,9 @@ namespace CalValEX
             }
 
             foreach (TooltipLine tooltipLine in tooltips)
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = color;
+                    tooltipLine.OverrideColor = color;
                 }
         }
         /*public int BossRarity(string type)

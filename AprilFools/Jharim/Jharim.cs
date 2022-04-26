@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Personalities;
+using System.Collections.Generic;
 
 namespace CalValEX.AprilFools.Jharim
 {
@@ -161,17 +162,14 @@ namespace CalValEX.AprilFools.Jharim
                 if (textcounter == 360)
                 {
                     Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit, NPC.position, 1);
-                    NPC.NewNPC(NPC.GetSpawnSourceForProjectileNPC(), (int)NPC.Center.X, (int)NPC.Center.Y, NPCType<AprilFools.Meldosaurus.Meldosaurus>());
+                    NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, NPCType<AprilFools.Meldosaurus.Meldosaurus>());
                     NPC.active = false;
                 }
 
             }
         }
 
-        public override string TownNPCName()
-        {
-            return "Jharim";
-        }
+        public override List<string> SetNPCNameList() => new List<string>() { "Jharim" };
 
         public override string GetChat()
         {

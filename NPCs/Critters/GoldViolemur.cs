@@ -103,9 +103,9 @@ namespace CalValEX.NPCs.Critters
             //Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
             //if (clamMod != null)
             {
-                if (spawnInfo.player.GetModPlayer<CalValEXPlayer>().ZoneAstral && !CalValEXConfig.Instance.CritterSpawns)
+                if (spawnInfo.Player.GetModPlayer<CalValEXPlayer>().ZoneAstral && !CalValEXConfig.Instance.CritterSpawns)
                 {
-                    if (spawnInfo.playerSafe)
+                    if (spawnInfo.PlayerSafe)
                     {
                         return Terraria.ModLoader.Utilities.SpawnCondition.TownCritter.Chance * 0.07f;
                     }
@@ -127,8 +127,8 @@ namespace CalValEX.NPCs.Critters
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("GoldViolemur").Type, 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("GoldViolemur2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GoldViolemur").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GoldViolemur2").Type, 1f);
             }
         }
 

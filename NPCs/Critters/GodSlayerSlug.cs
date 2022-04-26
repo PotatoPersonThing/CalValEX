@@ -59,7 +59,7 @@ namespace CalValEX.NPCs.Critters
                 NPC.HitEffect();
                 NPC.active = false;
                 NPC.netUpdate = true;
-                Projectile.NewProjectile(NPC.GetSpawnSourceForProjectileNPC(), NPC.position.X, NPC.position.Y, 0f, 7f, 12, 0, 0f, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, 0f, 7f, 12, 0, 0f, Main.myPlayer);
             }
             else
             {
@@ -80,7 +80,7 @@ namespace CalValEX.NPCs.Critters
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             //Mod calamityMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
-            if (/*(bool)calamityMod.Call("CalValEX/GetBossDowned", "devourerofgods")*/ NPC.downedMoonlord && !CalValEXConfig.Instance.CritterSpawns && spawnInfo.player.ZoneSkyHeight)
+            if (/*(bool)calamityMod.Call("CalValEX/GetBossDowned", "devourerofgods")*/ NPC.downedMoonlord && !CalValEXConfig.Instance.CritterSpawns && spawnInfo.Player.ZoneSkyHeight)
             {
                 if (Main.raining)
                 {

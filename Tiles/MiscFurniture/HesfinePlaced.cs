@@ -91,10 +91,7 @@ namespace CalValEX.Tiles.MiscFurniture
         }
         //int dust = Dust.NewDust(new Vector2(i, j) * 16f, 5, 5, 1, 0f, 6.315789f, 161, new Color(0, 217, 255), 1.315789f);
 
-        public override bool HasSmartInteract()
-        {
-            return true;
-        }
+        public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
         private bool choking = false;
         int choketimer = 0;
         private bool feed = false;

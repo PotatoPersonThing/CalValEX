@@ -37,16 +37,16 @@ namespace CalValEX.Projectiles.Pets
         {
             if (!SpawnedSegments)
             {
-                int tail = Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<DogTail>(),
+                int tail = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<DogTail>(),
                     Projectile.damage, Projectile.knockBack, 0, Projectile.whoAmI);
                 // The minus one is because this segment and the tail are incorporated in the worm as well
                 for (int i = 0; i < (CalValEXConfig.Instance.FatDog ? 100 : 26) - 2; i++)
                 {
                     float uuid = (float)Projectile.GetByUUID(Main.myPlayer, Main.projectile[tail].ai[0]);
-                    int body = Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), Projectile.Center, Vector2.Zero,
+                    int body = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero,
                         ModContent.ProjectileType<DogBody>(), Projectile.damage, Projectile.knockBack,
                         0, uuid);
-                    int back = Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), Projectile.Center, Vector2.Zero,
+                    int back = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero,
                         ModContent.ProjectileType<DogBody>(), Projectile.damage, Projectile.knockBack,
                         0, (float)body);
 

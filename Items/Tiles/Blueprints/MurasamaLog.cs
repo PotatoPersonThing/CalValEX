@@ -44,9 +44,9 @@ namespace CalValEX.Items.Tiles.Blueprints
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(204, 71, 35); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(204, 71, 35); //change the color accordingly to above
                 }
             }
         }

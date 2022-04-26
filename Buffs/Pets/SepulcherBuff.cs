@@ -21,7 +21,7 @@ namespace CalValEX.Buffs.Pets
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<Sepulchling>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ProjectileType<Sepulchling>(), 0, 0f, player.whoAmI);
             }
             ModLoader.TryGetMod("CalValPlus", out Mod orthoceraDLC);
@@ -32,7 +32,7 @@ namespace CalValEX.Buffs.Pets
                 bool petProjectileNotSpawnedbm = player.ownedProjectileCounts[ProjectileType<BabyMonster>()] <= 0;
                 if (petProjectileNotSpawnedbm && player.whoAmI == Main.myPlayer)
                 {
-                    Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                    Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                         0f, 0f, ProjectileType<BabyMonster>(), 0, 0f, player.whoAmI);
                 }
             }
@@ -43,7 +43,7 @@ namespace CalValEX.Buffs.Pets
                 bool petProjectileNotSpawnedbh = player.ownedProjectileCounts[ProjectileType<BabyHage>()] <= 0;
                 if (petProjectileNotSpawnedbh && player.whoAmI == Main.myPlayer)
                 {
-                    Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                    Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                         0f, 0f, ProjectileType<BabyHage>(), 0, 0f, player.whoAmI);
                 }
             }

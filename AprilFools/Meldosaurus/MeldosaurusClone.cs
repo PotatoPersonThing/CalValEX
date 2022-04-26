@@ -53,10 +53,10 @@ namespace CalValEX.AprilFools.Meldosaurus
             {
                 int speed = /*CalamityMod.World.CalamityWorld.death ? 20 :*/ 15;
                 Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, (int)Projectile.Center.X, (int)Projectile.Center.Y, 13);
-                Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), (int)Projectile.Center.X, (int)Projectile.Center.Y, -speed, 0, ModContent.ProjectileType<EntropicVomit>(), Main.expertMode ? 30 : 35, 0, Main.myPlayer);
-                Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(),(int)Projectile.Center.X, (int)Projectile.Center.Y, speed, 0, ModContent.ProjectileType<EntropicVomit>(), Main.expertMode ? 30 : 35, 0, Main.myPlayer);
-                Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(),(int)Projectile.Center.X, (int)Projectile.Center.Y, 0, -speed, ModContent.ProjectileType<EntropicVomit>(), Main.expertMode ? 30 : 35, 0, Main.myPlayer);
-                Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(),(int)Projectile.Center.X, (int)Projectile.Center.Y, 0, speed, ModContent.ProjectileType<EntropicVomit>(), Main.expertMode ? 30 : 35, 0, Main.myPlayer);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), (int)Projectile.Center.X, (int)Projectile.Center.Y, -speed, 0, ModContent.ProjectileType<EntropicVomit>(), Main.expertMode ? 30 : 35, 0, Main.myPlayer);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(),(int)Projectile.Center.X, (int)Projectile.Center.Y, speed, 0, ModContent.ProjectileType<EntropicVomit>(), Main.expertMode ? 30 : 35, 0, Main.myPlayer);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(),(int)Projectile.Center.X, (int)Projectile.Center.Y, 0, -speed, ModContent.ProjectileType<EntropicVomit>(), Main.expertMode ? 30 : 35, 0, Main.myPlayer);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(),(int)Projectile.Center.X, (int)Projectile.Center.Y, 0, speed, ModContent.ProjectileType<EntropicVomit>(), Main.expertMode ? 30 : 35, 0, Main.myPlayer);
                 Projectile.active = false;
             }
             var thisRect = Projectile.getRect();

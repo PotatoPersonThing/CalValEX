@@ -23,7 +23,7 @@ namespace CalValEX.Buffs.LightPets
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<HeatPet>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<HeatPet>(), 0, 0f, player.whoAmI);
             }
 
@@ -32,7 +32,7 @@ namespace CalValEX.Buffs.LightPets
             bool petProjectileNotSpawned2 = player.ownedProjectileCounts[ModContent.ProjectileType<HeatBaby>()] <= 0;
             if (petProjectileNotSpawned2 && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<HeatBaby>(), 0, 0f, player.whoAmI);
             }
         }

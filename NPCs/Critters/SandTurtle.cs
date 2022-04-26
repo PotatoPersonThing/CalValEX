@@ -120,9 +120,9 @@ namespace CalValEX.NPCs.Critters
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (Main.hardMode && !CalValEXConfig.Instance.CritterSpawns && spawnInfo.player.ZoneUndergroundDesert)
+            if (Main.hardMode && !CalValEXConfig.Instance.CritterSpawns && spawnInfo.Player.ZoneUndergroundDesert)
             {
-                if (spawnInfo.playerSafe)
+                if (spawnInfo.PlayerSafe)
                 {
                     return Terraria.ModLoader.Utilities.SpawnCondition.DesertCave.Chance * 0.025f;
                 }
@@ -198,11 +198,11 @@ namespace CalValEX.NPCs.Critters
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("SandTurtle").Type, 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("SandTurtle2").Type, 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("SandTurtle3").Type, 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("SandTurtle4").Type, 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.Find<ModGore>("SandTurtle5").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SandTurtle").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SandTurtle2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SandTurtle3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SandTurtle4").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SandTurtle5").Type, 1f);
             }
         }
     }

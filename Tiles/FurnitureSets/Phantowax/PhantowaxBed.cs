@@ -27,10 +27,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             
         }
 
-        public override bool HasSmartInteract()
-        {
-            return true;
-        }
+        public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
 
         public override void NumDust(int i, int j, bool fail, ref int num)
         {

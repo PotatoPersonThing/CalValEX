@@ -18,7 +18,7 @@ namespace CalValEX.Projectiles.Plushies
 
         public override void Kill(int timeLeft)
         {
-            Item.NewItem(Projectile.GetItemSource_DropAsItem(), Projectile.getRect(), ModContent.ItemType<Items.Plushies.DesertScourgePlushThrowable>());
+            Item.NewItem(Projectile.GetSource_DropAsItem(), Projectile.getRect(), ModContent.ItemType<Items.Plushies.DesertScourgePlushThrowable>());
         }
     }
 }

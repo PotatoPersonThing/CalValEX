@@ -82,11 +82,7 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
             frame = Main.tileFrame[TileID.Campfire];
             frameCounter = Main.tileFrameCounter[TileID.Campfire];
         }
-
-        public override bool HasSmartInteract()
-        {
-            return true;
-        }
+        public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
 
         public override bool RightClick(int i, int j)
         {

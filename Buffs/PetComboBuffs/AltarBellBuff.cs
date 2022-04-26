@@ -35,37 +35,37 @@ namespace CalValEX.Buffs.PetComboBuffs
 
             bool petProjectileNotSpawnedA = player.ownedProjectileCounts[ModContent.ProjectileType<Dragonball>()] <= 0;
             if (petProjectileNotSpawnedA && player.whoAmI == Main.myPlayer){
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<Dragonball>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
             bool petProjectileNotSpawnedB = player.ownedProjectileCounts[ModContent.ProjectileType<Godrge>()] <= 0;
             if (petProjectileNotSpawnedB && player.whoAmI == Main.myPlayer){
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<Godrge>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
             bool petProjectileNotSpawnedC = player.ownedProjectileCounts[ModContent.ProjectileType<Avalon>()] <= 0;
             if (petProjectileNotSpawnedC && player.whoAmI == Main.myPlayer){
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<Avalon>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
             bool petProjectileNotSpawnedD = player.ownedProjectileCounts[ModContent.ProjectileType<YharimSquid>()] <= 0;
             if (petProjectileNotSpawnedD && player.whoAmI == Main.myPlayer){
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<YharimSquid>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
             bool petProjectileNotSpawnedE = player.ownedProjectileCounts[ModContent.ProjectileType<TerminalRock>()] <= 0;
             if (petProjectileNotSpawnedE && player.whoAmI == Main.myPlayer){
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<TerminalRock>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
             bool petProjectileNotSpawnedF = player.ownedProjectileCounts[ModContent.ProjectileType<BejeweledScuttler>()] <= 0;
             if (petProjectileNotSpawnedF && player.whoAmI == Main.myPlayer){
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<BejeweledScuttler>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
@@ -74,13 +74,13 @@ namespace CalValEX.Buffs.PetComboBuffs
                                             player.ownedProjectileCounts[ModContent.ProjectileType<ProGuard3>()] <= 0 &&
                                             player.ownedProjectileCounts[ModContent.ProjectileType<ProviPet>()] <= 0;
             if (petProjectileNotSpawnedG && player.whoAmI == Main.myPlayer){
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<ProGuard1>(), 0, 0f, player.whoAmI, 0f, 0f);
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<ProGuard2>(), 0, 0f, player.whoAmI, 0f, 0f);
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<ProGuard3>(), 0, 0f, player.whoAmI, 0f, 0f);
-                Projectile.NewProjectile(player.GetProjectileSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<ProviPet>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
         }
