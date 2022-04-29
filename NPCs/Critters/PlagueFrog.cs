@@ -22,7 +22,7 @@ namespace CalValEX.NPCs.Critters
             NPC.CloneDefaults(NPCID.Frog);
             NPC.catchItem = (short)ItemType<PlagueFrogItem>();
             NPC.lavaImmune = false;
-            NPC.friendly = true;
+            //NPC.friendly = true;
             AIType = NPCID.Frog;
             AnimationType = NPCID.Frog;
             NPC.lifeMax = 20;
@@ -53,16 +53,6 @@ namespace CalValEX.NPCs.Critters
                     NPC.Transform(NPCID.Frog);
                 }
             }
-        }
-
-        public override bool? CanBeHitByItem(Player player, Item item)
-        {
-            return true;
-        }
-
-        public override bool? CanBeHitByProjectile(Projectile projectile)
-        {
-            return true;
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

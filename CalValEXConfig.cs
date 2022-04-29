@@ -60,12 +60,6 @@ namespace CalValEX
         [Tooltip("Prevents the Oracle and Jelly Priestess from spawning")]
         public bool TownNPC { get; set; }
 
-        [Label("Disable Violemur Invincibility")]
-        [BackgroundColor(192, 54, 64, 192)]
-        [DefaultValue(false)]
-        [Tooltip("Makes it so that Violemurs can be damaged at all times")]
-        public bool ViolemurDefense { get; set; }
-
         [Label("Disable Isopod Bait Scaling")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
@@ -74,7 +68,7 @@ namespace CalValEX
 
         [Label("Disable Critter Spawns")]
         [BackgroundColor(192, 54, 64, 192)]
-        [DefaultValue(false)]
+        [DefaultValue(true)]
         [Tooltip("Makes it so that all Calamity's Vanities critters no longer spawn naturally")]
         public bool CritterSpawns { get; set; }
 

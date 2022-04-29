@@ -4,12 +4,12 @@ using CalValEX.Tiles.MiscFurniture;
 
 namespace CalValEX.Items.Tiles
 {
-    public class PongMachine : ModItem
+    public class BoiMachine : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Pong Machine");
-            Tooltip.SetDefault("INCOMPLETE ITEM, EXTREMELY UNSTABLE\nPong game");
+            DisplayName.SetDefault("Binding of Anahita Machine");
+            Tooltip.SetDefault("INCOMPLETE ITEM, EXTREMELY UNSTABLE\nRoguelike game");
         }
 
         public override void SetDefaults()
@@ -20,7 +20,7 @@ namespace CalValEX.Items.Tiles
             Item.useTime = 10;
             Item.autoReuse = true;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<PongMachinePlaced>();
+            Item.createTile = ModContent.TileType<BoiMachinePlaced>();
             Item.maxStack = 99;
             Item.width = 48;
             Item.height = 32;

@@ -40,7 +40,7 @@ namespace CalValEX.NPCs.Critters
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.catchItem = (short)ItemType<EyedolItem>();
             NPC.lavaImmune = true;
-            NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
+            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             NPC.npcSlots = 0.25f;
             Banner = NPC.type;
             BannerItem = ItemType<EyedolBanner>();
@@ -53,16 +53,6 @@ namespace CalValEX.NPCs.Critters
                 Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheUnderworld,
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("Back in the prime of the capital, some would make small idols to worship the goddess at home. The destruction of the capital infused some of these with magic, giving them sentience."),
             });
-        }
-
-        public override bool? CanBeHitByItem(Player player, Item item)
-        {
-            return true;
-        }
-
-        public override bool? CanBeHitByProjectile(Projectile projectile)
-        {
-            return true;
         }
 
         public override void OnCatchNPC(Player player, Item item)

@@ -28,7 +28,7 @@ namespace CalValEX.NPCs.Critters
             NPC.catchItem = (short)ItemType<NukeFlyItem>();
             NPC.lavaImmune = false;
             //NPC.aiStyle = 0;
-            NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
+            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.Firefly;
             AnimationType = NPCID.Firefly;
             NPC.lifeMax = 20;
@@ -45,16 +45,6 @@ namespace CalValEX.NPCs.Critters
                 Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Ocean,
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("An ancient insect species that was revitalized by the radioactive waters."),
             });
-        }
-
-        public override bool? CanBeHitByItem(Player player, Item item)
-        {
-            return true;
-        }
-
-        public override bool? CanBeHitByProjectile(Projectile projectile)
-        {
-            return true;
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

@@ -35,7 +35,7 @@ namespace CalValEX.NPCs.Critters
             NPC.catchItem = (short)ItemType<XerocodileItem>();
             NPC.lavaImmune = false;
             //NPC.aiStyle = 0;
-            NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
+            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.Squirrel;
             AnimationType = NPCID.Squirrel;
             NPC.npcSlots = 0.25f;
@@ -67,16 +67,6 @@ namespace CalValEX.NPCs.Critters
                 //Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, clamMod.ItemType("Xerocodile"), 1, false, 0, false, false);
                 NPC.active = false;
             }
-        }
-
-        public override bool? CanBeHitByItem(Player player, Item item)
-        {
-            return true;
-        }
-
-        public override bool? CanBeHitByProjectile(Projectile projectile)
-        {
-            return true;
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

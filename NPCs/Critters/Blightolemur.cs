@@ -35,7 +35,7 @@ namespace CalValEX.NPCs.Critters
             NPC.catchItem = (short)ItemType<BlightolemurItem>();
             NPC.lavaImmune = false;
             //NPC.aiStyle = 0;
-            NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
+            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.Squirrel;
             AnimationType = NPCID.Squirrel;
             NPC.npcSlots = 0.25f;
@@ -56,30 +56,6 @@ namespace CalValEX.NPCs.Critters
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("On another fractal of the light spectrum from the Violemurs, the Bleamurs frollic peacefully in the Astral Blight, while using their tail patterns to attract prey."),
             });
-        }
-
-        public override bool? CanBeHitByItem(Player player, Item item)
-        {
-            return true;
-        }
-
-        public override bool? CanBeHitByProjectile(Projectile projectile)
-        {
-            return true;
-        }
-
-        public override void AI()
-        {
-            if (!CalValEXConfig.Instance.ViolemurDefense)
-            {
-                NPC.dontTakeDamageFromHostiles = true;
-                NPC.netUpdate = true;
-            }
-            else
-            {
-                NPC.dontTakeDamageFromHostiles = false;
-                NPC.netUpdate = true;
-            }
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

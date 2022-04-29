@@ -32,7 +32,7 @@ namespace CalValEX.NPCs.Critters
             NPC.npcSlots = 0.25f;
             NPC.catchItem = (short)ItemType<OrthobabItem>();
             NPC.lavaImmune = false;
-            NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
+            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.Goldfish;
             AnimationType = NPCID.Goldfish;
             NPC.lifeMax = 5;
@@ -49,16 +49,6 @@ namespace CalValEX.NPCs.Critters
                 Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Ocean,
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("Newer offspring of The Shelled. Despite their bumbling appearance, any one of these may very well grow into something horrific."),
             });
-        }
-
-        public override bool? CanBeHitByItem(Player player, Item item)
-        {
-            return true;
-        }
-
-        public override bool? CanBeHitByProjectile(Projectile projectile)
-        {
-            return true;
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

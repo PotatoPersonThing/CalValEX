@@ -35,7 +35,7 @@ namespace CalValEX.NPCs.Critters
             NPC.catchItem = (short)ItemType<ViolemurItem>();
             NPC.lavaImmune = false;
             //NPC.aiStyle = 0;
-            NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
+            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.Squirrel;
             AnimationType = NPCID.Squirrel;
             NPC.npcSlots = 0.25f;
@@ -57,30 +57,6 @@ namespace CalValEX.NPCs.Critters
                 Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Meteor,
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("Curious little mammals that have fallen victim to the extraterrestrial virus. Violemurs still hold some degree of independence in contrast to the infection's other lifeforms."),
             });
-        }
-
-        public override bool? CanBeHitByItem(Player player, Item item)
-        {
-            return true;
-        }
-
-        public override bool? CanBeHitByProjectile(Projectile projectile)
-        {
-            return true;
-        }
-
-        public override void AI()
-        {
-            if (!CalValEXConfig.Instance.ViolemurDefense)
-            {
-                NPC.dontTakeDamageFromHostiles = true;
-                NPC.netUpdate = true;
-            }
-            else
-            {
-                NPC.dontTakeDamageFromHostiles = false;
-                NPC.netUpdate = true;
-            }
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

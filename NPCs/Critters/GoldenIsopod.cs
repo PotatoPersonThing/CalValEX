@@ -29,7 +29,7 @@ namespace CalValEX.NPCs.Critters
             NPC.CloneDefaults(NPCID.GlowingSnail);
             NPC.catchItem = (short)ItemType<GoldenIsopodItem>();
             NPC.lavaImmune = false;
-            NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
+            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.GlowingSnail;
             AnimationType = NPCID.GlowingSnail;
             NPC.HitSound = SoundID.NPCHit38;
@@ -50,16 +50,6 @@ namespace CalValEX.NPCs.Critters
                 Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Ocean,
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("Even in the darkest of places, gilded entities such as the Gold Isopod can be found."),
             });
-        }
-
-        public override bool? CanBeHitByItem(Player player, Item item)
-        {
-            return true;
-        }
-
-        public override bool? CanBeHitByProjectile(Projectile projectile)
-        {
-            return true;
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

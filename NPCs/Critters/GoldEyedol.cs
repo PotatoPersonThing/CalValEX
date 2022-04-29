@@ -42,7 +42,7 @@ namespace CalValEX.NPCs.Critters
             NPC.catchItem = (short)ItemType<GoldEyedolItem>();
             NPC.lavaImmune = true;
             NPC.rarity = 3;
-            NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
+            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             NPC.npcSlots = 0.25f;
             Banner = NPCType<Eyedol>();
             BannerItem = ItemType<EyedolBanner>();
@@ -55,16 +55,6 @@ namespace CalValEX.NPCs.Critters
                 Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheUnderworld,
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A specially crafted idol possessed by a spirit. The construct was previously used by the ruler of the capital themself."),
             });
-        }
-
-        public override bool? CanBeHitByItem(Player player, Item item)
-        {
-            return true;
-        }
-
-        public override bool? CanBeHitByProjectile(Projectile projectile)
-        {
-            return true;
         }
 
         public override void OnCatchNPC(Player player, Item item)

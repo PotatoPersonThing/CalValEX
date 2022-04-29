@@ -28,7 +28,7 @@ namespace CalValEX.NPCs.Critters
             NPC.catchItem = (short)ItemType<GoldViolemurItem>();
             NPC.lavaImmune = false;
             //NPC.aiStyle = 0;
-            NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
+            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.Squirrel;
             AnimationType = NPCID.Squirrel;
             NPC.npcSlots = 0.25f;
@@ -53,33 +53,8 @@ namespace CalValEX.NPCs.Critters
             });
         }
 
-        public override bool? CanBeHitByItem(Player player, Item item)
-        {
-            return true;
-        }
-
-        public override bool? CanBeHitByProjectile(Projectile projectile)
-        {
-            return true;
-        }
-
         public override void AI()
         {
-            //Mod clamMod = ModLoader.GetMod("CalamityMod");
-            //if (clamMod != null)
-            {
-                if (/*(bool)clamMod.Call("GetInZone", Main.player[Main.myPlayer], "astral") &&*/ !CalValEXConfig.Instance.ViolemurDefense)
-                {
-                    NPC.dontTakeDamage = true;
-                    NPC.netUpdate = true;
-                }
-                else
-                {
-                    NPC.dontTakeDamage = false;
-                    NPC.netUpdate = true;
-                }
-            }
-
             if (Main.rand.NextFloat() < 0.1f)
             {
                 Dust dust;

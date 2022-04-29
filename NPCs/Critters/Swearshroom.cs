@@ -30,7 +30,7 @@ namespace CalValEX.NPCs.Critters
 
             NPC.catchItem = (short)ItemType<SwearshroomItem>();
             NPC.lavaImmune = false;
-            NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
+            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.Mouse;
             AnimationType = NPCID.Grubby;
             NPC.npcSlots = 0.25f;

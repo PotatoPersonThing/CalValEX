@@ -280,6 +280,14 @@ namespace CalValEX
         public bool pongactive;
         public int pongstage = 0;
         public int pongoutcome = 0;
+        //Boi stuff
+        public bool boiactive;
+        public bool boiatlantis;
+        public bool boienemy1;
+        public bool boienemy2;
+        public bool boienemy3;
+        public int boistage;
+        public int boihealth = 3;
         /*public float pongballposx;
         public float pongballposy;
         public float sliderposx;
@@ -693,9 +701,9 @@ namespace CalValEX
                 Player.AddBuff(ModContent.BuffType<Buffs.Transformations.SandTransformationBuff>(), 60, true);
         }
 
-        /*public override void PreUpdateMovement()
+        public override void PreUpdateMovement()
         {
-            if (pongactive)
+            /*if (pongactive)
             {
                 Player.releaseHook = true;
                 Player.releaseMount = true;
@@ -704,13 +712,31 @@ namespace CalValEX
                 {
                     Player.velocity.Y = 0;
                 }
-            }
+            }*/
             if (!pongactive)
             {
                 pongstage = 0;
                 pongoutcome = 0;
             }
-        }*/
+            /*if (boiactive)
+            {
+                Player.releaseHook = true;
+                Player.releaseMount = true;
+                Player.velocity.X = 0;
+                if (Player.velocity.Y < 0)
+                {
+                    Player.velocity.Y = 0;
+                }
+            }*/
+            if (!boiactive)
+            {
+                //boistage = 0;
+                boihealth = 3;
+                boienemy1 = false;
+                boienemy2 = false;
+                boienemy3 = false;
+            }
+        }
 
         public override void PostUpdateBuffs()
         {
@@ -973,6 +999,14 @@ namespace CalValEX
             /*pongactive = false;
             pongoutcome = 0;
             pongstage = 0;*/
+            //Boi stuff
+            boiactive = false;
+            boiatlantis = false;
+            boienemy1 = false;
+            boienemy2 = false;
+            boienemy3 = false;
+            boistage = 0;
+            boihealth = 3;
             soupench = false;
             aresarms = false;
             lumpe = false;

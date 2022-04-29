@@ -35,7 +35,7 @@ namespace CalValEX.NPCs.Critters
             NPC.catchItem = (short)ItemType<GodSlayerSlugItem>();
             NPC.lavaImmune = false;
             //NPC.aiStyle = 0;
-            NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
+            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.GlowingSnail;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.lifeMax = 5000;
@@ -65,16 +65,6 @@ namespace CalValEX.NPCs.Critters
             {
                 return;
             }
-        }
-
-        public override bool? CanBeHitByItem(Player player, Item item)
-        {
-            return true;
-        }
-
-        public override bool? CanBeHitByProjectile(Projectile projectile)
-        {
-            return true;
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

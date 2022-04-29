@@ -35,7 +35,7 @@ namespace CalValEX.NPCs.Critters
             NPC.npcSlots = 0.5f;
             NPC.catchItem = (short)ItemType<AstJRItem>();
             NPC.lavaImmune = false;
-            NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
+            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.Pinky;
             AnimationType = NPCID.BlueSlime;
             NPC.lifeMax = 100;
@@ -48,16 +48,6 @@ namespace CalValEX.NPCs.Critters
             Banner = NPC.type;
             BannerItem = ItemType<AstragellySlimeBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<Biomes.AstralBlight>().Type };
-        }
-
-        public override bool? CanBeHitByItem(Player player, Item item)
-        {
-            return true;
-        }
-
-        public override bool? CanBeHitByProjectile(Projectile projectile)
-        {
-            return true;
         }
 
         public override void AI()

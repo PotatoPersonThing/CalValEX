@@ -29,7 +29,7 @@ namespace CalValEX.NPCs.Critters
             NPC.npcSlots = 0.5f;
             NPC.catchItem = (short)ItemType<GAstJRItem>();
             NPC.lavaImmune = false;
-            NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
+            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.Pinky;
             AnimationType = NPCID.BlueSlime;
             NPC.lifeMax = 100;
@@ -49,16 +49,6 @@ namespace CalValEX.NPCs.Critters
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A sentient glob from the alien environment. Unlike other slimes, it possesses no offensive capabilities."),
             });
-        }
-
-        public override bool? CanBeHitByItem(Player player, Item item)
-        {
-            return true;
-        }
-
-        public override bool? CanBeHitByProjectile(Projectile projectile)
-        {
-            return true;
         }
 
         public override void AI()

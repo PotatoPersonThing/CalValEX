@@ -7,7 +7,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-    public class PongMachinePlaced : ModTile
+    public class BoiMachinePlaced : ModTile
     {
         public override void SetStaticDefaults()
         {
@@ -21,7 +21,7 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16 };
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Pong Machine");
+            name.SetDefault("Boi Machine");
             AddMapEntry(new Color(0, 118, 49), name);
         }
 
@@ -29,11 +29,12 @@ namespace CalValEX.Tiles.MiscFurniture
         {
             Player player = Main.LocalPlayer;
             CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
-            if (modPlayer.pongactive == false)
+            if (modPlayer.boiactive == false)
             {
-                modPlayer.pongactive = true;
-                Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 - 400, player.position.Y + player.height / 2 - 240,
-                   0f, 0f, ModContent.ProjectileType<Projectiles.Pong.PongUI>(), 0, 0f, player.whoAmI);
+                modPlayer.boihealth = 3;
+                modPlayer.boiactive = true;
+                 Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), new Vector2(player.position.X + player.width / 2 - 400, player.position.Y + player.height / 2 - 240),
+                     new Vector2(0, 0), ModContent.ProjectileType<Projectiles.Boi.BoiUI>(), 0, 0, player.whoAmI,0 ,0);
             }
             return true;
         }
@@ -43,12 +44,12 @@ namespace CalValEX.Tiles.MiscFurniture
             Player localPlayer = Main.LocalPlayer;
             localPlayer.noThrow = 2;
             localPlayer.cursorItemIconEnabled = true;
-            localPlayer.cursorItemIconID = ModContent.ItemType<PongMachine>();
+            localPlayer.cursorItemIconID = ModContent.ItemType<BoiMachine>();
         }
 
         public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, ModContent.ItemType<PongMachine>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, ModContent.ItemType<BoiMachine>());
         }
     }
 }
