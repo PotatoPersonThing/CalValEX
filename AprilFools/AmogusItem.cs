@@ -26,7 +26,7 @@ namespace CalValEX.AprilFools
             
         }
 
-        public override string Texture => (CalValEX.month == 4 ? "CalValEX/AprilFools/AmogusItem" : "CalValEX/AprilFools/AmogusItemReal");
+        /*public override string Texture => (CalValEX.month == 4 ? "CalValEX/AprilFools/AmogusItem" : "CalValEX/AprilFools/AmogusItemReal");*/
 
         public override void SetDefaults()
         {
