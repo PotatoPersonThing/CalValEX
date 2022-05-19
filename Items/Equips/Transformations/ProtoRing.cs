@@ -53,16 +53,16 @@ namespace CalValEX.Items.Equips.Transformations
 		{
 			if (Main.netMode != NetmodeID.Server)
 			{
-				Mod.AddEquipTexture(new EquipTexture(), this, EquipType.Head, $"{Texture}_{EquipType.Head}");
-				Mod.AddEquipTexture(new EquipTexture(), this, EquipType.Body, $"{Texture}_{EquipType.Body}");
-				Mod.AddEquipTexture(new EquipTexture(), this, EquipType.Legs, $"{Texture}_{EquipType.Legs}");
+				EquipLoader.AddEquipTexture(Mod, $"{Texture}_{EquipType.Head}", EquipType.Head, name: "Head");
+				EquipLoader.AddEquipTexture(Mod, $"{Texture}_{EquipType.Body}", EquipType.Body, name: "Body");
+				EquipLoader.AddEquipTexture(Mod, $"{Texture}_{EquipType.Legs}", EquipType.Legs, name: "Legs");
 			}
 		}
 		private void SetupDrawing()
 		{
-			int equipSlotHead = Mod.GetEquipSlot(Name, EquipType.Head);
-			int equipSlotBody = Mod.GetEquipSlot(Name, EquipType.Body);
-			int equipSlotLegs = Mod.GetEquipSlot(Name, EquipType.Legs);
+			int equipSlotHead = EquipLoader.GetEquipSlot(Mod, "Head", EquipType.Head);
+			int equipSlotBody = EquipLoader.GetEquipSlot(Mod, "Body", EquipType.Body);
+			int equipSlotLegs = EquipLoader.GetEquipSlot(Mod, "Legs", EquipType.Legs);
 
 			ArmorIDs.Head.Sets.DrawHead[equipSlotHead] = false;
 			ArmorIDs.Body.Sets.HidesTopSkin[equipSlotBody] = true;

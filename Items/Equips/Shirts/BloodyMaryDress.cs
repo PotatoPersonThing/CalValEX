@@ -19,7 +19,7 @@ namespace CalValEX.Items.Equips.Shirts
         {
             if (Main.netMode != NetmodeID.Server)
             {
-                Mod.AddEquipTexture(new EquipTexture(), this, EquipType.Legs, $"{Texture}_{EquipType.Legs}");
+                EquipLoader.AddEquipTexture(Mod, $"{Texture}_{EquipType.Legs}", EquipType.Legs, name : "bruhplaceholder");
             }
         }
 
@@ -41,7 +41,7 @@ namespace CalValEX.Items.Equips.Shirts
 
         private void SetupDrawing()
         {
-            int equipSlotLegs = Mod.GetEquipSlot(Name, EquipType.Legs);
+            int equipSlotLegs = EquipLoader.GetEquipSlot(Mod, "bruhplaceholder", EquipType.Legs);
             ArmorIDs.Legs.Sets.HidesBottomSkin[equipSlotLegs] = true;
         }
 

@@ -640,46 +640,46 @@ namespace CalValEX
             if ((maryTrans || maryForce) && !maryHide)
             {
                 var costume = GetInstance<Items.Equips.Shirts.BloodyMaryDress>();
-                Player.legs = Mod.GetEquipSlot(costume.Name, EquipType.Legs);
+                Player.legs = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Legs);
             }
             if ((signutTrans || signutForce) && !signutHide)
             {
                 var costume = GetInstance<Signus>();
-                Player.head = Mod.GetEquipSlot(costume.Name, EquipType.Head);
-                Player.body = Mod.GetEquipSlot(costume.Name, EquipType.Body);
-                Player.legs = Mod.GetEquipSlot(costume.Name, EquipType.Legs);
+                Player.head = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Head);
+                Player.body = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Body);
+                Player.legs = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Legs);
             }
             else if ((androTrans || androForce) && !androHide)
             {
                 var costume = GetInstance<ProtoRing>();
-                Player.head = Mod.GetEquipSlot(costume.Name, EquipType.Head);
-                Player.body = Mod.GetEquipSlot(costume.Name, EquipType.Body);
-                Player.legs = Mod.GetEquipSlot(costume.Name, EquipType.Legs);
+                Player.head = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Head);
+                Player.body = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Body);
+                Player.legs = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Legs);
             }
             else if ((classicTrans || classicForce) && !classicHide)
             {
                 var costume = GetInstance<BurningEye>();
-                Player.head = Mod.GetEquipSlot(costume.Name, EquipType.Head);
-                Player.body = Mod.GetEquipSlot(costume.Name, EquipType.Body);
-                Player.legs = Mod.GetEquipSlot(costume.Name, EquipType.Legs);
+                Player.head = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Head);
+                Player.body = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Body);
+                Player.legs = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Legs);
             }
             else if ((cloudTrans || cloudForce) && !cloudHide)
             {
                 var costume = GetInstance<CloudWaistbelt>();
-                Player.head = Mod.GetEquipSlot(costume.Name, EquipType.Head);
-                Player.body = Mod.GetEquipSlot(costume.Name, EquipType.Body);
-                Player.legs = Mod.GetEquipSlot(costume.Name, EquipType.Legs);
+                Player.head = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Head);
+                Player.body = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Body);
+                Player.legs = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Legs);
             }
             else if ((sandTrans || sandForce) && !sandHide)
             {
                 var costume = GetInstance<SandyBangles>();
-                Player.head = Mod.GetEquipSlot(costume.Name, EquipType.Head);
-                Player.body = Mod.GetEquipSlot(costume.Name, EquipType.Body);
-                Player.legs = Mod.GetEquipSlot(costume.Name, EquipType.Legs);
+                Player.head = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Head);
+                Player.body = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Body);
+                Player.legs = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Legs);
             }
             if (wulfrumjam)
             {
-                Player.wings = Mod.GetEquipSlot("BlankWings", EquipType.Wings);
+                Player.wings = EquipLoader.GetEquipSlot(Mod, "BlankWings", EquipType.Wings);
             }
             if (cassette)
             {
@@ -1423,14 +1423,14 @@ namespace CalValEX
         public override void
             ModifyDrawInfo(ref PlayerDrawInfo drawInfo) //i just really dont want to fix the sprite issues.
         {
-            if (drawInfo.drawPlayer.legs == mod.GetEquipSlot("DraedonLeggings", EquipType.Legs))
+            if (drawInfo.drawPlayer.legs == EquipLoader.GetEquipSlot(Mod, "DraedonLeggings", EquipType.Legs))
             {
                 drawInfo.legColor = Color.Transparent;
                 drawInfo.legGlowMaskColor = Color.Transparent;
                 drawInfo.pantsColor = Color.Transparent;
             }
 
-            if (drawInfo.drawPlayer.body == mod.GetEquipSlot("DraedonChestplate", EquipType.Body))
+            if (drawInfo.drawPlayer.body == EquipLoader.GetEquipSlot(Mod, "DraedonChestplate", EquipType.Body))
             {
                 drawInfo.armGlowMaskColor = Color.Transparent;
                 drawInfo.bodyColor = Color.Transparent;
@@ -1439,7 +1439,7 @@ namespace CalValEX
                 drawInfo.underShirtColor = Color.Transparent;
             }
 
-            if (drawInfo.drawPlayer.head == mod.GetEquipSlot("DraedonHelmet", EquipType.Head))
+            if (drawInfo.drawPlayer.head == EquipLoader.GetEquipSlot(Mod, "DraedonHelmet", EquipType.Head))
             {
                 drawInfo.eyeColor = Color.Transparent;
                 drawInfo.eyeWhiteColor = Color.Transparent;
