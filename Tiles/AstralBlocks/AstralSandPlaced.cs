@@ -26,9 +26,7 @@ namespace CalValEX.Tiles.AstralBlocks
 			TileID.Sets.Falling[Type] = true;
 			AddMapEntry(new Color(104, 127, 164));
 			ItemDrop = ModContent.ItemType<AstralSand>();
-            SetModCactus(new AstralCactus());
 			Main.tileBlendAll[this.Type] = true;
-			SetModPalmTree(new AstralPalm());
 		}
 		public override void NumDust(int i, int j, bool fail, ref int num)
 		{
@@ -91,10 +89,5 @@ namespace CalValEX.Tiles.AstralBlocks
         public override void ChangeWaterfallStyle(ref int style) {
 			style = mod.GetWaterfallStyleSlot("AstralWaterfallStyle");
 		}*/
-		public override int SaplingGrowthType(ref int style)
-		{
-			style = 1;
-			return ModContent.TileType<AstralPalmSapling>();
-		}
 	}
 }

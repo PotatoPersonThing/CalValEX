@@ -98,7 +98,7 @@ namespace CalValEX.NPCs.Critters
                     for (int x = 0; x < 60; x++)
                     {
                         Dust dust;
-                        dust = Main.dust[Terraria.Dust.NewDust(NPC.Center, 63, 63, 57, 0f, 0f, 0, new Color(8, 255, 0), 0.9210526f)];
+                        dust = Main.dust[Terraria.Dust.NewDust(NPC.Center, 63, 63, DustID.Enchanted_Gold, 0f, 0f, 0, new Color(8, 255, 0), 0.9210526f)];
                     }
                 }
                 orthocount++;
@@ -118,7 +118,7 @@ namespace CalValEX.NPCs.Critters
                     for (int x = 0; x < 60; x++)
                     {
                         Dust dust;
-                        dust = Main.dust[Terraria.Dust.NewDust(NPC.Center, 63, 63, 57, 0f, 0f, 0, new Color(8, 255, 0), 0.9210526f)];
+                        dust = Main.dust[Terraria.Dust.NewDust(NPC.Center, 63, 63, DustID.Enchanted_Gold, 0f, 0f, 0, new Color(8, 255, 0), 0.9210526f)];
                     }
                     CalValEXWorld.orthofound = true;
                     CalValEXWorld.UpdateWorldBool();

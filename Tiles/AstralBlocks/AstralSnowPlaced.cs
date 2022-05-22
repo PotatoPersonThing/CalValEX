@@ -22,15 +22,8 @@ namespace CalValEX.Tiles.AstralBlocks
             Main.tileBlendAll[this.Type] = true;
             SoundType = SoundID.Item;
             SoundStyle = 50;
-            SetModTree(new SnowAstralTree());
             TileID.Sets.IcesSnow[Type] = true;
             TileID.Sets.ChecksForMerge[Type] = true;
-        }
-
-        public override int SaplingGrowthType(ref int style)
-        {
-            style = 0;
-            return ModContent.TileType<SnowAstralSapling>();
         }
 
         /*public override void ChangeWaterfallStyle(ref int style)

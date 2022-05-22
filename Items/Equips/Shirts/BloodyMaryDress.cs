@@ -27,7 +27,7 @@ namespace CalValEX.Items.Equips.Shirts
         {
             Item.width = 18;
             Item.height = 14;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.vanity = true;
             Item.value = Item.sellPrice(0, 3, 0, 0);
             Terraria.ID.ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = false;
