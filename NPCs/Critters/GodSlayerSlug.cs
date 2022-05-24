@@ -5,6 +5,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
+using Terraria.DataStructures;
+using Microsoft.Xna.Framework;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -59,7 +61,7 @@ namespace CalValEX.NPCs.Critters
                 NPC.HitEffect();
                 NPC.active = false;
                 NPC.netUpdate = true;
-                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, 0f, 7f, 12, 0, 0f, Main.myPlayer);
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, 0f, 7f, ProjectileID.FallingStar, 0, 0f, Main.myPlayer);
             }
             else
             {
@@ -94,11 +96,9 @@ namespace CalValEX.NPCs.Critters
             NPC.frame.Y = frame * frameHeight;
         }
 
-        public override void OnCatchNPC(Player player, Item item)
+        public override void OnCaughtBy(Player player, Item item, bool failed)
         {
-            item.stack = 1;
+            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<GodSlayerSlugItem>());
         }
-
-        // TODO: Hooks for Collision_MoveSnailOnSlopes and NPC.aiStyle = 67 problem
     }
 }

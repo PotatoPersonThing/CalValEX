@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using CalValEX.Items.Critters;
 using Terraria.GameContent.Bestiary;
+using Terraria.DataStructures;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -78,9 +79,9 @@ namespace CalValEX.NPCs.Critters
             return 0f;
         }
 
-        public override void OnCatchNPC(Player player, Item item)
+        public override void OnCaughtBy(Player player, Item item, bool failed)
         {
-            item.stack = 1;
+            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<BlightolemurItem>());
         }
         public override void HitEffect(int hitDirection, double damage)
         {

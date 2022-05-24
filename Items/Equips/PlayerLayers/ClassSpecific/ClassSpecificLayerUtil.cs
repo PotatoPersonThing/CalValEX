@@ -30,7 +30,7 @@ namespace CalValEX.Items.Equips.PlayerLayers.ClassSpecific
         {
             for (int i = 0; i < data.Count; i++)
             {
-                if (Player.head == Mod.GetEquipSlot(data[i].HeadName, EquipType.Head))
+                if (Player.head == EquipLoader.GetEquipSlot(Mod, data[i].HeadName, EquipType.Head))
                 {
                     return true;
                 }
@@ -42,7 +42,7 @@ namespace CalValEX.Items.Equips.PlayerLayers.ClassSpecific
         {
             for (int i = 0; i < data.Count; i++)
             {
-                if (Player.body == Mod.GetEquipSlot(data[i].BodyName, EquipType.Body))
+                if (Player.body == EquipLoader.GetEquipSlot(Mod, data[i].BodyName, EquipType.Body))
                 {
                     return true;
                 }
@@ -54,7 +54,7 @@ namespace CalValEX.Items.Equips.PlayerLayers.ClassSpecific
         {
             for (int i = 0; i < data.Count; i++)
             {
-                if (Player.head == Mod.GetEquipSlot(data[i].HeadName, EquipType.Head))
+                if (Player.head == EquipLoader.GetEquipSlot(Mod, data[i].HeadName, EquipType.Head))
                 {
                     return (data[i].HeadName, data[i].PathToHead);
                 }
@@ -66,7 +66,7 @@ namespace CalValEX.Items.Equips.PlayerLayers.ClassSpecific
         {
             for (int i = 0; i < data.Count; i++)
             {
-                if (Player.body == Mod.GetEquipSlot(data[i].BodyName, EquipType.Body))
+                if (Player.body == EquipLoader.GetEquipSlot(Mod, data[i].BodyName, EquipType.Body))
                 {
                     return (data[i].BodyName, data[i].PathToBody);
                 }

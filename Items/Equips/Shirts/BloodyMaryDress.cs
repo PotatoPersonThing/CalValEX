@@ -19,7 +19,7 @@ namespace CalValEX.Items.Equips.Shirts
         {
             if (Main.netMode != NetmodeID.Server)
             {
-                Mod.AddEquipTexture(new EquipTexture(), this, EquipType.Legs, $"{Texture}_{EquipType.Legs}");
+                EquipLoader.AddEquipTexture(Mod, $"{Texture}_{EquipType.Legs}", EquipType.Legs, name : "bruhplaceholder");
             }
         }
 
@@ -27,7 +27,7 @@ namespace CalValEX.Items.Equips.Shirts
         {
             Item.width = 18;
             Item.height = 14;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.vanity = true;
             Item.value = Item.sellPrice(0, 3, 0, 0);
             Terraria.ID.ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = false;
@@ -41,7 +41,7 @@ namespace CalValEX.Items.Equips.Shirts
 
         private void SetupDrawing()
         {
-            int equipSlotLegs = Mod.GetEquipSlot(Name, EquipType.Legs);
+            int equipSlotLegs = EquipLoader.GetEquipSlot(Mod, "bruhplaceholder", EquipType.Legs);
             ArmorIDs.Legs.Sets.HidesBottomSkin[equipSlotLegs] = true;
         }
 

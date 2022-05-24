@@ -6,6 +6,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
+using Terraria.DataStructures;
+using Microsoft.Xna.Framework;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -75,10 +77,9 @@ namespace CalValEX.NPCs.Critters
             }
             return 0f;
         }
-
-        public override void OnCatchNPC(Player player, Item item)
+        public override void OnCaughtBy(Player player, Item item, bool failed)
         {
-            item.stack = 1;
+            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<AstJRItem>());
         }
     }
 }

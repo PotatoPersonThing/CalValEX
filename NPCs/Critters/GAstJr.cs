@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
 using CalValEX.Items.Tiles.Banners;
+using Terraria.DataStructures;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -62,12 +63,12 @@ namespace CalValEX.NPCs.Critters
                 Vector2 positionRight = new Vector2(NPC.position.X, NPC.position.Y - 8);
                 if (NPC.direction == -1)
                 {
-                    dust = Main.dust[Terraria.Dust.NewDust(positionLeft, 13, 11, 246, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
+                    dust = Main.dust[Terraria.Dust.NewDust(positionLeft, 13, 11, DustID.GoldCoin, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
                     dust.noGravity = true;
                 }
                 else if (NPC.direction != 0)
                 {
-                    dust = Main.dust[Terraria.Dust.NewDust(positionRight, 13, 11, 246, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
+                    dust = Main.dust[Terraria.Dust.NewDust(positionRight, 13, 11, DustID.GoldCoin, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
                     dust.noGravity = true;
                 }
             }
@@ -93,9 +94,9 @@ namespace CalValEX.NPCs.Critters
             return 0f;
         }
 
-        public override void OnCatchNPC(Player player, Item item)
+        public override void OnCaughtBy(Player player, Item item, bool failed)
         {
-            item.stack = 1;
+            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<GAstJRItem>());
         }
     }
 }

@@ -22,7 +22,6 @@ namespace CalValEX.Tiles.AstralBlocks
             TileID.Sets.Conversion.Grass[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
             TileID.Sets.NeedsGrassFramingDirt[Type] = ModContent.TileType<AstralDirtPlaced>();
-            SetModTree(new AstralTree());
             Main.tileBlendAll[this.Type] = true;
         }
         public override void NumDust(int i, int j, bool fail, ref int num)
@@ -36,12 +35,6 @@ namespace CalValEX.Tiles.AstralBlocks
             {
                 Main.tile[i, j].type = (ushort)ModContent.TileType<AstralDirtPlaced>();
             }*/
-        }
-
-        public override int SaplingGrowthType(ref int style)
-        {
-            style = 0;
-            return ModContent.TileType<AstralSapling>();
         }
 
         public override void RandomUpdate(int i, int j)

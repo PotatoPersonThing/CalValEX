@@ -5,6 +5,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
+using Terraria.DataStructures;
+using Microsoft.Xna.Framework;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -60,11 +62,9 @@ namespace CalValEX.NPCs.Critters
             return Terraria.ModLoader.Utilities.SpawnCondition.OverworldHallow.Chance * 0.4f;
         }
 
-        public override void OnCatchNPC(Player player, Item item)
+        public override void OnCaughtBy(Player player, Item item, bool failed)
         {
-            item.stack = 1;
+            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<CrystalFlyItem>());
         }
-
-        // TODO: Hooks for Collision_MoveSnailOnSlopes and NPC.aiStyle = 67 problem
     }
 }

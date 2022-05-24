@@ -48,7 +48,7 @@ namespace CalValEX.Tiles.AstralMisc
 
 		public override void RandomUpdate(int i, int j)
 		{
-			if (WorldGen.genRand.Next(20) == 0)
+			if (WorldGen.genRand.NextBool(20))
 			{
 				Tile tile = Framing.GetTileSafely(i, j);
 				bool growSucess;

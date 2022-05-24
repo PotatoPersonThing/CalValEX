@@ -37,7 +37,7 @@ namespace CalValEX.Items.Critters
             }*/
             Item.makeNPC = (short)NPCType<ProvFly>();
             Item.bait = 45;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
         }
     }
 }

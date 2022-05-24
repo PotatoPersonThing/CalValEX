@@ -6,6 +6,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
+using Microsoft.Xna.Framework;
+using Terraria.DataStructures;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -180,10 +182,11 @@ namespace CalValEX.NPCs.Critters
             }*/
         }
 
-        public override void OnCatchNPC(Player player, Item item)
+        public override void OnCaughtBy(Player player, Item item, bool failed)
         {
-            item.stack = 1;
+            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<SandTurtleItem>());
         }
+
         public override void HitEffect(int hitDirection, double damage)
         {
             if (NPC.life <= 0)
