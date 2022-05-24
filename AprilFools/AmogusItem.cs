@@ -33,7 +33,7 @@ namespace CalValEX.AprilFools
             Item.width = 20;
             Item.height = 36;
             Item.CloneDefaults(ItemID.ZephyrFish);
-            Item.UseSound = SoundLoader.GetLegacySoundSlot(Mod, "Sounds/Item/AmogusScream");
+            Item.UseSound = new Terraria.Audio.SoundStyle("CalValEX/Sounds/Item/AmogusScream");
             Item.shoot = ModContent.ProjectileType<Amogus>();
             Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.rare = 10;

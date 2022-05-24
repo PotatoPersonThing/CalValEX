@@ -124,7 +124,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 				//If very slow, switch directions
 				else if (NPC.ai[2] >= 30)
 				{
-					Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, (int)NPC.Center.X, (int)NPC.Center.Y, 13);
+					Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath13, NPC.Center);
 					for (int x = 0; x < 12; x++)
                     {
 						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, Main.rand.Next(-30, 30), Main.rand.Next(-20, -12), ModContent.ProjectileType<EntropicVomit>(), Main.expertMode ? 25 : 30, 0f, Main.myPlayer, Main.rand.Next(1,4));
@@ -163,7 +163,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 				int direcY = NPC.directionY *-1;
 				if (NPC.ai[2] >= 5)
 				{
-					Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)NPC.Center.X, (int)NPC.Center.Y, 20);
+					Terraria.Audio.SoundEngine.PlaySound(SoundID.Item20, NPC.Center);
 					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, NPC.velocity.X *-0.1f, NPC.velocity.Y *-0.1f, ModContent.ProjectileType<GodsFire>(), Main.expertMode ? 25 : 30, 0f);
 					NPC.ai[2] = 0;
 				}
@@ -176,7 +176,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 				{
 					int chargespeed = /*CalamityMod.World.CalamityWorld.revenge ? 22 :*/ 18;
 					NPC.rotation = NPC.velocity.ToRotation();
-					Terraria.Audio.SoundEngine.PlaySound(SoundID.Item111, (int)NPC.Center.X, (int)NPC.Center.Y);
+					Terraria.Audio.SoundEngine.PlaySound(SoundID.Item111, NPC.Center);
 					Vector2 position = NPC.Center;
 					position.X = NPC.Center.X + (30f * NPC.direction);
 					Vector2 targetPosition = Main.player[NPC.target].Center;
@@ -235,7 +235,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 				}
 				if (NPC.ai[1] == 30)
 				{
-					Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie, (int)NPC.Center.X, (int)NPC.Center.Y, 5);
+					Terraria.Audio.SoundEngine.PlaySound(new Terraria.Audio.SoundStyle("Terraria/Sounds/Zombie_5"), NPC.Center);
 					Vector2 position = NPC.Center;
 					position.X = NPC.Center.X + (10f * NPC.direction);
 					Vector2 targetPosition = Main.player[NPC.target].Center;
@@ -299,7 +299,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 				}
 				if (NPC.ai[2] >= 3)
 				{
-					Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)NPC.Center.X, (int)NPC.Center.Y, 61);
+					Terraria.Audio.SoundEngine.PlaySound(SoundID.Item61, NPC.Center);
 					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, 0, 0, ModContent.ProjectileType<ShardofAntumbra>(), Main.expertMode ? 30 : 40, 0f, NPC.target);
 					NPC.ai[2] = 0;
                 }
@@ -337,7 +337,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 				}
 				if (NPC.ai[2] >= 3)
 				{
-					Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)NPC.Center.X, (int)NPC.Center.Y, 61);
+					Terraria.Audio.SoundEngine.PlaySound(SoundID.Item61, NPC.Center);
 					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, 0, 0, ModContent.ProjectileType<ShardofAntumbra>(), Main.expertMode ? 30 : 40, 0f, Main.myPlayer, NPC.target);
 					NPC.ai[2] = 0;
 				}
@@ -361,8 +361,8 @@ namespace CalValEX.AprilFools.Meldosaurus
 				NPC.ai[1]++;
 				if (NPC.ai[1] >= 60)
 				{
-					Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie, (int)NPC.Center.X, (int)NPC.Center.Y, 5, 1.5f);
-					Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, (int)NPC.Center.X, (int)NPC.Center.Y, 13);
+					Terraria.Audio.SoundEngine.PlaySound(new Terraria.Audio.SoundStyle("Terraria/Sounds/Zombie_5"), NPC.Center);
+					Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath13, NPC.Center);
 					//NPC.alpha = 0;
 					NewPhase(8);
                 }
@@ -394,7 +394,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 				}
 				if (NPC.ai[1] == 31)
 				{
-					Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie, (int)NPC.Center.X, (int)NPC.Center.Y, 5, 2);
+					Terraria.Audio.SoundEngine.PlaySound(new Terraria.Audio.SoundStyle("Terraria/Sounds/Zombie_5"), NPC.Center);
 					Vector2 position = NPC.Center;
 					position.X = NPC.Center.X + (30f * NPC.direction);
 					Vector2 targetPosition = Main.player[NPC.target].Center;
@@ -421,7 +421,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 				NPC.ai[1]++;
 				if (NPC.ai[1] >= 10)
 				{
-					Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, (int)NPC.Center.X, (int)NPC.Center.Y, 13);
+					Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath13, NPC.Center);
 					for (int x = 0; x <= Main.rand.Next(4,6); x++)
                     {
 						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, Main.rand.Next(-30, 30), Main.rand.Next(-40, 30), ModContent.ProjectileType<EntropicVomit>(), 30, 0f, Main.myPlayer, Main.rand.Next(1, 4));

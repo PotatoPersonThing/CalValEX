@@ -9,6 +9,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using CalValEX.Projectiles.Pets;
 using Terraria.Chat;
+using Terraria.Audio;
 
 namespace CalValEX.AprilFools
 {
@@ -533,7 +534,7 @@ namespace CalValEX.AprilFools
                             }
                             if (attackcounter1 >= 5)
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)Projectile.Center.X, (int)Projectile.Center.Y, 41);
+                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item41, Projectile.position);
                                 Vector2 position = Projectile.Center;
                                 position.X = Projectile.Center.X + (10f * Projectile.direction);
                                 Vector2 targetPosition = Main.npc[CalValEXGlobalNPC.meldodon].Center;
@@ -559,7 +560,7 @@ namespace CalValEX.AprilFools
                             Projectile.velocity.Y = 0;
                             if (attackcounter1 == 60)
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(Mod, "Sounds/Item/LargeWeaponFire"), Projectile.Center);
+                                Terraria.Audio.SoundEngine.PlaySound(new SoundStyle("CalValEX/Sounds/Item/LargeWeaponFire"), Projectile.position);
                                 Vector2 position = Projectile.Center;
                                 position.X = Projectile.Center.X + (10f * Projectile.direction);
                                 Vector2 targetPosition = Main.npc[CalValEXGlobalNPC.meldodon].Center;
@@ -627,7 +628,7 @@ namespace CalValEX.AprilFools
                             }
                             if (attackcounter1 >= 40)
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)Projectile.Center.X, (int)Projectile.Center.Y, 21);
+                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item21, Projectile.position);
                                 Vector2 position = Projectile.Center;
                                 position.X = Projectile.Center.X + (10f * Projectile.direction);
                                 Vector2 targetPosition = Main.npc[CalValEXGlobalNPC.meldodon].Center;

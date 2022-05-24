@@ -31,7 +31,7 @@ namespace CalValEX.AprilFools.Meldosaurus
             if (Projectile.ai[1] == 30)
             {
                 int killhim = (int)Projectile.ai[0];
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)Projectile.Center.X, (int)Projectile.Center.Y, 20);
+                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item20, Projectile.Center);
                 Vector2 position = Projectile.Center;
                 position.X = Projectile.Center.X;
                 Vector2 targetPosition = Main.player[killhim].Center;

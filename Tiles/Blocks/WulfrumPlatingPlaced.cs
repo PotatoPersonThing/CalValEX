@@ -17,7 +17,7 @@ namespace CalValEX.Tiles.Blocks
 			Main.tileMergeDirt[Type] = false;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
-			SoundType = SoundID.Tink;
+			HitSound = SoundID.Tink;
 			ItemDrop = ModContent.ItemType<WulfrumPlating>();
 			AddMapEntry(new Color(149, 222, 168));
 		}

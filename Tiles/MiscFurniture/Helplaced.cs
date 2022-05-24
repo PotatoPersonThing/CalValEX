@@ -10,6 +10,8 @@ namespace CalValEX.Tiles.MiscFurniture
 {
     public class Helplaced : ModTile
     {
+        Terraria.Audio.SoundStyle helpm = new("CalValEX/Sounds/Help");
+        Terraria.Audio.SoundStyle chug = new("CalValEX/Sounds/Item/Nom");
         public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
@@ -100,13 +102,13 @@ namespace CalValEX.Tiles.MiscFurniture
             if (player.HasItem(ItemID.GreenMushroom) && !choking)
             {
                 player.ConsumeItem(ItemID.GreenMushroom);
-                Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(Mod, "Sounds/Nom"));
+                Terraria.Audio.SoundEngine.PlaySound(chug);
                 feed = false;
                 choking = true;
             }
             else if (!choking)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(Mod, "Sounds/Help"));
+                Terraria.Audio.SoundEngine.PlaySound(helpm);
             }
             return true;
         }
@@ -124,7 +126,7 @@ namespace CalValEX.Tiles.MiscFurniture
                 }
                 if (choketimer == 360)
                 {
-               	    Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(Mod, "Sounds/Help"));
+                    Terraria.Audio.SoundEngine.PlaySound(helpm);
                     choking = false;
                     feed = false;
                     choketimer = 0;

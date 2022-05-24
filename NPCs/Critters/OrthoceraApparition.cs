@@ -92,7 +92,7 @@ namespace CalValEX.NPCs.Critters
                 {
                     Vector2 orthopos = new Vector2(player.position.X + 500 * DungeonDirection, player.position.Y);
                     NPC.position = orthopos;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath13, (int)NPC.position.X, (int)NPC.position.Y);
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath13, NPC.position);
                     soundplayed = true;
                     NPC.direction = 1;
                     for (int x = 0; x < 60; x++)

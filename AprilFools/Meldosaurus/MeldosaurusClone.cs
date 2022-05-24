@@ -34,7 +34,7 @@ namespace CalValEX.AprilFools.Meldosaurus
             if (Projectile.ai[1] == 30)
             {
                 int killhim = (int)Projectile.ai[0];
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item, (int)Projectile.Center.X, (int)Projectile.Center.Y, 20);
+                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item20, Projectile.Center);
                 Vector2 position = Projectile.Center;
                 position.X = Projectile.Center.X;
                 Vector2 targetPosition = Main.player[killhim].Center;
@@ -52,7 +52,7 @@ namespace CalValEX.AprilFools.Meldosaurus
             if (Projectile.ai[1] >= 110/* && CalamityMod.World.CalamityWorld.revenge*/)
             {
                 int speed = /*CalamityMod.World.CalamityWorld.death ? 20 :*/ 15;
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCKilled, (int)Projectile.Center.X, (int)Projectile.Center.Y, 13);
+                Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath13, Projectile.Center);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), (int)Projectile.Center.X, (int)Projectile.Center.Y, -speed, 0, ModContent.ProjectileType<EntropicVomit>(), Main.expertMode ? 30 : 35, 0, Main.myPlayer);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(),(int)Projectile.Center.X, (int)Projectile.Center.Y, speed, 0, ModContent.ProjectileType<EntropicVomit>(), Main.expertMode ? 30 : 35, 0, Main.myPlayer);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(),(int)Projectile.Center.X, (int)Projectile.Center.Y, 0, -speed, ModContent.ProjectileType<EntropicVomit>(), Main.expertMode ? 30 : 35, 0, Main.myPlayer);

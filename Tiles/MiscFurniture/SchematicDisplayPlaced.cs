@@ -37,7 +37,7 @@ namespace CalValEX.Tiles.MiscFurniture
 
         public override bool RightClick(int i, int j)
         {
-            Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(Mod, "Sounds/ScreenChange"));
+            Terraria.Audio.SoundEngine.PlaySound(new Terraria.Audio.SoundStyle("CalValEX/Sounds/ScreenChange"));
             HitWire(i, j);
             return true;
         }

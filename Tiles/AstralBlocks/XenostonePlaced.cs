@@ -19,7 +19,7 @@ namespace CalValEX.Tiles.AstralBlocks
             TileID.Sets.Stone[Type] = true;
             ItemDrop = ModContent.ItemType<Xenostone>();
             DustType = ModContent.DustType<AstralDust>();
-            SoundType = SoundID.Tink;
+            HitSound = SoundID.Tink;
             AddMapEntry(new Color(83, 55, 109));
             Main.tileBlendAll[this.Type] = true;
         }

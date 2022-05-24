@@ -19,7 +19,7 @@ namespace CalValEX.Tiles.Blocks
             //DustType = calamityMod.DustType("AstralBlue");
             AddMapEntry(new Color(260, 42, 24));
             Main.tileBlendAll[this.Type] = true;
-            SoundType = SoundID.Item;
+            HitSound = SoundID.Item;
         }
     }
 }

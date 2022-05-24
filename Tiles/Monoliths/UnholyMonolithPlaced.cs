@@ -120,35 +120,35 @@ namespace CalValEX.Tiles.Monoliths
             }
             else
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
                 HitWire(i, j);
                 return true;
             }
             /*if (CalValEXWorld.OneMonolith && !CalValEXWorld.TwoMonolith && Main.tile[i, j].TileFrameY < 56)
                 {
                     CalValEXWorld.TwoMonolith = true;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
                     HitWire(i, j);
                     return true;
                 }
             if (!CalValEXWorld.OneMonolith && !CalValEXWorld.TwoMonolith && Main.tile[i, j].TileFrameY < 56)
                 {
                     CalValEXWorld.OneMonolith = true;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
                     HitWire(i, j);
                     return true;
                 }
             if (CalValEXWorld.TwoMonolith && Main.tile[i, j].TileFrameY >= 56)
                 {
                     CalValEXWorld.TwoMonolith = false;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
                     HitWire(i, j);
                     return true;
                 }
             if (CalValEXWorld.OneMonolith && !CalValEXWorld.TwoMonolith && Main.tile[i, j].TileFrameY >= 56)
                 {
                     CalValEXWorld.OneMonolith = false;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
                     HitWire(i, j);
                     return true;
                 }

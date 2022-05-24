@@ -15,7 +15,7 @@ namespace CalValEX.Walls.AstralSafe
             ItemDrop = ModContent.ItemType<AstralGrassWall>();
             AddMapEntry(new Color(207, 85, 192));
             DustType = ModContent.DustType<AstralDust>();
-            SoundType = SoundID.Grass;
+            HitSound = SoundID.Grass;
         }
     }
 }

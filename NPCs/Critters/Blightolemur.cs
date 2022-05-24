@@ -47,8 +47,8 @@ namespace CalValEX.NPCs.Critters
             }
             Banner = NPC.type;
             BannerItem = ItemType<BleamurBanner>();
-            NPC.HitSound = SoundLoader.GetLegacySoundSlot(Mod, "Sounds/ViolemurHit");
-            NPC.DeathSound = SoundLoader.GetLegacySoundSlot(Mod, "Sounds/ViolemurDeath");
+            NPC.HitSound = new Terraria.Audio.SoundStyle("CalValEX/Sounds/ViolemurHit");
+            NPC.DeathSound = new Terraria.Audio.SoundStyle("CalValEX/Sounds/ViolemurDeath");
             SpawnModBiomes = new int[1] { ModContent.GetInstance<Biomes.AstralBlight>().Type };
         }
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)

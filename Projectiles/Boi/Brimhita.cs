@@ -91,7 +91,7 @@ namespace CalValEX.Projectiles.Boi
                         modPlayer.boienemy3 = true;
                         break;
                 }
-                Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.NPCKilled, Projectile.Center, 1);
+                Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.NPCDeath1, Projectile.Center);
                 Projectile.active = false;
             }
             ow--;

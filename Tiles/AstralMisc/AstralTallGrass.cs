@@ -32,8 +32,7 @@ namespace CalValEX.Tiles.AstralMisc
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.RandomStyleRange = 21;
             TileObjectData.addTile(Type);
-            SoundStyle = 1;
-            SoundType = SoundID.Grass;
+            HitSound = SoundID.Grass;
         }
     }
 }

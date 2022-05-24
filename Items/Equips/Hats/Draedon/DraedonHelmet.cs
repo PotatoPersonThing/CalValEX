@@ -10,7 +10,7 @@ namespace CalValEX.Items.Equips.Hats.Draedon
         {
             DisplayName.SetDefault("Arsenal Soldier Helmet");
             Tooltip.SetDefault("Changes appearance depending on held item damage type");
-            ArmorIDs.Head.Sets.DrawHead[EquipLoader.GetEquipSlot(Mod, Name, EquipType.Head)] = false;
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
         public override void SetDefaults()

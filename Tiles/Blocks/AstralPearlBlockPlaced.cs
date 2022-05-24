@@ -18,8 +18,7 @@ namespace CalValEX.Tiles.Blocks
             DustType = 173;
             AddMapEntry(new Color(183, 69, 60));
             Main.tileBlendAll[this.Type] = true;
-            SoundType = SoundID.Item;
-            SoundStyle = 50;
+            HitSound = SoundID.Item50;
         }
     }
 }

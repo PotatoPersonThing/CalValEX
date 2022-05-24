@@ -14,6 +14,7 @@ namespace CalValEX.Items.Mounts.Morshu
         private bool morshuplaysound;
         private bool scaldying;
         private bool gunsound;
+        Terraria.Audio.SoundStyle Draespeech = new("CalValEX/Sounds/Item/MorshuDraedon");
         public override void SetStaticDefaults()
         {
             MountData.buff = ModContent.BuffType<MorshuBuff>();
@@ -77,7 +78,7 @@ namespace CalValEX.Items.Mounts.Morshu
                 morshuscal++;
                 if (!morshuplaysound && morshuscal >= 60)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundLoader.GetLegacySoundSlot(Mod, "Sounds/Item/MorshuDraedon"));
+                    Terraria.Audio.SoundEngine.PlaySound(Draespeech, player.Center);
                     morshuplaysound = true;
                 }
                 if (morshuscal >= 240)

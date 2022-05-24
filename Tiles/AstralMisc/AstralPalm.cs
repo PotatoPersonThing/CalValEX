@@ -36,20 +36,9 @@ namespace CalValEX.Tiles.AstralMisc
 			return ModContent.TileType<AstralPalmSapling>();
 		}
 
-		public override Asset<Texture2D> GetOasisBranchTextures()
-		{
-			return null;
-		}
-
-		public override Asset<Texture2D> GetBranchTextures()
-		{
-			return null;
-		}
-
-
 		public override Asset<Texture2D> GetOasisTopTextures()
 		{
-			return null;
+			return ModContent.Request<Texture2D>("CalValEX/Tiles/AstralMisc/AstralPalmTop");
 		}
 
 		public override Asset<Texture2D> GetTopTextures()

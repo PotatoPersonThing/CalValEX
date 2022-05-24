@@ -19,8 +19,7 @@ namespace CalValEX.Tiles.AstralBlocks
             DustType = ModContent.DustType<AstralDust>();
             AddMapEntry(new Color(57, 69, 100));
             Main.tileBlendAll[this.Type] = true;
-            SoundType = SoundID.Item;
-            SoundStyle = 50;
+            HitSound = SoundID.Item50;
         }
 
         /*public override void ChangeWaterfallStyle(ref int style)

@@ -82,7 +82,7 @@ namespace CalValEX.Tiles.Monoliths
             }
             else
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
                 HitWire(i, j);
                 return true;
             }

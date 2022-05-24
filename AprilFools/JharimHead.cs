@@ -25,7 +25,7 @@ namespace CalValEX.AprilFools
 		
 		public override bool? UseItem(Player player)
 		{
-			Terraria.Audio.SoundEngine.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
+			Terraria.Audio.SoundEngine.PlaySound(SoundID.Item15, player.position);
 			if (Main.netMode != 1)
 			{
 				NPC.SpawnOnPlayer(player.whoAmI, (ModContent.NPCType<AprilFools.Jharim.Jharim>()));

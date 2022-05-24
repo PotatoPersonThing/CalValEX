@@ -49,7 +49,7 @@ namespace CalValEX.Items.Pets
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
                 player.AddBuff(Item.buffType, 3600, true);
-                Terraria.Audio.SoundEngine.PlaySound(new LegacySoundStyle(4, 13), player.position);
+                Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath4, player.position);
             }
         }
 

@@ -20,8 +20,7 @@ namespace CalValEX.Tiles.AstralBlocks
             DustType = ModContent.DustType<AstralDust>();
             AddMapEntry(new Color(243, 213, 245));
             Main.tileBlendAll[this.Type] = true;
-            SoundType = SoundID.Item;
-            SoundStyle = 50;
+            HitSound = SoundID.Item50;
             TileID.Sets.IcesSnow[Type] = true;
             TileID.Sets.ChecksForMerge[Type] = true;
         }

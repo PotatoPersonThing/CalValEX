@@ -62,17 +62,17 @@ namespace CalValEX.Items.Plushies
                 if (Main.rand.NextFloat() < 0.01f)
                 {
                     type = ModContent.ProjectileType<ItsReal>();
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit49, (int)player.position.X, (int)player.position.Y);
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit49, player.position);
                 }
                 else if (Main.rand.NextFloat() < 0.1f && CalValEX.month == 6 && CalValEX.day == 22)
                 {
                     type = ModContent.ProjectileType<ItsReal>();
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit49, (int)player.position.X, (int)player.position.Y);
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit49, player.position);
                 }
                 else if (Main.rand.NextFloat() < 0.002f)
                 {
                     type = ModContent.ProjectileType<ItsRealAlt>();
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit49, (int)player.position.X, (int)player.position.Y);
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit49, player.position);
                 }
                 else
                 {

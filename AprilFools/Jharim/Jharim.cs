@@ -175,7 +175,7 @@ namespace CalValEX.AprilFools.Jharim
                 }
                 if (textcounter == 360)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit, NPC.position, 1);
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit1, NPC.position);
                     NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, NPCType<AprilFools.Meldosaurus.Meldosaurus>());
                     NPC.active = false;
                 }

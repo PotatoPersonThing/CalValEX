@@ -1035,7 +1035,7 @@ namespace CalValEX
             DoCalamityBabyThings((int)damage);
             if (signutTrans)
             {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit49, (int)Player.position.X, (int)Player.position.Y);
+                Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit49, Player.position);
                 for (int x = 0; x < 15; x++)
                 {
                     Dust dust;
@@ -1044,9 +1044,8 @@ namespace CalValEX
                 }
             }
 
-            if (classicTrans) Terraria.Audio.SoundEngine.PlaySound(SoundID.FemaleHit, (int)Player.position.X, (int)Player.position.Y, 1, 1f, 0f);
-            if (cloudTrans) Terraria.Audio.SoundEngine.PlaySound(SoundID.FemaleHit, (int)Player.position.X, (int)Player.position.Y, 1, 1f, 0f);
-            if (sandTrans) Terraria.Audio.SoundEngine.PlaySound(SoundID.FemaleHit, (int)Player.position.X, (int)Player.position.Y, 1, 1f, 0f);
+            if (classicTrans || cloudTrans || sandTrans)
+                Terraria.Audio.SoundEngine.PlaySound(SoundID.FemaleHit, Player.position);
         }
 
         public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit,

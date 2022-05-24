@@ -16,7 +16,7 @@ namespace CalValEX.Tiles.AstralBlocks
             ItemDrop = ModContent.ItemType<AstralBrick>();
             AddMapEntry(new Color(171, 103, 171));
             AnimationFrameHeight = 198;
-            SoundType = SoundID.Tink;
+            HitSound = SoundID.Tink;
         }
 
         private readonly int AnimationFrameWidth = 450;

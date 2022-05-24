@@ -24,7 +24,7 @@ namespace CalValEX.Items.Mounts.Morshu
             Item.useStyle = ItemUseStyleID.Swing;
             Item.value = Item.sellPrice(gold: 2);
             Item.rare = ItemRarityID.Pink;
-            Item.UseSound = SoundLoader.GetLegacySoundSlot(Mod, "Sounds/MorshuBomb");
+            Item.UseSound = new Terraria.Audio.SoundStyle("CalValEX/Sounds/Item/MorshuBomb");
             Item.noMelee = true;
             Item.mountType = ModContent.MountType<MorshuMount>();
         }
@@ -49,15 +49,15 @@ namespace CalValEX.Items.Mounts.Morshu
         {
             if (Main.rand.NextFloat() < 0.33f)
             {
-                Item.UseSound = SoundLoader.GetLegacySoundSlot(Mod, "Sounds/Item/MorshuBomb");
+                Item.UseSound = new Terraria.Audio.SoundStyle("CalValEX/Sounds/Item/MorshuBomb");
             }
             else if (Main.rand.NextFloat() < 0.5f)
             {
-                Item.UseSound = SoundLoader.GetLegacySoundSlot(Mod, "Sounds/Item/MorshuRope");
+                Item.UseSound = new Terraria.Audio.SoundStyle("CalValEX/Sounds/Item/MorshuRope");
             }
             else
             {
-                Item.UseSound = SoundLoader.GetLegacySoundSlot(Mod, "Sounds/Item/MorshuLamp");
+                Item.UseSound = new Terraria.Audio.SoundStyle("CalValEX/Sounds/Item/MorshuLamp");
             }
             return true;
         }
