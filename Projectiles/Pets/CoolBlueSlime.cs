@@ -20,8 +20,8 @@ namespace CalValEX.Projectiles.Pets
         public override void SetDefaults()
         {
             PetSetDefaults();
-            Projectile.width = 18;
-            Projectile.height = 18;
+            Projectile.width = 28;
+            Projectile.height = 28;
             Projectile.ignoreWater = true;
         }
 

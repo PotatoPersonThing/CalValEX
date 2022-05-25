@@ -5,6 +5,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class CoolBlueSignut : ModFlyingPet
     {
+        public override bool FacesLeft => false;
         public override float TeleportThreshold => 1440f;
 
         public override Vector2 FlyingOffset => new Vector2(90f * -Main.player[Projectile.owner].direction, -75f);
@@ -14,7 +15,7 @@ namespace CalValEX.Projectiles.Pets
         {
             PetSetStaticDefaults(lightPet: false);
             DisplayName.SetDefault("Cool Blue Signut");
-            Main.projFrames[Projectile.type] = 4;
+            Main.projFrames[Projectile.type] = 7;
         }
 
         public override void SetDefaults()
