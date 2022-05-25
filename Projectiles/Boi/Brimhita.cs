@@ -21,12 +21,13 @@ namespace CalValEX.Projectiles.Boi
 
         public override void SetDefaults()
         {
-            Projectile.width = 90;
-            Projectile.height = 115;
+            Projectile.width = 60;
+            Projectile.height = 50;
             Projectile.aiStyle = -1;
             Projectile.ignoreWater = true;
             Projectile.tileCollide = false;
             Projectile.timeLeft = 18000;
+            Projectile.alpha = 1;
         }
 
         public override void AI()
@@ -198,8 +199,8 @@ namespace CalValEX.Projectiles.Boi
                 Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Brimhita").Value;
                 Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2.Width, texture2.Height / Main.projFrames[Projectile.type]);
                 Vector2 position2 = Projectile.Center - Main.screenPosition;
-                position2.X += DrawOffsetX;
-                position2.Y += DrawOriginOffsetY;
+                position2.X -= 15;
+                position2.Y -= 60;
                 Color clo = Color.White;
                 if (ow > 0)
                 {

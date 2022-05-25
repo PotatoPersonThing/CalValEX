@@ -114,7 +114,7 @@ namespace CalValEX.Projectiles.Boi
             //Spawn just one gate leading to the starting room on the bottom
             if (Projectile.localAI[0] > 0)
             {
-                Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 30, player.position.Y + player.height / 2 + 260,
+                Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 10, player.position.Y + player.height / 2 + 260,
                     0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 0);
                 ana.position = new Vector2(player.position.X + player.width / 2 - 10, player.position.Y + player.height / 2 + 100);
             }
@@ -165,7 +165,7 @@ namespace CalValEX.Projectiles.Boi
                 Vector2 position2 = Projectile.Center - Main.screenPosition;
                 position2.X += DrawOffsetX;
                 position2.Y += DrawOriginOffsetY;
-                Main.EntitySpriteDraw(texture2, position2, rectangle2, Color.White, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
+                //Main.EntitySpriteDraw(texture2, position2, rectangle2, Color.White, Projectile.rotation, Projectile.Size / 2f, 1.1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
 
                 //Room
                 Texture2D texture = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/FourRoom").Value;
@@ -203,6 +203,20 @@ namespace CalValEX.Projectiles.Boi
                     {
                         Color cooo = cont == Projectile.localAI[0] ? Color.DarkCyan : Color.White;
                         Main.EntitySpriteDraw(mapicon, new Vector2(position3.X + mapicon.Width * cont, position3.Y), rectangle3, cooo, Projectile.rotation, Projectile.Size / 4f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
+                    }
+                }
+                //Tear draw fix
+                for (int i = 0; i < Main.maxProjectiles; i++)
+                {
+                    var proj = Main.projectile[i];
+
+                    if (proj != null && proj.active && proj.type == ModContent.ProjectileType<AnahitaTear>())
+                    {
+                        Texture2D texture23 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongBall").Value;
+                        Rectangle rectangle23 = new Rectangle(0, texture23.Height / Main.projFrames[proj.type] * proj.frame, texture23.Width, texture23.Height / Main.projFrames[proj.type]);
+                        Vector2 position23 = proj.Center - Main.screenPosition;
+                        Main.EntitySpriteDraw(texture23, position23, rectangle23, Color.White, proj.rotation, proj.Size / 2f, 1f, (proj.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
+
                     }
                 }
             }

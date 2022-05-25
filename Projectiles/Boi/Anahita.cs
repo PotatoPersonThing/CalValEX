@@ -22,12 +22,13 @@ namespace CalValEX.Projectiles.Boi
 
         public override void SetDefaults()
         {
-            Projectile.width = 90;
-            Projectile.height = 115;
+            Projectile.width = 60;
+            Projectile.height = 50;
             Projectile.aiStyle = -1;
             Projectile.ignoreWater = true;
             Projectile.tileCollide = false;
             Projectile.timeLeft = 18000;
+            Projectile.netImportant = true;
         }
 
         public override void AI()
@@ -51,11 +52,11 @@ namespace CalValEX.Projectiles.Boi
                 player.velocity.X = 0;
             }
 
-            if (player.controlLeft && Projectile.position.X > player.Center.X - 412)
+            if (player.controlLeft && Projectile.position.X > player.Center.X - 382)
             {
                 Projectile.velocity.X = -4;
             }
-            else if (player.controlRight && Projectile.position.X < player.Center.X + 372)
+            else if (player.controlRight && Projectile.position.X < player.Center.X + 332)
             {
                 Projectile.velocity.X = 4;
             }
@@ -63,7 +64,7 @@ namespace CalValEX.Projectiles.Boi
             {
                 Projectile.velocity.X = 0;
             }
-            if (player.controlUp && Projectile.position.Y > player.Center.Y - 258)
+            if (player.controlUp && Projectile.position.Y > player.Center.Y - 238)
             {
                 Projectile.velocity.Y = -4;
             }
@@ -81,9 +82,9 @@ namespace CalValEX.Projectiles.Boi
                 Projectile.active = false;
             }
             Vector2 cursor = Main.MouseWorld;
-            if (player.controlUseItem && shotcooldown <= 0)
+            if (player.controlUseItem && shotcooldown <= 0 && Main.myPlayer == Projectile.owner)
             {
-                Vector2 position = new Vector2(Projectile.Center.X, Projectile.Center.Y);
+                Vector2 position = new Vector2(Projectile.Center.X, Projectile.Center.Y - 25);
                 Vector2 targetPosition = cursor;
                 Vector2 direction = targetPosition - position;
                 direction.Normalize();
@@ -91,6 +92,8 @@ namespace CalValEX.Projectiles.Boi
                 int type = ModContent.ProjectileType<AnahitaTear>();
                 int damage = 0;
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), position, direction * speed, type, damage, 0f, Main.myPlayer);
+                Projectile.netUpdate = true;
+                Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.Item21, Projectile.position);
                 shotcooldown = 30;
             }
             var thisRect = Projectile.getRect();
@@ -137,8 +140,8 @@ namespace CalValEX.Projectiles.Boi
                 Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Anahita").Value;
                 Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2.Width, texture2.Height / Main.projFrames[Projectile.type]);
                 Vector2 position2 = Projectile.Center - Main.screenPosition;
-                position2.X += DrawOffsetX;
-                position2.Y += DrawOriginOffsetY;
+                position2.X -= 15;
+                position2.Y -= 60;
                 Main.EntitySpriteDraw(texture2, position2, rectangle2, Color.White, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
             }
         }
