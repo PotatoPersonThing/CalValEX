@@ -24,8 +24,7 @@ namespace CalValEX.Buffs.Pets
                 Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ProjectileType<Sepulchling>(), 0, 0f, player.whoAmI);
             }
-            ModLoader.TryGetMod("CalValPlus", out Mod orthoceraDLC);
-            if (CalValEX.month != 4 && orthoceraDLC == null)
+            if (!CalValEX.AprilFoolMonth)
             {
                 player.buffTime[buffIndex] = 18000;
                 player.GetModPlayer<CalValEXPlayer>().BMonster = true;
@@ -36,7 +35,7 @@ namespace CalValEX.Buffs.Pets
                         0f, 0f, ProjectileType<BabyMonster>(), 0, 0f, player.whoAmI);
                 }
             }
-            if (CalValEX.month == 4 || orthoceraDLC != null)
+            if (CalValEX.AprilFoolMonth)
             {
                 player.buffTime[buffIndex] = 18000;
                 player.GetModPlayer<CalValEXPlayer>().hage = true;

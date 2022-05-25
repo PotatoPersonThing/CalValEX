@@ -1,3 +1,5 @@
+NOTE: This is an ALPHA version of the mod and has no dependency on Calamity (you can play it without Calamity for now), therefore some of the following information is false.
+
 Calamity's Vanities is a mod which aims to add more vanity items/pets to the Calamity mod. 
 
 Currently adds the following:

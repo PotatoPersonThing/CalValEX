@@ -139,7 +139,7 @@ namespace CalValEX.AprilFools
                 state = 5;
             }
 
-            if ((CalValEX.month != 4 && state != 4 && !CalValEXWorld.amogus) || modPlayer.rockhat)
+            if ((!CalValEX.AprilFoolMonth && state != 4 && !CalValEXWorld.amogus) || modPlayer.rockhat)
             {
                 deathcounter++;
                 if (deathcounter >= 300)

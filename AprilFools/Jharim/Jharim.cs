@@ -48,7 +48,7 @@ namespace CalValEX.AprilFools.Jharim
                 .SetNPCAffection(NPCID.WitchDoctor, AffectionLevel.Dislike) // Dislikes living near the merchant.
                 .SetNPCAffection(NPCID.TaxCollector, AffectionLevel.Hate) // Hates living near the demolitionist.
             ;
-            if (CalValEX.month != 4)
+            if (!CalValEX.AprilFoolMonth)
             {
                 NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
                 {
@@ -75,7 +75,7 @@ namespace CalValEX.AprilFools.Jharim
         }
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
         {
-            if (CalValEX.month == 4)
+            if (CalValEX.AprilFoolMonth)
             {
                 bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
                 Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.SurfaceMushroom,
@@ -105,7 +105,7 @@ namespace CalValEX.AprilFools.Jharim
         public override void AI()
         {
             //Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            if (CalValEX.month != 4 && !Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok/* && orthoceraDLC == null*/)
+            if (!CalValEX.AprilFoolMonth && !Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok/* && orthoceraDLC == null*/)
             {
             NPC.active = false;
             }

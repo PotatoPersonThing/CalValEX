@@ -78,8 +78,7 @@ namespace CalValEX.Projectiles.Pets
             Rectangle frame = glowMask.Frame(1, Main.projFrames[Projectile.type], 0, Projectile.frame);
             frame.Height -= 1;
             float originOffsetX = (glowMask.Width - Projectile.width) * 0.5f + Projectile.width * 0.5f + DrawOriginOffsetX;
-            //Mod ortho = ModLoader.GetMod("CalValPlus");
-            if (/*(ortho != null) ||*/ (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7)))
+            if (CalValEX.AprilFoolWeek)
             {
                 Main.EntitySpriteDraw
                 (

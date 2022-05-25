@@ -8,11 +8,6 @@ namespace CalValEX.AprilFools
 {
     public class ShadesBane : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            //DisplayName.SetDefault("The Shade's Bane");
-           // Tooltip.SetDefault("Edgy sword #2940358304");
-        }
         public override void SetDefaults()
         {
             Item.damage = 47;
@@ -28,8 +23,7 @@ namespace CalValEX.AprilFools
 
         public override bool CanUseItem(Player player)
         {
-			//Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            if (CalValEX.month != 4/* && orthoceraDLC == null*/)
+            if (!CalValEX.AprilFoolMonth)
             {
             return false;
             }
@@ -46,8 +40,7 @@ namespace CalValEX.AprilFools
         }
         public override bool AltFunctionUse(Player player)
         {
-			//Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            if (CalValEX.month != 4/* && orthoceraDLC == null*/)
+            if (!CalValEX.AprilFoolMonth)
             {
             return false;
             }
@@ -56,12 +49,11 @@ namespace CalValEX.AprilFools
             {
             int twidir = Main.rand.Next(-36, 36);
             int twidir2 = Main.rand.Next(-36, 36);
-            for (int counter = 0; counter < 4; counter++)
+            for (int counter = 0; counter < 16; counter++)
             {
-                Projectile.NewProjectile(player.GetSource_ItemUse(Item), player.position.X, player.position.Y, twidir, twidir2, ProjectileID.CursedFlameFriendly, 201, 0.1f);
-                Projectile.NewProjectile(player.GetSource_ItemUse(Item), player.position.X, player.position.Y, twidir, twidir2, ProjectileID.CursedFlameFriendly, 201, 0.1f);
-                Projectile.NewProjectile(player.GetSource_ItemUse(Item), player.position.X, player.position.Y, twidir, twidir2, ProjectileID.CursedFlameFriendly, 201, 0.1f);
-                Projectile.NewProjectile(player.GetSource_ItemUse(Item), player.position.X, player.position.Y, twidir, twidir2, ProjectileID.CursedFlameFriendly, 201, 0.1f);
+                int twidir3 = Main.rand.Next(-36, 36);
+                int twidir4 = Main.rand.Next(-36, 36);
+                Projectile.NewProjectile(player.GetSource_ItemUse(Item), player.position.X, player.position.Y, twidir3, twidir4, ProjectileID.CursedFlameFriendly, 201, 0.1f);
             }
             Projectile.NewProjectile(player.GetSource_ItemUse(Item), player.position.X, player.position.Y, twidir, twidir2, 661, 401, 0.1f);
             return true;

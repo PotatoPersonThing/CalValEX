@@ -22,7 +22,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 		{
 			NPCID.Sets.TrailingMode[NPC.type] = 2;
 			NPCID.Sets.TrailCacheLength[NPC.type] = 21;
-			if (CalValEX.month != 4)
+			if (!CalValEX.AprilFoolMonth)
 			{
 				NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
 				{
@@ -56,7 +56,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 		}
 		public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
 		{
-			if (CalValEX.month == 4)
+			if (CalValEX.AprilFoolMonth)
 			{
 				bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
 				Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
@@ -69,7 +69,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 			CalValEXGlobalNPC.meldodon = NPC.whoAmI;
 			//Die if it isnt april
 			//Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-			if (CalValEX.month != 4 && !Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok/*&& orthoceraDLC == null*/)
+			if (!CalValEX.AprilFoolMonth && !Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok/*&& orthoceraDLC == null*/)
 			{
 				NPC.active = false;
 			}	

@@ -53,9 +53,9 @@ namespace CalValEX.Items.Equips.Transformations
 		{
 			if (Main.netMode != NetmodeID.Server)
 			{
-				EquipLoader.AddEquipTexture(Mod, $"{Texture}_{EquipType.Head}", EquipType.Head, this);
-				EquipLoader.AddEquipTexture(Mod, $"{Texture}_{EquipType.Body}", EquipType.Body, this);
-				EquipLoader.AddEquipTexture(Mod, $"{Texture}_{EquipType.Legs}", EquipType.Legs, this);
+				EquipLoader.AddEquipTexture(Mod, "CalValEX/Items/Equips/Transformations/TinyIbanRobotofDoom_Head", EquipType.Head, this);
+				EquipLoader.AddEquipTexture(Mod, "CalValEX/Items/Equips/Transformations/TinyIbanRobotofDoom_Body", EquipType.Body, this);
+				EquipLoader.AddEquipTexture(Mod, "CalValEX/Items/Equips/Transformations/TinyIbanRobotofDoom_Legs", EquipType.Legs, this);
 			}
 		}
 		private void SetupDrawing()

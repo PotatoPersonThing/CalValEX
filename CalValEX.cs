@@ -67,7 +67,7 @@ namespace CalValEX
 
         public static CalValEX instance;
         public Mod herosmod;
-       // public Mod infernum;
+
         public const string heropermission = "CalValEX";
         public const string heropermissiondisplayname = "Calamity's Vanities";
         public bool hasPermission;
@@ -75,17 +75,15 @@ namespace CalValEX
         public static bool Bumble;
         public static bool Wulfrumset;
         public static bool WulfrumsetReal;
+
+        public static bool AprilFoolMonth;
+        public static bool AprilFoolWeek;
+        public static bool AprilFoolDay;
+
         public static string currentDate;
         public static int day;
         public static int month;
         public static Texture2D AstralSky;
-
-        public Action<Player> careationElement;
-        /*public Action<Item> creationElement = new Action<Item>(item =>
-        {
-            item.type = ModContent.ItemType<CalamitousSoulArtifact>();
-        });*/
-        public Predicate<Item> caldetec;
 
         public static MethodInfo compactFraming;
         public static MethodInfo brimstoneFraming;
@@ -94,12 +92,15 @@ namespace CalValEX
         {
             instance = this;
             ModLoader.TryGetMod("HEROsMod", out herosmod);
-            //infernum = ModLoader.GetMod("InfernumMode");
 
             DateTime dateTime = DateTime.Now;
             currentDate = dateTime.ToString("dd/MM/yyyy");
             day = dateTime.Day;
             month = dateTime.Month;
+
+            AprilFoolWeek = herosmod != null || (DateTime.Now.Month == 4 && (DateTime.Now.Day == 1 || DateTime.Now.Day == 2 || DateTime.Now.Day == 3 || DateTime.Now.Day == 4 || DateTime.Now.Day == 5 || DateTime.Now.Day == 6 || DateTime.Now.Day == 7));
+            AprilFoolDay = herosmod != null || (DateTime.Now.Month == 4 && DateTime.Now.Day == 1);
+            AprilFoolMonth = herosmod != null || (DateTime.Now.Month == 4);
 
             AstralSky = ModContent.Request<Texture2D>("CalValEX/Biomes/AstralSky", AssetRequestMode.ImmediateLoad).Value;
 
@@ -127,6 +128,9 @@ namespace CalValEX
             compactFraming = null;
             brimstoneFraming = null;
             AstralSky = null;
+            AprilFoolDay = false;
+            AprilFoolWeek = false;
+            AprilFoolMonth = false;
 
             if (Main.dedServ)
                 return;
@@ -481,19 +485,6 @@ namespace CalValEX
                     break;
             }
         }
-
-        /*public override void UpdateMusic(ref int music, ref MusicPriority priority)
-        {
-            if (Main.myPlayer == -1 || Main.gameMenu || !Main.LocalPlayer.active)
-            {
-                return;
-            }
-            if ((Main.LocalPlayer.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().enraged || Main.LocalPlayer.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().adrenaline > 0f || Main.LocalPlayer.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().rage > 0f) && (Main.LocalPlayer.HeldItem.type == ModContent.ItemType<CalamityMod.Items.Weapons.Melee.Murasama>()/* || Main.LocalPlayer.HeldItem.type == ModContent.ItemType<CalamityMod.Items.Weapons.Melee.UHFMurasama>() One day my love... && Main.LocalPlayer.controlUseItem && !CalValEXConfig.Instance.Sama)
-            {
-                music = GetSoundSlot(SoundType.Music, "Sounds/Music/Murasama");
-                priority = MusicPriority.BossHigh + 1;
-           }
-        }*/
 
         /*public override void AddRecipeGroups()
         {

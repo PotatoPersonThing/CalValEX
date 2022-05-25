@@ -28,7 +28,7 @@ namespace CalValEX.AprilFools
 		
 		public override void SetStaticDefaults()
 		{
-			if (CalValEX.month != 4)
+			if (!CalValEX.AprilFoolMonth)
 			{
 				NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
 				{
@@ -62,7 +62,7 @@ namespace CalValEX.AprilFools
 		}
 		public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
 		{
-			if (CalValEX.month == 4)
+			if (CalValEX.AprilFoolMonth)
 			{
 				bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
 				Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
@@ -72,9 +72,9 @@ namespace CalValEX.AprilFools
 		}
 		public override void AI()
 		{
-			Main.dayTime = false;
+			Main.dayTime = true;
 			//Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            if (CalValEX.month != 4 && !Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok/*&& orthoceraDLC == null*/)
+            if (!CalValEX.AprilFoolMonth && !Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok/*&& orthoceraDLC == null*/)
             {
             NPC.active = false;
             }
@@ -145,6 +145,7 @@ namespace CalValEX.AprilFools
 			NPC.SpawnOnPlayer(NPC.FindClosestPlayer(), NPCID.Spazmatism);
 			}
 	}
+
 
     /*public override void NPCLoot()
 	{

@@ -35,10 +35,9 @@ namespace CalValEX.AprilFools
 
 		public override bool CanUseItem(Player player)
         {
-			//Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            if (CalValEX.month != 4/* && orthoceraDLC == null*/)
+            if (!CalValEX.AprilFoolMonth)
             {
-            return false;
+				return false;
             }
 			else if (NPC.AnyNPCs(ModContent.NPCType<AprilFools.Jharim.Jharim>()))
 			{
@@ -49,25 +48,5 @@ namespace CalValEX.AprilFools
                 return true;
             }
 		}
-
-		/*public override void AddRecipes()
-		{
-			Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            if (CalValEX.month != 4 && orthoceraDLC == null)
-            {
-            return;
-            }
-			else
-			{
-			Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-				recipe.AddIngredient(ItemID.GoldOre, 1);
-                recipe.AddTile(TileID.WorkBenches);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-			}
-			}
-		}*/
 	}
 }
