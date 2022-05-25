@@ -38,7 +38,7 @@ namespace CalValEX.Tiles.AstralMisc
 
 		public override Asset<Texture2D> GetOasisTopTextures()
 		{
-			return ModContent.Request<Texture2D>("CalValEX/Tiles/AstralMisc/AstralPalmTop");
+			return ModContent.Request<Texture2D>("CalValEX/Tiles/AstralMisc/AstralPalmOasis");
 		}
 
 		public override Asset<Texture2D> GetTopTextures()

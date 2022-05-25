@@ -10,13 +10,12 @@ namespace CalValEX.Tiles.AstralMisc
 {
 	public class SnowAstralTree : ModTree
 	{
-		private Mod mod => ModLoader.GetMod("CalValEX");
 		public override void SetStaticDefaults()
 		{
 			GrowsOnTileId = new int[1] { ModContent.TileType<AstralSnowPlaced>() };
 		}
 
-		public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("Tiles/AstralMisc/SnowAstralTree");
+		public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("CalValEX/Tiles/AstralMisc/SnowAstralTree");
 
 		public override TreePaintingSettings TreeShaderSettings => new TreePaintingSettings
 		{
@@ -28,9 +27,9 @@ namespace CalValEX.Tiles.AstralMisc
 		};
 
 		public override void SetTreeFoliageSettings(Tile tile, int xoffset, ref int treeFrame, ref int floorY, ref int topTextureFrameWidth, ref int topTextureFrameHeight) { }
-		public override Asset<Texture2D> GetBranchTextures() => ModContent.Request<Texture2D>("Tiles/AstralMisc/SnowAstralTreeBranch");
+		public override Asset<Texture2D> GetBranchTextures() => ModContent.Request<Texture2D>("CalValEX/Tiles/AstralMisc/SnowAstralTreeBranch");
 
-		public override Asset<Texture2D> GetTopTextures() => ModContent.Request<Texture2D>("Tiles/AstralMisc/SnowAstralTreeTop");
+		public override Asset<Texture2D> GetTopTextures() => ModContent.Request<Texture2D>("CalValEX/Tiles/AstralMisc/SnowAstralTreeTop");
 		public override int DropWood()
 		{
 			return ModContent.ItemType<AstralTreeWood>();

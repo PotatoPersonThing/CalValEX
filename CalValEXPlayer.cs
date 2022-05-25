@@ -640,42 +640,42 @@ namespace CalValEX
             if ((maryTrans || maryForce) && !maryHide)
             {
                 var costume = GetInstance<Items.Equips.Shirts.BloodyMaryDress>();
-                Player.legs = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Legs);
+                Player.legs = EquipLoader.GetEquipSlot(Mod, "BloodyMaryDress", EquipType.Legs);
             }
             if ((signutTrans || signutForce) && !signutHide)
             {
                 var costume = GetInstance<Signus>();
-                Player.head = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Head);
-                Player.body = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Body);
-                Player.legs = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Legs);
+                Player.head = EquipLoader.GetEquipSlot(Mod, "Signus", EquipType.Head);
+                Player.body = EquipLoader.GetEquipSlot(Mod, "Signus", EquipType.Body);
+                Player.legs = EquipLoader.GetEquipSlot(Mod, "Signus", EquipType.Legs);
             }
             else if ((androTrans || androForce) && !androHide)
             {
                 var costume = GetInstance<ProtoRing>();
-                Player.head = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Head);
-                Player.body = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Body);
-                Player.legs = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Legs);
+                Player.head = EquipLoader.GetEquipSlot(Mod, "ProtoRing", EquipType.Head);
+                Player.body = EquipLoader.GetEquipSlot(Mod, "ProtoRing", EquipType.Body);
+                Player.legs = EquipLoader.GetEquipSlot(Mod, "ProtoRing", EquipType.Legs);
             }
             else if ((classicTrans || classicForce) && !classicHide)
             {
                 var costume = GetInstance<BurningEye>();
-                Player.head = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Head);
-                Player.body = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Body);
-                Player.legs = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Legs);
+                Player.head = EquipLoader.GetEquipSlot(Mod, "BurningEye", EquipType.Head);
+                Player.body = EquipLoader.GetEquipSlot(Mod, "BurningEye", EquipType.Body);
+                Player.legs = EquipLoader.GetEquipSlot(Mod, "BurningEye", EquipType.Legs);
             }
             else if ((cloudTrans || cloudForce) && !cloudHide)
             {
                 var costume = GetInstance<CloudWaistbelt>();
-                Player.head = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Head);
-                Player.body = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Body);
-                Player.legs = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Legs);
+                Player.head = EquipLoader.GetEquipSlot(Mod, "CloudWaistbelt", EquipType.Head);
+                Player.body = EquipLoader.GetEquipSlot(Mod, "CloudWaistbelt", EquipType.Body);
+                Player.legs = EquipLoader.GetEquipSlot(Mod, "CloudWaistbelt", EquipType.Legs);
             }
             else if ((sandTrans || sandForce) && !sandHide)
             {
                 var costume = GetInstance<SandyBangles>();
-                Player.head = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Head);
-                Player.body = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Body);
-                Player.legs = EquipLoader.GetEquipSlot(Mod, costume.Name, EquipType.Legs);
+                Player.head = EquipLoader.GetEquipSlot(Mod, "SandyBangles", EquipType.Head);
+                Player.body = EquipLoader.GetEquipSlot(Mod, "SandyBangles", EquipType.Body);
+                Player.legs = EquipLoader.GetEquipSlot(Mod, "SandyBangles", EquipType.Legs);
             }
             if (wulfrumjam)
             {

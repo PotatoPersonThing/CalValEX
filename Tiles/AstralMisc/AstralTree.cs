@@ -10,13 +10,12 @@ namespace CalValEX.Tiles.AstralMisc
 {
 	public class AstralTree : ModTree
 	{
-		private Mod mod => ModLoader.GetMod("CalValEX");
 		public override void SetStaticDefaults()
 		{
 			GrowsOnTileId = new int[1] { ModContent.TileType<AstralGrassPlaced>() };
 		}
 
-		public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("Tiles/AstralMisc/AstralTree");
+		public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("CalValEX/Tiles/AstralMisc/AstralTree");
 
 		// This is a blind copy-paste from Vanilla's PurityPalmTree settings.
 		//TODO: This needs some explanations
@@ -30,9 +29,9 @@ namespace CalValEX.Tiles.AstralMisc
 		};
 
 		public override void SetTreeFoliageSettings(Tile tile, int xoffset, ref int treeFrame, ref int floorY, ref int topTextureFrameWidth, ref int topTextureFrameHeight) { }
-		public override Asset<Texture2D> GetBranchTextures() => ModContent.Request<Texture2D>("Tiles/AstralMisc/AstralTreeBranch");
+		public override Asset<Texture2D> GetBranchTextures() => ModContent.Request<Texture2D>("CalValEX/Tiles/AstralMisc/AstralTreeBranch");
 
-		public override Asset<Texture2D> GetTopTextures() => ModContent.Request<Texture2D>("Tiles/AstralMisc/AstralTreeTop");
+		public override Asset<Texture2D> GetTopTextures() => ModContent.Request<Texture2D>("CalValEX/Tiles/AstralMisc/AstralTreeTop");
 		public override int DropWood()
 		{
 			return ModContent.ItemType<AstralTreeWood>();
