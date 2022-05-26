@@ -31,7 +31,16 @@ namespace CalValEX.Projectiles.Boi
             Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
-            if (!modPlayer.boiactive)
+            bool bossIsAlive = false;
+            for (int i = 0; i < Main.maxProjectiles; i++)
+            {
+                Projectile proj = Main.projectile[i];
+                if (proj != null && proj.active && proj.type == ModContent.ProjectileType<BoiUI>() && proj.alpha <= 0)
+                {
+                    bossIsAlive = true;
+                }
+            }
+            if (!bossIsAlive)
             {
                 Projectile.active = false;
             }

@@ -110,6 +110,17 @@ namespace CalValEX.Projectiles.Boi
                     iframes = 60;
                 }
             }
+            for (int i = 0; i < Main.maxProjectiles; i++)
+            {
+                var proj = Main.projectile[i];
+
+                if (proj != null && proj.active && proj.getRect().Intersects(thisRect) && proj.type == ModContent.ProjectileType<Atlantis>() && proj.alpha <= 0)
+                {
+                    Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.Item9, Projectile.Center);
+                    Projectile.penetrate = 2;
+                    modPlayer.boiatlantis = true;
+                }
+            }
             iframes--;
             if (iframes > 0)
             {

@@ -57,6 +57,13 @@ namespace CalValEX.Projectiles.Boi
                     proj.active = false;
                     ow = 10;
                 }
+                if (proj != null && proj.active && proj.getRect().Intersects(thisRect) && proj.type == ModContent.ProjectileType<Atlantis>() && Projectile.alpha <= 0)
+                {
+                    Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.NPCHit1, Projectile.Center);
+                    health--;
+                    proj.active = false;
+                    ow = 10;
+                }
             }
             for (int i = 0; i < Main.maxProjectiles; i++)
             {
