@@ -32,9 +32,8 @@ namespace CalValEX.Tiles.AstralMisc
 			TileObjectData.newTile.WaterPlacement = LiquidPlacement.NotAllowed;
 			TileObjectData.newTile.LavaDeath = true;
 			TileObjectData.newTile.RandomStyleRange = 3;
-			TileObjectData.newTile.StyleMultiplier = 3;
+			TileID.Sets.CommonSapling[Type] = true;
 			TileID.Sets.TreeSapling[Type] = true;
-			TileObjectData.addSubTile(1);
 			TileObjectData.addTile(Type);
 
 			ModTranslation name = CreateMapEntryName();

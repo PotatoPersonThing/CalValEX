@@ -21,7 +21,6 @@ namespace CalValEX.Tiles.AstralMisc
 
 		public override void SetStaticDefaults()
 		{
-			// Makes Example Palm Tree grow on ExampleBar
 			GrowsOnTileId = new int[1] { ModContent.TileType<AstralSandPlaced>() };
 		}
 
@@ -45,6 +44,7 @@ namespace CalValEX.Tiles.AstralMisc
 		{
 			return ModContent.Request<Texture2D>("CalValEX/Tiles/AstralMisc/AstralPalmTop");
 		}
+		public override int GrowthFXGore() => -1;
 
 		public override int DropWood()
 		{
