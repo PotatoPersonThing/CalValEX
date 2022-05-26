@@ -31,15 +31,15 @@ namespace CalValEX.Tiles.AstralBlocks
 
         public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
         {
-            /*if (fail && !effectOnly)
+            if (fail && !effectOnly)
             {
-                Main.tile[i, j].type = (ushort)ModContent.TileType<AstralDirtPlaced>();
-            }*/
+                Main.tile[i, j].TileType= (ushort)ModContent.TileType<AstralDirtPlaced>();
+            }
         }
 
         public override void RandomUpdate(int i, int j)
         {
-            /*if (Main.rand.Next(7) == 0)
+            if (Main.rand.Next(7) == 0)
             {
                 int grassspawned;
                 int pos;
@@ -55,7 +55,7 @@ namespace CalValEX.Tiles.AstralBlocks
                     pos = 1;
                 }
 
-                if (!Main.tile[i, j - 1].TileType == 0 && Main.tile[i, j].Slope == 0 && !Main.tile[i, j].halfBrick())
+                if (Main.tile[i, j - 1].TileType == 0 && Main.tile[i, j].Slope == 0 && !Main.tile[i, j].IsHalfBlock)
                 {
                     WorldGen.PlaceTile(i, j - pos, grassspawned, true, false, -1, Main.rand.Next(18));
                 }
@@ -68,23 +68,23 @@ namespace CalValEX.Tiles.AstralBlocks
                     {
                         if (Vector2.Distance(new Vector2(LocationX, LocationY), new Vector2(x, y)) <= 4)
                         {
-                            if (Main.tile[x, y].type == mod.TileType("AstralDirtPlaced"))
+                            if (Main.tile[x, y].TileType == ModContent.TileType<AstralDirtPlaced>())
                             {
-                                if (Main.tile[x + 1, y].active() && Main.tile[x, y - 1].active() && Main.tile[x - 1, y].active() && Main.tile[x, y + 1].active() && Main.tile[x + 1, y + 1].active() && Main.tile[x - 1, y - 1].active() && Main.tile[x - 1, y + 1].active() && Main.tile[x + 1, y - 1].active())
+                                if (Main.tile[x + 1, y].TileType != 0 && Main.tile[x, y - 1].TileType != 0 && Main.tile[x - 1, y].TileType != 0 && Main.tile[x, y + 1].TileType != 0 && Main.tile[x + 1, y + 1].TileType != 0 && Main.tile[x - 1, y - 1].TileType != 0 && Main.tile[x - 1, y + 1].TileType != 0 && Main.tile[x + 1, y - 1].TileType != 0)
                                 {
                                 }
                                 else
                                 {
                                     if (Main.rand.Next(1) == 0)
                                     {
-                                        Main.tile[x, y].type = (ushort)mod.TileType("AstralGrassPlaced"); ;
+                                        Main.tile[x, y].TileType = (ushort)ModContent.TileType<AstralGrassPlaced>();
                                     }
                                 }
                             }
                         }
                     }
                 }
-            }*/
+            }
         }
     }
 }
