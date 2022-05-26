@@ -46,12 +46,11 @@ namespace CalValEX.Tiles.AstralMisc
 
 		public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 
-		public override void RandomUpdate(int i, int j) {
-			if (WorldGen.genRand.NextBool(20))
+		public override void RandomUpdate(int i, int j)
+		{
+			if (Main.rand.Next(20) == 0)
 			{
-				Tile tile = Framing.GetTileSafely(i, j);
-				bool growSucess;
-				growSucess = WorldGen.GrowPalmTree(i, j);
+				bool growSucess = WorldGen.GrowTree(i, j);
 				bool isPlayerNear = WorldGen.PlayerLOS(i, j);
 				if (growSucess && isPlayerNear)
 					WorldGen.TreeGrowFXCheck(i, j);

@@ -51,9 +51,7 @@ namespace CalValEX.Tiles.AstralMisc
 		{
 			if (WorldGen.genRand.Next(20) == 0)
 			{
-				Tile tile = Framing.GetTileSafely(i, j);
-				bool growSucess;
-				growSucess = WorldGen.GrowPalmTree(i, j);
+				bool growSucess = WorldGen.GrowTree(i, j);
 				bool isPlayerNear = WorldGen.PlayerLOS(i, j);
 				if (growSucess && isPlayerNear)
 					WorldGen.TreeGrowFXCheck(i, j);
