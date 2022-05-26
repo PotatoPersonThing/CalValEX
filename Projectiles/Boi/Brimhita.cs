@@ -99,7 +99,7 @@ namespace CalValEX.Projectiles.Boi
 
         public override void PostDraw(Color lightColor)
         {
-            Player player = Main.player[Projectile.owner];
+            /*Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Brimhita").Value;
             Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2.Width, texture2.Height / Main.projFrames[Projectile.type]);
@@ -111,11 +111,7 @@ namespace CalValEX.Projectiles.Boi
             {
                 clo = Color.Orange;
             }
-            else if (Projectile.alpha > 0)
-            {
-                clo = Color.DarkBlue;
-            }
             Main.EntitySpriteDraw(texture2, position2, rectangle2, clo, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
-        }
+        */}
     }
 }

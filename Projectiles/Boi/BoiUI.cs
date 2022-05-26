@@ -32,7 +32,7 @@ namespace CalValEX.Projectiles.Boi
         Vector2 topdoor = new Vector2(10, -270);
         Vector2 bottomdoor = new Vector2(10, 260);
         Vector2 leftdoor = new Vector2(-420, -20);
-        Vector2 rightdoor = new Vector2(1440, -20);
+        Vector2 rightdoor = new Vector2(435, -20);
         public override string Texture => "CalValEX/ExtraTextures/Pong/PongBG";
 
         public override void SetStaticDefaults()
@@ -111,7 +111,7 @@ namespace CalValEX.Projectiles.Boi
                                 //Spawn new gates
                                 SpawnStuff();
                                 //Teleport ana to a new room
-                                Teleport(proj2, proj);
+                                Teleport(proj2);
                             }
                         }
                     }
@@ -139,7 +139,7 @@ namespace CalValEX.Projectiles.Boi
             }
         }
 
-        void Teleport(Projectile ana, Projectile gate)
+        void Teleport(Projectile ana)
         {
             Player player = Main.player[Projectile.owner];
             Vector2 playp = new Vector2(player.position.X + player.width / 2, player.position.Y + player.height / 2);
@@ -209,17 +209,11 @@ namespace CalValEX.Projectiles.Boi
             }
         }
 
-        //Spawns gates on all four sides that lead to the main four rooms. This one has its own function because it's called multiple times.
+        //Spawns gates on all four (two atm) sides that lead to the main four rooms. This one has its own function because it's called multiple times.
         void SpawnGates()
         {
-            //Bottom
-            /*Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 10, player.position.Y + player.height / 2 + 260,
-                0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 3);*/
             SpawnProjectile(leftdoor, ModContent.ProjectileType<RoomTransition>(), 2, 3);
             SpawnProjectile(topdoor, ModContent.ProjectileType<RoomTransition>(), 1, 0);
-            //Right
-            /*Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 440, player.position.Y + player.height / 2 - 20,
-                0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 4);*/
         }
 
         //KILL all tears, items, enemies, and room transitions upon entering a new room
@@ -255,20 +249,9 @@ namespace CalValEX.Projectiles.Boi
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (modPlayer.boiactive)
             {
-                //BG
-                Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongBG").Value;
-                Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2.Width, texture2.Height / Main.projFrames[Projectile.type]);
-                Vector2 position2 = Projectile.Center - Main.screenPosition;
-                position2.X += DrawOffsetX;
-                position2.Y += DrawOriginOffsetY;
-                Main.EntitySpriteDraw(texture2, position2, rectangle2, Color.White, Projectile.rotation, Projectile.Size / 2f, 1.205f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
-
-                //Room
-                Texture2D texture = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Room").Value;
-                Vector2 position = Projectile.Center - Main.screenPosition;
-                position.X += DrawOffsetX;
-                position.Y += DrawOriginOffsetY;
-                Main.EntitySpriteDraw(texture, position, rectangle2, Color.White, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
+                //Draw main screen stuff
+                BasicProjectileDraw(ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongBG").Value, Projectile, true, 1.205f);
+                BasicProjectileDraw(ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Room").Value, Projectile);
 
                 //Healthbar
                 for (int i = 0; i < Main.maxProjectiles; i++)
@@ -308,12 +291,14 @@ namespace CalValEX.Projectiles.Boi
 
                     if (proj != null && proj.active)
                     {
+                        if (proj.type == ModContent.ProjectileType<Brimhita>())
+                            BasicProjectileDraw(ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Brimhita").Value, proj, false);
                         if (proj.type == ModContent.ProjectileType<RoomTransition>() && rooms[(int)Projectile.localAI[0]] == 1)
-                        BasicProjectileDraw(ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/RoomTransition").Value, proj);
+                            BasicProjectileDraw(ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/RoomTransition").Value, proj);
                         if (proj.type == ModContent.ProjectileType<Atlantis>())
-                        BasicProjectileDraw(ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Atlantis").Value, proj, false);
+                            BasicProjectileDraw(ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Atlantis").Value, proj, false);
                         if (proj.type == ModContent.ProjectileType<AnahitaTear>())
-                        BasicProjectileDraw(ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongBall").Value, proj);
+                            BasicProjectileDraw(ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongBall").Value, proj);
                     }
                 }
             }
@@ -322,8 +307,14 @@ namespace CalValEX.Projectiles.Boi
         void BasicProjectileDraw(Texture2D texture, Projectile proj, bool fip = true, float size = 1f)
         {
             Rectangle rectangle23 = new Rectangle(0, texture.Height / Main.projFrames[proj.type] * proj.frame, texture.Width, texture.Height / Main.projFrames[proj.type]);
-            SpriteEffects fx = fip ? (proj.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally) : SpriteEffects.None;  
-            Main.EntitySpriteDraw(texture, proj.Center - Main.screenPosition, rectangle23, Color.White, proj.rotation, proj.Size / 2f, size, fx, 0);
+            SpriteEffects fx = fip ? (proj.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally) : SpriteEffects.None;
+            Vector2 pos = proj.Center - Main.screenPosition;
+            if (proj.type == ModContent.ProjectileType<Brimhita>())
+            {
+                pos.X -= 15;
+                pos.Y -= 60;
+            }
+            Main.EntitySpriteDraw(texture, pos, rectangle23, Color.White, proj.rotation, proj.Size / 2f, size, fx, 0);
         }
     }
 }
