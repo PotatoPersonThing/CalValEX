@@ -301,49 +301,29 @@ namespace CalValEX.Projectiles.Boi
                         Main.EntitySpriteDraw(mapicon, new Vector2(position3.X + mapicon.Width * cont, position3.Y), rectangle3, cooo, Projectile.rotation, Projectile.Size / 4f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
                     }
                 }
-                //Open doors
+                //Draw projectiles over the UI
                 for (int i = 0; i < Main.maxProjectiles; i++)
                 {
                     var proj = Main.projectile[i];
 
-                    if (proj != null && proj.active && proj.type == ModContent.ProjectileType<RoomTransition>() && rooms[(int)Projectile.localAI[0]] == 1)
+                    if (proj != null && proj.active)
                     {
-                        Texture2D texture23 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/RoomTransition").Value;
-                        Rectangle rectangle23 = new Rectangle(0, texture23.Height / Main.projFrames[proj.type] * proj.frame, texture23.Width, texture23.Height / Main.projFrames[proj.type]);
-                        Vector2 position23 = proj.Center - Main.screenPosition;
-                        Main.EntitySpriteDraw(texture23, position23, rectangle23, Color.White, proj.rotation, proj.Size / 2f, 1f, (proj.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
-
-                    }
-                }
-                //Tear draw fix
-                for (int i = 0; i < Main.maxProjectiles; i++)
-                {
-                    var proj = Main.projectile[i];
-
-                    if (proj != null && proj.active && proj.type == ModContent.ProjectileType<AnahitaTear>())
-                    {
-                        Texture2D texture23 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongBall").Value;
-                        Rectangle rectangle23 = new Rectangle(0, texture23.Height / Main.projFrames[proj.type] * proj.frame, texture23.Width, texture23.Height / Main.projFrames[proj.type]);
-                        Vector2 position23 = proj.Center - Main.screenPosition;
-                        Main.EntitySpriteDraw(texture23, position23, rectangle23, Color.White, proj.rotation, proj.Size / 2f, 1f, (proj.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
-
-                    }
-                }
-                //Atlantis draw fix
-                for (int i = 0; i < Main.maxProjectiles; i++)
-                {
-                    var proj = Main.projectile[i];
-
-                    if (proj != null && proj.active && proj.type == ModContent.ProjectileType<Atlantis>())
-                    {
-                        Texture2D texture23 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Atlantis").Value;
-                        Rectangle rectangle23 = new Rectangle(0, texture23.Height / Main.projFrames[proj.type] * proj.frame, texture23.Width, texture23.Height / Main.projFrames[proj.type]);
-                        Vector2 position23 = proj.Center - Main.screenPosition;
-                        Main.EntitySpriteDraw(texture23, position23, rectangle23, Color.White, proj.rotation, proj.Size / 2f, 1f, SpriteEffects.None, 0);
-
+                        if (proj.type == ModContent.ProjectileType<RoomTransition>() && rooms[(int)Projectile.localAI[0]] == 1)
+                        BasicProjectileDraw(ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/RoomTransition").Value, proj);
+                        if (proj.type == ModContent.ProjectileType<Atlantis>())
+                        BasicProjectileDraw(ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Atlantis").Value, proj, false);
+                        if (proj.type == ModContent.ProjectileType<AnahitaTear>())
+                        BasicProjectileDraw(ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongBall").Value, proj);
                     }
                 }
             }
+        }
+
+        void BasicProjectileDraw(Texture2D texture, Projectile proj, bool fip = true, float size = 1f)
+        {
+            Rectangle rectangle23 = new Rectangle(0, texture.Height / Main.projFrames[proj.type] * proj.frame, texture.Width, texture.Height / Main.projFrames[proj.type]);
+            SpriteEffects fx = fip ? (proj.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally) : SpriteEffects.None;  
+            Main.EntitySpriteDraw(texture, proj.Center - Main.screenPosition, rectangle23, Color.White, proj.rotation, proj.Size / 2f, size, fx, 0);
         }
     }
 }
