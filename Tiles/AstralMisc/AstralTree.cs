@@ -16,9 +16,6 @@ namespace CalValEX.Tiles.AstralMisc
 		}
 
 		public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("CalValEX/Tiles/AstralMisc/AstralTree");
-
-		// This is a blind copy-paste from Vanilla's PurityPalmTree settings.
-		//TODO: This needs some explanations
 		public override TreePaintingSettings TreeShaderSettings => new TreePaintingSettings
 		{
 			UseSpecialGroups = true,
@@ -36,6 +33,7 @@ namespace CalValEX.Tiles.AstralMisc
 		{
 			return ModContent.ItemType<AstralTreeWood>();
 		}
+		public override int GrowthFXGore() => -1;
 		public override int SaplingGrowthType(ref int style)
 		{
 			style = 0;

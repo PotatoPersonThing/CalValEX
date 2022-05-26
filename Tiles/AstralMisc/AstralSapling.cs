@@ -32,6 +32,7 @@ namespace CalValEX.Tiles.AstralMisc
 			TileObjectData.newTile.LavaDeath = true;
 			TileObjectData.newTile.RandomStyleRange = 3;
 			TileObjectData.newTile.StyleMultiplier = 3;
+			TileID.Sets.CommonSapling[Type] = true;
 			TileID.Sets.TreeSapling[Type] = true;
 			TileObjectData.newSubTile.CopyFrom(TileObjectData.newTile);
 			TileObjectData.addSubTile(1);
@@ -46,11 +47,12 @@ namespace CalValEX.Tiles.AstralMisc
 
 		public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 
-		public override void RandomUpdate(int i, int j)
-		{
-			if (Main.rand.Next(20) == 0)
+		public override void RandomUpdate(int i, int j) {
+			if (WorldGen.genRand.NextBool(20))
 			{
-				bool growSucess = WorldGen.GrowTree(i, j);
+				Tile tile = Framing.GetTileSafely(i, j);
+				bool growSucess;
+				growSucess = WorldGen.GrowTree(i, j);
 				bool isPlayerNear = WorldGen.PlayerLOS(i, j);
 				if (growSucess && isPlayerNear)
 					WorldGen.TreeGrowFXCheck(i, j);

@@ -35,6 +35,7 @@ namespace CalValEX.Tiles.AstralMisc
 			TileObjectData.newTile.StyleMultiplier = 3;
 			TileObjectData.newSubTile.CopyFrom(TileObjectData.newTile);
 			TileObjectData.addSubTile(1);
+			TileID.Sets.CommonSapling[Type] = true;
 			TileID.Sets.TreeSapling[Type] = true;
 			TileObjectData.addTile(Type);
 
@@ -51,7 +52,9 @@ namespace CalValEX.Tiles.AstralMisc
 		{
 			if (WorldGen.genRand.Next(20) == 0)
 			{
-				bool growSucess = WorldGen.GrowTree(i, j);
+				Tile tile = Framing.GetTileSafely(i, j);
+				bool growSucess;
+				growSucess = WorldGen.GrowTree(i, j);
 				bool isPlayerNear = WorldGen.PlayerLOS(i, j);
 				if (growSucess && isPlayerNear)
 					WorldGen.TreeGrowFXCheck(i, j);

@@ -34,6 +34,7 @@ namespace CalValEX.Tiles.AstralMisc
 		{
 			return ModContent.ItemType<AstralTreeWood>();
 		}
+		public override int GrowthFXGore() => -1;
 		public override int SaplingGrowthType(ref int style)
 		{
 			style = 0;
