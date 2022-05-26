@@ -44,6 +44,12 @@ namespace CalValEX.Projectiles.Boi
             {
                 Projectile.active = false;
             }
+            for (int k = 0; k < Projectile.localAI[1]; k++)
+            {
+                Dust d = Dust.NewDustPerfect(new Vector2(Projectile.position.X + 1 + (k * 10), Projectile.position.Y - 20), 1);
+                d.noGravity = true;
+                d.velocity = new Vector2(0, 0);
+            }
         }
 
         /*public override void PostDraw(Color lightColor)

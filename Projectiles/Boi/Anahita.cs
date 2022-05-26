@@ -95,6 +95,7 @@ namespace CalValEX.Projectiles.Boi
                 Projectile.netUpdate = true;
                 Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.Item21, Projectile.position);
                 shotcooldown = 30;
+                //shotcooldown = 5;
             }
             var thisRect = Projectile.getRect();
 

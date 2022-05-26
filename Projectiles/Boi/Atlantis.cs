@@ -74,7 +74,7 @@ namespace CalValEX.Projectiles.Boi
                         Projectile.ai[0]++;
                     }
                 }
-                if (Projectile.ai[0] >= 60)
+                if (Projectile.ai[0] >= 65)
                 {
                     Terraria.Audio.SoundEngine.PlaySound(SoundID.Item71, Projectile.position);
                     Projectile.ai[0] = 0;

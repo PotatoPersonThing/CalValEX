@@ -50,6 +50,8 @@ namespace CalValEX.Projectiles.Boi
             Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
+            player.AddBuff(Terraria.ID.BuffID.Invisibility, 2);
+
             modPlayer.boiactive = true;
 
             //Assure that the screen is locked on the player
@@ -71,7 +73,7 @@ namespace CalValEX.Projectiles.Boi
                 {
                     //Spawn Anahita. ai[0] is her health + 1
                     Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 - 20, player.position.Y + player.height / 2 - 40,
-                        0f, 0f, ModContent.ProjectileType<Projectiles.Boi.Anahita>(), 0, 0f, player.whoAmI, 6);
+                        0f, 0f, ModContent.ProjectileType<Projectiles.Boi.Anahita>(), 0, 0f, player.whoAmI, 4);
                     //Spawn the enemies
                     Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 - 280, player.position.Y + player.height / 2 - 40,
                         0f, 0f, ModContent.ProjectileType<Projectiles.Boi.Brimhita>(), 0, 0f, player.whoAmI, 0, 0);
@@ -80,6 +82,9 @@ namespace CalValEX.Projectiles.Boi
 
                     Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2, player.position.Y + player.height / 2 - 80,
                         0f, 0f, ModContent.ProjectileType<Projectiles.Boi.Brimhita>(), 0, 0f, player.whoAmI, 2, 2);
+
+                    Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2, player.position.Y + player.height / 2 - 80,
+                        0f, 0f, ModContent.ProjectileType<Projectiles.Boi.Brimhita>(), 0, 0f, player.whoAmI, 3, 3);
 
                     Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 10, player.position.Y + player.height / 2 - 100,
                         0f, 0f, ModContent.ProjectileType<Projectiles.Boi.Atlantis>(), 0, 0f, player.whoAmI);
@@ -103,16 +108,17 @@ namespace CalValEX.Projectiles.Boi
                         for (int j = 0; j < Main.maxProjectiles; j++)
                         {
                             var proj2 = Main.projectile[j];
-                            if (proj2 != null && proj2.active && proj2.getRect().Intersects(proj.getRect()) && proj2.type == ModContent.ProjectileType<Anahita>() && roomcool <= 0 && roomclear)
+                            if (proj != null && proj.active && proj2 != null && proj2.active && proj2.getRect().Intersects(proj.getRect()) && proj2.type == ModContent.ProjectileType<Anahita>() && roomcool <= 0 && roomclear)
                             {
                                 //The UI's ai is set to whatever the room transition's ai[0] is. This ai state is what room the UI is in
-                                Projectile.localAI[1] = Projectile.localAI[0];
                                 Projectile.localAI[0] = (int)proj.ai[0];
                                 roomcool = 60;
                                 //Clear room transition and tears
                                 ClearStuff();
                                 //Spawn new gates
                                 SpawnStuff(proj2);
+                                //Teleport ana to a new room
+                                Teleport(proj2, proj);
                             }
                         }
                     }
@@ -139,6 +145,46 @@ namespace CalValEX.Projectiles.Boi
                 }
             }
         }
+
+        void Teleport(Projectile ana, Projectile gate)
+        {
+            Player player = Main.player[Projectile.owner];
+            /*switch (gate.ai[1])
+            {
+                //If top gate, go to bottom of room
+                case 0:
+                    ana.position = new Vector2(player.position.X + player.width / 2 - 10, player.position.Y + player.height / 2 + 120);
+                    break;
+                    //If right gate, go to left of the room
+                case 1:
+                    ana.position = new Vector2(player.position.X + player.width / 2 - 300, player.position.Y + player.width / 2);
+                    break;
+                    //If bottom gate, go to top of the room
+                case 2:
+                    ana.position = new Vector2(player.position.X + player.width / 2 - 10, player.position.Y + player.height / 2 - 215);
+                    break;
+                    //If left gate, go to right of the room
+                case 3:
+                    ana.position = new Vector2(player.position.X + player.width / 2 + 300, player.position.Y + player.width / 2);
+                    break;
+            }*/
+            if (player.controlUp && ana.position.Y - player.position.Y < 0)
+            {
+                ana.position = new Vector2(player.position.X + player.width / 2 - 10, player.position.Y + player.height / 2 + 120);
+            }
+            else if (player.controlDown && ana.position.Y - player.position.Y >= 0)
+            {
+                ana.position = new Vector2(player.position.X + player.width / 2 - 10, player.position.Y + player.height / 2 - 215);
+            }
+            else if (player.controlRight && ana.position.X - player.position.X >= 0)
+            {
+                ana.position = new Vector2(player.position.X + player.width / 2 - 300, player.position.Y + player.width / 2);
+            }
+            else if (player.controlLeft && ana.position.X - player.position.X < 0)
+            {
+                ana.position = new Vector2(player.position.X + player.width / 2 + 300, player.position.Y + player.width / 2);
+            }
+        }
         //Spawn gates based on the room
         void SpawnStuff(Projectile ana)
         {
@@ -147,26 +193,26 @@ namespace CalValEX.Projectiles.Boi
             if (Projectile.localAI[0] == 0)
             {
                 SpawnGates();
-                ana.position = new Vector2(player.position.X + player.width / 2 - 10, player.position.Y + player.height / 2 - 215);
             }
             //Spawn just one gate leading to the starting room on the bottom and one on the top
             if (Projectile.localAI[0] == 1)
             {
                 Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 10, player.position.Y + player.height / 2 + 260,
-                    0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 0);
+                    0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 0, 1);
                 Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 10, player.position.Y + player.height / 2 - 270,
-                    0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 5);
-                if (ana.position.Y > player.position.Y + player.height / 2)
-                    ana.position = new Vector2(player.position.X + player.width / 2 - 10, player.position.Y + player.height / 2 - 215);
-                else
-                    ana.position = new Vector2(player.position.X + player.width / 2 - 10, player.position.Y + player.height / 2 + 100);
+                    0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 5, 0);
+            }
+            //Spawn a gate going to the main room
+            if (Projectile.localAI[0] == 2)
+            {
+                Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 435, player.position.Y + player.height / 2 - 20,
+                0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 0, 0);
             }
             //Spawn a gate going to the mono enemy room
             if (Projectile.localAI[0] == 5)
             {
                 Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 10, player.position.Y + player.height / 2 + 260,
-                    0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 1);
-                ana.position = new Vector2(player.position.X + player.width / 2 - 10, player.position.Y + player.height / 2 + 100);
+                    0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 1, 1);
             }
         }
 
@@ -177,13 +223,13 @@ namespace CalValEX.Projectiles.Boi
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             //Bottom
             /*Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 10, player.position.Y + player.height / 2 + 260,
-                0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 3);
+                0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 3);*/
             //Left
-            Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 - 430, player.position.Y + player.height / 2 - 20,
-                0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 2);*/
+            Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 - 420, player.position.Y + player.height / 2 - 20,
+                0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 2, 3);
             //Top
             Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 10, player.position.Y + player.height / 2 - 270,
-                0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 1);
+                0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 1, 0);
             //Right
             /*Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 440, player.position.Y + player.height / 2 - 20,
                 0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 4);*/
@@ -215,7 +261,7 @@ namespace CalValEX.Projectiles.Boi
                 Vector2 position2 = Projectile.Center - Main.screenPosition;
                 position2.X += DrawOffsetX;
                 position2.Y += DrawOriginOffsetY;
-                Main.EntitySpriteDraw(texture2, position2, rectangle2, Color.White, Projectile.rotation, Projectile.Size / 2f, 1.1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
+                Main.EntitySpriteDraw(texture2, position2, rectangle2, Color.White, Projectile.rotation, Projectile.Size / 2f, 1.205f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
 
                 //Room
                 Texture2D texture = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Room").Value;
@@ -234,8 +280,8 @@ namespace CalValEX.Projectiles.Boi
                         Texture2D mapicon = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Heart").Value;
                         Rectangle rectangle3 = new Rectangle(0, mapicon.Height / Main.projFrames[Projectile.type] * Projectile.frame, mapicon.Width, mapicon.Height / Main.projFrames[Projectile.type]);
                         Vector2 position3 = Projectile.Center - Main.screenPosition;
-                        position3.X = position3.X + DrawOffsetX + 50;
-                        position3.Y = position3.Y + DrawOriginOffsetY + 40;
+                        position3.X = position3.X + DrawOffsetX + 20;
+                        position3.Y = position3.Y + DrawOriginOffsetY - 35;
                         for (int cont = 0; cont < proj.ai[0] - 1; cont++)
                         {
                             Main.EntitySpriteDraw(mapicon, new Vector2(position3.X + mapicon.Width * cont, position3.Y), rectangle3, Color.White, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
@@ -247,8 +293,8 @@ namespace CalValEX.Projectiles.Boi
                     Texture2D mapicon = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongBall").Value;
                     Rectangle rectangle3 = new Rectangle(0, mapicon.Height / Main.projFrames[Projectile.type] * Projectile.frame, mapicon.Width, mapicon.Height / Main.projFrames[Projectile.type]);
                     Vector2 position3 = Projectile.Center - Main.screenPosition;
-                    position3.X = position3.X + DrawOffsetX - 140;
-                    position3.Y = position3.Y + DrawOriginOffsetY - 20;
+                    position3.X = position3.X + DrawOffsetX + 460;
+                    position3.Y = position3.Y + DrawOriginOffsetY - 150;
                     for (int cont = 0; cont < 6; cont++)
                     {
                         Color cooo = cont == Projectile.localAI[0] ? Color.DarkCyan : Color.White;

@@ -57,11 +57,10 @@ namespace CalValEX.Projectiles.Boi
                     proj.active = false;
                     ow = 10;
                 }
-                if (proj != null && proj.active && proj.getRect().Intersects(thisRect) && proj.type == ModContent.ProjectileType<Atlantis>() && Projectile.alpha <= 0)
+                if (proj != null && proj.active && proj.getRect().Intersects(thisRect) && proj.type == ModContent.ProjectileType<Atlantis>() && Projectile.alpha <= 0 && ow <= 0)
                 {
                     Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.NPCHit1, Projectile.Center);
                     health--;
-                    proj.active = false;
                     ow = 10;
                 }
             }
@@ -131,7 +130,7 @@ namespace CalValEX.Projectiles.Boi
                             }
                             break;
                         case 2:
-                            if (Projectile.ai[1] == 2)
+                            if (Projectile.ai[1] == 3)
                             {
                                 Projectile.alpha = 0;
                             }
@@ -183,9 +182,16 @@ namespace CalValEX.Projectiles.Boi
                     Projectile.position = new Vector2(player.position.X + player.width / 2 + 240, player.position.Y + player.height / 2 - 40);
                 }
             }
-            else
+            if (ai != 1)
             {
                 if (Projectile.ai[1] == 2)
+                {
+                    Projectile.position = new Vector2(player.position.X + player.width / 2, player.position.Y + player.height / 2 - 80);
+                }
+            }
+            if (ai != 2)
+            {
+                if (Projectile.ai[1] == 3)
                 {
                     Projectile.position = new Vector2(player.position.X + player.width / 2, player.position.Y + player.height / 2 - 80);
                 }
