@@ -41,7 +41,7 @@ namespace CalValEX.Projectiles.Boi
             {
                 Projectile.active = false;
             }
-            if (Projectile.position.Y < player.Center.Y - 238)
+            if (Projectile.position.Y < player.Center.Y - 238 && Projectile.velocity.Y <= 0)
             {
                 Projectile.active = false;
             }

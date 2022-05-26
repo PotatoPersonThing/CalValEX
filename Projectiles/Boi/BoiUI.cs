@@ -27,9 +27,12 @@ namespace CalValEX.Projectiles.Boi
         public bool setfield = false;
         public int roomcool = 0;
         public int localboistage = 0;
-        bool roomclear = false;
         int[] rooms = new int[10];
         List<int> enemies = new List<int>() { ModContent.ProjectileType<Brimhita>() };
+        Vector2 topdoor = new Vector2(10, -270);
+        Vector2 bottomdoor = new Vector2(10, 260);
+        Vector2 leftdoor = new Vector2(-420, -20);
+        Vector2 rightdoor = new Vector2(1440, -20);
         public override string Texture => "CalValEX/ExtraTextures/Pong/PongBG";
 
         public override void SetStaticDefaults()
@@ -98,7 +101,7 @@ namespace CalValEX.Projectiles.Boi
                         for (int j = 0; j < Main.maxProjectiles; j++)
                         {
                             var proj2 = Main.projectile[j];
-                            if (proj != null && proj.active && proj2 != null && proj2.active && proj2.getRect().Intersects(proj.getRect()) && proj2.type == ModContent.ProjectileType<Anahita>() && roomcool <= 0 && roomclear)
+                            if (proj != null && proj.active && proj2 != null && proj2.active && proj2.getRect().Intersects(proj.getRect()) && proj2.type == ModContent.ProjectileType<Anahita>() && roomcool <= 0 && rooms[(int)Projectile.localAI[0]] == 1)
                             {
                                 //The UI's ai is set to whatever the room transition's ai[0] is. This ai state is what room the UI is in
                                 Projectile.localAI[0] = (int)proj.ai[0];
@@ -126,12 +129,10 @@ namespace CalValEX.Projectiles.Boi
                     }
                     if (!bossIsAlive)
                     {
-                        roomclear = true;
                         rooms[(int)Projectile.localAI[0]] = 1;
                     }
                     else
                     {
-                        roomclear = false;
                         rooms[(int)Projectile.localAI[0]] = 0;
                     }
                 }
@@ -141,46 +142,28 @@ namespace CalValEX.Projectiles.Boi
         void Teleport(Projectile ana, Projectile gate)
         {
             Player player = Main.player[Projectile.owner];
-            /*switch (gate.ai[1])
-            {
-                //If top gate, go to bottom of room
-                case 0:
-                    ana.position = new Vector2(player.position.X + player.width / 2 - 10, player.position.Y + player.height / 2 + 120);
-                    break;
-                    //If right gate, go to left of the room
-                case 1:
-                    ana.position = new Vector2(player.position.X + player.width / 2 - 300, player.position.Y + player.width / 2);
-                    break;
-                    //If bottom gate, go to top of the room
-                case 2:
-                    ana.position = new Vector2(player.position.X + player.width / 2 - 10, player.position.Y + player.height / 2 - 215);
-                    break;
-                    //If left gate, go to right of the room
-                case 3:
-                    ana.position = new Vector2(player.position.X + player.width / 2 + 300, player.position.Y + player.width / 2);
-                    break;
-            }*/
+            Vector2 playp = new Vector2(player.position.X + player.width / 2, player.position.Y + player.height / 2);
             if (player.controlUp && ana.position.Y - player.position.Y < 0)
             {
-                ana.position = new Vector2(player.position.X + player.width / 2 - 10, player.position.Y + player.height / 2 + 120);
+                ana.position = new Vector2(playp.X - 10, playp.Y + 140);
             }
             else if (player.controlDown && ana.position.Y - player.position.Y >= 0)
             {
-                ana.position = new Vector2(player.position.X + player.width / 2 - 10, player.position.Y + player.height / 2 - 215);
+                ana.position = new Vector2(playp.X - 10, playp.Y - 215);
             }
             else if (player.controlRight && ana.position.X - player.position.X >= 0)
             {
-                ana.position = new Vector2(player.position.X + player.width / 2 - 300, player.position.Y + player.width / 2);
+                ana.position = new Vector2(playp.X - 300, playp.Y);
             }
             else if (player.controlLeft && ana.position.X - player.position.X < 0)
             {
-                ana.position = new Vector2(player.position.X + player.width / 2 + 300, player.position.Y + player.width / 2);
+                ana.position = new Vector2(playp.X + 300, playp.Y);
             }
         }
         //Spawn gates based on the room
         void SpawnStuff()
         {
-            Player player = Main.player[Projectile.owner];
+            //Bool for if the current room is clear or not
             bool cler = rooms[(int)Projectile.localAI[0]] == 0;
             
             //Spawn gates on all four sides in the starting room
@@ -199,8 +182,8 @@ namespace CalValEX.Projectiles.Boi
             //Spawn just one gate leading to the starting room on the bottom and one on the top
             if (Projectile.localAI[0] == 1)
             {
-                SpawnProjectile(new Vector2(10, 260), ModContent.ProjectileType<RoomTransition>(), 0, 1);
-                SpawnProjectile(new Vector2(10, -270), ModContent.ProjectileType<RoomTransition>(), 5, 0);
+                SpawnProjectile(bottomdoor, ModContent.ProjectileType<RoomTransition>(), 0, 1);
+                SpawnProjectile(topdoor, ModContent.ProjectileType<RoomTransition>(), 5, 0);
                 if (cler)
                 {
                     SpawnProjectile(new Vector2(0, -80), ModContent.ProjectileType<Brimhita>(), 2, 2);
@@ -210,7 +193,7 @@ namespace CalValEX.Projectiles.Boi
             //Spawn a gate going to the main room
             if (Projectile.localAI[0] == 2)
             {
-                SpawnProjectile(new Vector2(435, -20), ModContent.ProjectileType<RoomTransition>(), 0, 0);
+                SpawnProjectile(rightdoor, ModContent.ProjectileType<RoomTransition>(), 0, 0);
                 if (cler)
                 {
                     SpawnProjectile(new Vector2(0, -80), ModContent.ProjectileType<Brimhita>(), 3, 3);
@@ -220,7 +203,7 @@ namespace CalValEX.Projectiles.Boi
             //Spawn a gate going to the mono enemy room
             if (Projectile.localAI[0] == 5)
             {
-                SpawnProjectile(new Vector2(10, 260), ModContent.ProjectileType<RoomTransition>(), 1, 1);
+                SpawnProjectile(bottomdoor, ModContent.ProjectileType<RoomTransition>(), 1, 2);
                 if (!CalValEX.DetectProjectile(ModContent.ProjectileType<Atlantis>()))
                 SpawnProjectile(new Vector2(10, -100), ModContent.ProjectileType<Atlantis>());
             }
@@ -232,8 +215,8 @@ namespace CalValEX.Projectiles.Boi
             //Bottom
             /*Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 10, player.position.Y + player.height / 2 + 260,
                 0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 3);*/
-            SpawnProjectile(new Vector2(-420, -20), ModContent.ProjectileType<RoomTransition>(), 2, 3);
-            SpawnProjectile(new Vector2(10, -270), ModContent.ProjectileType<RoomTransition>(), 1, 0);
+            SpawnProjectile(leftdoor, ModContent.ProjectileType<RoomTransition>(), 2, 3);
+            SpawnProjectile(topdoor, ModContent.ProjectileType<RoomTransition>(), 1, 0);
             //Right
             /*Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 440, player.position.Y + player.height / 2 - 20,
                 0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 4);*/
@@ -323,7 +306,7 @@ namespace CalValEX.Projectiles.Boi
                 {
                     var proj = Main.projectile[i];
 
-                    if (proj != null && proj.active && proj.type == ModContent.ProjectileType<RoomTransition>() && roomclear)
+                    if (proj != null && proj.active && proj.type == ModContent.ProjectileType<RoomTransition>() && rooms[(int)Projectile.localAI[0]] == 1)
                     {
                         Texture2D texture23 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/RoomTransition").Value;
                         Rectangle rectangle23 = new Rectangle(0, texture23.Height / Main.projFrames[proj.type] * proj.frame, texture23.Width, texture23.Height / Main.projFrames[proj.type]);
