@@ -27,19 +27,19 @@ namespace CalValEX.Projectiles.Boi
             Projectile.ignoreWater = true;
             Projectile.tileCollide = false;
             Projectile.timeLeft = 18000;
-            Projectile.alpha = 1;
+            Projectile.alpha = 0;
         }
 
         public override void AI()
         {
-            if (Projectile.alpha <= 0)
+            //if (Projectile.alpha <= 0)
             {
                 frozen--;
             }
             Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
-            if (!modPlayer.boiactive)
+            if (!CalValEX.DetectProjectile(ModContent.ProjectileType<BoiUI>()))
             {
                 Projectile.active = false;
             }
@@ -86,23 +86,11 @@ namespace CalValEX.Projectiles.Boi
             }
             if (health <= 0)
             {
-                switch (Projectile.ai[1])
-                {
-                    case 0: 
-                        modPlayer.boienemy1 = true;
-                        break;
-                    case 1:
-                        modPlayer.boienemy2 = true;
-                        break;
-                    case 2:
-                        modPlayer.boienemy3 = true;
-                        break;
-                }
                 Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.NPCDeath1, Projectile.Center);
                 Projectile.active = false;
             }
             ow--;
-            for (int i = 0; i < Main.maxProjectiles; i++)
+            /*for (int i = 0; i < Main.maxProjectiles; i++)
             {
                 var proj = Main.projectile[i];
                 if (proj.type == ModContent.ProjectileType<BoiUI>())
@@ -161,12 +149,12 @@ namespace CalValEX.Projectiles.Boi
                             break;
                     }
                 }
-            }
+            }*/
         }
 
         void freze(int ai)
         {
-            Player player = Main.player[Projectile.owner];
+            /*Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             Projectile.alpha = 255;
             Projectile.velocity = new Vector2(0, 0);
@@ -195,7 +183,7 @@ namespace CalValEX.Projectiles.Boi
                 {
                     Projectile.position = new Vector2(player.position.X + player.width / 2, player.position.Y + player.height / 2 - 80);
                 }
-            }
+            }*/
         }
 
         public override bool PreDraw(ref Color lightColor)
@@ -207,24 +195,21 @@ namespace CalValEX.Projectiles.Boi
         {
             Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-            if (modPlayer.boiactive && Projectile.alpha <= 0)
+            Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Brimhita").Value;
+            Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2.Width, texture2.Height / Main.projFrames[Projectile.type]);
+            Vector2 position2 = Projectile.Center - Main.screenPosition;
+            position2.X -= 15;
+            position2.Y -= 60;
+            Color clo = Color.White;
+            if (ow > 0)
             {
-                Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Brimhita").Value;
-                Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2.Width, texture2.Height / Main.projFrames[Projectile.type]);
-                Vector2 position2 = Projectile.Center - Main.screenPosition;
-                position2.X -= 15;
-                position2.Y -= 60;
-                Color clo = Color.White;
-                if (ow > 0)
-                {
-                    clo = Color.Orange;
-                }
-                else if (Projectile.alpha > 0)
-                {
-                    clo = Color.DarkBlue;
-                }
-                Main.EntitySpriteDraw(texture2, position2, rectangle2, clo, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
+                clo = Color.Orange;
             }
+            else if (Projectile.alpha > 0)
+            {
+                clo = Color.DarkBlue;
+            }
+            Main.EntitySpriteDraw(texture2, position2, rectangle2, clo, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
         }
     }
 }

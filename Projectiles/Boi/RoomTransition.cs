@@ -28,27 +28,9 @@ namespace CalValEX.Projectiles.Boi
 
         public override void AI()
         {
-            Player player = Main.player[Projectile.owner];
-            CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-
-            bool bossIsAlive = false;
-            for (int i = 0; i < Main.maxProjectiles; i++)
-            {
-                Projectile proj = Main.projectile[i];
-                if (proj != null && proj.active && proj.type == ModContent.ProjectileType<BoiUI>() && proj.alpha <= 0)
-                {
-                    bossIsAlive = true;
-                }
-            }
-            if (!bossIsAlive)
+            if (!CalValEX.DetectProjectile(ModContent.ProjectileType<BoiUI>()))
             {
                 Projectile.active = false;
-            }
-            for (int k = 0; k < Projectile.localAI[1]; k++)
-            {
-                Dust d = Dust.NewDustPerfect(new Vector2(Projectile.position.X + 1 + (k * 10), Projectile.position.Y - 20), 1);
-                d.noGravity = true;
-                d.velocity = new Vector2(0, 0);
             }
         }
 
@@ -58,7 +40,7 @@ namespace CalValEX.Projectiles.Boi
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (modPlayer.boiactive)
             {
-                Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/RoomTransition").Value;
+                Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Door").Value;
                 Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2.Width, texture2.Height / Main.projFrames[Projectile.type]);
                 Vector2 position2 = Projectile.Center - Main.screenPosition;
                 position2.X += DrawOffsetX;

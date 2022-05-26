@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
+using System.Collections.Generic;
 
 namespace CalValEX.Projectiles.Boi
 {
@@ -27,6 +28,8 @@ namespace CalValEX.Projectiles.Boi
         public int roomcool = 0;
         public int localboistage = 0;
         bool roomclear = false;
+        int[] rooms = new int[10];
+        List<int> enemies = new List<int>() { ModContent.ProjectileType<Brimhita>() };
         public override string Texture => "CalValEX/ExtraTextures/Pong/PongBG";
 
         public override void SetStaticDefaults()
@@ -72,28 +75,15 @@ namespace CalValEX.Projectiles.Boi
                 if (!spawnana)
                 {
                     //Spawn Anahita. ai[0] is her health + 1
-                    Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 - 20, player.position.Y + player.height / 2 - 40,
-                        0f, 0f, ModContent.ProjectileType<Projectiles.Boi.Anahita>(), 0, 0f, player.whoAmI, 4);
-                    //Spawn the enemies
-                    Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 - 280, player.position.Y + player.height / 2 - 40,
-                        0f, 0f, ModContent.ProjectileType<Projectiles.Boi.Brimhita>(), 0, 0f, player.whoAmI, 0, 0);
-                    Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 240, player.position.Y + player.height / 2 - 40,
-                        0f, 0f, ModContent.ProjectileType<Projectiles.Boi.Brimhita>(), 0, 0f, player.whoAmI, 1, 1);
-
-                    Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2, player.position.Y + player.height / 2 - 80,
-                        0f, 0f, ModContent.ProjectileType<Projectiles.Boi.Brimhita>(), 0, 0f, player.whoAmI, 2, 2);
-
-                    Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2, player.position.Y + player.height / 2 - 80,
-                        0f, 0f, ModContent.ProjectileType<Projectiles.Boi.Brimhita>(), 0, 0f, player.whoAmI, 3, 3);
-
-                    Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 10, player.position.Y + player.height / 2 - 100,
-                        0f, 0f, ModContent.ProjectileType<Projectiles.Boi.Atlantis>(), 0, 0f, player.whoAmI);
+                    SpawnProjectile(new Vector2(-20, -40), ModContent.ProjectileType<Anahita>(), 4);
                     spawnana = true;
                 }
                 //Spawns the room gates
                 if (!spawnstuff)
                 {
                     SpawnGates();
+                    SpawnProjectile(new Vector2(-280, -40), ModContent.ProjectileType<Brimhita>(), 0, 0);
+                    SpawnProjectile(new Vector2(240, -40), ModContent.ProjectileType<Brimhita>(), 1, 1);
                     spawnstuff = true;
                 }
                 //A cooldown for entering new rooms to prevent infinite room teleporation
@@ -112,11 +102,11 @@ namespace CalValEX.Projectiles.Boi
                             {
                                 //The UI's ai is set to whatever the room transition's ai[0] is. This ai state is what room the UI is in
                                 Projectile.localAI[0] = (int)proj.ai[0];
-                                roomcool = 60;
+                                roomcool = 40;
                                 //Clear room transition and tears
                                 ClearStuff();
                                 //Spawn new gates
-                                SpawnStuff(proj2);
+                                SpawnStuff();
                                 //Teleport ana to a new room
                                 Teleport(proj2, proj);
                             }
@@ -129,7 +119,7 @@ namespace CalValEX.Projectiles.Boi
                     for (int i = 0; i < Main.maxNPCs; i++)
                     {
                         Projectile proj = Main.projectile[i];
-                        if (proj != null && proj.active && proj.type == ModContent.ProjectileType<Brimhita>() && proj.alpha <= 0)
+                        if (proj != null && proj.active && enemies.Contains(proj.type) && proj.alpha <= 0)
                         {
                             bossIsAlive = true;
                         }
@@ -137,10 +127,12 @@ namespace CalValEX.Projectiles.Boi
                     if (!bossIsAlive)
                     {
                         roomclear = true;
+                        rooms[(int)Projectile.localAI[0]] = 1;
                     }
                     else
                     {
                         roomclear = false;
+                        rooms[(int)Projectile.localAI[0]] = 0;
                     }
                 }
             }
@@ -186,67 +178,92 @@ namespace CalValEX.Projectiles.Boi
             }
         }
         //Spawn gates based on the room
-        void SpawnStuff(Projectile ana)
+        void SpawnStuff()
         {
             Player player = Main.player[Projectile.owner];
+            bool cler = rooms[(int)Projectile.localAI[0]] == 0;
+            
             //Spawn gates on all four sides in the starting room
+            //This is THE room
             if (Projectile.localAI[0] == 0)
             {
                 SpawnGates();
+                //Spawn the enemies
+                if (cler)
+                {
+                    SpawnProjectile(new Vector2(-280, -40), ModContent.ProjectileType<Brimhita>(), 0, 0);
+                    SpawnProjectile(new Vector2(240, -40), ModContent.ProjectileType<Brimhita>(), 1, 1);
+                }
             }
+            //This is the top room
             //Spawn just one gate leading to the starting room on the bottom and one on the top
             if (Projectile.localAI[0] == 1)
             {
-                Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 10, player.position.Y + player.height / 2 + 260,
-                    0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 0, 1);
-                Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 10, player.position.Y + player.height / 2 - 270,
-                    0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 5, 0);
+                SpawnProjectile(new Vector2(10, 260), ModContent.ProjectileType<RoomTransition>(), 0, 1);
+                SpawnProjectile(new Vector2(10, -270), ModContent.ProjectileType<RoomTransition>(), 5, 0);
+                if (cler)
+                {
+                    SpawnProjectile(new Vector2(0, -80), ModContent.ProjectileType<Brimhita>(), 2, 2);
+                }
             }
+            //This is the left room
             //Spawn a gate going to the main room
             if (Projectile.localAI[0] == 2)
             {
-                Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 435, player.position.Y + player.height / 2 - 20,
-                0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 0, 0);
+                SpawnProjectile(new Vector2(435, -20), ModContent.ProjectileType<RoomTransition>(), 0, 0);
+                if (cler)
+                {
+                    SpawnProjectile(new Vector2(0, -80), ModContent.ProjectileType<Brimhita>(), 3, 3);
+                }
             }
+            //This is the item room
             //Spawn a gate going to the mono enemy room
             if (Projectile.localAI[0] == 5)
             {
-                Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 10, player.position.Y + player.height / 2 + 260,
-                    0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 1, 1);
+                SpawnProjectile(new Vector2(10, 260), ModContent.ProjectileType<RoomTransition>(), 1, 1);
+                if (!CalValEX.DetectProjectile(ModContent.ProjectileType<Atlantis>()))
+                SpawnProjectile(new Vector2(10, -100), ModContent.ProjectileType<Atlantis>());
             }
         }
 
-        //Spawns gates on all four sides that lead to the main four rooms
+        //Spawns gates on all four sides that lead to the main four rooms. This one has its own function because it's called multiple times.
         void SpawnGates()
         {
-            Player player = Main.player[Projectile.owner];
-            CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             //Bottom
             /*Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 10, player.position.Y + player.height / 2 + 260,
                 0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 3);*/
-            //Left
-            Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 - 420, player.position.Y + player.height / 2 - 20,
-                0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 2, 3);
-            //Top
-            Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 10, player.position.Y + player.height / 2 - 270,
-                0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 1, 0);
+            SpawnProjectile(new Vector2(-420, -20), ModContent.ProjectileType<RoomTransition>(), 2, 3);
+            SpawnProjectile(new Vector2(10, -270), ModContent.ProjectileType<RoomTransition>(), 1, 0);
             //Right
             /*Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 440, player.position.Y + player.height / 2 - 20,
                 0f, 0f, ModContent.ProjectileType<Projectiles.Boi.RoomTransition>(), 0, 0f, player.whoAmI, 4);*/
         }
 
-        //KILL all tears and room transitions
+        //KILL all tears, items, enemies, and room transitions upon entering a new room
         void ClearStuff()
         {
             for (int i = 0; i < Main.maxProjectiles; i++)
             {
                 var proj = Main.projectile[i];
 
-                if (proj.type == ModContent.ProjectileType<RoomTransition>() || proj.type == ModContent.ProjectileType<AnahitaTear>())
+                if (proj.type == ModContent.ProjectileType<RoomTransition>() || 
+                    proj.type == ModContent.ProjectileType<AnahitaTear>() || 
+                    (proj.type == ModContent.ProjectileType<Atlantis>() && proj.ai[1] != 2)) //ai 2 means it's been collected!
+                {
+                    proj.active = false;
+                }
+                if (enemies.Contains(proj.type))
                 {
                     proj.active = false;
                 }
             }
+        }
+
+        void SpawnProjectile(Vector2 offset, int type, int ai0 = 0, int ai1 = 0)
+        {
+            Player player = Main.player[Projectile.owner];
+            Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + offset.X, player.position.Y + player.height / 2 + offset.Y,
+                0f, 0f, type, 0, 0f, player.whoAmI, ai0, ai1);
         }
 
         public override void PostDraw(Color lightColor)
@@ -326,6 +343,20 @@ namespace CalValEX.Projectiles.Boi
                         Rectangle rectangle23 = new Rectangle(0, texture23.Height / Main.projFrames[proj.type] * proj.frame, texture23.Width, texture23.Height / Main.projFrames[proj.type]);
                         Vector2 position23 = proj.Center - Main.screenPosition;
                         Main.EntitySpriteDraw(texture23, position23, rectangle23, Color.White, proj.rotation, proj.Size / 2f, 1f, (proj.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
+
+                    }
+                }
+                //Atlantis draw fix
+                for (int i = 0; i < Main.maxProjectiles; i++)
+                {
+                    var proj = Main.projectile[i];
+
+                    if (proj != null && proj.active && proj.type == ModContent.ProjectileType<Atlantis>())
+                    {
+                        Texture2D texture23 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Atlantis").Value;
+                        Rectangle rectangle23 = new Rectangle(0, texture23.Height / Main.projFrames[proj.type] * proj.frame, texture23.Width, texture23.Height / Main.projFrames[proj.type]);
+                        Vector2 position23 = proj.Center - Main.screenPosition;
+                        Main.EntitySpriteDraw(texture23, position23, rectangle23, Color.White, proj.rotation, proj.Size / 2f, 1f, SpriteEffects.None, 0);
 
                     }
                 }

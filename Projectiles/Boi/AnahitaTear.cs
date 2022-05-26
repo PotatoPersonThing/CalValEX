@@ -30,36 +30,29 @@ namespace CalValEX.Projectiles.Boi
 
         public override void AI()
         {
-            int bop=0;
-            {
-                bop++;
-                Player player = Main.player[Projectile.owner];
-                CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
+            Player player = Main.player[Projectile.owner];
+            CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
-                if (Projectile.position.X < player.Center.X - 382)
-                {
-                    Projectile.active = false;
-                }
-                else if (Projectile.position.X > player.Center.X + 372)
-                {
-                    Projectile.active = false;
-                }
-                if (Projectile.position.Y < player.Center.Y - 238)
-                {
-                    Projectile.active = false;
-                }
-                else if (Projectile.position.Y > player.Center.Y + 193)
-                {
-                    Projectile.active = false;
-                }
-                if (!modPlayer.boiactive)
-                {
-                    Projectile.timeLeft = 2;
-                }
-                else
-                {
-                    Projectile.timeLeft = 120 - bop;
-                }
+            if (Projectile.position.X < player.Center.X - 382)
+            {
+                Projectile.active = false;
+            }
+            else if (Projectile.position.X > player.Center.X + 372)
+            {
+                Projectile.active = false;
+            }
+            if (Projectile.position.Y < player.Center.Y - 238)
+            {
+                Projectile.active = false;
+            }
+            else if (Projectile.position.Y > player.Center.Y + 193)
+            {
+                Projectile.active = false;
+            }
+
+            if (!CalValEX.DetectProjectile(ModContent.ProjectileType<BoiUI>()))
+            {
+                Projectile.active = false;
             }
         }        
 

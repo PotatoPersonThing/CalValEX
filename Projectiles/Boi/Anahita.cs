@@ -77,10 +77,11 @@ namespace CalValEX.Projectiles.Boi
                 Projectile.velocity.Y = 0;
             }
 
-            if (!modPlayer.boiactive)
+            if (!CalValEX.DetectProjectile(ModContent.ProjectileType<BoiUI>()))
             {
                 Projectile.active = false;
             }
+
             Vector2 cursor = Main.MouseWorld;
             if (player.controlUseItem && shotcooldown <= 0 && Main.myPlayer == Projectile.owner)
             {

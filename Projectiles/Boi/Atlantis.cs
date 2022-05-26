@@ -27,7 +27,7 @@ namespace CalValEX.Projectiles.Boi
             Projectile.ignoreWater = true;
             Projectile.tileCollide = false;
             Projectile.timeLeft = 18000;
-            Projectile.alpha = 255;
+            //Projectile.alpha = 255;
         }
 
         public override void AI()
@@ -44,13 +44,13 @@ namespace CalValEX.Projectiles.Boi
                     {
                         if (proj.localAI[0] == 5)
                         {
-                            Projectile.alpha = 0;
+                            //Projectile.alpha = 0;
                             Projectile.width = 50;
                             Projectile.height = 100;
                         }
                         else
                         {
-                            Projectile.alpha = 255;
+                            //Projectile.alpha = 255;
                             Projectile.width = 20;
                             Projectile.height = 20;
                         }
@@ -64,6 +64,7 @@ namespace CalValEX.Projectiles.Boi
                         Projectile.width = 40;
                         Projectile.height = 40;
                         collec = true;
+                        Projectile.ai[1] = 2;
                         Vector2 vector = proj.Center - Projectile.Center;
                         Projectile.rotation = vector.ToRotation() - MathHelper.PiOver2;
 
@@ -79,16 +80,8 @@ namespace CalValEX.Projectiles.Boi
                     Terraria.Audio.SoundEngine.PlaySound(SoundID.Item71, Projectile.position);
                     Projectile.ai[0] = 0;
                 }
-                bool bossIsAlive = false;
-                for (int i = 0; i < Main.maxProjectiles; i++)
-                {
-                    Projectile proj = Main.projectile[i];
-                    if (proj != null && proj.active && proj.type == ModContent.ProjectileType<BoiUI>() && proj.alpha <= 0)
-                    {
-                        bossIsAlive = true;
-                    }
-                }
-                if (!bossIsAlive)
+                
+                if (!CalValEX.DetectProjectile(ModContent.ProjectileType<BoiUI>()))
                 {
                     Projectile.active = false;
                 }
@@ -101,15 +94,13 @@ namespace CalValEX.Projectiles.Boi
 
         public override void PostDraw(Color lightColor)
         {
-            Player player = Main.player[Projectile.owner];
+           /* Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-            if (modPlayer.boiactive && Projectile.alpha <= 0)
-            {
                 Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Atlantis").Value;
                 Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2.Width, texture2.Height / Main.projFrames[Projectile.type]);
                 Vector2 position2 = Projectile.Center - Main.screenPosition;
                 Main.EntitySpriteDraw(texture2, position2, rectangle2, Color.White, Projectile.rotation, Projectile.Size / 2f, 1f, SpriteEffects.None, 0);
-            }
+          */  
         }
     }
 }

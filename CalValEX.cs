@@ -427,6 +427,20 @@ namespace CalValEX
             }
         }
 
+        public static bool DetectProjectile(int proj)
+        {
+            bool bossIsAlive = false;
+            for (int i = 0; i < Main.maxProjectiles; i++)
+            {
+                Projectile pro = Main.projectile[i];
+                if (pro.type == proj && pro.active && pro != null)
+                {
+                    bossIsAlive = true;
+                }
+            }
+            return bossIsAlive;
+        }
+
         public override void HandlePacket(BinaryReader reader, int whoAmI)
         {
             MessageType msgType = (MessageType)reader.ReadByte();
