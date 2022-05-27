@@ -33,7 +33,7 @@ namespace CalValEX.Tiles.AstralBlocks
 			num = fail ? 1 : 3;
 		}
 
-		/*public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak) {
+		public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak) {
 			if (WorldGen.noTileActions)
 				return true;
 
@@ -41,10 +41,10 @@ namespace CalValEX.Tiles.AstralBlocks
 			Tile below = Main.tile[i, j + 1];
 			bool canFall = true;
 
-			if (below == null || below.active())
+			if (below == null || below.TileType != 0)
 				canFall = false;
 
-			if (above.active() && (TileID.Sets.BasicChest[above.type] || TileID.Sets.BasicChestFake[above.type] || above.type == TileID.PalmTree || TileLoader.IsDresser(above.type)))
+			if (above.TileType != 0 && (TileID.Sets.BasicChest[above.TileType] || TileID.Sets.BasicChestFake[above.TileType] || above.TileType == TileID.PalmTree))
 				canFall = false;
 
 			if (canFall) {
@@ -54,12 +54,12 @@ namespace CalValEX.Tiles.AstralBlocks
 
 				if (Main.netMode == NetmodeID.SinglePlayer) {
 					Main.tile[i, j].ClearTile();
-					int proj = Projectile.NewProjectile(positionX, positionY, 0f, 0.41f, projectileType, 10, 0f, Main.myPlayer);
+					int proj = Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), positionX, positionY, 0f, 0.41f, projectileType, 10, 0f, Main.myPlayer);
 					Main.projectile[proj].ai[0] = 1f;
 					WorldGen.SquareTileFrame(i, j);
 				}
 				else if (Main.netMode == NetmodeID.Server) {
-					Main.tile[i, j].active(false);
+					Main.tile[i, j].TileType = 0;
 					bool spawnProj = true;
 
 					for (int k = 0; k < 1000; k++) {
@@ -72,7 +72,7 @@ namespace CalValEX.Tiles.AstralBlocks
 					}
 
 					if (spawnProj) {
-						int proj = Projectile.NewProjectile(positionX, positionY, 0f, 2.5f, projectileType, 10, 0f, Main.myPlayer);
+						int proj = Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), positionX, positionY, 0f, 2.5f, projectileType, 10, 0f, Main.myPlayer);
 						Main.projectile[proj].velocity.Y = 0.5f;
 						Main.projectile[proj].position.Y += 2f;
 						Main.projectile[proj].netUpdate = true;
@@ -86,7 +86,7 @@ namespace CalValEX.Tiles.AstralBlocks
 			return true;
 		}
 
-        public override void ChangeWaterfallStyle(ref int style) {
+        /*public override void ChangeWaterfallStyle(ref int style) {
 			style = mod.GetWaterfallStyleSlot("AstralWaterfallStyle");
 		}*/
 	}
