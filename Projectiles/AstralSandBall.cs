@@ -81,7 +81,7 @@ namespace CalValEX.Projectiles
 				if (tile.IsHalfBlock && Projectile.velocity.Y > 0f && System.Math.Abs(Projectile.velocity.Y) > System.Math.Abs(Projectile.velocity.X))
 					tileY--;
 
-				if (tile.TileType != 0) {
+				if (tile.TileType == 0) {
 					bool onMinecartTrack = tileY < Main.maxTilesY - 2 && tileBelow != null && tileBelow.TileType != 0 && tileBelow.TileType == TileID.MinecartTrack;
 
 					if (!onMinecartTrack)

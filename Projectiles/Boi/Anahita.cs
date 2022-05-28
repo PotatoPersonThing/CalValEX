@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
+using System.Collections.Generic;
 
 namespace CalValEX.Projectiles.Boi
 {
@@ -10,6 +11,8 @@ namespace CalValEX.Projectiles.Boi
         public int iframes;
         public int shotcooldown;
         public bool checkpos;
+        List<int> enemies = new List<int>() { ModContent.ProjectileType<Brimhita>(), ModContent.ProjectileType<Spider>(), ModContent.ProjectileType<Mire>(), ModContent.ProjectileType<Terror>() };
+        List<int> hostproj = new List<int>() { ModContent.ProjectileType<AcidRound>() };
 
         Vector2 nipah;
         public override string Texture => "CalValEX/ExtraTextures/Boi/Anahita";
@@ -95,8 +98,8 @@ namespace CalValEX.Projectiles.Boi
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), position, direction * speed, type, damage, 0f, Main.myPlayer);
                 Projectile.netUpdate = true;
                 Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.Item21, Projectile.position);
-                //shotcooldown = 30;
-                shotcooldown = 5;
+                shotcooldown = 30;
+                //shotcooldown = 5;
             }
             var thisRect = Projectile.getRect();
 
@@ -104,12 +107,23 @@ namespace CalValEX.Projectiles.Boi
             {
                 var proj = Main.projectile[i];
 
-                if (proj != null && proj.active && proj.getRect().Intersects(thisRect) && proj.type == ModContent.ProjectileType<Brimhita>() && iframes <= 0 && proj.alpha <= 0)
+                if (proj != null && proj.active && proj.getRect().Intersects(thisRect) && enemies.Contains(proj.type) && iframes <= 0 && proj.alpha <= 0)
                 {
                     Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.FemaleHit, Projectile.Center);
                     modPlayer.boihealth--;
                     Projectile.ai[0]--;
                     iframes = 60;
+                }
+                if (proj != null && proj.active && proj.getRect().Intersects(thisRect) && hostproj.Contains(proj.type) && iframes <= 0)
+                {
+                    Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.FemaleHit, Projectile.Center);
+                    modPlayer.boihealth--;
+                    Projectile.ai[0]--;
+                    iframes = 60;
+                    if (hostproj.Contains(proj.type))
+                    {
+                        proj.penetrate--;
+                    }
                 }
             }
             for (int i = 0; i < Main.maxProjectiles; i++)
@@ -121,6 +135,17 @@ namespace CalValEX.Projectiles.Boi
                     Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.Item9, Projectile.Center);
                     Projectile.penetrate = 2;
                     modPlayer.boiatlantis = true;
+                }
+            }
+            for (int i = 0; i < Main.maxProjectiles; i++)
+            {
+                var proj = Main.projectile[i];
+
+                if (proj != null && proj.active && proj.getRect().Intersects(thisRect) && proj.type == ModContent.ProjectileType<ElderBerry>() && proj.alpha <= 0)
+                {
+                    Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.Item8, Projectile.Center);
+                    Projectile.ai[0]++;
+                    proj.active = false;
                 }
             }
             iframes--;
@@ -151,10 +176,12 @@ namespace CalValEX.Projectiles.Boi
             if (modPlayer.boiactive)
             {
                 Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Anahita").Value;
+                Texture2D texture3 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/AnahitaShadow").Value;
                 Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2.Width, texture2.Height / Main.projFrames[Projectile.type]);
                 Vector2 position2 = Projectile.Center - Main.screenPosition;
                 position2.X -= 15;
                 position2.Y -= 60;
+                Main.EntitySpriteDraw(texture3, position2, rectangle2, Color.White, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
                 Main.EntitySpriteDraw(texture2, position2, rectangle2, Color.White, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
             }
         }

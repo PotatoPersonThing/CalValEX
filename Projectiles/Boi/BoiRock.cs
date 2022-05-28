@@ -11,7 +11,7 @@ namespace CalValEX.Projectiles.Boi
     public class BoiRock : ModProjectile
     {
         public override string Texture => "CalValEX/ExtraTextures/Boi/Block";
-        List<int> push = new List<int>() { ModContent.ProjectileType<Brimhita>(), ModContent.ProjectileType<Anahita>() };
+        List<int> push = new List<int>() { ModContent.ProjectileType<Brimhita>(), ModContent.ProjectileType<Anahita>(), ModContent.ProjectileType<Spider>(), ModContent.ProjectileType<Terror>() };
 
         public override void SetStaticDefaults()
         {
