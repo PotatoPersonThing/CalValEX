@@ -41,15 +41,15 @@ namespace CalValEX.Projectiles.Boi
                     var proj = Main.projectile[i];
                     if (proj != null && proj.type == ModContent.ProjectileType<BoiUI>() && !collec)
                     {
-                        if (proj.localAI[0] == 5)
+                        if (proj.localAI[0] == 9)
                         {
-                            //Projectile.alpha = 0;
+                            Projectile.alpha = 0;
                             Projectile.width = 40;
                             Projectile.height = 40;
                         }
                         else
                         {
-                            //Projectile.alpha = 255;
+                            Projectile.alpha = 255;
                             Projectile.width = 20;
                             Projectile.height = 20;
                         }

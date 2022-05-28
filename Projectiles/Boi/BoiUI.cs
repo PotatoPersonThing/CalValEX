@@ -291,6 +291,7 @@ namespace CalValEX.Projectiles.Boi
             if (Projectile.localAI[0] == 8)
             {
                 SpawnProjectile(leftdoor, ModContent.ProjectileType<RoomTransition>(), 4, 3);
+                SpawnProjectile(rightdoor, ModContent.ProjectileType<RoomTransition>(), 9, 1);
                 if (cler)
                 {
                     SpawnProjectile(new Vector2(-80, -80), ModContent.ProjectileType<Brimhita>(), 0, 0);
@@ -315,7 +316,7 @@ namespace CalValEX.Projectiles.Boi
                 }
             }
             //Boss room
-            if (Projectile.localAI[0] == 8)
+            if (Projectile.localAI[0] == 9)
             {
                 SpawnProjectile(leftdoor, ModContent.ProjectileType<RoomTransition>(), 8, 3);
                 if (cler)
@@ -447,13 +448,13 @@ namespace CalValEX.Projectiles.Boi
                         Texture2D mapicon = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Pixel").Value;
                         Rectangle rectangle3 = new Rectangle(0, mapicon.Height / Main.projFrames[Projectile.type] * Projectile.frame, mapicon.Width, 20);
                         Vector2 position3 = Projectile.Center - Main.screenPosition;
-                        position3.X = position3.X + DrawOffsetX + 20;
-                        position3.Y = position3.Y + DrawOriginOffsetY + 135;
-                        for (int cont = 0; cont < 1200; cont++)
+                        position3.X = position3.X + DrawOffsetX + 142;
+                        position3.Y = position3.Y + DrawOriginOffsetY + 525;
+                        for (int cont = 0; cont < 600; cont++)
                         {
                             Main.EntitySpriteDraw(mapicon, new Vector2(position3.X + mapicon.Width * cont, position3.Y), rectangle3, Color.DarkGray, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
                         }
-                        for (int cont = 0; cont < 20*proj.ai[0]; cont++)
+                        for (int cont = 0; cont < 10*proj.ai[0]; cont++)
                         {
                             Main.EntitySpriteDraw(mapicon, new Vector2(position3.X + mapicon.Width * cont, position3.Y), rectangle3, Color.White, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
                         }
@@ -514,6 +515,8 @@ namespace CalValEX.Projectiles.Boi
                         }
                         if (proj.type == ModContent.ProjectileType<AnahitaTear>())
                             BasicProjectileDraw(ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongBall").Value, proj, Color.White);
+                        if (proj.type == ModContent.ProjectileType<ElderBerry>() && proj.alpha <= 0)
+                            BasicProjectileDraw(ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/ElderBerry").Value, proj, Color.White);
                         if (proj.type == ModContent.ProjectileType<AcidRound>())
                             BasicProjectileDraw(ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongBall").Value, proj, Color.Pink);
                         if (proj.type == ModContent.ProjectileType<BoiRock>())
@@ -541,6 +544,11 @@ namespace CalValEX.Projectiles.Boi
             if (proj.type == ModContent.ProjectileType<Mire>())
             {
                 pos.X -= 15;
+                pos.Y -= 15;
+            }
+            if (proj.type == ModContent.ProjectileType<Terror>())
+            {
+                pos.X -= 20;
                 pos.Y -= 15;
             }
             Main.EntitySpriteDraw(texture, pos, rectangle23, color, proj.rotation, proj.Size / 2f, size, fx, 0);

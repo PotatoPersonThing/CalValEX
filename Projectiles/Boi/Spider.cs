@@ -102,19 +102,19 @@ namespace CalValEX.Projectiles.Boi
                 aitimer = 0;
             }
             Projectile.velocity *= 0.9f;
-            if (Projectile.position.X <= player.Center.X - 382)
+            if (Projectile.position.X <= player.Center.X - 382 && Projectile.velocity.X < 0)
             {
                 Projectile.velocity.X = 0;
             }
-            else if (Projectile.position.X >= player.Center.X + 332)
+            else if (Projectile.position.X >= player.Center.X + 332 && Projectile.velocity.X > 0)
             {
                 Projectile.velocity.X = 0;
             }
-            if (Projectile.position.Y <= player.Center.Y - 238)
+            if (Projectile.position.Y <= player.Center.Y - 238 && Projectile.velocity.Y < 0)
             {
                 Projectile.velocity.Y = 0;
             }
-            else if (Projectile.position.Y >= player.Center.Y + 173)
+            else if (Projectile.position.Y >= player.Center.Y + 173 && Projectile.velocity.X < 0)
             {
                 Projectile.velocity.Y = 0;
             }

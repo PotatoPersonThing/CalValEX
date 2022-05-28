@@ -45,6 +45,23 @@ namespace CalValEX.Projectiles.Boi
             Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
+            if (Projectile.position.X <= player.Center.X - 382 && Projectile.velocity.X < 0)
+            {
+                Projectile.velocity.X = 0;
+            }
+            else if (Projectile.position.X >= player.Center.X + 332 && Projectile.velocity.X > 0)
+            {
+                Projectile.velocity.X = 0;
+            }
+            if (Projectile.position.Y <= player.Center.Y - 238 && Projectile.velocity.Y < 0)
+            {
+                Projectile.velocity.Y = 0;
+            }
+            else if (Projectile.position.Y >= player.Center.Y + 173 && Projectile.velocity.X < 0)
+            {
+                Projectile.velocity.Y = 0;
+            }
+
             if (!CalValEX.DetectProjectile(ModContent.ProjectileType<BoiUI>()))
             {
                 Projectile.active = false;
@@ -84,32 +101,25 @@ namespace CalValEX.Projectiles.Boi
             //This area is where main AI is done
             if (aiphase == 0)
             {
-                if (aitimer >= 60)
+                if (aitimer >= 90)
                 {
-                    if (Main.rand.Next(2) == 0)
+                    for (int i = 0; i < Main.maxProjectiles; i++)
                     {
-                        for (int i = 0; i < Main.maxProjectiles; i++)
+                        var proj = Main.projectile[i];
+                        if (proj.type == ModContent.ProjectileType<Anahita>() && Projectile.alpha <= 0 && frozen <= 0)
                         {
-                            var proj = Main.projectile[i];
-                            if (proj.type == ModContent.ProjectileType<Anahita>() && Projectile.alpha <= 0 && frozen <= 0)
-                            {
-                                Vector2 targetPosition = proj.Center;
-                                Vector2 direction = targetPosition - Projectile.Center;
-                                direction.Normalize();
-                                float speed = 12f;
-                                Projectile.velocity = direction * speed;
-                                anaex = true;
-                            }
+                            Vector2 targetPosition = proj.Center;
+                            Vector2 direction = targetPosition - Projectile.Center;
+                            direction.Normalize();
+                            float speed = 12f;
+                            Projectile.velocity = direction * speed;
+                            anaex = true;
                         }
-                    }
-                    else
-                    {
-                        Projectile.velocity = new Vector2(Main.rand.Next(-12, 12), Main.rand.Next(-12, 12));
                     }
                     aitimer = 0;
                 }
-                Projectile.velocity *= 0.9f;
-                if (phasetimer > 239)
+                Projectile.velocity *= 0.95f;
+                if (phasetimer > 359)
                 {
                     aiphase = 1;
                     aitimer = 0;
@@ -120,6 +130,7 @@ namespace CalValEX.Projectiles.Boi
             if (aiphase == 1)
             {
                 crosstimer++;
+                Projectile.velocity = new Vector2(0, 0);
                 if (aitimer >= 15)
                 {
                     for (int i = 0; i < Main.maxProjectiles; i++)
@@ -144,7 +155,7 @@ namespace CalValEX.Projectiles.Boi
                     }
                     aitimer = 0;
                 }
-                if (crosstimer >= 180)
+                if (crosstimer >= 60)
                 {
                     int type = ModContent.ProjectileType<AcidRound>();
                     int damage = 0;
@@ -155,7 +166,7 @@ namespace CalValEX.Projectiles.Boi
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(4, -4), type, damage, 0f, Main.myPlayer);
                     crosstimer = 0;
                 }
-                if (phasetimer >= 320)
+                if (phasetimer >= 179)
                 {
                     aiphase = 0;
                     aitimer = 0;
