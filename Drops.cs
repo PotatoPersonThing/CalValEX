@@ -311,7 +311,7 @@ namespace CalValEX
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BoxBalloon>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.AngryDog>())
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.Rimehound>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TundraBall>(), 10));
                 }
@@ -2325,50 +2325,51 @@ namespace CalValEX
 
         public static int ConditionalChanceDropItem(NPC npc, int itemID, bool condition, float chance, int min = 1,
             int max = 0) =>
-            ConditionalChanceDropItem(npc, itemID, condition, chance, false, min, max);
-        public override bool PreDraw(NPC npc, SpriteBatch spriteBatch, Color drawColor)
+            ConditionalChanceDropItem(npc, itemID, condition, chance, false, min, max);*/
+
+        public override bool PreDraw(NPC npc, SpriteBatch spriteBatch, Vector2 screenpos, Color drawColor)
         {
             if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok)
             {
                 //DEUS HEAD
-                if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("AstrumDeusHeadSpectral"))
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusHeadSpectral>())
                 {
-                    Texture2D deusheadsprite = (ModContent.GetTexture("CalValEX/NPCs/AstrumDeus/DeusHeadOld"));
+                    Texture2D deusheadsprite = (ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusHeadOld").Value);
 
                     float deusheadframe = 1f / (float)Main.npcFrameCount[npc.type];
                     int deusheadheight = (int)((float)(npc.frame.Y / npc.frame.Height) * deusheadframe) * (deusheadsprite.Height / 1);
 
                     Rectangle deusheadsquare = new Rectangle(0, deusheadheight, deusheadsprite.Width, deusheadsprite.Height / 1);
                     Color deusheadalpha = npc.GetAlpha(drawColor);
-                    spriteBatch.Draw(deusheadsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deusheadsquare, deusheadalpha, npc.rotation, Utils.Size(deusheadsquare) / 2f, npc.scale, SpriteEffects.None, 0f);
+                    Main.EntitySpriteDraw(deusheadsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deusheadsquare, deusheadalpha, npc.rotation, Utils.Size(deusheadsquare) / 2f, npc.scale, SpriteEffects.None, 0);
                     return false;
                 }
 
                 //DEUS BODY
-                else if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("AstrumDeusBodySpectral"))
+                else if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusBodySpectral>())
                 {
-                    Texture2D deusbodsprite = npc.localAI[3] == 1f ? ModContent.GetTexture("CalValEX/NPCs/AstrumDeus/DeusBodyAltOld") : ModContent.GetTexture("CalValEX/NPCs/AstrumDeus/DeusBodyOld");
+                    Texture2D deusbodsprite = npc.localAI[3] == 1f ? ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusBodyAltOld").Value : ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusBodyOld").Value;
 
                     float deusbodframe = 1f / (float)Main.npcFrameCount[npc.type];
                     int deusbodheight = (int)((float)(npc.frame.Y / npc.frame.Height) * deusbodframe) * (deusbodsprite.Height / 1);
 
                     Rectangle deusbodsquare = new Rectangle(0, deusbodheight, deusbodsprite.Width, deusbodsprite.Height / 1);
                     Color deusbodalpha = npc.GetAlpha(drawColor);
-                    spriteBatch.Draw(deusbodsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deusbodsquare, deusbodalpha, npc.rotation, Utils.Size(deusbodsquare) / 2f, npc.scale, SpriteEffects.None, 0f);
+                    Main.EntitySpriteDraw(deusbodsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deusbodsquare, deusbodalpha, npc.rotation, Utils.Size(deusbodsquare) / 2f, npc.scale, SpriteEffects.None, 0);
                     return false;
                 }
 
                 //DEUS TAIL
-                else if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("AstrumDeusTailSpectral"))
+                else if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusTailSpectral>())
                 {
-                    Texture2D deustailsprite = (ModContent.GetTexture("CalValEX/NPCs/AstrumDeus/DeusTailOld"));
+                    Texture2D deustailsprite = ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusTailOld").Value;
 
                     float deustailframe = 1f / (float)Main.npcFrameCount[npc.type];
                     int deustailheight = (int)((float)(npc.frame.Y / npc.frame.Height) * deustailframe) * (deustailsprite.Height / 1);
 
                     Rectangle deustailsquare = new Rectangle(0, deustailheight, deustailsprite.Width, deustailsprite.Height / 1);
                     Color deustailalpha = npc.GetAlpha(drawColor);
-                    spriteBatch.Draw(deustailsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deustailsquare, deustailalpha, npc.rotation, Utils.Size(deustailsquare) / 2f, npc.scale, SpriteEffects.None, 0f);
+                    Main.EntitySpriteDraw(deustailsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deustailsquare, deustailalpha, npc.rotation, Utils.Size(deustailsquare) / 2f, npc.scale, SpriteEffects.None, 0);
                     return false;
                 }
             }
@@ -2376,26 +2377,26 @@ namespace CalValEX
 
         }
 
-        public override void PostDraw(NPC npc, SpriteBatch spriteBatch, Color lightColor)
+        public override void PostDraw(NPC npc, SpriteBatch spriteBatch, Vector2 screenpos, Color drawColor)
         {
-            if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodCore>() && ((CalValEX.month == 4 && CalValEX.day == 1) || ModLoader.GetMod("CalValPlus") != null))
+            if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodCore>() && CalValEX.AprilFoolDay)
             {
-                Texture2D tidepodgsprite = (ModContent.GetTexture("CalValEX/ExtraTextures/SlimeGod"));
+                Texture2D tidepodgsprite = (ModContent.Request<Texture2D>("CalValEX/ExtraTextures/SlimeGod").Value);
 
                 float tidepodgframe = 1f / (float)Main.npcFrameCount[npc.type];
                 int tidepodgheight = (int)((float)(npc.frame.Y / npc.frame.Height) * tidepodgframe) * (tidepodgsprite.Height / 1);
 
                 Rectangle tidepodgsquare = new Rectangle(0, tidepodgheight, tidepodgsprite.Width, tidepodgsprite.Height / 1);
-                Color tidepodgalpha = npc.GetAlpha(lightColor);
+                Color tidepodgalpha = npc.GetAlpha(drawColor);
                 spriteBatch.Draw(tidepodgsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), tidepodgsquare, tidepodgalpha, npc.rotation, Utils.Size(tidepodgsquare) / 2f, npc.scale, SpriteEffects.None, 0f);
             }
 
             else if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok)
             {
                 //DEUS HEAD
-                if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("AstrumDeusHeadSpectral"))
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusHeadSpectral>())
                 {
-                    Texture2D deusheadsprite2 = (ModContent.GetTexture("CalValEX/NPCs/AstrumDeus/DeusHeadOld_Glow"));
+                    Texture2D deusheadsprite2 = (ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusHeadOld_Glow").Value);
 
                     float deusheadframe2 = 1f / (float)Main.npcFrameCount[npc.type];
                     int deusheadheight2 = (int)((float)(npc.frame.Y / npc.frame.Height) * deusheadframe2) * (deusheadsprite2.Height / 1);
@@ -2405,9 +2406,9 @@ namespace CalValEX
                 }
 
                 //DEUS BODY
-                else if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("AstrumDeusBodySpectral"))
+                else if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusBodySpectral>())
                 {
-                    Texture2D deusbodsprite2 = npc.localAI[3] == 1f ? ModContent.GetTexture("CalValEX/NPCs/AstrumDeus/DeusBodyAltOld_Glow") : ModContent.GetTexture("CalValEX/NPCs/AstrumDeus/DeusBodyOld_Glow");
+                    Texture2D deusbodsprite2 = npc.localAI[3] == 1f ? ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusBodyAltOld_Glow").Value : ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusBodyOld_Glow").Value;
 
                     float deusbodframe2 = 1f / (float)Main.npcFrameCount[npc.type];
                     int deusbodheight2 = (int)((float)(npc.frame.Y / npc.frame.Height) * deusbodframe2) * (deusbodsprite2.Height / 1);
@@ -2417,9 +2418,9 @@ namespace CalValEX
                 }
 
                 //DEUS TAIL
-                else if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("AstrumDeusTailSpectral"))
+                else if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusTailSpectral>())
                 {
-                    Texture2D deustailsprite2 = (ModContent.GetTexture("CalValEX/NPCs/AstrumDeus/DeusTailOld_Glow"));
+                    Texture2D deustailsprite2 = (ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusTailOld_Glow").Value);
 
                     float deustailframe2 = 1f / (float)Main.npcFrameCount[npc.type];
                     int deustailheight2 = (int)((float)(npc.frame.Y / npc.frame.Height) * deustailframe2) * (deustailsprite2.Height / 1);
@@ -2428,15 +2429,15 @@ namespace CalValEX
                     spriteBatch.Draw(deustailsprite2, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deustailsquare2, Color.White, npc.rotation, Utils.Size(deustailsquare2) / 2f, npc.scale, SpriteEffects.None, 0f);
                 }
             }
-        }*/
+        }
 
         //Disable Astral Blight overworld spawns
         public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo LocalPlayer)
         {
             Player player = LocalPlayer.Player;
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-            //CalamityMod.CalPlayer.CalamityPlayer calp = player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>();
-            bool noevents = (/*CalamityWorld.rainingAcid && calp.ZoneSulphur) && */!Main.eclipse && !Main.snowMoon && !Main.pumpkinMoon && Main.invasionType == 0 && !player.ZoneTowerSolar && !player.ZoneTowerStardust && !player.ZoneTowerVortex & !player.ZoneTowerNebula && !player.ZoneOldOneArmy);
+            CalamityMod.CalPlayer.CalamityPlayer calp = player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>();
+            bool noevents = /*CalamityWorld.rainingAcid &&*/ calp.ZoneSulphur && !Main.eclipse && !Main.snowMoon && !Main.pumpkinMoon && Main.invasionType == 0 && !player.ZoneTowerSolar && !player.ZoneTowerStardust && !player.ZoneTowerVortex & !player.ZoneTowerNebula && !player.ZoneOldOneArmy;
             //Mod cata = ModLoader.GetMod("CatalystMod");
             if (!CalValEXConfig.Instance.CritterSpawns)
             {

@@ -742,7 +742,7 @@ namespace CalValEX
 			{
 				Recipe recipe = Mod.CreateRecipe(ItemType<HallowedBrick>(), 50);
 				recipe.AddIngredient(ItemType<CalamityMod.Items.Placeables.Ores.HallowedOre>());
-				recipe.AddIngredient(ItemID.Stone, 50);
+				recipe.AddIngredient(ItemID.StoneBlock, 50);
 				recipe.AddTile(TileID.MythrilAnvil);
 				recipe.Register();
 			}
