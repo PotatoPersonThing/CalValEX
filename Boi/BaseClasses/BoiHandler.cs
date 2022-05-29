@@ -12,7 +12,7 @@ namespace CalValEX.Boi.BaseClasses
 		public const float OOBLeeway = 100;
 		public static Vector2 playingField = new Vector2(500, 500);
 		public List<BoiRoom> Map;
-		public List<BoiEntity> Entities;
+		public List<BoiEntity> Entities = new List<BoiEntity> { BoiPlayer, AnahitaTear};
 
 		public List<BoiEntity> DeadEntities = new List<BoiEntity>();
 		public Dictionary<IColliding, BoiEntity> CollidingEntities = new Dictionary<IColliding, BoiEntity>();
@@ -20,6 +20,7 @@ namespace CalValEX.Boi.BaseClasses
 		public Dictionary<IDamageable, BoiEntity> DamageableEntities = new Dictionary<IDamageable, BoiEntity>();
 		public Dictionary<IDamageDealer, BoiEntity> DamageDealingEntities = new Dictionary<IDamageDealer, BoiEntity>();
 		public Dictionary<IInteractable, BoiEntity> InteractibleEntities = new Dictionary<IInteractable, BoiEntity>();
+		public Dictionary<IDrawable, BoiEntity> DrawableEntities = new Dictionary<IDrawable, BoiEntity>();
 
 		public bool spawnAna = false;
 
@@ -37,8 +38,8 @@ namespace CalValEX.Boi.BaseClasses
 			{
 				if (!spawnAna)
 				{
-					//que 
-
+					Entities.Add(player);
+					spawnAna = true;
 				}				
 			}
 
@@ -174,22 +175,14 @@ namespace CalValEX.Boi.BaseClasses
 		}
 
 		public void Draw()
-        {
+		{
 			Texture2D screen = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongBG").Value;
 			Texture2D walls = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Room").Value;
-			Main.EntitySpriteDraw(screen, playingField, null, Color.White, 0f, new Vector2(screen.Width, screen.Height) /2, 1f, SpriteEffects.None, 0);
+			Main.EntitySpriteDraw(screen, playingField, null, Color.White, 0f, new Vector2(screen.Width, screen.Height) / 2, 1f, SpriteEffects.None, 0);
 			Main.EntitySpriteDraw(walls, playingField, null, Color.White, 0f, new Vector2(screen.Width, screen.Height) / 2, 1f, SpriteEffects.None, 0);
-			//Draw bg
-			//Draw doors and such
-			//For each entity in Entities, if its an IDrawable, store them in new lists, separated on their Layer
-			//Then for all these lists, draw the IDrawables with the proper scale and offset.
-			foreach (BoiEntity tear in Entities)
+			foreach (IDrawable tear  in DrawableEntities)
             {
-				if (tear is IDrawable)
-				{
-					Texture2D teare = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/AnahitaTear").Value;
-					Main.EntitySpriteDraw(teare, playingField, null, Color.White, 0f, new Vector2(teare.Width, teare.Height) / 2, 1f, SpriteEffects.None, 0);
-				}
+				tear.Draw();
 			}
 		}
 
