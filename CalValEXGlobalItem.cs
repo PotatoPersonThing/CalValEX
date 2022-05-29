@@ -28,7 +28,15 @@ using CalValEX.Items.Tiles.Monoliths;
 using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
 using CalValEX.Items.Tiles.Statues;
-//using CalamityMod.World;
+using CalamityMod.World;
+using CalamityMod.Items.TreasureBags;
+using CalamityMod.Items;
+using CalamityMod.Items.Weapons.Rogue;
+using CalamityMod.Items.Weapons.Ranged;
+using CalamityMod.Items.Weapons.Melee;
+using CalamityMod.Items.Weapons.Summon;
+using CalamityMod.Items.Weapons.Magic;
+using CalamityMod.Items.Armor;
 using CalValEX.AprilFools;
 using Terraria;
 using Terraria.ID;
@@ -45,57 +53,56 @@ namespace CalValEX
 
         public override void SetDefaults(Item item)
         {
-            /*Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            if (item.type == calamityMod.ItemType("Bloodstone"))
+            if (item.type == ModContent.ItemType<CalamityMod.Items.Materials.Bloodstone>())
             {
                 item.useTurn = true;
                 item.autoReuse = true;
                 item.useAnimation = 15;
                 item.useTime = 10;
-                item.useStyle = ItemUseStyleID.SwingThrow;
+                item.useStyle = ItemUseStyleID.Swing;
                 item.consumable = true;
                 item.createTile = ModContent.TileType<BloodstonePlaced>();
             }
-            if (item.type == calamityMod.ItemType("MeldiateBar"))
+            if (item.type == ModContent.ItemType<CalamityMod.Items.Materials.MeldiateBar>())
             {
                 item.useTurn = true;
                 item.autoReuse = true;
                 item.useAnimation = 15;
                 item.useTime = 10;
-                item.useStyle = ItemUseStyleID.SwingThrow;
+                item.useStyle = ItemUseStyleID.Swing;
                 item.consumable = true;
                 item.createTile = ModContent.TileType<MeldConstructPlaced>();
             }
-            if (item.type == calamityMod.ItemType("EyeofExtinction"))
+            if (item.type == ModContent.ItemType<CalamityMod.Items.SummonItems.EyeofExtinction>())
             {
                 item.useTurn = true;
                 item.autoReuse = true;
                 item.useAnimation = 15;
                 item.useTime = 10;
-                item.useStyle = ItemUseStyleID.SwingThrow;
+                item.useStyle = ItemUseStyleID.Swing;
                 item.consumable = true;
                 item.createTile = ModContent.TileType<CeremonialUrnPlaced>();
             }
-            if (item.type == calamityMod.ItemType("SCalBag"))
+            if (item.type == ModContent.ItemType<SCalBag>())
             {
                 item.useTurn = true;
                 item.autoReuse = true;
                 item.useAnimation = 15;
                 item.useTime = 10;
-                item.useStyle = ItemUseStyleID.SwingThrow;
+                item.useStyle = ItemUseStyleID.Swing;
                 item.consumable = true;
                 item.createTile = ModContent.TileType<CalamitasCofferPlaced>();
             }
-            if (item.type == calamityMod.ItemType("DraedonTreasureBag"))
+            if (item.type == ModContent.ItemType<DraedonTreasureBag>())
             {
                 item.useTurn = true;
                 item.autoReuse = true;
                 item.useAnimation = 15;
                 item.useTime = 10;
-                item.useStyle = ItemUseStyleID.SwingThrow;
+                item.useStyle = ItemUseStyleID.Swing;
                 item.consumable = true;
                 item.createTile = ModContent.TileType<DraedonQuoteonQuoteBagPlaced>();
-            }*/
+            }
         }
 
         /*public override void ModifyWeaponDamage(Item item, Player player, ref float add, ref float mult)
@@ -180,21 +187,15 @@ namespace CalValEX
 
         public override void RightClick(Item item, Player player)
         {
-            //Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (!CalValEXConfig.Instance.DisableVanityDrops)
             {
-                /*if (item.type == calamityMod.ItemType("StarterBag"))
+                if (item.type == ModContent.ItemType<StarterBag>())
                 {
                     if (player.whoAmI == Main.myPlayer)
                     {
-                        Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-                        if (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7))
+                        if (CalValEX.AprilFoolWeek)
                         {
-                            NPC.NewNPC((int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<AprilFools.Jharim.Jharim>(), 0, 0f, 0f, 0f, 0f, 255);	
-                        }
-                        else if (orthoceraDLC != null)
-                        {
-                            NPC.NewNPC((int)player.Center.X, (int)player.Center.Y, ModContent.NPCType< AprilFools.Jharim.Jharim>(), 0, 0f, 0f, 0f, 0f, 255);
+                            NPC.NewNPC(player.GetSource_ReleaseEntity(), (int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<AprilFools.Jharim.Jharim>(), 0, 0f, 0f, 0f, 0f, 255);	
                         }
                         player.QuickSpawnItem(player.GetSource_OpenItem(item.type), ModContent.ItemType<C>());
                         switch (player.name)
@@ -353,13 +354,13 @@ namespace CalValEX
                                 break;
                         }
                     }
-                }*/
+                }
 
-                if (item.type == ItemID.OceanCrateHard || item.type == ItemID.OceanCrate)
+                if (item.type == ModContent.ItemType<CalamityMod.Items.Fishing.SulphurCatches.AbyssalCrate>())
                 {
                     if (Main.rand.NextFloat() < 0.01f)
                     {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(item.type), ModContent.ItemType<AcidGun>());
+                        player.QuickSpawnItem(player.GetSource_OpenItem(item.type), ModContent.ItemType<Items.Tiles.Plants.AcidGun>());
                     }
 
                     if (Main.rand.NextFloat() < 0.02f)
@@ -408,7 +409,7 @@ namespace CalValEX
                     }
                 }
 
-                if (item.type == ItemID.FloatingIslandFishingCrateHard)
+                if (item.type == ModContent.ItemType<CalamityMod.Items.Fishing.AstralCatches.AstralCrate>())
                 {
                     if (Main.rand.NextFloat() < 0.03f)
                     {
@@ -421,7 +422,7 @@ namespace CalValEX
                     }
                 }
 
-                if (item.type == ItemID.OasisCrate || item.type == ItemID.OasisCrateHard)
+                if (item.type == ModContent.ItemType<CalamityMod.Items.Fishing.SunkenSeaCatches.SunkenCrate>())
                 {
                     if (Main.rand.NextFloat() < 0.03f)
                     {
@@ -463,13 +464,8 @@ namespace CalValEX
 
         public override void OpenVanillaBag(string context, Player player, int arg)
         {
-            //Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            //Mod catalyst = ModLoader.GetMod("CatalystMod");
-
             if (context == "bossBag")
             {
-                //if (calamityMod != null)
-                {
                     if (!CalValEXConfig.Instance.DisableVanityDrops)
                     {
                         //Here is a list of all Calamity Bags:
@@ -495,12 +491,12 @@ namespace CalValEX
                         //Starter Bag = StarterBag
                         //Yharon = YharonBag
 
-                        if (arg == ItemID.KingSlimeBossBag)
+                        if (arg == ModContent.ItemType<StarterBag>())
                         {
                             player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<C>());
                         }
 
-                        if (arg == ItemID.EyeOfCthulhuBossBag)
+                        if (arg == ModContent.ItemType<DesertScourgeBag>())
                         {
                             if (Main.rand.NextFloat() < 0.3f)
                             {
@@ -518,7 +514,7 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.EyeOfCthulhuBossBag)
+                        if (arg == ModContent.ItemType<CrabulonBag>())
                         {
                             if (Main.rand.NextFloat() < 0.3f)
                             {
@@ -526,7 +522,7 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.EaterOfWorldsBossBag)
+                        if (arg == ModContent.ItemType<HiveMindBag>())
                         {
                             if (Main.rand.NextFloat() < 0.3f)
                             {
@@ -534,7 +530,7 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.BrainOfCthulhuBossBag)
+                        if (arg == ModContent.ItemType<PerforatorBag>())
                         {
                             if (Main.rand.NextFloat() < 0.3f)
                             {
@@ -559,13 +555,13 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.QueenSlimeBossBag)
+                        if (arg == ModContent.ItemType<SlimeGodBag>())
                         {
-                            /*if (!CalValEXConfig.Instance.ConfigBossBlocks)
+                            if (!CalValEXConfig.Instance.ConfigBossBlocks)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModLoader.GetMod("CalamityMod").ItemType("StatigelBlock"),
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(),
                                     Main.rand.Next(205, 335));
-                            }*/
+                            }
 
                             if (Main.rand.NextFloat() < 0.3f)
                             {
@@ -573,7 +569,7 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.DestroyerBossBag)
+                        if (arg == ModContent.ItemType<CryogenBag>())
                         {
                             if (Main.rand.NextFloat() < 0.3f)
                             {
@@ -581,7 +577,7 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.TwinsBossBag)
+                        if (arg == ModContent.ItemType<AquaticScourgeBag>())
                         {
                             if (Main.rand.NextFloat() < 0.2f)
                             {
@@ -589,13 +585,13 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.WallOfFleshBossBag)
+                        if (arg == ModContent.ItemType<BrimstoneWaifuBag>())
                         {
-                            /*if (!CalValEXConfig.Instance.ConfigBossBlocks)
+                            if (!CalValEXConfig.Instance.ConfigBossBlocks)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModLoader.GetMod("CalamityMod").ItemType("BrimstoneSlag"),
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.BrimstoneSlag>(),
                                     Main.rand.Next(205, 335));
-                            }*/
+                            }
 
                             if (Main.rand.NextFloat() < 0.2f)
                             {
@@ -618,7 +614,7 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.TwinsBossBag)
+                        if (arg == ModContent.ItemType<CalamitasBag>())
                         {
                             if (Main.rand.NextFloat() < 0.3f)
                             {
@@ -630,7 +626,7 @@ namespace CalValEX
                                 player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AncientAuricTeslaHelm>());
                             }
 
-                            if (NPC.downedEmpressOfLight && Main.rand.NextFloat() < 0.2f)
+                            if (CalamityMod.DownedBossSystem.downedProvidence && Main.rand.NextFloat() < 0.2f)
                             {
                                 player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DemonshadeHood>(), 1);
                                 player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DemonshadeRobe>(), 1);
@@ -638,7 +634,7 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.FishronBossBag)
+                        if (arg == ModContent.ItemType<LeviathanBag>())
                         {
                             if (Main.rand.NextFloat() < 0.15f)
                             {
@@ -666,7 +662,7 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.QueenSlimeBossBag)
+                        if (arg == ModContent.ItemType<AstrageldonBag>())
                         {
                             if (Main.rand.NextFloat() < 0.2f)
                             {
@@ -684,13 +680,13 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.PlanteraBossBag)
+                        if (arg == ModContent.ItemType<PlaguebringerGoliathBag>())
                         {
-                            /*if (!CalValEXConfig.Instance.ConfigBossBlocks)
+                            if (!CalValEXConfig.Instance.ConfigBossBlocks)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModLoader.GetMod("CalamityMod").ItemType("PlaguedPlate"),
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurniturePlaguedPlate.PlaguedPlate>(),
                                     Main.rand.Next(205, 335));
-                            }*/
+                            }
 
                             if (Main.rand.NextFloat() < 0.004f)
                             {
@@ -713,7 +709,7 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.GolemBossBag)
+                        if (arg == ModContent.ItemType<RavagerBag>())
                         {
                             if (!CalValEXConfig.Instance.ConfigBossBlocks)
                             {
@@ -746,7 +742,7 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.DestroyerBossBag)
+                        if (arg == ModContent.ItemType<AstrumDeusBag>())
                         {
                             if (Main.rand.NextFloat() < 0.3f)
                             {
@@ -759,14 +755,14 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.BossBagBetsy)
+                        if (arg == ModContent.ItemType<BumblebirbBag>())
                         {
-                            /*if ((bool) calamityMod.Call("GetBossDowned", "yharon") &&
+                            if (CalamityMod.DownedBossSystem.downedYharon &&
                                 !CalValEXConfig.Instance.ConfigBossBlocks)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModLoader.GetMod("CalamityMod").ItemType("SilvaCrystal"),
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureSilva.SilvaCrystal>(),
                                     Main.rand.Next(205, 335));
-                            }*/
+                            }
 
                             int choice = Main.rand.Next(3);
                             if (choice == 0)
@@ -788,13 +784,13 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.FairyQueenBossBag)
+                        if (arg == ModContent.ItemType<ProvidenceBag>())
                         {
-                            /*if (!CalValEXConfig.Instance.ConfigBossBlocks)
+                            if (!CalValEXConfig.Instance.ConfigBossBlocks)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModLoader.GetMod("CalamityMod").ItemType("ProfanedRock"),
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureProfaned.ProfanedRock>(),
                                     Main.rand.Next(205, 335));
-                            }*/
+                            }
 
                             if (Main.rand.NextFloat() < 0.3f)
                             {
@@ -807,13 +803,13 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.DestroyerBossBag)
+                        if (arg == ModContent.ItemType<StormWeaverBag>())
                         {
-                            /*if (!CalValEXConfig.Instance.ConfigBossBlocks && (bool)calamityMod.Call("GetBossDowned", "devourerofgods"))
+                            if (!CalValEXConfig.Instance.ConfigBossBlocks && CalamityMod.DownedBossSystem.downedDoG)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOccult.OccultStone>(),
                                     Main.rand.Next(205, 335));
-                            }*/
+                            }
 
                             if (Main.rand.NextFloat() < 0.3f)
                             {
@@ -836,13 +832,13 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.QueenSlimeBossBag)
+                        if (arg == ModContent.ItemType<CeaselessVoidBag>())
                         {
-                            /*if (!CalValEXConfig.Instance.ConfigBossBlocks && (bool)calamityMod.Call("GetBossDowned", "devourerofgods"))
+                            if (!CalValEXConfig.Instance.ConfigBossBlocks && CalamityMod.DownedBossSystem.downedDoG)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOccult.OccultStone>(),
                                     Main.rand.Next(205, 335));
-                            }*/
+                            }
                             if (Main.rand.NextFloat() < 0.3f)
                             {
                                 player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<VoidShard>());
@@ -861,13 +857,13 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.FairyQueenBossBag)
+                        if (arg == ModContent.ItemType<SignusBag>())
                         {
-                            /*if (!CalValEXConfig.Instance.ConfigBossBlocks && (bool)calamityMod.Call("GetBossDowned", "devourerofgods"))
+                            if (!CalValEXConfig.Instance.ConfigBossBlocks && CalamityMod.DownedBossSystem.downedDoG)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModLoader.GetMod("CalamityMod").ItemType("OccultStone"),
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOccult.OccultStone>(),
                                     Main.rand.Next(205, 335));
-                            }*/
+                            }
 
                             if (Main.rand.NextFloat() < 0.3f)
                             {
@@ -897,20 +893,20 @@ namespace CalValEX
                             }
                         }
 
-                            if (arg == ItemID.PlanteraBossBag)
+                            if (arg == ModContent.ItemType<PolterghastBag>())
                         {
                             if (!CalValEXConfig.Instance.ConfigBossBlocks)
                             {
-                                /*if (Main.rand.NextFloat() < 0.5f)
+                                if (Main.rand.NextFloat() < 0.5f)
                                 {
-                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModLoader.GetMod("CalamityMod").ItemType("StratusBricks"),
+                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStratus.StratusBricks>(),
                                         Main.rand.Next(205, 335));
                                 }
                                 else
-                                {*/
+                                {
                                     player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<PhantowaxBlock>(),
                                         Main.rand.Next(205, 335));
-                                //}
+                                }
                             }
 
                             if (Main.rand.NextFloat() < 0.1f)
@@ -919,7 +915,7 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.FishronBossBag)
+                        if (arg == ModContent.ItemType<OldDukeBag>())
                         {
                             if (Main.rand.NextFloat() < 0.3f)
                             {
@@ -937,7 +933,7 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.DestroyerBossBag)
+                        if (arg == ModContent.ItemType<DevourerofGodsBag>())
                         {
                             if (Main.rand.NextFloat() < 0.3f)
                             {
@@ -960,7 +956,7 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.BossBagBetsy)
+                        if (arg == ModContent.ItemType<YharonBag>())
                         {
                             player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Termipebbles>(), Main.rand.Next(5, 8));
                             if (Main.rand.NextFloat() < 0.3f)
@@ -996,9 +992,9 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.SkeletronPrimeBossBag || arg == ItemID.TwinsBossBag || arg == ItemID.DestroyerBossBag)
+                        if (arg == ModContent.ItemType<DraedonTreasureBag>())
                         {
-                            if (NPC.downedMechBossAny)
+                            if (CalamityMod.DownedBossSystem.downedThanatos)
                             {
                                 if (Main.rand.NextFloat() < 0.5f)
                                 {
@@ -1009,7 +1005,7 @@ namespace CalValEX
                                     player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Items.Pets.ExoMechs.GunmetalRemote>());
                                 }
                             }
-                            if (NPC.downedMechBossAny)
+                            if (CalamityMod.DownedBossSystem.downedArtemisAndApollo)
                             {
                                 if (Main.rand.NextFloat() < 0.5f)
                                 {
@@ -1021,7 +1017,7 @@ namespace CalValEX
                                     player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Items.Pets.ExoMechs.GeminiMarkImplants>());
                                 }
                             }
-                            if (NPC.downedMechBossAny)
+                            if (CalamityMod.DownedBossSystem.downedAres)
                             {
                                 if (Main.rand.NextFloat() < 0.5f)
                                 {
@@ -1043,7 +1039,7 @@ namespace CalValEX
                             }
                         }
 
-                        if (arg == ItemID.TwinsBossBag)
+                        if (arg == ModContent.ItemType<SCalBag>())
                         {
                             if (Main.rand.NextFloat() < 0.1f)
                             {
@@ -1055,7 +1051,6 @@ namespace CalValEX
                             }
                         }
                     }
-                }
                 /*if (catalyst != null)
                 {
                     if (arg == catalyst.ItemType("AstrageldonBag"))
@@ -1089,18 +1084,18 @@ namespace CalValEX
             recipe.AddTile(ModContent.TileType<Tiles.FurnitureSets.Auric.AuricManufacturerPlaced>());
             recipe.SetResult(calamityMod.ItemType("AuricToilet"));
             recipe.AddRecipe();
-        }
+        }*/
 
         public override string IsArmorSet(Item head, Item body, Item legs)
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            if ((head.type == calamityMod.ItemType("WulfrumHelmet") ||
-                 head.type == calamityMod.ItemType("WulfrumHelm") ||
-                 head.type == calamityMod.ItemType("WulfrumHeadgear") ||
-                 head.type == calamityMod.ItemType("WulfrumHood") ||
-                 head.type == calamityMod.ItemType("WulfrumMask")) &&
-                body.type == calamityMod.ItemType("WulfrumArmor") &&
-                legs.type == calamityMod.ItemType("WulfrumLeggings"))
+            if ((head.type == ModContent.ItemType<WulfrumHelmet>() ||
+                 head.type == ModContent.ItemType < WulfrumHelm>() ||
+                 head.type == ModContent.ItemType < WulfrumHeadgear>() ||
+                 head.type == ModContent.ItemType < WulfrumHood>() ||
+                 head.type == ModContent.ItemType < WulfrumMask>()) &&
+                body.type == ModContent.ItemType < WulfrumArmor>() &&
+                legs.type == ModContent.ItemType < WulfrumLeggings>())
             {
                 return "Wulfrumset";
             }
@@ -1110,7 +1105,7 @@ namespace CalValEX
 
         public override void UpdateArmorSet(Player player, string set)
         {
-            if (player.HasBuff(ModContent.BuffType<PylonBuff>()) &&
+            if (player.HasBuff(ModContent.BuffType<Buffs.LightPets.PylonBuff>()) &&
                 player.HasBuff(ModContent.BuffType<WulfrumArmy>()) &&
                 player.HasBuff(ModContent.BuffType<TractorMount>()) && set == "Wulfrumset")
             {
@@ -1120,6 +1115,6 @@ namespace CalValEX
             {
                 CalValEX.WulfrumsetReal = false;
             }
-        }*/
+        }
     }
 }

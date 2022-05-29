@@ -299,58 +299,62 @@ namespace CalValEX
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<OracleBeanie>(), 1));
                 }
-                if (npc.type == NPCID.Wizard)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.TownNPCs.DILF>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Permascarf>(), 1));
                 }
-                if (npc.type == NPCID.Steampunker)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.TownNPCs.THIEF>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BanditHat>(), 1));
                 }
-                if (npc.type == NPCID.GreenJellyfish)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.BoxJellyfish>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BoxBalloon>(), 10));
                 }
-                if (npc.type == NPCID.Wolf)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.AngryDog>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TundraBall>(), 10));
                 }
-                if (npc.type == NPCID.FireImp)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.Rotdog>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<OldTennisBall>(), 20));
                 }
-                if (npc.type == NPCID.IceTortoise)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SunkenSea.PrismBack>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PrismShell>(), 10));
                 }
-                if (npc.type == NPCID.Shark)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SulphurousSea.Catfish>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DiscardedCollar>(), 10));
                 }
-                if (npc.type == NPCID.Lavabat)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Crags.Scryllar>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ScryllianWings>(), 20));
                 }
-                if (npc.type == NPCID.Gnome)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Crags.ScryllarRage>())
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ScryllianWings>(), 20));
+                }
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.WulfrumPylon>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PylonRemote>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumKeys>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumHelipack>(), 20));
                 }
-                if (npc.type == NPCID.GreenSlime)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.WulfrumGyrator>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumController>(), 100));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumBalloon>(), 100));
                 }
-                if (npc.type == NPCID.GraniteFlyer)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.CosmicElemental>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CosmicCone>(), 20));
                 }
-                if (npc.type == NPCID.Harpy)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.Sunskater>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SkeetCrest>(), 30));
                 }
-                if (npc.type == NPCID.RockGolem)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.CrawlerAmethyst>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AmethystStone>(), 20));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RubyStone>(), 20));
@@ -359,134 +363,134 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DiamondStone>(), 20));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TopazStone>(), 20));
                 }
-                if (npc.type == NPCID.DesertBeast)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.CrawlerAmber>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AmberStone>(), 30));
                 }
-                if (npc.type == NPCID.EnchantedSword)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.CrawlerCrystal>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CrystalStone>(), 20));
                 }
-                if (npc.type == NPCID.MartianSaucer)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.ShockstormShuttle>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShuttleBalloon>(), 5));
                 }
-                if (npc.type == NPCID.Hornet)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AcidRain.SulphurousSkater>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SkaterEgg>(), 20));
                 }
-                if (npc.type == NPCID.Slimer2)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.AeroSlime>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AeroWings>(), 20));
                 }
-                if (npc.type == NPCID.Shark)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SunkenSea.SeaFloaty>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FloatyCarpetItem>(), 20));
                 }
-                if (npc.type == NPCID.Squid)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AcidRain.Orthocera>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Help>(), 20));
                 }
-                if (npc.type == NPCID.SeaSnail)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AcidRain.Trilobite>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TrilobiteShield>(), 10));
                 }
-                if (npc.type == NPCID.DukeFishron)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AcidRain.NuclearTerror>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NuclearFumes>(), 1, 20, 45));
                 }
-                if (npc.type == NPCID.FlyingSnake)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.Bohldohr>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BoldEgg>(), 20));
                 }
-                if (npc.type == NPCID.Crab)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AcidRain.FlakCrab>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FlakHeadCrab>(), 20));
                 }
-                if (npc.type == NPCID.JungleSlime)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.PerennialSlime>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PerennialFlower>(), 20));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PerennialDress>(), 20));
                 }
-                if (npc.type == NPCID.Pixie)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Astral.BigSightseer>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Binoculars>(), 30));
                 }
-                if (npc.type == NPCID.Hellbat)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Crags.HeatSpirit>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChaosEssence>(), 30));
                 }
-                if (npc.type == NPCID.Crawdad)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.PhantomDebris>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HauntedPebble>(), 20));
                 }
-                if (npc.type == NPCID.SpikedJungleSlime)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.PerennialSlime>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientPerennialFlower>(), 30));
                 }
-                if (npc.type == NPCID.PinkJellyfish)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SulphurousSea.BelchingCoral>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CoralMask>(), 25));
                 }
-                if (npc.type == NPCID.IceGolem)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.Cryon>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Cryocap>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Cryocoat>(), 10));
                 }
-                if (npc.type == NPCID.HellArmoredBones)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Crags.CultistAssassin>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CultistHood>(), 30));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CultistRobe>(), 30));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CultistLegs>(), 30));
                 }
-                if (npc.type == NPCID.SolarDrakomire)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.ImpiousImmolator>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChewyToy>(), 40));
                 }
-                if (npc.type == NPCID.SolarCrawltipedeHead)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.ImpiousImmolator>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HolyTorch>(), 20));
                 }
-                if (npc.type == NPCID.GiantWalkingAntlion)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.Cnidrion>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DryShrimp>(), 40));
                 }
-                if (npc.type == NPCID.DevourerHead)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.EidolonWyrmHead>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EWail>(), 20));
                 }
-                if (npc.type == NPCID.GiantCursedSkull)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.OverloadedSoldier>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<UnloadedHelm>(), 20));
                 }
-                if (npc.type == NPCID.RedDevil)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.DevilFish>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilfishMask1>(), 20));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilfishMask2>(), 20));
                 }
-                if (npc.type == NPCID.BloodSquid)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.MirageJelly>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Mirballoon>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<OldMirage>(), 20));
                 }
-                if (npc.type == NPCID.GiantFlyingFox)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Astral.Hadarian>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HadarianTail>(), 20));
                 }
-                if (npc.type == NPCID.BlueArmoredBones)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.Eidolist>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EidoMask>(), 30));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Eidcape>(), 30));
                 }
-                if (npc.type == NPCID.GiantShelly)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SunkenSea.GiantClam>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ClamHermitMedallion>(), 20));
                 }
-                if (npc.type == NPCID.MossHornet)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.PlagueEnemies.PlaguebringerShade>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BeeCan>(), 20));
                 }
-                if (npc.type == NPCID.WyvernHead)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.ThiccWaifu>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<cloudcandy>(), 20));
                 }
@@ -495,58 +499,58 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandBottle>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandPlush>(), 3));
                 }
-                if (npc.type == NPCID.SolarCrawltipedeHead)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.ProfanedEnergyBody>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedEnergyHook>(), 20));
                 }
-                if (npc.type == NPCID.FireImp)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.ProfanedEnergyBody>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedBalloon>(), 20));
                 }
-                if (npc.type == NPCID.Demon)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.ScornEater>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ScornEaterMask>(), 20));
                 }
-                if (npc.type == NPCID.BloodNautilus)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.ChaoticPuffer>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChaosBalloon>(), 5));
                 }
-                if (npc.type == NPCID.Shark)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.Reaper>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ReaperSharkArms>(), 40));
                 }
-                if (npc.type == NPCID.Shark)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.Reaper>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<OmegaBlue>(), 100));
                 }
-                if (npc.type == NPCID.StardustJellyfishBig)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.ColossalSquid>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SquidHat>(), 20));
                 }
-                if (npc.type == NPCID.RockGolem)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.Horse>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EarthShield>(), 20));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EarthenHelmet>(), 30));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EarthenBreastplate>(), 30));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EarthenLeggings>(), 30));
                 }
-                if (npc.type == NPCID.Crab)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SunkenSea.GiantClam>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ClamMask>(), 20));
                 }
-                if (npc.type == NPCID.MossHornet)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.PlagueEnemies.PlaguebringerShade>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PlaugeWings>(), 20));
                 }
-                if (npc.type == NPCID.MoonLordCore)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.PlagueEnemies.PlaguebringerShade>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 50));
                 }
-                if (npc.type == NPCID.AngryTrapper)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AcidRain.CragmawMire>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MawHook>(), 20));
                 }
-                if (npc.type == NPCID.WyvernHead)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.ThiccWaifu>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CloudWaistbelt>(), 20));
                 }
@@ -555,7 +559,7 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandyBangles>(), 20));
                 }
                 //Scourge
-                if (npc.type == NPCID.EyeofCthulhu)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.DesertScourge.DesertScourgeHead>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<DesertMedallion>(), 5));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SandTooth>(), 7));
@@ -563,13 +567,13 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<DesertScourgePlush>(), 4));
                 }
                 //Crabulon
-                if (npc.type == NPCID.EyeofCthulhu)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Crabulon.CrabulonIdle>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ClawShroom>(), 3));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<CrabulonPlush>(), 4));
                 }
                 //Perfs
-                if (npc.type == NPCID.BrainofCthulhu)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Perforator.PerforatorHive>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SmallWorm>(), 7));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<MidWorm>(), 7));
@@ -578,13 +582,13 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<PerforatorPlush>(), 4));
                 }
                 //Hive Mind
-                if (npc.type == NPCID.EaterofWorldsHead)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.HiveMind.HiveMind>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<MissingFang>(), 3));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<HiveMindPlush>(), 4));
                 }
                 //Slime Gods
-                if (npc.type == NPCID.QueenSlimeBoss)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodCore>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SlimeGodMask>(), 7));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<GoozmaPetItem>(), 30));
@@ -592,19 +596,19 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<SlimeGodPlush>(), 4));
                 }
                 //Cryogen
-                if (npc.type == NPCID.TheDestroyer)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Cryogen.Cryogen>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<CryoStick>(), 3));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<CryogenPlush>(), 4));
                 }
                 //Aqua
-                if (npc.type == NPCID.Retinazer)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AquaticScourge.AquaticScourgeHead>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AquaticHide>(), 3));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<AquaticScourgePlush>(), 4));
                 }
                 //Brimmy
-                if (npc.type == NPCID.WallofFlesh)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.BrimstoneElemental.BrimstoneElemental>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<BrimmySpirit>(), 10));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<BrimmyBody>(), 10));
@@ -613,18 +617,18 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<BrimstoneElementalPlush>(), 4));
                 }
                 //Clone
-                if (npc.type == NPCID.Retinazer)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Calamitas.CalamitasRun3>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Calacirclet>(), 5));
                 }
                 //Levihita
-                if (npc.type == NPCID.DukeFishron)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Leviathan.Leviathan>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Items.Tiles.Monoliths.AquaticMonolith>(), 10));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<FoilAtlantis>(), 20));
                 }
                 //Astrum Aureus
-                if (npc.type == NPCID.QueenSlimeBoss)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumAureus.AstrumAureus>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AureusShield>(), 5));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AstDie>(), 3));
@@ -632,14 +636,14 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<JellyBottle>(), 4));
                 }
                 //PBG
-                if (npc.type == NPCID.Plantera)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.PlaguebringerGoliath.PlaguebringerGoliath>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<InfectedController>(), 5));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<PlaguePack>(), 5));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<PlaguebringerGoliathPlush>(), 4));
                 }
                 //Ravager
-                if (npc.type == NPCID.Golem)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Ravager.RavagerBody>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SkullBalloon>(), 5));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<StonePile>(), 5));
@@ -650,7 +654,7 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<RavagerPlush>(), 4));
                 }
                 //Deus
-                if (npc.type == NPCID.TheDestroyer)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusHeadSpectral>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AstBandana>(), 20));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AstrumDeusMask>(), 40));
@@ -658,7 +662,7 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<AstrumDeusPlush>(), 4));
                 }
                 //Bumblebirb
-                if (npc.type == NPCID.DD2Betsy)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Bumblebirb.Bumblefuck>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Birbhat>(), 2));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SparrowMeat>(), 20));
@@ -667,14 +671,14 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<BumblefuckPlush>(), 4));
                 }
                 //Providence
-                if (npc.type == NPCID.HallowBoss)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Providence.Providence>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProviCrystal>(), 20));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProShard>(), 3));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<ProvidencePlush>(), 4));
                 }
                 //Storm Weaver
-                if (npc.type == NPCID.TheDestroyer)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.StormWeaver.StormWeaverHead>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<StormBandana>(), 10));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ShellScrap>(), 6));
@@ -682,7 +686,7 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<StormWeaverPlush>(), 4));
                 }
                 //Signus
-                if (npc.type == NPCID.HallowBoss)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Signus.Signus>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SignusBalloon>(), 6));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SigCape>(), 6));
@@ -692,7 +696,7 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<SignusPlush>(), 4));
                 }
                 //CV
-                if (npc.type == NPCID.QueenSlimeBoss)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.CeaselessVoid.CeaselessVoid>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<VoidWings>(), 10));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<OldVoidWings>(), 15));
@@ -700,14 +704,14 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<CeaselessVoidPlush>(), 4));
                 }
                 //Polterghast
-                if (npc.type == NPCID.Plantera)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Polterghast.Polterghast>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Polterhook>(), 20));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<ToyScythe>(), 3));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<PolterghastPlush>(), 4));
                 }
                 //Old Duke
-                if (npc.type == NPCID.DukeFishron)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.OldDuke.OldDuke>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<OldWings>(), 20));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<CorrodedCleaver>(), 3));
@@ -715,7 +719,7 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<OldDukePlush>(), 4));
                 }
                 //DoG
-                if (npc.type == NPCID.TheDestroyer)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.DevourerofGods.DevourerofGodsHead>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<CosmicWormScarf>(), 5));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<RapturedWormScarf>(), 20));
@@ -723,7 +727,7 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<DevourerofGodsPlush>(), 4));
                 }
                 //Yharon
-                if (npc.type == NPCID.DD2Betsy)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<YharonShackle>(), 3));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<JunglePhoenixWings>(), 5));
@@ -732,13 +736,13 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<YharonPlush>(), 4));
                 }
                 //Supreme Cal
-                if (npc.type == NPCID.Retinazer)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SupremeCalamitas.SupremeCalamitas>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<GruelingMask>(), 3));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<CalamitasFumo>(), 4));
                 }
                 //Ares
-                if (npc.type == NPCID.SkeletronPrime)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.ExoMechs.Ares.AresBody>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>(), 3));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<DraedonBody>(), 5));
@@ -748,7 +752,7 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<DraedonPlush>(), 10));
                 }
                 //Thanatos
-                if (npc.type == NPCID.TheDestroyer)
+                if (npc.type == ModContent.NPCType < CalamityMod.NPCs.ExoMechs.Thanatos.ThanatosHead> ())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<XMLightningHook>(), 5));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<DraedonBody>(), 5));
@@ -758,30 +762,24 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<DraedonPlush>(), 10));
                 }
                 //Apollo
-                if (npc.type == NPCID.Spazmatism)
+                if (npc.type == ModContent.NPCType < CalamityMod.NPCs.ExoMechs.Apollo.Apollo> ())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ApolloBalloonSmall>(), 3));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<Items.Pets.ExoMechs.GeminiMarkImplants>(), 6));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<ApolloPlush>()));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<DraedonPlush>(), 20));
-                }
-                //Artemis
-                if (npc.type == NPCID.Retinazer)
-                {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ArtemisBalloonSmall>(), 3));
-                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<Items.Pets.ExoMechs.GeminiMarkImplants>(), 6));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<ArtemisPlush>()));
-                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<DraedonPlush>(), 20));
                 }
                 //Wyrm
-                if (npc.type == NPCID.DungeonGuardian)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AdultEidolonWyrm.EidolonWyrmHeadHuge>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Tiles.RespirationShrine>(), 1));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<SoulShard>()));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<JaredPlush>(), 4));
                 }
                 //Donuts
-                if (npc.type == NPCID.SolarCorite)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.ProfanedGuardians.ProfanedGuardianBoss>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedFrame>(), 15));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedBattery>(), 15));
@@ -789,7 +787,7 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<ProfanedGuardianPlush>(), 30));
                 }
                 //Yharon 2 idk idk
-                if (npc.type == NPCID.MoonLordCore)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Termipebbles>(), 1, 3, 8));
                 }

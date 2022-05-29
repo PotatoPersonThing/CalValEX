@@ -63,7 +63,7 @@ namespace CalValEX.NPCs.Critters
             //Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
             //if (clamMod != null)
             {
-                if (/*(bool)clamMod.Call("CalValEX/GetBossDowned", "providence")*/ NPC.downedEmpressOfLight && Main.bloodMoon && !CalValEXConfig.Instance.CritterSpawns)
+                if (CalamityMod.DownedBossSystem.downedProvidence && Main.bloodMoon && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     if (spawnInfo.PlayerSafe)
                     {

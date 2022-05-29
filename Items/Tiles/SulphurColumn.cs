@@ -22,11 +22,7 @@ namespace CalValEX.Items.Tiles
             Item.width = 16;
             Item.height = 28;
             Item.rare = 4;
-            /*Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            if (calamityMod != null)
-            {
-                Item.createTile = (calamityMod.TileType("SulphurousColumn"));
-            }*/
+            Item.createTile = ModContent.TileType<CalamityMod.Tiles.Abyss.SulphurousColumn>();
         }
     }
 }

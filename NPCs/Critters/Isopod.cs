@@ -46,10 +46,11 @@ namespace CalValEX.NPCs.Critters
             NPC.lifeMax = 2000;
             for (int i = 0; i < NPC.buffImmune.Length; i++)
             {
-                //NPC.buffImmune[(ModLoader.GetMod("CalamityMod").BuffType("CrushDepth"))] = false;
+                NPC.buffImmune[ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.CrushDepth>()] = false;
             }
             Banner = NPC.type;
             BannerItem = ItemType<IsopodBanner>();
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.AbyssLayer4Biome>().Type };
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -66,7 +67,7 @@ namespace CalValEX.NPCs.Critters
             //Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
             //if (clamMod != null)
             {
-                if (spawnInfo.Player.ZoneNormalCaverns/*GetModPlayer<CalamityPlayer>().ZoneAbyssLayer4*/ && !CalValEXConfig.Instance.CritterSpawns)
+                if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneAbyssLayer4 && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     if (spawnInfo.Water)
                     {

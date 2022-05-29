@@ -116,11 +116,11 @@ namespace CalValEX.NPCs.Critters
             {
                 if (spawnInfo.PlayerSafe)
                 {
-                    return Terraria.ModLoader.Utilities.SpawnCondition.DesertCave.Chance * 0.025f;
+                    return Terraria.ModLoader.Utilities.SpawnCondition.DesertCave.Chance * 0.00025f;
                 }
                 else
                 {
-                    return Terraria.ModLoader.Utilities.SpawnCondition.DesertCave.Chance * 0.05f;
+                    return Terraria.ModLoader.Utilities.SpawnCondition.DesertCave.Chance * 0.0005f;
                 }
             }
             return 0f;

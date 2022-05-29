@@ -30,7 +30,7 @@ namespace CalValEX.NPCs.Critters
             NPC.lifeMax = 20;
             for (int i = 0; i < NPC.buffImmune.Length; i++)
             {
-                //NPC.buffImmune[(ModLoader.GetMod("CalamityMod").BuffType("Plague"))] = false;
+                NPC.buffImmune[ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.Plague>()] = false;
             }
         }
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)

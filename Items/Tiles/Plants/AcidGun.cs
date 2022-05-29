@@ -22,24 +22,7 @@ namespace CalValEX.Items.Tiles.Plants
             Item.width = 16;
             Item.height = 28;
             Item.rare = 4;
-            /*Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            if (calamityMod != null)
-            {
-                Item.createTile = (calamityMod.TileType("SulphurousVines"));
-            }*/
+            Item.createTile = ModContent.TileType<CalamityMod.Tiles.Abyss.SulphurousVines>();
         }
-
-        /*public override void AddRecipes()
-        {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("SulfuricScale"), 5);
-                recipe.AddIngredient((ItemID.VineRope), 50);
-                recipe.AddTile(TileID.Anvils);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

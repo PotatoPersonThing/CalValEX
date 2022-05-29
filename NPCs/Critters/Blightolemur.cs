@@ -61,19 +61,15 @@ namespace CalValEX.NPCs.Critters
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            //Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
-            //if (clamMod != null)
+            if (spawnInfo.Player.InModBiome(ModContent.GetInstance<Biomes.AstralBlight>()) && !CalValEXConfig.Instance.CritterSpawns)
             {
-                if (spawnInfo.Player.InModBiome(ModContent.GetInstance<Biomes.AstralBlight>()) && !CalValEXConfig.Instance.CritterSpawns)
+                if (spawnInfo.PlayerSafe)
                 {
-                    if (spawnInfo.PlayerSafe)
-                    {
-                        return Terraria.ModLoader.Utilities.SpawnCondition.TownCritter.Chance * 0.5f;
-                    }
-                    else if (!Main.eclipse && !Main.bloodMoon && !Main.pumpkinMoon && !Main.snowMoon)
-                    {
-                        return 0.15f;
-                    }
+                    return Terraria.ModLoader.Utilities.SpawnCondition.TownCritter.Chance * 0.5f;
+                }
+                else if (!Main.eclipse && !Main.bloodMoon && !Main.pumpkinMoon && !Main.snowMoon)
+                {
+                    return 0.15f;
                 }
             }
             return 0f;

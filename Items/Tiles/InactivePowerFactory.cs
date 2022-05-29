@@ -1,4 +1,4 @@
-﻿/*using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
@@ -25,13 +25,9 @@ namespace CalValEX.Items.Tiles
             Item.consumable = true;
             Item.width = 16;
             Item.height = 28;
-            Item.rare = 3;*/
-            /*Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            if (calamityMod != null)
-            {
-                Item.createTile = (calamityMod.TileType("InactivePowerCellFactory"));
-            }*/
-        /*}
+            Item.rare = 3;
+            Item.createTile = ModContent.TileType<CalamityMod.Tiles.DraedonStructures.InactivePowerCellFactory>();
+        }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
@@ -52,19 +48,5 @@ namespace CalValEX.Items.Tiles
                 }
             }
         }
-
-        public override void AddRecipes()
-        {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            {
-                {
-                    ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient(calamityMod.ItemType("PowerCellFactoryItem"), 1);
-                    recipe.AddTile(TileID.Anvils);
-                    recipe.SetResult(this);
-                    recipe.AddRecipe();
-                }
-            }
-        }
     }
-}*/
+}

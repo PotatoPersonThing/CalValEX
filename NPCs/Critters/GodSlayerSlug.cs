@@ -72,7 +72,7 @@ namespace CalValEX.NPCs.Critters
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             //Mod calamityMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
-            if (/*(bool)calamityMod.Call("CalValEX/GetBossDowned", "devourerofgods")*/ NPC.downedMoonlord && !CalValEXConfig.Instance.CritterSpawns && spawnInfo.Player.ZoneSkyHeight)
+            if (CalamityMod.DownedBossSystem.downedDoG && !CalValEXConfig.Instance.CritterSpawns && spawnInfo.Player.ZoneSkyHeight)
             {
                 if (Main.raining)
                 {

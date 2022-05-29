@@ -31,9 +31,7 @@ namespace CalValEX.NPCs.Critters
             NPC.damage = 0;
             NPC.defense = 0;
             NPC.lifeMax = 100;
-            //Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            //if ((bool)calamityMod.Call("CalValEX/GetBossDowned", "providence"))
-            if (NPC.downedMoonlord)
+            if (CalamityMod.DownedBossSystem.downedProvidence)
             {
                 NPC.lifeMax = 500;
             }
@@ -45,6 +43,7 @@ namespace CalValEX.NPCs.Critters
             NPC.npcSlots = 0.25f;
             Banner = NPC.type;
             BannerItem = ItemType<EyedolBanner>();
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.BrimstoneCragsBiome>().Type };
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -97,7 +96,7 @@ namespace CalValEX.NPCs.Critters
             //Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
             //if (clamMod != null)
             {
-                if (/*spawnInfo.Player.GetModPlayer<CalamityPlayer>().ZoneCalamity*/ spawnInfo.Player.ZoneUnderworldHeight && !CalValEXConfig.Instance.CritterSpawns)
+                if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneCalamity && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     return 0.35f;
                 }

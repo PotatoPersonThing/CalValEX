@@ -41,8 +41,9 @@ namespace CalValEX.NPCs.Critters
             NPC.npcSlots = 0.25f;
             for (int i = 0; i < NPC.buffImmune.Length; i++)
             {
-                //NPC.buffImmune[(ModLoader.GetMod("CalamityMod").BuffType("SulphuricPoisoning"))] = false;
+                NPC.buffImmune[ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.SulphuricPoisoning>()] = false;
             }
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.SulphurousSeaBiome>().Type };
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -145,7 +146,7 @@ namespace CalValEX.NPCs.Critters
             //Mod clamMod = ModLoader.GetMod("CalamityMod"); 
             //if (clamMod != null)
             {
-                if (/*spawnInfo.Player.GetModPlayer<CalamityPlayer>().ZoneSulphur && (bool)clamMod.Call("CalValEX/GetBossDowned", "supremecalamitas")*/ spawnInfo.Player.ZoneBeach && !NPC.AnyNPCs(ModContent.NPCType<OrthoceraApparition>()) && (!CalValEXWorld.orthofound/* || orthoceraDLC != null*/))
+                if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneSulphur && CalamityMod.DownedBossSystem.downedCalamitas && CalamityMod.DownedBossSystem.downedExoMechs && spawnInfo.Player.ZoneBeach && !NPC.AnyNPCs(ModContent.NPCType<OrthoceraApparition>()) && (!CalValEXWorld.orthofound/* || orthoceraDLC != null*/))
                 {
                     return 5f;
                 }
