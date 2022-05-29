@@ -5,7 +5,7 @@
 			# April fools!
 			Meldosaurus : Meldosaurus
 			Jharim : Jungle Tyrant
-			Fogbound : Hyper Ultra Omega Fogbound GOD EX: Prepare to Stygian Edition
+			Fogbound : '''Hyper Ultra Omega Fogbound GOD EX: Prepare to Stygian Edition'''
 			#Critters
 			AstJR : Astragelly Slime
 			Blightolemur : Bleamur
@@ -42,7 +42,7 @@
 			MeldosaurusBag : Treasure Bag
 			JharimHead : Jungle Tyrant Jharim's Decapitated Head
 			FogG : Purified Fog
-			#Critters
+			# Critters
 			AstJRItem : Astragelly Slime
 			BlightolemurItem : Bleamur
 			BlinkerItem : Blinker
@@ -62,13 +62,16 @@
 			SwearshroomItem : Swearshroom
 			ViolemurItem : Violemur
 			XerocodileItem : Awakened Xerocodile
+			# Tiles
+			BubbleMachine : Effervescent Bubbler
 		}
 		
 		ItemTooltip: {
 			# April fools!
 			AmogusItem: '''Summons a Stratus Astronaut
 				UNOBTAINABLE
-				Cheating this item in may have disastrous consequences\nHates alien dinosaurs'''
+				Cheating this item in may have disastrous consequences
+				Hates alien dinosaurs'''
 			ShadesBane : '''Makes cursed fireballs erupt from enemies on true melee hits
 			Right click to unleash fireballs in random directions along with an onyx dart
 			'Edgy sword #2940358304' '''
@@ -80,6 +83,8 @@
 				Does not work outside of April Fools'''
 			FogG: ''':Why:
 				Summons the Fogbound'''
+			#Tiles
+			BubbleMachine : '''That's like, groovy mannn'''
 		}
 		
 		ProjectileName: {
