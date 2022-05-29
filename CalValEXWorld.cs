@@ -156,6 +156,8 @@ namespace CalValEX
         }
         public override void NetReceive(BinaryReader reader)
         {
+            if (reader.BaseStream.Length < 1) 
+                return;
             BitsByte flags = reader.ReadByte();
             BitsByte flags2 = reader.ReadByte();
             rescuedjelly = flags[0];
