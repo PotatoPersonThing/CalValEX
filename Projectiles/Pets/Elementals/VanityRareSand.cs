@@ -5,8 +5,7 @@ namespace CalValEX.Projectiles.Pets.Elementals
 {
     public class VanityRareSand : ModFlyingPet
     {
-        //public override string Texture => "CalamityMod/Projectiles/Summon/SandElementalHealer";
-        public override string Texture => "CalValEx/Projectiles/Pets/Elementals/RaresandMini";
+        public override string Texture => "CalamityMod/Projectiles/Summon/SandElementalHealer";
 
         public override float TeleportThreshold => 1200f;
 

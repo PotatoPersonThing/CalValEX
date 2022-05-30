@@ -5,8 +5,7 @@ namespace CalValEX.Projectiles.Pets.Elementals
 {
     public class VanityYoungDuke : ModFlyingPet
     {
-        //public override string Texture => "CalamityMod/Projectiles/Summon/YoungDuke";
-        public override string Texture => "CalValEx/Projectiles/Pets/Elementals/Sandmini";
+        public override string Texture => "CalamityMod/Projectiles/Summon/YoungDuke";
 
         public override bool ShouldFlyRotate => false;
 

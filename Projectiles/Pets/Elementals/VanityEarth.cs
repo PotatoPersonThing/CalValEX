@@ -11,8 +11,7 @@ namespace CalValEX.Projectiles.Pets.Elementals
 
         public override bool ShouldFlyRotate => false;
 
-        //public override string Texture => "CalamityMod/NPCs/NormalNPCs/Horse";
-        public override string Texture => "CalValEx/Projectiles/Pets/Elementals/BabyWaterClone";
+        public override string Texture => "CalamityMod/NPCs/NormalNPCs/Horse";
 
         public override void SetStaticDefaults()
         {

@@ -7,7 +7,7 @@ namespace CalValEX.Projectiles.Pets.Elementals
     public class VanityAnahita : ModProjectile
     {
         //public override string Texture => "CalamityMod/NPCs/Leviathan/Siren";
-        public override string Texture => "CalValEx/Projectiles/Pets/Elementals/BabyWaterClone";
+        public override string Texture => "CalamityMod/NPCs/Leviathan/Siren";
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Passive Anahita");

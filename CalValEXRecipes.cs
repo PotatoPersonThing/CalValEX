@@ -447,7 +447,7 @@ namespace CalValEX
 			}
 			{
 				Recipe recipe = Mod.CreateRecipe(ItemType<CalArtifact>());
-				recipe.AddRecipeGroup(ItemType<CalamityDust>(), 15);
+				recipe.AddIngredient(ItemType<CalamityDust>(), 15);
 				recipe.AddIngredient(ItemType<CalamityMod.Items.Placeables.Plates.Cinderplate>(), 20);
 				recipe.AddTile(TileID.LunarCraftingStation);
 				recipe.Register();

@@ -5,8 +5,7 @@ namespace CalValEX.Projectiles.Pets.Elementals
 {
     public class VanityBrimstone : ModFlyingPet
     {
-        //public override string Texture => "CalamityMod/Projectiles/Summon/BrimstoneElementalMinion";
-        public override string Texture => "CalValEx/Projectiles/Pets/Elementals/RareBrimling";
+        public override string Texture => "CalamityMod/Projectiles/Summon/BrimstoneElementalMinion";
 
         public override float TeleportThreshold => 1200f;
 

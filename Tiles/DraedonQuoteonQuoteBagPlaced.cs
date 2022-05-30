@@ -26,9 +26,9 @@ namespace CalValEX.Tiles
             AddMapEntry(new Color(249, 119, 48), name);
         }
 
-        /*public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 24, 24, ModLoader.GetMod("CalamityMod").ItemType("DraedonTreasureBag"));
-        }*/
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ModContent.ItemType<CalamityMod.Items.TreasureBags.DraedonTreasureBag>());
+        }
     }
 }
