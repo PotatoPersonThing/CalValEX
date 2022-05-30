@@ -15,7 +15,7 @@ namespace CalValEX.Projectiles.Boi
         public int crosstimer = 0;
         public int aiphase = 0;
         public int phasetimer = 0;
-        public override string Texture => "CalValEX/ExtraTextures/Boi/Terror";
+        public override string Texture => "CalValEX/Boi/Terror";
 
         public override void SetStaticDefaults()
         {
@@ -34,6 +34,7 @@ namespace CalValEX.Projectiles.Boi
             Projectile.alpha = 0;
         }
 
+        /*
         public override void AI()
         {
             //if (Projectile.alpha <= 0)
@@ -183,6 +184,7 @@ namespace CalValEX.Projectiles.Boi
             }
             ow--;
         }
+        */
 
         public override bool PreDraw(ref Color lightColor)
         {
@@ -206,5 +208,32 @@ namespace CalValEX.Projectiles.Boi
             Main.EntitySpriteDraw(texture2, position2, rectangle2, clo, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
         */
         }
+
+
+        /*
+                //Boss Healthbar
+                for (int i = 0; i<Main.maxProjectiles; i++)
+                {
+                    var proj = Main.projectile[i];
+
+                    if (proj != null && proj.active && proj.type == ModContent.ProjectileType<Terror>())
+                    {
+                        Texture2D mapicon = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Pixel").Value;
+        Rectangle rectangle3 = new Rectangle(0, mapicon.Height / Main.projFrames[Projectile.type] * Projectile.frame, mapicon.Width, 20);
+        Vector2 position3 = Projectile.Center - Main.screenPosition;
+        position3.X = position3.X + DrawOffsetX + 142;
+                        position3.Y = position3.Y + DrawOriginOffsetY + 525;
+                        for (int cont = 0; cont< 600; cont++)
+                        {
+                            Main.EntitySpriteDraw(mapicon, new Vector2(position3.X + mapicon.Width* cont, position3.Y), rectangle3, Color.DarkGray, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
+                        }
+                        for (int cont = 0; cont< 10*proj.ai[0]; cont++)
+                        {
+                            Main.EntitySpriteDraw(mapicon, new Vector2(position3.X + mapicon.Width* cont, position3.Y), rectangle3, Color.White, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
+                        }
+                    }
+                }
+    }
+        */
     }
 }

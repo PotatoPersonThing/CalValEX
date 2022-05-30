@@ -11,7 +11,7 @@ namespace CalValEX.Projectiles.Boi
     {
         private double rotation = 0D;
         bool collec = false;
-        public override string Texture => "CalValEX/ExtraTextures/Boi/Atlantis";
+        public override string Texture => "CalValEX/Boi/Atlantis";
 
         public override void SetStaticDefaults()
         {
@@ -30,6 +30,7 @@ namespace CalValEX.Projectiles.Boi
             //Projectile.alpha = 255;
         }
 
+        /*
         public override void AI()
         {
             int bop = 0;
@@ -100,7 +101,8 @@ namespace CalValEX.Projectiles.Boi
                 Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2.Width, texture2.Height / Main.projFrames[Projectile.type]);
                 Vector2 position2 = Projectile.Center - Main.screenPosition;
                 Main.EntitySpriteDraw(texture2, position2, rectangle2, Color.White, Projectile.rotation, Projectile.Size / 2f, 1f, SpriteEffects.None, 0);
-          */  
+          
         }
+        */
     }
 }

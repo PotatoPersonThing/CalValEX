@@ -11,7 +11,7 @@ namespace CalValEX.Boi
 {
     public class BoiRock : BoiEntity, ICollidable
     {
-        public string Texture => "CalValEX/ExtraTextures/Boi/Block";
+        public string Texture => "CalValEX/Boi/Block";
 
         //Those should be made into Icolliding
         //List<int> push = new List<int>() { ModContent.ProjectileType<Brimhita>(), ModContent.ProjectileType<Anahita>(), ModContent.ProjectileType<Spider>(), ModContent.ProjectileType<Terror>() };
@@ -70,21 +70,5 @@ namespace CalValEX.Boi
 
             return pushbackNormal * pushbackLength;
         }
-
-
-            //This should happen in the AnahitaTear OnCollide / Die code.
-
-            //for (int i = 0; i < Main.maxProjectiles; i++)
-            //{
-            //    var proj = Main.projectile[i];
-
-            //    if (proj != null && proj.active && proj.getRect().Intersects(thisRect) && proj.type == ModContent.ProjectileType<AnahitaTear>())
-            //    {
-            //        Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.Item10, Projectile.Center);
-            //        if ((proj.timeLeft < 110 && proj.velocity.Y > 0) || proj.velocity.Y <= 0)
-            //        proj.active = false;
-            //    }
-            //}
-
     }
 }

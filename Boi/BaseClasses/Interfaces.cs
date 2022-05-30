@@ -56,9 +56,9 @@ namespace CalValEX.Boi.BaseClasses
 
         public bool Contains(Vector2 point)
         {
-            if (position.X <= point.X && point.X < position.X + dimensions.X && position.Y <= point.y)
+            if (position.X <= point.X && point.X < position.X + dimensions.X && position.Y <= point.Y)
             {
-                return point.y < position.Y + dimensions.Y;
+                return point.Y < position.Y + dimensions.Y;
             }
 
             return false;
@@ -288,6 +288,6 @@ namespace CalValEX.Boi.BaseClasses
         /// </summary>
         public int Layer => 0;
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 offset, float scale);
+        public void Draw(SpriteBatch spriteBatch, Vector2 offset);
     }
 }

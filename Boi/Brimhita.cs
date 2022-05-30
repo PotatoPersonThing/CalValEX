@@ -11,7 +11,7 @@ namespace CalValEX.Projectiles.Boi
         public int ow = 0;
         public bool anaex = false;
         public int frozen = 30;
-        public override string Texture => "CalValEX/ExtraTextures/Boi/Brimhita";
+        public override string Texture => "CalValEX/Boi/Brimhita";
 
         public override void SetStaticDefaults()
         {
@@ -30,6 +30,7 @@ namespace CalValEX.Projectiles.Boi
             Projectile.alpha = 0;
         }
 
+        /*
         public override void AI()
         {
             //if (Projectile.alpha <= 0)
@@ -91,7 +92,7 @@ namespace CalValEX.Projectiles.Boi
             }
             ow--;
         }
-
+        */
         public override bool PreDraw(ref Color lightColor)
         {
             return false;

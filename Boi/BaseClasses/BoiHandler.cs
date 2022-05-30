@@ -10,46 +10,75 @@ namespace CalValEX.Boi.BaseClasses
 	public class BoiHandler
 	{
 		public const float OOBLeeway = 100;
-		public static Vector2 playingField = new Vector2(500, 500);
-		public List<BoiRoom> Map;
-		public List<BoiEntity> Entities = new List<BoiEntity> { BoiPlayer, AnahitaTear};
+		public static readonly Vector2 playingField = new Vector2(789, 472);
+		public static List<BoiRoom> Map; //Idk how to handle that rn
+		public static BoiPlayer Ana;
+		public static int UnexploredDoors; //To avoid ending up with unfinished floors
 
-		public List<BoiEntity> DeadEntities = new List<BoiEntity>();
-		public Dictionary<IColliding, BoiEntity> CollidingEntities = new Dictionary<IColliding, BoiEntity>();
-		public Dictionary<ICollidable, BoiEntity> CollidableEntities = new Dictionary<ICollidable, BoiEntity>();
-		public Dictionary<IDamageable, BoiEntity> DamageableEntities = new Dictionary<IDamageable, BoiEntity>();
-		public Dictionary<IDamageDealer, BoiEntity> DamageDealingEntities = new Dictionary<IDamageDealer, BoiEntity>();
-		public Dictionary<IInteractable, BoiEntity> InteractibleEntities = new Dictionary<IInteractable, BoiEntity>();
-		public Dictionary<IDrawable, BoiEntity> DrawableEntities = new Dictionary<IDrawable, BoiEntity>();
+		public static List<BoiEntity> DeadEntities = new List<BoiEntity>();
+		public static Dictionary<IColliding, BoiEntity> CollidingEntities = new Dictionary<IColliding, BoiEntity>();
+		public static Dictionary<ICollidable, BoiEntity> CollidableEntities = new Dictionary<ICollidable, BoiEntity>();
+		public static Dictionary<IDamageable, BoiEntity> DamageableEntities = new Dictionary<IDamageable, BoiEntity>();
+		public static Dictionary<IDamageDealer, BoiEntity> DamageDealingEntities = new Dictionary<IDamageDealer, BoiEntity>();
+		public static Dictionary<IInteractable, BoiEntity> InteractibleEntities = new Dictionary<IInteractable, BoiEntity>();
+		public static List<List<IDrawable>> DrawLayers = new List<List<IDrawable>>();
 
-		public bool spawnAna = false;
+		public static Vector2 ScreenOffset => new Vector2(Main.screenWidth / 2f, Main.screenHeight / 2f) - playingField / 2f;
 
+		public static void Initialize()
+        {
+			Map = new List<BoiRoom>();
 
-		public void Run()
-		{
+			BoiRoom room = NewRoom(0, 0, null);
+			Map.Add(room);
+			Ana = new BoiPlayer(playingField / 2f, 5f, room);
+
+			DrawLayers = new List<List<IDrawable>>();
+			DeadEntities = new List<BoiEntity>();
+			CollidingEntities = new Dictionary<IColliding, BoiEntity>();
+			CollidableEntities = new Dictionary<ICollidable, BoiEntity>();
+			DamageableEntities = new Dictionary<IDamageable, BoiEntity>();
+			DamageDealingEntities = new Dictionary<IDamageDealer, BoiEntity>();
+			InteractibleEntities = new Dictionary<IInteractable, BoiEntity>();
+		}
+
+		public static void Unload()
+        {
+			Map.Clear();
+			Ana = null;
+			UnexploredDoors = 0;
+			DrawLayers.Clear();
+
+        }
+
+		public static BoiRoom NewRoom(int x, int y, BoiRoom roomFrom)
+        {
+			//Generate room sstuff
+			BoiRoom room = new BoiRoom(x, y, roomFrom);
+
+			//Fill the room with entities, i assume.
+			room.Populate();
+
+			return room;
+        }
+
+		public static void Run()
+        {
 			//Process the players movement and actions
-			foreach (BoiPlayer player in Entities)
-            {
-				player.ProcessControls();
-            }
+			Ana.ProcessControls();
 
-			//Spawn Anahita...?
-			foreach (BoiPlayer player in Entities)
-			{
-				if (!spawnAna)
-				{
-					Entities.Add(player);
-					spawnAna = true;
-				}				
-			}
+			BoiRoom simulatedRoom = Ana.RoomImIn;
 
 			//For each entity
-			foreach (BoiEntity entity in Entities)
+			foreach (BoiEntity entity in simulatedRoom.Entities)
             {
 				//-Run their update function (and the UpdateEffect functions of their inventory slots
 				entity.Update();
-				foreach (BoiItem item in entity.Inventory)
-					item.UpdateEffect();
+				if (entity.Inventory != null)
+				{
+					foreach (BoiItem item in entity.Inventory)
+						item.UpdateEffect();
+				}
 
 				entity.OldPosition = entity.Position;
 				entity.Position += entity.Velocity;
@@ -78,10 +107,13 @@ namespace CalValEX.Boi.BaseClasses
 					DamageDealingEntities.Add(damageDealer, entity);
 				}
 
-				//-If they are an active interactible  entity, add them to the list.
+				//-If they are an active interactible entity and close enough to the player, add them to the list
 				if (entity is IInteractable interactable && interactable.CanBeInteractedWith)
 				{
-					InteractibleEntities.Add(interactable, entity);
+					if ((entity.Position - Ana.Position).Length() - Ana.Hitbox.radius < interactable.CollisionCircleRadius)
+					{
+						InteractibleEntities.Add(interactable, entity);
+					}
 				}
 			}
 
@@ -150,41 +182,131 @@ namespace CalValEX.Boi.BaseClasses
 					}
 				}
 			}
-			Draw();
 
-			//For each IInteractable, check if the player is in their InteractionRadius and if they have CanBeInteracted to true. If it is the case, simply just run their Interact() function.
-			//Kill the interactable if the Interact function returns true
+			foreach (IInteractable interactible in InteractibleEntities.Keys)
+            {
+				if (interactible.Interact(Ana))
+					DeadEntities.Add(InteractibleEntities[interactible]);
+            }
 
-
-			//Out of bounds checks
-			foreach (BoiEntity entity in Entities)
+			//Out of bounds checks & entityn interaction
+			foreach (BoiEntity entity in simulatedRoom.Entities)
 			{
 				if (OOBCheck(entity, entity is IColliding collider))
 					DeadEntities.Add(entity);
 			}
 
 			//Remove all the dead entities from the list of simulated entities
-			Entities.RemoveAll(n => DeadEntities.Contains(n));
+			simulatedRoom.Entities.RemoveAll(n => DeadEntities.Contains(n));
 
-			//Clear all the lists created earlier
+			//Clear all the lists created earlier (since they were just here to store the entities that were being processed this frame.
 			DeadEntities.Clear();
 			CollidingEntities.Clear();
 			CollidableEntities.Clear();
 			DamageableEntities.Clear();
 			DamageDealingEntities.Clear();
+			InteractibleEntities.Clear();
 		}
 
-		public void Draw()
-		{
-			Texture2D screen = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongBG").Value;
-			Texture2D walls = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Room").Value;
-			Main.EntitySpriteDraw(screen, playingField, null, Color.White, 0f, new Vector2(screen.Width, screen.Height) / 2, 1f, SpriteEffects.None, 0);
-			Main.EntitySpriteDraw(walls, playingField, null, Color.White, 0f, new Vector2(screen.Width, screen.Height) / 2, 1f, SpriteEffects.None, 0);
-			foreach (IDrawable tear  in DrawableEntities)
-            {
-				tear.Draw();
+		public static void Draw(SpriteBatch spriteBatch)
+        {
+			//Draw base screen
+			Texture2D BackgroundTex = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongBG").Value;
+			Vector2 offset = BackgroundTex.Size() / 2f - playingField / 2f;
+			spriteBatch.Draw(BackgroundTex, ScreenOffset - offset, null, Color.White, 0f, Vector2.Zero, 1f, 0, 0f);
+
+			//Draw room border
+			Texture2D BorderTex = ModContent.Request<Texture2D>("CalValEX/Boi/Room").Value;
+			Vector2 BorderScale = new Vector2(playingField.X / BorderTex.Width, playingField.Y / BorderTex.Height);
+			spriteBatch.Draw(BorderTex, ScreenOffset, null, Color.White, 0f, Vector2.Zero, BorderScale, 0, 0f);
+
+
+			//Healthbar
+			Texture2D HeartTexture = ModContent.Request<Texture2D>("CalValEX/Boi/Heart").Value;
+			Vector2 BaseHeartOffset = new Vector2(HeartTexture.Width / 2f, -16 - HeartTexture.Height / 2f);
+			Vector2 HeartOffset = new Vector2(HeartTexture.Width + 4f, 0f);
+
+			for (int i = 0; i < (int)Ana.MaxHealth; i++)
+			{
+				spriteBatch.Draw(HeartTexture, ScreenOffset + BaseHeartOffset + i * HeartOffset, null, Color.DarkGray, 0f, HeartTexture.Size() / 2f, 1f, 0, 0);
 			}
-		}
+
+			for (int i = 0; i < (int)Ana.Health; i++)
+			{
+				spriteBatch.Draw(HeartTexture, ScreenOffset +  BaseHeartOffset + i * HeartOffset, null, Color.White, 0f, HeartTexture.Size() / 2f, 1f, 0, 0);
+			}
+
+			/* Map
+
+				{
+				Texture2D mapicon = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongBall").Value;
+				Rectangle rectangle3 = new Rectangle(0, mapicon.Height / Main.projFrames[Projectile.type] * Projectile.frame, mapicon.Width, mapicon.Height / Main.projFrames[Projectile.type]);
+				Vector2 position3 = Projectile.Center - Main.screenPosition;
+				position3.X = position3.X + DrawOffsetX + 380;
+				position3.Y = position3.Y + DrawOriginOffsetY - 150;
+				for (int cont = 0; cont < 10; cont++)
+				{
+					Color cooo;
+					if (cont == Projectile.localAI[0])
+					{
+						cooo = Color.Lime;
+					}
+					else if (rooms[cont] == 1)
+					{
+						cooo = Color.White;
+					}
+					else
+					{
+						cooo = Color.DarkCyan;
+					}
+					Main.EntitySpriteDraw(mapicon, new Vector2(position3.X + mapicon.Width * cont, position3.Y), rectangle3, cooo, Projectile.rotation, Projectile.Size / 4f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
+				}
+			}
+
+			*/
+
+			//For each entity in Entities, if its an IDrawable, store them in new lists, separated on their Layer
+			foreach (BoiEntity entity in Ana.RoomImIn.Entities)
+            {
+				if (entity is IDrawable drawableEntity)
+                {
+					int layer = drawableEntity.Layer;
+
+					//If they are just enough layers minus the one we're looking at 
+					//For example, if currently we have zero layers and we want to put an entity on layer zero. Or if there are two layers (the layers zero and one) and we want to put an entity on the layer two.
+					//In this case, we simply create a new layer after the already existing ones
+					if (DrawLayers.Count == layer)
+					{
+						DrawLayers.Add(new List<IDrawable>());
+					}
+
+					//If there are less layers than the amount needed 
+					//For example, if we want to add an entity to layer 2 but currently, there is just one layer (The layer zero)
+					if (DrawLayers.Count < layer)
+					{
+						while (!(DrawLayers.Count == layer + 1))
+							DrawLayers.Add(new List<IDrawable>());
+					}
+
+					//If there are more layers than the layer we want to draw on (this means the layer already got initialized) (which it should have , because of the previous checks.
+					if (DrawLayers.Count > layer)
+					{
+						DrawLayers[layer].Add(drawableEntity);
+					}
+                }
+            }
+
+			//Then for all these lists, draw the IDrawables with the proper scale and offset.
+			for (int i = 0; i < DrawLayers.Count; i++)
+            {
+				foreach (IDrawable drawer in DrawLayers[i])
+                {
+					drawer.Draw(spriteBatch, ScreenOffset);
+                }
+            }
+
+			DrawLayers.Clear();
+        }
 
 		/// <summary>
 		/// Do the necessary processes to make sure an entity doesnt end up out of bound, and kills it if necessary. If the entity needs to die, this function returns true
@@ -192,7 +314,7 @@ namespace CalValEX.Boi.BaseClasses
 		/// <param name="entity">The entity to check</param>
 		/// <param name="Collision">Wether or not the entity can collide with walls. If false, the entity will be able to go out of bounds for a while before getting cleared</param>
 		/// <returns>Wether or not the entity died from the oob check</returns>
-		public bool OOBCheck(BoiEntity entity, bool Collision)
+		public static bool OOBCheck(BoiEntity entity, bool Collision)
         {
 			if (Collision)
             {
@@ -222,7 +344,7 @@ namespace CalValEX.Boi.BaseClasses
 
 			else
             {
-				if (entity.Position.X > playingField.X + OOBLeeway || entity.Position.X < OOBLeeway || entity.Position.Y > playingField.Y + OOBLeeway || entity.Position.Y < OOBLeeway)
+				if (entity.Position.X > playingField.X + OOBLeeway || entity.Position.X < -OOBLeeway || entity.Position.Y > playingField.Y + OOBLeeway || entity.Position.Y < -OOBLeeway)
 				{
 					return true;
 				}

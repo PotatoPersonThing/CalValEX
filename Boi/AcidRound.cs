@@ -29,6 +29,7 @@ namespace CalValEX.Projectiles.Boi
             Projectile.penetrate = -1;
         }
 
+        /*
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
@@ -58,6 +59,7 @@ namespace CalValEX.Projectiles.Boi
                 Projectile.active = false;
             }
         }
+        */
 
         public override void PostDraw(Color lightColor)
         {

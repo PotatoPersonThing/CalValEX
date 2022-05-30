@@ -34,7 +34,7 @@ namespace CalValEX.Tiles.MiscFurniture
                 modPlayer.boihealth = 3;
                 modPlayer.boiactive = true;
                  Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), new Vector2(player.position.X + player.width / 2 - 400, player.position.Y + player.height / 2 - 240),
-                     new Vector2(0, 0), ModContent.ProjectileType<Projectiles.Boi.BoiUI>(), 0, 0, player.whoAmI,0 ,0);
+                     new Vector2(0, 0), ModContent.ProjectileType<Boi.BoiUI>(), 0, 0, player.whoAmI,0 ,0);
             }
             return true;
         }

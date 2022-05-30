@@ -4,60 +4,58 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.Audio;
 using Terraria.ID;
+using CalValEX.Boi.BaseClasses;
+using System.Collections.Generic;
 
-namespace CalValEX.Projectiles.Boi
+namespace CalValEX.Boi
 {
-    public class AnahitaTear : ModProjectile
+    public class AnahitaTear : BoiEntity, IColliding, IDamageDealer, BaseClasses.IDrawable
     {
-        public override string Texture => "CalValEX/ExtraTextures/Pong/PongBall";
+        //public override string Texture => "CalValEX/ExtraTextures/Pong/PongBall";
 
-        public override void SetStaticDefaults()
+        public float CollisionRadius = 11f;
+        private float _damage;
+
+        public CircleHitbox CollisionHitbox => new CircleHitbox(Position, CollisionRadius);
+
+        //Explode on walls or tiles
+        public bool OnCollide(BoiEntity collider)
         {
-            DisplayName.SetDefault("Anahita");
-            Main.projFrames[Projectile.type] = 1;
+            SoundEngine.PlaySound(SoundID.Item10);
+            return true;
         }
 
-        public override void SetDefaults()
+        public List<Factions> hostileTo => new List<Factions>() { Factions.enemy };
+
+        public bool HitCheck(CircleHitbox hurtbox) => (hurtbox.center - Position).Length() - hurtbox.radius < CollisionRadius;
+
+        public float DealDamage(BoiEntity target)
         {
-            Projectile.width = 23;
-            Projectile.height = 23;
-            Projectile.aiStyle = -1;
-            Projectile.ignoreWater = true;
-            Projectile.tileCollide = false;
-            Projectile.timeLeft = 120;
-            Projectile.alpha = 255;
+            //Explode on hit
+            BoiHandler.DeadEntities.Add(this);
+            SoundEngine.PlaySound(SoundID.Item10);
+            return _damage;
+        }
+        
+
+        public AnahitaTear(Vector2 position, Vector2 velocity, float damage)
+        {
+            Position = position;
+            Velocity = velocity;
+            _damage = damage;
         }
 
-        public override void AI()
+        public int Layer => 2;
+
+        public void Draw(SpriteBatch spriteBatch, Vector2 offset)
         {
-            Player player = Main.player[Projectile.owner];
-            CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
+            Texture2D Tear = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongBall").Value;
 
-            if (Projectile.position.X < player.Center.X - 382)
-            {
-                Projectile.active = false;
-            }
-            else if (Projectile.position.X > player.Center.X + 372)
-            {
-                Projectile.active = false;
-            }
-            if (Projectile.position.Y < player.Center.Y - 238 && Projectile.velocity.Y <= 0)
-            {
-                Projectile.active = false;
-            }
-            else if (Projectile.position.Y > player.Center.Y + 193)
-            {
-                Projectile.active = false;
-            }
+            Vector2 drawPosition = Position + offset;
 
-            if (!CalValEX.DetectProjectile(ModContent.ProjectileType<BoiUI>()))
-            {
-                Projectile.active = false;
-            }
-        }        
+            Main.EntitySpriteDraw(Tear, drawPosition, null, Color.White, 0f, Tear.Size() / 2f, 1f, 0, 0);
 
-        public override void PostDraw(Color lightColor)
-        {
         }
+
     }
 }

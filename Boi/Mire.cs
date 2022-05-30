@@ -13,7 +13,7 @@ namespace CalValEX.Projectiles.Boi
         public int frozen = 30;
         public int crosstimer = 0;
         public int shoottimer = 0;
-        public override string Texture => "CalValEX/ExtraTextures/Boi/Mire";
+        public override string Texture => "CalValEX/Boi/Mire";
 
         public override void SetStaticDefaults()
         {
@@ -32,6 +32,7 @@ namespace CalValEX.Projectiles.Boi
             Projectile.alpha = 0;
         }
 
+        /*
         public override void AI()
         {
             //if (Projectile.alpha <= 0)
@@ -143,7 +144,7 @@ namespace CalValEX.Projectiles.Boi
                 clo = Color.Orange;
             }
             Main.EntitySpriteDraw(texture2, position2, rectangle2, clo, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
-        */
-        }
+        
+        }*/
     }
 }

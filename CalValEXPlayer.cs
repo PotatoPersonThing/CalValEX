@@ -1,4 +1,4 @@
-//using CalValEX.Buffs.Transformations;
+ï»¿//using CalValEX.Buffs.Transformations;
 //using CalValEX.Items.Equips.Transformations;
 //using CalamityMod.CalPlayer;
 using System.Collections.Generic;
@@ -38,16 +38,16 @@ namespace CalValEX
     public class CalValEXPlayer : ModPlayer
     {
         //public static readonly ClassSpecificPlayerLayer DraedonSet = new ClassSpecificPlayerLayer("CalValEX/Items/Equips/Shirts/Draedon/", "CalValEX/Items/Equips/Hats/Draedon/", "DraedonChestplate", "DraedonHelmet");
-        
+
         private const int saveVersion = 0;
-    
+
         public bool aero;
         public bool andro;
         public bool Angrypup;
         public bool asPet;
         public bool AstPhage;
         public bool BabyCnidrion;
-            public bool babywaterclone;
+        public bool babywaterclone;
         public bool bDoge;
         public bool BoldLizard;
         public bool CalamityBABYBool;
@@ -301,7 +301,7 @@ namespace CalValEX
         public bool ares;
         public bool thanos;
         public bool twins;
-        //Æ: Drae's bools
+        //Ã†: Drae's bools
         public bool digger;
         public bool BestInst;
         public bool DustChime;
@@ -688,7 +688,7 @@ namespace CalValEX
             }
         }
         public override void UpdateVisibleAccessories()
-        { 
+        {
             if (signutTrans)
                 Player.AddBuff(ModContent.BuffType<Buffs.Transformations.SignutTransformationBuff>(), 60, true);
             else if (androTrans)
@@ -703,6 +703,7 @@ namespace CalValEX
 
         public override void PreUpdateMovement()
         {
+
             /*if (pongactive)
             {
                 Player.releaseHook = true;
@@ -718,7 +719,7 @@ namespace CalValEX
                 pongstage = 0;
                 pongoutcome = 0;
             }
-            /*if (boiactive)
+            if (boiactive)
             {
                 Player.releaseHook = true;
                 Player.releaseMount = true;
@@ -727,7 +728,7 @@ namespace CalValEX
                 {
                     Player.velocity.Y = 0;
                 }
-            }*/
+            }
             if (!boiactive)
             {
                 //boistage = 0;
@@ -1013,7 +1014,7 @@ namespace CalValEX
             ares = false;
             thanos = false;
             twins = false;
-            // Æ: Drae's bools but false !!
+            // Ã†: Drae's bools but false !!
             digger = false;
             BestInst = false;
             DustChime = false;
@@ -1208,74 +1209,74 @@ namespace CalValEX
             bool useAstralBiome = ZoneAstral;
             Player.ManageSpecialBiomeVisuals("CalValEX:AstralBiome", useAstralBiome);*/
 
-            /*bool bossIsAlive2 = false;
-            for (int i = 0; i < Main.maxNPCs; i++)
+        /*bool bossIsAlive2 = false;
+        for (int i = 0; i < Main.maxNPCs; i++)
+        {
+            NPC npc = Main.npc[i];
+            if (npc.active && npc.boss)
             {
-                NPC npc = Main.npc[i];
-                if (npc.active && npc.boss)
-                {
-                    bossIsAlive2 = true;
-                }
+                bossIsAlive2 = true;
             }
-            if (!bossIsAlive2)
+        }
+        if (!bossIsAlive2)
+        {
+            bool useCalMonolith = calMonolith;
+            bool useLeviMonolith = leviMonolith;
+            bool usePBGMonolith = pbgMonolith;
+            bool useProvMonolith = provMonolith;
+            bool useDogMonolith = dogMonolith;
+            bool useYharonMonolith = yharonMonolith;
+            bool useCryogenMonolith = cryoMonolith;
+            bool useExoMonolith = exoMonolith;
+            bool useBRMonolith = brMonolith;
+            bool useScalMonolith = scalMonolith;
+            bool TerminalMonolith = CalValEXWorld.RockshrinEX;
+            if (calMonolith)
             {
-                bool useCalMonolith = calMonolith;
-                bool useLeviMonolith = leviMonolith;
-                bool usePBGMonolith = pbgMonolith;
-                bool useProvMonolith = provMonolith;
-                bool useDogMonolith = dogMonolith;
-                bool useYharonMonolith = yharonMonolith;
-                bool useCryogenMonolith = cryoMonolith;
-                bool useExoMonolith = exoMonolith;
-                bool useBRMonolith = brMonolith;
-                bool useScalMonolith = scalMonolith;
-                bool TerminalMonolith = CalValEXWorld.RockshrinEX;
-                if (calMonolith)
-                {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:CalamitasRun3", useCalMonolith, Player.Center);
-                }
-                else if (leviMonolith)
-                {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:Leviathan", useLeviMonolith, Player.Center);
-                }
-                else if (pbgMonolith)
-                {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:PlaguebringerGoliath", usePBGMonolith, Player.Center);
-                }
-                else if (provMonolith)
-                {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:Providence", useProvMonolith, Player.Center);
-                }
-                else if (dogMonolith)
-                {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:DevourerofGodsHead", useDogMonolith, Player.Center);
-                }
-                else if (yharonMonolith)
-                {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:Yharon", useYharonMonolith, Player.Center);
-                }
-                else if (exoMonolith)
-                {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:ExoMechs", useExoMonolith, Player.Center);
-                }
-                else if (scalMonolith)
-                {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:SupremeCalamitas", useScalMonolith, Player.Center);
-                }
-                else if (CalValEXWorld.RockshrinEX)
-                {
-                    CalamityMod.Events.BossRushSky.ShouldDrawRegularly = true;
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:BossRush", TerminalMonolith, Player.Center);
-                }
-                else if (cryoMonolith)
-                {
-                    CalamityMod.Skies.CryogenSky.ShouldDrawRegularly = true;
-                    //Terraria.Graphics.Effects.SkyManager.Instance.Activate("CalamityMod:Cryogen", Player.Center);
-                    CalamityMod.Skies.CryogenSky.UpdateDrawEligibility();
-                    //SkyManager.Instance.Activate("CalamityMod:Cryogen", Player.Center);
-                    //CalamityMod.CryogenSky.UpdateDrawEligibility();
-                }
-            }*/
+                Player.ManageSpecialBiomeVisuals("CalamityMod:CalamitasRun3", useCalMonolith, Player.Center);
+            }
+            else if (leviMonolith)
+            {
+                Player.ManageSpecialBiomeVisuals("CalamityMod:Leviathan", useLeviMonolith, Player.Center);
+            }
+            else if (pbgMonolith)
+            {
+                Player.ManageSpecialBiomeVisuals("CalamityMod:PlaguebringerGoliath", usePBGMonolith, Player.Center);
+            }
+            else if (provMonolith)
+            {
+                Player.ManageSpecialBiomeVisuals("CalamityMod:Providence", useProvMonolith, Player.Center);
+            }
+            else if (dogMonolith)
+            {
+                Player.ManageSpecialBiomeVisuals("CalamityMod:DevourerofGodsHead", useDogMonolith, Player.Center);
+            }
+            else if (yharonMonolith)
+            {
+                Player.ManageSpecialBiomeVisuals("CalamityMod:Yharon", useYharonMonolith, Player.Center);
+            }
+            else if (exoMonolith)
+            {
+                Player.ManageSpecialBiomeVisuals("CalamityMod:ExoMechs", useExoMonolith, Player.Center);
+            }
+            else if (scalMonolith)
+            {
+                Player.ManageSpecialBiomeVisuals("CalamityMod:SupremeCalamitas", useScalMonolith, Player.Center);
+            }
+            else if (CalValEXWorld.RockshrinEX)
+            {
+                CalamityMod.Events.BossRushSky.ShouldDrawRegularly = true;
+                Player.ManageSpecialBiomeVisuals("CalamityMod:BossRush", TerminalMonolith, Player.Center);
+            }
+            else if (cryoMonolith)
+            {
+                CalamityMod.Skies.CryogenSky.ShouldDrawRegularly = true;
+                //Terraria.Graphics.Effects.SkyManager.Instance.Activate("CalamityMod:Cryogen", Player.Center);
+                CalamityMod.Skies.CryogenSky.UpdateDrawEligibility();
+                //SkyManager.Instance.Activate("CalamityMod:Cryogen", Player.Center);
+                //CalamityMod.CryogenSky.UpdateDrawEligibility();
+            }
+        }*/
         //}
 
         /*public override void ReceiveCustomBiomes(BinaryReader reader)
@@ -1386,67 +1387,67 @@ namespace CalValEX
                 return false;*/
 
 
-                /*Main.playerDrawData.Add(data);
-                }
-        });
-
-        public override void ModifyDrawLayers(List<PlayerLayer> layers)
-        {
-                
-            DraedonSet.Visible = true;
-            int headLayer = layers.FindIndex(l => l == PlayerLayer.Head);
-            int bodyLayer = layers.FindIndex(l => l == PlayerLayer.Body);
-
-            if (headLayer > -1)
-            {
-                layers.Insert(headLayer + 1, DraedonSet.head);
-            }
-
-            if (bodyLayer > -1)
-            {
-                
-            DraedonSet.Visible = true;layers.Insert(bodyLayer + 1, DraedonSet.body);
-            }
-        /*}
-
-        public override void ModifyDrawHeadLayers(List<PlayerHeadLayer> layers)
-        {
-            int headLayer = layers.FindIndex(l => l == PlayerHeadLayer.Armor);
-
-            if (headLayer > -1)
-            {
-                layers.Insert(headLayer + 1, DraedonSet.map);
-            }
+        /*Main.playerDrawData.Add(data);
         }
+});
 
-        public override void
-            ModifyDrawInfo(ref PlayerDrawInfo drawInfo) //i just really dont want to fix the sprite issues.
-        {
-            if (drawInfo.drawPlayer.legs == EquipLoader.GetEquipSlot(Mod, "DraedonLeggings", EquipType.Legs))
-            {
-                drawInfo.legColor = Color.Transparent;
-                drawInfo.legGlowMaskColor = Color.Transparent;
-                drawInfo.pantsColor = Color.Transparent;
-            }
+public override void ModifyDrawLayers(List<PlayerLayer> layers)
+{
 
-            if (drawInfo.drawPlayer.body == EquipLoader.GetEquipSlot(Mod, "DraedonChestplate", EquipType.Body))
-            {
-                drawInfo.armGlowMaskColor = Color.Transparent;
-                drawInfo.bodyColor = Color.Transparent;
-                drawInfo.bodyGlowMaskColor = Color.Transparent;
-                drawInfo.shirtColor = Color.Transparent;
-                drawInfo.underShirtColor = Color.Transparent;
-            }
+    DraedonSet.Visible = true;
+    int headLayer = layers.FindIndex(l => l == PlayerLayer.Head);
+    int bodyLayer = layers.FindIndex(l => l == PlayerLayer.Body);
 
-            if (drawInfo.drawPlayer.head == EquipLoader.GetEquipSlot(Mod, "DraedonHelmet", EquipType.Head))
-            {
-                drawInfo.eyeColor = Color.Transparent;
-                drawInfo.eyeWhiteColor = Color.Transparent;
-                drawInfo.faceColor = Color.Transparent;
-                drawInfo.hairColor = Color.Transparent;
-                drawInfo.headGlowMaskColor = Color.Transparent;
-            }
-        }*/
+    if (headLayer > -1)
+    {
+        layers.Insert(headLayer + 1, DraedonSet.head);
+    }
+
+    if (bodyLayer > -1)
+    {
+
+    DraedonSet.Visible = true;layers.Insert(bodyLayer + 1, DraedonSet.body);
+    }
+/*}
+
+public override void ModifyDrawHeadLayers(List<PlayerHeadLayer> layers)
+{
+    int headLayer = layers.FindIndex(l => l == PlayerHeadLayer.Armor);
+
+    if (headLayer > -1)
+    {
+        layers.Insert(headLayer + 1, DraedonSet.map);
+    }
+}
+
+public override void
+    ModifyDrawInfo(ref PlayerDrawInfo drawInfo) //i just really dont want to fix the sprite issues.
+{
+    if (drawInfo.drawPlayer.legs == EquipLoader.GetEquipSlot(Mod, "DraedonLeggings", EquipType.Legs))
+    {
+        drawInfo.legColor = Color.Transparent;
+        drawInfo.legGlowMaskColor = Color.Transparent;
+        drawInfo.pantsColor = Color.Transparent;
+    }
+
+    if (drawInfo.drawPlayer.body == EquipLoader.GetEquipSlot(Mod, "DraedonChestplate", EquipType.Body))
+    {
+        drawInfo.armGlowMaskColor = Color.Transparent;
+        drawInfo.bodyColor = Color.Transparent;
+        drawInfo.bodyGlowMaskColor = Color.Transparent;
+        drawInfo.shirtColor = Color.Transparent;
+        drawInfo.underShirtColor = Color.Transparent;
+    }
+
+    if (drawInfo.drawPlayer.head == EquipLoader.GetEquipSlot(Mod, "DraedonHelmet", EquipType.Head))
+    {
+        drawInfo.eyeColor = Color.Transparent;
+        drawInfo.eyeWhiteColor = Color.Transparent;
+        drawInfo.faceColor = Color.Transparent;
+        drawInfo.hairColor = Color.Transparent;
+        drawInfo.headGlowMaskColor = Color.Transparent;
+    }
+}*/
         public override Texture2D GetMapBackgroundImage()
         {
             if (Player.InModBiome(GetInstance<AstralBlight>()))
