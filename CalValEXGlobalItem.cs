@@ -807,7 +807,7 @@ namespace CalValEX
                         {
                             if (!CalValEXConfig.Instance.ConfigBossBlocks && CalamityMod.DownedBossSystem.downedDoG)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOccult.OccultStone>(),
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(),
                                     Main.rand.Next(205, 335));
                             }
 
@@ -836,7 +836,7 @@ namespace CalValEX
                         {
                             if (!CalValEXConfig.Instance.ConfigBossBlocks && CalamityMod.DownedBossSystem.downedDoG)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOccult.OccultStone>(),
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(),
                                     Main.rand.Next(205, 335));
                             }
                             if (Main.rand.NextFloat() < 0.3f)
@@ -861,7 +861,7 @@ namespace CalValEX
                         {
                             if (!CalValEXConfig.Instance.ConfigBossBlocks && CalamityMod.DownedBossSystem.downedDoG)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOccult.OccultStone>(),
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(),
                                     Main.rand.Next(205, 335));
                             }
 

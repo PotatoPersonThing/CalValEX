@@ -427,7 +427,7 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureStratus.StratusBricks>(), Item.buyPrice(0, 1, 0, 0), polt, ref shop, ref nextSlot);
                 AddItem(ItemType<Items.Tiles.Blocks.AzufreSludge>(), Item.buyPrice(0, 1, 0, 0), boomer, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureCosmilite.CosmiliteBrick>(), Item.buyPrice(0, 2, 0, 0), dog, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureOccult.OccultStone>(), Item.buyPrice(0, 3, 0, 0), dog, ref shop, ref nextSlot);
+                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(), Item.buyPrice(0, 3, 0, 0), dog, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureSilva.SilvaCrystal>(), Item.buyPrice(0, 3, 0, 0), dog, ref shop, ref nextSlot);
                 AddItem(ItemType<Items.Tiles.Blocks.AuricBrick>(), Item.buyPrice(0, 30, 0, 0), DownedBossSystem.downedYharon, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPlating>(), Item.buyPrice(0, 40, 0, 0), DownedBossSystem.downedExoMechs, ref shop, ref nextSlot);

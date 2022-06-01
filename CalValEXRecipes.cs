@@ -11,7 +11,7 @@ using CalamityMod.Items.Accessories;
 using CalamityMod.Items.Accessories.Wings;
 using CalamityMod.Items.Accessories.Vanity;
 using CalamityMod.Items.Placeables.DraedonStructures;
-using CalamityMod.Items.Placeables.FurnitureAstral;
+using CalamityMod.Items.Placeables.FurnitureMonolith;
 using CalamityMod.Items.Weapons.Melee;
 using CalamityMod.Items.Weapons.Rogue;
 using CalamityMod.Items.Weapons.Summon;
