@@ -19,6 +19,7 @@ namespace CalValEX.NPCs.Critters
             //DisplayName.SetDefault("Abyssal Isopod");
             Main.npcFrameCount[NPC.type] = 8;
             Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 
         public override void SetDefaults()
@@ -52,12 +53,14 @@ namespace CalValEX.NPCs.Critters
             BannerItem = ItemType<IsopodBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.AbyssLayer4Biome>().Type };
         }
+        public override bool? CanBeHitByItem(Player player, Item item) => null;
+
+        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
-                Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Ocean,
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A docile scavenger that makes itself at home at the bottom of the Abyss. They are known to clean up the remains of any victims to the Abyss' other fauna."),
             });
         }

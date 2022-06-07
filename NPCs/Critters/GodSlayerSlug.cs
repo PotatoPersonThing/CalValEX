@@ -17,6 +17,7 @@ namespace CalValEX.NPCs.Critters
             //DisplayName.SetDefault("God Slayer Slug");
             Main.npcFrameCount[NPC.type] = 4;
             Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 
         public override void SetDefaults()
@@ -52,6 +53,9 @@ namespace CalValEX.NPCs.Critters
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("Mimicking the purple worm-like appearance of the cosmic worms, this little bug peacefully wanders the upper atmosphere."),
             });
         }
+        public override bool? CanBeHitByItem(Player player, Item item) => null;
+
+        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
         public override void AI()
         {

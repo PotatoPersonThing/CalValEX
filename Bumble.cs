@@ -9,10 +9,9 @@ namespace CalValEX
 
         public override void SetDefaults(NPC npc)
         {
-            //ModLoader.TryGetMod("CalamityMod", out Mod clam);
-            /*if (clam != null && CalValEX.Bumble && !CalValEXConfig.Instance.DragonballName)
+            if (CalValEX.Bumble && !CalValEXConfig.Instance.DragonballName)
             {
-                if (npc.type == clam.GetContent<NPC>("Bumblefuck").Value)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Bumblebirb.Bumblefuck>())
                 {
                     if (Main.rand.NextFloat() < 0.01f)
                     {
@@ -24,7 +23,7 @@ namespace CalValEX
                     }
                 }
 
-                if (npc.type == clam.NPCType("Bumblefuck2"))
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Bumblebirb.Bumblefuck2>())
                 {
                     if (Main.rand.NextFloat() < 0.01f)
                     {
@@ -39,11 +38,11 @@ namespace CalValEX
 
             if (CalValEX.WulfrumsetReal)
             {
-                if (npc.type == clam.NPCType("WulfrumGyrator"))
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.WulfrumGyrator>())
                 {
                     npc.GivenName = "John Wulfrum";
                 }
-            }*/
+            }
         }
     }
 }

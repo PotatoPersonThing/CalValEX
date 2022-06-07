@@ -50,7 +50,6 @@ namespace CalValEX.NPCs.Critters
         {
             bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
-                Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Ocean,
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A harbinger of an apocalypse to come. Do not take its warning lightly."),
             });
         }
@@ -115,6 +114,7 @@ namespace CalValEX.NPCs.Critters
                     soundplayed = false;
                     orthocount = 0;
                     orthogod = false;
+                    Main.BestiaryTracker.Kills.RegisterKill(NPC);
                     NPC.active = false;
                     for (int x = 0; x < 60; x++)
                     {
@@ -146,7 +146,7 @@ namespace CalValEX.NPCs.Critters
             //Mod clamMod = ModLoader.GetMod("CalamityMod"); 
             //if (clamMod != null)
             {
-                if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneSulphur && CalamityMod.DownedBossSystem.downedCalamitas && CalamityMod.DownedBossSystem.downedExoMechs && spawnInfo.Player.ZoneBeach && !NPC.AnyNPCs(ModContent.NPCType<OrthoceraApparition>()) && (!CalValEXWorld.orthofound/* || orthoceraDLC != null*/))
+                if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneSulphur && CalamityMod.DownedBossSystem.downedSCal && CalamityMod.DownedBossSystem.downedExoMechs && !NPC.AnyNPCs(ModContent.NPCType<OrthoceraApparition>()) && (!CalValEXWorld.orthofound/* || orthoceraDLC != null*/))
                 {
                     return 5f;
                 }

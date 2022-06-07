@@ -15,26 +15,25 @@ namespace CalValEX
 {
     public class CalValEXGlobalProjectile : GlobalProjectile
     {
-        /*public override bool PreDraw(Projectile projectile, SpriteBatch spriteBatch, Color drawColor)
+        public override bool PreDraw(Projectile projectile, ref Color drawColor)
         {
             if (CalValEXWorld.RockshrinEX)
             {
-                //DEUS HEAD
-                if (projectile.type == ModLoader.GetMod("CalamityMod").ProjectileType("BrimstoneMonster"))
+                if (projectile.type == ModContent.ProjectileType<CalamityMod.Projectiles.Boss.BrimstoneMonster>())
                 {
-                    Texture2D deusheadsprite = (ModContent.GetTexture("CalValEX/Projectiles/BrimstoneMonster"));
+                    Texture2D deusheadsprite = ModContent.Request<Texture2D>("CalValEX/Projectiles/BrimstoneMonster").Value;
 
                     float deusheadframe = 1f / (float)Main.npcFrameCount[projectile.type];
                     int deusheadheight = (int)((float)(1 / projectile.height) * deusheadframe) * (deusheadsprite.Height / 1);
 
                     Rectangle deusheadsquare = new Rectangle(0, deusheadheight, deusheadsprite.Width, deusheadsprite.Height / 1);
                     Color deusheadalpha = projectile.GetAlpha(drawColor);
-                    spriteBatch.Draw(deusheadsprite, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), deusheadsquare, deusheadalpha, projectile.rotation, Utils.Size(deusheadsquare) / 2f, projectile.scale, SpriteEffects.None, 0f);
+                    Main.EntitySpriteDraw(deusheadsprite, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), deusheadsquare, deusheadalpha, projectile.rotation, Utils.Size(deusheadsquare) / 2f, projectile.scale, SpriteEffects.None, 0);
                     return false;
                 }
             }
             return true;
-        }*/
+        }
 
         public override void AI(Projectile proj)
         {

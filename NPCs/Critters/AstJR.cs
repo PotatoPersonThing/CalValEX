@@ -18,6 +18,7 @@ namespace CalValEX.NPCs.Critters
             //DisplayName.SetDefault("Astragelly Slime");
             Main.npcFrameCount[NPC.type] = 2;
             Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
         {
@@ -57,6 +58,9 @@ namespace CalValEX.NPCs.Critters
             NPC.spriteDirection = -NPC.direction;
             NPC.TargetClosest(false);
         }
+        public override bool? CanBeHitByItem(Player player, Item item) => null;
+
+        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

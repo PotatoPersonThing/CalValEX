@@ -17,6 +17,7 @@ namespace CalValEX.NPCs.Critters
             //DisplayName.SetDefault("Plagued Frog");
             Main.npcFrameCount[NPC.type] = 11;
             Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 
         public override void SetDefaults()
@@ -56,6 +57,9 @@ namespace CalValEX.NPCs.Critters
                 }
             }
         }
+        public override bool? CanBeHitByItem(Player player, Item item) => null;
+
+        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

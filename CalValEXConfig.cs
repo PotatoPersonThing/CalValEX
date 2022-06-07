@@ -18,13 +18,13 @@ namespace CalValEX
         [Header("Drops")]
         [Label("Disable All Drops")]
         [BackgroundColor(192, 54, 64, 192)]
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         [Tooltip("Disables all of the mod's direct drops")]
         public bool DisableVanityDrops { get; set; }
 
         [Label("Disable Boss Block Drops")]
         [BackgroundColor(192, 54, 64, 192)]
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         [Tooltip("Makes it so that bosses and their bags no longer drop blocks")]
         public bool ConfigBossBlocks { get; set; }
 
@@ -68,7 +68,7 @@ namespace CalValEX
 
         [Label("Disable Critter Spawns")]
         [BackgroundColor(192, 54, 64, 192)]
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         [Tooltip("Makes it so that all Calamity's Vanities critters no longer spawn naturally")]
         public bool CritterSpawns { get; set; }
 

@@ -19,6 +19,7 @@ namespace CalValEX.NPCs.Critters
             //DisplayName.SetDefault("Xerocodile");
             Main.npcFrameCount[NPC.type] = 6;
             Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 
         public override void SetDefaults()
@@ -56,6 +57,9 @@ namespace CalValEX.NPCs.Critters
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("An ancient species of reptile that only comes out during Blood Moons. They are otherwise too frail to linger, and any sunlight exposure is lethal."),
             });
         }
+        public override bool? CanBeHitByItem(Player player, Item item) => null;
+
+        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
         public override void AI()
         {

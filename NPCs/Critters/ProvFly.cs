@@ -17,6 +17,7 @@ namespace CalValEX.NPCs.Critters
             //DisplayName.SetDefault("Profaned Butterfly");
             Main.npcFrameCount[NPC.type] = 3;
             Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 
         public override void SetDefaults()

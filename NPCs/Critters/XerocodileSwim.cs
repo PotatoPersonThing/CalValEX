@@ -23,6 +23,7 @@ namespace CalValEX.NPCs.Critters
                 Hide = true
             };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
+            NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 
         public override void SetDefaults()
@@ -57,6 +58,9 @@ namespace CalValEX.NPCs.Critters
                 NPC.active = false;
             }
         }
+        public override bool? CanBeHitByItem(Player player, Item item) => null;
+
+        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

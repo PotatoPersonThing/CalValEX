@@ -17,6 +17,7 @@ namespace CalValEX.NPCs.Critters
             //DisplayName.SetDefault("Profaned Butterfly");
             Main.npcFrameCount[NPC.type] = 3;
             Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 
         public override void SetDefaults()
@@ -52,6 +53,9 @@ namespace CalValEX.NPCs.Critters
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A butterfly possessing energy from one of two halves of a fiery goddess' power."),
             });
         }
+        public override bool? CanBeHitByItem(Player player, Item item) => null;
+
+        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

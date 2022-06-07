@@ -24,6 +24,7 @@ namespace CalValEX.NPCs.Critters
             //DisplayName.SetDefault("Blinker");
             Main.npcFrameCount[NPC.type] = 8;
             Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 
         public override void SetDefaults()
@@ -56,6 +57,9 @@ namespace CalValEX.NPCs.Critters
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A Twinkler that has adapted to the Astral Blight's unique environment. They are a popular food source for its inhabitants."),
             });
         }
+        public override bool? CanBeHitByItem(Player player, Item item) => null;
+
+        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
         public override void AI()
         { 

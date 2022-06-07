@@ -1,15 +1,10 @@
-﻿//using CalamityMod.Projectiles.Ranged;
+﻿using CalamityMod.Projectiles.Ranged;
 using Terraria.ModLoader;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
-    public class GodsFire : ModProjectile //(Does this count as code theft)
+    public class GodsFire : CosmicFire //(Does this count as code theft)
     {
-        public override void SetStaticDefaults()
-        {
-            //DisplayName.SetDefault("God's Fire");
-        }
-
         public override void SetDefaults()
         {
             Projectile.width = 10;
@@ -17,10 +12,11 @@ namespace CalValEX.AprilFools.Meldosaurus
             Projectile.friendly = false;
             Projectile.hostile = true;
             Projectile.ignoreWater = true;
-            Projectile.DamageType = DamageClass.Ranged;
+            Projectile.DamageType = DamageClass.Generic;
             Projectile.penetrate = -1;
             Projectile.extraUpdates = 3;
             Projectile.timeLeft = 100;
+            Projectile.alpha = 255;
         }
     }
 }

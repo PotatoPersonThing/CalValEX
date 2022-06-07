@@ -19,23 +19,13 @@ namespace CalValEX.NPCs.Critters
 
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Sand Turtle");
             Main.npcFrameCount[NPC.type] = 6;
             Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 
         public override void SetDefaults()
         {
-            //NPC.width = 56;
-            //NPC.height = 26;
-            //NPC.aiStyle = 67;
-            //NPC.damage = 0;
-            //NPC.defense = 0;
-            //NPC.lifeMax = 2000;
-
-            //NPC.noGravity = true;
-            //NPC.catchItem = 2007;
-
             NPC.CloneDefaults(NPCID.Squirrel);
             NPC.catchItem = (short)ItemType<SandTurtleItem>();
             NPC.lavaImmune = false;
@@ -61,6 +51,9 @@ namespace CalValEX.NPCs.Critters
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A horrific and violent testudine with high defensive capabilities. They are too dangerous to be left alive."),
             });
         }
+        public override bool? CanBeHitByItem(Player player, Item item) => null;
+
+        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
         public override void AI()
         { 

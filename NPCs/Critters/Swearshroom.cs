@@ -17,6 +17,7 @@ namespace CalValEX.NPCs.Critters
             //DisplayName.SetDefault("Swearshroom");
             Main.npcFrameCount[NPC.type] = 5;
             Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 
         public override void SetDefaults()
@@ -47,16 +48,9 @@ namespace CalValEX.NPCs.Critters
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("The great crustacean's spores are not happy that their host has been destroyed. These wicked fungi have psychopathic tendencies, but are completely harmless."),
             });
         }
+        public override bool? CanBeHitByItem(Player player, Item item) => null;
 
-        public override bool? CanBeHitByItem(Player player, Item item)
-        {
-            return true;
-        }
-
-        public override bool? CanBeHitByProjectile(Projectile projectile)
-        {
-            return true;
-        }
+        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
         public override void OnCaughtBy(Player player, Item item, bool failed)
         {
