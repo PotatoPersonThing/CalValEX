@@ -88,12 +88,6 @@ namespace CalValEX
 				recipe.AddTile(TileID.LunarCraftingStation);
 				recipe.Register();
 			}
-			{
-				Recipe recipe = Mod.CreateRecipe(ItemType<YellowSolution>(), 2);
-				recipe.AddIngredient(ItemType<XenoSolution>());
-				recipe.AddIngredient(ItemID.GreenSolution);
-				recipe.Register();
-			}
 			//Critters
 			{
 				Recipe recipe = Mod.CreateRecipe(ItemType<XerocodileItem>());
