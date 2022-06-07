@@ -125,6 +125,7 @@ namespace CalValEX.Projectiles.Pets
         //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
         public override void CustomBehaviour(Player player, ref int state, float flyingSpeed, float flyingInertia)
         {
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
             Vector2 vectorToOwner = player.Center - Projectile.Center;
             float distanceToOwner = vectorToOwner.Length();
 
@@ -170,10 +171,9 @@ namespace CalValEX.Projectiles.Pets
                     }
                     if (Projectile.ai[0] == timeBetweenTexts * 5)
                     {
-                        //Mod calamityMod = ModLoader.GetMod("CalamityMod");
                         for (int i = 0; i < bossList.Count; i++)
                         {
-                           // NPC.NewNPC((int)Projectile.position.X, (int)Projectile.position.Y, calamityMod.NPCType(bossList[i]));
+                           //NPC.NewNPC((int)Projectile.position.X, (int)Projectile.position.Y, calamityMod.TryFind<ModNPC>(bossList[i]));
                         }
                     }
                     if (Projectile.ai[0] == (timeBetweenTexts * 5) + 30)

@@ -94,11 +94,10 @@ namespace CalValEX.Projectiles.Pets
 
         public override void CustomBehaviour(Player player, ref int state, float walkingSpeed, float walkingInertia, float flyingSpeed, float flyingInertia)
         {
-            /*Mod calamityMod = ModLoader.GetMod("CalamityMod");
             for (int x = 0; x < Main.maxNPCs; x++)
             {
                 NPC npc = Main.npc[x];
-                if (npc.type == calamityMod.NPCType("Signus") && npc.life == 1 && npc.active)
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Signus.Signus>() && npc.life == 1 && npc.active)
                 {
                     sigdirection = npc.spriteDirection;
                     sigposx = npc.Center.X;
@@ -110,7 +109,7 @@ namespace CalValEX.Projectiles.Pets
                 }
             }
 
-            if (state == 3 && !finished && !Program.IsServer)
+            if (state == 3 && !finished)
             {
                 Projectile.tileCollide = false;
                 Projectile.rotation = 0;
@@ -181,7 +180,7 @@ namespace CalValEX.Projectiles.Pets
                 {
                     if (!sound)
                     {
-                        Main.PlaySound(SoundID.Item109);
+                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item109, Projectile.Center);
                         sound = true;
                     }
                     Projectile.velocity.X = 20 * sigdirection;
@@ -201,7 +200,7 @@ namespace CalValEX.Projectiles.Pets
                 {
                     state = 2;
                 }
-            }*/
+            }
             if (state == 3 && finished)
             {
                 state = 2;

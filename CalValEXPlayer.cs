@@ -462,31 +462,37 @@ namespace CalValEX
                     {
                         Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
                             0f, 0f, ProjectileType<VanityBrimstone>(), 0, 0f, Player.whoAmI);
+                        brimmyspawned = false;
                     }
                     if (cloudspawned && Player.whoAmI == Main.myPlayer)
                     {
                         Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
                             0f, 0f, ProjectileType<VanityCloud>(), 0, 0f, Player.whoAmI);
+                        cloudspawned = false;
                     }
                     if (sandspawned && Player.whoAmI == Main.myPlayer)
                     {
                         Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
                             0f, 0f, ProjectileType<VanitySand>(), 0, 0f, Player.whoAmI);
+                        sandspawned = false;
                     }
                     if (earthspawned && Player.whoAmI == Main.myPlayer && CalValEX.AprilFoolDay)
                     {
                         Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
                         0f, 0f, ProjectileType<VanityEarth>(), 0, 0f, Player.whoAmI);
+                        earthspawned = false;
                     }
                     if (raresandspawned && Player.whoAmI == Main.myPlayer && !CalValEX.AprilFoolDay)
                     {
                         Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
                             0f, 0f, ProjectileType<VanityRareSand>(), 0, 0f, Player.whoAmI);
+                        raresandspawned = false;
                     }
                     if (anahitaspawned && Player.whoAmI == Main.myPlayer)
                     {
                         Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
                             0f, 0f, ProjectileType<VanityAnahita>(), 0, 0f, Player.whoAmI);
+                        anahitaspawned = false;
                     }
                     vanityhote = true;
                 }

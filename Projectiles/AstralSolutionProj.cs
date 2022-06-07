@@ -8,6 +8,8 @@ using CalValEX.Walls.AstralUnsafe;
 using CalValEX.Tiles.AstralMisc;
 using CalValEX.Walls.AstralSafe;
 using CalValEX.Dusts;
+using CalamityMod.Tiles.Astral;
+using CalamityMod.Walls;
 
 namespace CalValEX.Projectiles
 {
@@ -98,27 +100,27 @@ namespace CalValEX.Projectiles
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}
-                        /*else if (type == ModLoader.GetMod("CalamityMod").TileType("AstralDirt"))
+                        else if (type == ModContent.TileType<AstralDirt>())
                         {
                             Main.tile[k, l].TileType = (ushort)ModContent.TileType<AstralDirtPlaced>();
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                             break;
                         }
-						else if (type == ModLoader.GetMod("CalamityMod").TileType("AstralClay"))
+						else if (type == ModContent.TileType<AstralClay>())
                         {
                             Main.tile[k, l].TileType = (ushort)ModContent.TileType<AstralClayPlaced>();
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                             break;
                         }
-						else if (type == ModLoader.GetMod("CalamityMod").TileType("AstralMonolith"))
+						else if (type == ModContent.TileType<AstralMonolith>())
 						{
 							Main.tile[k, l].TileType = (ushort)ModContent.TileType<AstralTreeWoodPlaced>();
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
-						}*/
+						}
 						else if (type == TileID.Dirt)
                         {
                             Main.tile[k, l].TileType = (ushort)ModContent.TileType<AstralDirtPlaced>();
@@ -243,13 +245,13 @@ namespace CalValEX.Projectiles
 							WorldGen.SquareWallFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}
-						/*else if (wall == ModLoader.GetMod("CalamityMod").WallType("AstralDirtWall"))
+						else if (wall == ModContent.WallType<AstralDirtWall>())
 						{
 							Main.tile[k, l].WallType = (ushort)ModContent.WallType<AstralDirtWallPlaced>();
 							WorldGen.SquareWallFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
-						}*/
+						}
 						else if (wall == WallID.DirtUnsafe)
 						{
 							Main.tile[k, l].WallType = (ushort)ModContent.WallType<AstralDirtWallPlaced>();
@@ -292,32 +294,6 @@ namespace CalValEX.Projectiles
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
 						}
-						/*else if (wall == ModLoader.GetMod("CalamityMod").WallType("AstralIceWall"))
-						{
-							Main.tile[k, l].WallType = (ushort)ModContent.WallType<AstralIceWallPlaced>();
-							WorldGen.SquareWallFrame(k, l, true);
-							NetMessage.SendTileSquare(-1, k, l, 1);
-							break;
-						}*/
-						//Code for turning stuff into purity. Idk why I put this here lol
-						/*else if (type == ModContent.TileType<AstralDirtPlaced>()) 
-						{
-							Main.tile[k, l].TileType = (ushort)TileID.Dirt;
-							WorldGen.SquareTileFrame(k, l, true);
-							NetMessage.SendTileSquare(-1, k, l, 1);
-						}
-						else if (type == ModContent.TileType<AstralClayPlaced>()) 
-						{
-							Main.tile[k, l].TileType = (ushort)TileID.ClayBlock;
-							WorldGen.SquareTileFrame(k, l, true);
-							NetMessage.SendTileSquare(-1, k, l, 1);
-						}
-                        //Ice
-						else if (TileID.Sets.Conversion.Ice[type]) {
-							Main.tile[k, l].TileType = (ushort)ModContent.TileType<AstralIcePlaced>();
-							WorldGen.SquareTileFrame(k, l, true);
-							NetMessage.SendTileSquare(-1, k, l, 1);
-						}*/
 					}
 				}
 			}

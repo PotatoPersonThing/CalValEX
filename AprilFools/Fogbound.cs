@@ -73,8 +73,7 @@ namespace CalValEX.AprilFools
 		public override void AI()
 		{
 			Main.dayTime = true;
-			//Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            if (!CalValEX.AprilFoolMonth && !Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok/*&& orthoceraDLC == null*/)
+            if (!CalValEX.AprilFoolMonth)
             {
             NPC.active = false;
             }
@@ -90,7 +89,7 @@ namespace CalValEX.AprilFools
 		if ((float)(NPC.life + num2) < NPC.ai[3])
 		{
 			NPC.ai[3] = NPC.life;
-			int num1 = (NPCID.HallowBoss);
+			int num1 = ModContent.NPCType<CalamityMod.NPCs.Providence.Providence>();
 			if (!prov1)
 			{
 				prov1 = true;
@@ -98,61 +97,53 @@ namespace CalValEX.AprilFools
 			else if (!prov2)
 			{
 				prov2 = true;
-				num1 = (NPCID.HallowBoss);
+				num1 = ModContent.NPCType<CalamityMod.NPCs.Providence.Providence>();
 			}
 			else if (!prov3)
 			{
 				prov3 = true;
-				num1 = (NPCID.TheDestroyer);
+				num1 = ModContent.NPCType<CalamityMod.NPCs.DevourerofGods.DevourerofGodsHead>();
 			}
 			else if (!dog1)
 			{
 				dog1 = true;
-				num1 = (NPCID.TheDestroyer);
+				num1 = ModContent.NPCType<CalamityMod.NPCs.DevourerofGods.DevourerofGodsHead>();
 			}
 			else if (!dog2)
 			{
 				dog2 = true;
-				num1 = (NPCID.DukeFishron);
+				num1 = ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>();
 			}
 			else if (!dog3)
 			{
 				dog3 = true;
-				num1 = (NPCID.DukeFishron);
+				num1 = ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>();
 			}
 			else if (!yharon1)
 			{
 				yharon1 = true;
-				num1 = (NPCID.SkeletronPrime);
+				num1 = ModContent.NPCType<CalamityMod.NPCs.ExoMechs.Ares.AresBody>();
 			}
 			else if (!yharon2)
 			{
 				yharon2 = true;
-				num1 = (NPCID.SkeletronPrime);
+				num1 = ModContent.NPCType<CalamityMod.NPCs.ExoMechs.Ares.AresBody>();
 			}
 			else if (!yharon3)
 			{
 				yharon3 = true;
-				num1 = (NPCID.MoonLordCore);
+				num1 = ModContent.NPCType<CalamityMod.NPCs.AdultEidolonWyrm.EidolonWyrmHeadHuge>();
 			}
 			else if (!scal1)
 			{
 				scal1 = true;
-				num1 = (NPCID.MoonLordCore);
+				num1 = ModContent.NPCType<CalamityMod.NPCs.AdultEidolonWyrm.EidolonWyrmHeadHuge>();
 			}
 			NPC.SpawnOnPlayer(NPC.FindClosestPlayer(), num1);
 			NPC.SpawnOnPlayer(NPC.FindClosestPlayer(), NPCID.Retinazer);
 			NPC.SpawnOnPlayer(NPC.FindClosestPlayer(), NPCID.Spazmatism);
 			}
 	}
-
-
-    /*public override void NPCLoot()
-	{
-		Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, mod.ItemType("FogG") , Main.rand.Next(1, 1), false, 0, false, false);	
-			if (!NPC.AnyNPCs(ModContent.NPCType<Jharim.Jharim>()))
-		NPC.SpawnOnPlayer(Main.player[Main.myPlayer].whoAmI, mod.NPCType("Jharim"));	
-	}*/
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{
