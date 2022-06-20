@@ -72,12 +72,6 @@ namespace CalValEX
         [Tooltip("Makes it so that all Calamity's Vanities critters no longer spawn naturally")]
         public bool CritterSpawns { get; set; }
 
-        /*[Label("Disable Cadance Heart Particles")]
-        [BackgroundColor(192, 54, 64, 192)]
-        [DefaultValue(false)]
-        [Tooltip("Disables Cadance Potion's heart particle effect")]
-        public bool Cadance { get; set; }*/
-
         [Header("Vanity Minions")]
 
         [Label("Disable Vanity Elementals")]

@@ -294,7 +294,7 @@ namespace CalValEX
         public bool ares;
         public bool thanos;
         public bool twins;
-        //Æ: Drae's bools
+        //Ã†: Drae's bools
         public bool digger;
         public bool BestInst;
         public bool DustChime;
@@ -754,20 +754,6 @@ namespace CalValEX
 
         public override void PreUpdate()
         {
-            /* //Removing these for now because they broke shit
-            //Kill Cadance potion heart particles
-            Main.instance.LoadGore(331);
-            Player player = Main.LocalPlayer;
-            CalamityPlayer calPlayer = Player.GetModPlayer<CalamityPlayer>();
-            if (calPlayer.cadence && CalValEXConfig.Instance.Cadance)
-            {
-                Main.goreTexture[331] = GetTexture("CalValEX/Items/Equips/Shields/Invishield_Shield");
-            }
-            else
-            {
-                Main.goreLoaded[331] = false;
-            }*/
-
             //Custom player draw frame counters
             int wulfrumflame = 9;
             if (choppercounter >= 7)
@@ -1011,7 +997,7 @@ namespace CalValEX
             ares = false;
             thanos = false;
             twins = false;
-            // Æ: Drae's bools but false !!
+            // Ã†: Drae's bools but false !!
             digger = false;
             BestInst = false;
             DustChime = false;
