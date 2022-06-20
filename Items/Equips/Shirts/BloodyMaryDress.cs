@@ -12,14 +12,18 @@ namespace CalValEX.Items.Equips.Shirts
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bloody Mary Dress");
-            SetupDrawing();
+            if (Main.netMode != NetmodeID.Server)
+            {
+                int equipSlotLegs = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);
+                ArmorIDs.Legs.Sets.HidesBottomSkin[equipSlotLegs] = true;
+            }
         }
 
         public override void Load()
         {
             if (Main.netMode != NetmodeID.Server)
             {
-                EquipLoader.AddEquipTexture(Mod, $"{Texture}_{EquipType.Legs}", EquipType.Legs, this);
+                EquipLoader.AddEquipTexture(Mod, "CalValEX/Items/Equips/Shirts/BloodyMaryDress_Legs", EquipType.Legs, this);
             }
         }
 
@@ -31,18 +35,6 @@ namespace CalValEX.Items.Equips.Shirts
             Item.vanity = true;
             Item.value = Item.sellPrice(0, 3, 0, 0);
             Terraria.ID.ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = false;
-        }
-        /*public override void SetMatch(bool male, ref int equipSlot, ref bool robes)
-        {
-            robes = true;
-            equipSlot = Mod.GetEquipSlot("BloodyMaryDress_Legs", EquipType.Legs);
-        }*/
-
-
-        private void SetupDrawing()
-        {
-            int equipSlotLegs = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);
-            ArmorIDs.Legs.Sets.HidesBottomSkin[equipSlotLegs] = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

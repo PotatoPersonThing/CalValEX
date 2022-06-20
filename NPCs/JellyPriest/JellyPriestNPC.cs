@@ -116,7 +116,7 @@ namespace CalValEX.NPCs.JellyPriest
 
             CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
 
-            if (NPC.AnyNPCs(NPCType<CalamityMod.NPCs.Leviathan.Siren>()))
+            if (NPC.AnyNPCs(NPCType<CalamityMod.NPCs.Leviathan.Anahita>()))
             {
                 switch (Main.rand.Next(2))
                 {
@@ -195,7 +195,7 @@ namespace CalValEX.NPCs.JellyPriest
                         return "Do you think Amidias knows anything about the sea deity I'm searching? It seems that old horse got a lot of knowledge about story.";
                 }
             }
-            if (DownedBossSystem.downedLeviathan && Main.rand.NextFloat() < 0.25f && !NPC.AnyNPCs(NPCType<CalamityMod.NPCs.Leviathan.Siren>()))
+            if (DownedBossSystem.downedLeviathan && Main.rand.NextFloat() < 0.25f && !NPC.AnyNPCs(NPCType<CalamityMod.NPCs.Leviathan.Anahita>()))
             {
                 switch (Main.rand.Next(2))
                 {
@@ -414,7 +414,7 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<CalamityMod.Items.Placeables.AstralMonolith>(), Item.buyPrice(0, 0, 2, 5), Main.hardMode, ref shop, ref nextSlot);
                 AddItem(ItemType<Items.Tiles.Blocks.AstralPearlBlock>(), Item.buyPrice(0, 0, 3, 0), Main.hardMode, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.Voidstone>(), Item.buyPrice(0, 0, 2, 5), NPC.downedGolemBoss, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurniturePlaguedPlate.PlaguedPlate>(), Item.buyPrice(0, 0, 30, 0), pb, ref shop, ref nextSlot);
+                AddItem(ItemType<CalamityMod.Items.Placeables.FurniturePlagued.PlaguedContainmentBrick>(), Item.buyPrice(0, 0, 30, 0), pb, ref shop, ref nextSlot);
                 AddItem(ItemType<Items.Tiles.Blocks.PlagueHiveWand>(), Item.buyPrice(0, 1, 40, 0), pb, ref shop, ref nextSlot);
                 AddItem(ItemType<Items.Walls.PlagueHiveWall>(), Item.buyPrice(0, 0, 0, 10), pb, ref shop, ref nextSlot);
                 AddItem(ItemType<Items.Tiles.Blocks.Necrostone>(), Item.buyPrice(0, 0, 40, 0), DownedBossSystem.downedRavager, ref shop, ref nextSlot);

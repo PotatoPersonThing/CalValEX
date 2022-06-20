@@ -13,8 +13,7 @@ namespace CalValEX.NPCs.Critters
 {
     public class OrthoceraApparition : ModNPC
     {
-        //public override string Texture => "CalamityMod/NPCs/AcidRain/Orthocera";
-        public override string Texture => "CalValEX/NPCs/Critters/Orthobab";
+        public override string Texture => "CalamityMod/NPCs/AcidRain/Orthocera";
 
         public override void SetStaticDefaults()
         {
@@ -22,7 +21,6 @@ namespace CalValEX.NPCs.Critters
             //Main.npcFrameCount[NPC.type] = 5;
             Main.npcFrameCount[NPC.type] = 6;
         }
-
         public override void SetDefaults()
         {
             NPC.width = 62;
@@ -37,7 +35,6 @@ namespace CalValEX.NPCs.Critters
             NPC.dontTakeDamage = true;
             NPC.chaseable = false;
             AIType = -1;
-            NPC.scale = 4f;
             NPC.npcSlots = 0.25f;
             for (int i = 0; i < NPC.buffImmune.Length; i++)
             {

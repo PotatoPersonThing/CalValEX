@@ -132,12 +132,12 @@ namespace CalValEX.AprilFools
 			else if (!yharon3)
 			{
 				yharon3 = true;
-				num1 = ModContent.NPCType<CalamityMod.NPCs.AdultEidolonWyrm.EidolonWyrmHeadHuge>();
+				num1 = ModContent.NPCType<CalamityMod.NPCs.AdultEidolonWyrm.AdultEidolonWyrmHead>();
 			}
 			else if (!scal1)
 			{
 				scal1 = true;
-				num1 = ModContent.NPCType<CalamityMod.NPCs.AdultEidolonWyrm.EidolonWyrmHeadHuge>();
+				num1 = ModContent.NPCType<CalamityMod.NPCs.AdultEidolonWyrm.AdultEidolonWyrmHead>();
 			}
 			NPC.SpawnOnPlayer(NPC.FindClosestPlayer(), num1);
 			NPC.SpawnOnPlayer(NPC.FindClosestPlayer(), NPCID.Retinazer);

@@ -168,14 +168,14 @@ namespace CalValEX.AprilFools
                             }
                             else
                             {
-                                raintype = ProjectileType<AbyssBallVolley>();
+                                raintype = ProjectileType<UnstableEbonianGlob>();
                             }
                         }
                         else if (deathcounter > 1800 && deathcounter <= 2700)
                         {
                             if (Main.rand.Next(2) == 0)
                             {
-                                raintype = ProjectileType<BrimstoneFireblast>();
+                                raintype = ProjectileType<SCalBrimstoneFireblast>();
                             }
                             else
                             {
@@ -201,7 +201,7 @@ namespace CalValEX.AprilFools
                             }
                             else if (Main.rand.Next(2) == 0)
                             {
-                                raintype = ProjectileType<BrimstoneFireblast>();
+                                raintype = ProjectileType<SCalBrimstoneGigablast>();
                             }
                             else
                             {

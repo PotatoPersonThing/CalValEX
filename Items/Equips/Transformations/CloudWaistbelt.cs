@@ -15,21 +15,11 @@ namespace CalValEX.Items.Equips.Transformations
 		{
 			DisplayName.SetDefault("Valkyrian Garments");
 			Tooltip.SetDefault("Surrounds the wearer with clouds");
-			SetupDrawing();
-		}
-		/*public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			Mod calamityMod = ModLoader.GetMod("CalamityMod");
-			if (calamityMod != null)
+			if (Main.netMode != NetmodeID.Server)
 			{
-				recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 18);
-				recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 47);
-				recipe.AddTile(TileID.Anvils);
-				recipe.SetResult(this);
-				recipe.AddRecipe();
+				SetupDrawing();
 			}
-		}*/
+		}
 		public override void Load()
 		{
 			if (Main.netMode != NetmodeID.Server)

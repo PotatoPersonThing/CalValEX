@@ -18,7 +18,10 @@ namespace CalValEX.Items.Equips.Transformations
 			Tooltip.SetDefault("Engulfs the wearer in Brimstone Flames");
 			ItemID.Sets.ItemNoGravity[Item.type] = true;
 			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 5));
-			SetupDrawing();
+			if (Main.netMode != NetmodeID.Server)
+			{
+				SetupDrawing();
+			}
 		}
 
 		public override void Load()

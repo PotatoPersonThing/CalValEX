@@ -28,7 +28,7 @@ namespace CalValEX.Tiles
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ModContent.ItemType<CalamityMod.Items.TreasureBags.DraedonTreasureBag>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ModContent.ItemType<CalamityMod.Items.TreasureBags.DraedonBag>());
         }
     }
 }

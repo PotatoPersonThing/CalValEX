@@ -69,6 +69,7 @@ namespace CalValEX.Projectiles.Pets
             }
         }
 
+        //I NEED to clean up this abomination some day lmao
         int sigcounter;
         int basetime = 30;
         private bool signut = false;
@@ -94,6 +95,12 @@ namespace CalValEX.Projectiles.Pets
 
         public override void CustomBehaviour(Player player, ref int state, float walkingSpeed, float walkingInertia, float flyingSpeed, float flyingInertia)
         {
+            if (!NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.Signus.Signus>()) && state == 3)
+            {
+                state = 2;
+                gravity = 0.4f;
+                finished = true;
+            }
             for (int x = 0; x < Main.maxNPCs; x++)
             {
                 NPC npc = Main.npc[x];

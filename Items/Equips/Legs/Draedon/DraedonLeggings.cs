@@ -8,7 +8,7 @@ namespace CalValEX.Items.Equips.Legs.Draedon
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Arsenal Soldier Leggings");
+            DisplayName.SetDefault("Arsenal Soldier Leggings\n"+"CURRENTLY UNSTABLE\n"+"Well, not really, only the other pieces are,\n"+"but why would you use these without them?");
         }
 
         public override void SetDefaults()
@@ -18,16 +18,5 @@ namespace CalValEX.Items.Equips.Legs.Draedon
             Item.rare = ItemRarityID.Blue;
             Item.vanity = true;
         }
-
-        /*public override void AddRecipes()
-        {
-           
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 8);
-            recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 4);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }*/
     }
 }

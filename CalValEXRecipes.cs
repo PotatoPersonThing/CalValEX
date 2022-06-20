@@ -61,6 +61,8 @@ using CalValEX.Items.Walls;
 using CalValEX.Tiles.MiscFurniture;
 using CalValEX.Tiles.FurnitureSets.Auric;
 using CalValEX.Tiles.Plants;
+using System.Collections.Generic;
+using System.Linq;
 using static Terraria.ModLoader.ModContent;
 
 
@@ -182,8 +184,8 @@ namespace CalValEX
 			}
 			{
 				Recipe recipe = Mod.CreateRecipe(ItemType<FallenPaladinsHelmet>());
-				recipe.AddIngredient(ItemType<CalamityDust>());
-				recipe.AddIngredient(ItemType<CruptixBar>());
+				recipe.AddIngredient(ItemType<AshesofCalamity>());
+				recipe.AddIngredient(ItemType<ScoriaBar>());
 				recipe.AddIngredient(ItemType<CoreofChaos>());
 				recipe.AddTile(TileID.MythrilAnvil);
 				recipe.Register();
@@ -203,7 +205,7 @@ namespace CalValEX
 				recipe.AddTile(TileType<CosmicAnvil>());
 				recipe.Register();
 			}
-			{
+			/*{
 				Recipe recipe = Mod.CreateRecipe(ItemType<Items.Equips.Hats.Draedon.DraedonHelmet>());
 				recipe.AddIngredient(ItemType<DubiousPlating>(), 6);
 				recipe.AddIngredient(ItemType<MysteriousCircuitry>(), 6);
@@ -217,11 +219,11 @@ namespace CalValEX
 				recipe.AddIngredient(ItemType<MysteriousCircuitry>(), 8);
 				recipe.AddTile(TileID.Anvils);
 				recipe.Register();
-			}
+			}*/
 			{
 				Recipe recipe = Mod.CreateRecipe(ItemType<FallenPaladinsGreaves>());
-				recipe.AddIngredient(ItemType<CalamityDust>());
-				recipe.AddIngredient(ItemType<CruptixBar>(), 2);
+				recipe.AddIngredient(ItemType<AshesofCalamity>());
+				recipe.AddIngredient(ItemType<ScoriaBar>(), 2);
 				recipe.AddIngredient(ItemType<CoreofChaos>());
 				recipe.AddTile(TileID.MythrilAnvil);
 				recipe.Register();
@@ -244,19 +246,19 @@ namespace CalValEX
 			}
 			{
 				Recipe recipe = Mod.CreateRecipe(ItemType<FallenPaladinsPlateMail>());
-				recipe.AddIngredient(ItemType<CalamityDust>(), 2);
-				recipe.AddIngredient(ItemType<CruptixBar>(), 2);
+				recipe.AddIngredient(ItemType<AshesofCalamity>(), 2);
+				recipe.AddIngredient(ItemType<ScoriaBar>(), 2);
 				recipe.AddIngredient(ItemType<CoreofChaos>());
 				recipe.AddTile(TileID.MythrilAnvil);
 				recipe.Register();
 			}
-			{
+			/*{
 				Recipe recipe = Mod.CreateRecipe(ItemType<Items.Equips.Shirts.Draedon.DraedonChestplate>());
 				recipe.AddIngredient(ItemType<DubiousPlating>(), 12);
 				recipe.AddIngredient(ItemType<MysteriousCircuitry>(), 12);
 				recipe.AddTile(TileID.Anvils);
 				recipe.Register();
-			}
+			}*/
 			//Transformations
 			{
 				Recipe recipe = Mod.CreateRecipe(ItemType<ProtoRing>());
@@ -394,7 +396,7 @@ namespace CalValEX
 			{
 				Recipe recipe = Mod.CreateRecipe(ItemType<ShadowShedding>());
 				recipe.AddIngredient(ItemType<CalamityMod.Items.Placeables.Furniture.CorruptionEffigy>(), 1);
-				recipe.AddIngredient(ItemType<TrueShadowScale>(), 20);
+				recipe.AddIngredient(ItemType<RottenMatter>(), 20);
 				recipe.AddIngredient(ItemID.SoulofFlight, 20);
 				recipe.AddTile(TileID.MythrilAnvil);
 				recipe.Register();
@@ -413,14 +415,13 @@ namespace CalValEX
 			{
 				Recipe recipe = Mod.CreateRecipe(ItemType<AuricBottle>());
 				recipe.AddIngredient(ItemType<InkyArtifact>());
-				recipe.AddIngredient(ItemType<DraedonsExoblade>());
+				recipe.AddIngredient(ItemType<Exoblade>());
 				recipe.AddIngredient(ItemType<SubsumingVortex>());
 				recipe.AddIngredient(ItemType<VividClarity>());
 				recipe.AddIngredient(ItemType<HeavenlyGale>());
 				recipe.AddIngredient(ItemType<CosmicImmaterializer>());
 				recipe.AddIngredient(ItemType<Photoviscerator>());
 				recipe.AddIngredient(ItemType<Celestus>());
-				recipe.AddIngredient(ItemType<ExoGladius>());
 				recipe.AddIngredient(ItemType<MagnomalyCannon>());
 				recipe.AddIngredient(ItemType<Supernova>());
 				recipe.AddIngredient(ItemType<AuricBar>(), 50);
@@ -434,14 +435,14 @@ namespace CalValEX
 				recipe.AddIngredient(ItemType<EidolicWail>());
 				recipe.AddIngredient(ItemType<CalamarisLament>());
 				recipe.AddIngredient(ItemType<Valediction>());
-				recipe.AddIngredient(ItemType<Lumenite>(), 3996);
+				recipe.AddIngredient(ItemType<Lumenyl>(), 3996);
 				recipe.AddIngredient(ItemType<DepthCells>(), 3996);
 				recipe.AddTile(TileID.LunarCraftingStation);
 				recipe.Register();
 			}
 			{
 				Recipe recipe = Mod.CreateRecipe(ItemType<CalArtifact>());
-				recipe.AddIngredient(ItemType<CalamityDust>(), 15);
+				recipe.AddIngredient(ItemType<AshesofCalamity>(), 15);
 				recipe.AddIngredient(ItemType<CalamityMod.Items.Placeables.Plates.Cinderplate>(), 20);
 				recipe.AddTile(TileID.LunarCraftingStation);
 				recipe.Register();
@@ -486,7 +487,7 @@ namespace CalValEX
 			{
 				Recipe recipe = Mod.CreateRecipe(ItemType<GoozmaPetItem>());
 				recipe.AddIngredient(ItemType<ImpureStick>());
-				recipe.AddIngredient(ItemType<EbonianGel>(), 20);
+				recipe.AddIngredient(ItemType<BlightedGel>(), 20);
 				recipe.AddIngredient(ItemType<PurifiedGel>(), 20);
 				recipe.AddIngredient(ItemID.Gel, 30);
 				recipe.AddTile(TileType<StaticRefiner>());
@@ -615,9 +616,9 @@ namespace CalValEX
 			PlushRecipe(ItemType<ThanatosPlushThrowable>(), ItemType<ThanatosPlush>());
 			PlushRecipe(ItemType<YharonPlushThrowable>(), ItemType<YharonPlush>());
 			//Blueprints
-			BlueprintRecipe(ItemType<CalamityMod.Items.Potions.AstralJelly>(), ItemType<AstrumAureusLog>());
+			BlueprintRecipe(ItemType<CalamityMod.Items.Potions.AureusCell>(), ItemType<AstrumAureusLog>());
 			BlueprintRecipe(ItemType<EffulgentFeather>(), ItemType<BumblebirbLog>());
-			BlueprintRecipe(ItemType<CalamityDust>(), ItemType<CalamitasLog>());
+			BlueprintRecipe(ItemType<AshesofCalamity>(), ItemType<CalamitasLog>());
 			BlueprintRecipe(ItemID.SoulofMight, ItemType<DestroyerLog>());
 			BlueprintRecipe(ItemType<CosmiliteBar>(), ItemType<DogLog>());
 			BlueprintRecipe(ItemID.HellstoneBar, ItemType<MurasamaLog>());
@@ -657,8 +658,8 @@ namespace CalValEX
 			MonolithRecipe(ItemType <DivineGeode>(), ItemType<UnholyMonolith>(), TileID.LunarCraftingStation);
 			MonolithRecipe(ItemType <HellcasterFragment>(), ItemType<InfernalMonolith>(), TileID.LunarCraftingStation);
 			MonolithRecipe(ItemType <InfectedArmorPlating>(), ItemType<PlagueMonolith>(), TileID.MythrilAnvil);
-			MonolithRecipe(ItemType <CalamityDust>(), ItemType<CalamitousMonolith>(), TileID.MythrilAnvil);
-			MonolithRecipe(ItemType<VerstaltiteBar>(), ItemType<AuroraMonolith>(), TileID.MythrilAnvil);
+			MonolithRecipe(ItemType <AshesofCalamity>(), ItemType<CalamitousMonolith>(), TileID.MythrilAnvil);
+			MonolithRecipe(ItemType<CryonicBar>(), ItemType<AuroraMonolith>(), TileID.MythrilAnvil);
 			MonolithRecipe(ItemType<Termipebbles>(), ItemType<TerminusShrine>(), TileID.LunarCraftingStation);
 			//Wall Block conversion
 			WallRecipe(ItemType<AuricBrick>(), ItemType<AuricBrickWall>());
@@ -765,7 +766,7 @@ namespace CalValEX
 			{
 				Recipe recipe = Mod.CreateRecipe(ItemType<TerminusShrine2>());
 				recipe.AddIngredient(ItemType<TerminusShrine>());
-				recipe.AddIngredient(ItemType<CalamityMod.Items.SummonItems.BossRush>());
+				recipe.AddIngredient(ItemType<CalamityMod.Items.SummonItems.Terminus>());
 				recipe.AddTile(TileType<DraedonsForge>());
 				recipe.Register();
 			}
@@ -1009,6 +1010,30 @@ namespace CalValEX
 				Recipe recipe = Mod.CreateRecipe(ItemType<AuricBrick>());
 				recipe.AddIngredient(ItemType<AuricPlatformItem>(), 2);
 				recipe.Register();
+			}
+            //Override Auric Toilet recipe
+            {
+				List<Recipe> rec = Main.recipe.ToList();
+				rec.Where(x => x.createItem.type == ItemType<CalamityMod.Items.Placeables.Furniture.AuricToilet>()).ToList().ForEach(s =>
+				{
+					s.requiredItem = new List<Item>();
+					for (int i = 0; i < 5; i++)
+						s.requiredItem.Add(new Item());
+					s.requiredItem[0].SetDefaults(ItemType<CalamityMod.Items.Placeables.FurnitureBotanic.BotanicChair>(), false);
+					s.requiredItem[0].stack = 1;
+					s.requiredItem[1].SetDefaults(ItemType<BloodstoneChairItem>(), false);
+					s.requiredItem[1].stack = 1;
+					s.requiredItem[2].SetDefaults(ItemType<CalamityMod.Items.Placeables.FurnitureCosmilite.CosmiliteChair>(), false);
+					s.requiredItem[2].stack = 1;
+					s.requiredItem[3].SetDefaults(ItemType<CalamityMod.Items.Placeables.FurnitureSilva.SilvaChair>(), false);
+					s.requiredItem[3].stack = 1;
+					s.requiredItem[4].SetDefaults(ItemType<AuricBrick>(), false);
+					s.requiredItem[4].stack = 50;
+
+					s.requiredTile[0] = ModContent.TileType<AuricManufacturerPlaced>();
+					s.createItem.SetDefaults(ItemType<CalamityMod.Items.Placeables.Furniture.AuricToilet>(), false);
+					s.createItem.stack = 1;
+				});
 			}
 			//Bloodstone
 			{

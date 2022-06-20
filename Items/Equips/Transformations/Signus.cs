@@ -54,7 +54,10 @@ namespace CalValEX.Items.Equips.Transformations
 			DisplayName.SetDefault("Twilight Charm");
 			Tooltip.SetDefault("'One with the void'\n" + "Transforms the wearer into a nether spirit");
 			ItemID.Sets.ItemNoGravity[Item.type] = true;
-			SetupDrawing();
+			if (Main.netMode != NetmodeID.Server)
+			{
+				SetupDrawing();
+			}
 		}
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -76,21 +79,5 @@ namespace CalValEX.Items.Equips.Transformations
 				}
 			}
 		}
-		/*public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			Mod calamityMod = ModLoader.GetMod("CalamityMod");
-			if (calamityMod != null)
-			{
-				recipe.AddIngredient(calamityMod.ItemType("SignusMask"), 1);
-				recipe.AddIngredient(mod.ItemType("SigCape"), 1);
-				recipe.AddIngredient(mod.ItemType("SignusNether"), 1);
-				recipe.AddIngredient(mod.ItemType("SignusEmblem"), 1);
-				recipe.AddIngredient(calamityMod.ItemType("TwistingNether"), 3);
-				recipe.AddTile(TileID.LunarCraftingStation);
-				recipe.SetResult(this);
-				recipe.AddRecipe();
-			}
-		}*/
 	}
 }

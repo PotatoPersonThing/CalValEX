@@ -9,7 +9,7 @@ namespace CalValEX.Items.Equips.Hats.Draedon
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Arsenal Soldier Helmet");
-            Tooltip.SetDefault("Changes appearance depending on held item damage type");
+            Tooltip.SetDefault("Changes appearance depending on held item damage type\nCURRENTLY UNSTABLE");
             ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
@@ -20,16 +20,5 @@ namespace CalValEX.Items.Equips.Hats.Draedon
             Item.rare = ItemRarityID.Blue;
             Item.vanity = true;
         }
-
-        /*public override void AddRecipes()
-        {
-           
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 8);
-            recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 4);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }*/
     }
 }

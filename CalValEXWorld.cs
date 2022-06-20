@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Tiles.AstralBlocks;
+using CalamityMod.Tiles.DraedonStructures;
 using System.IO;
 using System;
 
@@ -157,13 +158,12 @@ namespace CalValEX
 
         public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts)
         {
-            //Mod calamityMod = ModLoader.GetMod("CalamityMod");
             // Old Astral tiles
             astralTiles = tileCounts[TileType<AstralDirtPlaced>()] + tileCounts[TileType<AstralGrassPlaced>()] + tileCounts[TileType<XenostonePlaced>()] + tileCounts[TileType<AstralSandPlaced>()] + tileCounts[TileType<AstralHardenedSandPlaced>()] + tileCounts[TileType<AstralSandstonePlaced>()] + tileCounts[TileType<AstralClayPlaced>()] + tileCounts[TileType<AstralIcePlaced>()] + tileCounts[TileType<AstralSnowPlaced>()];
             // Hell Lab tiles
-            //hellTiles = tileCounts[calamityMod.TileType("Chaosplate")];
+            hellTiles = tileCounts[TileType<CalamityMod.Tiles.Plates.Chaosplate>()];
             // Lab tiles
-            //labTiles = tileCounts[calamityMod.TileType("LaboratoryPlating")] + tileCounts[calamityMod.TileType("LaboratoryPanels")] + tileCounts[calamityMod.TileType("RustedPlating")] + tileCounts[calamityMod.TileType("LaboratoryPipePlating")] + tileCounts[calamityMod.TileType("RustedPipes")];
+            labTiles = tileCounts[TileType<LaboratoryPlating>()] + tileCounts[TileType < LaboratoryPanels>()] + tileCounts[TileType < RustedPlating>()] + tileCounts[TileType < LaboratoryPipePlating>()] + tileCounts[TileType < RustedPipes>()];
             //Dungeon tiles
             dungeontiles = tileCounts[TileID.BlueDungeonBrick] + tileCounts[TileID.PinkDungeonBrick] + tileCounts[TileID.GreenDungeonBrick];
         }

@@ -149,7 +149,7 @@ namespace CalValEX.AprilFools.Jharim
                     float speed = 10f;
                     int type = ProjectileType<JharimLaser>();
                     int damage = 6666666;
-                    Projectile.NewProjectile(NPC.GetSource_FromAI(), position, direction * speed, type, damage, 0f, Main.myPlayer);
+                    ///Projectile.NewProjectile(NPC.GetSource_FromAI(), position, direction * speed, type, damage, 0f, Main.myPlayer);
                     firinglaser = false;
                     NPC.defense = 999;
                 }
@@ -485,9 +485,11 @@ namespace CalValEX.AprilFools.Jharim
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
             if (!MELDOSAURUSED)
-                projType = ModContent.ProjectileType<JharimLaser>();
-            else
-                projType = ProjectileType<CalamityMod.Projectiles.Typeless.NobodyKnows>();
+                //projType = ModContent.ProjectileType<JharimLaser>();
+                projType = ModContent.ProjectileType<CalamityMod.Projectiles.Magic.InfernadoFriendly>();
+
+                    else
+                        projType = ProjectileType<CalamityMod.Projectiles.Typeless.NobodyKnows>();
             attackDelay = 1;
             return;
         }

@@ -374,3 +374,4 @@ Thumbs.db
 obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs
 obj/Debug/net6.0/CalValEX.AssemblyInfo.cs
 *.csproj
+CalValEX.csproj
