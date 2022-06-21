@@ -6,7 +6,8 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Pets
 {
-    public class coopershortsword : ModItem
+    [LegacyName("coopershortsword")]
+    public class CooperShortsword : ModItem
     {
         public override void SetStaticDefaults()
         {

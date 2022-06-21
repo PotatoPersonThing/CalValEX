@@ -49,7 +49,7 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
         {
             CreateRecipe()
                 .AddIngredient(ModContent.ItemType<WulfrumController>())
-                .AddIngredient(ModContent.ItemType<PylonRemote>())
+                .AddIngredient(ModContent.ItemType<WulfrumTransmitter>())
                 .AddIngredient(ModContent.ItemType<RepurposedMonitor>())
                 //.AddTile(ModLoader.GetMod("CalamityMod").TileType<LaboratoryConsole>())
                 .AddTile(TileID.Anvils)

@@ -55,9 +55,9 @@ namespace CalValEX.Tiles.Statues
             // If you want to make an NPC spawning statue, see below.
             int npcIndex = -1;
             // 30 is the time before it can be used again. NPC.MechSpawn checks nearby for other spawns to prevent too many spawns. 3 in immediate vicinity, 6 nearby, 10 in world.
-            if (Wiring.CheckMech(x, y, 30) && NPC.MechSpawn((float)spawnX, (float)spawnY, (ModContent.NPCType<NukeFly>())))
+            if (Wiring.CheckMech(x, y, 30) && NPC.MechSpawn((float)spawnX, (float)spawnY, (ModContent.NPCType<Vaporofly>())))
             {
-                npcIndex = NPC.NewNPC(new Terraria.DataStructures.EntitySource_SpawnNPC(),spawnX, spawnY - 12, (ModContent.NPCType<NukeFly>()));
+                npcIndex = NPC.NewNPC(new Terraria.DataStructures.EntitySource_SpawnNPC(),spawnX, spawnY - 12, (ModContent.NPCType<Vaporofly>()));
             }
             if (npcIndex >= 0)
             {

@@ -50,12 +50,12 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ModContent.ItemType<OldTennisBall>())
-                .AddIngredient(ModContent.ItemType<DiscardedCollar>())
+                .AddIngredient(ModContent.ItemType<RottenHotdog>())
+                .AddIngredient(ModContent.ItemType<DecayingFishtail>())
                 .AddIngredient(ModContent.ItemType<TundraBall>())
                 .AddIngredient(ModContent.ItemType<BambooStick>())
-                .AddIngredient(ModContent.ItemType<PuppoCollar>())
-                .AddIngredient(ModContent.ItemType<DryShrimp>())
+                .AddIngredient(ModContent.ItemType<DoggoCollar>())
+                .AddIngredient(ModContent.ItemType<SunDriedShrimp>())
                 .AddTile(TileID.WorkBenches)
                 .Register();
         }

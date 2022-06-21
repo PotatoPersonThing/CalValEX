@@ -1130,7 +1130,7 @@ namespace CalValEX
             //Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (Player.ZoneBeach && Player.fishingSkill > 80 && Main.rand.NextFloat() < 0.021f)
             {
-                itemDrop = ItemType<Items.Pets.Elementals.WetBubble>();
+                itemDrop = ItemType<Items.Pets.Elementals.StrangeMusicNote>();
             }
             if (ZoneAstral && Player.fishingSkill > 80 && Main.rand.NextFloat() < 0.0105f)
             {

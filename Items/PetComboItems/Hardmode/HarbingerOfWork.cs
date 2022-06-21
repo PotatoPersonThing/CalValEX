@@ -57,10 +57,10 @@ namespace CalValEX.Items.PetComboItems.Hardmode
             CreateRecipe()
                 .AddIngredient(ModContent.ItemType<RoverSpindle>())
                 .AddIngredient(ModContent.ItemType<DiggerRemote>())
-                .AddIngredient(ModContent.ItemType<AndroombaGBC>())
-                .AddIngredient(ModContent.ItemType<AstDie>())
-                .AddIngredient(ModContent.ItemType<BeeCan>())
-                .AddIngredient(ModContent.ItemType<Binoculars>())
+                .AddIngredient(ModContent.ItemType<SuspiciousLookingGBC>())
+                .AddIngredient(ModContent.ItemType<AstralInfectedIcosahedron>())
+                .AddIngredient(ModContent.ItemType<PlaguebringerPowerCell>())
+                .AddIngredient(ModContent.ItemType<AstralBinoculars>())
                 .AddTile(TileID.AdamantiteForge)
                 .Register();
         }

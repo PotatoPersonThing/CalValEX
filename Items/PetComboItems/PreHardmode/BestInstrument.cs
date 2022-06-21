@@ -47,9 +47,9 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
             CreateRecipe()
                 .AddIngredient(ModContent.ItemType<ClamHermitMedallion>())
                 .AddIngredient(ModContent.ItemType<ClawShroom>())
-                .AddIngredient(ModContent.ItemType<DigestedWormFood>())
-                .AddIngredient(ModContent.ItemType<MissingFang>())
-                .AddIngredient(ModContent.ItemType<Drock>())
+                .AddIngredient(ModContent.ItemType<MeatyWormTumor>())
+                .AddIngredient(ModContent.ItemType<RottenKey>())
+                .AddIngredient(ModContent.ItemType<DespairMask>())
                 .AddTile(TileID.TinkerersWorkbench)
                 .Register();
         }

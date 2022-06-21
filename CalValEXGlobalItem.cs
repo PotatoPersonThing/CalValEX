@@ -227,12 +227,12 @@ namespace CalValEX
 
                             if (Main.rand.NextFloat() < 0.2f)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DriedMandible>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DriedLocket>());
                             }
 
                             if (Main.rand.NextFloat() < 0.07f)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SandTooth>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SlightlyMoistbutalsoSlightlyDryLocket>());
                             }
                         }
 
@@ -248,7 +248,7 @@ namespace CalValEX
                         {
                             if (Main.rand.NextFloat() < 0.3f)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<MissingFang>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<RottenKey>());
                             }
                         }
 
@@ -256,7 +256,7 @@ namespace CalValEX
                         {
                             if (Main.rand.NextFloat() < 0.3f)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DigestedWormFood>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<MeatyWormTumor>());
                             }
 
                             if (Main.rand.NextFloat() < 0.4f)
@@ -287,7 +287,7 @@ namespace CalValEX
 
                             if (Main.rand.NextFloat() < 0.3f)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ImpureStick>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SlimeDeitysSoul>());
                             }
                         }
 
@@ -295,7 +295,7 @@ namespace CalValEX
                         {
                             if (Main.rand.NextFloat() < 0.3f)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CryoStick>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CoolShades>());
                             }
                         }
 
@@ -303,7 +303,7 @@ namespace CalValEX
                         {
                             if (Main.rand.NextFloat() < 0.2f)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AquaticHide>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<MoistLocket>());
                             }
                         }
 
@@ -327,7 +327,7 @@ namespace CalValEX
 
                             if (Main.rand.NextFloat() < 0.2f)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<brimtulip>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<RareBrimtulip>());
                             }
 
                             if (Main.rand.NextFloat() < 0.05f)
@@ -380,7 +380,7 @@ namespace CalValEX
 
                             if (Main.rand.NextFloat() < 0.01f)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<WetBubble>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<StrangeMusicNote>());
                             }
                         }
 
@@ -388,7 +388,7 @@ namespace CalValEX
                         {
                             if (Main.rand.NextFloat() < 0.2f)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AstDie>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AstralInfectedIcosahedron>());
                             }
 
                             if (Main.rand.NextFloat() < 0.2f)
@@ -440,7 +440,7 @@ namespace CalValEX
 
                             if (Main.rand.NextFloat() < 0.3f)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AncientChoker>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SkullCluster>());
                             }
 
                             if (Main.rand.NextFloat() < 0.07f)
@@ -468,7 +468,7 @@ namespace CalValEX
                         {
                             if (Main.rand.NextFloat() < 0.3f)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AstralStar>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Geminga>());
                             }
 
                             if (Main.rand.NextFloat() < 0.2f)
@@ -497,7 +497,7 @@ namespace CalValEX
                             }
                             else
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<FollyWing>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DocilePheromones>());
                             }
 
                             if (Main.rand.NextFloat() < 0.005f)
@@ -516,7 +516,7 @@ namespace CalValEX
 
                             if (Main.rand.NextFloat() < 0.3f)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ProShard>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ProfanedHeart>());
                             }
 
                             if (Main.rand.NextFloat() < 0.3f)
@@ -537,11 +537,11 @@ namespace CalValEX
                             {
                                 if (Main.rand.NextFloat() < 0.5f)
                                 {
-                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<WeaverFlesh>());
+                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<StormMedal>());
                                 }
                                 else
                                 {
-                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ShellScrap>());
+                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ArmoredScrap>());
                                 }
                             }
                             if (Main.rand.NextFloat() < 0.3f)
@@ -563,7 +563,7 @@ namespace CalValEX
                             }
                             if (Main.rand.NextFloat() < 0.3f)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<VoidShard>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<MirrorMatter>());
                             }
                             if (Main.rand.NextFloat() < 0.3f)
                             {
@@ -589,7 +589,7 @@ namespace CalValEX
 
                             if (Main.rand.NextFloat() < 0.3f)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SigCloth>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ShadowCloth>());
                             }
 
                             int choice = Main.rand.Next(4);
@@ -664,7 +664,7 @@ namespace CalValEX
 
                             if (Main.rand.NextFloat() < 0.2f)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DogPetItem>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CosmicRapture>());
                             }
 
                             if (Main.rand.NextFloat() < 0.07f)
@@ -693,7 +693,7 @@ namespace CalValEX
 
                             if (Main.rand.NextFloat() < 0.3f)
                             {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<NuggetBiscuit>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<NuggetinaBiscuit>());
                             }
 
                             if (Main.rand.NextFloat() < 0.3f)
@@ -799,7 +799,7 @@ namespace CalValEX
                         switch (player.name)
                         {
                             case "Jared":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<EWail>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CanofWyrms>());
                                 player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SoulShard>());
                                 break;
 
@@ -812,12 +812,12 @@ namespace CalValEX
                             case "BumbleDoge":
                             case "Bojangles":
                             case "Bojeangles":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AeroPebble>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<FluffyFur>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AerialiteBubble>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ExtraFluffyFeatherClump>());
                                 break;
 
                             case "William":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<EurosBandage>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<RuinedBandage>());
                                 break;
 
                             case "Kiwabug":
@@ -831,11 +831,11 @@ namespace CalValEX
                             case "GinYuH":
                             case "Lil Sigtum":
                                 player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<FlareRune>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Eidolistthingy>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SmolEldritchHoodie>());
                                 break;
 
                             case "Hypera":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SolarBun>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SunBun>());
                                 break;
 
                             case "Drakudragonx":
@@ -850,34 +850,34 @@ namespace CalValEX
                                 break;
 
                             case "Fabsol":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DogPetItem>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CosmicRapture>());
                                 break;
 
                             case "Lucca":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<JunkoHat>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SuspiciousLookingChineseCrown>());
                                 player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ToyScythe>());
                                 break;
 
                             case "Junko":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<JunkoHat>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SuspiciousLookingChineseCrown>());
                                 player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ToyScythe>());
                                 player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ProfanedBalloon>());
                                 break;
 
                             case "Lil Junko":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<JunkoHat>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SuspiciousLookingChineseCrown>());
                                 break;
 
                             case "Cooper":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<coopershortsword>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CooperShortsword>());
                                 break;
 
                             case "Tess":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AstralStar>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Geminga>());
                                 break;
 
                             case "Enreden":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Enredenitem>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CosmicBubble>());
                                 break;
 
                             case "Iban":
@@ -896,13 +896,13 @@ namespace CalValEX
 
                             case "Emerald":
                             case "EmeraldXLapis":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<FogG>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<PurifiedFog>());
                                 break;
 
                             case "Yharex87":
                             case "Yharex":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<JellyBottle>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<YharexsLetter>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SpaceJunk>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AstraEGGeldon>());
                                 break;
 
                             case "Scarfy":
@@ -910,12 +910,12 @@ namespace CalValEX
                             case "Krysmun":
                             case "DodoNation":
                             case "Dodo":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<FluffyFeather>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ExtraFluffyFeather>());
                                 break;
 
                             case "caligulasAquarium":
                             case "caligulas":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Ectogasm>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<BleuBlob>());
                                 break;
 
                             case "Willow":
@@ -927,7 +927,7 @@ namespace CalValEX
                                 break;
 
                             case "Potato Person":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<MissingFang>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<RottenKey>());
                                 break;
 
                             case "Dorira":
@@ -942,13 +942,13 @@ namespace CalValEX
 
                             case "Triangle":
                                 player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<BubbledFin>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<GoozmaPetItem>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<IonizedJellyCrystal>());
                                 break;
 
                             case "Brimmy":
                                 player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<BurningEye>());
                                 player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<FoilSpoon>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<brimtulip>());
+                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<RareBrimtulip>());
                                 break;
                         }
                     }
@@ -988,7 +988,7 @@ namespace CalValEX
 
                     if (NPC.downedPlantBoss & (Main.rand.NextFloat() < 0.02f))
                     {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Pollution>());
+                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<InkyPollution>());
                     }
 
                     if (NPC.downedAncientCultist & (Main.rand.NextFloat() < 0.025f))

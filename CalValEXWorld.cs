@@ -41,6 +41,8 @@ namespace CalValEX
 
         public static bool downedMeldosaurus;
 
+        public static bool masorev;
+
         public override void OnWorldLoad()
         {
             rescuedjelly = false;
@@ -116,7 +118,7 @@ namespace CalValEX
             Rockshrine = tag.ContainsKey("Rockshrine");
             RockshrinEX = tag.ContainsKey("RockshrinEX");
             jharinter = tag.ContainsKey("jharinter");
-            jharinter = tag.ContainsKey("downedMeldosaurus");
+            downedMeldosaurus = tag.ContainsKey("downedMeldosaurus");
         }
         public override void NetSend(BinaryWriter writer)
         {
@@ -145,7 +147,7 @@ namespace CalValEX
             Rockshrine = flags[4];
             RockshrinEX = flags[5];
             jharinter = flags[6];
-            downedMeldosaurus = flags[0];
+            downedMeldosaurus = flags2[0];
         }
 
         public override void ResetNearbyTileEffects()
@@ -155,7 +157,6 @@ namespace CalValEX
             labTiles = 0;
             dungeontiles = 0;
         }
-
         public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts)
         {
             // Old Astral tiles
@@ -166,6 +167,18 @@ namespace CalValEX
             labTiles = tileCounts[TileType<LaboratoryPlating>()] + tileCounts[TileType < LaboratoryPanels>()] + tileCounts[TileType < RustedPlating>()] + tileCounts[TileType < LaboratoryPipePlating>()] + tileCounts[TileType < RustedPipes>()];
             //Dungeon tiles
             dungeontiles = tileCounts[TileID.BlueDungeonBrick] + tileCounts[TileID.PinkDungeonBrick] + tileCounts[TileID.GreenDungeonBrick];
+        }
+
+        public override void PreUpdateNPCs()
+        {
+            if (CalamityMod.World.CalamityWorld.revenge || Main.masterMode)
+            {
+                masorev = true;
+            }
+            else
+            {
+                masorev = false;
+            }
         }
 
         public static void UpdateWorldBool()

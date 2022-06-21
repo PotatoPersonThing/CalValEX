@@ -17,9 +17,7 @@ namespace CalValEX.NPCs.Critters
 
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Orthocera?");
-            //Main.npcFrameCount[NPC.type] = 5;
-            Main.npcFrameCount[NPC.type] = 6;
+            Main.npcFrameCount[NPC.type] = 5;
         }
         public override void SetDefaults()
         {

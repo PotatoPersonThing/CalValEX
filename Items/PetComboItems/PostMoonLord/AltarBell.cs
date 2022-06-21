@@ -54,13 +54,13 @@ namespace CalValEX.Items.PetComboItems.PostMoonLord
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ModContent.ItemType<OrbSummon>())
-                .AddIngredient(ModContent.ItemType<NuclearFly>())
+                .AddIngredient(ModContent.ItemType<TheDragonball>())
+                .AddIngredient(ModContent.ItemType<DivineFly>())
                 .AddIngredient(ModContent.ItemType<FlareRune>())
                 .AddIngredient(ModContent.ItemType<AuricBottle>())
-                .AddIngredient(ModContent.ItemType<TerminusStone>())
+                .AddIngredient(ModContent.ItemType<Finality>())
                 .AddIngredient(ModContent.ItemType<BejeweledSpike>())
-                .AddIngredient(ModContent.ItemType<ProShard>())
+                .AddIngredient(ModContent.ItemType<ProfanedHeart>())
                 //.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
                 .AddTile(TileID.LunarCraftingStation)
                 .Register();

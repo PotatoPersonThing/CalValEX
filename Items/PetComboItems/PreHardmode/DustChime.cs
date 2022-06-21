@@ -46,11 +46,11 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ModContent.ItemType<AeroPebble>())
+                .AddIngredient(ModContent.ItemType<AerialiteBubble>())
                 .AddIngredient(ModContent.ItemType<CursedLockpick>())
                 .AddIngredient(ModContent.ItemType<UglyTentacle>())
                 .AddIngredient(ModContent.ItemType<Cube>())
-                .AddIngredient(ModContent.ItemType<EurosBandage>())
+                .AddIngredient(ModContent.ItemType<RuinedBandage>())
                 .AddTile(TileID.Anvils)
                 .Register();
         }

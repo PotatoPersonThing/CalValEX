@@ -52,10 +52,10 @@ namespace CalValEX.Items.PetComboItems.Hardmode
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ModContent.ItemType<AncientChoker>())
-                .AddIngredient(ModContent.ItemType<SolarBun>())
-                .AddIngredient(ModContent.ItemType<Minihote>())
-                .AddIngredient(ModContent.ItemType<JellyBottle>())
+                .AddIngredient(ModContent.ItemType<SkullCluster>())
+                .AddIngredient(ModContent.ItemType<SunBun>())
+                .AddIngredient(ModContent.ItemType<MiniatureElementalHeart>())
+                .AddIngredient(ModContent.ItemType<SpaceJunk>())
                 .AddTile(TileID.LunarCraftingStation)
                 .Register();
         }

@@ -40,17 +40,17 @@ namespace CalValEX.Items.PetComboItems.PostMoonLord
             type = ModContent.ProjectileType<CoolBlueSlime>();
             type = ModContent.ProjectileType<GoozmaPet>();
             type = ModContent.ProjectileType<UngodlySerpent>();
-            type = ModContent.ProjectileType<Sirember>();
+            type = ModContent.ProjectileType<Projectiles.Pets.Sirember>();
             return base.Shoot(player, source, position, velocity, type, damage, knockback);
         }
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ModContent.ItemType<YharexsLetter>())
-                .AddIngredient(ModContent.ItemType<Ectogasm>())
-                .AddIngredient(ModContent.ItemType<GoozmaPetItem>())
-                .AddIngredient(ModContent.ItemType<ChewyToy>())
-                .AddIngredient(ModContent.ItemType<Rember>())
+                .AddIngredient(ModContent.ItemType<AstraEGGeldon>())
+                .AddIngredient(ModContent.ItemType<BleuBlob>())
+                .AddIngredient(ModContent.ItemType<IonizedJellyCrystal>())
+                .AddIngredient(ModContent.ItemType<ProfanedChewToy>())
+                .AddIngredient(ModContent.ItemType<Pets.Sirember>())
                 //.AddTile(ModLoader.GetMod("CalamityMod").TileType<DraedonsForge>()) Æ:Cal port moment
                 .AddTile(TileID.LunarCraftingStation)
                 .Register();

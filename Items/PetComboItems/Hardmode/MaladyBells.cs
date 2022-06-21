@@ -47,13 +47,13 @@ namespace CalValEX.Items.PetComboItems.Hardmode
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ModContent.ItemType<coopershortsword>())
+                .AddIngredient(ModContent.ItemType<CooperShortsword>())
                 .AddIngredient(ModContent.ItemType<HauntedPebble>())
-                .AddIngredient(ModContent.ItemType<Eidolistthingy>())
+                .AddIngredient(ModContent.ItemType<SmolEldritchHoodie>())
                 .AddIngredient(ModContent.ItemType<DeepseaLantern>())
-                .AddIngredient(ModContent.ItemType<SandTooth>())
-                .AddIngredient(ModContent.ItemType<BoldEgg>())
-                .AddIngredient(ModContent.ItemType<SkaterEgg>())
+                .AddIngredient(ModContent.ItemType<SlightlyMoistbutalsoSlightlyDryLocket>())
+                .AddIngredient(ModContent.ItemType<Eggstone>())
+                .AddIngredient(ModContent.ItemType<AcidLamp>())
                 .AddTile(TileID.MythrilAnvil)
                 .Register();
         }

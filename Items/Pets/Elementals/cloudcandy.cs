@@ -4,7 +4,8 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Pets.Elementals
 {
-    public class cloudcandy : ModItem
+    [LegacyName("cloudcandy")]
+    public class CloudCandy : ModItem
     {
         public override void SetStaticDefaults()
         {

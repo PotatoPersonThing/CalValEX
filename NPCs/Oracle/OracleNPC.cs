@@ -359,13 +359,13 @@ namespace CalValEX.NPCs.Oracle
         public override void SetupShop(Chest shop, ref int nextSlot)
         {
             //Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.PuppoCollar>());
+            shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.DoggoCollar>());
             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 50, 0);
             nextSlot++;
             shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.BambooStick>());
             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 2, 0, 0);
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.EurosBandage>());
+            shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.RuinedBandage>());
             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 2, 50, 0);
             nextSlot++;
             shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.Cube>());
@@ -376,19 +376,19 @@ namespace CalValEX.NPCs.Oracle
             {
                 if ((bool)clamMod.Call("GetBossDowned", "hivemind"))
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<AeroPebble>());
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<AerialiteBubble>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 50, 0);
                     ++nextSlot;
                 }
                 else if ((bool)clamMod.Call("GetBossDowned", "perforator"))
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<AeroPebble>());
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<AerialiteBubble>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 50, 0);
                     ++nextSlot;
                 }
                 if ((bool)NPC.downedPlantBoss)
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<Eidolistthingy>());
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<SmolEldritchHoodie>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 0, 0);
                     ++nextSlot;
                 }
@@ -409,25 +409,25 @@ namespace CalValEX.NPCs.Oracle
                 }
                 if (CalamityMod.DownedBossSystem.downedHiveMind && WorldGen.crimson)
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<DigestedWormFood>());
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<MeatyWormTumor>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
                     ++nextSlot;
                 }
                 if (CalamityMod.DownedBossSystem.downedPerforator && !WorldGen.crimson)
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<MissingFang>());
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<RottenKey>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
                     ++nextSlot;
                 }
                 if (CalamityMod.DownedBossSystem.downedCryogen)
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<coopershortsword>());
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<CooperShortsword>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 0, 0);
                     ++nextSlot;
                 }
                 if (CalamityMod.DownedBossSystem.downedCalamitas)
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<AndroombaGBC>());
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<SuspiciousLookingGBC>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
                     ++nextSlot;
                 }
@@ -439,31 +439,31 @@ namespace CalValEX.NPCs.Oracle
                 }
                 if (CalamityMod.DownedBossSystem.downedDragonfolly)
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<OrbSummon>());
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<TheDragonball>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 75, 0, 0);
                     ++nextSlot;
                 }
                 if (CalamityMod.DownedBossSystem.downedProvidence)
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<ChewyToy>());
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<ProfanedChewToy>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 80, 0, 0);
                     ++nextSlot;
                 }
                 if (CalamityMod.DownedBossSystem.downedSignus)
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<JunkoHat>());
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<SuspiciousLookingChineseCrown>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 95, 0, 0);
                     ++nextSlot;
                 }
                 if (CalamityMod.DownedBossSystem.downedDoG)
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.LightPets.Enredenitem>());
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.LightPets.CosmicBubble>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
                     ++nextSlot;
                 }
                 if (CalamityMod.DownedBossSystem.downedYharon)
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<NuggetBiscuit>());
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<NuggetinaBiscuit>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 10, 0, 0);
                     ++nextSlot;
                 }
