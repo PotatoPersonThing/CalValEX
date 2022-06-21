@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
+using CalamityMod.DataStructures;
 
 namespace CalValEX.Projectiles.Pets.ExoMechs
 {
@@ -186,9 +187,9 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             Vector2 controlPoint1 = Owner.Center - Vector2.UnitY * curvature;
             Vector2 controlPoint2 = Projectile.Center + Vector2.UnitY * curvature;
 
-            //BezierCurve curve = new BezierCurve(new Vector2[] { Owner.Center, controlPoint1, controlPoint2, Projectile.Center });
+            BezierCurve curve = new BezierCurve(new Vector2[] { Owner.Center, controlPoint1, controlPoint2, Projectile.Center });
             int numPoints = 20; //"Should make dynamic based on curve length, but I'm not sure how to smoothly do that while using a bezier curve" -Graydee, from the code i referenced. I do agree.
-            /*Vector2[] chainPositions = curve.GetPoints(numPoints).ToArray();
+            Vector2[] chainPositions = curve.GetPoints(numPoints).ToArray();
 
             //Draw each chain segment bar the very first one
             for (int i = 1; i < numPoints; i++)
@@ -200,7 +201,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
                 Color chainLightColor = Lighting.GetColor((int)position.X / 16, (int)position.Y / 16); //Lighting of the position of the chain segment
                 Vector2 origin = new Vector2(chainTex.Width / 2, chainTex.Height); //Draw from center bottom of texture
                 Main.EntitySpriteDraw(chainTex, position - Main.screenPosition, null, chainLightColor, rotation, origin, scale, SpriteEffects.None, 0);
-            }*/
+            }
         }
 
         public override void PostDraw(Color lightColor)
