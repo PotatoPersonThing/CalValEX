@@ -42,7 +42,6 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using static CalValEX.CalValEXWorld;
 using System.IO;
 
 namespace CalValEX
@@ -593,7 +592,7 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<RottenKey>(), 3));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<HiveMindPlush>(), 4);
                 }
-                //Slime Gods
+                //Slime Gods...
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodCore>())
                 {
                     npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
@@ -711,13 +710,17 @@ namespace CalValEX
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<RavagerPlush>(), 4);
                 }
                 //Deus
+                //PS: FUCK deus lootcode, I pray to anyone who wants to make weakref support for this abomination
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusHead>())
                 {
-                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AstBandana>(), 20));
-                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AstrumDeusMask>(), 40));
-                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Geminga>(), 3));
-                    npcLoot.AddIf(() => Main.LocalPlayer.InModBiome(ModContent.GetInstance<Biomes.AstralBlight>()), ModContent.ItemType<AstrumDeusMask>());
-                    npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<AstrumDeusPlush>(), 4);
+                    var lastWorm = npcLoot.DefineConditionalDropSet(info => !CalamityMod.NPCs.AstrumDeus.AstrumDeusHead.ShouldNotDropThings(info.npc));
+                    bool blight(DropAttemptInfo info) => Main.LocalPlayer.InModBiome(ModContent.GetInstance<Biomes.AstralBlight>()) && !CalamityMod.NPCs.AstrumDeus.AstrumDeusHead.ShouldNotDropThings(info.npc);
+                    bool masre(DropAttemptInfo info) => CalValEXWorld.masorev && !CalamityMod.NPCs.AstrumDeus.AstrumDeusHead.ShouldNotDropThings(info.npc);
+
+                    lastWorm.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AstBandana>(), 20));
+                    lastWorm.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Geminga>(), 3));
+                    npcLoot.AddIf(blight, ModContent.ItemType<AstrumDeusMask>());
+                    npcLoot.AddIf(masre, ModContent.ItemType<AstrumDeusPlush>(), 4);
                 }
                 //Bumblebirb
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Bumblebirb.Bumblefuck>())

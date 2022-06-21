@@ -29,7 +29,6 @@ namespace CalValEX.Items.Pets
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
-
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.ZephyrFish);
@@ -40,24 +39,6 @@ namespace CalValEX.Items.Pets
             Item.noUseGraphic = true;
             Item.UseSound = SoundID.Item81;
         }
-
-        /*public override void AddRecipes() //Someone else do this
-        {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(mod.ItemType("ImpureStick"), 1);
-                recipe.AddIngredient(ItemID.Gel, 20);
-                recipe.AddIngredient(ItemID.LunarBar, 3);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("PurifiedGel"), 5);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("BarofLife"), 2);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("EbonianGel"), 5);
-                recipe.AddTile(TileID.LunarCraftingStation);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
-
         public override void UseStyle(Player player, Rectangle heldItemFrame)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)

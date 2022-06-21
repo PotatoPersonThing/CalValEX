@@ -129,8 +129,8 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
         //STOLED FROM THE REAL ONES???
         public float RibbonTrailWidthFunction(float completionRatio)
         {
-            float baseWidth = Utils.InverseLerp(1f, 0.54f, 1 - completionRatio, true) * 5f;
-            float endTipWidth = CalamityUtils.Convert01To010(Utils.InverseLerp(0.96f, 0.89f, 1 - completionRatio, true)) * 2.4f;
+            float baseWidth = Utils.GetLerpValue(1f, 0.54f, 1 - completionRatio, true) * 5f;
+            float endTipWidth = CalamityUtils.Convert01To010(Utils.GetLerpValue(0.96f, 0.89f, 1 - completionRatio, true)) * 2.4f;
             return baseWidth + endTipWidth;
         }
         public Color OrangeRibbonTrailColorFunction(float completionRatio)
