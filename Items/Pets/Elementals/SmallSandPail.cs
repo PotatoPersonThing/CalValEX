@@ -9,8 +9,8 @@ namespace CalValEX.Items.Pets.Elementals
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Small Sand Pail");
-            Tooltip.SetDefault("An elemental's favorite pail!\n" + "Summons a Miniature Sand Elemental");
+            DisplayName.SetDefault("Small Sand Lamp");
+            Tooltip.SetDefault("An elemental's favorite toy!\n" + "Summons a Miniature Sand Elemental");
         }
 
         public override void SetDefaults()

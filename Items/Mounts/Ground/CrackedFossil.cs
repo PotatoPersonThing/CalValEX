@@ -11,8 +11,8 @@ namespace CalValEX.Items.Mounts.Ground
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cracked Fossil");
-            Tooltip.SetDefault("Millions of years of staying intact, only to be damaged by you!\nSummons a friendly rideable Anthozoan Crab\nReduces damage and health when a boss is nearby");
+            DisplayName.SetDefault("Crab Fossil");
+            Tooltip.SetDefault("It's moving...\nSummons a friendly rideable Anthozoan Crab\nReduces damage and health when a boss is nearby");
         }
 
         public override void SetDefaults()
