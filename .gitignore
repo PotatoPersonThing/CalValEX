@@ -376,3 +376,4 @@ obj/Debug/net6.0/CalValEX.AssemblyInfo.cs
 *.csproj
 CalValEX.csproj
 *.csproj
+*.dll

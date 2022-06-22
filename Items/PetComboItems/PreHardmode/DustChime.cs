@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿/*using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -55,4 +55,4 @@ namespace CalValEX.Items.PetComboItems.PreHardmode
                 .Register();
         }
     }
-}
+}*/

@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿/*using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -51,7 +51,7 @@ namespace CalValEX.Items.LightPets
             type = ModContent.ProjectileType<DiggerPet>();
             return base.Shoot(player, source, position, velocity, type, damage, knockback);
         }
-        /*public override void AddRecipes()
+        public override void AddRecipes()
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (calamityMod != null)
@@ -65,6 +65,6 @@ namespace CalValEX.Items.LightPets
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }*/
+        }
     }
-}
+}*/
