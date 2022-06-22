@@ -67,6 +67,7 @@ namespace CalValEX
 
         public static CalValEX instance;
         public Mod herosmod;
+        public Mod ortho;
 
         public const string heropermission = "CalValEX";
         public const string heropermissiondisplayname = "Calamity's Vanities";
@@ -92,15 +93,16 @@ namespace CalValEX
         {
             instance = this;
             ModLoader.TryGetMod("HEROsMod", out herosmod);
+            ModLoader.TryGetMod("CalValPlus", out ortho);
 
             DateTime dateTime = DateTime.Now;
             currentDate = dateTime.ToString("dd/MM/yyyy");
             day = dateTime.Day;
             month = dateTime.Month;
 
-            AprilFoolWeek = herosmod != null || (DateTime.Now.Month == 4 && (DateTime.Now.Day == 1 || DateTime.Now.Day == 2 || DateTime.Now.Day == 3 || DateTime.Now.Day == 4 || DateTime.Now.Day == 5 || DateTime.Now.Day == 6 || DateTime.Now.Day == 7));
-            AprilFoolDay = herosmod != null || (DateTime.Now.Month == 4 && DateTime.Now.Day == 1);
-            AprilFoolMonth = herosmod != null || (DateTime.Now.Month == 4);
+            AprilFoolWeek = ortho != null || (DateTime.Now.Month == 4 && (DateTime.Now.Day == 1 || DateTime.Now.Day == 2 || DateTime.Now.Day == 3 || DateTime.Now.Day == 4 || DateTime.Now.Day == 5 || DateTime.Now.Day == 6 || DateTime.Now.Day == 7));
+            AprilFoolDay = ortho != null || (DateTime.Now.Month == 4 && DateTime.Now.Day == 1);
+            AprilFoolMonth = ortho != null || (DateTime.Now.Month == 4);
 
             AstralSky = ModContent.Request<Texture2D>("CalValEX/Biomes/AstralSky", AssetRequestMode.ImmediateLoad).Value;
 
@@ -117,6 +119,7 @@ namespace CalValEX
         {
             instance = null;
             herosmod = null;
+            ortho = null;
            // infernum = null;
             hasPermission = false;
 
