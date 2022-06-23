@@ -16,7 +16,7 @@ namespace CalValEX.Items.Pets.Elementals
         {
             item.CloneDefaults(ItemID.ZephyrFish);
             item.UseSound = SoundID.NPCHit5;
-            item.shoot = mod.ProjectileType("CloudMini");
+            item.shoot = mod.ProjectileType("cloudmini");
             item.value = Item.sellPrice(0, 2, 0, 0);
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             item.rare = 4;

@@ -17,10 +17,10 @@ namespace CalValEX.Buffs.Pets
         {
             player.buffTime[buffIndex] = 19000;
             player.GetModPlayer<CalValEXPlayer>().cryokid = true;
-            bool petProjectileNotSpawned = player.ownedProjectileCounts[mod.ProjectileType("Cryokid")] <= 0;
+            bool petProjectileNotSpawned = player.ownedProjectileCounts[mod.ProjectileType("cryokid")] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, mod.ProjectileType("Cryokid"), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, mod.ProjectileType("cryokid"), 0, 0f, player.whoAmI, 0f, 0f);
             }
         }
     }

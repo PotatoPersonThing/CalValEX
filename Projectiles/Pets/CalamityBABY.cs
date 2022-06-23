@@ -10,44 +10,47 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets
 {
-    public class CalamityBABY : ModFlyingPet
+    public class CalamityBABY : FlyingPet
     {
-        public new class States
-        {
-            public const int Transition = -1;
-            public const int Flying = 0;
-            public const int LayingDown = 1;
-        }
-
-        public override float TeleportThreshold => 1840f;
-
         public override void SetStaticDefaults()
         {
-            PetSetStaticDefaults(lightPet: false);
             DisplayName.SetDefault("Calamity BABY");
             Main.projFrames[projectile.type] = 15;
+            Main.projPet[projectile.type] = true;
         }
 
-        public override void SetDefaults()
+        public override void SafeSetDefaults()
         {
-            PetSetDefaults();
             projectile.width = 76;
             projectile.height = 76;
             projectile.ignoreWater = true;
             projectile.tileCollide = true;
             drawOffsetX = 2;
+            facingLeft = true;
+            spinRotation = false;
+            shouldFlip = true;
         }
 
-        public override void SendExtraAI(BinaryWriter writer)
+        public override void SafeSendExtraAI(BinaryWriter writer)
         {
             writer.Write(MyDudeJustGotHitLikeTheIdiotItIs);
-            base.SendExtraAI(writer);
         }
 
-        public override void ReceiveExtraAI(BinaryReader reader)
+        public override void SafeReceiveExtraAI(BinaryReader reader)
         {
             MyDudeJustGotHitLikeTheIdiotItIs = reader.ReadBoolean();
-            base.ReceiveExtraAI(reader);
+        }
+
+        public override void SetUpFlyingPet()
+        {
+            distance[0] = 1840f;
+            distance[1] = 560f;
+            speed = 12f;
+            inertia = 60f;
+            animationSpeed = -1;
+            spinRotationSpeedMult = 1f;
+            offSetX = 48f * -Main.player[projectile.owner].direction;
+            offSetY = -50f;
         }
 
         private bool firstTick = false;
@@ -74,7 +77,7 @@ namespace CalValEX.Projectiles.Pets
                 if (Main.player[projectile.owner].GetModPlayer<CalValEXPlayer>().CalamityBabyGotHit)
                 {
                     MyDudeJustGotHitLikeTheIdiotItIs = true;
-                    state = States.Transition;
+                    projectile.localAI[1] = -1;
                     projectile.ai[0] = 0;
                     projectile.ai[1] = 0;
                     projectile.localAI[0] = 0;
@@ -89,9 +92,9 @@ namespace CalValEX.Projectiles.Pets
         private float[] myRotation = new float[2];
         private float scale = 0.25f;
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override void SafePreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            if (state == States.Transition)
+            if (projectile.localAI[1] == -1)
             {
                 Texture2D auraTexture_1 = ModContent.GetTexture("CalValEX/Projectiles/Pets/CalamityBABY_Aura_1");
                 Rectangle sourceRectangle_1 = new Rectangle(0, 0, auraTexture_1.Width, auraTexture_1.Height);
@@ -102,38 +105,26 @@ namespace CalValEX.Projectiles.Pets
                 Vector2 origin_2 = new Vector2(auraTexture_2.Width, auraTexture_2.Height);
                 spriteBatch.Draw(auraTexture_2, projectile.Center - Main.screenPosition, sourceRectangle_2, Color.White, myRotation[1], origin_2 / 2f, scale * 0.75f, SpriteEffects.None, 0);
             }
-            return base.PreDraw(spriteBatch, lightColor);
         }
 
-        public override void PetFunctionality(Player player)
+        public override void SafeAI(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
                 modPlayer.CalamityBABYBool = false;
-
             if (modPlayer.CalamityBABYBool)
                 projectile.timeLeft = 2;
-        }
 
-        public override void Animation(int state) //I am too lazy to put the animation code in here.
-        {
-        }
-
-        //this is a bad example of having all the custom code here instead of putting the animation in the right method
-        //Animation() gets called before this, so it can matter
-        //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
-        public override void CustomBehaviour(Player player, ref int state, float flyingSpeed, float flyingInertia)
-        {
             Vector2 vectorToOwner = player.Center - projectile.Center;
             float distanceToOwner = vectorToOwner.Length();
 
-            myRotation[0] = MathHelper.WrapAngle(myRotation[0] + (0.025f * (projectile.ai[0] / 180f)));
-            myRotation[1] = MathHelper.WrapAngle(myRotation[1] - (0.025f * (projectile.ai[0] / 180f)));
+            myRotation[0] += 0.025f;
+            myRotation[1] -= 0.025f;
 
-            switch (state)
+            switch (projectile.localAI[1])
             {
-                case States.Transition: //TRANSITION
+                case -1: //TRANSITION
                     projectile.tileCollide = false;
                     projectile.rotation = 0;
                     if (scale < 2f)
@@ -179,7 +170,7 @@ namespace CalValEX.Projectiles.Pets
                     if (projectile.ai[0] == (timeBetweenTexts * 5) + 30)
                     {
                         projectile.ai[0] = 0;
-                        state = States.Flying;
+                        projectile.localAI[1] = 0;
 
                         for (int i = 0; i < Main.maxPlayers; i++)
                         {
@@ -194,18 +185,18 @@ namespace CalValEX.Projectiles.Pets
                     }
                     break;
 
-                case States.Flying:
+                case 0:
                     projectile.tileCollide = false;
                     projectile.rotation = projectile.velocity.X * 0.025f;
                     scale = 0.25f;
-                    Vector2 offset = FlyingOffset;
+                    Vector2 offset = new Vector2(offSetX, offSetY);
                     vectorToOwner += offset;
                     distanceToOwner = vectorToOwner.Length();
                     if (Math.Abs(player.velocity.X) < 0.05 && Math.Abs(player.velocity.Y) < 0.05)
                     {
                         if (++projectile.ai[0] >= 210 && distanceToOwner < 50f)
                         {
-                            state = States.LayingDown;
+                            projectile.localAI[1] = 1;
                             projectile.ai[0] = 0;
                         }
                     }
@@ -221,7 +212,7 @@ namespace CalValEX.Projectiles.Pets
                     }
                     break;
 
-                case States.LayingDown:
+                case 1: //laying down
                     projectile.tileCollide = true;
                     projectile.velocity *= 0.98f;
                     projectile.velocity.Y += 0.1f;
@@ -230,9 +221,9 @@ namespace CalValEX.Projectiles.Pets
 
                     if (distanceToOwner > 320f)
                     {
-                        if (++projectile.ai[0] >= (420 * (1 - (distanceToOwner / 640f))))
+                        if (++projectile.ai[0] >= 210)
                         {
-                            state = States.Flying;
+                            projectile.localAI[1] = 0;
                             projectile.ai[0] = 0;
                         }
                     }

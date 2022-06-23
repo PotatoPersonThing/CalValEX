@@ -1,102 +1,69 @@
 using Terraria;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using System;
 
 namespace CalValEX.Projectiles.Pets
 {
-    public class AstPhage : ModWalkingPet
+    public class AstPhage : WalkingPet
     {
-        public override float TeleportThreshold => 1000f;
-
-        public override float BackToWalkingThreshold => 200f;
-
-        public override float BackToFlyingThreshold => 380f;
-
-        public override float WalkingThreshold => 90f;
-
-        public override bool ShouldFlyRotate => false;
-
         public override void SetStaticDefaults()
         {
-            PetSetStaticDefaults(lightPet: false);
             DisplayName.SetDefault("Aureophage");
-            Main.projFrames[projectile.type] = 18;
+            Main.projFrames[projectile.type] = 18; //frames
+            Main.projPet[projectile.type] = true;
         }
 
-        public override void SetDefaults()
+        public override void SafeSetDefaults() //SAFE SET DEFAULTS!!!
         {
-            PetSetDefaults();
             projectile.width = 46;
             projectile.height = 80;
             projectile.ignoreWater = true;
             projectile.tileCollide = true;
+            facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
+            spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
+            shouldFlip = true; //should the sprite flip? if that's the case, set to true. else, put it to false.
         }
 
-        public override void Animation(int state)
+        public override void SetPetDistances()
         {
-            switch(state)
-            {
-                case States.Walking:
-                    if (projectile.velocity.X != 0f)
-                    {
-                        if (++projectile.frameCounter > 3)
-                        {
-                            projectile.frameCounter = 0;
-                            projectile.frame++;
-
-                            if (projectile.frame < 1 || projectile.frame > 11)
-                                projectile.frame = 1;
-                        }
-                    }
-                    else
-                    {
-                        projectile.frameCounter = 0;
-                        projectile.frame = 0;
-                    }
-                    break;
-
-                case States.Flying:
-                    if (++projectile.frameCounter >= 5)
-                    {
-                        projectile.frameCounter = 0;
-                        projectile.frame++;
-
-                        if (projectile.frame < 12 || projectile.frame > 17)
-                            projectile.frame = 12;
-                    }
-                    break;
-            }
+            distance[0] = 1000f; //teleport
+            distance[1] = 560f; //speed increase
+            distance[2] = 200f; //when to walk
+            distance[3] = 50f; //when to stop walking
+            distance[4] = 380f; //when to fly
+            distance[5] = 180f; //when to stop flying
         }
 
-        public override void PetFunctionality(Player player)
+        public override void SetFrameLimitsAndFrameSpeed()
+        {
+            idleFrameLimits[0] = idleFrameLimits[1] = 0; //what your min idle frame is (start of idle animation)
+
+            walkingFrameLimits[0] = 1; //what your min walking frame is (start of walking animation)
+            walkingFrameLimits[1] = 11; //what your max walking frame is (end of walking animation)
+
+            flyingFrameLimits[0] = 12; //what your min flying frame is (start of flying animation)
+            flyingFrameLimits[1] = 17; //what your max flying frame is (end of flying animation)
+
+            jumpFrameLimits[0] = -1; //what your min jump frame is (start of jump animation)
+            jumpFrameLimits[1] = -1; //what your max jump frame is (end of jump animation)
+
+            animationSpeed[0] = 30; //idle animation speed
+            animationSpeed[1] = 3; //walking animation speed
+            animationSpeed[2] = 5; //flying animation speed
+            animationSpeed[3] = -1; //jumping animation speed
+
+            jumpAnimationLength = -1; //how long the jump animation should stay
+        }
+
+        public override void SafeAI(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
                 modPlayer.AstPhage = false;
-
             if (modPlayer.AstPhage)
                 projectile.timeLeft = 2;
         }
-
-        public override void ModifyJumpHeight(ref float oneTileHigherAndNotTwoTilesHigher, ref float twoTilesHigher, ref float fourTilesHigher, ref float fiveTilesHigher, ref float anyOtherJump)
-        {
-            oneTileHigherAndNotTwoTilesHigher = -8f;
-            twoTilesHigher = -9.5f;
-            fiveTilesHigher = -14f;
-            fourTilesHigher = -12.5f;
-            anyOtherJump = -10.25f;
-        }
-
-        public override void CustomBehaviour(Player player, ref int state, float walkingSpeed, float walkingInertia, float flyingSpeed, float flyingInertia)
-        {
-            if (state == States.Flying)
-            {
-                projectile.rotation = (float)Math.Atan2(projectile.velocity.Y, projectile.velocity.X) + MathHelper.PiOver2;
-            }
-        }
-
         public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
         {
             Texture2D glowMask = mod.GetTexture("Projectiles/Pets/AstPhage_Glow");

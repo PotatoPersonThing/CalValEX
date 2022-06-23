@@ -5,21 +5,8 @@ using Terraria;
 
 namespace CalValEX.Projectiles.Pets
 {
-    public class Euros : ModWalkingPet
+    public class Euros : WalkingPet
     {
-        public new class States
-        {
-            public const int Meditating = -1;
-            public const int Walking = 0;
-            public const int Flying = 1;
-        }
-
-        public override bool FacesLeft => false;
-
-        public override float TeleportThreshold => 1200f;
-
-        public override bool CanFly => false;
-
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Chibii Euros");
@@ -28,94 +15,71 @@ namespace CalValEX.Projectiles.Pets
         }
 
         private readonly string auraTexture = "Projectiles/Pets/ChibiiEuros_Aura";
-        private const int auraFrames = 4;
+        private readonly int auraFrames = 4;
 
-        public override void SetDefaults()
+        public override void SafeSetDefaults()
         {
-            PetSetDefaults();
             projectile.width = 22;
             projectile.height = 26;
             projectile.ignoreWater = true;
             projectile.tileCollide = true;
+            facingLeft = false;
+            spinRotation = false;
+            shouldFlip = true;
             drawOffsetX = -15;
             drawOriginOffsetY -= 21;
         }
 
-        public override void Animation(int state)
+        public override void SetFrameLimitsAndFrameSpeed()
         {
-            switch(state)
-            {
-                case States.Walking:
-                    if (projectile.velocity.Y != 0f) // jump
-                    {
-                        if (projectile.velocity.Y < 0f)
-                        {
-                            if (++projectile.frameCounter > 8)
-                            {
-                                projectile.frameCounter = 0;
-                                projectile.frame++;
-                                if (projectile.frame < 5)
-                                    projectile.frame = 5;
-                                if (projectile.frame > 6)
-                                    projectile.frame = 6;
-                            }
-                        }
-                        else if (projectile.velocity.Y > 0f)
-                        {
-                            if (++projectile.frameCounter > 8)
-                            {
-                                projectile.frameCounter = 0;
-                                projectile.frame++;
+            idleFrameLimits[0] = idleFrameLimits[1] = 0;
+            walkingFrameLimits[0] = 1;
+            walkingFrameLimits[1] = 4;
 
-                                if (projectile.frame < 7)
-                                    projectile.frame = 7;
-                                if (projectile.frame > 8)
-                                    projectile.frame = 8;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (projectile.velocity.X != 0f)
-                        {
-                            if (++projectile.frameCounter > 7)
-                            {
-                                projectile.frameCounter = 0;
-                                projectile.frame++;
+            flyingFrameLimits[0] = 0;
+            flyingFrameLimits[1] = 0;
 
-                                if (projectile.frame > 4 || projectile.frame < 1)
-                                    projectile.frame = 1;
-                            }
-                        }
-                        else
-                        {
-                            projectile.frame = 0;
-                            projectile.frameCounter = 0;
-                        }
-                    }
-                    break;
-            }
+            animationSpeed[0] = 30;
+            animationSpeed[1] = 7;
+            animationSpeed[2] = 2;
+            spinRotationSpeedMult = 0f;
+            animationSpeed[3] = 5;
+
+            jumpFrameLimits[0] = 5;
+            jumpFrameLimits[1] = 8;
+
+            jumpAnimationLength = 60;
         }
 
-        public override void ModifyJumpHeight(ref float oneTileHigherAndNotTwoTilesHigher, ref float twoTilesHigher, ref float fourTilesHigher, ref float fiveTilesHigher, ref float anyOtherJump)
+        public override void SetPetDistances()
         {
-            oneTileHigherAndNotTwoTilesHigher = -5.25f;
-            twoTilesHigher = -7.25f;
-            fiveTilesHigher = -9.25f;
-            fourTilesHigher = -8.25f;
-            anyOtherJump = -7.65f;
+            distance[0] = 1200f; //since we wont fly, make the teleport distance to half of normal.
+            distance[1] = 560f;
+            distance[2] = 320f;
+            distance[3] = 80f;
+            //we will never fly.
+            distance[4] = float.MaxValue;
+            distance[5] = float.MaxValue - 1f;
         }
 
-        public override void SendExtraAI(BinaryWriter writer)
+        public override void SetJumpSpeeds()
+        {
+            //higher jump.
+            jumpSpeed[0] = -5.25f;
+            jumpSpeed[1] = -7.25f;
+            jumpSpeed[2] = -9.25f;
+            jumpSpeed[3] = -8.25f;
+            jumpSpeed[4] = -7.75f;
+        }
+
+        public override void SafeSendExtraAI(BinaryWriter writer)
         {
             writer.Write(auraFrame);
-            base.SendExtraAI(writer);
         }
 
-        public override void ReceiveExtraAI(BinaryReader reader)
+        public override void SafeReceiveExtraAI(BinaryReader reader)
         {
             auraFrame = reader.ReadInt32();
-            base.ReceiveExtraAI(reader);
         }
 
         /* Frames:
@@ -128,37 +92,34 @@ namespace CalValEX.Projectiles.Pets
 
         private int auraFrame;
 
-        public override void PetFunctionality(Player player)
+        public override void SafeAI(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
                 modPlayer.euros = false;
-
             if (modPlayer.euros)
                 projectile.timeLeft = 2;
-        }
 
-        public override void CustomBehaviour(Player player, ref int state, float walkingSpeed, float walkingInertia, float flyingSpeed, float flyingInertia)
-        {
             Vector2 vectorToOwner = player.Center - projectile.Center;
             float distanceToOwner = vectorToOwner.Length();
 
-            projectile.ai[1]++;
-            if (projectile.ai[1] >= 20)
+            switch ((int)projectile.localAI[1])
             {
-                projectile.ai[1] = 0;
-                auraFrame++;
-                if (auraFrame > auraFrames - 1)
-                    auraFrame = 0;
-            }
-
-            switch (state)
-            {
-                case States.Meditating: //meditate
-                    if (distanceToOwner >= WalkingThreshold * 2.5f)
+                case -1: //meditate
+                    if (distanceToOwner >= distance[2])
                     {
-                        ResetMe(States.Walking);
+                        projectile.localAI[1] = 1;
+                        ResetMe();
+                    }
+
+                    projectile.ai[1]++;
+                    if (projectile.ai[1] >= 20)
+                    {
+                        projectile.ai[1] = 0;
+                        auraFrame++;
+                        if (auraFrame > auraFrames - 1)
+                            auraFrame = 0;
                     }
 
                     projectile.frameCounter++;
@@ -196,19 +157,11 @@ namespace CalValEX.Projectiles.Pets
                     }
                     break;
 
-                case States.Walking: //when to mediate
-                    if (projectile.velocity.X == 0f && projectile.velocity.Y == 0f && player.velocity.X == 0f && player.velocity.Y == 0 && distanceToOwner < WalkingThreshold)
+                case 0: //when to mediate
+                    if (++projectile.ai[0] >= 240)
                     {
-                        if (++projectile.ai[0] >= 240)
-                        {
-                            ResetMe(States.Meditating);
-                        }
-                    }
-                    else
-                    {
-                        projectile.ai[0] -= 2;
-                        if (projectile.ai[0] < 0)
-                            projectile.ai[0] = 0;
+                        projectile.localAI[1] = -1;
+                        ResetMe();
                     }
                     break;
             }
@@ -216,22 +169,13 @@ namespace CalValEX.Projectiles.Pets
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            Texture2D texture = mod.GetTexture(auraTexture);
-            Rectangle sourceRectangle = new Rectangle(0, 46 * auraFrame, texture.Width, texture.Height / auraFrames);
-            Vector2 origin = new Vector2(texture.Width, texture.Height / auraFrames);
-            SpriteEffects spriteEffects = SpriteEffects.None;
-            Vector2 offset = new Vector2(-4f, 0);
-
-            if (projectile.spriteDirection == -1)
+            if (projectile.localAI[1] == -1)
             {
-                spriteEffects = SpriteEffects.FlipHorizontally;
-                offset.X += 8f; 
+                Texture2D texture = mod.GetTexture(auraTexture);
+                Rectangle sourceRectangle = new Rectangle(0, 46 * auraFrame, texture.Width, texture.Height / auraFrames);
+                Vector2 origin = new Vector2(texture.Width, texture.Height / auraFrames);
+                spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, sourceRectangle, Color.White, 0f, origin / 2f, 1f, SpriteEffects.None, 0);
             }
-
-            if (state != States.Meditating)
-                offset.Y -= +10f;
-
-            spriteBatch.Draw(texture, projectile.Center + offset - Main.screenPosition, sourceRectangle, Color.White, 0f, origin / 2f, 1f, spriteEffects, 0);
             return true;
         }
     }
