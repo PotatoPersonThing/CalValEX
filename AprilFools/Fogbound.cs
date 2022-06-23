@@ -55,7 +55,6 @@ namespace CalValEX.AprilFools
 		}
 		public override void AI()
 		{
-			Main.dayTime = false;
 			Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
             if (CalValEX.month != 4 && orthoceraDLC == null)
             {
@@ -86,7 +85,7 @@ namespace CalValEX.AprilFools
 			else if (!prov3)
 			{
 				prov3 = true;
-				num1 = (ModLoader.GetMod("CalamityMod").NPCType("DevourerofGodsHead"));
+				num1 = (ModLoader.GetMod("CalamityMod").NPCType("Providence"));
 			}
 			else if (!dog1)
 			{
@@ -96,32 +95,32 @@ namespace CalValEX.AprilFools
 			else if (!dog2)
 			{
 				dog2 = true;
-				num1 = (ModLoader.GetMod("CalamityMod").NPCType("Yharon"));
+				num1 = (ModLoader.GetMod("CalamityMod").NPCType("DevourerofGodsHead"));
 			}
 			else if (!dog3)
 			{
 				dog3 = true;
-				num1 = (ModLoader.GetMod("CalamityMod").NPCType("Yharon"));
+				num1 = (ModLoader.GetMod("CalamityMod").NPCType("DevourerofGodsHead"));
 			}
 			else if (!yharon1)
 			{
 				yharon1 = true;
-				num1 = (ModLoader.GetMod("CalamityMod").NPCType("ThanatosHead"));
+				num1 = (ModLoader.GetMod("CalamityMod").NPCType("Yharon"));
 			}
 			else if (!yharon2)
 			{
 				yharon2 = true;
-				num1 = (ModLoader.GetMod("CalamityMod").NPCType("ThanatosHead"));
+				num1 = (ModLoader.GetMod("CalamityMod").NPCType("Yharon"));
 			}
 			else if (!yharon3)
 			{
 				yharon3 = true;
-				num1 = (ModLoader.GetMod("CalamityMod").NPCType("EidolonWyrmHeadHuge"));
+				num1 = (ModLoader.GetMod("CalamityMod").NPCType("Yharon"));
 			}
 			else if (!scal1)
 			{
 				scal1 = true;
-				num1 = (ModLoader.GetMod("CalamityMod").NPCType("SupremeCalamitas"));
+				num1 = (ModLoader.GetMod("CalamityMod").NPCType("Yharon"));
 			}
 			NPC.SpawnOnPlayer(npc.FindClosestPlayer(), num1);
 			NPC.SpawnOnPlayer(npc.FindClosestPlayer(), (ModLoader.GetMod("CalamityMod").NPCType("Polterghast")));
@@ -131,7 +130,6 @@ namespace CalValEX.AprilFools
     public override void NPCLoot()
 	{
 		Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FogG") , Main.rand.Next(1, 1), false, 0, false, false);	
-			if (!NPC.AnyNPCs(ModContent.NPCType<Jharim.Jharim>()))
 		NPC.SpawnOnPlayer(Main.player[Main.myPlayer].whoAmI, mod.NPCType("Jharim"));	
 	}
 		

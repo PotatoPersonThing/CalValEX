@@ -147,7 +147,6 @@ namespace CalValEX
             SkyManager.Instance["CalValEX:AstralBiome"] = new AstralSky();
 
             AddMusicBox(GetSoundSlot(SoundType.Music, "Sounds/Music/AstralBlight"), ItemType("AstralMusicBox"), TileType("AstralMusicBoxPlaced"));
-            AddMusicBox(GetSoundSlot(SoundType.Music, "Sounds/Music/Meldosaurus"), ItemType("MeldosaurusMusicBox"), TileType("MeldosaurusMusicBoxPlaced"));
         }
 
         public override void Unload()
@@ -197,11 +196,6 @@ namespace CalValEX
             cal.GetItem("FungalClump").Tooltip.AddTranslation(GameCulture.English, "Summons a fungal clump to fight for you\n" +
                        "The clump latches onto enemies and steals their life for you\n" + "Equipping this item in a vanity slot summons a passive version");
 
-            if ((CalValEX.day == 1 && CalValEX.month == 4) || ModLoader.GetMod("CalValPlus") != null)
-            {
-                cal.GetItem("TheEmpyrean").Tooltip.AddTranslation(GameCulture.English, "70% chance to not consume gel\n"+"Keep away from the jester...");
-            }
-
             cal.Call("MakeItemExhumable", ModContent.ItemType<CalArtifact>(), ModContent.ItemType<CalamitousSoulArtifact>());
 
             //Census support
@@ -226,6 +220,16 @@ namespace CalValEX
 
             //Christmas textures
             ChristmasTextureChange.Load();
+
+            //Boss Rush support?
+            /*CalamityMod.Events.BossRushEvent.Bosses.Clear();
+            CalamityMod.Events.BossRushEvent.BossIDsAfterDeath.Clear();
+            CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(ModLoader.GetMod("CatalystMod").NPCType("Astrageldon"), CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false));
+            CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(222, CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false));
+            CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(ModLoader.GetMod("CalValPlus").NPCType("JohnWulfrum"), CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false, ModLoader.GetMod("CalValPlus").NPCType("WulfrumDroid")));
+            CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(ModLoader.GetMod("CalamityMod").NPCType("Yharon"), CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false));
+            CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(ModLoader.GetMod("CalamityMod").NPCType("Cnidrion"), CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false));
+            CalamityMod.Events.BossRushEvent.Bosses.Add(new CalamityMod.Events.BossRushEvent.Boss(ModLoader.GetMod("CalamityMod").NPCType("DevourerofGodsHead"), CalamityMod.Events.BossRushEvent.TimeChangeContext.None, null, -1, false));*/
 
             //Boss log support
             Mod catal = ModLoader.GetMod("CatalystMod");
@@ -429,35 +433,6 @@ namespace CalValEX
                     bossChecklist.Call("AddToBossCollection", "CatalystMod", "Astrageldon",
                            new List<int> { ModContent.ItemType<JellyBottle>(), ModContent.ItemType<Items.Tiles.Plushies.AstrageldonPlush>() });
                 }
-                if ((month == 4 && day == 1) || ModLoader.GetMod("CalValPlus") != null)
-                {
-					bossChecklist.Call(new object[12]
-				{
-				"AddBoss",
-				13f,
-				ModContent.NPCType<AprilFools.Meldosaurus.Meldosaurus>(),
-				this,
-				"Meldosaurus",
-				(Func<bool>)(() => CalValEXWorld.downedMeldosaurus),
-				ModContent.ItemType<CalamityMod.Items.Weapons.Ranged.TheEmpyrean>(),
-				new List<int>
-				{
-					ModLoader.GetMod("CalValEX").ItemType("MeldosaurusMask"),
-					ModLoader.GetMod("CalValEX").ItemType("KnowledgeMeldosaurus"),
-					ModLoader.GetMod("CalValEX").ItemType("MeldosaurusTrophy"),
-					ModLoader.GetMod("CalValEX").ItemType("MeldosaurusMusicBox")
-				},
-				new List<int>
-				{
-					ModLoader.GetMod("CalamityMod").ItemType("MeldBlob"),
-					ModLoader.GetMod("CalValEX").ItemType("Nyanthrop"),
-					ModLoader.GetMod("CalValEX").ItemType("ShadesBane")
-				},
-				$"Shoot the Jungle Tyrant Town NPC with [i:{ModContent.ItemType<CalamityMod.Items.Weapons.Ranged.TheEmpyrean>()}]",
-				"Get melded!",
-				null
-				});
-                }   
             }
 
             if (ModContent.GetInstance<CalValEXConfig>().DiscordRichPresence)

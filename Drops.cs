@@ -1865,19 +1865,7 @@ namespace CalValEX
 
         public override void PostDraw(NPC npc, SpriteBatch spriteBatch, Color lightColor)
         {
-            if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodCore>() && ((CalValEX.month == 4 && CalValEX.day == 1) || ModLoader.GetMod("CalValPlus") != null))
-            {
-                Texture2D tidepodgsprite = (ModContent.GetTexture("CalValEX/ExtraTextures/SlimeGod"));
-
-                float tidepodgframe = 1f / (float)Main.npcFrameCount[npc.type];
-                int tidepodgheight = (int)((float)(npc.frame.Y / npc.frame.Height) * tidepodgframe) * (tidepodgsprite.Height / 1);
-
-                Rectangle tidepodgsquare = new Rectangle(0, tidepodgheight, tidepodgsprite.Width, tidepodgsprite.Height / 1);
-                Color tidepodgalpha = npc.GetAlpha(lightColor);
-                spriteBatch.Draw(tidepodgsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), tidepodgsquare, tidepodgalpha, npc.rotation, Utils.Size(tidepodgsquare) / 2f, npc.scale, SpriteEffects.None, 0f);
-            }
-
-            else if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok)
+            if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok)
             {
                 //DEUS HEAD
                 if (npc.type == ModLoader.GetMod("CalamityMod").NPCType("AstrumDeusHeadSpectral"))

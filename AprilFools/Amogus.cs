@@ -163,16 +163,11 @@ namespace CalValEX.AprilFools
              * you can still use these, changing thing inside (however it's not recomended unless you want to add custom behaviour to these)
              */
 
-            if (deathcounter <= 0 && !player.HasBuff(ModContent.BuffType<AprilFools.AmogusBuff>()) && !NPC.AnyNPCs(ModContent.NPCType<Meldosaurus.Meldosaurus>()))
-            {
-                projectile.active = false;
-            }
-
-            if (NPC.AnyNPCs(ModContent.NPCType<Meldosaurus.Meldosaurus>()) && deathcounter <= 0)
+            /*if (NPC.AnyNPCs(ModContent.NPCType<Meldosaurus.Meldosaurus>()) && deathcounter <= 0)
             {
                 projectile.tileCollide = false;
                 projectile.localAI[1] = 5;
-            }
+            }*/
 
             if ((CalValEX.month != 4 && projectile.localAI[1] != 4 && !CalValEXWorld.amogus) || modPlayer.rockhat)
             {
@@ -422,7 +417,7 @@ namespace CalValEX.AprilFools
                         lifecounter = 0;
                     }
                     break;
-                case 5:
+                /*case 5:
                     {
                         if (!NPC.AnyNPCs(ModContent.NPCType<Meldosaurus.Meldosaurus>()))
                         {
@@ -442,14 +437,7 @@ namespace CalValEX.AprilFools
 
                                 if (npc != null && npc.active && npc.getRect().Intersects(thisRect) && npc.type == ModContent.NPCType<Meldosaurus.Meldosaurus>() && attackcounter2 <= 20)
                                 {
-                                    if (chargetype == 4)
-                                    {
-                                        Projectile.NewProjectile((int)npc.Center.X, (int)npc.Center.Y, 0, 0, ModContent.ProjectileType<CalamityMod.Projectiles.Rogue.ScarletBlast>(), 2020, 0, Main.myPlayer);
-                                    }
-                                    else
-                                    {
-                                        Projectile.NewProjectile((int)npc.Center.X, (int)npc.Center.Y, 0, 0, ModContent.ProjectileType<CalamityMod.Projectiles.Typeless.FuckYou>(), 1020, 0, Main.myPlayer);
-                                    }
+                                    Projectile.NewProjectile((int)npc.Center.X, (int)npc.Center.Y, 0, 0, ModContent.ProjectileType<CalamityMod.Projectiles.Typeless.FuckYou>(), 1020, 0, Main.myPlayer);
                                     attackcounter2 = 40;
                                 }
                             }
@@ -693,7 +681,7 @@ namespace CalValEX.AprilFools
                             }
                         }
                     }
-                    break;
+                    break;*/
             }
         }
         public override Color? GetAlpha(Color lightColor)
@@ -762,7 +750,7 @@ namespace CalValEX.AprilFools
 
             Rectangle deusheadsquare = new Rectangle(0, 0, deusheadsprite.Width, deusheadsprite.Height);
             Color deusheadalpha = projectile.GetAlpha(lightColor);
-            spriteBatch.Draw(deusheadsprite, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY + 10), deusheadsquare, deusheadalpha, projectile.rotation, Utils.Size(deusheadsquare) / 2f, projectile.scale, projectile.spriteDirection != 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
+            spriteBatch.Draw(deusheadsprite, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY + 10), deusheadsquare, deusheadalpha, projectile.rotation, Utils.Size(deusheadsquare) / 2f, projectile.scale, projectile.spriteDirection != -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
         }
     }
 }

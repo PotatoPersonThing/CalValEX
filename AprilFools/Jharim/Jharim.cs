@@ -124,7 +124,7 @@ namespace CalValEX.AprilFools.Jharim
                     npc.defense = 999;
                 }
             }
-            if (MELDOSAURUSED)
+            /*if (MELDOSAURUSED)
             {
                 npc.dontTakeDamage = true;
                 npc.dontTakeDamageFromHostiles = true;
@@ -149,7 +149,7 @@ namespace CalValEX.AprilFools.Jharim
                     npc.active = false;
                 }
 
-            }
+            }*/
         }
 
         public override string TownNPCName()
@@ -188,10 +188,10 @@ namespace CalValEX.AprilFools.Jharim
 
                 //Main.NewText("MISC EQUIPS 0 TYPE: " + Main.player[Main.myPlayer].miscEquips[0].type + "|MISC EQUIPS 1 TYPE: " + Main.player[Main.myPlayer].miscEquips[1].type);
 
-                if ((NPC.AnyNPCs(NPCID.LunarTowerNebula) || NPC.AnyNPCs(NPCID.LunarTowerVortex) || NPC.AnyNPCs(NPCID.LunarTowerStardust) || NPC.AnyNPCs(NPCID.LunarTowerSolar)) && Main.rand.NextFloat() < 0.25f)
+                /*if ((NPC.AnyNPCs(NPCID.LunarTowerNebula) || NPC.AnyNPCs(NPCID.LunarTowerVortex) || NPC.AnyNPCs(NPCID.LunarTowerStardust) || NPC.AnyNPCs(NPCID.LunarTowerSolar)) && Main.rand.NextFloat() < 0.25f)
                 {
                     return "These pillars are spookay, and those dark globs some of their friends drop are... I don't want to touch any... especially if its on fire, so please don't shoot me with any fiery weapons made of that stuff.";
-                }
+                }*/
 
                 int FAP = NPC.FindFirstNPC((ModLoader.GetMod("CalamityMod").NPCType("FAP")));
                 if (FAP >= 0 && Main.rand.NextFloat() < 0.25f)

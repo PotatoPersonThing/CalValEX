@@ -36,7 +36,7 @@ namespace CalValEX.AprilFools
 			item.noUseGraphic = true;
 
 			item.UseSound = SoundID.Item1;
-			item.value = Item.sellPrice(gold: 2);
+			item.value = Item.sellPrice(gold: 1);
 			item.shoot = ModContent.ProjectileType<NyanthropProjectile>();
 		}
 
