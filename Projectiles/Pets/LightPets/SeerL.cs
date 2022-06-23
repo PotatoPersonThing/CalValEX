@@ -1,83 +1,57 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 
 namespace CalValEX.Projectiles.Pets.LightPets
 {
-    public class SeerL : FlyingPet
+    public class SeerL : ModFlyingPet
     {
+        public override float TeleportThreshold => 1840f;
+
+        public override Vector2 FlyingOffset => new Vector2(21f * Main.player[Projectile.owner].direction, -11f);
+
+        public override float FlyingSpeed => 10f;
+
         public override void SetStaticDefaults()
         {
+            PetSetStaticDefaults(lightPet: true);
             DisplayName.SetDefault("Small Sightseer");
-            Main.projFrames[projectile.type] = 5;
-            Main.projPet[projectile.type] = true;
-            ProjectileID.Sets.LightPet[projectile.type] = true;
+            Main.projFrames[Projectile.type] = 5;
         }
 
-        public override void SafeSetDefaults()
+        public override void SetDefaults()
         {
-            projectile.width = 62;
-            projectile.height = 30;
-            projectile.ignoreWater = true;
-            facingLeft = true;
-            spinRotation = false;
-            shouldFlip = true;
-            usesAura = false;
-            usesGlowmask = true;
-            auraUsesGlowmask = false;
+            PetSetDefaults();
+            Projectile.width = 62;
+            Projectile.height = 30;
+            Projectile.ignoreWater = true;
         }
 
-        public override void SetUpFlyingPet()
+        public override void PostDraw(Color lightColor)
         {
-            distance[0] = 1840f;
-            distance[1] = 560f;
-            speed = 10f;
-            inertia = 60f;
-            animationSpeed = 4;
-            spinRotationSpeedMult = 0f;
-            offSetX = -21f * -Main.player[projectile.owner].direction;
-            offSetY = -11f;
-        }
-        public override void SetUpAuraAndGlowmask()
-        {
-            glowmaskTexture = CalValEX.month == 12 ? "ExtraTextures/ChristmasPets/SeerLGlow" : "Projectiles/Pets/LightPets/SeerL_Glow";
+            string glowmaskTexture = CalValEX.month == 12 ? "CalValEX/ExtraTextures/ChristmasPets/SeerLGlow" : "CalValEX/Projectiles/Pets/LightPets/SeerL_Glow";
+            SimpleGlowmask(Main.spriteBatch, glowmaskTexture);
         }
 
-        public override void SetUpLight() //for when the pet emmits light
+        public override void CustomBehaviour(Player player, ref int state, float flyingSpeed, float flyingInertia)
         {
-            shouldLightUp = true;
-            RGB = new Vector3(255, 71, 66);
-            intensity = 0.9f;
-            abyssLightLevel = 2;
+            AddLight(new Color(255, 71, 66), 0.9f, 2);
         }
 
-        public override void SafeAI(Player player)
+        public override void Animation(int state)
+        {
+            SimpleAnimation(speed: 4);
+        }
+
+        public override void PetFunctionality(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
                 modPlayer.seerL = false;
-            if (modPlayer.seerL)
-                projectile.timeLeft = 2;
 
-            /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.
-             * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
-             * you should make new custom behaviour with numbers higher than 0, or less than 0
-             * the next few lines is an example on how to implement this
-             *
-             * switch ((int)projectile.localAI[1])
-             * {
-             *     case -1:
-             *         break;
-             *     case 1:
-             *         break;
-             * }
-             *
-             * 0 is already in use.
-             * 0 = flying
-             *
-             * you can still use this, changing thing inside (however it's not recomended unless you want to add custom behaviour to this)
-             */
+            if (modPlayer.seerL)
+                Projectile.timeLeft = 2;
         }
     }
 }

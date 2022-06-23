@@ -7,11 +7,8 @@ namespace CalValEX.Buffs.Pets
 {
     public class SepulcherBuffNeo : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            // DisplayName and Description are automatically set from the .lang files, but below is how it is done normally.
-            DisplayName.SetDefault("Sepulchling");
-            Description.SetDefault("THIS ONE is benevolent");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
@@ -24,7 +21,7 @@ namespace CalValEX.Buffs.Pets
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<SepulcherHeadNeo>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ProjectileType<SepulcherHeadNeo>(), 0, 0f, player.whoAmI);
             }
         }

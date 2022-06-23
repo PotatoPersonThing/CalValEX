@@ -16,19 +16,19 @@ namespace CalValEX.Items.Pets
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.ZephyrFish);
-            item.UseSound = SoundID.Item15;
-            item.shoot = mod.ProjectileType("RepairBot");
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 4;
-            item.buffType = mod.BuffType("RepurposedMonitorBuff");
+            Item.CloneDefaults(ItemID.ZephyrFish);
+            Item.UseSound = SoundID.Item15;
+            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.RepairBot>();
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 4;
+            Item.buffType = ModContent.BuffType<Buffs.Pets.RepurposedMonitorBuff>();
         }
 
-        public override void UseStyle(Player player)
+        public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
         }
 
@@ -45,25 +45,9 @@ namespace CalValEX.Items.Pets
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(204, 71, 35); //change the color accordingly to above
-                }
-            }
-        }
-
-        public override void AddRecipes()
-        {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            {
-                {
-                    ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 2);
-                    recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 2);
-                    recipe.AddRecipeGroup("AnyPlate", 15);
-                    recipe.AddTile(TileID.Anvils);
-                    recipe.SetResult(this);
-                    recipe.AddRecipe();
+                    tooltipLine.OverrideColor = new Color(204, 71, 35); //change the color accordingly to above
                 }
             }
         }

@@ -14,10 +14,10 @@ namespace CalValEX.Items.Hooks
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.BatHook);
-            item.shootSpeed = 18f;
-            item.shoot = ProjectileType<RavaClaw>();
-            item.rare = 8;
+            Item.CloneDefaults(ItemID.BatHook);
+            Item.shootSpeed = 18f;
+            Item.shoot = ProjectileType<RavaClaw>();
+            Item.rare = 8;
         }
     }
 }

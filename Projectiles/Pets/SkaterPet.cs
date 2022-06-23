@@ -12,21 +12,21 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Skater Nymph");
-            Main.projFrames[projectile.type] = 6; //in code it's always one less
-            Main.projPet[projectile.type] = true;
+            Main.projFrames[Projectile.type] = 6; //in code it's always one less
+            Main.projPet[Projectile.type] = true;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 28;
-            projectile.height = 12;
-            projectile.penetrate = -1;
-            projectile.netImportant = true;
-            projectile.timeLeft *= 5;
-            projectile.friendly = true;
-            projectile.ignoreWater = false;
-            projectile.tileCollide = true;
-            drawOriginOffsetY -= 8;
+            Projectile.width = 28;
+            Projectile.height = 12;
+            Projectile.penetrate = -1;
+            Projectile.netImportant = true;
+            Projectile.timeLeft *= 5;
+            Projectile.friendly = true;
+            Projectile.ignoreWater = false;
+            Projectile.tileCollide = true;
+            DrawOriginOffsetY -= 8;
         }
 
         /*
@@ -43,8 +43,8 @@ namespace CalValEX.Projectiles.Pets
             writer.Write(State);
             writer.Write(NextState);
 
-            writer.Write(projectile.tileCollide);
-            writer.Write(projectile.ignoreWater);
+            writer.Write(Projectile.tileCollide);
+            writer.Write(Projectile.ignoreWater);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
@@ -55,8 +55,8 @@ namespace CalValEX.Projectiles.Pets
             State = reader.ReadInt32();
             NextState = reader.ReadInt32();
 
-            projectile.tileCollide = reader.ReadBoolean();
-            projectile.ignoreWater = reader.ReadBoolean();
+            Projectile.tileCollide = reader.ReadBoolean();
+            Projectile.ignoreWater = reader.ReadBoolean();
         }
 
         private bool isFlying = false;
@@ -67,50 +67,50 @@ namespace CalValEX.Projectiles.Pets
 
         public override void AI()
         {
-            Player owner = Main.player[projectile.owner];
+            Player owner = Main.player[Projectile.owner];
             CalValEXPlayer modOwner = owner.GetModPlayer<CalValEXPlayer>();
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            //Mod calamityMod = ModLoader.GetMod("CalamityMod");
 
             if (!owner.active)
             {
-                projectile.active = false;
+                Projectile.active = false;
                 return;
             }
             if (owner.dead)
                 modOwner.mSkater = false;
             if (modOwner.mSkater)
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
 
             if (!isFlying)
             {
-                projectile.ignoreWater = false;
-                projectile.velocity.Y += 0.1f; //gravity
-                projectile.velocity.X *= 0.92f; //drag
-                projectile.rotation = 0;
+                Projectile.ignoreWater = false;
+                Projectile.velocity.Y += 0.1f; //gravity
+                Projectile.velocity.X *= 0.92f; //drag
+                Projectile.rotation = 0;
 
-                if (projectile.wet && projectile.velocity.Y >= 0)
-                    projectile.velocity.Y -= 3f;
+                if (Projectile.wet && Projectile.velocity.Y >= 0)
+                    Projectile.velocity.Y -= 3f;
             }
             else
             {
-                projectile.ignoreWater = true;
-                projectile.rotation = projectile.velocity.X * 0.1f;
+                Projectile.ignoreWater = true;
+                Projectile.rotation = Projectile.velocity.X * 0.1f;
             }
 
-            if (projectile.velocity.Y > 16f)
-                projectile.velocity.Y = 16f;
-            if (projectile.velocity.Y < -20f)
-                projectile.velocity.Y = -20f;
+            if (Projectile.velocity.Y > 16f)
+                Projectile.velocity.Y = 16f;
+            if (Projectile.velocity.Y < -20f)
+                Projectile.velocity.Y = -20f;
 
             Vector2 targetCenter = owner.Center;
-            Vector2 vectorToIdlePosition = targetCenter - projectile.Center;
+            Vector2 vectorToIdlePosition = targetCenter - Projectile.Center;
             float distanceToIdlePosition = vectorToIdlePosition.Length();
 
             if (vectorToIdlePosition.Length() > 1840f)
             {
-                projectile.position = targetCenter;
-                projectile.velocity *= 0.1f;
-                projectile.netUpdate = true;
+                Projectile.position = targetCenter;
+                Projectile.velocity *= 0.1f;
+                Projectile.netUpdate = true;
             }
 
             float speed = 20f;
@@ -131,13 +131,13 @@ namespace CalValEX.Projectiles.Pets
             switch (State)
             {
                 case -1: //flying
-                    projectile.tileCollide = false;
+                    Projectile.tileCollide = false;
                     //GO BACK TO WALKING IF DIDNT CATCH A BUBBLE
                     if (distanceToIdlePosition < 240f && !iHaveCaughtBubble)
                     {
                         for (int i = 0; i < dustCount; i++)
                         {
-                            Dust.NewDust(projectile.position, projectile.width, projectile.height, dustID, projectile.velocity.X, projectile.velocity.Y);
+                            Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustID, Projectile.velocity.X, Projectile.velocity.Y);
                         }
                         NextState = 1;
                         isFlying = false;
@@ -153,52 +153,52 @@ namespace CalValEX.Projectiles.Pets
                     {
                         vectorToIdlePosition.Normalize();
                         vectorToIdlePosition *= flightSpeed;
-                        projectile.velocity = (projectile.velocity * (flightInertia - 1) + vectorToIdlePosition) / flightInertia;
+                        Projectile.velocity = (Projectile.velocity * (flightInertia - 1) + vectorToIdlePosition) / flightInertia;
                     }
-                    else if (projectile.velocity == Vector2.Zero)
+                    else if (Projectile.velocity == Vector2.Zero)
                     {
                         //boop it so it moves
-                        projectile.velocity.X = -0.15f;
-                        projectile.velocity.Y = -0.15f;
+                        Projectile.velocity.X = -0.15f;
+                        Projectile.velocity.Y = -0.15f;
                     }
                     //ANIMATION
-                    projectile.frameCounter++;
-                    if (projectile.frameCounter >= 5)
+                    Projectile.frameCounter++;
+                    if (Projectile.frameCounter >= 5)
                     {
-                        projectile.frameCounter = 0;
-                        projectile.frame++;
-                        if (projectile.frame >= 6)
-                            projectile.frame = 2;
+                        Projectile.frameCounter = 0;
+                        Projectile.frame++;
+                        if (Projectile.frame >= 6)
+                            Projectile.frame = 2;
                     }
                     break;
 
                 case 0: //standing still, check if player too far away + check if there is a bubble nearby
-                    projectile.tileCollide = true;
+                    Projectile.tileCollide = true;
                     //IF TOO FAR AWAY FROM OWNER, MOVE
                     if (distanceToIdlePosition >= 320 && !haveIFoundABubble)
                     {
-                        if (++projectile.ai[0] > 120)
+                        if (++Projectile.ai[0] > 120)
                         {
                             NextState = 1;
                             ResetMe();
                         }
                     }
-                    else if (projectile.ai[0] > 0)
-                        projectile.ai[0]--;
+                    else if (Projectile.ai[0] > 0)
+                        Projectile.ai[0]--;
 
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
 
                     //SEEK BUBBLE AND DESTROY THAT BASTARD (TRANSFORM INTO CONSTANT FLYING)
-                    if (calamityMod != null)
+                    /*if (calamityMod != null)
                     {
                         float bubbleDistance = float.PositiveInfinity;
                         Projectile myBubble = null;
                         for (int i = 0; i < Main.maxProjectiles; i++)
                         {
-                            if ((Main.projectile[i].type == calamityMod.ProjectileType("CragmawBubble") || Main.projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubble") || Main.projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubbleFriendly") || Main.projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubble2")) && Main.projectile[i].active && Math.Abs(projectile.Center.X - Main.projectile[i].Center.X) < bubbleDistance && Collision.CanHit(projectile.position, projectile.width, projectile.height, Main.projectile[i].position, Main.projectile[i].width, Main.projectile[i].height) && Main.projectile[i].Center.Y > projectile.Bottom.Y)
+                            if ((Main.Projectile[i].type == calamityMod.ProjectileType("CragmawBubble") || Main.Projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubble") || Main.Projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubbleFriendly") || Main.Projectile[i].type == calamityMod.ProjectileType("SulphuricAcidBubble2")) && Main.Projectile[i].active && Math.Abs(Projectile.Center.X - Main.Projectile[i].Center.X) < bubbleDistance && Collision.CanHit(Projectile.position, Projectile.width, Projectile.height, Main.Projectile[i].position, Main.Projectile[i].width, Main.Projectile[i].height) && Main.Projectile[i].Center.Y > Projectile.Bottom.Y)
                             {
-                                bubbleDistance = projectile.Distance(Main.projectile[i].Center);
-                                myBubble = Main.projectile[i];
+                                bubbleDistance = Projectile.Distance(Main.Projectile[i].Center);
+                                myBubble = Main.Projectile[i];
                             }
                         }
 
@@ -213,21 +213,21 @@ namespace CalValEX.Projectiles.Pets
                         else
                             haveIFoundABubble = false;
 
-                        Vector2 vectorToBubblePosition = bubbleCenter - projectile.Center;
+                        Vector2 vectorToBubblePosition = bubbleCenter - Projectile.Center;
                         float distanceToBubblePosition = vectorToBubblePosition.Length();
                         if (myBubble != null && distanceToBubblePosition < 20f)
                         {
-                            projectile.velocity.Y = projectile.velocity.Y + 0.3f;
-                            if (myBubble.Hitbox.Intersects(projectile.Hitbox))
+                            Projectile.velocity.Y = Projectile.velocity.Y + 0.3f;
+                            if (myBubble.Hitbox.Intersects(Projectile.Hitbox))
                             {
                                 isFlying = true;
                                 iHaveCaughtBubble = true;
                                 for (int i = 0; i < dustCount; i++)
                                 {
-                                    Dust.NewDust(projectile.position, projectile.width, projectile.height, dustID, projectile.velocity.X, projectile.velocity.Y);
+                                    Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustID, Projectile.velocity.X, Projectile.velocity.Y);
                                 }
                                 myBubble.Kill();
-                                projectile.frame = 2;
+                                Projectile.frame = 2;
                                 NextState = -1;
                                 ResetMe();
                             }
@@ -236,19 +236,19 @@ namespace CalValEX.Projectiles.Pets
                         {
                             vectorToBubblePosition.Normalize();
                             vectorToBubblePosition *= 20f;
-                            projectile.velocity.X = (projectile.velocity.X * (20f - 1) + vectorToBubblePosition.X) / 20f;
+                            Projectile.velocity.X = (Projectile.velocity.X * (20f - 1) + vectorToBubblePosition.X) / 20f;
                         }
-                    }
+                    }*/
                     break;
 
                 case 1: //walking
-                    projectile.tileCollide = true;
+                    Projectile.tileCollide = true;
                     //TRANSFORM INTO FLYING MODE
                     if (distanceToIdlePosition >= 980)
                     {
                         for (int i = 0; i < dustCount; i++)
                         {
-                            Dust.NewDust(projectile.position, projectile.width, projectile.height, dustID, projectile.velocity.X, projectile.velocity.Y);
+                            Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustID, Projectile.velocity.X, Projectile.velocity.Y);
                         }
                         NextState = -1;
                         isFlying = true;
@@ -257,82 +257,82 @@ namespace CalValEX.Projectiles.Pets
                     //CHECK IF STANDING STILL/NEAR PLAYER. GO BACK TO STANDING STILL ASWELL AND SEEKING BUBBLES
                     if (distanceToIdlePosition <= 160)
                     {
-                        if (++projectile.ai[0] > 120)
+                        if (++Projectile.ai[0] > 120)
                         {
                             NextState = 0;
                             ResetMe();
                         }
                     }
-                    else if (projectile.ai[0] > 0)
-                        projectile.ai[0]--;
+                    else if (Projectile.ai[0] > 0)
+                        Projectile.ai[0]--;
                     // MOVE
                     if (distanceToIdlePosition > 160)
                     {
                         vectorToIdlePosition.Normalize();
                         vectorToIdlePosition *= speed;
-                        projectile.velocity.X = (projectile.velocity.X * (inertia - 1) + vectorToIdlePosition.X) / inertia;
+                        Projectile.velocity.X = (Projectile.velocity.X * (inertia - 1) + vectorToIdlePosition.X) / inertia;
                     }
                     // JUMP
-                    projectile.ai[1]--;
-                    if (distanceToIdlePosition > 580 && (projectile.velocity.X < 2 || projectile.velocity.X > -2) && projectile.ai[1] <= 0)
+                    Projectile.ai[1]--;
+                    if (distanceToIdlePosition > 580 && (Projectile.velocity.X < 2 || Projectile.velocity.X > -2) && Projectile.ai[1] <= 0)
                     {
-                        projectile.ai[1] = 90;
-                        projectile.velocity.Y -= 4.5f;
+                        Projectile.ai[1] = 90;
+                        Projectile.velocity.Y -= 4.5f;
                     }
                     //ANIMATION
-                    projectile.frameCounter++;
-                    if ((projectile.velocity.X > 2 || projectile.velocity.X < -2) && projectile.frameCounter >= 15 && projectile.ai[1] < 30)
+                    Projectile.frameCounter++;
+                    if ((Projectile.velocity.X > 2 || Projectile.velocity.X < -2) && Projectile.frameCounter >= 15 && Projectile.ai[1] < 30)
                     {
-                        projectile.frameCounter = 0;
-                        projectile.frame++;
-                        if (projectile.frame > 1)
-                            projectile.frame = 0;
+                        Projectile.frameCounter = 0;
+                        Projectile.frame++;
+                        if (Projectile.frame > 1)
+                            Projectile.frame = 0;
                     }
-                    else if (projectile.frameCounter >= 15 && projectile.ai[1] >= 30)
+                    else if (Projectile.frameCounter >= 15 && Projectile.ai[1] >= 30)
                     {
-                        projectile.frameCounter = 0;
-                        projectile.frame = 0;
+                        Projectile.frameCounter = 0;
+                        Projectile.frame = 0;
                     }
-                    else if ((projectile.velocity.X < 2 || projectile.velocity.X > -2) && projectile.frameCounter >= 15)
+                    else if ((Projectile.velocity.X < 2 || Projectile.velocity.X > -2) && Projectile.frameCounter >= 15)
                     {
-                        projectile.frameCounter = 0;
-                        projectile.frame = 0;
+                        Projectile.frameCounter = 0;
+                        Projectile.frame = 0;
                     }
                     break;
             }
             //SPRITE DIRECTION (so it faces where it moves towards)
-            if (projectile.velocity.X > 0.0)
-                projectile.spriteDirection = 1;
-            if (projectile.velocity.X < 0.0)
-                projectile.spriteDirection = -1;
+            if (Projectile.velocity.X > 0.0)
+                Projectile.spriteDirection = 1;
+            if (Projectile.velocity.X < 0.0)
+                Projectile.spriteDirection = -1;
         }
 
         private void ResetMe()
         {
-            projectile.frameCounter = 0;
-            projectile.ai[0] = 0;
-            projectile.ai[1] = 0;
+            Projectile.frameCounter = 0;
+            Projectile.ai[0] = 0;
+            Projectile.ai[1] = 0;
             State = NextState;
             NextState = 0;
-            projectile.netUpdate = true;
+            Projectile.netUpdate = true;
         }
-        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override void PostDraw(Color lightColor)
         {
-            Texture2D glowMask = mod.GetTexture("Projectiles/Pets/SkaterPet_Glow");
-            Rectangle frame = glowMask.Frame(1, Main.projFrames[projectile.type], 0, projectile.frame);
+            Texture2D glowMask = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/SkaterPet_Glow").Value;
+            Rectangle frame = glowMask.Frame(1, Main.projFrames[Projectile.type], 0, Projectile.frame);
             frame.Height -= 1;
-            float originOffsetX = (glowMask.Width - projectile.width) * 0.5f + projectile.width * 0.5f + drawOriginOffsetX;
-            spriteBatch.Draw
+            float originOffsetX = (glowMask.Width - Projectile.width) * 0.5f + Projectile.width * 0.5f + DrawOriginOffsetX;
+            Main.EntitySpriteDraw
             (
                 glowMask,
-                projectile.position - Main.screenPosition + new Vector2(originOffsetX + drawOffsetX, projectile.height / 2 + projectile.gfxOffY),
+                Projectile.position - Main.screenPosition + new Vector2(originOffsetX + DrawOffsetX, Projectile.height / 2 + Projectile.gfxOffY),
                 frame,
                 Color.White,
-                projectile.rotation,
-                new Vector2(originOffsetX, projectile.height / 2 - drawOriginOffsetY),
-                projectile.scale,
-                projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
-                0f
+                Projectile.rotation,
+                new Vector2(originOffsetX, Projectile.height / 2 - DrawOriginOffsetY),
+                Projectile.scale,
+                Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
+                0
             );
         }
     }

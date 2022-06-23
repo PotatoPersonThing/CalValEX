@@ -1,11 +1,12 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
+using CalValEX.Projectiles.Pets.Elementals;
 
 namespace CalValEX.Buffs.Pets.Elementals
 {
     public class cloudbuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Smol Cloud");
             Description.SetDefault("She can't protect you, but she's doing her best.");
@@ -17,10 +18,11 @@ namespace CalValEX.Buffs.Pets.Elementals
         {
             player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().cloudmini = true;
-            bool petProjectileNotSpawned = player.ownedProjectileCounts[mod.ProjectileType("cloudmini")] <= 0;
+            bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<CloudMini>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, mod.ProjectileType("cloudmini"), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                       player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<CloudMini>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
         }
     }

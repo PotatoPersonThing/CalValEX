@@ -7,13 +7,13 @@ namespace CalValEX.Tiles.Blocks
 {
     public class PhantowaxBlockPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            drop = ModContent.ItemType<PhantowaxBlock>();
+            ItemDrop = ModContent.ItemType<PhantowaxBlock>();
             AddMapEntry(new Color(94, 39, 93));
         }
     }

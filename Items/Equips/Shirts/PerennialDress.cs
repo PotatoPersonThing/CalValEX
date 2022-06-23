@@ -14,11 +14,11 @@ namespace CalValEX.Items.Equips.Shirts
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 28;
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            item.rare = 6;
-            item.vanity = true;
+            Item.width = 24;
+            Item.height = 28;
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Item.rare = 6;
+            Item.vanity = true;
         }
     }
 }

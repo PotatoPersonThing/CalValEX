@@ -11,23 +11,23 @@ namespace CalValEX.Items.LightPets
         {
             DisplayName.SetDefault("Antarctic Essence");
             Tooltip.SetDefault("UNOBTAINABLE\n"+"Does nothing for now\n"/* + "Provides a moderate amount of light in the abyss"*/);
-            ItemID.Sets.ItemNoGravity[item.type] = true;
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
         public override void SetDefaults()
         {
-            //item.UseSound = SoundID.NPCHit5;
-            //item.shoot = ModContent.ProjectileType<Lightshield>();
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            //item.buffType = mod.BuffType("LightshieldBuff");
-            item.rare = ItemRarityID.Pink;
+            //Item.UseSound = SoundID.NPCHit5;
+            //Item.shoot = ModContent.ProjectileType<Lightshield>();
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            //Item.buffType = ModContent.BuffType<Buffs.LightPets.LightshieldBuff");
+            Item.rare = ItemRarityID.Pink;
         }
 
-        /*public override void UseStyle(Player player)
+        /*public override void UseStyle(Player player, Rectangle heldItemFrame)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
         }*/
     }

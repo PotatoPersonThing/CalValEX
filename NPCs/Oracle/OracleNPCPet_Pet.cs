@@ -15,29 +15,29 @@ namespace CalValEX.NPCs.Oracle
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("TUB");
-            Main.projFrames[projectile.type] = 11; //in code it's always one less
+            Main.projFrames[Projectile.type] = 11; //in code it's always one less
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 30;
-            projectile.height = 34;
-            projectile.penetrate = -1;
-            projectile.netImportant = true;
-            projectile.timeLeft *= 5;
-            projectile.friendly = true;
-            projectile.ignoreWater = false;
-            projectile.tileCollide = true;
-            drawOriginOffsetY -= 8;
-            drawOffsetX = -6;
+            Projectile.width = 30;
+            Projectile.height = 34;
+            Projectile.penetrate = -1;
+            Projectile.netImportant = true;
+            Projectile.timeLeft *= 5;
+            Projectile.friendly = true;
+            Projectile.ignoreWater = false;
+            Projectile.tileCollide = true;
+            DrawOriginOffsetY -= 8;
+            DrawOffsetX = -6;
         }
 
         public override void SendExtraAI(BinaryWriter writer)
         {
-            writer.Write(projectile.localAI[0]);
-            writer.Write(projectile.localAI[1]);
-            writer.Write(projectile.friendly);
-            writer.Write(projectile.tileCollide);
+            writer.Write(Projectile.localAI[0]);
+            writer.Write(Projectile.localAI[1]);
+            writer.Write(Projectile.friendly);
+            writer.Write(Projectile.tileCollide);
             writer.Write(State);
             writer.Write(isFlying);
             writer.Write(bloodLust);
@@ -45,10 +45,10 @@ namespace CalValEX.NPCs.Oracle
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            projectile.localAI[0] = reader.ReadSingle();
-            projectile.localAI[1] = reader.ReadSingle();
-            projectile.friendly = reader.ReadBoolean();
-            projectile.tileCollide = reader.ReadBoolean();
+            Projectile.localAI[0] = reader.ReadSingle();
+            Projectile.localAI[1] = reader.ReadSingle();
+            Projectile.friendly = reader.ReadBoolean();
+            Projectile.tileCollide = reader.ReadBoolean();
             State = reader.ReadInt32();
             isFlying = reader.ReadBoolean();
             bloodLust = reader.ReadBoolean();
@@ -63,7 +63,7 @@ namespace CalValEX.NPCs.Oracle
         {
             if (OracleGlobalNPC.oracleNPC == -1)
             {
-                projectile.Kill();
+                Projectile.Kill();
                 return false;
             }
 
@@ -78,48 +78,48 @@ namespace CalValEX.NPCs.Oracle
         {
             NPC owner = Main.npc[OracleGlobalNPC.oracleNPC];
             /*
-            if (projectile.wet)
+            if (Projectile.wet)
             {
-                if (projectile.velocity.Y >= 0.0f)
+                if (Projectile.velocity.Y >= 0.0f)
                 {
-                    projectile.velocity.Y = -2f;
+                    Projectile.velocity.Y = -2f;
                 }
             }
             */
             if (!owner.active)
             {
-                projectile.active = false;
+                Projectile.active = false;
                 return;
             }
 
             if (State != -1 && State != 2)
             {
-                projectile.ignoreWater = false;
-                projectile.velocity.Y += 0.1f;
-                projectile.velocity.X *= 0.92f;
-                projectile.rotation = 0;
+                Projectile.ignoreWater = false;
+                Projectile.velocity.Y += 0.1f;
+                Projectile.velocity.X *= 0.92f;
+                Projectile.rotation = 0;
             }
 
             Vector2 targetCenter = owner.Center;
-            Vector2 vectorToIdlePosition = targetCenter - projectile.Center;
+            Vector2 vectorToIdlePosition = targetCenter - Projectile.Center;
             float distanceToIdlePosition = vectorToIdlePosition.Length();
 
             if (State != -1)
             {
                 if (vectorToIdlePosition.Length() > 1840f)
                 {
-                    projectile.position = targetCenter;
-                    projectile.velocity *= 0.1f;
-                    projectile.netUpdate = true;
+                    Projectile.position = targetCenter;
+                    Projectile.velocity *= 0.1f;
+                    Projectile.netUpdate = true;
                 }
             }
             else if (State == -1)
             {
                 if (vectorToIdlePosition.Length() > 4800f)
                 {
-                    projectile.position = targetCenter;
-                    projectile.velocity *= 0.1f;
-                    projectile.netUpdate = true;
+                    Projectile.position = targetCenter;
+                    Projectile.velocity *= 0.1f;
+                    Projectile.netUpdate = true;
                     if (OracleGlobalNPC.playerTargetTimer > 0)
                         OracleGlobalNPC.playerTargetTimer = -1;
                 }
@@ -131,26 +131,26 @@ namespace CalValEX.NPCs.Oracle
             float distanceFromTarget = 720;
             float distanceFromTargetAndOracle = 720;
 
-            projectile.spriteDirection = projectile.velocity.X > 0 ? -1 : 1;
+            Projectile.spriteDirection = Projectile.velocity.X > 0 ? -1 : 1;
 
             bool foundTarget = false;
 
             if (!Main.bloodMoon)
             {
-                projectile.damage = 0;
-                projectile.netUpdate = true;
+                Projectile.damage = 0;
+                Projectile.netUpdate = true;
             }
 
             if (Main.bloodMoon)
             {
-                projectile.damage = 30;
-                projectile.netUpdate = true;
+                Projectile.damage = 30;
+                Projectile.netUpdate = true;
                 State = -1;
             }
             switch (State)
             {
                 case -1: //blood moon idle and attack
-                    projectile.tileCollide = false;
+                    Projectile.tileCollide = false;
                     if (!Main.bloodMoon)
                     {
                         State = 0;
@@ -163,7 +163,7 @@ namespace CalValEX.NPCs.Oracle
                         {
                             OracleGlobalNPC.playerTargetTimer--;
                             targetCenter = Main.player[OracleGlobalNPC.playerTarget].Center;
-                            float newDistance = Vector2.Distance(Main.player[OracleGlobalNPC.playerTarget].Center, projectile.Center);
+                            float newDistance = Vector2.Distance(Main.player[OracleGlobalNPC.playerTarget].Center, Projectile.Center);
                             distanceFromTarget = newDistance;
                             foundTarget = true;
                         }
@@ -175,8 +175,8 @@ namespace CalValEX.NPCs.Oracle
                                 NPC npc = Main.npc[k];
                                 if (npc.CanBeChasedBy())
                                 {
-                                    float between = Vector2.Distance(npc.Center, projectile.Center);
-                                    bool closest = Vector2.Distance(projectile.Center, targetCenter) > between;
+                                    float between = Vector2.Distance(npc.Center, Projectile.Center);
+                                    bool closest = Vector2.Distance(Projectile.Center, targetCenter) > between;
                                     bool inRange = between < distanceFromTarget;
                                     if ((closest && inRange) || !foundTarget)
                                     {
@@ -190,36 +190,36 @@ namespace CalValEX.NPCs.Oracle
                         }
                     }
 
-                    projectile.ai[0]--;
-                    projectile.frameCounter++;
+                    Projectile.ai[0]--;
+                    Projectile.frameCounter++;
 
-                    if (projectile.ai[0] > 0)
-                        projectile.velocity *= 0.97f;
+                    if (Projectile.ai[0] > 0)
+                        Projectile.velocity *= 0.97f;
                     if (foundTarget && distanceFromTargetAndOracle > 720f)
                     {
                         if (distanceToIdlePosition > 25f)
                         {
                             vectorToIdlePosition.Y -= 48f;
-                            vectorToIdlePosition.X += 16f * projectile.direction;
+                            vectorToIdlePosition.X += 16f * Projectile.direction;
                             vectorToIdlePosition.Normalize();
                             vectorToIdlePosition *= 8f;
-                            projectile.velocity = (projectile.velocity * (20f - 1f) + vectorToIdlePosition) / 20f;
+                            Projectile.velocity = (Projectile.velocity * (20f - 1f) + vectorToIdlePosition) / 20f;
                         }
                     }
-                    else if (foundTarget && distanceFromTarget > 120f && projectile.ai[0] <= 0)
+                    else if (foundTarget && distanceFromTarget > 120f && Projectile.ai[0] <= 0)
                     {
-                        Vector2 direction = targetCenter - projectile.Center;
+                        Vector2 direction = targetCenter - Projectile.Center;
                         direction.Normalize();
                         direction *= 8f;
-                        projectile.velocity = (projectile.velocity * (20f - 1f) + direction) / 20f;
+                        Projectile.velocity = (Projectile.velocity * (20f - 1f) + direction) / 20f;
                     }
-                    else if (foundTarget && distanceFromTarget < 120f && projectile.ai[0] <= 0)
+                    else if (foundTarget && distanceFromTarget < 120f && Projectile.ai[0] <= 0)
                     {
-                        projectile.ai[0] = 60;
-                        Vector2 dashVelocity = Vector2.Normalize(targetCenter - projectile.Center) * 10f;
+                        Projectile.ai[0] = 60;
+                        Vector2 dashVelocity = Vector2.Normalize(targetCenter - Projectile.Center) * 10f;
 
-                        projectile.velocity = dashVelocity;
-                        projectile.netUpdate = true;
+                        Projectile.velocity = dashVelocity;
+                        Projectile.netUpdate = true;
                     }
 
                     if (!foundTarget && distanceToIdlePosition > 25f)
@@ -227,51 +227,51 @@ namespace CalValEX.NPCs.Oracle
                         if (distanceToIdlePosition > 25f)
                         {
                             vectorToIdlePosition.Y -= 48f;
-                            vectorToIdlePosition.X += -16f * projectile.direction;
+                            vectorToIdlePosition.X += -16f * Projectile.direction;
                             vectorToIdlePosition.Normalize();
                             vectorToIdlePosition *= 2f;
-                            projectile.velocity = (projectile.velocity * (20f - 1f) + vectorToIdlePosition) / 20f;
+                            Projectile.velocity = (Projectile.velocity * (20f - 1f) + vectorToIdlePosition) / 20f;
                         }
                     }
 
                     if (OracleGlobalNPC.playerTargetTimer > 0)
                     {
-                        if (Main.player[OracleGlobalNPC.playerTarget].Hitbox.Intersects(projectile.Hitbox))
+                        if (Main.player[OracleGlobalNPC.playerTarget].Hitbox.Intersects(Projectile.Hitbox))
                         {
-                            Main.player[OracleGlobalNPC.playerTarget].Hurt(PlayerDeathReason.ByCustomReason(Main.player[OracleGlobalNPC.playerTarget].name + " tried to fight TUB."), projectile.damage, -Main.player[OracleGlobalNPC.playerTarget].direction);
+                            Main.player[OracleGlobalNPC.playerTarget].Hurt(PlayerDeathReason.ByCustomReason(Main.player[OracleGlobalNPC.playerTarget].name + " tried to fight TUB."), Projectile.damage, -Main.player[OracleGlobalNPC.playerTarget].direction);
                         }
                     }
 
-                    if (projectile.ai[0] > 15)
+                    if (Projectile.ai[0] > 15)
                     {
-                        projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(90f);
-                        projectile.frame = 2;
+                        Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(90f);
+                        Projectile.frame = 2;
                     }
-                    if (projectile.ai[0] <= 0)
+                    if (Projectile.ai[0] <= 0)
                     {
-                        projectile.rotation = 0;
-                        if (projectile.frameCounter >= 15)
+                        Projectile.rotation = 0;
+                        if (Projectile.frameCounter >= 15)
                         {
-                            projectile.frameCounter = 0;
-                            projectile.frame++;
-                            if (projectile.frame < 7 || projectile.frame > 10)
-                                projectile.frame = 7;
+                            Projectile.frameCounter = 0;
+                            Projectile.frame++;
+                            if (Projectile.frame < 7 || Projectile.frame > 10)
+                                Projectile.frame = 7;
                         }
                     }
                     break;
 
                 case 0: //idle
-                    projectile.tileCollide = true;
+                    Projectile.tileCollide = true;
                     if (distanceToIdlePosition > 240f)
                     {
                         State = 1; //walk to owner
                         ResetMe();
                     }
-                    projectile.frame = 0;
+                    Projectile.frame = 0;
                     break;
 
                 case 1: //walking (jumping)
-                    projectile.tileCollide = true;
+                    Projectile.tileCollide = true;
                     if (distanceToIdlePosition < 80f)
                     {
                         State = 0;
@@ -284,79 +284,79 @@ namespace CalValEX.NPCs.Oracle
                         ResetMe();
                     }
 
-                    projectile.frameCounter++;
-                    projectile.ai[0]--;
+                    Projectile.frameCounter++;
+                    Projectile.ai[0]--;
 
-                    int i = (int)(projectile.position.X + (float)(projectile.width / 2)) / 16;
-                    int j = (int)(projectile.position.Y + (float)(projectile.height)) / 16;
+                    int i = (int)(Projectile.position.X + (float)(Projectile.width / 2)) / 16;
+                    int j = (int)(Projectile.position.Y + (float)(Projectile.height)) / 16;
 
                     if (distanceToIdlePosition > 80f)
                     {
-                        if (WorldGen.SolidTile(i, j + 1) || Main.tile[i, j + 1].type == TileID.Platforms)
+                        if (WorldGen.SolidTile(i, j + 1) || Main.tile[i, j + 1].TileType == TileID.Platforms)
                         {
-                            projectile.ai[0] = 60;
-                            projectile.velocity.Y = -3.5f;
+                            Projectile.ai[0] = 60;
+                            Projectile.velocity.Y = -3.5f;
                         }
 
                         vectorToIdlePosition.Normalize();
                         vectorToIdlePosition *= 8f;
-                        projectile.velocity.X = (projectile.velocity.X * (20f - 1f) + vectorToIdlePosition.X) / 20f;
+                        Projectile.velocity.X = (Projectile.velocity.X * (20f - 1f) + vectorToIdlePosition.X) / 20f;
                     }
 
-                    if (projectile.ai[0] > 30)
+                    if (Projectile.ai[0] > 30)
                     {
-                        if (projectile.frameCounter >= 15)
+                        if (Projectile.frameCounter >= 15)
                         {
-                            if (projectile.frame < 3)
+                            if (Projectile.frame < 3)
                             {
-                                projectile.frameCounter = 0;
-                                projectile.frame++;
+                                Projectile.frameCounter = 0;
+                                Projectile.frame++;
                             }
-                            else if (projectile.frame > 3)
+                            else if (Projectile.frame > 3)
                             {
-                                projectile.frame = 0;
+                                Projectile.frame = 0;
                             }
                         }
                     }
-                    else if (projectile.ai[0] > 15)
+                    else if (Projectile.ai[0] > 15)
                     {
-                        if (projectile.frameCounter >= 10)
+                        if (Projectile.frameCounter >= 10)
                         {
-                            if (projectile.frame == 3)
+                            if (Projectile.frame == 3)
                             {
-                                projectile.frameCounter = 0;
-                                projectile.frame = 4;
+                                Projectile.frameCounter = 0;
+                                Projectile.frame = 4;
                             }
-                            else if (projectile.frame < 3)
+                            else if (Projectile.frame < 3)
                             {
-                                projectile.frame = 3;
+                                Projectile.frame = 3;
                             }
                         }
                     }
-                    else if (projectile.ai[0] > 0)
+                    else if (Projectile.ai[0] > 0)
                     {
-                        if (projectile.frameCounter >= 15)
+                        if (Projectile.frameCounter >= 15)
                         {
-                            if (projectile.frame == 4)
+                            if (Projectile.frame == 4)
                             {
-                                projectile.frameCounter = 0;
-                                projectile.frame = 5;
+                                Projectile.frameCounter = 0;
+                                Projectile.frame = 5;
                             }
-                            else if (projectile.frame == 5 && projectile.frameCounter >= 25)
+                            else if (Projectile.frame == 5 && Projectile.frameCounter >= 25)
                             {
-                                projectile.frameCounter = 0;
-                                projectile.frame = 6;
+                                Projectile.frameCounter = 0;
+                                Projectile.frame = 6;
                             }
-                            else if (projectile.frame < 4)
+                            else if (Projectile.frame < 4)
                             {
-                                projectile.frame = 4;
+                                Projectile.frame = 4;
                             }
                         }
                     }
                     break;
 
                 case 2: //flying towards owner
-                    projectile.tileCollide = false;
+                    Projectile.tileCollide = false;
                     if (distanceToIdlePosition < 240f)
                     {
                         State = 1;
@@ -367,43 +367,43 @@ namespace CalValEX.NPCs.Oracle
                     {
                         vectorToIdlePosition.Normalize();
                         vectorToIdlePosition *= 8f;
-                        projectile.velocity = (projectile.velocity * (16f - 1) + vectorToIdlePosition) / 16f;
+                        Projectile.velocity = (Projectile.velocity * (16f - 1) + vectorToIdlePosition) / 16f;
                     }
 
-                    projectile.rotation = 0;
-                    if (projectile.frameCounter >= 15)
+                    Projectile.rotation = 0;
+                    if (Projectile.frameCounter >= 15)
                     {
-                        projectile.frameCounter = 0;
-                        projectile.frame++;
-                        if (projectile.frame < 7 || projectile.frame > 10)
-                            projectile.frame = 7;
+                        Projectile.frameCounter = 0;
+                        Projectile.frame++;
+                        if (Projectile.frame < 7 || Projectile.frame > 10)
+                            Projectile.frame = 7;
                     }
                     break;
             }
 
-            projectile.friendly = foundTarget;
+            Projectile.friendly = foundTarget;
         }
 
         private void ResetMe()
         {
-            projectile.ai[0] = 0;
-            projectile.ai[1] = 0;
-            projectile.localAI[0] = 0;
-            projectile.localAI[1] = 0;
-            projectile.frameCounter = 0;
-            projectile.netUpdate = true;
+            Projectile.ai[0] = 0;
+            Projectile.ai[1] = 0;
+            Projectile.localAI[0] = 0;
+            Projectile.localAI[1] = 0;
+            Projectile.frameCounter = 0;
+            Projectile.netUpdate = true;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
             if (CalValEX.month == 10 || Main.halloween)
             {
-                Texture2D texture = ModContent.GetTexture("CalValEX/NPCs/Oracle/OracleNPCPet_Pet_Halloween");
-                Rectangle rectangle = new Rectangle(0, texture.Height / Main.projFrames[projectile.type] * projectile.frame, texture.Width, texture.Height / Main.projFrames[projectile.type]);
-                Vector2 position = projectile.Center - Main.screenPosition;
-                position.X += drawOffsetX;
-                position.Y += drawOriginOffsetY;
-                spriteBatch.Draw(texture, position, rectangle, lightColor, projectile.rotation, projectile.Size / 2f, 1f, (projectile.direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None), 0f);
+                Texture2D texture = ModContent.Request<Texture2D>("CalValEX/NPCs/Oracle/OracleNPCPet_Pet_Halloween").Value;
+                Rectangle rectangle = new Rectangle(0, texture.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture.Width, texture.Height / Main.projFrames[Projectile.type]);
+                Vector2 position = Projectile.Center - Main.screenPosition;
+                position.X += DrawOffsetX;
+                position.Y += DrawOriginOffsetY;
+                Main.EntitySpriteDraw(texture, position, rectangle, lightColor, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None), 0);
                 return false;
             }
             return true;

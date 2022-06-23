@@ -6,10 +6,10 @@ namespace CalValEX.Buffs.Mounts
 {
     public class HiveVuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Conglomeration Mind");
-            Description.SetDefault("I swear it's not what you think");
+            //DisplayName.SetDefault("Conglomeration Mind");
+            //Description.SetDefault("I swear it's not what you think");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }
@@ -18,7 +18,7 @@ namespace CalValEX.Buffs.Mounts
         {
             player.mount.SetMount(ModContent.MountType<HiveMount>(), player);
             player.buffTime[buffIndex] = 10;
-            Main.LocalPlayer.AddBuff(ModLoader.GetMod("CalamityMod").BuffType("CorruptionEffigyBuff"), 10);
+            //Main.LocalPlayer.AddBuff(ModLoader.GetMod("CalamityMod").BuffType("CorruptionEffigyBuff"), 10);
         }
     }
 }

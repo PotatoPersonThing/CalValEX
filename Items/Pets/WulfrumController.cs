@@ -1,6 +1,8 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
+using Terraria.DataStructures;
 
 namespace CalValEX.Items.Pets
 {
@@ -14,34 +16,33 @@ namespace CalValEX.Items.Pets
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.ZephyrFish);
-            item.UseSound = SoundID.NPCHit4;
-            item.shoot = mod.ProjectileType("WulfrumDrone");
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 1;
-            item.buffType = mod.BuffType("WulfrumArmy");
+            Item.CloneDefaults(ItemID.ZephyrFish);
+            Item.UseSound = SoundID.NPCHit4;
+            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.Wulfrum.WulfrumDrone>();
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 1;
+            Item.buffType = ModContent.BuffType<Buffs.Pets.WulfrumArmy>();
         }
 
-        public override void UseStyle(Player player)
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
         }
 
-        private int scourge2 = 180;
 
-        public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            type = mod.ProjectileType("WulfrumDrone");
-            return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-            type = mod.ProjectileType("WulfrumOrb");
-            return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-            type = mod.ProjectileType("WulfrumRover");
-            return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-            type = mod.ProjectileType("WulfrumHover");
-            return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
+            type = ModContent.ProjectileType<Projectiles.Pets.Wulfrum.WulfrumDrone>();
+            return base.Shoot(player, source, position, velocity, type, damage, knockback);
+            type = ModContent.ProjectileType<Projectiles.Pets.Wulfrum.WulfrumOrb>();
+            return base.Shoot(player, source, position, velocity, type, damage, knockback);
+            type = ModContent.ProjectileType<Projectiles.Pets.Wulfrum.WulfrumHover>();
+            return base.Shoot(player, source, position, velocity, type, damage, knockback);
+            type = ModContent.ProjectileType<Projectiles.Pets.Wulfrum.WulfrumRover>();
+            return base.Shoot(player, source, position, velocity, type, damage, knockback);
         }
     }
 }

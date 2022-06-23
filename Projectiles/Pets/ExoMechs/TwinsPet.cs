@@ -1,13 +1,10 @@
-﻿using CalamityMod;
-using CalamityMod.DataStructures;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
-using static CalamityMod.CalamityUtils;
-using CalamityMod.CalPlayer;
+using CalamityMod;
 
 namespace CalValEX.Projectiles.Pets.ExoMechs
 {
@@ -25,42 +22,42 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
         public Color RibbonStartColor = new Color(34, 40, 48);
 
 
-        public ref float Initialized => ref projectile.ai[0];
-        public ref float Behavior => ref projectile.ai[1];
-        public Player Owner => Main.player[projectile.owner];
+        public ref float Initialized => ref Projectile.ai[0];
+        public ref float Behavior => ref Projectile.ai[1];
+        public Player Owner => Main.player[Projectile.owner];
 
         public static int TrailLenght = 30;
-        public float SpinRadius => 100 + (float)Math.Sin(Main.GlobalTime) * 20f + (Owner.GetModPlayer<CalValEXPlayer>().ares ? 200 : 0); //Change the 200 for any distance you want to add whenever ares is equipped
+        public float SpinRadius => 100 + (float)Math.Sin(Main.time) * 20f + (Owner.GetModPlayer<CalValEXPlayer>().ares ? 200 : 0); //Change the 200 for any distance you want to add whenever ares is equipped
 
 
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Toy Twins");
-            Main.projFrames[projectile.type] = 1;
-            Main.projPet[projectile.type] = true;
+            Main.projFrames[Projectile.type] = 1;
+            Main.projPet[Projectile.type] = true;
         }
 
         public override void SetDefaults()
         {
-            projectile.width =  1;
-            projectile.height = 1;
-            projectile.penetrate = -1;
-            projectile.netImportant = true;
-            projectile.timeLeft *= 5;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
-            projectile.aiStyle = -1;
+            Projectile.width =  1;
+            Projectile.height = 1;
+            Projectile.penetrate = -1;
+            Projectile.netImportant = true;
+            Projectile.timeLeft *= 5;
+            Projectile.friendly = true;
+            Projectile.tileCollide = false;
+            Projectile.aiStyle = -1;
         }
 
         public override void AI()
         {
             CalValEXPlayer modPlayer = Owner.GetModPlayer<CalValEXPlayer>();
             if (Owner.dead)
-                projectile.timeLeft = 0;
+                Projectile.timeLeft = 0;
             if (!modPlayer.twins)
-                projectile.timeLeft = 0;
+                Projectile.timeLeft = 0;
             if (modPlayer.twins)
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
 
             if (Initialized == 0)
             {
@@ -70,14 +67,14 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
 
                 for (int i = 0 ; i < TrailLenght ; i++)
                 {
-                    PositionsApollo[i] = projectile.Center;
-                    PositionsArtemis[i] = projectile.Center;
+                    PositionsApollo[i] = Projectile.Center;
+                    PositionsArtemis[i] = Projectile.Center;
                 }
                 Initialized = 1f;
             }
 
-            projectile.rotation += (MathHelper.Pi / (40f - (Owner.velocity.Length() / 20f) * 20f)) * (Owner.direction);
-            projectile.Center = Owner.Center;
+            Projectile.rotation += (MathHelper.Pi / (40f - (Owner.velocity.Length() / 20f) * 20f)) * (Owner.direction);
+            Projectile.Center = Owner.Center;
             UpdateTwins();
 
         }
@@ -106,11 +103,11 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             //If the owner is going slow make them rotate around the player
             else
             {
-                PositionsApollo[TrailLenght - 1] = Vector2.Lerp(PositionsApollo[TrailLenght - 1], projectile.Center + projectile.rotation.ToRotationVector2() * SpinRadius, 0.2f);
-                PositionsArtemis[TrailLenght - 1] = Vector2.Lerp(PositionsArtemis[TrailLenght - 1], projectile.Center - projectile.rotation.ToRotationVector2() * SpinRadius, 0.2f);
+                PositionsApollo[TrailLenght - 1] = Vector2.Lerp(PositionsApollo[TrailLenght - 1], Projectile.Center + Projectile.rotation.ToRotationVector2() * SpinRadius, 0.2f);
+                PositionsArtemis[TrailLenght - 1] = Vector2.Lerp(PositionsArtemis[TrailLenght - 1], Projectile.Center - Projectile.rotation.ToRotationVector2() * SpinRadius, 0.2f);
 
-                float idealApolloRotation = projectile.rotation - MathHelper.Pi * (Owner.direction < 0 ? 0 : 1);
-                float idealArtemisRotation = projectile.rotation - MathHelper.Pi * (Owner.direction < 0 ? 1 : 0);
+                float idealApolloRotation = Projectile.rotation - MathHelper.Pi * (Owner.direction < 0 ? 0 : 1);
+                float idealArtemisRotation = Projectile.rotation - MathHelper.Pi * (Owner.direction < 0 ? 1 : 0);
 
                 //Snap them in place if they're close enough to their ideal rotation or else some funky stuff starts to happen
                 if (Math.Abs(ApolloRotation - idealApolloRotation) > MathHelper.PiOver4)
@@ -132,8 +129,8 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
         //STOLED FROM THE REAL ONES???
         public float RibbonTrailWidthFunction(float completionRatio)
         {
-            float baseWidth = Utils.InverseLerp(1f, 0.54f, 1 - completionRatio, true) * 5f;
-            float endTipWidth = CalamityUtils.Convert01To010(Utils.InverseLerp(0.96f, 0.89f, 1 - completionRatio, true)) * 2.4f;
+            float baseWidth = Utils.GetLerpValue(1f, 0.54f, 1 - completionRatio, true) * 5f;
+            float endTipWidth = CalamityUtils.Convert01To010(Utils.GetLerpValue(0.96f, 0.89f, 1 - completionRatio, true)) * 2.4f;
             return baseWidth + endTipWidth;
         }
         public Color OrangeRibbonTrailColorFunction(float completionRatio)
@@ -150,13 +147,13 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
         }
 
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D tex = (ModContent.GetTexture("CalValEX/Projectiles/Pets/ExoMechs/TwinsPet"));
+            Texture2D tex = (ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/ExoMechs/TwinsPet")).Value;
 
 
             bool secondPhase = false;
-            if (CalamityPlayer.areThereAnyDamnBosses || Owner.velocity.Length() > 10)
+            if (Owner.velocity.Length() > 10)
                 secondPhase = true;
 
 
@@ -172,8 +169,8 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             ApolloRibbon.Draw(PositionsApollo, Owner.velocity - Main.screenPosition, 66);
             ArtemisRibbon.Draw(PositionsArtemis, Owner.velocity - Main.screenPosition, 66);
 
-            spriteBatch.Draw(tex, PositionsApollo[TrailLenght - 1] - Main.screenPosition, apolloFrame, drawColor, ApolloRotation, origin, projectile.scale, 0f, 0f);
-            spriteBatch.Draw(tex, PositionsArtemis[TrailLenght - 1] - Main.screenPosition, artemisFrame, drawColor, ArtemisRotation, origin, projectile.scale, 0f, 0f);
+            Main.EntitySpriteDraw(tex, PositionsApollo[TrailLenght - 1] - Main.screenPosition, apolloFrame, lightColor, ApolloRotation, origin, Projectile.scale, 0, 0);
+            Main.EntitySpriteDraw(tex, PositionsArtemis[TrailLenght - 1] - Main.screenPosition, artemisFrame, lightColor, ArtemisRotation, origin, Projectile.scale, 0, 0);
             return false;
         }
     }

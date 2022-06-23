@@ -14,20 +14,20 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Terminal Facemask");
             Tooltip.SetDefault("Through bloodshed and turmoil new sight is attained, \nthrough eyes of a God forgotten");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(10, 5));
-            // ItemID.Sets.AnimatesAsSoul[item.type] = true;
-            ItemID.Sets.ItemIconPulse[item.type] = false;
-            ItemID.Sets.ItemNoGravity[item.type] = false;
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(10, 5));
+            // ItemID.Sets.AnimatesAsSoul[Item.type] = true;
+            ItemID.Sets.ItemIconPulse[Item.type] = false;
+            ItemID.Sets.ItemNoGravity[Item.type] = false;
         }
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 28;
-            item.value = Item.sellPrice(0, 0, 0, 1);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            item.rare = 11;
-            item.vanity = true;
+            Item.width = 24;
+            Item.height = 28;
+            Item.value = Item.sellPrice(0, 0, 0, 1);
+           
+            Item.rare = 11;
+            Item.vanity = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -43,17 +43,17 @@ namespace CalValEX.Items.Equips.Hats
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(255, 0, 255); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(255, 0, 255); //change the color accordingly to above
                 }
             }
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+           
             if (calamityMod != null)
             {
                 recipe.AddIngredient(ModContent.ItemType<Termipebbles>(), 5);
@@ -62,6 +62,6 @@ namespace CalValEX.Items.Equips.Hats
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

@@ -18,23 +18,19 @@ namespace CalValEX.Items.Equips.Hats
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 28;
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            item.rare = 7;
-            item.vanity = true;
-        }
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
-        {
-            drawAltHair = true;
+            Item.width = 24;
+            Item.height = 28;
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Item.rare = 7;
+            Item.vanity = true;
+            Terraria.ID.ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
         }
         public override void UpdateEquip(Player player)
         {
             player.GetModPlayer<CalValEXPlayer>().rockhat = true;
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             player.GetModPlayer<CalValEXPlayer>().rockhat = true;
         }

@@ -11,7 +11,7 @@ namespace CalValEX.Tiles
 {
     public class DraedonQuoteonQuoteBagPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolidTop[Type] = true;
             Main.tileFrameImportant[Type] = true;
@@ -28,7 +28,7 @@ namespace CalValEX.Tiles
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 24, 24, ModLoader.GetMod("CalamityMod").ItemType("DraedonTreasureBag"));
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ModContent.ItemType<CalamityMod.Items.TreasureBags.DraedonBag>());
         }
     }
 }

@@ -15,16 +15,12 @@ namespace CalValEX.Items.Equips.Shirts
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 14;
-            item.rare = 11;
-            item.vanity = true;
-            item.value = Item.sellPrice(0, 3, 0, 0);
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = false;
+            Item.width = 18;
+            Item.height = 14;
+            Item.rare = 11;
+            Item.vanity = true;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Terraria.ID.ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = true;
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
@@ -39,9 +35,9 @@ namespace CalValEX.Items.Equips.Shirts
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(108, 45, 199); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(108, 45, 199); //change the color accordingly to above
                 }
             }
         }

@@ -60,12 +60,6 @@ namespace CalValEX
         [Tooltip("Prevents the Oracle and Jelly Priestess from spawning")]
         public bool TownNPC { get; set; }
 
-        [Label("Disable Violemur Invincibility")]
-        [BackgroundColor(192, 54, 64, 192)]
-        [DefaultValue(false)]
-        [Tooltip("Makes it so that Violemurs can be damaged at all times")]
-        public bool ViolemurDefense { get; set; }
-
         [Label("Disable Isopod Bait Scaling")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
@@ -77,12 +71,6 @@ namespace CalValEX
         [DefaultValue(false)]
         [Tooltip("Makes it so that all Calamity's Vanities critters no longer spawn naturally")]
         public bool CritterSpawns { get; set; }
-
-        /*[Label("Disable Cadance Heart Particles")]
-        [BackgroundColor(192, 54, 64, 192)]
-        [DefaultValue(false)]
-        [Tooltip("Disables Cadance Potion's heart particle effect")]
-        public bool Cadance { get; set; }*/
 
         [Header("Vanity Minions")]
 
@@ -116,12 +104,6 @@ namespace CalValEX
         [DefaultValue(false)]
         [Tooltip("Disables the stat cripple which ground mounts give")]
         public bool GroundMountLol { get; set; }
-
-        [Label("Disable Murasama Easter Egg")]
-        [BackgroundColor(192, 54, 64, 192)]
-        [DefaultValue(true)]
-        [Tooltip("Disables the music played while swinging Murasama while using Demonshade enrage or any ripper")]
-        public bool Sama { get; set; }
 
         [Label("Discord Rich Presence ([c/ffaa11:Requires DRP Mod!])")]
         [BackgroundColor(192, 54, 64, 192)]

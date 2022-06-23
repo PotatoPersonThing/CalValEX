@@ -7,10 +7,10 @@ namespace CalValEX.Walls
 {
     public class AuricBrickWallPlaced : ModWall
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            drop = ModContent.ItemType<AuricBrickWall>();
+            ItemDrop = ModContent.ItemType<AuricBrickWall>();
             AddMapEntry(new Color(117, 122, 23));
         }
     }

@@ -7,11 +7,8 @@ namespace CalValEX.Buffs.Pets
 {
     public class SWPetBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            // DisplayName and Description are automatically set from the .lang files, but below is how it is done normally.
-            DisplayName.SetDefault("Lil' Weaver");
-            Description.SetDefault("\"Guess they aren't extinct afterall\"");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
@@ -23,7 +20,7 @@ namespace CalValEX.Buffs.Pets
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<SWPet>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ProjectileType<SWPet>(), 0, 0f, player.whoAmI);
             }
 
@@ -32,7 +29,7 @@ namespace CalValEX.Buffs.Pets
             bool petProjectileNotSpawneds = player.ownedProjectileCounts[ProjectileType<StasisNaked>()] <= 0;
             if (petProjectileNotSpawneds && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ProjectileType<StasisNaked>(), 0, 0f, player.whoAmI);
             }
         }

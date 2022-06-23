@@ -6,10 +6,10 @@ namespace CalValEX.Buffs.Mounts
 {
     public class GodRiderBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("God Rider");
-            Description.SetDefault("Ridin' the dimensional tides");
+            //DisplayName.SetDefault("God Rider");
+            //Description.SetDefault("Ridin' the dimensional tides");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

@@ -16,19 +16,19 @@ namespace CalValEX.Items.Pets
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.ZephyrFish);
-            item.UseSound = SoundID.NPCHit13;
-            item.shoot = mod.ProjectileType("YharimSquid");
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 11;
-            item.buffType = mod.BuffType("YharimSquidBuff");
+            Item.CloneDefaults(ItemID.ZephyrFish);
+            Item.UseSound = SoundID.NPCHit13;
+            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.YharimSquid>();
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.rare = 11;
+            Item.buffType = ModContent.BuffType<Buffs.Pets.YharimSquidBuff>();
         }
 
-        public override void UseStyle(Player player)
+        public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
         }
 
@@ -45,35 +45,9 @@ namespace CalValEX.Items.Pets
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB); //change the color accordingly to above
-                }
-            }
-        }
-
-        public override void AddRecipes()
-        {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            {
-                {
-                    ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient(calamityMod.ItemType("AuricBar"), 20);
-                    recipe.AddIngredient(calamityMod.ItemType("DraedonsExoblade"), 1);
-                    recipe.AddIngredient(calamityMod.ItemType("SubsumingVortex"), 1);
-                    recipe.AddIngredient(calamityMod.ItemType("Celestus"), 1);
-                    recipe.AddIngredient(calamityMod.ItemType("VividClarity"), 1);
-                    recipe.AddIngredient(calamityMod.ItemType("MagnomalyCannon"), 1);
-                    recipe.AddIngredient(calamityMod.ItemType("HeavenlyGale"), 1);
-                    recipe.AddIngredient(calamityMod.ItemType("Photoviscerator"), 1);
-                    recipe.AddIngredient(calamityMod.ItemType("ExoGladius"), 1);
-                    recipe.AddIngredient(calamityMod.ItemType("CosmicImmaterializer"), 1);
-                    recipe.AddIngredient(calamityMod.ItemType("Supernova"), 1);
-                    recipe.AddIngredient(mod.ItemType("InkyArtifact"), 1);
-                    recipe.AddIngredient(ModContent.ItemType<Items.Equips.Hats.AncientAuricTeslaHelm>(), 1);
-                    recipe.AddTile(calamityMod.TileType("DraedonsForge"));
-                    recipe.SetResult(this);
-                    recipe.AddRecipe();
+                    tooltipLine.OverrideColor = new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB); //change the color accordingly to above
                 }
             }
         }

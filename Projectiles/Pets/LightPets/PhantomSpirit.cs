@@ -12,52 +12,52 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Phantom Spirit");
-            Main.projFrames[projectile.type] = 7;
-            Main.projPet[projectile.type] = true;
-            drawOriginOffsetY = -15;
-            drawOffsetX = -14;
-            ProjectileID.Sets.LightPet[projectile.type] = true;
+            Main.projFrames[Projectile.type] = 7;
+            Main.projPet[Projectile.type] = true;
+            DrawOriginOffsetY = -15;
+            DrawOffsetX = -14;
+            ProjectileID.Sets.LightPet[Projectile.type] = true;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 16;
-            projectile.height = 16;
-            projectile.penetrate = -1;
-            projectile.netImportant = true;
-            projectile.timeLeft *= 5;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
-            projectile.aiStyle = -1;
+            Projectile.width = 16;
+            Projectile.height = 16;
+            Projectile.penetrate = -1;
+            Projectile.netImportant = true;
+            Projectile.timeLeft *= 5;
+            Projectile.friendly = true;
+            Projectile.tileCollide = false;
+            Projectile.aiStyle = -1;
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (player.dead)
                 modPlayer.mPhan = false;
             if (modPlayer.mPhan)
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
 
-            Vector2 vectorToOwner = player.Center - projectile.Center;
+            Vector2 vectorToOwner = player.Center - Projectile.Center;
             float distanceToOwner = vectorToOwner.Length();
 
             if (distanceToOwner > 2000f)
             {
-                projectile.position = player.Center;
-                projectile.velocity *= 0.1f;
-                projectile.netUpdate = true;
+                Projectile.position = player.Center;
+                Projectile.velocity *= 0.1f;
+                Projectile.netUpdate = true;
             }
 
-            Lighting.AddLight(projectile.position, new Vector3(2.5f, 1.20588235f, 1.54901961f));
+            Lighting.AddLight(Projectile.position, new Vector3(2.5f, 1.20588235f, 1.54901961f));
             float velocity = 2.5f;
             float limit = 5f;
 
             float extra = 240f;
             float extra2 = 60f;
 
-            Vector2 extraPos = new Vector2(projectile.position.X + projectile.width * 0.5f, projectile.position.Y + projectile.height * 0.5f);
+            Vector2 extraPos = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
             float posX = player.position.X + (player.width / 2) - extraPos.X;
             float posY = player.position.Y + player.gfxOffY + (player.height / 2) - extraPos.Y;
             if (player.controlLeft)
@@ -78,71 +78,71 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
             if (num2 > 1000f)
             {
-                projectile.position.X += posX;
-                projectile.position.Y += posY;
+                Projectile.position.X += posX;
+                Projectile.position.Y += posY;
             }
 
-            if (projectile.localAI[0] == 1f)
+            if (Projectile.localAI[0] == 1f)
             {
                 if (num2 < 10f && Math.Abs(player.velocity.X) + Math.Abs(player.velocity.Y) < limit && player.velocity.Y == 0f)
-                    projectile.localAI[0] = 0f;
+                    Projectile.localAI[0] = 0f;
 
                 limit = 12f;
                 if (num2 < limit)
                 {
-                    projectile.velocity.X = posX;
-                    projectile.velocity.Y = posY;
+                    Projectile.velocity.X = posX;
+                    Projectile.velocity.Y = posY;
                 }
                 else
                 {
                     num2 = limit / num2;
-                    projectile.velocity.X = posX * num2;
-                    projectile.velocity.Y = posY * num2;
+                    Projectile.velocity.X = posX * num2;
+                    Projectile.velocity.Y = posY * num2;
                 }
 
                 if (Main.rand.NextFloat() < 0.75f)
                 {
-                    int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 66, 0f, 0f, 164, new Color(255, 0, 251), 1f);
+                    int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 66, 0f, 0f, 164, new Color(255, 0, 251), 1f);
                     Main.dust[dust].scale = 0.75f;
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].shader = GameShaders.Armor.GetSecondaryShader(player.cLight, player);
                 }
 
-                if (projectile.velocity.X > 0.5f)
-                    projectile.direction = -1;
-                else if (projectile.velocity.X < -0.5f)
-                    projectile.direction = 1;
+                if (Projectile.velocity.X > 0.5f)
+                    Projectile.direction = -1;
+                else if (Projectile.velocity.X < -0.5f)
+                    Projectile.direction = 1;
 
-                projectile.spriteDirection = projectile.direction;
-                projectile.frame = 6;
-                projectile.rotation -= (0.2f + Math.Abs(projectile.velocity.X) * 0.025f) * projectile.direction;
+                Projectile.spriteDirection = Projectile.direction;
+                Projectile.frame = 6;
+                Projectile.rotation -= (0.2f + Math.Abs(Projectile.velocity.X) * 0.025f) * Projectile.direction;
 
                 return;
             }
 
             if (num2 > 350f)
-                projectile.localAI[0] = 1f;
+                Projectile.localAI[0] = 1f;
 
-            if (projectile.velocity.X > 0.5f)
-                projectile.direction = -1;
-            else if (projectile.velocity.X < -0.5f)
-                projectile.direction = 1;
+            if (Projectile.velocity.X > 0.5f)
+                Projectile.direction = -1;
+            else if (Projectile.velocity.X < -0.5f)
+                Projectile.direction = 1;
 
-            projectile.spriteDirection = projectile.direction;
+            Projectile.spriteDirection = Projectile.direction;
 
             if (num2 < 10f)
             {
-                projectile.velocity.X = posX;
-                projectile.velocity.Y = posY;
-                projectile.rotation = projectile.velocity.X * 0.05f;
+                Projectile.velocity.X = posX;
+                Projectile.velocity.Y = posY;
+                Projectile.rotation = Projectile.velocity.X * 0.05f;
                 if (num2 < limit)
                 {
-                    projectile.position += projectile.velocity;
-                    projectile.velocity *= 0f;
+                    Projectile.position += Projectile.velocity;
+                    Projectile.velocity *= 0f;
                     velocity = 0;
                 }
 
-                projectile.direction = -player.direction;
+                Projectile.direction = -player.direction;
             }
 
             num2 = limit / num2;
@@ -150,45 +150,45 @@ namespace CalValEX.Projectiles.Pets.LightPets
             posX *= num2;
             posY *= num2;
 
-            if (projectile.velocity.X < posX)
+            if (Projectile.velocity.X < posX)
             {
-                projectile.velocity.X += velocity;
-                if (projectile.velocity.X < 0f)
-                    projectile.velocity.X *= 0.99f;
+                Projectile.velocity.X += velocity;
+                if (Projectile.velocity.X < 0f)
+                    Projectile.velocity.X *= 0.99f;
             }
 
-            if (projectile.velocity.X > posX)
+            if (Projectile.velocity.X > posX)
             {
-                projectile.velocity.X -= velocity;
-                if (projectile.velocity.X > 0f)
-                    projectile.velocity.X *= 0.99f;
+                Projectile.velocity.X -= velocity;
+                if (Projectile.velocity.X > 0f)
+                    Projectile.velocity.X *= 0.99f;
             }
 
-            if (projectile.velocity.Y < posY)
+            if (Projectile.velocity.Y < posY)
             {
-                projectile.velocity.Y += velocity;
-                if (projectile.velocity.Y < 0f)
-                    projectile.velocity.Y *= 0.99f;
+                Projectile.velocity.Y += velocity;
+                if (Projectile.velocity.Y < 0f)
+                    Projectile.velocity.Y *= 0.99f;
             }
 
-            if (projectile.velocity.Y > posY)
+            if (Projectile.velocity.Y > posY)
             {
-                projectile.velocity.Y -= velocity;
-                if (projectile.velocity.Y > 0f)
-                    projectile.velocity.Y *= 0.99f;
+                Projectile.velocity.Y -= velocity;
+                if (Projectile.velocity.Y > 0f)
+                    Projectile.velocity.Y *= 0.99f;
             }
 
-            if (projectile.velocity.X != 0f || projectile.velocity.Y != 0f)
-                projectile.rotation = projectile.velocity.X * 0.05f;
+            if (Projectile.velocity.X != 0f || Projectile.velocity.Y != 0f)
+                Projectile.rotation = Projectile.velocity.X * 0.05f;
 
-            projectile.frameCounter++;
-            if (projectile.frameCounter > 5)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter > 5)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
 
-                if (projectile.frame > 5)
-                    projectile.frame = 0;
+                if (Projectile.frame > 5)
+                    Projectile.frame = 0;
             }
         }
     }

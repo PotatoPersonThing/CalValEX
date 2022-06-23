@@ -17,16 +17,16 @@ namespace CalValEX.Items.Mounts.InfiniteFlight
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 30;
-            item.useTime = 20;
-            item.useAnimation = 20;
-            item.useStyle = 1;
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 11;
-            item.UseSound = SoundID.NPCHit56;
-            item.noMelee = true;
-            item.mountType = mod.MountType("YharonMount");
+            Item.width = 20;
+            Item.height = 30;
+            Item.useTime = 20;
+            Item.useAnimation = 20;
+            Item.useStyle = 1;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.rare = 11;
+            Item.UseSound = SoundID.NPCHit56;
+            Item.noMelee = true;
+            Item.mountType = ModContent.MountType<YharonMount>();
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -42,9 +42,9 @@ namespace CalValEX.Items.Mounts.InfiniteFlight
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(108, 45, 199); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(108, 45, 199); //change the color accordingly to above
                 }
             }
         }

@@ -8,29 +8,29 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Plagued Frog");
+            //DisplayName.SetDefault("Plagued Frog");
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.autoReuse = true;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 22;
-            item.height = 18;
-            item.noUseGraphic = true;
-            item.rare = 8;
+            Item.useStyle = 1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 22;
+            Item.height = 18;
+            Item.noUseGraphic = true;
+            Item.rare = 8;
 
-            Mod mod = ModLoader.GetMod("CalamityMod");
+            /*Mod mod = ModLoader.GetMod("CalamityMod");
             if (mod == null)
             {
                 return;
-            }
-            item.makeNPC = (short)NPCType<PlagueFrog>();
+            }*/
+            Item.makeNPC = (short)NPCType<PlagueFrog>();
         }
     }
 }

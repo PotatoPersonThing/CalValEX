@@ -4,9 +4,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Items.Critters;
-using CalamityMod;
+/*using CalamityMod;
 using CalamityMod.CustomRecipes;
-using CalamityMod.Items;
+using CalamityMod.Items;*/
 
 namespace CalValEX.Items.Pets
 {
@@ -21,28 +21,28 @@ namespace CalValEX.Items.Pets
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.ZephyrFish);
-            item.UseSound = SoundID.Item111;
-            item.shoot = mod.ProjectileType("MechaGeorge");
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            item.expert = true;
-            item.rare = 7;
-            item.buffType = mod.BuffType("MechaGeorgeBuff");
+            Item.CloneDefaults(ItemID.ZephyrFish);
+            Item.UseSound = SoundID.Item111;
+            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.MechaGeorge>();
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Item.expert = true;
+            Item.rare = 7;
+            Item.buffType = ModContent.BuffType<Buffs.Pets.MechaGeorgeBuff>();
         }
 
-	public override void ModifyTooltips(List<TooltipLine> tooltips) => CalamityGlobalItem.InsertKnowledgeTooltip(tooltips, 3);
+	//public override void ModifyTooltips(List<TooltipLine> tooltips) => CalamityGlobalItem.InsertKnowledgeTooltip(tooltips, 3);
 
-        public override void UseStyle(Player player)
+        public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
         }
 
-        public override void AddRecipes()
+       /* public override void AddRecipes()
         {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            //Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (calamityMod != null)
             {
 		ArsenalTierGatedRecipe recipe = new ArsenalTierGatedRecipe(mod, 3);
@@ -55,6 +55,6 @@ namespace CalValEX.Items.Pets
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

@@ -17,16 +17,12 @@ namespace CalValEX.Items.Equips.Hats
 
         public override void SetDefaults()
         {
-            item.width = 28;
-            item.height = 20;
-            item.rare = 11;
-            item.vanity = true;
-            item.value = Item.sellPrice(0, 3, 0, 0);
-        }
-
-        public override bool DrawHead()
-        {
-            return false;
+            Item.width = 28;
+            Item.height = 20;
+            Item.rare = 11;
+            Item.vanity = true;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Terraria.ID.ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
     }
 }

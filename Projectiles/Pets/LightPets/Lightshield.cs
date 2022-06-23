@@ -3,31 +3,32 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.GameContent;
 
 namespace CalValEX.Projectiles.Pets.LightPets
 {
     public class Lightshield : ModProjectile
     {
-        public override string Texture => "CalamityMod/NPCs/Cryogen/CryogenIce";
+        public override string Texture => "CalamityMod/NPCs/Cryogen/CryogenShield";
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Arctic Shield");
-            Main.projFrames[projectile.type] = 1;
-            Main.projPet[projectile.type] = true;
-            ProjectileID.Sets.LightPet[projectile.type] = true;
+            Main.projFrames[Projectile.type] = 1;
+            Main.projPet[Projectile.type] = true;
+            ProjectileID.Sets.LightPet[Projectile.type] = true;
         }
 
         public override void SetDefaults()
         {
-            projectile.damage = 0;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
-            projectile.ignoreWater = true;
-            projectile.hostile = false;
-            projectile.width = 222;
-            projectile.height = 216;
-            projectile.aiStyle = -1;
-            projectile.netImportant = true;
+            Projectile.damage = 0;
+            Projectile.friendly = true;
+            Projectile.tileCollide = false;
+            Projectile.ignoreWater = true;
+            Projectile.hostile = false;
+            Projectile.width = 222;
+            Projectile.height = 216;
+            Projectile.aiStyle = -1;
+            Projectile.netImportant = true;
         }
 
         public override bool? CanCutTiles()
@@ -35,45 +36,45 @@ namespace CalValEX.Projectiles.Pets.LightPets
             return false;
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            //Lighting.AddLight(projectile.Center, new Vector3(0.541176471f, 1f, 1f));
-            Texture2D texture = Main.projectileTexture[projectile.type];
-            spriteBatch.Draw(texture, projectile.Center - Main.screenPosition, null, projectile.GetAlpha(lightColor), projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.None, 0f);
+            //Lighting.AddLight(Projectile.Center, new Vector3(0.541176471f, 1f, 1f));
+            Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+            Main.EntitySpriteDraw(texture, Projectile.Center - Main.screenPosition, null, Projectile.GetAlpha(lightColor), Projectile.rotation, new Vector2(texture.Width / 2, texture.Height / 2), 1f, Projectile.spriteDirection == 1 ? SpriteEffects.None : SpriteEffects.None, 0);
             return false;
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
 
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
                 modPlayer.Lightshield = false;
             if (modPlayer.Lightshield)
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
 
             Vector2 idlePosition = player.Center;
-            idlePosition.Y -= projectile.height / 2;
-            idlePosition.X -= projectile.width / 2;
-            projectile.position = idlePosition;
-            projectile.spriteDirection = 1;
+            idlePosition.Y -= Projectile.height / 2;
+            idlePosition.X -= Projectile.width / 2;
+            Projectile.position = idlePosition;
+            Projectile.spriteDirection = 1;
 
-            projectile.rotation += 0.05f;
-            if (projectile.rotation > MathHelper.TwoPi)
+            Projectile.rotation += 0.05f;
+            if (Projectile.rotation > MathHelper.TwoPi)
             {
-                projectile.rotation -= MathHelper.TwoPi;
+                Projectile.rotation -= MathHelper.TwoPi;
             }
-            else if (projectile.rotation < 0)
+            else if (Projectile.rotation < 0)
             {
-                projectile.rotation += MathHelper.TwoPi;
+                Projectile.rotation += MathHelper.TwoPi;
             }
 
             /*Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (calamityMod != null)
             {
-                calamityMod.Call("AddAbyssLightStrength", projectile.owner, 2);
+                calamityMod.Call("AddAbyssLightStrength", Projectile.owner, 2);
             }*/
         }
     }

@@ -16,12 +16,12 @@ namespace CalValEX.Items.Pets
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.ZephyrFish);
-            item.UseSound = SoundID.NPCHit13;
-            item.shoot = mod.ProjectileType("JaredHead");
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 11;
-            item.buffType = mod.BuffType("JaredBuff");
+            Item.CloneDefaults(ItemID.ZephyrFish);
+            Item.UseSound = SoundID.NPCHit13;
+            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.JaredHead>();
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.rare = 11;
+            Item.buffType = ModContent.BuffType<Buffs.Pets.JaredBuff>();
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -37,25 +37,19 @@ namespace CalValEX.Items.Pets
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(255, 0, 255); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(255, 0, 255); //change the color accordingly to above
                 }
             }
         }
 
-        public override void UseStyle(Player player)
+        public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
-        }
-
-        public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-        {
-            type = mod.ProjectileType("JaredHead");
-            return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
         }
     }
 }

@@ -12,13 +12,13 @@ namespace CalValEX.Tiles.AstralMisc
 {
     public class AstralTallGrass : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
             Main.tileCut[Type] = true;
-            dustType = ModContent.DustType<AstralSolutionDust>();
+            DustType = ModContent.DustType<AstralSolutionDust>();
             TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
             TileObjectData.newTile.UsesCustomCanPlace = true;
             TileObjectData.newTile.Width = 1;
@@ -32,8 +32,7 @@ namespace CalValEX.Tiles.AstralMisc
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.RandomStyleRange = 21;
             TileObjectData.addTile(Type);
-            soundStyle = 1;
-            soundType = SoundID.Grass;
+            HitSound = SoundID.Grass;
         }
     }
 }

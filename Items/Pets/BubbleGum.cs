@@ -15,20 +15,20 @@ namespace CalValEX.Items.Pets
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.ZephyrFish);
-            item.UseSound = SoundID.Item111;
-            item.shoot = mod.ProjectileType("George");
-            item.value = Item.sellPrice(0, 0, 0, 1);
-            item.rare = 11;
-            item.expert = true;
-            item.buffType = mod.BuffType("GeorgeBuff");
+            Item.CloneDefaults(ItemID.ZephyrFish);
+            Item.UseSound = SoundID.Item111;
+            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.George>();
+            Item.value = Item.sellPrice(0, 0, 0, 1);
+            Item.rare = 11;
+            Item.expert = true;
+            Item.buffType = ModContent.BuffType<Buffs.Pets.GeorgeBuff>();
         }
 
-        public override void UseStyle(Player player)
+        public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
         }
     }

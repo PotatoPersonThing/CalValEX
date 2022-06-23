@@ -14,20 +14,20 @@ namespace CalValEX.Items.Walls.Astral
 
         public override void SetDefaults()
         {
-            item.width = 12;
-            item.height = 12;
-            item.maxStack = 999;
-            item.rare = 0;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 7;
-            item.useStyle = ItemUseStyleID.SwingThrow;
-            item.consumable = true;
-            item.createWall = ModContent.WallType<AstralDirtWallSafePlaced>();
+            Item.width = 12;
+            Item.height = 12;
+            Item.maxStack = 999;
+            Item.rare = 0;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 7;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.consumable = true;
+            Item.createWall = ModContent.WallType<AstralDirtWallSafePlaced>();
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ModContent.ItemType<AstralDirt>());
@@ -39,6 +39,6 @@ namespace CalValEX.Items.Walls.Astral
             recipe2.AddTile(mod.TileType("StarstruckSynthesizerPlaced"));
             recipe2.SetResult(this);
             recipe2.AddRecipe();
-        }
+        }*/
     }
 }

@@ -12,22 +12,22 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Giant Decapitated Floating Siren Head");
-            Main.projFrames[projectile.type] = 6; //frames
+            Main.projFrames[Projectile.type] = 6; //frames
         }
 
         public override string Texture => "CalValEX/Projectiles/Pets/Sirember";
 
         public override void SetDefaults() 
         {
-            projectile.width = 112;
-            projectile.height = 112;
-            projectile.ignoreWater = true;
-            projectile.penetrate = -1;
-            projectile.netImportant = true;
-            projectile.timeLeft *= 5;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
-            projectile.aiStyle = -1;
+            Projectile.width = 112;
+            Projectile.height = 112;
+            Projectile.ignoreWater = true;
+            Projectile.penetrate = -1;
+            Projectile.netImportant = true;
+            Projectile.timeLeft *= 5;
+            Projectile.friendly = true;
+            Projectile.tileCollide = false;
+            Projectile.aiStyle = -1;
         }
 
         public override void AI()
@@ -38,14 +38,14 @@ namespace CalValEX.Projectiles.Pets
 
             countdown++;
 
-            if (projectile.frame != 1)
+            if (Projectile.frame != 1)
             {
-                projectile.frame = 1;
+                Projectile.frame = 1;
             }
-            projectile.rotation = 0;
+            Projectile.rotation = 0;
             if (countdown == 660)
             { 
-                projectile.Kill();
+                Projectile.Kill();
 
             }
             else if (countdown == 600)
@@ -64,7 +64,7 @@ namespace CalValEX.Projectiles.Pets
             for (int x = 0; x < 60; x++)
             {
                 Dust dust;
-                dust = Main.dust[Terraria.Dust.NewDust(projectile.Center, 30, 30, 16, 0f, 0f, 0, new Color(255, 255, 255), 1.644737f)];
+                dust = Main.dust[Terraria.Dust.NewDust(Projectile.Center, 30, 30, 16, 0f, 0f, 0, new Color(255, 255, 255), 1.644737f)];
             }
         }
         public override void SendExtraAI(BinaryWriter writer)

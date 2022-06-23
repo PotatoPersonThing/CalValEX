@@ -6,10 +6,10 @@ namespace CalValEX.Buffs.Mounts
 {
     public class LeviathanMountBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Leviathan Hatchling");
-            Description.SetDefault("Better catch a fish");
+            //DisplayName.SetDefault("Leviathan Hatchling");
+            //Description.SetDefault("Better catch a fish");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

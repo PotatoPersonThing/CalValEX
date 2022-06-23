@@ -17,22 +17,22 @@ namespace CalValEX.Projectiles.Pong
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Pong UI");
-            Main.projFrames[projectile.type] = 1;
+            Main.projFrames[Projectile.type] = 1;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 832;
-            projectile.height = 512;
-            projectile.aiStyle = -1;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = false;
-            projectile.timeLeft = 18000;
+            Projectile.width = 832;
+            Projectile.height = 512;
+            Projectile.aiStyle = -1;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = false;
+            Projectile.timeLeft = 18000;
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             modPlayer.pongactive = true;
@@ -44,16 +44,16 @@ namespace CalValEX.Projectiles.Pong
                 checkpos = true;
             }
 
-            projectile.position.X = player.position.X - 400;
-            projectile.position.Y = player.position.Y - 240;
+            Projectile.position.X = player.position.X - 400;
+            Projectile.position.Y = player.position.Y - 240;
 
-            var thisRect = projectile.getRect();
+            var thisRect = Projectile.getRect();
 
             if (player.controlMount)
             {
                 modPlayer.pongstage = 0;
                 modPlayer.pongactive = false;
-                projectile.active = false;
+                Projectile.active = false;
             }
             if (modPlayer.pongactive)
             {
@@ -81,36 +81,36 @@ namespace CalValEX.Projectiles.Pong
                         }
                         if (!spawnstuff)
                         {
-                            Projectile.NewProjectile(player.position.X + player.width / 2 - 240, player.position.Y + player.height / 2 - 40,
+                            Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 - 240, player.position.Y + player.height / 2 - 40,
                                 0f, 0f, ModContent.ProjectileType<Projectiles.Pong.PlayerSlider>(), 0, 0f, player.whoAmI);
-                            Projectile.NewProjectile(player.position.X + player.width / 2 + 80, player.position.Y + player.height / 2 - 40,
+                            Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 80, player.position.Y + player.height / 2 - 40,
                                 -4f, -4f, ModContent.ProjectileType<Projectiles.Pong.PongBall>(), 0, 0f, player.whoAmI);
                             switch (modPlayer.pongstage)
                             {
                                 case 3:
-                                    Projectile.NewProjectile(player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
+                                    Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
                                         0f, -4f, ModContent.ProjectileType<Projectiles.Pong.DSSlider>(), 0, 0f, player.whoAmI);
                                     break;
                                 case 4:
-                                    Projectile.NewProjectile(player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
+                                    Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
                                         0f, -4f, ModContent.ProjectileType<Projectiles.Pong.CrabSlider>(), 0, 0f, player.whoAmI);
                                     break;
                                 case 5:
-                                    Projectile.NewProjectile(player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
+                                    Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
                                         0f, -4f, ModContent.ProjectileType<Projectiles.Pong.HiveSlider>(), 0, 0f, player.whoAmI);
                                     break;
                                 case 6:
-                                    Projectile.NewProjectile(player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
+                                    Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
                                         0f, -4f, ModContent.ProjectileType<Projectiles.Pong.PerfSlider>(), 0, 0f, player.whoAmI);
                                     break;
                                 case 7:
-                                    Projectile.NewProjectile(player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 20,
+                                    Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 20,
                                         0f, 4f, ModContent.ProjectileType<Projectiles.Pong.SGSlider>(), 0, 0f, player.whoAmI);
-                                    Projectile.NewProjectile(player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 80,
+                                    Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 80,
                                         0f, -4f, ModContent.ProjectileType<Projectiles.Pong.SGSlider>(), 0, 0f, player.whoAmI);
                                     break;
                                 default:
-                                    Projectile.NewProjectile(player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
+                                    Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
                                         0f, -4f, ModContent.ProjectileType<Projectiles.Pong.DSSlider>(), 0, 0f, player.whoAmI);
                                     break;
                             }
@@ -121,74 +121,74 @@ namespace CalValEX.Projectiles.Pong
             }
         }
 
-        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override void PostDraw(Color lightColor)
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (modPlayer.pongactive)
             {
-                Texture2D texture2 = ModContent.GetTexture("CalValEX/ExtraTextures/Pong/PongBG");
-                Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[projectile.type] * projectile.frame, texture2.Width, texture2.Height / Main.projFrames[projectile.type]);
-                Vector2 position2 = projectile.Center - Main.screenPosition;
-                position2.X += drawOffsetX;
-                position2.Y += drawOriginOffsetY;
-                spriteBatch.Draw(texture2, position2, rectangle2, Color.White, projectile.rotation, projectile.Size / 2f, 1f, (projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0f);
+                Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongBG").Value;
+                Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2.Width, texture2.Height / Main.projFrames[Projectile.type]);
+                Vector2 position2 = Projectile.Center - Main.screenPosition;
+                position2.X += DrawOffsetX;
+                position2.Y += DrawOriginOffsetY;
+                Main.EntitySpriteDraw(texture2, position2, rectangle2, Color.White, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
 
                 //Screen types
 
-                Texture2D texture = ModContent.GetTexture("CalValEX/ExtraTextures/Pong/PongInitialPrompt");
+                Texture2D texture = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongInitialPrompt").Value;
 
                 if (modPlayer.pongstage == 0)
                 {
-                    texture = ModContent.GetTexture("CalValEX/ExtraTextures/Pong/PongInitialPrompt");
+                    texture = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongInitialPrompt").Value;
                 }
                 else if (modPlayer.pongstage == 1)
                 {
-                    texture = ModContent.GetTexture("CalValEX/ExtraTextures/Pong/PongLossPrompt");
+                    texture = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongLossPrompt").Value;
                 }
                 else if (modPlayer.pongstage == 2)
                 {
-                    texture = ModContent.GetTexture("CalValEX/ExtraTextures/Pong/PongWinPrompt");
+                    texture = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongWinPrompt").Value;
                 }
                 else
                 {
-                    texture = ModContent.GetTexture("CalValEX/ExtraTextures/Pong/InnerBarriers");
+                    texture = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/InnerBarriers").Value;
                 }
-                Vector2 position = projectile.Center - Main.screenPosition;
-                position.X += drawOffsetX;
-                position.Y += drawOriginOffsetY;
-                spriteBatch.Draw(texture, position, rectangle2, Color.White, projectile.rotation, projectile.Size / 2f, 1f, (projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0f);
+                Vector2 position = Projectile.Center - Main.screenPosition;
+                position.X += DrawOffsetX;
+                position.Y += DrawOriginOffsetY;
+                Main.EntitySpriteDraw(texture, position, rectangle2, Color.White, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
 
                 //Opponent icon
-                Texture2D mapicon = ModContent.GetTexture("CalValEX/Buffs/Pets/DesertBuff");
+                Texture2D mapicon = ModContent.Request<Texture2D>("CalValEX/Buffs/Pets/DesertBuff").Value;
 
                 if (modPlayer.pongstage == 3)
                 {
-                    mapicon = ModContent.GetTexture("CalValEX/Buffs/Pets/DesertBuff");
+                    mapicon = ModContent.Request<Texture2D>("CalValEX/Buffs/Pets/DesertBuff").Value;
                 }
                 else if (modPlayer.pongstage == 4)
                 {
-                    mapicon = ModContent.GetTexture("CalValEX/Buffs/Pets/CrabBuff");
+                    mapicon = ModContent.Request<Texture2D>("CalValEX/Buffs/Pets/CrabBuff").Value;
                 }
                 else if (modPlayer.pongstage == 6)
                 {
-                    mapicon = ModContent.GetTexture("CalValEX/Buffs/Pets/FistuloidBuff");
+                    mapicon = ModContent.Request<Texture2D>("CalValEX/Buffs/Pets/FistuloidBuff").Value;
                 }
                 else if (modPlayer.pongstage == 7)
                 {
-                    mapicon = ModContent.GetTexture("CalValEX/Buffs/Pets/SlimeBuff");
+                    mapicon = ModContent.Request<Texture2D>("CalValEX/Buffs/Pets/SlimeBuff").Value;
                 }
                 else
                 {
-                    mapicon = ModContent.GetTexture("CalValEX/Buffs/Pets/HivelingBuff");
+                    mapicon = ModContent.Request<Texture2D>("CalValEX/Buffs/Pets/HivelingBuff").Value;
                 }
-                Rectangle rectangle3 = new Rectangle(0, mapicon.Height / Main.projFrames[projectile.type] * projectile.frame, mapicon.Width, mapicon.Height / Main.projFrames[projectile.type]);
-                Vector2 position3 = projectile.Center - Main.screenPosition;
-                position3.X = position3.X + drawOffsetX + 400;
-                position3.Y = position3.Y + drawOriginOffsetY - 16;
+                Rectangle rectangle3 = new Rectangle(0, mapicon.Height / Main.projFrames[Projectile.type] * Projectile.frame, mapicon.Width, mapicon.Height / Main.projFrames[Projectile.type]);
+                Vector2 position3 = Projectile.Center - Main.screenPosition;
+                position3.X = position3.X + DrawOffsetX + 400;
+                position3.Y = position3.Y + DrawOriginOffsetY - 16;
                 if (modPlayer.pongstage > 2)
                 {
-                    spriteBatch.Draw(mapicon, position3, rectangle3, Color.White, projectile.rotation, projectile.Size / 2f, 1f, (projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0f);
+                    Main.EntitySpriteDraw(mapicon, position3, rectangle3, Color.White, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
                 }
             }
         }

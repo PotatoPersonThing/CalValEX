@@ -5,14 +5,12 @@ namespace CalValEX.Buffs.Transformations
 {
 	public class CloudTransformationBuff : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Cloud Elemental Transformation");
-			Description.SetDefault("Feelin' Cloudy");
 			Main.debuff[Type] = true;
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
-			canBeCleared = false;
+			
 		}
 	}
 }

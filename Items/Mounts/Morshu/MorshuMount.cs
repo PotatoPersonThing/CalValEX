@@ -2,63 +2,65 @@
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using System;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 
 namespace CalValEX.Items.Mounts.Morshu
 {
-    public class MorshuMount : ModMountData
+    public class MorshuMount : ModMount
     {
         public int morshuscal = 0;
         private bool morshuguncheck;
         private bool morshuplaysound;
         private bool scaldying;
         private bool gunsound;
-        public override void SetDefaults()
+        Terraria.Audio.SoundStyle Draespeech = new("CalValEX/Sounds/Item/MorshuDraedon");
+        public override void SetStaticDefaults()
         {
-            mountData.buff = ModContent.BuffType<MorshuBuff>();
-            mountData.heightBoost = 94;
-            mountData.flightTimeMax = 0;
-            mountData.fallDamage = 0.5f;
-            mountData.runSpeed = 8f;
-            mountData.dashSpeed = 8f;
-            mountData.acceleration = 0.35f;
-            mountData.jumpHeight = 18;
-            mountData.jumpSpeed = 8.25f;
-            mountData.constantJump = true;
-            mountData.totalFrames = 4;
-            int[] array = new int[mountData.totalFrames];
+            MountData.buff = ModContent.BuffType<MorshuBuff>();
+            MountData.heightBoost = 94;
+            MountData.flightTimeMax = 0;
+            MountData.fallDamage = 0.5f;
+            MountData.runSpeed = 8f;
+            MountData.dashSpeed = 8f;
+            MountData.acceleration = 0.35f;
+            MountData.jumpHeight = 18;
+            MountData.jumpSpeed = 8.25f;
+            MountData.constantJump = true;
+            MountData.totalFrames = 4;
+            int[] array = new int[MountData.totalFrames];
             for (int l = 0; l < array.Length; l++)
             {
                 array[l] = 94;
             }
-            mountData.playerYOffsets = array;
-            mountData.xOffset = 30;
-            mountData.bodyFrame = 3;
-            mountData.yOffset = 0;
-            mountData.playerHeadOffset = 94;
-            mountData.standingFrameCount = 1;
-            mountData.standingFrameDelay = 12;
-            mountData.standingFrameStart = 0;
-            mountData.runningFrameCount = 4;
-            mountData.runningFrameDelay = 60;
-            mountData.runningFrameStart = 0;
-            mountData.flyingFrameCount = 0;
-            mountData.flyingFrameDelay = 0;
-            mountData.flyingFrameStart = 0;
-            mountData.inAirFrameCount = 1;
-            mountData.inAirFrameDelay = 12;
-            mountData.inAirFrameStart = 3;
-            mountData.idleFrameCount = 0;
-            mountData.idleFrameDelay = 0;
-            mountData.idleFrameStart = 0;
+            MountData.playerYOffsets = array;
+            MountData.xOffset = 30;
+            MountData.bodyFrame = 3;
+            MountData.yOffset = 0;
+            MountData.playerHeadOffset = 94;
+            MountData.standingFrameCount = 1;
+            MountData.standingFrameDelay = 12;
+            MountData.standingFrameStart = 0;
+            MountData.runningFrameCount = 4;
+            MountData.runningFrameDelay = 60;
+            MountData.runningFrameStart = 0;
+            MountData.flyingFrameCount = 0;
+            MountData.flyingFrameDelay = 0;
+            MountData.flyingFrameStart = 0;
+            MountData.inAirFrameCount = 1;
+            MountData.inAirFrameDelay = 12;
+            MountData.inAirFrameStart = 3;
+            MountData.idleFrameCount = 0;
+            MountData.idleFrameDelay = 0;
+            MountData.idleFrameStart = 0;
 
             if (Main.netMode == NetmodeID.Server)
             {
                 return;
             }
 
-            mountData.textureWidth = mountData.backTexture.Width;
-            mountData.textureHeight = mountData.backTexture.Height;
+            MountData.textureWidth = MountData.backTexture.Width();
+            MountData.textureHeight = MountData.backTexture.Height();
         }
 
         public override void UpdateEffects(Player player)
@@ -70,13 +72,13 @@ namespace CalValEX.Items.Mounts.Morshu
             }
 
             MorshuConsumeCoinAI(player, 5);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            //Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (scaldying)
             {
                 morshuscal++;
                 if (!morshuplaysound && morshuscal >= 60)
                 {
-                    Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/MorshuDraedon"));
+                    Terraria.Audio.SoundEngine.PlaySound(Draespeech, player.Center);
                     morshuplaysound = true;
                 }
                 if (morshuscal >= 240)
@@ -84,16 +86,16 @@ namespace CalValEX.Items.Mounts.Morshu
                     player.GetModPlayer<CalValEXPlayer>().morshugun = true;
                     if (!gunsound)
                     {
-                        Main.PlaySound(SoundID.Item117);
+                        Terraria.Audio.SoundEngine.PlaySound(SoundID.Item117);
                         gunsound = true;
                     }
                 }
                 if (morshuscal >= 480)
                 {
                     Vector2 perturbedSpeed = new Vector2(40, 0).RotatedByRandom(MathHelper.ToRadians(10));
-                    Main.PlaySound(SoundID.Item11);
-                    Projectile.NewProjectile(player.position.X + (104 * player.direction), player.position.Y + 78, 40 * player.direction, perturbedSpeed.Y, calamityMod.ProjectileType("AccelerationBulletProj"), 30000, 0.1f, player.whoAmI, 0f, 0f);
-                    Projectile.NewProjectile(player.position.X + (74 * player.direction), player.position.Y + 78, 40 * player.direction, perturbedSpeed.Y, calamityMod.ProjectileType("AccelerationBulletProj"), 30000, 0.1f, player.whoAmI, 0f, 0f);
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item11);
+                    Projectile.NewProjectile(new EntitySource_Parent(player), player.position.X + (104 * player.direction), player.position.Y + 78, 40 * player.direction, perturbedSpeed.Y, ProjectileID.GoldenBullet/*calamityMod.ProjectileType("AccelerationBulletProj")*/, 30000, 0.1f, player.whoAmI, 0f, 0f);
+                    Projectile.NewProjectile(new EntitySource_Parent(player), player.position.X + (74 * player.direction), player.position.Y + 78, 40 * player.direction, perturbedSpeed.Y, ProjectileID.GoldenBullet/*calamityMod.ProjectileType("AccelerationBulletProj")*/, 30000, 0.1f, player.whoAmI, 0f, 0f);
                 }
             }
 
@@ -104,7 +106,7 @@ namespace CalValEX.Items.Mounts.Morshu
                 morshuplaysound = false;
                 gunsound = false;
             }
-            if (NPC.AnyNPCs(calamityMod.NPCType("Draedon")))
+            /*if (NPC.AnyNPCs(calamityMod.NPCType("Draedon")))
             {
                 for (int x = 0; x < Main.maxNPCs; x++)
                 {
@@ -123,12 +125,12 @@ namespace CalValEX.Items.Mounts.Morshu
                     //npc.dontTakeDamage = false && npc.life <= npc.lifeMax * 0.99 && 
                     //(npc.dontTakeDamage = false)
                 }
-            }
+            }*/
             
-            if (!NPC.AnyNPCs(calamityMod.NPCType("Draedon")))
+            /*if (!NPC.AnyNPCs(calamityMod.NPCType("Draedon")))
             {
                 scaldying = false;
-            }
+            }*/
 
             //This is here for testing
             /*if (NPC.AnyNPCs(calamityMod.NPCType("SuperDummyNPC")))
@@ -279,19 +281,19 @@ namespace CalValEX.Items.Mounts.Morshu
 
                 //if no coin consumed, make the player slower.
 
-                mountData.runSpeed = 8f;
-                mountData.dashSpeed = 8f;
-                mountData.acceleration = 0.35f;
-                mountData.jumpHeight = 18;
-                mountData.jumpSpeed = 8.25f;
+                MountData.runSpeed = 8f;
+                MountData.dashSpeed = 8f;
+                MountData.acceleration = 0.35f;
+                MountData.jumpHeight = 18;
+                MountData.jumpSpeed = 8.25f;
 
                 if (!consumed)
                 {
-                    mountData.runSpeed = 2f;
-                    mountData.dashSpeed = 2f;
-                    mountData.acceleration = 0.05f;
-                    mountData.jumpHeight = 4;
-                    mountData.jumpSpeed = 8.25f;
+                    MountData.runSpeed = 2f;
+                    MountData.dashSpeed = 2f;
+                    MountData.acceleration = 0.05f;
+                    MountData.jumpHeight = 4;
+                    MountData.jumpSpeed = 8.25f;
                 }
             }
         }
@@ -324,7 +326,7 @@ namespace CalValEX.Items.Mounts.Morshu
             }
 
             if (!coinBool) //if all else fails, spawn the coins outside.
-                player.QuickSpawnItem(coinType, coinCount);
+                player.QuickSpawnItem(new EntitySource_Parent(player), coinType, coinCount);
         }
     }
 }

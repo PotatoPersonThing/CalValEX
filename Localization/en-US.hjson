@@ -1,0 +1,431 @@
+﻿Mods: {
+	CalValEX: {
+		
+		NPCName: {
+			# April fools!
+			Meldosaurus : Meldosaurus
+			Jharim : Jungle Tyrant
+			Fogbound : '''Hyper Ultra Omega Fogbound GOD EX: Prepare to Stygian Edition'''
+			#Critters
+			AstJR : Astragelly Slime
+			Blightolemur : Bleamur
+			Blinker : Blinker
+			CrystalFly : Profaned Butterfly
+			Eyedol: Eyedol
+			GAstJR : Gold Astragelly Slime
+			GodSlayerSlug : God Slayer Slug
+			GoldenIsopod : Gold Isopod
+			GoldEyedol : Gold Eyedol
+			GoldViolemur : Gold Violemur
+			Isopod : Abyssal Isopod
+			NukeFly : Vaporofly
+			Orthobab : Orthocera Hatchling
+			OrthoceraApparition : '''Orthocera?'''
+			PlagueFrog : Plagued Frog
+			ProvFly : Profaned Butterfly
+			SandTurtle : Sand Turtle
+			Swearshroom : Swearshroomh
+			Violemur : Violemur
+			Xerocodile : Awakened Xerocodile
+			XerocodileSwim : Awakened Xerocodile
+		}
+		
+		ItemName: {
+			# April fools!
+			AmogusItem : Polus Communicator
+			ShadesBane : The Shade's Bane
+			Nyanthrop : Nyanthrop
+			KnowledgeMeldosaurus : Meldosaurus
+			MeldosaurusMask : Meldosaurus Mask
+			MeldosaurusTrophy : Meldosaurus Trophy
+			MeldosaurusMusicBox : Music Box (Meldosaurus)
+			MeldosaurusBag : Treasure Bag
+			JharimHead : Jungle Tyrant Jharim's Decapitated Head
+			FogG : Purified Fog
+			# Critters
+			AstJRItem : Astragelly Slime
+			BlightolemurItem : Bleamur
+			BlinkerItem : Blinker
+			CrystalFlyItem : Profaned Butterfly
+			EyedolItem: Eyedol
+			GAstJRItem : Gold Astragelly Slime
+			GodSlayerSlugItem : God Slayer Slug
+			GoldenIsopodItem : Gold Isopod
+			GoldEyedolItem : Gold Eyedol
+			GoldViolemurItem : Gold Violemur
+			IsopodItem : Abyssal Isopod
+			NukeFlyItem : Vaporofly
+			OrthobabItem : Orthocera Hatchling
+			PlagueFrogItem : Plagued Frog
+			ProvFlyItem : Profaned Butterfly
+			SandTurtleItem : Sand Turtle
+			SwearshroomItem : Swearshroom
+			ViolemurItem : Violemur
+			XerocodileItem : Awakened Xerocodile
+			# Tiles
+			BubbleMachine : Effervescent Bubbler
+		}
+		
+		ItemTooltip: {
+			# April fools!
+			AmogusItem: '''Summons a Stratus Astronaut
+				UNOBTAINABLE
+				Cheating this item in may have disastrous consequences
+				Hates alien dinosaurs'''
+			ShadesBane : '''Makes cursed fireballs erupt from enemies on true melee hits
+			Right click to unleash fireballs in random directions along with an onyx dart
+			'Edgy sword #2940358304' '''
+			Nyanthrop : Fires typhoons in random directions
+			KnowledgeMeldosaurus : '''The Meldosaurus...
+				A dreaded creature birthed from the wills of decay. Nobody knows why it exists, and what it wants...
+				HUGH! Glad he's gone now!!! Him being inside me was making me itchy!'''
+			JharimHead: '''Summons the Jungle Tyrant
+				Does not work outside of April Fools'''
+			FogG: ''':Why:
+				Summons the Fogbound'''
+			#Tiles
+			BubbleMachine : '''That's like, groovy mannn'''
+		}
+		
+		ProjectileName: {
+			# Meldosaurus stuff
+			EntropicVomet: Entropic Vomet
+			TomeoFates: Tome of Fates
+			GodsFire: God's Fire
+			ShardofAntumbra: Shard of Antumbra
+			MeldosaurusClone: Meldosaurus Shade
+		}
+
+		MapObject: {
+			# Meldosaurus stuff
+			MeldosaurusMusicBoxPlaced: Music Box
+			MeldosaurusTrophyPlaced: Meldosaurus Trophy
+		}
+		
+		BuffName: {
+			AmogusBuff: Stratus Astronaut
+			# Light pets
+			DarksunSpiritBuff: Darksun Spirits
+			EnredBuff: Cosmic Assistant
+			GodrgeBuff: Godrge
+			HeatBuff: Chaos Skulls
+			ImpBuff: Minimpious
+			PhantomBuff: Freed Phantom Spirit
+			ProBuff: The Profaned Armada
+			PylonBuff: Proto-Pylon
+			SeerBuff: Sightseeing Tour
+			SolarBunBuff: Sun Bun
+			SupJewelBuff: Superstitious Jewel
+			VanityCoreBuff: Core of Vanity
+			YeetBuff: Litfish
+			# Mounts
+			AnthozoanBuff: Cambrian Crustacean
+			AuricTeslaBuff : Auric Tesla
+			BikeBuff: Profaned Cycle
+			BloodstoneCarriageBuff: Bloodstone Carriage
+			FloatyBuff: Floaty Rug
+			HadarianBuff: Hadarian Fledgling
+			HiveVuff: Conglomeration Mind
+			LeviathanMountBuff: Leviathan Guppy
+			NuclearHorrorBuff: Nuclear Horror
+			PBGMountBuff: Plague Rider
+			SilvaJeepBuff: Silvian Jeep
+			TractorMount: Wulfrum Tank
+			YharonMountBuff: Yharite
+			# Elementals
+			cloudbuff: Smol Cloud
+			minihotebuff: Childish Heart
+			MoistBuff: Vibrant Siren Child
+			rarebrimlingbuff: Rare Brimling
+			RareSsandBuff: Small Sand Elemental
+			SsandBuff: Tiny Sand Elemental
+			# Exos
+			AresBuff: Toy XF-Ares
+			ExoMayhemBuff: Toy Exo Mechs
+			ThanatosBuff: Toy XM-Thanatos
+			TwinsBuff: Toy XS-Apollo and Artemis
+			# Scuttlers
+			AmberBuff: Amber Scuttler
+			AmethystBuff: Amethyst Scuttler
+			BejeweledBuff: Bejeweled Scuttler
+			CrystalBuff: Crystal Scuttler
+			DiamondBuff: Diamond Scuttler
+			EmeraldBuff: Emerald Scuttler
+			RubyBuff: Ruby Scuttler
+			SapphireBuff: Sapphire Scuttler
+			TopazBuff: Topaz Scuttler
+			# Pets
+			AeroBuff: Aero Slimes
+			AndroombaBuff: Androomba
+			AquaBuff: Aquatic Pest
+			AvalonBuff: Ascended Profaned Guardian
+			BabySquidBuff: '''Lil' Squiddo'''
+			BeeBuff: Reprogrammed Plaguebringer
+			BlockarozBuff: A Cube
+			BuppyBuff: Buppy
+			CalamityBABYBuff: God's Presence
+			CatfishBuff: Fishcat
+			ChilledOut: Cool Dude
+			ckidbuff: Chilled Out 2
+			ClamHermitBuff: Clam Hermit
+			CnidBuff: Little Cnidrion
+			CoolBlueBuff: Cool Blue Dudes
+			CrabBuff: Fungal Crab
+			DebrisPet: Phantom Buggo
+			DEBuff: Dark Aura
+			DesertBuff: Desert Pest
+			DeusBuff: Astrum Demus
+			DogBuff: The Devourer of Gods
+			Doggobuff: Upset Pupper
+			EggBuff: Orphaned Egg
+			EurosBuff: Chibii Euros
+			Excalibuff: Claidheamh Soluis
+			FathomEelBuff: Fathom Eel
+			FistuloidBuff: Fleshtuloid
+			FogBuff: Fogbound
+			FollyBuff: Dracoswarmer
+			GeorgeBuff: George
+			GoozmaBuff: Goozma
+			GrandBuff: Great Grandson Shark
+			HivelingBuff: Cluster Mind
+			HoodiedolistBuff: Hoodiedolist
+			JaredBuff: Eidolon Wyrm
+			JellyBuff: Astral Gelatin
+			JunkoBuff: Junsi
+			LumpyBuff: Lumpy
+			MechaGeorgeBuff: G30RG3
+			MiniBumbleBuff: Mini Birb
+			MiniDogeBuff: Murderswarm
+			MoistScourgeBuff: Dune Pest
+			NuclearFuryshronBuff: Dukapitated
+			NuggetBuff: The Jungle Nugget
+			OmegaSquidBuff: Omega Squiddo
+			OrbBuff: The Dragonball
+			PhageBuff: Space Sick
+			PillagerBuff: Province Pilferer
+			PolterBuff: '''Polter-Chan'''
+			PuppoBuff: Chihuahua Puppo
+			ReaperBuff: Buff Man
+			RedPandaBuff: Tara, the Tarafying panda is following you
+			Rembuff: Giant Decapitated Floating Siren Head
+			RepurposedMonitorBuff: Charletron
+			RoverSpindleBuff: Wulfrum Rover
+			RustyBuff: Rusty Mimic
+			SadStoneBuff: Sad Rock
+			ScorchingFuryshronBuff: Scorching Dukapitated
+			ScourgeBuff: Twin Pests
+			SentiPet: The Sentinels
+			SepulcherBuff: Fallen Sepulchling
+			SepulcherBuffNeo: Sepulchling
+			ShartBuff: The Sharks
+			SigBuff: Cloak and Dagger
+			SkaterBuff: Sulphurous Skater Nymph
+			SlimeBuff: Slime Demigods
+			SmaulerBuff: Smauler
+			StasisArmoredBuff: Armored Stasis Drone
+			StasisNakedBuff: Naked Stasis Drone
+			SWPetBuff: '''Lil' Weaver'''
+			TerminalRockBuff: '''Xeroc's Pet Rock'''
+			TUBBUFF: '''T.U.B'''
+			UngodlyBuff: Ungodly Dude
+			WulfrumArmy: Wulfrum Army
+			WyrmBuff: Eidolon Inchwyrm
+			YharimSquidBuff: Auric Squiddo
+			# Transformations
+			ClassicBrimmyBuff: Brimstone Elemental Transformation
+			CloudTransformationBuff: Cloud Elemental Transformation
+			ProtoRingBuff: Proto-Andromeda
+			SandTransformationBuff: Sand Elemental Transformation
+			SignutTransformationBuff: Ethereal Assassin
+			# Æ: Drae's stuff
+			AlarmClockBuff: Alarm Clock
+			AlterBellBuff: Altar Bell
+			BestInstrumentBuff: Best Instrument
+			DustChimeBuff: Dust Chime
+			HarbingerOfWorkBuff: Harbinger Of Work
+			MaladyBellsBuff: Malady Bells
+			NurseryBellsBuff: Nursery Bells
+			ScratchedGongBuff: Scratched Gong
+			SpiritDinerBuff: Spirit Diner Bell
+			TubRuneBuff: T.U.B. Rune
+			VaselineBuff: Vaseline Bell
+			WormBellBuff: Slither Charm
+			PandoraBuff: Pandemonium Box
+		}
+		
+		BuffDescription: {
+			AmogusBuff: amogus
+			# Light pets
+			DarksunSpiritBuff: The Darksun Spirits have decided to follow you!
+			EnredBuff: He's here to help!
+			GodrgeBuff: Pathetic.
+			HeatBuff: Here to judge you for your sins... not really
+			ImpBuff: Hey!
+			PhantomBuff: Finally free, but still follows you!
+			ProBuff: Providence and her army shines holy light through the dark
+			PylonBuff: Supercharges other proto-bots
+			SeerBuff: Seeing the world together
+			SolarBunBuff: Bask under thy divine light
+			SupJewelBuff: Pure is impure
+			VanityCoreBuff: Everyone gets along!
+			YeetBuff: A baby sunskater will follow you now.
+			# Mounts
+			AnthozoanBuff: This one won't throw rocks at you
+			AuricTeslaBuff: '''Yharim Car
+				Yharim Car'''
+			BikeBuff: For when you really need to get somewhere, in style.
+			BloodstoneCarriageBuff: '''You could even call it a mi-'''
+			FloatyBuff: '''Warning: flight not included.'''
+			HadarianBuff: SCREEEE
+			HiveVuff: I swear it's not what you think
+			LeviathanMountBuff: Better catch a fish
+			NuclearHorrorBuff: Why its helping you is beyond you
+			PBGMountBuff: Ya gotta beelieve in yourself
+			SilvaJeepBuff: Beep beep I'm a jeep
+			TractorMount: Move forward soldier!
+			YharonMountBuff: He's finally here!
+			# Elementals
+			cloudbuff: She can't protect you, but she's doing her best
+			minihotebuff: Its like you're running a day-care or something
+			MoistBuff: She can't defend you, but she's doing her best
+			rarebrimlingbuff: She can't protect you, but she's doing her best
+			RareSsandBuff: She can't heal you, but she's doing her best
+			SsandBuff: She can't protect you, but she's doing her best
+			# Exos
+			AresBuff: He appears
+			ExoMayhemBuff: Perfected entertainment providers
+			ThanatosBuff: T(oy t) han(at)os
+			TwinsBuff: Here they are
+			# Scuttlers
+			AmberBuff: Still won't let go of its gem
+			AmethystBuff: Still won't let go of its gem
+			BejeweledBuff: Still won't let go of its gems
+			CrystalBuff: Still won't let go of its crystal
+			DiamondBuff: Still won't let go of its gem
+			EmeraldBuff: Still won't let go of its gem
+			RubyBuff: Still won't let go of its gem
+			SapphireBuff: Still won't let go of its gem
+			TopazBuff: Still won't let go of its gem
+			# Pets
+			AeroBuff: We glide together
+			AndroombaBuff: Nyoooom!
+			AquaBuff: Blaaaargh!
+			AvalonBuff: Because blue fire is cooler looking
+			BabySquidBuff: '''^-^'''
+			BeeBuff: BEEp. Boop. Buzz.
+			BlockarozBuff: I take this as a declaration
+			BuppyBuff: Will you throw that ball?
+			CalamityBABYBuff: The BABY of a omnipotent GOD accompany you... Just don't get hit
+			CatfishBuff: What? Its a Catfish, what are you talking about?
+			ChilledOut: A really cool dude will follow you around
+			ckidbuff: Cryokid boogaloo
+			ClamHermitBuff: An odd lil' fellow
+			CnidBuff: The poor thing could really use a tissue
+			CoolBlueBuff: Some very coul bleu doods
+			CrabBuff: They're a pretty Fun-Gi
+			DebrisPet: Listen here you lil
+			DEBuff: An aura of pure nothingness floats near you
+			DesertBuff: Blaaaargh
+			DeusBuff: Wormheck
+			DogBuff: '''This probably isn't canon...'''
+			Doggobuff: Like, the fifth best dog in calamity
+			EggBuff: It... thinks you're it's mother...
+			EurosBuff: Chibii Euros is following you, cautiously
+			Excalibuff: You can't expect to wield supreme power just because some tart threw a sword at you
+			FathomEelBuff: A crawling shape intrude!
+			FistuloidBuff: Gross
+			FogBuff: Augh
+			FollyBuff: A clone of a clone of a clone of a clone
+			GeorgeBuff: George
+			GoozmaBuff: The last trace of that which has been erased from time itself
+			GrandBuff: Heir to the apex throne
+			HivelingBuff: A small pack of microorganisms are following you
+			HoodiedolistBuff: The cloak is his home
+			JaredBuff: Up from the depths
+			JellyBuff: A relic of a long forgotten past
+			JunkoBuff: Pure Fury
+			LumpyBuff: Lumpy
+			MechaGeorgeBuff: ...KDlt7S1U9x8
+			MiniBumbleBuff: Tweet
+			MiniDogeBuff: The Bombles follow your every move
+			MoistScourgeBuff: Blerch
+			NuclearFuryshronBuff: One of many...
+			NuggetBuff: Rawr!
+			OmegaSquidBuff: The real Cthulhu
+			OrbBuff: Vibrating at intense speeds
+			PhageBuff: You have been infected by the fledgling Aureophage!
+			PillagerBuff: '''It's time to shred and thrash!'''
+			PolterBuff: Poooolteeer chaaaaaaaaaaannnn
+			PuppoBuff: He's a good boy
+			ReaperBuff: You could say this is a... buff buff
+			RedPandaBuff: Tara, the Tarafying panda is following you
+			Rembuff: Awaiting arrival since 2018!
+			RepurposedMonitorBuff: Incompatible yet irreplacible
+			RoverSpindleBuff: Brilliance irreplaceable...
+			RustyBuff: Good thing there aren't bigger ones
+			SadStoneBuff: ''':('''
+			ScorchingFuryshronBuff: '''Don't do Scoria kids'''
+			ScourgeBuff: Blaaaargh^2
+			SentiPet: The Cosmic Terrors watch over you
+			SepulcherBuff: '''A dark construct composed of the long deceased souls of the innocent...
+	Cute'''
+			SepulcherBuffNeo: THIS ONE is benevolent
+			ShartBuff: No they can't play hockey
+			SigBuff: The Ethereal Assassin will watch your back... probably
+			SkaterBuff: Feed it acidic bubbles for it to grow stronger!
+			SlimeBuff: Heirs to the throne
+			SmaulerBuff: Chow~
+			StasisArmoredBuff: Dense as most anime protagonists
+			StasisNakedBuff: Stop looking at me... b-baka...
+			SWPetBuff: '''"Guess they aren't extinct afterall"'''
+			TerminalRockBuff: '''"This does put a smile on my face..."'''
+			TUBBUFF: A tentacle monster is following you
+			UngodlyBuff: On his way to eat your socks
+			WulfrumArmy: Cling clang and bang
+			WyrmBuff: Ew, its all slimey...
+			YharimSquidBuff: He's gone so far in life
+			# Transformations
+			ClassicBrimmyBuff: Yes, you can touch Water
+			CloudTransformationBuff: Feelin' Cloudy
+			ProtoRingBuff: Still working out the kinks
+			SandTransformationBuff: '''heh.'''
+			SignutTransformationBuff: Never been more edgy
+			# Æ: Drae's stuff
+			AlarmClockBuff: They might short circuit if left alone
+			AltarBellBuff: The guiding stars
+			BestInstrumentBuff: Fragments of your journey, keep them safe
+			DustChimeBuff: The Adventure begins!
+			HarbingerOfWorkBuff: Their passion overheats\nTheir system's on repeat
+			MaladyBellsBuff: Your journey is not over, they will look after you
+			NurseryBellsBuff: A terrarian's best friends will now follow you!
+			ScratchedGongBuff: The fruits of your magnum opera nears completion
+			SpiritDinerBuff: It's a dark path ahead of you, they'll help
+			TubRuneBuff: Our final message
+			VaselineBuff: The sunrays shine through
+			WormBellBuff: Keep going
+			PandoraBuff: Dream, it's all over\nWe've been waiting for another sight to see
+		}
+
+		BiomeName: {
+			AstralBlight: Astral Blight
+		}
+
+		TownNPCMood: {
+			Jharim: {
+				Content: Hyuck Hyuck Hyuck, all is well in the world.
+				NoHome: PLEASE give me a home, being in the wild is giving me violent urges.
+				LoveSpace: Jharim is very happy, and the only thing that would make it better is you bowing down to me immediately!
+				FarFromHome: I demand you to bring the great Jharim back to his home!
+				DislikeCrowded: I can't hear my own thoughts with all the noise these peasants are making Hyu Hyu Hyu...
+				LikeBiome: "Ah the {BiomeName}, it's good to be back here!"
+				LoveBiome: "I love sniffing Fungi!"
+				DislikeBiome: "BRRRR BRRR BRB RBR BR BRB RB RBR BR GET ME OUT OF HERE!"
+				HateBiome: "I despise the very existence of the ocean! It keeps screaming at me!"
+				LikeNPC: "I've always wanted to be a pirate, and {NPCName} is a good mentor!"
+				LoveNPC: "{NPCName} reminds me a lot about my mother and I love it! Mother..."
+				DislikeNPC: "{NPCName} keeps worshipping a stupid rock man instead of me and it's making me mildly upset."
+				HateNPC: "I refuse to pay taxes to {NPCName}. Vile creature!"
+			}
+		}
+	}
+}

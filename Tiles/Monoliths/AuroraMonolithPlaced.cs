@@ -7,29 +7,30 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static CalValEX.CalValEXWorld;
 using CalValEX.Items.Tiles.Monoliths;
-using CalamityMod;
+//using CalamityMod;
 
 namespace CalValEX.Tiles.Monoliths
 {
     public class AuroraMonolithPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.Origin = new Point16(1, 2);
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 18 };
             TileObjectData.addTile(Type);
             AddMapEntry(new Color(75, 139, 166));
-            dustType = 1;
-            animationFrameHeight = 56;
-            disableSmartCursor = true;
-            adjTiles = new int[] { TileID.LunarMonolith };
+            DustType = 1;
+            AnimationFrameHeight = 56;
+            
+            AdjTiles = new int[] { TileID.LunarMonolith };
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 48, ModContent.ItemType<AuroraMonolith>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 48, ModContent.ItemType<AuroraMonolith>());
             CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
             modPlayer.cryoMonolith = false;
         }
@@ -38,7 +39,7 @@ namespace CalValEX.Tiles.Monoliths
         {
 
             CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
-            if (Main.tile[i, j].frameY >= 52)
+            if (Main.tile[i, j].TileFrameY >= 52)
             {
                 modPlayer.cryoMonolith = true;
             }
@@ -48,12 +49,12 @@ namespace CalValEX.Tiles.Monoliths
             }
         }*/
 
-        public override bool NewRightClick(int i, int j)
+        public override bool RightClick(int i, int j)
         {
-            Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+            Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
             HitWire(i, j);
             CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
-            if (Main.tile[i, j].frameY >= 56)
+            if (Main.tile[i, j].TileFrameY >= 56)
             {
                 modPlayer.cryoMonolith = true;
             }
@@ -68,8 +69,8 @@ namespace CalValEX.Tiles.Monoliths
         {
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
-            player.showItemIcon = true;
-            player.showItemIcon2 = ModContent.ItemType<AuroraMonolith>();
+            player.cursorItemIconEnabled = true;
+            player.cursorItemIconID = ModContent.ItemType<AuroraMonolith>();
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
@@ -82,50 +83,39 @@ namespace CalValEX.Tiles.Monoliths
         {
             Tile tile = Main.tile[i, j];
             Texture2D texture;
-            if (Main.canDrawColorTile(i, j))
-            {
-                texture = Main.tileAltTexture[Type, (int)tile.color()];
-            }
-            else
-            {
-                texture = Main.tileTexture[Type];
-            }
+            texture = ModContent.Request<Texture2D>("CalValEX/Tiles/Monoliths/AuroraMonolithPlaced").Value;
             Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
             if (Main.drawToScreen)
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY % animationFrameHeight == 36 ? 18 : 16;
+            int height = tile.TileFrameY % AnimationFrameHeight == 36 ? 18 : 16;
             int animate = 0;
-            if (tile.frameY >= 56)
+            if (tile.TileFrameY >= 56)
             {
-                animate = Main.tileFrame[Type] * animationFrameHeight;
+                animate = Main.tileFrame[Type] * AnimationFrameHeight;
             }
-            Main.spriteBatch.Draw(texture, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY + animate, 16, height), Lighting.GetColor(i, j), 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY + animate, 16, height), Lighting.GetColor(i, j), 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
             return false;
         }
 
         public override void HitWire(int i, int j)
         {
-            int x = i - Main.tile[i, j].frameX / 18 % 3;
-            int y = j - Main.tile[i, j].frameY / 18 % 3;
+            int x = i - Main.tile[i, j].TileFrameX / 18 % 3;
+            int y = j - Main.tile[i, j].TileFrameY / 18 % 3;
             for (int l = x; l < x + 3; l++)
             {
                 for (int m = y; m < y + 3; m++)
                 {
-                    if (Main.tile[l, m] == null)
+                    if (Main.tile[l, m].TileType == Type)
                     {
-                        Main.tile[l, m] = new Tile();
-                    }
-                    if (Main.tile[l, m].active() && Main.tile[l, m].type == Type)
-                    {
-                        if (Main.tile[l, m].frameY < 56)
+                        if (Main.tile[l, m].TileFrameY < 56)
                         {
-                            Main.tile[l, m].frameY += 56;
+                            Main.tile[l, m].TileFrameY += 56;
                         }
                         else
                         {
-                            Main.tile[l, m].frameY -= 56;
+                            Main.tile[l, m].TileFrameY -= 56;
                         }
                     }
                 }

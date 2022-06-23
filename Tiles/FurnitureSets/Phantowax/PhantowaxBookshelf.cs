@@ -10,10 +10,11 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
 {
     public class PhantowaxBookshelf : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolidTop[Type] = true;
             Main.tileFrameImportant[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileTable[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall
@@ -26,12 +27,12 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Phantowax Bookcase");
             AddMapEntry(new Color(94, 39, 93), name);
-            adjTiles = new int[] { TileID.Bookcases };
+            AdjTiles = new int[] { TileID.Bookcases };
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 24, 32, ItemType<PhantowaxBookshelfItem>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 32, ItemType<PhantowaxBookshelfItem>());
         }
     }
 }

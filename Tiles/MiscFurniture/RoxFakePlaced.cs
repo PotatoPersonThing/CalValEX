@@ -11,12 +11,12 @@ namespace CalValEX.Tiles.MiscFurniture
 {
     public class RoxFakePlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileLavaDeath[Type] = true;
-            TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x4);
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16 }; //
             TileObjectData.addTile(Type);
@@ -25,9 +25,9 @@ namespace CalValEX.Tiles.MiscFurniture
             AddMapEntry(new Color(249, 119, 48), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(i * 16, j * 16, 24, 24, ItemType<RoxFake>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ItemType<RoxFake>());
         }
     }
 }

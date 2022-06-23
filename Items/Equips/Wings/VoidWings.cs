@@ -14,23 +14,19 @@ namespace CalValEX.Items.Equips.Wings
         {
             DisplayName.SetDefault("Void Wings");
             Tooltip.SetDefault("Let the darkness carry you\n" + "Horizontal speed: 9\n" + "Acceleration multiplier: 2.5\n" + "Flight time: 230");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(5, 4));
-            ItemID.Sets.ItemNoGravity[item.type] = true;
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(230, 9f, 2.5f);
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
         public override void SetDefaults()
         {
-            item.width = 26;
-            item.height = 26;
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 11;
-            item.accessory = true;
-        }
-
-        //these wings use the same values as the solar wings
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            player.wingTimeMax = 230;
+            Item.width = 26;
+            Item.height = 26;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.rare = 11;
+            Item.accessory = true;
         }
 
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
@@ -41,12 +37,6 @@ namespace CalValEX.Items.Equips.Wings
             maxCanAscendMultiplier = 1f;
             maxAscentMultiplier = 3f;
             constantAscend = 0.135f;
-        }
-
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-        {
-            speed = 9f;
-            acceleration *= 2.5f;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -62,9 +52,9 @@ namespace CalValEX.Items.Equips.Wings
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(0, 255, 200); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(0, 255, 200); //change the color accordingly to above
                 }
             }
         }

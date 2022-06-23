@@ -10,8 +10,9 @@ namespace CalValEX.Tiles.MiscFurniture
 {
     public class SulphuricTankPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileLavaDeath[Type] = true;
@@ -21,16 +22,16 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 }; //
 
-            animationFrameHeight = 54;
+            AnimationFrameHeight = 54;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Irradiated Tank");
             AddMapEntry(new Color(0, 255, 117), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(i * 16, j * 16, 8, 24, ItemType<SulphuricTank>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 8, 24, ItemType<SulphuricTank>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

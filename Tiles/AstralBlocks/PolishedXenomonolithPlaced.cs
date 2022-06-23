@@ -9,22 +9,22 @@ namespace CalValEX.Tiles.AstralBlocks
 {
     public class PolishedXenomonolithPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            drop = ModContent.ItemType<PolishedXenomonolith>();
-            dustType = ModContent.DustType<AstralDust>();
+            ItemDrop = ModContent.ItemType<PolishedXenomonolith>();
+            DustType = ModContent.DustType<AstralDust>();
             AddMapEntry(new Color(271, 49, 42));
             Main.tileBlendAll[this.Type] = true;
-            soundType = SoundID.Item;
+            HitSound = SoundID.Item;
         }
 
-        public override void ChangeWaterfallStyle(ref int style)
+       /* public override void ChangeWaterfallStyle(ref int style)
         {
             style = mod.GetWaterfallStyleSlot("AstralWaterfallStyle");
-        }
+        }*/
     }
 }

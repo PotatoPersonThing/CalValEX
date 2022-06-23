@@ -6,10 +6,8 @@ namespace CalValEX.Buffs.Pets
 {
     public class StasisNakedBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Naked Stasis Drone");
-            Description.SetDefault("Stop looking at me... b-baka...");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
@@ -21,7 +19,7 @@ namespace CalValEX.Buffs.Pets
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<StasisNaked>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<StasisNaked>(), 0, 0f, player.whoAmI);
             }
         }

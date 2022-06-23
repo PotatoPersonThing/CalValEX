@@ -6,10 +6,10 @@ namespace CalValEX.Buffs.Mounts
 {
     public class AnthozoanBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cambrian Crustacean");
-            Description.SetDefault("This one won't throw rocks at you");
+            //DisplayName.SetDefault("Cambrian Crustacean");
+            //Description.SetDefault("This one won't throw rocks at you");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

@@ -10,12 +10,13 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
 {
     public class OldAstralChair : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2);
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
             TileObjectData.newTile.Direction = TileObjectDirection.PlaceLeft;
             TileObjectData.newTile.StyleWrapLimit = 2; //not really necessary but allows me to add more subtypes of chairs below the example chair texture
@@ -29,13 +30,13 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Xenomonolith Chair");
             AddMapEntry(new Color(139, 0, 0), name);
-            disableSmartCursor = true;
-            adjTiles = new int[] { TileID.Chairs };
+            
+            AdjTiles = new int[] { TileID.Chairs };
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 32, ModContent.ItemType<OldAstralChairItem>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<OldAstralChairItem>());
         }
     }
 }

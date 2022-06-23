@@ -14,21 +14,21 @@ namespace CalValEX.Items.Tiles.Blocks
         }
         public override void SetDefaults()
         {
-            item.width = 16;
-            item.height = 16;
-            item.maxStack = 999;
-            item.rare = 0;
-            item.useTurn = true;
-            item.rare = 0;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = ItemUseStyleID.SwingThrow;
-            item.consumable = true;
-            item.createTile = ModContent.TileType<AstralBrickPlaced>();
+            Item.width = 16;
+            Item.height = 16;
+            Item.maxStack = 999;
+            Item.rare = 0;
+            Item.useTurn = true;
+            Item.rare = 0;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<AstralBrickPlaced>();
         }
 
-        public override void AddRecipes()
+        /*/*
         {
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
@@ -44,6 +44,6 @@ namespace CalValEX.Items.Tiles.Blocks
                 recipe2.SetResult(this);
                 recipe2.AddRecipe();
             }
-        }
+        }*/
     }
 }

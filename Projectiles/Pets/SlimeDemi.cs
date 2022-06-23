@@ -3,96 +3,84 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using System.IO;
 using System;
+using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets
 {
-    public class SlimeDemi : FlyingPet
+    public class SlimeDemi : ModFlyingPet
     {
         double ballcounter = 0;
         double ballcounter2 = MathHelper.Pi;
+
+        public override bool FacesLeft => false;
+
+        public override bool ShouldFlip => false;
+
+        public override float TeleportThreshold => 1840f;
+
+        public override Vector2 FlyingOffset => new Vector2(56f * -Main.player[Projectile.owner].direction, -50f);
+
         public override void SetStaticDefaults()
         {
+            PetSetStaticDefaults(lightPet: false);
             DisplayName.SetDefault("Slime Demi");
-            Main.projPet[projectile.type] = true;
         }
 
-        public override void SafeSetDefaults() //SafeSetDefaults!!!
+        public override void SetDefaults()
         {
-            projectile.width = 24;
-            projectile.height = 24;
-            projectile.ignoreWater = true;
-            facingLeft = false;
-            spinRotation = false;
-            shouldFlip = false;
-            usesAura = false;
-            usesGlowmask = false;
-            auraUsesGlowmask = false;
+            PetSetDefaults();
+            Projectile.width = 24;
+            Projectile.height = 24;
+            Projectile.ignoreWater = true;
         }
 
-        public override void SetUpFlyingPet()
+        public override bool PreDraw(ref Color lightColor)
         {
-            distance[0] = 1840f; //teleport distance
-            distance[1] = 560f; //faster speed distance
-            speed = 12f;
-            inertia = 60f;
-            animationSpeed = 30;
-            spinRotationSpeedMult = 0.2f;
-            offSetX = 56f * -Main.player[projectile.owner].direction;
-            offSetY = -50f;
+            float textureRotation = MathHelper.Lerp((float)Math.PI / -4f, (float)Math.PI / 4f, 0.5f + MathHelper.Clamp(Projectile.velocity.X / 50f, -0.5f, 0.5f));
+            Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/SlimeDemi_Crimson").Value;
+            Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/SlimeDemi_Corruption").Value;
+            Vector2 Circle = Projectile.Center + new Vector2(0, 50).RotatedBy(ballcounter);
+            Vector2 draw = Circle - Main.screenPosition;
+            Main.EntitySpriteDraw(texture, draw, null, Color.White, textureRotation, new Vector2(texture.Width / 2f, texture.Height / 2), 1f, SpriteEffects.None, 0);
+            Vector2 Circle2 = Projectile.Center + new Vector2(0, 50).RotatedBy(ballcounter2);
+            Vector2 draw2 = Circle2 - Main.screenPosition;
+            Main.EntitySpriteDraw(texture2, draw2, null, Color.White, textureRotation, new Vector2(texture2.Width / 2f, texture2.Height / 2), 1f, SpriteEffects.None, 0);
+            return true;
         }
 
-        public override void SetUpAuraAndGlowmask() //for aura and glowmasks
+        public override void Animation(int state)
         {
-            auraTexture = "Projectiles/Pets/SlimeAura";
-            auraRotates = true;
-            auraRotation = true;
-            auraRotationSpeedMult = 0.05f;
-
-            glowmaskTexture = "";
-            auraGlowmaskTexture = "";
         }
 
-        public override void SetUpLight() //for when the pet emmits light
+        public override void CustomBehaviour(Player player, ref int state, float flyingSpeed, float flyingInertia)
         {
-            shouldLightUp = false;
-            RGB = new Vector3(1, 1, 1);
-            intensity = 1f;
-            abyssLightLevel = 0;
+            ballcounter += 0.05f;
+            ballcounter2 += 0.05f;
         }
 
-        public override void SafeAI(Player player)
+        public override void PetFunctionality(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
                 modPlayer.mSlime = false;
+
             if (modPlayer.mSlime)
-                projectile.timeLeft = 2;
-            ballcounter+= 0.05f;
-            ballcounter2 += 0.05f;
+                Projectile.timeLeft = 2;
         }
-        public override void SafePreDraw(SpriteBatch spriteBatch, Color lightColor)
-        {
-            float textureRotation = MathHelper.Lerp((float)Math.PI / -4f, (float)Math.PI / 4f, 0.5f + MathHelper.Clamp(projectile.velocity.X / 50f, -0.5f, 0.5f));
-            Texture2D texture = mod.GetTexture("Projectiles/Pets/SlimeDemi_Crimson");
-            Texture2D texture2 = mod.GetTexture("Projectiles/Pets/SlimeDemi_Corruption");
-            Vector2 Circle = projectile.Center + new Vector2(0, 50).RotatedBy(ballcounter);
-            Vector2 draw = Circle - Main.screenPosition;
-            spriteBatch.Draw(texture, draw, null, Color.White, textureRotation, new Vector2(texture.Width / 2f, texture.Height / 2), 1f, SpriteEffects.None, 0);
-            Vector2 Circle2 = projectile.Center + new Vector2(0, 50).RotatedBy(ballcounter2);
-            Vector2 draw2 = Circle2 - Main.screenPosition;
-            spriteBatch.Draw(texture2, draw2, null, Color.White, textureRotation, new Vector2(texture2.Width / 2f, texture2.Height / 2), 1f, SpriteEffects.None, 0);
-        }
-        public override void SafeSendExtraAI(BinaryWriter writer)
+
+        public override void SendExtraAI(BinaryWriter writer)
         {
             writer.Write(ballcounter);
             writer.Write(ballcounter2);
+            base.SendExtraAI(writer);
         }
 
-        public override void SafeReceiveExtraAI(BinaryReader reader)
+        public override void ReceiveExtraAI(BinaryReader reader)
         {
             ballcounter = reader.ReadDouble();
             ballcounter2 = reader.ReadDouble();
+            base.ReceiveExtraAI(reader);
         }
     }
 }

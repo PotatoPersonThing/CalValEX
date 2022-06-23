@@ -10,10 +10,13 @@ namespace CalValEX.Tiles.MiscFurniture
 {
     public class Helplaced : ModTile
     {
-        public override void SetDefaults()
+        Terraria.Audio.SoundStyle helpm = new("CalValEX/Sounds/Help");
+        Terraria.Audio.SoundStyle chug = new("CalValEX/Sounds/Item/Nom");
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall
             TileID.Sets.HasOutlines[Type] = true;
@@ -22,22 +25,22 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 }; //
 
-            animationFrameHeight = 54;
+            AnimationFrameHeight = 54;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Help me");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 24, ItemType<Help>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 24, ItemType<Help>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
             frameCounter++;
-            if (choketimer < 120 && choking)
+            if (choketimer < 240 && choking)
             {
                 if (frameCounter > 4) //make this number lower/bigger for faster/slower animation
                 {
@@ -63,29 +66,26 @@ namespace CalValEX.Tiles.MiscFurniture
             }
         }
 
-        public override bool HasSmartInteract()
-        {
-            return true;
-        }
+        public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
 
         public override void MouseOver(int i, int j)
         {
             Player localPlayer = Main.LocalPlayer;
             localPlayer.noThrow = 2;
-            localPlayer.showItemIcon = true;
-            localPlayer.showItemIcon2 = ModContent.ItemType<Help>();
+            localPlayer.cursorItemIconEnabled = true;
+            localPlayer.cursorItemIconID = ModContent.ItemType<Help>();
             int dust = Dust.NewDust(new Vector2(i, j) * 16f, 5, 5, 1, 0f, 6.315789f, 161, new Color(0, 217, 255), 1.315789f);
             if (Main.LocalPlayer.name == "Bumbledoge")
             {
-                Main.LocalPlayer.AddBuff(ModLoader.GetMod("CalamityMod").BuffType("TemporalSadness"), 10);
+                Main.LocalPlayer.AddBuff(BuffID.Wet, 10);
             }
             else if (Main.LocalPlayer.name == "willowmaine")
             {
-                Main.LocalPlayer.AddBuff(ModLoader.GetMod("CalamityMod").BuffType("TemporalSadness"), 10);
+                Main.LocalPlayer.AddBuff(BuffID.Wet, 10);
             }
             else if (Main.LocalPlayer.name == "Mochi")
             {
-                Main.LocalPlayer.AddBuff(ModLoader.GetMod("CalamityMod").BuffType("OrthoceraShell"), 10);
+                Main.LocalPlayer.AddBuff(BuffID.BrokenArmor, 10);
             }
             else
             {
@@ -96,19 +96,19 @@ namespace CalValEX.Tiles.MiscFurniture
         private bool choking = false;
         private bool feed = false;
 
-        public override bool NewRightClick(int i, int j)
+        public override bool RightClick(int i, int j)
         {
             Player player = Main.LocalPlayer;
             if (player.HasItem(ItemID.GreenMushroom) && !choking)
             {
                 player.ConsumeItem(ItemID.GreenMushroom);
-                Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Nom"));
+                Terraria.Audio.SoundEngine.PlaySound(chug);
                 feed = false;
                 choking = true;
             }
             else if (!choking)
             {
-                Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Help"));
+                Terraria.Audio.SoundEngine.PlaySound(helpm);
             }
             return true;
         }
@@ -118,15 +118,15 @@ namespace CalValEX.Tiles.MiscFurniture
             if (choking)
             {
                 choketimer++;
-                if (choketimer == 120 && !feed)
+                if (choketimer == 240 && !feed)
                 {
                     feed = true;
-                    Main.PlaySound(SoundID.NPCDeath13);
-                    Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("HardenedSulphurousSandstone"), Main.rand.Next(6, 21));
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath13);
+                    Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ItemID.Sandstone, Main.rand.Next(6, 21));
                 }
-                if (choketimer == 160)
+                if (choketimer == 360)
                 {
-                    Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Help"));
+                    Terraria.Audio.SoundEngine.PlaySound(helpm);
                     choking = false;
                     feed = false;
                     choketimer = 0;
@@ -134,20 +134,20 @@ namespace CalValEX.Tiles.MiscFurniture
             }
             if (closer)
             {
-                if (Main.LocalPlayer.HasItem(ModLoader.GetMod("CalamityMod").ItemType("OrthoceraShell")))
+                if (Main.LocalPlayer.HasItem(ItemID.MagicConch))
                 {
                     int dust = Dust.NewDust(new Vector2(i, j) * 16f, 5, 5, 1, 0f, 6.315789f, 161, new Color(0, 217, 255), 1.315789f);
                     if (Main.LocalPlayer.name == "Bumbledoge")
                     {
-                        Main.LocalPlayer.AddBuff(ModLoader.GetMod("CalamityMod").BuffType("TemporalSadness"), 10);
+                        Main.LocalPlayer.AddBuff(BuffID.Wet, 10);
                     }
                     else if (Main.LocalPlayer.name == "willowmaine")
                     {
-                        Main.LocalPlayer.AddBuff(ModLoader.GetMod("CalamityMod").BuffType("TemporalSadness"), 10);
+                        Main.LocalPlayer.AddBuff(BuffID.Wet, 10);
                     }
                     else if (Main.LocalPlayer.name == "Mochi")
                     {
-                        Main.LocalPlayer.AddBuff(ModLoader.GetMod("CalamityMod").BuffType("TemporalSadness"), 10);
+                        Main.LocalPlayer.AddBuff(BuffID.Wet, 10);
                     }
                     else
                     {

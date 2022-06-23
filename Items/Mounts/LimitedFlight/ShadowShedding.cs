@@ -17,16 +17,16 @@ namespace CalValEX.Items.Mounts.LimitedFlight
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 30;
-            item.useTime = 20;
-            item.useAnimation = 20;
-            item.useStyle = 1;
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            item.rare = 4;
-            //item.UseSound = SoundID.Item23;
-            item.noMelee = true;
-            item.mountType = mod.MountType("HiveMount");
+            Item.width = 20;
+            Item.height = 30;
+            Item.useTime = 20;
+            Item.useAnimation = 20;
+            Item.useStyle = 1;
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Item.rare = 4;
+            //Item.UseSound = SoundID.Item23;
+            Item.noMelee = true;
+            Item.mountType = ModContent.MountType<HiveMount>();
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -42,14 +42,14 @@ namespace CalValEX.Items.Mounts.LimitedFlight
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(107, 240, 255); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(107, 240, 255); //change the color accordingly to above
                 }
             }
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
@@ -62,6 +62,6 @@ namespace CalValEX.Items.Mounts.LimitedFlight
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

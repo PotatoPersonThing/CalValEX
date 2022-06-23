@@ -5,7 +5,7 @@ namespace CalValEX.Items.Mounts.Morshu
 {
     public class MorshuBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Morshu Buff");
             Description.SetDefault("Rope coil? Gel? Bombs? You want it? It's yours my friend, as long as you have a giant ruby...");

@@ -15,12 +15,12 @@ namespace CalValEX.Items.Tiles.Statues
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.ArmorStatue);
-            item.createTile = TileType<IsopodStatuePlaced>();
-            item.placeStyle = 0;
+            Item.CloneDefaults(ItemID.ArmorStatue);
+            Item.createTile = TileType<IsopodStatuePlaced>();
+            Item.placeStyle = 0;
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
@@ -31,6 +31,6 @@ namespace CalValEX.Items.Tiles.Statues
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

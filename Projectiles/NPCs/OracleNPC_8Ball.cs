@@ -12,24 +12,24 @@ namespace CalValEX.Projectiles.NPCs
 
         public override void SetDefaults()
         {
-            projectile.width = 20;
-            projectile.height = 20;
-            projectile.damage = 10;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = true;
-            projectile.friendly = true;
-            projectile.penetrate = 3;
-            projectile.knockBack = 2f;
-            projectile.aiStyle = 14;
-            projectile.timeLeft = 300;
+            Projectile.width = 20;
+            Projectile.height = 20;
+            Projectile.damage = 10;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+            Projectile.friendly = true;
+            Projectile.penetrate = 3;
+            Projectile.knockBack = 2f;
+            Projectile.aiStyle = 14;
+            Projectile.timeLeft = 300;
         }
 
         public override void AI()
         {
-            projectile.ai[0]++;
-            if (projectile.ai[0] > 60)
+            Projectile.ai[0]++;
+            if (Projectile.ai[0] > 60)
             {
-                projectile.velocity.Y += 0.1f;
+                Projectile.velocity.Y += 0.1f;
             }
         }
 
@@ -38,7 +38,7 @@ namespace CalValEX.Projectiles.NPCs
             int killdust = 0;
             while (killdust < 9)
             {
-                Dust.NewDust(projectile.position, projectile.width, projectile.height, 33, -projectile.velocity.X * 0.05f, -projectile.velocity.Y * 0.05f, 50, default, 1f);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 33, -Projectile.velocity.X * 0.05f, -Projectile.velocity.Y * 0.05f, 50, default, 1f);
                 killdust += 1;
             }
         }

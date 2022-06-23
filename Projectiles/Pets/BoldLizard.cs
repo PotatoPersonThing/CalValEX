@@ -9,38 +9,38 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Rocc Lizard");
-            Main.projFrames[projectile.type] = 10;
-            Main.projPet[projectile.type] = true;
+            Main.projFrames[Projectile.type] = 10;
+            Main.projPet[Projectile.type] = true;
         }
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.PetLizard);
-            aiType = ProjectileID.PetLizard;
-            drawOriginOffsetY = -12;
-            drawOriginOffsetX = 20;
+            Projectile.CloneDefaults(ProjectileID.PetLizard);
+            AIType = ProjectileID.PetLizard;
+            DrawOriginOffsetY = -12;
+            DrawOriginOffsetX = 20;
         }
 
         public override bool PreAI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             return true;
         }
 
         public void AnimateProjectile() // Call this every frame, for example in the AI method.
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 80) // This will change the sprite every 8 frames (0.13 seconds). Feel free to experiment.
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 80) // This will change the sprite every 8 frames (0.13 seconds). Feel free to experiment.
             {
-                projectile.frame++;
-                projectile.frame %= 1; // Will reset to the first frame if you've gone through them all.
-                projectile.frameCounter = 9;
+                Projectile.frame++;
+                Projectile.frame %= 1; // Will reset to the first frame if you've gone through them all.
+                Projectile.frameCounter = 9;
             }
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (player.dead)
             {
@@ -48,7 +48,7 @@ namespace CalValEX.Projectiles.Pets
             }
             if (modPlayer.BoldLizard)
             {
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
             }
         }
     }

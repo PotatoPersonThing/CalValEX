@@ -6,10 +6,10 @@ namespace CalValEX.Buffs.Mounts
 {
     public class SilvaJeepBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Silvian Jeep");
-            Description.SetDefault("Beep beep I'm a jeep");
+            //DisplayName.SetDefault("Silvian Jeep");
+            //Description.SetDefault("Beep beep I'm a jeep");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

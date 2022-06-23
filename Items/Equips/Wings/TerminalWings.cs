@@ -12,27 +12,24 @@ namespace CalValEX.Items.Equips.Wings
         {
             DisplayName.SetDefault("Wings of Termina");
             Tooltip.SetDefault("Through death and destruction new heights are attained, \non wings of a pandemonic butterfly \n" + "Horizontal speed: 1\n" + "Acceleration multiplier: 1\n" + "Flight time: 60");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(10, 6));
-            /// ItemID.Sets.AnimatesAsSoul[item.type] = true;
-            ItemID.Sets.ItemIconPulse[item.type] = false;
-            ItemID.Sets.ItemNoGravity[item.type] = false;
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(10, 6));
+            /// ItemID.Sets.AnimatesAsSoul[Item.type] = true;
+            ItemID.Sets.ItemIconPulse[Item.type] = false;
+            ItemID.Sets.ItemNoGravity[Item.type] = false;
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(60, 1f, 1f);
         }
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 28;
-            item.value = Item.sellPrice(0, 0, 0, 1);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            item.rare = 11;
-            item.expert = true;
-            item.accessory = true;
-            //item.vanity = true;
-        }
-
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            player.wingTimeMax = 60;
+            Item.width = 24;
+            Item.height = 28;
+            Item.value = Item.sellPrice(0, 0, 0, 1);
+           
+            Item.rare = 11;
+            Item.expert = true;
+            Item.accessory = true;
+            //Item.vanity = true;
         }
 
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
@@ -45,16 +42,10 @@ namespace CalValEX.Items.Equips.Wings
             constantAscend = 1f;
         }
 
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-        {
-            speed = 1f;
-            acceleration *= 1f;
-        }
-
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+           
             if (calamityMod != null)
             {
                 recipe.AddIngredient(ModContent.ItemType<Termipebbles>(), 5);
@@ -63,6 +54,6 @@ namespace CalValEX.Items.Equips.Wings
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

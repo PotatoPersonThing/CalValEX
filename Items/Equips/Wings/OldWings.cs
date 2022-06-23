@@ -12,21 +12,18 @@ namespace CalValEX.Items.Equips.Wings
         {
             DisplayName.SetDefault("Old Duke Wings");
             Tooltip.SetDefault("Toxic propulsion!\n" + "Horizontal speed: 9.5\n" + "Acceleration multiplier: 2.7\n" + "Flight time: 190");
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(190, 9.5f, 2.7f);
         }
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 20;
-            item.value = 10000;
-            item.rare = 11;
-            item.accessory = true;
-            item.value = Item.sellPrice(0, 3, 0, 0);
-        }
-
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            player.wingTimeMax = 190;
+            Item.width = 22;
+            Item.height = 20;
+            Item.value = 10000;
+            Item.rare = 11;
+            Item.accessory = true;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -42,9 +39,9 @@ namespace CalValEX.Items.Equips.Wings
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(0, 255, 0); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(0, 255, 0); //change the color accordingly to above
                 }
             }
         }
@@ -57,12 +54,6 @@ namespace CalValEX.Items.Equips.Wings
             maxCanAscendMultiplier = 1f;
             maxAscentMultiplier = 3.1f;
             constantAscend = 0.145f;
-        }
-
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-        {
-            speed = 9.5f;
-            acceleration *= 2.7f;
         }
     }
 }

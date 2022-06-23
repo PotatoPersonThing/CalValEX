@@ -6,10 +6,10 @@ namespace CalValEX.Buffs.Mounts
 {
     public class PBGMountBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Plague Rider");
-            Description.SetDefault("Ya gotta beelieve in yourself");
+            //DisplayName.SetDefault("Plague Rider");
+            //Description.SetDefault("Ya gotta beelieve in yourself");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

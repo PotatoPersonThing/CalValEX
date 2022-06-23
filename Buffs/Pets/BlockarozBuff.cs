@@ -1,27 +1,25 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
+using CalValEX.Projectiles.Pets;
 
 namespace CalValEX.Buffs.Pets
 {
     public class BlockarozBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("A Cube");
-            Description.SetDefault("I take this as a declaration");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.buffTime[buffIndex] = 19000;
+            player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().Blok = true;
-            bool petProjectileNotSpawned = (player.ownedProjectileCounts[mod.ProjectileType("Blockaroz")] <= 0);
-
+            bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.Blockaroz>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, mod.ProjectileType("Blockaroz"), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.Blockaroz>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
         }
     }

@@ -13,16 +13,12 @@ namespace CalValEX.Items.Equips.Shirts
 
         public override void SetDefaults()
         {
-            item.width = 32;
-            item.height = 14;
-            item.rare = 5;
-            item.vanity = true;
-            item.value = Item.sellPrice(0, 2, 0, 0);
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = true;
+            Item.width = 32;
+            Item.height = 14;
+            Item.rare = 5;
+            Item.vanity = true;
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Terraria.ID.ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = false;
         }
     }
 }

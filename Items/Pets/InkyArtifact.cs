@@ -16,19 +16,19 @@ namespace CalValEX.Items.Pets
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.ZephyrFish);
-            item.UseSound = SoundID.NPCHit13;
-            item.shoot = mod.ProjectileType("OmegaSquid");
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 11;
-            item.buffType = mod.BuffType("OmegaSquidBuff");
+            Item.CloneDefaults(ItemID.ZephyrFish);
+            Item.UseSound = SoundID.NPCHit13;
+            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.OmegaSquid>();
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.rare = 11;
+            Item.buffType = ModContent.BuffType<Buffs.Pets.OmegaSquidBuff>();
         }
 
-        public override void UseStyle(Player player)
+        public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
         }
 
@@ -45,28 +45,9 @@ namespace CalValEX.Items.Pets
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(0, 255, 0); //change the color accordingly to above
-                }
-            }
-        }
-
-        public override void AddRecipes()
-        {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            {
-                {
-                    ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient(calamityMod.ItemType("Lumenite"), 200);
-                    recipe.AddIngredient(calamityMod.ItemType("DepthCells"), 200);
-                    recipe.AddIngredient(calamityMod.ItemType("Tenebris"), 200);
-                    recipe.AddIngredient(calamityMod.ItemType("ReaperTooth"), 200);
-                    recipe.AddIngredient(mod.ItemType("Pollution"), 1);
-                    recipe.AddIngredient(ModContent.ItemType<Items.Equips.Hats.OmegaBlue>(), 1);
-                    recipe.AddTile(TileID.LunarCraftingStation);
-                    recipe.SetResult(this);
-                    recipe.AddRecipe();
+                    tooltipLine.OverrideColor = new Color(0, 255, 0); //change the color accordingly to above
                 }
             }
         }

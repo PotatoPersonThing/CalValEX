@@ -9,25 +9,25 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mini Bumbledoge");
-            Main.projFrames[projectile.type] = 4;
-            Main.projPet[projectile.type] = true;
+            Main.projFrames[Projectile.type] = 4;
+            Main.projPet[Projectile.type] = true;
         }
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.ZephyrFish);
-            aiType = ProjectileID.ZephyrFish;
+            Projectile.CloneDefaults(ProjectileID.ZephyrFish);
+            AIType = ProjectileID.ZephyrFish;
         }
 
         public override bool PreAI()
         {
-            _ = Main.player[projectile.owner];
+            _ = Main.player[Projectile.owner];
             return true;
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (player.dead)
             {
@@ -35,7 +35,7 @@ namespace CalValEX.Projectiles.Pets
             }
             if (modPlayer.mDoge)
             {
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
             }
         }
     }

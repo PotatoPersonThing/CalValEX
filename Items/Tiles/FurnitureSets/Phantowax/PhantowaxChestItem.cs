@@ -14,20 +14,20 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
 
         public override void SetDefaults()
         {
-            item.width = 26;
-            item.height = 22;
-            item.maxStack = 99;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = ItemUseStyleID.SwingThrow;
-            item.consumable = true;
-            item.value = 500;
-            item.createTile = ModContent.TileType<PhantowaxChest>();
+            Item.width = 26;
+            Item.height = 22;
+            Item.maxStack = 99;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.consumable = true;
+            Item.value = 500;
+            Item.createTile = ModContent.TileType<PhantowaxChest>();
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("Phantoplasm"), 4);
@@ -35,6 +35,6 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.SetResult(this);
             recipe.AddRecipe();
-        }
+        }*/
     }
 }

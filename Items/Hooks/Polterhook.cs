@@ -17,11 +17,11 @@ namespace CalValEX.Items.Hooks
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.BatHook);
-            item.value = Item.sellPrice(1, 1, 0, 0);
-            item.shootSpeed = 16f;
-            item.shoot = ProjectileType<Phantomhook>();
-            item.rare = 11;
+            Item.CloneDefaults(ItemID.BatHook);
+            Item.value = Item.sellPrice(1, 1, 0, 0);
+            Item.shootSpeed = 16f;
+            Item.shoot = ProjectileType<Phantomhook>();
+            Item.rare = 11;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -37,9 +37,9 @@ namespace CalValEX.Items.Hooks
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(0, 255, 0); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(0, 255, 0); //change the color accordingly to above
                 }
             }
         }

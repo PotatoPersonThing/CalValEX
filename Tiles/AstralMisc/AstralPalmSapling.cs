@@ -12,7 +12,7 @@ namespace CalValEX.Tiles.AstralMisc
 {
 	public class AstralPalmSapling : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileFrameImportant[Type] = true;
 			Main.tileNoAttach[Type] = true;
@@ -32,23 +32,22 @@ namespace CalValEX.Tiles.AstralMisc
 			TileObjectData.newTile.WaterPlacement = LiquidPlacement.NotAllowed;
 			TileObjectData.newTile.LavaDeath = true;
 			TileObjectData.newTile.RandomStyleRange = 3;
-			TileObjectData.newTile.StyleMultiplier = 3;
-			TileObjectData.addSubTile(1);
+			TileID.Sets.CommonSapling[Type] = true;
+			TileID.Sets.TreeSapling[Type] = true;
 			TileObjectData.addTile(Type);
 
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Blighted Astral Palm Sapling");
 			AddMapEntry(new Color(200, 200, 200), name);
 
-			sapling = true;
-			adjTiles = new int[] { TileID.Saplings };
+			AdjTiles = new int[] { TileID.Saplings };
 		}
 
 		public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 
 		public override void RandomUpdate(int i, int j)
 		{
-			if (WorldGen.genRand.Next(20) == 0)
+			if (WorldGen.genRand.NextBool(20))
 			{
 				Tile tile = Framing.GetTileSafely(i, j);
 				bool growSucess;

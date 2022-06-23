@@ -10,7 +10,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
 {
     public class OldAstralTable : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolidTop[Type] = true;
             Main.tileFrameImportant[Type] = true;
@@ -18,21 +18,22 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             Main.tileTable[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.Width = 3;
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 }; //
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-            disableSmartCursor = true;
+            
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Xenomonolith Table");
             AddMapEntry(new Color(139, 0, 0), name);
-            adjTiles = new int[] { TileID.Tables };
+            AdjTiles = new int[] { TileID.Tables };
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 48, 32, ItemType<OldAstralTableItem>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, ItemType<OldAstralTableItem>());
         }
     }
 }

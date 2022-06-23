@@ -7,12 +7,12 @@ namespace CalValEX.Walls
 {
     public class FrostflakeWallPlaced : ModWall
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            drop = ModContent.ItemType<FrostflakeWall>();
+            ItemDrop = ModContent.ItemType<FrostflakeWall>();
             AddMapEntry(new Color(7, 99, 133));
-            dustType = 92;
+            DustType = 92;
         }
     }
 }

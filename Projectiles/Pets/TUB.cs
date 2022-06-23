@@ -8,27 +8,27 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("TUB");
-            Main.projFrames[projectile.type] = 11;
-            Main.projPet[projectile.type] = true;
+            Main.projFrames[Projectile.type] = 11;
+            Main.projPet[Projectile.type] = true;
         }
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(334);
-            base.aiType = 334;
-            base.drawOriginOffsetY = -14;
-            base.drawOffsetX = -10;
+            Projectile.CloneDefaults(334);
+            base.AIType = 334;
+            base.DrawOriginOffsetY = -14;
+            base.DrawOffsetX = -10;
         }
 
         public override bool PreAI()
         {
-            _ = Main.player[projectile.owner];
+            _ = Main.player[Projectile.owner];
             return true;
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (player.dead)
             {
@@ -36,7 +36,7 @@ namespace CalValEX.Projectiles.Pets
             }
             if (modPlayer.tub)
             {
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
             }
         }
     }

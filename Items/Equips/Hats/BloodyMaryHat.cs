@@ -17,16 +17,12 @@ namespace CalValEX.Items.Equips.Hats
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 28;
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            item.vanity = true;
-            item.rare = 11;
-        }
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
-        {
-            drawAltHair = true;
+            Item.width = 24;
+            Item.height = 28;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.vanity = true;
+            Item.rare = 11;
+            Terraria.ID.ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
@@ -41,21 +37,11 @@ namespace CalValEX.Items.Equips.Hats
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(0, 255, 200); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(0, 255, 200); //change the color accordingly to above
                 }
             }
-        }
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            recipe.AddIngredient(calamityMod.ItemType("BloodstoneCore"), 4);
-            recipe.AddIngredient((ItemID.TheBrideHat), 1);
-            recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
         }
     }
 }

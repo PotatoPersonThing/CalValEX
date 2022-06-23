@@ -1,7 +1,7 @@
 using Terraria;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using CalamityMod;
+//using CalamityMod;
 using System;
 using Terraria.ModLoader;
 using Terraria.ID;
@@ -11,43 +11,43 @@ namespace CalValEX.Projectiles.Pets
 {
     public class StarJelly : ModProjectile
     {
-        public PrimitiveTrail TrailDrawer = null;
+        //public PrimitiveTrail TrailDrawer = null;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Star Jelly");
-            Main.projFrames[projectile.type] = 7;
-            Main.projPet[projectile.type] = true;
+            Main.projFrames[Projectile.type] = 7;
+            Main.projPet[Projectile.type] = true;
         }
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.BabySnowman);
-            aiType = ProjectileID.BabySnowman;
-            drawOriginOffsetY = -2;
-            // projectile.width = 15;
-            // projectile.height = 15;
+            Projectile.CloneDefaults(ProjectileID.BabySnowman);
+            AIType = ProjectileID.BabySnowman;
+            DrawOriginOffsetY = -2;
+            // Projectile.width = 15;
+            // Projectile.height = 15;
         }
 
         public override bool PreAI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             return true;
         }
 
         public void AnimateProjectile() // Call this every frame, for example in the AI method.
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 30) // This will change the sprite every 8 frames (0.13 seconds). Feel free to experiment.
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 30) // This will change the sprite every 8 frames (0.13 seconds). Feel free to experiment.
             {
-                projectile.frame++;
-                projectile.frame %= 1; // Will reset to the first frame if you've gone through them all.
-                projectile.frameCounter = 6;
+                Projectile.frame++;
+                Projectile.frame %= 1; // Will reset to the first frame if you've gone through them all.
+                Projectile.frameCounter = 6;
             }
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (player.dead)
             {
@@ -55,7 +55,7 @@ namespace CalValEX.Projectiles.Pets
             }
             if (modPlayer.StarJelly)
             {
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
             }
         }
 
@@ -63,7 +63,7 @@ namespace CalValEX.Projectiles.Pets
         private static Color ShaderColorTwo = new Color(115, 234, 255);
         private static Color ShaderEndColor = new Color(33, 222, 255);
 
-        private float PrimitiveWidthFunction(float completionRatio)
+        /*private float PrimitiveWidthFunction(float completionRatio)
         {
             float arrowheadCutoff = 0.36f;
             float width = 45f;
@@ -89,18 +89,18 @@ namespace CalValEX.Projectiles.Pets
             Color startingColor = Color.Lerp(ShaderColorOne, ShaderColorTwo, startingInterpolant * colorLerpFactor);
 
             return Color.Lerp(startingColor, ShaderEndColor, MathHelper.SmoothStep(0f, 1f, Utils.InverseLerp(0f, endFadeRatio, completionRatio, true)));
-        }
+        }*/
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            if (TrailDrawer is null)
-                TrailDrawer = new PrimitiveTrail(PrimitiveWidthFunction, PrimitiveColorFunction, specialShader: GameShaders.Misc["CalamityMod:TrailStreak"]);
+            /*if (TrailDrawer is null)
+                TrailDrawer = new PrimitiveTrail(PrimitiveWidthFunction, PrimitiveColorFunction, specialShader: GameShaders.Misc["CalamityMod:TrailStreak"]);*/
 
-            GameShaders.Misc["CalamityMod:TrailStreak"].SetShaderTexture(ModContent.GetTexture("CalamityMod/ExtraTextures/TelluricGlareStreak"));
-            Vector2 overallOffset = projectile.Size * 0.5f - Main.screenPosition;
-            overallOffset += projectile.velocity * 1.4f;
-            TrailDrawer.Draw(projectile.oldPos, overallOffset, 92); // 58
-            var thisRect = projectile.getRect();
+            //GameShaders.Misc["CalamityMod:TrailStreak"].SetShaderTexture(ModContent.GetTexture("CalamityMod/ExtraTextures/TelluricGlareStreak"));
+            Vector2 overallOffset = Projectile.Size * 0.5f - Main.screenPosition;
+            overallOffset += Projectile.velocity * 1.4f;
+            //TrailDrawer.Draw(Projectile.oldPos, overallOffset, 92); // 58
+            var thisRect = Projectile.getRect();
             return true;
         }
     }

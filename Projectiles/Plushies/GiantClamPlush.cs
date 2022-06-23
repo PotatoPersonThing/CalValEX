@@ -9,16 +9,16 @@ namespace CalValEX.Projectiles.Plushies
         public override string Texture => "CalValEX/Items/Tiles/Plushies/GiantClamPlush";
         public override void SetDefaults()
         {
-            projectile.netImportant = true;
-            projectile.width = 44;
-            projectile.height = 44;
-            projectile.aiStyle = 32;
-            projectile.friendly = true;
+            Projectile.netImportant = true;
+            Projectile.width = 44;
+            Projectile.height = 44;
+            Projectile.aiStyle = 32;
+            Projectile.friendly = true;
         }
 
         public override void Kill(int timeLeft)
         {
-            Item.NewItem(projectile.getRect(), ModContent.ItemType<Items.Plushies.GiantClamPlushThrowable>());
+            Item.NewItem(Projectile.GetSource_DropAsItem(), Projectile.getRect(), ModContent.ItemType<Items.Plushies.GiantClamPlushThrowable>());
         }
     }
 }

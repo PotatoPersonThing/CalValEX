@@ -8,28 +8,22 @@ namespace CalValEX.AprilFools
 {
     public class ShadesBane : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("The Shade's Bane");
-            Tooltip.SetDefault("Edgy sword #2940358304");
-        }
         public override void SetDefaults()
         {
-            item.damage = 47;
-            item.melee = true;
-            item.value = Item.sellPrice(0, 5);
-            item.rare = ItemRarityID.Cyan;
-            item.useTime = 9;
-            item.useAnimation = 9;
-            item.useStyle = ItemUseStyleID.SwingThrow;
-            item.useTurn = true;
-            item.autoReuse = true;
+            Item.damage = 47;
+            Item.DamageType = DamageClass.Melee;
+            Item.value = Item.sellPrice(0, 2);
+            Item.rare = ItemRarityID.Cyan;
+            Item.useTime = 9;
+            Item.useAnimation = 9;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.useTurn = true;
+            Item.autoReuse = true;
         }
 
         public override bool CanUseItem(Player player)
         {
-			Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            if (CalValEX.month != 4 && orthoceraDLC == null)
+            if (!CalValEX.AprilFoolMonth)
             {
             return false;
             }
@@ -39,98 +33,14 @@ namespace CalValEX.AprilFools
             }
 		}
 
-public override void ModifyHitNPC(Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
+        public override void ModifyHitNPC(Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
         {
-            int twidir = 1;
-            int twidir2 = 1;
-            int choice = Main.rand.Next(10);
-            if (choice == 0)
-            {
-                twidir = 5;
-            }
-            if (choice == 1)
-            {
-                twidir = -5;
-            }
-            if (choice == 2)
-            {
-                twidir = 10;
-            }
-            if (choice == 3)
-            {
-                twidir = -10;
-            }
-            if (choice == 4)
-            {
-                twidir = 7;
-            }
-            if (choice == 5)
-            {
-                twidir = -7;
-            }
-            if (choice == 6)
-            {
-                twidir = 13;
-            }
-            if (choice == 7)
-            {
-                twidir = -13;
-            }
-            if (choice == 8)
-            {
-                twidir = 3;
-            }
-            if (choice == 9)
-            {
-                twidir = -3;
-            }
-            int choice2 = Main.rand.Next(10);
-            if (choice2 == 0)
-            {
-                twidir2 = 5;
-            }
-            if (choice2 == 1)
-            {
-                twidir2 = -5;
-            }
-            if (choice2 == 2)
-            {
-                twidir2 = 10;
-            }
-            if (choice2 == 3)
-            {
-                twidir2 = -10;
-            }
-            if (choice2 == 4)
-            {
-                twidir2 = 7;
-            }
-            if (choice2 == 5)
-            {
-                twidir2 = -7;
-            }
-            if (choice2 == 6)
-            {
-                twidir2 = 13;
-            }
-            if (choice2 == 7)
-            {
-                twidir2 = -13;
-            }
-            if (choice2 == 8)
-            {
-                twidir2 = 3;
-            }
-            if (choice2 == 9)
-            {
-                twidir2 = -3;
-            }
-            Projectile.NewProjectile(target.position.X + target.Size.X * 0.5f, target.position.Y + target.Size.Y * 0.5f, twidir, twidir2, ProjectileID.CursedFlameFriendly, 201, 0.1f, item.owner);
+            if (player.controlUseItem)
+                Projectile.NewProjectile(player.GetSource_ItemUse(Item), target.position.X + target.Size.X * 0.5f, target.position.Y + target.Size.Y * 0.5f, Main.rand.Next(-13,13), Main.rand.Next(-13, 13), ProjectileID.CursedFlameFriendly, 201, 0.1f);
         }
         public override bool AltFunctionUse(Player player)
         {
-			Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            if (CalValEX.month != 4 && orthoceraDLC == null)
+            if (!CalValEX.AprilFoolMonth)
             {
             return false;
             }
@@ -139,11 +49,13 @@ public override void ModifyHitNPC(Player player, NPC target, ref int damage, ref
             {
             int twidir = Main.rand.Next(-36, 36);
             int twidir2 = Main.rand.Next(-36, 36);
-            Projectile.NewProjectile(player.position.X ,player.position.Y, twidir, twidir2, ProjectileID.CursedFlameFriendly, 201, 0.1f, item.owner);
-            Projectile.NewProjectile(player.position.X, player.position.Y, twidir, twidir2, ProjectileID.CursedFlameFriendly, 201, 0.1f, item.owner);
-            Projectile.NewProjectile(player.position.X, player.position.Y, twidir, twidir2, ProjectileID.CursedFlameFriendly, 201, 0.1f, item.owner);
-            Projectile.NewProjectile(player.position.X, player.position.Y, twidir, twidir2, ProjectileID.CursedFlameFriendly, 201, 0.1f, item.owner);
-            Projectile.NewProjectile(player.position.X, player.position.Y, twidir, twidir2, 661, 401, 0.1f, item.owner);
+            for (int counter = 0; counter < 16; counter++)
+            {
+                int twidir3 = Main.rand.Next(-36, 36);
+                int twidir4 = Main.rand.Next(-36, 36);
+                Projectile.NewProjectile(player.GetSource_ItemUse(Item), player.position.X, player.position.Y, twidir3, twidir4, ProjectileID.CursedFlameFriendly, 201, 0.1f);
+            }
+            Projectile.NewProjectile(player.GetSource_ItemUse(Item), player.position.X, player.position.Y, twidir, twidir2, 661, 401, 0.1f);
             return true;
             }
         }

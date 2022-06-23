@@ -6,10 +6,10 @@ namespace CalValEX.Buffs.Mounts
 {
     public class YharonMountBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Yharite");
-            Description.SetDefault("He's finally here!");
+            //DisplayName.SetDefault("Yharite");
+            //Description.SetDefault("He's finally here!");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

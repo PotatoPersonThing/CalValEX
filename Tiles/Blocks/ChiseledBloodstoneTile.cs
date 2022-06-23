@@ -8,15 +8,15 @@ namespace CalValEX.Tiles.Blocks
 {
     public class ChiseledBloodstoneTile : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            drop = ModContent.ItemType<ChiseledBloodstone>();
+            ItemDrop = ModContent.ItemType<ChiseledBloodstone>();
             AddMapEntry(new Color(126, 94, 87));
-            soundType = SoundID.Tink;
+            HitSound = SoundID.Tink;
         }
     }
 }

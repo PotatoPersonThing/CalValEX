@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
 
 namespace CalValEX.Items.Pets
 {
@@ -16,12 +17,12 @@ namespace CalValEX.Items.Pets
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.ZephyrFish);
-            item.UseSound = SoundID.NPCHit2;
-            item.shoot = mod.ProjectileType("SepulcherHeadNeo");
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 11;
-            item.buffType = mod.BuffType("SepulcherBuffNeo");
+            Item.CloneDefaults(ItemID.ZephyrFish);
+            Item.UseSound = SoundID.NPCHit2;
+            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.SepulcherNeo.SepulcherHeadNeo>();
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.rare = 11;
+            Item.buffType = ModContent.BuffType<Buffs.Pets.SepulcherBuffNeo>();
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -37,26 +38,26 @@ namespace CalValEX.Items.Pets
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(108, 45, 199); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(108, 45, 199); //change the color accordingly to above
                 }
                 //new Color(198, 27, 64)
             }
         }
 
-        public override void UseStyle(Player player)
+        public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
         }
 
-        public override bool Shoot(Player player, ref Microsoft.Xna.Framework.Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            type = mod.ProjectileType("SepulcherHeadNeo");
-            return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
+            type = ModContent.ProjectileType<Projectiles.Pets.SepulcherNeo.SepulcherHeadNeo>();
+            return base.Shoot(player, source, position, velocity, type, damage, knockback);
         }
     }
 }

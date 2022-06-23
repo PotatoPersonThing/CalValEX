@@ -16,13 +16,13 @@ namespace CalValEX.Items.Equips.Hats
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 22;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            item.rare = 4;
-            item.accessory = true;
-            item.vanity = true;
+            Item.width = 20;
+            Item.height = 22;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+           
+            Item.rare = 4;
+            Item.accessory = true;
+            Item.vanity = true;
         }
     }
 }

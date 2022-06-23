@@ -4,81 +4,81 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Mounts.InfiniteFlight
 {
-    public class LeviMount : ModMountData
+    public class LeviMount : ModMount
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            mountData.buff = mod.BuffType("LeviathanMountBuff");
-            mountData.heightBoost = 4;
-            mountData.fallDamage = 0f;
-            mountData.runSpeed = 6f;
-            mountData.dashSpeed = 6f;
-            mountData.flightTimeMax = int.MaxValue - 1;
-            mountData.fatigueMax = int.MaxValue - 1;
-            mountData.jumpHeight = 5;
-            mountData.usesHover = true;
-            mountData.acceleration = 0.17f;
-            mountData.jumpSpeed = 2f;
-            mountData.blockExtraJumps = false;
-            mountData.totalFrames = 8;
-            mountData.spawnDust = 33;
-            mountData.spawnDustNoGravity = true;
-            int[] array = new int[mountData.totalFrames];
+            MountData.buff = ModContent.BuffType<Buffs.Mounts.LeviathanMountBuff>();
+            MountData.heightBoost = 4;
+            MountData.fallDamage = 0f;
+            MountData.runSpeed = 6f;
+            MountData.dashSpeed = 6f;
+            MountData.flightTimeMax = int.MaxValue - 1;
+            MountData.fatigueMax = int.MaxValue - 1;
+            MountData.jumpHeight = 5;
+            MountData.usesHover = true;
+            MountData.acceleration = 0.17f;
+            MountData.jumpSpeed = 2f;
+            MountData.blockExtraJumps = false;
+            MountData.totalFrames = 8;
+            MountData.spawnDust = 33;
+            MountData.spawnDustNoGravity = true;
+            int[] array = new int[MountData.totalFrames];
             for (int l = 0; l < array.Length; l++)
             {
                 array[l] = 9; // (increase this?)
             }
-            mountData.playerYOffsets = array;
-            mountData.xOffset = -5;
-            mountData.bodyFrame = 6;
-            mountData.yOffset = 30;
-            mountData.playerHeadOffset = 0;
-            mountData.standingFrameCount = 8;
-            mountData.standingFrameDelay = 8;
-            mountData.standingFrameStart = 0;
-            mountData.runningFrameCount = 8;
-            mountData.runningFrameDelay = 6;
-            mountData.runningFrameStart = 0;
-            // if (Main.player.velocity.X = mountData.runSpeed) {
-            // mountData.runningFrameCount = 1;
-            // mountData.runningFrameDelay = 12;
-            // mountData.runningFrameStart = 8;
+            MountData.playerYOffsets = array;
+            MountData.xOffset = -5;
+            MountData.bodyFrame = 6;
+            MountData.yOffset = 30;
+            MountData.playerHeadOffset = 0;
+            MountData.standingFrameCount = 8;
+            MountData.standingFrameDelay = 8;
+            MountData.standingFrameStart = 0;
+            MountData.runningFrameCount = 8;
+            MountData.runningFrameDelay = 6;
+            MountData.runningFrameStart = 0;
+            // if (Main.player.velocity.X = MountData.runSpeed) {
+            // MountData.runningFrameCount = 1;
+            // MountData.runningFrameDelay = 12;
+            // MountData.runningFrameStart = 8;
             // } I forgot what this is for
-            mountData.flyingFrameCount = 8;
-            mountData.flyingFrameDelay = 6;
-            mountData.flyingFrameStart = 0;
-            mountData.inAirFrameCount = 8;
-            mountData.inAirFrameDelay = 7;
-            mountData.inAirFrameStart = 0;
-            mountData.idleFrameCount = 8;
-            mountData.idleFrameDelay = 8;
-            mountData.idleFrameStart = 0;
-            mountData.idleFrameLoop = false;
-            mountData.swimFrameCount = 8;
-            mountData.swimFrameDelay = 20;
-            mountData.swimFrameStart = 0;
+            MountData.flyingFrameCount = 8;
+            MountData.flyingFrameDelay = 6;
+            MountData.flyingFrameStart = 0;
+            MountData.inAirFrameCount = 8;
+            MountData.inAirFrameDelay = 7;
+            MountData.inAirFrameStart = 0;
+            MountData.idleFrameCount = 8;
+            MountData.idleFrameDelay = 8;
+            MountData.idleFrameStart = 0;
+            MountData.idleFrameLoop = false;
+            MountData.swimFrameCount = 8;
+            MountData.swimFrameDelay = 20;
+            MountData.swimFrameStart = 0;
             if (Main.netMode == NetmodeID.Server)
             {
                 return;
             }
 
-            mountData.textureWidth = mountData.frontTexture.Width;
-            mountData.textureHeight = mountData.frontTexture.Height;
+            MountData.textureWidth = MountData.frontTexture.Width();
+            MountData.textureHeight = MountData.frontTexture.Height();
         }
         public override void UpdateEffects(Player player)
         {
             if (player.wet)
             {
-                mountData.runSpeed = 18f;
-                mountData.acceleration = 0.47f;
-                mountData.jumpHeight = 6;
+                MountData.runSpeed = 18f;
+                MountData.acceleration = 0.47f;
+                MountData.jumpHeight = 6;
             }
             else
             {
-                mountData.jumpHeight = 5;
-                mountData.acceleration = 0.17f;
-                mountData.jumpSpeed = 2f;
-                mountData.runSpeed = 6f;
+                MountData.jumpHeight = 5;
+                MountData.acceleration = 0.17f;
+                MountData.jumpSpeed = 2f;
+                MountData.runSpeed = 6f;
             }
         }
     }

@@ -13,16 +13,16 @@ namespace CalValEX.Projectiles
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Eat crap Jharim");
-            Main.projFrames[projectile.type] = 4;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 4;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
+            Main.projFrames[Projectile.type] = 4;
+            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
+            ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
         }
 
         public override void SetDefaults()
         {
-            projectile.magic = false;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
+            Projectile.DamageType = DamageClass.Default;
+            Projectile.friendly = true;
+            Projectile.tileCollide = false;
         }
 
         public override bool? CanHitNPC(NPC target)

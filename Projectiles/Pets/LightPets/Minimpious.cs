@@ -12,64 +12,64 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Minimpious");
-            Main.projFrames[projectile.type] = 5;
-            Main.projPet[projectile.type] = true;
-            ProjectileID.Sets.LightPet[projectile.type] = true;
+            Main.projFrames[Projectile.type] = 5;
+            Main.projPet[Projectile.type] = true;
+            ProjectileID.Sets.LightPet[Projectile.type] = true;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 64;
-            projectile.height = 48;
-            projectile.penetrate = -1;
-            projectile.netImportant = true;
-            projectile.timeLeft *= 5;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
-            projectile.aiStyle = -1;
-            drawOriginOffsetY = -11;
-            drawOffsetX = -21;
+            Projectile.width = 64;
+            Projectile.height = 48;
+            Projectile.penetrate = -1;
+            Projectile.netImportant = true;
+            Projectile.timeLeft *= 5;
+            Projectile.friendly = true;
+            Projectile.tileCollide = false;
+            Projectile.aiStyle = -1;
+            DrawOriginOffsetY = -11;
+            DrawOffsetX = -21;
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (player.dead)
                 modPlayer.mImp = false;
             if (modPlayer.mImp)
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
 
-            Vector2 vectorToOwner = player.Center - projectile.Center;
+            Vector2 vectorToOwner = player.Center - Projectile.Center;
             float distanceToOwner = vectorToOwner.Length();
 
             if (distanceToOwner > 2400f)
             {
-                projectile.position = player.Center;
-                projectile.velocity *= 0.1f;
-                projectile.netUpdate = true;
+                Projectile.position = player.Center;
+                Projectile.velocity *= 0.1f;
+                Projectile.netUpdate = true;
             }
 
-            if (projectile.velocity.X > 0f)
-                projectile.spriteDirection = -1;
-            else if (projectile.velocity.X < 0f)
-                projectile.spriteDirection = 1;
+            if (Projectile.velocity.X > 0f)
+                Projectile.spriteDirection = -1;
+            else if (Projectile.velocity.X < 0f)
+                Projectile.spriteDirection = 1;
 
-            projectile.rotation = projectile.velocity.X * 0.1f;
-            projectile.frameCounter++;
-            if (projectile.frameCounter > 8)
+            Projectile.rotation = Projectile.velocity.X * 0.1f;
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter > 8)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
-                if (projectile.frame > 4)
-                    projectile.frame = 0;
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
+                if (Projectile.frame > 4)
+                    Projectile.frame = 0;
             }
 
-            Lighting.AddLight(projectile.position, new Vector3(1.61568627f, 0.901960784f, 0.462745098f));
+            Lighting.AddLight(Projectile.position, new Vector3(1.61568627f, 0.901960784f, 0.462745098f));
 
             if (Main.rand.Next(5) == 0)
             {
-                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 55, 0, 0, 125);
+                int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 55, 0, 0, 125);
                 Main.dust[dust].noGravity = true;
                 Main.dust[dust].velocity *= 0.3f;
                 Main.dust[dust].shader = GameShaders.Armor.GetSecondaryShader(player.cLight, player);
@@ -77,7 +77,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
             float limit = 6.66f;
 
-            Vector2 extraPos = new Vector2(projectile.position.X + projectile.width * 0.5f, projectile.position.Y + projectile.height * 0.5f);
+            Vector2 extraPos = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
             float posX = player.position.X + (player.width / 2) - extraPos.X;
             float posY = player.position.Y + (player.width / 2) - extraPos.Y;
             float num0 = 80;
@@ -86,39 +86,39 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
             if (num1 > 800f)
             {
-                projectile.position.X = player.position.X + (player.height / 2) - (projectile.height / 2);
-                projectile.position.Y = player.position.Y + (player.height / 2) - (projectile.height / 2);
+                Projectile.position.X = player.position.X + (player.height / 2) - (Projectile.height / 2);
+                Projectile.position.Y = player.position.Y + (player.height / 2) - (Projectile.height / 2);
             }
             else if (num1 > num0)
             {
                 num1 = limit / num1;
                 posX *= num1;
                 posY *= num1;
-                projectile.velocity.X = posX;
-                projectile.velocity.Y = posY;
+                Projectile.velocity.X = posX;
+                Projectile.velocity.Y = posY;
             }
             else
             {
-                projectile.velocity *= 0.20f;
+                Projectile.velocity *= 0.20f;
             }
         }
-        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override void PostDraw(Color lightColor)
         {
-            Texture2D glowMask = mod.GetTexture("Projectiles/Pets/LightPets/Minimpious_Glow");
-            Rectangle frame = glowMask.Frame(1, Main.projFrames[projectile.type], 0, projectile.frame);
+            Texture2D glowMask = ModContent.Request<Texture2D>("Projectiles/Pets/LightPets/Minimpious_Glow").Value;
+            Rectangle frame = glowMask.Frame(1, Main.projFrames[Projectile.type], 0, Projectile.frame);
             frame.Height -= 1;
-            float originOffsetX = (glowMask.Width - projectile.width) * 0.5f + projectile.width * 0.5f + drawOriginOffsetX;
-            spriteBatch.Draw
+            float originOffsetX = (glowMask.Width - Projectile.width) * 0.5f + Projectile.width * 0.5f + DrawOriginOffsetX;
+            Main.EntitySpriteDraw
             (
                 glowMask,
-                projectile.position - Main.screenPosition + new Vector2(originOffsetX + drawOffsetX, projectile.height / 2 + projectile.gfxOffY),
+                Projectile.position - Main.screenPosition + new Vector2(originOffsetX + DrawOffsetX, Projectile.height / 2 + Projectile.gfxOffY),
                 frame,
                 Color.White,
-                projectile.rotation,
-                new Vector2(originOffsetX, projectile.height / 2 - drawOriginOffsetY),
-                projectile.scale,
-                projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
-                0f
+                Projectile.rotation,
+                new Vector2(originOffsetX, Projectile.height / 2 - DrawOriginOffsetY),
+                Projectile.scale,
+                Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
+                0
             );
         }
     }

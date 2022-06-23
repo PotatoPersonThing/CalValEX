@@ -12,26 +12,31 @@ namespace CalValEX.Items.Equips.Shirts
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bloody Mary Dress");
+            if (Main.netMode != NetmodeID.Server)
+            {
+                int equipSlotLegs = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);
+                ArmorIDs.Legs.Sets.HidesBottomSkin[equipSlotLegs] = true;
+            }
+        }
+
+        public override void Load()
+        {
+            if (Main.netMode != NetmodeID.Server)
+            {
+                EquipLoader.AddEquipTexture(Mod, "CalValEX/Items/Equips/Shirts/BloodyMaryDress_Legs", EquipType.Legs, this);
+            }
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 14;
-            item.rare = 11;
-            item.vanity = true;
-            item.value = Item.sellPrice(0, 3, 0, 0);
-        }
-        public override void SetMatch(bool male, ref int equipSlot, ref bool robes)
-        {
-            robes = true;
-            equipSlot = mod.GetEquipSlot("BloodyMaryDress_Legs", EquipType.Legs);
+            Item.width = 18;
+            Item.height = 14;
+            Item.rare = ItemRarityID.Purple;
+            Item.vanity = true;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Terraria.ID.ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = false;
         }
 
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = false;
-        }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             //rarity 12 (Turquoise) = new Color(0, 255, 200)
@@ -45,21 +50,22 @@ namespace CalValEX.Items.Equips.Shirts
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(0, 255, 200); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(0, 255, 200); //change the color accordingly to above
                 }
             }
         }
-        public override void AddRecipes()
+        public override void UpdateEquip(Player player)
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            recipe.AddIngredient(calamityMod.ItemType("BloodstoneCore"), 8);
-            recipe.AddIngredient((ItemID.TheBrideDress), 1);
-            recipe.AddTile(TileID.LunarCraftingStation);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            var p = player.GetModPlayer<CalValEXPlayer>();
+            p.maryTrans = true;
+        }
+
+        public override void UpdateVanity(Player player)
+        {
+            var p = player.GetModPlayer<CalValEXPlayer>();
+            p.maryHide = true;
         }
     }
 }

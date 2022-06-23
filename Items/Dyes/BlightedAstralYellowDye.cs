@@ -16,12 +16,12 @@ namespace CalValEX.Items.Dyes
 
         public override void SetDefaults()
         {
-            byte dye = item.dye;
-            item.CloneDefaults(ItemID.GelDye);
-            item.width = 22;
-            item.height = 26;
-            item.value = Item.sellPrice(0, 0, 0, 5);
-            item.dye = dye;
+            int dye = Item.dye;
+            Item.CloneDefaults(ItemID.GelDye);
+            Item.width = 22;
+            Item.height = 26;
+            Item.value = Item.sellPrice(0, 0, 0, 5);
+            Item.dye = dye;
         }
 
         /*public override void AddRecipes()

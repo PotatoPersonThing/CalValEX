@@ -6,10 +6,8 @@ namespace CalValEX.Buffs.Pets
 {
     public class SentiPet : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Sentinels");
-            Description.SetDefault("The Cosmic Terrors watch over you");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
@@ -21,7 +19,7 @@ namespace CalValEX.Buffs.Pets
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<SSignus>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<SSignus>(), 0, 0f, player.whoAmI);
             }
 
@@ -30,7 +28,7 @@ namespace CalValEX.Buffs.Pets
             bool petProjectileNotSpawnedf = player.ownedProjectileCounts[ModContent.ProjectileType<SVoid>()] <= 0;
             if (petProjectileNotSpawnedf && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<SVoid>(), 0, 0f, player.whoAmI);
             }
 
@@ -39,7 +37,7 @@ namespace CalValEX.Buffs.Pets
             bool petProjectileNotSpawnedfe = player.ownedProjectileCounts[ModContent.ProjectileType<SWeeb>()] <= 0;
             if (petProjectileNotSpawnedfe && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<SWeeb>(), 0, 0f, player.whoAmI);
             }
         }

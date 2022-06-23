@@ -12,26 +12,27 @@ namespace CalValEX.Tiles.Monoliths
 {
     public class ExoMonolithPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.Origin = new Point16(1, 2);
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 16 };
             TileObjectData.addTile(Type);
             AddMapEntry(new Color(75, 139, 166));
-            dustType = 1;
-            animationFrameHeight = 54;
-            disableSmartCursor = true;
-            //adjTiles = new int[] { TileID.LunarMonolith };
+            DustType = 1;
+            AnimationFrameHeight = 54;
+            
+            //AdjTiles = new int[] { TileID.LunarMonolith };
         }
 
         private bool providenceon;
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 48, ModContent.ItemType<ExoMonolith>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 48, ModContent.ItemType<ExoMonolith>());
             CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
             modPlayer.exoMonolith = false;
             providenceon = false;
@@ -39,9 +40,9 @@ namespace CalValEX.Tiles.Monoliths
 
         public override void NearbyEffects(int i, int j, bool closer)
         {
-            Mod clamMod = ModLoader.GetMod("CalamityMod");
+            //
             CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
-            if (Main.tile[i, j].frameY >= 54)
+            if (Main.tile[i, j].TileFrameY >= 54)
             {
                 modPlayer.exoMonolith = true;
                 providenceon = true;
@@ -89,7 +90,7 @@ namespace CalValEX.Tiles.Monoliths
             Texture2D texture;
             if (Main.canDrawColorTile(i, j))
             {
-                texture = Main.tileAltTexture[Type, (int)tile.color()];
+                texture = Main.tileAltTexture[Type, (int)tile.TileColor];
             }
             else
             {
@@ -100,17 +101,17 @@ namespace CalValEX.Tiles.Monoliths
             {
                 zero = Vector2.Zero;
             }
-            int height = tile.frameY % animationFrameHeight == 36 ? 18 : 16;
+            int height = tile.TileFrameY % AnimationFrameHeight == 36 ? 18 : 16;
             int animate = 0;
-            if (tile.frameY >= 54)
+            if (tile.TileFrameY >= 54)
             {
-                animate = Main.tileFrame[Type] * animationFrameHeight;
+                animate = Main.tileFrame[Type] * AnimationFrameHeight;
             }
-            Main.spriteBatch.Draw(texture, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.frameX, tile.frameY + animate, 16, height), Lighting.GetColor(i, j), 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY + animate, 16, height), Lighting.GetColor(i, j), 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
             return false;
         }*/
 
-        public override bool NewRightClick(int i, int j)
+        public override bool RightClick(int i, int j)
         {
             CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
             //
@@ -120,35 +121,35 @@ namespace CalValEX.Tiles.Monoliths
             }
             else
             {
-                Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
                 HitWire(i, j);
                 return true;
             }
-            /*if (CalValEXWorld.OneMonolith && !CalValEXWorld.TwoMonolith && Main.tile[i, j].frameY < 56)
+            /*if (CalValEXWorld.OneMonolith && !CalValEXWorld.TwoMonolith && Main.tile[i, j].TileFrameY < 56)
                 {
                     CalValEXWorld.TwoMonolith = true;
-                    Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
                     HitWire(i, j);
                     return true;
                 }
-            if (!CalValEXWorld.OneMonolith && !CalValEXWorld.TwoMonolith && Main.tile[i, j].frameY < 56)
+            if (!CalValEXWorld.OneMonolith && !CalValEXWorld.TwoMonolith && Main.tile[i, j].TileFrameY < 56)
                 {
                     CalValEXWorld.OneMonolith = true;
-                    Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
                     HitWire(i, j);
                     return true;
                 }
-            if (CalValEXWorld.TwoMonolith && Main.tile[i, j].frameY >= 56)
+            if (CalValEXWorld.TwoMonolith && Main.tile[i, j].TileFrameY >= 56)
                 {
                     CalValEXWorld.TwoMonolith = false;
-                    Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
                     HitWire(i, j);
                     return true;
                 }
-            if (CalValEXWorld.OneMonolith && !CalValEXWorld.TwoMonolith && Main.tile[i, j].frameY >= 56)
+            if (CalValEXWorld.OneMonolith && !CalValEXWorld.TwoMonolith && Main.tile[i, j].TileFrameY >= 56)
                 {
                     CalValEXWorld.OneMonolith = false;
-                    Main.PlaySound(SoundID.Mech, i * 16, j * 16, 0);
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
                     HitWire(i, j);
                     return true;
                 }
@@ -162,31 +163,27 @@ namespace CalValEX.Tiles.Monoliths
         {
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
-            player.showItemIcon = true;
-            player.showItemIcon2 = ModContent.ItemType<ExoMonolith>();
+            player.cursorItemIconEnabled = true;
+            player.cursorItemIconID = ModContent.ItemType<ExoMonolith>();
         }
 
         public override void HitWire(int i, int j)
         {
-            int x = i - Main.tile[i, j].frameX / 18 % 2;
-            int y = j - Main.tile[i, j].frameY / 18 % 3;
+            int x = i - Main.tile[i, j].TileFrameX / 18 % 2;
+            int y = j - Main.tile[i, j].TileFrameY / 18 % 3;
             for (int l = x; l < x + 2; l++)
             {
                 for (int m = y; m < y + 3; m++)
                 {
-                    if (Main.tile[l, m] == null)
+                    if (Main.tile[l, m].TileType == Type)
                     {
-                        Main.tile[l, m] = new Tile();
-                    }
-                    if (Main.tile[l, m].active() && Main.tile[l, m].type == Type)
-                    {
-                        if (Main.tile[l, m].frameY < 54)
+                        if (Main.tile[l, m].TileFrameY < 54)
                         {
-                            Main.tile[l, m].frameY += 54;
+                            Main.tile[l, m].TileFrameY += 54;
                         }
                         else
                         {
-                            Main.tile[l, m].frameY -= 54;
+                            Main.tile[l, m].TileFrameY -= 54;
                         }
                     }
                 }

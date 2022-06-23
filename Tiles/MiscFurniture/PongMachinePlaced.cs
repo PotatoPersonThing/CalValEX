@@ -9,10 +9,11 @@ namespace CalValEX.Tiles.MiscFurniture
 {
     public class PongMachinePlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileLavaDeath[Type] = false;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
             TileObjectData.newTile.Width = 3;
@@ -22,18 +23,17 @@ namespace CalValEX.Tiles.MiscFurniture
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Pong Machine");
             AddMapEntry(new Color(0, 118, 49), name);
-            disableSmartCursor = true;
         }
 
-        public override bool NewRightClick(int i, int j)
+        public override bool RightClick(int i, int j)
         {
             Player player = Main.LocalPlayer;
             CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
             if (modPlayer.pongactive == false)
             {
                 modPlayer.pongactive = true;
-                Projectile.NewProjectile(player.position.X + player.width / 2 - 400, player.position.Y + player.height / 2 - 240,
-                    0f, 0f, ModContent.ProjectileType<Projectiles.Pong.PongUI>(), 0, 0f, player.whoAmI);
+                Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 - 400, player.position.Y + player.height / 2 - 240,
+                   0f, 0f, ModContent.ProjectileType<Projectiles.Pong.PongUI>(), 0, 0f, player.whoAmI);
             }
             return true;
         }
@@ -42,13 +42,13 @@ namespace CalValEX.Tiles.MiscFurniture
         {
             Player localPlayer = Main.LocalPlayer;
             localPlayer.noThrow = 2;
-            localPlayer.showItemIcon = true;
-            localPlayer.showItemIcon2 = ModContent.ItemType<PongMachine>();
+            localPlayer.cursorItemIconEnabled = true;
+            localPlayer.cursorItemIconID = ModContent.ItemType<PongMachine>();
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(i * 16, j * 16, 48, 32, ModContent.ItemType<PongMachine>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, ModContent.ItemType<PongMachine>());
         }
     }
 }

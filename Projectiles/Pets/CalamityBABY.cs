@@ -10,47 +10,44 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets
 {
-    public class CalamityBABY : FlyingPet
+    public class CalamityBABY : ModFlyingPet
     {
+        public new class States
+        {
+            public const int Transition = -1;
+            public const int Flying = 0;
+            public const int LayingDown = 1;
+        }
+
+        public override float TeleportThreshold => 1840f;
+
         public override void SetStaticDefaults()
         {
+            PetSetStaticDefaults(lightPet: false);
             DisplayName.SetDefault("Calamity BABY");
-            Main.projFrames[projectile.type] = 15;
-            Main.projPet[projectile.type] = true;
+            Main.projFrames[Projectile.type] = 15;
         }
 
-        public override void SafeSetDefaults()
+        public override void SetDefaults()
         {
-            projectile.width = 76;
-            projectile.height = 76;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = true;
-            drawOffsetX = 2;
-            facingLeft = true;
-            spinRotation = false;
-            shouldFlip = true;
+            PetSetDefaults();
+            Projectile.width = 76;
+            Projectile.height = 76;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+            DrawOffsetX = 2;
         }
 
-        public override void SafeSendExtraAI(BinaryWriter writer)
+        public override void SendExtraAI(BinaryWriter writer)
         {
             writer.Write(MyDudeJustGotHitLikeTheIdiotItIs);
+            base.SendExtraAI(writer);
         }
 
-        public override void SafeReceiveExtraAI(BinaryReader reader)
+        public override void ReceiveExtraAI(BinaryReader reader)
         {
             MyDudeJustGotHitLikeTheIdiotItIs = reader.ReadBoolean();
-        }
-
-        public override void SetUpFlyingPet()
-        {
-            distance[0] = 1840f;
-            distance[1] = 560f;
-            speed = 12f;
-            inertia = 60f;
-            animationSpeed = -1;
-            spinRotationSpeedMult = 1f;
-            offSetX = 48f * -Main.player[projectile.owner].direction;
-            offSetY = -50f;
+            base.ReceiveExtraAI(reader);
         }
 
         private bool firstTick = false;
@@ -72,18 +69,18 @@ namespace CalValEX.Projectiles.Pets
                 firstTick = true;
             }
 
-            if (!MyDudeJustGotHitLikeTheIdiotItIs && !nameList.Contains(Main.player[projectile.owner].name))
+            if (!MyDudeJustGotHitLikeTheIdiotItIs && !nameList.Contains(Main.player[Projectile.owner].name))
             {
-                if (Main.player[projectile.owner].GetModPlayer<CalValEXPlayer>().CalamityBabyGotHit)
+                if (Main.player[Projectile.owner].GetModPlayer<CalValEXPlayer>().CalamityBabyGotHit)
                 {
                     MyDudeJustGotHitLikeTheIdiotItIs = true;
-                    projectile.localAI[1] = -1;
-                    projectile.ai[0] = 0;
-                    projectile.ai[1] = 0;
-                    projectile.localAI[0] = 0;
-                    projectile.frameCounter = 0;
-                    projectile.frame = 12;
-                    projectile.netUpdate = true;
+                    state = States.Transition;
+                    Projectile.ai[0] = 0;
+                    Projectile.ai[1] = 0;
+                    Projectile.localAI[0] = 0;
+                    Projectile.frameCounter = 0;
+                    Projectile.frame = 12;
+                    Projectile.netUpdate = true;
                 }
             }
             return true;
@@ -92,85 +89,97 @@ namespace CalValEX.Projectiles.Pets
         private float[] myRotation = new float[2];
         private float scale = 0.25f;
 
-        public override void SafePreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            if (projectile.localAI[1] == -1)
+            if (state == States.Transition)
             {
-                Texture2D auraTexture_1 = ModContent.GetTexture("CalValEX/Projectiles/Pets/CalamityBABY_Aura_1");
+                Texture2D auraTexture_1 = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/CalamityBABY_Aura_1").Value;
                 Rectangle sourceRectangle_1 = new Rectangle(0, 0, auraTexture_1.Width, auraTexture_1.Height);
                 Vector2 origin_1 = new Vector2(auraTexture_1.Width, auraTexture_1.Height);
-                spriteBatch.Draw(auraTexture_1, projectile.Center - Main.screenPosition, sourceRectangle_1, Color.White, myRotation[0], origin_1 / 2f, scale, SpriteEffects.None, 0);
-                Texture2D auraTexture_2 = ModContent.GetTexture("CalValEX/Projectiles/Pets/CalamityBABY_Aura_2");
+                Main.EntitySpriteDraw(auraTexture_1, Projectile.Center - Main.screenPosition, sourceRectangle_1, Color.White, myRotation[0], origin_1 / 2f, scale, SpriteEffects.None, 0);
+                Texture2D auraTexture_2 = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/CalamityBABY_Aura_2").Value;
                 Rectangle sourceRectangle_2 = new Rectangle(0, 0, auraTexture_2.Width, auraTexture_2.Height);
                 Vector2 origin_2 = new Vector2(auraTexture_2.Width, auraTexture_2.Height);
-                spriteBatch.Draw(auraTexture_2, projectile.Center - Main.screenPosition, sourceRectangle_2, Color.White, myRotation[1], origin_2 / 2f, scale * 0.75f, SpriteEffects.None, 0);
+                Main.EntitySpriteDraw(auraTexture_2, Projectile.Center - Main.screenPosition, sourceRectangle_2, Color.White, myRotation[1], origin_2 / 2f, scale * 0.75f, SpriteEffects.None, 0);
             }
+            return base.PreDraw(ref lightColor);
         }
 
-        public override void SafeAI(Player player)
+        public override void PetFunctionality(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
                 modPlayer.CalamityBABYBool = false;
-            if (modPlayer.CalamityBABYBool)
-                projectile.timeLeft = 2;
 
-            Vector2 vectorToOwner = player.Center - projectile.Center;
+            if (modPlayer.CalamityBABYBool)
+                Projectile.timeLeft = 2;
+        }
+
+        public override void Animation(int state) //I am too lazy to put the animation code in here.
+        {
+        }
+
+        //this is a bad example of having all the custom code here instead of putting the animation in the right method
+        //Animation() gets called before this, so it can matter
+        //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
+        public override void CustomBehaviour(Player player, ref int state, float flyingSpeed, float flyingInertia)
+        {
+            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            Vector2 vectorToOwner = player.Center - Projectile.Center;
             float distanceToOwner = vectorToOwner.Length();
 
-            myRotation[0] += 0.025f;
-            myRotation[1] -= 0.025f;
+            myRotation[0] = MathHelper.WrapAngle(myRotation[0] + (0.025f * (Projectile.ai[0] / 180f)));
+            myRotation[1] = MathHelper.WrapAngle(myRotation[1] - (0.025f * (Projectile.ai[0] / 180f)));
 
-            switch (projectile.localAI[1])
+            switch (state)
             {
-                case -1: //TRANSITION
-                    projectile.tileCollide = false;
-                    projectile.rotation = 0;
+                case States.Transition: //TRANSITION
+                    Projectile.tileCollide = false;
+                    Projectile.rotation = 0;
                     if (scale < 2f)
                         scale += 0.002f;
 
-                    projectile.velocity *= 0.93f;
+                    Projectile.velocity *= 0.93f;
 
-                    if (projectile.frameCounter++ > 5)
+                    if (Projectile.frameCounter++ > 5)
                     {
-                        projectile.frameCounter = 0;
-                        projectile.frame++;
-                        if (projectile.frame < 13 || projectile.frame > 14)
-                            projectile.frame = 13;
+                        Projectile.frameCounter = 0;
+                        Projectile.frame++;
+                        if (Projectile.frame < 13 || Projectile.frame > 14)
+                            Projectile.frame = 13;
                     }
 
-                    projectile.ai[0]++;
+                    Projectile.ai[0]++;
                     int timeBetweenTexts = 120;
 
-                    if (projectile.ai[0] == timeBetweenTexts)
+                    if (Projectile.ai[0] == timeBetweenTexts)
                     {
                         EdgyTalk("Congratulations, I see you are unworthy...", Color.White, true);
                     }
-                    if (projectile.ai[0] == timeBetweenTexts * 2)
+                    if (Projectile.ai[0] == timeBetweenTexts * 2)
                     {
                         EdgyTalk("If you only summoned Astrageldon I could spare you, but well", Color.White, true);
                     }
-                    if (projectile.ai[0] == timeBetweenTexts * 3)
+                    if (Projectile.ai[0] == timeBetweenTexts * 3)
                     {
                         EdgyTalk("GL surviving my power", Color.White, true);
                     }
-                    if (projectile.ai[0] == timeBetweenTexts * 4)
+                    if (Projectile.ai[0] == timeBetweenTexts * 4)
                     {
                         EdgyTalk("Next time call my friend if you want me to be your pet... or don't get hit.", Color.White, true);
                     }
-                    if (projectile.ai[0] == timeBetweenTexts * 5)
+                    if (Projectile.ai[0] == timeBetweenTexts * 5)
                     {
-                        Mod calamityMod = ModLoader.GetMod("CalamityMod");
                         for (int i = 0; i < bossList.Count; i++)
                         {
-                            NPC.NewNPC((int)projectile.position.X, (int)projectile.position.Y, calamityMod.NPCType(bossList[i]));
+                           //NPC.NewNPC((int)Projectile.position.X, (int)Projectile.position.Y, calamityMod.TryFind<ModNPC>(bossList[i]));
                         }
                     }
-                    if (projectile.ai[0] == (timeBetweenTexts * 5) + 30)
+                    if (Projectile.ai[0] == (timeBetweenTexts * 5) + 30)
                     {
-                        projectile.ai[0] = 0;
-                        projectile.localAI[1] = 0;
+                        Projectile.ai[0] = 0;
+                        state = States.Flying;
 
                         for (int i = 0; i < Main.maxPlayers; i++)
                         {
@@ -181,61 +190,61 @@ namespace CalValEX.Projectiles.Pets
                             }
                         }
                         MyDudeJustGotHitLikeTheIdiotItIs = false;
-                        projectile.netUpdate = true;
+                        Projectile.netUpdate = true;
                     }
                     break;
 
-                case 0:
-                    projectile.tileCollide = false;
-                    projectile.rotation = projectile.velocity.X * 0.025f;
+                case States.Flying:
+                    Projectile.tileCollide = false;
+                    Projectile.rotation = Projectile.velocity.X * 0.025f;
                     scale = 0.25f;
-                    Vector2 offset = new Vector2(offSetX, offSetY);
+                    Vector2 offset = FlyingOffset;
                     vectorToOwner += offset;
                     distanceToOwner = vectorToOwner.Length();
                     if (Math.Abs(player.velocity.X) < 0.05 && Math.Abs(player.velocity.Y) < 0.05)
                     {
-                        if (++projectile.ai[0] >= 210 && distanceToOwner < 50f)
+                        if (++Projectile.ai[0] >= 210 && distanceToOwner < 50f)
                         {
-                            projectile.localAI[1] = 1;
-                            projectile.ai[0] = 0;
+                            state = States.LayingDown;
+                            Projectile.ai[0] = 0;
                         }
                     }
                     else
-                        projectile.ai[0] = 0;
+                        Projectile.ai[0] = 0;
 
-                    if (projectile.frameCounter++ > 15)
+                    if (Projectile.frameCounter++ > 15)
                     {
-                        projectile.frameCounter = 0;
-                        projectile.frame++;
-                        if (projectile.frame > 3)
-                            projectile.frame = 0;
+                        Projectile.frameCounter = 0;
+                        Projectile.frame++;
+                        if (Projectile.frame > 3)
+                            Projectile.frame = 0;
                     }
                     break;
 
-                case 1: //laying down
-                    projectile.tileCollide = true;
-                    projectile.velocity *= 0.98f;
-                    projectile.velocity.Y += 0.1f;
-                    projectile.rotation = 0;
+                case States.LayingDown:
+                    Projectile.tileCollide = true;
+                    Projectile.velocity *= 0.98f;
+                    Projectile.velocity.Y += 0.1f;
+                    Projectile.rotation = 0;
                     scale = 0.25f;
 
                     if (distanceToOwner > 320f)
                     {
-                        if (++projectile.ai[0] >= 210)
+                        if (++Projectile.ai[0] >= (420 * (1 - (distanceToOwner / 640f))))
                         {
-                            projectile.localAI[1] = 0;
-                            projectile.ai[0] = 0;
+                            state = States.Flying;
+                            Projectile.ai[0] = 0;
                         }
                     }
                     else
-                        projectile.ai[0] = 0;
+                        Projectile.ai[0] = 0;
 
-                    if (projectile.frameCounter++ > 15)
+                    if (Projectile.frameCounter++ > 15)
                     {
-                        projectile.frameCounter = 0;
-                        projectile.frame++;
-                        if (projectile.frame < 4 || projectile.frame > 11)
-                            projectile.frame = 4;
+                        Projectile.frameCounter = 0;
+                        Projectile.frame++;
+                        if (Projectile.frame < 4 || Projectile.frame > 11)
+                            Projectile.frame = 4;
                     }
                     break;
             }
@@ -245,7 +254,7 @@ namespace CalValEX.Projectiles.Pets
         {
             if (combatText)
             {
-                CombatText.NewText(projectile.getRect(), color, text, true);
+                CombatText.NewText(Projectile.getRect(), color, text, true);
             }
             else
             {
@@ -255,7 +264,7 @@ namespace CalValEX.Projectiles.Pets
                 }
                 else if (Main.netMode == NetmodeID.Server)
                 {
-                    NetMessage.BroadcastChatMessage(NetworkText.FromKey(text), color);
+                    Terraria.Chat.ChatHelper.BroadcastChatMessage(NetworkText.FromKey(text), color);
                 }
             }
         }

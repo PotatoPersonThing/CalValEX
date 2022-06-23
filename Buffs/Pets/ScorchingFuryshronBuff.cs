@@ -6,10 +6,8 @@ namespace CalValEX.Buffs.Pets
 {
     public class ScorchingFuryshronBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Scorching Dukapitated");
-            Description.SetDefault("Don't do Scoria kids");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
@@ -21,7 +19,7 @@ namespace CalValEX.Buffs.Pets
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<ScoriaDuke>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<ScoriaDuke>(), 0, 0f, player.whoAmI);
             }
         }

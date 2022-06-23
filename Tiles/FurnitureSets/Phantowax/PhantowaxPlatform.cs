@@ -9,7 +9,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
 {
     public class PhantowaxPlatform : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
@@ -18,6 +18,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             Main.tileNoAttach[Type] = true;
             Main.tileTable[Type] = true;
             Main.tileLavaDeath[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileID.Sets.Platforms[Type] = true;
             TileObjectData.newTile.CoordinateHeights = new[] { 16 };
             TileObjectData.newTile.CoordinateWidth = 16;
@@ -30,9 +31,9 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             AddMapEntry(new Color(94, 39, 93));
-            drop = ModContent.ItemType<PhantowaxPlatformItem>();
-            disableSmartCursor = true;
-            adjTiles = new int[] { TileID.Platforms };
+            ItemDrop = ModContent.ItemType<PhantowaxPlatformItem>();
+            
+            AdjTiles = new int[] { TileID.Platforms };
         }
 
         public override void PostSetDefaults()

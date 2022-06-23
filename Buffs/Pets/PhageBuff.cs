@@ -5,10 +5,8 @@ namespace CalValEX.Buffs.Pets
 {
     public class PhageBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Space Sick");
-            Description.SetDefault("You have been infected by the fledgling Aureophage!");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
@@ -17,10 +15,10 @@ namespace CalValEX.Buffs.Pets
         {
             player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().AstPhage = true;
-            bool petProjectileNotSpawned = player.ownedProjectileCounts[mod.ProjectileType("AstPhage")] <= 0;
+            bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Pets.AstPhage>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, mod.ProjectileType("AstPhage"), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<Projectiles.Pets.AstPhage>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
         }
     }

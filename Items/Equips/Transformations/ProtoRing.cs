@@ -15,23 +15,9 @@ namespace CalValEX.Items.Equips.Transformations
 		{
 			DisplayName.SetDefault("Prototype Ring");
 			Tooltip.SetDefault("Transforms the wearer into a small mech");
-		}
-
-		public override void SetDefaults()
-		{
-			item.width = 24;
-			item.height = 28;
-			item.accessory = true;
-			item.rare = ItemRarityID.Red;
-		}
-
-		public override void UpdateAccessory(Player player, bool hideVisual)
-		{
-			CalValEXPlayer p = player.GetModPlayer<CalValEXPlayer>();
-			p.androTrans = true;
-			if (hideVisual)
+			if (Main.netMode != NetmodeID.Server)
 			{
-				p.androHide = true;
+				SetupDrawing();
 			}
 		}
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -47,13 +33,13 @@ namespace CalValEX.Items.Equips.Transformations
 			//look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
 			foreach (TooltipLine tooltipLine in tooltips)
 			{
-				if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+				if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
 				{
-					tooltipLine.overrideColor = new Color(107, 240, 255); //change the color accordingly to above
+					tooltipLine.OverrideColor = new Color(107, 240, 255); //change the color accordingly to above
 				}
 			}
 		}
-		public override void AddRecipes()
+		/*public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			Mod calamityMod = ModLoader.GetMod("CalamityMod");
@@ -65,30 +51,44 @@ namespace CalValEX.Items.Equips.Transformations
 				recipe.SetResult(this);
 				recipe.AddRecipe();
 			}
-		}
-	}
-
-	public class TinyIbanRobotOfDoomHead : EquipTexture
-	{
-		public override bool DrawHead()
+		}*/
+		public override void Load()
 		{
-			return false;
+			if (Main.netMode != NetmodeID.Server)
+			{
+				EquipLoader.AddEquipTexture(Mod, "CalValEX/Items/Equips/Transformations/TinyIbanRobotofDoom_Head", EquipType.Head, this);
+				EquipLoader.AddEquipTexture(Mod, "CalValEX/Items/Equips/Transformations/TinyIbanRobotofDoom_Body", EquipType.Body, this);
+				EquipLoader.AddEquipTexture(Mod, "CalValEX/Items/Equips/Transformations/TinyIbanRobotofDoom_Legs", EquipType.Legs, this);
+			}
 		}
-	}
-
-	public class TinyIbanRobotOfDoomBody : EquipTexture
-	{
-		public override bool DrawBody()
+		private void SetupDrawing()
 		{
-			return false;
-		}
-	}
+			int equipSlotHead = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Head);
+			int equipSlotBody = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Body);
+			int equipSlotLegs = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);
 
-	public class TinyIbanRobotOfDoomLegs : EquipTexture
-	{
-		public override bool DrawLegs()
-		{
-			return false;
+			ArmorIDs.Head.Sets.DrawHead[equipSlotHead] = false;
+			ArmorIDs.Body.Sets.HidesTopSkin[equipSlotBody] = true;
+			ArmorIDs.Body.Sets.HidesArms[equipSlotBody] = true;
+			ArmorIDs.Legs.Sets.HidesBottomSkin[equipSlotLegs] = true;
 		}
+
+		public override void SetDefaults()
+		{
+			Item.width = 24;
+			Item.height = 28;
+			Item.accessory = true;
+			Item.rare = 11;
+			Item.canBePlacedInVanityRegardlessOfConditions = true;
+		}
+
+		public override void UpdateAccessory(Player player, bool hideVisual)
+		{
+			var p = player.GetModPlayer<CalValEXPlayer>();
+			p.androTrans = true;
+			p.androHide = hideVisual;
+		}
+		public override bool IsVanitySet(int head, int body, int legs) => true;
+
 	}
 }

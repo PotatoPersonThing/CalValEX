@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalamityMod.World;
-using CalamityMod.NPCs;
-using CalamityMod.World.Planets;
-using System.Threading;
+using Terraria.DataStructures;
 
 namespace CalValEX.Items.Pets.ExoMechs
 {
@@ -16,38 +13,24 @@ namespace CalValEX.Items.Pets.ExoMechs
         {
             DisplayName.SetDefault("Exo Gemstone");
             Tooltip.SetDefault("Summons the full miniaturized exo ensemble");
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.ZephyrFish);
-            item.UseSound = SoundID.NPCHit4;
-            item.shoot = mod.ProjectileType("TwinsPet");
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 11;
-            item.buffType = mod.BuffType("ExoMayhemBuff");
+            Item.CloneDefaults(ItemID.ZephyrFish);
+            Item.UseSound = SoundID.NPCHit4;
+            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.ExoMechs.TwinsPet>();
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.rare = 11;
+            Item.buffType = ModContent.BuffType<Buffs.Pets.ExoMechs.ExoMayhemBuff>();
         }
 
-        public override void UseStyle(Player player)
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
-            }
-        }
-
-        public override void AddRecipes()
-        {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<GeminiMarkImplants>(), 1);
-                recipe.AddIngredient(ModContent.ItemType<GunmetalRemote>(), 1);
-                recipe.AddIngredient(ModContent.ItemType<OminousCore>(), 1);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("ExoPrism"), 8);
-                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                player.AddBuff(Item.buffType, 3600, true);
             }
         }
 
@@ -64,18 +47,18 @@ namespace CalValEX.Items.Pets.ExoMechs
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(108, 45, 199); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(108, 45, 199); //change the color accordingly to above
                 }
             }
         }
 
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            Projectile.NewProjectile(player.Center, Vector2.Zero, mod.ProjectileType("ThanatosPet"), 0, 0, player.whoAmI);
-            Projectile.NewProjectile(player.Center, Vector2.Zero, mod.ProjectileType("AresBody"), 0, 0, player.whoAmI);
-            Projectile.NewProjectile(player.Center, Vector2.Zero, mod.ProjectileType("TwinsPet"), 0, 0, player.whoAmI);
+            Projectile.NewProjectile(source, player.Center, Vector2.Zero, ModContent.ProjectileType < Projectiles.Pets.ExoMechs.ThanatosPet>(), 0, 0, player.whoAmI);
+            Projectile.NewProjectile(source, player.Center, Vector2.Zero, ModContent.ProjectileType < Projectiles.Pets.ExoMechs.AresBody>(), 0, 0, player.whoAmI);
+            Projectile.NewProjectile(source, player.Center, Vector2.Zero, ModContent.ProjectileType < Projectiles.Pets.ExoMechs.TwinsPet>(), 0, 0, player.whoAmI);
 
             return false;
         }

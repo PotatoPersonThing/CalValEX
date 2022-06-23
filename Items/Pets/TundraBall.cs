@@ -14,19 +14,19 @@ namespace CalValEX.Items.Pets
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.ZephyrFish);
-            item.UseSound = SoundID.Item47;
-            item.shoot = mod.ProjectileType("Angrypup");
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 3;
-            item.buffType = mod.BuffType("Doggobuff");
+            Item.CloneDefaults(ItemID.ZephyrFish);
+            Item.UseSound = SoundID.Item47;
+            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.Angrypup>();
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 3;
+            Item.buffType = ModContent.BuffType<Buffs.Pets.Doggobuff>();
         }
 
-        public override void UseStyle(Player player)
+        public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
         }
     }

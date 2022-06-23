@@ -6,7 +6,8 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Pets
 {
-    public class coopershortsword : ModItem
+    [LegacyName("coopershortsword")]
+    public class CooperShortsword : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -16,19 +17,19 @@ namespace CalValEX.Items.Pets
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.ZephyrFish);
-            item.UseSound = SoundID.NPCHit5;
-            item.shoot = mod.ProjectileType("cryokid");
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            item.buffType = mod.BuffType("ckidbuff");
-            item.rare = 5;
+            Item.CloneDefaults(ItemID.ZephyrFish);
+            Item.UseSound = SoundID.NPCHit5;
+            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.Cryokid>();
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Item.buffType = ModContent.BuffType<Buffs.Pets.ckidbuff>();
+            Item.rare = 5;
         }
 
-        public override void UseStyle(Player player)
+        public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
         }
 
@@ -45,9 +46,9 @@ namespace CalValEX.Items.Pets
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(107, 240, 255); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(107, 240, 255); //change the color accordingly to above
                 }
             }
         }

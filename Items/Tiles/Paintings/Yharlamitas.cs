@@ -16,17 +16,17 @@ namespace CalValEX.Items.Tiles.Paintings
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.autoReuse = true;
-            item.maxStack = 99;
-            item.consumable = true;
-            item.createTile = ModContent.TileType<YharlamitasPlaced>();
-            item.width = 12;
-            item.height = 12;
-            item.rare = 11;
+            Item.useStyle = 1;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.maxStack = 99;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<YharlamitasPlaced>();
+            Item.width = 12;
+            Item.height = 12;
+            Item.rare = 11;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -42,9 +42,9 @@ namespace CalValEX.Items.Tiles.Paintings
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(255, 0, 255); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(255, 0, 255); //change the color accordingly to above
                 }
             }
         }

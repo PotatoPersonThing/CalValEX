@@ -12,26 +12,26 @@ namespace CalValEX.Tiles.Cages
     // If you can't figure out how to recreate a vanilla tile, see that guide for instructions on how to figure it out yourself.
     public class BlinkerInABottlePlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             // Main.tileFlame[Type] = true; This breaks it.
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-            disableSmartCursor = true;
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Blinker in a Bottle");
             AddMapEntry(new Color(139, 0, 0), name);
-            animationFrameHeight = 36;
+            AnimationFrameHeight = 36;
         }
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 32, ModContent.ItemType<BlinkerInABottle>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<BlinkerInABottle>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

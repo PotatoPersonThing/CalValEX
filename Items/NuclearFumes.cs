@@ -12,16 +12,16 @@ namespace CalValEX.Items
         {
             DisplayName.SetDefault("Nuclear Fumes");
             Tooltip.SetDefault("Don't inhale them");
-            ItemID.Sets.ItemNoGravity[item.type] = true;
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
         public override void SetDefaults()
         {
-            item.width = 28;
-            item.height = 18;
-            item.value = Item.sellPrice(0, 10, 0, 0);
-            item.maxStack = 999;
-            item.rare = 10;
+            Item.width = 28;
+            Item.height = 18;
+            Item.value = Item.sellPrice(0, 10, 0, 0);
+            Item.maxStack = 999;
+            Item.rare = 10;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -37,9 +37,9 @@ namespace CalValEX.Items
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(0, 255, 0); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(0, 255, 0); //change the color accordingly to above
                 }
             }
         }

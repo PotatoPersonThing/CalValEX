@@ -1,85 +1,105 @@
 using Terraria;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using System;
+using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets
 {
-    public class RepairBot : WalkingPet
+    public class RepairBot : ModWalkingPet
     {
+        public override float TeleportThreshold => 1000f;
+
+        public override bool ShouldFlyRotate => false;
+
         public override void SetStaticDefaults()
         {
+            PetSetStaticDefaults(lightPet: false);
             DisplayName.SetDefault("Repair Bot");
-            Main.projFrames[projectile.type] = 17; //frames
-            Main.projPet[projectile.type] = true;
+            Main.projFrames[Projectile.type] = 17;
         }
 
-        public override void SafeSetDefaults() //SAFE SET DEFAULTS!!!
+        public override void SetDefaults()
         {
-            projectile.width = 24;
-            projectile.height = 30;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = true;
-            facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
-            spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
-            shouldFlip = true; //should the sprite flip? if that's the case, set to true. else, put it to false.
+            PetSetDefaults();
+            Projectile.width = 24;
+            Projectile.height = 30;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
         }
 
-        public override void SetPetDistances()
+        public override void Animation(int state)
         {
-            distance[0] = 1000f; //teleport
-            distance[1] = 560f; //speed increase
-            distance[2] = 100f; //when to walk
-            distance[3] = 50f; //when to stop walking
-            distance[4] = 280f; //when to fly
-            distance[5] = 180f; //when to stop flying
+            switch(state)
+            {
+                case States.Walking:
+                    if (Projectile.velocity.X != 0f)
+                    {
+                        if (++Projectile.frameCounter > 3)
+                        {
+                            Projectile.frameCounter = 0;
+                            Projectile.frame++;
+
+                            if (Projectile.frame > 8 || Projectile.frame < 1)
+                                Projectile.frame = 1;
+                        }
+                    }
+                    else
+                    {
+                        Projectile.frameCounter = 0;
+                        Projectile.frame = 0;
+                    }
+                    break;
+
+                case States.Flying:
+                    if (++Projectile.frameCounter > 5)
+                    {
+                        Projectile.frameCounter = 0;
+                        Projectile.frame++;
+
+                        if (Projectile.frame > 16 || Projectile.frame < 9)
+                            Projectile.frame = 9;
+                    }
+                    break;
+            }
         }
 
-        public override void SetFrameLimitsAndFrameSpeed()
+        public override void CustomBehaviour(Player player, ref int state, float walkingSpeed, float walkingInertia, float flyingSpeed, float flyingInertia)
         {
-            idleFrameLimits[0] = idleFrameLimits[1] = 0; //what your min idle frame is (start of idle animation)
-            walkingFrameLimits[0] = 1; //what your min walking frame is (start of walking animation)
-            walkingFrameLimits[1] = 8; //what your max walking frame is (end of walking animation)
-
-            flyingFrameLimits[0] = 9; //what your min flying frame is (start of flying animation)
-            flyingFrameLimits[1] = 16; //what your max flying frame is (end of flying animation)
-
-            jumpFrameLimits[0] = -1; //what your min jump frame is (start of jump animation)
-            jumpFrameLimits[1] = -1; //what your max jump frame is (end of jump animation)
-
-            animationSpeed[0] = 30; //idle animation speed
-            animationSpeed[1] = 3; //walking animation speed
-            animationSpeed[2] = 5; //flying animation speed
-            animationSpeed[3] = -1; //jumping animation speed
-
-            jumpAnimationLength = -1; //how long the jump animation should stay
+            if (state == States.Flying)
+            {
+                Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + MathHelper.PiOver2;
+            }
         }
 
-        public override void SafeAI(Player player)
+        public override void PetFunctionality(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
                 modPlayer.RepairBot = false;
+
             if (modPlayer.RepairBot)
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
         }
-        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+
+        public override void PostDraw(Color lightColor)
         {
-            Texture2D glowMask = mod.GetTexture("Projectiles/Pets/RepairBot_Glow");
-            Rectangle frame = glowMask.Frame(1, Main.projFrames[projectile.type], 0, projectile.frame);
+            Texture2D glowMask = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/RepairBot_Glow").Value;
+            Rectangle frame = glowMask.Frame(1, Main.projFrames[Projectile.type], 0, Projectile.frame);
             frame.Height -= 1;
-            float originOffsetX = (glowMask.Width - projectile.width) * 0.5f + projectile.width * 0.5f + drawOriginOffsetX;
-            spriteBatch.Draw
+            float originOffsetX = (glowMask.Width - Projectile.width) * 0.5f + Projectile.width * 0.5f + DrawOriginOffsetX;
+            Main.EntitySpriteDraw
             (
                 glowMask,
-                projectile.position - Main.screenPosition + new Vector2(originOffsetX + drawOffsetX, projectile.height / 2 + projectile.gfxOffY),
+                Projectile.position - Main.screenPosition + new Vector2(originOffsetX + DrawOffsetX, Projectile.height / 2 + Projectile.gfxOffY),
                 frame,
                 Color.White,
-                projectile.rotation,
-                new Vector2(originOffsetX, projectile.height / 2 - drawOriginOffsetY),
-                projectile.scale,
-                projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
-                0f
+                Projectile.rotation,
+                new Vector2(originOffsetX, Projectile.height / 2 - DrawOriginOffsetY),
+                Projectile.scale,
+                Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
+                0
             );
         }
     }

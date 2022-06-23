@@ -10,21 +10,17 @@ namespace CalValEX.Items.Equips.Wings
         {
             DisplayName.SetDefault("Beelzebooster");
             Tooltip.SetDefault("And they wonder how bees can get themselves off the ground\n" + "Horizontal speed: 7.8\n" + "Acceleration multiplier: 1.9\n" + "Flight time: 170");
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(170, 7.8f, 1.9f);
         }
 
         public override void SetDefaults()
         {
-            item.width = 40;
-            item.height = 34;
-            item.value = Item.buyPrice(0, 2, 0, 0);
-            item.rare = 8;
-            item.accessory = true;
-        }
-
-        //these wings use the same values as the solar wings
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            player.wingTimeMax = 170;
+            Item.width = 40;
+            Item.height = 34;
+            Item.value = Item.buyPrice(0, 2, 0, 0);
+            Item.rare = 8;
+            Item.accessory = true;
         }
 
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
@@ -35,12 +31,6 @@ namespace CalValEX.Items.Equips.Wings
             maxCanAscendMultiplier = 0.4f;
             maxAscentMultiplier = 1.4f;
             constantAscend = 0.08f;
-        }
-
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-        {
-            speed = 7.8f;
-            acceleration *= 1.9f;
         }
     }
 }

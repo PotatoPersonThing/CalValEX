@@ -9,20 +9,20 @@ namespace CalValEX.Tiles.AstralBlocks
 {
     public class AstralDirtPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            drop = ModContent.ItemType<AstralDirt>();
-            dustType = ModContent.DustType<AstralDust>();
+            ItemDrop = ModContent.ItemType<AstralDirt>();
+            DustType = ModContent.DustType<AstralDust>();
             AddMapEntry(new Color(40, 0, 50));
             Main.tileBlendAll[this.Type] = true;
         }
 
-        public override void ChangeWaterfallStyle(ref int style) {
+        /*public override void ChangeWaterfallStyle(ref int style) {
 			style = mod.GetWaterfallStyleSlot("AstralWaterfallStyle");
-		}
+		}*/
     }
 }

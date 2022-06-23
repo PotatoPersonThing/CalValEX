@@ -10,20 +10,17 @@ namespace CalValEX.Items.Equips.Wings
         {
             DisplayName.SetDefault("Plaguebringer Wings");
             Tooltip.SetDefault("Nanomachines not included\n" + "Horizontal speed: 7.75\n" + "Acceleration multiplier: 1.5\n" + "Flight time: 150"); ;
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(150, 7.75f, 1.5f);
         }
 
         public override void SetDefaults()
         {
-            item.width = 26;
-            item.height = 26;
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            item.rare = 8;
-            item.accessory = true;
-        }
-
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            player.wingTimeMax = 150;
+            Item.width = 26;
+            Item.height = 26;
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Item.rare = 8;
+            Item.accessory = true;
         }
 
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
@@ -34,12 +31,6 @@ namespace CalValEX.Items.Equips.Wings
             maxCanAscendMultiplier = 0.5f;
             maxAscentMultiplier = 1.5f;
             constantAscend = 0.1f;
-        }
-
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-        {
-            speed = 7.75f;
-            acceleration *= 1.5f;
         }
     }
 }

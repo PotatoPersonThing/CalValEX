@@ -7,11 +7,8 @@ namespace CalValEX.Buffs.Pets
     public class LumpyBuff : ModBuff
     {
 
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            // DisplayName and Description are automatically set from the .lang files, but below is how it is done normally.
-            DisplayName.SetDefault("Lumpy");
-            Description.SetDefault("Lumpy");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
@@ -23,7 +20,7 @@ namespace CalValEX.Buffs.Pets
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<Projectiles.Pets.LumpyBase>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ProjectileType<Projectiles.Pets.LumpyBase>(), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ProjectileType<Projectiles.Pets.LumpyBase>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
         }
     }

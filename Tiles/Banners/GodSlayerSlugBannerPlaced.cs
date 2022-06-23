@@ -11,39 +11,29 @@ namespace CalValEX.Tiles.Banners
 {
     public class GodSlayerSlugBannerPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 16 };
             TileObjectData.newTile.StyleHorizontal = true;
             TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.SolidBottom, TileObjectData.newTile.Width, 0);
             TileObjectData.newTile.StyleWrapLimit = 111;
             TileObjectData.addTile(Type);
-            dustType = -1;
-            disableSmartCursor = true;
+            DustType = -1;
+            
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("God Slayer Slug Banner");
             AddMapEntry(new Color(0, 255, 242), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int frameY)
         {
-            int style = frameX / 18;
-            string item;
-            switch (style)
-            {
-                case 0:
-                    item = "GodSlayerSlugBanner";
-                    break;
-
-                default:
-                    return;
-            }
-            Item.NewItem(i * 16, j * 16, 16, 48, mod.ItemType(item));
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 48, ModContent.ItemType<GodSlayerSlugBanner>());
         }
 
         public override void NearbyEffects(int i, int j, bool closer)
@@ -51,7 +41,7 @@ namespace CalValEX.Tiles.Banners
             if (closer)
             {
                 Player player = Main.LocalPlayer;
-                int style = Main.tile[i, j].frameX / 18;
+                int style = Main.tile[i, j].TileFrameX / 18;
                 string type;
                 switch (style)
                 {
@@ -62,8 +52,7 @@ namespace CalValEX.Tiles.Banners
                     default:
                         return;
                 }
-                player.NPCBannerBuff[mod.NPCType(type)] = true;
-                player.hasBanner = true;
+                player.HasNPCBannerBuff(ModContent.NPCType<NPCs.Critters.GodSlayerSlug>());
             }
         }
 

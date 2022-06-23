@@ -18,11 +18,12 @@ namespace CalValEX.Items.Equips.Hats
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 28;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 10;
-            item.vanity = true;
+            Item.width = 24;
+            Item.height = 28;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 10;
+            Item.vanity = true;
+            Terraria.ID.ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -38,30 +39,26 @@ namespace CalValEX.Items.Equips.Hats
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(107, 240, 255); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(107, 240, 255); //change the color accordingly to above
                 }
             }
-        }
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
-        {
-            drawAltHair = true;
         }
         public override void UpdateEquip(Player player)
         {
             player.GetModPlayer<CalValEXPlayer>().aesthetic = true;
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             player.GetModPlayer<CalValEXPlayer>().aesthetic = true;
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+           
             recipe.AddIngredient(calamityMod.ItemType("AerialiteBar"), 2);
             recipe.AddIngredient((ItemID.Glass), 7);
             recipe.AddIngredient((ItemID.Gel), 5);
@@ -71,6 +68,6 @@ namespace CalValEX.Items.Equips.Hats
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();
-        }
+        }*/
     }
 }

@@ -16,21 +16,17 @@ namespace CalValEX.Items.Tiles
         public override string Texture => "CalamityMod/Items/Placeables/DraedonStructures/PowerCellFactoryItem";
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.autoReuse = true;
-            item.maxStack = 99;
-            item.consumable = true;
-            item.width = 16;
-            item.height = 28;
-            item.rare = 3;
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            if (calamityMod != null)
-            {
-                item.createTile = (calamityMod.TileType("InactivePowerCellFactory"));
-            }
+            Item.useStyle = 1;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.maxStack = 99;
+            Item.consumable = true;
+            Item.width = 16;
+            Item.height = 28;
+            Item.rare = 3;
+            Item.createTile = ModContent.TileType<CalamityMod.Tiles.DraedonStructures.InactivePowerCellFactory>();
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -46,23 +42,9 @@ namespace CalValEX.Items.Tiles
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(204, 71, 35); //change the color accordingly to above
-                }
-            }
-        }
-
-        public override void AddRecipes()
-        {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            {
-                {
-                    ModRecipe recipe = new ModRecipe(mod);
-                    recipe.AddIngredient(calamityMod.ItemType("PowerCellFactoryItem"), 1);
-                    recipe.AddTile(TileID.Anvils);
-                    recipe.SetResult(this);
-                    recipe.AddRecipe();
+                    tooltipLine.OverrideColor = new Color(204, 71, 35); //change the color accordingly to above
                 }
             }
         }

@@ -17,12 +17,12 @@ namespace CalValEX.Items.Equips.Capes
 
         public override void SetDefaults()
         {
-            item.width = 38;
-            item.height = 32;
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 11;
-            item.accessory = true;
-            item.vanity = true;
+            Item.width = 38;
+            Item.height = 32;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.rare = 11;
+            Item.accessory = true;
+            Item.vanity = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -38,14 +38,14 @@ namespace CalValEX.Items.Equips.Capes
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(255, 0, 255); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(255, 0, 255); //change the color accordingly to above
                 }
             }
         }
 
-        public override void AddRecipes()
+       /*public override void AddRecipes()
         {
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
@@ -60,6 +60,6 @@ namespace CalValEX.Items.Equips.Capes
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

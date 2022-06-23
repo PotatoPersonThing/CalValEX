@@ -15,14 +15,14 @@ namespace CalValEX.Items.Mounts.Ground
 
         public override void SetDefaults()
         {
-            item.useTime = 20;
-            item.useAnimation = 20;
-            item.useStyle = 1;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 1;
-            item.UseSound = SoundID.Item23;
-            item.noMelee = true;
-            item.mountType = mod.MountType("WulfrumTractor");
+            Item.useTime = 20;
+            Item.useAnimation = 20;
+            Item.useStyle = 1;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 1;
+            Item.UseSound = SoundID.Item23;
+            Item.noMelee = true;
+            Item.mountType = ModContent.MountType<WulfrumTractor>();
         }
     }
 }

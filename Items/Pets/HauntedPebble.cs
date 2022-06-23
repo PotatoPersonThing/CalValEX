@@ -12,27 +12,27 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Haunted Pebble");
             Tooltip
                 .SetDefault("'Spookay~'\n" + "Summons a Phantom Debris larvae");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(6, 6));
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 6));
         }
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 36;
-            item.CloneDefaults(ItemID.ZephyrFish);
-            item.UseSound = SoundID.NPCHit33;
-            item.shoot = mod.ProjectileType("PhantomPet");
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            item.rare = 4;
-            item.buffType = mod.BuffType("DebrisPet");
-            item.noUseGraphic = true;
+            Item.width = 20;
+            Item.height = 36;
+            Item.CloneDefaults(ItemID.ZephyrFish);
+            Item.UseSound = SoundID.NPCHit33;
+            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.PhantomPet>();
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Item.rare = 4;
+            Item.buffType = ModContent.BuffType<Buffs.Pets.DebrisPet>();
+            Item.noUseGraphic = true;
         }
 
-        public override void UseStyle(Player player)
+        public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
         }
     }

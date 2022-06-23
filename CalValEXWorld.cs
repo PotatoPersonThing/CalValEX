@@ -5,11 +5,13 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Tiles.AstralBlocks;
+using CalamityMod.Tiles.DraedonStructures;
 using System.IO;
+using System;
 
 namespace CalValEX
 {
-    public class CalValEXWorld : ModWorld
+    public class CalValEXWorld : ModSystem
     {
         public static int astralTiles;
 
@@ -37,7 +39,11 @@ namespace CalValEX
 
         public static bool jharinter;
 
-        public override void Initialize()
+        public static bool downedMeldosaurus;
+
+        public static bool masorev;
+
+        public override void OnWorldLoad()
         {
             rescuedjelly = false;
             jharim = false;
@@ -46,87 +52,78 @@ namespace CalValEX
             Rockshrine = false;
             RockshrinEX = false;
             jharinter = false;
+            downedMeldosaurus = false;
+        }
+        public override void OnWorldUnload()
+        {
+            rescuedjelly = false;
+            jharim = false;
+            amogus = false;
+            orthofound = false;
+            Rockshrine = false;
+            RockshrinEX = false;
+            jharinter = false;
+            downedMeldosaurus = false;
         }
 
-        public override TagCompound Save()
+        public override void SaveWorldData(TagCompound downed)
         {
-            var downed = new List<string>();
             if (rescuedjelly)
             {
-                downed.Add("rescuedjelly");
+                downed["rescuedjelly"] = true;
             }
 
             if (jharim)
             {
-                downed.Add("jharim");
+                downed["jharim"] = true;
             }
 
             if (orthofound)
             {
-                downed.Add("orthofound");
+                downed["orthofound"] = true;
             }
 
             if (amogus)
             {
-                downed.Add("amogus");
+                downed["amogus"] = true;
             }
 
             if (Rockshrine)
             {
-                downed.Add("Rockshrine");
+                downed["Rockshrine"] = true;
             }
 
             if (RockshrinEX)
             {
-                downed.Add("RockshrinEX");
+                downed["RockshrinEX"] = true;
             }
 
             if (jharinter)
             {
-                downed.Add("jharinter");
+                downed["jharinter"] = true;
             }
 
-            return new TagCompound
+            if (downedMeldosaurus)
             {
-                {
-                    "downed", downed
-                }
-            };
+                downed["downedMeldosaurus"] = true;
+            }
         }
 
-        public override void Load(TagCompound tag)
+        public override void LoadWorldData(TagCompound tag)
         {
-            var downed = tag.GetList<string>("downed");
-            rescuedjelly = downed.Contains("rescuedjelly");
-            jharim = downed.Contains("jharim");
-            orthofound = downed.Contains("orthofound");
-            amogus = downed.Contains("amogus");
-            Rockshrine = downed.Contains("Rockshrine");
-            RockshrinEX = downed.Contains("RockshrinEX");
-            jharinter = downed.Contains("jharinter");
-        }
-        public override void LoadLegacy(BinaryReader reader)
-        {
-            int loadVersion = reader.ReadInt32();
-            if (loadVersion == 0)
-            {
-                BitsByte flags = reader.ReadByte();
-                rescuedjelly = flags[0];
-                jharim = flags[1];
-                orthofound = flags[2];
-                amogus = flags[3];
-                Rockshrine = flags[4];
-                RockshrinEX = flags[5];
-                jharinter = flags[6];
-            }
-            else
-            {
-                ErrorLogger.Log("CalValEX: Unknown loadVersion: " + loadVersion);
-            }
+            rescuedjelly = tag.ContainsKey("rescuedjelly");
+            jharim = tag.ContainsKey("jharim");
+            orthofound = tag.ContainsKey("orthofound");
+            amogus = tag.ContainsKey("amogus");
+            Rockshrine = tag.ContainsKey("Rockshrine");
+            RockshrinEX = tag.ContainsKey("RockshrinEX");
+            jharinter = tag.ContainsKey("jharinter");
+            downedMeldosaurus = tag.ContainsKey("downedMeldosaurus");
         }
         public override void NetSend(BinaryWriter writer)
         {
             BitsByte flags = new BitsByte();
+            BitsByte flags2 = new BitsByte();
             flags[0] = rescuedjelly;
             flags[1] = jharim;
             flags[2] = orthofound;
@@ -134,11 +131,15 @@ namespace CalValEX
             flags[4] = Rockshrine;
             flags[5] = RockshrinEX;
             flags[6] = jharinter;
+            flags2[0] = downedMeldosaurus;
             writer.Write(flags);
         }
         public override void NetReceive(BinaryReader reader)
         {
+            if (reader.BaseStream.Length < 1)
+                return;
             BitsByte flags = reader.ReadByte();
+            BitsByte flags2 = reader.ReadByte();
             rescuedjelly = flags[0];
             jharim = flags[1];
             orthofound = flags[2];
@@ -146,6 +147,7 @@ namespace CalValEX
             Rockshrine = flags[4];
             RockshrinEX = flags[5];
             jharinter = flags[6];
+            downedMeldosaurus = flags2[0];
         }
 
         public override void ResetNearbyTileEffects()
@@ -155,18 +157,28 @@ namespace CalValEX
             labTiles = 0;
             dungeontiles = 0;
         }
-
-        public override void TileCountsAvailable(int[] tileCounts)
+        public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts)
         {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
             // Old Astral tiles
             astralTiles = tileCounts[TileType<AstralDirtPlaced>()] + tileCounts[TileType<AstralGrassPlaced>()] + tileCounts[TileType<XenostonePlaced>()] + tileCounts[TileType<AstralSandPlaced>()] + tileCounts[TileType<AstralHardenedSandPlaced>()] + tileCounts[TileType<AstralSandstonePlaced>()] + tileCounts[TileType<AstralClayPlaced>()] + tileCounts[TileType<AstralIcePlaced>()] + tileCounts[TileType<AstralSnowPlaced>()];
             // Hell Lab tiles
-            hellTiles = tileCounts[calamityMod.TileType("Chaosplate")];
+            hellTiles = tileCounts[TileType<CalamityMod.Tiles.Plates.Chaosplate>()];
             // Lab tiles
-            labTiles = tileCounts[calamityMod.TileType("LaboratoryPlating")] + tileCounts[calamityMod.TileType("LaboratoryPanels")] + tileCounts[calamityMod.TileType("RustedPlating")] + tileCounts[calamityMod.TileType("LaboratoryPipePlating")] + tileCounts[calamityMod.TileType("RustedPipes")];
+            labTiles = tileCounts[TileType<LaboratoryPlating>()] + tileCounts[TileType < LaboratoryPanels>()] + tileCounts[TileType < RustedPlating>()] + tileCounts[TileType < LaboratoryPipePlating>()] + tileCounts[TileType < RustedPipes>()];
             //Dungeon tiles
             dungeontiles = tileCounts[TileID.BlueDungeonBrick] + tileCounts[TileID.PinkDungeonBrick] + tileCounts[TileID.GreenDungeonBrick];
+        }
+
+        public override void PreUpdateNPCs()
+        {
+            if (CalamityMod.World.CalamityWorld.revenge || Main.masterMode)
+            {
+                masorev = true;
+            }
+            else
+            {
+                masorev = false;
+            }
         }
 
         public static void UpdateWorldBool()

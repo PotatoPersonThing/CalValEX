@@ -1,5 +1,4 @@
-﻿using CalamityMod;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -12,24 +11,25 @@ namespace CalValEX.Items.Pets.ExoMechs
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Dark Gunmetal Remote");
-            Tooltip.SetDefault("T Hanos\n" + "Summons a shorter and friendlier version of the high-tech digger\n" + "Hold right click while holding the remote to make the pet go towards your cursor");
+            Tooltip.SetDefault("T Hanos\n" + "Summons a shorter and friendlier version of the high-tech digger");
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.ZephyrFish);
-            item.UseSound = SoundID.NPCHit4;
-            item.shoot = mod.ProjectileType("ThanatosPet");
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 11;
-            item.buffType = mod.BuffType("ThanatosBuff");
+            Item.CloneDefaults(ItemID.ZephyrFish);
+            Item.UseSound = SoundID.NPCHit4;
+            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.ExoMechs.ThanatosPet>();
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.rare = 11;
+            Item.buffType = ModContent.BuffType<Buffs.Pets.ExoMechs.ThanatosBuff>();
         }
 
-        public override void UseStyle(Player player)
+        public override void UseStyle(Player player, Rectangle heldItemFrame)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
         }
 
@@ -46,25 +46,19 @@ namespace CalValEX.Items.Pets.ExoMechs
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(108, 45, 199); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(108, 45, 199); //change the color accordingly to above
                 }
             }
         }
 
         //Listen for the mouseworld & right click from the owner. This is for mp syncing
-        public override void HoldItem(Player player)
+        /*public override void HoldItem(Player player)
         {
             //THIS CODE NEEDS CALAMITY 1.5.1.001 STUFF TO WORK PROPERLY!
             player.Calamity().rightClickListener = true;
             player.Calamity().mouseWorldListener = true;
-        }
-
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-        {
-            type = mod.ProjectileType("ThanatosPet");
-            return base.Shoot(player, ref position, ref speedX, ref speedY, ref type, ref damage, ref knockBack);
-        }
+        }*/
     }
 }

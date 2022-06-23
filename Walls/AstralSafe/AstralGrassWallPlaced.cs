@@ -9,13 +9,13 @@ namespace CalValEX.Walls.AstralSafe
 {
     public class AstralGrassWallPlaced : ModWall
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            drop = ModContent.ItemType<AstralGrassWall>();
+            ItemDrop = ModContent.ItemType<AstralGrassWall>();
             AddMapEntry(new Color(207, 85, 192));
-            dustType = ModContent.DustType<AstralDust>();
-            soundType = SoundID.Grass;
+            DustType = ModContent.DustType<AstralDust>();
+            HitSound = SoundID.Grass;
         }
     }
 }

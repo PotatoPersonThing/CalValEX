@@ -8,10 +8,14 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using CalValEX.Projectiles.Pets;
+using Terraria.Chat;
+using Terraria.Audio;
+using CalamityMod.Projectiles.Boss;
+using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.AprilFools
 {
-    public class Amogus : WalkingPet
+    public class Amogus : ModWalkingPet
     {
         int deathcounter = 0;
         int lifecounter = 0;
@@ -30,92 +34,73 @@ namespace CalValEX.AprilFools
         int chargetype = 0;
         public override void SetStaticDefaults()
         {
+            PetSetStaticDefaults(lightPet: false);
             DisplayName.SetDefault("Amogus");
-            Main.projFrames[projectile.type] = 4; //frames
-            Main.projPet[projectile.type] = true;
+            Main.projFrames[Projectile.type] = 4; //frames
+            Main.projPet[Projectile.type] = true;
         }
 
-        public override void SafeSetDefaults()
+        public override void SetDefaults()
         {
-            projectile.width = 26;
-            projectile.height = 26;
-            projectile.penetrate = -1;
-            projectile.netImportant = true;
-            projectile.timeLeft *= 5;
-            projectile.friendly = true;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = true;
-            base.drawOffsetX = -7;
-            base.drawOriginOffsetY = 0;
-            facingLeft = false; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
-            spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
-            shouldFlip = true;
+            PetSetDefaults();
+            Projectile.width = 26;
+            Projectile.height = 26;
+            Projectile.penetrate = -1;
+            Projectile.netImportant = true;
+            Projectile.timeLeft *= 5;
+            Projectile.friendly = true;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+            base.DrawOffsetX = -7;
+            base.DrawOriginOffsetY = 0;
+            DrawOffsetX = -7;
+            DrawOriginOffsetY = 0;
         }
-
-        //all things should be synchronized. most things vanilla already does for us, however you should sync the things you
-        //made yourself as they are not synchronized alone by the server.
-        public override void SetPetGravityAndDrag()
+        public override void ModifyJumpHeight(ref float oneTileHigherAndNotTwoTilesHigher, ref float twoTilesHigher, ref float fourTilesHigher, ref float fiveTilesHigher, ref float anyOtherJump)
         {
-            gravity = 0.1f; //needs to be positive for the pet to be pushed down platforms plus for it to have gravity
-            drag[0] = 0.92f; //idle drag
-            drag[1] = 0.95f; //walking drag
+            oneTileHigherAndNotTwoTilesHigher = -4f;
+            twoTilesHigher = -6f;
+            fiveTilesHigher = -8f;
+            fourTilesHigher = -7f;
+            anyOtherJump = -6.5f;
         }
-
-        public override void SetPetDistances()
+        public override void Animation(int state)
         {
-            distance[0] = 2400f; //teleport
-            distance[1] = 560f; //speed increase
-            distance[2] = 140f; //when to walk
-            distance[3] = 40f; //when to stop walking
-            distance[4] = 448f; //when to fly
-            distance[5] = 180f; //when to stop flying
-        }
-
-        public override void SetPetSpeedsAndInertia()
-        {
-            speed[0] = 10f; //walking speed
-            speed[1] = 12f; //flying speed
-
-            inertia[0] = 20f; //walking inertia
-            inertia[1] = 80f; //flight inertia
-        }
-
-        public override void SetJumpSpeeds()
-        {
-            jumpSpeed[0] = -4f; //1 tile above pet
-            jumpSpeed[1] = -6f; //2 tiles above pet
-            jumpSpeed[2] = -8f; //5 tiles above pet
-            jumpSpeed[3] = -7f; //4 tiles above pet
-            jumpSpeed[4] = -6.5f; //any other tile number above pet
-        }
-
-        public override void SetFrameLimitsAndFrameSpeed()
-        {
-            idleFrameLimits[0] = idleFrameLimits[1] = 0; //what your min idle frame is (start of idle animation)
-
-            walkingFrameLimits[0] = 0; //what your min walking frame is (start of walking animation)
-            walkingFrameLimits[1] = 3; //what your max walking frame is (end of walking animation)
-
-            flyingFrameLimits[0] = 0;
-            flyingFrameLimits[1] = 3; //what your min flying frame is (start of flying animation)
-
-            animationSpeed[0] = 30; //idle animation speed
-            animationSpeed[1] = 8; //walking animation speed
-            animationSpeed[2] = 10; //flying animation speed
-            spinRotationSpeedMult = 2.5f; //how fast it should spin
-            //put the below to -1 if you dont want a jump animation (so its just gonna continue it's walk animation
-            animationSpeed[3] = -1; //jumping animation speed
-
-            jumpFrameLimits[0] = -1; //what your min jump frame is (start of jump animation)
-            jumpFrameLimits[1] = -1; //what your max jump frame is (end of jump animation)
-
-            jumpAnimationLength = -1; //how long the jump animation should stay
+            switch (state)
+            {
+                case States.Walking:
+                    if (Projectile.velocity.X != 0f)
+                    {
+                        if (++Projectile.frameCounter > 8)
+                        {
+                            Projectile.frameCounter = 0;
+                            Projectile.frame++;
+                            if (Projectile.frame > 3)
+                                Projectile.frame = 0;
+                        }
+                    }
+                    else
+                    {
+                        Projectile.frameCounter = 0;
+                        Projectile.frame = 0;
+                    }
+                    break;
+                case States.Flying:
+                    if (++Projectile.frameCounter > 10)
+                    {
+                        Projectile.frameCounter = 0;
+                        Projectile.frame++;
+                        if (Projectile.frame > 3)
+                            Projectile.frame = 0;
+                    }
+                    break;
+            }
         }
         private void EdgyTalk(string text, Color color, bool combatText = false)
         {
             if (combatText)
             {
-                CombatText.NewText(projectile.getRect(), color, text, true);
+                CombatText.NewText(Projectile.getRect(), color, text, true);
             }
             else
             {
@@ -125,64 +110,49 @@ namespace CalValEX.AprilFools
                 }
                 else if (Main.netMode == NetmodeID.Server)
                 {
-                    NetMessage.BroadcastChatMessage(NetworkText.FromKey(text), color);
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromKey(text), color);
                 }
             }
         }
 
-        public override void SafeAI(Player player)
+        public override void PetFunctionality(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
-            { 
+            {
                 modPlayer.amogus = false;
-                projectile.active = false;
+                Projectile.active = false;
             }
             if (modPlayer.amogus)
-                projectile.timeLeft = 2;
-
-            /* THIS CODE ONLY RUNS AFTER THE MAIN CODE RAN.
-             * for custom behaviour, you can check if the projectile is walking or not via projectile.localAI[1]
-             * you should make new custom behaviour with numbers higher than 2, or less than 0
-             * the next few lines is an example on how to implement this
-             *
-             * switch ((int)projectile.localAI[1])
-             * {
-             *     case -1:
-             *         break;
-             *     case 3:
-             *         break;
-             * }
-             *
-             * 0, 1 and 2 are already in use.
-             * 0 = idling
-             * 1 = walking
-             * 2 = flying
-             *
-             * you can still use these, changing thing inside (however it's not recomended unless you want to add custom behaviour to these)
-             */
-
-            /*if (NPC.AnyNPCs(ModContent.NPCType<Meldosaurus.Meldosaurus>()) && deathcounter <= 0)
+                Projectile.timeLeft = 2;
+        }
+        public override void CustomBehaviour(Player player, ref int state, float walkingSpeed, float walkingInertia, float flyingSpeed, float flyingInertia)
+        {
+            CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
+            if (deathcounter <= 0 && !player.HasBuff(ModContent.BuffType<AprilFools.AmogusBuff>()) && !NPC.AnyNPCs(ModContent.NPCType<Meldosaurus.Meldosaurus>()))
             {
-                projectile.tileCollide = false;
-                projectile.localAI[1] = 5;
-            }*/
+                Projectile.active = false;
+            }
 
-            if ((CalValEX.month != 4 && projectile.localAI[1] != 4 && !CalValEXWorld.amogus) || modPlayer.rockhat)
+            if (NPC.AnyNPCs(ModContent.NPCType<Meldosaurus.Meldosaurus>()) && deathcounter <= 0)
+            {
+                Projectile.tileCollide = false;
+                state = 5;
+            }
+
+            if ((!CalValEX.AprilFoolMonth && state != 4 && !CalValEXWorld.amogus) || modPlayer.rockhat)
             {
                 deathcounter++;
                 if (deathcounter >= 300)
                 {
-                    projectile.localAI[1] = 3;
-                    projectile.timeLeft = 2;
+                    state = 3;
+                    Projectile.timeLeft = 2;
                 }
             }
-            switch ((int)projectile.localAI[1])
+            switch (state)
             {
                 case 3:
-                    //Main.sunTexture = mod.GetTexture(("AprilFools/AmogusBuff"));
-                    Mod calamityMod = ModLoader.GetMod("CalamityMod");
                     Vector2 playerpos;
                     playerpos.X = player.position.X + (Main.rand.Next(-256, 256));
                     playerpos.Y = player.position.Y - 256;
@@ -194,54 +164,54 @@ namespace CalValEX.AprilFools
                         {
                             if (Main.rand.Next(2) == 0)
                             {
-                                raintype = calamityMod.ProjectileType("SandBlast");
+                                raintype = ProjectileType<SandBlast>();
                             }
                             else
                             {
-                                raintype = calamityMod.ProjectileType("AbyssBallVolley");
+                                raintype = ProjectileType<UnstableEbonianGlob>();
                             }
                         }
                         else if (deathcounter > 1800 && deathcounter <= 2700)
                         {
                             if (Main.rand.Next(2) == 0)
                             {
-                                raintype = calamityMod.ProjectileType("BrimstoneHellblast");
+                                raintype = ProjectileType<SCalBrimstoneFireblast>();
                             }
                             else
                             {
-                                raintype = calamityMod.ProjectileType("AstralLaser");
+                                raintype = ProjectileType<AstralLaser>();
                             }
                         }
                         else if (deathcounter > 2700 && deathcounter <= 3600)
                         {
                             if (Main.rand.Next(2) == 0)
                             {
-                                raintype = calamityMod.ProjectileType("BrimstoneBarrage");
+                                raintype = ProjectileType<BrimstoneBarrage>();
                             }
                             else
                             {
-                                raintype = calamityMod.ProjectileType("ProfanedSpear");
+                                raintype = ProjectileType<ProfanedSpear>();
                             }
                         }
                         else if (deathcounter > 3600)
                         {
                             if (Main.rand.Next(3) == 0)
                             {
-                                raintype = calamityMod.ProjectileType("SignusScythe");
+                                raintype = ProjectileType<SignusScythe>();
                             }
                             else if (Main.rand.Next(2) == 0)
                             {
-                                raintype = calamityMod.ProjectileType("ApolloRocket");
+                                raintype = ProjectileType<SCalBrimstoneGigablast>();
                             }
                             else
                             {
-                                raintype = calamityMod.ProjectileType("BrimstoneGigaBlast");
-                            }    
+                                raintype = ProjectileType<ApolloRocket>();
+                            }
                         }
 
                         if (sandblasttimer >= 10)
                         {
-                            Projectile.NewProjectile(playerpos.X, playerpos.Y, 0, 5, raintype, 80, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 0, 5, raintype, 80, 0f, Main.myPlayer, 0f, 0f);
                             sandblasttimer = 0;
                         }
                     }
@@ -252,18 +222,18 @@ namespace CalValEX.AprilFools
                         {
                             for (int x = 0; x < 10; x++)
                             {
-                                Main.PlaySound(SoundID.Item11);
+                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item11);
                             }
-                            Projectile.NewProjectile(playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), calamityMod.ProjectileType("MushBomb"), 180, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), calamityMod.ProjectileType("IchorShot"), 90, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), calamityMod.ProjectileType("IceRain"), 180, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), calamityMod.ProjectileType("MoltenBlob"), 120, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), calamityMod.ProjectileType("ShadeNimbusHostile"), 80, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), calamityMod.ProjectileType("OldDukeGore"), 80, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileType<OldDukeGore>(), 180, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileType<MushBomb>(), 90, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileType<IchorBlob>(), 180, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileType<MoltenBlob>(), 120, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileType<IceRain>(), 80, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileType<ShadeNimbusHostile>(), 80, 0f, Main.myPlayer, 0f, 0f);
                             if (deathcounter >= 2700)
                             {
-                                Projectile.NewProjectile(playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), calamityMod.ProjectileType("ScavengerLaser"), 80, 0f, Main.myPlayer, 0f, 0f);
-                                Projectile.NewProjectile(playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), calamityMod.ProjectileType("PlagueStingerGoliath"), 80, 0f, Main.myPlayer, 0f, 0f);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileType<ScavengerLaser>(), 80, 0f, Main.myPlayer, 0f, 0f);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileType<PlagueStingerGoliathV2>(), 80, 0f, Main.myPlayer, 0f, 0f);
                             }
                             for (int x = 0; x < 20; x++)
                             {
@@ -278,8 +248,8 @@ namespace CalValEX.AprilFools
                         birb++;
                         if (birb >= 1200)
                         {
-                            Projectile.NewProjectile(playerpos.X, playerpos.Y, 1, 20, calamityMod.ProjectileType("BirbAuraFlare"), 0, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(playerpos.X, playerpos.Y, 0, 0, calamityMod.ProjectileType("DoGBeamPortal"), 0, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 1, 20, ProjectileType<BirbAuraFlare>(), 0, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 0, 0, ProjectileType<DoGBeamPortal>(), 0, 0f, Main.myPlayer, 0f, 0f);
                             birb = 0;
                         }
                     }
@@ -287,15 +257,15 @@ namespace CalValEX.AprilFools
                     {
                         if (deathcounter <= 1800)
                         {
-                            mine = calamityMod.ProjectileType("DeusMine");
+                            mine = ProjectileType<DeusMine>();
                         }
                         else if (deathcounter >= 1800 && deathcounter <= 2700)
                         {
-                            mine = calamityMod.ProjectileType("SirenSong");
+                            mine = ProjectileType<SirenSong>();
                         }
                         else if (deathcounter >= 2700)
                         {
-                            mine = calamityMod.ProjectileType("SandPoisonCloud");
+                            mine = ProjectileType<ToxicCloud>();
                         }
 
                         minetimer++;
@@ -303,7 +273,7 @@ namespace CalValEX.AprilFools
                         {
                             for (int x = 0; x < 8; x++)
                             {
-                                Projectile.NewProjectile(projectile.position.X, projectile.position.Y, Main.rand.Next(-2, 2), Main.rand.Next(-2, 2), mine, 80, 0f, Main.myPlayer, 0f, 0f);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Main.rand.Next(-2, 2), Main.rand.Next(-2, 2), mine, 80, 0f, Main.myPlayer, 0f, 0f);
                                 minetimer = 0;
                             }
                         }
@@ -313,44 +283,34 @@ namespace CalValEX.AprilFools
                         infernadotimer++;
                         if (infernadotimer >= 1200)
                         {
-                            Projectile.NewProjectile(playerpos.X, playerpos.Y, 0, 20, calamityMod.ProjectileType("BigFlare"), 0, 0f, Main.myPlayer, 0f, 0f);
-                            infernadotimer = 0;
-                        }
-                    }
-                    if (deathcounter >= 2700)
-                    {
-                        polterdart++;
-                        if (polterdart >= 60)
-                        {
-                            Projectile.NewProjectile(playerpos.X, playerpos.Y, 14, 0, calamityMod.ProjectileType("PhantomGhostShot"), 80, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(playerpos.X, playerpos.Y, -14, 0, calamityMod.ProjectileType("PhantomGhostShot"), 80, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 0, 20, ProjectileType<BigFlare>(), 80, 0f, Main.myPlayer, 0f, 0f);
                             polterdart = 0;
                         }
                     }
                     if (deathcounter <= 540)
                     {
-                        projectile.velocity.X = 0;
-                        projectile.velocity.Y = 0;
+                        Projectile.velocity.X = 0;
+                        Projectile.velocity.Y = 0;
                     }
                     if (deathcounter > 540 && deathcounter <= 900)
                     {
-                        projectile.position.Y = player.position.Y;
-                        projectile.position.X = player.position.X + 256;
+                        Projectile.position.Y = player.position.Y;
+                        Projectile.position.X = player.position.X + 256;
                     }
                     if (deathcounter > 900)
                     {
-                        projectile.position.Y = player.position.Y - 256;
-                        projectile.position.X = player.position.X;
+                        Projectile.position.Y = player.position.Y - 256;
+                        Projectile.position.X = player.position.X;
                     }
                     if (deathcounter > 540 && deathcounter < 820)
                     {
-                        projectile.scale *= 1.008f;
-                        if (projectile.frameCounter++ > 4)
+                        Projectile.scale *= 1.008f;
+                        if (Projectile.frameCounter++ > 4)
                         {
-                            projectile.frameCounter = 0;
-                            projectile.frame++;
-                            if (projectile.frame >= 4)
-                                projectile.frame = 0;
+                            Projectile.frameCounter = 0;
+                            Projectile.frame++;
+                            if (Projectile.frame >= 4)
+                                Projectile.frame = 0;
                         }
                     }
                     if (deathcounter == 300)
@@ -364,7 +324,7 @@ namespace CalValEX.AprilFools
                     if (deathcounter == 540)
                     {
                         EdgyTalk("Could it be that... Someone has been cheating!? AN IMPOSTER EVEN?!?!?!", Color.White, true);
-                        projectile.rotation = 0;
+                        Projectile.rotation = 0;
                     }
                     if (deathcounter == 680)
                     {
@@ -373,12 +333,12 @@ namespace CalValEX.AprilFools
                     if (deathcounter == 820)
                     {
                         EdgyTalk("We eject them.", Color.DarkRed, true);
-                        projectile.alpha = 50;
-                        projectile.rotation = 0;
+                        Projectile.alpha = 50;
+                        Projectile.rotation = 0;
                     }
                     if (deathcounter >= 4200 && !modPlayer.rockhat)
                     {
-                        projectile.localAI[1] = 4;
+                        state = 4;
                     }
                     break;
 
@@ -387,13 +347,13 @@ namespace CalValEX.AprilFools
                     deathcounter = 0;
                     if (lifecounter < 420)
                     {
-                        projectile.position.Y = player.position.Y - 256;
-                        projectile.position.X = player.position.X;
+                        Projectile.position.Y = player.position.Y - 256;
+                        Projectile.position.X = player.position.X;
                     }
                     else if (lifecounter >= 420 && lifecounter < 680)
                     {
-                        projectile.position.X = player.position.X - 256;
-                        projectile.position.Y = player.position.Y;
+                        Projectile.position.X = player.position.X - 256;
+                        Projectile.position.Y = player.position.Y;
                     }
                     if (lifecounter == 300)
                     {
@@ -411,25 +371,25 @@ namespace CalValEX.AprilFools
                     }
                     if (lifecounter == 680)
                     {
-                        projectile.scale = 1;
-                        projectile.localAI[1] = 0;
+                        Projectile.scale = 1;
+                        state = 0;
                         deathcounter = 0;
                         lifecounter = 0;
                     }
                     break;
-                /*case 5:
+                case 5:
                     {
                         if (!NPC.AnyNPCs(ModContent.NPCType<Meldosaurus.Meldosaurus>()))
                         {
                             attackcounter1 = 0;
                             attackcounter2 = 0;
                             attackphase = 0;
-                            projectile.localAI[1] = 0;
+                            state = 0;
                         }
                         if (attackphase == 0)
                         {
                             attackcounter2--;
-                            var thisRect = projectile.getRect();
+                            var thisRect = Projectile.getRect();
 
                             for (int i = 0; i < Main.maxNPCs; i++)
                             {
@@ -437,7 +397,14 @@ namespace CalValEX.AprilFools
 
                                 if (npc != null && npc.active && npc.getRect().Intersects(thisRect) && npc.type == ModContent.NPCType<Meldosaurus.Meldosaurus>() && attackcounter2 <= 20)
                                 {
-                                    Projectile.NewProjectile((int)npc.Center.X, (int)npc.Center.Y, 0, 0, ModContent.ProjectileType<CalamityMod.Projectiles.Typeless.FuckYou>(), 1020, 0, Main.myPlayer);
+                                    if (chargetype == 4)
+                                    {
+                                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, 0, 0, ProjectileType<CalamityMod.Projectiles.Rogue.ScarletBlast>(), 2020, 0, Main.myPlayer);
+                                    }
+                                    else
+                                    {
+                                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, 0, 0, ProjectileID.DaybreakExplosion, 1020, 0, Main.myPlayer);
+                                    }
                                     attackcounter2 = 40;
                                 }
                             }
@@ -448,13 +415,13 @@ namespace CalValEX.AprilFools
                             {
                                 if (attackcounter1 <= chargedelay) //Less than or equal to 30
                                 {
-                                    projectile.position.X = Main.npc[CalValEXGlobalNPC.meldodon].Center.X - 100;
-                                    projectile.position.Y = Main.npc[CalValEXGlobalNPC.meldodon].Center.Y;
+                                    Projectile.position.X = Main.npc[CalValEXGlobalNPC.meldodon].Center.X - 100;
+                                    Projectile.position.Y = Main.npc[CalValEXGlobalNPC.meldodon].Center.Y;
                                 }
                                 if (attackcounter1 == chargedelay + 1) //Exactly 31
                                 {
-                                    projectile.velocity.X = 20;
-                                    projectile.velocity.Y = 0;
+                                    Projectile.velocity.X = 20;
+                                    Projectile.velocity.Y = 0;
                                     attackmoment = 0 + chargedelay + chargedist; //Set the counter to 40
                                     chargetype = 1;
                                 }
@@ -463,13 +430,13 @@ namespace CalValEX.AprilFools
                             {
                                 if (attackcounter1 >= attackmoment && attackcounter1 <= attackmoment + chargedelay) //Between 40 and 70
                                 {
-                                    projectile.position.Y = Main.npc[CalValEXGlobalNPC.meldodon].Center.Y - 100;
-                                    projectile.position.X = Main.npc[CalValEXGlobalNPC.meldodon].Center.X;
+                                    Projectile.position.Y = Main.npc[CalValEXGlobalNPC.meldodon].Center.Y - 100;
+                                    Projectile.position.X = Main.npc[CalValEXGlobalNPC.meldodon].Center.X;
                                 }
                                 if (attackcounter1 == attackmoment + chargedelay + 1) //71
                                 {
-                                    projectile.velocity.Y = 20;
-                                    projectile.velocity.X = 0;
+                                    Projectile.velocity.Y = 20;
+                                    Projectile.velocity.X = 0;
                                     attackmoment = attackmoment + chargedelay + chargedist; //80
                                     chargetype = 2;
                                 }
@@ -478,13 +445,13 @@ namespace CalValEX.AprilFools
                             {
                                 if (attackcounter1 >= attackmoment && attackcounter1 <= attackmoment + chargedelay) //Between 80 and 110
                                 {
-                                    projectile.position.Y = Main.npc[CalValEXGlobalNPC.meldodon].Center.Y + 100;
-                                    projectile.position.X = Main.npc[CalValEXGlobalNPC.meldodon].Center.X - 100;
+                                    Projectile.position.Y = Main.npc[CalValEXGlobalNPC.meldodon].Center.Y + 100;
+                                    Projectile.position.X = Main.npc[CalValEXGlobalNPC.meldodon].Center.X - 100;
                                 }
                                 if (attackcounter1 == attackmoment + chargedelay + 1) //111
                                 {
-                                    projectile.velocity.X = 20;
-                                    projectile.velocity.Y = -20;
+                                    Projectile.velocity.X = 20;
+                                    Projectile.velocity.Y = -20;
                                     attackmoment = attackmoment + chargedelay + chargedist; //120
                                     chargetype = 3;
                                 }
@@ -493,13 +460,13 @@ namespace CalValEX.AprilFools
                             {
                                 if (attackcounter1 >= attackmoment && attackcounter1 <= attackmoment + chargedelay) //Between 120 and 150
                                 {
-                                    projectile.position.Y = Main.npc[CalValEXGlobalNPC.meldodon].Center.Y - 100;
-                                    projectile.position.X = Main.npc[CalValEXGlobalNPC.meldodon].Center.X + 100;
+                                    Projectile.position.Y = Main.npc[CalValEXGlobalNPC.meldodon].Center.Y - 100;
+                                    Projectile.position.X = Main.npc[CalValEXGlobalNPC.meldodon].Center.X + 100;
                                 }
                                 if (attackcounter1 == attackmoment + chargedelay + 1) //151
                                 {
-                                    projectile.velocity.X = -20;
-                                    projectile.velocity.Y = +20;
+                                    Projectile.velocity.X = -20;
+                                    Projectile.velocity.Y = +20;
                                     attackmoment = attackmoment + chargedelay + chargedist; //160
                                     chargetype = 4;
                                 }
@@ -526,57 +493,57 @@ namespace CalValEX.AprilFools
                             float distanceX = 480f;
                             float yoffset = 0f;
 
-                            Vector2 vector40 = new Vector2(projectile.position.X + (float)projectile.width * 0.5f, projectile.position.Y + (float)projectile.height * 0.5f);
+                            Vector2 vector40 = new Vector2(Projectile.position.X + (float)Projectile.width * 0.5f, Projectile.position.Y + (float)Projectile.height * 0.5f);
                             float num415 = Main.npc[CalValEXGlobalNPC.meldodon].position.X + (float)(Main.npc[CalValEXGlobalNPC.meldodon].width / 2) + (float)(num412 * distanceX) - vector40.X;
                             float num416 = Main.npc[CalValEXGlobalNPC.meldodon].position.Y + (float)(Main.npc[CalValEXGlobalNPC.meldodon].height / 2) + yoffset - vector40.Y;
                             float num417 = (float)Math.Sqrt(num415 * num415 + num416 * num416);
                             num417 = num413 / num417;
                             num415 *= num417;
                             num416 *= num417;
-                            if (projectile.velocity.X < num415)
+                            if (Projectile.velocity.X < num415)
                             {
-                                projectile.velocity.X += num414;
-                                if (projectile.velocity.X < 0f && num415 > 0f)
+                                Projectile.velocity.X += num414;
+                                if (Projectile.velocity.X < 0f && num415 > 0f)
                                 {
-                                    projectile.velocity.X += num414;
+                                    Projectile.velocity.X += num414;
                                 }
                             }
-                            else if (projectile.velocity.X > num415)
+                            else if (Projectile.velocity.X > num415)
                             {
-                                projectile.velocity.X -= num414;
-                                if (projectile.velocity.X > 0f && num415 < 0f)
+                                Projectile.velocity.X -= num414;
+                                if (Projectile.velocity.X > 0f && num415 < 0f)
                                 {
-                                    projectile.velocity.X -= num414;
+                                    Projectile.velocity.X -= num414;
                                 }
                             }
-                            if (projectile.velocity.Y < num416)
+                            if (Projectile.velocity.Y < num416)
                             {
-                                projectile.velocity.Y += num414;
-                                if (projectile.velocity.Y < 0f && num416 > 0f)
+                                Projectile.velocity.Y += num414;
+                                if (Projectile.velocity.Y < 0f && num416 > 0f)
                                 {
-                                    projectile.velocity.Y += num414;
+                                    Projectile.velocity.Y += num414;
                                 }
                             }
-                            else if (projectile.velocity.Y > num416)
+                            else if (Projectile.velocity.Y > num416)
                             {
-                                projectile.velocity.Y -= num414;
-                                if (projectile.velocity.Y > 0f && num416 < 0f)
+                                Projectile.velocity.Y -= num414;
+                                if (Projectile.velocity.Y > 0f && num416 < 0f)
                                 {
-                                    projectile.velocity.Y -= num414;
+                                    Projectile.velocity.Y -= num414;
                                 }
                             }
                             if (attackcounter1 >= 5)
                             {
-                                Main.PlaySound(SoundID.Item, (int)projectile.Center.X, (int)projectile.Center.Y, 41);
-                                Vector2 position = projectile.Center;
-                                position.X = projectile.Center.X + (10f * projectile.direction);
+                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item41, Projectile.position);
+                                Vector2 position = Projectile.Center;
+                                position.X = Projectile.Center.X + (10f * Projectile.direction);
                                 Vector2 targetPosition = Main.npc[CalValEXGlobalNPC.meldodon].Center;
                                 Vector2 direction = targetPosition - position;
                                 direction.Normalize();
                                 float speed = 15f;
-                                int type = ModContent.ProjectileType<CalamityMod.Projectiles.Ranged.AccelerationBulletProj>();
+                                int type = ProjectileType<CalamityMod.Projectiles.Ranged.AccelerationRoundProj>();
                                 int damage = Main.expertMode ? 60 : 95;
-                                Projectile.NewProjectile(position, direction * speed, type, damage, 0f, Main.myPlayer);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), position, direction * speed, type, damage, 0f, Main.myPlayer);
                                 attackcounter1 = 0;
                             }
                             if (attackcounter2 >= 360)
@@ -589,20 +556,20 @@ namespace CalValEX.AprilFools
                         if (attackphase == 2)
                         {
                             attackcounter1++;
-                            projectile.velocity.X = 0;
-                            projectile.velocity.Y = 0;
+                            Projectile.velocity.X = 0;
+                            Projectile.velocity.Y = 0;
                             if (attackcounter1 == 60)
                             {
-                                Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/LargeWeaponFire"), projectile.Center);
-                                Vector2 position = projectile.Center;
-                                position.X = projectile.Center.X + (10f * projectile.direction);
+                                Terraria.Audio.SoundEngine.PlaySound(new SoundStyle("CalValEX/Sounds/Item/LargeWeaponFire"), Projectile.position);
+                                Vector2 position = Projectile.Center;
+                                position.X = Projectile.Center.X + (10f * Projectile.direction);
                                 Vector2 targetPosition = Main.npc[CalValEXGlobalNPC.meldodon].Center;
                                 Vector2 direction = targetPosition - position;
                                 direction.Normalize();
                                 float speed = 18f;
-                                int type = ModContent.ProjectileType<CalamityMod.Projectiles.Ranged.AMRShot>();
+                                int type = ProjectileType<CalamityMod.Projectiles.Ranged.AMRShot>();
                                 int damage = Main.expertMode ? 1702 : 2040;
-                                Projectile.NewProjectile(position, direction * speed, type, damage, 0f, Main.myPlayer);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), position, direction * speed, type, damage, 0f, Main.myPlayer);
                             }
                             if (attackcounter1 >= 120)
                             {
@@ -620,57 +587,57 @@ namespace CalValEX.AprilFools
                             float distanceX = 580f;
                             float yoffset = -300f;
 
-                            Vector2 vector40 = new Vector2(projectile.position.X + (float)projectile.width * 0.5f, projectile.position.Y + (float)projectile.height * 0.5f);
+                            Vector2 vector40 = new Vector2(Projectile.position.X + (float)Projectile.width * 0.5f, Projectile.position.Y + (float)Projectile.height * 0.5f);
                             float num415 = Main.npc[CalValEXGlobalNPC.meldodon].position.X + (float)(Main.npc[CalValEXGlobalNPC.meldodon].width / 2) + (float)(num412 * distanceX) - vector40.X;
                             float num416 = Main.npc[CalValEXGlobalNPC.meldodon].position.Y + (float)(Main.npc[CalValEXGlobalNPC.meldodon].height / 2) + yoffset - vector40.Y;
                             float num417 = (float)Math.Sqrt(num415 * num415 + num416 * num416);
                             num417 = num413 / num417;
                             num415 *= num417;
                             num416 *= num417;
-                            if (projectile.velocity.X < num415)
+                            if (Projectile.velocity.X < num415)
                             {
-                                projectile.velocity.X += num414;
-                                if (projectile.velocity.X < 0f && num415 > 0f)
+                                Projectile.velocity.X += num414;
+                                if (Projectile.velocity.X < 0f && num415 > 0f)
                                 {
-                                    projectile.velocity.X += num414;
+                                    Projectile.velocity.X += num414;
                                 }
                             }
-                            else if (projectile.velocity.X > num415)
+                            else if (Projectile.velocity.X > num415)
                             {
-                                projectile.velocity.X -= num414;
-                                if (projectile.velocity.X > 0f && num415 < 0f)
+                                Projectile.velocity.X -= num414;
+                                if (Projectile.velocity.X > 0f && num415 < 0f)
                                 {
-                                    projectile.velocity.X -= num414;
+                                    Projectile.velocity.X -= num414;
                                 }
                             }
-                            if (projectile.velocity.Y < num416)
+                            if (Projectile.velocity.Y < num416)
                             {
-                                projectile.velocity.Y += num414;
-                                if (projectile.velocity.Y < 0f && num416 > 0f)
+                                Projectile.velocity.Y += num414;
+                                if (Projectile.velocity.Y < 0f && num416 > 0f)
                                 {
-                                    projectile.velocity.Y += num414;
+                                    Projectile.velocity.Y += num414;
                                 }
                             }
-                            else if (projectile.velocity.Y > num416)
+                            else if (Projectile.velocity.Y > num416)
                             {
-                                projectile.velocity.Y -= num414;
-                                if (projectile.velocity.Y > 0f && num416 < 0f)
+                                Projectile.velocity.Y -= num414;
+                                if (Projectile.velocity.Y > 0f && num416 < 0f)
                                 {
-                                    projectile.velocity.Y -= num414;
+                                    Projectile.velocity.Y -= num414;
                                 }
                             }
                             if (attackcounter1 >= 40)
                             {
-                                Main.PlaySound(SoundID.Item, (int)projectile.Center.X, (int)projectile.Center.Y, 21);
-                                Vector2 position = projectile.Center;
-                                position.X = projectile.Center.X + (10f * projectile.direction);
+                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item21, Projectile.position);
+                                Vector2 position = Projectile.Center;
+                                position.X = Projectile.Center.X + (10f * Projectile.direction);
                                 Vector2 targetPosition = Main.npc[CalValEXGlobalNPC.meldodon].Center;
                                 Vector2 direction = targetPosition - position;
                                 direction.Normalize();
                                 float speed = 10f;
                                 int type = ProjectileID.RainCloudRaining;
                                 int damage = Main.expertMode ? 120 : 152;
-                                Projectile.NewProjectile(position, direction * speed, type, damage, 0f, Main.myPlayer);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), position, direction * speed, type, damage, 0f, Main.myPlayer);
                                 attackcounter1 = 0;
                             }
                             if (attackcounter2 >= 460)
@@ -681,14 +648,15 @@ namespace CalValEX.AprilFools
                             }
                         }
                     }
-                    break;*/
+                    break;
             }
         }
+
         public override Color? GetAlpha(Color lightColor)
         {
             if (deathcounter >= 820)
             {
-                return new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB, projectile.alpha);
+                return new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB, Projectile.alpha);
             }
             else
             {
@@ -696,7 +664,7 @@ namespace CalValEX.AprilFools
             }
         }
 
-        public override void SafeSendExtraAI(BinaryWriter writer)
+        public override void SendExtraAI(BinaryWriter writer)
         {
             writer.Write(deathcounter);
             writer.Write(lifecounter);
@@ -713,7 +681,7 @@ namespace CalValEX.AprilFools
             writer.Write(attackcounter2);
         }
 
-        public override void SafeReceiveExtraAI(BinaryReader reader)
+        public override void ReceiveExtraAI(BinaryReader reader)
         {
             deathcounter = reader.ReadInt32();
             lifecounter = reader.ReadInt32();
@@ -728,29 +696,30 @@ namespace CalValEX.AprilFools
             attackphase = reader.ReadInt32();
             attackcounter1 = reader.ReadInt32();
             attackcounter2 = reader.ReadInt32();
+            base.ReceiveExtraAI(reader);
         }
 
-        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override void PostDraw(Color lightColor)
         {
             Texture2D deusheadsprite;
-            if ((attackphase == 1 || attackphase == 2) && projectile.localAI[1] == 5)
+            if ((attackphase == 1 || attackphase == 2) && state == 5)
             {
-                deusheadsprite = (ModContent.GetTexture("CalValEX/AprilFools/AmogusGun"));
+                deusheadsprite = (ModContent.Request<Texture2D>("CalValEX/AprilFools/AmogusGun").Value);
             }
-            else if (attackphase == 0 && projectile.localAI[1] == 5)
+            else if (attackphase == 0 && state == 5)
             {
-                deusheadsprite = (ModContent.GetTexture("CalValEX/AprilFools/AmogusKnife"));
+                deusheadsprite = (ModContent.Request<Texture2D>("CalValEX/AprilFools/AmogusKnife").Value);
             }
             else
             {
-                deusheadsprite = (ModContent.GetTexture("CalValEX/Items/Equips/Shields/Invishield_Shield"));
+                deusheadsprite = (ModContent.Request<Texture2D>("CalValEX/Items/Equips/Shields/Invishield_Shield").Value);
             }
 
             int deusheadheight = deusheadsprite.Height;
 
             Rectangle deusheadsquare = new Rectangle(0, 0, deusheadsprite.Width, deusheadsprite.Height);
-            Color deusheadalpha = projectile.GetAlpha(lightColor);
-            spriteBatch.Draw(deusheadsprite, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY + 10), deusheadsquare, deusheadalpha, projectile.rotation, Utils.Size(deusheadsquare) / 2f, projectile.scale, projectile.spriteDirection != -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
+            Color deusheadalpha = Projectile.GetAlpha(lightColor);
+            Main.EntitySpriteDraw(deusheadsprite, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY + 10), deusheadsquare, deusheadalpha, Projectile.rotation, Utils.Size(deusheadsquare) / 2f, Projectile.scale, Projectile.spriteDirection != 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
         }
     }
 }

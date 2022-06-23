@@ -9,25 +9,23 @@ namespace CalValEX.AprilFools
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Jungle Tyrant Jharim's Decapitated Head");
-			Tooltip.SetDefault("Summons the Jungle Tyrant\nDoes not work outside of April Fools");
 		}
 		public override void SetDefaults()
 		{
-			item.width = 28;
-			item.height = 18;
-			item.maxStack = 1;
-			item.rare = 9;
-			item.useAnimation = 45;
-			item.useTime = 45;
-			item.useStyle = 4;
-			item.UseSound = SoundID.Item44;
-			item.consumable = true;
+			Item.width = 28;
+			Item.height = 18;
+			Item.maxStack = 1;
+			Item.rare = 9;
+			Item.useAnimation = 45;
+			Item.useTime = 45;
+			Item.useStyle = 4;
+			Item.UseSound = SoundID.Item44;
+			Item.consumable = true;
 		}
-
-		public override bool UseItem(Player player)
+		
+		public override bool? UseItem(Player player)
 		{
-			Main.PlaySound(15, (int)player.position.X, (int)player.position.Y, 0);
+			Terraria.Audio.SoundEngine.PlaySound(SoundID.Item15, player.position);
 			if (Main.netMode != 1)
 			{
 				NPC.SpawnOnPlayer(player.whoAmI, (ModContent.NPCType<AprilFools.Jharim.Jharim>()));
@@ -37,10 +35,9 @@ namespace CalValEX.AprilFools
 
 		public override bool CanUseItem(Player player)
         {
-			Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            if (CalValEX.month != 4 && orthoceraDLC == null)
+            if (!CalValEX.AprilFoolMonth)
             {
-            return false;
+				return false;
             }
 			else if (NPC.AnyNPCs(ModContent.NPCType<AprilFools.Jharim.Jharim>()))
 			{
@@ -50,26 +47,6 @@ namespace CalValEX.AprilFools
             {
                 return true;
             }
-		}
-
-		public override void AddRecipes()
-		{
-			Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            if (CalValEX.month != 4 && orthoceraDLC == null)
-            {
-            return;
-            }
-			else
-			{
-			Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-				recipe.AddIngredient(ItemID.GoldOre, 1);
-                recipe.AddTile(TileID.WorkBenches);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-			}
-			}
 		}
 	}
 }

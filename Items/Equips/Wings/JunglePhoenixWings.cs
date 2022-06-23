@@ -2,6 +2,9 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.GameContent.Creative;
 
 namespace CalValEX.Items.Equips.Wings
 {
@@ -12,14 +15,16 @@ namespace CalValEX.Items.Equips.Wings
         {
             DisplayName.SetDefault("Chicken Wings");
             Tooltip.SetDefault("Hot\n" + "Horizontal speed: 11.5\n" + "Acceleration multiplier: 2.9\n" + "Flight time: 140");
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(140, 11.5f, 2.9f);
         }
 
         public override void SetDefaults()
         {
-            item.value = 10000;
-            item.rare = 11;
-            item.accessory = true;
-            item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.value = 10000;
+            Item.rare = 11;
+            Item.accessory = true;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
@@ -40,9 +45,9 @@ namespace CalValEX.Items.Equips.Wings
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(43, 96, 222); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(43, 96, 222); //change the color accordingly to above
                 }
             }
         }
@@ -55,12 +60,6 @@ namespace CalValEX.Items.Equips.Wings
             maxCanAscendMultiplier = 4f;
             maxAscentMultiplier = 6f;
             constantAscend = 0.135f;
-        }
-
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-        {
-            speed = 11.5f;
-            acceleration *= 2.9f;
         }
     }
 }

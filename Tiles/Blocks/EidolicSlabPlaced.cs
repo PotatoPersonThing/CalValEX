@@ -8,19 +8,19 @@ namespace CalValEX.Tiles.Blocks
 {
     public class EidolicSlabPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            drop = ModContent.ItemType<EidolicSlab>();
+            ItemDrop = ModContent.ItemType<EidolicSlab>();
             AddMapEntry(new Color(0, 76, 82));
-            dustType = 187;
+            DustType = 187;
         }
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
-            CalValEXGlobalTile.TileGlowmask(i, j, ModContent.GetTexture("CalValEX/Tiles/Blocks/EidolicSlabPlaced_Glow"), spriteBatch);
+            CalValEXGlobalTile.TileGlowmask(i, j, ModContent.Request<Texture2D>("CalValEX/Tiles/Blocks/EidolicSlabPlaced_Glow").Value, spriteBatch);
         }
     }
 }

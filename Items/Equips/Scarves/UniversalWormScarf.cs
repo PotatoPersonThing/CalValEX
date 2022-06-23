@@ -16,12 +16,12 @@ namespace CalValEX.Items.Equips.Scarves
 
         public override void SetDefaults()
         {
-            item.width = 36;
-            item.height = 38;
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 11;
-            item.accessory = true;
-            item.vanity = true;
+            Item.width = 36;
+            Item.height = 38;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.rare = 11;
+            Item.accessory = true;
+            Item.vanity = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -37,17 +37,17 @@ namespace CalValEX.Items.Equips.Scarves
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(43, 96, 222); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(43, 96, 222); //change the color accordingly to above
                 }
             }
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
+           
             if (calamityMod != null)
             {
                 recipe.AddIngredient(ModContent.ItemType<RapturedWormScarf>());
@@ -58,6 +58,6 @@ namespace CalValEX.Items.Equips.Scarves
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

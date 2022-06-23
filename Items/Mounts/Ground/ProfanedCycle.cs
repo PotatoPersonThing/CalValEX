@@ -6,93 +6,93 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Mounts.Ground
 {
-    public class ProfanedCycle : ModMountData
+    public class ProfanedCycle : ModMount
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            mountData.buff = mod.BuffType("BikeBuff");
-            mountData.heightBoost = 15;
-            mountData.fallDamage = 0f;
-            mountData.runSpeed = 20f;
-            mountData.dashSpeed = 7f;
-            mountData.flightTimeMax = 0;
-            mountData.fatigueMax = 0;
-            mountData.jumpHeight = 15;
-            mountData.acceleration = 0.1f;
-            mountData.jumpSpeed = 4f;
-            mountData.blockExtraJumps = false;
-            mountData.totalFrames = 13;
-            mountData.constantJump = true;
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            mountData.spawnDust = calamityMod.DustType("HolyFireDust");
-            int[] array = new int[mountData.totalFrames];
+            MountData.buff = ModContent.BuffType<Buffs.Mounts.BikeBuff>();
+            MountData.heightBoost = 15;
+            MountData.fallDamage = 0f;
+            MountData.runSpeed = 20f;
+            MountData.dashSpeed = 7f;
+            MountData.flightTimeMax = 0;
+            MountData.fatigueMax = 0;
+            MountData.jumpHeight = 15;
+            MountData.acceleration = 0.1f;
+            MountData.jumpSpeed = 4f;
+            MountData.blockExtraJumps = false;
+            MountData.totalFrames = 13;
+            MountData.constantJump = true;
+            //Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            //MountData.spawnDust = calamityMod.DustType("HolyFireDust");
+            int[] array = new int[MountData.totalFrames];
             for (int l = 0; l < array.Length; l++)
             {
                 array[l] = 17;
             }
-            mountData.playerYOffsets = array;
-            mountData.xOffset = 4;
-            mountData.bodyFrame = 3;
-            mountData.yOffset = 6;
-            mountData.playerHeadOffset = 0;
-            mountData.standingFrameCount = 4;
-            mountData.standingFrameDelay = 12;
-            mountData.standingFrameStart = 0;
-            // mountData.runningFrameCount = 4;
-            // mountData.runningFrameDelay = 65;
-            // mountData.runningFrameStart = 4;
-            // if (Main.player.velocity.X = mountData.runSpeed) {
-            // mountData.runningFrameCount = 1;
-            // mountData.runningFrameDelay = 12;
-            // mountData.runningFrameStart = 8;
+            MountData.playerYOffsets = array;
+            MountData.xOffset = 4;
+            MountData.bodyFrame = 3;
+            MountData.yOffset = 6;
+            MountData.playerHeadOffset = 0;
+            MountData.standingFrameCount = 4;
+            MountData.standingFrameDelay = 12;
+            MountData.standingFrameStart = 0;
+            // MountData.runningFrameCount = 4;
+            // MountData.runningFrameDelay = 65;
+            // MountData.runningFrameStart = 4;
+            // if (Main.player.velocity.X = MountData.runSpeed) {
+            // MountData.runningFrameCount = 1;
+            // MountData.runningFrameDelay = 12;
+            // MountData.runningFrameStart = 8;
             // }
-            mountData.flyingFrameCount = 0;
-            mountData.flyingFrameDelay = 0;
-            mountData.flyingFrameStart = 0;
-            mountData.inAirFrameCount = 1;
-            mountData.inAirFrameDelay = 12;
-            mountData.inAirFrameStart = 11;
-            mountData.idleFrameCount = 4;
-            mountData.idleFrameDelay = 12;
-            mountData.idleFrameStart = 0;
-            mountData.idleFrameLoop = true;
-            mountData.swimFrameCount = mountData.inAirFrameCount;
-            mountData.swimFrameDelay = mountData.inAirFrameDelay;
-            mountData.swimFrameStart = mountData.inAirFrameStart;
+            MountData.flyingFrameCount = 0;
+            MountData.flyingFrameDelay = 0;
+            MountData.flyingFrameStart = 0;
+            MountData.inAirFrameCount = 1;
+            MountData.inAirFrameDelay = 12;
+            MountData.inAirFrameStart = 11;
+            MountData.idleFrameCount = 4;
+            MountData.idleFrameDelay = 12;
+            MountData.idleFrameStart = 0;
+            MountData.idleFrameLoop = true;
+            MountData.swimFrameCount = MountData.inAirFrameCount;
+            MountData.swimFrameDelay = MountData.inAirFrameDelay;
+            MountData.swimFrameStart = MountData.inAirFrameStart;
             if (Main.netMode == NetmodeID.Server)
             {
                 return;
             }
 
-            mountData.textureWidth = mountData.backTexture.Width;
-            mountData.textureHeight = mountData.backTexture.Height;
+            MountData.textureWidth = MountData.backTexture.Width();
+            MountData.textureHeight = MountData.backTexture.Height();
         }
 
         public override void UpdateEffects(Player player)
         {
             if (Math.Abs(player.velocity.X) > 20)
             {
-                mountData.runningFrameCount = 4;
-                mountData.runningFrameDelay = 65;
-                mountData.runningFrameStart = 8;
-                mountData.inAirFrameCount = 1;
-                mountData.inAirFrameDelay = 12;
-                mountData.inAirFrameStart = 12;
-                mountData.runSpeed = 20f;
-                mountData.acceleration = 0.11f;
+                MountData.runningFrameCount = 4;
+                MountData.runningFrameDelay = 65;
+                MountData.runningFrameStart = 8;
+                MountData.inAirFrameCount = 1;
+                MountData.inAirFrameDelay = 12;
+                MountData.inAirFrameStart = 12;
+                MountData.runSpeed = 20f;
+                MountData.acceleration = 0.11f;
 
                 if (player.whoAmI == Main.myPlayer)
                     Dust.NewDust(player.position, 47, 30, 6, 3.684211f, 0f, 0, new Color(255, 255, 255), 1f);
             }
             else
             {
-                mountData.runningFrameCount = 4;
-                mountData.runningFrameDelay = 65;
-                mountData.runningFrameStart = 4;
-                mountData.inAirFrameCount = 1;
-                mountData.inAirFrameDelay = 12;
-                mountData.inAirFrameStart = 11;
-                mountData.runSpeed = 20f;
+                MountData.runningFrameCount = 4;
+                MountData.runningFrameDelay = 65;
+                MountData.runningFrameStart = 4;
+                MountData.inAirFrameCount = 1;
+                MountData.inAirFrameDelay = 12;
+                MountData.inAirFrameStart = 11;
+                MountData.runSpeed = 20f;
             }
         }
     }

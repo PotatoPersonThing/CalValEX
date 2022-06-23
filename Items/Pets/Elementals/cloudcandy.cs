@@ -4,7 +4,8 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Pets.Elementals
 {
-    public class cloudcandy : ModItem
+    [LegacyName("cloudcandy")]
+    public class CloudCandy : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -14,20 +15,20 @@ namespace CalValEX.Items.Pets.Elementals
 
         public override void SetDefaults()
         {
-            item.CloneDefaults(ItemID.ZephyrFish);
-            item.UseSound = SoundID.NPCHit5;
-            item.shoot = mod.ProjectileType("cloudmini");
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            item.rare = 4;
-            item.buffType = mod.BuffType("cloudbuff");
+            Item.CloneDefaults(ItemID.ZephyrFish);
+            Item.UseSound = SoundID.NPCHit5;
+            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.Elementals.CloudMini>();
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            //Mod calamityMod = ModLoader.GetMod("CalamityMod");
+            Item.rare = 4;
+            Item.buffType = ModContent.BuffType<Buffs.Pets.Elementals.cloudbuff>();
         }
 
-        public override void UseStyle(Player player)
+        public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
-                player.AddBuff(item.buffType, 3600, true);
+                player.AddBuff(Item.buffType, 3600, true);
             }
         }
     }

@@ -4,64 +4,64 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Mounts.LimitedFlight
 {
-    public class FloatyCarpet : ModMountData
+    public class FloatyCarpet : ModMount
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            mountData.buff = mod.BuffType("FloatyBuff");
-            mountData.heightBoost = -1;
-            mountData.fallDamage = 0f;
-            mountData.runSpeed = 3f;
-            mountData.dashSpeed = 6f;
-            mountData.flightTimeMax = 2;
-            mountData.fatigueMax = 0;
-            mountData.jumpHeight = 5;
-            mountData.acceleration = 0.1f;
-            mountData.jumpSpeed = 3f;
-            mountData.blockExtraJumps = false;
-            mountData.totalFrames = 7;
-            mountData.constantJump = true;
-            int[] array = new int[mountData.totalFrames];
+            MountData.buff =ModContent.BuffType<Buffs.Mounts.FloatyBuff>();
+            MountData.heightBoost = -1;
+            MountData.fallDamage = 0f;
+            MountData.runSpeed = 3f;
+            MountData.dashSpeed = 6f;
+            MountData.flightTimeMax = 2;
+            MountData.fatigueMax = 0;
+            MountData.jumpHeight = 5;
+            MountData.acceleration = 0.1f;
+            MountData.jumpSpeed = 3f;
+            MountData.blockExtraJumps = false;
+            MountData.totalFrames = 7;
+            MountData.constantJump = true;
+            int[] array = new int[MountData.totalFrames];
             for (int l = 0; l < array.Length; l++)
             {
                 array[l] = 9; // (increase this?)
             }
-            mountData.playerYOffsets = array;
-            mountData.xOffset = 4;
-            mountData.bodyFrame = 6;
-            mountData.yOffset = 14;
-            mountData.playerHeadOffset = 0;
-            mountData.standingFrameCount = 1;
-            mountData.standingFrameDelay = 1;
-            mountData.standingFrameStart = 0;
-            mountData.runningFrameCount = 5;
-            mountData.runningFrameDelay = 60;
-            mountData.runningFrameStart = 1;
-            // if (Main.player.velocity.X = mountData.runSpeed) {
-            // mountData.runningFrameCount = 1;
-            // mountData.runningFrameDelay = 12;
-            // mountData.runningFrameStart = 8;
+            MountData.playerYOffsets = array;
+            MountData.xOffset = 4;
+            MountData.bodyFrame = 6;
+            MountData.yOffset = 14;
+            MountData.playerHeadOffset = 0;
+            MountData.standingFrameCount = 1;
+            MountData.standingFrameDelay = 1;
+            MountData.standingFrameStart = 0;
+            MountData.runningFrameCount = 5;
+            MountData.runningFrameDelay = 60;
+            MountData.runningFrameStart = 1;
+            // if (Main.player.velocity.X = MountData.runSpeed) {
+            // MountData.runningFrameCount = 1;
+            // MountData.runningFrameDelay = 12;
+            // MountData.runningFrameStart = 8;
             // } I forgot what this is for
-            mountData.flyingFrameCount = 1;
-            mountData.flyingFrameDelay = 1;
-            mountData.flyingFrameStart = 0;
-            mountData.inAirFrameCount = 1;
-            mountData.inAirFrameDelay = 1;
-            mountData.inAirFrameStart = 6;
-            mountData.idleFrameCount = 1;
-            mountData.idleFrameDelay = 1;
-            mountData.idleFrameStart = 0;
-            mountData.idleFrameLoop = false;
-            mountData.swimFrameCount = 5;
-            mountData.swimFrameDelay = 40;
-            mountData.swimFrameStart = 1;
+            MountData.flyingFrameCount = 1;
+            MountData.flyingFrameDelay = 1;
+            MountData.flyingFrameStart = 0;
+            MountData.inAirFrameCount = 1;
+            MountData.inAirFrameDelay = 1;
+            MountData.inAirFrameStart = 6;
+            MountData.idleFrameCount = 1;
+            MountData.idleFrameDelay = 1;
+            MountData.idleFrameStart = 0;
+            MountData.idleFrameLoop = false;
+            MountData.swimFrameCount = 5;
+            MountData.swimFrameDelay = 40;
+            MountData.swimFrameStart = 1;
             if (Main.netMode == NetmodeID.Server)
             {
                 return;
             }
 
-            mountData.textureWidth = mountData.backTexture.Width;
-            mountData.textureHeight = mountData.backTexture.Height;
+            MountData.textureWidth = MountData.backTexture.Width();
+            MountData.textureHeight = MountData.backTexture.Height();
         }
 
         // yo make this thing faster if the player is moist
@@ -69,16 +69,16 @@ namespace CalValEX.Items.Mounts.LimitedFlight
         {
             if (player.wet)
             {
-                mountData.runSpeed = 10f;
-                mountData.acceleration = 0.9f;
-                mountData.jumpHeight = 27;
+                MountData.runSpeed = 10f;
+                MountData.acceleration = 0.9f;
+                MountData.jumpHeight = 27;
             }
             else
             {
-                mountData.jumpHeight = 5;
-                mountData.acceleration = 0.1f;
-                mountData.jumpSpeed = 3f;
-                mountData.runSpeed = 3f;
+                MountData.jumpHeight = 5;
+                MountData.acceleration = 0.1f;
+                MountData.jumpSpeed = 3f;
+                MountData.runSpeed = 3f;
             }
         }
     }

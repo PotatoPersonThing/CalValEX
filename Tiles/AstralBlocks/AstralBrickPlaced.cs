@@ -8,18 +8,18 @@ namespace CalValEX.Tiles.AstralBlocks
 {
     public class AstralBrickPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
             Main.tileBlendAll[this.Type] = true;
-            drop = ModContent.ItemType<AstralBrick>();
+            ItemDrop = ModContent.ItemType<AstralBrick>();
             AddMapEntry(new Color(171, 103, 171));
-            animationFrameHeight = 198;
-            soundType = SoundID.Tink;
+            AnimationFrameHeight = 198;
+            HitSound = SoundID.Tink;
         }
 
-        private readonly int animationFrameWidth = 450;
+        private readonly int AnimationFrameWidth = 450;
 
         public override void AnimateIndividualTile(int type, int i, int j, ref int frameXOffset, ref int frameYOffset)
         {
@@ -69,8 +69,8 @@ namespace CalValEX.Tiles.AstralBlocks
                     }
                     break;
             }
-            frameXOffset = uniqueAnimationFrameX * animationFrameWidth;
-            frameYOffset = uniqueAnimationFrameY * animationFrameHeight;
+            frameXOffset = uniqueAnimationFrameX * AnimationFrameWidth;
+            frameYOffset = uniqueAnimationFrameY * AnimationFrameHeight;
         }
     }
 }

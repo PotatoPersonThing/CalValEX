@@ -11,10 +11,11 @@ namespace CalValEX.Tiles.MiscFurniture
 {
     public class RespirationShrinePlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = false;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileLavaDeath[Type] = false;
             Main.tileFrameImportant[Type] = true;
             TileID.Sets.HasOutlines[Type] = false;
@@ -23,22 +24,22 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16 }; //
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
-            animationFrameHeight = 72;
+            AnimationFrameHeight = 72;
             name.SetDefault("Respiration Shrine");
             AddMapEntry(new Color(0, 255, 200), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(i * 16, j * 16, 24, 16, ItemType<RespirationShrine>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 16, ItemType<RespirationShrine>());
         }
 
         public override void NearbyEffects(int i, int j, bool closer)
         {
             Player player = Main.LocalPlayer;
-            if (closer && !NPC.AnyNPCs(ModLoader.GetMod("CalamityMod").NPCType("EidolonWyrmHeadHuge")))
+            if (closer /*&& !NPC.AnyNPCs(ModLoader.GetMod("CalamityMod").NPCType("EidolonWyrmHeadHuge"))*/)
             {
-                if (Main.tile[i, j].frameY < 72)
+                if (Main.tile[i, j].TileFrameY < 72)
                 {
                     player.breath = 1360;
                     //Main.LocalPlayer.AddBuff(ModLoader.GetMod("CalamityMod").BuffType("AmidiasBlessing"), 20);
@@ -53,15 +54,11 @@ namespace CalValEX.Tiles.MiscFurniture
             }
         }
 
+        public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
 
-        public override bool HasSmartInteract()
+        public override bool RightClick(int i, int j)
         {
-            return true;
-        }
-
-        public override bool NewRightClick(int i, int j)
-        {
-            Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/RespirationShrineSound"));
+            Terraria.Audio.SoundEngine.PlaySound(new Terraria.Audio.SoundStyle("CalValEX/Sounds/RespirationShrine"));
             HitWire(i, j);
             return true;
         }
@@ -70,31 +67,31 @@ namespace CalValEX.Tiles.MiscFurniture
         {
             Player player = Main.LocalPlayer;
             player.noThrow = 2;
-            player.showItemIcon = true;
-            player.showItemIcon2 = ItemType<RespirationShrine>();
+            player.cursorItemIconEnabled = true;
+            player.cursorItemIconID = ItemType<RespirationShrine>();
         }
 
         public override void HitWire(int i, int j)
         {
-            int x = i - Main.tile[i, j].frameX / 18 % 3;
-            int y = j - Main.tile[i, j].frameY / 18 % 4;
+            int x = i - Main.tile[i, j].TileFrameX / 18 % 3;
+            int y = j - Main.tile[i, j].TileFrameY / 18 % 4;
             for (int l = x; l < x + 3; l++)
             {
                 for (int m = y; m < y + 4; m++)
                 {
-                    if (Main.tile[l, m] == null)
+                    /*if (Main.tile[l, m] == null)
                     {
                         Main.tile[l, m] = new Tile();
                     }
-                    if (Main.tile[l, m].active() && Main.tile[l, m].type == Type)
+                    if (Main.tile[l, m].active() && Main.tile[l, m].type == Type)*/
                     {
-                        if (Main.tile[l, m].frameY < 72)
+                        if (Main.tile[l, m].TileFrameY < 72)
                         {
-                            Main.tile[l, m].frameY += 72;
+                            Main.tile[l, m].TileFrameY += 72;
                         }
                         else
                         {
-                            Main.tile[l, m].frameY -= 72;
+                            Main.tile[l, m].TileFrameY -= 72;
                         }
                     }
                 }
@@ -126,9 +123,9 @@ namespace CalValEX.Tiles.MiscFurniture
         }
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
-            CalValEXGlobalTile.TileGlowmask(i, j, ModContent.GetTexture("CalValEX/Tiles/MiscFurniture/RespirationShrinePlaced_Glow"), spriteBatch);
+            CalValEXGlobalTile.TileGlowmask(i, j, ModContent.Request<Texture2D>("CalValEX/Tiles/MiscFurniture/RespirationShrinePlaced_Glow").Value, spriteBatch);
             Tile tile = Main.tile[i, j];
-            if (tile.frameX == 0 && tile.frameY == 0)
+            if (tile.TileFrameX == 0 && tile.TileFrameY == 0)
             {
                 rotation += 10;
                 if (stoneup)
@@ -147,18 +144,18 @@ namespace CalValEX.Tiles.MiscFurniture
                 {
                     stoneup = false;
                 }
-                Texture2D auraTexture = mod.GetTexture("Tiles/MiscFurniture/RespirationStar");
+                Texture2D auraTexture = ModContent.Request<Texture2D>("CalValEX/Tiles/MiscFurniture/RespirationStar").Value;
                 Rectangle sourceRectangle = new Rectangle(0, 0, auraTexture.Width, auraTexture.Height);
                 Vector2 zero = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
                 Vector2 position = new Vector2((i * 16) + 24 - Main.screenPosition.X, (j * 16) - 4 - stonepos - Main.screenPosition.Y) + zero;
                 Color color = Color.White;
                 Vector2 origin = new Vector2(auraTexture.Width, auraTexture.Height);
 
-                if (!tile.halfBrick() && tile.slope() == 0)
+                if (!tile.IsHalfBlock)
                 {
-                    if (Main.tile[i, j].frameY < 72)
+                    if (Main.tile[i, j].TileFrameY < 72)
                     {
-                        if ((tile.frameX == 0 && tile.frameY == 0))
+                        if ((tile.TileFrameX == 0 && tile.TileFrameY == 0))
                         {
                             spriteBatch.End();
                             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied);

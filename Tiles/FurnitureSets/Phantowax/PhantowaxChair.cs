@@ -10,13 +10,14 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
 {
     public class PhantowaxChair : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2);
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.Direction = TileObjectDirection.PlaceLeft;
             TileObjectData.newTile.StyleWrapLimit = 2; //not really necessary but allows me to add more subtypes of chairs below the example chair texture
             TileObjectData.newTile.StyleMultiplier = 2; //same as above
@@ -30,13 +31,13 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Phantowax Chair");
             AddMapEntry(new Color(94, 39, 93), name);
-            disableSmartCursor = true;
-            adjTiles = new int[] { TileID.Chairs };
+            
+            AdjTiles = new int[] { TileID.Chairs };
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 32, ModContent.ItemType<PhantowaxChairItem>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<PhantowaxChairItem>());
         }
     }
 }

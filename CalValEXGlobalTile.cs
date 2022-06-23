@@ -19,9 +19,9 @@ namespace CalValEX
         /// <param name="type">Id the tile, needed for an animated glowmask because YuHcode doesn't know how to automate this</param>
         public static void TileGlowmask(int i, int j, Texture2D text, SpriteBatch sprit, int frameheight = 0, ushort type = 0)
         {
-            var frame = new Rectangle(Main.tile[i, j].frameX, Main.tile[i, j].frameY + frameheight * Main.tileFrame[type], 16, 16);
-            int xFrameOffset = Main.tile[i, j].frameX;
-            int yFrameOffset = Main.tile[i, j].frameY;
+            var frame = new Rectangle(Main.tile[i, j].TileFrameX, Main.tile[i, j].TileFrameY + frameheight * Main.tileFrame[type], 16, 16);
+            int xFrameOffset = Main.tile[i, j].TileFrameX;
+            int yFrameOffset = Main.tile[i, j].TileFrameY;
             Texture2D glowmask = text;
             Vector2 drawOffest = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
             Vector2 drawPosition = new Vector2(i * 16 - Main.screenPosition.X, j * 16 - Main.screenPosition.Y) + drawOffest;
@@ -29,16 +29,16 @@ namespace CalValEX
             Tile trackTile = Main.tile[i, j];
             if (frameheight == 0)
             {
-                if (!trackTile.halfBrick() && trackTile.slope() == 0)
+                if (!trackTile.IsHalfBlock && trackTile.Slope == 0)
                     sprit.Draw(glowmask, drawPosition, new Rectangle(xFrameOffset, yFrameOffset, 16, 16), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
-                else if (trackTile.halfBrick())
+                else if (trackTile.IsHalfBlock)
                     sprit.Draw(glowmask, drawPosition + new Vector2(0f, 8f), new Rectangle(xFrameOffset, yFrameOffset, 16, 8), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
             }
             else
             {
-                if (!trackTile.halfBrick() && trackTile.slope() == 0)
+                if (!trackTile.IsHalfBlock && trackTile.Slope == 0)
                     sprit.Draw(glowmask, drawPosition, frame, drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
-                else if (trackTile.halfBrick())
+                else if (trackTile.IsHalfBlock)
                     sprit.Draw(glowmask, drawPosition + new Vector2(0f, 8f), frame, drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
             }
         }
@@ -48,11 +48,11 @@ namespace CalValEX
             Tile tile = Main.tile[i, j];
             int left = i;
             int top = j;
-            if (tile.frameX % 36 != 0)
+            if (tile.TileFrameX % 36 != 0)
             {
                 left--;
             }
-            if (tile.frameY != 0)
+            if (tile.TileFrameY != 0)
             {
                 top--;
             }
@@ -60,7 +60,7 @@ namespace CalValEX
             Chest chest = Main.chest[chestI];
             int cFrame = chest.frame;
             Texture2D glowmask = text;
-            Rectangle frame = new Rectangle(tile.frameX, 38 * cFrame + tile.frameY, 16, 16);
+            Rectangle frame = new Rectangle(tile.TileFrameX, 38 * cFrame + tile.TileFrameY, 16, 16);
             Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
             if (Main.drawToScreen)
             {

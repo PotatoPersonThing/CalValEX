@@ -11,30 +11,55 @@ namespace CalValEX.Items.Equips.Transformations
 {
 	public class Signus: ModItem
 	{
-		public override void SetStaticDefaults()
+		public override void Load()
 		{
-			DisplayName.SetDefault("Twilight Charm");
-			Tooltip.SetDefault("'One with the void'\n" + "Transforms the wearer into a nether spirit");
-			ItemID.Sets.ItemNoGravity[item.type] = true;
+			if (Main.netMode != NetmodeID.Server)
+			{
+				EquipLoader.AddEquipTexture(Mod, $"{Texture}_{EquipType.Head}", EquipType.Head, this);
+				EquipLoader.AddEquipTexture(Mod, $"{Texture}_{EquipType.Body}", EquipType.Body, this);
+				EquipLoader.AddEquipTexture(Mod, $"{Texture}_{EquipType.Legs}", EquipType.Legs, this);
+			}
+		}
+		private void SetupDrawing()
+		{
+			int equipSlotHead = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Head);
+			int equipSlotBody = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Body);
+			int equipSlotLegs = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);
+
+			ArmorIDs.Head.Sets.DrawHead[equipSlotHead] = false;
+			ArmorIDs.Body.Sets.HidesTopSkin[equipSlotBody] = true;
+			ArmorIDs.Body.Sets.HidesArms[equipSlotBody] = true;
+			ArmorIDs.Legs.Sets.HidesBottomSkin[equipSlotLegs] = true;
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 24;
-			item.height = 28;
-			item.accessory = true;
-			item.rare = 11;
+			Item.width = 24;
+			Item.height = 28;
+			Item.accessory = true;
+			Item.rare = 11;
+			Item.canBePlacedInVanityRegardlessOfConditions = true;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			CalValEXPlayer p = player.GetModPlayer<CalValEXPlayer>();
+			var p = player.GetModPlayer<CalValEXPlayer>();
 			p.signutTrans = true;
-			if (hideVisual)
+			p.signutHide = hideVisual;
+		}
+		public override bool IsVanitySet(int head, int body, int legs) => true;
+
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Twilight Charm");
+			Tooltip.SetDefault("'One with the void'\n" + "Transforms the wearer into a nether spirit");
+			ItemID.Sets.ItemNoGravity[Item.type] = true;
+			if (Main.netMode != NetmodeID.Server)
 			{
-				p.signutHide = true;
+				SetupDrawing();
 			}
 		}
+
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
 			//rarity 12 (Turquoise) = new Color(0, 255, 200)
@@ -48,51 +73,11 @@ namespace CalValEX.Items.Equips.Transformations
 			//look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
 			foreach (TooltipLine tooltipLine in tooltips)
 			{
-				if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+				if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
 				{
-					tooltipLine.overrideColor = new Color(0, 255, 200); //change the color accordingly to above
+					tooltipLine.OverrideColor = new Color(0, 255, 200); //change the color accordingly to above
 				}
 			}
-		}
-		public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			Mod calamityMod = ModLoader.GetMod("CalamityMod");
-			if (calamityMod != null)
-			{
-				recipe.AddIngredient(calamityMod.ItemType("SignusMask"), 1);
-				recipe.AddIngredient(mod.ItemType("SigCape"), 1);
-				recipe.AddIngredient(mod.ItemType("SignusNether"), 1);
-				recipe.AddIngredient(mod.ItemType("SignusEmblem"), 1);
-				recipe.AddIngredient(calamityMod.ItemType("TwistingNether"), 3);
-				recipe.AddTile(TileID.LunarCraftingStation);
-				recipe.SetResult(this);
-				recipe.AddRecipe();
-			}
-		}
-	}
-
-	public class SignusHead : EquipTexture
-	{
-		public override bool DrawHead()
-		{
-			return false;
-		}
-	}
-
-	public class SignusBody : EquipTexture
-	{
-		public override bool DrawBody()
-		{
-			return false;
-		}
-	}
-
-	public class SignusLegs : EquipTexture
-	{
-		public override bool DrawLegs()
-		{
-			return false;
 		}
 	}
 }

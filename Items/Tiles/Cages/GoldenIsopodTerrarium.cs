@@ -17,18 +17,18 @@ namespace CalValEX.Items.Tiles.Cages
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.autoReuse = true;
-            item.maxStack = 99;
-            item.consumable = true;
-            item.createTile = ModContent.TileType<GoldenIsopodTerrariumPlaced>();
-            item.width = 12;
-            item.height = 12;
-            item.rare = 11;
-            item.value = Item.sellPrice(0, 20, 0, 0);
+            Item.useStyle = 1;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.maxStack = 99;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<GoldenIsopodTerrariumPlaced>();
+            Item.width = 12;
+            Item.height = 12;
+            Item.rare = 11;
+            Item.value = Item.sellPrice(0, 20, 0, 0);
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -44,14 +44,14 @@ namespace CalValEX.Items.Tiles.Cages
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(0, 255, 0); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(0, 255, 0); //change the color accordingly to above
                 }
             }
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
@@ -61,6 +61,6 @@ namespace CalValEX.Items.Tiles.Cages
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

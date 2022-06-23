@@ -8,16 +8,16 @@ namespace CalValEX.Tiles.AstralBlocks
 {
     public class AstralTreeWoodPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
-            drop = ModContent.ItemType<AstralTreeWood>();
+            ItemDrop = ModContent.ItemType<AstralTreeWood>();
             AddMapEntry(new Color(78, 45, 91));
-            animationFrameHeight = 90;
+            AnimationFrameHeight = 90;
         }
 
-        private readonly int animationFrameWidth = 234;
+        private readonly int AnimationFrameWidth = 234;
 
         public override void AnimateIndividualTile(int type, int i, int j, ref int frameXOffset, ref int frameYOffset)
         {
@@ -147,8 +147,8 @@ namespace CalValEX.Tiles.AstralBlocks
                     }
                     break;
             }
-            frameXOffset = uniqueAnimationFrameX * animationFrameWidth;
-            frameYOffset = uniqueAnimationFrameY * animationFrameHeight;
+            frameXOffset = uniqueAnimationFrameX * AnimationFrameWidth;
+            frameYOffset = uniqueAnimationFrameY * AnimationFrameHeight;
         }
     }
 }

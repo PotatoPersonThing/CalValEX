@@ -8,29 +8,29 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Swearshroom");
+            //DisplayName.SetDefault("Swearshroom");
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.autoReuse = true;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 22;
-            item.height = 22;
-            item.noUseGraphic = true;
-            item.rare = 2;
+            Item.useStyle = 1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 22;
+            Item.height = 22;
+            Item.noUseGraphic = true;
+            Item.rare = 2;
 
-            Mod mod = ModLoader.GetMod("CalamityMod");
+            /*Mod mod = ModLoader.GetMod("CalamityMod");
             if (mod == null)
             {
                 return;
-            }
-            item.makeNPC = (short)NPCType<Swearshroom>();
+            }*/
+            Item.makeNPC = (short)NPCType<Swearshroom>();
         }
     }
 }

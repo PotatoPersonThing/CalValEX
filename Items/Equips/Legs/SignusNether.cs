@@ -16,12 +16,13 @@ namespace CalValEX.Items.Equips.Legs
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 28;
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            item.rare = 11;
-            item.accessory = true;
-            item.vanity = true;
+            Item.width = 24;
+            Item.height = 28;
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Item.rare = 11;
+            Item.accessory = true;
+            Item.vanity = true;
+            Terraria.ID.ArmorIDs.Legs.Sets.OverridesLegs[Item.legSlot] = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -37,16 +38,11 @@ namespace CalValEX.Items.Equips.Legs
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(0, 255, 200); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(0, 255, 200); //change the color accordingly to above
                 }
             }
-        }
-
-        public override bool DrawLegs()
-        {
-            return false;
         }
     }
 }

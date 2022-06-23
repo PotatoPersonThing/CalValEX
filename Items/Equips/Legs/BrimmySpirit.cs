@@ -13,16 +13,12 @@ namespace CalValEX.Items.Equips.Legs
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 14;
-            item.rare = 5;
-            item.vanity = true;
-            item.value = Item.sellPrice(0, 2, 0, 0);
-        }
-
-        public override bool DrawLegs()
-        {
-            return false;
+            Item.width = 18;
+            Item.height = 14;
+            Item.rare = 5;
+            Item.vanity = true;
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Terraria.ID.ArmorIDs.Legs.Sets.OverridesLegs[Item.legSlot] = true;
         }
     }
 }

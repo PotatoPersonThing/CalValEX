@@ -17,21 +17,21 @@ namespace CalValEX.Items.Mounts.Morshu
 
         public override void SetDefaults()
         {
-            item.width = 30;
-            item.height = 26;
-            item.useTime = 20;
-            item.useAnimation = 20;
-            item.useStyle = ItemUseStyleID.SwingThrow;
-            item.value = Item.sellPrice(gold: 2);
-            item.rare = ItemRarityID.Pink;
-            item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/MorshuBomb");
-            item.noMelee = true;
-            item.mountType = ModContent.MountType<MorshuMount>();
+            Item.width = 30;
+            Item.height = 26;
+            Item.useTime = 20;
+            Item.useAnimation = 20;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.value = Item.sellPrice(gold: 2);
+            Item.rare = ItemRarityID.Pink;
+            Item.UseSound = new Terraria.Audio.SoundStyle("CalValEX/Sounds/Item/MorshuBomb");
+            Item.noMelee = true;
+            Item.mountType = ModContent.MountType<MorshuMount>();
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips) => ItemUtils.CheckRarity(CalamityRarity.DedicatedEX, tooltips);
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             ModRecipe recipe = new ModRecipe(mod);
@@ -43,21 +43,21 @@ namespace CalValEX.Items.Mounts.Morshu
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.SetResult(this);
             recipe.AddRecipe();
-        }
+        }*/
 
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)
         {
             if (Main.rand.NextFloat() < 0.33f)
             {
-                item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/MorshuBomb");
+                Item.UseSound = new Terraria.Audio.SoundStyle("CalValEX/Sounds/Item/MorshuBomb");
             }
             else if (Main.rand.NextFloat() < 0.5f)
             {
-                item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/MorshuRope");
+                Item.UseSound = new Terraria.Audio.SoundStyle("CalValEX/Sounds/Item/MorshuRope");
             }
             else
             {
-                item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/MorshuLamp");
+                Item.UseSound = new Terraria.Audio.SoundStyle("CalValEX/Sounds/Item/MorshuLamp");
             }
             return true;
         }

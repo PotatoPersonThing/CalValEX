@@ -10,8 +10,9 @@ namespace CalValEX.Tiles.MiscFurniture
 {
 	public class TerminusShrinePlaced : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
+			Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLighted[Type] = true;
 			Main.tileLavaDeath[Type] = true;
@@ -20,25 +21,25 @@ namespace CalValEX.Tiles.MiscFurniture
 			TileObjectData.newTile.Height = 3;
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 };
 			TileObjectData.addTile(Type);
-			animationFrameHeight = 54;
+			AnimationFrameHeight = 54;
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Terminus Shrine");
 			AddMapEntry(new Color(113, 142, 162), name);
 		}
 
-		public override void KillMultiTile(int i, int j, int frameX, int frameY)
+		public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
 		{
 			/*if (l2)
             {
-				Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("BossRush"), 1);
+				Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("BossRush"), 1);
 			}
 			if (l3)
 			{
-				Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("Rock"), 1);
+				Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("Rock"), 1);
 			}
 			l2 = false;
 			l3 = false;*/
-			Item.NewItem(i * 16, j * 16, 16, 16, ModContent.ItemType<TerminusShrine>());
+			Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModContent.ItemType<TerminusShrine>());
 		}
 
 		/*private int count;
@@ -169,12 +170,12 @@ namespace CalValEX.Tiles.MiscFurniture
 			else if (l3)
             {
 				l3 = false;
-				Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("Rock"), 1);
+				Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("Rock"), 1);
 			}
 			else if (l2 && !localPlayer.HasItem(ModLoader.GetMod("CalamityMod").ItemType("BossRush")))
             {
 				l2 = false;
-				Item.NewItem(i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("BossRush"), 1);
+				Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModLoader.GetMod("CalamityMod").ItemType("BossRush"), 1);
             }
 			return true;
 		}*/

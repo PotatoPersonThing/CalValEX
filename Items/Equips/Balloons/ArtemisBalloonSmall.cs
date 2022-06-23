@@ -16,12 +16,12 @@ namespace CalValEX.Items.Equips.Balloons
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 42;
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 11;
-            item.accessory = true;
-            item.vanity = true;
+            Item.width = 24;
+            Item.height = 42;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.rare = 11;
+            Item.accessory = true;
+            Item.vanity = true;
         }
 
         public override void UpdateEquip(Player player)
@@ -29,7 +29,7 @@ namespace CalValEX.Items.Equips.Balloons
             player.GetModPlayer<CalValEXPlayer>().sartballoon = true;
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             player.GetModPlayer<CalValEXPlayer>().sartballoon = true;
         }
@@ -47,9 +47,9 @@ namespace CalValEX.Items.Equips.Balloons
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(108, 45, 199); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(108, 45, 199); //change the color accordingly to above
                 }
             }
         }

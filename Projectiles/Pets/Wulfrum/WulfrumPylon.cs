@@ -9,33 +9,33 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Wulfrum Pylon");
-            Main.projFrames[projectile.type] = 7;
-            Main.projPet[projectile.type] = true;
-            ProjectileID.Sets.LightPet[projectile.type] = true;
-            drawOriginOffsetY = -15;
+            Main.projFrames[Projectile.type] = 7;
+            Main.projPet[Projectile.type] = true;
+            ProjectileID.Sets.LightPet[Projectile.type] = true;
+            DrawOriginOffsetY = -15;
             //drawOffsetX = -14;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 16;
-            projectile.height = 16;
-            projectile.penetrate = -1;
-            projectile.netImportant = true;
-            projectile.timeLeft *= 5;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
-            projectile.aiStyle = -1;
+            Projectile.width = 16;
+            Projectile.height = 16;
+            Projectile.penetrate = -1;
+            Projectile.netImportant = true;
+            Projectile.timeLeft *= 5;
+            Projectile.friendly = true;
+            Projectile.tileCollide = false;
+            Projectile.aiStyle = -1;
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (player.dead)
                 modPlayer.pylon = false;
             if (modPlayer.pylon)
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
 
             Vector2 vectorToOwner = player.Center;
             vectorToOwner.Y -= 56f;
@@ -48,18 +48,18 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
             vectorToOwner.X += 0.5f * -velX;
             vectorToOwner.Y += 0.5f * -velY;
 
-            projectile.Center = vectorToOwner;
+            Projectile.Center = vectorToOwner;
 
-            if (projectile.frameCounter++ % 8 == 7)
+            if (Projectile.frameCounter++ % 8 == 7)
             {
-                projectile.frame++;
+                Projectile.frame++;
             }
-            if (projectile.frame >= 7)
+            if (Projectile.frame >= 7)
             {
-                projectile.frame = 0;
+                Projectile.frame = 0;
             }
 
-            Lighting.AddLight(projectile.Center, new Vector3(0.2f, 0.35882353f, 0.58039216f));
+            Lighting.AddLight(Projectile.Center, new Vector3(0.2f, 0.35882353f, 0.58039216f));
         }
     }
 }

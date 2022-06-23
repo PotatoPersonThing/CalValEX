@@ -6,10 +6,10 @@ namespace CalValEX.Buffs.Mounts
 {
     public class AuricTeslaBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Auric Tesla");
-            Description.SetDefault("Yharim Car\nYharim Car");
+            //DisplayName.SetDefault("Auric Tesla");
+            //Description.SetDefault("Yharim Car\nYharim Car");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

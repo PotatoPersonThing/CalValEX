@@ -6,10 +6,10 @@ namespace CalValEX.Buffs.Mounts
 {
     public class FloatyBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Floaty Rug");
-            Description.SetDefault("Warning: flight not included.");
+            //DisplayName.SetDefault("Floaty Rug");
+            //Description.SetDefault("Warning: flight not included.");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

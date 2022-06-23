@@ -18,22 +18,22 @@ namespace CalValEX.Projectiles.Pong
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crabulon Slider");
-            Main.projFrames[projectile.type] = 1;
+            Main.projFrames[Projectile.type] = 1;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 25;
-            projectile.height = 78;
-            projectile.aiStyle = -1;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = false;
-            projectile.timeLeft = 18000;
+            Projectile.width = 25;
+            Projectile.height = 78;
+            Projectile.aiStyle = -1;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = false;
+            Projectile.timeLeft = 18000;
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (checkpos == false)
             {
@@ -66,49 +66,49 @@ namespace CalValEX.Projectiles.Pong
                 }
                 if (movementdevtype == -1)
                 {
-                    projectile.velocity.Y = -5;
+                    Projectile.velocity.Y = -5;
                 }
                 else
                 {
-                    projectile.velocity.Y = 5;
+                    Projectile.velocity.Y = 5;
                 }
                 devcooldown = 120;
             }
 
             if (movementdev == 0)
             {
-                projectile.velocity.Y = 4;
+                Projectile.velocity.Y = 4;
             }
 
-            if (projectile.position.Y < player.Center.Y - 258)
+            if (Projectile.position.Y < player.Center.Y - 258)
             {
                 movementdev = -1;
-                projectile.velocity.Y *= -1;
+                Projectile.velocity.Y *= -1;
             }
-            else if (projectile.position.Y > player.Center.Y + 173)
+            else if (Projectile.position.Y > player.Center.Y + 173)
             {
                 movementdev = -1;
-                projectile.velocity.Y *= -1;
+                Projectile.velocity.Y *= -1;
             }
 
             if (!modPlayer.pongactive)
             {
-                projectile.active = false;
+                Projectile.active = false;
             }
         }
 
-        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override void PostDraw(Color lightColor)
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (modPlayer.pongactive)
             {
-                Texture2D texture2 = ModContent.GetTexture("CalValEX/ExtraTextures/Pong/PongSlider");
-                Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[projectile.type] * projectile.frame, texture2.Width, texture2.Height / Main.projFrames[projectile.type]);
-                Vector2 position2 = projectile.Center - Main.screenPosition;
-                position2.X += drawOffsetX;
-                position2.Y += drawOriginOffsetY;
-                spriteBatch.Draw(texture2, position2, rectangle2, Color.White, projectile.rotation, projectile.Size / 2f, 1f, (projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0f);
+                Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongSlider").Value;
+                Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2.Width, texture2.Height / Main.projFrames[Projectile.type]);
+                Vector2 position2 = Projectile.Center - Main.screenPosition;
+                position2.X += DrawOffsetX;
+                position2.Y += DrawOriginOffsetY;
+                Main.EntitySpriteDraw(texture2, position2, rectangle2, Color.White, Projectile.rotation, Projectile.Size / 2f, 1f, (Projectile.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
             }
         }
     }

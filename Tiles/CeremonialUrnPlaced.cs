@@ -9,7 +9,7 @@ namespace CalValEX.Tiles
 {
     public class CeremonialUrnPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -27,7 +27,7 @@ namespace CalValEX.Tiles
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 8, 24, ModLoader.GetMod("CalamityMod").ItemType("EyeofExtinction"));
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 8, 24, ModContent.ItemType<CalamityMod.Items.SummonItems.CeremonialUrn>());
         }
     }
 }

@@ -15,10 +15,10 @@ namespace CalValEX.Items
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 20;
-            item.rare = ItemRarityID.Blue;
-            item.maxStack = 9999;
+            Item.width = 20;
+            Item.height = 20;
+            Item.rare = ItemRarityID.Blue;
+            Item.maxStack = 9999;
         }
 
         public override bool CanRightClick()
@@ -31,139 +31,139 @@ namespace CalValEX.Items
             int choice = Main.rand.Next(34);
             if (choice == 0)
             {
-                player.QuickSpawnItem(ModContent.ItemType<BlazingConflict>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<BlazingConflict>());
             }
             else if (choice == 1)
             {
-                player.QuickSpawnItem(ModContent.ItemType<CalamiteaTime>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<CalamiteaTime>());
             }
             else if (choice == 2)
             {
-                player.QuickSpawnItem(ModContent.ItemType<CirrusBooze>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<CirrusBooze>());
             }
             else if (choice == 3)
             {
-                player.QuickSpawnItem(ModContent.ItemType<Clam>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<Clam>());
             }
             else if (choice == 4)
             {
-                player.QuickSpawnItem(ModContent.ItemType<CosmicTerror>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<CosmicTerror>());
             }
             else if (choice == 5)
             {
-                player.QuickSpawnItem(ModContent.ItemType<LostSouls>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<LostSouls>());
             }
             else if (choice == 6)
             {
-                player.QuickSpawnItem(ModContent.ItemType<NotLikeHome>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<NotLikeHome>());
             }
             else if (choice == 7)
             {
-                player.QuickSpawnItem(ModContent.ItemType<VVanities>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<VVanities>());
             }
             else if (choice == 8)
             {
-                player.QuickSpawnItem(ModContent.ItemType<Scourgy>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<Scourgy>());
             }
             else if (choice == 9)
             {
-                player.QuickSpawnItem(ModContent.ItemType<SleepingGiant>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<SleepingGiant>());
             }
             else if (choice == 10)
             {
-                player.QuickSpawnItem(ModContent.ItemType<Snouts>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<Snouts>());
             }
             else if (choice == 11)
             {
-                player.QuickSpawnItem(ModContent.ItemType<SundayAfternoon>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<SundayAfternoon>());
             }
             else if (choice == 12)
             {
-                player.QuickSpawnItem(ModContent.ItemType<SwearingShroom>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<SwearingShroom>());
             }
             else if (choice == 13)
             {
-                player.QuickSpawnItem(ModContent.ItemType<TheGreatSandworm>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<TheGreatSandworm>());
             }
             else if (choice == 14)
             {
-                player.QuickSpawnItem(ModContent.ItemType<TheYhar>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<TheYhar>());
             }
             else if (choice == 15)
             {
-                player.QuickSpawnItem(ModContent.ItemType<Duality>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<Duality>());
             }
             else if (choice == 16)
             {
-                player.QuickSpawnItem(ModContent.ItemType<RogueExtractor>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<RogueExtractor>());
             }
             else if (choice == 17)
             {
-                player.QuickSpawnItem(ModContent.ItemType<Espelho>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<Espelho>());
             }
             else if (choice == 18)
             {
-                player.QuickSpawnItem(ModContent.ItemType<DarkMagic>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<DarkMagic>());
             }
             else if (choice == 19)
             {
-                player.QuickSpawnItem(ModContent.ItemType<Frozen>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<Frozen>());
             }
             else if (choice == 20)
             {
-                player.QuickSpawnItem(ModContent.ItemType<UnholyTrip>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<UnholyTrip>());
             }
             else if (choice == 21)
             {
-                player.QuickSpawnItem(ModContent.ItemType<AccidentalAbominationn>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<AccidentalAbominationn>());
             }
             else if (choice == 22)
             {
-                player.QuickSpawnItem(ModContent.ItemType<Plague22>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<Plague22>());
             }
             else if (choice == 23)
             {
-                player.QuickSpawnItem(ModContent.ItemType<CalamityFriends>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<CalamityFriends>());
             }
             else if (choice == 24)
             {
-                player.QuickSpawnItem(ModContent.ItemType<WilliamPainting>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<WilliamPainting>());
             }
             else if (choice == 25)
             {
-                player.QuickSpawnItem(ModContent.ItemType<ModIconPainting>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<ModIconPainting>());
             }
             else if (choice == 26)
             {
-                player.QuickSpawnItem(ModContent.ItemType<CalamityPaint>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<CalamityPaint>());
             }
             else if (choice == 27)
             {
-                player.QuickSpawnItem(ModContent.ItemType<CalamityPaintRetold>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<CalamityPaintRetold>());
             }
             else if (choice == 28)
             {
-                player.QuickSpawnItem(ModContent.ItemType<OldModIconPainting>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<OldModIconPainting>());
             }
             else if (choice == 29)
             {
-                player.QuickSpawnItem(ModContent.ItemType<DraedonPopcorn>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<DraedonPopcorn>());
             }
             else if (choice == 30)
             {
-                player.QuickSpawnItem(ModContent.ItemType<EyeofXeroc>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<EyeofXeroc>());
             }
             else if (choice == 31)
             {
-                player.QuickSpawnItem(ModContent.ItemType<UCMMPainting>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<UCMMPainting>());
             }
             else if (choice == 32)
             {
-                player.QuickSpawnItem(ModContent.ItemType<OldUCMMPainting>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<OldUCMMPainting>());
             }
             else
             {
-                player.QuickSpawnItem(ModContent.ItemType<WormHeaven>());
+                player.QuickSpawnItem(player.GetSource_OpenItem(Item.type), ModContent.ItemType<WormHeaven>());
             }
         }
     }

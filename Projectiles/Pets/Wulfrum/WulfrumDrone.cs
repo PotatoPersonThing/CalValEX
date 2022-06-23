@@ -4,79 +4,59 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets.Wulfrum
 {
-    public class WulfrumDrone : FlyingPet
+    public class WulfrumDrone : ModFlyingPet
     {
+        public override float TeleportThreshold => 1440f;
+
         public override void SetStaticDefaults()
         {
+            PetSetStaticDefaults(lightPet: false);
             DisplayName.SetDefault("Wulfrum Drone");
-            Main.projFrames[projectile.type] = 8; //frames
-            Main.projPet[projectile.type] = true;
+            Main.projFrames[Projectile.type] = 8;
         }
 
-        public override void SafeSetDefaults() //SafeSetDefaults!!!
+        public override void SetDefaults()
         {
-            projectile.width = 22;
-            projectile.height = 22;
-            projectile.ignoreWater = true;
-            /* you don't need to set these anymore!
-            projectile.penetrate = -1;
-            projectile.netImportant = true;
-            projectile.timeLeft *= 5;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
-            */
-            facingLeft = true; //is the sprite facing left? if so, put this to true. if its facing to right keep it false.
-            spinRotation = false; //should it spin? if that's the case, set to true. else, leave it false.
-            shouldFlip = true; //should the sprite flip? set true if it should, false if it shouldnt
-            usesAura = false; //does this pet use an aura?
-            usesGlowmask = false; //does this pet use a glowmask?
-            auraUsesGlowmask = false; //does the aura use a glowmask?
+            PetSetDefaults();
+            Projectile.width = 22;
+            Projectile.height = 22;
+            Projectile.ignoreWater = true;
         }
 
-        public override void SetUpFlyingPet()
+        public override void Animation(int state)
         {
-            distance[0] = 1440f; //teleport distance
-            distance[1] = 560f; //faster speed distance
-            speed = 12f;
-            inertia = 60f;
-            animationSpeed = 12; //how fast the animation should play
-            spinRotationSpeedMult = 0.2f; //rotation speed multiplier, keep it positive for it to spin in the right direction
-            offSetX = 48f * -Main.player[projectile.owner].direction; //this is needed so it's always behind the player.
-            offSetY = -50f; //how much higher from the center the pet should float
+            if (Main.player[Projectile.owner].HasBuff(ModContent.BuffType<PylonBuff>()))
+            {
+                if (Projectile.frameCounter++ > 8)
+                {
+                    Projectile.frameCounter = 0;
+                    Projectile.frame++;
+                    if (Projectile.frame >= 8)
+                        Projectile.frame = 4;
+                }
+            }
+            else
+            {
+                if (Projectile.frameCounter++ % 8 == 7)
+                {
+                    Projectile.frame++;
+                }
+                if (Projectile.frame >= 4)
+                {
+                    Projectile.frame = 0;
+                }
+            }
         }
 
-        //you usualy don't have to use the lower two unless you want the pet to have an aura, glowmask
-        //or if you want the pet to emit light
-
-        public override void SafeAI(Player player)
+        public override void PetFunctionality(Player player)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
             if (player.dead)
                 modPlayer.drone = false;
+
             if (modPlayer.drone)
-                projectile.timeLeft = 2;
-            if (player.HasBuff(ModContent.BuffType<PylonBuff>()))
-            {
-                if (projectile.frameCounter++ > 8)
-                {
-                    projectile.frameCounter = 0;
-                    projectile.frame++;
-                    if (projectile.frame >= 8)
-                        projectile.frame = 4;
-                }
-            }
-            else if (!player.HasBuff(ModContent.BuffType<PylonBuff>()))
-            {
-                if (projectile.frameCounter++ % 8 == 7)
-                {
-                    projectile.frame++;
-                }
-                if (projectile.frame >= 4)
-                {
-                    projectile.frame = 0;
-                }
-            }
+                Projectile.timeLeft = 2;
         }
     }
 }

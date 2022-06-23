@@ -16,12 +16,12 @@ namespace CalValEX.Items.Equips.Scarves
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 26;
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            item.rare = 4;
-            item.accessory = true;
-            item.vanity = true;
+            Item.width = 24;
+            Item.height = 26;
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Item.rare = 4;
+            Item.accessory = true;
+            Item.vanity = true;
         }
     }
 }

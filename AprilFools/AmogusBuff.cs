@@ -5,10 +5,10 @@ namespace CalValEX.AprilFools
 {
     public class AmogusBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Stratus Astronaut");
-            Description.SetDefault("amogus");
+            //DisplayName.SetDefault("Stratus Astronaut");
+            //Description.SetDefault("amogus");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
@@ -20,7 +20,7 @@ namespace CalValEX.AprilFools
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<AprilFools.Amogus>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<AprilFools.Amogus>(), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ModContent.ProjectileType<AprilFools.Amogus>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
         }
     }

@@ -6,10 +6,10 @@ namespace CalValEX.Buffs.Mounts
 {
     public class TractorMount : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Wulfrum Tank");
-            Description.SetDefault("Move forward soldier!");
+            //DisplayName.SetDefault("Wulfrum Tank");
+            //Description.SetDefault("Move forward soldier!");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

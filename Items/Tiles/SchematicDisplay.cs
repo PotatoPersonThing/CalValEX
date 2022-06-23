@@ -16,17 +16,17 @@ namespace CalValEX.Items.Tiles
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.autoReuse = true;
-            item.maxStack = 99;
-            item.consumable = true;
-            item.createTile = ModContent.TileType<SchematicDisplayPlaced>();
-            item.width = 12;
-            item.height = 12;
-            item.rare = 2;
+            Item.useStyle = 1;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.maxStack = 99;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<SchematicDisplayPlaced>();
+            Item.width = 12;
+            Item.height = 12;
+            Item.rare = 2;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -42,13 +42,13 @@ namespace CalValEX.Items.Tiles
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(204, 71, 35); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(204, 71, 35); //change the color accordingly to above
                 }
             }
         }
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             {
                 ModRecipe recipe = new ModRecipe(mod);
@@ -66,6 +66,6 @@ namespace CalValEX.Items.Tiles
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

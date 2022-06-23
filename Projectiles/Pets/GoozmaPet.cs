@@ -1,4 +1,5 @@
-using CalamityMod.CalPlayer;
+//using CalamityMod.CalPlayer;
+using Terraria.GameContent;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -17,21 +18,21 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Goozma");
-            ProjectileID.Sets.NeedsUUID[projectile.type] = true;
-            Main.projPet[projectile.type] = true;
+            ProjectileID.Sets.NeedsUUID[Projectile.type] = true;
+            Main.projPet[Projectile.type] = true;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 66;
-            projectile.height = 66;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.ignoreWater = true;
-            projectile.netImportant = true;
-            projectile.penetrate = -1;
-            projectile.timeLeft = 30000000;
-            projectile.tileCollide = false;
+            Projectile.width = 66;
+            Projectile.height = 66;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.ignoreWater = true;
+            Projectile.netImportant = true;
+            Projectile.penetrate = -1;
+            Projectile.timeLeft = 30000000;
+            Projectile.tileCollide = false;
         }
 
         public List<int> GoozmaSlimeGods = new List<int>();
@@ -39,21 +40,21 @@ namespace CalValEX.Projectiles.Pets
         public override void AI()
         {
             // Custom AI here
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-            CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
+            //((CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
             if (player.dead)
             {
                 modPlayer.goozmaPet = false;
             }
             if (modPlayer.goozmaPet)
             {
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
             }
 
             Vector2 PlayerCenter = player.Center;
             float MinVel = 0.36f;
-            Vector2 ProjDistance = PlayerCenter - projectile.Center;
+            Vector2 ProjDistance = PlayerCenter - Projectile.Center;
             if (ProjDistance.Length() < 100f)
             {
                 MinVel = 0.22f;
@@ -64,18 +65,18 @@ namespace CalValEX.Projectiles.Pets
             }
             if (ProjDistance.Length() > 50f)
             {
-                if (Math.Abs(PlayerCenter.X - projectile.Center.X) > 10f)
+                if (Math.Abs(PlayerCenter.X - Projectile.Center.X) > 10f)
                 {
-                    projectile.velocity.X = projectile.velocity.X + MinVel * (float)Math.Sign(PlayerCenter.X - projectile.Center.X);
+                    Projectile.velocity.X = Projectile.velocity.X + MinVel * (float)Math.Sign(PlayerCenter.X - Projectile.Center.X);
                 }
-                if (Math.Abs(PlayerCenter.Y - projectile.Center.Y) > 5f)
+                if (Math.Abs(PlayerCenter.Y - Projectile.Center.Y) > 5f)
                 {
-                    projectile.velocity.Y = projectile.velocity.Y + MinVel * (float)Math.Sign(PlayerCenter.Y - projectile.Center.Y);
+                    Projectile.velocity.Y = Projectile.velocity.Y + MinVel * (float)Math.Sign(PlayerCenter.Y - Projectile.Center.Y);
                 }
             }
-            else if (projectile.velocity.Length() > 1.6f)
+            else if (Projectile.velocity.Length() > 1.6f)
             {
-                projectile.velocity *= 0.96f;
+                Projectile.velocity *= 0.96f;
             }
             float MaxVel = 15f;
             if (ProjDistance.Length() > 800f)
@@ -95,20 +96,20 @@ namespace CalValEX.Projectiles.Pets
                 MaxVel = 15;
             }
 
-            if (projectile.velocity.Length() > MaxVel)
+            if (Projectile.velocity.Length() > MaxVel)
             {
-                projectile.velocity = Vector2.Normalize(projectile.velocity) * MaxVel;
+                Projectile.velocity = Vector2.Normalize(Projectile.velocity) * MaxVel;
             }
             if (ProjDistance.Length() > 2000f)
             {
-                projectile.Center = PlayerCenter;
+                Projectile.Center = PlayerCenter;
             }
-            if (Math.Abs(projectile.velocity.Y) < 1f)
+            if (Math.Abs(Projectile.velocity.Y) < 1f)
             {
-                projectile.velocity.Y = projectile.velocity.Y - 0.1f;
+                Projectile.velocity.Y = Projectile.velocity.Y - 0.1f;
             }
 
-            projectile.rotation += MathHelper.ToRadians(3.6f);
+            Projectile.rotation += MathHelper.ToRadians(3.6f);
 
             //Deity Logic
             /*
@@ -145,7 +146,7 @@ namespace CalValEX.Projectiles.Pets
          * 29 = astral blight
          * 30 = arsenal
          */
-            if (CalamityMod.Events.BossRushEvent.BossRushActive) //Auric
+            /*if (CalamityMod.Events.BossRushEvent.BossRushActive) //Auric
             {
                 GoozmaSlimeGods = new List<int>
                 {
@@ -293,19 +294,19 @@ namespace CalValEX.Projectiles.Pets
                 {
                     AddDeity(5);
                 }
-            }
+            }*/
         }
 
         public Rectangle getFrameFromTexture(int frame)
         {
-            //Texture2D texture = Main.projectileTexture[projectile.type];
+            //Texture2D texture = Main.ProjectileTexture[Projectile.type];
 
             return new Rectangle(0, 66 * frame, 66, 66);
         }
 
         public Vector2 getOriginFromFrame(int frame)
         {
-            //Texture2D texture = Main.projectileTexture[projectile.type];
+            //Texture2D texture = Main.ProjectileTexture[Projectile.type];
 
             return new Vector2(33, (66 * frame) + 33);
         }
@@ -323,21 +324,21 @@ namespace CalValEX.Projectiles.Pets
             }
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D projTexture = Main.projectileTexture[projectile.type];
+            Texture2D projTexture = TextureAssets.Projectile[Projectile.type].Value;
 
-            float textureRotation = MathHelper.Lerp((float)Math.PI / -4f, (float)Math.PI / 4f, 0.5f + MathHelper.Clamp(projectile.velocity.X / 33f, -0.5f, 0.5f));
+            float textureRotation = MathHelper.Lerp((float)Math.PI / -4f, (float)Math.PI / 4f, 0.5f + MathHelper.Clamp(Projectile.velocity.X / 33f, -0.5f, 0.5f));
 
-            Vector2 center = projectile.Center - Main.screenPosition + new Vector2(0, projectile.gfxOffY);
+            Vector2 center = Projectile.Center - Main.screenPosition + new Vector2(0, Projectile.gfxOffY);
 
-            spriteBatch.Draw(projTexture, center, getFrameFromTexture(0), lightColor, textureRotation, getOriginFromFrame(0), projectile.scale, SpriteEffects.None, 0);
+            Main.EntitySpriteDraw(projTexture, center, getFrameFromTexture(0), lightColor, textureRotation, getOriginFromFrame(0), Projectile.scale, SpriteEffects.None, 0);
 
             for (int i = 0; i < GoozmaSlimeGods.Count; ++i)
             {
-                Vector2 offset = new Vector2(60, 0).RotatedBy((MathHelper.PiOver2 * i) + projectile.rotation);
+                Vector2 offset = new Vector2(60, 0).RotatedBy((MathHelper.PiOver2 * i) + Projectile.rotation);
 
-                spriteBatch.Draw(projTexture, center + offset, getFrameFromTexture(GoozmaSlimeGods[i]), lightColor, textureRotation, new Vector2(33, 33), projectile.scale, SpriteEffects.None, 0);//+(GoozmaSlimeGods[i]*44)
+                Main.EntitySpriteDraw(projTexture, center + offset, getFrameFromTexture(GoozmaSlimeGods[i]), lightColor, textureRotation, new Vector2(33, 33), Projectile.scale, SpriteEffects.None, 0);//+(GoozmaSlimeGods[i]*44)
             }
 
             return false;

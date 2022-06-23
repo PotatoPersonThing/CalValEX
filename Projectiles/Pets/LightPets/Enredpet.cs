@@ -14,39 +14,39 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Cosmic Assistant");
-            Main.projPet[projectile.type] = true;
-            ProjectileID.Sets.LightPet[projectile.type] = true;
+            Main.projPet[Projectile.type] = true;
+            ProjectileID.Sets.LightPet[Projectile.type] = true;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 72;
-            projectile.height = 72;
-            projectile.penetrate = -1;
-            projectile.netImportant = true;
-            projectile.timeLeft *= 5;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
-            projectile.aiStyle = -1;
+            Projectile.width = 72;
+            Projectile.height = 72;
+            Projectile.penetrate = -1;
+            Projectile.netImportant = true;
+            Projectile.timeLeft *= 5;
+            Projectile.friendly = true;
+            Projectile.tileCollide = false;
+            Projectile.aiStyle = -1;
         }
 
-        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override void PostDraw(Color lightColor)
         {
-            Player player = Main.player[projectile.owner];
-            Texture2D texture = ModContent.GetTexture(CosmicTexture);
+            Player player = Main.player[Projectile.owner];
+            Texture2D texture = ModContent.Request<Texture2D>(CosmicTexture).Value;
             Rectangle sourceRectangle = new Rectangle(0, 40 * frame, texture.Width, texture.Height / 6);
             Vector2 origin = new Vector2(texture.Width, texture.Height);
             Vector2 position = player.Center;
             position.Y += 36f;
             position -= Main.screenPosition;
-            spriteBatch.Draw(texture, position, sourceRectangle, lightColor, 0f, origin / 2f, 1f, SpriteEffects.None, 0);
+            Main.EntitySpriteDraw(texture, position, sourceRectangle, lightColor, 0f, origin / 2f, 1f, SpriteEffects.None, 0);
         }
 
         private int frame = 0;
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (player.dead)
             {
@@ -54,7 +54,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             }
             if (modPlayer.Enredpet)
             {
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
             }
 
             Vector2 vectorToOwner = player.Center;
@@ -68,18 +68,18 @@ namespace CalValEX.Projectiles.Pets.LightPets
             vectorToOwner.X += 0.5f * -velX;
             vectorToOwner.Y += 0.5f * -velY;
 
-            projectile.Center = vectorToOwner;
+            Projectile.Center = vectorToOwner;
 
-            projectile.frameCounter++;
-            if (projectile.frameCounter > 5)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter > 5)
             {
                 frame++;
-                projectile.frameCounter = 0;
+                Projectile.frameCounter = 0;
                 if (frame > 5)
                     frame = 0;
             }
 
-            Lighting.AddLight(projectile.Center, new Vector3(1.2f, 0.65882353f, 1.38039216f));
+            Lighting.AddLight(Projectile.Center, new Vector3(1.2f, 0.65882353f, 1.38039216f));
         }
     }
 }

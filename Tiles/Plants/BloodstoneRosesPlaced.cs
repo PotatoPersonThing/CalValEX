@@ -10,11 +10,12 @@ namespace CalValEX.Tiles.Plants
 {
     public class BloodstoneRosesPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileLavaDeath[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
             TileObjectData.newTile.Width = 2;
@@ -28,7 +29,7 @@ namespace CalValEX.Tiles.Plants
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 16, ItemType<BloodstoneRoses>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ItemType<BloodstoneRoses>());
         }
     }
 }

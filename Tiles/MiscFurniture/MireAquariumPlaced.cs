@@ -10,9 +10,10 @@ namespace CalValEX.Tiles.MiscFurniture
 {
     public class MireAquariumPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true;
@@ -21,16 +22,16 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.Height = 4;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16 };
             TileObjectData.newTile.CoordinatePadding = 0;
-            animationFrameHeight = 64;
+            AnimationFrameHeight = 64;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Mire Aquarium");
             AddMapEntry(new Color(0, 167, 255), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 32, ItemType<MireAquarium>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<MireAquarium>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

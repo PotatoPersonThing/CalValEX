@@ -7,11 +7,8 @@ namespace CalValEX.Buffs.Pets
 {
     public class ScourgeBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            // DisplayName and Description are automatically set from the .lang files, but below is how it is done normally.
-            DisplayName.SetDefault("Pesky Twins");
-            Description.SetDefault("Blaaaargh^2");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
@@ -23,7 +20,7 @@ namespace CalValEX.Buffs.Pets
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<AquaPet>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height * 10,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height * 10,
                     0f, 0f, ProjectileType<AquaPet>(), 0, 0f, player.whoAmI);
             }
 
@@ -32,7 +29,7 @@ namespace CalValEX.Buffs.Pets
             bool petProjectileNotSpawneds = player.ownedProjectileCounts[ProjectileType<DesertPet>()] <= 0;
             if (petProjectileNotSpawneds && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ProjectileType<DesertPet>(), 0, 0f, player.whoAmI);
             }
         }

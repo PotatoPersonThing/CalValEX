@@ -16,20 +16,20 @@ namespace CalValEX.Items
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 26;
-            item.useStyle = ItemUseStyleID.EatingUsing;
-            item.useAnimation = 15;
-            item.useTime = 15;
-            item.useTurn = true;
-            item.UseSound = SoundID.Item2;
-            item.rare = 11;
-            item.value = Item.sellPrice(0, 30, 20, 0);
-            item.buffType = BuffID.WellFed; //Specify an existing buff to be applied when used.
-            item.buffTime = 300; //The amount of time the buff declared in item.buffType will last in ticks. 5400 / 60 is 90, so this buff will last 90 seconds.
+            Item.width = 20;
+            Item.height = 26;
+            Item.useStyle = ItemUseStyleID.EatFood;
+            Item.useAnimation = 15;
+            Item.useTime = 15;
+            Item.useTurn = true;
+            Item.UseSound = SoundID.Item2;
+            Item.rare = 11;
+            Item.value = Item.sellPrice(0, 30, 20, 0);
+            Item.buffType = BuffID.WellFed; //Specify an existing buff to be applied when used.
+            Item.buffTime = 300; //The amount of time the buff declared in Item.buffType will last in ticks. 5400 / 60 is 90, so this buff will last 90 seconds.
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
@@ -43,6 +43,6 @@ namespace CalValEX.Items
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

@@ -6,10 +6,8 @@ namespace CalValEX.Buffs.Pets
 {
     public class SkaterBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sulfurous Skater Nymph");
-            Description.SetDefault("Feed it acidic bubbles for it to grow stronger!");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
@@ -21,7 +19,7 @@ namespace CalValEX.Buffs.Pets
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<SkaterPet>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<SkaterPet>(), 0, 0f, player.whoAmI);
             }
         }

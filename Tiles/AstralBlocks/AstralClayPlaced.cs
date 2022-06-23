@@ -9,14 +9,14 @@ namespace CalValEX.Tiles.AstralBlocks
 {
     public class AstralClayPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            dustType = ModContent.DustType<AstralDust>();
-            drop = ModContent.ItemType<AstralClay>();
+            DustType = ModContent.DustType<AstralDust>();
+            ItemDrop = ModContent.ItemType<AstralClay>();
             AddMapEntry(new Color(78, 45, 91));
             Main.tileBlendAll[this.Type] = true;
         }
@@ -25,8 +25,8 @@ namespace CalValEX.Tiles.AstralBlocks
             num = fail ? 1 : 3;
         }
 
-        public override void ChangeWaterfallStyle(ref int style) {
+        /*public override void ChangeWaterfallStyle(ref int style) {
 			style = mod.GetWaterfallStyleSlot("AstralWaterfallStyle");
-		}
+		}*/
     }
 }

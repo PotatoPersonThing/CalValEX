@@ -12,23 +12,23 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Awakened Xerocodile");
+            //DisplayName.SetDefault("Awakened Xerocodile");
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.autoReuse = true;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 22;
-            item.height = 18;
-            item.noUseGraphic = true;
-            item.rare = 10;
-            item.makeNPC = (short)NPCType<Xerocodile>();
+            Item.useStyle = 1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 22;
+            Item.height = 18;
+            Item.noUseGraphic = true;
+            Item.rare = 10;
+            Item.makeNPC = (short)NPCType<Xerocodile>();
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
@@ -43,13 +43,13 @@ namespace CalValEX.Items.Critters
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(0, 255, 200); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(0, 255, 200); //change the color accordingly to above
                 }
             }
         }
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
@@ -57,6 +57,6 @@ namespace CalValEX.Items.Critters
             recipe.AddIngredient(calamityMod.ItemType("BloodstoneCore"), 1);
             recipe.SetResult(this);
             recipe.AddRecipe();
-        }
+        }*/
     }
 }

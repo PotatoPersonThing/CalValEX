@@ -6,10 +6,10 @@ namespace CalValEX.Buffs.Mounts
 {
     public class HadarianBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hadarian Fledgling");
-            Description.SetDefault("SCREEEE");
+            //DisplayName.SetDefault("Hadarian Fledgling");
+            //Description.SetDefault("SCREEEE");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

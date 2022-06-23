@@ -15,11 +15,11 @@ namespace CalValEX.Items.Mounts
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 20;
-            item.maxStack = 1;
-            item.value = Item.sellPrice(0, 0, 33, 0);
-            item.rare = 11;
+            Item.width = 20;
+            Item.height = 20;
+            Item.maxStack = 1;
+            Item.value = Item.sellPrice(0, 0, 33, 0);
+            Item.rare = 11;
         }
     }
 }

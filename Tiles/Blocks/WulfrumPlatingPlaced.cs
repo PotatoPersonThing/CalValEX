@@ -11,14 +11,14 @@ namespace CalValEX.Tiles.Blocks
 {
 	public class WulfrumPlatingPlaced : ModTile
 	{
-		public override void SetDefaults() 
+		public override void SetStaticDefaults() 
         {
 			Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = false;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
-			soundType = SoundID.Tink;
-			drop = ModContent.ItemType<WulfrumPlating>();
+			HitSound = SoundID.Tink;
+			ItemDrop = ModContent.ItemType<WulfrumPlating>();
 			AddMapEntry(new Color(149, 222, 168));
 		}
 	}

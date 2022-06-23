@@ -6,10 +6,10 @@ namespace CalValEX.Buffs.Mounts
 {
     public class NuclearHorrorBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Nuclear Horror");
-            Description.SetDefault("Why its helping you is beyond you");
+            //DisplayName.SetDefault("Nuclear Horror");
+            //Description.SetDefault("Why its helping you is beyond you");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

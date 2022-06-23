@@ -15,42 +15,42 @@ namespace CalValEX.Items.Equips.Shirts.AresChestplate
 
         public override void SetDefaults()
         {
-            projectile.width = 80;
-            projectile.height = 80;
-            projectile.friendly = true;
-            projectile.timeLeft = 18000;
-            projectile.aiStyle = -1;
-            projectile.ignoreWater = true;
-            projectile.tileCollide = false;
+            Projectile.width = 80;
+            Projectile.height = 80;
+            Projectile.friendly = true;
+            Projectile.timeLeft = 18000;
+            Projectile.aiStyle = -1;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = false;
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
-            projectile.position.X = player.position.X - 90;
-            projectile.position.Y = player.position.Y - 120;
+            Projectile.position.X = player.position.X - 90;
+            Projectile.position.Y = player.position.Y - 120;
 
             if (modPlayer.aresarms)
             {
-                projectile.timeLeft = 18000;
+                Projectile.timeLeft = 18000;
             }
             else
             {
-                projectile.active = false;
+                Projectile.active = false;
             }
-            //projectile.spriteDirection = player.direction;
-            projectile.rotation = projectile.AngleTo(Main.MouseWorld);
+            //Projectile.spriteDirection = player.direction;
+            Projectile.rotation = Projectile.AngleTo(Main.MouseWorld);
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
-            Player player = Main.player[projectile.owner];
-            Vector2 distToProj = projectile.Center;
-            float projRotation = projectile.AngleTo(player.MountedCenter) - 1.57f;
+            Player player = Main.player[Projectile.owner];
+            Vector2 distToProj = Projectile.Center;
+            float projRotation = Projectile.AngleTo(player.MountedCenter) - 1.57f;
             bool doIDraw = true;
-            Texture2D texture = mod.GetTexture("Items/Equips/Shirts/AresChestplate/AresTube"); //change this accordingly to your chain texture
+            Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Items/Equips/Shirts/AresChestplate/AresTube").Value; //change this accordingly to your chain texture
 
             while (doIDraw)
             {
@@ -62,10 +62,10 @@ namespace CalValEX.Items.Equips.Shirts.AresChestplate
                 else if (!float.IsNaN(distance))
                 {
                     Color drawColor = Lighting.GetColor((int)distToProj.X / 16, (int)(distToProj.Y / 16f));
-                    distToProj += projectile.DirectionTo(player.MountedCenter) * texture.Height;
-                    spriteBatch.Draw(texture, distToProj - Main.screenPosition,
+                    distToProj += Projectile.DirectionTo(player.MountedCenter) * texture.Height;
+                    Main.EntitySpriteDraw(texture, distToProj - Main.screenPosition,
                         new Rectangle(0, 0, texture.Width, texture.Height), drawColor, projRotation,
-                        Utils.Size(texture) / 2f, 1f, SpriteEffects.None, 0f);
+                        Utils.Size(texture) / 2f, 1f, SpriteEffects.None, 0);
                 }
             }
             return true;

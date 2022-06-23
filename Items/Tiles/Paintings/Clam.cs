@@ -15,26 +15,26 @@ namespace CalValEX.Items.Tiles.Paintings
 
         public override void SetDefaults()
         {
-            item.useStyle = ItemUseStyleID.SwingThrow;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.autoReuse = true;
-            item.maxStack = 99;
-            item.consumable = true;
-            item.createTile = ModContent.TileType<ClamPlaced>();
-            item.width = 12;
-            item.height = 12;
-            item.rare = 11;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.autoReuse = true;
+            Item.maxStack = 99;
+            Item.consumable = true;
+            Item.createTile = ModContent.TileType<ClamPlaced>();
+            Item.width = 12;
+            Item.height = 12;
+            Item.rare = 11;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(255, 0, 255);
+                    tooltipLine.OverrideColor = new Color(255, 0, 255);
                 }
             }
         }

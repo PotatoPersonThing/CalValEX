@@ -16,16 +16,16 @@ namespace CalValEX.Items.Mounts.Ground
 
         public override void SetDefaults()
         {
-            item.width = 20;
-            item.height = 30;
-            item.useTime = 20;
-            item.useAnimation = 20;
-            item.useStyle = 1;
-            item.value = Item.sellPrice(0, 3, 0, 0);
-            item.rare = 11;
-            item.UseSound = SoundID.Item23;
-            item.noMelee = true;
-            item.mountType = mod.MountType("BloodstoneCarriage");
+            Item.width = 20;
+            Item.height = 30;
+            Item.useTime = 20;
+            Item.useAnimation = 20;
+            Item.useStyle = 1;
+            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.rare = 11;
+            Item.UseSound = SoundID.Item23;
+            Item.noMelee = true;
+            Item.mountType = ModContent.MountType<BloodstoneCarriage>();
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -41,14 +41,14 @@ namespace CalValEX.Items.Mounts.Ground
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(0, 255, 200); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(0, 255, 200); //change the color accordingly to above
                 }
             }
         }
 
-        public override void AddRecipes()
+       /* public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("BloodstoneCore"), 16);
@@ -56,6 +56,6 @@ namespace CalValEX.Items.Mounts.Ground
             recipe.AddTile(TileID.LunarCraftingStation);
             recipe.SetResult(this);
             recipe.AddRecipe();
-        }
+        }*/
     }
 }

@@ -8,24 +8,24 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Fogbound");
-            Main.projFrames[projectile.type] = 1;
+            Main.projFrames[Projectile.type] = 1;
         }
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(197);
-            base.aiType = 197;
+            Projectile.CloneDefaults(197);
+            base.AIType = 197;
         }
 
         public override bool PreAI()
         {
-            _ = Main.player[projectile.owner];
+            _ = Main.player[Projectile.owner];
             return true;
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (player.dead)
             {
@@ -33,7 +33,7 @@ namespace CalValEX.Projectiles.Pets
             }
             if (modPlayer.fog)
             {
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
             }
         }
     }

@@ -14,8 +14,8 @@ namespace CalValEX.Items.Pets
 
         public override void SetDefaults()
         {
-            item.value = Item.sellPrice(0, 50, 0, 0);
-            item.rare = -1;
+            Item.value = Item.sellPrice(0, 50, 0, 0);
+            Item.rare = -1;
         }
     }
 }

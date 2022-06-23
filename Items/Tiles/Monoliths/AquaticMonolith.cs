@@ -14,18 +14,18 @@ namespace CalValEX.Items.Tiles.Monoliths
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 32;
-            item.maxStack = 999;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = ItemUseStyleID.SwingThrow;
-            item.consumable = true;
-            item.rare = ItemRarityID.Yellow;
-            item.value = Item.buyPrice(0, 10, 0, 0);
-            item.createTile = ModContent.TileType<AquaticMonolithPlaced>();
+            Item.width = 22;
+            Item.height = 32;
+            Item.maxStack = 999;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.consumable = true;
+            Item.rare = ItemRarityID.Yellow;
+            Item.value = Item.buyPrice(0, 10, 0, 0);
+            Item.createTile = ModContent.TileType<AquaticMonolithPlaced>();
         }
     }
 }

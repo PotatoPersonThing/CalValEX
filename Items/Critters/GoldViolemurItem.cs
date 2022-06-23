@@ -10,33 +10,27 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gold Violemur");
+            //DisplayName.SetDefault("Gold Violemur");
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.autoReuse = true;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 22;
-            item.height = 18;
-            item.noUseGraphic = true;
-            item.rare = 4;
-
-            Mod mod = ModLoader.GetMod("CalamityMod");
-            if (mod == null)
-            {
-                return;
-            }
-            item.makeNPC = (short)NPCType<GoldViolemur>();
-            item.value = Item.sellPrice(0, 10, 0, 0);
+            Item.useStyle = 1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 22;
+            Item.height = 18;
+            Item.noUseGraphic = true;
+            Item.rare = 4;
+            Item.makeNPC = (short)NPCType<GoldViolemur>();
+            Item.value = Item.sellPrice(0, 10, 0, 0);
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             Mod mod = ModLoader.GetMod("FargowiltasSouls");
             if (mod == null)
@@ -51,6 +45,6 @@ namespace CalValEX.Items.Critters
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
 }

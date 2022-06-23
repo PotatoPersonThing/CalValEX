@@ -7,74 +7,72 @@ using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
 using CalValEX.Items.Tiles.Banners;
+using Terraria.DataStructures;
 
 namespace CalValEX.NPCs.Critters
 {
-    /// <summary>
-    /// This file shows off a critter npc. The unique thing about critters is how you can catch them with a bug net.
-    /// The important bits are: Main.npcCatchable, npc.catchItem, and item.makeNPC
-    /// We will also show off adding an item to an existing RecipeGroup (see ExampleMod.AddRecipeGroups)
-    /// </summary>
     public class GAstJR : ModNPC
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gold Astragelly Slime");
-            Main.npcFrameCount[npc.type] = 2;
-            Main.npcCatchable[npc.type] = true;
+            //DisplayName.SetDefault("Gold Astragelly Slime");
+            Main.npcFrameCount[NPC.type] = 2;
+            Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 
         public override void SetDefaults()
         {
-            npc.CloneDefaults(NPCID.BabySlime);
-            npc.width = 26;
-            npc.height = 22;
-            npc.damage = 0;
-            npc.defense = 0;
-            npc.npcSlots = 0.5f;
-            npc.catchItem = (short)ItemType<GAstJRItem>();
-            npc.lavaImmune = false;
-            npc.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
-            aiType = NPCID.Pinky;
-            animationType = NPCID.BlueSlime;
-            npc.lifeMax = 100;
-            npc.Opacity = 255;
-            npc.value = 0;
-            for (int i = 0; i < npc.buffImmune.Length; i++)
+            NPC.CloneDefaults(NPCID.BabySlime);
+            NPC.width = 26;
+            NPC.height = 22;
+            NPC.damage = 0;
+            NPC.defense = 0;
+            NPC.npcSlots = 0.5f;
+            NPC.catchItem = (short)ItemType<GAstJRItem>();
+            NPC.lavaImmune = false;
+            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
+            AIType = NPCID.Pinky;
+            AnimationType = NPCID.BlueSlime;
+            NPC.lifeMax = 100;
+            NPC.Opacity = 255;
+            NPC.value = 0;
+            for (int i = 0; i < NPC.buffImmune.Length; i++)
             {
-                npc.buffImmune[ModLoader.GetMod("CalamityMod").BuffType("AstralInfection")] = false;
+                //NPC.buffImmune[ModLoader.GetMod("CalamityMod").BuffType("AstralInfection")] = false;
             }
-            banner = NPCType<AstJR>();
-            bannerItem = ItemType<AstragellySlimeBanner>();
+            Banner = NPCType<AstJR>();
+            BannerItem = ItemType<AstragellySlimeBanner>();
+            SpawnModBiomes = new int[1] { ModContent.GetInstance<Biomes.AstralBlight>().Type };
         }
-
-        public override bool? CanBeHitByItem(Player player, Item item)
+        public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
         {
-            return true;
+            bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
+            bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
+                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A sentient glob from the alien environment. Unlike other slimes, it possesses no offensive capabilities."),
+            });
         }
+        public override bool? CanBeHitByItem(Player player, Item item) => null;
 
-        public override bool? CanBeHitByProjectile(Projectile projectile)
-        {
-            return true;
-        }
+        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
         public override void AI()
         {
-            npc.TargetClosest(false);
+            NPC.TargetClosest(false);
 
             if (Main.rand.NextFloat() < 0.1f)
             {
                 Dust dust;
-                Vector2 positionLeft = new Vector2(npc.position.X, npc.position.Y - 8);
-                Vector2 positionRight = new Vector2(npc.position.X, npc.position.Y - 8);
-                if (npc.direction == -1)
+                Vector2 positionLeft = new Vector2(NPC.position.X, NPC.position.Y - 8);
+                Vector2 positionRight = new Vector2(NPC.position.X, NPC.position.Y - 8);
+                if (NPC.direction == -1)
                 {
-                    dust = Main.dust[Terraria.Dust.NewDust(positionLeft, 13, 11, 246, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
+                    dust = Main.dust[Terraria.Dust.NewDust(positionLeft, 13, 11, DustID.GoldCoin, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
                     dust.noGravity = true;
                 }
-                else if (npc.direction != 0)
+                else if (NPC.direction != 0)
                 {
-                    dust = Main.dust[Terraria.Dust.NewDust(positionRight, 13, 11, 246, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
+                    dust = Main.dust[Terraria.Dust.NewDust(positionRight, 13, 11, DustID.GoldCoin, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
                     dust.noGravity = true;
                 }
             }
@@ -82,14 +80,14 @@ namespace CalValEX.NPCs.Critters
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
-            if (clamMod != null)
+            //Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
+            //if (clamMod != null)
             {
-                if (spawnInfo.player.GetModPlayer<CalValEXPlayer>().ZoneAstral && !CalValEXConfig.Instance.CritterSpawns)
+                if (spawnInfo.Player.InModBiome(ModContent.GetInstance<Biomes.AstralBlight>()) && !CalValEXConfig.Instance.CritterSpawns)
                 {
-                    if (spawnInfo.playerSafe)
+                    if (spawnInfo.PlayerSafe)
                     {
-                        return SpawnCondition.TownCritter.Chance * 0.5f;
+                        return Terraria.ModLoader.Utilities.SpawnCondition.TownCritter.Chance * 0.5f;
                     }
                     else if (!Main.eclipse && !Main.bloodMoon && !Main.pumpkinMoon && !Main.snowMoon)
                     {
@@ -100,9 +98,9 @@ namespace CalValEX.NPCs.Critters
             return 0f;
         }
 
-        public override void OnCatchNPC(Player player, Item item)
+        public override void OnCaughtBy(Player player, Item item, bool failed)
         {
-            item.stack = 1;
+            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<GAstJRItem>());
         }
     }
 }

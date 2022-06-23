@@ -9,8 +9,9 @@ namespace CalValEX.Tiles.MiscFurniture
 {
     public class WulfrumGlobePlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileLavaDeath[Type] = true;
@@ -20,13 +21,13 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
 
-            animationFrameHeight = 36;
+            AnimationFrameHeight = 36;
             TileObjectData.addTile(Type);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 16, ItemType<WulfrumGlobe>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ItemType<WulfrumGlobe>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

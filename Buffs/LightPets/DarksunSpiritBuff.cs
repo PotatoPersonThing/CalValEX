@@ -7,18 +7,18 @@ namespace CalValEX.Buffs.LightPets
 {
     public class DarksunSpiritBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Darksun Spirits");
-            Description.SetDefault("The Darksun Spirits have decided to follow you!");
+            //DisplayName.SetDefault("Darksun Spirits");
+            //Description.SetDefault("The Darksun Spirits have decided to follow you!");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }
 
         public override void Update(Player player, ref int buffIndex)
         {
-            Mod clamMod = ModLoader.GetMod("CalamityMod");
-            clamMod.Call("AddAbyssLightStrength", Main.player[Main.myPlayer], 4);
+            //Mod clamMod = ModLoader.GetMod("CalamityMod");
+            //clamMod.Call("AddAbyssLightStrength", Main.player[Main.myPlayer], 4);
             List<int> pets = new List<int>
             {
                 ModContent.ProjectileType<DarksunSpirit_Fish>(),
@@ -38,7 +38,7 @@ namespace CalValEX.Buffs.LightPets
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
                 for (int i = 0; i < pets.Count; i++)
-                    Projectile.NewProjectile(player.position.X + player.width / 2,
+                    Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2,
                         player.position.Y + player.height / 2, 0f, 0f, pets[i], 0, 0f, player.whoAmI);
             }
         }

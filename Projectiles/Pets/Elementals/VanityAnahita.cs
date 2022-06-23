@@ -6,39 +6,39 @@ namespace CalValEX.Projectiles.Pets.Elementals
 {
     public class VanityAnahita : ModProjectile
     {
-        public override string Texture => "CalamityMod/NPCs/Leviathan/Siren";
+        public override string Texture => "CalamityMod/NPCs/Leviathan/Anahita";
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Passive Anahita");
-            Main.projFrames[projectile.type] = 6;
-            Main.projPet[projectile.type] = true;
-            drawOriginOffsetY = -15;
+            Main.projFrames[Projectile.type] = 6;
+            Main.projPet[Projectile.type] = true;
+            DrawOriginOffsetY = -15;
             //drawOffsetX = -14;
         }
 
         public override void SetDefaults()
         {
-            projectile.width = 100;
-            projectile.height = 190;
-            projectile.penetrate = -1;
-            projectile.netImportant = true;
-            projectile.timeLeft *= 5;
-            projectile.friendly = true;
-            projectile.tileCollide = false;
-            projectile.aiStyle = -1;
-            projectile.alpha = 35;
+            Projectile.width = 100;
+            Projectile.height = 190;
+            Projectile.penetrate = -1;
+            Projectile.netImportant = true;
+            Projectile.timeLeft *= 5;
+            Projectile.friendly = true;
+            Projectile.tileCollide = false;
+            Projectile.aiStyle = -1;
+            Projectile.alpha = 35;
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (player.dead)
-                projectile.timeLeft = 0;
+                Projectile.timeLeft = 0;
             if (!modPlayer.vanityhote && !modPlayer.vanitysiren)
-                projectile.timeLeft = 0;
+                Projectile.timeLeft = 0;
             if (modPlayer.vanityhote || modPlayer.vanitysiren)
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
 
             Vector2 vectorToOwner = player.Center;
             vectorToOwner.Y -= 160f;
@@ -52,17 +52,17 @@ namespace CalValEX.Projectiles.Pets.Elementals
             vectorToOwner.X += 0.5f * -velX;
             vectorToOwner.Y += 0.5f * -velY;
 
-            projectile.Center = vectorToOwner;
+            Projectile.Center = vectorToOwner;
 
-            projectile.frameCounter++;
-            if (projectile.frameCounter > 8)
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter > 8)
             {
-                projectile.frame++;
-                projectile.frameCounter = 0;
+                Projectile.frame++;
+                Projectile.frameCounter = 0;
             }
-            if (projectile.frame >= 6)
+            if (Projectile.frame >= 6)
             {
-                projectile.frame = 0;
+                Projectile.frame = 0;
             }
         }
     }

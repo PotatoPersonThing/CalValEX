@@ -9,24 +9,25 @@ namespace CalValEX.Tiles.Cages
 {
     public class CrystalFlyJarPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileLavaDeath[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             TileObjectData.newTile.Width = 2;
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
 
-            animationFrameHeight = 38;
+            AnimationFrameHeight = 38;
             TileObjectData.addTile(Type);
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 48, 24, ItemType<CrystalFlyJar>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 24, ItemType<CrystalFlyJar>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

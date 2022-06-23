@@ -7,11 +7,8 @@ namespace CalValEX.Buffs.Pets
 {
     public class SepulcherBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            // DisplayName and Description are automatically set from the .lang files, but below is how it is done normally.
-            DisplayName.SetDefault("Fallen Sepulchling");
-            Description.SetDefault("A dark construct composed of the long deceased souls of the innocent...\nCute");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
@@ -24,29 +21,28 @@ namespace CalValEX.Buffs.Pets
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<Sepulchling>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ProjectileType<Sepulchling>(), 0, 0f, player.whoAmI);
             }
-            Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            if (CalValEX.month != 4 && orthoceraDLC == null)
+            if (!CalValEX.AprilFoolMonth)
             {
                 player.buffTime[buffIndex] = 18000;
                 player.GetModPlayer<CalValEXPlayer>().BMonster = true;
                 bool petProjectileNotSpawnedbm = player.ownedProjectileCounts[ProjectileType<BabyMonster>()] <= 0;
                 if (petProjectileNotSpawnedbm && player.whoAmI == Main.myPlayer)
                 {
-                    Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                    Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                         0f, 0f, ProjectileType<BabyMonster>(), 0, 0f, player.whoAmI);
                 }
             }
-            if (CalValEX.month == 4 || orthoceraDLC != null)
+            if (CalValEX.AprilFoolMonth)
             {
                 player.buffTime[buffIndex] = 18000;
                 player.GetModPlayer<CalValEXPlayer>().hage = true;
                 bool petProjectileNotSpawnedbh = player.ownedProjectileCounts[ProjectileType<BabyHage>()] <= 0;
                 if (petProjectileNotSpawnedbh && player.whoAmI == Main.myPlayer)
                 {
-                    Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                    Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                         0f, 0f, ProjectileType<BabyHage>(), 0, 0f, player.whoAmI);
                 }
             }

@@ -14,16 +14,11 @@ namespace CalValEX.Items.Equips.Hats
 
         public override void SetDefaults()
         {
-            item.width = 28;
-            item.height = 20;
-            item.rare = 5;
-            item.vanity = true;
-            item.value = Item.sellPrice(0, 2, 0, 0);
-        }
-
-        public override bool DrawHead()
-        {
-            return false;
+            Item.width = 28;
+            Item.height = 20;
+            Item.rare = 5;
+            Item.vanity = true;
+            Item.value = Item.sellPrice(0, 2, 0, 0);
         }
     }
 }

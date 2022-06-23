@@ -21,34 +21,34 @@ namespace CalValEX.AprilFools.Jharim
         public override float Lifetime => 240f;
         public override Color LaserOverlayColor => Color.White;
         public override Color LightCastColor => LaserOverlayColor;
-        public override Texture2D LaserBeginTexture => ModContent.GetTexture("CalValEX/AprilFools/Jharim/JharimLaserStart");
-        public override Texture2D LaserMiddleTexture => ModContent.GetTexture("CalValEX/AprilFools/Jharim/JharimLaserMiddle");
-        public override Texture2D LaserEndTexture => ModContent.GetTexture("CalValEX/AprilFools/Jharim/JharimLaserEnd");
+        public override Texture2D LaserBeginTexture => ModContent.Request<Texture2D>("CalValEX/AprilFools/Jharim/JharimLaserStart").Value;
+        public override Texture2D LaserMiddleTexture => ModContent.Request<Texture2D>("CalValEX/AprilFools/Jharim/JharimLaserMiddle").Value;
+        public override Texture2D LaserEndTexture => ModContent.Request<Texture2D>("CalValEX/AprilFools/Jharim/JharimLaserEnd").Value;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Jharim Buster");
-            Main.projFrames[projectile.type] = 5;
+            Main.projFrames[Projectile.type] = 5;
         }
         public override void SetDefaults()
         {
-            projectile.width = projectile.height = 80;
-            projectile.penetrate = -1;
-            //projectile.alpha = 100;
-            projectile.tileCollide = false;
-            projectile.friendly = true;
-            projectile.npcProj = true;
+            Projectile.width = Projectile.height = 80;
+            Projectile.penetrate = -1;
+            //Projectile.alpha = 100;
+            Projectile.tileCollide = false;
+            Projectile.friendly = true;
+            Projectile.npcProj = true;
         }
         public override bool PreAI()
         {
             //If Jharim dies during the laser, kill it
             if (!NPC.AnyNPCs(ModContent.NPCType<Jharim>()))
             {
-                projectile.active = false;
+                Projectile.active = false;
             }
             //Theres definitely a better way to do this but im lazy
             if (!playedsound)
             {
-                Main.PlaySound(Terraria.ID.SoundID.Zombie, (int)projectile.Center.X, (int)projectile.Center.Y, 104);
+                Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.Zombie104, Projectile.Center);
                 playedsound = true;
             }
             return true;
@@ -57,39 +57,39 @@ namespace CalValEX.AprilFools.Jharim
         //Animeme
         public override void PostAI()
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter % 5f == 0f)
-                projectile.frame = (projectile.frame + 1) % Main.projFrames[projectile.type];
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter % 5f == 0f)
+                Projectile.frame = (Projectile.frame + 1) % Main.projFrames[Projectile.type];
         }
         public override bool ShouldUpdatePosition() => false;
 
         //When do we get an animated laser field tbh
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
             //Textures and variables
-            Rectangle beginsquare = LaserBeginTexture.Frame(1, Main.projFrames[projectile.type], 0, projectile.frame);
-            Rectangle middlesquare = LaserMiddleTexture.Frame(1, Main.projFrames[projectile.type], 0, projectile.frame);
-            Rectangle endsquare = LaserEndTexture.Frame(1, Main.projFrames[projectile.type], 0, projectile.frame);
+            Rectangle beginsquare = LaserBeginTexture.Frame(1, Main.projFrames[Projectile.type], 0, Projectile.frame);
+            Rectangle middlesquare = LaserMiddleTexture.Frame(1, Main.projFrames[Projectile.type], 0, Projectile.frame);
+            Rectangle endsquare = LaserEndTexture.Frame(1, Main.projFrames[Projectile.type], 0, Projectile.frame);
             float lenghtofmidlaser = LaserLength + middlesquare.Height;
-            Vector2 centerr = projectile.Center;
+            Vector2 centerr = Projectile.Center;
 
             //The beginning...
-            spriteBatch.Draw(LaserBeginTexture, projectile.Center - Main.screenPosition, beginsquare, LaserOverlayColor, projectile.rotation, LaserBeginTexture.Size() / 2f, projectile.scale, SpriteEffects.None, 0f);
+            Main.EntitySpriteDraw(LaserBeginTexture, Projectile.Center - Main.screenPosition, beginsquare, LaserOverlayColor, Projectile.rotation, LaserBeginTexture.Size() / 2f, Projectile.scale, SpriteEffects.None, 0);
             //The middle!
             if (lenghtofmidlaser > 0f)
             {
                 //Size variables
-                float laserOffset = middlesquare.Height * projectile.scale;
+                float laserOffset = middlesquare.Height * Projectile.scale;
                 float incrementalBodyLength = 0f;
                 //Draw textures until the end of the laser
                 while (incrementalBodyLength + 1f < lenghtofmidlaser - laserOffset)
                 {
                     //The middle (for real)
-                    spriteBatch.Draw(LaserMiddleTexture, centerr - Main.screenPosition, middlesquare, LaserOverlayColor, projectile.rotation, LaserMiddleTexture.Size() * 0.5f, projectile.scale, SpriteEffects.None, 0f);
+                    Main.EntitySpriteDraw(LaserMiddleTexture, centerr - Main.screenPosition, middlesquare, LaserOverlayColor, Projectile.rotation, LaserMiddleTexture.Size() * 0.5f, Projectile.scale, SpriteEffects.None, 0);
                     //Prepare for the next laser segment (woo)
                     incrementalBodyLength += laserOffset;
-                    centerr += projectile.velocity * laserOffset;
-                    middlesquare.Y += LaserMiddleTexture.Height / Main.projFrames[projectile.type];
+                    centerr += Projectile.velocity * laserOffset;
+                    middlesquare.Y += LaserMiddleTexture.Height / Main.projFrames[Projectile.type];
                     if (middlesquare.Y + middlesquare.Height > LaserMiddleTexture.Height)
                     {
                         middlesquare.Y = 0;
@@ -97,7 +97,7 @@ namespace CalValEX.AprilFools.Jharim
                 }
             }
             //The end.
-            spriteBatch.Draw(LaserEndTexture, centerr - Main.screenPosition, endsquare, LaserOverlayColor, projectile.rotation, LaserEndTexture.Size() / 2f, projectile.scale, SpriteEffects.None, 0f);
+            Main.EntitySpriteDraw(LaserEndTexture, centerr - Main.screenPosition, endsquare, LaserOverlayColor, Projectile.rotation, LaserEndTexture.Size() / 2f, Projectile.scale, SpriteEffects.None, 0);
 
             return false;
         }

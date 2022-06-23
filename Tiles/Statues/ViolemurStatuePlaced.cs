@@ -11,11 +11,12 @@ namespace CalValEX.Tiles.Statues
 {
     public class ViolemurStatuePlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileObsidianKill[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.Width = 2;
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
@@ -23,20 +24,20 @@ namespace CalValEX.Tiles.Statues
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Violemur Statue");
             AddMapEntry(new Color(144, 148, 144), name);
-            dustType = 11;
-            disableSmartCursor = true;
+            DustType = 11;
+            
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 32, ItemType<ViolemurStatue>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<ViolemurStatue>());
         }
 
         public override void HitWire(int i, int j)
         {
             // Find the coordinates of top left tile square through math
-            int y = j - Main.tile[i, j].frameY / 18;
-            int x = i - Main.tile[i, j].frameX / 18;
+            int y = j - Main.tile[i, j].TileFrameY / 18;
+            int x = i - Main.tile[i, j].TileFrameX / 18;
 
             Wiring.SkipWire(x, y);
             Wiring.SkipWire(x, y + 1);
@@ -65,7 +66,7 @@ namespace CalValEX.Tiles.Statues
             }
             if (Wiring.CheckMech(x, y, 30) && NPC.MechSpawn((float)spawnX, (float)spawnY, (critter)))
             {
-                npcIndex = NPC.NewNPC(spawnX, spawnY - 12, (critter));
+                npcIndex = NPC.NewNPC(new Terraria.DataStructures.EntitySource_SpawnNPC(),spawnX, spawnY - 12, (critter));
             }
             if (npcIndex >= 0)
             {

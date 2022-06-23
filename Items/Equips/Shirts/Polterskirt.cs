@@ -15,12 +15,11 @@ namespace CalValEX.Items.Equips.Shirts
 
         public override void SetDefaults()
         {
-            item.width = 24;
-            item.height = 28;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 11;
-            item.accessory = true;
-            item.vanity = true;
+            Item.width = 24;
+            Item.height = 28;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 11;
+            Item.vanity = true;
         }
 
         public override void UpdateEquip(Player player)
@@ -28,7 +27,7 @@ namespace CalValEX.Items.Equips.Shirts
             player.GetModPlayer<CalValEXPlayer>().polterchest = true;
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             player.GetModPlayer<CalValEXPlayer>().polterchest = true;
         }
@@ -46,9 +45,9 @@ namespace CalValEX.Items.Equips.Shirts
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(0, 255, 0); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(0, 255, 0); //change the color accordingly to above
                 }
             }
         }

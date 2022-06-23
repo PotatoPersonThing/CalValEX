@@ -6,10 +6,10 @@ namespace CalValEX.Buffs.Pets.Scuttlers
 {
     public class TopazBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Topaz Scuttler");
-            Description.SetDefault("Still won't let go of its gem");
+            //DisplayName.SetDefault("Topaz Scuttler");
+            //Description.SetDefault("Still won't let go of its gem");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
@@ -21,7 +21,7 @@ namespace CalValEX.Buffs.Pets.Scuttlers
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<TopazPet>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<TopazPet>(), 0, 0f, player.whoAmI);
             }
         }

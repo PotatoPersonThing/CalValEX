@@ -7,7 +7,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX;
-using Terraria.World.Generation;
+//using Terraria.World.Generation;
 
 namespace CalValEX.AprilFools
 {
@@ -28,51 +28,68 @@ namespace CalValEX.AprilFools
 		
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Hyper Ultra Omega Fogbound GOD EX: Prepare to Stygian Edition");
+			if (!CalValEX.AprilFoolMonth)
+			{
+				NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+				{
+					Hide = true
+				};
+				NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
+			}
 		}
 		public override void SetDefaults()
 		{
-			npc.damage = 69420666; 
-			npc.width = 100; 
-			npc.height = 100; 
-			npc.defense = 10;
-			npc.lifeMax = 100000000;
-			npc.boss = true;
-			npc.aiStyle = 11; 
-			Main.npcFrameCount[npc.type] = 1; 
-            aiType = 11; 
-			npc.knockBackResist = 0f;
-			npc.value = Item.buyPrice(0, 10, 0, 0);
-			npc.alpha = 1;
-			npc.lavaImmune = true;
-			npc.behindTiles = true;
-			npc.noGravity = true;
-			npc.noTileCollide = true;
-			npc.HitSound = SoundID.NPCHit23;
-			npc.DeathSound = SoundID.NPCDeath3;
-			music = MusicID.LunarBoss;
-			npc.netAlways = true;
+			NPC.damage = 69420666; 
+			NPC.width = 100; 
+			NPC.height = 100; 
+			NPC.defense = 10;
+			NPC.lifeMax = 100000000;
+			NPC.boss = true;
+			NPC.aiStyle = 11; 
+			Main.npcFrameCount[NPC.type] = 1; 
+            AIType = 11; 
+			NPC.knockBackResist = 0f;
+			NPC.value = Item.buyPrice(0, 10, 0, 0);
+			NPC.alpha = 1;
+			NPC.lavaImmune = true;
+			NPC.behindTiles = true;
+			NPC.noGravity = true;
+			NPC.noTileCollide = true;
+			NPC.HitSound = SoundID.NPCHit23;
+			NPC.DeathSound = SoundID.NPCDeath3;
+			Music = MusicID.LunarBoss;
+			NPC.netAlways = true;
+		}
+		public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
+		{
+			if (CalValEX.AprilFoolMonth)
+			{
+				bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
+				Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
+				new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A viscious and unfitting creature for this universe. We call it the Fogbound."),
+			});
+			}
 		}
 		public override void AI()
 		{
-			Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            if (CalValEX.month != 4 && orthoceraDLC == null)
+			Main.dayTime = true;
+            if (!CalValEX.AprilFoolMonth)
             {
-            npc.active = false;
+            NPC.active = false;
             }
-            int num2 = (int)((double)npc.lifeMax * 0.1);
-			if (npc.ai[3] == 0f && npc.life > 0)
+            int num2 = (int)((double)NPC.lifeMax * 0.1);
+			if (NPC.ai[3] == 0f && NPC.life > 0)
 		{
-			npc.ai[3] = npc.lifeMax;
+			NPC.ai[3] = NPC.lifeMax;
 		}
-		if (npc.life <= 0 || Main.netMode == 1)
+		if (NPC.life <= 0 || Main.netMode == 1)
 		{
 			return;
 		}
-		if ((float)(npc.life + num2) < npc.ai[3])
+		if ((float)(NPC.life + num2) < NPC.ai[3])
 		{
-			npc.ai[3] = npc.life;
-			int num1 = (ModLoader.GetMod("CalamityMod").NPCType("Providence"));
+			NPC.ai[3] = NPC.life;
+			int num1 = ModContent.NPCType<CalamityMod.NPCs.Providence.Providence>();
 			if (!prov1)
 			{
 				prov1 = true;
@@ -80,63 +97,58 @@ namespace CalValEX.AprilFools
 			else if (!prov2)
 			{
 				prov2 = true;
-				num1 = (ModLoader.GetMod("CalamityMod").NPCType("Providence"));
+				num1 = ModContent.NPCType<CalamityMod.NPCs.Providence.Providence>();
 			}
 			else if (!prov3)
 			{
 				prov3 = true;
-				num1 = (ModLoader.GetMod("CalamityMod").NPCType("Providence"));
+				num1 = ModContent.NPCType<CalamityMod.NPCs.DevourerofGods.DevourerofGodsHead>();
 			}
 			else if (!dog1)
 			{
 				dog1 = true;
-				num1 = (ModLoader.GetMod("CalamityMod").NPCType("DevourerofGodsHead"));
+				num1 = ModContent.NPCType<CalamityMod.NPCs.DevourerofGods.DevourerofGodsHead>();
 			}
 			else if (!dog2)
 			{
 				dog2 = true;
-				num1 = (ModLoader.GetMod("CalamityMod").NPCType("DevourerofGodsHead"));
+				num1 = ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>();
 			}
 			else if (!dog3)
 			{
 				dog3 = true;
-				num1 = (ModLoader.GetMod("CalamityMod").NPCType("DevourerofGodsHead"));
+				num1 = ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>();
 			}
 			else if (!yharon1)
 			{
 				yharon1 = true;
-				num1 = (ModLoader.GetMod("CalamityMod").NPCType("Yharon"));
+				num1 = ModContent.NPCType<CalamityMod.NPCs.ExoMechs.Ares.AresBody>();
 			}
 			else if (!yharon2)
 			{
 				yharon2 = true;
-				num1 = (ModLoader.GetMod("CalamityMod").NPCType("Yharon"));
+				num1 = ModContent.NPCType<CalamityMod.NPCs.ExoMechs.Ares.AresBody>();
 			}
 			else if (!yharon3)
 			{
 				yharon3 = true;
-				num1 = (ModLoader.GetMod("CalamityMod").NPCType("Yharon"));
+				num1 = ModContent.NPCType<CalamityMod.NPCs.AdultEidolonWyrm.AdultEidolonWyrmHead>();
 			}
 			else if (!scal1)
 			{
 				scal1 = true;
-				num1 = (ModLoader.GetMod("CalamityMod").NPCType("Yharon"));
+				num1 = ModContent.NPCType<CalamityMod.NPCs.AdultEidolonWyrm.AdultEidolonWyrmHead>();
 			}
-			NPC.SpawnOnPlayer(npc.FindClosestPlayer(), num1);
-			NPC.SpawnOnPlayer(npc.FindClosestPlayer(), (ModLoader.GetMod("CalamityMod").NPCType("Polterghast")));
-		}
-	}
-
-    public override void NPCLoot()
-	{
-		Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("FogG") , Main.rand.Next(1, 1), false, 0, false, false);	
-		NPC.SpawnOnPlayer(Main.player[Main.myPlayer].whoAmI, mod.NPCType("Jharim"));	
+			NPC.SpawnOnPlayer(NPC.FindClosestPlayer(), num1);
+			NPC.SpawnOnPlayer(NPC.FindClosestPlayer(), NPCID.Retinazer);
+			NPC.SpawnOnPlayer(NPC.FindClosestPlayer(), NPCID.Spazmatism);
+			}
 	}
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{
-			npc.lifeMax = (int)(npc.lifeMax * 0.55f * bossLifeScale);
-			npc.damage = (int)(npc.damage * 0.65f);
+			NPC.lifeMax = (int)(NPC.lifeMax * 0.55f * bossLifeScale);
+			NPC.damage = (int)(NPC.damage * 0.65f);
 		}
 	}
 }

@@ -26,15 +26,14 @@ namespace CalValEX.NPCs.Oracle
             }
         }
 
-        public override TagCompound Save()
+        public override void SaveData(TagCompound tag)
         {
-            return new TagCompound
+            new TagCompound
             {
                 {"playerHasGottenBag", playerHasGottenBag }
             };
         }
-
-        public override void Load(TagCompound tag)
+        public override void LoadData(TagCompound tag)
         {
             playerHasGottenBag = tag.GetBool("playerHasGottenBag");
         }
@@ -47,9 +46,9 @@ namespace CalValEX.NPCs.Oracle
 
         public override void SyncPlayer(int toWho, int fromWho, bool newPlayer)
         {
-            ModPacket packet = mod.GetPacket();
+            ModPacket packet = Mod.GetPacket();
             packet.Write((byte)CalValEX.MessageType.SyncOraclePlayer);
-            packet.Write((byte)player.whoAmI);
+            packet.Write((byte)Player.whoAmI);
             packet.Write(playerHasGottenBag);
             packet.Send(toWho, fromWho);
         }
@@ -59,9 +58,9 @@ namespace CalValEX.NPCs.Oracle
             OraclePlayer clone = clientPlayer as OraclePlayer;
             if (clone.playerHasGottenBag != playerHasGottenBag)
             {
-                var packet = mod.GetPacket();
+                var packet = Mod.GetPacket();
                 packet.Write((byte)CalValEX.MessageType.PlayerBagChanged);
-                packet.Write((byte)player.whoAmI);
+                packet.Write((byte)Player.whoAmI);
                 packet.Write(playerHasGottenBag);
                 packet.Send();
             }

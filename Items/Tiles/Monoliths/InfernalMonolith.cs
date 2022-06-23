@@ -16,21 +16,21 @@ namespace CalValEX.Items.Tiles.Monoliths
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 32;
-            item.maxStack = 999;
-            item.useTurn = true;
-            item.autoReuse = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.useStyle = ItemUseStyleID.SwingThrow;
-            item.consumable = true;
-            item.rare = ItemRarityID.Purple;
-            item.value = Item.buyPrice(0, 10, 0, 0);
-            item.createTile = ModContent.TileType<InfernalMonolithPlaced>();
+            Item.width = 22;
+            Item.height = 32;
+            Item.maxStack = 999;
+            Item.useTurn = true;
+            Item.autoReuse = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.consumable = true;
+            Item.rare = ItemRarityID.Purple;
+            Item.value = Item.buyPrice(0, 10, 0, 0);
+            Item.createTile = ModContent.TileType<InfernalMonolithPlaced>();
         }
 
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             Mod CalValEX = ModLoader.GetMod("CalamityMod");
             {
@@ -40,7 +40,7 @@ namespace CalValEX.Items.Tiles.Monoliths
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
@@ -55,9 +55,9 @@ namespace CalValEX.Items.Tiles.Monoliths
             //look at https://calamitymod.gamepedia.com/Rarity to know where to use the colors
             foreach (TooltipLine tooltipLine in tooltips)
             {
-                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                 {
-                    tooltipLine.overrideColor = new Color(108, 45, 199); //change the color accordingly to above
+                    tooltipLine.OverrideColor = new Color(108, 45, 199); //change the color accordingly to above
                 }
             }
         }

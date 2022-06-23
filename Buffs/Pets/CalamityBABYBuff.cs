@@ -6,10 +6,8 @@ namespace CalValEX.Buffs.Pets
 {
     public class CalamityBABYBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("God's Presence");
-            Description.SetDefault("The BABY of a omnipotent GOD accompany you... Just don't get hit");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
@@ -21,7 +19,7 @@ namespace CalValEX.Buffs.Pets
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<CalamityBABY>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + (player.width / 2), player.position.Y + (player.height / 2) + 50f, 0f, 0f, ModContent.ProjectileType<CalamityBABY>(), 0, 0f, player.whoAmI);
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2), player.position.Y + (player.height / 2) + 50f, 0f, 0f, ModContent.ProjectileType<CalamityBABY>(), 0, 0f, player.whoAmI);
             }
         }
     }

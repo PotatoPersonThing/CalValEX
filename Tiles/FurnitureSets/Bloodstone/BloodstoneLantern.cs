@@ -12,10 +12,11 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
     // If you can't figure out how to recreate a vanilla tile, see that guide for instructions on how to figure it out yourself.
     public class BloodstoneLantern : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             // Main.tileFlame[Type] = true; This breaks it.
             Main.tileLighted[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
@@ -25,7 +26,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 }; //
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-            disableSmartCursor = true;
+            
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Bloodstone Lantern");
             AddMapEntry(new Color(139, 0, 0), name);
@@ -33,17 +34,17 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 16, 32, ModContent.ItemType<BloodstoneLanternItem>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<BloodstoneLanternItem>());
         }
 
         public override void HitWire(int i, int j)
         {
             Tile tile = Main.tile[i, j];
-            int topY = j - tile.frameY / 18 % 2;
-            short frameAdjustment = (short)(tile.frameX > 0 ? -18 : 18);
-            Main.tile[i, topY].frameX += frameAdjustment;
-            Main.tile[i, topY + 1].frameX += frameAdjustment;
-            Main.tile[i, topY + 2].frameX += frameAdjustment;
+            int topY = j - tile.TileFrameY / 18 % 2;
+            short frameAdjustment = (short)(tile.TileFrameX > 0 ? -18 : 18);
+            Main.tile[i, topY].TileFrameX += frameAdjustment;
+            Main.tile[i, topY + 1].TileFrameX += frameAdjustment;
+            Main.tile[i, topY + 2].TileFrameX += frameAdjustment;
             Wiring.SkipWire(i, topY);
             Wiring.SkipWire(i, topY + 1);
             Wiring.SkipWire(i, topY + 2);
@@ -61,22 +62,22 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
             Tile tile = Main.tile[i, j];
-            if (tile.frameX == 0)
+            if (tile.TileFrameX == 0)
             {
-                // We can support different light colors for different styles here: switch (tile.frameY / 54)
+                // We can support different light colors for different styles here: switch (tile.TileFrameY / 54)
                 r = 1f;
                 g = 0.75f;
                 b = 0.6f;
             }
         }
 
-        public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref Color drawColor, ref int nextSpecialDrawIndex)
+        public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref Terraria.DataStructures.TileDrawInfo drawData)
         {
             if (!Main.gamePaused && Main.instance.IsActive && (!Lighting.UpdateEveryFrame || Main.rand.NextBool(4)))
             {
                 Tile tile = Main.tile[i, j];
-                short frameX = tile.frameX;
-                short frameY = tile.frameY;
+                short frameX = tile.TileFrameX;
+                short frameY = tile.TileFrameY;
             }
         }
     }

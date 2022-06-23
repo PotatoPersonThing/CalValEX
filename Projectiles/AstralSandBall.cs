@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.AstralBlocks;
+using Microsoft.Xna.Framework;
 
 namespace CalValEX.Projectiles
 {
@@ -12,81 +13,82 @@ namespace CalValEX.Projectiles
 
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Blighted Atral Sand Ball");
-			ProjectileID.Sets.ForcePlateDetection[projectile.type] = true;
+			ProjectileID.Sets.ForcePlateDetection[Projectile.type] = true;
 		}
 
 		public override void SetDefaults() {
-			projectile.knockBack = 6f;
-			projectile.width = 10;
-			projectile.height = 10;
-			projectile.friendly = true;
-			projectile.hostile = true;
-			projectile.penetrate = -1;
+			Projectile.knockBack = 6f;
+			Projectile.width = 10;
+			Projectile.height = 10;
+			Projectile.friendly = true;
+			Projectile.hostile = true;
+			Projectile.penetrate = -1;
 			tileType = ModContent.TileType<AstralSandPlaced>();
 		}
 
 		public override void AI() {
 
-			projectile.tileCollide = true;
-			projectile.localAI[1] = 0f;
+			Projectile.tileCollide = true;
+			Projectile.localAI[1] = 0f;
 
-			if (projectile.ai[0] == 1f) {
+			if (Projectile.ai[0] == 1f) {
 				if (!falling) {
-					projectile.ai[1] += 1f;
+					Projectile.ai[1] += 1f;
 
-					if (projectile.ai[1] >= 60f) {
-						projectile.ai[1] = 60f;
-						projectile.velocity.Y += 0.2f;
+					if (Projectile.ai[1] >= 60f) {
+						Projectile.ai[1] = 60f;
+						Projectile.velocity.Y += 0.2f;
 					}
 				}
 				else
-					projectile.velocity.Y += 0.41f;
+					Projectile.velocity.Y += 0.41f;
 			}
-			else if (projectile.ai[0] == 2f) {
-				projectile.velocity.Y += 0.2f;
+			else if (Projectile.ai[0] == 2f) {
+				Projectile.velocity.Y += 0.2f;
 
-				if (projectile.velocity.X < -0.04f)
-					projectile.velocity.X += 0.04f;
-				else if (projectile.velocity.X > 0.04f)
-					projectile.velocity.X -= 0.04f;
+				if (Projectile.velocity.X < -0.04f)
+					Projectile.velocity.X += 0.04f;
+				else if (Projectile.velocity.X > 0.04f)
+					Projectile.velocity.X -= 0.04f;
 				else
-					projectile.velocity.X = 0f;
+					Projectile.velocity.X = 0f;
 			}
 
-			projectile.rotation += 0.1f;
+			Projectile.rotation += 0.1f;
 
-			if (projectile.velocity.Y > 10f)
-				projectile.velocity.Y = 10f;
+			if (Projectile.velocity.Y > 10f)
+				Projectile.velocity.Y = 10f;
 		}
 
-		public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough) {
+        public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
+        {
 			if (falling)
-				projectile.velocity = Collision.AnyCollision(projectile.position, projectile.velocity, projectile.width, projectile.height, true);
+				Projectile.velocity = Collision.AnyCollision(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height, true);
 			else
-				projectile.velocity = Collision.TileCollision(projectile.position, projectile.velocity, projectile.width, projectile.height, fallThrough, fallThrough, 1);
+				Projectile.velocity = Collision.TileCollision(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height, fallThrough, fallThrough, 1);
 
 			return false;
 		}
 
-		public override void Kill(int timeLeft) {
-			if (projectile.owner == Main.myPlayer && !projectile.noDropItem) {
-				int tileX = (int)(projectile.position.X + projectile.width / 2) / 16;
-				int tileY = (int)(projectile.position.Y + projectile.width / 2) / 16;
+        public override void Kill(int timeLeft) {
+			if (Projectile.owner == Main.myPlayer && !Projectile.noDropItem) {
+				int tileX = (int)(Projectile.position.X + Projectile.width / 2) / 16;
+				int tileY = (int)(Projectile.position.Y + Projectile.width / 2) / 16;
 
 				Tile tile = Main.tile[tileX, tileY];
 				Tile tileBelow = Main.tile[tileX, tileY + 1];
 
-				if (tile.halfBrick() && projectile.velocity.Y > 0f && System.Math.Abs(projectile.velocity.Y) > System.Math.Abs(projectile.velocity.X))
+				if (tile.IsHalfBlock && Projectile.velocity.Y > 0f && System.Math.Abs(Projectile.velocity.Y) > System.Math.Abs(Projectile.velocity.X))
 					tileY--;
 
-				if (!tile.active()) {
-					bool onMinecartTrack = tileY < Main.maxTilesY - 2 && tileBelow != null && tileBelow.active() && tileBelow.type == TileID.MinecartTrack;
+				if (tile.TileType == 0) {
+					bool onMinecartTrack = tileY < Main.maxTilesY - 2 && tileBelow != null && tileBelow.TileType != 0 && tileBelow.TileType == TileID.MinecartTrack;
 
 					if (!onMinecartTrack)
 						WorldGen.PlaceTile(tileX, tileY, tileType, false, true);
 
-					if (!onMinecartTrack && tile.active() && tile.type == tileType) {
-						if (tileBelow.halfBrick() || tileBelow.slope() != 0) {
+					if (!onMinecartTrack && tile.TileType != 0 && tile.TileType == tileType) {
+						if (tileBelow.IsHalfBlock || tileBelow.Slope != 0) {
 							WorldGen.SlopeTile(tileX, tileY + 1, 0);
 
 							if (Main.netMode == NetmodeID.Server)
@@ -100,6 +102,7 @@ namespace CalValEX.Projectiles
 			}
 		}
 
-		public override bool CanDamage() => projectile.localAI[1] != -1f;
+
+		//public override bool CanDamage() => Projectile.localAI[1] != -1f;
 	}
 }

@@ -6,10 +6,8 @@ namespace CalValEX.Buffs.Pets
 {
     public class StasisArmoredBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Armored Stasis Drone");
-            Description.SetDefault("Dense as most anime protagonists");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }
@@ -22,7 +20,7 @@ namespace CalValEX.Buffs.Pets
                 player.ownedProjectileCounts[ModContent.ProjectileType<StasisArmored>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<StasisArmored>(), 0, 0f, player.whoAmI);
             }
         }

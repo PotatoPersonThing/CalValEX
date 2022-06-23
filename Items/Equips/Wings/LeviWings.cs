@@ -10,20 +10,17 @@ namespace CalValEX.Items.Equips.Wings
         {
             DisplayName.SetDefault("Leviathan Fin Wings");
             Tooltip.SetDefault("Flip flop\n" + "Horizontal speed: 6.75\n" + "Acceleration multiplier: 1.4\n" + "Flight time: 120");
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(120, 6.75f, 1.4f);
         }
 
         public override void SetDefaults()
         {
-            item.width = 26;
-            item.height = 26;
-            item.value = Item.sellPrice(0, 2, 0, 0);
-            item.rare = 7;
-            item.accessory = true;
-        }
-
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {
-            player.wingTimeMax = 120;
+            Item.width = 26;
+            Item.height = 26;
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Item.rare = 7;
+            Item.accessory = true;
         }
 
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
@@ -34,12 +31,6 @@ namespace CalValEX.Items.Equips.Wings
             maxCanAscendMultiplier = 0.5f;
             maxAscentMultiplier = 1.4f;
             constantAscend = 0.2f;
-        }
-
-        public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-        {
-            speed = 6.75f;
-            acceleration *= 1.4f;
         }
     }
 }

@@ -17,12 +17,12 @@ namespace CalValEX.Items.Equips.Backs
 
         public override void SetDefaults()
         {
-            item.width = 14;
-            item.height = 34;
-            item.value = Item.sellPrice(0, 1, 0, 0);
-            item.rare = 2;
-            item.accessory = true;
-            item.vanity = true;
+            Item.width = 14;
+            Item.height = 34;
+            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.rare = 2;
+            Item.accessory = true;
+            Item.vanity = true;
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
@@ -31,8 +31,7 @@ namespace CalValEX.Items.Equips.Backs
                 player.GetModPlayer<CalValEXPlayer>().prismshell = true;
             }
         }
-
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             player.GetModPlayer<CalValEXPlayer>().prismshell = true;
         }

@@ -9,6 +9,9 @@ using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
+using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.Personalities;
+using System.Collections.Generic;
 
 namespace CalValEX.AprilFools.Jharim
 {
@@ -27,36 +30,64 @@ namespace CalValEX.AprilFools.Jharim
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Jungle Tyrant");
-            Main.npcFrameCount[npc.type] = 23;
-            NPCID.Sets.ExtraFramesCount[npc.type] = 9;
-            NPCID.Sets.AttackFrameCount[npc.type] = 4;
-            NPCID.Sets.DangerDetectRange[npc.type] = 700;
-            NPCID.Sets.AttackType[npc.type] = 0;
-            NPCID.Sets.AttackTime[npc.type] = 90;
-            NPCID.Sets.AttackAverageChance[npc.type] = 30;
+           // DisplayName.SetDefault("Jungle Tyrant");
+            Main.npcFrameCount[NPC.type] = 23;
+            NPCID.Sets.ExtraFramesCount[NPC.type] = 9;
+            NPCID.Sets.AttackFrameCount[NPC.type] = 4;
+            NPCID.Sets.DangerDetectRange[NPC.type] = 700;
+            NPCID.Sets.AttackType[NPC.type] = 0;
+            NPCID.Sets.AttackTime[NPC.type] = 90;
+            NPCID.Sets.AttackAverageChance[NPC.type] = 30;
+            NPC.Happiness
+                .SetBiomeAffection<JungleBiome>(AffectionLevel.Like) // Example Person prefers the forest.
+                .SetBiomeAffection<SnowBiome>(AffectionLevel.Dislike) // Example Person dislikes the snow.
+                .SetBiomeAffection<OceanBiome>(AffectionLevel.Hate) // Example Person dislikes the snow.
+                .SetBiomeAffection<MushroomBiome>(AffectionLevel.Love) // Example Person likes the Example Surface Biome
+                .SetNPCAffection(NPCID.Dryad, AffectionLevel.Love) // Loves living near the dryad.
+                .SetNPCAffection(NPCID.Pirate, AffectionLevel.Like) // Likes living near the guide.
+                .SetNPCAffection(NPCID.WitchDoctor, AffectionLevel.Dislike) // Dislikes living near the merchant.
+                .SetNPCAffection(NPCID.TaxCollector, AffectionLevel.Hate) // Hates living near the demolitionist.
+            ;
+            if (!CalValEX.AprilFoolMonth)
+            {
+                NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+                {
+                    Hide = true
+                };
+                NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
+            }
         }
 
         public override void SetDefaults()
         {
-            npc.townNPC = true;
-            npc.friendly = true;
-            npc.width = 18;
-            npc.height = 40;
-            npc.aiStyle = 7;
-            npc.damage = 1;
-            npc.defense = 150;
-            npc.lifeMax = 250000;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.knockBackResist = 0.5f;
-            animationType = NPCID.PartyGirl;
+            NPC.townNPC = true;
+            NPC.friendly = true;
+            NPC.width = 18;
+            NPC.height = 40;
+            NPC.aiStyle = 7;
+            NPC.damage = 1;
+            NPC.defense = 150;
+            NPC.lifeMax = 250000;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.knockBackResist = 0.5f;
+            AnimationType = NPCID.PartyGirl;
+        }
+        public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
+        {
+            if (CalValEX.AprilFoolMonth)
+            {
+                bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
+                Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.SurfaceMushroom,
+                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A bumbling idiot."),
+            });
+            }
         }
         private void EdgyTalk(string text, Color color, bool combatText = false)
         {
             if (combatText)
             {
-                CombatText.NewText(npc.getRect(), color, text, true);
+                CombatText.NewText(NPC.getRect(), color, text, true);
             }
             else
             {
@@ -66,19 +97,18 @@ namespace CalValEX.AprilFools.Jharim
                 }
                 else if (Main.netMode == NetmodeID.Server)
                 {
-                    NetMessage.BroadcastChatMessage(NetworkText.FromKey(text), color);
+                    //NetMessage.BroadcastChatMessage(NetworkText.FromKey(text), color);
                 }
             }
         }
 
         public override void AI()
         {
-            Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            if (CalValEX.month != 4 && orthoceraDLC == null)
+            if (!CalValEX.AprilFoolMonth)
             {
-            npc.active = false;
+                NPC.active = false;
             }
-            if (NPC.AnyNPCs(NPCType<CalamityMod.NPCs.TownNPCs.WITCH>()) && !MELDOSAURUSED && npc.life < npc.lifeMax * 0.15f)
+            if (NPC.AnyNPCs(NPCType<CalamityMod.NPCs.TownNPCs.WITCH>()) && !MELDOSAURUSED && NPC.life < NPC.lifeMax * 0.15f)
             {
                 if (!lasercheck)
                 {
@@ -94,13 +124,13 @@ namespace CalValEX.AprilFools.Jharim
                         {
                             jharimpos.X = npc3.Center.X;
                             jharimpos.Y = npc3.Center.Y;
-                            if (npc3.position.X - npc.position.X >= 0)
+                            if (npc3.position.X - NPC.position.X >= 0)
                             {
-                                npc.direction = 1;
+                                NPC.direction = 1;
                             }
                             else
                             {
-                                npc.direction = -1;
+                                NPC.direction = -1;
                             }
                         }
                         else
@@ -112,24 +142,24 @@ namespace CalValEX.AprilFools.Jharim
                 }
                 if (firinglaser)
                 {
-                    Vector2 position = npc.Center;
-                    position.X = npc.Center.X;
+                    Vector2 position = NPC.Center;
+                    position.X = NPC.Center.X;
                     Vector2 direction = jharimpos - position;
                     direction.Normalize();
                     float speed = 10f;
                     int type = ProjectileType<JharimLaser>();
                     int damage = 6666666;
-                    Projectile.NewProjectile(position, direction * speed, type, damage, 0f, Main.myPlayer);
+                    ///Projectile.NewProjectile(NPC.GetSource_FromAI(), position, direction * speed, type, damage, 0f, Main.myPlayer);
                     firinglaser = false;
-                    npc.defense = 999;
+                    NPC.defense = 999;
                 }
             }
-            /*if (MELDOSAURUSED)
+            if (MELDOSAURUSED)
             {
-                npc.dontTakeDamage = true;
-                npc.dontTakeDamageFromHostiles = true;
+                NPC.dontTakeDamage = true;
+                NPC.dontTakeDamageFromHostiles = true;
                 textcounter++;
-                npc.velocity.X *= 0.04f;
+                NPC.velocity.X *= 0.04f;
                 if (textcounter == 1)
                 {
                     EdgyTalk("GRAHGAHGAH WHY WOULD YOU DO THAT!", Color.White, true);
@@ -144,29 +174,26 @@ namespace CalValEX.AprilFools.Jharim
                 }
                 if (textcounter == 360)
                 {
-                    Main.PlaySound(SoundID.NPCHit, npc.position, 1);
-                    NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<AprilFools.Meldosaurus.Meldosaurus>());
-                    npc.active = false;
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit1, NPC.position);
+                    NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, NPCType<AprilFools.Meldosaurus.Meldosaurus>());
+                    NPC.active = false;
                 }
 
-            }*/
+            }
         }
 
-        public override string TownNPCName()
-        {
-            return "Jharim";
-        }
+        public override List<string> SetNPCNameList() => new List<string>() { "Jharim" };
 
         public override string GetChat()
         {
 
-            CalValEXGlobalNPC.jharim = npc.whoAmI;
+            CalValEXGlobalNPC.jharim = NPC.whoAmI;
             Player player = Main.player[Main.myPlayer];
             CalValEXPlayer CalValEXPlayer = player.GetModPlayer<CalValEXPlayer>();
             CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
             if (!MELDOSAURUSED)
             {
-                if (npc.homeless)
+                if (NPC.homeless)
                 {
                     switch (Main.rand.Next(3))
                     {
@@ -188,24 +215,24 @@ namespace CalValEX.AprilFools.Jharim
 
                 //Main.NewText("MISC EQUIPS 0 TYPE: " + Main.player[Main.myPlayer].miscEquips[0].type + "|MISC EQUIPS 1 TYPE: " + Main.player[Main.myPlayer].miscEquips[1].type);
 
-                /*if ((NPC.AnyNPCs(NPCID.LunarTowerNebula) || NPC.AnyNPCs(NPCID.LunarTowerVortex) || NPC.AnyNPCs(NPCID.LunarTowerStardust) || NPC.AnyNPCs(NPCID.LunarTowerSolar)) && Main.rand.NextFloat() < 0.25f)
+                if ((NPC.AnyNPCs(NPCID.LunarTowerNebula) || NPC.AnyNPCs(NPCID.LunarTowerVortex) || NPC.AnyNPCs(NPCID.LunarTowerStardust) || NPC.AnyNPCs(NPCID.LunarTowerSolar)) && Main.rand.NextFloat() < 0.25f)
                 {
                     return "These pillars are spookay, and those dark globs some of their friends drop are... I don't want to touch any... especially if its on fire, so please don't shoot me with any fiery weapons made of that stuff.";
-                }*/
+                }
 
-                int FAP = NPC.FindFirstNPC((ModLoader.GetMod("CalamityMod").NPCType("FAP")));
+                int FAP = NPC.FindFirstNPC(ModContent.NPCType<CalamityMod.NPCs.TownNPCs.FAP>());
                 if (FAP >= 0 && Main.rand.NextFloat() < 0.25f)
                 {
                     return "Hyu Hyu Hyu... That purple lady stole my booze.";
                 }
 
-                int Cal = NPC.FindFirstNPC((ModLoader.GetMod("CalamityMod").NPCType("WITCH")));
+                int Cal = NPC.FindFirstNPC(ModContent.NPCType<CalamityMod.NPCs.TownNPCs.WITCH>());
                 if (Cal >= 0 && Main.rand.NextFloat() < 0.25f)
                 {
                     return "GET THAT ACURSED WITCH AWAY FROM ME";
                 }
 
-                int SEAHOE = NPC.FindFirstNPC((ModLoader.GetMod("CalamityMod").NPCType("SEAHOE")));
+                int SEAHOE = NPC.FindFirstNPC(ModContent.NPCType<CalamityMod.NPCs.TownNPCs.SEAHOE>());
                 if (SEAHOE >= 0 && Main.rand.NextFloat() < 0.25f)
                 {
                     if (Cal >= 0)
@@ -214,21 +241,21 @@ namespace CalValEX.AprilFools.Jharim
                         return "How is Amidas still alive, I thought that he got burnt by Soup Ree Calamitoad.";
                 }
 
-                if (NPC.AnyNPCs((ModLoader.GetMod("CalamityMod").NPCType("Draedon"))) && Main.rand.NextFloat() < 0.25f)
+                if (NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.ExoMechs.Draedon>()) && Main.rand.NextFloat() < 0.25f)
                 {
                     return "DRAAAAAAAAAEEEEEEEDOOOOOOOOOOOONNNNNNNNNNNNNNNNNNN I KNOW WHAT YOU DID!";
                 }
 
-                Mod apoc = ModLoader.GetMod("ApothTestMod");
+                /*Mod apoc = ModLoader.GetMod("ApothTestMod");
                 if (apoc != null)
                 {
                     if (NPC.AnyNPCs((apoc.NPCType("THELORDE"))))
                     {
                         return "IMPOSTER!";
                     }
-                }
+                }*/
 
-                if (NPC.AnyNPCs((ModLoader.GetMod("CalamityMod").NPCType("Yharon"))) && Main.rand.NextFloat() < 0.25f)
+                if (NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>()) && Main.rand.NextFloat() < 0.25f)
                 {
                     return "Hyuck Hyuck Hyuck, my loyal friend Yharon! I demand you to stop atacking! ... Guess he doesn't recognize me...";
                 }
@@ -274,7 +301,7 @@ namespace CalValEX.AprilFools.Jharim
                     }
                 }
 
-                if (CalamityMod.World.CalamityWorld.rainingAcid)
+                /*if (CalamityMod.World.CalamityWorld.rainingAcid)
                 {
                     switch (Main.rand.Next(2))
                     {
@@ -284,7 +311,7 @@ namespace CalValEX.AprilFools.Jharim
                         default:
                             return "I'm feeling kinda drunk right now Hyickup Hyickup. Maybe I should stop drinking highly toxic acid...";
                     }
-                }
+                }*/
 
                 if (BirthdayParty.PartyIsUp)
                 {
@@ -379,23 +406,14 @@ namespace CalValEX.AprilFools.Jharim
                     {
                         if (Main.myPlayer == Main.LocalPlayer.whoAmI)
                         {
-                            Mod clamMod = ModLoader.GetMod("CalamityMod");
-                            if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas") && (bool)clamMod.Call("GetBossDowned", "exomechs"))
+                            if (CalamityMod.DownedBossSystem.downedExoMechs && CalamityMod.DownedBossSystem.downedSCal)
                             {
-                                npc.active = false;
-                                NPC.SpawnOnPlayer(Main.player[Main.myPlayer].whoAmI, mod.NPCType("Fogbound"));
-                            }
-                            else if ((bool)clamMod.Call("GetBossDowned", "supremecalamitas") && !(bool)clamMod.Call("GetBossDowned", "exomechs"))
-                            {
-                                Main.npcChatText = "The time is not here yet. He will only appear after the ultimate mechanical horrors have been destroyed.";
-                            }
-                            else if (!(bool)clamMod.Call("GetBossDowned", "supremecalamitas") && (bool)clamMod.Call("GetBossDowned", "exomechs"))
-                            {
-                                Main.npcChatText = "The time is not here yet. He will only appear after the great brimstone witch has been bested in combat.";
+                                NPC.active = false;
+                                NPC.SpawnOnPlayer(Main.player[Main.myPlayer].whoAmI, ModContent.NPCType<Fogbound>());
                             }
                             else
                             {
-                                Main.npcChatText = "The time is not here yet. He will only appear after the great brimstone witch and the ultimate mechanical horrors have been defeated.";
+                                Main.npcChatText = "The time is not here yet. He will only appear after both the supreme witch and the mechanical abominations have been silenced.";
                             }
                         }
                     }
@@ -425,8 +443,8 @@ namespace CalValEX.AprilFools.Jharim
         {
             if (Main.netMode == NetmodeID.Server)
             {
-                ModPacket packet = mod.GetPacket();
-                packet.Write((byte)npc.whoAmI);
+                ModPacket packet = Mod.GetPacket();
+                packet.Write((byte)NPC.whoAmI);
                 packet.Send();
             }
             else
@@ -448,7 +466,7 @@ namespace CalValEX.AprilFools.Jharim
                 {
                     position.Y = Math.Sign(position.Y) * 20;
                 }
-                Dust.NewDustPerfect(npc.Center + position, 50, Vector2.Zero).noGravity = true;
+                Dust.NewDustPerfect(NPC.Center + position, 50, Vector2.Zero).noGravity = true;
             }
         }
 
@@ -467,9 +485,11 @@ namespace CalValEX.AprilFools.Jharim
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
             if (!MELDOSAURUSED)
-                projType = ModContent.ProjectileType<JharimLaser>();
-            else
-                projType = ModLoader.GetMod("CalamityMod").ProjectileType("NobodyKnows");
+                //projType = ModContent.ProjectileType<JharimLaser>();
+                projType = ModContent.ProjectileType<CalamityMod.Projectiles.Magic.InfernadoFriendly>();
+
+                    else
+                        projType = ProjectileType<CalamityMod.Projectiles.Typeless.NobodyKnows>();
             attackDelay = 1;
             return;
         }
@@ -482,13 +502,12 @@ namespace CalValEX.AprilFools.Jharim
 
         public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit)
         {
-            if (projectile.type == ProjectileType<CalamityMod.Projectiles.Ranged.CosmicFire>())
+            if (projectile.type == ProjectileID.VortexBeaterRocket)
             {
                 MELDOSAURUSED = true;
             }
         }
-
-        public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             if (MELDOSAURUSED)
             {
@@ -503,13 +522,13 @@ namespace CalValEX.AprilFools.Jharim
                     framecounter = 0;
                 }
 
-                Texture2D deusheadsprite = (ModContent.GetTexture("CalValEX/AprilFools/Meldosaurus/JharimsBane"));
+                Texture2D deusheadsprite = (ModContent.Request<Texture2D>("CalValEX/AprilFools/Meldosaurus/JharimsBane").Value);
 
                 int deusheadheight = framecounter * (deusheadsprite.Height / 6);
 
                 Rectangle deusheadsquare = new Rectangle(0, deusheadheight, deusheadsprite.Width, deusheadsprite.Height / 6);
-                Color deusheadalpha = npc.GetAlpha(drawColor);
-                spriteBatch.Draw(deusheadsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deusheadsquare, deusheadalpha, npc.rotation, Utils.Size(deusheadsquare) / 2f, npc.scale, SpriteEffects.None, 0f);
+                Color deusheadalpha = NPC.GetAlpha(drawColor);
+                spriteBatch.Draw(deusheadsprite, NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), deusheadsquare, deusheadalpha, NPC.rotation, Utils.Size(deusheadsquare) / 2f, NPC.scale, SpriteEffects.None, 0);
                 return false;
             }
             else

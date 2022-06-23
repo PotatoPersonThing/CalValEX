@@ -11,47 +11,47 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("EWyrm");
-            Main.projFrames[projectile.type] = 7;
-            Main.projPet[projectile.type] = true;
+            Main.projFrames[Projectile.type] = 7;
+            Main.projPet[Projectile.type] = true;
         }
 
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.BabySnowman);
-            aiType = ProjectileID.BabySnowman;
+            Projectile.CloneDefaults(ProjectileID.BabySnowman);
+            AIType = ProjectileID.BabySnowman;
             //drawOffsetX = 5;
-            drawOriginOffsetY = 4;
+            DrawOriginOffsetY = 4;
         }
 
-        public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override void PostDraw(Color lightColor)
         {
-            Texture2D glowMask = mod.GetTexture("Projectiles/Pets/EWyrm_Glowmask");
-            Rectangle frame = glowMask.Frame(1, Main.projFrames[projectile.type], 0, projectile.frame);
+            Texture2D glowMask = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/EWyrm_Glowmask").Value;
+            Rectangle frame = glowMask.Frame(1, Main.projFrames[Projectile.type], 0, Projectile.frame);
             frame.Height -= 1;
-            float originOffsetX = (glowMask.Width - projectile.width) * 0.5f + projectile.width * 0.5f + drawOriginOffsetX;
-            spriteBatch.Draw
+            float originOffsetX = (glowMask.Width - Projectile.width) * 0.5f + Projectile.width * 0.5f + DrawOriginOffsetX;
+            Main.EntitySpriteDraw
             (
                 glowMask,
-                projectile.position - Main.screenPosition + new Vector2(originOffsetX + drawOffsetX, projectile.height / 2 + projectile.gfxOffY),
+                Projectile.position - Main.screenPosition + new Vector2(originOffsetX + DrawOffsetX, Projectile.height / 2 + Projectile.gfxOffY),
                 frame,
                 Color.White,
-                projectile.rotation,
-                new Vector2(originOffsetX, projectile.height / 2 - drawOriginOffsetY),
-                projectile.scale,
-                projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
-                0f
+                Projectile.rotation,
+                new Vector2(originOffsetX, Projectile.height / 2 - DrawOriginOffsetY),
+                Projectile.scale,
+                Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
+                0
             );
         }
 
         public override bool PreAI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             return true;
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (player.dead)
             {
@@ -59,18 +59,18 @@ namespace CalValEX.Projectiles.Pets
             }
             if (modPlayer.EWyrm)
             {
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
             }
         }
 
         public void AnimateProjectile() // Call this every frame, for example in the AI method.
         {
-            projectile.frameCounter++;
-            if (projectile.frameCounter >= 20) // This will change the sprite every 8 frames (0.13 seconds). Feel free to experiment.
+            Projectile.frameCounter++;
+            if (Projectile.frameCounter >= 20) // This will change the sprite every 8 frames (0.13 seconds). Feel free to experiment.
             {
-                projectile.frame++;
-                projectile.frame %= 1; // Will reset to the first frame if you've gone through them all.
-                projectile.frameCounter = 7;
+                Projectile.frame++;
+                Projectile.frame %= 1; // Will reset to the first frame if you've gone through them all.
+                Projectile.frameCounter = 7;
             }
         }
     }

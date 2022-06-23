@@ -1,8 +1,11 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
+using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
 
 namespace CalValEX.Items.Dyes
 {
@@ -11,16 +14,26 @@ namespace CalValEX.Items.Dyes
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Draedon's Hologram Dye");
+            if (!Main.dedServ) 
+            {
+                // The following code creates an effect (shader) reference and associates it with this item's type Id.
+                GameShaders.Armor.BindShader(
+                    Item.type,
+                    new ArmorShaderData(new Ref<Effect>(Mod.Assets.Request<Effect>("Effects/DraedonHologramDye", AssetRequestMode.ImmediateLoad).Value), "DraedonHologramDyePass") // Be sure to update the effect path and pass name here.
+                );
+            }
+
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 3;
         }
 
         public override void SetDefaults()
         {
-            byte dye = item.dye;
-            item.CloneDefaults(ItemID.GelDye);
-            item.width = 22;
-            item.height = 28;
-            item.value = Item.sellPrice(0, 0, 0, 5);
-            item.dye = dye;
+            int dye = Item.dye;
+            Item.CloneDefaults(ItemID.GelDye);
+            Item.width = 22;
+            Item.height = 28;
+            Item.value = Item.sellPrice(0, 0, 0, 5);
+            Item.dye = dye;
         }
 
         private int frameCounter;
@@ -35,32 +48,21 @@ namespace CalValEX.Items.Dyes
             }
             if (frameCounterUp)
                 frameCounter++;
-            return new Rectangle(0, item.height * frame, item.width, item.height);
+            return new Rectangle(0, Item.height * frame, Item.width, Item.height);
         }
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = ModContent.GetTexture("CalValEX/Items/Dyes/DraedonHologramDye_Animated");
+            Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Items/Dyes/DraedonHologramDye_Animated").Value;
             spriteBatch.Draw(texture, position, new Rectangle?(GetCurrentFrame(true)), Color.White, 0f, origin, scale, SpriteEffects.None, 0f);
             return false;
         }
 
         public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI)
         {
-            Texture2D texture = ModContent.GetTexture("CalValEX/Items/Dyes/DraedonHologramDye_Animated");
-            spriteBatch.Draw(texture, item.position - Main.screenPosition, new Rectangle?(GetCurrentFrame(true)), lightColor, rotation, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Items/Dyes/DraedonHologramDye_Animated").Value;
+            spriteBatch.Draw(texture, Item.position - Main.screenPosition, new Rectangle?(GetCurrentFrame(true)), lightColor, rotation, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             return false;
-        }
-
-        public override void AddRecipes()
-        {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.BottledWater);
-            recipe.AddIngredient(calamityMod.ItemType("PowerCell"), 5);
-            recipe.AddTile(TileID.DyeVat);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
         }
     }
 }

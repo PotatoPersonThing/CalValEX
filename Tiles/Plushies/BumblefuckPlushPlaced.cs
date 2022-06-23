@@ -9,9 +9,10 @@ namespace CalValEX.Tiles.Plushies
 {
     public class BumblefuckPlushPlaced : ModTile
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileObsidianKill[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             TileObjectData.newTile.Width = 2;
@@ -21,13 +22,13 @@ namespace CalValEX.Tiles.Plushies
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Dragonfolly Plush");
             AddMapEntry(new Color(144, 148, 144), name);
-            dustType = 11;
-            disableSmartCursor = true;
+            DustType = 11;
+            
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(i * 16, j * 16, 32, 32, ItemType<BumblefuckPlush>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<BumblefuckPlush>());
         }
     }
 }

@@ -8,29 +8,23 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Eyedol");
+            //DisplayName.SetDefault("Eyedol");
         }
 
         public override void SetDefaults()
         {
-            item.useStyle = 1;
-            item.autoReuse = true;
-            item.useTurn = true;
-            item.useAnimation = 15;
-            item.useTime = 10;
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 22;
-            item.height = 22;
-            item.noUseGraphic = true;
-            item.rare = 3;
-
-            Mod mod = ModLoader.GetMod("CalamityMod");
-            if (mod == null)
-            {
-                return;
-            }
-            item.makeNPC = (short)NPCType<Eyedol>();
+            Item.useStyle = 1;
+            Item.autoReuse = true;
+            Item.useTurn = true;
+            Item.useAnimation = 15;
+            Item.useTime = 10;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 22;
+            Item.height = 22;
+            Item.noUseGraphic = true;
+            Item.rare = 3;
+            Item.makeNPC = (short)NPCType<Eyedol>();
         }
     }
 }
