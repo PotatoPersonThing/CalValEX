@@ -284,7 +284,7 @@ namespace CalValEX.AprilFools
                         if (infernadotimer >= 1200)
                         {
                             Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 0, 20, ProjectileType<BigFlare>(), 80, 0f, Main.myPlayer, 0f, 0f);
-                            polterdart = 0;
+                            infernadotimer = 0;
                         }
                     }
                     if (deathcounter <= 540)

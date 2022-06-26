@@ -5,6 +5,10 @@ namespace CalValEX.AprilFools.Meldosaurus
 {
     public class MeldosaurusRelic : ModItem
     {
+        public override void SetStaticDefaults()
+        {
+            SacrificeTotal = 1;
+        }
         public override void SetDefaults()
         {
             Item.useStyle = 1;

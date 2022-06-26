@@ -8,16 +8,14 @@ namespace CalValEX.Buffs.LightPets
     {
         public override void SetStaticDefaults()
         {
-          //  //DisplayName.SetDefault("Chaos Skulls");
-           // //Description.SetDefault("Here to judge you for your sins... not really");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }
 
         public override void Update(Player player, ref int buffIndex)
         {
-            //Mod clamMod = ModLoader.GetMod("CalamityMod");
-            //clamMod.Call("AddAbyssLightStrength", Main.player[Main.myPlayer], 2);
+            Mod clamMod = ModLoader.GetMod("CalamityMod");
+            clamMod.Call("AddAbyssLightStrength", Main.player[Main.myPlayer], 2);
             player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().mHeat = true;
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<HeatPet>()] <= 0;

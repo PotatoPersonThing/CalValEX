@@ -9,6 +9,7 @@ namespace CalValEX.AprilFools
 	{
 		public override void SetStaticDefaults()
 		{
+			SacrificeTotal = 1;
 		}
 		public override void SetDefaults()
 		{

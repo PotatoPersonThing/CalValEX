@@ -36,17 +36,6 @@ namespace CalValEX.Items.Plushies
             Item.maxStack = 99;
         }
 
-        /*public override void AddRecipes()
-        {
-            
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<CalamitasFumo>());
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
-
         public override bool AltFunctionUse(Player player)
         {
             return true;
@@ -56,7 +45,6 @@ namespace CalValEX.Items.Plushies
             if (player.altFunctionUse == 2)
             {
                 type = ModContent.ProjectileType<CalaFumoSpeen>();
-                return base.Shoot(player, source, position, velocity, type, damage, knockback);
             }
             else
             {
@@ -79,8 +67,9 @@ namespace CalValEX.Items.Plushies
                 {
                     type = ModContent.ProjectileType<CalaFumo>();
                 }
-                return base.Shoot(player, source, position, velocity, type, damage, knockback);
             }
+            Projectile.NewProjectile(source, position.X, position.Y, velocity.X, velocity.Y, type, 0, 0, player.whoAmI);
+            return false;
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {

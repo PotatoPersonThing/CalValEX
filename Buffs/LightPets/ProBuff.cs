@@ -7,16 +7,14 @@ namespace CalValEX.Buffs.LightPets
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("The Profaned Armada");
-            //Description.SetDefault("Providence and her army shines holy light through the dark.");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }
 
         public override void Update(Player player, ref int buffIndex)
         {
-            //Mod clamMod = ModLoader.GetMod("CalamityMod");
-            //clamMod.Call("AddAbyssLightStrength", Main.player[Main.myPlayer], 3);
+            Mod clamMod = ModLoader.GetMod("CalamityMod");
+            clamMod.Call("AddAbyssLightStrength", Main.player[Main.myPlayer], 3);
             player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().ProGuard1 = true;
             player.GetModPlayer<CalValEXPlayer>().ProGuard2 = true;

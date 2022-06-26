@@ -40,7 +40,7 @@ namespace CalValEX.Items.Tiles
                 if (player.altFunctionUse == 2)
                 {
                     RibCount++;
-                    if (RibCount > 3)
+                    if (RibCount > 4)
                     {
                         RibCount = 0;
                     }
@@ -71,6 +71,10 @@ namespace CalValEX.Items.Tiles
 
                         case 3:
                             Item.createTile = ModContent.TileType<SulphurousRib5>();
+                            return true;
+
+                        case 4:
+                            Item.createTile = ModContent.TileType<SulphurousRib1>();
                             return true;
                     }
                 }

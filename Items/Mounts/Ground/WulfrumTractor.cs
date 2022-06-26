@@ -1,4 +1,4 @@
-//using CalValEX.Buffs.LightPets;
+using CalValEX.Buffs.LightPets;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -67,7 +67,7 @@ namespace CalValEX.Items.Mounts.Ground
             MountData.textureHeight = MountData.backTexture.Height();
         }
 
-        /*public override void UpdateEffects(Player player)
+        public override void UpdateEffects(Player player)
         {
             MountData.heightBoost = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 22 : 20);
             MountData.fallDamage = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 0.04f : 0.1f);
@@ -101,6 +101,6 @@ namespace CalValEX.Items.Mounts.Ground
                 MountData.inAirFrameStart = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 4);
                 MountData.runSpeed = (player.HasBuff(ModContent.BuffType<PylonBuff>()) ? 9 : 7);
             }
-        }*/
+        }
     }
 }

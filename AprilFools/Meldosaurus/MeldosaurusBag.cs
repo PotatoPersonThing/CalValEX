@@ -10,7 +10,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 		public override int BossBagNPC => ModContent.NPCType<Meldosaurus>();
 		public override void SetStaticDefaults()
 		{
-			//DisplayName.SetDefault("Treasure Bag");
+			SacrificeTotal = 3;
 			Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 		}
 		public override void SetDefaults()

@@ -8,6 +8,10 @@ namespace CalValEX.AprilFools
 {
     public class ShadesBane : ModItem
     {
+        public override void SetStaticDefaults()
+        {
+            SacrificeTotal = 1;
+        }
         public override void SetDefaults()
         {
             Item.damage = 47;

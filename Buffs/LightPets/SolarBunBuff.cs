@@ -8,8 +8,6 @@ namespace CalValEX.Buffs.LightPets
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Solar Bunny");
-            //Description.SetDefault("Bask under thy divine light");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }
@@ -24,8 +22,8 @@ namespace CalValEX.Buffs.LightPets
                 Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<SolarBunny>(), 0, 0f, player.whoAmI);
             }
-            //Mod clamMod = ModLoader.GetMod("CalamityMod");
-            //clamMod.Call("AddAbyssLightStrength", Main.player[Main.myPlayer], 3);
+            Mod clamMod = ModLoader.GetMod("CalamityMod");
+            clamMod.Call("AddAbyssLightStrength", Main.player[Main.myPlayer], 3);
         }
     }
 }
