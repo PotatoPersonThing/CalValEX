@@ -6,6 +6,9 @@ using Terraria.ModLoader.IO;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Tiles.AstralBlocks;
 using CalamityMod.Tiles.DraedonStructures;
+using CalamityMod.Tiles.Astral;
+using CalamityMod.Tiles.AstralDesert;
+using CalamityMod.Tiles.AstralSnow;
 using System.IO;
 using System;
 
@@ -42,6 +45,8 @@ namespace CalValEX
         public static bool downedMeldosaurus;
 
         public static bool masorev;
+
+
 
         public override void OnWorldLoad()
         {

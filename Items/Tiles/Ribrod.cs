@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using CalamityMod.Tiles.Abyss;
 
 namespace CalValEX.Items.Tiles
 {
@@ -32,47 +33,49 @@ namespace CalValEX.Items.Tiles
 
         private int RibCount;
 
-        /*public override bool UseItem(Player player)
+        public override bool CanUseItem(Player player)
         {
-            if (player.altFunctionUse == 2)
+            if (player.whoAmI == Main.myPlayer)
             {
-                RibCount++;
-                if (RibCount > 3)
+                if (player.altFunctionUse == 2)
                 {
-                    RibCount = 0;
+                    RibCount++;
+                    if (RibCount > 3)
+                    {
+                        RibCount = 0;
+                    }
+                    Item.createTile = -1;
+                    Item.useStyle = ItemUseStyleID.HoldUp;
+                    Item.useAnimation = 30;
+                    Item.useTime = 30;
                 }
-                Item.createTile = -1;
-                Item.useStyle = ItemUseStyleID.HoldingUp;
-                Item.useAnimation = 30;
-                Item.useTime = 30;
-            }
-            else
-            {
-                Item.useStyle = ItemUseStyleID.SwingThrow;
-                Item.useTurn = true;
-                Item.useAnimation = 30;
-                Item.useTime = 30;
-                Mod calamityMod = ModLoader.GetMod("CalamityMod");
-                switch (RibCount)
+                else
                 {
-                    case 0:
-                        Item.createTile = calamityMod.TileType("SulphurousRib2");
-                        return true;
+                    Item.useStyle = ItemUseStyleID.Swing;
+                    Item.useTurn = true;
+                    Item.useAnimation = 30;
+                    Item.useTime = 30;
+                    switch (RibCount)
+                    {
+                        case 0:
+                            Item.createTile = ModContent.TileType<SulphurousRib2>();
+                            return true;
 
-                    case 1:
-                        Item.createTile = calamityMod.TileType("SulphurousRib3");
-                        return true;
+                        case 1:
+                            Item.createTile = ModContent.TileType<SulphurousRib3>();
+                            return true;
 
-                    case 2:
-                        Item.createTile = calamityMod.TileType("SulphurousRib4");
-                        return true;
+                        case 2:
+                            Item.createTile = ModContent.TileType<SulphurousRib4>();
+                            return true;
 
-                    case 3:
-                        Item.createTile = calamityMod.TileType("SulphurousRib5");
-                        return true;
+                        case 3:
+                            Item.createTile = ModContent.TileType<SulphurousRib5>();
+                            return true;
+                    }
                 }
             }
             return true;
-        }*/
+        }
     }
 }

@@ -1187,12 +1187,9 @@ namespace CalValEX
             writer.Write(flags);
         }*/
 
-        /*public override void UpdateBiomeVisuals()
+        public override void PostUpdateMiscEffects()
         {
-            bool useAstralBiome = ZoneAstral;
-            Player.ManageSpecialBiomeVisuals("CalValEX:AstralBiome", useAstralBiome);*/
-
-            /*bool bossIsAlive2 = false;
+            bool bossIsAlive2 = false;
             for (int i = 0; i < Main.maxNPCs; i++)
             {
                 NPC npc = Main.npc[i];
@@ -1259,8 +1256,8 @@ namespace CalValEX
                     //SkyManager.Instance.Activate("CalamityMod:Cryogen", Player.Center);
                     //CalamityMod.CryogenSky.UpdateDrawEligibility();
                 }
-            }*/
-        //}
+            }
+        }
 
         /*public override void ReceiveCustomBiomes(BinaryReader reader)
         {

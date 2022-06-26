@@ -58,7 +58,7 @@ namespace CalValEX.Tiles.MiscFurniture
 
         public override bool RightClick(int i, int j)
         {
-            Terraria.Audio.SoundEngine.PlaySound(new Terraria.Audio.SoundStyle("CalValEX/Sounds/RespirationShrine"));
+            Terraria.Audio.SoundEngine.PlaySound(new Terraria.Audio.SoundStyle("CalValEX/Sounds/RespirationShrineSound"));
             HitWire(i, j);
             return true;
         }
