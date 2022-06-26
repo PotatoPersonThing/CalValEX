@@ -9,6 +9,7 @@ namespace CalValEX.Items.Equips.Shirts
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Astrachnid Thorax");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

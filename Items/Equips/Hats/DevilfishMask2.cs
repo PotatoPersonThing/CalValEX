@@ -11,6 +11,7 @@ namespace CalValEX.Items.Equips.Hats
             DisplayName.SetDefault("Pointed Devil Fish Mask");
             Tooltip
                 .SetDefault("Also Edgy");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

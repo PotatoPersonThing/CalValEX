@@ -11,6 +11,7 @@ namespace CalValEX.Items.Equips.Balloons
         {
             DisplayName.SetDefault("Foil Spoon");
             Tooltip.SetDefault("'spoon'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

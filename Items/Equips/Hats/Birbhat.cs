@@ -13,6 +13,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Follyhat");
             Tooltip.SetDefault("The one hat to rule them all.");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

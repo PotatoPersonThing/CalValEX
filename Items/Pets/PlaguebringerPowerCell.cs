@@ -11,6 +11,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Plaguebringer Power Cell");
             Tooltip.SetDefault("Full of vitamin Bee!\n" + "Summons a miniature Plaguebringer");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

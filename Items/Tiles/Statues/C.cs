@@ -10,6 +10,7 @@ namespace CalValEX.Items.Tiles.Statues
             DisplayName.SetDefault("Statue of Calamity");
             Tooltip
                 .SetDefault("A tale begins");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

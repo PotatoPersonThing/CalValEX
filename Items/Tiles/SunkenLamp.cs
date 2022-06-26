@@ -9,6 +9,7 @@ namespace CalValEX.Items.Tiles
         {
             DisplayName.SetDefault("Sunken Lamp");
             Tooltip.SetDefault("Trippy");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

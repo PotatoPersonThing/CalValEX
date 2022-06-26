@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Aureic Fedora");
             Tooltip.SetDefault("Just don't directly tip it on someone");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

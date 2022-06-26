@@ -13,6 +13,7 @@ namespace CalValEX.Items.Mounts.Ground
         {
             DisplayName.SetDefault("Silvian Jeep Keys");
             Tooltip.SetDefault("Safari time\nGreatly reduces health and damage if a boss is nearby");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

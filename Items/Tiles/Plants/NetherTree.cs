@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles.Plants
             DisplayName.SetDefault("Twisting Nether Sapling");
             Tooltip
                 .SetDefault("Vicious");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

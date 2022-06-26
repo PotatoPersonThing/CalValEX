@@ -11,6 +11,7 @@ namespace CalValEX.Items.Equips.Balloons
         {
             DisplayName.SetDefault("Foil Atlantis");
             Tooltip.SetDefault("'A miniature, inflatable replica of the magical halberd'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

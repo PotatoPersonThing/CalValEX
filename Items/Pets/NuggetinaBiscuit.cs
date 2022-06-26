@@ -13,6 +13,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Nugget in a Biscuit");
             Tooltip.SetDefault("An alluring treat no jungle nugget can resist!\n" + "Summons the Jungle Nugget");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

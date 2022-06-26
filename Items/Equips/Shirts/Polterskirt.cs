@@ -11,6 +11,7 @@ namespace CalValEX.Items.Equips.Shirts
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Odd Polterghast Dress");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

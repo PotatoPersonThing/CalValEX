@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Dummy Mask");
             Tooltip.SetDefault("The only dummy here is you.");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

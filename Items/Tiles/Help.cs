@@ -1,6 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.MiscFurniture;
+using Terraria;
 
 namespace CalValEX.Items.Tiles
 {
@@ -11,6 +12,7 @@ namespace CalValEX.Items.Tiles
             DisplayName.SetDefault("Stuck Orthocera");
             Tooltip
                 .SetDefault("Help me\n" + "Can be fed Green Mushrooms");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()
@@ -27,32 +29,5 @@ namespace CalValEX.Items.Tiles
             Item.height = 12;
             Item.rare = 5;
         }
-
-        /*public override void AddRecipes()
-        {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("EssenceofChaos"), 3);
-                recipe.AddIngredient(ModContent.ItemType<Help>());
-                recipe.AddTile(TileID.CookingPots);
-                recipe.SetResult(ModLoader.GetMod("CalamityMod").ItemType("SunkenStew"), 1);
-                recipe.AddRecipe();
-            }
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<Help>());
-                recipe.AddTile(TileID.MeatGrinder);
-                recipe.SetResult(ModLoader.GetMod("CalamityMod").ItemType("BloodOrb"), 8);
-                recipe.AddRecipe();
-            }
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<Help>());
-                recipe.AddTile(TileID.Sawmill);
-                recipe.SetResult(ModLoader.GetMod("CalamityMod").ItemType("SulfuricScale"), 2);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
     {
         public override void SetStaticDefaults()
         {
+            SacrificeTotal = 100;
         }
 
         public override void SetDefaults()

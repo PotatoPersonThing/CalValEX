@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles.Blocks
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("Places Plague Hives");
+            SacrificeTotal = 100;
         }
 
         public override void SetDefaults()

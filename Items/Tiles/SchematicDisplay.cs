@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles
         {
             DisplayName.SetDefault("Schematic Display");
             Tooltip.SetDefault("Displays a letter\n"+ "<right> to display another letter");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

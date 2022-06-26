@@ -12,6 +12,7 @@ namespace CalValEX.Items.Pets.Scuttlers
             DisplayName.SetDefault("Ruby Geode");
             Tooltip
                 .SetDefault("May contain a scuttler");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

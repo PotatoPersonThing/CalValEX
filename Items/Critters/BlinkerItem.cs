@@ -11,7 +11,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Blinker");
+            SacrificeTotal = 5;
         }
 
         public override void SetDefaults()
@@ -30,16 +30,5 @@ namespace CalValEX.Items.Critters
             Item.rare = ItemRarityID.Lime;
             Item.bait = 20;
         }
-        /*public override void AddRecipes()
-        {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("TwinklerItem"));
-                recipe.AddTile(mod.TileType("StarstruckSynthesizerPlaced"));
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

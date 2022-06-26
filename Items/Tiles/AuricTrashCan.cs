@@ -13,6 +13,7 @@ namespace CalValEX.Items.Tiles
         {
             DisplayName.SetDefault("Auric Trash Can");
             Tooltip.SetDefault("I've lost control of my life");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

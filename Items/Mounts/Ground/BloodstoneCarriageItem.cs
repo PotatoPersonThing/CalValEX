@@ -11,6 +11,7 @@ namespace CalValEX.Items.Mounts.Ground
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bloodstone Invitation");
+            SacrificeTotal = 1;
             Tooltip.SetDefault("An invitation to take a merry little stroll on a ride made of the deceased!\nReduces damage and health while a boss is nearby");
         }
 

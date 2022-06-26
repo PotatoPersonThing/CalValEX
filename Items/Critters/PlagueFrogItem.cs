@@ -8,7 +8,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Plagued Frog");
+            SacrificeTotal = 5;
         }
 
         public override void SetDefaults()
@@ -24,12 +24,6 @@ namespace CalValEX.Items.Critters
             Item.height = 18;
             Item.noUseGraphic = true;
             Item.rare = 8;
-
-            /*Mod mod = ModLoader.GetMod("CalamityMod");
-            if (mod == null)
-            {
-                return;
-            }*/
             Item.makeNPC = (short)NPCType<PlagueFrog>();
         }
     }

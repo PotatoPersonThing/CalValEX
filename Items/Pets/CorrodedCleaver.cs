@@ -12,6 +12,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Corroded Cleaver");
             Tooltip.SetDefault("Slice n' Dice\n" + "Summons a decapitated Sulphurous Fishron");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

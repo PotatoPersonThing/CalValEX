@@ -13,6 +13,7 @@ namespace CalValEX.Items.Equips.Hats
             DisplayName.SetDefault("Scorn Eater Mask");
             Tooltip
                 .SetDefault("The searing fire blazes fiercly");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

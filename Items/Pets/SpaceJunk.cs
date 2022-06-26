@@ -12,6 +12,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Space Junk");
             Tooltip.SetDefault("Summons the forgotten blob of the astral meteor\n" + "Summons a small remnant of the Astrageldon Slime");
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

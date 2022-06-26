@@ -12,6 +12,7 @@ namespace CalValEX.Items.Mounts.Ground
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("God Rider Kit");
+            SacrificeTotal = 1;
             Tooltip.SetDefault("Devour miles in the blink of an eye\nSummons a rideable God Rider Hoverbike\nReduces damage and health when a boss is nearby");
         }
 

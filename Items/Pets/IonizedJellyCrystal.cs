@@ -27,7 +27,7 @@ namespace CalValEX.Items.Pets
                 "Ironic. The very growth in power which made Goozma a deity in the first place, was also the cause of its demise");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 8));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
-            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            SacrificeTotal = 1;
         }
         public override void SetDefaults()
         {

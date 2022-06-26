@@ -11,6 +11,7 @@ namespace CalValEX.Items.Mounts
         {
             DisplayName.SetDefault("Holy Crystal Core");
             Tooltip.SetDefault("Charged core of a profaned guardian: Could be used to make something powerful... but what?");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

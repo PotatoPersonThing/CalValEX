@@ -550,7 +550,7 @@ namespace CalValEX
                         vanityrare = true;
                     }
                 }
-                else if (item.type == ModContent.ItemType<PearlofEnthrallment>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
+                else if (item.type == ModLoader.GetMod("CalamityMod").Find<ModItem>("PearlofEnthrallment").Type && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
                 {
                     bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityAnahita>()] <= 0;
                     if (cryospawned && Player.whoAmI == Main.myPlayer)
@@ -615,7 +615,7 @@ namespace CalValEX
                     {
                         vanitybrim = false;
                     }
-                    if (item.type == ModContent.ItemType<PearlofEnthrallment>())
+                    if (item.type == ModLoader.GetMod("CalamityMod").Find<ModItem>("PearlofEnthrallment").Type)
                     {
                         vanitysiren = false;
                     }

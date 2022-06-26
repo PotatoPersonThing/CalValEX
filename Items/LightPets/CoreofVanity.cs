@@ -15,6 +15,7 @@ namespace CalValEX.Items.LightPets
             Tooltip.SetDefault("'The frozen one is taking a break'\n"+"Summons pet Heat Sprits and a Sunskater to follow you\n" + "Provides a large amount of light in the abyss");
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 6));
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

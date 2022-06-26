@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Scarves
         {
             DisplayName.SetDefault("Budget Desert Medallion");
             Tooltip.SetDefault("Because the other one is too cursed to wear");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -12,6 +12,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Calamitous Soul Artifact");
+            SacrificeTotal = 1;
             Tooltip.SetDefault("Entropy\n" + "Summons a benevolent necropede\n" + "[c/C61B40:After crawling for decades in everlasting agony]\n"+ "[c/C61B40:the mobile graveyard finally finds a true friend.]");
         }
 

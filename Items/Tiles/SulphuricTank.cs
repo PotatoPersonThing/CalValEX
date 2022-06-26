@@ -16,6 +16,7 @@ namespace CalValEX.Items.Tiles
             DisplayName.SetDefault("Sulphuric Tank");
             Tooltip
                 .SetDefault("ZZZX93");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

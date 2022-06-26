@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Ancient Perennial Tulip");
             Tooltip.SetDefault("I'm a pretty girl!");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

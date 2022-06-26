@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles.Cages
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystal Butterfly Jar");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

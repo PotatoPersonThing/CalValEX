@@ -14,6 +14,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Armored Scrap");
             Tooltip
                 .SetDefault("Can't be salvaged, but attracts a probe friend!\n" + "Summons a small Stasis Probe");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

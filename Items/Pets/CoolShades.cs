@@ -11,6 +11,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Cool Shades");
             Tooltip.SetDefault("Rad\n" + "Summons a miniature Cryogen");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

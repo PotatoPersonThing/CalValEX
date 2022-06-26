@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Scarves
         {
             DisplayName.SetDefault("Universal Worm Scarf");
             Tooltip.SetDefault("'Eat it all, without bending reality.'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

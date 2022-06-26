@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles.Plushies
         {
             DisplayName.SetDefault("Calamitas Plushie (Placeable)");
             Tooltip.SetDefault("A dark artifact that must be handled with care\nMaster drop");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

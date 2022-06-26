@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Scarves
         {
             DisplayName.SetDefault("Storm Bandanna");
             Tooltip.SetDefault("'Electrifying Fashion!'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

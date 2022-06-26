@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Respiration Shrine");
+            SacrificeTotal = 1;
             Tooltip
                 .SetDefault("Provides infinite breath in the Abyss within a certain radius, for your Abyss base needs.\n" + "Deactivating will near instantly cause you to start drowning\n" + "Basically cheating.");
         }

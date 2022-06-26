@@ -6,6 +6,10 @@ namespace CalValEX.Items.Tiles
 {
     public class BubbleMachine : ModItem
     {
+        public override void SetStaticDefaults()
+        {
+            SacrificeTotal = 1;
+        }
         public override void SetDefaults()
         {
             Item.useStyle = 1;

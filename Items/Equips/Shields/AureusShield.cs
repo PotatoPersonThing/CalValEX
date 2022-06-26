@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Shields
         {
             DisplayName.SetDefault("Aureus Bulwark");
             Tooltip.SetDefault("Smaller in execution");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -9,6 +9,7 @@ namespace CalValEX.Items.Tiles.Blocks
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Polished Xenomonolith");
+            SacrificeTotal = 100;
         }
 
         public override void SetDefaults()

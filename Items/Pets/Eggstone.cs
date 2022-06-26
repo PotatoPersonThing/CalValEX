@@ -11,6 +11,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Eggstone");
             Tooltip.SetDefault("Wait, it's alive?!\n" + "Hatches into a baby Bohldohr");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

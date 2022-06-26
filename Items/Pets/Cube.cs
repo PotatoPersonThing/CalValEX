@@ -15,7 +15,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("A Cube");
             Tooltip.SetDefault("'Heil the Cube Lord'\n" + "Summons a cube\n"+
                 "Causes sickened star deities to blight");
-            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

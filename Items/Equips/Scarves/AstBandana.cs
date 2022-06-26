@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Scarves
         {
             DisplayName.SetDefault("Astral Bandana");
             Tooltip.SetDefault("Space Age Fashion!");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

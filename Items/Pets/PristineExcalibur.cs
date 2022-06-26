@@ -10,6 +10,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Compensation");
             Tooltip
                 .SetDefault("Can be sold for a decent price");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

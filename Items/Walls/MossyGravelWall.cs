@@ -10,6 +10,7 @@ namespace CalValEX.Items.Walls
         {
             DisplayName.SetDefault("Compensation");
             Tooltip.SetDefault("Can be sold");
+            SacrificeTotal = 400;
         }
 
         public override void SetDefaults()

@@ -14,6 +14,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Suspicious Looking Chinese Crown");
             Tooltip
                 .SetDefault("She's coming\n" + "Summons the child of cosmic wraith and a pure being");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

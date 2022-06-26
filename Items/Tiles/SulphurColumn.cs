@@ -8,6 +8,7 @@ namespace CalValEX.Items.Tiles
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Sulphurous Column");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

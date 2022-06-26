@@ -13,6 +13,7 @@ namespace CalValEX.Items.Tiles
         {
             DisplayName.SetDefault("Terminus Shrine Level 3");
             Tooltip.SetDefault("The End.");
+            SacrificeTotal = 1;
 
         }
 

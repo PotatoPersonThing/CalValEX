@@ -12,6 +12,7 @@ namespace CalValEX.Items.Mounts.Ground
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Profaned Cycle");
+            SacrificeTotal = 1;
             Tooltip.SetDefault("When you need to get somewhere, in style.\nThe Profaned Goddess' curse haunts the cycle, cutting your damage and health dramatically if a boss is nearby");
         }
 

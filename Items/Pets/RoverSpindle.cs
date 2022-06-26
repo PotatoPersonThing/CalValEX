@@ -13,6 +13,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Rover Spindle");
             Tooltip
                 .SetDefault("Crusty\n" + "Summons a suspiciously familiar Wulfrum Robot");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

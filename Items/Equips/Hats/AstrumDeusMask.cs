@@ -13,6 +13,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Blighted Deus Mask");
             Tooltip.SetDefault("'A faded star reignited.'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

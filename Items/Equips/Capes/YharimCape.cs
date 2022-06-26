@@ -13,6 +13,7 @@ namespace CalValEX.Items.Equips.Capes
         {
             DisplayName.SetDefault("Tyrant's Cape");
             Tooltip.SetDefault("Not the true one, but still regal and elegant");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

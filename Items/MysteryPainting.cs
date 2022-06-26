@@ -11,6 +11,7 @@ namespace CalValEX.Items
         {
             DisplayName.SetDefault("Mystery Painting");
             Tooltip.SetDefault("<right> for a random painting");
+            SacrificeTotal = 3;
         }
 
         public override void SetDefaults()

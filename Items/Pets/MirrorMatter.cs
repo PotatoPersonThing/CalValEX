@@ -13,6 +13,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Mirror Matter");
             Tooltip.SetDefault("'They always say breaking mirrors is bad luck'\n" + "Summons a small piece of Dark Energy");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

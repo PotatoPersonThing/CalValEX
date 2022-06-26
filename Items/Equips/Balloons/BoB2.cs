@@ -13,6 +13,7 @@ namespace CalValEX.Items.Equips.Balloons
         {
             DisplayName.SetDefault("Bundle of Water Balloons");
             Tooltip.SetDefault("The Party Girl can tie this for you\n'How did none of them pop down there?'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

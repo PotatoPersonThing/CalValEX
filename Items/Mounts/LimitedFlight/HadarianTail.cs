@@ -9,6 +9,7 @@ namespace CalValEX.Items.Mounts.LimitedFlight
         {
             DisplayName.SetDefault("Hadarian Egg");
             Tooltip.SetDefault("Contains an infected scavenger to let you soar to new heights");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

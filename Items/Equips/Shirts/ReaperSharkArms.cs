@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Shirts
         {
             DisplayName.SetDefault("Reaper Shark Arms");
             Tooltip.SetDefault("Hitting the gym was never this easy!");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

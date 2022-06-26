@@ -12,7 +12,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Awakened Xerocodile");
+            SacrificeTotal = 5;
         }
 
         public override void SetDefaults()
@@ -49,14 +49,5 @@ namespace CalValEX.Items.Critters
                 }
             }
         }
-        /*public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            recipe.AddIngredient(calamityMod.ItemType("Xerocodile"), 10);
-            recipe.AddIngredient(calamityMod.ItemType("BloodstoneCore"), 1);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }*/
     }
 }

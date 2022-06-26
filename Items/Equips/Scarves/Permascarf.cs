@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Scarves
         {
             DisplayName.SetDefault("Permafrost's Scarf");
             Tooltip.SetDefault("Stay Frosty");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

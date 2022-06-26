@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Large Perforator Mask");
             Tooltip.SetDefault("'In the anne-lead.'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

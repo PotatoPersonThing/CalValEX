@@ -13,6 +13,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Bubbled Fin");
             Tooltip
                 .SetDefault("How did it even get in there?\n" + "Summons a Smauler");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

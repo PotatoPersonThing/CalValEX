@@ -13,6 +13,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Skull Cluster");
             Tooltip
                 .SetDefault("Two skulls pop out of the pile with glowing eyes\n" + "Summons a miniature necrotic flesh golem");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

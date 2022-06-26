@@ -12,6 +12,7 @@ namespace CalValEX.Items
         {
             DisplayName.SetDefault("Sparrow Meat");
             Tooltip.SetDefault("There's a bit of pink cloth in it");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

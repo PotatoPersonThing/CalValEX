@@ -12,6 +12,7 @@ namespace CalValEX.Items.Pets.Elementals
             DisplayName.SetDefault("Strange Music Note");
             Tooltip.SetDefault("An elemental's favorite sound!\n" + "Summons a Vibrant Siren Child");
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

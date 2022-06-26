@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles.Banners
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("Great for blocking out the sun!");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

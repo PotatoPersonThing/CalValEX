@@ -9,6 +9,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("Not Like Home");
             Tooltip.SetDefault("'Mathew Maple'\nFriends!");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

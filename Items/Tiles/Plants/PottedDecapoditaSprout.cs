@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.Plants
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Potted Decapodita Sprout");
+            SacrificeTotal = 1;
             Tooltip.SetDefault("Fungus");
         }
 

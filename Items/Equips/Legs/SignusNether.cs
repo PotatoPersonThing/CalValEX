@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Legs
         {
             DisplayName.SetDefault("Nether Spirit");
             Tooltip.SetDefault("Gaining literal nether regions");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

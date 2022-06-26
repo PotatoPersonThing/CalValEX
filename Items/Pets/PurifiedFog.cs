@@ -12,6 +12,7 @@ namespace CalValEX.Items.Pets
         public override void SetStaticDefaults()
         {
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

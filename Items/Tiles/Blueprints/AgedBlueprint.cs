@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles.Blueprints
             DisplayName.SetDefault("Aged Blueprint");
             Tooltip
                 .SetDefault("Do Not Distribute?");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

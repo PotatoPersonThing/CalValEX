@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles
             DisplayName.SetDefault("Starstruck Synthesizer");
             Tooltip
                 .SetDefault("Used for special crafting");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

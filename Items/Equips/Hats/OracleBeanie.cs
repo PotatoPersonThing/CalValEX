@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Hats
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Oracle's Beanie");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

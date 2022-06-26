@@ -12,6 +12,7 @@ namespace CalValEX.Items.Mounts.Ground
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crab Fossil");
+            SacrificeTotal = 1;
             Tooltip.SetDefault("It's moving...\nSummons a friendly rideable Anthozoan Crab\nReduces damage and health when a boss is nearby");
         }
 

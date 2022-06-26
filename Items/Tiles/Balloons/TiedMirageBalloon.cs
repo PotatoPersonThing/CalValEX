@@ -8,6 +8,7 @@ namespace CalValEX.Items.Tiles.Balloons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Tied Mirage Balloon");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

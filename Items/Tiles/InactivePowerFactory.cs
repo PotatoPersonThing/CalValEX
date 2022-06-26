@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles
         {
             DisplayName.SetDefault("Inactive Power Cell Factory");
             Tooltip.SetDefault("An unpowered Power Cell Factory\n" + "Break to reactivate");
+            SacrificeTotal = 1;
         }
 
         public override string Texture => "CalamityMod/Items/Placeables/DraedonStructures/PowerCellFactoryItem";

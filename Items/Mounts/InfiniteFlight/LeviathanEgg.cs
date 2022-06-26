@@ -12,6 +12,7 @@ namespace CalValEX.Items.Mounts.InfiniteFlight
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Leviathan Egg");
+            SacrificeTotal = 1;
             Tooltip.SetDefault("Summons a young rideable Leviathan");
         }
 

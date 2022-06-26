@@ -11,6 +11,7 @@ namespace CalValEX.Items.Equips.Balloons
         {
             DisplayName.SetDefault("Mirage Balloon");
             Tooltip.SetDefault("The Party Girl can tie this for you\n'Keep away from sharp objects!'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

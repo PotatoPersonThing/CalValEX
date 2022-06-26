@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Scarves
         {
             DisplayName.SetDefault("Yharon's Shackle");
             Tooltip.SetDefault("It barely fits you...");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

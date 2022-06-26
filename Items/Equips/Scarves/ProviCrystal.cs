@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Scarves
         {
             DisplayName.SetDefault("Unholy Charm");
             Tooltip.SetDefault("A rare treasure gifted from the profaned goddess.");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -12,35 +12,17 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Gold Isopod");
+            SacrificeTotal = 5;
         }
 
         public override void SetDefaults()
         {
-            //Item.useStyle = 1;
-            //Item.autoReuse = true;
-            //Item.useTurn = true;
-            //Item.useAnimation = 15;
-            //Item.useTime = 10;
-            //Item.maxStack = 999;
-            //Item.consumable = true;
-            //Item.width = 12;
-            //Item.height = 12;
-            //Item.makeNPC = 360;
-            //Item.noUseGraphic = true;
-            //Item.bait = 15;
-
             Item.CloneDefaults(ItemID.GlowingSnail);
-            /*Mod mod = ModLoader.GetMod("CalamityMod");
-            if (mod == null)
-            {
-                return;
-            }*/
-            if (/*((bool)mod.Call("GetBossDowned", "polterghast"))*/ NPC.downedMoonlord || CalValEXConfig.Instance.IsopodBait)
+            if (CalamityMod.DownedBossSystem.downedPolterghast || CalValEXConfig.Instance.IsopodBait)
             {
                 Item.bait = 75;
             }
-            else if (!(/*(bool)mod.Call("GetBossDowned", "polterghast")*/NPC.downedMoonlord) && !CalValEXConfig.Instance.IsopodBait)
+            else if (!CalamityMod.DownedBossSystem.downedPolterghast && !CalValEXConfig.Instance.IsopodBait)
             {
                 Item.bait = 1;
             }
@@ -67,22 +49,5 @@ namespace CalValEX.Items.Critters
                 }
             }
         }
-
-        /*public override void AddRecipes()
-        {
-            Mod mod = ModLoader.GetMod("FargowiltasSouls");
-            if (mod == null)
-            {
-                return;
-            }
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<IsopodItem>());
-                recipe.AddIngredient((ItemID.GoldDust), 100);
-                recipe.AddTile(mod.TileType("GoldenDippingVatSheet"));
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

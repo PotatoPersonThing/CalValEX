@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.MiscFurniture;
+using Terraria;
 
 namespace CalValEX.Items.Tiles
 {
@@ -13,6 +14,7 @@ namespace CalValEX.Items.Tiles
             DisplayName.SetDefault("Orthocera Jacuzzi");
             Tooltip
                 .SetDefault(":Grab:");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -9,6 +9,7 @@ namespace CalValEX.Items.Tiles.Plants
         {
             DisplayName.SetDefault("Acid Tape Dispenser");
             Tooltip.SetDefault("Places an infinite amount of Sulphurous Vines");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

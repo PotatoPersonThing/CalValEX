@@ -11,35 +11,17 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Abyssal Isopod");
+            SacrificeTotal = 5;
         }
 
         public override void SetDefaults()
         {
-            //Item.useStyle = 1;
-            //Item.autoReuse = true;
-            //Item.useTurn = true;
-            //Item.useAnimation = 15;
-            //Item.useTime = 10;
-            //Item.maxStack = 999;
-            //Item.consumable = true;
-            //Item.width = 12;
-            //Item.height = 12;
-            //Item.makeNPC = 360;
-            //Item.noUseGraphic = true;
-            //Item.bait = 15;
-
             Item.CloneDefaults(ItemID.GlowingSnail);
-            /*Mod mod = ModLoader.GetMod("CalamityMod");
-            if (mod == null)
-            {
-                return;
-            }*/
-            if (Terraria.NPC.downedMoonlord/*((bool)mod.Call("GetBossDowned", "polterghast"))*/ || CalValEXConfig.Instance.IsopodBait)
+            if (CalamityMod.DownedBossSystem.downedPolterghast || CalValEXConfig.Instance.IsopodBait)
             {
                 Item.bait = 55;
             }
-            else if (!(Terraria.NPC.downedMoonlord/*(bool)mod.Call("GetBossDowned", "polterghast")*/) && !CalValEXConfig.Instance.IsopodBait)
+            else if (!CalamityMod.DownedBossSystem.downedPolterghast && !CalValEXConfig.Instance.IsopodBait)
             {
                 Item.bait = 1;
             }

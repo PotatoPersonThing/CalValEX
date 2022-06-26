@@ -13,6 +13,7 @@ namespace CalValEX.Items.Mounts.Morshu
             Tooltip.SetDefault("Summons a rideable Morshu" +
                 "\nConsumes a Copper Coin from the coin slots every 5 seconds and becomes super-sonic" +
                 "\nIf there are no Copper Coins in the coin slots then Morshu becomes crippled");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

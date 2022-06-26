@@ -13,6 +13,7 @@ namespace CalValEX.Items.Equips.Backs
         {
             DisplayName.SetDefault("Backpack Server");
             Tooltip.SetDefault("'Draedon's eyes are on you'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

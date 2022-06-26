@@ -9,6 +9,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("Worm to the Heavens");
             Tooltip.SetDefault("'Mathew Maple'\nOne day...");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

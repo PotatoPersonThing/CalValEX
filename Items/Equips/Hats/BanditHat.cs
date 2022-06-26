@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Hats
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bandit's Hat");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

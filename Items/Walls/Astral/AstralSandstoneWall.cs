@@ -10,6 +10,7 @@ namespace CalValEX.Items.Walls.Astral
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Blighted Astral Sandstone Wall");
+            SacrificeTotal = 400;
         }
 
         public override void SetDefaults()

@@ -52,10 +52,8 @@ namespace CalValEX.NPCs.JellyPriest
                 .SetBiomeAffection<ForestBiome>(AffectionLevel.Like) // Example Person prefers the forest.
                 .SetBiomeAffection<DesertBiome>(AffectionLevel.Dislike) // Example Person dislikes the snow.
                 .SetBiomeAffection<OceanBiome>(AffectionLevel.Love) // Example Person likes the Example Surface Biome
-                .SetNPCAffection(NPCID.Painter, AffectionLevel.Love) // Loves living near the dryad.
-                .SetNPCAffection(NPCID.Pirate, AffectionLevel.Like) // Likes living near the guide.
-                .SetNPCAffection(NPCID.Golfer, AffectionLevel.Dislike) // Dislikes living near the merchant.
-                .SetNPCAffection(NPCID.Demolitionist, AffectionLevel.Hate) // Hates living near the demolitionist.
+                .SetNPCAffection(NPCID.Painter, AffectionLevel.Like) // Loves living near the dryad.
+                .SetNPCAffection(NPCID.Demolitionist, AffectionLevel.Dislike) // Hates living near the demolitionist.
             ;
         }
 

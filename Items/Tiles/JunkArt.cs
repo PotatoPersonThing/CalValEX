@@ -10,6 +10,7 @@ namespace CalValEX.Items.Tiles
         {
             DisplayName.SetDefault("Reconstructed Particle Accelerator");
             Tooltip.SetDefault("'Reassembled from old blueprints. The flower inside has grown vibrantly after five years.'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

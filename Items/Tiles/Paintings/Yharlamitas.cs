@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles.Paintings
             DisplayName.SetDefault("Calamity Moment");
             Tooltip
                 .SetDefault("Wait...");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

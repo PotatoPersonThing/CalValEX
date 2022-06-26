@@ -18,6 +18,7 @@ namespace CalValEX.Items.Equips.Wings
             ItemID.Sets.ItemNoGravity[Item.type] = false;
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(60, 1f, 1f);
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

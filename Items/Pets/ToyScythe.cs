@@ -13,6 +13,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Toy Scythe");
             Tooltip
                 .SetDefault("Belongs to a mischievous spirit\n" + "Summons a smol Polter-Chan");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

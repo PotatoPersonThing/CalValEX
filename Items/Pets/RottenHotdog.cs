@@ -11,6 +11,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Rotten Hotdog");
             Tooltip.SetDefault("'Delicious...'\n" + "Summons a Pitbull puppy\n" + "Barks when any rare enemies are nearby");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -9,6 +9,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("A Fine Chalice");
             Tooltip.SetDefault("'TimerFun'\nA fine chalice indeed");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

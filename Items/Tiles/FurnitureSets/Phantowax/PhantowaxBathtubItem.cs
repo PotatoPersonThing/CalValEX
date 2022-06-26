@@ -10,6 +10,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Phantowax Bathtub");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

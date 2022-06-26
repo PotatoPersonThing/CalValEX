@@ -18,6 +18,7 @@ namespace CalValEX.Items.Pets
             /// ItemID.Sets.AnimatesAsSoul[Item.type] = true;
             ItemID.Sets.ItemIconPulse[Item.type] = false;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

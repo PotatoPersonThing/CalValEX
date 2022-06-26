@@ -13,6 +13,7 @@ namespace CalValEX.Items.Tiles
             DisplayName.SetDefault("Placeable Roxcalibur");
             Tooltip
                 .SetDefault("'You can rock!'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

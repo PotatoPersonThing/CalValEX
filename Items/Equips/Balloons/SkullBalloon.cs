@@ -9,6 +9,7 @@ namespace CalValEX.Items.Equips.Balloons
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("'Looks like there's still a brain inside this one.'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

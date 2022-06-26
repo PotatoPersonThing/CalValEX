@@ -8,6 +8,7 @@ namespace CalValEX.Items.Tiles.Paintings
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("'Giacomo'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

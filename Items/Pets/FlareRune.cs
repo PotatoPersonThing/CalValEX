@@ -13,6 +13,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Flare Rune");
             Tooltip.SetDefault("Summons Avalon, an ascended Profaned Guardian infused with profaned and cosmic energy\n" +
                 "'WuH'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

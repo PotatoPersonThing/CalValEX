@@ -11,6 +11,7 @@ namespace CalValEX.Items.Equips.Hats
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Ancient Demonshade Helm");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

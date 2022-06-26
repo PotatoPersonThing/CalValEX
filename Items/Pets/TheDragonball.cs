@@ -14,6 +14,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("The Dragonball");
             Tooltip
                 .SetDefault("Uh oh\n" + "Summons a spherical Dragonfolly\n"+"Causes failed dragon clones to have identity crises");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

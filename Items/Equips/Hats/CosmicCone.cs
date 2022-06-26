@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("The Cosmic Cone");
             Tooltip.SetDefault("A hat so pointy it could pierce the heavens.");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -8,6 +8,7 @@ namespace CalValEX.Items.Tiles.Blocks
     {
         public override void SetStaticDefaults()
         {
+            SacrificeTotal = 100;
         }
 
         public override void SetDefaults()

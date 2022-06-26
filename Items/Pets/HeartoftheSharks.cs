@@ -13,6 +13,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Heart of the Sharks");
             Tooltip.SetDefault("'It's time for the week of the shark!'\n" + "Summons a trio of sharks");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

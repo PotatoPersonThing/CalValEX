@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("Lost Souls");
             Tooltip.SetDefault("'Mathew Maple'\nLost and Afraid");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

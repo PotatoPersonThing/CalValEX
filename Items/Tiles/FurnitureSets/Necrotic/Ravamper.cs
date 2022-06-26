@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
             DisplayName.SetDefault("Necrotic Bonfire");
             Tooltip
                 .SetDefault("Praise the sun!");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -13,6 +13,7 @@ namespace CalValEX.Items.Equips.Hats
             DisplayName.SetDefault("Gamma Sludge");
             Tooltip
                 .SetDefault("I'm Radioactive!");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

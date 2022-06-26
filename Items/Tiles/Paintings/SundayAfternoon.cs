@@ -9,6 +9,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("A Sunday Afternoon in the World of Calamity");
             Tooltip.SetDefault("'Mathew Maple'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

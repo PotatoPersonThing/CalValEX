@@ -14,6 +14,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Profaned Chew Toy");
             Tooltip
                 .SetDefault("Seems dusty\n" + "Summons an ungodly radical dude");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -10,6 +10,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bloodstone Sink");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

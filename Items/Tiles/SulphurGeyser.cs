@@ -8,6 +8,7 @@ namespace CalValEX.Items.Tiles
         {
             DisplayName.SetDefault("Steam Geyser");
             Tooltip.SetDefault("Hazardous! Be careful!");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

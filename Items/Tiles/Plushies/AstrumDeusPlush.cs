@@ -10,6 +10,7 @@ namespace CalValEX.Items.Tiles.Plushies
         {
             DisplayName.SetDefault("Astrum Deus Plushie (Placeable)");
             Tooltip.SetDefault("Master drop");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -12,6 +12,7 @@ namespace CalValEX.Items.Mounts.InfiniteFlight
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Infernal Message Book");
+            SacrificeTotal = 1;
             Tooltip.SetDefault("Summons a rideable perfect lesser Yharon clone\n'This is my message...'");
         }
 

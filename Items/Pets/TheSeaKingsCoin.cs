@@ -13,6 +13,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("The Sea King's Coin");
             Tooltip.SetDefault("Blessed with pest power\n" + "Summons both the Aquatic and Desert Pests");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -8,7 +8,10 @@ namespace CalValEX.Items.Tiles.Banners
 {
     public class SandTurtleBanner : ModItem
     {
-        // The tooltip for this item is automatically assigned from .lang files
+        public override void SetStaticDefaults()
+        {
+            SacrificeTotal = 1;
+        }
         public override void SetDefaults()
         {
             Item.width = 10;

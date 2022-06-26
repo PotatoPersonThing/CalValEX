@@ -14,6 +14,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Spectralstorm Hat");
             Tooltip.SetDefault("'The actual dumbest idea ever submitted to suggestions'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

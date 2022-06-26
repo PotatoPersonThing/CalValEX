@@ -13,6 +13,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Ancient Auric Tesla Helm");
             Tooltip.SetDefault("A polished piece of an ancient armor");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

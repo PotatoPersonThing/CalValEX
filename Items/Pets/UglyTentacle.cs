@@ -13,6 +13,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Ugly Tentacle");
             Tooltip
                 .SetDefault("fat\n" + "Summons T.U.B");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

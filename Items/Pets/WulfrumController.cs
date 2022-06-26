@@ -12,6 +12,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Wulfrum Control Panel");
             Tooltip.SetDefault("Allows the user to control an army of mechs");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

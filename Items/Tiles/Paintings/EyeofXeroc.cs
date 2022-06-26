@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("The Eye of Xeroc");
             Tooltip.SetDefault("'PokerFace'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

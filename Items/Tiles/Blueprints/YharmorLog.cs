@@ -13,6 +13,7 @@ namespace CalValEX.Items.Tiles.Blueprints
             DisplayName.SetDefault("Auric Armor Blueprint");
             Tooltip
                 .SetDefault("Do Not Distribute");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

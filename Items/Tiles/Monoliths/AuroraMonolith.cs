@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles.Monoliths
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("Calls the auroras of the arctic when activated");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

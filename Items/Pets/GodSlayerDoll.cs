@@ -13,6 +13,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("God Slayer Doll");
             Tooltip.SetDefault("'The sentinels will recognize a new leader'\n" + "Summons a small Cosmic Assassin, Stasis Probe, and Dark Energy");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -13,6 +13,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Extra Fluffy Feather Clump");
             Tooltip.SetDefault("ISEJFDOIJNJSNFDGUISDBJNGSDJG\nSummons beasts, so horrific, that you will die");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

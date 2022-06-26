@@ -11,6 +11,7 @@ namespace CalValEX.Items.Equips.Legs
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Odd Polterghast Stockings");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

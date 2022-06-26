@@ -13,6 +13,7 @@ namespace CalValEX.Items.Tiles
         {
             DisplayName.SetDefault("Terminus Shrine Level 2");
             Tooltip.SetDefault("An altar witholding an apocalyptic artifact");
+            SacrificeTotal = 1;
 
         }
 

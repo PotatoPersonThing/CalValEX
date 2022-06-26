@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles.Statues
             DisplayName.SetDefault("Profaned Idol");
             Tooltip
                 .SetDefault("I shall die for you m'lord");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Wings
             Tooltip.SetDefault("Flip flop\n" + "Horizontal speed: 6.75\n" + "Acceleration multiplier: 1.4\n" + "Flight time: 120");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(120, 6.75f, 1.4f);
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles
         {
             DisplayName.SetDefault("Demon Ram Shield");
             Tooltip.SetDefault("It's too big to wear, no ramming sorry");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

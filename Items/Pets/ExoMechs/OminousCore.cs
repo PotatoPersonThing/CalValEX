@@ -12,7 +12,7 @@ namespace CalValEX.Items.Pets.ExoMechs
         {
             DisplayName.SetDefault("Ominous Core");
             Tooltip.SetDefault("The rotting mechanism emits surprisingly friendly fumes\n" + "Summons a toy variant of the diabolical monstrosity");
-            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

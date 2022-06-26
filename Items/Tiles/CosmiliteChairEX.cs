@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Cosmilite Monobloc Chair");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles.Plants
         {
             DisplayName.SetDefault("Odd Mushroom Pot");
             Tooltip.SetDefault("Now you can grow your own shrooms... well not really");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

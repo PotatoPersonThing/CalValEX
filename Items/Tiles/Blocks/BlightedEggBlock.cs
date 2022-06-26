@@ -9,6 +9,7 @@ namespace CalValEX.Items.Tiles.Blocks
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Blighted Egg Block");
+            SacrificeTotal = 100;
         }
 
         public override void SetDefaults()

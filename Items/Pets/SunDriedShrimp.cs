@@ -11,6 +11,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Sun Dried Shrimp");
             Tooltip.SetDefault("A crispy snack favored by Cnidrions\n" + "Summons a little sick sneeze dragon");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -9,6 +9,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("Frozen");
             Tooltip.SetDefault("'Mathew Maple'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

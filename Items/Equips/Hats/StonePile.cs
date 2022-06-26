@@ -14,6 +14,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Stone Pile");
             Tooltip.SetDefault("'Requires a strong head to wear'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

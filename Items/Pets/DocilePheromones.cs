@@ -15,6 +15,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Docile Pheromones");
             Tooltip
                 .SetDefault("'Smells like lemon'\n" + "Summons a small Draconic Swarmer");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

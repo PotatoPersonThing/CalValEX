@@ -9,6 +9,7 @@ namespace CalValEX.Items.Walls.Astral
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Blighted Astral Grass Wall");
+            SacrificeTotal = 400;
         }
 
         public override void SetDefaults()

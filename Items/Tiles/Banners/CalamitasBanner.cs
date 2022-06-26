@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.Banners
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Acursed Banner");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

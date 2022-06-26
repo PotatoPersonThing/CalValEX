@@ -13,6 +13,7 @@ namespace CalValEX.Items.Tiles
             DisplayName.SetDefault("Yharon Cloning Vat");
             Tooltip
                 .SetDefault("'Sealed away for eternity'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

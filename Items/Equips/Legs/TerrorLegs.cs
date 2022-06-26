@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Legs
         {
             DisplayName.SetDefault("Terror Legs");
             Tooltip.SetDefault("They're twitching");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

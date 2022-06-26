@@ -14,6 +14,7 @@ namespace CalValEX.Items.Tiles
             DisplayName.SetDefault("Heart of the Community");
             Tooltip
                 .SetDefault("My greatest creation, handle it with care");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

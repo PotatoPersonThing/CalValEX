@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Small Perforator Mask");
             Tooltip.SetDefault("'The worm-st one of the bunch'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

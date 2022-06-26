@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Shirts
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bloody Mary Dress");
+            SacrificeTotal = 1;
             if (Main.netMode != NetmodeID.Server)
             {
                 int equipSlotLegs = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);

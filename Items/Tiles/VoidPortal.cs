@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles
             DisplayName.SetDefault("Void Portal");
             Tooltip
                 .SetDefault("The void calls out");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

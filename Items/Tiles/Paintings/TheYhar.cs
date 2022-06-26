@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault(":THE_YHAR:");
             Tooltip.SetDefault("You gotta admit, he's a very cool dude despite his crimes");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

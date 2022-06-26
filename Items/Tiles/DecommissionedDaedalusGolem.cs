@@ -10,6 +10,7 @@ namespace CalValEX.Items.Tiles
         {
             DisplayName.SetDefault("Decommissioned Daedalus Golem");
             Tooltip.SetDefault("'4.3%...'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

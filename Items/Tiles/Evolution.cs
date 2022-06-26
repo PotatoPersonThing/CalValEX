@@ -13,6 +13,7 @@ namespace CalValEX.Items.Tiles
             DisplayName.SetDefault("Toy Evolution");
             Tooltip
                 .SetDefault("'Pondering the orb...'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

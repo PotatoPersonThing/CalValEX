@@ -14,6 +14,7 @@ namespace CalValEX.Items.LightPets
             DisplayName.SetDefault("Divine Fly");
             Tooltip
                 .SetDefault("'Ascension'\n" + "Summons a Grand Entity\n" + "Provides a large amount of light in the abyss");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

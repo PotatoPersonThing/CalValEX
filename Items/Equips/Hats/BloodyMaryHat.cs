@@ -13,6 +13,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Bloody Mary Hat");
             Tooltip.SetDefault("You feel elegant");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -14,6 +14,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Suspicious Looking GBC");
             Tooltip
                 .SetDefault("What could this mean?\n" + "Summons an abandonded roomba rescued from a trash heap");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

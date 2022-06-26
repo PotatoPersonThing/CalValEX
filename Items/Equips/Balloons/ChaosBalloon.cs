@@ -13,6 +13,7 @@ namespace CalValEX.Items.Equips.Balloons
         {
             DisplayName.SetDefault("Puffer Balloon");
             Tooltip.SetDefault("The Party Girl can tie this for you\n'May go off any minute now...'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

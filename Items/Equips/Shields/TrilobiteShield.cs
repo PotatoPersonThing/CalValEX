@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Shields
         {
             DisplayName.SetDefault("Trilobuckler");
             Tooltip.SetDefault("An ancient shield that's too old to block attacks");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

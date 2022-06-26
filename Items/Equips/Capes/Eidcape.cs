@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Capes
         {
             DisplayName.SetDefault("Eidolist Cape");
             Tooltip.SetDefault("Whispers of the deep can be heard through the weavings of this eldritch fabric...");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

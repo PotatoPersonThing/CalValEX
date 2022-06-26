@@ -9,6 +9,7 @@ namespace CalValEX.Items.Tiles.Blocks.Astral
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Blighted Astral Ice");
+            SacrificeTotal = 100;
         }
 
         public override void SetDefaults()

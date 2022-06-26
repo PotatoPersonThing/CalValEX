@@ -13,6 +13,7 @@ namespace CalValEX.Items.Equips.Balloons
         {
             DisplayName.SetDefault("Ancient Mirage Balloon");
             Tooltip.SetDefault("'Keep away from the ocean'\n'Balloons are nasty pollutants'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

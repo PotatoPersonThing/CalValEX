@@ -11,6 +11,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Calamity Circlet");
             Tooltip.SetDefault("Ring of Fire!");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

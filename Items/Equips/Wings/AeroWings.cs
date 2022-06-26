@@ -11,6 +11,7 @@ namespace CalValEX.Items.Equips.Wings
             Tooltip.SetDefault("It's a windy day\n" + "Horizontal speed: 1\n" + "Acceleration multiplier: 1\n" + "Flight time: 32");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(32, 1f, 1f);
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

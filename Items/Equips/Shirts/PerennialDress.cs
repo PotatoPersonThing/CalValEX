@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Shirts
         {
             DisplayName.SetDefault("Perennial Dress");
             Tooltip.SetDefault("Flowering out");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

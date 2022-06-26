@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Shields
         {
             DisplayName.SetDefault("Tower Shield of the Elemental");
             Tooltip.SetDefault("Looks to be a sturdy, but is actually made of soft, useless stone!");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

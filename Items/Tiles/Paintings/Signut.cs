@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("Signut");
             Tooltip.SetDefault("'Yharex'\nDon't judge me, being trapped in ice for a long time does stuff to your mind");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

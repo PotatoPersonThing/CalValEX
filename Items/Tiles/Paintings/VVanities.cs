@@ -9,6 +9,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("V for Vanities!");
             Tooltip.SetDefault("'Willow'\nV!");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

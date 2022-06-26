@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles
         {
             DisplayName.SetDefault("Hanging Brimstone Heart");
             Tooltip.SetDefault("+Up!");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

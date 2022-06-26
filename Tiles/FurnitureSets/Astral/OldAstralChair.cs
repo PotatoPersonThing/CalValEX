@@ -5,6 +5,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Items.Tiles.FurnitureSets.Astral;
+using Terraria.DataStructures;
+using Terraria.GameContent;
+using Terraria.GameContent.ObjectInteractions;
 
 namespace CalValEX.Tiles.FurnitureSets.Astral
 {
@@ -15,6 +18,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
+            TileID.Sets.HasOutlines[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2);
             Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
@@ -30,13 +34,69 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Xenomonolith Chair");
             AddMapEntry(new Color(139, 0, 0), name);
-            
+
+            TileID.Sets.CanBeSatOnForNPCs[Type] = true;
+            TileID.Sets.CanBeSatOnForPlayers[Type] = true;
             AdjTiles = new int[] { TileID.Chairs };
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
             Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<OldAstralChairItem>());
+        }
+        public override void ModifySittingTargetInfo(int i, int j, ref TileRestingInfo info)
+        {
+            Tile tile = Framing.GetTileSafely(i, j);
+
+            info.TargetDirection = -1;
+            if (tile.TileFrameX != 0)
+            {
+                info.TargetDirection = 1;
+            }
+
+            info.AnchorTilePosition.X = i;
+            info.AnchorTilePosition.Y = j;
+
+            if (tile.TileFrameY % 40 == 0)
+            {
+                info.AnchorTilePosition.Y++;
+            }
+        }
+
+        public override bool RightClick(int i, int j)
+        {
+            Player player = Main.LocalPlayer;
+
+            if (player.IsWithinSnappngRangeToTile(i, j, PlayerSittingHelper.ChairSittingMaxDistance))
+            {
+                player.GamepadEnableGrappleCooldown();
+                player.sitting.SitDown(player, i, j);
+            }
+            return true;
+        }
+
+        public override void MouseOver(int i, int j)
+        {
+            Player player = Main.LocalPlayer;
+
+            if (!player.IsWithinSnappngRangeToTile(i, j, PlayerSittingHelper.ChairSittingMaxDistance))
+            {
+                return;
+            }
+
+            player.noThrow = 2;
+            player.cursorItemIconEnabled = true;
+            player.cursorItemIconID = ModContent.ItemType<OldAstralChairItem>();
+
+            if (Main.tile[i, j].TileFrameX / 18 < 1)
+            {
+                player.cursorItemIconReversed = true;
+            }
+        }
+
+        public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
+        {
+            return settings.player.IsWithinSnappngRangeToTile(i, j, PlayerSittingHelper.ChairSittingMaxDistance);
         }
     }
 }

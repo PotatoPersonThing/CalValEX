@@ -12,6 +12,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Decaying Fishtail");
             Tooltip
                 .SetDefault("Summons a pet catfish...?\n"+"Only an unholy nightmarish abomination would want something this putrid");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

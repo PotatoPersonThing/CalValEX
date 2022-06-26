@@ -13,6 +13,7 @@ namespace CalValEX.Items.Equips.Backs
         {
             DisplayName.SetDefault("Prism Shell");
             Tooltip.SetDefault("'Lookin' sharp'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

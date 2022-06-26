@@ -12,6 +12,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Auric Bottle");
             Tooltip.SetDefault("Summons a Godly Squid to follow you");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

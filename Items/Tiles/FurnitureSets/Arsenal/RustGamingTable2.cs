@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Arsenal
         {
             DisplayName.SetDefault("Lab Gaming Table 2");
             Tooltip.SetDefault("'Technically a spinoff'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

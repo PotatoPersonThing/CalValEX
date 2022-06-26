@@ -11,6 +11,7 @@ namespace CalValEX.Items.Pets.Elementals
         {
             DisplayName.SetDefault("Small Sand Lamp");
             Tooltip.SetDefault("An elemental's favorite toy!\n" + "Summons a Miniature Sand Elemental");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

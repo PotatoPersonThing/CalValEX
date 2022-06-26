@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Auric
         {
             DisplayName.SetDefault("Auric Manufacturer");
             Tooltip.SetDefault("Used for special crafting");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -14,6 +14,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Doggo Collar");
             Tooltip
                 .SetDefault("Summons a pet Chihuahua");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("Unholy Trip");
             Tooltip.SetDefault("'Triangle'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

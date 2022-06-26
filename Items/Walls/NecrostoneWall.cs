@@ -7,6 +7,10 @@ namespace CalValEX.Items.Walls
 {
     public class NecrostoneWall : ModItem
     {
+        public override void SetStaticDefaults()
+        {
+            SacrificeTotal = 400;
+        }
         public override void SetDefaults()
         {
             Item.width = 12;

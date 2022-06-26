@@ -13,6 +13,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Reaperoid Pills");
             Tooltip
                 .SetDefault("So that's how they got so buff...\n" + "Summons a walking Reaper");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

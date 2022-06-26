@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Scarves
         {
             DisplayName.SetDefault("Signus Emblem");
             Tooltip.SetDefault("Contains some abyssal energy");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

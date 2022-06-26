@@ -13,6 +13,7 @@ namespace CalValEX.Items.Equips
             DisplayName.SetDefault("Exodium Orbiter");
             Tooltip.SetDefault("A world revolving");
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

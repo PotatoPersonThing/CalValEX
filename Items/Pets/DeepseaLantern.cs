@@ -20,6 +20,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Deep Sea Lantern");
             Tooltip.SetDefault("'Might call upon a creature looking for food'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -10,6 +10,7 @@ namespace CalValEX.Items.Tiles
         {
             DisplayName.SetDefault("Pong Machine");
             Tooltip.SetDefault("INCOMPLETE ITEM, EXTREMELY UNSTABLE\nPong game");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

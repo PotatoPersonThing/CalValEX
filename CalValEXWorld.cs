@@ -123,7 +123,6 @@ namespace CalValEX
         public override void NetSend(BinaryWriter writer)
         {
             BitsByte flags = new BitsByte();
-            BitsByte flags2 = new BitsByte();
             flags[0] = rescuedjelly;
             flags[1] = jharim;
             flags[2] = orthofound;
@@ -131,15 +130,15 @@ namespace CalValEX
             flags[4] = Rockshrine;
             flags[5] = RockshrinEX;
             flags[6] = jharinter;
+
+            BitsByte flags2 = new BitsByte();
             flags2[0] = downedMeldosaurus;
             writer.Write(flags);
+            writer.Write(flags2);
         }
         public override void NetReceive(BinaryReader reader)
         {
-            if (reader.BaseStream.Length < 1)
-                return;
             BitsByte flags = reader.ReadByte();
-            BitsByte flags2 = reader.ReadByte();
             rescuedjelly = flags[0];
             jharim = flags[1];
             orthofound = flags[2];
@@ -147,6 +146,8 @@ namespace CalValEX
             Rockshrine = flags[4];
             RockshrinEX = flags[5];
             jharinter = flags[6];
+
+            BitsByte flags2 = reader.ReadByte();
             downedMeldosaurus = flags2[0];
         }
 

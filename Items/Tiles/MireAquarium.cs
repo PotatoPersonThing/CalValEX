@@ -13,6 +13,7 @@ namespace CalValEX.Items.Tiles
             DisplayName.SetDefault("Mire Aquarium");
             Tooltip
                 .SetDefault("'Hopefully it doesn't try to break out...'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

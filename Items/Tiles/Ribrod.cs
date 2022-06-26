@@ -10,6 +10,7 @@ namespace CalValEX.Items.Tiles
         {
             DisplayName.SetDefault("Ribcage Wand");
             Tooltip.SetDefault("Places Sulphurous Ribs\n" + "Right click to change rib");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

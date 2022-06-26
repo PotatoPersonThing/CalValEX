@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles.Plushies
         {
             DisplayName.SetDefault("Profaned Guardian Plushie (Placeable)");
             Tooltip.SetDefault("Master drop");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

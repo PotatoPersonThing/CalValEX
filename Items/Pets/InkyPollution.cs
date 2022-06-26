@@ -11,6 +11,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Inky Pollution");
             Tooltip.SetDefault("Tis a shame what we do to the environment\n" + "Summons a baby squid");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

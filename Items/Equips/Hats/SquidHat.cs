@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("The Squid Hat");
             Tooltip.SetDefault("Splattershot sold separately.");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

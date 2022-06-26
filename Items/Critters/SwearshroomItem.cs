@@ -8,7 +8,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Swearshroom");
+            SacrificeTotal = 5;
         }
 
         public override void SetDefaults()
@@ -24,12 +24,6 @@ namespace CalValEX.Items.Critters
             Item.height = 22;
             Item.noUseGraphic = true;
             Item.rare = 2;
-
-            /*Mod mod = ModLoader.GetMod("CalamityMod");
-            if (mod == null)
-            {
-                return;
-            }*/
             Item.makeNPC = (short)NPCType<Swearshroom>();
         }
     }

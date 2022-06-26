@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Flak Head Crab");
             Tooltip.SetDefault("It appears you have a parasite");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

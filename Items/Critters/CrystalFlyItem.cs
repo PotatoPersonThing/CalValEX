@@ -11,23 +11,11 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Crystal Butterfly");
+            SacrificeTotal = 5;
         }
 
         public override void SetDefaults()
         {
-            //Item.useStyle = 1;
-            //Item.autoReuse = true;
-            //Item.useTurn = true;
-            //Item.useAnimation = 15;
-            //Item.useTime = 10;
-            //Item.maxStack = 999;
-            //Item.consumable = true;
-            //Item.width = 12;
-            //Item.height = 12;
-            //Item.makeNPC = 360;
-            //Item.noUseGraphic = true;
-            //Item.bait = 15;
             Item.rare = 11;
             Item.CloneDefaults(ItemID.JuliaButterfly);
             Item.makeNPC = (short)NPCType<CrystalFly>();

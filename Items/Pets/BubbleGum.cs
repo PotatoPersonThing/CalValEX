@@ -11,6 +11,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Bubble Gum");
             Tooltip
                 .SetDefault("Summons a divine entity");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

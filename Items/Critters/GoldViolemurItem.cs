@@ -10,7 +10,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Gold Violemur");
+            SacrificeTotal = 5;
         }
 
         public override void SetDefaults()
@@ -29,22 +29,5 @@ namespace CalValEX.Items.Critters
             Item.makeNPC = (short)NPCType<GoldViolemur>();
             Item.value = Item.sellPrice(0, 10, 0, 0);
         }
-
-        /*public override void AddRecipes()
-        {
-            Mod mod = ModLoader.GetMod("FargowiltasSouls");
-            if (mod == null)
-            {
-                return;
-            }
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<ViolemurItem>());
-                recipe.AddIngredient((ItemID.GoldDust), 100);
-                recipe.AddTile(mod.TileType("GoldenDippingVatSheet"));
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

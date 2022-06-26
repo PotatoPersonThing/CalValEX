@@ -10,6 +10,7 @@ namespace CalValEX.Items.Mounts.Ground
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Wulfrum Keys");
+            SacrificeTotal = 1;
             Tooltip.SetDefault("Gives you access to a Wulfrum Tank\nThe keys wield dark energy which will lay a fatal curse on your health and damage if a powerful entity is near\nYou already know how to operate it... somehow...");
         }
 

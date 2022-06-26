@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Balloons
         {
             DisplayName.SetDefault("Cosmic Lantern Balloon");
             Tooltip.SetDefault("'Keep away from ectoplasm'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

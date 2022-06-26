@@ -9,6 +9,7 @@ namespace CalValEX.Items.Tiles.Monoliths
     {
         public override void SetStaticDefaults()
         {
+            SacrificeTotal = 1;
             Tooltip.SetDefault("Infuses the nearby air with harmless Brimstone magic when activated\n" + "Cannot be used if any other Calamity monoliths are currently active");
         }
 

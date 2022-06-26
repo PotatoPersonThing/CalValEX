@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Balloons
         {
             DisplayName.SetDefault("Profaned Balloon");
             Tooltip.SetDefault("'Patronage for Providence!'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

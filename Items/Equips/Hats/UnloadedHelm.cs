@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Unloaded Helm");
             Tooltip.SetDefault("Still reeks");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

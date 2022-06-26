@@ -8,6 +8,7 @@ namespace CalValEX.Items.Tiles.Plants
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Potted Anemone");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

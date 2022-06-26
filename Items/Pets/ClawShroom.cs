@@ -10,6 +10,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Clawshroom");
             Tooltip.SetDefault("Snip snap!\n" + "Summons a small Crabulon");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

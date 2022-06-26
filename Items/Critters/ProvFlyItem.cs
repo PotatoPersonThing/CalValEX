@@ -11,30 +11,12 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Blazing Butterfly");
+            SacrificeTotal = 5;
         }
 
         public override void SetDefaults()
         {
-            //Item.useStyle = 1;
-            //Item.autoReuse = true;
-            //Item.useTurn = true;
-            //Item.useAnimation = 15;
-            //Item.useTime = 10;
-            //Item.maxStack = 999;
-            //Item.consumable = true;
-            //Item.width = 12;
-            //Item.height = 12;
-            //Item.makeNPC = 360;
-            //Item.noUseGraphic = true;
-            //Item.bait = 15;
-
             Item.CloneDefaults(ItemID.JuliaButterfly);
-            /*Mod mod = ModLoader.GetMod("CalamityMod");
-            if (mod == null)
-            {
-                return;
-            }*/
             Item.makeNPC = (short)NPCType<ProvFly>();
             Item.bait = 45;
             Item.rare = ItemRarityID.Purple;

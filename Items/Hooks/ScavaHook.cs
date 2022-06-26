@@ -12,6 +12,7 @@ namespace CalValEX.Items.Hooks
         {
             DisplayName.SetDefault("Ancient Scavenger Claw");
             Tooltip.SetDefault("Here to gouge out your eyes, runic style!\nReach: 50\nLaunch Velocity: 19\nPull Velocity: 25");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

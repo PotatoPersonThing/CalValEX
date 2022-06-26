@@ -14,6 +14,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Aerialite Bubble");
             Tooltip.SetDefault("An odd sphere covered in light gel\n"+ "Summons a duo of Aero Slimes");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -14,6 +14,7 @@ namespace CalValEX.Items.Hooks
         {
             DisplayName.SetDefault("XM-Lightning Hook");
             Tooltip.SetDefault("Snap at lightning speed!\nCannot be used while Chaos State is active\nReach: 60\nLaunch Velocity: 62\nPull Velocity: 35");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

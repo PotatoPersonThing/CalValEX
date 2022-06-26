@@ -11,6 +11,7 @@ namespace CalValEX.Items.Equips.Shirts
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Ancient Demonshade Breastplate");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -10,6 +10,7 @@ namespace CalValEX.Items.Walls
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Polished Astral Monolith Wall");
+            SacrificeTotal = 400;
         }
 
         public override void SetDefaults()

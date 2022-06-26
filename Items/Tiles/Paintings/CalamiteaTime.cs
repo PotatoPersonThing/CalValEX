@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("Calamitea Time");
             Tooltip.SetDefault("Original by 'caligulas,' sprite by 'Mathew Maple'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

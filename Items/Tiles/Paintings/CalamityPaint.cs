@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("An Ancient Calamity");
             Tooltip.SetDefault("'Blockaroz'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

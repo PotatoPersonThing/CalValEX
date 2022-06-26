@@ -10,6 +10,7 @@ namespace CalValEX.Items.Tiles
         {
             DisplayName.SetDefault("Binding of Anahita Machine");
             Tooltip.SetDefault("INCOMPLETE ITEM, EXTREMELY UNSTABLE\nRoguelike game");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

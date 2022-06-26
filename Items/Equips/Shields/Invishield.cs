@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Shields
         {
             DisplayName.SetDefault("Compensation");
             Tooltip.SetDefault("Can be sold");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

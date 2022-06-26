@@ -9,6 +9,7 @@ namespace CalValEX.Items.Tiles
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Music Box (Astral Blight)");
+			SacrificeTotal = 1;
 		}
 
 		public override void SetDefaults()

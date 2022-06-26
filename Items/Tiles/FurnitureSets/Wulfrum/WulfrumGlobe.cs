@@ -9,6 +9,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Wulfrum
         {
             DisplayName.SetDefault("Wulfrum Globe");
             Tooltip.SetDefault("Spin spin spin");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

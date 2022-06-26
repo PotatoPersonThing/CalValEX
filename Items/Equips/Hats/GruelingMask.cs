@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Grueling Mask");
             Tooltip.SetDefault("Yaaagh!");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

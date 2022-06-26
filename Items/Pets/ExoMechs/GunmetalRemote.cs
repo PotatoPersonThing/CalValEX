@@ -12,7 +12,7 @@ namespace CalValEX.Items.Pets.ExoMechs
         {
             DisplayName.SetDefault("Dark Gunmetal Remote");
             Tooltip.SetDefault("T Hanos\n" + "Summons a shorter and friendlier version of the high-tech digger");
-            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

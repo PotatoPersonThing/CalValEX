@@ -9,8 +9,9 @@ namespace CalValEX.Items.Tiles.Blocks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bloodstone (placeable)");
-            Tooltip.SetDefault("It's back");
+            DisplayName.SetDefault("Compensation");
+            Tooltip.SetDefault("Can be sold");
+            SacrificeTotal = 100;
         }
 
         public override void SetDefaults()
@@ -20,7 +21,6 @@ namespace CalValEX.Items.Tiles.Blocks
             Item.maxStack = 999;
             Item.value = Item.sellPrice(0, 0, 1, 0);
             Item.rare = -1;
-            Item.createTile = ModContent.TileType<BloodstonePlaced>();
         }
     }
 }

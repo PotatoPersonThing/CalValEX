@@ -13,6 +13,7 @@ namespace CalValEX.Items.Tiles
         {
             DisplayName.SetDefault("Terminus Shrine");
             Tooltip.SetDefault("An altar made to hold the apocalyptic artifact");
+            SacrificeTotal = 1;
 
         }
 

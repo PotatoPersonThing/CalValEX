@@ -13,6 +13,7 @@ namespace CalValEX.Items.Plushies
         {
             DisplayName.SetDefault("Astrum Aureus Plushie (Throwable)");
             Tooltip.SetDefault("Can be thrown");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

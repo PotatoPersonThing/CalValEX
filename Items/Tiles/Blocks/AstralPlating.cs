@@ -6,7 +6,10 @@ namespace CalValEX.Items.Tiles.Blocks
 {
     public class AstralPlating : ModItem
     {
-
+        public override void SetStaticDefaults()
+        {
+            SacrificeTotal = 100;
+        }
         public override void SetDefaults()
         {
             Item.width = 12;

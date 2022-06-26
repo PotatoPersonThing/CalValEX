@@ -8,7 +8,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Violemur");
+            SacrificeTotal = 5;
         }
 
         public override void SetDefaults()
@@ -24,24 +24,7 @@ namespace CalValEX.Items.Critters
             Item.height = 18;
             Item.noUseGraphic = true;
             Item.rare = 4;
-
-            /*Mod mod = ModLoader.GetMod("CalamityMod");
-            if (mod == null)
-            {
-                return;
-            }*/
             Item.makeNPC = (short)NPCType<Violemur>();
         }
-        /*public override void AddRecipes()
-        {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(mod.ItemType("BlightolemurItem"));
-                recipe.AddTile(mod.TileType("StarstruckSynthesizerPlaced"));
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

@@ -13,6 +13,7 @@ namespace CalValEX.Items.Plushies
         {
             DisplayName.SetDefault("Crabulon Plushie (Throwable)");
             Tooltip.SetDefault("Can be thrown");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

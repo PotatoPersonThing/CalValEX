@@ -14,6 +14,7 @@ namespace CalValEX.Items.Pets
             Tooltip.SetDefault("'Power hungry for rot'\n" + "Summons a miniature Slime God core, orbitted by its guards");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 6));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

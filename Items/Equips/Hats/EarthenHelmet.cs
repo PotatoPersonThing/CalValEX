@@ -9,6 +9,7 @@ namespace CalValEX.Items.Equips.Hats
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Earthen Helmet");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

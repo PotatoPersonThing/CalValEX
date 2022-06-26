@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Balloons
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("'Stirred to go among wild beasts'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

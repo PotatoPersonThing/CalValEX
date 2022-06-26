@@ -10,7 +10,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Gold Eyedol");
+            SacrificeTotal = 5;
         }
 
         public override void SetDefaults()
@@ -26,31 +26,8 @@ namespace CalValEX.Items.Critters
             Item.height = 22;
             Item.noUseGraphic = true;
             Item.rare = 3;
-
-            /*Mod mod = ModLoader.GetMod("CalamityMod");
-            if (mod == null)
-            {
-                return;
-            }*/
             Item.makeNPC = (short)NPCType<GoldEyedol>();
             Item.value = Item.sellPrice(0, 10, 0, 0);
         }
-
-        /*public override void AddRecipes()
-        {
-            Mod mod = ModLoader.GetMod("FargowiltasSouls");
-            if (mod == null)
-            {
-                return;
-            }
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<EyedolItem>());
-                recipe.AddIngredient((ItemID.GoldDust), 100);
-                recipe.AddTile(mod.TileType("GoldenDippingVatSheet"));
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

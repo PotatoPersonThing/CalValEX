@@ -12,6 +12,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Charred Chopper");
             Tooltip.SetDefault("A burning knife measuring a thousand degrees!\n" + "Summons a decapitated Sulphurous Fishron that inhaled Scoria fumes");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

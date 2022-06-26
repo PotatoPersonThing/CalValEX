@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("Unofficial Calamity Mod Music (old)");
             Tooltip.SetDefault("'Heart Plus Up!'\n" + "'Vintage tunes'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

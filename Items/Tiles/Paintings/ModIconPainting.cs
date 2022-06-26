@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("Calamity's Vanities");
             Tooltip.SetDefault("'IbanPlay and Starr'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

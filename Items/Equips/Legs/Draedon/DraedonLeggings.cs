@@ -9,6 +9,7 @@ namespace CalValEX.Items.Equips.Legs.Draedon
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Arsenal Soldier Leggings\n"+"CURRENTLY UNSTABLE\n"+"Well, not really, only the other pieces are,\n"+"but why would you use these without them?");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

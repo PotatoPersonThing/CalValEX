@@ -13,6 +13,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Shadow Cloth");
             Tooltip.SetDefault("Summons an assassin to lurk behind you.");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

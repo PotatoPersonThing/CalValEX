@@ -12,6 +12,7 @@ using static Terraria.ModLoader.ModContent;
 using CalValEX.Projectiles.NPCs;
 using System.Collections.Generic;
 using CalamityMod.CalPlayer;
+using Terraria.GameContent.Personalities;
 
 namespace CalValEX.NPCs.Oracle
 {
@@ -30,6 +31,13 @@ namespace CalValEX.NPCs.Oracle
             NPCID.Sets.AttackType[NPC.type] = 0;
             NPCID.Sets.AttackTime[NPC.type] = 90;
             NPCID.Sets.AttackAverageChance[NPC.type] = 30;
+
+            NPC.Happiness
+                .SetBiomeAffection<ForestBiome>(AffectionLevel.Like) // Example Person prefers the forest.
+                .SetBiomeAffection<SnowBiome>(AffectionLevel.Dislike) // Example Person dislikes the snow.
+                .SetNPCAffection(NPCID.BestiaryGirl, AffectionLevel.Like) // Loves living near the dryad.
+                .SetNPCAffection(NPCID.ArmsDealer, AffectionLevel.Dislike) // Hates living near the demolitionist.
+            ;
         }
 
         public override void SetDefaults()

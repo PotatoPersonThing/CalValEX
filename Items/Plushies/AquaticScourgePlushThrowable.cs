@@ -13,6 +13,7 @@ namespace CalValEX.Items.Plushies
         {
             DisplayName.SetDefault("Aquatic Scourge Plushie (Throwable)");
             Tooltip.SetDefault("Can be thrown");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

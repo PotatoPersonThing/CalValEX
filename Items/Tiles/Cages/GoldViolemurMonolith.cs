@@ -10,6 +10,7 @@ namespace CalValEX.Items.Tiles.Cages
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Gold Violemur Perch");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

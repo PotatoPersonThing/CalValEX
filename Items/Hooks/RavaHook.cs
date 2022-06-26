@@ -10,6 +10,7 @@ namespace CalValEX.Items.Hooks
         {
             DisplayName.SetDefault("Ravager Claw");
             Tooltip.SetDefault("Here to gouge out your eyes\nReach: 43\nLaunch Velocity: 18\nPull Velocity: 20");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

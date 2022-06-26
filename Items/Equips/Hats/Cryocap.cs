@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Cryocap");
             Tooltip.SetDefault("Brain Freeze!");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

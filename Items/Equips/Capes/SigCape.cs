@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Capes
         {
             DisplayName.SetDefault("Signus' Cloak");
             Tooltip.SetDefault("Mask yourself in the shadows");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("Blazing Conflict");
             Tooltip.SetDefault("Yharex\nFire vs fire");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

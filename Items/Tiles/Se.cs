@@ -13,6 +13,7 @@ namespace CalValEX.Items.Tiles
         {
             DisplayName.SetDefault("Tubeman of Entropy");
             Tooltip.SetDefault("'Embrace chaos'\n"+"Inflates into a flailing Sepulcher balloon\n");
+            SacrificeTotal = 1;
 
         }
 

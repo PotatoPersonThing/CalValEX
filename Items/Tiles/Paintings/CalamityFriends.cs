@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("Little Buddies");
             Tooltip.SetDefault("'Mochi'\nFriends!");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

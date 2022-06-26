@@ -9,6 +9,7 @@ namespace CalValEX.Items.Walls
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Plague Hive Wall");
+            SacrificeTotal = 400;
         }
 
         public override void SetDefaults()

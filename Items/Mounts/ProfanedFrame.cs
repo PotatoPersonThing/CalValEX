@@ -10,6 +10,7 @@ namespace CalValEX.Items.Mounts
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("Some sort of ancient machine? It seems to be missing pieces...");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

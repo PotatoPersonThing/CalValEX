@@ -15,6 +15,7 @@ namespace CalValEX.Items.Plushies
         {
             DisplayName.SetDefault("Calamitas Plushie (Throwable)");
             Tooltip.SetDefault("A dark artifact that must be handled with care\n" + "Can be thrown\n" + "Right click to make it spin while thrown");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

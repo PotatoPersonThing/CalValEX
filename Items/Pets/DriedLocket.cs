@@ -11,6 +11,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Dried Locket");
             Tooltip.SetDefault("'There's a worm wriggling in it'\n" + "Summons a Desert Pest");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

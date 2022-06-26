@@ -12,6 +12,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Acid Lamp");
             Tooltip.SetDefault("'There seems to be an egg inside'\n" + "Summons a Sulphurous Skater Nymph");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

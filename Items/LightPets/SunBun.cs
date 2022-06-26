@@ -14,6 +14,7 @@ namespace CalValEX.Items.LightPets
             DisplayName.SetDefault("Sun Bun");
             Tooltip
                 .SetDefault("The bun above all\n" + "Summons the Sun Bun\n" + "Provides a large amount of light in the abyss\n"+"Boosts Bunny spawnrates...");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

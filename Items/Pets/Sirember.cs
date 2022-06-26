@@ -13,6 +13,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault(":Sirember:");
             Tooltip.SetDefault("Alway Rember...\n" + "Summons the wrath of the tide goddess");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

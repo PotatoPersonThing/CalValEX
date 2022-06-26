@@ -11,6 +11,7 @@ namespace CalValEX.Items.Equips.Hats.Draedon
             DisplayName.SetDefault("Arsenal Soldier Helmet");
             Tooltip.SetDefault("Changes appearance depending on held item damage type\nCURRENTLY UNSTABLE");
             ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

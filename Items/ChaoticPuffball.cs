@@ -13,6 +13,7 @@ namespace CalValEX.Items
         {
             DisplayName.SetDefault("Chaotic Puffball");
             Tooltip.SetDefault("It probably won't detonate...");
+            SacrificeTotal = 5;
         }
 
         public override void SetDefaults()

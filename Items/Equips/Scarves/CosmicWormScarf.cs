@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Scarves
         {
             DisplayName.SetDefault("Cosmic Worm Scarf");
             Tooltip.SetDefault("'Spacetime Fashion!'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

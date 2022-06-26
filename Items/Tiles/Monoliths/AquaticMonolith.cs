@@ -10,6 +10,7 @@ namespace CalValEX.Items.Tiles.Monoliths
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("Emits dark briny mist when activated\n" + "Cannot be used if any other Calamity monoliths are currently active");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

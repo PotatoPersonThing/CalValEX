@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("Ohayou!");
             Tooltip.SetDefault("'Yharex'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

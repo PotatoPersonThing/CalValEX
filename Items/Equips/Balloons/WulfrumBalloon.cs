@@ -11,6 +11,7 @@ namespace CalValEX.Items.Equips.Balloons
         {
             DisplayName.SetDefault("Wulfrum Gyro Balloon");
             Tooltip.SetDefault("'I'm Using Tilt Controls!'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

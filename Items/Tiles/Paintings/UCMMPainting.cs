@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("Unofficial Calamity Mod Music");
             Tooltip.SetDefault("'IbanPlay'\n" + "'World of sound'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

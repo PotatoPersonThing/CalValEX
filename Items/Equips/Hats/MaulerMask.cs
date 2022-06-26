@@ -13,6 +13,7 @@ namespace CalValEX.Items.Equips.Hats
             DisplayName.SetDefault("Mauler Mask");
             Tooltip
                 .SetDefault("Mauling faces since the 80s");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

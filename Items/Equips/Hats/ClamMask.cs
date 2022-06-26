@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Clamitous Hat");
             Tooltip.SetDefault("Wait a second, thats a typo right?");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

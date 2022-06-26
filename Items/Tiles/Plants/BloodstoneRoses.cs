@@ -10,6 +10,7 @@ namespace CalValEX.Items.Tiles.Plants
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bloodstone Roses");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

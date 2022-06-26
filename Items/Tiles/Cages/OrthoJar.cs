@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles.Cages
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Orthocera in a Jar");
+            SacrificeTotal = 1;
         }
 
         // The tooltip for this item is automatically assigned from .lang files

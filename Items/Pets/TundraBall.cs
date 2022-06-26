@@ -10,6 +10,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Tundra Ball");
             Tooltip.SetDefault("A chew toy said to have the power to tame the angriest of dogs\n" + "Summons a very angry puppy");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

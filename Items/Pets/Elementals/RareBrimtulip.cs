@@ -11,6 +11,7 @@ namespace CalValEX.Items.Pets.Elementals
         {
             DisplayName.SetDefault("Rare Brimtulip");
             Tooltip.SetDefault("An elemental's favorite flower!\n" + "Summons a Rare Brimling");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

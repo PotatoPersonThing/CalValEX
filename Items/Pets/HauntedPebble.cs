@@ -13,6 +13,7 @@ namespace CalValEX.Items.Pets
             Tooltip
                 .SetDefault("'Spookay~'\n" + "Summons a Phantom Debris larvae");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 6));
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

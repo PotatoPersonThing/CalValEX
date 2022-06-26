@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles.Plants
             DisplayName.SetDefault("Acid Vine Planter");
             Tooltip
                 .SetDefault("You are baffled by how they are standing up");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

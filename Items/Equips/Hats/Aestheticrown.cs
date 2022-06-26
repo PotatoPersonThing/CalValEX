@@ -14,6 +14,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Aestheticrest");
             Tooltip.SetDefault("Biteki-Chan");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

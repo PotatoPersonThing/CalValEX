@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Hats
         {
             DisplayName.SetDefault("Medium Perforator Mask");
             Tooltip.SetDefault("'Worming its way to the top!'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

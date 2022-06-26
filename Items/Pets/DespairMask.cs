@@ -11,6 +11,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Despair Mask");
             Tooltip.SetDefault("It reeks of depression\n" + "Summons a sad rock");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

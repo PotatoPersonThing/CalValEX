@@ -9,6 +9,7 @@ namespace CalValEX.Items.Mounts.LimitedFlight
         {
             DisplayName.SetDefault("Floaty Carpet");
             Tooltip.SetDefault("A floating carpet made out of a Floaty!\n" + "Summons a floaty carpet that prevents fall damage when hovering");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

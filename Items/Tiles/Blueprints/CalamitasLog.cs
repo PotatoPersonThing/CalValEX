@@ -13,6 +13,7 @@ namespace CalValEX.Items.Tiles.Blueprints
             DisplayName.SetDefault("Calamitas Cloning Project Blueprint");
             Tooltip
                 .SetDefault("Do Not Distribute");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

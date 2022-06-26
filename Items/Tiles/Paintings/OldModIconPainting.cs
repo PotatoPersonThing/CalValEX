@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("Calamity's Vanities (old)");
             Tooltip.SetDefault("'Yharex'\n" + "'Old!!!'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

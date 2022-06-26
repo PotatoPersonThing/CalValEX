@@ -13,6 +13,7 @@ namespace CalValEX.Items.Tiles.Blueprints
             DisplayName.SetDefault("Orthocera Exile Plan");
             Tooltip
                 .SetDefault("Please Distribute");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

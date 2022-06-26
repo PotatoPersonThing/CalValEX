@@ -12,6 +12,7 @@ namespace CalValEX.Items.Equips.Balloons
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("'You're lucky I didn't make you get every other balloon for this.'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

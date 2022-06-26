@@ -8,6 +8,7 @@ namespace CalValEX.Items.Tiles.Balloons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Tied Box Balloon");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

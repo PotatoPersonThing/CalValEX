@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles.Statues
             DisplayName.SetDefault("Shrine of the Tides");
             Tooltip
                 .SetDefault("My gift to the Water Goddess");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

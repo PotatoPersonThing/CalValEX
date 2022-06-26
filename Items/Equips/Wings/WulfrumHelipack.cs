@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Wings
         public override void SetStaticDefaults()
         {
             Tooltip.SetDefault("Extremely faulty\n" + "Horizontal speed: 0.8\n" + "Acceleration multiplier: 0.8\n" + "Flight time: 5");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

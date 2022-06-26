@@ -11,6 +11,7 @@ namespace CalValEX.Items
 		{
 			DisplayName.SetDefault("Compensation");
 			Tooltip.SetDefault("Can be sold");
+			SacrificeTotal = 99;
 		}
 
 		public override void SetDefaults()

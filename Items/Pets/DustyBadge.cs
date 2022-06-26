@@ -11,6 +11,7 @@ namespace CalValEX.Items.Pets
         {
             DisplayName.SetDefault("Dusty Badge");
             Tooltip.SetDefault("Looks tasty\n" + "Summons the Great Sand Shark's Great Grandson");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

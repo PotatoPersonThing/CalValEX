@@ -13,6 +13,7 @@ namespace CalValEX.Items.Equips.Balloons
         {
             DisplayName.SetDefault("XS Leash-01");
             Tooltip.SetDefault("'Hunting has never been easier'");
+            SacrificeTotal = 1;
         }
         public override void SetDefaults()
         {

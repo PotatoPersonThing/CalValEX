@@ -16,6 +16,7 @@ namespace CalValEX.Items
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             ItemID.Sets.ItemIconPulse[Item.type] = false;
+            SacrificeTotal = 25;
         }
 
         public override void SetDefaults()

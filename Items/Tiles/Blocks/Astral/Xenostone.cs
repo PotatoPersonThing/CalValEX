@@ -8,7 +8,8 @@ namespace CalValEX.Items.Tiles.Blocks.Astral
     {
         public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Xenostone");
-		}
+            SacrificeTotal = 100;
+        }
 
         public override void SetDefaults()
         {

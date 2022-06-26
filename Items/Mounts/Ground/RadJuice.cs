@@ -12,6 +12,7 @@ namespace CalValEX.Items.Mounts.Ground
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Radioactive Carton");
+            SacrificeTotal = 1;
             Tooltip.SetDefault("You probably shouldn't drink this\nSummons a Nuclear Terror mount\nReduces damage and health when a boss is nearby");
         }
 

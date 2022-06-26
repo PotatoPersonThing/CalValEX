@@ -10,6 +10,7 @@ namespace CalValEX.Items.Equips.Shirts
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Fallen Paladin's Plate Mail");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()
@@ -20,17 +21,5 @@ namespace CalValEX.Items.Equips.Shirts
             Item.rare = 7;
             Item.vanity = true;
         }
-       /* public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-           
-            recipe.AddIngredient(calamityMod.ItemType("CalamityDust"), 2);
-            recipe.AddIngredient(calamityMod.ItemType("CoreofChaos"), 2);
-            recipe.AddIngredient(calamityMod.ItemType("CruptixBar"), 3);
-            recipe.AddIngredient((ItemID.HallowedBar), 3);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }*/
     }
 }

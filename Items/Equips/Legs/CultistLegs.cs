@@ -9,6 +9,7 @@ namespace CalValEX.Items.Equips.Legs
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Cultist Assassin Pants");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

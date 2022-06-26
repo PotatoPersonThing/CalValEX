@@ -12,6 +12,7 @@ namespace CalValEX.Items.Tiles
             DisplayName.SetDefault("Sailfish Trophy");
             Tooltip
                 .SetDefault("'What if it were you \n" + "hanging up on this wall?'");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

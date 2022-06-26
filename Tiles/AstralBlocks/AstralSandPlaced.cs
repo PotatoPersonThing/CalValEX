@@ -27,6 +27,7 @@ namespace CalValEX.Tiles.AstralBlocks
 			AddMapEntry(new Color(104, 127, 164));
 			ItemDrop = ModContent.ItemType<AstralSand>();
 			Main.tileBlendAll[this.Type] = true;
+			TileID.Sets.CanBeDugByShovel[Type] = true;
 		}
 		public override void NumDust(int i, int j, bool fail, ref int num)
 		{

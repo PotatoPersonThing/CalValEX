@@ -11,6 +11,7 @@ namespace CalValEX.Items.Pets
             DisplayName.SetDefault("Cursed Lockpick");
             Tooltip
                 .SetDefault("Crusty\n" + "Summons a Rusty Mimic pet");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -8,7 +8,7 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Orthocera Hatchling");
+            SacrificeTotal = 5;
         }
 
         public override void SetDefaults()

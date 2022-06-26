@@ -12,6 +12,7 @@ namespace CalValEX.Items.LightPets
             DisplayName.SetDefault("Antarctic Essence");
             Tooltip.SetDefault("UNOBTAINABLE\n"+"Does nothing for now\n"/* + "Provides a moderate amount of light in the abyss"*/);
             ItemID.Sets.ItemNoGravity[Item.type] = true;
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

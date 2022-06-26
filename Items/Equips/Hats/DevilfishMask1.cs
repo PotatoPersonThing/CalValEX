@@ -11,6 +11,7 @@ namespace CalValEX.Items.Equips.Hats
             DisplayName.SetDefault("Curly Devil Fish Mask");
             Tooltip
                 .SetDefault("Edgy");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

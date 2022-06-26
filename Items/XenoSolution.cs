@@ -11,6 +11,7 @@ namespace CalValEX.Items
 			DisplayName.SetDefault("Blighted Astral Solution");
 			Tooltip.SetDefault("Used by the Clentaminator"
 				+ "\nSpreads the Astral Blight");
+			SacrificeTotal = 99;
 		}
 
 		public override void SetDefaults() {

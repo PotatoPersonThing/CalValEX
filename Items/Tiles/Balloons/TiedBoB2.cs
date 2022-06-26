@@ -10,6 +10,7 @@ namespace CalValEX.Items.Tiles.Balloons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Tied Water Balloons");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

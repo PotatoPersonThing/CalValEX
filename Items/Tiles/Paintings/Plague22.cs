@@ -9,6 +9,7 @@ namespace CalValEX.Items.Tiles.Paintings
         {
             DisplayName.SetDefault("22");
             Tooltip.SetDefault("'Willow'\n22");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

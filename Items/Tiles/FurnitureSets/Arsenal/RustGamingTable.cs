@@ -11,6 +11,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Arsenal
         {
             DisplayName.SetDefault("Lab Gaming Table");
             Tooltip.SetDefault("Game On!");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

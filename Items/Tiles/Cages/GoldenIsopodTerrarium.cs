@@ -13,6 +13,7 @@ namespace CalValEX.Items.Tiles.Cages
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Gold Isopod Cage");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

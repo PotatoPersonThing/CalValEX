@@ -10,6 +10,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Auric
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Auric Piano");
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults()

@@ -19,6 +19,7 @@ namespace CalValEX.Tiles.AstralBlocks
             DustType = ModContent.DustType<AstralDust>();
             AddMapEntry(new Color(40, 0, 50));
             Main.tileBlendAll[this.Type] = true;
+            TileID.Sets.CanBeDugByShovel[Type] = true;
         }
 
         /*public override void ChangeWaterfallStyle(ref int style) {
