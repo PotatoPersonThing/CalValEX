@@ -44,7 +44,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
         }
         public override void ModifySleepingTargetInfo(int i, int j, ref TileRestingInfo info)
         {
-            info.VisualOffset.Y += 4f;
+            info.VisualOffset.Y -= 14f;
         }
 
         public override bool RightClick(int i, int j)

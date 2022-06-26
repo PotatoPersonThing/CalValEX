@@ -46,7 +46,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
         }
         public override void ModifySleepingTargetInfo(int i, int j, ref TileRestingInfo info)
         {
-            info.VisualOffset.Y += 4f;
+            info.VisualOffset.Y -= 2f;
         }
 
         public override bool RightClick(int i, int j)
