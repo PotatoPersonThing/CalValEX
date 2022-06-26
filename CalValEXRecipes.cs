@@ -672,6 +672,7 @@ namespace CalValEX
 			WallRecipe(ItemType<Xenostone>(), ItemType<Items.Walls.Astral.XenostoneWall>());
 			WallRecipe(ItemType<AstralPlating>(), ItemType<AstralPlatingWall>());
 			WallRecipe(ItemType<AstralPearlBlock>(), ItemType<AstralPearlWall>());
+			WallRecipe(ItemType<CalamityMod.Items.Materials.Bloodstone>(), ItemType<BloodstoneWall>());
 			WallRecipe(ItemType<ChiseledBloodstone>(), ItemType<ChiseledBloodstoneBrickWall>());
 			WallRecipe(ItemType<PhantowaxBlock>(), ItemType<PhantowaxWall>());
 			WallRecipe(ItemType<EidolicSlab>(), ItemType<EidolicSlabWall>());
@@ -1289,6 +1290,19 @@ namespace CalValEX
 			{
 				Recipe recipe = Mod.CreateRecipe(ItemType<PhantowaxBlock>());
 				recipe.AddIngredient(ItemType<PhantowaxPlatformItem>(), 2);
+				recipe.Register();
+			}
+			//Orthocera torture
+			{
+				Recipe recipe = Mod.CreateRecipe(ItemType<BloodOrb>(), 10);
+				recipe.AddIngredient(ItemType<Help>());
+				recipe.AddTile(TileID.MeatGrinder);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Mod.CreateRecipe(ItemType<CalamityMod.Items.Potions.HadalStew>());
+				recipe.AddIngredient(ItemType<Help>());
+				recipe.AddTile(TileID.CookingPots);
 				recipe.Register();
 			}
 		}
