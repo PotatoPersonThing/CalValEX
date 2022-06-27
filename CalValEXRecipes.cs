@@ -485,6 +485,14 @@ namespace CalValEX
 				recipe.Register();
 			}
 			{
+				Recipe recipe = Mod.CreateRecipe(ItemType<RepurposedMonitor>());
+				recipe.AddIngredient(ItemType<DubiousPlating>(), 10);
+				recipe.AddIngredient(ItemType<MysteriousCircuitry>(), 10);
+				recipe.AddRecipeGroup("Any Plate", 10);
+				recipe.AddTile(TileID.Anvils);
+				recipe.Register();
+			}
+			{
 				Recipe recipe = Mod.CreateRecipe(ItemType<IonizedJellyCrystal>());
 				recipe.AddIngredient(ItemType<SlimeDeitysSoul>());
 				recipe.AddIngredient(ItemType<BlightedGel>(), 20);

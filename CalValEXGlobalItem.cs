@@ -715,8 +715,13 @@ namespace CalValEX
                         }
 
                         if (arg == ModContent.ItemType<DraedonBag>())
+                    {
+                        if (!CalValEXConfig.Instance.ConfigBossBlocks)
                         {
-                            if (CalamityMod.DownedBossSystem.downedThanatos)
+                            player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPlating>(),
+                                Main.rand.Next(205, 335));
+                        }
+                        if (CalamityMod.DownedBossSystem.downedThanatos)
                             {
                                 if (Main.rand.NextFloat() < 0.5f)
                                 {
@@ -773,16 +778,18 @@ namespace CalValEX
                             }
                         }
                     }
-                /*if (catalyst != null)
+                Mod catalyst;
+                ModLoader.TryGetMod("CatalystMod", out catalyst);
+                if (catalyst != null)
                 {
-                    if (arg == catalyst.ItemType("AstrageldonBag"))
+                    if (arg == catalyst.Find<ModItem>("AstrageldonBag").Type)
                     {
                         if (Main.rand.NextFloat() < 0.3f)
                         {
-                            player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<JellyBottle>());
+                            player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SpaceJunk>());
                         }
                     }
-                }*/
+                }
             }
             //I'm too lazy to merge these two properly so here's some spaghetti
             if (!CalValEXConfig.Instance.DisableVanityDrops)

@@ -10,6 +10,7 @@ namespace CalValEX.Items.Tiles
 		{
 			DisplayName.SetDefault("Music Box (Astral Blight)");
 			SacrificeTotal = 1;
+			MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, "Sounds/Music/AstralBlight"), ModContent.ItemType<AstralMusicBox>(), ModContent.TileType<AstralMusicBoxPlaced>());
 		}
 
 		public override void SetDefaults()

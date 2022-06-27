@@ -43,6 +43,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using System.IO;
+using static CalamityMod.NPCs.SlimeGod.SlimeGodCore;
 
 namespace CalValEX
 {
@@ -595,38 +596,43 @@ namespace CalValEX
                 //Slime Gods...
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodCore>())
                 {
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<IonizedJellyCrystal>(), 50);
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeGodMask>(), 7);
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeDeitysSoul>(), 3);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(), 1, 155, 265);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<IonizedJellyCrystal>(), 50);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeGodMask>(), 7);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeDeitysSoul>(), 3);
                 }
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SplitCrimulanSlimeGod>())
                 {
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<IonizedJellyCrystal>(), 50);
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeGodMask>(), 7);
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeDeitysSoul>(), 3);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(), 1, 155, 265);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<IonizedJellyCrystal>(), 50);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeGodMask>(), 7);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeDeitysSoul>(), 3);
                 }
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SplitEbonianSlimeGod>())
                 {
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<IonizedJellyCrystal>(), 50);
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeGodMask>(), 7);
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeDeitysSoul>(), 3);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(), 1, 155, 265);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<IonizedJellyCrystal>(), 50);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeGodMask>(), 7);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeDeitysSoul>(), 3);
                 }
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SlimeGod.CrimulanSlimeGod>())
                 {
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<IonizedJellyCrystal>(), 50);
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeGodMask>(), 7);
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeDeitysSoul>(), 3);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(), 1, 155, 265);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<IonizedJellyCrystal>(), 50);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeGodMask>(), 7);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeDeitysSoul>(), 3);
                 }
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SlimeGod.EbonianSlimeGod>())
                 {
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<IonizedJellyCrystal>(), 50);
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeGodMask>(), 7);
-                    npcLoot.AddIf(() => CalamityMod.NPCs.SlimeGod.SlimeGodCore.LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeDeitysSoul>(), 3);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(), 1, 155, 265);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<IonizedJellyCrystal>(), 50);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeGodMask>(), 7);
+                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeDeitysSoul>(), 3);
                 }
                 //Cryogen
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Cryogen.Cryogen>())
@@ -643,6 +649,7 @@ namespace CalValEX
                 //Brimmy
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.BrimstoneElemental.BrimstoneElemental>())
                 {
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.BrimstoneSlag>(), 1, 155, 265);
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<BrimmySpirit>(), 10));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<BrimmyBody>(), 10));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<FoilSpoon>(), 20));
@@ -686,6 +693,7 @@ namespace CalValEX
                 //PBG
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.PlaguebringerGoliath.PlaguebringerGoliath>())
                 {
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurniturePlagued.PlaguedContainmentBrick>(), 1, 155, 265);
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<InfectedController>(), 5));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<PlaguePack>(), 5));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<PlaguebringerGoliathPlush>(), 4);
@@ -706,7 +714,7 @@ namespace CalValEX
                         normalOnly.Add(DropHelper.CalamityStyle(DropHelper.NormalWeaponDropRateFraction, items));
                     }
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ScavaHook>(), 15));
-                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Necrostone>(), 1, 100, 300));
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<Necrostone>(), 1, 155, 265);
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<RavagerPlush>(), 4);
                 }
                 //Deus
@@ -735,6 +743,7 @@ namespace CalValEX
                         };
                         normalOnly.Add(DropHelper.CalamityStyle(DropHelper.NormalWeaponDropRateFraction, items));
                     }
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks && DownedBossSystem.downedYharon, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureSilva.SilvaCrystal>(), 1, 155, 265);
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SparrowMeat>(), 20));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<BumblefuckPlush>(), 4);
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<ExtraFluffyFeather>(), 10);
@@ -744,6 +753,7 @@ namespace CalValEX
                 //Providence
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Providence.Providence>())
                 {
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureProfaned.ProfanedRock>(), 1, 155, 265);
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProviCrystal>(), 20));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProfanedHeart>(), 3));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<ProvidencePlush>(), 4);
@@ -751,6 +761,7 @@ namespace CalValEX
                 //Storm Weaver
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.StormWeaver.StormWeaverHead>())
                 {
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks && DownedBossSystem.downedDoG, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(), 1, 155, 265);
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<StormBandana>(), 10));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ArmoredScrap>(), 6));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<StormMedal>(), 6));
@@ -772,6 +783,7 @@ namespace CalValEX
                         };
                         normalOnly.Add(DropHelper.CalamityStyle(DropHelper.NormalWeaponDropRateFraction, items));
                     }
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks && DownedBossSystem.downedDoG, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(), 1, 155, 265);
                     npcLoot.AddIf(() => junkoReference, ModContent.ItemType<SuspiciousLookingChineseCrown>());
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<SignusPlush>(), 4);
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 250));
@@ -779,6 +791,7 @@ namespace CalValEX
                 //CV
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.CeaselessVoid.CeaselessVoid>())
                 {
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks && DownedBossSystem.downedDoG, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(), 1, 155, 265);
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<VoidWings>(), 10));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<OldVoidWings>(), 15));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<MirrorMatter>(), 3));
@@ -788,6 +801,8 @@ namespace CalValEX
                 //Polterghast
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Polterghast.Polterghast>())
                 {
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStratus.StratusBricks>(), 2, 155, 265);
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<PhantowaxBlock>(), 2, 155, 265);
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Polterhook>(), 20));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<ToyScythe>(), 3);
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<PolterghastPlush>(), 4);
@@ -831,6 +846,7 @@ namespace CalValEX
                 //Ares
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.ExoMechs.Ares.AresBody>())
                 {
+                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPlating>(), 1, 155, 265);
                     npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>(), 3);
                     npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonBody>(), 5);
                     npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonLegs>(), 5);
@@ -842,6 +858,7 @@ namespace CalValEX
                 //Thanatos
                 if (npc.type == ModContent.NPCType < CalamityMod.NPCs.ExoMechs.Thanatos.ThanatosHead> ())
                 {
+                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPlating>(), 1, 155, 265);
                     npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<XMLightningHook>(), 3);
                     npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonBody>(), 5);
                     npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonLegs>(), 5);
@@ -853,6 +870,7 @@ namespace CalValEX
                 //Apollo
                 if (npc.type == ModContent.NPCType < CalamityMod.NPCs.ExoMechs.Apollo.Apollo> ())
                 {
+                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPlating>(), 1, 155, 265);
                     npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<ArtemisBalloonSmall>(), 6);
                     npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<ApolloBalloonSmall>(), 6);
                     npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonBody>(), 5);

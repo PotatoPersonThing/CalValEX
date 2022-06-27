@@ -22,7 +22,7 @@ using CalValEX.Items.Equips.Transformations;
 using CalValEX.Items.Equips.Wings;
 using CalValEX.Items.Equips.Blanks;
 using CalValEX.Items.Hooks;
-//using CalValEX.Items.LightPets;
+using CalValEX.Items.LightPets;
 using CalValEX.Items.Mounts;
 using CalValEX.Items.Mounts.LimitedFlight;
 using CalValEX.Items.Mounts.InfiniteFlight;
@@ -31,16 +31,13 @@ using CalValEX.Items.Walls.Astral;
 using CalValEX.Items.Walls;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Plushies;
-//using CalValEX.Items.Pets.Elementals;
+using CalValEX.Items.Pets.Elementals;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
 using CalValEX.Items.Tiles.Plushies;
 using CalValEX.NPCs.Oracle;
 using CalValEX.NPCs.JellyPriest;
-/*using CalValEX.Items.Tiles.Blocks.Astral;
-using CalValEX.Tiles.MiscFurniture;
-using CalValEX.Items.Tiles.FurnitureSets.Astral;*/
 using CalValEX.Items.Equips.Legs.Draedon;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
@@ -51,7 +48,16 @@ using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.Localization;
 using ReLogic.Content;
-//using CalamityMod;
+using CalamityMod;
+using CalamityMod.Items.Accessories;
+using CalamityMod.Items.Placeables.Plates;
+using CalamityMod.Items.Placeables;
+using CalamityMod.Items.Placeables.FurnitureStatigel;
+using CalamityMod.Items.Placeables.FurnitureOtherworldly;
+using CalamityMod.Items.Placeables.FurnitureStratus;
+using CalamityMod.Items.Placeables.FurniturePlagued;
+using CalamityMod.Items.Placeables.FurnitureProfaned;
+using CalamityMod.Items.Placeables.FurnitureSilva;
 
 namespace CalValEX
 {
@@ -68,6 +74,8 @@ namespace CalValEX
         public static CalValEX instance;
         public Mod herosmod;
         public Mod ortho;
+        public Mod bossChecklist;
+        public Mod cata;
 
         public const string heropermission = "CalValEX";
         public const string heropermissiondisplayname = "Calamity's Vanities";
@@ -94,6 +102,7 @@ namespace CalValEX
             instance = this;
             ModLoader.TryGetMod("HEROsMod", out herosmod);
             ModLoader.TryGetMod("CalValPlus", out ortho);
+            ModLoader.TryGetMod("BossChecklist", out bossChecklist);
 
             DateTime dateTime = DateTime.Now;
             currentDate = dateTime.ToString("dd/MM/yyyy");
@@ -108,11 +117,8 @@ namespace CalValEX
 
             if (Main.dedServ)
                 return;
-            //Filters.Scene["CalValEX:AstralBiome"] = new Filter(new AstralSkyData("FilterMiniTower").UseColor(Color.Purple).UseOpacity(0.15f), EffectPriority.VeryHigh);
             SkyManager.Instance["CalValEX:AstralBiome"] = new AstralSky();
 
-            MusicLoader.AddMusicBox(CalValEX.instance, MusicLoader.GetMusicSlot(CalValEX.instance, "Sounds/Music/AstralBlight"), ModContent.ItemType<AstralMusicBox>(), ModContent.TileType<AstralMusicBoxPlaced>());
-            MusicLoader.AddMusicBox(CalValEX.instance, MusicLoader.GetMusicSlot(CalValEX.instance, "Sounds/Music/Meldosaurus"), ModContent.ItemType<MeldosaurusMusicBox>(), ModContent.TileType<MeldosaurusMusicBoxPlaced>());
         }
 
         public override void Unload()
@@ -120,7 +126,9 @@ namespace CalValEX
             instance = null;
             herosmod = null;
             ortho = null;
-           // infernum = null;
+            bossChecklist = null;
+            cata = null;
+            // infernum = null;
             hasPermission = false;
 
             currentDate = null;
@@ -144,8 +152,8 @@ namespace CalValEX
         public override void PostSetupContent()
         {
             //Tooltip changes
-            /*Mod cal = ModLoader.GetMod("CalamityMod");
-            cal.GetItem("LaboratoryConsoleItem").Tooltip
+            Mod cal = ModLoader.GetMod("CalamityMod");
+            /*cal.GetItem("LaboratoryConsoleItem").Tooltip
                 .AddTranslation(GameCulture.English, "Can be used to print blueprints");
             cal.GetItem("HeartoftheElements").Tooltip.AddTranslation(GameCulture.English, "The heart of the world\n" +
                 "Summons all elementals to protect you\n" + "Equipping this item in a vanity slot summons passive versions of the Elementals");
@@ -165,11 +173,11 @@ namespace CalValEX
             cal.GetItem("FungalClump").Tooltip.AddTranslation(GameCulture.English, "Summons a fungal clump to fight for you\n" +
                        "The clump latches onto enemies and steals their life for you\n" + "Equipping this item in a vanity slot summons a passive version");
             */
-            /*if ((CalValEX.day == 1 && CalValEX.month == 4) || ModLoader.GetMod("CalValPlus") != null)
+            /*if (AprilFoolDay)
             {
                 cal.GetItem("TheEmpyrean").Tooltip.AddTranslation(GameCulture.English, "70% chance to not consume gel\n" + "Keep away from the jester...");
-            }
-            cal.Call("MakeItemExhumable", ModContent.ItemType<CalArtifact>(), ModContent.ItemType<CalamitousSoulArtifact>());*/
+            }*/
+            cal.Call("MakeItemExhumable", ModContent.ItemType<RottingCalamitousArtifact>(), ModContent.ItemType<CalamitousSoulArtifact>());
 
             //Census support
             ModLoader.TryGetMod("Census", out Mod censusMod);
@@ -185,42 +193,40 @@ namespace CalValEX
             //ChristmasTextureChange.Load();
 
             //Boss log support
-            /*Mod catal = ModLoader.GetMod("CatalystMod");
-            Mod bossChecklist = ModLoader.GetMod("BossChecklist");
             if (bossChecklist != null)
             {
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Desert Scourge",
                     new List<int>
                     {
                         ModContent.ItemType<DesertScourgePlush>(), ModContent.ItemType<DesertMedallion>(),
-                        ModContent.ItemType<DriedMandible>(), ModContent.ItemType<SandTooth>()
+                        ModContent.ItemType<DriedLocket>(), ModContent.ItemType<SlightlyMoistbutalsoSlightlyDryLocket>()
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Giant Clam",
                     new List<int> { ModContent.ItemType<ClamMask>(), ModContent.ItemType<ClamHermitMedallion>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Crabulon",
                     new List<int> { ModContent.ItemType<CrabulonPlush>(), ModContent.ItemType<ClawShroom>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Hive Mind",
-                    new List<int> { ModContent.ItemType<HiveMindPlush>(), ModContent.ItemType<MissingFang>() });
+                    new List<int> { ModContent.ItemType<HiveMindPlush>(), ModContent.ItemType<RottenKey>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "The Perforators",
                     new List<int> { ModContent.ItemType<PerforatorPlush>(),
-                        ModContent.ItemType<DigestedWormFood>(), ModContent.ItemType<SmallWorm>(),
+                        ModContent.ItemType<MeatyWormTumor>(), ModContent.ItemType<SmallWorm>(),
                         ModContent.ItemType<MidWorm>(), ModContent.ItemType<BigWorm>()});
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Slime God",
-                    new List<int> { ModLoader.GetMod("CalamityMod").ItemType("StatigelBlock") });
+                    new List<int> { ModContent.ItemType<StatigelBlock>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Slime God",
-                    new List<int> { ModContent.ItemType<SlimeGodMask>(), ModContent.ItemType<SlimeGodPlush>(), ModContent.ItemType<ImpureStick>() });
+                    new List<int> { ModContent.ItemType<SlimeGodMask>(), ModContent.ItemType<SlimeGodPlush>(), ModContent.ItemType<SlimeDeitysSoul>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Cryogen",
-                    new List<int> { ModContent.ItemType<CryogenPlush>(), ModContent.ItemType<CryoStick>() });
+                    new List<int> { ModContent.ItemType<CryogenPlush>(), ModContent.ItemType<CoolShades>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Aquatic Scourge",
-                    new List<int> { ModContent.ItemType<AquaticScourgePlush>(), ModContent.ItemType<AquaticHide>() });
+                    new List<int> { ModContent.ItemType<AquaticScourgePlush>(), ModContent.ItemType<MoistLocket>() });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Brimstone Elemental",
-                    new List<int> { ModLoader.GetMod("CalamityMod").ItemType("BrimstoneSlag") });
+                    new List<int> { ModContent.ItemType<BrimstoneSlag>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Brimstone Elemental",
                     new List<int>
                     {
                         ModContent.ItemType<BrimstoneElementalPlush>(), ModContent.ItemType<BrimmyBody>(),
                         ModContent.ItemType<BrimmySpirit>(), ModContent.ItemType<FoilSpoon>(),
-                        ModContent.ItemType<brimtulip>()
+                        ModContent.ItemType<RareBrimtulip>()
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Calamitas",
                     new List<int> { ModContent.ItemType<ClonePlush>(), ModContent.ItemType<Calacirclet>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
@@ -229,16 +235,16 @@ namespace CalValEX
                     {
                         ModContent.ItemType<AnahitaPlush>(), ModContent.ItemType<LeviathanPlush>(),
                         ModContent.ItemType<LeviWings>(), ModContent.ItemType<FoilAtlantis>(), ModContent.ItemType<LeviathanEgg>(),
-                        ModContent.ItemType<WetBubble>()
+                        ModContent.ItemType<StrangeMusicNote>()
                     });
                 //Remove pet from Aureus' boss log if Catalyst is enabled
-                if (catal == null)
+                if (cata == null)
                 {
                     bossChecklist.Call("AddToBossCollection", "CalamityMod", "Astrum Aureus",
                         new List<int>
                         {
-                        ModContent.ItemType<AstrumAureusPlush>(), ModContent.ItemType<AureusShield>(), ModContent.ItemType<AstDie>(),
-                        ModContent.ItemType<JellyBottle>(), ModContent.ItemType<AncientAuricTeslaHelm>()
+                        ModContent.ItemType<AstrumAureusPlush>(), ModContent.ItemType<AureusShield>(), ModContent.ItemType<AstralInfectedIcosahedron>(),
+                        ModContent.ItemType<SpaceJunk>(), ModContent.ItemType<AncientAuricTeslaHelm>()
                         });
                 }
                 else
@@ -246,11 +252,11 @@ namespace CalValEX
                     bossChecklist.Call("AddToBossCollection", "CalamityMod", "Astrum Aureus",
                         new List<int>
                         {
-                        ModContent.ItemType<AstrumAureusPlush>(), ModContent.ItemType<AureusShield>(), ModContent.ItemType<AstDie>(), ModContent.ItemType<AncientAuricTeslaHelm>()
+                        ModContent.ItemType<AstrumAureusPlush>(), ModContent.ItemType<AureusShield>(), ModContent.ItemType<AstralInfectedIcosahedron>(), ModContent.ItemType<AncientAuricTeslaHelm>()
                         });
                 }
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Plaguebringer Goliath",
-                    new List<int> { ModLoader.GetMod("CalamityMod").ItemType("PlaguedPlate"), ModContent.ItemType<PlagueHiveWand>() });
+                    new List<int> { ModContent.ItemType<PlaguedContainmentBrick>(), ModContent.ItemType<PlagueHiveWand>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Plaguebringer Goliath",
                     new List<int>
                     {
@@ -264,12 +270,12 @@ namespace CalValEX
                     {
                         ModContent.ItemType<RavagerPlush>(), ModContent.ItemType<SkullBalloon>(),
                         ModContent.ItemType<RavaHook>(), ModContent.ItemType<ScavaHook>(),
-                        ModContent.ItemType<AncientChoker>()
+                        ModContent.ItemType<SkullCluster>()
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Astrum Deus",
                     new List<int> {
                         ModContent.ItemType<AstrumDeusPlush>(), ModContent.ItemType<AstBandana>(),
-                        ModContent.ItemType<AstralStar>() });
+                        ModContent.ItemType<Geminga>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Profaned Guardians",
                     new List<int>
                     {
@@ -277,54 +283,54 @@ namespace CalValEX
                         ModContent.ItemType<ProfanedBattery>(), ModContent.ItemType<ProfanedWheels>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Dragonfolly",
-                    new List<int> { ModLoader.GetMod("CalamityMod").ItemType("SilvaCrystal") });
+                    new List<int> { ModContent.ItemType<SilvaCrystal>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Dragonfolly",
                     new List<int>
                     {
                         ModContent.ItemType<BumblefuckPlush>(), ModContent.ItemType<FollyWings>(),
-                        ModContent.ItemType<Birbhat>(), ModContent.ItemType<FollyWing>(),
-                        ModContent.ItemType<OrbSummon>(), ModContent.ItemType<FluffyFeather>(),
-                        ModContent.ItemType<SparrowMeat>(), ModContent.ItemType<FluffyFur>(),
+                        ModContent.ItemType<Birbhat>(), ModContent.ItemType<DocilePheromones>(),
+                        ModContent.ItemType<TheDragonball>(), ModContent.ItemType<ExtraFluffyFeather>(),
+                        ModContent.ItemType<SparrowMeat>(), ModContent.ItemType<ExtraFluffyFeatherClump>(),
                         ModContent.ItemType<AncientAuricTeslaHelm>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Providence",
-                    new List<int> { ModLoader.GetMod("CalamityMod").ItemType("ProfanedRock") });
+                    new List<int> { ModContent.ItemType<ProfanedRock>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Providence",
                     new List<int>
                     {
                         ModContent.ItemType<ProvidencePlush>(), ModContent.ItemType<ProviCrystal>(),
-                        ModContent.ItemType<ProShard>()
+                        ModContent.ItemType<ProfanedHeart>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Ceaseless Void",
-                    new List<int> { ModLoader.GetMod("CalamityMod").ItemType("OccultStone") });
+                    new List<int> { ModContent.ItemType<OtherworldlyStone>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Ceaseless Void",
                     new List<int>
                     {
                         ModContent.ItemType<CeaselessVoidPlush>(), ModContent.ItemType<VoidWings>(),
-                        ModContent.ItemType<OldVoidWings>(), ModContent.ItemType<VoidShard>(),
+                        ModContent.ItemType<OldVoidWings>(), ModContent.ItemType<MirrorMatter>(),
                         ModContent.ItemType<AncientAuricTeslaHelm>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Storm Weaver",
-                    new List<int> { ModLoader.GetMod("CalamityMod").ItemType("OccultStone") });
+                    new List<int> { ModContent.ItemType<OtherworldlyStone>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Storm Weaver",
                     new List<int>
                     {
                         ModContent.ItemType<StormWeaverPlush>(), ModContent.ItemType<StormBandana>(),
-                        ModContent.ItemType<ShellScrap>(), ModContent.ItemType<WeaverFlesh>(),
+                        ModContent.ItemType<ArmoredScrap>(), ModContent.ItemType<StormMedal>(),
                         ModContent.ItemType<AncientAuricTeslaHelm>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Signus",
-                    new List<int> { ModLoader.GetMod("CalamityMod").ItemType("OccultStone") });
+                    new List<int> { ModContent.ItemType<OtherworldlyStone>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Signus",
                     new List<int>
                     {
                         ModContent.ItemType<SignusPlush>(), ModContent.ItemType<SignusEmblem>(),
                         ModContent.ItemType<SigCape>(), ModContent.ItemType<SignusNether>(),
-                        ModContent.ItemType<SigCloth>(), ModContent.ItemType<SignusBalloon>(), ModContent.ItemType<JunkoHat>(),
+                        ModContent.ItemType<ShadowCloth>(), ModContent.ItemType<SignusBalloon>(), ModContent.ItemType<SuspiciousLookingChineseCrown>(),
                         ModContent.ItemType<AncientAuricTeslaHelm>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Polterghast",
-                    new List<int> { ModLoader.GetMod("CalamityMod").ItemType("StratusBricks"), ModContent.ItemType<PhantowaxBlock>() });
+                    new List<int> { ModContent.ItemType<StratusBricks>(), ModContent.ItemType<PhantowaxBlock>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Polterghast",
                     new List<int> {
                         ModContent.ItemType<PolterghastPlush>(),
@@ -341,7 +347,7 @@ namespace CalValEX
                     {
                         ModContent.ItemType<DevourerofGodsPlush>(),
                         ModContent.ItemType<CosmicWormScarf>(), ModContent.ItemType<RapturedWormScarf>(),
-                        ModContent.ItemType<DogPetItem>(), ModContent.ItemType<AncientAuricTeslaHelm>()
+                        ModContent.ItemType<CosmicRapture>(), ModContent.ItemType<AncientAuricTeslaHelm>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Yharon",
                     new List<int> { ModContent.ItemType<Termipebbles>() });
@@ -349,14 +355,14 @@ namespace CalValEX
                     new List<int>
                     {
                         ModContent.ItemType<YharonPlush>(), ModContent.ItemType<JunglePhoenixWings>(),
-                        ModContent.ItemType<YharonShackle>(), ModContent.ItemType<NuggetBiscuit>(), ModContent.ItemType<YharonsAnklet>(),
+                        ModContent.ItemType<YharonShackle>(), ModContent.ItemType<NuggetinaBiscuit>(), ModContent.ItemType<YharonsAnklet>(),
                         ModContent.ItemType<AncientAuricTeslaHelm>(),
                         ModContent.ItemType<DemonshadeHood>(), ModContent.ItemType<DemonshadeRobe>(), ModContent.ItemType<DemonshadePants>()
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Supreme Calamitas",
                     new List<int> { ModContent.ItemType<CalamitasFumo>(), ModContent.ItemType<GruelingMask>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Exo Mechs",
-                    new List<int> { ModContent.ItemType<XMLightningHook>() });
+                    new List<int> { ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPlating>(), ModContent.ItemType<XMLightningHook>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Exo Mechs",
                     new List<int> { ModContent.ItemType<DraedonBody>(), ModContent.ItemType<DraedonLegs>(), ModContent.ItemType<DraedonPlush>(), ModContent.ItemType<AresPlush>(), ModContent.ItemType<ApolloPlush>(), ModContent.ItemType<ArtemisPlush>(), ModContent.ItemType<ThanatosPlush>(), ModContent.ItemType<AncientAuricTeslaHelm>(), ModContent.ItemType<ArtemisBalloonSmall>(), ModContent.ItemType<ApolloBalloonSmall>(), ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>(), ModContent.ItemType<Items.Pets.ExoMechs.GunmetalRemote>(), ModContent.ItemType<Items.Pets.ExoMechs.GeminiMarkImplants>(), ModContent.ItemType<Items.Pets.ExoMechs.OminousCore>() });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Adult Eidolon Wyrm",
@@ -367,7 +373,7 @@ namespace CalValEX
                     new List<int>
                     {
                         ModContent.ItemType<MawHook>(), ModContent.ItemType<FlakHeadCrab>(),
-                        ModContent.ItemType<SkaterEgg>(), ModContent.ItemType<Help>(),
+                        ModContent.ItemType<AcidLamp>(), ModContent.ItemType<Help>(),
                         ModContent.ItemType<TrilobiteShield>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Acid Rain (Post-Polter)",
@@ -376,17 +382,17 @@ namespace CalValEX
                     new List<int>
                     {
                         ModContent.ItemType<MawHook>(), ModContent.ItemType<FlakHeadCrab>(),
-                        ModContent.ItemType<SkaterEgg>(), ModContent.ItemType<Help>(), ModContent.ItemType<Items.Mounts.Ground.RadJuice>(), ModContent.ItemType<Items.Equips.Legs.TerrorLegs>(),
+                        ModContent.ItemType<AcidLamp>(), ModContent.ItemType<Help>(), ModContent.ItemType<Items.Mounts.Ground.RadJuice>(), ModContent.ItemType<Items.Equips.Legs.TerrorLegs>(),
                         ModContent.ItemType<TrilobiteShield>(),
                         ModContent.ItemType<GammaHelmet>()
                     });
                 //Catalyst Support
-                if (catal != null)
+                if (cata != null)
                 {
                     bossChecklist.Call("AddToBossCollection", "CatalystMod", "Astrageldon",
-                           new List<int> { ModContent.ItemType<JellyBottle>(), ModContent.ItemType<Items.Tiles.Plushies.AstrageldonPlush>() });
+                           new List<int> { ModContent.ItemType<SpaceJunk>(), ModContent.ItemType<Items.Tiles.Plushies.AstrageldonPlush>() });
                 }
-            }*/
+            }
 
             /*if (ModContent.GetInstance<CalValEXConfig>().DiscordRichPresence)
             {
@@ -503,12 +509,12 @@ namespace CalValEX
             }
         }
 
-        /*public override void AddRecipeGroups()
+        public override void AddRecipeGroups()
         {
             RecipeGroup sand = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Sand"]];
             sand.ValidItems.Add(ModContent.ItemType<AstralSand>());
             RecipeGroup fieref = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Fireflies"]];
-            fieref.ValidItems.Add(ModContent.ItemType<Items.Critters.NukeFlyItem>());
+            fieref.ValidItems.Add(ModContent.ItemType<Items.Critters.VaporoflyItem>());
             fieref.ValidItems.Add(ModContent.ItemType<Items.Critters.BlinkerItem>());
             RecipeGroup bf = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Butterflies"]];
             bf.ValidItems.Add(ModContent.ItemType<Items.Critters.ProvFlyItem>());
@@ -537,15 +543,15 @@ namespace CalValEX
             }
             RecipeGroup group = new RecipeGroup(() => "Any Plate", new int[]
             {
-                ModLoader.GetMod("CalamityMod").ItemType("PlagueContainmentCells"),
-                ModLoader.GetMod("CalamityMod").ItemType("Cinderplate"),
-                ModLoader.GetMod("CalamityMod").ItemType("Chaosplate"),
-                ModLoader.GetMod("CalamityMod").ItemType("Navyplate"),
-                ModLoader.GetMod("CalamityMod").ItemType("Elumplate")
+                ModContent.ItemType<Plagueplate>(),
+                ModContent.ItemType<Cinderplate>(),
+                ModContent.ItemType<Chaosplate>(),
+                ModContent.ItemType<Navyplate>(),
+                ModContent.ItemType<Elumplate>()
             });
             RecipeGroup.RegisterGroup("AnyPlate", group);
             
-            RecipeGroup group2 = new RecipeGroup(() => "Any Hardmode Drill", new int[]
+            /*RecipeGroup group2 = new RecipeGroup(() => "Any Hardmode Drill", new int[]
             {
                 ItemID.CobaltDrill,
                 ItemID.PalladiumDrill,
@@ -554,216 +560,21 @@ namespace CalValEX
                 ItemID.AdamantiteDrill,
                 ItemID.TitaniumDrill,
             });
-            RecipeGroup.RegisterGroup("AnyHardmodeDrill", group2);
+            RecipeGroup.RegisterGroup("AnyHardmodeDrill", group2);*/
         }
         public override void AddRecipes()
         {
-            Mod catalyst = ModLoader.GetMod("CatalystMod");
-            if (catalyst != null)
+            if (cata != null)
             {
-                catalyst.Call("itemset_superbossrarity", ModContent.ItemType<AstrageldonPlush>(), true);
-                catalyst.Call("itemset_superbossrarity", ModContent.ItemType<AstrageldonPlushThrowable>(), true);
-                catalyst.Call("itemset_superbossrarity", ModContent.ItemType<JellyBottle>(), true);
-                catalyst.Call("itemset_superbossrarity", ModContent.ItemType<JaredPlush>(), true);
-                catalyst.Call("itemset_superbossrarity", ModContent.ItemType<JaredPlushThrowable>(), true);
-                catalyst.Call("itemset_superbossrarity", ModContent.ItemType<RespirationShrine>(), true);
-                catalyst.Call("itemset_superbossrarity", ModContent.ItemType<SoulShard>(), true);
+                cata.Call("itemset_superbossrarity", ModContent.ItemType<AstrageldonPlush>(), true);
+                cata.Call("itemset_superbossrarity", ModContent.ItemType<AstrageldonPlushThrowable>(), true);
+                cata.Call("itemset_superbossrarity", ModContent.ItemType<SpaceJunk>(), true);
+                cata.Call("itemset_superbossrarity", ModContent.ItemType<JaredPlush>(), true);
+                cata.Call("itemset_superbossrarity", ModContent.ItemType<JaredPlushThrowable>(), true);
+                cata.Call("itemset_superbossrarity", ModContent.ItemType<RespirationShrine>(), true);
+                cata.Call("itemset_superbossrarity", ModContent.ItemType<SoulShard>(), true);
             }
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            //Irradiated
-            ModRecipe recipe = new ModRecipe(this);
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(calamityMod.ItemType("GammaSlimeBanner"));
-            recipe.AddIngredient(ModContent.ItemType<NuclearFumes>(), 50);
-            recipe.AddTile(TileID.Solidifier);
-            recipe.SetResult(calamityMod.ItemType("IrradiatedSlimeBanner"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(calamityMod.ItemType("GammaSlimeBanner"));
-            recipe.AddIngredient(ModContent.ItemType<NuclearFumes>(), 50);
-            recipe.AddTile(calamityMod.TileType("StaticRefiner"));
-            recipe.SetResult(calamityMod.ItemType("IrradiatedSlimeBanner"));
-            recipe.AddRecipe();
-            //Bloodstone wall to Bloodstone
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<BloodstoneWall>(), 4);
-            recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(calamityMod.ItemType("Bloodstone"));
-            recipe.AddRecipe();
-            //Astral blocks
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<AstralTreeWood>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("AstralMonolith"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<AstralSand>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("AstralSand"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<AstralSandstone>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("AstralSandstone"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<AstralClay>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("AstralClay"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<Xenostone>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("AstralStone"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<AstralDirt>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("AstralDirt"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<AstralHardenedSand>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("HardenedAstralSand"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<AstralIce>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("AstralIce"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<AstralSnow>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("AstralSnow"));
-            recipe.AddRecipe();
-            //Astral Walls
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<AstralDirtWall>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("AstralDirtWall"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<XenostoneWall>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("AstralStoneWall"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<AstralHardenedSandWall>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("HardenedAstralSandWall"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<AstralSandstoneWall>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("AstralSandstoneWall"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<AstralGrassWall>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("AstralGrassWall"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<AstralIceWall>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("AstralIceWall"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<XenomonolithWall>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("AstralMonolithWall"));
-            recipe.AddRecipe();
-            //Astral Furniture
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<OldAstralBathtubItem>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("MonolithBathtub"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<OldAstralBedItem>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("MonolithBed"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<OldAstralCandelabraItem>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("MonolithCandelabra"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<OldAstralCandleItem>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("MonolithCandle"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<OldAstralLanternItem>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("MonolithLantern"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<OldAstralLampItem>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("MonolithLamp"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<OldAstralClockItem>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("MonolithClock"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<OldAstralSofaItem>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("MonolithBench"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<OldAstralSinkItem>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("MonolithSink"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<OldAstralTableItem>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("MonolithTable"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<OldAstralWorkbenchItem>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("MonolithWorkBench"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<OldAstralDoorItem>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("MonolithDoor"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<OldAstralBookshelfItem>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("MonolithBookcase"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<OldAstralChestItem>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("MonolithChest"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<OldAstralChandelierItem>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("MonolithChandelier"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<OldAstralPianoItem>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("MonolithPiano"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<OldAstralDresserItem>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("MonolithDresser"));
-            recipe.AddRecipe();
-            recipe = new ModRecipe(this);
-            recipe.AddIngredient(ModContent.ItemType<Items.Critters.BlinkerItem>());
-            recipe.AddTile(ModContent.TileType<StarstruckSynthesizerPlaced>());
-            recipe.SetResult(calamityMod.ItemType("TwinklerItem"));
-            recipe.AddRecipe();
-        }*/
+        }
 
         public void SetupHerosMod()
         {

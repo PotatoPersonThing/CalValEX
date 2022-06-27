@@ -11,6 +11,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
     public class AresBody : ModProjectile
     {
         bool isInfernumActive;
+        Mod infern;
         //A list of the ideal positions for each arm. The first 2 variables of the Vector2 represent the relative position of the arm to the body and the last variable represents the rotation of the hand
         internal readonly List<Vector3> IdealPositions = new List<Vector3>()
         {
@@ -113,8 +114,8 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             Texture2D laserTex = (ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/ExoMechs/AresLaser")).Value;
             Texture2D nukeTex = (ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/ExoMechs/AresNuke")).Value;
             Texture2D plasmaTex = (ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/ExoMechs/AresPlasma")).Value;
-            //Mod infern = ModLoader.GetMod("InfernumMode");
-            /*if (infern != null)
+            ModLoader.TryGetMod("InfernumMode", out infern);
+            if (infern != null)
             {
                 if ((bool)infern.Call("GetInfernumActive"))
                 {
@@ -124,7 +125,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
                 {
                     isInfernumActive = false;
                 }
-            }*/
+            }
 
             //Upper arms
             DrawSingleArm(laserTex, new Vector2(ArmPositions[0].X, ArmPositions[0].Y), ArmPositions[0].Z, new Vector2(0, -10), true);

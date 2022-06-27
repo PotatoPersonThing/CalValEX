@@ -7,7 +7,8 @@ namespace CalValEX.AprilFools.Meldosaurus
 	{
 		public override void SetStaticDefaults()
 		{
-			//DisplayName.SetDefault("Music Box (Meldosaurus)");
+			SacrificeTotal = 1;
+			MusicLoader.AddMusicBox(Mod, MusicLoader.GetMusicSlot(Mod, "Sounds/Music/Meldosaurus"), ModContent.ItemType<MeldosaurusMusicBox>(), ModContent.TileType<MeldosaurusMusicBoxPlaced>());
 		}
 
 		public override void SetDefaults()
