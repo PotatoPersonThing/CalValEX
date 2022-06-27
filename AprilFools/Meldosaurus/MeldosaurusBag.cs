@@ -1,7 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-//using CalamityMod;
+using CalamityMod;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
@@ -28,15 +28,15 @@ namespace CalValEX.AprilFools.Meldosaurus
 			return true;
 		}
 
-		/*public override void OpenBossBag(Player player)
+		public override void OpenBossBag(Player player)
 		{
-			player.TryGettingDevArmor();
-			DropHelper.DropItemChance(player, ModContent.ItemType<MeldosaurusMask>(), 7);
-			DropHelper.DropItem(player, ModContent.ItemType<CalamityMod.Items.Materials.MeldBlob>(), 1, 2);
+			player.TryGettingDevArmor(player.GetSource_OpenItem(Item.type));
+			DropHelper.DropItemChance(player.GetSource_OpenItem(Item.type), player, ModContent.ItemType<MeldosaurusMask>(), 7);
+			DropHelper.DropItem(player.GetSource_OpenItem(Item.type), player, ModContent.ItemType<CalamityMod.Items.Materials.MeldBlob>(), 1, 2);
 			float dropChance = DropHelper.NormalWeaponDropRateFloat;
-			DropHelper.DropItemChance(player, ModContent.ItemType<ShadesBane>(), dropChance);
-			DropHelper.DropItemChance(player, ModContent.ItemType<Nyanthrop>(), dropChance);
+			DropHelper.DropItemChance(player.GetSource_OpenItem(Item.type), player, ModContent.ItemType<ShadesBane>(), dropChance);
+			DropHelper.DropItemChance(player.GetSource_OpenItem(Item.type), player, ModContent.ItemType<Nyanthrop>(), dropChance);
 			//player.QuickSpawnItem(ModContent.ItemType("MeldExpert"));
-		}*/
+		}
 	}
 }
