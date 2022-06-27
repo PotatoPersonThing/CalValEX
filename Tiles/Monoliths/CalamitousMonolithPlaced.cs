@@ -31,32 +31,6 @@ namespace CalValEX.Tiles.Monoliths
         public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
             Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 48, ModContent.ItemType<CalamitousMonolith>());
-            CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
-            modPlayer.calMonolith = false;
-            modPlayer.scalMonolith = false;
-        }
-
-        public override void NearbyEffects(int i, int j, bool closer)
-        {
-            //
-            CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
-            if (Main.tile[i, j].TileFrameY >= 54)
-            {
-                if (NPC.downedMoonlord)
-                {
-                    modPlayer.scalMonolith = true;
-                    modPlayer.calMonolith = false;
-                }
-                else
-                {
-                    modPlayer.calMonolith = true;
-                }
-            }
-            else
-            {
-                modPlayer.calMonolith = false;
-                modPlayer.scalMonolith = false;
-            }
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
@@ -87,18 +61,9 @@ namespace CalValEX.Tiles.Monoliths
 
         public override bool RightClick(int i, int j)
         {
-            CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
-            //
-            if ((modPlayer.dogMonolith && modPlayer.provMonolith) || (modPlayer.dogMonolith && modPlayer.yharonMonolith) || (modPlayer.dogMonolith && modPlayer.pbgMonolith) || (modPlayer.dogMonolith && modPlayer.leviMonolith) || (modPlayer.leviMonolith && modPlayer.dogMonolith) || (modPlayer.leviMonolith && modPlayer.pbgMonolith) || (modPlayer.leviMonolith && modPlayer.yharonMonolith) || (modPlayer.leviMonolith && modPlayer.provMonolith) || (modPlayer.dogMonolith && modPlayer.provMonolith) || (modPlayer.dogMonolith && modPlayer.yharonMonolith) || (modPlayer.dogMonolith && modPlayer.pbgMonolith) || (modPlayer.yharonMonolith && modPlayer.pbgMonolith) || (modPlayer.yharonMonolith && modPlayer.provMonolith) || (modPlayer.provMonolith && modPlayer.pbgMonolith))
-            {
-                return false;
-            }
-            else
-            {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
-                HitWire(i, j);
-                return true;
-            }
+            Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
+            HitWire(i, j);
+            return true;
         }
 
         public override void MouseOver(int i, int j)

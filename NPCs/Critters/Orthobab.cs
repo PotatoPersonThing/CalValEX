@@ -39,9 +39,10 @@ namespace CalValEX.NPCs.Critters
             AIType = NPCID.Goldfish;
             AnimationType = NPCID.Goldfish;
             NPC.lifeMax = 5;
+            NPC.chaseable = false;
             for (int i = 0; i < NPC.buffImmune.Length; i++)
             {
-                NPC.buffImmune[ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.SulphuricPoisoning>()] = false;
+                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.SulphuricPoisoning>())] = false;
             }
             SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.SulphurousSeaBiome>().Type };
         }

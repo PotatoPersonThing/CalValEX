@@ -32,6 +32,7 @@ namespace CalValEX.AprilFools
         int attackcounter2;
         int attackmoment = 0;
         int chargetype = 0;
+        public override bool FacesLeft => false;
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);

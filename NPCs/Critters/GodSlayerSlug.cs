@@ -37,8 +37,11 @@ namespace CalValEX.NPCs.Critters
             NPC.CloneDefaults(NPCID.GlowingSnail);
             NPC.catchItem = (short)ItemType<GodSlayerSlugItem>();
             NPC.lavaImmune = false;
-            //NPC.aiStyle = 0;
-            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
+            NPC.chaseable = false;
+            for (int i = 0; i < NPC.buffImmune.Length; i++)
+            {
+                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.GodSlayerInferno>())] = false;
+            }
             AIType = NPCID.GlowingSnail;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.lifeMax = 5000;

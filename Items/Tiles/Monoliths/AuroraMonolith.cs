@@ -11,7 +11,7 @@ namespace CalValEX.Items.Tiles.Monoliths
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Calls the auroras of the arctic when activated");
+            //Tooltip.SetDefault("Calls the auroras of the arctic when activated");
             SacrificeTotal = 1;
         }
 
@@ -30,17 +30,5 @@ namespace CalValEX.Items.Tiles.Monoliths
             Item.value = Item.buyPrice(0, 2, 0, 0);
             Item.createTile = ModContent.TileType<AuroraMonolithPlaced>();
         }
-
-        /*public override void AddRecipes()
-        {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("VerstaltiteBar"), 15);
-                recipe.AddTile(TileID.MythrilAnvil);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

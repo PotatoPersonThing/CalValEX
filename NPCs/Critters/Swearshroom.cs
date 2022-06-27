@@ -38,6 +38,7 @@ namespace CalValEX.NPCs.Critters
             AnimationType = NPCID.Grubby;
             NPC.npcSlots = 0.25f;
             NPC.dontTakeDamage = true;
+            NPC.chaseable = false;
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)

@@ -37,9 +37,10 @@ namespace CalValEX.NPCs.Critters
             NPC.HitSound = SoundID.NPCHit38;
             NPC.rarity = 5;
             NPC.lifeMax = 20000;
+            NPC.chaseable = false;
             for (int i = 0; i < NPC.buffImmune.Length; i++)
             {
-                NPC.buffImmune[ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.CrushDepth>()] = false;
+                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.CrushDepth>())] = false;
             }
             Banner = NPCType<Isopod>();
             BannerItem = ItemType<IsopodBanner>();

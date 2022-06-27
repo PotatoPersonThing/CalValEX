@@ -807,19 +807,7 @@ namespace CalValEX
                 Particle smoke = new SmallSmokeParticle(Player.Center, Vector2.Zero, Color.GreenYellow, new Color(40, 40, 40), Main.rand.NextFloat(0.4f, 0.8f), 145 - Main.rand.Next(50));
                 smoke.Velocity = (smoke.Position - Player.Center) * 0.3f + Player.velocity;
                 GeneralParticleHandler.SpawnParticle(smoke);
-            }/*
-              * Mod cata = ModLoader.GetMod("CatalystMod");
-            if (cata != null)
-            {
-                if (NPC.AnyNPCs(cata.NPCType("Astrageldon")))
-                {
-                    geldonalive = true;
-                }
-                else
-                {
-                    geldonalive = false;
-                }
-            }*/
+            }
         }
 
         private void ResetMyStuff()
@@ -1127,65 +1115,23 @@ namespace CalValEX
         }
         public override void CatchFish(FishingAttempt attempt, ref int itemDrop, ref int npcSpawn, ref AdvancedPopupRequest sonar, ref Vector2 sonarPosition)
         {
-            //Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            if (Player.ZoneBeach && Player.fishingSkill > 80 && Main.rand.NextFloat() < 0.021f)
+            if (Player.ZoneBeach && Main.rand.NextFloat() < 0.021f)
             {
                 itemDrop = ItemType<Items.Pets.Elementals.StrangeMusicNote>();
             }
-            if (ZoneAstral && Player.fishingSkill > 80 && Main.rand.NextFloat() < 0.0105f)
+            if (ZoneAstral && Main.rand.NextFloat() < 0.0105f)
             {
                 itemDrop = ItemType<Items.Tiles.Plants.AstralOldPurple>();
             }
-            if (ZoneAstral && Player.fishingSkill > 80 && Main.rand.NextFloat() < 0.0105f)
+            if (ZoneAstral && Main.rand.NextFloat() < 0.0105f)
             {
                 itemDrop = ItemType<Items.Tiles.Plants.AstralOldYellow>();
             }
-            if (Player.GetModPlayer<CalamityPlayer>().ZoneSunkenSea && Main.hardMode && Player.fishingSkill > 80 && Main.rand.NextFloat() < 0.021f)
+            if (Player.GetModPlayer<CalamityPlayer>().ZoneSunkenSea && Main.hardMode && Main.rand.NextFloat() < 0.021f)
             {
                 itemDrop = ItemType<Items.Tiles.SailfishTrophy>();
             }
         }
-
-        /*public override void UpdateBiomes()
-        {
-            ZoneAstral = CalValEXWorld.astralTiles > 400;
-            HellLab = CalValEXWorld.hellTiles > 50;
-            ZoneMockDungeon = CalValEXWorld.dungeontiles > 100;
-            ZoneLab = CalValEXWorld.labTiles > 100;
-        }
-
-        public override bool CustomBiomesMatch(Player other)
-        {
-            CalValEXPlayer modOther = other.GetModPlayer<CalValEXPlayer>();
-            if (modOther.ZoneAstral)
-                return ZoneAstral;
-            if (modOther.HellLab)
-                return HellLab;
-            if (modOther.ZoneLab)
-                return ZoneLab;
-            if (modOther.ZoneMockDungeon)
-                return ZoneMockDungeon;
-            return true;
-        }
-
-        public override void CopyCustomBiomesTo(Player other)
-        {
-            CalValEXPlayer modOther = other.GetModPlayer<CalValEXPlayer>();
-            modOther.ZoneAstral = ZoneAstral;
-            modOther.HellLab = HellLab;
-            modOther.ZoneLab = ZoneLab;
-            modOther.ZoneMockDungeon = ZoneMockDungeon;
-        }
-
-        public override void SendCustomBiomes(BinaryWriter writer)
-        {
-            BitsByte flags = new BitsByte();
-            flags[0] = ZoneAstral;
-            flags[1] = HellLab;
-            flags[2] = ZoneLab;
-            flags[3] = ZoneMockDungeon;
-            writer.Write(flags);
-        }*/
 
         public override void PostUpdateMiscEffects()
         {
@@ -1258,14 +1204,6 @@ namespace CalValEX
                 }
             }
         }
-
-        /*public override void ReceiveCustomBiomes(BinaryReader reader)
-        {
-            BitsByte flags = reader.ReadByte();
-            ZoneAstral = flags[0];
-            HellLab = flags[1];
-            ZoneMockDungeon = flags[3];
-        }*/
 
         public override void clientClone(ModPlayer clientClone)
         {

@@ -40,7 +40,12 @@ namespace CalValEX.NPCs.Critters
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.catchItem = (short)ItemType<EyedolItem>();
             NPC.lavaImmune = true;
-            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
+            NPC.chaseable = false;
+            for (int i = 0; i < NPC.buffImmune.Length; i++)
+            {
+                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.BrimstoneFlames>())] = false;
+                NPC.buffImmune[(BuffID.OnFire)] = false;
+            }
             NPC.npcSlots = 0.25f;
             Banner = NPC.type;
             BannerItem = ItemType<EyedolBanner>();

@@ -33,24 +33,6 @@ namespace CalValEX.Tiles.Monoliths
         public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
             Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 48, ModContent.ItemType<UnholyMonolith>());
-            CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
-            modPlayer.provMonolith = false;
-            providenceon = false;
-        }
-
-        public override void NearbyEffects(int i, int j, bool closer)
-        {
-            CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
-            if (Main.tile[i, j].TileFrameY >= 54)
-            {
-                modPlayer.provMonolith = true;
-                providenceon = true;
-            }
-            else
-            {
-                modPlayer.provMonolith = false;
-                providenceon = false;
-            }
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
@@ -83,79 +65,11 @@ namespace CalValEX.Tiles.Monoliths
             }
         }
 
-        /*public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
-        {
-            Tile tile = Main.tile[i, j];
-            Texture2D texture;
-            if (Main.canDrawColorTile(i, j))
-            {
-                texture = Main.tileAltTexture[Type, (int)tile.TileColor];
-            }
-            else
-            {
-                texture = Main.tileTexture[Type];
-            }
-            Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
-            if (Main.drawToScreen)
-            {
-                zero = Vector2.Zero;
-            }
-            int height = tile.TileFrameY % AnimationFrameHeight == 36 ? 18 : 16;
-            int animate = 0;
-            if (tile.TileFrameY >= 54)
-            {
-                animate = Main.tileFrame[Type] * AnimationFrameHeight;
-            }
-            Main.spriteBatch.Draw(texture, new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero, new Rectangle(tile.TileFrameX, tile.TileFrameY + animate, 16, height), Lighting.GetColor(i, j), 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
-            return false;
-        }*/
-
         public override bool RightClick(int i, int j)
         {
-            CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
-            //
-            if ((modPlayer.scalMonolith && modPlayer.yharonMonolith) || (modPlayer.scalMonolith && modPlayer.dogMonolith) || (modPlayer.scalMonolith && modPlayer.pbgMonolith) || (modPlayer.scalMonolith && modPlayer.leviMonolith) || (modPlayer.leviMonolith && modPlayer.calMonolith) || (modPlayer.leviMonolith && modPlayer.pbgMonolith) || (modPlayer.leviMonolith && modPlayer.dogMonolith) || (modPlayer.leviMonolith && modPlayer.yharonMonolith) || (modPlayer.calMonolith && modPlayer.yharonMonolith) || (modPlayer.calMonolith && modPlayer.dogMonolith) || (modPlayer.calMonolith && modPlayer.pbgMonolith) || (modPlayer.dogMonolith && modPlayer.pbgMonolith) || (modPlayer.dogMonolith && modPlayer.yharonMonolith) || (modPlayer.yharonMonolith && modPlayer.pbgMonolith))
-            {
-                return false;
-            }
-            else
-            {
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
-                HitWire(i, j);
-                return true;
-            }
-            /*if (CalValEXWorld.OneMonolith && !CalValEXWorld.TwoMonolith && Main.tile[i, j].TileFrameY < 56)
-                {
-                    CalValEXWorld.TwoMonolith = true;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
-                    HitWire(i, j);
-                    return true;
-                }
-            if (!CalValEXWorld.OneMonolith && !CalValEXWorld.TwoMonolith && Main.tile[i, j].TileFrameY < 56)
-                {
-                    CalValEXWorld.OneMonolith = true;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
-                    HitWire(i, j);
-                    return true;
-                }
-            if (CalValEXWorld.TwoMonolith && Main.tile[i, j].TileFrameY >= 56)
-                {
-                    CalValEXWorld.TwoMonolith = false;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
-                    HitWire(i, j);
-                    return true;
-                }
-            if (CalValEXWorld.OneMonolith && !CalValEXWorld.TwoMonolith && Main.tile[i, j].TileFrameY >= 56)
-                {
-                    CalValEXWorld.OneMonolith = false;
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
-                    HitWire(i, j);
-                    return true;
-                }
-            else
-                {
-                    return false;
-                }*/
+            Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
+            HitWire(i, j);
+            return true;
         }
 
         public override void MouseOver(int i, int j)

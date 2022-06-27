@@ -45,9 +45,10 @@ namespace CalValEX.NPCs.Critters
             AnimationType = NPCID.GlowingSnail;
             NPC.HitSound = SoundID.NPCHit38;
             NPC.lifeMax = 2000;
+            NPC.chaseable = false;
             for (int i = 0; i < NPC.buffImmune.Length; i++)
             {
-                NPC.buffImmune[ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.CrushDepth>()] = false;
+                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.CrushDepth>())] = false;
             }
             Banner = NPC.type;
             BannerItem = ItemType<IsopodBanner>();

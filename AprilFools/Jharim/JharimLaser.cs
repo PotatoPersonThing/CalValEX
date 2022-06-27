@@ -2,11 +2,14 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
-using Terraria.Enums;
+using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Enums;
 using static Terraria.Projectile;
 using System.IO;
+using System.Linq;
 using CalamityMod.Projectiles.BaseProjectiles;
+using ReLogic.Content;
 
 namespace CalValEX.AprilFools.Jharim
 {
@@ -21,13 +24,14 @@ namespace CalValEX.AprilFools.Jharim
         public override float Lifetime => 240f;
         public override Color LaserOverlayColor => Color.White;
         public override Color LightCastColor => LaserOverlayColor;
-        public override Texture2D LaserBeginTexture => ModContent.Request<Texture2D>("CalValEX/AprilFools/Jharim/JharimLaserStart").Value;
-        public override Texture2D LaserMiddleTexture => ModContent.Request<Texture2D>("CalValEX/AprilFools/Jharim/JharimLaserMiddle").Value;
-        public override Texture2D LaserEndTexture => ModContent.Request<Texture2D>("CalValEX/AprilFools/Jharim/JharimLaserEnd").Value;
+        public override Texture2D LaserBeginTexture => ModContent.Request<Texture2D>("CalValEX/AprilFools/Jharim/JharimLaserStart", AssetRequestMode.ImmediateLoad).Value;
+        public override Texture2D LaserMiddleTexture => ModContent.Request<Texture2D>("CalValEX/AprilFools/Jharim/JharimLaserMiddle", AssetRequestMode.ImmediateLoad).Value;
+        public override Texture2D LaserEndTexture => ModContent.Request<Texture2D>("CalValEX/AprilFools/Jharim/JharimLaserEnd", AssetRequestMode.ImmediateLoad).Value;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Jharim Buster");
             Main.projFrames[Projectile.type] = 5;
+            ProjectileID.Sets.DrawScreenCheckFluff[Projectile.type] = 10000;
         }
         public override void SetDefaults()
         {
@@ -37,6 +41,7 @@ namespace CalValEX.AprilFools.Jharim
             Projectile.tileCollide = false;
             Projectile.friendly = true;
             Projectile.npcProj = true;
+            Projectile.usesLocalNPCImmunity = true;
         }
         public override bool PreAI()
         {
@@ -114,6 +119,7 @@ namespace CalValEX.AprilFools.Jharim
 
         public override bool? CanHitNPC(NPC target)
         {
+            //Specifically only hurts SCal and no other town NPC
             if (target.type == ModContent.NPCType<CalamityMod.NPCs.TownNPCs.WITCH>())
             {
                 return true;
@@ -128,6 +134,7 @@ namespace CalValEX.AprilFools.Jharim
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
+            //Interaction never happens again after performed once
             if (target.type == ModContent.NPCType<CalamityMod.NPCs.TownNPCs.WITCH>() && target.life <= 0)
             {
                 CalValEXWorld.jharinter = true;

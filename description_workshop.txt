@@ -3,6 +3,8 @@
 
 Calamity's Vanities is a mod which aims to add more vanity items/pets to the Calamity mod. 
 
+Note: This mod is not an official addon to Calamity, rather just a fun fan made mod.
+
 Currently adds the following:
 [olist]
 [*] Over 90 cute pets! Including some with their own unique gimmicks!
@@ -17,5 +19,3 @@ Currently adds the following:
 Sprite Credits: Kawaggy, Poddy, Blockaroz, William, YuH, Yharex87, TimerFun, caligulasAquarium, Krysmun, IbanPlay, Willowmaine, Enreden, Gamagamer64, L0st, Cooper, RyanLolz1, Vectix, Mochi, Leon, NnickykunN, Dorira, Vinni, Tobias, Mathew, Ramen Guy, SenpaiMasterNekitoKawaii2007, Nitro, YeH, F-3R, Sok, Triangle, Drædon Gaming, Rocketlauncher269, PokerFace, and MrPlague
 Music Credits: Heart Plus Up! and apotofkoolaid
 Code Credits: Potato Person, Kawaggy, nalyddd, Hypera, Phupperbat, Seraph, Stevie, Dominic Karma, IbanPlay, Willowmaine, Drædon Gaming
-
-Note: This mod is not an official addon to Calamity, rather just a fun fan made mod.

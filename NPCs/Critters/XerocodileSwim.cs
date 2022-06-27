@@ -45,6 +45,7 @@ namespace CalValEX.NPCs.Critters
             BannerItem = ItemType<Items.Tiles.Banners.XerocodileBanner>();
             AIType = NPCID.Goldfish;
             AnimationType = NPCID.Goldfish;
+            NPC.chaseable = false;
         }
         public override void AI()
         {

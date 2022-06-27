@@ -10,7 +10,7 @@ namespace CalValEX.Items.Tiles.Monoliths
         public override void SetStaticDefaults()
         {
             SacrificeTotal = 1;
-            Tooltip.SetDefault("Emits harmless plague gas when activated\n" + "Cannot be used if any other Calamity monoliths are currently active");
+            //Tooltip.SetDefault("Emits harmless plague gas when activated\n" + "Cannot be used if any other Calamity monoliths are currently active");
         }
 
         public override void SetDefaults()
@@ -28,17 +28,5 @@ namespace CalValEX.Items.Tiles.Monoliths
             Item.value = Item.buyPrice(0, 10, 0, 0);
             Item.createTile = ModContent.TileType<PlagueMonolithPlaced>();
         }
-
-        /*public override void AddRecipes()
-        {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("InfectedArmorPlating"), 15);
-                recipe.AddTile(TileID.MythrilAnvil);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

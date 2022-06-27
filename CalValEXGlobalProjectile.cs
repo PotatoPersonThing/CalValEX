@@ -23,10 +23,7 @@ namespace CalValEX
                 {
                     Texture2D deusheadsprite = ModContent.Request<Texture2D>("CalValEX/Projectiles/BrimstoneMonster").Value;
 
-                    float deusheadframe = 1f / (float)Main.npcFrameCount[projectile.type];
-                    int deusheadheight = (int)((float)(1 / projectile.height) * deusheadframe) * (deusheadsprite.Height / 1);
-
-                    Rectangle deusheadsquare = new Rectangle(0, deusheadheight, deusheadsprite.Width, deusheadsprite.Height / 1);
+                    Rectangle deusheadsquare = new Rectangle(0, 0, deusheadsprite.Width, deusheadsprite.Height);
                     Color deusheadalpha = projectile.GetAlpha(drawColor);
                     Main.EntitySpriteDraw(deusheadsprite, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), deusheadsquare, deusheadalpha, projectile.rotation, Utils.Size(deusheadsquare) / 2f, projectile.scale, SpriteEffects.None, 0);
                     return false;

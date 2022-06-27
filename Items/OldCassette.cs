@@ -12,7 +12,7 @@ namespace CalValEX.Items
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Old Cassette");
-            Tooltip.SetDefault("CURRENTLY NONFUNCTIONAL\n"+"Favorite this item to activate player afterimages\n" + "'It contains some edgy anime episodes from the 90's'");
+            Tooltip.SetDefault("Favorite this item to activate player afterimages\n" + "'It contains some edgy anime episodes from the 90's'");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 20));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             ItemID.Sets.ItemIconPulse[Item.type] = false;
@@ -33,7 +33,7 @@ namespace CalValEX.Items
             {
                 player.armorEffectDrawShadow = true;
                 player.armorEffectDrawOutlines = true;
-                //player.GetModPlayer<CalValEXPlayer>().cassette = true;
+                player.GetModPlayer<CalValEXPlayer>().cassette = true;
             }
         }
     }

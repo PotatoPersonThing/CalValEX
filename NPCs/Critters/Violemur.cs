@@ -24,28 +24,17 @@ namespace CalValEX.NPCs.Critters
 
         public override void SetDefaults()
         {
-            //NPC.width = 56;
-            //NPC.height = 26;
-            //NPC.aiStyle = 67;
-            //NPC.damage = 0;
-            //NPC.defense = 0;
-            //NPC.lifeMax = 2000;
-
-            //NPC.noGravity = true;
-            //NPC.catchItem = 2007;
-
             NPC.CloneDefaults(NPCID.Squirrel);
             NPC.catchItem = (short)ItemType<ViolemurItem>();
             NPC.lavaImmune = false;
-            //NPC.aiStyle = 0;
-            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.Squirrel;
             AnimationType = NPCID.Squirrel;
             NPC.npcSlots = 0.25f;
             NPC.lifeMax = 20;
+            NPC.chaseable = false;
             for (int i = 0; i < NPC.buffImmune.Length; i++)
             {
-                NPC.buffImmune[ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.AstralInfectionDebuff>()] = false;
+                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.AstralInfectionDebuff>())] = false;
             }
             Banner = NPC.type;
             BannerItem = ItemType<ViolemurBanner>();

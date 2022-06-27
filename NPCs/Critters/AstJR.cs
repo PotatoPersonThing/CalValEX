@@ -38,15 +38,15 @@ namespace CalValEX.NPCs.Critters
             NPC.npcSlots = 0.5f;
             NPC.catchItem = (short)ItemType<AstJRItem>();
             NPC.lavaImmune = false;
-            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.Pinky;
             AnimationType = NPCID.BlueSlime;
             NPC.lifeMax = 100;
             NPC.Opacity = 255;
             NPC.value = 0;
+            NPC.chaseable = false;
             for (int i = 0; i < NPC.buffImmune.Length; i++)
             {
-                //NPC.buffImmune[ModLoader.GetMod("CalamityMod").BuffType("AstralInfection")] = false;
+                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.AstralInfectionDebuff>())] = false;
             }
             Banner = NPC.type;
             BannerItem = ItemType<AstragellySlimeBanner>();

@@ -13,7 +13,7 @@ namespace CalValEX.Items.Tiles.Monoliths
         {
             DisplayName.SetDefault("Exo Monolith");
             SacrificeTotal = 1;
-            Tooltip.SetDefault("Releases lightning charged nanomachines into the atmosphere\n" + "Cannot be used if any other Calamity monoliths are currently active\n"+"UNOBTAINABLE UNFINISHED ITEM");
+            //Tooltip.SetDefault("Releases lightning charged nanomachines into the atmosphere\n" + "Cannot be used if any other Calamity monoliths are currently active\n"+"UNOBTAINABLE UNFINISHED ITEM");
         }
 
         public override void SetDefaults()
@@ -31,18 +31,6 @@ namespace CalValEX.Items.Tiles.Monoliths
             Item.value = Item.buyPrice(0, 10, 0, 0);
             Item.createTile = ModContent.TileType<ExoMonolithPlaced>();
         }
-
-        /*public override void AddRecipes()
-        {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<Termipebbles>(), 15);
-                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {

@@ -39,9 +39,10 @@ namespace CalValEX.NPCs.Critters
             AIType = NPCID.GoldButterfly;
             AnimationType = NPCID.GoldButterfly;
             NPC.lifeMax = 20;
+            NPC.chaseable = false;
             for (int i = 0; i < NPC.buffImmune.Length; i++)
             {
-                //NPC.buffImmune[(ModLoader.GetMod("CalamityMod").BuffType("Holy Flames"))] = false;
+                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.HolyFlames>())] = false;
             }
         }
 

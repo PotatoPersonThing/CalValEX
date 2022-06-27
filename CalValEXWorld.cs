@@ -185,6 +185,12 @@ namespace CalValEX
             {
                 masorev = false;
             }
+            if (Main.drunkWorld)
+            {
+                CalValEX.AprilFoolDay = true;
+                CalValEX.AprilFoolWeek = true;
+                CalValEX.AprilFoolMonth = true;
+            }
         }
 
         public static void UpdateWorldBool()

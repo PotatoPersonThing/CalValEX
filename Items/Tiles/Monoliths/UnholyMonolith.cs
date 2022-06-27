@@ -12,7 +12,7 @@ namespace CalValEX.Items.Tiles.Monoliths
         public override void SetStaticDefaults()
         {
             SacrificeTotal = 1;
-            Tooltip.SetDefault("Imbues the sky with profaned embers when activated\n" + "Cannot be used if any other Calamity monoliths are currently active");
+            //Tooltip.SetDefault("Imbues the sky with profaned embers when activated\n" + "Cannot be used if any other Calamity monoliths are currently active");
         }
 
         public override void SetDefaults()
@@ -30,18 +30,6 @@ namespace CalValEX.Items.Tiles.Monoliths
             Item.value = Item.buyPrice(0, 10, 0, 0);
             Item.createTile = ModContent.TileType<UnholyMonolithPlaced>();
         }
-
-        /*public override void AddRecipes()
-        {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("DivineGeode"), 15);
-                recipe.AddTile(TileID.LunarCraftingStation);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {

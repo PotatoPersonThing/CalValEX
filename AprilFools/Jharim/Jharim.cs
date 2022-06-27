@@ -149,7 +149,7 @@ namespace CalValEX.AprilFools.Jharim
                     float speed = 10f;
                     int type = ProjectileType<JharimLaser>();
                     int damage = 6666666;
-                    ///Projectile.NewProjectile(NPC.GetSource_FromAI(), position, direction * speed, type, damage, 0f, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromAI(), position, direction * speed, type, damage, 0f, Main.myPlayer);
                     firinglaser = false;
                     NPC.defense = 999;
                 }
@@ -301,7 +301,7 @@ namespace CalValEX.AprilFools.Jharim
                     }
                 }
 
-                /*if (CalamityMod.World.CalamityWorld.rainingAcid)
+                if (CalamityMod.Events.AcidRainEvent.AcidRainEventIsOngoing)
                 {
                     switch (Main.rand.Next(2))
                     {
@@ -311,7 +311,7 @@ namespace CalValEX.AprilFools.Jharim
                         default:
                             return "I'm feeling kinda drunk right now Hyickup Hyickup. Maybe I should stop drinking highly toxic acid...";
                     }
-                }*/
+                }
 
                 if (BirthdayParty.PartyIsUp)
                 {
@@ -485,8 +485,7 @@ namespace CalValEX.AprilFools.Jharim
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
             if (!MELDOSAURUSED)
-                //projType = ModContent.ProjectileType<JharimLaser>();
-                projType = ModContent.ProjectileType<CalamityMod.Projectiles.Magic.InfernadoFriendly>();
+                projType = ModContent.ProjectileType<JharimLaser>();
 
                     else
                         projType = ProjectileType<CalamityMod.Projectiles.Typeless.NobodyKnows>();

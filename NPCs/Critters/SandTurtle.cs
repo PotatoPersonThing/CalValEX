@@ -40,6 +40,7 @@ namespace CalValEX.NPCs.Critters
             BannerItem = ItemType<Items.Tiles.Banners.SandTurtleBanner>();
             NPC.HitSound = SoundID.NPCHit50;
             NPC.DeathSound = SoundID.NPCDeath54;
+            NPC.chaseable = false;
         }
         float valax = 0;
 

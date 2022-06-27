@@ -36,9 +36,10 @@ namespace CalValEX.NPCs.Critters
             NPC.npcSlots = 0.25f;
             NPC.lifeMax = 20;
             NPC.rarity = 3;
+            NPC.chaseable = false;
             for (int i = 0; i < NPC.buffImmune.Length; i++)
             {
-                NPC.buffImmune[ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.AstralInfectionDebuff>()] = false;
+                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.AstralInfectionDebuff>())] = false;
             }
             Banner = NPCType<Violemur>();
             BannerItem = ItemType<ViolemurBanner>();

@@ -38,9 +38,10 @@ namespace CalValEX.NPCs.Critters
             //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.GoldButterfly;
             AnimationType = NPCID.GoldButterfly;
+            NPC.chaseable = false;
             for (int i = 0; i < NPC.buffImmune.Length; i++)
             {
-                //NPC.buffImmune[(ModLoader.GetMod("CalamityMod").BuffType("Holy Flames"))] = false;
+                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.HolyFlames>())] = false;
             }
         }
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)

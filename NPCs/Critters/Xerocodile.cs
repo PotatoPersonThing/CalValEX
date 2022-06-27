@@ -24,21 +24,9 @@ namespace CalValEX.NPCs.Critters
 
         public override void SetDefaults()
         {
-            //NPC.width = 56;
-            //NPC.height = 26;
-            //NPC.aiStyle = 67;
-            //NPC.damage = 0;
-            //NPC.defense = 0;
-            //NPC.lifeMax = 2000;
-
-            //NPC.noGravity = true;
-            //NPC.catchItem = 2007;
-
             NPC.CloneDefaults(NPCID.Squirrel);
             NPC.catchItem = (short)ItemType<XerocodileItem>();
             NPC.lavaImmune = false;
-            //NPC.aiStyle = 0;
-            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.Squirrel;
             AnimationType = NPCID.Squirrel;
             NPC.npcSlots = 0.25f;
@@ -47,6 +35,7 @@ namespace CalValEX.NPCs.Critters
             BannerItem = ItemType<Items.Tiles.Banners.XerocodileBanner>();
             NPC.HitSound = SoundID.NPCHit50;
             NPC.DeathSound = SoundID.NPCDeath54;
+            NPC.chaseable = false;
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)

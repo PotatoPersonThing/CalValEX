@@ -29,9 +29,10 @@ namespace CalValEX.NPCs.Critters
             AIType = NPCID.Frog;
             AnimationType = NPCID.Frog;
             NPC.lifeMax = 20;
+            NPC.chaseable = false;
             for (int i = 0; i < NPC.buffImmune.Length; i++)
             {
-                NPC.buffImmune[ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.Plague>()] = false;
+                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.Plague>())] = false;
             }
         }
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)

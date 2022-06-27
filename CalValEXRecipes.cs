@@ -76,10 +76,19 @@ namespace CalValEX
 			//April Fools
 			if (CalValEX.AprilFoolWeek)
 			{
-				Recipe recipe = Mod.CreateRecipe(ItemType<JharimHead>());
-				recipe.AddIngredient(ItemID.GoldOre);
-				recipe.AddTile(TileID.WorkBenches);
-				recipe.Register();
+				{
+					Recipe recipe = Mod.CreateRecipe(ItemType<JharimHead>());
+					recipe.AddIngredient(ItemID.GoldOre);
+					recipe.AddTile(TileID.WorkBenches);
+					recipe.Register();
+				}
+				{
+					Recipe recipe = Mod.CreateRecipe(ItemType<AprilFools.Meldosaurus.MeldosaurusRelic>());
+					recipe.AddIngredient(ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusTrophy>());
+					recipe.AddIngredient(ModContent.ItemType<VictoryShard>(), 10);
+					recipe.AddTile(TileID.Bookcases);
+					recipe.Register();
+				}
 			}
 			//Misc
             {
@@ -488,7 +497,7 @@ namespace CalValEX
 				Recipe recipe = Mod.CreateRecipe(ItemType<RepurposedMonitor>());
 				recipe.AddIngredient(ItemType<DubiousPlating>(), 10);
 				recipe.AddIngredient(ItemType<MysteriousCircuitry>(), 10);
-				recipe.AddRecipeGroup("Any Plate", 10);
+				recipe.AddRecipeGroup("AnyPlate", 10);
 				recipe.AddTile(TileID.Anvils);
 				recipe.Register();
 			}

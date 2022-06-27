@@ -11,7 +11,7 @@ namespace CalValEX.Items.Tiles.Monoliths
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Emits cosmic mist when activated\n" + "Cannot be used if any other Calamity monoliths are currently active");
+            //Tooltip.SetDefault("Emits cosmic mist when activated\n" + "Cannot be used if any other Calamity monoliths are currently active");
             SacrificeTotal = 1;
         }
 
@@ -30,18 +30,6 @@ namespace CalValEX.Items.Tiles.Monoliths
             Item.value = Item.buyPrice(0, 10, 0, 0);
             Item.createTile = ModContent.TileType<DimensionalMonolithPlaced>();
         }
-
-        /*public override void AddRecipes()
-        {
-            Mod CalValEX = ModLoader.GetMod("CalamityMod");
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("CosmiliteBar"), 15);
-                recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("CosmicAnvil"));
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {

@@ -178,7 +178,7 @@ namespace CalValEX
                     ++nextSlot;
                 }
 
-                if (Main.LocalPlayer.ZoneDungeon || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneMockDungeon)
+                if (Main.LocalPlayer.ZoneDungeon || CalValEXWorld.dungeontiles > 100)
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<PolterMask>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
@@ -904,7 +904,7 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AprilFools.ShadesBane>(), 2));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AprilFools.Nyanthrop>(), 2));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusBag>()));
-                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsMasterMode(), ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusRelic>()));
+                    npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusRelic>());
                 }
                 //Meldosaurus
                 if (npc.type == ModContent.NPCType<AprilFools.Fogbound>())
@@ -1426,8 +1426,9 @@ namespace CalValEX
             Player player = LocalPlayer.Player;
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             CalamityMod.CalPlayer.CalamityPlayer calp = player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>();
-            bool noevents = /*CalamityWorld.rainingAcid &&*/ calp.ZoneSulphur && !Main.eclipse && !Main.snowMoon && !Main.pumpkinMoon && Main.invasionType == 0 && !player.ZoneTowerSolar && !player.ZoneTowerStardust && !player.ZoneTowerVortex & !player.ZoneTowerNebula && !player.ZoneOldOneArmy;
-            //Mod cata = ModLoader.GetMod("CatalystMod");
+            bool noevents = !CalamityMod.Events.AcidRainEvent.AcidRainEventIsOngoing && calp.ZoneSulphur && !Main.eclipse && !Main.snowMoon && !Main.pumpkinMoon && Main.invasionType == 0 && !player.ZoneTowerSolar && !player.ZoneTowerStardust && !player.ZoneTowerVortex & !player.ZoneTowerNebula && !player.ZoneOldOneArmy;
+            Mod cata;
+            ModLoader.TryGetMod("CatalystMod", out cata);
             if (!CalValEXConfig.Instance.CritterSpawns)
             {
                 if (modPlayer.sBun)
@@ -1449,20 +1450,20 @@ namespace CalValEX
                         pool.Add(NPCID.Bunny, 0.001f);
                     }
                 }
-                /*if (cata != null)
+                if (cata != null)
                 {
                     if (player.ZoneOverworldHeight)
                     {
-                        if (!player.HasItem(cata.ItemType("AstralCommunicator")))
+                        if (!player.HasItem(cata.Find<ModItem>("AstralCommunicator").Type))
                         {
-                            pool.Add(cata.NPCType("AstrageldonSlime"), 0.002f);
+                            pool.Add(cata.Find<ModNPC>("AstrageldonSlime").Type, 0.002f);
                         }
                         if ((bool)cata.Call("worlddefeats.astrageldon"))
                         {
-                            pool.Add(cata.NPCType("ArmoredAstralSlime"), 0.02f);
+                            pool.Add(cata.Find<ModNPC>("ArmoredAstralSlime").Type, 0.02f);
                         }
                     }
-                }*/
+                }
 
             }
         }

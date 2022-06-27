@@ -392,7 +392,7 @@ namespace CalValEX.NPCs.JellyPriest
             bool dog = DownedBossSystem.downedDoG;
             bool scal = DownedBossSystem.downedSCal;
             bool ass = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral;
-            bool sammy = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().HellLab && Main.LocalPlayer.ZoneUnderworldHeight;
+            bool sammy = CalValEXWorld.hellTiles > 20 && Main.LocalPlayer.ZoneUnderworldHeight;
 
             if (shop1)
             {

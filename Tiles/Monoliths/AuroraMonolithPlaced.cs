@@ -31,37 +31,12 @@ namespace CalValEX.Tiles.Monoliths
         public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
             Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 48, ModContent.ItemType<AuroraMonolith>());
-            CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
-            modPlayer.cryoMonolith = false;
         }
-
-        /*public override void NearbyEffects(int i, int j, bool closer)
-        {
-
-            CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
-            if (Main.tile[i, j].TileFrameY >= 52)
-            {
-                modPlayer.cryoMonolith = true;
-            }
-            else
-            {
-                modPlayer.cryoMonolith = false;
-            }
-        }*/
 
         public override bool RightClick(int i, int j)
         {
             Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech, new Vector2( i * 16, j * 16));
             HitWire(i, j);
-            CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
-            if (Main.tile[i, j].TileFrameY >= 56)
-            {
-                modPlayer.cryoMonolith = true;
-            }
-            else
-            {
-                modPlayer.cryoMonolith = false;
-            }
             return true;
         }
 
