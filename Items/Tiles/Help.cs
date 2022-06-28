@@ -2,6 +2,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.MiscFurniture;
 using Terraria;
+using Microsoft.Xna.Framework;
+using Terraria.GameContent.Creative;
 
 namespace CalValEX.Items.Tiles
 {
@@ -28,6 +30,10 @@ namespace CalValEX.Items.Tiles
             Item.width = 12;
             Item.height = 12;
             Item.rare = 5;
+        }
+        public override void OnResearched(bool fullyResearched)
+        {
+            CombatText.NewText(new Rectangle((int)Main.LocalPlayer.position.X, (int)Main.LocalPlayer.position.Y, Main.LocalPlayer.width, Main.LocalPlayer.height), Color.Red, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA", true);
         }
     }
 }
