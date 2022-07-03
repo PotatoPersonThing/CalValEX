@@ -1426,7 +1426,7 @@ namespace CalValEX
             Player player = LocalPlayer.Player;
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             CalamityMod.CalPlayer.CalamityPlayer calp = player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>();
-            bool noevents = !CalamityMod.Events.AcidRainEvent.AcidRainEventIsOngoing && calp.ZoneSulphur && !Main.eclipse && !Main.snowMoon && !Main.pumpkinMoon && Main.invasionType == 0 && !player.ZoneTowerSolar && !player.ZoneTowerStardust && !player.ZoneTowerVortex & !player.ZoneTowerNebula && !player.ZoneOldOneArmy;
+            bool noevents = !CalamityMod.Events.AcidRainEvent.AcidRainEventIsOngoing && !Main.eclipse && !Main.snowMoon && !Main.pumpkinMoon && Main.invasionType == 0 && !player.ZoneTowerSolar && !player.ZoneTowerStardust && !player.ZoneTowerVortex & !player.ZoneTowerNebula && !player.ZoneOldOneArmy;
             Mod cata;
             ModLoader.TryGetMod("CatalystMod", out cata);
             if (!CalValEXConfig.Instance.CritterSpawns)
@@ -1458,7 +1458,7 @@ namespace CalValEX
                         {
                             pool.Add(cata.Find<ModNPC>("AstrageldonSlime").Type, 0.002f);
                         }
-                        if ((bool)cata.Call("worlddefeats.astrageldon"))
+                        if ((bool)cata.Call("DownedAstrageldon", Mod))
                         {
                             pool.Add(cata.Find<ModNPC>("ArmoredAstralSlime").Type, 0.02f);
                         }

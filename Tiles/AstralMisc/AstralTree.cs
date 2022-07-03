@@ -25,7 +25,7 @@ namespace CalValEX.Tiles.AstralMisc
 			SpecialGroupMaximumSaturationValue = 1f
 		};
 
-		public override void SetTreeFoliageSettings(Tile tile, int xoffset, ref int treeFrame, ref int floorY, ref int topTextureFrameWidth, ref int topTextureFrameHeight) { }
+		public override void SetTreeFoliageSettings(Tile tile, ref int xoffset, ref int treeFrame, ref int floorY, ref int topTextureFrameWidth, ref int topTextureFrameHeight) { }
 		public override Asset<Texture2D> GetBranchTextures() => ModContent.Request<Texture2D>("CalValEX/Tiles/AstralMisc/AstralTreeBranch");
 
 		public override Asset<Texture2D> GetTopTextures() => ModContent.Request<Texture2D>("CalValEX/Tiles/AstralMisc/AstralTreeTop");
@@ -33,7 +33,6 @@ namespace CalValEX.Tiles.AstralMisc
 		{
 			return ModContent.ItemType<AstralTreeWood>();
 		}
-		public override int GrowthFXGore() => -1;
 		public override int SaplingGrowthType(ref int style)
 		{
 			style = 0;
