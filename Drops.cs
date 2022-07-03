@@ -891,10 +891,16 @@ namespace CalValEX
                 //Donuts
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.ProfanedGuardians.ProfanedGuardianCommander>())
                 {
-                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedFrame>(), 15));
-                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedBattery>(), 15));
-                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedWheels>(), 15));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedWheels>(), 3));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<ProfanedGuardianPlush>(), 4);
+                }
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.ProfanedGuardians.ProfanedGuardianDefender>())
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedFrame>(), 3));
+                }
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.ProfanedGuardians.ProfanedGuardianHealer>())
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedBattery>(), 3));
                 }
                 //Meldosaurus
                 if (npc.type == ModContent.NPCType<AprilFools.Meldosaurus.Meldosaurus>())
