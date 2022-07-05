@@ -38,8 +38,10 @@ namespace CalValEX
                 PureConvert((int)(proj.position.X + proj.width / 2) / 16, (int)(proj.position.Y + proj.height / 2) / 16, 2);
             if (proj.owner == Main.myPlayer && proj.type == ModContent.ProjectileType<CalamityMod.Projectiles.Typeless.AstralSpray>())
                 InfectionConvert((int)(proj.position.X + proj.width / 2) / 16, (int)(proj.position.Y + proj.height / 2) / 16, 2);
+			if (proj.owner == Main.myPlayer && (proj.type == ProjectileID.CorruptSpray || proj.type == ProjectileID.CrimsonSpray || proj.type == ProjectileID.HallowSpray))
+				VoidConvert((int)(proj.position.X + proj.width / 2) / 16, (int)(proj.position.Y + proj.height / 2) / 16, 2);
 
-        }
+		}
 
 		public void PureConvert(int i, int j, int size = 4)
 		{
@@ -181,7 +183,7 @@ namespace CalValEX
 						}*/
 						if (wall == ModContent.WallType<AstralDirtWallPlaced>())
 						{
-							Main.tile[k, l].WallType = WallID.Dirt;
+							Main.tile[k, l].WallType = WallID.DirtUnsafe;
 							WorldGen.SquareWallFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
@@ -240,49 +242,42 @@ namespace CalValEX
 
 						if (type == ModContent.TileType<AstralTreeWoodPlaced>())
 						{
-							Main.tile[k, l].TileType = ModContent.TileType<CalamityMod.Tiles.Astral.AstralMonolith>();
+							Main.tile[k, l].TileType = (ushort)ModContent.TileType<CalamityMod.Tiles.Astral.AstralMonolith>();
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
 						}
 						else if (type == ModContent.TileType<AstralGrassPlaced>())
 						{
-							Main.tile[k, l].TileType = TileID.Grass;
+							Main.tile[k, l].TileType = (ushort)ModContent.TileType<CalamityMod.Tiles.Astral.AstralGrass>();
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
 						}
 						else if (type == ModContent.TileType<AstralDirtPlaced>())
 						{
-							Main.tile[k, l].TileType = ModContent.TileType<CalamityMod.Tiles.Astral.AstralDirt>();
+							Main.tile[k, l].TileType = (ushort)ModContent.TileType<CalamityMod.Tiles.Astral.AstralDirt>();
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
 						}
 						else if (type == ModContent.TileType<AstralClayPlaced>())
 						{
-							Main.tile[k, l].TileType = ModContent.TileType<CalamityMod.Tiles.Astral.AstralClay>();
+							Main.tile[k, l].TileType = (ushort)ModContent.TileType<CalamityMod.Tiles.Astral.AstralClay>();
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
 						}
 						else if (type == ModContent.TileType<AstralSnowPlaced>())
 						{
-							Main.tile[k, l].TileType = ModContent.TileType<CalamityMod.Tiles.AstralSnow.AstralSnow>();
+							Main.tile[k, l].TileType = (ushort)ModContent.TileType<CalamityMod.Tiles.AstralSnow.AstralSnow>();
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
 						}
 						if (wall == ModContent.WallType<AstralDirtWallPlaced>())
 						{
-							Main.tile[k, l].WallType = ModContent.WallType<CalamityMod.Walls.AstralDirtWall>();
-							WorldGen.SquareWallFrame(k, l, true);
-							NetMessage.SendTileSquare(-1, k, l, 1);
-							break;
-						}
-						if (wall == ModContent.WallType<AstralDirtWallSafePlaced>())
-						{
-							Main.tile[k, l].WallType = ModContent.WallType<CalamityMod.Walls.AstralDirtWallSafe>();
+							Main.tile[k, l].WallType = (ushort)ModContent.WallType<CalamityMod.Walls.AstralDirtWall>();
 							WorldGen.SquareWallFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 							break;
@@ -291,18 +286,56 @@ namespace CalValEX
 				}
 			}
 		}
+		public void VoidConvert(int i, int j, int size = 4)
+		{
+			for (int k = i - size; k <= i + size; k++)
+			{
+				for (int l = j - size; l <= j + size; l++)
+				{
+					if (WorldGen.InWorld(k, l, 1) && Math.Abs(k - i) + Math.Abs(l - j) < Math.Sqrt(size * size + size * size))
+					{
+						int type = Main.tile[k, l].TileType;
+						int typemed = Main.tile[k - 1, l].TileType;
+						int wall = Main.tile[k, l].WallType;
 
-
-		public override bool? CanHitNPC(Projectile projectile, NPC target)
-        {
-            if (projectile.type == Terraria.ID.ProjectileID.VortexBeaterRocket && target.type == ModContent.NPCType< AprilFools.Jharim.Jharim >())
-            {
-                return true;
-            }
-            else
-            {
-                return null;
-            }
-        }
+						if (type == ModContent.TileType<AstralTreeWoodPlaced>())
+						{
+							Main.tile[k, l].TileType = TileID.LivingWood;
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (type == ModContent.TileType<AstralDirtPlaced>())
+						{
+							Main.tile[k, l].TileType = TileID.Dirt;
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (type == ModContent.TileType<AstralClayPlaced>())
+						{
+							Main.tile[k, l].TileType = TileID.ClayBlock;
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						else if (type == ModContent.TileType<AstralSnowPlaced>())
+						{
+							Main.tile[k, l].TileType = TileID.SnowBlock;
+							WorldGen.SquareTileFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+						if (wall == ModContent.WallType<AstralDirtWallPlaced>())
+						{
+							Main.tile[k, l].WallType = WallID.DirtUnsafe;
+							WorldGen.SquareWallFrame(k, l, true);
+							NetMessage.SendTileSquare(-1, k, l, 1);
+							break;
+						}
+					}
+				}
+			}
+		}
     }
 }
