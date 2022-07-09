@@ -119,6 +119,9 @@ namespace CalValEX
                 return;
             SkyManager.Instance["CalValEX:AstralBiome"] = new AstralSky();
 
+            ModLoader.TryGetMod("Wikithis", out Mod wikithis);
+            if (wikithis != null)
+                wikithis.Call("AddModURL", this, "terrariamods.fandom.com$Calamity%27s_Vanities");
         }
 
         public override void Unload()
