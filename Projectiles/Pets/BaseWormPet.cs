@@ -148,22 +148,15 @@ namespace CalValEX.Projectiles.Pets
 		/// <summary>
 		/// The color the emitted light will be lit in, leave as black for no light.
 		/// </summary>
-		public virtual Color lightcolor => Color.Black;
+		public virtual Color Lightcolor => Color.Black;
 		/// <summary>
 		/// How intense the light is.
 		/// </summary>
-		public virtual float intensity => 1f;
+		public virtual float Intensity => 1f;
 		/// <summary>
 		/// The level of light emitted, check wiki for values.
 		/// </summary>
-		public virtual int abyssLightLevel => 0;
-		public virtual string ArmTexture => "";
-		public virtual string ForearmTexture => "";
-		public virtual string HandTexture => "";
-		/// <summary>
-		/// Does it use the old worm movement?
-		/// </summary>
-		public virtual bool oldWormCode => false;
+		public virtual int AbyssLightLevel => 0;
 		public Player Owner => Main.player[Projectile.owner];
 		public CalValEXPlayer ModOwner => Owner.GetModPlayer<CalValEXPlayer>();
 
@@ -357,13 +350,13 @@ namespace CalValEX.Projectiles.Pets
 					Segments[j] = pointA;
 					Segments[j + 1] = pointB;
 					Player owner = Main.player[Projectile.owner];
-					Lighting.AddLight(segmentCenter, lightcolor.ToVector3());
+					Lighting.AddLight(segmentCenter, Lightcolor.ToVector3());
 
-					/*Mod calamityMod = ModLoader.GetMod("CalamityMod");
+					Mod calamityMod = ModLoader.GetMod("CalamityMod");
 					if (calamityMod != null)
 					{
-						calamityMod.Call("AddAbyssLightStrength", owner, abyssLightLevel);
-					}*/
+						calamityMod.Call("AddAbyssLightStrength", owner, AbyssLightLevel);
+					}
 				}
 			}
         }

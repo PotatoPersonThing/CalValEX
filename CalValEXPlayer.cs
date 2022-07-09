@@ -309,6 +309,9 @@ namespace CalValEX
         public bool ScratchedGong;
         public bool TubRune;
         public bool Pandora;
+        public bool profanedCultist;
+        public bool profanedCultistHide;
+        public bool profanedCultistForce;
 
         public override void Initialize()
         {
@@ -331,6 +334,7 @@ namespace CalValEX
             sandTrans = sandHide = sandForce = sandPower = false;
             maryPrevious = maryTrans;
             maryTrans = maryHide = maryForce = maryPower = false;
+            profanedCultist = profanedCultistHide = profanedCultistForce = false;
             ResetMyStuff();
         }
 
@@ -387,11 +391,14 @@ namespace CalValEX
         {
             Mod antisocial;
             ModLoader.TryGetMod("Antisocial", out antisocial);
-            Item mary = Player.armor[11];
-            if (mary.type == ModContent.ItemType<Items.Equips.Shirts.BloodyMaryDress>())
-            {
+            Item itemVan = Player.armor[11];
+            if (itemVan.type == ModContent.ItemType<Items.Equips.Shirts.BloodyMaryDress>()) {
                 maryHide = false;
                 maryForce = true;
+            }
+            if (itemVan.type == ModContent.ItemType<Items.Equips.Shirts.ProfanedCultistRobes>()) {
+                profanedCultist = false;
+                profanedCultistForce = true;
             }
             for (int n = 13; n < 18 + Player.extraAccessorySlots; n++)
             {
@@ -640,6 +647,8 @@ namespace CalValEX
                 var costume = GetInstance<Items.Equips.Shirts.BloodyMaryDress>();
                 Player.legs = EquipLoader.GetEquipSlot(Mod, "BloodyMaryDress", EquipType.Legs);
             }
+            if ((profanedCultist || profanedCultistForce) && !profanedCultistHide) 
+                Player.legs = EquipLoader.GetEquipSlot(Mod, "ProfanedCultistRobes", EquipType.Legs);
             if ((signutTrans || signutForce) && !signutHide)
             {
                 var costume = GetInstance<Signus>();
