@@ -9,16 +9,14 @@ namespace CalValEX.Projectiles.Pets.LightPets
 {
     public class Minimpious : ModProjectile
     {
-        public override void SetStaticDefaults()
-        {
+        public override void SetStaticDefaults() {
             DisplayName.SetDefault("Minimpious");
             Main.projFrames[Projectile.type] = 5;
             Main.projPet[Projectile.type] = true;
             ProjectileID.Sets.LightPet[Projectile.type] = true;
         }
 
-        public override void SetDefaults()
-        {
+        public override void SetDefaults() {
             Projectile.width = 64;
             Projectile.height = 48;
             Projectile.penetrate = -1;
@@ -31,8 +29,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             DrawOffsetX = -21;
         }
 
-        public override void AI()
-        {
+        public override void AI() {
             Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (player.dead)
@@ -43,8 +40,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             Vector2 vectorToOwner = player.Center - Projectile.Center;
             float distanceToOwner = vectorToOwner.Length();
 
-            if (distanceToOwner > 2400f)
-            {
+            if (distanceToOwner > 2400f) {
                 Projectile.position = player.Center;
                 Projectile.velocity *= 0.1f;
                 Projectile.netUpdate = true;
@@ -55,10 +51,9 @@ namespace CalValEX.Projectiles.Pets.LightPets
             else if (Projectile.velocity.X < 0f)
                 Projectile.spriteDirection = 1;
 
-            Projectile.rotation = Projectile.velocity.X * 0.1f;
+            Projectile.rotation = Projectile.rotation.AngleLerp(Projectile.velocity.X * 0.1f, 0.1f);
             Projectile.frameCounter++;
-            if (Projectile.frameCounter > 8)
-            {
+            if (Projectile.frameCounter > 8) {
                 Projectile.frame++;
                 Projectile.frameCounter = 0;
                 if (Projectile.frame > 4)
@@ -67,44 +62,23 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
             Lighting.AddLight(Projectile.position, new Vector3(1.61568627f, 0.901960784f, 0.462745098f));
 
-            if (Main.rand.Next(5) == 0)
-            {
+            if (Main.rand.Next(5) == 0) {
                 int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 55, 0, 0, 125);
                 Main.dust[dust].noGravity = true;
                 Main.dust[dust].velocity *= 0.3f;
                 Main.dust[dust].shader = GameShaders.Armor.GetSecondaryShader(player.cLight, player);
             }
 
-            float limit = 6.66f;
-
             Vector2 extraPos = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
             float posX = player.position.X + (player.width / 2) - extraPos.X;
             float posY = player.position.Y + (player.width / 2) - extraPos.Y;
             float num0 = 80;
 
-            float num1 = (float)Math.Sqrt(posX * posX + posY * posY);
-
-            if (num1 > 800f)
-            {
-                Projectile.position.X = player.position.X + (player.height / 2) - (Projectile.height / 2);
-                Projectile.position.Y = player.position.Y + (player.height / 2) - (Projectile.height / 2);
-            }
-            else if (num1 > num0)
-            {
-                num1 = limit / num1;
-                posX *= num1;
-                posY *= num1;
-                Projectile.velocity.X = posX;
-                Projectile.velocity.Y = posY;
-            }
-            else
-            {
-                Projectile.velocity *= 0.20f;
-            }
+            Projectile.velocity.X = MathHelper.Lerp(Projectile.velocity.X, (posX - Projectile.velocity.X) * 0.1f, 0.1f);
+            Projectile.velocity.Y = MathHelper.Lerp(Projectile.velocity.Y, (posY - Projectile.velocity.Y) * 0.1f, 0.1f);
         }
-        public override void PostDraw(Color lightColor)
-        {
-            Texture2D glowMask = ModContent.Request<Texture2D>("Projectiles/Pets/LightPets/Minimpious_Glow").Value;
+        public override void PostDraw(Color lightColor) {
+            Texture2D glowMask = Mod.Assets.Request<Texture2D>("Projectiles/Pets/LightPets/Minimpious_Glow").Value;
             Rectangle frame = glowMask.Frame(1, Main.projFrames[Projectile.type], 0, Projectile.frame);
             frame.Height -= 1;
             float originOffsetX = (glowMask.Width - Projectile.width) * 0.5f + Projectile.width * 0.5f + DrawOriginOffsetX;
