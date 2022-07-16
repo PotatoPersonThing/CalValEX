@@ -688,7 +688,7 @@ namespace CalValEX
 			//Monoliths
 			MonolithRecipe(ItemType <CosmiliteBar>(), ItemType<DimensionalMonolith>(), TileID.LunarCraftingStation);
 			MonolithRecipe(ItemType <DivineGeode>(), ItemType<UnholyMonolith>(), TileID.LunarCraftingStation);
-			MonolithRecipe(ItemType <YharonSoulFragment>(), ItemType<InfernalMonolith>(), TileID.LunarCraftingStation);
+			MonolithRecipe(ItemType <HellcasterFragment>(), ItemType<InfernalMonolith>(), TileID.LunarCraftingStation);
 			MonolithRecipe(ItemType <InfectedArmorPlating>(), ItemType<PlagueMonolith>(), TileID.MythrilAnvil);
 			MonolithRecipe(ItemType <AshesofCalamity>(), ItemType<CalamitousMonolith>(), TileID.MythrilAnvil);
 			MonolithRecipe(ItemType<CryonicBar>(), ItemType<AuroraMonolith>(), TileID.MythrilAnvil);
