@@ -1,10 +1,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using Terraria;
 using Terraria.Graphics.Shaders;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 namespace CalValEX.Projectiles.Pets.LightPets
 {
     public class Minimpious : ModProjectile
@@ -75,36 +74,16 @@ namespace CalValEX.Projectiles.Pets.LightPets
                 Main.dust[dust].shader = GameShaders.Armor.GetSecondaryShader(player.cLight, player);
             }
 
-            float limit = 6.66f;
-
             Vector2 extraPos = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
             float posX = player.position.X + (player.width / 2) - extraPos.X;
             float posY = player.position.Y + (player.width / 2) - extraPos.Y;
-            float num0 = 80;
 
-            float num1 = (float)Math.Sqrt(posX * posX + posY * posY);
-
-            if (num1 > 800f)
-            {
-                Projectile.position.X = player.position.X + (player.height / 2) - (Projectile.height / 2);
-                Projectile.position.Y = player.position.Y + (player.height / 2) - (Projectile.height / 2);
-            }
-            else if (num1 > num0)
-            {
-                num1 = limit / num1;
-                posX *= num1;
-                posY *= num1;
-                Projectile.velocity.X = posX;
-                Projectile.velocity.Y = posY;
-            }
-            else
-            {
-                Projectile.velocity *= 0.20f;
-            }
+            Projectile.velocity.X = MathHelper.Lerp(Projectile.velocity.X, (posX - Projectile.velocity.X) * 0.1f, 0.1f);
+            Projectile.velocity.Y = MathHelper.Lerp(Projectile.velocity.Y, (posY - Projectile.velocity.Y) * 0.1f, 0.1f);
         }
         public override void PostDraw(Color lightColor)
         {
-            Texture2D glowMask = ModContent.Request<Texture2D>("Projectiles/Pets/LightPets/Minimpious_Glow").Value;
+            Texture2D glowMask = Mod.Assets.Request<Texture2D>("Projectiles/Pets/LightPets/Minimpious_Glow").Value;
             Rectangle frame = glowMask.Frame(1, Main.projFrames[Projectile.type], 0, Projectile.frame);
             frame.Height -= 1;
             float originOffsetX = (glowMask.Width - Projectile.width) * 0.5f + Projectile.width * 0.5f + DrawOriginOffsetX;
