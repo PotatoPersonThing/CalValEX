@@ -596,43 +596,11 @@ namespace CalValEX
                 //Slime Gods...
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodCore>())
                 {
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(), 1, 155, 265);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<IonizedJellyCrystal>(), 50);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeGodMask>(), 7);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeDeitysSoul>(), 3);
-                }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SplitCrimulanSlimeGod>())
-                {
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(), 1, 155, 265);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<IonizedJellyCrystal>(), 50);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeGodMask>(), 7);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeDeitysSoul>(), 3);
-                }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SplitEbonianSlimeGod>())
-                {
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(), 1, 155, 265);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<IonizedJellyCrystal>(), 50);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeGodMask>(), 7);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeDeitysSoul>(), 3);
-                }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SlimeGod.CrimulanSlimeGod>())
-                {
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(), 1, 155, 265);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<IonizedJellyCrystal>(), 50);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeGodMask>(), 7);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeDeitysSoul>(), 3);
-                }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SlimeGod.EbonianSlimeGod>())
-                {
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(), 1, 155, 265);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<IonizedJellyCrystal>(), 50);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeGodMask>(), 7);
-                    npcLoot.AddIf(() => LastSlimeGodStanding() && !Main.expertMode, ModContent.ItemType<SlimeDeitysSoul>(), 3);
+                    npcLoot.AddIf(() => true && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(), 1, 155, 265);
+                    npcLoot.AddIf(() => true && CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
+                    npcLoot.AddIf(() => true && !Main.expertMode, ModContent.ItemType<IonizedJellyCrystal>(), 50);
+                    npcLoot.AddIf(() => true && !Main.expertMode, ModContent.ItemType<SlimeGodMask>(), 7);
+                    npcLoot.AddIf(() => true && !Main.expertMode, ModContent.ItemType<SlimeDeitysSoul>(), 3);
                 }
                 //Cryogen
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Cryogen.Cryogen>())

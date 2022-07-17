@@ -313,7 +313,7 @@ namespace CalValEX
 				Recipe recipe = Recipe.Create(ItemType<WulfrumHelipack>());
 				recipe.AddIngredient(ItemID.LuckyHorseshoe);
 				recipe.AddIngredient(ItemType<EnergyCore>(), 3);
-				recipe.AddIngredient(ItemType<WulfrumShard>(), 30);
+				recipe.AddIngredient(ItemType<WulfrumMetalScrap>(), 30);
 				recipe.AddRecipeGroup(RecipeGroupID.IronBar, 12);
 				recipe.AddTile(TileID.Anvils);
 				recipe.Register();
@@ -688,7 +688,7 @@ namespace CalValEX
 			//Monoliths
 			MonolithRecipe(ItemType <CosmiliteBar>(), ItemType<DimensionalMonolith>(), TileID.LunarCraftingStation);
 			MonolithRecipe(ItemType <DivineGeode>(), ItemType<UnholyMonolith>(), TileID.LunarCraftingStation);
-			MonolithRecipe(ItemType <HellcasterFragment>(), ItemType<InfernalMonolith>(), TileID.LunarCraftingStation);
+			MonolithRecipe(ItemType <YharonSoulFragment>(), ItemType<InfernalMonolith>(), TileID.LunarCraftingStation);
 			MonolithRecipe(ItemType <InfectedArmorPlating>(), ItemType<PlagueMonolith>(), TileID.MythrilAnvil);
 			MonolithRecipe(ItemType <AshesofCalamity>(), ItemType<CalamitousMonolith>(), TileID.MythrilAnvil);
 			MonolithRecipe(ItemType<CryonicBar>(), ItemType<AuroraMonolith>(), TileID.MythrilAnvil);
