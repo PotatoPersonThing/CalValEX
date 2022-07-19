@@ -412,24 +412,24 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<CalamityMod.Items.Placeables.AstralMonolith>(), Item.buyPrice(0, 0, 2, 5), Main.hardMode, ref shop, ref nextSlot);
                 AddItem(ItemType<Items.Tiles.Blocks.AstralPearlBlock>(), Item.buyPrice(0, 0, 3, 0), Main.hardMode, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.Voidstone>(), Item.buyPrice(0, 0, 2, 5), NPC.downedGolemBoss, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurniturePlagued.PlaguedContainmentBrick>(), Item.buyPrice(0, 0, 30, 0), pb, ref shop, ref nextSlot);
+                AddItem(ItemType<CalamityMod.Items.Placeables.FurniturePlagued.PlaguedContainmentBrick>(), Item.buyPrice(0, 0, 5, 0), pb, ref shop, ref nextSlot);
                 AddItem(ItemType<Items.Tiles.Blocks.PlagueHiveWand>(), Item.buyPrice(0, 1, 40, 0), pb, ref shop, ref nextSlot);
                 AddItem(ItemType<Items.Walls.PlagueHiveWall>(), Item.buyPrice(0, 0, 0, 10), pb, ref shop, ref nextSlot);
-                AddItem(ItemType<Items.Tiles.Blocks.Necrostone>(), Item.buyPrice(0, 0, 40, 0), DownedBossSystem.downedRavager, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.UelibloomBrick>(), Item.buyPrice(0, 0, 50, 0), prov, ref shop, ref nextSlot);
+                AddItem(ItemType<Items.Tiles.Blocks.Necrostone>(), Item.buyPrice(0, 0, 10, 0), DownedBossSystem.downedRavager, ref shop, ref nextSlot);
+                AddItem(ItemType<CalamityMod.Items.Placeables.UelibloomBrick>(), Item.buyPrice(0, 0, 20, 0), prov, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureProfaned.ProfanedRock>(), Item.buyPrice(0, 0, 66, 66), prov, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureProfaned.ProfanedCrystal>(), Item.buyPrice(0, 6, 66, 66), prov, ref shop, ref nextSlot);
-                AddItem(ItemType<Items.Tiles.Blocks.ChiseledBloodstone>(), Item.buyPrice(0, 0, 80, 0), prov, ref shop, ref nextSlot);
-                AddItem(ItemType<Items.Tiles.Blocks.PhantowaxBlock>(), Item.buyPrice(0, 0, 90, 0), polt, ref shop, ref nextSlot);
+                AddItem(ItemType<Items.Tiles.Blocks.ChiseledBloodstone>(), Item.buyPrice(0, 0, 40, 0), prov, ref shop, ref nextSlot);
+                AddItem(ItemType<Items.Tiles.Blocks.PhantowaxBlock>(), Item.buyPrice(0, 0, 50, 0), polt, ref shop, ref nextSlot);
                 AddItem(ItemType<Items.Tiles.Blocks.EidolicSlab>(), Item.buyPrice(0, 1, 0, 0), polt, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureStratus.StratusBricks>(), Item.buyPrice(0, 1, 0, 0), polt, ref shop, ref nextSlot);
-                AddItem(ItemType<Items.Tiles.Blocks.AzufreSludge>(), Item.buyPrice(0, 1, 0, 0), boomer, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureCosmilite.CosmiliteBrick>(), Item.buyPrice(0, 2, 0, 0), dog, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(), Item.buyPrice(0, 3, 0, 0), dog, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureSilva.SilvaCrystal>(), Item.buyPrice(0, 3, 0, 0), dog, ref shop, ref nextSlot);
-                AddItem(ItemType<Items.Tiles.Blocks.AuricBrick>(), Item.buyPrice(0, 30, 0, 0), DownedBossSystem.downedYharon, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPlating>(), Item.buyPrice(0, 40, 0, 0), DownedBossSystem.downedExoMechs, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPrismPanel>(), Item.buyPrice(0, 40, 0, 0), DownedBossSystem.downedExoMechs, ref shop, ref nextSlot);
+                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureStratus.StratusBricks>(), Item.buyPrice(0, 0, 80, 0), polt, ref shop, ref nextSlot);
+                AddItem(ItemType<Items.Tiles.Blocks.AzufreSludge>(), Item.buyPrice(0, 0, 50, 0), boomer, ref shop, ref nextSlot);
+                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureCosmilite.CosmiliteBrick>(), Item.buyPrice(0, 0, 80, 0), dog, ref shop, ref nextSlot);
+                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(), Item.buyPrice(0, 0, 90, 0), dog, ref shop, ref nextSlot);
+                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureSilva.SilvaCrystal>(), Item.buyPrice(0, 1, 0, 0), dog, ref shop, ref nextSlot);
+                AddItem(ItemType<Items.Tiles.Blocks.AuricBrick>(), Item.buyPrice(0, 1, 50, 0), DownedBossSystem.downedYharon, ref shop, ref nextSlot);
+                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPlating>(), Item.buyPrice(0, 2, 0, 0), DownedBossSystem.downedExoMechs, ref shop, ref nextSlot);
+                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPrismPanel>(), Item.buyPrice(0, 2, 0, 0), DownedBossSystem.downedExoMechs, ref shop, ref nextSlot);
             }
             else if (shop2)
             {

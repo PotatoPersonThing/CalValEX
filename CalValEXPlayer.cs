@@ -450,7 +450,7 @@ namespace CalValEX
                 {
                     twinballoon = true;
                 }
-                else if (item.type == ModContent.ItemType<HeartoftheElements>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
+                else if (item.type == ModContent.ItemType<HeartoftheElements>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu)
                 {
                     bool brimmyspawned = Player.ownedProjectileCounts[ProjectileType<VanityBrimstone>()] <= 0;
                     bool cloudspawned = Player.ownedProjectileCounts[ProjectileType<VanityCloud>()] <= 0;
@@ -496,7 +496,7 @@ namespace CalValEX
                     }
                     vanityhote = true;
                 }
-                else if (item.type == ModContent.ItemType<RoseStone>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
+                else if (item.type == ModContent.ItemType<RoseStone>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu)
                 {
                     bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityBrimstone>()] <= 0;
                     if (cryospawned && Player.whoAmI == Main.myPlayer)
@@ -506,7 +506,7 @@ namespace CalValEX
                     }
                     vanitybrim = true;
                 }
-                else if (item.type == ModContent.ItemType<EyeoftheStorm>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
+                else if (item.type == ModContent.ItemType<EyeoftheStorm>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu)
                 {
                     bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityCloud>()] <= 0;
                     if (cryospawned && Player.whoAmI == Main.myPlayer)
@@ -516,7 +516,7 @@ namespace CalValEX
                     }
                     vanitycloud = true;
                 }
-                else if (item.type == ModContent.ItemType<WifeinaBottle>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
+                else if (item.type == ModContent.ItemType<WifeinaBottle>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu)
                 {
                     bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanitySand>()] <= 0;
                     if (cryospawned && Player.whoAmI == Main.myPlayer)
@@ -526,7 +526,7 @@ namespace CalValEX
                     }
                     vanitysand = true;
                 }
-                else if (item.type == ModContent.ItemType<WifeinaBottlewithBoobs>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
+                else if (item.type == ModContent.ItemType<WifeinaBottlewithBoobs>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu)
                 {
                     if (CalValEX.AprilFoolDay)
                     {
@@ -550,7 +550,7 @@ namespace CalValEX
                         vanityrare = true;
                     }
                 }
-                else if (item.type == ModLoader.GetMod("CalamityMod").Find<ModItem>("PearlofEnthrallment").Type && !CalValEXConfig.Instance.HeartVanity && antisocial == null)
+                else if (item.type == ModLoader.GetMod("CalamityMod").Find<ModItem>("PearlofEnthrallment").Type && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu)
                 {
                     bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityAnahita>()] <= 0;
                     if (cryospawned && Player.whoAmI == Main.myPlayer)
@@ -560,7 +560,7 @@ namespace CalValEX
                     }
                     vanitysiren = true;
                 }
-                else if (item.type == ModContent.ItemType<CryoStone>() && !CalValEXConfig.Instance.ColdShield && antisocial == null)
+                else if (item.type == ModContent.ItemType<CryoStone>() && !CalValEXConfig.Instance.ColdShield && antisocial == null && !Main.gameMenu)
                 {
                     bool cryospawned = Player.ownedProjectileCounts[ProjectileType<Lightshield>()] <= 0;
                     if (cryospawned && Player.whoAmI == Main.myPlayer)
@@ -570,7 +570,7 @@ namespace CalValEX
                     }
                     Lightshield = true;
                 }
-                else if (item.type == ModContent.ItemType<MutatedTruffle>() && !CalValEXConfig.Instance.YoungDukePSS && antisocial == null)
+                else if (item.type == ModContent.ItemType<MutatedTruffle>() && !CalValEXConfig.Instance.YoungDukePSS && antisocial == null && !Main.gameMenu)
                 {
                     bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityYoungDuke>()] <= 0;
                     if (cryospawned && Player.whoAmI == Main.myPlayer)
@@ -580,7 +580,7 @@ namespace CalValEX
                     }
                     vanityyound = true;
                 }
-                else if (item.type == ModContent.ItemType<FungalClump>() && !CalValEXConfig.Instance.FungusClump && antisocial == null)
+                else if (item.type == ModContent.ItemType<FungalClump>() && !CalValEXConfig.Instance.FungusClump && antisocial == null && !Main.gameMenu)
                 {
                     bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityFunClump>()] <= 0;
                     if (cryospawned && Player.whoAmI == Main.myPlayer)
@@ -1366,13 +1366,5 @@ namespace CalValEX
                 drawInfo.headGlowMaskColor = Color.Transparent;
             }
         }*/
-        public override Texture2D GetMapBackgroundImage()
-        {
-            if (Player.InModBiome(GetInstance<AstralBlight>()))
-            {
-                return Request<Texture2D>("CalValEX/Backgrounds/AstralMap").Value;
-            }
-            return null;
-        }
     }
 }

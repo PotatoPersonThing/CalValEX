@@ -891,10 +891,16 @@ namespace CalValEX
                 //Donuts
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.ProfanedGuardians.ProfanedGuardianCommander>())
                 {
-                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedFrame>(), 15));
-                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedBattery>(), 15));
-                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedWheels>(), 15));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedWheels>(), 3));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<ProfanedGuardianPlush>(), 4);
+                }
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.ProfanedGuardians.ProfanedGuardianDefender>())
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedFrame>(), 3));
+                }
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.ProfanedGuardians.ProfanedGuardianHealer>())
+                {
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedBattery>(), 3));
                 }
                 //Meldosaurus
                 if (npc.type == ModContent.NPCType<AprilFools.Meldosaurus.Meldosaurus>())
@@ -1426,7 +1432,7 @@ namespace CalValEX
             Player player = LocalPlayer.Player;
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             CalamityMod.CalPlayer.CalamityPlayer calp = player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>();
-            bool noevents = !CalamityMod.Events.AcidRainEvent.AcidRainEventIsOngoing && calp.ZoneSulphur && !Main.eclipse && !Main.snowMoon && !Main.pumpkinMoon && Main.invasionType == 0 && !player.ZoneTowerSolar && !player.ZoneTowerStardust && !player.ZoneTowerVortex & !player.ZoneTowerNebula && !player.ZoneOldOneArmy;
+            bool noevents = !CalamityMod.Events.AcidRainEvent.AcidRainEventIsOngoing && !Main.eclipse && !Main.snowMoon && !Main.pumpkinMoon && Main.invasionType == 0 && !player.ZoneTowerSolar && !player.ZoneTowerStardust && !player.ZoneTowerVortex & !player.ZoneTowerNebula && !player.ZoneOldOneArmy;
             Mod cata;
             ModLoader.TryGetMod("CatalystMod", out cata);
             if (!CalValEXConfig.Instance.CritterSpawns)
@@ -1458,7 +1464,7 @@ namespace CalValEX
                         {
                             pool.Add(cata.Find<ModNPC>("AstrageldonSlime").Type, 0.002f);
                         }
-                        if ((bool)cata.Call("worlddefeats.astrageldon"))
+                        if ((bool)cata.Call("DownedAstrageldon", Mod))
                         {
                             pool.Add(cata.Find<ModNPC>("ArmoredAstralSlime").Type, 0.02f);
                         }

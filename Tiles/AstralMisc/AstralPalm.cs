@@ -44,7 +44,6 @@ namespace CalValEX.Tiles.AstralMisc
 		{
 			return ModContent.Request<Texture2D>("CalValEX/Tiles/AstralMisc/AstralPalmTop");
 		}
-		public override int GrowthFXGore() => -1;
 
 		public override int DropWood()
 		{
