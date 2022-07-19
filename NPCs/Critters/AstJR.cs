@@ -81,9 +81,5 @@ namespace CalValEX.NPCs.Critters
             }
             return 0f;
         }
-        public override void OnCaughtBy(Player player, Item item, bool failed)
-        {
-            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<AstJRItem>());
-        }
     }
 }

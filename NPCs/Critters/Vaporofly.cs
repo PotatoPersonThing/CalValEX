@@ -70,11 +70,6 @@ namespace CalValEX.NPCs.Critters
             //return 0f;
         }
 
-        public override void OnCaughtBy(Player player, Item item, bool failed)
-        {
-            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<VaporoflyItem>());
-        }
-
         public void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale)
         {
             Vector2 origin = new Vector2(NPC.width * .5f, NPC.height * .5f);
