@@ -31,9 +31,5 @@ namespace CalValEX.Items.Tiles
             Item.height = 12;
             Item.rare = 5;
         }
-        public override void OnResearched(bool fullyResearched)
-        {
-            CombatText.NewText(new Rectangle((int)Main.LocalPlayer.position.X, (int)Main.LocalPlayer.position.Y, Main.LocalPlayer.width, Main.LocalPlayer.height), Color.Red, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAA", true);
-        }
     }
 }
