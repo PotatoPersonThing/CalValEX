@@ -401,6 +401,7 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<CalamityMod.Items.Placeables.DraedonStructures.HazardChevronPanels>(), Item.buyPrice(0, 0, 0, 25), true, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.DraedonStructures.RustedPlating>(), Item.buyPrice(0, 0, 0, 25), true, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.DraedonStructures.LaboratoryPipePlating>(), Item.buyPrice(0, 0, 0, 25), true, ref shop, ref nextSlot);
+                AddItem(ItemType<CalamityMod.Items.Placeables.DraedonStructures.RustedPipes>(), Item.buyPrice(0, 0, 0, 25), true, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.Acidwood>(), Item.buyPrice(0, 0, 5, 0), true, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.SulphurousSandstone>(), Item.buyPrice(0, 0, 0, 35), true, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.HardenedSulphurousSandstone>(), Item.buyPrice(0, 0, 0, 50), true, ref shop, ref nextSlot);
