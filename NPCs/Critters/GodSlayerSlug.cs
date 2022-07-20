@@ -103,9 +103,5 @@ namespace CalValEX.NPCs.Critters
             NPC.frame.Y = frame * frameHeight;
         }
 
-        public override void OnCaughtBy(Player player, Item item, bool failed)
-        {
-            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<GodSlayerSlugItem>());
-        }
     }
 }

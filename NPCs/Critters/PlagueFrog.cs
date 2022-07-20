@@ -71,10 +71,6 @@ namespace CalValEX.NPCs.Critters
             return Terraria.ModLoader.Utilities.SpawnCondition.HardmodeJungle.Chance * 0.4f;
         }
 
-        public override void OnCaughtBy(Player player, Item item, bool failed)
-        {
-            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<PlagueFrogItem>());
-        }
 
         public override void HitEffect(int hitDirection, double damage)
         {
