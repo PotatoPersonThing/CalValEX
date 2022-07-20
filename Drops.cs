@@ -43,7 +43,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using System.IO;
-using static CalamityMod.NPCs.SlimeGod.SlimeGodCore;
 
 namespace CalValEX
 {
@@ -596,11 +595,11 @@ namespace CalValEX
                 //Slime Gods...
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodCore>())
                 {
-                    npcLoot.AddIf(() => true && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(), 1, 155, 265);
-                    npcLoot.AddIf(() => true && CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
-                    npcLoot.AddIf(() => true && !Main.expertMode, ModContent.ItemType<IonizedJellyCrystal>(), 50);
-                    npcLoot.AddIf(() => true && !Main.expertMode, ModContent.ItemType<SlimeGodMask>(), 7);
-                    npcLoot.AddIf(() => true && !Main.expertMode, ModContent.ItemType<SlimeDeitysSoul>(), 3);
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(), 1, 155, 265);
+                    npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<IonizedJellyCrystal>(), 50));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SlimeGodMask>(), 7));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SlimeDeitysSoul>(), 3));
                 }
                 //Cryogen
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Cryogen.Cryogen>())
@@ -1075,7 +1074,7 @@ namespace CalValEX
             }
             else if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>())
             {
-                if (projectile.type == ModContent.ProjectileType<CalamityMod.Projectiles.Summon.WulfrumBoltMinion>() || projectile.type == ModContent.ProjectileType<CalamityMod.Projectiles.Summon.WulfrumDroid>())
+                if (projectile.type == ModContent.ProjectileType<CalamityMod.Projectiles.Summon.WulfrumDroid>() || projectile.type == ModContent.ProjectileType<CalamityMod.Projectiles.Summon.WulfrumDroid>())
                 {
                     wolfram = true;
                 }

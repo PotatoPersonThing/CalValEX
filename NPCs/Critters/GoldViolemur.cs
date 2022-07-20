@@ -90,7 +90,11 @@ namespace CalValEX.NPCs.Critters
                     {
                         return Terraria.ModLoader.Utilities.SpawnCondition.TownCritter.Chance * 0.07f;
                     }
-                    else if (!Main.eclipse && !Main.bloodMoon && !Main.pumpkinMoon && !Main.snowMoon)
+                    else if (
+                        !Main.eclipse &
+                        !Main.snowMoon &
+                        !Main.pumpkinMoon &
+                        Main.invasionType == InvasionID.None)
                     {
                         return 0.02f;
                     }
