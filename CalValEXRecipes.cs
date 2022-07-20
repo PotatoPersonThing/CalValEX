@@ -85,7 +85,7 @@ namespace CalValEX
 				{
 					Recipe recipe = Recipe.Create(ItemType<AprilFools.Meldosaurus.MeldosaurusRelic>());
 					recipe.AddIngredient(ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusTrophy>());
-					recipe.AddIngredient(ModContent.ItemType<VictoryShard>(), 10);
+					recipe.AddIngredient(ModContent.ItemType<PearlShard>(), 10);
 					recipe.AddTile(TileID.Bookcases);
 					recipe.Register();
 				}
@@ -313,7 +313,7 @@ namespace CalValEX
 				Recipe recipe = Recipe.Create(ItemType<WulfrumHelipack>());
 				recipe.AddIngredient(ItemID.LuckyHorseshoe);
 				recipe.AddIngredient(ItemType<EnergyCore>(), 3);
-				recipe.AddIngredient(ItemType<WulfrumShard>(), 30);
+				recipe.AddIngredient(ItemType<WulfrumMetalScrap>(), 30);
 				recipe.AddRecipeGroup(RecipeGroupID.IronBar, 12);
 				recipe.AddTile(TileID.Anvils);
 				recipe.Register();
@@ -612,6 +612,91 @@ namespace CalValEX
 				recipe.AddTile(TileType<DraedonsForge>());
 				recipe.Register();
 			}
+			//Blocks
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumPlating>(), 50);
+				recipe.AddIngredient(ItemType<WulfrumMetalScrap>());
+				recipe.AddIngredient(ItemID.StoneBlock, 50);
+				recipe.AddTile(TileID.Anvils);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<AuricBrick>(), 50);
+				recipe.AddIngredient(ItemType<CalamityMod.Items.Placeables.Ores.AuricOre>());
+				recipe.AddIngredient(ItemID.StoneBlock, 50);
+				recipe.AddTile(TileType<CosmicAnvil>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<Items.Tiles.Blocks.AstralBrick>(), 1);
+				recipe.AddIngredient(ItemType<AstralStone>());
+				recipe.AddIngredient(ItemID.StoneBlock);
+				recipe.AddTile(TileType<StarstruckSynthesizerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<BloodstoneBrick>(), 200);
+				recipe.AddIngredient(ItemType<BloodstoneCore>());
+				recipe.AddIngredient(ItemID.StoneBlock, 200);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<ChiseledBloodstone>(), 200);
+				recipe.AddIngredient(ItemType<BloodstoneCore>());
+				recipe.AddIngredient(ItemID.StoneBlock, 200);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<EidolicSlab>(), 200);
+				recipe.AddIngredient(ItemType<CalamityMod.Items.Placeables.FurnitureVoid.SmoothVoidstone>(), 200);
+				recipe.AddIngredient(ItemType<ReaperTooth>());
+				recipe.AddIngredient(ItemType<Lumenyl>(), 5);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<Necrostone>(), 200);
+				recipe.AddIngredient(ItemType<CalamityMod.Items.TreasureBags.FleshyGeode>());
+				recipe.AddIngredient(ItemID.StoneBlock, 200);
+				recipe.AddTile(TileID.MythrilAnvil);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<Necrostone>(), 200);
+				recipe.AddIngredient(ItemType<CalamityMod.Items.TreasureBags.NecromanticGeode>());
+				recipe.AddIngredient(ItemID.StoneBlock, 200);
+				recipe.AddTile(TileID.MythrilAnvil);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<PhantowaxBlock>(), 50);
+				recipe.AddIngredient(ItemID.ClayBlock, 50);
+				recipe.AddIngredient(ItemType<Phantoplasm>());
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<PolishedAstralMonolith>());
+				recipe.AddIngredient(ItemType<AstralMonolith>());
+				recipe.AddTile(TileID.Sawmill);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<PolishedXenomonolith>());
+				recipe.AddIngredient(ItemType<AstralTreeWood>());
+				recipe.AddTile(TileID.Sawmill);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<ShadowBrick>(), 300);
+				recipe.AddIngredient(ItemType<AshesofAnnihilation>());
+				recipe.AddIngredient(ItemType<ExoPrism>());
+				recipe.AddIngredient(ItemID.StoneBlock, 300);
+				recipe.AddTile(TileType<DraedonsForge>());
+				recipe.Register();
+			}
 			//Plushies
 			PlushRecipe(ItemType<AnahitaPlushThrowable>(), ItemType<AnahitaPlush>());
 			PlushRecipe(ItemType<ApolloPlushThrowable>(), ItemType<ApolloPlush>());
@@ -688,7 +773,7 @@ namespace CalValEX
 			//Monoliths
 			MonolithRecipe(ItemType <CosmiliteBar>(), ItemType<DimensionalMonolith>(), TileID.LunarCraftingStation);
 			MonolithRecipe(ItemType <DivineGeode>(), ItemType<UnholyMonolith>(), TileID.LunarCraftingStation);
-			MonolithRecipe(ItemType <HellcasterFragment>(), ItemType<InfernalMonolith>(), TileID.LunarCraftingStation);
+			MonolithRecipe(ItemType <YharonSoulFragment>(), ItemType<InfernalMonolith>(), TileID.LunarCraftingStation);
 			MonolithRecipe(ItemType <InfectedArmorPlating>(), ItemType<PlagueMonolith>(), TileID.MythrilAnvil);
 			MonolithRecipe(ItemType <AshesofCalamity>(), ItemType<CalamitousMonolith>(), TileID.MythrilAnvil);
 			MonolithRecipe(ItemType<CryonicBar>(), ItemType<AuroraMonolith>(), TileID.MythrilAnvil);
