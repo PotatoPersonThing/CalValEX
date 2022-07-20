@@ -38,6 +38,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
                 Projectile.timeLeft = 2;
 
             Vector2 vectorToOwner = player.Center;
+            vectorToOwner.X -= 8f;
             vectorToOwner.Y -= 56f;
 
             float value = 8f;
