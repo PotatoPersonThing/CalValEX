@@ -1077,9 +1077,13 @@ namespace CalValEX
         }
         public override string IsArmorSet(Item head, Item body, Item legs)
         {
-            if (head.type == ModContent.ItemType<WulfrumHat>() &&
-                body.type == ModContent.ItemType<WulfrumJacket>() &&
-                legs.type == ModContent.ItemType<WulfrumOveralls>())
+            if ((head.type == ModContent.ItemType<WulfrumHeadMagic>() ||
+                 head.type == ModContent.ItemType < WulfrumHeadMelee>() ||
+                 head.type == ModContent.ItemType < WulfrumHeadRanged>() ||
+                 head.type == ModContent.ItemType < WulfrumHeadRogue>() ||
+                 head.type == ModContent.ItemType < WulfrumHeadSummon>()) &&
+                body.type == ModContent.ItemType < WulfrumArmor>() &&
+                legs.type == ModContent.ItemType < WulfrumLeggings>())
             {
                 return "Wulfrumset";
             }
