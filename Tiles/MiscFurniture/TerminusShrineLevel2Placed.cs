@@ -48,7 +48,6 @@ namespace CalValEX.Tiles.MiscFurniture
 			Tile tile = Main.tile[i, j];
 			if (tile.TileFrameX == 0 && tile.TileFrameY == 0)
 			{
-				rotation += 10;
 				if (stonepos <= -6)
 				{
 					stonepos = stonepos * 0.001f;
@@ -71,7 +70,7 @@ namespace CalValEX.Tiles.MiscFurniture
 				{
 					spriteBatch.End();
 					spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied);
-					spriteBatch.Draw(auraTexture, position, sourceRectangle, color, rotation * 0.01f, origin / 2f, 1f, SpriteEffects.None, 0f);
+					spriteBatch.Draw(auraTexture, position, sourceRectangle, color, Main.GlobalTimeWrappedHourly * 1f, origin / 2f, 1f, SpriteEffects.None, 0f);
 					spriteBatch.Draw(stoneTexture, stoneposition, stoneRectangle, color, 0f, origin / 2f, 1f, SpriteEffects.None, 0f);
 				}
 				//spriteBatch.Draw(texture, this.Center - Main.screenPosition, sourceRectangle, lightColor, rotation, origin / 2f, 1f, SpriteEffects.None, 0);

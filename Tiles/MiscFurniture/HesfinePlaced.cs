@@ -12,7 +12,7 @@ namespace CalValEX.Tiles.MiscFurniture
     public class HesfinePlaced : ModTile
     {
         Terraria.Audio.SoundStyle helpm = new("CalValEX/Sounds/Help");
-        Terraria.Audio.SoundStyle chug = new("CalValEX/Sounds/Item/Nom");
+        Terraria.Audio.SoundStyle chug = new("CalValEX/Sounds/Nom");
         public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
