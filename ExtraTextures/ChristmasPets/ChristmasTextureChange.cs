@@ -16,7 +16,7 @@ namespace CalValEX.ExtraTextures.ChristmasPets
         public static void Load()
         {
             string path = "CalValEX/ExtraTextures/ChristmasPets/";
-            if (CalValEX.month == 12 && !loaded)
+            if (CalValEX.month == 12)
             {
                 TextureAssets.Projectile[ModContent.ProjectileType<AeroBaby>()] = ModContent.Request<Texture2D>(path + "AeroBaby");
                 TextureAssets.Projectile[ModContent.ProjectileType<AeroSlimePet>()] = ModContent.Request<Texture2D>(path + "AeroSlimePet");
