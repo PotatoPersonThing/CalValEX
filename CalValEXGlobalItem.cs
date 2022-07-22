@@ -43,6 +43,10 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria.GameContent.ItemDropRules;
+using System.Linq;
+using Terraria.ModLoader.Default;
+using CalValEX.Items.Tiles.Blueprints;
 
 namespace CalValEX
 {
@@ -182,789 +186,472 @@ namespace CalValEX
             {
                 player.armorEffectDrawShadow = true;
                 player.armorEffectDrawOutlines = true;
-            }
-        }
+			}
+		}
 		public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
 		{
-			base.ModifyItemLoot(item, itemLoot);
+			//Here is a list of all Calamity Bags:
+			//Aquatic Scourge = AquaticScourgeBag
+			//Astrum Aureus = AstrageldonBag
+			//Astrum Deus = AstrumDeusBag
+			//Brimstone Elemental = BrimstoneWaifuBag
+			//Dragonfolly = BumblebirbBag
+			//Calamitas = CalamitasBag
+			//Crabulon = CrabulonBag
+			//Cryogen = CryogenBag
+			//Desert Scourge = DesertScourgeBag
+			//Devourer of Gods = DevourerofGodsBag
+			//Hive Mind = HiveMindBag
+			//Leviathan and Siren = LeviathanBag
+			//Old Duke = OldDukeBag
+			//Perforators = PerforatorBag
+			//Plaguebringer Goliath = PlaguebringerGoliathBag
+			//Polterghast = PolterghastBag
+			//Providence = ProvidenceBag
+			//Ravager = RavagerBag
+			//Slime God = SlimeGodBag
+			//Starter Bag = StarterBag
+			//Yharon = YharonBag
+
+			LeadingConditionRule rule = new(new VanityDropsEnabled());
+			LeadingConditionRule rule2 = new(new Combine(true, null, new VanityDropsEnabled(), new BossBlocksDropsEnabled()));
+			LeadingConditionRule rule3 = new(new Combine(true, null, new VanityDropsEnabled(), new ProvidenceDownedRule()));
+			LeadingConditionRule rule4 = new(new Combine(true, null, new VanityDropsEnabled(), new BossBlocksDropsEnabled(), new YharonDownedRule()));
+			LeadingConditionRule rule5 = new(new Combine(true, null, new VanityDropsEnabled(), new BossBlocksDropsEnabled(), new DogDownedRule()));
+			LeadingConditionRule rule6 = new(new Combine(true, null, new VanityDropsEnabled(), new CalValExMonthDayRule(6, 1)));
+			LeadingConditionRule rule7 = new(new Combine(true, null, new VanityDropsEnabled(), new ThanatosDownedRule()));
+			LeadingConditionRule rule8 = new(new Combine(true, null, new VanityDropsEnabled(), new ArtemisAndApolloDownedRule()));
+			LeadingConditionRule rule9 = new(new Combine(true, null, new VanityDropsEnabled(), new AresDownedRule()));
+
+			#region bags
+			if (item.type == ModContent.ItemType<StarterBag>())
+			{
+				rule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<C>()));
+			}
+			else if (item.type == ModContent.ItemType<DesertScourgeBag>())
+			{
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<DesertMedallion>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<DriedLocket>(), 5));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<SlightlyMoistbutalsoSlightlyDryLocket>(), 100, chanceNumerator: 7));
+			}
+			else if (item.type == ModContent.ItemType<CrabulonBag>())
+			{
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<ClawShroom>(), 10, chanceNumerator: 3));
+			}
+			else if (item.type == ModContent.ItemType<HiveMindBag>())
+			{
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<RottenKey>(), 10, chanceNumerator: 3));
+			}
+			else if (item.type == ModContent.ItemType<PerforatorBag>())
+			{
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<MeatyWormTumor>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(new OneFromOptionsNotScaledWithLuckDropRule(100, 40, ModContent.ItemType<SmallWorm>(), ModContent.ItemType<MidWorm>(), ModContent.ItemType<BigWorm>()));
+			}
+			else if (item.type == ModContent.ItemType<SlimeGodBag>())
+			{
+				rule2.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(), 1, 205, 335));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<SlimeDeitysSoul>(), 10, chanceNumerator: 3));
+			}
+			else if (item.type == ModContent.ItemType<CryogenBag>())
+			{
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<CoolShades>(), 10, chanceNumerator: 3));
+			}
+			else if (item.type == ModContent.ItemType<BrimstoneWaifuBag>())
+			{
+				rule2.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.BrimstoneSlag>(), 1, 205, 335));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<BrimmyBody>(), 5));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<BrimmySpirit>(), 5));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<RareBrimtulip>(), 5));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<FoilSpoon>(), 20));
+			}
+			else if (item.type == ModContent.ItemType<CalamitasBag>())
+			{
+				IItemDropRule demonshade = ItemDropRule.Common(ModContent.ItemType<DemonshadeHood>());
+				demonshade.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DemonshadeRobe>()));
+				demonshade.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DemonshadePants>()));
+
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<Calacirclet>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000));
+				rule3.OnSuccess(demonshade);
+			}
+			else if (item.type == ModContent.ItemType<LeviathanBag>())
+			{
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<AquaticMonolith>(), 100, chanceNumerator: 15));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<LeviWings>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<LeviathanEgg>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<FoilAtlantis>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<StrangeMusicNote>(), 100));
+			}
+			else if (item.type == ModContent.ItemType<AstrumAureusBag>())
+			{
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AstralInfectedIcosahedron>(), 5));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AureusShield>(), 5));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000));
+			}
+			else if (item.type == ModContent.ItemType<PlaguebringerGoliathBag>())
+			{
+				rule2.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurniturePlagued.PlaguedContainmentBrick>(), 1, 205, 335));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 250));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<InfectedController>(), 5));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<PlaguePack>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<PlagueHiveWand>(), 3));
+			}
+			else if (item.type == ModContent.ItemType<RavagerBag>())
+			{
+				rule2.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Necrostone>(), 1, 205, 335));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<SkullCluster>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<ScavaHook>(), 100, chanceNumerator: 7));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<RavaHook>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<SkullBalloon>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<StonePile>(), 10, chanceNumerator: 3));
+			}
+			else if (item.type == ModContent.ItemType<AstrumDeusBag>())
+			{
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<Geminga>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AstBandana>(), 5));
+			}
+			else if (item.type == ModContent.ItemType<DragonfollyBag>())
+			{
+				rule4.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureSilva.SilvaCrystal>(), 1, 205, 335));
+				rule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<FollyWings>(), ModContent.ItemType<Birbhat>(), ModContent.ItemType<DocilePheromones>()));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 200));
+			}
+			else if (item.type == ModContent.ItemType<ProvidenceBag>())
+			{
+				rule2.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureProfaned.ProfanedRock>(), 1, 205, 335));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<ProfanedHeart>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<ProviCrystal>(), 10, chanceNumerator: 3));
+			}
+			else if (item.type == ModContent.ItemType<StormWeaverBag>())
+			{
+				rule5.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(), 1, 205, 335));
+				rule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuckWithX(10, 3, ModContent.ItemType<StormMedal>(), ModContent.ItemType<ArmoredScrap>()));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<StormBandana>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000, chanceNumerator: 7));
+			}
+			else if (item.type == ModContent.ItemType<CeaselessVoidBag>())
+			{
+				rule5.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(), 1, 205, 335));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<MirrorMatter>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<VoidWings>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<OldVoidWings>(), 20));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000, chanceNumerator: 7));
+			}
+			else if (item.type == ModContent.ItemType<SignusBag>())
+			{
+				rule5.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(), 1, 205, 335));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<ShadowCloth>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<SignusEmblem>(), ModContent.ItemType<SignusNether>(), ModContent.ItemType<SignusBalloon>(), ModContent.ItemType<Items.Equips.Capes.SigCape>()));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000, chanceNumerator: 7));
+			}
+			else if (item.type == ModContent.ItemType<PolterghastBag>())
+			{
+				rule2.OnSuccess(new OneFromRulesRule(1, ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStratus.StratusBricks>(), 1, 205, 335), ItemDropRule.Common(ModContent.ItemType<PhantowaxBlock>(), 1, 205, 335)));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Polterhook>(), 10));
+			}
+			else if (item.type == ModContent.ItemType<OldDukeBag>())
+			{
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<OldWings>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<CorrodedCleaver>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<CharredChopper>(), 100, chanceNumerator: 7));
+			}
+			else if (item.type == ModContent.ItemType<DevourerofGodsBag>())
+			{
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<CosmicWormScarf>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<CosmicRapture>(), 5));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<RapturedWormScarf>(), 100, chanceNumerator: 7));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 100));
+			}
+			else if (item.type == ModContent.ItemType<YharonBag>())
+			{
+				IItemDropRule demonshade = ItemDropRule.NotScalingWithLuck(ModContent.ItemType<DemonshadeHood>(), 10);
+				demonshade.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DemonshadeRobe>()));
+				demonshade.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DemonshadePants>()));
+
+				rule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Termipebbles>(), 1, 5, 8));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<JunglePhoenixWings>(), 10, chanceNumerator: 3));
+				rule6.OnSuccess(new CommonDrop(ModContent.ItemType<YharonsAnklet>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<NuggetinaBiscuit>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<YharonShackle>(), 10, chanceNumerator: 3));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 20));
+				rule.OnSuccess(demonshade);
+			}
+			else if (item.type == ModContent.ItemType<DraedonBag>())
+			{
+				IItemDropRule draedon = ItemDropRule.NotScalingWithLuck(ModContent.ItemType<DraedonBody>(), 7);
+				draedon.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DraedonLegs>()));
+				IItemDropRule balloons = ItemDropRule.NotScalingWithLuck(ModContent.ItemType<ApolloBalloonSmall>(), 2);
+				balloons.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ArtemisBalloonSmall>()));
+
+				rule2.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPlating>(), 1, 205, 335));
+
+				rule7.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<XMLightningHook>(), 2));
+				rule7.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Items.Pets.ExoMechs.GunmetalRemote>(), 2));
+
+				rule8.OnSuccess(balloons);
+				rule8.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Items.Pets.ExoMechs.GeminiMarkImplants>(), 2));
+
+				rule9.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>(), 2));
+				rule9.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Items.Pets.ExoMechs.OminousCore>(), 2));
+
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 10));
+				rule.OnSuccess(draedon);
+			}
+			else if (item.type == ModContent.ItemType<SupremeCalamitasCoffer>())
+			{
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 10));
+				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<GruelingMask>(), 3));
+			}
+
+			if (ModLoader.TryGetMod("CatalystMod", out Mod catalyst))
+			{
+				if (item.type == catalyst.Find<ModItem>("AstrageldonBag").Type)
+					rule.OnSuccess(new CommonDrop(ModContent.ItemType<SpaceJunk>(), 10, chanceNumerator: 3));
+			}
+            #endregion
+
+            #region spaghetti starter
+            if (item.type != ModContent.ItemType<StarterBag>())
+                return;
+
+            LeadingConditionRule[] names = new LeadingConditionRule[]
+            {
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Jared"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("RamG", "Ramgear"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Bumbledoge", "BumbleDoge", "Bojangles", "Bojeangles"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("William"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Kiwabug"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("YuH", "Yuh", "yuh", "Lilsigtum", "GinYuH", "Lil Sigtum"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Hypera"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Drakudragonx"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Spider", "spider", "Spooktacular", "spooktacular"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Fabsol"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Lucca"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Junko"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Lil Junko"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Cooper"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Tess"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Enreden"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Iban", "IbanPlay", "IBlockaroz"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Mathew", "Mathew Maple", "Maple"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Emerald", "EmeraldXLapis"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Yharex87", "Yharex"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Scarfy", "ScarfyScout", "Krysmun", "DodoNation", "Dodo"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("caligulasAquarium", "caligulas"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Willow", "willowmaine", "bean long"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Potato Person"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Dorira", "Marco"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Hat Enthusiast"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Triangle"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Brimmy"))),
+            };
+
+            IItemDropRule jaredPack = ItemDropRule.Common(ModContent.ItemType<CanofWyrms>());
+            jaredPack.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SoulShard>()));
+
+            IItemDropRule bumbledoge = ItemDropRule.Common(ModContent.ItemType<AerialiteBubble>());
+            bumbledoge.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ExtraFluffyFeatherClump>()));
+
+            IItemDropRule yuh = ItemDropRule.Common(ModContent.ItemType<FlareRune>());
+            yuh.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SmolEldritchHoodie>()));
+
+            IItemDropRule lucca = ItemDropRule.Common(ModContent.ItemType<SuspiciousLookingChineseCrown>());
+            lucca.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ToyScythe>()));
+
+            IItemDropRule junko = ItemDropRule.Common(ModContent.ItemType<SuspiciousLookingChineseCrown>());
+            junko.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ToyScythe>()));
+            junko.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ProfanedBalloon>()));
+
+            IItemDropRule maple = ItemDropRule.Common(ModContent.ItemType<DeepseaLantern>());
+            maple.OnSuccess(ItemDropRule.Common(ModContent.ItemType<SwearingShroom>()));
+            maple.OnSuccess(ItemDropRule.Common(ModContent.ItemType<FleshThing>()));
+
+            IItemDropRule yhar = ItemDropRule.Common(ModContent.ItemType<SpaceJunk>());
+            yhar.OnSuccess(ItemDropRule.Common(ModContent.ItemType<AstraEGGeldon>()));
+
+            IItemDropRule willow = ItemDropRule.Common(ModContent.ItemType<OldMirage>());
+            willow.OnSuccess(ItemDropRule.Common(ModContent.ItemType<PerennialFlower>()));
+            willow.OnSuccess(ItemDropRule.Common(ModContent.ItemType<VVanities>()));
+
+            IItemDropRule dorira = ItemDropRule.Common(ModContent.ItemType<CharredChopper>());
+            dorira.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RapturedWormScarf>()));
+
+            IItemDropRule triangle = ItemDropRule.Common(ModContent.ItemType<BubbledFin>());
+            triangle.OnSuccess(ItemDropRule.Common(ModContent.ItemType<IonizedJellyCrystal>()));
+
+            IItemDropRule brimmy = ItemDropRule.Common(ModContent.ItemType<BurningEye>());
+            brimmy.OnSuccess(ItemDropRule.Common(ModContent.ItemType<FoilSpoon>()));
+            brimmy.OnSuccess(ItemDropRule.Common(ModContent.ItemType<RareBrimtulip>()));
+
+            names[0].OnSuccess(jaredPack);
+            names[1].OnSuccess(ItemDropRule.Common(ModContent.ItemType<ToyScythe>()));
+            names[2].OnSuccess(bumbledoge);
+            names[3].OnSuccess(ItemDropRule.Common(ModContent.ItemType<RuinedBandage>()));
+            names[4].OnSuccess(ItemDropRule.Common(ModContent.ItemType<UglyTentacle>()));
+            names[5].OnSuccess(yuh);
+            names[6].OnSuccess(ItemDropRule.Common(ModContent.ItemType<SunBun>()));
+            names[7].OnSuccess(ItemDropRule.Common(ModContent.ItemType<BambooStick>()));
+            names[8].OnSuccess(ItemDropRule.Common(ModContent.ItemType<IsopodItem>(), 1, 5, 5));
+            names[9].OnSuccess(ItemDropRule.Common(ModContent.ItemType<CosmicRapture>()));
+            names[10].OnSuccess(lucca);
+            names[11].OnSuccess(junko);
+            names[12].OnSuccess(ItemDropRule.Common(ModContent.ItemType<SuspiciousLookingChineseCrown>()));
+            names[13].OnSuccess(ItemDropRule.Common(ModContent.ItemType<CooperShortsword>()));
+            names[14].OnSuccess(ItemDropRule.Common(ModContent.ItemType<Geminga>()));
+            names[15].OnSuccess(ItemDropRule.Common(ModContent.ItemType<CosmicBubble>()));
+            names[16].OnSuccess(ItemDropRule.Common(ModContent.ItemType<ProtoRing>()));
+            names[17].OnSuccess(maple);
+            names[18].OnSuccess(ItemDropRule.Common(ModContent.ItemType<PurifiedFog>()));
+            names[19].OnSuccess(yhar);
+            names[20].OnSuccess(ItemDropRule.Common(ModContent.ItemType<ExtraFluffyFeather>()));
+            names[21].OnSuccess(ItemDropRule.Common(ModContent.ItemType<BleuBlob>()));
+            names[22].OnSuccess(willow);
+            names[23].OnSuccess(ItemDropRule.Common(ModContent.ItemType<RottenKey>()));
+            names[24].OnSuccess(dorira);
+            names[25].OnSuccess(ItemDropRule.Common(ModContent.ItemType<InkyArtifact>()));
+            names[26].OnSuccess(triangle);
+            names[27].OnSuccess(brimmy);
+            #endregion
+        }
+		#region drop rules
+        private class PlayerNameRule : IItemDropRuleCondition
+        {
+            public readonly string[] names;
+
+            public PlayerNameRule(params string[] names) => this.names = names;
+
+			public bool CanDrop(DropAttemptInfo info)
+			{
+                foreach (string s in names)
+                    if (info.player.name == s)
+                        return true;
+				return false;
+			}
+
+			public bool CanShowItemDropInUI() => true;
+
+            public string GetConditionDescription() => null;
+        }
+		private class ProvidenceDownedRule : IItemDropRuleCondition
+        {
+            public bool CanDrop(DropAttemptInfo info) => CalamityMod.DownedBossSystem.downedProvidence;
+
+            public bool CanShowItemDropInUI() => CalamityMod.DownedBossSystem.downedProvidence;
+
+            public string GetConditionDescription() => null;
+        }
+        private class YharonDownedRule : IItemDropRuleCondition
+        {
+            public bool CanDrop(DropAttemptInfo info) => CalamityMod.DownedBossSystem.downedYharon;
+
+            public bool CanShowItemDropInUI() => CalamityMod.DownedBossSystem.downedYharon;
+
+            public string GetConditionDescription() => null;
+        }
+        private class DogDownedRule : IItemDropRuleCondition
+        {
+            public bool CanDrop(DropAttemptInfo info) => CalamityMod.DownedBossSystem.downedDoG;
+
+            public bool CanShowItemDropInUI() => CalamityMod.DownedBossSystem.downedDoG;
+
+            public string GetConditionDescription() => null;
+        }
+        private class ThanatosDownedRule : IItemDropRuleCondition
+        {
+            public bool CanDrop(DropAttemptInfo info) => CalamityMod.DownedBossSystem.downedThanatos;
+
+            public bool CanShowItemDropInUI() => CalamityMod.DownedBossSystem.downedThanatos;
+
+            public string GetConditionDescription() => null;
+        }
+        private class ArtemisAndApolloDownedRule : IItemDropRuleCondition
+        {
+            public bool CanDrop(DropAttemptInfo info) => CalamityMod.DownedBossSystem.downedArtemisAndApollo;
+
+            public bool CanShowItemDropInUI() => CalamityMod.DownedBossSystem.downedArtemisAndApollo;
+
+            public string GetConditionDescription() => null;
+        }
+        private class AresDownedRule : IItemDropRuleCondition
+        {
+            public bool CanDrop(DropAttemptInfo info) => CalamityMod.DownedBossSystem.downedAres;
+
+            public bool CanShowItemDropInUI() => CalamityMod.DownedBossSystem.downedAres;
+
+            public string GetConditionDescription() => null;
+        }
+        private class VanityDropsEnabled : IItemDropRuleCondition
+		{
+			public bool CanDrop(DropAttemptInfo info) => !CalValEXConfig.Instance.DisableVanityDrops;
+
+			public bool CanShowItemDropInUI() => true;
+
+            public string GetConditionDescription() => null;
+		}
+		private class BossBlocksDropsEnabled : IItemDropRuleCondition
+		{
+			public bool CanDrop(DropAttemptInfo info) => !CalValEXConfig.Instance.ConfigBossBlocks;
+
+			public bool CanShowItemDropInUI() => true;
+
+			public string GetConditionDescription() => null;
+		}
+        private class CalValExMonthDayRule : IItemDropRuleCondition
+        {
+            public readonly bool positive;
+            public readonly int month;
+            public readonly int day;
+
+            public CalValExMonthDayRule(int day, int month, bool positive = false)
+			{
+                this.positive = positive;
+                this.month = month;
+                this.day = day;
+			}
+
+            public bool CanDrop(DropAttemptInfo info) => positive ? CalValEX.month == month && CalValEX.day == day : !(CalValEX.month == month && CalValEX.day == day);
+
+            public bool CanShowItemDropInUI() => positive ? CalValEX.month == month && CalValEX.day == day : !(CalValEX.month == month && CalValEX.day == day);
+
+            public string GetConditionDescription() => null;
+        }
+		private class Combine : IItemDropRuleCondition
+        {
+            private readonly bool andConditions;
+            private readonly IItemDropRuleCondition[] conditions;
+            private readonly string description;
+
+            public Combine(bool andConditions = true, string? description = null,
+                   params IItemDropRuleCondition[] dropRuleConditions)
+            {
+                this.andConditions = andConditions;
+                this.description = description;
+                conditions = dropRuleConditions;
+            }
+
+            public bool CanDrop(DropAttemptInfo info) => andConditions
+                    ? conditions.All(val => val.CanDrop(info))
+                    : conditions.Any(val => val.CanDrop(info));
+
+			public bool CanShowItemDropInUI() => andConditions
+					? conditions.All(val => val.CanShowItemDropInUI())
+					: conditions.Any(val => val.CanShowItemDropInUI());
+
+			public string GetConditionDescription() => description;
+		}
+        #endregion
+        public override void RightClick(Item item, Player player)
+        {
+			if (!CalValEXConfig.Instance.DisableVanityDrops && item.type == ModContent.ItemType<StarterBag>() && player.whoAmI == Main.myPlayer && CalValEX.AprilFoolWeek)
+			{
+				NPC.NewNPC(player.GetSource_ReleaseEntity(), (int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<AprilFools.Jharim.Jharim>(), 0, 0f, 0f, 0f, 0f, 255);
+			}
 		}
 		public override void OpenVanillaBag(string context, Player player, int arg)
         {
-            if (context == "bossBag")
-            {
-                    if (!CalValEXConfig.Instance.DisableVanityDrops)
-                    {
-                        //Here is a list of all Calamity Bags:
-                        //Aquatic Scourge = AquaticScourgeBag
-                        //Astrum Aureus = AstrageldonBag
-                        //Astrum Deus = AstrumDeusBag
-                        //Brimstone Elemental = BrimstoneWaifuBag
-                        //Dragonfolly = BumblebirbBag
-                        //Calamitas = CalamitasBag
-                        //Crabulon = CrabulonBag
-                        //Cryogen = CryogenBag
-                        //Desert Scourge = DesertScourgeBag
-                        //Devourer of Gods = DevourerofGodsBag
-                        //Hive Mind = HiveMindBag
-                        //Leviathan and Siren = LeviathanBag
-                        //Old Duke = OldDukeBag
-                        //Perforators = PerforatorBag
-                        //Plaguebringer Goliath = PlaguebringerGoliathBag
-                        //Polterghast = PolterghastBag
-                        //Providence = ProvidenceBag
-                        //Ravager = RavagerBag
-                        //Slime God = SlimeGodBag
-                        //Starter Bag = StarterBag
-                        //Yharon = YharonBag
-
-                        if (arg == ModContent.ItemType<StarterBag>())
-                        {
-                            player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<C>());
-                        }
-
-                        if (arg == ModContent.ItemType<DesertScourgeBag>())
-                        {
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DesertMedallion>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.2f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DriedLocket>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.07f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SlightlyMoistbutalsoSlightlyDryLocket>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<CrabulonBag>())
-                        {
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ClawShroom>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<HiveMindBag>())
-                        {
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<RottenKey>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<PerforatorBag>())
-                        {
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<MeatyWormTumor>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.4f)
-                            {
-                                int choice = Main.rand.Next(3);
-                                if (choice == 0)
-                                {
-                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SmallWorm>());
-                                }
-                                if (choice == 1)
-                                {
-                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<MidWorm>());
-                                }
-                                else
-                                {
-                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<BigWorm>());
-                                }
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<SlimeGodBag>())
-                        {
-                            if (!CalValEXConfig.Instance.ConfigBossBlocks)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(),
-                                    Main.rand.Next(205, 335));
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SlimeDeitysSoul>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<CryogenBag>())
-                        {
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CoolShades>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<AquaticScourgeBag>())
-                        {
-                            if (Main.rand.NextFloat() < 0.2f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<MoistLocket>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<BrimstoneWaifuBag>())
-                        {
-                            if (!CalValEXConfig.Instance.ConfigBossBlocks)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.BrimstoneSlag>(),
-                                    Main.rand.Next(205, 335));
-                            }
-
-                            if (Main.rand.NextFloat() < 0.2f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<BrimmyBody>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.2f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<BrimmySpirit>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.2f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<RareBrimtulip>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.05f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<FoilSpoon>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<CalamitasBag>())
-                        {
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Calacirclet>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.001f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AncientAuricTeslaHelm>());
-                            }
-
-                            if (CalamityMod.DownedBossSystem.downedProvidence && Main.rand.NextFloat() < 0.2f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DemonshadeHood>(), 1);
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DemonshadeRobe>(), 1);
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DemonshadePants>(), 1);
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<LeviathanBag>())
-                        {
-                            if (Main.rand.NextFloat() < 0.15f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AquaticMonolith>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<LeviWings>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<LeviathanEgg>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<FoilAtlantis>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.01f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<StrangeMusicNote>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<AstrumAureusBag>())
-                        {
-                            if (Main.rand.NextFloat() < 0.2f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AstralInfectedIcosahedron>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.2f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AureusShield>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.001f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AncientAuricTeslaHelm>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<PlaguebringerGoliathBag>())
-                        {
-                            if (!CalValEXConfig.Instance.ConfigBossBlocks)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurniturePlagued.PlaguedContainmentBrick>(),
-                                    Main.rand.Next(205, 335));
-                            }
-
-                            if (Main.rand.NextFloat() < 0.004f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AncientAuricTeslaHelm>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.2f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<InfectedController>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<PlaguePack>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.33f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<PlagueHiveWand>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<RavagerBag>())
-                        {
-                            if (!CalValEXConfig.Instance.ConfigBossBlocks)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Necrostone>(), Main.rand.Next(205, 335));
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SkullCluster>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.07f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ScavaHook>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<RavaHook>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SkullBalloon>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<StonePile>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<AstrumDeusBag>())
-                        {
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Geminga>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.2f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AstBandana>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<DragonfollyBag>())
-                        {
-                            if (CalamityMod.DownedBossSystem.downedYharon &&
-                                !CalValEXConfig.Instance.ConfigBossBlocks)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureSilva.SilvaCrystal>(),
-                                    Main.rand.Next(205, 335));
-                            }
-
-                            int choice = Main.rand.Next(3);
-                            if (choice == 0)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<FollyWings>());
-                            }
-                            else if (choice == 1)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Birbhat>());
-                            }
-                            else
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DocilePheromones>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.005f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AncientAuricTeslaHelm>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<ProvidenceBag>())
-                        {
-                            if (!CalValEXConfig.Instance.ConfigBossBlocks)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureProfaned.ProfanedRock>(),
-                                    Main.rand.Next(205, 335));
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ProfanedHeart>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ProviCrystal>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<StormWeaverBag>())
-                        {
-                            if (!CalValEXConfig.Instance.ConfigBossBlocks && CalamityMod.DownedBossSystem.downedDoG)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(),
-                                    Main.rand.Next(205, 335));
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                if (Main.rand.NextFloat() < 0.5f)
-                                {
-                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<StormMedal>());
-                                }
-                                else
-                                {
-                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ArmoredScrap>());
-                                }
-                            }
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<StormBandana>());
-                            }
-                            if (Main.rand.NextFloat() < 0.007f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AncientAuricTeslaHelm>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<CeaselessVoidBag>())
-                        {
-                            if (!CalValEXConfig.Instance.ConfigBossBlocks && CalamityMod.DownedBossSystem.downedDoG)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(),
-                                    Main.rand.Next(205, 335));
-                            }
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<MirrorMatter>());
-                            }
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<VoidWings>());
-                            }
-                            if (Main.rand.NextFloat() < 0.05f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<OldVoidWings>());
-                            }
-                            if (Main.rand.NextFloat() < 0.007f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AncientAuricTeslaHelm>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<SignusBag>())
-                        {
-                            if (!CalValEXConfig.Instance.ConfigBossBlocks && CalamityMod.DownedBossSystem.downedDoG)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(),
-                                    Main.rand.Next(205, 335));
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ShadowCloth>());
-                            }
-
-                            int choice = Main.rand.Next(4);
-                            if (choice == 0)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SignusEmblem>());
-                            }
-                            else if (choice == 1)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SignusNether>());
-                            }
-                            else if (choice == 2)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SignusBalloon>());
-                            }
-                            else
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Items.Equips.Capes.SigCape>());
-                            }
-                            if (Main.rand.NextFloat() < 0.007f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AncientAuricTeslaHelm>());
-                            }
-                        }
-
-                            if (arg == ModContent.ItemType<PolterghastBag>())
-                        {
-                            if (!CalValEXConfig.Instance.ConfigBossBlocks)
-                            {
-                                if (Main.rand.NextFloat() < 0.5f)
-                                {
-                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStratus.StratusBricks>(),
-                                        Main.rand.Next(205, 335));
-                                }
-                                else
-                                {
-                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<PhantowaxBlock>(),
-                                        Main.rand.Next(205, 335));
-                                }
-                            }
-
-                            if (Main.rand.NextFloat() < 0.1f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Polterhook>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<OldDukeBag>())
-                        {
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<OldWings>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CorrodedCleaver>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.07f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CharredChopper>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<DevourerofGodsBag>())
-                        {
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CosmicWormScarf>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.2f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CosmicRapture>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.07f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<RapturedWormScarf>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.01f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AncientAuricTeslaHelm>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<YharonBag>())
-                        {
-                            player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Termipebbles>(), Main.rand.Next(5, 8));
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<JunglePhoenixWings>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f && !(CalValEX.month == 6 && CalValEX.day == 1))
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<YharonsAnklet>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<NuggetinaBiscuit>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.3f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<YharonShackle>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.05f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AncientAuricTeslaHelm>());
-                            }
-
-                            if (Main.rand.NextFloat() < 0.1f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DemonshadeHood>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DemonshadeRobe>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DemonshadePants>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<DraedonBag>())
-                    {
-                        if (!CalValEXConfig.Instance.ConfigBossBlocks)
-                        {
-                            player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPlating>(),
-                                Main.rand.Next(205, 335));
-                        }
-                        if (CalamityMod.DownedBossSystem.downedThanatos)
-                            {
-                                if (Main.rand.NextFloat() < 0.5f)
-                                {
-                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<XMLightningHook>());
-                                }
-                                if (Main.rand.NextFloat() < 0.5f)
-                                {
-                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Items.Pets.ExoMechs.GunmetalRemote>());
-                                }
-                            }
-                            if (CalamityMod.DownedBossSystem.downedArtemisAndApollo)
-                            {
-                                if (Main.rand.NextFloat() < 0.5f)
-                                {
-                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ApolloBalloonSmall>());
-                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ArtemisBalloonSmall>());
-                                }
-                                if (Main.rand.NextFloat() < 0.5f)
-                                {
-                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Items.Pets.ExoMechs.GeminiMarkImplants>());
-                                }
-                            }
-                            if (CalamityMod.DownedBossSystem.downedAres)
-                            {
-                                if (Main.rand.NextFloat() < 0.5f)
-                                {
-                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>());
-                                }
-                                if (Main.rand.NextFloat() < 0.5f)
-                                {
-                                    player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Items.Pets.ExoMechs.OminousCore>());
-                                }
-                            }
-                            if (Main.rand.NextFloat() < 0.1f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AncientAuricTeslaHelm>());
-                            }
-                            if (Main.rand.NextFloat() < 0.14f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DraedonBody>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DraedonLegs>());
-                            }
-                        }
-
-                        if (arg == ModContent.ItemType<SupremeCalamitasCoffer>())
-                        {
-                            if (Main.rand.NextFloat() < 0.1f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AncientAuricTeslaHelm>());
-                            }
-                            if (Main.rand.NextFloat() < 0.33f)
-                            {
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<GruelingMask>());
-                            }
-                        }
-                    }
-                Mod catalyst;
-                ModLoader.TryGetMod("CatalystMod", out catalyst);
-                if (catalyst != null)
-                {
-                    if (arg == catalyst.Find<ModItem>("AstrageldonBag").Type)
-                    {
-                        if (Main.rand.NextFloat() < 0.3f)
-                        {
-                            player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SpaceJunk>());
-                        }
-                    }
-                }
-            }
             //I'm too lazy to merge these two properly so here's some spaghetti
             if (!CalValEXConfig.Instance.DisableVanityDrops)
             {
-                if (arg == ModContent.ItemType<StarterBag>())
-                {
-                    if (player.whoAmI == Main.myPlayer)
-                    {
-                        if (CalValEX.AprilFoolWeek)
-                        {
-                            NPC.NewNPC(player.GetSource_ReleaseEntity(), (int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<AprilFools.Jharim.Jharim>(), 0, 0f, 0f, 0f, 0f, 255);
-                        }
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<C>());
-                        switch (player.name)
-                        {
-                            case "Jared":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CanofWyrms>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SoulShard>());
-                                break;
-
-                            case "RamG":
-                            case "Ramgear":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ToyScythe>());
-                                break;
-
-                            case "Bumbledoge":
-                            case "BumbleDoge":
-                            case "Bojangles":
-                            case "Bojeangles":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AerialiteBubble>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ExtraFluffyFeatherClump>());
-                                break;
-
-                            case "William":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<RuinedBandage>());
-                                break;
-
-                            case "Kiwabug":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<UglyTentacle>());
-                                break;
-
-                            case "YuH":
-                            case "Yuh":
-                            case "yuh":
-                            case "Lilsigtum":
-                            case "GinYuH":
-                            case "Lil Sigtum":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<FlareRune>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SmolEldritchHoodie>());
-                                break;
-
-                            case "Hypera":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SunBun>());
-                                break;
-
-                            case "Drakudragonx":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<BambooStick>());
-                                break;
-
-                            case "Spider":
-                            case "spider":
-                            case "Spooktacular":
-                            case "spooktacular":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<IsopodItem>(), 5);
-                                break;
-
-                            case "Fabsol":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CosmicRapture>());
-                                break;
-
-                            case "Lucca":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SuspiciousLookingChineseCrown>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ToyScythe>());
-                                break;
-
-                            case "Junko":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SuspiciousLookingChineseCrown>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ToyScythe>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ProfanedBalloon>());
-                                break;
-
-                            case "Lil Junko":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SuspiciousLookingChineseCrown>());
-                                break;
-
-                            case "Cooper":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CooperShortsword>());
-                                break;
-
-                            case "Tess":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Geminga>());
-                                break;
-
-                            case "Enreden":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CosmicBubble>());
-                                break;
-
-                            case "Iban":
-                            case "IbanPlay":
-                            case "IBlockaroz":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ProtoRing>());
-                                break;
-
-                            case "Mathew":
-                            case "Mathew Maple":
-                            case "Maple":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<DeepseaLantern>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SwearingShroom>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<FleshThing>());
-                                break;
-
-                            case "Emerald":
-                            case "EmeraldXLapis":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<PurifiedFog>());
-                                break;
-
-                            case "Yharex87":
-                            case "Yharex":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SpaceJunk>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<AstraEGGeldon>());
-                                break;
-
-                            case "Scarfy":
-                            case "ScarfyScout":
-                            case "Krysmun":
-                            case "DodoNation":
-                            case "Dodo":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<ExtraFluffyFeather>());
-                                break;
-
-                            case "caligulasAquarium":
-                            case "caligulas":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<BleuBlob>());
-                                break;
-
-                            case "Willow":
-                            case "willowmaine":
-                            case "bean long":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<OldMirage>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<PerennialFlower>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<VVanities>());
-                                break;
-
-                            case "Potato Person":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<RottenKey>());
-                                break;
-
-                            case "Dorira":
-                            case "Marco":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CharredChopper>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<RapturedWormScarf>());
-                                break;
-
-                            case "Hat Enthusiast":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<InkyArtifact>());
-                                break;
-
-                            case "Triangle":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<BubbledFin>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<IonizedJellyCrystal>());
-                                break;
-
-                            case "Brimmy":
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<BurningEye>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<FoilSpoon>());
-                                player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<RareBrimtulip>());
-                                break;
-                        }
-                    }
-                }
-
                 if (arg == ModContent.ItemType<CalamityMod.Items.Fishing.SulphurCatches.AbyssalCrate>())
                 {
                     if (Main.rand.NextFloat() < 0.01f)
