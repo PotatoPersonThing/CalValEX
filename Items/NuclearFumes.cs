@@ -22,7 +22,7 @@ namespace CalValEX.Items
             Item.height = 18;
             Item.value = Item.sellPrice(0, 10, 0, 0);
             Item.maxStack = 999;
-            Item.rare = 10;
+            Item.rare = ItemRarityID.Red;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

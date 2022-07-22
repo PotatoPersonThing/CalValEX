@@ -24,7 +24,7 @@ namespace CalValEX.Items
             Item.useTime = 15;
             Item.useTurn = true;
             Item.UseSound = SoundID.Item2;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.value = Item.sellPrice(0, 30, 20, 0);
             Item.buffType = BuffID.WellFed; //Specify an existing buff to be applied when used.
             Item.buffTime = 300; //The amount of time the buff declared in Item.buffType will last in ticks. 5400 / 60 is 90, so this buff will last 90 seconds.
