@@ -159,7 +159,7 @@ namespace CalValEX.Tiles.MiscFurniture
                         {
                             spriteBatch.End();
                             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied);
-                            spriteBatch.Draw(auraTexture, position, sourceRectangle, color, rotation * 0.01f, origin / 2f, 1f, SpriteEffects.None, 0f);
+                            spriteBatch.Draw(auraTexture, position, sourceRectangle, color, Main.GlobalTimeWrappedHourly * 1f, origin / 2f, 1f, SpriteEffects.None, 0f);
                         }
                     }
                 }

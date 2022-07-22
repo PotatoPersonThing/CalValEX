@@ -66,7 +66,7 @@ namespace CalValEX.Projectiles.Pets
             Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             string glowmaskTexture = (modPlayer.signutTrans || modPlayer.signutForce) && !CalValEXConfig.Instance.Polterskin ? "CalValEX/Projectiles/Pets/EvilPolterChan_Glow" : "CalValEX/Projectiles/Pets/PolterChan_Glow";
-            //SimpleGlowmask(spriteBatch, glowmaskTexture);
+            SimpleGlowmask(Main.spriteBatch, glowmaskTexture);
         }
 
         public override void PetFunctionality(Player player)

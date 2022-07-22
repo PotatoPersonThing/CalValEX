@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Terraria.Audio;
-//using CalValEX.ExtraTextures.ChristmasPets;
+using CalValEX.ExtraTextures.ChristmasPets;
 using CalValEX.Biomes;
 using Terraria.ModLoader;
 using CalValEX.AprilFools.Meldosaurus;
@@ -149,7 +149,7 @@ namespace CalValEX
             if (Main.dedServ)
                 return;
 
-            //ChristmasTextureChange.Unload();
+            ChristmasTextureChange.Unload();
         }
 
         public override void PostSetupContent()
@@ -168,7 +168,7 @@ namespace CalValEX
             }
 
             //Christmas textures
-            //ChristmasTextureChange.Load();
+            ChristmasTextureChange.Load();
 
             //Boss log support
             if (bossChecklist != null)
