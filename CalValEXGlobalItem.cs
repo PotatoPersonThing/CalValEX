@@ -222,9 +222,12 @@ namespace CalValEX
 			LeadingConditionRule rule7 = new(new Combine(true, null, new VanityDropsEnabled(), new ThanatosDownedRule()));
 			LeadingConditionRule rule8 = new(new Combine(true, null, new VanityDropsEnabled(), new ArtemisAndApolloDownedRule()));
 			LeadingConditionRule rule9 = new(new Combine(true, null, new VanityDropsEnabled(), new AresDownedRule()));
+            LeadingConditionRule rule10 = new(new Combine(true, null, new VanityDropsEnabled(), new PlanteraDownedRule()));
+            LeadingConditionRule rule11 = new(new Combine(true, null, new VanityDropsEnabled(), new CultistDownedRule()));
+            LeadingConditionRule rule12 = new(new Combine(true, null, new VanityDropsEnabled(), new AnyMechDownedRule()));
 
-			#region bags
-			if (item.type == ModContent.ItemType<StarterBag>())
+            #region bags
+            if (item.type == ModContent.ItemType<StarterBag>())
 			{
 				rule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<C>()));
 			}
@@ -408,10 +411,40 @@ namespace CalValEX
 				if (item.type == catalyst.Find<ModItem>("AstrageldonBag").Type)
 					rule.OnSuccess(new CommonDrop(ModContent.ItemType<SpaceJunk>(), 10, chanceNumerator: 3));
 			}
-            #endregion
+			#endregion
 
-            #region spaghetti starter
-            if (item.type != ModContent.ItemType<StarterBag>())
+			#region crates
+            if (item.type == ModContent.ItemType<CalamityMod.Items.Fishing.SulphurCatches.AbyssalCrate>())
+			{
+                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AcidGun>(), 100));
+                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<CursedLockpick>(), 50));
+                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurColumn>(), 20, 5, 7));
+                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurousCactus>(), 20, 1, 3));
+                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurousPlanter>(), 25));
+                rule10.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<InkyPollution>(), 50));
+                rule11.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<EidolonTree>(), 40));
+                rule11.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<NuclearFumes>(), 10, 2, 11));
+                rule12.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<BelchingCoral>(), 20));
+            }
+            else if (item.type == ModContent.ItemType<CalamityMod.Items.Fishing.AstralCatches.AstralCrate>())
+            {
+                rule.OnSuccess(new CommonDrop(ModContent.ItemType<MonolithPot>(), 100, 1, 1, 3));
+                rule11.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<NetherTree>(), 20));
+            }
+            else if (item.type == ModContent.ItemType<CalamityMod.Items.Fishing.SunkenSeaCatches.SunkenCrate>())
+            {
+                rule.OnSuccess(new CommonDrop(ModContent.ItemType<SSCoral>(), 100, 1, 1, 3));
+                rule.OnSuccess(new CommonDrop(ModContent.ItemType<Anemone>(), 100, 1, 1, 3));
+                rule.OnSuccess(new CommonDrop(ModContent.ItemType<TableCoral>(), 100, 1, 1, 3));
+                rule.OnSuccess(new CommonDrop(ModContent.ItemType<FanCoral>(), 100, 1, 1, 3));
+                rule.OnSuccess(new CommonDrop(ModContent.ItemType<BrainCoral>(), 100, 1, 1, 3));
+                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SeaCrown>(), 100));
+                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SunkenLamp>(), 40));
+            }
+			#endregion
+
+			#region spaghetti starter
+			if (item.type != ModContent.ItemType<StarterBag>())
                 return;
 
             LeadingConditionRule[] names = new LeadingConditionRule[]
@@ -532,7 +565,31 @@ namespace CalValEX
 
             public string GetConditionDescription() => null;
         }
-		private class ProvidenceDownedRule : IItemDropRuleCondition
+        private class PlanteraDownedRule : IItemDropRuleCondition
+        {
+            public bool CanDrop(DropAttemptInfo info) => NPC.downedPlantBoss;
+
+            public bool CanShowItemDropInUI() => true;
+
+            public string GetConditionDescription() => null;
+        }
+        private class CultistDownedRule : IItemDropRuleCondition
+        {
+            public bool CanDrop(DropAttemptInfo info) => NPC.downedAncientCultist;
+
+            public bool CanShowItemDropInUI() => true;
+
+            public string GetConditionDescription() => null;
+        }
+        private class AnyMechDownedRule : IItemDropRuleCondition
+        {
+            public bool CanDrop(DropAttemptInfo info) => NPC.downedMechBossAny;
+
+            public bool CanShowItemDropInUI() => true;
+
+            public string GetConditionDescription() => null;
+        }
+        private class ProvidenceDownedRule : IItemDropRuleCondition
         {
             public bool CanDrop(DropAttemptInfo info) => CalamityMod.DownedBossSystem.downedProvidence;
 
@@ -647,116 +704,6 @@ namespace CalValEX
 				NPC.NewNPC(player.GetSource_ReleaseEntity(), (int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<AprilFools.Jharim.Jharim>(), 0, 0f, 0f, 0f, 0f, 255);
 			}
 		}
-		public override void OpenVanillaBag(string context, Player player, int arg)
-        {
-            //I'm too lazy to merge these two properly so here's some spaghetti
-            if (!CalValEXConfig.Instance.DisableVanityDrops)
-            {
-                if (arg == ModContent.ItemType<CalamityMod.Items.Fishing.SulphurCatches.AbyssalCrate>())
-                {
-                    if (Main.rand.NextFloat() < 0.01f)
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Items.Tiles.Plants.AcidGun>());
-                    }
-
-                    if (Main.rand.NextFloat() < 0.02f)
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<CursedLockpick>());
-                    }
-
-                    if (Main.rand.NextFloat() < 0.05f)
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SulphurColumn>(), Main.rand.Next(5, 7));
-                    }
-
-                    if (Main.rand.NextFloat() < 0.05f)
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SulphurGeyser>(), Main.rand.Next(2, 3));
-                    }
-
-                    if (Main.rand.NextFloat() < 0.05f)
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SulphurousCactus>(), Main.rand.Next(1, 3));
-                    }
-
-                    if (Main.rand.NextFloat() < 0.04f)
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SulphurousPlanter>(), 1);
-                    }
-
-                    if (NPC.downedPlantBoss & (Main.rand.NextFloat() < 0.02f))
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<InkyPollution>());
-                    }
-
-                    if (NPC.downedAncientCultist & (Main.rand.NextFloat() < 0.025f))
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<EidolonTree>());
-                    }
-
-                    if (NPC.downedAncientCultist & (Main.rand.NextFloat() < 0.1f))
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<NuclearFumes>(), Main.rand.Next(2, 11));
-                    }
-
-                    if (NPC.downedMechBossAny & (Main.rand.NextFloat() < 0.05f))
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<BelchingCoral>());
-                    }
-                }
-
-                if (arg == ModContent.ItemType<CalamityMod.Items.Fishing.AstralCatches.AstralCrate>())
-                {
-                    if (Main.rand.NextFloat() < 0.03f)
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<MonolithPot>());
-                    }
-
-                    if (NPC.downedAncientCultist & (Main.rand.NextFloat() < 0.05f))
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<NetherTree>());
-                    }
-                }
-
-                if (arg == ModContent.ItemType<CalamityMod.Items.Fishing.SunkenSeaCatches.SunkenCrate>())
-                {
-                    if (Main.rand.NextFloat() < 0.03f)
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SSCoral>());
-                    }
-
-                    if (Main.rand.NextFloat() < 0.03f)
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<Anemone>());
-                    }
-
-                    if (Main.rand.NextFloat() < 0.03f)
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<TableCoral>());
-                    }
-
-                    if (Main.rand.NextFloat() < 0.03f)
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<FanCoral>());
-                    }
-
-                    if (Main.rand.NextFloat() < 0.03f)
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<BrainCoral>());
-                    }
-
-                    if (Main.rand.NextFloat() < 0.01f)
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SeaCrown>());
-                    }
-
-                    if (Main.rand.NextFloat() < 0.025f)
-                    {
-                        player.QuickSpawnItem(player.GetSource_OpenItem(arg), ModContent.ItemType<SunkenLamp>());
-                    }
-                }
-            }
-        }
         public override string IsArmorSet(Item head, Item body, Item legs)
         {
             if (head.type == ModContent.ItemType<WulfrumHat>() &&

@@ -2,12 +2,12 @@
 using Terraria.ModLoader;
 using Terraria.ID;
 using CalamityMod;
+using Terraria.GameContent.ItemDropRules;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
 	public class MeldosaurusBag : ModItem
 	{
-		public override int BossBagNPC => ModContent.NPCType<Meldosaurus>();
 		public override void SetStaticDefaults()
 		{
 			SacrificeTotal = 3;
@@ -23,20 +23,17 @@ namespace CalValEX.AprilFools.Meldosaurus
 			Item.expert = true;
 		}
 
-		public override bool CanRightClick()
-		{
-			return true;
-		}
+		public override bool CanRightClick() => true;
 
-		public override void OpenBossBag(Player player)
+		public override void ModifyItemLoot(ItemLoot itemLoot)
 		{
-			player.TryGettingDevArmor(player.GetSource_OpenItem(Item.type));
-			DropHelper.DropItemChance(player.GetSource_OpenItem(Item.type), player, ModContent.ItemType<MeldosaurusMask>(), 7);
-			DropHelper.DropItem(player.GetSource_OpenItem(Item.type), player, ModContent.ItemType<CalamityMod.Items.Materials.MeldBlob>(), 1, 2);
-			float dropChance = DropHelper.NormalWeaponDropRateFloat;
-			DropHelper.DropItemChance(player.GetSource_OpenItem(Item.type), player, ModContent.ItemType<ShadesBane>(), dropChance);
-			DropHelper.DropItemChance(player.GetSource_OpenItem(Item.type), player, ModContent.ItemType<Nyanthrop>(), dropChance);
-			//player.QuickSpawnItem(ModContent.ItemType("MeldExpert"));
+			itemLoot.Add(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<MeldosaurusMask>(), 7));
+			itemLoot.Add(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<CalamityMod.Items.Materials.MeldBlob>(), 1, 1, 2));
+
+			itemLoot.Add(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<ShadesBane>(), 4));
+			itemLoot.Add(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Nyanthrop>(), 4));
+
+			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<Meldosaurus>()));
 		}
 	}
 }
