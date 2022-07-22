@@ -184,7 +184,11 @@ namespace CalValEX
                 player.armorEffectDrawOutlines = true;
             }
         }
-        public override void OpenVanillaBag(string context, Player player, int arg)
+		public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
+		{
+			base.ModifyItemLoot(item, itemLoot);
+		}
+		public override void OpenVanillaBag(string context, Player player, int arg)
         {
             if (context == "bossBag")
             {
