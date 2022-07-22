@@ -445,14 +445,6 @@ namespace CalValEX
 				recipe.Register();
 			}
 			{
-				Recipe recipe = Recipe.Create(ItemType<InkyPollution>());
-				recipe.AddIngredient(ItemType<InkBomb>());
-				recipe.AddIngredient(ItemType<Lumenyl>(), 30);
-				recipe.AddIngredient(ItemType<DepthCells>(), 30);
-				recipe.AddTile(TileID.MythrilAnvil);
-				recipe.Register();
-			}
-			{
 				Recipe recipe = Recipe.Create(ItemType<InkyArtifact>());
 				recipe.AddIngredient(ItemType<InkyPollution>());
 				recipe.AddIngredient(ItemType<SoulEdge>());
