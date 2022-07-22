@@ -222,7 +222,7 @@ namespace CalValEX
 			LeadingConditionRule rule7 = new(new Combine(true, null, new VanityDropsEnabled(), new ThanatosDownedRule()));
 			LeadingConditionRule rule8 = new(new Combine(true, null, new VanityDropsEnabled(), new ArtemisAndApolloDownedRule()));
 			LeadingConditionRule rule9 = new(new Combine(true, null, new VanityDropsEnabled(), new AresDownedRule()));
-            LeadingConditionRule rule10 = new(new Combine(true, null, new VanityDropsEnabled(), new PlanteraDownedRule()));
+            LeadingConditionRule rule10 = new(new Combine(true, null, new VanityDropsEnabled(), new PlanteraAndCalamitasDownedRule()));
             LeadingConditionRule rule11 = new(new Combine(true, null, new VanityDropsEnabled(), new CultistDownedRule()));
             LeadingConditionRule rule12 = new(new Combine(true, null, new VanityDropsEnabled(), new AnyMechDownedRule()));
 
@@ -419,6 +419,7 @@ namespace CalValEX
                 rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AcidGun>(), 100));
                 rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<CursedLockpick>(), 50));
                 rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurColumn>(), 20, 5, 7));
+                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurGeyser>(), 20, 2, 3));
                 rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurousCactus>(), 20, 1, 3));
                 rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurousPlanter>(), 25));
                 rule10.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<InkyPollution>(), 50));
@@ -565,9 +566,9 @@ namespace CalValEX
 
             public string GetConditionDescription() => null;
         }
-        private class PlanteraDownedRule : IItemDropRuleCondition
+        private class PlanteraAndCalamitasDownedRule : IItemDropRuleCondition
         {
-            public bool CanDrop(DropAttemptInfo info) => NPC.downedPlantBoss;
+            public bool CanDrop(DropAttemptInfo info) => NPC.downedPlantBoss || CalamityMod.DownedBossSystem.downedCalamitas;
 
             public bool CanShowItemDropInUI() => true;
 
