@@ -18,7 +18,7 @@ namespace CalValEX.Items.Pets
                 "\n" +
                 "\n" +
                 "Did you ever hear the tragedy of Goozma The Amorphous Deity? I thought not. It's not a story the Tyrant would tell you.\n" +
-                "It's a Overseer legend. Goozma was the ultimate evolution of all slimes, so powerful it could influence the cells that comprise all other slime.\n" +
+                "It's an Overseer legend. Goozma was the ultimate evolution of all slimes, so powerful it could influence the cells that comprise all other slime.\n" +
                 "It could even create new slime gods, with affinities to the world's biomes.\n" +
                 "The energy of the world is a pathway to many abilities some consider to be unnatural.\n" +
                 "It became so powerful that the only thing it was afraid of was losing it's power, which eventually, of course, it did.\n" +
