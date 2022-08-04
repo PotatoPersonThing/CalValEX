@@ -20,7 +20,7 @@ namespace CalValEX.Projectiles.Pets.LightPets {
         public override Color Lightcolor => ModOwner.RepairBot ? Color.Red : Color.Orange;
         public override int AbyssLightLevel => 3;
         public override float GlowmaskOpacity => ModOwner.RepairBot ? 2 : 0.6f;
-        public override float WanderDistance => ModOwner.RepairBot ? 460 : 260;
+        public override float WanderDistance => ModOwner.RepairBot ? 220 : 120;
         public override float Intensity => ModOwner.RepairBot ? 2.2f : 0.7f;
         public override float GetSpeed => MathHelper.Lerp(
             ModOwner.RepairBot ? 22 : 10,
@@ -81,67 +81,58 @@ namespace CalValEX.Projectiles.Pets.LightPets {
                 if (i % 2 == 1 && bodySegment) { // Check if the segment is divisible by two so we can skip them
                     var col = Lighting.GetColor((int)Segments[i].position.X / 16, (int)Segments[i].position.Y / 16);
                     var pos = Segments[i].position - Main.screenPosition;
-                    var noFlip = SpriteEffects.None;
-                    var yesFlip = SpriteEffects.FlipHorizontally;
-                    var scale = Projectile.scale;
-                    var armBatch = ModOwner.RepairBot ? 5 : 4;
+                    var armBatch = ModOwner.RepairBot ? 10 : 4;
+                    var speed = 15; // Changes the arm's rotation speed, higher = slower
+                    // Movement delay
+                    var lSinOffset = i < armBatch ? speed * 0.5f : 0;
+                    var rSinOffset = i < armBatch ? 0 : speed * 0.5f;
+                    // How far to draw the arm from the segments
+                    var posOffset = new Vector2(20f, 0f).RotatedBy(rotation);
 
                     #region //Arm
-                    var armTex = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/LightPets/DiggerArm");
-                    var timeThing = 15; // Changes the arm's rotation speed, higher = slower
-                    var armRot = MathHelper.Lerp(0, 130, Main.GlobalTimeWrappedHourly / timeThing);
-                    // How far to draw the arm from the segments
-                    var armOffset = new Vector2(20f, 0f).RotatedBy(rotation);
-                    var lArmOrigin = new Vector2(20, armTex.Height() / 2);
-                    var rArmOrigin = new Vector2(4, armTex.Height() / 2);
-                    // Movement delay
-                    var lSinOffset = i < armBatch ? timeThing * 0.5f : 0;
-                    var rSinOffset = i < armBatch ? 0 : timeThing * 0.5f;
+                    var armTex = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/LightPets/DiggerArm").Value;
+                    var armRot = MathHelper.Lerp(0, 130, Main.GlobalTimeWrappedHourly / speed);
+                    var lArmOrigin = new Vector2(20, 6);
+                    var rArmOrigin = new Vector2(4, 6);
                     // Sets its own rotation
                     var lArmRotVec = (float)Math.Sin(armRot + lSinOffset);
                     var rArmRotVec = -(float)Math.Sin(-armRot + rSinOffset);
 
-                    Main.EntitySpriteDraw(armTex.Value, pos - armOffset, null, col, lArmRotVec + rotation, lArmOrigin, scale, noFlip, 0);
-                    Main.EntitySpriteDraw(armTex.Value, pos + armOffset, null, col, rArmRotVec + rotation, rArmOrigin, scale, yesFlip, 0);
+                    Main.EntitySpriteDraw(armTex, pos - posOffset, null, col, lArmRotVec + rotation, lArmOrigin, Projectile.scale, SpriteEffects.None, 0);
+                    Main.EntitySpriteDraw(armTex, pos + posOffset, null, col, rArmRotVec + rotation, rArmOrigin, Projectile.scale, SpriteEffects.FlipHorizontally, 0);
                     #endregion
 
                     #region //Forearm
-                    var fArmTex = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/LightPets/DiggerForearm");
+                    var fArmTex = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/LightPets/DiggerForearm").Value;
                     // Slightly different speed to compensate for new angles
-                    var fArmRot = MathHelper.Lerp(0, 45, Main.GlobalTimeWrappedHourly / (timeThing / 3));
-                    // How far to draw it from the origin
-                    var fArmOffset = new Vector2(20f, 0f).RotatedBy(rotation);
-                    var lFArmOrigin = new Vector2(14, fArmTex.Height() / 2);
-                    var rFArmOrigin = new Vector2(2, fArmTex.Height() / 2);
+                    var fArmRot = MathHelper.Lerp(0, 45, Main.GlobalTimeWrappedHourly / (speed / 3));
+                    var lFArmOrigin = new Vector2(14, 6);
+                    var rFArmOrigin = new Vector2(2, 6);
                     // Moves the origin position to match the arm's movement
-                    var rOriginOffset = new Vector2(22f, 0).RotatedBy(lArmRotVec + rotation);
-                    var lOriginOffset = new Vector2(22f, 0).RotatedBy(rArmRotVec + rotation);
+                    var lOriginOffset = new Vector2(22f, 0).RotatedBy(lArmRotVec + rotation);
+                    var rOriginOffset = new Vector2(22f, 0).RotatedBy(rArmRotVec + rotation);
                     // Sets its own rotation
                     var lFArmRotVec = 0.35f * (float)Math.Sin(fArmRot + lSinOffset) + 1.7f;
                     var rFArmRotVec = 0.35f * -(float)Math.Sin(-fArmRot + rSinOffset) - 1.7f;
 
-                    Main.EntitySpriteDraw(fArmTex.Value, pos - fArmOffset - rOriginOffset, null, col, lFArmRotVec + rotation, lFArmOrigin, scale, noFlip, 0);
-                    Main.EntitySpriteDraw(fArmTex.Value, pos + fArmOffset + lOriginOffset, null, col, rFArmRotVec + rotation, rFArmOrigin, scale, yesFlip, 0);
+                    Main.EntitySpriteDraw(fArmTex, pos - posOffset - lOriginOffset, null, col, lFArmRotVec + rotation, lFArmOrigin, Projectile.scale, SpriteEffects.None, 0);
+                    Main.EntitySpriteDraw(fArmTex, pos + posOffset + rOriginOffset, null, col, rFArmRotVec + rotation, rFArmOrigin, Projectile.scale, SpriteEffects.FlipHorizontally, 0);
                     #endregion
 
                     #region //Claw
-                    var clawTex = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/LightPets/DiggerClaw");
-                    var clawRot = MathHelper.Lerp(0, 45, Main.GlobalTimeWrappedHourly / (timeThing / 2.8f));
-                    var clawOffset = new Vector2(20f, 0f).RotatedBy(rotation);
+                    var clawTex = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/LightPets/DiggerClaw").Value;
+                    var clawRot = MathHelper.Lerp(0, 45, Main.GlobalTimeWrappedHourly / (speed / 2.8f));
                     var lclawOrigin = new Vector2(12, 2);
                     var rclawOrigin = new Vector2(2, 2);
-                    // Moves the origin position to match the forearm's movement
-                    var rClawOriginOffset = new Vector2(22f, 0).RotatedBy(lArmRotVec + rotation);
-                    var lClawOriginOffset = new Vector2(22f, 0).RotatedBy(rArmRotVec + rotation);
-                    //I don't fucking know kill me please waht the fuck is this shit aaaaa ; ;; !!
-                    var lol = new Vector2(14f, 0).RotatedBy(lFArmRotVec + rotation);
-                    var lol2 = new Vector2(14f, 0).RotatedBy(rFArmRotVec + rotation);
+                    // Second vector offset to account for the forearm's rotation, first offset was accounted for in the forearm
+                    var lClawPivotOffset = new Vector2(14f, 0).RotatedBy(lFArmRotVec + rotation);
+                    var rClawPivotOffset = new Vector2(14f, 0).RotatedBy(rFArmRotVec + rotation);
                     // Sets its own rotation
                     var lClawRotVec = (float)Math.Sin(clawRot + lSinOffset) - 0.8f;
                     var rClawRotVec = -(float)Math.Sin(-clawRot + rSinOffset) + 0.8f;
 
-                    Main.EntitySpriteDraw(clawTex.Value, pos - clawOffset - rClawOriginOffset - lol, null, col, /*lClawRotVec +*/ rotation + 90, lclawOrigin, scale, noFlip, 0);
-                    Main.EntitySpriteDraw(clawTex.Value, pos + clawOffset + lClawOriginOffset + lol2, null, col, /*rClawRotVec +*/ rotation - 90, rclawOrigin, scale, yesFlip, 0);
+                    Main.EntitySpriteDraw(clawTex, pos - posOffset - lOriginOffset - lClawPivotOffset, null, col, lClawRotVec + rotation + 90, lclawOrigin, Projectile.scale, SpriteEffects.None, 0);
+                    Main.EntitySpriteDraw(clawTex, pos + posOffset + rOriginOffset + rClawPivotOffset, null, col, rClawRotVec + rotation - 90, rclawOrigin, Projectile.scale, SpriteEffects.FlipHorizontally, 0);
                     #endregion
                 }
                 #endregion

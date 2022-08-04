@@ -144,7 +144,6 @@ namespace CalValEX.Projectiles.Pets
 		/// For example, if i wanted to have a custom "arm" segment for the first 2 body segments, i'd set the TextureProgression to a new String[] {"Arm", "Arm"}.
 		/// </summary>
 		public virtual string[] TextureProgression => new string[0];
-
 		/// <summary>
 		/// The color the emitted light will be lit in, leave as black for no light.
 		/// </summary>
@@ -289,7 +288,7 @@ namespace CalValEX.Projectiles.Pets
 				RelativeIdealPosition = Vector2.Zero;
 
 			//Get a new ideal position
-			if (RelativeIdealPosition == null || RelativeIdealPosition == Vector2.Zero)
+			if (RelativeIdealPosition == Vector2.Zero)
 			{
 				RelativeIdealPosition = Main.rand.NextVector2CircularEdge(WanderDistance, WanderDistance);
 				return;
@@ -349,14 +348,13 @@ namespace CalValEX.Projectiles.Pets
 
 					Segments[j] = pointA;
 					Segments[j + 1] = pointB;
+
 					Player owner = Main.player[Projectile.owner];
 					Lighting.AddLight(segmentCenter, Lightcolor.ToVector3());
 
 					Mod calamityMod = ModLoader.GetMod("CalamityMod");
 					if (calamityMod != null)
-					{
 						calamityMod.Call("AddAbyssLightStrength", owner, AbyssLightLevel);
-					}
 				}
 			}
         }
@@ -421,8 +419,6 @@ namespace CalValEX.Projectiles.Pets
 		/// </summary>
 		public virtual void DrawWorm(Color lightColor, bool glow = false) 
 		{
-			
-
 			for (int i = SegmentCount() - 1; i >= 0; i--)
 			{
 				WormPetVisualSegment currentSegment = Segments[i].visual;
