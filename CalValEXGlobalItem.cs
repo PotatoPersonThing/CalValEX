@@ -35,7 +35,6 @@ using CalamityMod.Items.Weapons.Rogue;
 using CalamityMod.Items.Weapons.Ranged;
 using CalamityMod.Items.Weapons.Melee;
 using CalamityMod.Items.Weapons.Summon;
-using CalamityMod.Items.Weapons.Magic;
 using CalamityMod.Items.Armor.Wulfrum;
 using CalValEX.AprilFools;
 using Terraria;
@@ -707,13 +706,9 @@ namespace CalValEX
 		}
         public override string IsArmorSet(Item head, Item body, Item legs)
         {
-            if ((head.type == ModContent.ItemType<WulfrumHeadMagic>() ||
-                 head.type == ModContent.ItemType < WulfrumHeadMelee>() ||
-                 head.type == ModContent.ItemType < WulfrumHeadRanged>() ||
-                 head.type == ModContent.ItemType < WulfrumHeadRogue>() ||
-                 head.type == ModContent.ItemType < WulfrumHeadSummon>()) &&
-                body.type == ModContent.ItemType < WulfrumArmor>() &&
-                legs.type == ModContent.ItemType < WulfrumLeggings>())
+            if (head.type == ModContent.ItemType<WulfrumHat>() &&
+                body.type == ModContent.ItemType <WulfrumJacket>() &&
+                legs.type == ModContent.ItemType <WulfrumOveralls>())
             {
                 return "Wulfrumset";
             }

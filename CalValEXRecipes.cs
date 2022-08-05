@@ -99,10 +99,24 @@ namespace CalValEX
 				recipe.AddTile(TileID.LunarCraftingStation);
 				recipe.Register();
 			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<OldCassette>());
+				recipe.AddIngredient(ItemID.Diamond, 5);
+				recipe.AddIngredient(ItemID.ShadowScale, 5);
+				recipe.AddTile(TileID.Anvils);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<OldCassette>());
+				recipe.AddIngredient(ItemID.Diamond, 5);
+				recipe.AddIngredient(ItemID.TissueSample, 5);
+				recipe.AddTile(TileID.Anvils);
+				recipe.Register();
+			}
 			//Critters
 			{
 				Recipe recipe = Recipe.Create(ItemType<XerocodileItem>());
-				recipe.AddIngredient(ItemID.BloodMoonStarter, 10);
+				recipe.AddIngredient(ItemType<CalamityMod.Items.Fishing.Xerocodile>(), 10);
 				recipe.AddTile(TileID.LunarCraftingStation);
 				recipe.Register();
 			}

@@ -17,6 +17,7 @@ namespace CalValEX.NPCs.Critters
             //DisplayName.SetDefault("Plagued Frog");
             Main.npcFrameCount[NPC.type] = 11;
             Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.CantTakeLunchMoney[Type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 

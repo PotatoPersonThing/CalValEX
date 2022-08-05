@@ -16,6 +16,7 @@ namespace CalValEX.NPCs.Critters
         {
             //DisplayName.SetDefault("Swearshroom");
             Main.npcFrameCount[NPC.type] = 5;
+            NPCID.Sets.CantTakeLunchMoney[Type] = true;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }

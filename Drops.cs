@@ -517,8 +517,8 @@ namespace CalValEX
                 }
                 if (npc.type == NPCID.SandElemental)
                 {
-                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SmallSandPail>(), 10));
-                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SmallSandPlushie>(), 3));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SmallSandPail>(), 5));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SmallSandPlushie>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandyBangles>(), 10));
                 }
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.ProfanedEnergyBody>())
@@ -562,6 +562,14 @@ namespace CalValEX
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MawHook>(), 1));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NuclearFumes>(), 1, 5, 8));
+                }
+                if (npc.type == ModContent.NPCType<Xerocodile>())
+                {
+                    npcLoot.AddIf(() => CalamityMod.DownedBossSystem.downedYharon, ModContent.ItemType<Termipebbles>(), 1);
+                }
+                if (npc.type == ModContent.NPCType<XerocodileSwim>())
+                {
+                    npcLoot.AddIf(() => CalamityMod.DownedBossSystem.downedYharon, ModContent.ItemType<Termipebbles>(), 1);
                 }
                 //Scourge
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.DesertScourge.DesertScourgeHead>())

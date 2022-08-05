@@ -1,4 +1,4 @@
-using CalValEX.Buffs.Transformations;
+﻿using CalValEX.Buffs.Transformations;
 using CalValEX.Items.Equips.Transformations;
 using CalamityMod.CalPlayer;
 using System.Collections.Generic;
@@ -1002,7 +1002,7 @@ namespace CalValEX
             Pandora = false;
         }
 
-        public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
+        public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit, int cooldownCounter)
         {
             DoCalamityBabyThings((int)damage);
             if (signutTrans)
@@ -1020,14 +1020,13 @@ namespace CalValEX
                 Terraria.Audio.SoundEngine.PlaySound(SoundID.FemaleHit, Player.position);
         }
 
-        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit,
-            ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
+        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource, ref int cooldownCounter)
         {
             if (signutTrans) playSound = false;
             if (cloudTrans) playSound = false;
             if (classicTrans) playSound = false;
             if (sandTrans) playSound = false;
-            return base.PreHurt(pvp, quiet, ref damage, ref hitDirection, ref crit, ref customDamage, ref playSound, ref genGore, ref damageSource);
+            return true;
         }
         public override void OnHitByNPC(NPC npc, int damage, bool crit)
         {
