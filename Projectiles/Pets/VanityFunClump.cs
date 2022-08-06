@@ -15,7 +15,7 @@ namespace CalValEX.Projectiles.Pets.Elementals
         {
             PetSetStaticDefaults(lightPet: false);
             DisplayName.SetDefault("Passive Fungal Clump");
-            Main.projFrames[Projectile.type] = 1;
+            Main.projFrames[Projectile.type] = 6;
         }
 
         public override void SetDefaults()
@@ -28,6 +28,7 @@ namespace CalValEX.Projectiles.Pets.Elementals
 
         public override void Animation(int state)
         {
+            SimpleAnimation(speed: 12);
         }
 
         public override void PetFunctionality(Player player)
