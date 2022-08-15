@@ -104,6 +104,13 @@ namespace CalValEX.NPCs.JellyPriest
             NPC.Transform(ModContent.NPCType<JellyPriestNPC>());
             return false;
         }
+        public override bool CheckDead()
+        {
+            NPC.life = 1;
+            NPC.active = true;
+            NPC.netUpdate = true;
+            return false;
+        }
 
         /*public override void HitEffect(int hitDirection, double damage)
         {

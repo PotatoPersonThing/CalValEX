@@ -16,6 +16,7 @@ namespace CalValEX.NPCs.Critters
         {
             //DisplayName.SetDefault("Swearshroom");
             Main.npcFrameCount[NPC.type] = 5;
+            NPCID.Sets.CantTakeLunchMoney[Type] = true;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
@@ -53,10 +54,6 @@ namespace CalValEX.NPCs.Critters
 
         public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
-        public override void OnCaughtBy(Player player, Item item, bool failed)
-        {
-            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<SwearshroomItem>());
-        }
 
         private int nohurt = 120;
 

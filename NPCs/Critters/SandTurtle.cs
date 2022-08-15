@@ -14,14 +14,13 @@ namespace CalValEX.NPCs.Critters
     public class SandTurtle : ModNPC
     {
         int heal = 0;
-        private bool shellin;
-        private bool shellout;
 
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[NPC.type] = 6;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
+            NPCID.Sets.CantTakeLunchMoney[Type] = true;
         }
 
         public override void SetDefaults()
@@ -35,7 +34,7 @@ namespace CalValEX.NPCs.Critters
             AnimationType = -1;
             NPC.npcSlots = 0.25f;
             NPC.lifeMax = 300;
-            NPC.GivenName = Main.rand.NextFloat() < 0.00014f ? "Debrina" : "Sand Turtle";
+            NPC.GivenName = Main.rand.NextFloat() < 0.014f ? "Debrina" : "Sand Turtle";
             Banner = NPC.type;
             BannerItem = ItemType<Items.Tiles.Banners.SandTurtleBanner>();
             NPC.HitSound = SoundID.NPCHit50;
@@ -176,10 +175,6 @@ namespace CalValEX.NPCs.Critters
             }*/
         }
 
-        public override void OnCaughtBy(Player player, Item item, bool failed)
-        {
-            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<SandTurtleItem>());
-        }
 
         public override void HitEffect(int hitDirection, double damage)
         {

@@ -2,6 +2,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.MiscFurniture;
 using Terraria;
+using Microsoft.Xna.Framework;
+using Terraria.GameContent.Creative;
 
 namespace CalValEX.Items.Tiles
 {

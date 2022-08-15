@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using CalValEX.Items.Tiles.Blocks.Astral;
 using CalValEX.Dusts;
 using CalValEX.Tiles.AstralMisc;
+using CalamityMod;
 
 namespace CalValEX.Tiles.AstralBlocks
 {
@@ -22,7 +23,12 @@ namespace CalValEX.Tiles.AstralBlocks
             TileID.Sets.Conversion.Grass[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
             TileID.Sets.NeedsGrassFramingDirt[Type] = ModContent.TileType<AstralDirtPlaced>();
-            Main.tileBlendAll[this.Type] = true;
+            CalamityUtils.SetMerge(Type, ModContent.TileType<AstralDirtPlaced>());
+            CalamityUtils.SetMerge(Type, TileID.Grass);
+            CalamityUtils.SetMerge(Type, TileID.CorruptGrass);
+            CalamityUtils.SetMerge(Type, TileID.HallowedGrass);
+            CalamityUtils.SetMerge(Type, TileID.CrimsonGrass);
+
         }
         public override void NumDust(int i, int j, bool fail, ref int num)
         {

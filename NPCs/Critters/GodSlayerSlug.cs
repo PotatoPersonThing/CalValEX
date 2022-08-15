@@ -17,6 +17,7 @@ namespace CalValEX.NPCs.Critters
             //DisplayName.SetDefault("God Slayer Slug");
             Main.npcFrameCount[NPC.type] = 4;
             Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.CantTakeLunchMoney[Type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 
@@ -103,9 +104,5 @@ namespace CalValEX.NPCs.Critters
             NPC.frame.Y = frame * frameHeight;
         }
 
-        public override void OnCaughtBy(Player player, Item item, bool failed)
-        {
-            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<GodSlayerSlugItem>());
-        }
     }
 }

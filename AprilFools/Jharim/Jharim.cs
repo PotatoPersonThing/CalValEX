@@ -501,7 +501,7 @@ namespace CalValEX.AprilFools.Jharim
 
         public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit)
         {
-            if (projectile.type == ProjectileID.VortexBeaterRocket)
+            if (projectile.type == ProjectileType<CalamityMod.Projectiles.Ranged.CosmicFire>())
             {
                 MELDOSAURUSED = true;
             }

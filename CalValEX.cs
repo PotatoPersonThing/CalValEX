@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Terraria.Audio;
-//using CalValEX.ExtraTextures.ChristmasPets;
+using CalValEX.ExtraTextures.ChristmasPets;
 using CalValEX.Biomes;
 using Terraria.ModLoader;
 using CalValEX.AprilFools.Meldosaurus;
@@ -149,7 +149,7 @@ namespace CalValEX
             if (Main.dedServ)
                 return;
 
-            //ChristmasTextureChange.Unload();
+            ChristmasTextureChange.Unload();
         }
 
         public override void PostSetupContent()
@@ -168,7 +168,7 @@ namespace CalValEX
             }
 
             //Christmas textures
-            //ChristmasTextureChange.Load();
+            ChristmasTextureChange.Load();
 
             //Boss log support
             if (bossChecklist != null)
@@ -394,6 +394,44 @@ namespace CalValEX
             }*/
         }
 
+        public override object Call(params object[] args)
+        {
+            if (args is null)
+            {
+                throw new ArgumentNullException(nameof(args), "Arguments cannot be null!");
+            }
+
+            if (args.Length == 0)
+            {
+                throw new ArgumentException("Arguments cannot be empty!");
+            }
+
+            if (args[0] is string content)
+            {
+                switch (content)
+                {
+                    case "downedMeldosaurus":
+                    case "meldosaurus":
+                    case "downedmeldosaurus":
+                    case "Meldosaurus":
+                        return CalValEXWorld.downedMeldosaurus;
+                    case "downedStratusApocalypse":
+                    case "downedstratusapocalypse":
+                    case "amogus":
+                    case "downedamogus":
+                        return CalValEXWorld.amogus;
+                    case "inAstralBlight":
+                    case "AstralBlight":
+                    case "inastralblight":
+                    case "oldastral":
+                    case "astralblight":
+                        return Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral;
+                }
+            }
+
+            return false;
+        }
+
         public static void MountNerf(Player player, float reduceDamageBy, float reduceHealthBy)
         {
             bool bossIsAlive = false;
@@ -487,7 +525,7 @@ namespace CalValEX
             }
         }
 
-        public override void AddRecipeGroups()
+        public override void AddRecipeGroups()/* tModPorter Note: Removed. Use ModSystem.AddRecipeGroups */
         {
             RecipeGroup sand = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Sand"]];
             sand.ValidItems.Add(ModContent.ItemType<AstralSand>());
@@ -540,7 +578,7 @@ namespace CalValEX
             });
             RecipeGroup.RegisterGroup("AnyHardmodeDrill", group2);*/
         }
-        public override void AddRecipes()
+        public override void AddRecipes()/* tModPorter Note: Removed. Use ModSystem.AddRecipes */
         {
             if (cata != null)
             {
@@ -568,7 +606,7 @@ namespace CalValEX
             }
         }
 
-        public override void PostAddRecipes()
+        public override void PostAddRecipes()/* tModPorter Note: Removed. Use ModSystem.PostAddRecipes */
         {
             SetupHerosMod();
         }

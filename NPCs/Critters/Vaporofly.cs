@@ -18,6 +18,7 @@ namespace CalValEX.NPCs.Critters
         {
             //DisplayName.SetDefault("Vaporofly");
             Main.npcFrameCount[NPC.type] = 8;
+            NPCID.Sets.CantTakeLunchMoney[Type] = true;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
@@ -68,11 +69,6 @@ namespace CalValEX.NPCs.Critters
                 return 0f;
             }
             //return 0f;
-        }
-
-        public override void OnCaughtBy(Player player, Item item, bool failed)
-        {
-            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<VaporoflyItem>());
         }
 
         public void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale)

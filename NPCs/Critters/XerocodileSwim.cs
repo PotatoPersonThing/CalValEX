@@ -17,6 +17,7 @@ namespace CalValEX.NPCs.Critters
         {
             //DisplayName.SetDefault("Xerocodile");
             Main.npcFrameCount[NPC.type] = 6;
+            NPCID.Sets.CantTakeLunchMoney[Type] = true;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
             {
@@ -55,7 +56,7 @@ namespace CalValEX.NPCs.Critters
             }
             if (!Main.bloodMoon)
             {
-                //Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, clamMod.ItemType("Xerocodile"), 1, false, 0, false, false);
+                Item.NewItem(NPC.GetSource_FromAI(), NPC.position, NPC.width, NPC.height, ModContent.ItemType<CalamityMod.Items.Fishing.Xerocodile>(), 1, false, 0, false, false);
                 NPC.active = false;
             }
         }
@@ -82,20 +83,6 @@ namespace CalValEX.NPCs.Critters
             }
             return 0f;
         }
-
-        public override void OnCaughtBy(Player player, Item item, bool failed)
-        {
-            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<XerocodileItem>());
-        }
-
-        /*public override void NPCLoot()
-        {
-            Mod clamMod = ModLoader.GetMod("CalamityMod");
-            if ((bool)clamMod.Call("CalValEX/GetBossDowned", "yharon"))
-            {
-                Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<Termipebbles>(), 1, false, 0, false, false);
-            }
-        }*/
         public override void HitEffect(int hitDirection, double damage)
         {
             if (NPC.life <= 0)

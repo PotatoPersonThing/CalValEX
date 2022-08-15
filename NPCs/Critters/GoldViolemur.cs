@@ -21,6 +21,7 @@ namespace CalValEX.NPCs.Critters
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.NormalGoldCritterBestiaryPriority.Add(Type);
             NPCID.Sets.GoldCrittersCollection.Add(Type);
+            NPCID.Sets.CantTakeLunchMoney[Type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 
@@ -90,7 +91,11 @@ namespace CalValEX.NPCs.Critters
                     {
                         return Terraria.ModLoader.Utilities.SpawnCondition.TownCritter.Chance * 0.07f;
                     }
-                    else if (!Main.eclipse && !Main.bloodMoon && !Main.pumpkinMoon && !Main.snowMoon)
+                    else if (
+                        !Main.eclipse &
+                        !Main.snowMoon &
+                        !Main.pumpkinMoon &
+                        Main.invasionType == InvasionID.None)
                     {
                         return 0.02f;
                     }

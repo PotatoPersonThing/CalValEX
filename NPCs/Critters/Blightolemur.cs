@@ -18,6 +18,7 @@ namespace CalValEX.NPCs.Critters
             Main.npcFrameCount[NPC.type] = 5;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
+            NPCID.Sets.CantTakeLunchMoney[Type] = true;
         }
 
         public override void SetDefaults()
@@ -69,10 +70,6 @@ namespace CalValEX.NPCs.Critters
 
         public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
-        public override void OnCaughtBy(Player player, Item item, bool failed)
-        {
-            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<BlightolemurItem>());
-        }
         public override void HitEffect(int hitDirection, double damage)
         {
             if (NPC.life <= 0)

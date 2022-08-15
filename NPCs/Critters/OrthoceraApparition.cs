@@ -17,6 +17,7 @@ namespace CalValEX.NPCs.Critters
 
         public override void SetStaticDefaults()
         {
+            NPCID.Sets.CantTakeLunchMoney[Type] = true;
             Main.npcFrameCount[NPC.type] = 5;
         }
         public override void SetDefaults()
@@ -141,7 +142,7 @@ namespace CalValEX.NPCs.Critters
             //Mod clamMod = ModLoader.GetMod("CalamityMod"); 
             //if (clamMod != null)
             {
-                if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneSulphur && CalamityMod.DownedBossSystem.downedSCal && CalamityMod.DownedBossSystem.downedExoMechs && !NPC.AnyNPCs(ModContent.NPCType<OrthoceraApparition>()) && (!CalValEXWorld.orthofound/* || orthoceraDLC != null*/))
+                if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneSulphur && CalamityMod.DownedBossSystem.downedSCal && CalamityMod.DownedBossSystem.downedExoMechs && !NPC.AnyNPCs(ModContent.NPCType<OrthoceraApparition>()) && !CalValEXWorld.orthofound)
                 {
                     return 5f;
                 }

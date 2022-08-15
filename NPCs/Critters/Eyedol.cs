@@ -21,6 +21,7 @@ namespace CalValEX.NPCs.Critters
             Main.npcFrameCount[NPC.type] = 4;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
+            NPCID.Sets.CantTakeLunchMoney[Type] = true;
         }
 
         public override void SetDefaults()
@@ -63,10 +64,6 @@ namespace CalValEX.NPCs.Critters
 
         public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
-        public override void OnCaughtBy(Player player, Item item, bool failed)
-        {
-            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<EyedolItem>());
-        }
 
         private const int Frame_Up = 0;
         private const int Frame_Rightup = 1;

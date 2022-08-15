@@ -18,6 +18,7 @@ namespace CalValEX.NPCs.Critters
             Main.npcFrameCount[NPC.type] = 3;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
+            NPCID.Sets.CantTakeLunchMoney[Type] = true;
         }
 
         public override void SetDefaults()
@@ -62,9 +63,5 @@ namespace CalValEX.NPCs.Critters
             return Terraria.ModLoader.Utilities.SpawnCondition.Underworld.Chance * 0.7f;
         }
 
-        public override void OnCaughtBy(Player player, Item item, bool failed)
-        {
-            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<ProvFlyItem>());
-        }
     }
 }

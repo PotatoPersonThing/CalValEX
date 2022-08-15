@@ -19,6 +19,7 @@ namespace CalValEX.NPCs.Critters
             //DisplayName.SetDefault("Gold Isopod");
             Main.npcFrameCount[NPC.type] = 8;
             Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.CantTakeLunchMoney[Type] = true;
             NPCID.Sets.NormalGoldCritterBestiaryPriority.Add(Type);
             NPCID.Sets.GoldCrittersCollection.Add(Type);
             NPCID.Sets.CountsAsCritter[NPC.type] = true;

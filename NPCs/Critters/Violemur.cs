@@ -19,6 +19,7 @@ namespace CalValEX.NPCs.Critters
             //DisplayName.SetDefault("Violemur");
             Main.npcFrameCount[NPC.type] = 7;
             Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.CantTakeLunchMoney[Type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 
@@ -65,7 +66,11 @@ namespace CalValEX.NPCs.Critters
                     {
                         return Terraria.ModLoader.Utilities.SpawnCondition.TownCritter.Chance;
                     }
-                    else if (!Main.eclipse && !Main.bloodMoon && !Main.pumpkinMoon && !Main.snowMoon)
+                    else if (
+                        !Main.eclipse &
+                        !Main.snowMoon &
+                        !Main.pumpkinMoon &
+                        Main.invasionType == InvasionID.None)
                     {
                         return 0.15f;
                     }
@@ -73,12 +78,6 @@ namespace CalValEX.NPCs.Critters
             }
             return 0f;
         }
-
-        public override void OnCaughtBy(Player player, Item item, bool failed)
-        {
-            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<ViolemurItem>());
-        }
-
         public override void HitEffect(int hitDirection, double damage)
         {
             if (NPC.life <= 0)

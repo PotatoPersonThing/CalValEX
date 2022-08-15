@@ -22,13 +22,13 @@ namespace CalValEX.Tiles
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Draedon Quote on Quote Bag ");
+            name.SetDefault("Draedon Box");
             AddMapEntry(new Color(249, 119, 48), name);
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ModContent.ItemType<CalamityMod.Items.TreasureBags.DraedonBag>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ItemType<CalamityMod.Items.TreasureBags.DraedonBag>());
         }
     }
 }
