@@ -475,10 +475,12 @@ namespace CalValEX
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.DevilFish>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilfishMask2>(), 20));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilfishMask3>(), 10));
                 }
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.DevilFishAlt>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilfishMask1>(), 20));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilfishMask3>(), 10));
                 }
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.MirageJelly>())
                 {

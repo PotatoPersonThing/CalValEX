@@ -4,15 +4,12 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
-using Terraria.Graphics.Shaders;
 using CalValEX.Items.Tiles;
+using Microsoft.Xna.Framework.Graphics;
 
-namespace CalValEX.Tiles.MiscFurniture
-{
-    public class PlagueDialysisPlaced : ModTile
-    {
-        public override void SetStaticDefaults()
-        {
+namespace CalValEX.Tiles.MiscFurniture {
+    public class PlagueDialysisPlaced : ModTile {
+        public override void SetStaticDefaults() {
             Main.tileSolidTop[Type] = true;
             Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileFrameImportant[Type] = true;
@@ -31,9 +28,10 @@ namespace CalValEX.Tiles.MiscFurniture
             AddMapEntry(new Color(128, 188, 67), name);
         }
 
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
-        {
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY) =>
             Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ItemType<PlagueDialysis>());
-        }
+
+        public override void PostDraw(int i, int j, SpriteBatch spriteBatch) =>
+            CalValEXGlobalTile.TileGlowmask(i, j, Request<Texture2D>("CalValEX/Tiles/MiscFurniture/PlagueDialysisPlaced_Glow").Value, spriteBatch, AnimationFrameHeight, Type);
     }
 }
