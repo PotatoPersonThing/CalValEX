@@ -8,7 +8,7 @@ namespace CalValEX.Projectiles.Pets
         {
             PetSetStaticDefaults(lightPet: false);
             DisplayName.SetDefault("Stasis Drone");
-            Main.projFrames[Projectile.type] = 4;
+            Main.projFrames[Projectile.type] = 3;
         }
 
         public override void SetDefaults()

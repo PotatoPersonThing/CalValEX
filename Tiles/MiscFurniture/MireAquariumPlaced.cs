@@ -6,12 +6,9 @@ using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Tiles;
 
-namespace CalValEX.Tiles.MiscFurniture
-{
-    public class MireAquariumPlaced : ModTile
-    {
-        public override void SetStaticDefaults()
-        {
+namespace CalValEX.Tiles.MiscFurniture {
+    public class MireAquariumPlaced : ModTile {
+        public override void SetStaticDefaults() {
             Main.tileFrameImportant[Type] = true;
             Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileLighted[Type] = true;
@@ -29,22 +26,16 @@ namespace CalValEX.Tiles.MiscFurniture
             AddMapEntry(new Color(0, 167, 255), name);
         }
 
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
-        {
+        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY) =>
             Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<MireAquarium>());
-        }
 
-        public override void AnimateTile(ref int frame, ref int frameCounter)
-        {
+        public override void AnimateTile(ref int frame, ref int frameCounter) {
             frameCounter++;
-            if (frameCounter > 6) //make this number lower/bigger for faster/slower animation
-            {
+            if (frameCounter > 8) {
                 frameCounter = 0;
                 frame++;
                 if (frame > 1)
-                {
                     frame = 0;
-                }
             }
         }
     }

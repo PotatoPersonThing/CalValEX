@@ -1,4 +1,4 @@
-﻿/*using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -7,19 +7,14 @@ using System.Collections.Generic;
 using CalValEX.Buffs.LightPets;
 using CalValEX.Projectiles.Pets.LightPets;
 
-namespace CalValEX.Items.LightPets
-{
-    public class DiggerRemote : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            ItemID.Sets.ItemNoGravity[Item.type] = true;
+namespace CalValEX.Items.LightPets {
+    public class DiggerRemote : ModItem {
+        public override void SetStaticDefaults() {
             DisplayName.SetDefault("Armored Digger Remote");
             Tooltip.SetDefault("Summons a small digger to follow you and light your way\nCaution: Pairing with a repair unit will result in supercharging!");
         }
 
-        public override void SetDefaults()
-        {
+        public override void SetDefaults() {
             Item.CloneDefaults(ItemID.ZephyrFish);
             Item.UseSound = SoundID.NPCHit4;
             Item.value = Item.sellPrice(0, 3, 0, 0);
@@ -27,31 +22,23 @@ namespace CalValEX.Items.LightPets
             Item.buffType = ModContent.BuffType<DiggerBuff>();
         }
 
-        public override void UseStyle(Player player, Rectangle heldItemFrame)
-        {
+        public override void UseStyle(Player player, Rectangle heldItemFrame) {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-            {
                 player.AddBuff(Item.buffType, 3600, true);
-            }
         }
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
-        {
-            foreach (TooltipLine tooltipLine in tooltips)
-            {
+        public override void ModifyTooltips(List<TooltipLine> tooltips) {
+            foreach (TooltipLine tooltipLine in tooltips) {
                 if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
-                {
                     tooltipLine.OverrideColor = new Color(107, 240, 255);
-                }
             }
         }
 
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
             type = ModContent.ProjectileType<DiggerPet>();
             return base.Shoot(player, source, position, velocity, type, damage, knockback);
         }
-        public override void AddRecipes()
+        /*public override void AddRecipes()
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");
             if (calamityMod != null)
@@ -65,6 +52,6 @@ namespace CalValEX.Items.LightPets
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
-        }
+        }*/
     }
-}*/
+}
