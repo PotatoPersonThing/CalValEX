@@ -228,14 +228,6 @@ namespace CalValEX
 				recipe.Register();
 			}
 			{
-				Recipe recipe = Recipe.Create(ItemType<ProfanedCultistMask>());
-				recipe.AddIngredient(ItemType<DivineGeode>(), 10);
-				recipe.AddIngredient(ItemType<UnholyEssence>(), 5);
-				recipe.AddIngredient(ItemID.Silk, 15);
-				recipe.AddTile(TileID.LunarCraftingStation);
-				recipe.Register();
-			}
-			{
 				Recipe recipe = Recipe.Create(ItemType<TerminalMask>());
 				recipe.AddIngredient(ItemType<Termipebbles>(), 5);
 				recipe.AddIngredient(ItemType<Rock>());
@@ -286,14 +278,6 @@ namespace CalValEX
 				Recipe recipe = Recipe.Create(ItemType<BloodyMaryDress>());
 				recipe.AddIngredient(ItemType<BloodstoneCore>(), 8);
 				recipe.AddIngredient((ItemID.TheBrideDress), 1);
-				recipe.AddTile(TileID.LunarCraftingStation);
-				recipe.Register();
-			}
-			{
-				Recipe recipe = Recipe.Create(ItemType<ProfanedCultistRobes>());
-				recipe.AddIngredient(ItemType<DivineGeode>(), 15);
-				recipe.AddIngredient(ItemType<UnholyEssence>(), 10);
-				recipe.AddIngredient(ItemID.Silk, 25);
 				recipe.AddTile(TileID.LunarCraftingStation);
 				recipe.Register();
 			}
@@ -644,7 +628,7 @@ namespace CalValEX
 			//Blocks
 			{
 				Recipe recipe = Recipe.Create(ItemType<MeldBlock>(), 50);
-				recipe.AddIngredient(ItemType<CalamityMod.Items.Materials.MeldConstruct>());
+				recipe.AddIngredient(ItemType<CalamityMod.Items.Materials.MeldBlobs>());
 				recipe.AddIngredient(ItemID.StoneBlock, 50);
 				recipe.AddTile(TileID.LunarCraftingStation);
 				recipe.Register();
@@ -889,13 +873,6 @@ namespace CalValEX
 				recipe.AddIngredient(ItemID.TrashCan);
 				recipe.AddIngredient(ItemType<AuricBar>(), 5);
 				recipe.AddTile(TileType<CosmicAnvil>());
-				recipe.Register();
-			}
-			{
-				Recipe recipe = Recipe.Create(ItemType<CalamityLamp>());
-				recipe.AddIngredient(ItemType<CalamityMod.Items.Accessories.Calamity>());
-				recipe.AddIngredient(ItemType<AuricLampItem>(), 5);
-				recipe.AddTile(TileType<DraedonsForge>());
 				recipe.Register();
 			}
 			{

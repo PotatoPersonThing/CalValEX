@@ -492,6 +492,7 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<NetherTree>(), Item.buyPrice(1, 75, 0, 0), siggy, ref shop, ref nextSlot);
                 AddItem(ItemType<NetherTreeBig>(), Item.buyPrice(2, 75, 0, 0), siggy, ref shop, ref nextSlot);
                 AddItem(ItemType<EidolonTree>(), Item.buyPrice(0, 50, 0, 0), polt, ref shop, ref nextSlot);
+                AddItem(ItemType<CalamityLamp>(), Item.buyPrice(3, 50, 25, 0), scal, ref shop, ref nextSlot);
             }
             else
             {

@@ -704,6 +704,7 @@ namespace CalValEX
 				NPC.NewNPC(player.GetSource_ReleaseEntity(), (int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<AprilFools.Jharim.Jharim>(), 0, 0f, 0f, 0f, 0f, 255);
 			}
 		}
+
         public override string IsArmorSet(Item head, Item body, Item legs)
         {
             if (head.type == ModContent.ItemType <WulfrumHat>() &&
