@@ -91,7 +91,14 @@ namespace CalValEX
 				}
 			}
 			//Misc
-            {
+			{
+				Recipe recipe = Recipe.Create(ItemType<BleachBall>());
+				recipe.AddIngredient(ItemType<CalamityMod.Items.BleachBall>());
+				recipe.AddIngredient(ItemID.BeachBall);
+				recipe.AddTile(TileID.MythrilAnvil);
+				recipe.Register();
+			}
+			{
 				Recipe recipe = Recipe.Create(ItemType<SparrowMeat>());
 				recipe.AddIngredient(ItemType<ExtraFluffyFeather>());
 				recipe.AddIngredient(ItemType<JunglePhoenixWings>());
@@ -221,6 +228,14 @@ namespace CalValEX
 				recipe.Register();
 			}
 			{
+				Recipe recipe = Recipe.Create(ItemType<ProfanedCultistMask>());
+				recipe.AddIngredient(ItemType<DivineGeode>(), 10);
+				recipe.AddIngredient(ItemType<UnholyEssence>(), 5);
+				recipe.AddIngredient(ItemID.Silk, 15);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
 				Recipe recipe = Recipe.Create(ItemType<TerminalMask>());
 				recipe.AddIngredient(ItemType<Termipebbles>(), 5);
 				recipe.AddIngredient(ItemType<Rock>());
@@ -271,6 +286,14 @@ namespace CalValEX
 				Recipe recipe = Recipe.Create(ItemType<BloodyMaryDress>());
 				recipe.AddIngredient(ItemType<BloodstoneCore>(), 8);
 				recipe.AddIngredient((ItemID.TheBrideDress), 1);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<ProfanedCultistRobes>());
+				recipe.AddIngredient(ItemType<DivineGeode>(), 15);
+				recipe.AddIngredient(ItemType<UnholyEssence>(), 10);
+				recipe.AddIngredient(ItemID.Silk, 25);
 				recipe.AddTile(TileID.LunarCraftingStation);
 				recipe.Register();
 			}
@@ -620,6 +643,13 @@ namespace CalValEX
 			}
 			//Blocks
 			{
+				Recipe recipe = Recipe.Create(ItemType<MeldBlock>(), 50);
+				recipe.AddIngredient(ItemType<CalamityMod.Items.Materials.MeldConstruct>());
+				recipe.AddIngredient(ItemID.StoneBlock, 50);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
 				Recipe recipe = Recipe.Create(ItemType<WulfrumPlating>(), 50);
 				recipe.AddIngredient(ItemType<WulfrumMetalScrap>());
 				recipe.AddIngredient(ItemID.StoneBlock, 50);
@@ -723,9 +753,18 @@ namespace CalValEX
 			PlushRecipe(ItemType<DevourerofGodsPlushThrowable>(), ItemType<DevourerofGodsPlush>());
 			PlushRecipe(ItemType<DraedonPlushThrowable>(), ItemType<DraedonPlush>());
 			PlushRecipe(ItemType<GiantClamPlushThrowable>(), ItemType<GiantClamPlush>());
+			PlushRecipe(ItemType<SandSharkPlushThrowable>(), ItemType<SandSharkPlush>());
 			PlushRecipe(ItemType<HiveMindPlushThrowable>(), ItemType<HiveMindPlush>());
 			PlushRecipe(ItemType<JaredPlushThrowable>(), ItemType<JaredPlush>());
 			PlushRecipe(ItemType<LeviathanPlushThrowable>(), ItemType<LeviathanPlush>());
+			PlushRecipe(ItemType<MaulerPlushThrowable>(), ItemType<MaulerPlush>());
+			PlushRecipe(ItemType<MirePlushThrowableP1>(), ItemType<MirePlushP1>());
+			PlushRecipe(ItemType<MirePlushThrowableP1>(), ItemType<MirePlushThrowableP2>());
+			PlushRecipe(ItemType<MirePlushThrowableP2>(), ItemType<MirePlushP2>());
+			PlushRecipe(ItemType<MirePlushThrowableP2>(), ItemType<MirePlushThrowableP1>());
+			PlushRecipe(ItemType<MirePlushP1>(), ItemType<MirePlushP2>());
+			PlushRecipe(ItemType<MirePlushP2>(), ItemType<MirePlushP1>());
+			PlushRecipe(ItemType<NuclearTerrorPlushThrowable>(), ItemType<NuclearTerrorPlush>());
 			PlushRecipe(ItemType<OldDukePlushThrowable>(), ItemType<OldDukePlush>());
 			PlushRecipe(ItemType<PerforatorPlushThrowable>(), ItemType<PerforatorPlush>());
 			PlushRecipe(ItemType<PlaguebringerGoliathPlushThrowable>(), ItemType<PlaguebringerGoliathPlush>());
@@ -853,6 +892,13 @@ namespace CalValEX
 				recipe.Register();
 			}
 			{
+				Recipe recipe = Recipe.Create(ItemType<CalamityLamp>());
+				recipe.AddIngredient(ItemType<CalamityMod.Items.Accessories.Calamity>());
+				recipe.AddIngredient(ItemType<AuricLampItem>(), 5);
+				recipe.AddTile(TileType<DraedonsForge>());
+				recipe.Register();
+			}
+			{
 				Recipe recipe = Recipe.Create(ItemType<InactivePowerFactory>());
 				recipe.AddIngredient(ItemType<PowerCellFactoryItem>());
 				recipe.AddTile(TileID.Anvils);
@@ -881,6 +927,14 @@ namespace CalValEX
 				recipe.Register();
 			}
 			{
+				Recipe recipe = Recipe.Create(ItemType<MoulderingAltarItem>());
+				recipe.AddIngredient(ItemID.DemoniteBar, 20);
+				recipe.AddIngredient(ItemID.SoulofNight, 15);
+				recipe.AddIngredient(ItemType<CalamityMod.Item.Materials.RottenMatter>(), 6);
+				recipe.AddTile(TileID.DemonAltar);
+				recipe.Register();
+			}
+			{
 				Recipe recipe = Recipe.Create(ItemType<SchematicDisplay>());
 				recipe.AddIngredient(ItemType<MysteriousCircuitry>(), 20);
 				recipe.AddIngredient(ItemID.Wire, 20);
@@ -899,6 +953,14 @@ namespace CalValEX
 				recipe.AddIngredient(ItemType<TerminusShrine2>());
 				recipe.AddIngredient(ItemType<Rock>());
 				recipe.AddTile(TileType<DraedonsForge>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<VisceralAltarItem>());
+				recipe.AddIngredient(ItemID.CrimtaneBar, 20);
+				recipe.AddIngredient(ItemID.SoulofNight, 15);
+				recipe.AddIngredient(ItemType<CalamityMod.Item.Materials.BloodSample>(), 6);
+				recipe.AddTile(TileID.DemonAltar);
 				recipe.Register();
 			}
 			//Astral furniture

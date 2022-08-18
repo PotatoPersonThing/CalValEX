@@ -8,7 +8,6 @@ using Terraria.ID;
 
 namespace CalValEX.Tiles.MiscFurniture {
     public class MoulderingAltarPlaced : ModTile {
-        //public override string Texture => "CalValEX/Tiles/MiscFurniture/MoulderingAltarPlaced";
 
         public override void SetStaticDefaults() {
             Main.tileFrameImportant[Type] = true;
@@ -34,7 +33,6 @@ namespace CalValEX.Tiles.MiscFurniture {
         }
     }
     public class VisceralAltarPlaced : ModTile {
-        //public override string Texture => "CalValEX/Tiles/MiscFurniture/VisceralAltarPlaced";
 
         public override void SetStaticDefaults() {
             Main.tileFrameImportant[Type] = true;

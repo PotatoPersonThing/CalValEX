@@ -64,8 +64,11 @@
 			SwearshroomItem : Swearshroom
 			ViolemurItem : Violemur
 			XerocodileItem : Awakened Xerocodile
+			PerfoGrubItem : Perforator Grub
+			NeuroFlyItem : Neurofly
 			# Tiles
 			BubbleMachine : Effervescent Bubbler
+			MeldBlockItem : Meld Block
 		}
 		
 		ItemTooltip: 
@@ -87,6 +90,8 @@
 			FogG: ''':Why:
 				Summons the Fogbound'''
 			#Tiles
+			PerfoGrubItem : Get some grub, 333 to be exact!
+			NeuroFlyItem : Don't let it bite you
 			BubbleMachine : '''That's like, groovy mannn'''
 		}
 		
@@ -237,6 +242,7 @@
 			WulfrumArmy: Wulfrum Army
 			WyrmBuff: Eidolon Inchwyrm
 			YharimSquidBuff: Auric Squiddo
+			ZygoteBuff: Ghastly Zygote
 			# Transformations
 			ClassicBrimmyBuff: Brimstone Elemental Transformation
 			CloudTransformationBuff: Cloud Elemental Transformation
@@ -391,6 +397,7 @@
 			WulfrumArmy: Cling clang and bang
 			WyrmBuff: Ew, its all slimey...
 			YharimSquidBuff: He's gone so far in life
+			ZygoteBuff : He might be a bit problematic... 
 			# Transformations
 			ClassicBrimmyBuff: Yes, you can touch Water
 			CloudTransformationBuff: Feelin' Cloudy
