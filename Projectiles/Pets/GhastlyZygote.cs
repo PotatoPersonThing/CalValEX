@@ -10,7 +10,7 @@ namespace CalValEX.Projectiles.Pets {
     public class GhastlyZygote : ModFlyingPet {
         public Player Owner => Main.player[Projectile.owner];
         public new bool ShouldFlip = false;
-        public override Vector2 FlyingOffset => new Vector2(54f * -Main.player[Projectile.owner].direction, -130f);
+        public override Vector2 FlyingOffset => new Vector2(94f * -Main.player[Projectile.owner].direction, -100f);
         public override void SetStaticDefaults() {
             PetSetStaticDefaults(lightPet: false);
             DisplayName.SetDefault("Ghastly Zygote");
