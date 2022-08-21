@@ -15,6 +15,14 @@ namespace CalValEX
 {
     public class CalValEXGlobalProjectile : GlobalProjectile
     {
+        public override bool InstancePerEntity
+        {
+            get
+            {
+                return true;
+            }
+        }
+        public bool isCalValPet;
         public override bool PreDraw(Projectile projectile, ref Color drawColor)
         {
             if (CalValEXWorld.RockshrinEX)
@@ -34,6 +42,31 @@ namespace CalValEX
 
         public override void AI(Projectile proj)
         {
+			if (isCalValPet)
+            {
+                for (int k = 0; k < Main.maxProjectiles; k++)
+                {
+                    Projectile otherProj = Main.projectile[k];
+                    if (!otherProj.active || otherProj.owner != proj.owner || k == proj.whoAmI)
+                        continue;
+
+                    bool bothPets = otherProj.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet;
+                    float dist = Math.Abs(proj.position.X - otherProj.position.X) + Math.Abs(proj.position.Y - otherProj.position.Y);
+                    if (bothPets && dist < proj.width)
+                    {
+                        if (proj.position.X < otherProj.position.X)
+                            proj.velocity.X -= 0.4f;
+                        else
+                            proj.velocity.X += 0.4f;
+
+                        if (proj.position.Y < otherProj.position.Y)
+                            proj.velocity.Y -= 0.4f;
+                        else
+                            proj.velocity.Y += 0.4f;
+                    }
+                }
+            }
+
             if (proj.owner == Main.myPlayer && proj.type == Terraria.ID.ProjectileID.PureSpray)
                 PureConvert((int)(proj.position.X + proj.width / 2) / 16, (int)(proj.position.Y + proj.height / 2) / 16, 2);
             if (proj.owner == Main.myPlayer && proj.type == ModContent.ProjectileType<CalamityMod.Projectiles.Typeless.AstralSpray>())

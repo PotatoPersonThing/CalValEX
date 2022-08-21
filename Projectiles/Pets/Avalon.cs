@@ -21,6 +21,7 @@ namespace CalValEX.Projectiles.Pets
             Projectile.width = 78;
             Projectile.height = 92;
             Projectile.ignoreWater = true;
+            Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
         public override void Animation(int state)
