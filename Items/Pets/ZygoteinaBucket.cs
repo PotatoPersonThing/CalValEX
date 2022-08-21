@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Items.Pets {
-    public class BucketOfAxolotl : ModItem {
+    public class ZygoteinaBucket : ModItem {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Zygote in a Bucket");
             Tooltip.SetDefault("Summons an ancient ghastly fetus");

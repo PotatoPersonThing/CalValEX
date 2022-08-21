@@ -92,7 +92,7 @@ namespace CalValEX
 			}
 			//Misc
 			{
-				Recipe recipe = Recipe.Create(ItemType<BleachBall>());
+				Recipe recipe = Recipe.Create(ItemType<Items.BleachBall>());
 				recipe.AddIngredient(ItemType<CalamityMod.Items.BleachBall>());
 				recipe.AddIngredient(ItemID.BeachBall);
 				recipe.AddTile(TileID.MythrilAnvil);
@@ -628,7 +628,7 @@ namespace CalValEX
 			//Blocks
 			{
 				Recipe recipe = Recipe.Create(ItemType<MeldBlock>(), 50);
-				recipe.AddIngredient(ItemType<CalamityMod.Items.Materials.MeldBlobs>());
+				recipe.AddIngredient(ItemType<CalamityMod.Items.Materials.MeldBlob>());
 				recipe.AddIngredient(ItemID.StoneBlock, 50);
 				recipe.AddTile(TileID.LunarCraftingStation);
 				recipe.Register();
@@ -907,7 +907,7 @@ namespace CalValEX
 				Recipe recipe = Recipe.Create(ItemType<MoulderingAltarItem>());
 				recipe.AddIngredient(ItemID.DemoniteBar, 20);
 				recipe.AddIngredient(ItemID.SoulofNight, 15);
-				recipe.AddIngredient(ItemType<CalamityMod.Item.Materials.RottenMatter>(), 6);
+				recipe.AddIngredient(ItemType<CalamityMod.Items.Materials.RottenMatter>(), 6);
 				recipe.AddTile(TileID.DemonAltar);
 				recipe.Register();
 			}
@@ -936,7 +936,7 @@ namespace CalValEX
 				Recipe recipe = Recipe.Create(ItemType<VisceralAltarItem>());
 				recipe.AddIngredient(ItemID.CrimtaneBar, 20);
 				recipe.AddIngredient(ItemID.SoulofNight, 15);
-				recipe.AddIngredient(ItemType<CalamityMod.Item.Materials.BloodSample>(), 6);
+				recipe.AddIngredient(ItemType<CalamityMod.Items.Materials.BloodSample>(), 6);
 				recipe.AddTile(TileID.DemonAltar);
 				recipe.Register();
 			}
