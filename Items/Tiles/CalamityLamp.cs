@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using Terraria.ID;
 using CalValEX.Tiles.MiscFurniture;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
 using Terraria;
 
 namespace CalValEX.Items.Tiles {
     public class CalamityLamp : ModItem {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Calamity Torch");
+            DisplayName.SetDefault("Brimstone Flambeau");
             Tooltip.SetDefault("Something malicious is brewing");
-            SacrificeTotal = 5;
+            SacrificeTotal = 1;
         }
 
         public override void SetDefaults() {
