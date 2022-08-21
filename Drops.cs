@@ -568,7 +568,7 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NuclearFumes>(), 1, 5, 8));
                     npcLoot.AddIf(() => CalValEXWorld.masorev && !DownedBossSystem.downedPolterghast, ModContent.ItemType<MirePlushP1>(), 4);
                     npcLoot.AddIf(() => CalValEXWorld.masorev && DownedBossSystem.downedPolterghast, ModContent.ItemType<MirePlushP1>(), 8);
-                    npcLoot.AddIf(() => CalValEXWorld.masorev && DownedBossSystem.downedPolterghast, ModContent.ItemType<MirePlushP2>(), 8);
+                    npcLoot.AddIf(() => CalValEXWorld.masorev && DownedBossSystem.downedPolterghast, ModContent.ItemType<MirePlushP2>(), 6);
                 }
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.GreatSandShark.GreatSandShark>()) {
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<SandSharkPlush>(), 4);
@@ -629,7 +629,6 @@ namespace CalValEX
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AquaticScourge.AquaticScourgeHead>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<MoistLocket>(), 3));
-                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<BleachBall>(), 4));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<AquaticScourgePlush>(), 4);
                 }
                 //Brimmy
@@ -711,7 +710,7 @@ namespace CalValEX
                     bool blight(DropAttemptInfo info) => Main.LocalPlayer.InModBiome(ModContent.GetInstance<Biomes.AstralBlight>()) && !CalamityMod.NPCs.AstrumDeus.AstrumDeusHead.ShouldNotDropThings(info.npc);
                     bool masre(DropAttemptInfo info) => CalValEXWorld.masorev && !CalamityMod.NPCs.AstrumDeus.AstrumDeusHead.ShouldNotDropThings(info.npc);
 
-                    lastWorm.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AstBandana>(), 20));
+                    lastWorm.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AstBandana>(), 4));
                     lastWorm.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Geminga>(), 3));
                     npcLoot.AddIf(blight, ModContent.ItemType<AstrumDeusMask>());
                     npcLoot.AddIf(masre, ModContent.ItemType<AstrumDeusPlush>(), 4);
