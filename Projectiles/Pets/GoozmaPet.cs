@@ -1,4 +1,4 @@
-//using CalamityMod.CalPlayer;
+using CalamityMod.CalPlayer;
 using Terraria.GameContent;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -42,7 +42,7 @@ namespace CalValEX.Projectiles.Pets
             // Custom AI here
             Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-            //((CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
+            CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
             if (player.dead)
             {
                 modPlayer.goozmaPet = false;
@@ -146,7 +146,7 @@ namespace CalValEX.Projectiles.Pets
          * 29 = astral blight
          * 30 = arsenal
          */
-            /*if (CalamityMod.Events.BossRushEvent.BossRushActive) //Auric
+            if (CalamityMod.Events.BossRushEvent.BossRushActive) //Auric
             {
                 GoozmaSlimeGods = new List<int>
                 {
@@ -199,7 +199,7 @@ namespace CalValEX.Projectiles.Pets
                 {
                     AddDeity(2);
                 }
-                else if (player.ZoneHoly) //Crystalline
+                else if (player.ZoneHallow) //Crystalline
                 {
                     AddDeity(3);
                 }
@@ -273,7 +273,7 @@ namespace CalValEX.Projectiles.Pets
                 }
                 else if (calPlayer.ZoneSulphur)
                 {
-                    if (CalamityMod.World.CalamityWorld.rainingAcid) //Gamma
+                    if (CalamityMod.Events.AcidRainEvent.AcidRainEventIsOngoing) //Gamma
                     {
                         AddDeity(16);
                     }
@@ -294,7 +294,7 @@ namespace CalValEX.Projectiles.Pets
                 {
                     AddDeity(5);
                 }
-            }*/
+            }
         }
 
         public Rectangle getFrameFromTexture(int frame)

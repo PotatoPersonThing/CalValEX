@@ -90,8 +90,6 @@
 			FogG: ''':Why:
 				Summons the Fogbound'''
 			#Tiles
-			PerfoGrubItem : Get some grub, 333 to be exact!
-			NeuroFlyItem : Don't let it bite you
 			BubbleMachine : '''That's like, groovy mannn'''
 		}
 		

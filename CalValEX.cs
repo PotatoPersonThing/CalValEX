@@ -208,6 +208,8 @@ namespace CalValEX
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Calamitas",
                     new List<int> { ModContent.ItemType<ClonePlush>(), ModContent.ItemType<Calacirclet>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
+                bossChecklist.Call("AddToBossCollection", "CalamityMod", "Great Sand Shark",
+                    new List<int> { ModContent.ItemType<SandSharkPlush>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Leviathan",
                     new List<int>
                     {
