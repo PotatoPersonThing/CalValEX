@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using System.IO;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.Audio;
+using CalamityMod.CalPlayer;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -20,8 +21,6 @@ namespace CalValEX.Projectiles.Pets
         public bool entropy = false;
 
         int apocalypse = 0;
-        int time1 = 23600;
-        int time2 = 24260;
 
         public override void SetStaticDefaults()
         {
@@ -92,16 +91,18 @@ namespace CalValEX.Projectiles.Pets
 
         public override void CustomBehaviour(Player player, ref int state, float flyingSpeed, float flyingInertia)
         {
-            /*if (orthoceraDLC != null)
+            int time1 = 23600;
+            int time2 = 24260;
+            if (player.GetModPlayer<CalamityPlayer>().tFury)
             {
                 time1 = 600;
                 time2 = 1260;
             }
             else
-            {*/
+            {
                 time1 = 23600;
                 time2 = 24260;
-            //}
+            }
 
             apocalypse++;
 
@@ -109,10 +110,10 @@ namespace CalValEX.Projectiles.Pets
             {
                 if (!entropy)
                 {
-                    entropy = true;
                     Terraria.Audio.SoundEngine.PlaySound(new SoundStyle("CalValEX/Sounds/ReaperEnragedRoar"), Projectile.position);
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), 0, 0, ModContent.ProjectileType<SiremberSpook>(), 0, 0, Projectile.owner, 0);
+                    Projectile.NewProjectile(Projectile.GetSource_FromAI(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<SiremberSpook>(), 0, 0, Projectile.owner);
                     Projectile.alpha = 255;
+                    entropy = true;
                 }
 
             }
@@ -126,31 +127,6 @@ namespace CalValEX.Projectiles.Pets
                 apocalypse = 0;
                 entropy = false;
             }
-            //Test version with smaller times
-            /*apocalypse++;
-
-            if (apocalypse >= 600 && apocalypse < 1260)
-            {
-                if (!entropy)
-                {
-                    entropy = true;
-                    Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/ReaperEnragedRoar"));
-                    Projectile.NewProjectile(Projectile.Center.X, Projectile.Center.Y, 0, 0, ModContent.ProjectileType<SiremberSpook>(), 0, 0, Projectile.owner, 0);
-                    Projectile.alpha = 255;
-                }
-
-            }
-            if (apocalypse >= 1260)
-            {
-                Projectile.alpha = 0;
-                for (int x = 0; x < 60; x++)
-                {
-                    Dust dust;
-                    dust = Main.dust[Terraria.Dust.NewDust(Projectile.Center, 30, 30, 16, 0f, 0f, 0, new Color(255, 255, 255), 1.644737f)];
-                }
-                apocalypse = 0;
-                entropy = false;
-            }*/
         }
 
         public override void SendExtraAI(BinaryWriter writer)
@@ -159,15 +135,11 @@ namespace CalValEX.Projectiles.Pets
             writer.Write(theterror);
             writer.Write(entropy);
             writer.Write(apocalypse);
-            writer.Write(time1);
-            writer.Write(time2);
             base.SendExtraAI(writer);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            time1 = reader.ReadInt32();
-            time2 = reader.ReadInt32();
             apocalypse = reader.ReadInt32();
             entropy = reader.ReadBoolean();
             theterror = reader.ReadBoolean();

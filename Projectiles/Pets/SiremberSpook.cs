@@ -8,7 +8,6 @@ namespace CalValEX.Projectiles.Pets
 {
     public class SiremberSpook : ModProjectile
     {
-        int countdown = 0;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Giant Decapitated Floating Siren Head");
@@ -36,23 +35,23 @@ namespace CalValEX.Projectiles.Pets
             Player player = Main.LocalPlayer;
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
-            countdown++;
+            Projectile.ai[0]++;
 
             if (Projectile.frame != 1)
             {
                 Projectile.frame = 1;
             }
             Projectile.rotation = 0;
-            if (countdown == 660)
+            if (Projectile.ai[0] == 660)
             { 
                 Projectile.Kill();
 
             }
-            else if (countdown == 600)
+            else if (Projectile.ai[0] == 600)
             {
                 player.AddBuff(BuffID.Obstructed, 60);
             }
-            else if (countdown == 300)
+            else if (Projectile.ai[0] == 300)
             {
                 player.AddBuff(BuffID.Blackout, 360);
                 player.AddBuff(BuffID.Darkness, 360);
@@ -66,15 +65,6 @@ namespace CalValEX.Projectiles.Pets
                 Dust dust;
                 dust = Main.dust[Terraria.Dust.NewDust(Projectile.Center, 30, 30, 16, 0f, 0f, 0, new Color(255, 255, 255), 1.644737f)];
             }
-        }
-        public override void SendExtraAI(BinaryWriter writer)
-        {
-            writer.Write(countdown);
-        }
-
-        public override void ReceiveExtraAI(BinaryReader reader)
-        {
-            countdown = reader.ReadInt32();
         }
     }
 }
