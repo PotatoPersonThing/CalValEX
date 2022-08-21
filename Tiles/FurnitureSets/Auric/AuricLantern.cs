@@ -6,15 +6,9 @@ using CalValEX.Items.Tiles.FurnitureSets.Auric;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace CalValEX.Tiles.FurnitureSets.Auric
-{
-    // This class shows off many things common to Lamp tiles in Terraria. The process for creating this example is detailed in: https://github.com/tModLoader/tModLoader/wiki/Advanced-Vanilla-Code-Adaption#examplelamp-tile
-    // If you can't figure out how to recreate a vanilla tile, see that guide for instructions on how to figure it out yourself.
-    public class AuricLantern : ModTile
-    {
-        bool tileFlip = true;
-        public override void SetStaticDefaults()
-        {
+namespace CalValEX.Tiles.FurnitureSets.Auric {
+    public class AuricLantern : ModTile {
+        public override void SetStaticDefaults() {
             // Main.tileFlame[Type] = true; This breaks it.
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
@@ -26,14 +20,13 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 }; //
             TileObjectData.addTile(Type);
-            AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Auric Lantern");
             AddMapEntry(new Color(139, 0, 0), name);
         }
-        public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
-        {
+
+        public override void PostDraw(int i, int j, SpriteBatch spriteBatch) {
             int xFrameOffset = Main.tile[i, j].TileFrameX;
             int yFrameOffset = Main.tile[i, j].TileFrameY;
             Texture2D glowmask = ModContent.Request<Texture2D>("CalValEX/Tiles/FurnitureSets/Auric/AuricLantern_Glow").Value;
@@ -43,19 +36,14 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             var effects = SpriteEffects.None;
             SetSpriteEffects(i, j, ref effects);
             if (effects.HasFlag(SpriteEffects.FlipHorizontally))
-            {
                 drawPosition.X -= 2f;
-            }
             spriteBatch.Draw(glowmask, drawPosition, new Rectangle(xFrameOffset, yFrameOffset, 18, 18), drawColour, 0.0f, Vector2.Zero, 1f, effects, 0.0f);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
+        public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
             Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<AuricLanternItem>());
-        }
 
-        public override void HitWire(int i, int j)
-        {
+        public override void HitWire(int i, int j) {
             Tile tile = Main.tile[i, j];
             int topY = j - tile.TileFrameY / 18 % 2;
             short frameAdjustment = (short)(tile.TileFrameX > 0 ? -18 : 18);
@@ -68,35 +56,22 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             NetMessage.SendTileSquare(-1, i, topY + 1, 2, TileChangeType.None);
         }
 
-        public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)
-        {
+        public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects) {
             if (i % 2 == 1)
-            {
                 spriteEffects = SpriteEffects.FlipHorizontally;
-                tileFlip = true;
-            }
-            else
-            {
-                tileFlip = false;
-            }
         }
 
-        public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
-        {
+        public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b) {
             Tile tile = Main.tile[i, j];
-            if (tile.TileFrameX == 0)
-            {
-                // We can support different light colors for different styles here: switch (tile.TileFrameY / 54)
+            if (tile.TileFrameX == 0) {
                 r = 1f;
                 g = 1f;
                 b = 0.6f;
             }
         }
 
-        public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref Terraria.DataStructures.TileDrawInfo drawData)
-        {
-            if (!Main.gamePaused && Main.instance.IsActive && (!Lighting.UpdateEveryFrame || Main.rand.NextBool(4)))
-            {
+        public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref Terraria.DataStructures.TileDrawInfo drawData) {
+            if (!Main.gamePaused && Main.instance.IsActive && (!Lighting.UpdateEveryFrame || Main.rand.NextBool(4))) {
                 Tile tile = Main.tile[i, j];
                 short frameX = tile.TileFrameX;
                 short frameY = tile.TileFrameY;

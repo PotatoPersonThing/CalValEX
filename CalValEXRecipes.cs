@@ -91,7 +91,14 @@ namespace CalValEX
 				}
 			}
 			//Misc
-            {
+			{
+				Recipe recipe = Recipe.Create(ItemType<BleachBall>());
+				recipe.AddIngredient(ItemType<CalamityMod.Items.BleachBall>());
+				recipe.AddIngredient(ItemID.BeachBall);
+				recipe.AddTile(TileID.MythrilAnvil);
+				recipe.Register();
+			}
+			{
 				Recipe recipe = Recipe.Create(ItemType<SparrowMeat>());
 				recipe.AddIngredient(ItemType<ExtraFluffyFeather>());
 				recipe.AddIngredient(ItemType<JunglePhoenixWings>());
@@ -620,6 +627,13 @@ namespace CalValEX
 			}
 			//Blocks
 			{
+				Recipe recipe = Recipe.Create(ItemType<MeldBlock>(), 50);
+				recipe.AddIngredient(ItemType<CalamityMod.Items.Materials.MeldBlobs>());
+				recipe.AddIngredient(ItemID.StoneBlock, 50);
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			{
 				Recipe recipe = Recipe.Create(ItemType<WulfrumPlating>(), 50);
 				recipe.AddIngredient(ItemType<WulfrumMetalScrap>());
 				recipe.AddIngredient(ItemID.StoneBlock, 50);
@@ -723,9 +737,18 @@ namespace CalValEX
 			PlushRecipe(ItemType<DevourerofGodsPlushThrowable>(), ItemType<DevourerofGodsPlush>());
 			PlushRecipe(ItemType<DraedonPlushThrowable>(), ItemType<DraedonPlush>());
 			PlushRecipe(ItemType<GiantClamPlushThrowable>(), ItemType<GiantClamPlush>());
+			PlushRecipe(ItemType<SandSharkPlushThrowable>(), ItemType<SandSharkPlush>());
 			PlushRecipe(ItemType<HiveMindPlushThrowable>(), ItemType<HiveMindPlush>());
 			PlushRecipe(ItemType<JaredPlushThrowable>(), ItemType<JaredPlush>());
 			PlushRecipe(ItemType<LeviathanPlushThrowable>(), ItemType<LeviathanPlush>());
+			PlushRecipe(ItemType<MaulerPlushThrowable>(), ItemType<MaulerPlush>());
+			PlushRecipe(ItemType<MirePlushThrowableP1>(), ItemType<MirePlushP1>());
+			PlushRecipe(ItemType<MirePlushThrowableP1>(), ItemType<MirePlushThrowableP2>());
+			PlushRecipe(ItemType<MirePlushThrowableP2>(), ItemType<MirePlushP2>());
+			PlushRecipe(ItemType<MirePlushThrowableP2>(), ItemType<MirePlushThrowableP1>());
+			PlushRecipe(ItemType<MirePlushP1>(), ItemType<MirePlushP2>());
+			PlushRecipe(ItemType<MirePlushP2>(), ItemType<MirePlushP1>());
+			PlushRecipe(ItemType<NuclearTerrorPlushThrowable>(), ItemType<NuclearTerrorPlush>());
 			PlushRecipe(ItemType<OldDukePlushThrowable>(), ItemType<OldDukePlush>());
 			PlushRecipe(ItemType<PerforatorPlushThrowable>(), ItemType<PerforatorPlush>());
 			PlushRecipe(ItemType<PlaguebringerGoliathPlushThrowable>(), ItemType<PlaguebringerGoliathPlush>());
@@ -881,6 +904,14 @@ namespace CalValEX
 				recipe.Register();
 			}
 			{
+				Recipe recipe = Recipe.Create(ItemType<MoulderingAltarItem>());
+				recipe.AddIngredient(ItemID.DemoniteBar, 20);
+				recipe.AddIngredient(ItemID.SoulofNight, 15);
+				recipe.AddIngredient(ItemType<CalamityMod.Item.Materials.RottenMatter>(), 6);
+				recipe.AddTile(TileID.DemonAltar);
+				recipe.Register();
+			}
+			{
 				Recipe recipe = Recipe.Create(ItemType<SchematicDisplay>());
 				recipe.AddIngredient(ItemType<MysteriousCircuitry>(), 20);
 				recipe.AddIngredient(ItemID.Wire, 20);
@@ -899,6 +930,14 @@ namespace CalValEX
 				recipe.AddIngredient(ItemType<TerminusShrine2>());
 				recipe.AddIngredient(ItemType<Rock>());
 				recipe.AddTile(TileType<DraedonsForge>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<VisceralAltarItem>());
+				recipe.AddIngredient(ItemID.CrimtaneBar, 20);
+				recipe.AddIngredient(ItemID.SoulofNight, 15);
+				recipe.AddIngredient(ItemType<CalamityMod.Item.Materials.BloodSample>(), 6);
+				recipe.AddTile(TileID.DemonAltar);
 				recipe.Register();
 			}
 			//Astral furniture

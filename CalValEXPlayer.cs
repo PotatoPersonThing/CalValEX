@@ -310,6 +310,7 @@ namespace CalValEX {
         public bool profanedCultist;
         public bool profanedCultistHide;
         public bool profanedCultistForce;
+        public bool zygote;
 
         public override void Initialize() {
             ResetMyStuff();
@@ -894,6 +895,7 @@ namespace CalValEX {
             ScratchedGong = false;
             TubRune = false;
             Pandora = false;
+            zygote = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit) {
@@ -1075,9 +1077,7 @@ namespace CalValEX {
             }
         }
 
-        /*
-
-        public static readonly PlayerLayer Mimigun = new PlayerLayer("CalValEX", "Mimigun", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
+        /*public static readonly PlayerLayer Mimigun = new PlayerLayer("CalValEX", "Mimigun", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
         {
             if (drawInfo.shadow != 0f)
             {
@@ -1132,8 +1132,8 @@ namespace CalValEX {
                     int winflip = 1 * -drawPlayer.direction;
                     Texture2D texture = mod.GetTexture("Items/Equips/Wings/WulfrumHelipackMalfunction");
                     Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f - 10 * Player.direction, drawPlayer.gfxOffY - 2);
-                //DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
-                Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 9f);
+                    //DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
+                    Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 9f);
                     //float wulfrumframe = 8f / 8;
                     //int wulfheight = (int)((float)(framecounter / texture.Height) * wulfrumframe) * (texture.Height / 8);
                     Rectangle wulfsquare = texture.Frame(1, 9, 0, modPlayer.chopperframe);
@@ -1143,70 +1143,67 @@ namespace CalValEX {
                         shader = drawInfo.wingShader
                     }; 
 
-                /*spriteBatch.Draw(texture, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), wulfsquare, hive2alpha, npc.rotation, Utils.Size(wulfsquare) / 2f, npc.scale, SpriteEffects.None, 0f);
-                return false;*/
+                spriteBatch.Draw(texture, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), wulfsquare, hive2alpha, npc.rotation, Utils.Size(wulfsquare) / 2f, npc.scale, SpriteEffects.None, 0f);
+                return false;
 
 
-        /*Main.playerDrawData.Add(data);
+            Main.playerDrawData.Add(data);
+            }
+        });
+
+        /*public override void ModifyDrawLayers(List<PlayerLayer> layers)
+        {
+            DraedonSet.Visible = true;
+            int headLayer = layers.FindIndex(l => l == PlayerLayer.Head);
+            int bodyLayer = layers.FindIndex(l => l == PlayerLayer.Body);
+
+            if (headLayer > -1)
+            {
+                layers.Insert(headLayer + 1, DraedonSet.head);
+            }
+
+            if (bodyLayer > -1)
+            {
+                DraedonSet.Visible = true;layers.Insert(bodyLayer + 1, DraedonSet.body);
+            }
         }
-});
 
-public override void ModifyDrawLayers(List<PlayerLayer> layers)
-{
+        public override void ModifyDrawHeadLayers(List<PlayerHeadLayer> layers)
+        {
+            int headLayer = layers.FindIndex(l => l == PlayerHeadLayer.Armor);
 
-    DraedonSet.Visible = true;
-    int headLayer = layers.FindIndex(l => l == PlayerLayer.Head);
-    int bodyLayer = layers.FindIndex(l => l == PlayerLayer.Body);
+            if (headLayer > -1)
+            {
+                layers.Insert(headLayer + 1, DraedonSet.map);
+            }
+        }
 
-    if (headLayer > -1)
-    {
-        layers.Insert(headLayer + 1, DraedonSet.head);
-    }
+        public override void ModifyDrawInfo(ref PlayerDrawInfo drawInfo) //i just really dont want to fix the sprite issues.
+        {
+            if (drawInfo.drawPlayer.legs == EquipLoader.GetEquipSlot(Mod, "DraedonLeggings", EquipType.Legs))
+            {
+                drawInfo.legColor = Color.Transparent;
+                drawInfo.legGlowMaskColor = Color.Transparent;
+                drawInfo.pantsColor = Color.Transparent;
+            }
 
-    if (bodyLayer > -1)
-    {
+            if (drawInfo.drawPlayer.body == EquipLoader.GetEquipSlot(Mod, "DraedonChestplate", EquipType.Body))
+            {
+                drawInfo.armGlowMaskColor = Color.Transparent;
+                drawInfo.bodyColor = Color.Transparent;
+                drawInfo.bodyGlowMaskColor = Color.Transparent;
+                drawInfo.shirtColor = Color.Transparent;
+                drawInfo.underShirtColor = Color.Transparent;
+            }
 
-    DraedonSet.Visible = true;layers.Insert(bodyLayer + 1, DraedonSet.body);
-    }
-/*}
-
-public override void ModifyDrawHeadLayers(List<PlayerHeadLayer> layers)
-{
-    int headLayer = layers.FindIndex(l => l == PlayerHeadLayer.Armor);
-
-    if (headLayer > -1)
-    {
-        layers.Insert(headLayer + 1, DraedonSet.map);
-    }
-}
-
-public override void
-    ModifyDrawInfo(ref PlayerDrawInfo drawInfo) //i just really dont want to fix the sprite issues.
-{
-    if (drawInfo.drawPlayer.legs == EquipLoader.GetEquipSlot(Mod, "DraedonLeggings", EquipType.Legs))
-    {
-        drawInfo.legColor = Color.Transparent;
-        drawInfo.legGlowMaskColor = Color.Transparent;
-        drawInfo.pantsColor = Color.Transparent;
-    }
-
-    if (drawInfo.drawPlayer.body == EquipLoader.GetEquipSlot(Mod, "DraedonChestplate", EquipType.Body))
-    {
-        drawInfo.armGlowMaskColor = Color.Transparent;
-        drawInfo.bodyColor = Color.Transparent;
-        drawInfo.bodyGlowMaskColor = Color.Transparent;
-        drawInfo.shirtColor = Color.Transparent;
-        drawInfo.underShirtColor = Color.Transparent;
-    }
-
-    if (drawInfo.drawPlayer.head == EquipLoader.GetEquipSlot(Mod, "DraedonHelmet", EquipType.Head))
-    {
-        drawInfo.eyeColor = Color.Transparent;
-        drawInfo.eyeWhiteColor = Color.Transparent;
-        drawInfo.faceColor = Color.Transparent;
-        drawInfo.hairColor = Color.Transparent;
-        drawInfo.headGlowMaskColor = Color.Transparent;
-    }
-}*/
+            if (drawInfo.drawPlayer.head == EquipLoader.GetEquipSlot(Mod, "DraedonHelmet", EquipType.Head))
+            {
+                drawInfo.eyeColor = Color.Transparent;
+                drawInfo.eyeWhiteColor = Color.Transparent;
+                drawInfo.faceColor = Color.Transparent;
+                drawInfo.hairColor = Color.Transparent;
+                drawInfo.headGlowMaskColor = Color.Transparent;
+            }
+        }*/
     }
 }

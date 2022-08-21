@@ -13,7 +13,7 @@ namespace CalValEX.Projectiles.Pets
         {
             PetSetStaticDefaults(lightPet: false);
             DisplayName.SetDefault("Stasis Drone");
-            Main.projFrames[Projectile.type] = 4;
+            Main.projFrames[Projectile.type] = 3;
         }
 
         public override void SetDefaults()
@@ -26,7 +26,7 @@ namespace CalValEX.Projectiles.Pets
 
         public override void Animation(int state)
         {
-            SimpleAnimation(speed: 12);
+            SimpleAnimation(speed: 8);
         }
 
         public override void PetFunctionality(Player player)
