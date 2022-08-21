@@ -329,7 +329,8 @@ namespace CalValEX
 			{
 				rule2.OnSuccess(new OneFromRulesRule(1, ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStratus.StratusBricks>(), 1, 205, 335), ItemDropRule.Common(ModContent.ItemType<PhantowaxBlock>(), 1, 205, 335)));
 				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Polterhook>(), 10));
-			}
+                rule.OnSuccess(new CommonDrop(ModContent.ItemType<ZygoteinaBucket>(), 10, chanceNumerator: 3));
+            }
 			else if (item.type == ModContent.ItemType<OldDukeBag>())
 			{
 				rule.OnSuccess(new CommonDrop(ModContent.ItemType<OldWings>(), 10, chanceNumerator: 3));

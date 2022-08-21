@@ -791,7 +791,7 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Polterhook>(), 20));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<ToyScythe>(), 3);
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<PolterghastPlush>(), 4);
-                    npcLoot.AddIf(() => !Main.expertMode, ModContent.ItemType<BucketOfAxolotl>(), 3);
+                    npcLoot.AddIf(() => !Main.expertMode, ModContent.ItemType<ZygoteinaBucket>(), 3);
                 }
                 //Old Duke
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.OldDuke.OldDuke>())
