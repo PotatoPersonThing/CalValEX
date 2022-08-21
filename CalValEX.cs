@@ -257,6 +257,7 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Profaned Guardians",
                     new List<int>
                     {
+                        ModContent.ItemType<ProfanedCultistMask>(), ModContent.ItemType<ProfanedCultistRobes>(),
                         ModContent.ItemType<ProfanedGuardianPlush>(), ModContent.ItemType<ProfanedFrame>(),
                         ModContent.ItemType<ProfanedBattery>(), ModContent.ItemType<ProfanedWheels>()
                     });
@@ -312,6 +313,7 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Polterghast",
                     new List<int> {
                         ModContent.ItemType<PolterghastPlush>(),
+                        ModContent.ItemType<ZygoteinaBucket>(),
                         ModContent.ItemType<Polterhook>(), ModContent.ItemType<ToyScythe>()
                     });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Old Duke",
@@ -347,19 +349,22 @@ namespace CalValEX
                     new List<int> { ModContent.ItemType<RespirationShrine>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Adult Eidolon Wyrm",
                     new List<int> { ModContent.ItemType<JaredPlush>(), ModContent.ItemType<SoulShard>(), ModContent.ItemType<OmegaBlue>() });
+                bossChecklist.Call("AddToBossLoot", "CalamityMod", "Acid Rain (Post-AS)",
+                    new List<int> { ModContent.ItemType<MawHook>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Acid Rain (Post-AS)",
                     new List<int>
                     {
-                        ModContent.ItemType<MawHook>(), ModContent.ItemType<FlakHeadCrab>(),
+                        ModContent.ItemType<MirePlushP1>(), ModContent.ItemType<FlakHeadCrab>(),
                         ModContent.ItemType<AcidLamp>(), ModContent.ItemType<Help>(),
                         ModContent.ItemType<TrilobiteShield>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Acid Rain (Post-Polter)",
-                    new List<int> { ModContent.ItemType<NuclearFumes>() });
+                    new List<int> { ModContent.ItemType<NuclearFumes>(), ModContent.ItemType<MawHook>()});
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Acid Rain (Post-Polter)",
                     new List<int>
                     {
-                        ModContent.ItemType<MawHook>(), ModContent.ItemType<FlakHeadCrab>(),
+                        ModContent.ItemType<MirePlushP1>(), ModContent.ItemType<MirePlushP2>(), ModContent.ItemType<MaulerPlush>(), ModContent.ItemType<NuclearTerrorPlush>(), 
+                        ModContent.ItemType<FlakHeadCrab>(),
                         ModContent.ItemType<AcidLamp>(), ModContent.ItemType<Help>(), ModContent.ItemType<Items.Mounts.Ground.RadJuice>(), ModContent.ItemType<Items.Equips.Legs.TerrorLegs>(),
                         ModContent.ItemType<TrilobiteShield>(),
                         ModContent.ItemType<GammaHelmet>()

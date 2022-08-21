@@ -566,8 +566,9 @@ namespace CalValEX
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MawHook>(), 1));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NuclearFumes>(), 1, 5, 8));
-                    npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<MirePlushP1>(), 8);
-                    npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<MirePlushP2>(), 8);
+                    npcLoot.AddIf(() => CalValEXWorld.masorev && !DownedBossSystem.downedPolterghast, ModContent.ItemType<MirePlushP1>(), 4);
+                    npcLoot.AddIf(() => CalValEXWorld.masorev && DownedBossSystem.downedPolterghast, ModContent.ItemType<MirePlushP1>(), 8);
+                    npcLoot.AddIf(() => CalValEXWorld.masorev && DownedBossSystem.downedPolterghast, ModContent.ItemType<MirePlushP2>(), 8);
                 }
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.GreatSandShark.GreatSandShark>()) {
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<SandSharkPlush>(), 4);
