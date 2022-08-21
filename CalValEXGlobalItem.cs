@@ -189,29 +189,6 @@ namespace CalValEX
 		}
 		public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
 		{
-			//Here is a list of all Calamity Bags:
-			//Aquatic Scourge = AquaticScourgeBag
-			//Astrum Aureus = AstrageldonBag
-			//Astrum Deus = AstrumDeusBag
-			//Brimstone Elemental = BrimstoneWaifuBag
-			//Dragonfolly = BumblebirbBag
-			//Calamitas = CalamitasBag
-			//Crabulon = CrabulonBag
-			//Cryogen = CryogenBag
-			//Desert Scourge = DesertScourgeBag
-			//Devourer of Gods = DevourerofGodsBag
-			//Hive Mind = HiveMindBag
-			//Leviathan and Siren = LeviathanBag
-			//Old Duke = OldDukeBag
-			//Perforators = PerforatorBag
-			//Plaguebringer Goliath = PlaguebringerGoliathBag
-			//Polterghast = PolterghastBag
-			//Providence = ProvidenceBag
-			//Ravager = RavagerBag
-			//Slime God = SlimeGodBag
-			//Starter Bag = StarterBag
-			//Yharon = YharonBag
-
 			LeadingConditionRule rule = new(new VanityDropsEnabled());
 			LeadingConditionRule rule2 = new(new Combine(true, null, new VanityDropsEnabled(), new BossBlocksDropsEnabled()));
 			LeadingConditionRule rule3 = new(new Combine(true, null, new VanityDropsEnabled(), new ProvidenceDownedRule()));

@@ -586,11 +586,6 @@ namespace CalValEX.NPCs.Oracle
                     Projectile.NewProjectile(NPC.GetSource_FromAI(), position, NPC.velocity, ModContent.ProjectileType<OracleNPCPet_Pet>(), NPC.damage, 0f, Main.myPlayer);
         }
 
-        /*public override void NPCLoot()
-        {
-            Item.NewItem((int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, ModContent.ItemType<OracleBeanie>(), 1, false, 0, false, false);
-        }*/
-
         public override void HitEffect(int hitDirection, double damage)
         {
             if (NPC.life <= 0)
