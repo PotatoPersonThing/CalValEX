@@ -3,6 +3,11 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using CalamityMod;
 using Terraria.GameContent.ItemDropRules;
+using CalamityMod.Items.Weapons.Magic;
+using CalamityMod.Items.Weapons.Melee;
+using CalamityMod.Items.Weapons.Ranged;
+using CalamityMod.Items.Weapons.Rogue;
+using CalamityMod.Items.Weapons.Summon;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
@@ -30,10 +35,13 @@ namespace CalValEX.AprilFools.Meldosaurus
 			itemLoot.Add(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<MeldosaurusMask>(), 7));
 			itemLoot.Add(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<CalamityMod.Items.Materials.MeldBlob>(), 1, 1, 2));
 
-			itemLoot.Add(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<ShadesBane>(), 4));
-			itemLoot.Add(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Nyanthrop>(), 4));
+            itemLoot.Add(DropHelper.CalamityStyle(DropHelper.BagWeaponDropRateFraction, new int[]
+            {
+                ModContent.ItemType<Nyanthrop>(),
+                ModContent.ItemType<ShadesBane>()
+            }));
 
-			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<Meldosaurus>()));
+            itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<Meldosaurus>()));
 		}
 	}
 }

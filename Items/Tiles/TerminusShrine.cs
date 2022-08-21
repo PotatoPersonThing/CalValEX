@@ -51,14 +51,5 @@ namespace CalValEX.Items.Tiles
                 }
             }
         }
-        /*public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ModLoader.GetMod("CalamityMod").ItemType("AstralBeaconItem"), 1);
-            recipe.AddIngredient(ModContent.ItemType<Termipebbles>(), 20);
-            recipe.AddTile(ModLoader.GetMod("CalamityMod").TileType("DraedonsForge"));
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }*/
     }
 }

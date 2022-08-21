@@ -43,6 +43,12 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using System.IO;
+using CalamityMod.Items.Accessories;
+using CalamityMod.Items.Weapons.Magic;
+using CalamityMod.Items.Weapons.Melee;
+using CalamityMod.Items.Weapons.Ranged;
+using CalamityMod.Items.Weapons.Rogue;
+using CalValEX.AprilFools;
 
 namespace CalValEX
 {
@@ -518,6 +524,8 @@ namespace CalValEX
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CloudCandy>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CloudWaistbelt>(), 10));
+                    npcLoot.AddIf(() => DownedBossSystem.downedAdultEidolonWyrm && CalValEX.month != 4, ModContent.ItemType<PurifiedFog>(), 20);
+                    npcLoot.AddIf(() => !DownedBossSystem.downedAdultEidolonWyrm && CalValEX.month != 4, ModContent.ItemType<PurifiedFog>(), 999999);
                 }
                 if (npc.type == NPCID.SandElemental)
                 {
@@ -828,7 +836,6 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<GruelingMask>(), 3));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<CalamitasFumo>(), 4);
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 10));
-                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CalamityLamp>(), 5));
                 }
                 //Ares
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.ExoMechs.Ares.AresBody>())
@@ -871,7 +878,7 @@ namespace CalValEX
                 //Wyrm
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AdultEidolonWyrm.AdultEidolonWyrmHead>())
                 {
-                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Tiles.RespirationShrine>(), 1));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Tiles.RespirationShrine>()));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SoulShard>()));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<JaredPlush>(), 4);
                 }
@@ -886,26 +893,26 @@ namespace CalValEX
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.ProfanedGuardians.ProfanedGuardianDefender>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedFrame>(), 3));
-                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProfanedCultistMask>(), 5));
-                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProfanedCultistRobes>(), 5));
                 }
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.ProfanedGuardians.ProfanedGuardianHealer>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedBattery>(), 3));
-                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProfanedCultistMask>(), 5));
-                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProfanedCultistRobes>(), 5));
                 }
                 //Meldosaurus
                 if (npc.type == ModContent.NPCType<AprilFools.Meldosaurus.Meldosaurus>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusTrophy>(), 10));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusMask>(), 7));
-                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AprilFools.ShadesBane>(), 2));
-                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AprilFools.Nyanthrop>(), 2));
+                    int[] weapons = new int[]
+                    {
+                        ModContent.ItemType<ShadesBane>(),
+                        ModContent.ItemType<Nyanthrop>()
+                    };
+                    npcLoot.Add(DropHelper.CalamityStyle(DropHelper.NormalWeaponDropRateFraction, weapons));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusBag>()));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusRelic>());
                 }
-                //Meldosaurus
+                //Fogbound
                 if (npc.type == ModContent.NPCType<AprilFools.Fogbound>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PurifiedFog>(), 1));

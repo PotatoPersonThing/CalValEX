@@ -11,6 +11,8 @@ using CalamityMod.Tiles.AstralDesert;
 using CalamityMod.Tiles.AstralSnow;
 using System.IO;
 using System;
+using CalamityMod.Items.Materials;
+using CalValEX.AprilFools;
 //
 namespace CalValEX
 {
@@ -50,6 +52,24 @@ namespace CalValEX
 
         public override void OnWorldLoad()
         {
+            if (Main.drunkWorld)
+            {
+                if (!CalValEX.AprilFoolWeek)
+                {
+                    Recipe recipe = Recipe.Create(ItemType<JharimHead>());
+                    recipe.AddIngredient(ItemID.GoldOre);
+                    recipe.AddTile(TileID.WorkBenches);
+                    recipe.Register();
+                }
+                if (!CalValEX.AprilFoolMonth)
+                {
+                    Recipe recipe = Recipe.Create(ItemType<AprilFools.Meldosaurus.MeldosaurusRelic>());
+                    recipe.AddIngredient(ItemType<AprilFools.Meldosaurus.MeldosaurusTrophy>());
+                    recipe.AddIngredient(ItemType<PearlShard>(), 10);
+                    recipe.AddTile(TileID.Bookcases);
+                    recipe.Register();
+                }
+            }
             rescuedjelly = false;
             jharim = false;
             amogus = false;
