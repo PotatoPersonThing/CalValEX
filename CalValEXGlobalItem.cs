@@ -46,6 +46,8 @@ using Terraria.GameContent.ItemDropRules;
 using System.Linq;
 using Terraria.ModLoader.Default;
 using CalValEX.Items.Tiles.Blueprints;
+using Microsoft.Xna.Framework.Graphics;
+using CalamityMod;
 
 namespace CalValEX
 {
@@ -189,18 +191,18 @@ namespace CalValEX
 		}
 		public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
 		{
-			LeadingConditionRule rule = new(new VanityDropsEnabled());
-			LeadingConditionRule rule2 = new(new Combine(true, null, new VanityDropsEnabled(), new BossBlocksDropsEnabled()));
-			LeadingConditionRule rule3 = new(new Combine(true, null, new VanityDropsEnabled(), new ProvidenceDownedRule()));
-			LeadingConditionRule rule4 = new(new Combine(true, null, new VanityDropsEnabled(), new BossBlocksDropsEnabled(), new YharonDownedRule()));
-			LeadingConditionRule rule5 = new(new Combine(true, null, new VanityDropsEnabled(), new BossBlocksDropsEnabled(), new DogDownedRule()));
-			LeadingConditionRule rule6 = new(new Combine(true, null, new VanityDropsEnabled(), new CalValExMonthDayRule(6, 1)));
-			LeadingConditionRule rule7 = new(new Combine(true, null, new VanityDropsEnabled(), new ThanatosDownedRule()));
-			LeadingConditionRule rule8 = new(new Combine(true, null, new VanityDropsEnabled(), new ArtemisAndApolloDownedRule()));
-			LeadingConditionRule rule9 = new(new Combine(true, null, new VanityDropsEnabled(), new AresDownedRule()));
-            LeadingConditionRule rule10 = new(new Combine(true, null, new VanityDropsEnabled(), new PlanteraAndCalamitasDownedRule()));
-            LeadingConditionRule rule11 = new(new Combine(true, null, new VanityDropsEnabled(), new CultistDownedRule()));
-            LeadingConditionRule rule12 = new(new Combine(true, null, new VanityDropsEnabled(), new AnyMechDownedRule()));
+			var rule = itemLoot.DefineConditionalDropSet(() => !CalValEXConfig.Instance.DisableVanityDrops);
+            var rule2 = itemLoot.DefineConditionalDropSet(() => !CalValEXConfig.Instance.ConfigBossBlocks);
+            var rule3 = itemLoot.DefineConditionalDropSet(() => DownedBossSystem.downedProvidence);
+            var rule4 = itemLoot.DefineConditionalDropSet(() => !CalValEXConfig.Instance.ConfigBossBlocks && DownedBossSystem.downedYharon);
+            var rule5 = itemLoot.DefineConditionalDropSet(() => !CalValEXConfig.Instance.ConfigBossBlocks && DownedBossSystem.downedDoG);
+            var rule6 = itemLoot.DefineConditionalDropSet(() => CalValEX.month == 6 && CalValEX.day == 1);
+            var rule7 = itemLoot.DefineConditionalDropSet(() => DownedBossSystem.downedThanatos);
+            var rule8 = itemLoot.DefineConditionalDropSet(() => DownedBossSystem.downedArtemisAndApollo);
+            var rule9 = itemLoot.DefineConditionalDropSet(() => DownedBossSystem.downedAres);
+            var rule10 = itemLoot.DefineConditionalDropSet(() => DownedBossSystem.downedCalamitas || NPC.downedPlantBoss);
+            var rule11 = itemLoot.DefineConditionalDropSet(() => NPC.downedAncientCultist);
+            var rule12 = itemLoot.DefineConditionalDropSet(() => NPC.downedMechBossAny);
 
             #region bags
             if (item.type == ModContent.ItemType<StarterBag>())
@@ -420,13 +422,13 @@ namespace CalValEX
             }
 			#endregion
 
-			#region spaghetti starter
+			/*#region spaghetti starter
 			if (item.type != ModContent.ItemType<StarterBag>())
                 return;
 
             LeadingConditionRule[] names = new LeadingConditionRule[]
             {
-                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Jared"))),
+                new(new Combine(true, null, new rule, new PlayerNameRule("Jared"))),
                 new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("RamG", "Ramgear"))),
                 new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Bumbledoge", "BumbleDoge", "Bojangles", "Bojeangles"))),
                 new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("William"))),
@@ -521,7 +523,7 @@ namespace CalValEX
             names[25].OnSuccess(ItemDropRule.Common(ModContent.ItemType<InkyArtifact>()));
             names[26].OnSuccess(triangle);
             names[27].OnSuccess(brimmy);
-            #endregion
+            #endregion*/
         }
 		#region drop rules
         private class PlayerNameRule : IItemDropRuleCondition
@@ -539,113 +541,6 @@ namespace CalValEX
 			}
 
 			public bool CanShowItemDropInUI() => true;
-
-            public string GetConditionDescription() => null;
-        }
-        private class PlanteraAndCalamitasDownedRule : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info) => NPC.downedPlantBoss || CalamityMod.DownedBossSystem.downedCalamitas;
-
-            public bool CanShowItemDropInUI() => true;
-
-            public string GetConditionDescription() => null;
-        }
-        private class CultistDownedRule : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info) => NPC.downedAncientCultist;
-
-            public bool CanShowItemDropInUI() => true;
-
-            public string GetConditionDescription() => null;
-        }
-        private class AnyMechDownedRule : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info) => NPC.downedMechBossAny;
-
-            public bool CanShowItemDropInUI() => true;
-
-            public string GetConditionDescription() => null;
-        }
-        private class ProvidenceDownedRule : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info) => CalamityMod.DownedBossSystem.downedProvidence;
-
-            public bool CanShowItemDropInUI() => CalamityMod.DownedBossSystem.downedProvidence;
-
-            public string GetConditionDescription() => null;
-        }
-        private class YharonDownedRule : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info) => CalamityMod.DownedBossSystem.downedYharon;
-
-            public bool CanShowItemDropInUI() => CalamityMod.DownedBossSystem.downedYharon;
-
-            public string GetConditionDescription() => null;
-        }
-        private class DogDownedRule : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info) => CalamityMod.DownedBossSystem.downedDoG;
-
-            public bool CanShowItemDropInUI() => CalamityMod.DownedBossSystem.downedDoG;
-
-            public string GetConditionDescription() => null;
-        }
-        private class ThanatosDownedRule : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info) => CalamityMod.DownedBossSystem.downedThanatos;
-
-            public bool CanShowItemDropInUI() => CalamityMod.DownedBossSystem.downedThanatos;
-
-            public string GetConditionDescription() => null;
-        }
-        private class ArtemisAndApolloDownedRule : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info) => CalamityMod.DownedBossSystem.downedArtemisAndApollo;
-
-            public bool CanShowItemDropInUI() => CalamityMod.DownedBossSystem.downedArtemisAndApollo;
-
-            public string GetConditionDescription() => null;
-        }
-        private class AresDownedRule : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info) => CalamityMod.DownedBossSystem.downedAres;
-
-            public bool CanShowItemDropInUI() => CalamityMod.DownedBossSystem.downedAres;
-
-            public string GetConditionDescription() => null;
-        }
-        private class VanityDropsEnabled : IItemDropRuleCondition
-		{
-			public bool CanDrop(DropAttemptInfo info) => !CalValEXConfig.Instance.DisableVanityDrops;
-
-			public bool CanShowItemDropInUI() => true;
-
-            public string GetConditionDescription() => null;
-		}
-		private class BossBlocksDropsEnabled : IItemDropRuleCondition
-		{
-			public bool CanDrop(DropAttemptInfo info) => !CalValEXConfig.Instance.ConfigBossBlocks;
-
-			public bool CanShowItemDropInUI() => true;
-
-			public string GetConditionDescription() => null;
-		}
-        private class CalValExMonthDayRule : IItemDropRuleCondition
-        {
-            public readonly bool positive;
-            public readonly int month;
-            public readonly int day;
-
-            public CalValExMonthDayRule(int day, int month, bool positive = false)
-			{
-                this.positive = positive;
-                this.month = month;
-                this.day = day;
-			}
-
-            public bool CanDrop(DropAttemptInfo info) => positive ? CalValEX.month == month && CalValEX.day == day : !(CalValEX.month == month && CalValEX.day == day);
-
-            public bool CanShowItemDropInUI() => positive ? CalValEX.month == month && CalValEX.day == day : !(CalValEX.month == month && CalValEX.day == day);
 
             public string GetConditionDescription() => null;
         }
