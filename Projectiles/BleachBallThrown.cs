@@ -15,7 +15,7 @@ namespace CalValEX.Projectiles {
         }
 
         public override void Kill(int timeLeft) {
-            Item.NewItem(Projectile.GetSource_DropAsItem(), Projectile.getRect(), ModContent.ItemType<BleachBall>());
+            Item.NewItem(Projectile.GetSource_DropAsItem(), Projectile.getRect(), ModContent.ItemType<BleachBallItem>());
         }
     }
 }
