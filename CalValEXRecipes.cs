@@ -82,21 +82,17 @@ namespace CalValEX
 					recipe.AddTile(TileID.WorkBenches);
 					recipe.Register();
 				}
+				{
+					Recipe recipe = Recipe.Create(ItemType<AprilFools.Meldosaurus.MeldosaurusRelic>());
+					recipe.AddIngredient(ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusTrophy>());
+					recipe.AddIngredient(ModContent.ItemType<PearlShard>(), 10);
+					recipe.AddTile(TileID.Bookcases);
+					recipe.Register();
+				}
 			}
-			if (CalValEX.AprilFoolMonth)
-            {
-                {
-                    Recipe recipe = Recipe.Create(ItemType<AprilFools.Meldosaurus.MeldosaurusRelic>());
-                    recipe.AddIngredient(ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusTrophy>());
-                    recipe.AddIngredient(ModContent.ItemType<PearlShard>(), 10);
-                    recipe.AddTile(TileID.Bookcases);
-                    recipe.Register();
-                }
-
-            }
 			//Misc
 			{
-				Recipe recipe = Recipe.Create(ItemType<Items.BleachBall>());
+				Recipe recipe = Recipe.Create(ItemType<BleachBallItem>());
 				recipe.AddIngredient(ItemType<CalamityMod.Items.BleachBall>());
 				recipe.AddIngredient(ItemID.BeachBall);
 				recipe.AddTile(TileID.MythrilAnvil);

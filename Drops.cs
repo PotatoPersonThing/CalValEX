@@ -637,6 +637,7 @@ namespace CalValEX
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AquaticScourge.AquaticScourgeHead>())
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<MoistLocket>(), 3));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<BleachBallItem>(), 4));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<AquaticScourgePlush>(), 4);
                 }
                 //Brimmy

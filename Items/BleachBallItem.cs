@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using CalValEX.Projectiles;
 
 namespace CalValEX.Items {
-    public class BleachBall : ModItem {
+    public class BleachBallItem : ModItem {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Bleach ball beach ball");
             Tooltip.SetDefault("Careful, might pop");
