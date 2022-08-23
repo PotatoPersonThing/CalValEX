@@ -36,6 +36,7 @@ namespace CalValEX.Projectiles.Pets
             Projectile.height = 44;
             Projectile.ignoreWater = true;
             DrawOriginOffsetY = 1;
+            Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
         public override void ModifyJumpHeight(ref float oneTileHigherAndNotTwoTilesHigher, ref float twoTilesHigher, ref float fourTilesHigher, ref float fiveTilesHigher, ref float anyOtherJump)
