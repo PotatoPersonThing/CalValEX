@@ -11,8 +11,9 @@ namespace CalValEX.Items.Tiles.Monoliths
     {
         public override void SetStaticDefaults()
         {
+            DisplayName.SetDefault("Profaned Fountain");
             SacrificeTotal = 1;
-            //Tooltip.SetDefault("Imbues the sky with profaned embers when activated\n" + "Cannot be used if any other Calamity monoliths are currently active");
+            Tooltip.SetDefault("No it doesn't change any liquid colors");
         }
 
         public override void SetDefaults()

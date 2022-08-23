@@ -661,7 +661,6 @@ namespace CalValEX
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Leviathan.Leviathan>())
                 {
                     npcLoot.AddIf(() => CalamityMod.NPCs.Leviathan.Leviathan.LastAnLStanding() && !Main.expertMode, ModContent.ItemType<FoilAtlantis>(), 3);
-                    npcLoot.AddIf(() => CalamityMod.NPCs.Leviathan.Leviathan.LastAnLStanding() && !Main.expertMode, ModContent.ItemType<AquaticMonolith>(), 10);
                     npcLoot.AddIf(() => CalamityMod.NPCs.Leviathan.Leviathan.LastAnLStanding() && !Main.expertMode, ModContent.ItemType<StrangeMusicNote>(), 40);
                     npcLoot.AddIf(() => CalamityMod.NPCs.Leviathan.Leviathan.LastAnLStanding() && CalValEXWorld.masorev, ModContent.ItemType<LeviathanPlush>(), 4);
                     npcLoot.AddIf(() => CalamityMod.NPCs.Leviathan.Leviathan.LastAnLStanding() && CalValEXWorld.masorev, ModContent.ItemType<AnahitaPlush>(), 20);
@@ -669,7 +668,6 @@ namespace CalValEX
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Leviathan.Anahita>())
                 {
                     npcLoot.AddIf(() => CalamityMod.NPCs.Leviathan.Leviathan.LastAnLStanding() && !Main.expertMode, ModContent.ItemType<FoilAtlantis>(), 3);
-                    npcLoot.AddIf(() => CalamityMod.NPCs.Leviathan.Leviathan.LastAnLStanding() && !Main.expertMode, ModContent.ItemType<AquaticMonolith>(), 10);
                     npcLoot.AddIf(() => CalamityMod.NPCs.Leviathan.Leviathan.LastAnLStanding() && !Main.expertMode, ModContent.ItemType<StrangeMusicNote>(), 40);
                     npcLoot.AddIf(() => CalamityMod.NPCs.Leviathan.Leviathan.LastAnLStanding() && CalValEXWorld.masorev, ModContent.ItemType<AnahitaPlush>(), 4);
                     npcLoot.AddIf(() => CalamityMod.NPCs.Leviathan.Leviathan.LastAnLStanding() && CalValEXWorld.masorev, ModContent.ItemType<LeviathanPlush>(), 20);

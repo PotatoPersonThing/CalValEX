@@ -11,7 +11,8 @@ namespace CalValEX.Items.Tiles.Monoliths
     {
         public override void SetStaticDefaults()
         {
-            //Tooltip.SetDefault("Calls the auroras of the arctic when activated");
+            DisplayName.SetDefault("Bittercold Construct");
+            Tooltip.SetDefault("][[]][][][][[]");
             SacrificeTotal = 1;
         }
 

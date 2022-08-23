@@ -11,7 +11,7 @@ namespace CalValEX.Items.Tiles.Monoliths
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Exo Monolith");
+            DisplayName.SetDefault("Gunmetal Mechanism");
             SacrificeTotal = 1;
             //Tooltip.SetDefault("Releases lightning charged nanomachines into the atmosphere\n" + "Cannot be used if any other Calamity monoliths are currently active\n"+"UNOBTAINABLE UNFINISHED ITEM");
         }

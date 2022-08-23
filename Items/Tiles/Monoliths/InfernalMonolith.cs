@@ -11,8 +11,9 @@ namespace CalValEX.Items.Tiles.Monoliths
     {
         public override void SetStaticDefaults()
         {
+            DisplayName.SetDefault("Infernal Altar");
             SacrificeTotal = 1;
-            //Tooltip.SetDefault("Emits draconic fog when activated\n" + "Cannot be used if any other Calamity monoliths are currently active");
+            Tooltip.SetDefault("The flame roars with uselessness");
         }
 
         public override void SetDefaults()

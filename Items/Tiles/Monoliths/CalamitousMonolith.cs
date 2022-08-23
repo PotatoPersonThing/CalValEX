@@ -9,8 +9,9 @@ namespace CalValEX.Items.Tiles.Monoliths
     {
         public override void SetStaticDefaults()
         {
+            DisplayName.SetDefault("Calamitous Ritual Basin");
             SacrificeTotal = 1;
-            //Tooltip.SetDefault("Infuses the nearby air with harmless Brimstone magic when activated\n" + "Cannot be used if any other Calamity monoliths are currently active");
+            Tooltip.SetDefault("The fire dances above it with entertaining intent");
         }
 
         public override void SetDefaults()

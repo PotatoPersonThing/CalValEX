@@ -196,7 +196,7 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Cryogen",
                     new List<int> { ModContent.ItemType<CryogenPlush>(), ModContent.ItemType<CoolShades>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Aquatic Scourge",
-                    new List<int> { ModContent.ItemType<AquaticScourgePlush>(), ModContent.ItemType<MoistLocket>() });
+                    new List<int> { ModContent.ItemType<AquaticScourgePlush>(), ModContent.ItemType<MoistLocket>(), ModContent.ItemType<BleachBallItem>() });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Brimstone Elemental",
                     new List<int> { ModContent.ItemType<BrimstoneSlag>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Brimstone Elemental",

@@ -9,7 +9,8 @@ namespace CalValEX.Items.Tiles.Monoliths
     {
         public override void SetStaticDefaults()
         {
-            //Tooltip.SetDefault("Emits dark briny mist when activated\n" + "Cannot be used if any other Calamity monoliths are currently active");
+            DisplayName.SetDefault("Tiny Decapitated Leviathan Head");
+            Tooltip.SetDefault("Why would you even want this");
             SacrificeTotal = 1;
         }
 

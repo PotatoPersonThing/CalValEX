@@ -92,13 +92,6 @@ namespace CalValEX
 			}
 			//Misc
 			{
-				Recipe recipe = Recipe.Create(ItemType<BleachBallItem>());
-				recipe.AddIngredient(ItemType<CalamityMod.Items.BleachBall>());
-				recipe.AddIngredient(ItemID.BeachBall);
-				recipe.AddTile(TileID.MythrilAnvil);
-				recipe.Register();
-			}
-			{
 				Recipe recipe = Recipe.Create(ItemType<SparrowMeat>());
 				recipe.AddIngredient(ItemType<ExtraFluffyFeather>());
 				recipe.AddIngredient(ItemType<JunglePhoenixWings>());
@@ -800,12 +793,12 @@ namespace CalValEX
 			StatueRecipe(ItemType<PlagueFrogItem>(), ItemType<PlagueFrogStatue>());
 			StatueRecipe(ItemType<ViolemurItem>(), ItemType<ViolemurStatue>());
 			//Monoliths
-			MonolithRecipe(ItemType <CosmiliteBar>(), ItemType<DimensionalMonolith>(), TileID.LunarCraftingStation);
-			MonolithRecipe(ItemType <DivineGeode>(), ItemType<UnholyMonolith>(), TileID.LunarCraftingStation);
+			//MonolithRecipe(ItemType <CosmiliteBar>(), ItemType<DimensionalMonolith>(), TileID.LunarCraftingStation);
+			//MonolithRecipe(ItemType <DivineGeode>(), ItemType<UnholyMonolith>(), TileID.LunarCraftingStation);
 			//MonolithRecipe(ItemType <YharonSoulFragment>(), ItemType<InfernalMonolith>(), TileID.LunarCraftingStation);
-			MonolithRecipe(ItemType <InfectedArmorPlating>(), ItemType<PlagueMonolith>(), TileID.MythrilAnvil);
-			MonolithRecipe(ItemType <AshesofCalamity>(), ItemType<CalamitousMonolith>(), TileID.MythrilAnvil);
-			MonolithRecipe(ItemType<CryonicBar>(), ItemType<AuroraMonolith>(), TileID.MythrilAnvil);
+			//MonolithRecipe(ItemType <InfectedArmorPlating>(), ItemType<PlagueMonolith>(), TileID.MythrilAnvil);
+			//MonolithRecipe(ItemType <AshesofCalamity>(), ItemType<CalamitousMonolith>(), TileID.MythrilAnvil);
+			//MonolithRecipe(ItemType<CryonicBar>(), ItemType<AuroraMonolith>(), TileID.MythrilAnvil);
 			MonolithRecipe(ItemType<Termipebbles>(), ItemType<TerminusShrine>(), TileID.LunarCraftingStation);
 			//Wall Block conversion
 			WallRecipe(ItemType<AuricBrick>(), ItemType<AuricBrickWall>());

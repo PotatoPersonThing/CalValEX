@@ -20,6 +20,7 @@ using CalamityMod.World;
 using CalamityMod;
 using Terraria.GameContent.Personalities;
 using CalValEX.Items.Tiles.FurnitureSets.Arsenal;
+using CalValEX.Items.Tiles.Monoliths;
 
 namespace CalValEX.NPCs.JellyPriest
 {
@@ -377,8 +378,6 @@ namespace CalValEX.NPCs.JellyPriest
 
         public override void SetupShop(Chest shop, ref int nextSlot)
         {
-            //if (shop1)
-            //Mod clamMod = ModLoader.GetMod("CalamityMod");
             bool acid = Main.player[Main.myPlayer].GetModPlayer<CalamityPlayer>().ZoneSulphur || DownedBossSystem.downedAquaticScourgeAcidRain;
             bool clam = DownedBossSystem.downedCLAM;
             bool sg = DownedBossSystem.downedSlimeGod;
@@ -447,13 +446,18 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<RoxFake>(), Item.buyPrice(0, 1, 0, 0), Main.hardMode, ref shop, ref nextSlot);
                 AddItem(ItemType<Knight>(), Item.buyPrice(0, 0, 95, 0), Main.hardMode, ref shop, ref nextSlot);
                 AddItem(ItemType<DecommissionedDaedalusGolem>(), Item.buyPrice(0, 2, 50, 0), DownedBossSystem.downedCryogen, ref shop, ref nextSlot);
+                AddItem(ItemType<AuroraMonolith>(), Item.buyPrice(0, 4, 0, 0), DownedBossSystem.downedCryogen, ref shop, ref nextSlot);
+                AddItem(ItemType<CalamitousMonolith>(), Item.buyPrice(0, 5, 0, 0), DownedBossSystem.downedCalamitas, ref shop, ref nextSlot);
                 AddItem(ItemType<VeilBanner>(), Item.buyPrice(0, 5, 0, 0), NPC.downedPlantBoss, ref shop, ref nextSlot);
                 AddItem(ItemType<JunkArt>(), Item.buyPrice(0, 10, 0, 0), NPC.downedPlantBoss, ref shop, ref nextSlot);
                 AddItem(ItemType<HeartoftheCommunity>(), Item.buyPrice(0, 2, 0, 0), lev, ref shop, ref nextSlot);
                 AddItem(ItemType<ShrineoftheTides>(), Item.buyPrice(0, 5, 0, 0), lev, ref shop, ref nextSlot);
+                AddItem(ItemType<AquaticMonolith>(), Item.buyPrice(0, 6, 0, 0), lev, ref shop, ref nextSlot);
+                AddItem(ItemType<PlagueMonolith>(), Item.buyPrice(0, 7, 0, 0), DownedBossSystem.downedPlaguebringer, ref shop, ref nextSlot);
                 AddItem(ItemType<BubbleMachine>(), Item.buyPrice(0, 35, 0, 0), NPC.downedMartians, ref shop, ref nextSlot);
                 AddItem(ItemType<PlagueDialysis>(), Item.buyPrice(0, 35, 0, 0), DownedBossSystem.downedDragonfolly, ref shop, ref nextSlot);
                 AddItem(ItemType<Provibust>(), Item.buyPrice(1, 50, 0, 0), prov, ref shop, ref nextSlot);
+                AddItem(ItemType<UnholyMonolith>(), Item.buyPrice(0, 40, 0, 0), prov, ref shop, ref nextSlot);
                 AddItem(ItemType<Tesla>(), Item.buyPrice(2, 75, 0, 0), DownedBossSystem.downedStormWeaver, ref shop, ref nextSlot);
                 AddItem(ItemType<Evolution>(), Item.buyPrice(1, 75, 0, 0), toaster, ref shop, ref nextSlot);
                 AddItem(ItemType<VoidPortal>(), Item.buyPrice(2, 75, 0, 0), toaster, ref shop, ref nextSlot);
@@ -461,6 +465,9 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<MireAquarium>(), Item.buyPrice(2, 0, 0, 0), boomer, ref shop, ref nextSlot);
                 AddItem(ItemType<SulphuricTank>(), Item.buyPrice(0, 50, 0, 0), boomer, ref shop, ref nextSlot);
                 AddItem(ItemType<Help>(), Item.buyPrice(76, 0, 0, 0), boomer, ref shop, ref nextSlot);
+                AddItem(ItemType<DimensionalMonolith>(), Item.buyPrice(0, 13, 0, 0), DownedBossSystem.downedDoG, ref shop, ref nextSlot);
+                AddItem(ItemType<InfernalMonolith>(), Item.buyPrice(0, 15, 0, 0), DownedBossSystem.downedYharon, ref shop, ref nextSlot);
+                AddItem(ItemType<ExoMonolith>(), Item.buyPrice(0, 30, 0, 0), DownedBossSystem.downedExoMechs, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityLamp>(), Item.buyPrice(0, 20, 0, 0), scal, ref shop, ref nextSlot);
                 AddItem(ItemType<BrimstoneHeart>(), Item.buyPrice(0, 20, 0, 0), scal, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamitasBanner>(), Item.buyPrice(0, 60, 0, 0), scal, ref shop, ref nextSlot);

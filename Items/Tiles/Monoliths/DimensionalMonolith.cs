@@ -11,7 +11,8 @@ namespace CalValEX.Items.Tiles.Monoliths
     {
         public override void SetStaticDefaults()
         {
-            //Tooltip.SetDefault("Emits cosmic mist when activated\n" + "Cannot be used if any other Calamity monoliths are currently active");
+            DisplayName.SetDefault("Dimensional Obelisk");
+            Tooltip.SetDefault("It appears to be trying to signal something, with no success");
             SacrificeTotal = 1;
         }
 
