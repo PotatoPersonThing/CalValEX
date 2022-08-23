@@ -82,9 +82,12 @@ namespace CalValEX
 					recipe.AddTile(TileID.WorkBenches);
 					recipe.Register();
 				}
-				{
+			}
+            if (CalValEX.AprilFoolMonth)
+            {
+                {
 					Recipe recipe = Recipe.Create(ItemType<AprilFools.Meldosaurus.MeldosaurusRelic>());
-					recipe.AddIngredient(ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusTrophy>());
+                    recipe.AddIngredient(ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusTrophy>());
 					recipe.AddIngredient(ModContent.ItemType<PearlShard>(), 10);
 					recipe.AddTile(TileID.Bookcases);
 					recipe.Register();
