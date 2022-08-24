@@ -20,9 +20,8 @@ namespace CalValEX.NPCs.Critters {
             NPC.damage = 0;
             NPC.defense = 0;
             NPC.npcSlots = 0.5f;
-            NPC.catchItem = (short)ItemType<NeuroFlyItem>();
+            NPC.catchItem = ItemType<NeuroFlyItem>();
             NPC.lavaImmune = true;
-            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.Butterfly;
             AnimationType = NPCID.Butterfly;
             NPC.lifeMax = 20;

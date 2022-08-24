@@ -20,7 +20,7 @@ namespace CalValEX.NPCs.Critters {
             NPC.damage = 0;
             NPC.defense = 0;
             NPC.npcSlots = 0.5f;
-            NPC.catchItem = (short)ItemType<PerfoGrubItem>();
+            NPC.catchItem = ItemType<PerfoGrubItem>();
             NPC.lavaImmune = false;
             NPC.chaseable = false;
             AIType = NPCID.GlowingSnail;
