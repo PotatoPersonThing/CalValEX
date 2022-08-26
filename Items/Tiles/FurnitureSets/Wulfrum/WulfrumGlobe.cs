@@ -1,5 +1,6 @@
 using Terraria.ModLoader;
-using CalValEX.Tiles.MiscFurniture;
+using CalValEX.Tiles.FurnitureSets.Wulfrum;
+using Terraria.ID;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Wulfrum
 {
@@ -24,7 +25,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Wulfrum
             Item.createTile = ModContent.TileType<WulfrumGlobePlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
         }
     }
 }

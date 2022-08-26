@@ -17,7 +17,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             // Main.tileFlame[Type] = true; This breaks it.
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileNoAttach[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.StyleOnTable1x1);
             TileObjectData.newTile.Width = 1;
@@ -34,6 +34,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
         {
             Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<OldAstralCandleItem>());
         }
+
         public override bool RightClick(int i, int j)
         {
             WorldGen.KillTile(i, j);
@@ -45,18 +46,15 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             return true;
         }
 
-        public override void HitWire(int i, int j)
-        {
+        public override void HitWire(int i, int j) {
             Tile tile = Main.tile[i, j];
-            int topY = j - tile.TileFrameY / 18 % 1;
             short frameAdjustment = (short)(tile.TileFrameX > 0 ? -18 : 18);
-            Main.tile[i, topY].TileFrameX += frameAdjustment;
-            Main.tile[i, topY + 1].TileFrameX += frameAdjustment;
-            Main.tile[i, topY + 2].TileFrameX += frameAdjustment;
-            Wiring.SkipWire(i, topY);
-            Wiring.SkipWire(i, topY + 1);
-            Wiring.SkipWire(i, topY + 2);
-            NetMessage.SendTileSquare(-1, i, topY + 1, 1, TileChangeType.None);
+
+            Main.tile[i, j].TileFrameX += frameAdjustment;
+            Wiring.SkipWire(i, j);
+
+            if (Main.netMode != NetmodeID.SinglePlayer)
+                NetMessage.SendTileSquare(-1, i, j, 1, TileChangeType.None);
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

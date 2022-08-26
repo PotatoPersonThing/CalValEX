@@ -35,19 +35,17 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<BloodstoneCandleItem>());
         }
 
-        public override void HitWire(int i, int j)
-        {
+        public override void HitWire(int i, int j) {
             Tile tile = Main.tile[i, j];
-            int topY = j - tile.TileFrameY / 18 % 1;
             short frameAdjustment = (short)(tile.TileFrameX > 0 ? -18 : 18);
-            Main.tile[i, topY].TileFrameX += frameAdjustment;
-            Main.tile[i, topY + 1].TileFrameX += frameAdjustment;
-            Main.tile[i, topY + 2].TileFrameX += frameAdjustment;
-            Wiring.SkipWire(i, topY);
-            Wiring.SkipWire(i, topY + 1);
-            Wiring.SkipWire(i, topY + 2);
-            NetMessage.SendTileSquare(-1, i, topY + 1, 1, TileChangeType.None);
+
+            Main.tile[i, j].TileFrameX += frameAdjustment;
+            Wiring.SkipWire(i, j);
+
+            if (Main.netMode != NetmodeID.SinglePlayer)
+                NetMessage.SendTileSquare(-1, i, j, 1, TileChangeType.None);
         }
+
         public override bool RightClick(int i, int j)
         {
             WorldGen.KillTile(i, j);

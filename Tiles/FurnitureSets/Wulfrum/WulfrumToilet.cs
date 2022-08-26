@@ -17,8 +17,9 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileID.Sets.HasOutlines[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2);
             TileID.Sets.DisableSmartCursor[Type] = true;
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style2x1);
+            TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16 };
             TileObjectData.newTile.Direction = TileObjectDirection.PlaceLeft;
             TileObjectData.newTile.StyleWrapLimit = 2;

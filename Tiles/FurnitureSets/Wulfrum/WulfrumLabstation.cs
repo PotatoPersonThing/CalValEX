@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.DataStructures;
 
 namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
     public class WulfrumLabstation : ModTile {
@@ -20,6 +21,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             TileObjectData.newTile.Width = 3;
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 };
+            TileObjectData.newTile.Origin = new Point16(1, 2);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
             TileObjectData.addTile(Type);
 
@@ -32,7 +34,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch) {
             int xFrameOffset = Main.tile[i, j].TileFrameX;
             int yFrameOffset = Main.tile[i, j].TileFrameY;
-            Texture2D glowmask = ModContent.Request<Texture2D>("CalValEX/Tiles/FurnitureSets/Wulfrum/WulfrumWorkbench_Glow").Value;
+            Texture2D glowmask = ModContent.Request<Texture2D>("CalValEX/Tiles/FurnitureSets/Wulfrum/WulfrumLabstation_Glow").Value;
             Vector2 drawOffest = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
             Vector2 drawPosition = new Vector2(i * 16 - Main.screenPosition.X, j * 16 - Main.screenPosition.Y) + drawOffest;
             Color drawColour = Color.White;
@@ -44,6 +46,6 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 16, ItemType<WulfrumLabstationItem>());
+            Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 16, ItemType<WulfrumLabstationItem>());
     }
 }

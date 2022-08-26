@@ -17,8 +17,9 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileID.Sets.HasOutlines[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2);
             TileID.Sets.DisableSmartCursor[Type] = true;
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style2x1);
+            TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16 };
             TileObjectData.newTile.Direction = TileObjectDirection.PlaceLeft;
             TileObjectData.newTile.StyleWrapLimit = 2;
@@ -91,10 +92,10 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<WulfrumChairItem>());
+            Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<WulfrumChairItem>());
 
-        public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) { 
+        /*public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) { 
             return settings.player.IsWithinSnappngRangeToTile(i, j, PlayerSittingHelper.ChairSittingMaxDistance);
-        }
+        }*/
     }
 }

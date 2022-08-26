@@ -25,7 +25,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             TileID.Sets.BasicChest[Type] = true;
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Wulfrum Chest");
-            AddMapEntry(new Color(36, 18, 38), name, MapChestName);
+            AddMapEntry(new Color(103, 137, 100), name, MapChestName);
             
             AdjTiles = new int[] { TileID.Containers };
             ContainerName.SetDefault("Wulfrum Chest");
@@ -162,7 +162,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
 
         public override ushort GetMapOption(int i, int j) => (ushort)(Main.tile[i, j].TileFrameX / 36);
 
-        public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
+        //public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
 
         public override void NumDust(int i, int j, bool fail, ref int num) => num = 1;
     }

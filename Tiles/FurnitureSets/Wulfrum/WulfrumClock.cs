@@ -11,7 +11,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
         public override void SetStaticDefaults() {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
-			Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+			TileID.Sets.DisableSmartCursor[Type] = true;
 			TileID.Sets.HasOutlines[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
             TileObjectData.newTile.Height = 5;

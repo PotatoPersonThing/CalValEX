@@ -43,15 +43,9 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             Color drawColour = Color.White;
             var effects = SpriteEffects.None;
             SetSpriteEffects(i, j, ref effects);
-            if (!effects.HasFlag(SpriteEffects.FlipHorizontally))
-                drawPosition.X -= 2f;
+            /*if (!effects.HasFlag(SpriteEffects.FlipHorizontally))
+                drawPosition.X -= 2f;*/
             spriteBatch.Draw(glowmask, drawPosition, new Rectangle(xFrameOffset, yFrameOffset, 18, 18), drawColour, 0.0f, Vector2.Zero, 1f, effects, 0.0f);
-        }
-
-
-        public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects) {
-            if (i % 2 == 1)
-                spriteEffects = SpriteEffects.FlipHorizontally;
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b) {

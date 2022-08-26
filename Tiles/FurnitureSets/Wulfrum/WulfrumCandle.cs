@@ -5,6 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 using Terraria.ObjectData;
+using Terraria.DataStructures;
 
 namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
     public class WulfrumCandle : ModTile {
@@ -15,8 +16,8 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.StyleOnTable1x1);
             TileObjectData.newTile.Width = 1;
-            TileObjectData.newTile.Height = 2;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
+            TileObjectData.newTile.Height = 1;
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16 };
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
@@ -40,7 +41,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
 
         public override bool RightClick(int i, int j) {
             WorldGen.KillTile(i, j);
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<WulfrumCandleItem>());
+            Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<WulfrumCandleItem>());
             if (Main.netMode != NetmodeID.SinglePlayer) 
                 NetMessage.SendData(17, -1, -1, null, 0, i, j);
             return true;
@@ -48,15 +49,13 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
 
         public override void HitWire(int i, int j) {
             Tile tile = Main.tile[i, j];
-            int topY = j - tile.TileFrameY / 18 % 1;
             short frameAdjustment = (short)(tile.TileFrameX > 0 ? -18 : 18);
-            Main.tile[i, topY].TileFrameX += frameAdjustment;
-            Main.tile[i, topY + 1].TileFrameX += frameAdjustment;
-            Main.tile[i, topY + 2].TileFrameX += frameAdjustment;
-            Wiring.SkipWire(i, topY);
-            Wiring.SkipWire(i, topY + 1);
-            Wiring.SkipWire(i, topY + 2);
-            NetMessage.SendTileSquare(-1, i, topY + 1, 1, TileChangeType.None);
+
+            Main.tile[i, j].TileFrameX += frameAdjustment;
+            Wiring.SkipWire(i, j);
+
+            if (Main.netMode != NetmodeID.SinglePlayer)
+                NetMessage.SendTileSquare(-1, i, j, 1, TileChangeType.None);
         }
 
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b){
@@ -68,7 +67,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             }
         }
 
-        public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref Terraria.DataStructures.TileDrawInfo drawData) {
+        public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref TileDrawInfo drawData) {
             if (!Main.gamePaused && Main.instance.IsActive && (!Lighting.UpdateEveryFrame || Main.rand.NextBool(4))) {
                 Tile tile = Main.tile[i, j];
                 short frameX = tile.TileFrameX;
@@ -77,6 +76,6 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<WulfrumCandleItem>());
+            Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<WulfrumCandleItem>());
     }
 }

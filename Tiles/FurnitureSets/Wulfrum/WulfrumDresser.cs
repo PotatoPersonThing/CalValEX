@@ -42,7 +42,6 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
 			DresserDrop = ModContent.ItemType<WulfrumDresserItem>();
 			DustType = 227;
 		}
-		public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
 
 		public override bool RightClick(int i, int j) {
 			Player player = Main.LocalPlayer;
@@ -173,6 +172,8 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
 			if (Main.tile[Player.tileTargetX, Player.tileTargetY].TileFrameY > 0)
 				player.cursorItemIconID = ItemID.FamiliarShirt;
 		}
+
+		//public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
 
 		public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 

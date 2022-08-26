@@ -9,6 +9,7 @@ using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.ObjectInteractions;
 using Terraria.Localization;
+using Terraria.Enums;
 
 namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
     public class WulfrumBed : ModTile {
@@ -17,8 +18,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             TileID.Sets.HasOutlines[Type] = true;
             TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2);
-            TileObjectData.newTile.Height = 3;
-            TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 16 };
+            TileObjectData.newTile.CoordinateHeights = new[] { 16, 16 };
             TileID.Sets.CanBeSleptIn[Type] = true;
             TileID.Sets.InteractibleByNPCs[Type] = true;
             TileObjectData.addTile(Type);
@@ -27,7 +27,6 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             AddMapEntry(new Color(103, 137, 100), name);
             
             AdjTiles = new int[] { TileID.Beds };
-            
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch) {
