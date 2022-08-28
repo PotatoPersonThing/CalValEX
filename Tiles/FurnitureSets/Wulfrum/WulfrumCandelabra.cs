@@ -41,6 +41,17 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
                 spriteBatch.Draw(glowmask, drawPosition + new Vector2(0f, 8f), new Rectangle(xFrameOffset, yFrameOffset, 18, 8), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
         }
 
+        public override void HitWire(int i, int j) {
+            Tile tile = Main.tile[i, j];
+            short frameAdjustmentX = (short)(tile.TileFrameX > 0 ? -18 : 18);
+
+            Main.tile[i, j].TileFrameX += frameAdjustmentX;
+            Wiring.SkipWire(i, j);
+
+            if (Main.netMode != NetmodeID.SinglePlayer)
+                NetMessage.SendTileSquare(-1, i, j, 1, TileChangeType.None);
+        }
+
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b) {
             Tile tile = Main.tile[i, j];
             if (tile.TileFrameX == 0) {
@@ -48,6 +59,18 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
                 g = 0.95f;
                 b = 0.95f;
             }
+        }
+
+        public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref Terraria.DataStructures.TileDrawInfo drawData) {
+            if (Main.gamePaused || !Main.instance.IsActive || Lighting.UpdateEveryFrame && !Main.rand.NextBool(4))
+                return;
+
+            Tile tile = Main.tile[i, j];
+            short frameX = tile.TileFrameX;
+            short frameY = tile.TileFrameY;
+
+            if (frameX != 0 || !Main.rand.NextBool(40))
+                return;
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY) =>

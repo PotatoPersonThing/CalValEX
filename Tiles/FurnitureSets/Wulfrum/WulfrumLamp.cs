@@ -13,10 +13,10 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             Main.tileFrameImportant[Type] = true;
             TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileNoAttach[Type] = true;
-            AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1xX);
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
+            AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             name.SetDefault("Wulfrum Lamp");
             AddMapEntry(new Color(103, 137, 100), name);
         }

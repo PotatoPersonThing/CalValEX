@@ -64,7 +64,8 @@ using CalValEX.Tiles.Plants;
 using System.Collections.Generic;
 using System.Linq;
 using static Terraria.ModLoader.ModContent;
-
+using CalValEX.Tiles.FurnitureSets.Wulfrum;
+using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 
 namespace CalValEX
 {
@@ -1450,6 +1451,132 @@ namespace CalValEX
 				recipe.AddIngredient(ItemType<PhantowaxPlatformItem>(), 2);
 				recipe.Register();
 			}
+			//Wulfrum
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumBathtubItem>());
+				recipe.AddIngredient(ItemType<WulfrumPlating>(), 14);
+				recipe.AddTile(TileType<WulfrumLabstation>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumBedItem>());
+				recipe.AddIngredient(ItemType<WulfrumPlating>(), 15);
+				recipe.AddTile(TileType<WulfrumLabstation>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumBookshelfItem>());
+				recipe.AddIngredient(ItemType<WulfrumPlating>(), 20);
+				recipe.AddIngredient(ItemID.Book, 10);
+				recipe.AddTile(TileType<WulfrumLabstation>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumCandelabraItem>());
+				recipe.AddIngredient(ItemType<WulfrumPlating>(), 5);
+				recipe.AddTile(TileType<WulfrumLabstation>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumCandleItem>());
+				recipe.AddIngredient(ItemType<WulfrumPlating>(), 4);
+				recipe.AddTile(TileType<WulfrumLabstation>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumChairItem>());
+				recipe.AddIngredient(ItemType<WulfrumPlating>(), 5);
+				recipe.AddTile(TileType<WulfrumLabstation>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumChandelierItem>());
+				recipe.AddIngredient(ItemType<WulfrumPlating>(), 4);
+				recipe.AddIngredient(ItemID.Chain, 1);
+				recipe.AddTile(TileType<WulfrumLabstation>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumChestItem>());
+				recipe.AddIngredient(ItemType<WulfrumPlating>(), 8);
+				recipe.AddTile(TileType<WulfrumLabstation>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumClockItem>());
+				recipe.AddIngredient(ItemType<WulfrumPlating>(), 10);
+				recipe.AddRecipeGroup(RecipeGroupID.IronBar, 3);
+				recipe.AddTile(TileType<WulfrumLabstation>());
+				recipe.Register();
+			}
+			/*{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumDoorItem>());
+				recipe.AddIngredient(ItemType<WulfrumPlating>(), 6);
+				recipe.AddTile(TileType<WulfrumLabstation>());
+				recipe.Register();
+			}*/
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumDresserItem>());
+				recipe.AddIngredient(ItemType<WulfrumPlating>(), 16);
+				recipe.AddTile(TileType<WulfrumLabstation>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumLabstationItem>());
+				recipe.AddIngredient(ItemType<WulfrumMetalScrap>(), 5);
+				recipe.AddIngredient(ItemID.IronBar, 15);
+				recipe.AddTile(TileID.WorkBenches);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumLampItem>());
+				recipe.AddIngredient(ItemType<WulfrumPlating>(), 3);
+				recipe.AddTile(TileType<WulfrumLabstation>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumLanternItem>());
+				recipe.AddIngredient(ItemType<WulfrumPlating>(), 6);
+				recipe.AddTile(TileType<WulfrumLabstation>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumPianoItem>());
+				recipe.AddIngredient(ItemType<WulfrumPlating>(), 15);
+				recipe.AddIngredient(ItemID.Bone, 4);
+				recipe.AddIngredient(ItemID.Book, 1);
+				recipe.AddTile(TileType<WulfrumLabstation>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumSinkItem>());
+				recipe.AddIngredient(ItemType<WulfrumPlating>(), 6);
+				recipe.AddIngredient(ItemID.EmptyBucket, 1);
+				recipe.AddTile(TileType<WulfrumLabstation>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumSofaItem>());
+				recipe.AddIngredient(ItemType<WulfrumPlating>(), 5);
+				recipe.AddTile(TileType<WulfrumLabstation>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumTableItem>());
+				recipe.AddIngredient(ItemType<WulfrumPlating>(), 8);
+				recipe.AddTile(TileType<WulfrumLabstation>());
+				recipe.Register();
+			}
+			/*{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumPlatformItem>(), 2);
+				recipe.AddIngredient(ItemType<WulfrumPlating>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<WulfrumPlating>());
+				recipe.AddIngredient(ItemType<WulfrumPlatformItem>(), 2);
+				recipe.Register();
+			}*/
 			//Orthocera torture
 			{
 				Recipe recipe = Recipe.Create(ItemType<BloodOrb>(), 10);
