@@ -885,9 +885,9 @@ namespace CalValEX
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.ProfanedGuardians.ProfanedGuardianCommander>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedWheels>(), 3));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedCultistMask>(), 5));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedCultistRobes>(), 5));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<ProfanedGuardianPlush>(), 4);
-                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProfanedCultistMask>(), 5));
-                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProfanedCultistRobes>(), 5));
                 }
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.ProfanedGuardians.ProfanedGuardianDefender>())
                 {

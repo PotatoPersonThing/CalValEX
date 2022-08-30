@@ -11,7 +11,7 @@ namespace CalValEX.Items.Equips.Shirts.AresChestplate
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("XF Model Chestplate");
-            Tooltip.SetDefault("Summons four toy weapons to extend around you\n"+"'What do you MEAN I can't use them as weapons?!?'");
+            Tooltip.SetDefault("Summons four toy weapons to extend around you\n"+"'What do you MEAN they don't look the same?!?'");
             SacrificeTotal = 1;
         }
 
