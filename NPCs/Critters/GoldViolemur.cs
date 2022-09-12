@@ -82,14 +82,12 @@ namespace CalValEX.NPCs.Critters
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            //Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
-            //if (clamMod != null)
             {
                 if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneAstral && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     if (spawnInfo.PlayerSafe)
                     {
-                        return Terraria.ModLoader.Utilities.SpawnCondition.TownCritter.Chance * 0.07f;
+                        return Terraria.ModLoader.Utilities.SpawnCondition.TownCritter.Chance * 0.02f;
                     }
                     else if (
                         !Main.eclipse &

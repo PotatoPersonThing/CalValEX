@@ -66,7 +66,7 @@ namespace CalValEX.NPCs.Critters
             {
                 if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneSulphur && !CalValEXConfig.Instance.CritterSpawns)
                 {
-                    return 0.35f;
+                    return 0.15f;
                 }
             }
             return 0f;

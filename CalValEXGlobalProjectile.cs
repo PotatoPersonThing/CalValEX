@@ -370,5 +370,16 @@ namespace CalValEX
 				}
 			}
 		}
+		public override bool? CanHitNPC(Projectile projectile, NPC target)
+        	{
+            		if (projectile.type == ModContent.ProjectileType<CalamityMod.Projectiles.Ranged.CosmicFire>() && target.type == ModContent.NPCType< AprilFools.Jharim.Jharim >())
+            		{
+                		return true;
+            		}
+            		else
+            		{
+                	return null;
+            		}
+        	}
     }
 }
