@@ -20,7 +20,7 @@ namespace CalValEX.Tiles.Statues {
             TileObjectData.newTile.Height = 7;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16, 16, 16 };
             TileObjectData.newTile.CoordinatePadding = 0;
-            TileObjectData.newTile.Origin = new Point16(2, 3);
+            TileObjectData.newTile.Origin = new Point16(2, 5);
             AnimationFrameHeight = 96;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();

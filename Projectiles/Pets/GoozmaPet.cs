@@ -33,6 +33,7 @@ namespace CalValEX.Projectiles.Pets
             Projectile.penetrate = -1;
             Projectile.timeLeft = 30000000;
             Projectile.tileCollide = false;
+            Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
         public List<int> GoozmaSlimeGods = new List<int>();

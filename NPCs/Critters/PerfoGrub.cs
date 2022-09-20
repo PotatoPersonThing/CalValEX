@@ -25,7 +25,7 @@ namespace CalValEX.NPCs.Critters {
             NPC.chaseable = false;
             NPC.friendly = true;
             AIType = NPCID.Snail;
-            AnimationType = NPCID.GlowingSnail;
+            AnimationType = NPCID.Snail;
             NPC.lifeMax = 5;
             NPC.value = 0;
         }
@@ -51,11 +51,6 @@ namespace CalValEX.NPCs.Critters {
                 return 0.35f;
             }
             return 0f;
-        }
-
-        public override void AI() {
-            NPC.spriteDirection = -NPC.direction;
-            NPC.TargetClosest(false);
         }
 
         public override void OnCaughtBy(Player player, Item item, bool failed) => item.stack = 1;

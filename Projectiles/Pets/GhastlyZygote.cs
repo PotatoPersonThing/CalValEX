@@ -23,6 +23,7 @@ namespace CalValEX.Projectiles.Pets {
             Projectile.height = 22;
             Projectile.ignoreWater = true;
             Projectile.alpha = 255;
+            Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
         public override float TeleportThreshold => 1440f;

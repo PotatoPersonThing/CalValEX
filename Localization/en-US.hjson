@@ -84,6 +84,21 @@
 			WulfrumPlating : Wulfrum Plating
 			ThanatosPlating : XM-05 Armor Plating
 			ThanatosPlatingVent : XM-05 Armor Plating (Charged)
+
+			# Pandemonium Box
+			AlarmClock : Alarm Clock
+			NurseryBell : Nursery Bell
+			DustChime : Dust Chime
+			BestInstrument : Best Instrument
+			HarbingerOfWork : Harbinger of Work
+			MaladyBells : Malady Bells
+			SpiritDinerBell : Spirit Diner Bells
+			AltarBell : Altar Bell
+			TubRune : T.U.B. Rune
+			VaselineBell : Vaseline Bell
+			WormBell : Slither Charm
+			ScratchedGong : Scratched Gong
+			PandemoniumBox : Pandemonium Box
 		}
 		
 		ItemTooltip: 
@@ -104,12 +119,31 @@
 				Does not work outside of April Fools'''
 			FogG: ''':Why:
 				Summons the Fogbound'''
+
 			#Tiles
 			BubbleMachine : '''That's like, groovy mannn'''
+
+			#Pandemonium Box
+			AlarmClock : Spare parts for your travels
+			NurseryBell : Our best friends...
+			DustChime : The winds of progress
+			BestInstrument : Pieces of our journey
+			HarbingerOfWork : Feels like robot love!
+			MaladyBells : Starting anew!
+			SpiritDinerBell : Almost there
+			AltarBell : The gods from the heavens on the palm of your hand
+			TubRune : Change the world
+			VaselineBell : All at once I come alive, it's a rebirth!
+			WormBell : '''But does it ring any bells?
+				That I don't mention the hell?'''
+			ScratchedGong : '''Your patience is admirable
+				You will soon be rewarded...'''
+			PandemoniumBox : '''And I wish I was the only one to leave
+				The end of our journey, your zenith
+				Summons every pet you've met in your path'''
 		}
 		
-		ProjectileName: 
-		{
+		ProjectileName:  {
 			# Meldosaurus stuff
 			EntropicVomet: Entropic Vomet
 			TomeoFates: Tome of Fates
@@ -118,16 +152,16 @@
 			MeldosaurusClone: Meldosaurus Shade
 		}
 
-		MapObject: 
-		{
+		MapObject:  {
 			# Meldosaurus stuff
 			MeldosaurusMusicBoxPlaced: Music Box
 			MeldosaurusTrophyPlaced: Meldosaurus Trophy
 		}
 		
-		BuffName: 
-		{
+		BuffName: {
+			# When the april is fooled
 			AmogusBuff: Stratus Astronaut
+			
 			# Light pets
 			DarksunSpiritBuff: Darksun Spirits
 			EnredBuff: Cosmic Assistant
@@ -142,6 +176,7 @@
 			SupJewelBuff: Superstitious Jewel
 			VanityCoreBuff: Core of Vanity
 			YeetBuff: Litfish
+
 			# Mounts
 			AnthozoanBuff: Cambrian Crustacean
 			AuricTeslaBuff : Auric Tesla
@@ -156,6 +191,7 @@
 			SilvaJeepBuff: Silvian Jeep
 			TractorMount: Wulfrum Tank
 			YharonMountBuff: Yharite
+			
 			# Elementals
 			cloudbuff: Smol Cloud
 			minihotebuff: Childish Heart
@@ -163,11 +199,13 @@
 			rarebrimlingbuff: Rare Brimling
 			RareSsandBuff: Small Sand Elemental
 			SsandBuff: Tiny Sand Elemental
+			
 			# Exos
 			AresBuff: Toy XF-Ares
 			ExoMayhemBuff: Toy Exo Mechs
 			ThanatosBuff: Toy XM-Thanatos
 			TwinsBuff: Toy XS-Apollo and Artemis
+			
 			# Scuttlers
 			AmberBuff: Amber Scuttler
 			AmethystBuff: Amethyst Scuttler
@@ -178,6 +216,7 @@
 			RubyBuff: Ruby Scuttler
 			SapphireBuff: Sapphire Scuttler
 			TopazBuff: Topaz Scuttler
+			
 			# Pets
 			AeroBuff: Aero Slimes
 			AndroombaBuff: Androomba
@@ -257,13 +296,15 @@
 			WyrmBuff: Eidolon Inchwyrm
 			YharimSquidBuff: Auric Squiddo
 			ZygoteBuff: Ghastly Zygote
+			
 			# Transformations
 			ClassicBrimmyBuff: Brimstone Elemental Transformation
 			CloudTransformationBuff: Cloud Elemental Transformation
 			ProtoRingBuff: Proto-Andromeda
 			SandTransformationBuff: Sand Elemental Transformation
 			SignutTransformationBuff: Ethereal Assassin
-			# Æ: Drae's stuff
+			
+			# Pandemonium Box
 			AlarmClockBuff: Alarm Clock
 			AlterBellBuff: Altar Bell
 			BestInstrumentBuff: Best Instrument
@@ -279,9 +320,10 @@
 			PandoraBuff: Pandemonium Box
 		}
 		
-		BuffDescription: 
-		{
+		BuffDescription:  {
+			# April fools
 			AmogusBuff: amogus
+			
 			# Light pets
 			DarksunSpiritBuff: The Darksun Spirits have decided to follow you!
 			EnredBuff: He's here to help!
@@ -296,6 +338,7 @@
 			SupJewelBuff: Pure is impure
 			VanityCoreBuff: Everyone gets along!
 			YeetBuff: A baby sunskater will follow you now.
+			
 			# Mounts
 			AnthozoanBuff: This one won't throw rocks at you
 			AuricTeslaBuff: '''Yharim Car
@@ -311,6 +354,7 @@
 			SilvaJeepBuff: Beep beep I'm a jeep
 			TractorMount: Move forward soldier!
 			YharonMountBuff: He's finally here!
+			
 			# Elementals
 			cloudbuff: She can't protect you, but she's doing her best
 			minihotebuff: Its like you're running a day-care or something
@@ -318,11 +362,13 @@
 			rarebrimlingbuff: She can't protect you, but she's doing her best
 			RareSsandBuff: She can't heal you, but she's doing her best
 			SsandBuff: She can't protect you, but she's doing her best
+			
 			# Exos
 			AresBuff: He appears
 			ExoMayhemBuff: Perfected entertainment providers
 			ThanatosBuff: T(oy t) han(at)os
 			TwinsBuff: Here they are
+			
 			# Scuttlers
 			AmberBuff: Still won't let go of its gem
 			AmethystBuff: Still won't let go of its gem
@@ -333,6 +379,7 @@
 			RubyBuff: Still won't let go of its gem
 			SapphireBuff: Still won't let go of its gem
 			TopazBuff: Still won't let go of its gem
+			
 			# Pets
 			AeroBuff: We glide together
 			AndroombaBuff: Nyoooom!
@@ -342,7 +389,7 @@
 			BeeBuff: BEEp. Boop. Buzz.
 			BlockarozBuff: I take this as a declaration
 			BuppyBuff: Will you throw that ball?
-			BrimberryBuff: Godly Offering
+			BrimberryBuff: It’s a long way up from hell…
 			CalamityBABYBuff: The BABY of a omnipotent GOD accompany you... Just don't get hit
 			CatfishBuff: What? Its a Catfish, what are you talking about?
 			ChilledOut: A really cool dude will follow you around
@@ -396,7 +443,7 @@
 			ScourgeBuff: Blaaaargh^2
 			SentiPet: The Cosmic Terrors watch over you
 			SepulcherBuff: '''A dark construct composed of the long deceased souls of the innocent...
-	Cute'''
+				Cute'''
 			SepulcherBuffNeo: THIS ONE is benevolent
 			ShartBuff: No they can't play hockey
 			SigBuff: The Ethereal Assassin will watch your back... probably
@@ -413,26 +460,30 @@
 			WyrmBuff: Ew, its all slimey...
 			YharimSquidBuff: He's gone so far in life
 			ZygoteBuff : He might be a bit problematic... 
+			
 			# Transformations
-			ClassicBrimmyBuff: Yes, you can touch Water
-			CloudTransformationBuff: Feelin' Cloudy
-			ProtoRingBuff: Still working out the kinks
-			SandTransformationBuff: '''heh.'''
-			SignutTransformationBuff: Never been more edgy
-			# Æ: Drae's stuff
-			AlarmClockBuff: They might short circuit if left alone
-			AltarBellBuff: The guiding stars
-			BestInstrumentBuff: Fragments of your journey, keep them safe
-			DustChimeBuff: The Adventure begins!
-			HarbingerOfWorkBuff: Their passion overheats\nTheir system's on repeat
-			MaladyBellsBuff: Your journey is not over, they will look after you
-			NurseryBellsBuff: A terrarian's best friends will now follow you!
-			ScratchedGongBuff: The fruits of your magnum opera nears completion
-			SpiritDinerBuff: It's a dark path ahead of you, they'll help
-			TubRuneBuff: Our final message
-			VaselineBuff: The sunrays shine through
-			WormBellBuff: Keep going
-			PandoraBuff: Dream, it's all over\nWe've been waiting for another sight to see
+			ClassicBrimmyBuff : Yes, you can touch Water
+			CloudTransformationBuff : Feelin' Cloudy
+			ProtoRingBuff : Still working out the kinks
+			SandTransformationBuff : '''heh.'''
+			SignutTransformationBuff : Never been more edgy
+			
+			# Pandemonium Box
+			AlarmClockBuff : They might short circuit if left alone
+			AltarBellBuff : The guiding stars
+			BestInstrumentBuff : Fragments of your journey, keep them safe
+			DustChimeBuff : The adventure begins!
+			HarbingerOfWorkBuff : '''Their passion overheats
+				Their system's on repeat'''
+			MaladyBellsBuff : Your journey is not over, they will look after you
+			NurseryBellsBuff : A terrarian's best friends will now follow you!
+			ScratchedGongBuff : The fruits of your magnum opera nears completion
+			SpiritDinerBuff : It's a dark path ahead of you, they'll help
+			TubRuneBuff : Our final message
+			VaselineBuff : The sunrays shine through
+			WormBellBuff : They need their outlet now
+			PandoraBuff : '''It's all over
+				They've been waiting for another sight to see'''
 		}
 
 		BiomeName: 

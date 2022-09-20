@@ -24,6 +24,7 @@ namespace CalValEX.Projectiles.Pets
             Projectile.CloneDefaults(ProjectileID.BabySnowman);
             AIType = ProjectileID.BabySnowman;
             DrawOriginOffsetY = -2;
+            Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
             // Projectile.width = 15;
             // Projectile.height = 15;
         }

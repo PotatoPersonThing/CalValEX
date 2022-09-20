@@ -17,6 +17,7 @@ namespace CalValEX.Projectiles.Pets
         {
             Projectile.CloneDefaults(ProjectileID.ZephyrFish);
             AIType = ProjectileID.ZephyrFish;
+            Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
         public override bool PreAI()

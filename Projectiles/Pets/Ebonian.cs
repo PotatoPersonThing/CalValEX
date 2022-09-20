@@ -26,6 +26,7 @@ namespace CalValEX.Projectiles.Pets
             Projectile.tileCollide = true;
             base.DrawOffsetX = 6;
             base.DrawOriginOffsetY = 8;
+            Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
         //all things should be synchronized. most things vanilla already does for us, however you should sync the things you

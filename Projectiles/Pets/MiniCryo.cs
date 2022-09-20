@@ -24,6 +24,7 @@ namespace CalValEX.Projectiles.Pets
             Projectile.width = 20;
             Projectile.height = 24;
             Projectile.ignoreWater = true;
+            Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
         public override bool PreDraw(ref Color lightColor)

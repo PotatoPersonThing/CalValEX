@@ -60,6 +60,10 @@ using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 using CalValEX.Items.Tiles.Monoliths;
 using CalValEX.Items.Tiles.Statues;
 using CalValEX.Items.Walls;
+using CalValEX.Items.PetComboItems;
+using CalValEX.Items.PetComboItems.PreHardmode;
+using CalValEX.Items.PetComboItems.Hardmode;
+using CalValEX.Items.PetComboItems.PostMoonLord;
 using CalValEX.Tiles.MiscFurniture;
 using CalValEX.Tiles.FurnitureSets.Auric;
 using CalValEX.Tiles.FurnitureSets.Wulfrum;
@@ -651,9 +655,161 @@ namespace CalValEX {
 			}
             #endregion
 
-            #region //Blocks
+            #region //Pandemonium Box (LESSSS GOOOOOOO
+			#region //Prehardmode
 			{
-				Recipe recipe = Recipe.Create(ItemType<AuricBrick>(), 50);
+				Recipe recipe = Recipe.Create(ItemType<AlarmClock>());
+				recipe.AddIngredient(ItemType<Items.Pets.WulfrumController>());
+				recipe.AddIngredient(ItemType<WulfrumTransmitter>());
+				recipe.AddIngredient(ItemType<RepurposedMonitor>());
+				recipe.AddTile(TileType<CalamityMod.Tiles.DraedonStructures.LaboratoryConsole>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<NurseryBell>());
+				recipe.AddIngredient(ItemType<RottenHotdog>());
+				recipe.AddIngredient(ItemType<DecayingFishtail>());
+				recipe.AddIngredient(ItemType<TundraBall>());
+				recipe.AddIngredient(ItemType<BambooStick>());
+				recipe.AddIngredient(ItemType<DoggoCollar>());
+				recipe.AddIngredient(ItemType<SunDriedShrimp>());
+				recipe.AddTile(TileID.WorkBenches);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<DustChime>());
+				recipe.AddIngredient(ItemType<AerialiteBubble>());
+				recipe.AddIngredient(ItemType<CursedLockpick>());
+				recipe.AddIngredient(ItemType<UglyTentacle>());
+				recipe.AddIngredient(ItemType<Cube>());
+				recipe.AddIngredient(ItemType<RuinedBandage>());
+				recipe.AddTile(TileID.Anvils);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<BestInstrument>());
+				recipe.AddIngredient(ItemType<ClamHermitMedallion>());
+				recipe.AddIngredient(ItemType<ClawShroom>());
+				recipe.AddIngredient(ItemType<MeatyWormTumor>());
+				recipe.AddIngredient(ItemType<RottenKey>());
+				recipe.AddIngredient(ItemType<DespairMask>());
+				recipe.AddTile(TileID.TinkerersWorkbench);
+				recipe.Register();
+			}
+            #endregion
+
+			#region //Hardmode
+			{
+				Recipe recipe = Recipe.Create(ItemType<HarbingerOfWork>());
+				recipe.AddIngredient(ItemType<RoverSpindle>());
+				recipe.AddIngredient(ItemType<ConstructionRemote>());
+				recipe.AddIngredient(ItemType<SuspiciousLookingGBC>());
+				recipe.AddIngredient(ItemType<AstralInfectedIcosahedron>());
+				recipe.AddIngredient(ItemType<PlaguebringerPowerCell>());
+				recipe.AddIngredient(ItemType<AstralBinoculars>());
+				recipe.AddTile(TileID.AdamantiteForge);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<MaladyBells>());
+				recipe.AddIngredient(ItemType<CooperShortsword>());
+				recipe.AddIngredient(ItemType<HauntedPebble>());
+				recipe.AddIngredient(ItemType<SmolEldritchHoodie>());
+				recipe.AddIngredient(ItemType<DeepseaLantern>());
+				recipe.AddIngredient(ItemType<SlightlyMoistbutalsoSlightlyDryLocket>());
+				recipe.AddIngredient(ItemType<Eggstone>());
+				recipe.AddIngredient(ItemType<AcidLamp>());
+				recipe.AddTile(TileID.MythrilAnvil);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<SpiritDinerBell>());
+				recipe.AddIngredient(ItemType<SkullCluster>());
+				recipe.AddIngredient(ItemType<SunBun>());
+				recipe.AddIngredient(ItemType<MiniatureElementalHeart>());
+				recipe.AddIngredient(ItemType<SpaceJunk>());
+				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.Register();
+			}
+			#endregion
+
+			#region //PostMoonlord
+			{
+				Recipe recipe = Recipe.Create(ItemType<AltarBell>());
+				recipe.AddIngredient(ItemType<TheDragonball>());
+				recipe.AddIngredient(ItemType<DivineFly>());
+				recipe.AddIngredient(ItemType<FlareRune>());
+				recipe.AddIngredient(ItemType<AuricBottle>());
+				recipe.AddIngredient(ItemType<Finality>());
+				recipe.AddIngredient(ItemType<BejeweledSpike>());
+				recipe.AddIngredient(ItemType<ProfanedHeart>());
+				recipe.AddTile(TileType<DraedonsForge>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<TubRune>());
+				recipe.AddIngredient(ItemType<AstraEGGeldon>());
+				recipe.AddIngredient(ItemType<BleuBlob>());
+				recipe.AddIngredient(ItemType<IonizedJellyCrystal>());
+				recipe.AddIngredient(ItemType<ProfanedChewToy>());
+				recipe.AddIngredient(ItemType<Sirember>());
+				recipe.AddIngredient(ItemType<BejeweledSpike>());
+				recipe.AddIngredient(ItemType<ProfanedHeart>());
+				recipe.AddTile(TileType<DraedonsForge>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<VaselineBell>());
+				recipe.AddIngredient(ItemType<HeartoftheSharks>());
+				recipe.AddIngredient(ItemType<CharredChopper>());
+				recipe.AddIngredient(ItemType<DocilePheromones>());
+				recipe.AddIngredient(ItemType<ExtraFluffyFeatherClump>());
+				recipe.AddIngredient(ItemType<ToyScythe>());
+				recipe.AddTile(TileType<CosmicAnvil>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<WormBell>());
+				recipe.AddIngredient(ItemType<StormMedal>());
+				recipe.AddIngredient(ItemType<TheSeaKingsCoin>());
+				recipe.AddIngredient(ItemType<Geminga>());
+				recipe.AddIngredient(ItemType<CosmicRapture>());
+				recipe.AddIngredient(ItemType<SoulShard>());
+				recipe.AddIngredient(ItemType<CalamitousSoulArtifact>());
+				recipe.AddTile(TileType<DraedonsForge>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<WormBell>());
+				recipe.AddIngredient(ItemType<AlarmClock>());
+				recipe.AddIngredient(ItemType<HarbingerOfWork>());
+				recipe.AddIngredient(ItemType<ExoGemstone>());
+				//recipe.AddIngredient(ItemType<DRAESDEVITEM!!! COMING SOON!!!>());
+				recipe.AddTile(TileType<DraedonsForge>());
+				recipe.Register();
+			}
+			#endregion
+
+			{
+				Recipe recipe = Recipe.Create(ItemType<PandemoniumBox>());
+				recipe.AddIngredient(ItemType<NurseryBell>());
+				recipe.AddIngredient(ItemType<DustChime>());
+				recipe.AddIngredient(ItemType<BestInstrument>());
+				recipe.AddIngredient(ItemType<MaladyBells>());
+				recipe.AddIngredient(ItemType<SpiritDinerBell>());
+				recipe.AddIngredient(ItemType<VaselineBell>());
+				recipe.AddIngredient(ItemType<WormBell>());
+				recipe.AddIngredient(ItemType<AltarBell>());
+				recipe.AddIngredient(ItemType<ScratchedGong>());
+				recipe.AddIngredient(ItemType<TubRune>());
+				recipe.AddTile(TileType<DraedonsForge>());
+				recipe.Register();
+			}
+			#endregion
+
+			#region //Blocks
+			{
+                Recipe recipe = Recipe.Create(ItemType<AuricBrick>(), 50);
 				recipe.AddIngredient(ItemType<CalamityMod.Items.Placeables.Ores.AuricOre>());
 				recipe.AddIngredient(ItemID.StoneBlock, 50);
 				recipe.AddTile(TileType<CosmicAnvil>());
@@ -738,6 +894,13 @@ namespace CalValEX {
 			}
 			{
 				Recipe recipe = Recipe.Create(ItemType<ThanatosPlating>(), 250);
+				recipe.AddIngredient(ItemType<ExoPrism>(), 2);
+				recipe.AddIngredient(ItemID.StoneBlock, 250);
+				recipe.AddTile(TileType<DraedonsForge>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<ThanatosPlatingVent>(), 250);
 				recipe.AddIngredient(ItemType<ExoPrism>(), 2);
 				recipe.AddIngredient(ItemID.StoneBlock, 250);
 				recipe.AddTile(TileType<DraedonsForge>());

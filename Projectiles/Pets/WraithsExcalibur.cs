@@ -16,6 +16,8 @@ namespace CalValEX.Projectiles.Pets
             Projectile.CloneDefaults(197);
             base.AIType = 197;
             base.DrawOriginOffsetY = -33;
+            //Æ: lol (lol
+            Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
         public override bool PreAI()

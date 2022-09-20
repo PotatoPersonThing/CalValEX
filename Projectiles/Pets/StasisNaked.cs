@@ -16,9 +16,10 @@ namespace CalValEX.Projectiles.Pets {
             Projectile.width = 22;
             Projectile.height = 22;
             Projectile.ignoreWater = true;
+            Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
-        public override void Animation(int state) => SimpleAnimation(speed: 12);
+        public override void Animation(int state) => SimpleAnimation(speed: 8);
 
         public override void PetFunctionality(Player player) {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
@@ -31,7 +32,7 @@ namespace CalValEX.Projectiles.Pets {
         }
 
         public override void PostDraw(Color lightColor) {
-            string glowmaskTexture = "CalValEX/Projectiles/Pets/LightPets/StasisNaked_Glow";
+            string glowmaskTexture = "CalValEX/Projectiles/Pets/StasisNaked_Glow";
 
             SimpleGlowmask(Main.spriteBatch, glowmaskTexture);
         }
