@@ -14,7 +14,7 @@ namespace CalValEX.NPCs.Critters {
         }
 
         public override void SetDefaults() {
-            NPC.CloneDefaults(NPCID.GlowingSnail);
+            NPC.CloneDefaults(NPCID.Snail);
             NPC.width = 22;
             NPC.height = 18;
             NPC.damage = 0;
@@ -23,9 +23,10 @@ namespace CalValEX.NPCs.Critters {
             NPC.catchItem = ItemType<PerfoGrubItem>();
             NPC.lavaImmune = false;
             NPC.chaseable = false;
-            AIType = NPCID.GlowingSnail;
+            NPC.friendly = true;
+            AIType = NPCID.Snail;
             AnimationType = NPCID.GlowingSnail;
-            NPC.lifeMax = 20;
+            NPC.lifeMax = 5;
             NPC.value = 0;
         }
 
@@ -35,6 +36,14 @@ namespace CalValEX.NPCs.Critters {
                 Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky,
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A small grub-like parasite, the vile offspring of the Perforators."),
             });
+        }
+
+        public override bool? CanBeHitByItem(Player player, Item item) {
+            return true;
+        }
+
+        public override bool? CanBeHitByProjectile(Projectile projectile) {
+            return true;
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo) {
@@ -48,5 +57,8 @@ namespace CalValEX.NPCs.Critters {
             NPC.spriteDirection = -NPC.direction;
             NPC.TargetClosest(false);
         }
+
+        public override void OnCaughtBy(Player player, Item item, bool failed) => item.stack = 1;
+
     }
 }

@@ -20,7 +20,10 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             ModTranslation name = CreateMapEntryName();
 			TileID.Sets.Clock[Type] = true;
 			AddMapEntry(new Color(103, 137, 100), name);
-            AdjTiles = new int[] { TileID.GrandfatherClocks };
+
+			DustType = 226;
+
+			AdjTiles = new int[] { TileID.GrandfatherClocks };
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch) {

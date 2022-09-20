@@ -38,9 +38,11 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
 			name.SetDefault("Wulfrum Dresser");
 			AddMapEntry(new Color(103, 137, 100), name);
 			ContainerName.SetDefault("Wulfrum Dresser");
-			AdjTiles = new int[] { TileID.Dressers };
 			DresserDrop = ModContent.ItemType<WulfrumDresserItem>();
-			DustType = 227;
+			
+			DustType = 226;
+
+			AdjTiles = new int[] { TileID.Dressers };
 		}
 
 		public override bool RightClick(int i, int j) {
@@ -173,7 +175,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
 				player.cursorItemIconID = ItemID.FamiliarShirt;
 		}
 
-		//public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
+		public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
 
 		public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 

@@ -30,7 +30,8 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             AdjTiles = new int[] { TileID.Containers };
             ContainerName.SetDefault("Wulfrum Chest");
             ChestDrop = ModContent.ItemType<WulfrumChestItem>();
-
+            
+            DustType = 226;
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             TileObjectData.newTile.Origin = new Point16(0, 1);

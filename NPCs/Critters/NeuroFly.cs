@@ -14,7 +14,7 @@ namespace CalValEX.NPCs.Critters {
         }
 
         public override void SetDefaults() {
-            NPC.CloneDefaults(NPCID.Butterfly);
+            NPC.CloneDefaults(NPCID.BlackDragonfly);
             NPC.width = 26;
             NPC.height = 22;
             NPC.damage = 0;
@@ -22,8 +22,8 @@ namespace CalValEX.NPCs.Critters {
             NPC.npcSlots = 0.5f;
             NPC.catchItem = ItemType<NeuroFlyItem>();
             NPC.lavaImmune = true;
-            AIType = NPCID.Butterfly;
-            AnimationType = NPCID.Butterfly;
+            AIType = NPCID.BlackDragonfly;
+            AnimationType = NPCID.BlackDragonfly;
             NPC.lifeMax = 20;
             NPC.value = 0;
             NPC.chaseable = false;
@@ -42,9 +42,12 @@ namespace CalValEX.NPCs.Critters {
             }
             return 0f;
         }
+
         public override void AI() {
             NPC.spriteDirection = -NPC.direction;
             NPC.TargetClosest(false);
         }
+
+        public override void OnCaughtBy(Player player, Item item, bool failed) => item.stack = 1;
     }
 }

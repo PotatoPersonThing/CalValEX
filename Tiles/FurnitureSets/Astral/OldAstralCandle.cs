@@ -8,8 +8,6 @@ using Terraria.ObjectData;
 
 namespace CalValEX.Tiles.FurnitureSets.Astral
 {
-    // This class shows off many things common to Lamp tiles in Terraria. The process for creating this example is detailed in: https://github.com/tModLoader/tModLoader/wiki/Advanced-Vanilla-Code-Adaption#examplelamp-tile
-    // If you can't figure out how to recreate a vanilla tile, see that guide for instructions on how to figure it out yourself.
     public class OldAstralCandle : ModTile
     {
         public override void SetStaticDefaults()
@@ -22,17 +20,13 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             TileObjectData.newTile.CopyFrom(TileObjectData.StyleOnTable1x1);
             TileObjectData.newTile.Width = 1;
             TileObjectData.newTile.Height = 1;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16 }; //
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16 };
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Xenomonolith Candle");
             AddMapEntry(new Color(139, 0, 0), name);
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<OldAstralCandleItem>());
+            ItemDrop = ModContent.ItemType<OldAstralCandleItem>();
         }
 
         public override bool RightClick(int i, int j)

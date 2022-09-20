@@ -25,7 +25,8 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Wulfrum Bed");
             AddMapEntry(new Color(103, 137, 100), name);
-            
+            DustType = 226;
+
             AdjTiles = new int[] { TileID.Beds };
         }
 

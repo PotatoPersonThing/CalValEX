@@ -6,7 +6,7 @@ using CalValEX.Tiles.FurnitureSets.Wulfrum;
 namespace CalValEX.Items.Tiles.FurnitureSets.Wulfrum {
     public class WulfrumToiletItem : ModItem {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Wulfrum Chair");
+            DisplayName.SetDefault("Wulfrum Toilet");
             SacrificeTotal = 1;
         }
 

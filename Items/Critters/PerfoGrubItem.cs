@@ -8,7 +8,7 @@ namespace CalValEX.Items.Critters {
         public override void SetStaticDefaults() => SacrificeTotal = 5;
 
         public override void SetDefaults() {
-            Item.CloneDefaults(ItemID.GlowingSnail);
+            Item.CloneDefaults(ItemID.Snail);
             Item.bait = 5;
             Item.makeNPC = (short)NPCType<PerfoGrub>();
             Item.rare = ItemRarityID.Orange;

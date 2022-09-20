@@ -20,6 +20,8 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
 
             AnimationFrameHeight = 36;
             TileObjectData.addTile(Type);
+
+            DustType = 226;
         }
 
         public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY) =>
@@ -27,7 +29,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
 
         public override void AnimateTile(ref int frame, ref int frameCounter) {
             frameCounter++;
-            if (frameCounter > 8) {
+            if (frameCounter > 6) {
                 frameCounter = 0;
                 frame++;
                 if (frame > 15)

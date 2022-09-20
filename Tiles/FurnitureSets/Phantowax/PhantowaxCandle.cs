@@ -8,8 +8,6 @@ using Terraria.ObjectData;
 
 namespace CalValEX.Tiles.FurnitureSets.Phantowax
 {
-    // This class shows off many things common to Lamp tiles in Terraria. The process for creating this example is detailed in: https://github.com/tModLoader/tModLoader/wiki/Advanced-Vanilla-Code-Adaption#examplelamp-tile
-    // If you can't figure out how to recreate a vanilla tile, see that guide for instructions on how to figure it out yourself.
     public class PhantowaxCandle : ModTile
     {
         public override void SetStaticDefaults()
@@ -18,21 +16,17 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.StyleOnTable1x1);
             TileObjectData.newTile.Width = 1;
             TileObjectData.newTile.Height = 1;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16 }; //
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16 };
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Phantowax Candle");
             AddMapEntry(new Color(94, 39, 93), name);
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<PhantowaxCandleItem>());
+            ItemDrop = ModContent.ItemType<PhantowaxCandleItem>();
         }
 
         public override bool RightClick(int i, int j)

@@ -16,8 +16,12 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
+
             TileID.Sets.HasOutlines[Type] = true;
             TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.CanBeSatOnForNPCs[Type] = true;
+            TileID.Sets.CanBeSatOnForPlayers[Type] = true;
+
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x1);
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16 };
@@ -29,12 +33,14 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             TileObjectData.newAlternate.Direction = TileObjectDirection.PlaceRight;
             TileObjectData.addAlternate(1);
             TileObjectData.addTile(Type);
+
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
+            
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Wulfrum Chair");
             AddMapEntry(new Color(103, 137, 100), name);
-            TileID.Sets.CanBeSatOnForNPCs[Type] = true;
-            TileID.Sets.CanBeSatOnForPlayers[Type] = true;
+            
+            DustType = 226;
 
             AdjTiles = new int[] { TileID.Chairs };
         }
@@ -56,7 +62,10 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
         public override void ModifySittingTargetInfo(int i, int j, ref TileRestingInfo info) {
             Tile tile = Framing.GetTileSafely(i, j);
 
+            info.DirectionOffset = 0;
+            info.VisualOffset = new Vector2(-6f, 0);
             info.TargetDirection = -1;
+
             if (tile.TileFrameX != 0)
                 info.TargetDirection = 1;
 
@@ -94,8 +103,8 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
         public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
             Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<WulfrumChairItem>());
 
-        /*public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) { 
+        public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) { 
             return settings.player.IsWithinSnappngRangeToTile(i, j, PlayerSittingHelper.ChairSittingMaxDistance);
-        }*/
+        }
     }
 }

@@ -19,6 +19,8 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             name.SetDefault("Wulfrum Lamp");
             AddMapEntry(new Color(103, 137, 100), name);
+            
+            DustType = 226;
         }
 
         public override void HitWire(int i, int j) {

@@ -18,6 +18,8 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             Main.tileLavaDeath[Type] = true;
             TileID.Sets.HasOutlines[Type] = true;
             TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.CanBeSatOnForNPCs[Type] = true;
+            TileID.Sets.CanBeSatOnForPlayers[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x1);
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16 };
@@ -33,10 +35,9 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Wulfrum Toilet");
             AddMapEntry(new Color(103, 137, 100), name);
-            TileID.Sets.CanBeSatOnForNPCs[Type] = true;
-            TileID.Sets.CanBeSatOnForPlayers[Type] = true;
+            DustType = 226;
 
-            AdjTiles = new int[] { TileID.Chairs };
+            AdjTiles = new int[] { TileID.Toilets };
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch) {
@@ -91,8 +92,24 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
                 player.cursorItemIconReversed = true;
         }
 
+        public override void HitWire(int i, int j) {
+            Tile tile = Main.tile[i, j];
+
+            int spawnX = i;
+            int spawnY = j - (tile.TileFrameY % 40) / 18;
+
+            Wiring.SkipWire(spawnX, spawnY);
+            Wiring.SkipWire(spawnX, spawnY + 1);
+
+            if (Wiring.CheckMech(spawnX, spawnY, 60)) {
+                Projectile.NewProjectile(Wiring.GetProjectileSource(spawnX, spawnY), spawnX * 16 + 8, spawnY * 16 + 12, 0f, 0f, ProjectileID.ToiletEffect, 0, 0f, Main.myPlayer);
+            }
+        }
+
+        public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
+
         public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<WulfrumToiletItem>());
+            Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<WulfrumToiletItem>());
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) { 
             return settings.player.IsWithinSnappngRangeToTile(i, j, PlayerSittingHelper.ChairSittingMaxDistance);

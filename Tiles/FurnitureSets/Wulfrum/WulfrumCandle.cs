@@ -23,6 +23,8 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Wulfrum Candle");
             AddMapEntry(new Color(103, 137, 100), name);
+            ItemDrop = ModContent.ItemType<WulfrumCandleItem>();
+            DustType = 226;
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch) {
@@ -74,8 +76,5 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
                 short frameY = tile.TileFrameY;
             }
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
-            Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<WulfrumCandleItem>());
     }
 }

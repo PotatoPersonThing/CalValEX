@@ -25,6 +25,8 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Wulfrum Chandelier");
             AddMapEntry(new Color(103, 137, 100), name);
+
+            DustType = 226;
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch) {

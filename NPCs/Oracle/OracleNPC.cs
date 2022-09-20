@@ -23,7 +23,6 @@ namespace CalValEX.NPCs.Oracle
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Oracle");
             Main.npcFrameCount[NPC.type] = 23;
             NPCID.Sets.ExtraFramesCount[NPC.type] = 9;
             NPCID.Sets.AttackFrameCount[NPC.type] = 4;

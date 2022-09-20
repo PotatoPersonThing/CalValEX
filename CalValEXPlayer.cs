@@ -33,6 +33,7 @@ using CalamityMod.Items.Accessories;
 using static Terraria.ModLoader.ModContent;
 using static CalamityMod.Events.BossRushEvent;
 using static CalamityMod.CalamityUtils;
+using CalValEX.Items.Equips.Shirts;
 
 namespace CalValEX {
     public class CalValEXPlayer : ModPlayer {
@@ -311,6 +312,10 @@ namespace CalValEX {
         public bool profanedCultistHide;
         public bool profanedCultistForce;
         public bool zygote;
+        public bool brimberry;
+        public bool bellaCloak;
+        public bool bellaCloakHide;
+        public bool bellaCloakForce;
 
         public override void Initialize() {
             ResetMyStuff();
@@ -332,6 +337,7 @@ namespace CalValEX {
             maryPrevious = maryTrans;
             maryTrans = maryHide = maryForce = maryPower = false;
             profanedCultist = profanedCultistHide = profanedCultistForce = false;
+            bellaCloak = bellaCloakHide = bellaCloakForce = false;
             ResetMyStuff();
         }
 
@@ -378,13 +384,17 @@ namespace CalValEX {
             Mod antisocial;
             ModLoader.TryGetMod("Antisocial", out antisocial);
             Item itemVan = Player.armor[11];
-            if (itemVan.type == ModContent.ItemType<Items.Equips.Shirts.BloodyMaryDress>()) {
+            if (itemVan.type == ItemType<BloodyMaryDress>()) {
                 maryHide = false;
                 maryForce = true;
             }
-            if (itemVan.type == ModContent.ItemType<Items.Equips.Shirts.ProfanedCultistRobes>()) {
-                profanedCultist = false;
+            if (itemVan.type == ItemType<ProfanedCultistRobes>()) {
+                profanedCultistHide = false;
                 profanedCultistForce = true;
+            }
+            if (itemVan.type == ItemType<BelladonnaCloak>()) {
+                bellaCloakHide = false;
+                bellaCloakForce = true;
             }
             for (int n = 13; n < 18 + Player.extraAccessorySlots; n++) {
                 Item item = Player.armor[n];
@@ -564,6 +574,10 @@ namespace CalValEX {
             }
             if ((profanedCultist || profanedCultistForce) && !profanedCultistHide)
                 Player.legs = EquipLoader.GetEquipSlot(Mod, "ProfanedCultistRobes", EquipType.Legs);
+            if ((bellaCloak || bellaCloakForce) && !bellaCloakHide) { 
+                Player.legs = EquipLoader.GetEquipSlot(Mod, "BelladonnaCloak", EquipType.Legs);
+                Player.front = (sbyte)EquipLoader.GetEquipSlot(Mod, "BelladonnaCloak", EquipType.Front);
+            }
             if ((signutTrans || signutForce) && !signutHide) {
                 var costume = GetInstance<Signus>();
                 Player.head = EquipLoader.GetEquipSlot(Mod, "Signus", EquipType.Head);
@@ -896,6 +910,7 @@ namespace CalValEX {
             TubRune = false;
             Pandora = false;
             zygote = false;
+            brimberry = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit) {

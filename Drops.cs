@@ -569,6 +569,7 @@ namespace CalValEX
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.ArmoredDiggerHead>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 10000));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ConstructionRemote>(), 4));
                 }
                 if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AcidRain.CragmawMire>())
                 {

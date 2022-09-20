@@ -21,7 +21,8 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
             TileObjectData.addTile(Type);
-            
+            DustType = 226;
+
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Wulfrum Piano");
             AddMapEntry(new Color(103, 137, 100), name);

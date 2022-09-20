@@ -1,13 +1,13 @@
 ﻿Mods: {
 	CalValEX: {
 		
-		NPCName: 
-		{
+		NPCName: {
 			# April fools!
 			Meldosaurus : Meldosaurus
 			Jharim : Jungle Tyrant
 			Fogbound : '''Hyper Ultra Omega Fogbound GOD EX: Prepare to Stygian Edition'''
-			#Critters
+			
+			# Critters
 			AstJR : Astragelly Slime
 			Blightolemur : Bleamur
 			Blinker : Blinker
@@ -19,20 +19,28 @@
 			GoldEyedol : Gold Eyedol
 			GoldViolemur : Gold Violemur
 			Isopod : Abyssal Isopod
+			NeuroFly: Neuro Fly
 			NukeFly : Vaporofly
 			Orthobab : Orthocera Hatchling
 			OrthoceraApparition : '''Orthocera?'''
+			PerfoGrub: Perforator Grub
 			PlagueFrog : Plagued Frog
 			ProvFly : Profaned Butterfly
 			SandTurtle : Sand Turtle
 			Swearshroom : Swearshroomh
+			Vaporofly: Vaporofly
 			Violemur : Violemur
 			Xerocodile : Awakened Xerocodile
 			XerocodileSwim : Awakened Xerocodile
+
+			# Town NPCs
+			JellyPriestBound : Bound Jelly Priestess
+			JellyPriestNPC : Jelly Priestess
+			OracleNPC : Oracle
+			OracleNPCPet_Pet : TUB
 		}
 		
-		ItemName: 
-		{
+		ItemName:  {
 			# April fools!
 			AmogusItem : Polus Communicator
 			ShadesBane : The Shade's Bane
@@ -44,6 +52,7 @@
 			MeldosaurusBag : Treasure Bag
 			JharimHead : Jungle Tyrant Jharim's Decapitated Head
 			FogG : Purified Fog
+			
 			# Critters
 			AstJRItem : Astragelly Slime
 			BlightolemurItem : Bleamur
@@ -57,7 +66,9 @@
 			GoldViolemurItem : Gold Violemur
 			IsopodItem : Abyssal Isopod
 			VaporoflyItem : Vaporofly
+			NeuroFlyItem: Neuro Fly
 			OrthobabItem : Orthocera Hatchling
+			PerfoGrubItem: Perforator Grub
 			PlagueFrogItem : Plagued Frog
 			ProvFlyItem : Profaned Butterfly
 			SandTurtleItem : Sand Turtle
@@ -66,9 +77,13 @@
 			XerocodileItem : Awakened Xerocodile
 			PerfoGrubItem : Perforator Grub
 			NeuroFlyItem : Neurofly
+
 			# Tiles
 			BubbleMachine : Effervescent Bubbler
 			MeldBlockItem : Meld Block
+			WulfrumPlating : Wulfrum Plating
+			ThanatosPlating : XM-05 Armor Plating
+			ThanatosPlatingVent : XM-05 Armor Plating (Charged)
 		}
 		
 		ItemTooltip: 
@@ -172,6 +187,7 @@
 			BeeBuff: Reprogrammed Plaguebringer
 			BlockarozBuff: A Cube
 			BuppyBuff: Buppy
+			BrimberryBuff: Brimstone Berry
 			CalamityBABYBuff: God's Presence
 			CatfishBuff: Fishcat
 			ChilledOut: Cool Dude
@@ -326,6 +342,7 @@
 			BeeBuff: BEEp. Boop. Buzz.
 			BlockarozBuff: I take this as a declaration
 			BuppyBuff: Will you throw that ball?
+			BrimberryBuff: Godly Offering
 			CalamityBABYBuff: The BABY of a omnipotent GOD accompany you... Just don't get hit
 			CatfishBuff: What? Its a Catfish, what are you talking about?
 			ChilledOut: A really cool dude will follow you around

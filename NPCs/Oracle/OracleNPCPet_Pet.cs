@@ -12,11 +12,7 @@ namespace CalValEX.NPCs.Oracle
     {
         public override string Texture => "CalValEX/NPCs/Oracle/OracleNPCPet_Pet_Normal";
 
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("TUB");
-            Main.projFrames[Projectile.type] = 11; //in code it's always one less
-        }
+        public override void SetStaticDefaults() => Main.projFrames[Projectile.type] = 11;
 
         public override void SetDefaults()
         {
