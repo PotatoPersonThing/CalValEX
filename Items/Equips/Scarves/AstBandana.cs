@@ -4,14 +4,8 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Scarves
 {
     [AutoloadEquip(EquipType.Neck)]
-    public class AstBandana : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Astral Bandana");
-            Tooltip.SetDefault("Space Age Fashion!");
-            SacrificeTotal = 1;
-        }
+    public class AstBandana : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

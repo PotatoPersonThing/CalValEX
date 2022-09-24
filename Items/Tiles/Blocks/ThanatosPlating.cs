@@ -5,13 +5,13 @@ using Terraria;
 
 namespace CalValEX.Items.Tiles.Blocks {
     public class ThanatosPlating : ModItem {
-        public override void SetStaticDefaults() => SacrificeTotal = 100;
+        public override void SetStaticDefaults() => SacrificeTotal = 500;
 
         public override void SetDefaults() {
             Item.width = 12;
             Item.height = 12;
             Item.maxStack = 999;
-            Item.rare = 0;
+            Item.rare = ItemRarityID.Purple;
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;
@@ -23,13 +23,13 @@ namespace CalValEX.Items.Tiles.Blocks {
     }
 
     public class ThanatosPlatingVent : ModItem {
-        public override void SetStaticDefaults() => SacrificeTotal = 100;
+        public override void SetStaticDefaults() => SacrificeTotal = 500;
 
         public override void SetDefaults() {
             Item.width = 12;
             Item.height = 12;
             Item.maxStack = 999;
-            Item.rare = 0;
+            Item.rare = ItemRarityID.Purple;
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;

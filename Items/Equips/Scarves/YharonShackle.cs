@@ -6,14 +6,8 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Scarves
 {
     [AutoloadEquip(EquipType.Neck)]
-    public class YharonShackle : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Yharon's Shackle");
-            Tooltip.SetDefault("It barely fits you...");
-            SacrificeTotal = 1;
-        }
+    public class YharonShackle : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

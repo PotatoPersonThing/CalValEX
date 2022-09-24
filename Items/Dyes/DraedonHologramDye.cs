@@ -14,7 +14,6 @@ namespace CalValEX.Items.Dyes
         public override void SetStaticDefaults()
         {
             SacrificeTotal = 3;
-            DisplayName.SetDefault("Draedon's Hologram Dye");
             if (!Main.dedServ) 
             {
                 GameShaders.Armor.BindShader(

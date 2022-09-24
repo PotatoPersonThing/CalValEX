@@ -6,12 +6,7 @@ namespace CalValEX.Items.Equips.Capes
     [AutoloadEquip(EquipType.Front)]
     public class Eidcape : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Eidolist Cape");
-            Tooltip.SetDefault("Whispers of the deep can be heard through the weavings of this eldritch fabric...");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

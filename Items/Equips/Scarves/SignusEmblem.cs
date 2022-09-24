@@ -6,14 +6,8 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Scarves
 {
     [AutoloadEquip(EquipType.Neck)]
-    public class SignusEmblem : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Signus Emblem");
-            Tooltip.SetDefault("Contains some abyssal energy");
-            SacrificeTotal = 1;
-        }
+    public class SignusEmblem : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

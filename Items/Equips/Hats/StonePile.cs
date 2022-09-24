@@ -10,12 +10,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class StonePile : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Stone Pile");
-            Tooltip.SetDefault("'Requires a strong head to wear'");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

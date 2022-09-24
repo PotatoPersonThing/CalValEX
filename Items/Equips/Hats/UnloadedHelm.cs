@@ -6,12 +6,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class UnloadedHelm : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Unloaded Helm");
-            Tooltip.SetDefault("Still reeks");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

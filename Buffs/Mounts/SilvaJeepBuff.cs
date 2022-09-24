@@ -8,8 +8,6 @@ namespace CalValEX.Buffs.Mounts
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Silvian Jeep");
-            //Description.SetDefault("Beep beep I'm a jeep");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

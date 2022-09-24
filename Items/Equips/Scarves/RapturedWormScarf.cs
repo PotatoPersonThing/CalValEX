@@ -11,8 +11,6 @@ namespace CalValEX.Items.Equips.Scarves
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Raptured Worm Scarf");
-            Tooltip.SetDefault("'So stylish it bends the fabric of reality!'");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(3, 7));
             SacrificeTotal = 1;
         }

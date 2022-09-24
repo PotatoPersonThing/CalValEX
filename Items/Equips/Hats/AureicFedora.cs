@@ -6,12 +6,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class AureicFedora : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Aureic Fedora");
-            Tooltip.SetDefault("Just don't directly tip it on someone");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

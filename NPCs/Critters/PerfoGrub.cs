@@ -9,8 +9,8 @@ namespace CalValEX.NPCs.Critters {
         public override void SetStaticDefaults() {
             Main.npcFrameCount[NPC.type] = 4;
             Main.npcCatchable[NPC.type] = true;
-            NPCID.Sets.CantTakeLunchMoney[Type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
+	        NPCID.Sets.CantTakeLunchMoney[Type] = true;
         }
 
         public override void SetDefaults() {

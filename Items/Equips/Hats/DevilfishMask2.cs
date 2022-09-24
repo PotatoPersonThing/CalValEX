@@ -6,13 +6,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class DevilfishMask2 : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Pointed Devil Fish Mask");
-            Tooltip
-                .SetDefault("Also Edgy");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

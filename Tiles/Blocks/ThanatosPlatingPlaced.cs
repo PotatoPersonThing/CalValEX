@@ -6,6 +6,7 @@ using static Terraria.ModLoader.ModContent;
 using CalValEX;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Blocks;
+using CalamityMod.Tiles.FurnitureExo;
 
 namespace CalValEX.Tiles.Blocks {
 	public class ThanatosPlatingPlaced : ModTile {
@@ -13,6 +14,7 @@ namespace CalValEX.Tiles.Blocks {
 			Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = false;
 			Main.tileMerge[Type][TileType<ThanatosPlatingVentPlaced>()] = true;
+			Main.tileMerge[Type][TileType<ExoPrismPanelTile>()] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
 			HitSound = SoundID.Tink;
@@ -21,11 +23,13 @@ namespace CalValEX.Tiles.Blocks {
 			AddMapEntry(new Color(51, 56, 63));
 		}
 	}
+
 	public class ThanatosPlatingVentPlaced : ModTile {
 		public override void SetStaticDefaults() {
 			Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = false;
 			Main.tileMerge[Type][TileType<ThanatosPlatingPlaced>()] = true;
+			Main.tileMerge[Type][TileType<ExoPrismPanelTile>()] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
 			HitSound = SoundID.Tink;

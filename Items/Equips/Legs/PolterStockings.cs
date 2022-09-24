@@ -8,11 +8,7 @@ namespace CalValEX.Items.Equips.Legs
     [AutoloadEquip(EquipType.Legs)]
     public class PolterStockings : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Odd Polterghast Stockings");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

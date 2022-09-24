@@ -34,6 +34,7 @@ using static Terraria.ModLoader.ModContent;
 using static CalamityMod.Events.BossRushEvent;
 using static CalamityMod.CalamityUtils;
 using CalValEX.Items.Equips.Shirts;
+using CalValEX.Items.Equips.Wings;
 
 namespace CalValEX {
     public class CalValEXPlayer : ModPlayer {
@@ -316,6 +317,7 @@ namespace CalValEX {
         public bool bellaCloak;
         public bool bellaCloakHide;
         public bool bellaCloakForce;
+        public bool helipack;
 
         public override void Initialize() {
             ResetMyStuff();
@@ -414,22 +416,24 @@ namespace CalValEX {
                     sandHide = false;
                     sandForce = true;
                 }
-                  //Update vanity is fucking broken so they are detected here
-                  else if (item.type == ModContent.ItemType<Items.Equips.Backs.PrismShell>()) {
+                //Update vanity is fucking broken so they are detected here
+                else if (item.type == ItemType<Items.Equips.Backs.PrismShell>()) {
                     prismshell = true;
-                } else if (item.type == ModContent.ItemType<Items.Equips.ExodiumMoon>()) {
+                } else if (item.type == ItemType<Items.Equips.ExodiumMoon>()) {
                     exorb = true;
-                } else if (item.type == ModContent.ItemType<ArtemisBalloonSmall>()) {
+                } else if (item.type == ItemType<ArtemisBalloonSmall>()) {
                     sartballoon = true;
-                } else if (item.type == ModContent.ItemType<ApolloBalloonSmall>()) {
+                } else if (item.type == ItemType<ApolloBalloonSmall>()) {
                     sapballoon = true;
-                } else if (item.type == ModContent.ItemType<ApolloBalloon>()) {
+                } else if (item.type == ItemType<ApolloBalloon>()) {
                     apballoon = true;
-                } else if (item.type == ModContent.ItemType<ArtemisBalloon>()) {
+                } else if (item.type == ItemType<ArtemisBalloon>()) {
                     artballoon = true;
-                } else if (item.type == ModContent.ItemType<ExoTwinsBalloon>()) {
+                } else if (item.type == ItemType<ExoTwinsBalloon>()) {
                     twinballoon = true;
-                } else if (item.type == ModContent.ItemType<HeartoftheElements>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
+                } else if (item.type == ItemType<WulfrumHelipack>()) {
+                    helipack = true;
+                } else if (item.type == ItemType<HeartoftheElements>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
                     bool brimmyspawned = Player.ownedProjectileCounts[ProjectileType<VanityBrimstone>()] <= 0;
                     bool cloudspawned = Player.ownedProjectileCounts[ProjectileType<VanityCloud>()] <= 0;
                     bool sandspawned = Player.ownedProjectileCounts[ProjectileType<VanitySand>()] <= 0;
@@ -911,6 +915,7 @@ namespace CalValEX {
             Pandora = false;
             zygote = false;
             brimberry = false;
+            helipack = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit) {

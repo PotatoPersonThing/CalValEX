@@ -6,11 +6,7 @@ namespace CalValEX.Items.Equips.Legs
     [AutoloadEquip(EquipType.Legs)]
     public class BrimmySpirit : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Brimstone Flames");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

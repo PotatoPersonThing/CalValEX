@@ -8,12 +8,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class SmallWorm : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Small Perforator Mask");
-            Tooltip.SetDefault("'The worm-st one of the bunch'");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

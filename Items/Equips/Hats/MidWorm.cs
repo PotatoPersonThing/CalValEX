@@ -8,12 +8,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class MidWorm : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Medium Perforator Mask");
-            Tooltip.SetDefault("'Worming its way to the top!'");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

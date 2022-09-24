@@ -8,12 +8,7 @@ namespace CalValEX.Items.Equips.Legs
     [AutoloadEquip(EquipType.Legs)]
     public class TerrorLegs : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Terror Legs");
-            Tooltip.SetDefault("They're twitching");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

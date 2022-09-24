@@ -8,13 +8,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class GammaHelmet : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Gamma Sludge");
-            Tooltip
-                .SetDefault("I'm Radioactive!");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

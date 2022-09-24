@@ -8,8 +8,6 @@ namespace CalValEX.Buffs.Pets.Elementals
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Small Sand Elemental");
-            Description.SetDefault("She can't heal you, but she's doing her best.");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

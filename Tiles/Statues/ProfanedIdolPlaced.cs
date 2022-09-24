@@ -6,9 +6,12 @@ using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Tiles.Statues;
 using Terraria.DataStructures;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria.GameContent.ObjectInteractions;
 
 namespace CalValEX.Tiles.Statues {
     public class ProfanedIdolPlaced : ModTile {
+        private bool paused;
         public override void SetStaticDefaults() {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -16,29 +19,63 @@ namespace CalValEX.Tiles.Statues {
             TileID.Sets.DisableSmartCursor[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
-            TileObjectData.newTile.Width = 5;
+            TileObjectData.newTile.Width = 6;
             TileObjectData.newTile.Height = 7;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16, 16, 16 };
-            TileObjectData.newTile.CoordinatePadding = 0;
+            TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.newTile.Origin = new Point16(2, 5);
-            AnimationFrameHeight = 96;
+            AnimationFrameHeight = 126;
             TileObjectData.addTile(Type);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Profaned Idol");
-            AddMapEntry(new Color(139, 0, 0), name);
+            AddMapEntry(new Color(206, 116, 59), name);
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter) {
-            frameCounter++;
-            if (frameCounter > 6) {
+            if (paused == true) {
+                frame = 0;
                 frameCounter = 0;
-                frame++;
-                if (frame > 7)
-                    frame = 0;
+            } else { 
+                frameCounter++;
+                if (frameCounter > 6) {
+                    frameCounter = 0;
+                    frame++;
+                    if (frame > 7)
+                        frame = 1;
+                }
             }
         }
 
+        public override bool RightClick(int i, int j) {
+            paused = !paused;
+            return true;
+        }
+
+        public override void MouseOver(int i, int j) {
+            Player player = Main.LocalPlayer;
+            player.noThrow = 2;
+            player.cursorItemIconEnabled = true;
+            player.cursorItemIconID = ItemType<Provibust>();
+        }
+
+        public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b) {
+            Tile tile = Main.tile[i, j];
+            if (tile.TileFrameX == 0 && !paused) {
+                r = 0.8f;
+                g = 0.45f;
+                b = 0.23f;
+            }
+        }
+
+        public override void PostDraw(int i, int j, SpriteBatch spriteBatch) =>
+            CalValEXGlobalTile.TileGlowmask(i, j, Request<Texture2D>("CalValEX/Tiles/Statues/ProfanedIdolPlaced_Glow").Value, 
+                spriteBatch, AnimationFrameHeight, (ushort)TileType<ProfanedIdolPlaced>());
+
         public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
             Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<Provibust>());
+
+        public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
+
+        public override void HitWire(int i, int j) => RightClick(i, j);
     }
 }

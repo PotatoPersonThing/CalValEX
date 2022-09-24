@@ -790,6 +790,7 @@ namespace CalValEX {
 			}
 			#endregion
 
+			//Pandemonium Box!
 			{
 				Recipe recipe = Recipe.Create(ItemType<PandemoniumBox>());
 				recipe.AddIngredient(ItemType<NurseryBell>());

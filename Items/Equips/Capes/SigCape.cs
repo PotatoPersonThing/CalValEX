@@ -8,12 +8,7 @@ namespace CalValEX.Items.Equips.Capes
     [AutoloadEquip(EquipType.Front)]
     public class SigCape : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Signus' Cloak");
-            Tooltip.SetDefault("Mask yourself in the shadows");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

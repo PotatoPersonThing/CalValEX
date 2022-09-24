@@ -6,12 +6,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class CosmicCone : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("The Cosmic Cone");
-            Tooltip.SetDefault("A hat so pointy it could pierce the heavens.");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

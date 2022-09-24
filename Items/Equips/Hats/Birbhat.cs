@@ -9,12 +9,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class Birbhat : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Follyhat");
-            Tooltip.SetDefault("The one hat to rule them all.");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

@@ -11,7 +11,7 @@ namespace CalValEX.Items.Equips.Balloons
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("'From the Moon, Knowledge'");
+            Tooltip.SetDefault("");
             SacrificeTotal = 1;
         }
 

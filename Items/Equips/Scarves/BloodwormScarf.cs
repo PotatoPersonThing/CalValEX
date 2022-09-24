@@ -6,14 +6,8 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Scarves
 {
     [AutoloadEquip(EquipType.Neck)]
-    public class BloodwormScarf : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Bloodworm Scarf");
-            Tooltip.SetDefault("That bloody creature is trying to burrow into your neck!");
-            SacrificeTotal = 1;
-        }
+    public class BloodwormScarf : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

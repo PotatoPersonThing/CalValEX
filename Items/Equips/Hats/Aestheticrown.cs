@@ -10,12 +10,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class Aestheticrown : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Aestheticrest");
-            Tooltip.SetDefault("Biteki-Chan");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

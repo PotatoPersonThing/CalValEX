@@ -5,10 +5,7 @@ using Terraria.ID;
 namespace CalValEX.Items.Equips.Hats {
     [AutoloadEquip(EquipType.Head)]
     public class ProfanedCultistMask : ModItem {
-        public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Profaned Cultist Mask");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults() {
             Item.width = 30;

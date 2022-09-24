@@ -8,8 +8,6 @@ namespace CalValEX.Buffs.Mounts
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Conglomeration Mind");
-            //Description.SetDefault("I swear it's not what you think");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }
