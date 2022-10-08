@@ -8,12 +8,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class SquidHat : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("The Squid Hat");
-            Tooltip.SetDefault("Splattershot sold separately.");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

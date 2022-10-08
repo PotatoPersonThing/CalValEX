@@ -6,14 +6,8 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Scarves
 {
     [AutoloadEquip(EquipType.Neck)]
-    public class Permascarf : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Permafrost's Scarf");
-            Tooltip.SetDefault("Stay Frosty");
-            SacrificeTotal = 1;
-        }
+    public class Permascarf : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

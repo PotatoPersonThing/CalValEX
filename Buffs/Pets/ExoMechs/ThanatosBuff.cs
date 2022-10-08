@@ -8,8 +8,6 @@ namespace CalValEX.Buffs.Pets.ExoMechs
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Toy XF-Thanatos");
-            //Description.SetDefault("T(oy t) han(at)os"); 
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

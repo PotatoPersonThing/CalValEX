@@ -8,12 +8,7 @@ namespace CalValEX.Items.Equips.Legs
     [AutoloadEquip(EquipType.Legs)]
     public class SignusNether : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Nether Spirit");
-            Tooltip.SetDefault("Gaining literal nether regions");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

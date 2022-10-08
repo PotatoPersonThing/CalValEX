@@ -8,10 +8,6 @@ namespace CalValEX.Items.Hooks
 {
     public class ProfanedHook : ModProjectile
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Profaned Hook");
-        }
 
         public override void SetDefaults()
         {

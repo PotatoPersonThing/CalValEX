@@ -4,13 +4,8 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Shirts
 {
     [AutoloadEquip(EquipType.Body)]
-    public class CultistRobe : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Cultist Assassin Robe");
-            SacrificeTotal = 1;
-        }
+    public class CultistRobe : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

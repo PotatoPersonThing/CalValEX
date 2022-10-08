@@ -1,3 +1,4 @@
+using CalValEX.Tiles.Plants;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
@@ -5,11 +6,14 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX
 {
 	public class CalValEXGlobalTile : GlobalTile
     {
+        private int berryCount;
+
         /// <summary>This function lets you easily set a tile glowmask. Compatible with both blocks and furniture.</summary>
         /// <param name="i">The x coord of the tile</param>
         /// <param name="j">The y coord of the tile</param> 
@@ -68,6 +72,24 @@ namespace CalValEX
             }
             Vector2 pos = new Vector2(i * 16 - (int)Main.screenPosition.X, j * 16 - (int)Main.screenPosition.Y) + zero;
             sprit.Draw(glowmask, pos, frame, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+        }
+
+        public override void RandomUpdate(int i, int j, int type) {
+            // Checks every tile during runtime and returns it
+            Tile tile = Framing.GetTileSafely(i, j);
+
+            if (tile.TileType == TileType<BrimPlantPlaced>()) {
+                CalValEXWorld.berryTiles++;
+            }
+
+            // Several tile checks (is it ash, is it unactuated) and other checks to prevent it from spawning too many plants
+            if (tile.HasUnactuatedTile && tile.TileType == TileID.Ash 
+                && Main.rand.NextBool(7) && CalValEXWorld.cragTiles > 20 && berryCount < Main.rand.Next(5, 8)) {
+
+                // Check if the tile above is empty, not hammered and not a slope, then place the brimberry plant!!
+                if (Main.tile[i, j - 1].TileType == 0 && Main.tile[i, j].Slope == 0 && !Main.tile[i, j].IsHalfBlock)
+                    WorldGen.PlaceObject(i, j - 1, TileType<BrimPlantPlaced>(), false);
+            }
         }
     }
 }

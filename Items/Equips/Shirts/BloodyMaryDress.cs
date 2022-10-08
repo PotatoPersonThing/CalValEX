@@ -9,9 +9,7 @@ namespace CalValEX.Items.Equips.Shirts
     [AutoloadEquip(EquipType.Body)]
     public class BloodyMaryDress : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Bloody Mary Dress");
+        public override void SetStaticDefaults() {
             SacrificeTotal = 1;
             if (Main.netMode != NetmodeID.Server)
             {

@@ -6,14 +6,8 @@ using System.Collections.Generic;
 namespace CalValEX.Items.Equips.Shirts.AresChestplate
 {
     [AutoloadEquip(EquipType.Body)]
-    public class AresChestplate : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("XF Model Chestplate");
-            Tooltip.SetDefault("Summons four toy weapons to extend around you\n"+"'What do you MEAN they don't look the same?!?'");
-            SacrificeTotal = 1;
-        }
+    public class AresChestplate : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

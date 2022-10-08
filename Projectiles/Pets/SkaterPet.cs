@@ -27,6 +27,7 @@ namespace CalValEX.Projectiles.Pets
             Projectile.ignoreWater = false;
             Projectile.tileCollide = true;
             DrawOriginOffsetY -= 8;
+            Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
         /*

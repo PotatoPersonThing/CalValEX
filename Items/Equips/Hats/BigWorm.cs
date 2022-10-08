@@ -8,12 +8,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class BigWorm : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Large Perforator Mask");
-            Tooltip.SetDefault("'In the anne-lead.'");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

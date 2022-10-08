@@ -36,6 +36,7 @@ namespace CalValEX.Projectiles.Pets
             Projectile.ignoreWater = true;
             Projectile.tileCollide = true;
             DrawOffsetX = 2;
+            Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
         public override void SendExtraAI(BinaryWriter writer)

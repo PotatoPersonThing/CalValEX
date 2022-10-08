@@ -9,12 +9,7 @@ namespace CalValEX.Items.Equips.Capes
     [AutoloadEquip(EquipType.Front)]
     public class YharimCape : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Tyrant's Cape");
-            Tooltip.SetDefault("Not the true one, but still regal and elegant");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

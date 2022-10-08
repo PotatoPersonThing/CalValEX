@@ -9,12 +9,7 @@ namespace CalValEX.Items.Equips.Hats
     public class AncientAuricTeslaHelm : ModItem
     {
 
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Ancient Auric Tesla Helm");
-            Tooltip.SetDefault("A polished piece of an ancient armor");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

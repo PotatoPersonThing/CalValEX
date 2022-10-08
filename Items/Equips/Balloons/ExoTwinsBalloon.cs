@@ -9,12 +9,8 @@ namespace CalValEX.Items.Equips.Balloons
     [AutoloadEquip(EquipType.Balloon)]
     public class ExoTwinsBalloon : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("XS Leash Bundle");
-            Tooltip.SetDefault("'smile'");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
+
         public override void SetDefaults()
         {
             Item.width = 24;

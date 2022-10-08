@@ -13,8 +13,6 @@ namespace CalValEX.Items.Equips.Transformations
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Sandy Bangles");
-			Tooltip.SetDefault("Encompasses the wearer in sand");
 			SacrificeTotal = 1;
 			if (Main.netMode != NetmodeID.Server)
 			{

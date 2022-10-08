@@ -7,12 +7,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class Calacirclet : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Calamity Circlet");
-            Tooltip.SetDefault("Ring of Fire!");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

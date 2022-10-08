@@ -7,14 +7,8 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Items.Hooks
 {
-    public class ProfanedEnergyHook : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Profaned Energy Hook");
-            Tooltip.SetDefault("Rattle the holy chains\nReach: 37\nLaunch Velocity: 16\nPull Velocity: 30");
-            SacrificeTotal = 1;
-        }
+    public class ProfanedEnergyHook : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

@@ -5,8 +5,6 @@ using CalValEX.Projectiles.Pets.LightPets;
 namespace CalValEX.Buffs.LightPets {
     public class DiggerBuff : ModBuff {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Rebuilt Digger");
-            Description.SetDefault("Summons a piece of digging machinery to light your way");
             Main.buffNoTimeDisplay[Type] = true;
             Main.lightPet[Type] = true;
         }

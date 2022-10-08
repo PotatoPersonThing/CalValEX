@@ -6,14 +6,8 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Scarves
 {
     [AutoloadEquip(EquipType.Neck)]
-    public class UniversalWormScarf : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Universal Worm Scarf");
-            Tooltip.SetDefault("'Eat it all, without bending reality.'");
-            SacrificeTotal = 1;
-        }
+    public class UniversalWormScarf : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

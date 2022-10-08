@@ -27,6 +27,7 @@ namespace CalValEX.Projectiles.Pets
             Projectile.friendly = true;
             Projectile.tileCollide = false;
             Projectile.aiStyle = -1;
+            Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
         public override void AI()

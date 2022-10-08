@@ -8,11 +8,7 @@ namespace CalValEX.Items.Hooks
 {
     public class MawTeeth : ModProjectile
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Maw Jaw");
-            base.DrawOffsetX = -9;
-        }
+        public override void SetStaticDefaults() => base.DrawOffsetX = -9;
 
         public override void SetDefaults()
         {

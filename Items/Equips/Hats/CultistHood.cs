@@ -6,11 +6,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class CultistHood : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Cultist Assassin Hood");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

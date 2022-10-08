@@ -16,10 +16,9 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Vaporofly");
             Main.npcFrameCount[NPC.type] = 8;
-            NPCID.Sets.CantTakeLunchMoney[Type] = true;
             Main.npcCatchable[NPC.type] = true;
+            NPCID.Sets.CantTakeLunchMoney[Type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 

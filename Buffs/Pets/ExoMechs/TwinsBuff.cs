@@ -8,8 +8,6 @@ namespace CalValEX.Buffs.Pets.ExoMechs
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Toy XS-Apollo and XS-Artemis");
-            //Description.SetDefault("Here they are"); 
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

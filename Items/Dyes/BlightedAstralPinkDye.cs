@@ -11,8 +11,6 @@ namespace CalValEX.Items.Dyes
         public override void SetStaticDefaults()
         {
             SacrificeTotal = 3;
-            DisplayName.SetDefault("Blighted Astral Pink Dye");
-            Tooltip.SetDefault("Unobtainable");
         }
 
         public override void SetDefaults()

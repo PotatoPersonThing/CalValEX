@@ -8,8 +8,6 @@ namespace CalValEX.Items.Equips.Wings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Scryllian Wings");
-            Tooltip.SetDefault("RISE!\n" + "Inflicts intense burns when worn before the flesh wall falls\n" + "Horizontal speed: 6.5\n" + "Acceleration multiplier: 1\n" + "Flight time: 60");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(60, 6.5f, 1f);
             SacrificeTotal = 1;

@@ -7,14 +7,8 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Items.Hooks
 {
-    public class Polterhook : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Ghastly Chains");
-            Tooltip.SetDefault("Let the eternally suffering souls pull you forward!\nReach: 46\nLaunch Velocity: 16\nPull Velocity: 20");
-            SacrificeTotal = 1;
-        }
+    public class Polterhook : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

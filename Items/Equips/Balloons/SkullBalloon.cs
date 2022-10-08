@@ -6,11 +6,7 @@ namespace CalValEX.Items.Equips.Balloons
     [AutoloadEquip(EquipType.Balloon)]
     public class SkullBalloon : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            Tooltip.SetDefault("'Looks like there's still a brain inside this one.'");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

@@ -6,12 +6,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class ClamMask : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Clamitous Hat");
-            Tooltip.SetDefault("Wait a second, thats a typo right?");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

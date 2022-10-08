@@ -6,11 +6,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class AstrachnidCranium : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Astrachnid Cranium");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

@@ -8,8 +8,6 @@ namespace CalValEX.Buffs.Pets.Elementals
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Vibrant Siren Child");
-            Description.SetDefault("She can't defend you, but she's doing her best.");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

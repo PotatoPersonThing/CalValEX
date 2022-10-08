@@ -12,8 +12,6 @@ namespace CalValEX.Items.Equips.Hats
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Terminal Facemask");
-            Tooltip.SetDefault("Through bloodshed and turmoil new sight is attained, \nthrough eyes of a God forgotten");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(10, 5));
             // ItemID.Sets.AnimatesAsSoul[Item.type] = true;
             ItemID.Sets.ItemIconPulse[Item.type] = false;

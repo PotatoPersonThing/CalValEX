@@ -9,12 +9,8 @@ namespace CalValEX.Items.Equips.Balloons
     [AutoloadEquip(EquipType.Balloon)]
     public class ArtemisBalloon : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("XS Leash-01");
-            Tooltip.SetDefault("'Hunting has never been easier'");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
+
         public override void SetDefaults()
         {
             Item.width = 24;

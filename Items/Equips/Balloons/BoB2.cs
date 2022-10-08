@@ -9,12 +9,7 @@ namespace CalValEX.Items.Equips.Balloons
     [AutoloadEquip(EquipType.Balloon)]
     public class BoB2 : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Bundle of Water Balloons");
-            Tooltip.SetDefault("The Party Girl can tie this for you\n'How did none of them pop down there?'");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

@@ -7,11 +7,7 @@ namespace CalValEX.Items.Equips.Legs
     [AutoloadEquip(EquipType.Legs)]
     public class FallenPaladinsGreaves : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Fallen Paladin's Greaves");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

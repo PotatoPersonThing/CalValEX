@@ -6,12 +6,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class CoralMask : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Belching Coral Mask");
-            Tooltip.SetDefault("Oh yeah its big brain time");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

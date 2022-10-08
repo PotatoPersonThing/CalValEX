@@ -14,8 +14,6 @@ namespace CalValEX.Items.Dyes
         public override void SetStaticDefaults()
         {
             SacrificeTotal = 3;
-            DisplayName.SetDefault("Ethereal Dye");
-            Tooltip.SetDefault("Unobtainable");
             if (!Main.dedServ)
             {
                 GameShaders.Armor.BindShader(

@@ -7,12 +7,7 @@ namespace CalValEX.Items.Equips.Balloons
     [AutoloadEquip(EquipType.Balloon)]
     public class FoilAtlantis : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Foil Atlantis");
-            Tooltip.SetDefault("'A miniature, inflatable replica of the magical halberd'");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

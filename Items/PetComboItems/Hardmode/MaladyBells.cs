@@ -6,56 +6,33 @@ using Terraria.ModLoader;
 using CalValEX.Buffs.PetComboBuffs;
 using CalValEX.Items.Pets;
 using CalValEX.Projectiles.Pets;
+using static Terraria.ModLoader.ModContent;
 
-namespace CalValEX.Items.PetComboItems.Hardmode
-{
-    public class MaladyBells : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Malady Bells");
-            Tooltip.SetDefault("Start anew");
-        }
+namespace CalValEX.Items.PetComboItems.Hardmode {
+    public class MaladyBells : ModItem {
 
-        public override void SetDefaults()
-        {
+        public override void SetDefaults() {
             Item.CloneDefaults(ItemID.ZephyrFish);
             Item.UseSound = SoundID.NPCHit4;
             Item.value = Item.sellPrice(0, 8, 40, 15);
-            Item.rare = 6;
-            Item.buffType = ModContent.BuffType<MaladyBellsBuff>();
+            Item.rare = ItemRarityID.LightPurple;
+            Item.buffType = BuffType<MaladyBellsBuff>();
         }
 
-        public override void UseStyle(Player player, Rectangle heldItemFrame)
-        {
+        public override void UseStyle(Player player, Rectangle heldItemFrame) {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-            {
                 player.AddBuff(Item.buffType, 3600, true);
-            }
         }
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            type = ModContent.ProjectileType<Cryokid>();
-            type = ModContent.ProjectileType<PhantomPet>();
-            type = ModContent.ProjectileType<Hoodieidolist>();
-            type = ModContent.ProjectileType<FathomEelHead>();
-            type = ModContent.ProjectileType<MoistScourgePet>();
-            type = ModContent.ProjectileType<BoldLizard>();
-            type = ModContent.ProjectileType<SkaterPet>();
+
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
+            ProjectileType<Cryokid>();
+            ProjectileType<PhantomPet>();
+            ProjectileType<Hoodieidolist>();
+            ProjectileType<FathomEelHead>();
+            ProjectileType<MoistScourgePet>();
+            ProjectileType<BoldLizard>();
+            ProjectileType<SkaterPet>();
             return base.Shoot(player, source, position, velocity, type, damage, knockback);
-        }
-        public override void AddRecipes()
-        {
-            CreateRecipe()
-                .AddIngredient(ModContent.ItemType<CooperShortsword>())
-                .AddIngredient(ModContent.ItemType<HauntedPebble>())
-                .AddIngredient(ModContent.ItemType<SmolEldritchHoodie>())
-                .AddIngredient(ModContent.ItemType<DeepseaLantern>())
-                .AddIngredient(ModContent.ItemType<SlightlyMoistbutalsoSlightlyDryLocket>())
-                .AddIngredient(ModContent.ItemType<Eggstone>())
-                .AddIngredient(ModContent.ItemType<AcidLamp>())
-                .AddTile(TileID.MythrilAnvil)
-                .Register();
         }
     }
 }*/

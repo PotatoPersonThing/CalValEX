@@ -7,12 +7,7 @@ namespace CalValEX.Items.Equips.Balloons
     [AutoloadEquip(EquipType.Balloon)]
     public class ShuttleBalloon : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Shuttle Balloon");
-            Tooltip.SetDefault("'Marketable Martian'");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

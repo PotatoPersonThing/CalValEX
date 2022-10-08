@@ -10,7 +10,6 @@ namespace CalValEX.Items.Hooks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("T Hanos Hook");
             base.DrawOriginOffsetY = -10;
             base.DrawOffsetX = -11;
         }

@@ -8,12 +8,7 @@ namespace CalValEX.Items.Equips.Scarves
     [AutoloadEquip(EquipType.Neck)]
     public class StormBandana : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Storm Bandanna");
-            Tooltip.SetDefault("'Electrifying Fashion!'");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

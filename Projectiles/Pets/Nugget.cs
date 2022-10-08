@@ -20,6 +20,7 @@ namespace CalValEX.Projectiles.Pets
             Projectile.CloneDefaults(ProjectileID.PetLizard);
             AIType = ProjectileID.PetLizard;
             DrawOriginOffsetY = -5;
+            Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
         public override bool PreAI()

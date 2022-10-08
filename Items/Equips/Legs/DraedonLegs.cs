@@ -8,11 +8,7 @@ namespace CalValEX.Items.Equips.Legs
     [AutoloadEquip(EquipType.Legs)]
     public class DraedonLegs : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Draedon Legs");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

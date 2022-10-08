@@ -8,8 +8,6 @@ namespace CalValEX.Buffs.Mounts
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Wulfrum Tank");
-            //Description.SetDefault("Move forward soldier!");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

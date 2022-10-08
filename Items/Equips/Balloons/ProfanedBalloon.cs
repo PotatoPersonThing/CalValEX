@@ -8,12 +8,7 @@ namespace CalValEX.Items.Equips.Balloons
     [AutoloadEquip(EquipType.Balloon)]
     public class ProfanedBalloon : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Profaned Balloon");
-            Tooltip.SetDefault("'Patronage for Providence!'");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

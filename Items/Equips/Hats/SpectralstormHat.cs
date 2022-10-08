@@ -10,12 +10,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class SpectralstormHat : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Spectralstorm Hat");
-            Tooltip.SetDefault("'The actual dumbest idea ever submitted to suggestions'");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

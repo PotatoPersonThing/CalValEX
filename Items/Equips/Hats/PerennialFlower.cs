@@ -6,12 +6,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Face)]
     public class PerennialFlower : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Perennial Tulip");
-            Tooltip.SetDefault("Am I a pretty girl?");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

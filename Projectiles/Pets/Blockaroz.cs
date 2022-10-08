@@ -28,6 +28,7 @@ namespace CalValEX.Projectiles.Pets
             Projectile.width = 34;
             Projectile.height = 38;
             DrawOriginOffsetY = CalValEX.month == 12 ? -10 : 2;
+            Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
         public override void ModifyJumpHeight(ref float oneTileHigherAndNotTwoTilesHigher, ref float twoTilesHigher, ref float fourTilesHigher, ref float fiveTilesHigher, ref float anyOtherJump)

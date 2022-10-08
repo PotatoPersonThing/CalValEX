@@ -33,6 +33,8 @@ using CalamityMod.Items.Accessories;
 using static Terraria.ModLoader.ModContent;
 using static CalamityMod.Events.BossRushEvent;
 using static CalamityMod.CalamityUtils;
+using CalValEX.Items.Equips.Shirts;
+using CalValEX.Items.Equips.Wings;
 
 namespace CalValEX {
     public class CalValEXPlayer : ModPlayer {
@@ -311,6 +313,11 @@ namespace CalValEX {
         public bool profanedCultistHide;
         public bool profanedCultistForce;
         public bool zygote;
+        public bool brimberry;
+        public bool bellaCloak;
+        public bool bellaCloakHide;
+        public bool bellaCloakForce;
+        public bool helipack;
 
         public override void Initialize() {
             ResetMyStuff();
@@ -332,6 +339,7 @@ namespace CalValEX {
             maryPrevious = maryTrans;
             maryTrans = maryHide = maryForce = maryPower = false;
             profanedCultist = profanedCultistHide = profanedCultistForce = false;
+            bellaCloak = bellaCloakHide = bellaCloakForce = false;
             ResetMyStuff();
         }
 
@@ -378,13 +386,17 @@ namespace CalValEX {
             Mod antisocial;
             ModLoader.TryGetMod("Antisocial", out antisocial);
             Item itemVan = Player.armor[11];
-            if (itemVan.type == ModContent.ItemType<Items.Equips.Shirts.BloodyMaryDress>()) {
+            if (itemVan.type == ItemType<BloodyMaryDress>()) {
                 maryHide = false;
                 maryForce = true;
             }
-            if (itemVan.type == ModContent.ItemType<Items.Equips.Shirts.ProfanedCultistRobes>()) {
-                profanedCultist = false;
+            if (itemVan.type == ItemType<ProfanedCultistRobes>()) {
+                profanedCultistHide = false;
                 profanedCultistForce = true;
+            }
+            if (itemVan.type == ItemType<BelladonnaCloak>()) {
+                bellaCloakHide = false;
+                bellaCloakForce = true;
             }
             for (int n = 13; n < 18 + Player.extraAccessorySlots; n++) {
                 Item item = Player.armor[n];
@@ -404,22 +416,24 @@ namespace CalValEX {
                     sandHide = false;
                     sandForce = true;
                 }
-                  //Update vanity is fucking broken so they are detected here
-                  else if (item.type == ModContent.ItemType<Items.Equips.Backs.PrismShell>()) {
+                //Update vanity is fucking broken so they are detected here
+                else if (item.type == ItemType<Items.Equips.Backs.PrismShell>()) {
                     prismshell = true;
-                } else if (item.type == ModContent.ItemType<Items.Equips.ExodiumMoon>()) {
+                } else if (item.type == ItemType<Items.Equips.ExodiumMoon>()) {
                     exorb = true;
-                } else if (item.type == ModContent.ItemType<ArtemisBalloonSmall>()) {
+                } else if (item.type == ItemType<ArtemisBalloonSmall>()) {
                     sartballoon = true;
-                } else if (item.type == ModContent.ItemType<ApolloBalloonSmall>()) {
+                } else if (item.type == ItemType<ApolloBalloonSmall>()) {
                     sapballoon = true;
-                } else if (item.type == ModContent.ItemType<ApolloBalloon>()) {
+                } else if (item.type == ItemType<ApolloBalloon>()) {
                     apballoon = true;
-                } else if (item.type == ModContent.ItemType<ArtemisBalloon>()) {
+                } else if (item.type == ItemType<ArtemisBalloon>()) {
                     artballoon = true;
-                } else if (item.type == ModContent.ItemType<ExoTwinsBalloon>()) {
+                } else if (item.type == ItemType<ExoTwinsBalloon>()) {
                     twinballoon = true;
-                } else if (item.type == ModContent.ItemType<HeartoftheElements>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
+                } else if (item.type == ItemType<WulfrumHelipack>()) {
+                    helipack = true;
+                } else if (item.type == ItemType<HeartoftheElements>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
                     bool brimmyspawned = Player.ownedProjectileCounts[ProjectileType<VanityBrimstone>()] <= 0;
                     bool cloudspawned = Player.ownedProjectileCounts[ProjectileType<VanityCloud>()] <= 0;
                     bool sandspawned = Player.ownedProjectileCounts[ProjectileType<VanitySand>()] <= 0;
@@ -564,6 +578,10 @@ namespace CalValEX {
             }
             if ((profanedCultist || profanedCultistForce) && !profanedCultistHide)
                 Player.legs = EquipLoader.GetEquipSlot(Mod, "ProfanedCultistRobes", EquipType.Legs);
+            if ((bellaCloak || bellaCloakForce) && !bellaCloakHide) { 
+                Player.legs = EquipLoader.GetEquipSlot(Mod, "BelladonnaCloak", EquipType.Legs);
+                Player.front = (sbyte)EquipLoader.GetEquipSlot(Mod, "BelladonnaCloak", EquipType.Front);
+            }
             if ((signutTrans || signutForce) && !signutHide) {
                 var costume = GetInstance<Signus>();
                 Player.head = EquipLoader.GetEquipSlot(Mod, "Signus", EquipType.Head);
@@ -896,6 +914,8 @@ namespace CalValEX {
             TubRune = false;
             Pandora = false;
             zygote = false;
+            brimberry = false;
+            helipack = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit) {

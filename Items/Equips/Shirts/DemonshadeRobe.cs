@@ -8,11 +8,7 @@ namespace CalValEX.Items.Equips.Shirts
     [AutoloadEquip(EquipType.Body)]
     public class DemonshadeRobe : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Ancient Demonshade Breastplate");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

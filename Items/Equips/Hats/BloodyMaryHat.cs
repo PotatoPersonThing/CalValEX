@@ -9,12 +9,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class BloodyMaryHat : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Bloody Mary Hat");
-            Tooltip.SetDefault("You feel elegant");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

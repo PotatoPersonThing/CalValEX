@@ -40,6 +40,7 @@ namespace CalValEX.Projectiles.Pets
             Projectile.tileCollide = true;
             DrawOffsetX = -15;
             DrawOriginOffsetY -= 21;
+            Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
         public override void Animation(int state)

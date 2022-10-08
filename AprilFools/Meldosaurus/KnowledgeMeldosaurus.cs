@@ -11,6 +11,7 @@ namespace CalValEX.AprilFools.Meldosaurus
         public override void SetStaticDefaults()
         {
             SacrificeTotal = 1;
+            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
         public override void SetDefaults()

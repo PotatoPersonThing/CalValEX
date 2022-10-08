@@ -6,13 +6,8 @@ using System.Collections.Generic;
 namespace CalValEX.Items.Equips.Shirts
 {
     [AutoloadEquip(EquipType.Body)]
-    public class DraedonBody : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Draedon Thorax");
-            SacrificeTotal = 1;
-        }
+    public class DraedonBody : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

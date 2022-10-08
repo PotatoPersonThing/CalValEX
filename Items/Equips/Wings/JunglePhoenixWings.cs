@@ -13,8 +13,6 @@ namespace CalValEX.Items.Equips.Wings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chicken Wings");
-            Tooltip.SetDefault("Hot\n" + "Horizontal speed: 11.5\n" + "Acceleration multiplier: 2.9\n" + "Flight time: 140");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(140, 11.5f, 2.9f);
             SacrificeTotal = 1;

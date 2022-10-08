@@ -4,12 +4,11 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Wings
 {
     [AutoloadEquip(EquipType.Wings)]
+    // Who tf typo'd the name lmao
     public class PlaugeWings : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Plaguebringer Wings");
-            Tooltip.SetDefault("Nanomachines not included\n" + "Horizontal speed: 7.75\n" + "Acceleration multiplier: 1.5\n" + "Flight time: 150"); ;
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(150, 7.75f, 1.5f);
             SacrificeTotal = 1;

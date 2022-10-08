@@ -28,6 +28,7 @@ namespace CalValEX.Projectiles.Pets.Elementals
             Projectile.width = 30;
             Projectile.height = 30;
             Projectile.ignoreWater = true;
+            Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
         public override void PetFunctionality(Player player)

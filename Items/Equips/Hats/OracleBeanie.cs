@@ -7,11 +7,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class OracleBeanie : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Oracle's Beanie");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

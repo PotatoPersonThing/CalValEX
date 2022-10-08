@@ -4,14 +4,8 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Scarves
 {
     [AutoloadEquip(EquipType.Neck)]
-    public class DesertMedallion : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Budget Desert Medallion");
-            Tooltip.SetDefault("Because the other one is too cursed to wear");
-            SacrificeTotal = 1;
-        }
+    public class DesertMedallion : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

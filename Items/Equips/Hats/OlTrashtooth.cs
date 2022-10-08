@@ -7,11 +7,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class OlTrashtooth : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Ol Trashtooth");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

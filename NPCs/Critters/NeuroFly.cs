@@ -4,6 +4,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
+using Terraria.GameContent.Bestiary;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace CalValEX.NPCs.Critters {
     public class NeuroFly : ModNPC {
@@ -11,30 +13,45 @@ namespace CalValEX.NPCs.Critters {
             Main.npcFrameCount[NPC.type] = 4;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
+	        NPCID.Sets.CantTakeLunchMoney[Type] = true;
+            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new (0) { Velocity = 1f, Direction = -1 };
         }
 
         public override void SetDefaults() {
-            NPC.CloneDefaults(NPCID.Butterfly);
+            NPC.CloneDefaults(NPCID.BlackDragonfly);
             NPC.width = 26;
             NPC.height = 22;
             NPC.damage = 0;
             NPC.defense = 0;
             NPC.npcSlots = 0.5f;
-            NPC.catchItem = (short)ItemType<NeuroFlyItem>();
+            NPC.catchItem = ItemType<NeuroFlyItem>();
             NPC.lavaImmune = true;
-            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
-            AIType = NPCID.Butterfly;
-            AnimationType = NPCID.Butterfly;
+            AIType = NPCID.BlackDragonfly;
+            AnimationType = NPCID.BlackDragonfly;
             NPC.lifeMax = 20;
             NPC.value = 0;
             NPC.chaseable = false;
         }
 
-        public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry) {
-            bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
-            bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
-                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("One of the many creatures assisting the Hive Mind, although not physically connected, they share a psychic connection. Its sole purpose is to spread the virus."),
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
+            bestiaryEntry.UIInfoProvider = new CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
+            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCorruption,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.CorruptDesert,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.CorruptIce,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.CorruptUndergroundDesert,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.UndergroundCorruption,
+                new FlavorTextBestiaryInfoElement("One of the many creatures assisting the Hive Mind, although not physically connected, they share a psychic connection. Its sole purpose is to spread the virus."),
             });
+        }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) {
+            if (NPCID.Sets.NPCBestiaryDrawOffset.TryGetValue(Type, out NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers)) {
+                NPCID.Sets.NPCBestiaryDrawOffset.Remove(Type);
+                NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
+            }
+
+            return true;
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo) {
@@ -43,9 +60,12 @@ namespace CalValEX.NPCs.Critters {
             }
             return 0f;
         }
+
         public override void AI() {
             NPC.spriteDirection = -NPC.direction;
             NPC.TargetClosest(false);
         }
+
+        public override void OnCaughtBy(Player player, Item item, bool failed) => item.stack = 1;
     }
 }

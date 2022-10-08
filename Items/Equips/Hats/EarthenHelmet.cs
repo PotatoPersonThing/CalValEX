@@ -6,11 +6,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class EarthenHelmet : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Earthen Helmet");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

@@ -1,100 +1,502 @@
 ﻿Mods: {
 	CalValEX: {
-		
-		NPCName: 
-		{
+		NPCName: {
 			# April fools!
-			Meldosaurus : Meldosaurus
-			Jharim : Jungle Tyrant
-			Fogbound : '''Hyper Ultra Omega Fogbound GOD EX: Prepare to Stygian Edition'''
-			#Critters
-			AstJR : Astragelly Slime
-			Blightolemur : Bleamur
-			Blinker : Blinker
-			CrystalFly : Profaned Butterfly
-			Eyedol: Eyedol
-			GAstJR : Gold Astragelly Slime
-			GodSlayerSlug : God Slayer Slug
-			GoldenIsopod : Gold Isopod
-			GoldEyedol : Gold Eyedol
-			GoldViolemur : Gold Violemur
-			Isopod : Abyssal Isopod
-			NukeFly : Vaporofly
-			Orthobab : Orthocera Hatchling
-			OrthoceraApparition : '''Orthocera?'''
-			PlagueFrog : Plagued Frog
-			ProvFly : Profaned Butterfly
-			SandTurtle : Sand Turtle
-			Swearshroom : Swearshroomh
-			Violemur : Violemur
-			Xerocodile : Awakened Xerocodile
-			XerocodileSwim : Awakened Xerocodile
-		}
-		
-		ItemName: 
-		{
-			# April fools!
-			AmogusItem : Polus Communicator
-			ShadesBane : The Shade's Bane
-			Nyanthrop : Nyanthrop
-			KnowledgeMeldosaurus : Meldosaurus
-			MeldosaurusMask : Meldosaurus Mask
-			MeldosaurusTrophy : Meldosaurus Trophy
-			MeldosaurusMusicBox : Music Box (Meldosaurus)
-			MeldosaurusBag : Treasure Bag
-			JharimHead : Jungle Tyrant Jharim's Decapitated Head
-			FogG : Purified Fog
+			Meldosaurus: Meldosaurus
+			Jharim: Jungle Tyrant
+			Fogbound: '''Hyper Ultra Omega Fogbound GOD EX: Prepare to Stygian Edition'''
+			
 			# Critters
-			AstJRItem : Astragelly Slime
-			BlightolemurItem : Bleamur
-			BlinkerItem : Blinker
-			CrystalFlyItem : Profaned Butterfly
-			EyedolItem: Eyedol
-			GAstJRItem : Gold Astragelly Slime
-			GodSlayerSlugItem : God Slayer Slug
-			GoldenIsopodItem : Gold Isopod
-			GoldEyedolItem : Gold Eyedol
-			GoldViolemurItem : Gold Violemur
-			IsopodItem : Abyssal Isopod
-			VaporoflyItem : Vaporofly
-			OrthobabItem : Orthocera Hatchling
-			PlagueFrogItem : Plagued Frog
-			ProvFlyItem : Profaned Butterfly
-			SandTurtleItem : Sand Turtle
-			SwearshroomItem : Swearshroom
-			ViolemurItem : Violemur
-			XerocodileItem : Awakened Xerocodile
-			PerfoGrubItem : Perforator Grub
-			NeuroFlyItem : Neurofly
-			# Tiles
-			BubbleMachine : Effervescent Bubbler
-			MeldBlockItem : Meld Block
+			AstJR: Astragelly Slime
+			Blightolemur: Bleamur
+			Blinker: Blinker
+			CrystalFly: Profaned Butterfly
+			Eyedol: Eyedol
+			GAstJR: Gold Astragelly Slime
+			GodSlayerSlug: God Slayer Slug
+			GoldenIsopod: Gold Isopod
+			GoldEyedol: Gold Eyedol
+			GoldViolemur: Gold Violemur
+			Isopod: Abyssal Isopod
+			NeuroFly: Neuro Fly
+			NukeFly: Vaporofly
+			Orthobab: Orthocera Hatchling
+			OrthoceraApparition: '''Orthocera?'''
+			PerfoGrub: Perforator Grub
+			PlagueFrog: Plagued Frog
+			ProvFly: Profaned Butterfly
+			SandTurtle: Sand Turtle
+			Swearshroom: Swearshroomh
+			Vaporofly: Vaporofly
+			Violemur: Violemur
+			Xerocodile: Awakened Xerocodile
+			XerocodileSwim: Awakened Xerocodile
+
+			# Town NPCs
+			JellyPriestBound: Bound Jelly Priestess
+			JellyPriestNPC: Jelly Priestess
+			OracleNPC: Oracle
+			OracleNPCPet_Pet: TUB
 		}
 		
-		ItemTooltip: 
-		{
+		ItemName:  {
+			# April fools!
+			AmogusItem: Polus Communicator
+			ShadesBane: The Shade's Bane
+			Nyanthrop: Nyanthrop
+			KnowledgeMeldosaurus: Meldosaurus
+			MeldosaurusMask: Meldosaurus Mask
+			MeldosaurusTrophy: Meldosaurus Trophy
+			MeldosaurusMusicBox: Music Box (Meldosaurus)
+			MeldosaurusBag: Treasure Bag
+			JharimHead: Jungle Tyrant Jharim's Decapitated Head
+			FogG: Purified Fog
+			
+			# Critters
+			AstJRItem: Astragelly Slime
+			BlightolemurItem: Bleamur
+			BlinkerItem: Blinker
+			CrystalFlyItem: Profaned Butterfly
+			EyedolItem: Eyedol
+			GAstJRItem: Gold Astragelly Slime
+			GodSlayerSlugItem: God Slayer Slug
+			GoldenIsopodItem: Gold Isopod
+			GoldEyedolItem: Gold Eyedol
+			GoldViolemurItem: Gold Violemur
+			IsopodItem: Abyssal Isopod
+			VaporoflyItem: Vaporofly
+			NeuroFlyItem: Neuro Fly
+			OrthobabItem: Orthocera Hatchling
+			PerfoGrubItem: Perforator Grub
+			PlagueFrogItem: Plagued Frog
+			ProvFlyItem: Profaned Butterfly
+			SandTurtleItem: Sand Turtle
+			SwearshroomItem: Swearshroom
+			ViolemurItem: Violemur
+			XerocodileItem: Awakened Xerocodile
+
+			# Dyes
+			BlightedAstralDye: Ethereal Dye
+			BlighedAstralPinkDye: Blighted Astral Pink Dye
+			BlighedAstralYellowDye: Blighted Astral Yellow Dye
+			DraedonHologramDye: Draedon's Hologram Dye
+
+			# Backs
+			BackpackServer: Backpack Server
+			PrismShell: Prism Shell
+
+			# Balloons
+			ApolloBallonSmall: Small Apollo Balloon
+			ArtemisBalloonSmall: Small Artemis Balloon
+			ApolloBalloon: XS Leash-03
+			ArtemisBalloon: XS Leash-01
+			AuricBalloon: Auric Balloon
+			BoB2: Bundle of Water Balloons
+			BoxBalloon: Cuboidal Balloon
+			ChaosBalloon: Puffer Balloon
+			ExoTwinsBalloon: XS Leash Bundle
+			FoilAtlantis: Foil Atlantis
+			FoilSpoon: Foil Spoon
+			Mirballoon: MirageBalloon
+			OldMirage: Ancient Mirage Balloon
+			ProfanedBalloon: Profaned Balloon
+			ShuttleBalloon: Shuttle Balloon
+			SignusBalloon: Cosmic Lantern Balloon
+			SkullBalloon: Skull Balloon
+			WulfrumBalloon: Wulfrum Gyro Balloon
+
+			# Capes
+			EidCape: Eidolist Cape
+			SigCape: Signus' Cape
+			YharimCape: Tyrant's Cape
+			YharimCapeBaby: Auric Mantle
+
+			# Hats
+			DraedonHelmet: Arsenal Soldier Helmet
+			Aestheticrown: Aestheticrest
+			AncientAuricTeslaHelm: Ancient Auric Tesla Helm
+			AncientPerennialFlower: Ancient Perennial Tulip
+			AstrachnidCranium: Astrachnid Cranium
+			AstrumDeusMask: Blighted Deus Mask
+			AureicFedora: Aureic Fedora
+			BanditHat: Bandit's Hat
+			BelladonnaHat: Belladona Spirit Hat
+			BigWorm: Large Perforator Mask
+			BirbHat: Follyhat
+			BloodyMaryHat: Bloody Mary Hat
+			CalaCirclet: Calamity Circlet
+			ClamMask: Clamitous Hat
+			CoralMask: Belching Coral Mask
+			CosmicCone: The Cosmic Cone
+			Cryocap: Cryocap
+			CultistHood: Cultist Assassin Hood
+			DemonshadeHood: Ancient Demonshade Helm
+			DevilfishMask1: Curly Devil Fish Mask
+			DevilfishMask2: Pointed Devil Fish Mask
+			DevilfishMask3: Exposed Devil Fish Mask
+			DummyMask: Dummy Mask
+			EarthenHelmet: Earthen Helmet
+			EidoMask: Eidolist Mask
+			FallenPaladinsHelmet: ''' Fallen Paladin's Helmet '''
+			FlakHeadCrab: Flak Head Crab
+			GammaHelmet: Gamma Sludge
+			GruelingMask: Grueling Mask
+			MaulerMask: Mauler Mask
+			MidWorm: Medium Perforator Mask
+			OlTrashtooth: Ol Trashtooth
+			OmegaBlue: Ancient Omega Blue Helmet
+			OracleBeanie: Oracle's Beanie
+			PerennialFlower: Perennial Tulip
+			PolterMask: Odd Polterghast Mask
+			ProfanedCultistMask: Profaned Cultist Mask
+			ScornEaterMask: Scorn Eater Mask
+			SeaCrown: Sea Empress Crown
+			SlimeGodMask: Slime God Core Mask
+			SmallWorm: Small Perforator Mask
+			SpectralstormHat: Spectralstorm Hat
+			SquidHat: The Squid Hat
+			StonePile: Stone Pile
+			TerminalMask: Terminal Facemask
+			TrueCosmicCone: True Cosmic Cone
+			UnloadedHelm: Unloaded Helm
+
+			# Legs
+			DraedonLeggings: Arsenal Soldier Leggings
+			AstrachnidTentacles: Astrachnid Legs
+			BrimmySpirit: Brimstone Flames
+			CultistLegs: Cultist Assassin Pants
+			DemonshadePants: Ancient Demonshade Greaves
+			DraedonLegs: Draedon Legs
+			EarthenLeggings: Earthen Leggings
+			FallenPaladinsGreaves: ''' Fallen Paladin's Greaves '''
+			PolterStockings: Odd Polterghast Stockings
+			SignusNether: Nether Spirit
+			TerrorLegs: Terror Legs
+
+			# Scarves
+			AstBandana: Astral Bandana
+			BloodwormScarf: Bloodworm Scarf
+			CosmicWormScarf: Cosmic Worm Scarf
+			DesertMedallion: Budget Desert Medallion
+			PermaScarf: Permafrost's Scarf
+			ProviCrystal: Unholy Charm
+			RapturedWormScarf: Raptured Worm Scarf
+			SignusEmblem: Signus Emblem
+			StormBandana: Storm Bandanna
+			UniversalWormScarf: Universal Worm Scarf
+			YharonShackle: Yharon's Shackle
+
+			# Shields
+			AureusShield: Aureus Bulwark
+			EarthShield: Tower Shield of the Elemental
+			Invishield: Compensation
+			TrilobiteShield: Trilobuckler
+
+			# Shirts
+			AresChestplate: XF Model Chestplate
+			DraedonChestplate: Arsenal Soldier Chestplate
+			AstrachnidThorax: Astrachnid Thorax
+			BelladonnaCloak: Belladonna Spirit Cloak
+			BloodyMaryDress: Bloody Mary Dress
+			BrimmyBody: Brimstone Elemental Suit
+			Cryocoat: Cryocoat
+			CultistRobe: Cultist Assassin Robe
+			DemonshadeRobe: Ancient Demonshade Breastplate
+			DraedonBody: Draedon Thorax
+			EarthenBreastplate: Earthen Breastplate
+			FallenPaladinsPlateMail: Fallen Paladin's Plate Mail
+			PerennialDress: Perennial Dress
+			Polterskirt: Odd Polterghast Dress
+			ProfanedCultistRobes: Profaned Cultist Robes
+			ReaperSharkArms: Reaper Shark Arms
+
+			# Transformations
+			BurningEye: Burning Eye
+			CloudWaistBelt: Valkyrian Garments
+			ProtoRing: Prototype Ring
+			SandyBangles: Sandy Bangles
+			Signus: Twilight Charm
+
+			# Wings
+			AeroWings: Aero Wings
+			FollyWings: Folly Wings
+			GodspeedBoosters: Godspeed Boosters
+			JunglePhoenixWings: Chicken Wings
+			LeviWings: Leviathan Fin Wings
+			OldVoidWings: Revoided Wings
+			OldWings: Old Duke Wings
+			PlaguePack: Beelzebooster
+			PlaugeWings: Plaguebringer Wings
+			ScryllianWings: Scryllian Wings
+			TerminalWings: Wings of Termina
+			VoidWings: Void Wings
+			WulfrumHelipack: Wulfrum Helipack
+
+			# Hooks
+			MawHook: Cragmaw Spinehook
+				MawTeeth: Maw Jaw
+			PolterHook: Ghastly Chains
+				PhantomHook: Phantom Hook
+			ProfanedEnergyHook: Profaned Energy Hook
+				ProfanedHook: Profaned Hook
+			RavaHook: Ravager Claw
+				RavaClaw: Ravager Claw
+			ScavaHook: Ancient Scavenger Claw
+				ScavaClaw: Scavenger Claw
+			XMLightningHook: XM-Lightning Hook
+				THanosHook: T Hanos Hook
+
+			# Misc
+			ExodiumMoon: Exodium Orbiter
+
+			# Tiles
+			BubbleMachine: Effervescent Bubbler
+			MeldBlockItem: Meld Block
+			WulfrumPlating: Wulfrum Plating
+			ThanatosPlating: XM-05 Armor Plating
+			ThanatosPlatingVent: XM-05 Armor Plating (Vent)
+
+			# Pandemonium Box
+			AlarmClock: Alarm Clock
+			NurseryBell: Nursery Bell
+			DustChime: Dust Chime
+			BestInstrument: Best Instrument
+			HarbingerOfWork: Harbinger of Work
+			MaladyBells: Malady Bells
+			SpiritDinerBell: Dead Ringer
+			AltarBell: Altar Bell
+			TubRune: T.U.B. Rune
+			VaselineBell: Vaseline Bell
+			WormBell: Slither Charm
+			ScratchedGong: Scratched Gong
+			PandemoniumBox: Pandemonium Box
+		}
+		
+		ItemTooltip:  {
 			# April fools!
 			AmogusItem: '''Summons a Stratus Astronaut
 				UNOBTAINABLE
 				Cheating this item in may have disastrous consequences
 				Hates alien dinosaurs'''
-			ShadesBane : '''Makes cursed fireballs erupt from enemies on true melee hits
+			ShadesBane: '''Makes cursed fireballs erupt from enemies on true melee hits
 			Right click to unleash fireballs in random directions along with an onyx dart
 			'Edgy sword #2940358304' '''
-			Nyanthrop : Fires typhoons in random directions
-			KnowledgeMeldosaurus : '''The Meldosaurus...
+			Nyanthrop: Fires typhoons in random directions
+			KnowledgeMeldosaurus: '''The Meldosaurus...
 				A dreaded creature birthed from the wills of decay. Nobody knows why it exists, and what it wants...
 				HUGH! Glad he's gone now!!! Him being inside me was making me itchy!'''
 			JharimHead: '''Summons the Jungle Tyrant
 				Does not work outside of April Fools'''
 			FogG: ''':Why:
 				Summons the Fogbound'''
-			#Tiles
-			BubbleMachine : '''That's like, groovy mannn'''
+
+			# Dyes
+			BlightedAstralDye: Unobtainable
+			BlighedAstralPinkDye: Unobtainable
+			BlighedAstralYellowDye: Unobtainable
+
+			# Backs
+			BackpackServer: ''' 'Draedon's eyes are on you' '''
+			PrismShell: ''' 'Lookin' sharp' '''
+
+			# Capes
+			EidCape: Whispers of the deep can be heard through the weavings of this eldritch fabric...
+			SigCape: Mask yourself in the shadows
+			YharimCape: Not the true one, but still regal and elegant
+			YharimCapeBaby: Still not the true one, looks like a kid's toy
+
+			# Hats
+			DraedonHelmet: '''Changes appearance depending on held item damage type
+				CURRENTLY UNSTABLE'''
+			Aestheticrown: Biteki-Chan
+			AncientAuricTeslaHelm: A polished piece of an ancient armor
+			AncientPerennialFlower: ''' I'm a pretty girl! '''
+			AstrumDeusMask: ''' 'A faded star reignited.' '''
+			AureicFedora: Just don't directly tip it on someone
+			BelladonnaHat: Poisonous but stylish
+			BigWorm: ''' 'In the anne-lead.' '''
+			BirbHat: The one hat to rule them all.
+			BloodyMaryHat: You feel elegant
+			CalaCirclet: Ring of Fire!
+			ClamMask: ''' 'Wait a second, thats a typo right?' '''
+			CoralMask: Oh yeah its big brain time
+			CosmicCone: A hat so pointy it could pierce the heavens.
+			Cryocap: ''' Brain Freeze! '''
+			DevilfishMask1: Edgy
+			DevilfishMask2: Also Edgy
+			DevilfishMask3: Rubbing salt on the wound
+			DummyMask: The only dummy here is you.
+			FlakHeadCrab: It appears you have a parasite
+			GammaHelmet: ''' I'm Radioactive! '''
+			GruelingMask: ''' Yaaagh! '''
+			MaulerMask: Mauling faces since the 80s
+			MidWorm: ''' 'Worming its way to the top!' '''
+			OmegaBlue: You are beneath my notice, wyrm!
+			PerennialFlower: ''' Am I a pretty girl? '''
+			ScornEaterMask: The searing fire blazes fiercly
+			SeaCrown: Wearing this will make you feel royal
+			SmallWorm: ''' 'The worm-st one of the bunch' '''
+			SpectralstormHat: ''' 'The actual dumbest idea ever submitted to suggestions' '''
+			SquidHat: Splattershot sold separately.
+			StonePile: ''' 'Requires a strong head to wear' '''
+			TerminalMask: '''Through bloodshed and turmoil new sight is attained,
+				through eyes of a God forgotten'''
+			TrueCosmicCone: ''' 'A cosmically large hat so pointy it could pierce through dimensions.' '''
+			UnloadedHelm: Still reeks
+
+			# Legs
+			DraedonLeggings: ''' CURRENTLY UNSTABLE
+				Well, not really, only the other pieces are,
+				but why would you use these without them? '''
+			SignusNether: Gaining literal nether regions
+			TerrorLegs: They're twitching
+
+			# Scarves
+			AstBandana: ''' Space Age Fashion! '''
+			BloodwormScarf: That bloody creature is trying to burrow into your neck!
+			CosmicWormScarf: ''' 'Spacetime Fashion!' '''
+			DesertMedallion: Because the other one is too cursed to wear
+			PermaScarf: Stay Frosty
+			ProviCrystal: A rare treasure gifted from the profaned goddess
+			RapturedWormScarf: 'So stylish it bends the fabric of reality!'
+			SignusEmblem: Contains some abyssal energy
+			StormBandana: ''' 'Electrifying Fashion!' '''
+			UniversalWormScarf: ''' 'Eat it all, without bending reality.' '''
+			YharonShackle: It barely fits you...
+
+			# Shields
+			AureusShield: Smaller in execution
+			EarthShield: Looks sturdy, but it's actually soft, useless stone!
+			Invishield: Can be sold
+			TrilobiteShield: An ancient shield that's too old to block attacks
+
+			# Shirts
+			AresChestplate: ''' Summons four toy weapons to extend around you
+				'What do you MEAN they don't look the same?!?' '''
+			DraedonChestplate: ''' Changes appearance depending on held item damage type
+				CURRENTLY UNSTABLE '''
+			BelladonnaCloak: The latest in fashion, all natural
+			PerennialDress: Flowering out
+			ReaperSharkArms: Hitting the gym was never this easy!
+
+			# Transformations
+			BurningEye: Engulfs the wearer in Brimstone Flames
+			CloudWaistBelt: Surrounds the wearer with clouds
+			ProtoRing: Transforms the wearer into a small mech
+			SandyBangles: Encompasses the wearer in sand
+			Signus: ''' 'One with the void'
+				Transforms the wearer into a nether spirit '''
+
+			# Wings
+			AeroWings: ''' It's a windy day
+				Horizontal speed: 1
+				Acceleration multiplier: 1
+				Flight time: 32 '''
+			FollyWings: ''' Fly like an eagle
+				Horizontal speed: 9
+				Acceleration multiplier: 2.5
+				Flight time: 210 '''
+			GodspeedBoosters: ''' Devout propulsion!
+				Horizontal speed: 9
+				Acceleration multiplier: 2.7
+				Flight time: 200 '''
+			JunglePhoenixWings: ''' Hot
+				Horizontal speed: 11.5
+				Acceleration multiplier: 2.9
+				Flight time: 140 '''
+			LeviWings: ''' Flip flop
+				Horizontal speed: 6.75
+				Acceleration multiplier: 1.4
+				Flight time: 120 '''
+			OldVoidWings: ''' 'Literally carried out of the darkness'
+				Horizontal speed: 9
+				Acceleration multiplier: 2.5
+				Flight time: 250 '''
+			OldWings: ''' Toxic propulsion!
+				Horizontal speed: 9.5
+				Acceleration multiplier: 2.7
+				Flight time: 190 '''
+			PlaguePack: ''' And they wonder how bees can get themselves off the ground
+				Horizontal speed: 7.8
+				Acceleration multiplier: 1.9
+				Flight time: 170 '''
+			PlaugeWings: ''' Nanomachines not included
+				Horizontal speed: 7.75
+				Acceleration multiplier: 1.5
+				Flight time: 150 '''
+			ScryllianWings: ''' RISE!
+				Inflicts intense burns when worn before the flesh wall falls
+				Horizontal speed: 6.5
+				Acceleration multiplier: 1
+				Flight time: 60 '''
+			TerminalWings: ''' Through death and destruction new heights are attained
+				on wings of a pandemonic butterfly 
+				Horizontal speed: 1
+				Acceleration multiplier: 1
+				Flight time: 60 '''
+			VoidWings: ''' Let the darkness carry you
+				Horizontal speed: 9
+				Acceleration multiplier: 2.5
+				Flight time: 230 '''
+			WulfrumHelipack: ''' Extremely faulty
+				Horizontal speed: 0.8
+				Acceleration multiplier: 0.8
+				Flight time: 0.6 '''
+
+			# Hooks
+			MawHook: ''' Prehistoric pull power!
+				Reach: 31
+				Launch Velocity: 18
+				Pull Velocity: 17 '''
+			PolterHook: ''' Let the eternally suffering souls pull you forward!
+				Reach: 46
+				Launch Velocity: 16
+				Pull Velocity: 20 '''
+			ProfanedEnergyHook: ''' Rattle the holy chains
+				Reach: 37
+				Launch Velocity: 16
+				Pull Velocity: 30 '''
+			RavaHook: ''' Here to gouge out your eyes
+				Reach: 43
+				Launch Velocity: 18
+				Pull Velocity: 20 '''
+			ScavaHook: ''' Here to gouge out your eyes, runic style!
+				Reach: 50
+				Launch Velocity: 19
+				Pull Velocity: 25 '''
+			XMLightningHook: ''' Snap at lightning speed!
+				Cannot be used while Chaos State is active
+				Reach: 60
+				Launch Velocity: 62
+				Pull Velocity: 35 '''
+
+			# Misc
+			ExodiumMoon: A world revolving
+
+			# Tiles
+			BubbleMachine: That's like, groovy mannn
+
+			# Pandemonium Box
+			AlarmClock: Spare parts for your travels
+			NurseryBell: Our best friends...
+			DustChime: The winds of progress!
+			BestInstrument: Pieces of your journey
+			HarbingerOfWork: Feels like robot love!
+			MaladyBells: Starting anew!
+			SpiritDinerBell: Halfway there
+			AltarBell: The gods from the heavens on the palm of your hand
+			TubRune: Change the world...
+			VaselineBell: All at once I come alive, it's a rebirth!
+			WormBell: ''' 'But does it ring any bells?
+				That I don't mention the hell?' '''
+			ScratchedGong: '''Your patience is admirable
+				You will soon be rewarded...'''
+			PandemoniumBox: ''' 'And I wish I was the only one to leave'
+				The end of our journey, your zenith
+				Summons every pet you've met in your path'''
 		}
 		
-		ProjectileName: 
-		{
+		ProjectileName:  {
 			# Meldosaurus stuff
 			EntropicVomet: Entropic Vomet
 			TomeoFates: Tome of Fates
@@ -103,19 +505,20 @@
 			MeldosaurusClone: Meldosaurus Shade
 		}
 
-		MapObject: 
-		{
+		MapObject:  {
 			# Meldosaurus stuff
 			MeldosaurusMusicBoxPlaced: Music Box
 			MeldosaurusTrophyPlaced: Meldosaurus Trophy
 		}
 		
-		BuffName: 
-		{
+		BuffName: {
+			# When the april is fooled
 			AmogusBuff: Stratus Astronaut
+			
 			# Light pets
 			DarksunSpiritBuff: Darksun Spirits
 			EnredBuff: Cosmic Assistant
+			DiggerBuff: Rebuilt Digger
 			GodrgeBuff: Godrge
 			HeatBuff: Chaos Skulls
 			ImpBuff: Minimpious
@@ -127,12 +530,14 @@
 			SupJewelBuff: Superstitious Jewel
 			VanityCoreBuff: Core of Vanity
 			YeetBuff: Litfish
+
 			# Mounts
 			AnthozoanBuff: Cambrian Crustacean
-			AuricTeslaBuff : Auric Tesla
+			AuricTeslaBuff: Auric Tesla
 			BikeBuff: Profaned Cycle
 			BloodstoneCarriageBuff: Bloodstone Carriage
 			FloatyBuff: Floaty Rug
+			GodRiderBuff: God Rider
 			HadarianBuff: Hadarian Fledgling
 			HiveVuff: Conglomeration Mind
 			LeviathanMountBuff: Leviathan Guppy
@@ -141,6 +546,7 @@
 			SilvaJeepBuff: Silvian Jeep
 			TractorMount: Wulfrum Tank
 			YharonMountBuff: Yharite
+			
 			# Elementals
 			cloudbuff: Smol Cloud
 			minihotebuff: Childish Heart
@@ -148,11 +554,13 @@
 			rarebrimlingbuff: Rare Brimling
 			RareSsandBuff: Small Sand Elemental
 			SsandBuff: Tiny Sand Elemental
+			
 			# Exos
 			AresBuff: Toy XF-Ares
 			ExoMayhemBuff: Toy Exo Mechs
 			ThanatosBuff: Toy XM-Thanatos
 			TwinsBuff: Toy XS-Apollo and Artemis
+			
 			# Scuttlers
 			AmberBuff: Amber Scuttler
 			AmethystBuff: Amethyst Scuttler
@@ -163,6 +571,7 @@
 			RubyBuff: Ruby Scuttler
 			SapphireBuff: Sapphire Scuttler
 			TopazBuff: Topaz Scuttler
+			
 			# Pets
 			AeroBuff: Aero Slimes
 			AndroombaBuff: Androomba
@@ -172,6 +581,7 @@
 			BeeBuff: Reprogrammed Plaguebringer
 			BlockarozBuff: A Cube
 			BuppyBuff: Buppy
+			BrimberryBuff: Brimstone Berry
 			CalamityBABYBuff: God's Presence
 			CatfishBuff: Fishcat
 			ChilledOut: Cool Dude
@@ -212,7 +622,7 @@
 			OrbBuff: The Dragonball
 			PhageBuff: Space Sick
 			PillagerBuff: Province Pilferer
-			PolterBuff: '''Polter-Chan'''
+			PolterBuff: Polter-Chan
 			PuppoBuff: Chihuahua Puppo
 			ReaperBuff: Buff Man
 			RedPandaBuff: Tara, the Tarafying panda is following you
@@ -233,21 +643,23 @@
 			SmaulerBuff: Smauler
 			StasisArmoredBuff: Armored Stasis Drone
 			StasisNakedBuff: Naked Stasis Drone
-			SWPetBuff: '''Lil' Weaver'''
-			TerminalRockBuff: '''Xeroc's Pet Rock'''
-			TUBBUFF: '''T.U.B'''
+			SWPetBuff: Lil' Weaver
+			TerminalRockBuff: Xeroc's Pet Rock
+			TUBBUFF: T.U.B
 			UngodlyBuff: Ungodly Dude
 			WulfrumArmy: Wulfrum Army
 			WyrmBuff: Eidolon Inchwyrm
 			YharimSquidBuff: Auric Squiddo
 			ZygoteBuff: Ghastly Zygote
+			
 			# Transformations
 			ClassicBrimmyBuff: Brimstone Elemental Transformation
 			CloudTransformationBuff: Cloud Elemental Transformation
 			ProtoRingBuff: Proto-Andromeda
 			SandTransformationBuff: Sand Elemental Transformation
 			SignutTransformationBuff: Ethereal Assassin
-			# Æ: Drae's stuff
+			
+			# Pandemonium Box
 			AlarmClockBuff: Alarm Clock
 			AlterBellBuff: Altar Bell
 			BestInstrumentBuff: Best Instrument
@@ -263,12 +675,14 @@
 			PandoraBuff: Pandemonium Box
 		}
 		
-		BuffDescription: 
-		{
+		BuffDescription:  {
+			# April fools
 			AmogusBuff: amogus
+			
 			# Light pets
 			DarksunSpiritBuff: The Darksun Spirits have decided to follow you!
 			EnredBuff: He's here to help!
+			DiggerBuff: Summons a piece of digging machinery to light your way
 			GodrgeBuff: Pathetic.
 			HeatBuff: Here to judge you for your sins... not really
 			ImpBuff: Hey!
@@ -280,13 +694,15 @@
 			SupJewelBuff: Pure is impure
 			VanityCoreBuff: Everyone gets along!
 			YeetBuff: A baby sunskater will follow you now.
+			
 			# Mounts
 			AnthozoanBuff: This one won't throw rocks at you
 			AuricTeslaBuff: '''Yharim Car
 				Yharim Car'''
 			BikeBuff: For when you really need to get somewhere, in style.
-			BloodstoneCarriageBuff: '''You could even call it a mi-'''
-			FloatyBuff: '''Warning: flight not included.'''
+			BloodstoneCarriageBuff: You could even call it a mi-
+			FloatyBuff: Warning: flight not included.
+			GodRiderBuff: Ridin' the dimensional tides
 			HadarianBuff: SCREEEE
 			HiveVuff: I swear it's not what you think
 			LeviathanMountBuff: Better catch a fish
@@ -295,6 +711,7 @@
 			SilvaJeepBuff: Beep beep I'm a jeep
 			TractorMount: Move forward soldier!
 			YharonMountBuff: He's finally here!
+			
 			# Elementals
 			cloudbuff: She can't protect you, but she's doing her best
 			minihotebuff: Its like you're running a day-care or something
@@ -302,11 +719,13 @@
 			rarebrimlingbuff: She can't protect you, but she's doing her best
 			RareSsandBuff: She can't heal you, but she's doing her best
 			SsandBuff: She can't protect you, but she's doing her best
+			
 			# Exos
 			AresBuff: He appears
 			ExoMayhemBuff: Perfected entertainment providers
 			ThanatosBuff: T(oy t) han(at)os
 			TwinsBuff: Here they are
+			
 			# Scuttlers
 			AmberBuff: Still won't let go of its gem
 			AmethystBuff: Still won't let go of its gem
@@ -317,6 +736,7 @@
 			RubyBuff: Still won't let go of its gem
 			SapphireBuff: Still won't let go of its gem
 			TopazBuff: Still won't let go of its gem
+			
 			# Pets
 			AeroBuff: We glide together
 			AndroombaBuff: Nyoooom!
@@ -326,6 +746,7 @@
 			BeeBuff: BEEp. Boop. Buzz.
 			BlockarozBuff: I take this as a declaration
 			BuppyBuff: Will you throw that ball?
+			BrimberryBuff: It’s a long way up from hell…
 			CalamityBABYBuff: The BABY of a omnipotent GOD accompany you... Just don't get hit
 			CatfishBuff: What? Its a Catfish, what are you talking about?
 			ChilledOut: A really cool dude will follow you around
@@ -338,7 +759,7 @@
 			DEBuff: An aura of pure nothingness floats near you
 			DesertBuff: Blaaaargh
 			DeusBuff: Wormheck
-			DogBuff: '''This probably isn't canon...'''
+			DogBuff: This probably isn't canon...
 			Doggobuff: Like, the fifth best dog in calamity
 			EggBuff: It... thinks you're it's mother...
 			EurosBuff: Chibii Euros is following you, cautiously
@@ -365,7 +786,7 @@
 			OmegaSquidBuff: The real Cthulhu
 			OrbBuff: Vibrating at intense speeds
 			PhageBuff: You have been infected by the fledgling Aureophage!
-			PillagerBuff: '''It's time to shred and thrash!'''
+			PillagerBuff: It's time to shred and thrash!
 			PolterBuff: Poooolteeer chaaaaaaaaaaannnn
 			PuppoBuff: He's a good boy
 			ReaperBuff: You could say this is a... buff buff
@@ -375,11 +796,11 @@
 			RoverSpindleBuff: Brilliance irreplaceable...
 			RustyBuff: Good thing there aren't bigger ones
 			SadStoneBuff: ''':('''
-			ScorchingFuryshronBuff: '''Don't do Scoria kids'''
+			ScorchingFuryshronBuff: Don't do Scoria kids
 			ScourgeBuff: Blaaaargh^2
 			SentiPet: The Cosmic Terrors watch over you
 			SepulcherBuff: '''A dark construct composed of the long deceased souls of the innocent...
-	Cute'''
+				Cute'''
 			SepulcherBuffNeo: THIS ONE is benevolent
 			ShartBuff: No they can't play hockey
 			SigBuff: The Ethereal Assassin will watch your back... probably
@@ -388,38 +809,41 @@
 			SmaulerBuff: Chow~
 			StasisArmoredBuff: Dense as most anime protagonists
 			StasisNakedBuff: Stop looking at me... b-baka...
-			SWPetBuff: '''"Guess they aren't extinct afterall"'''
-			TerminalRockBuff: '''"This does put a smile on my face..."'''
+			SWPetBuff: ''' "Guess they aren't extinct afterall" '''
+			TerminalRockBuff: ''' "This does put a smile on my face..." '''
 			TUBBUFF: A tentacle monster is following you
 			UngodlyBuff: On his way to eat your socks
 			WulfrumArmy: Cling clang and bang
 			WyrmBuff: Ew, its all slimey...
 			YharimSquidBuff: He's gone so far in life
-			ZygoteBuff : He might be a bit problematic... 
+			ZygoteBuff: He might be a bit problematic... 
+			
 			# Transformations
 			ClassicBrimmyBuff: Yes, you can touch Water
 			CloudTransformationBuff: Feelin' Cloudy
 			ProtoRingBuff: Still working out the kinks
-			SandTransformationBuff: '''heh.'''
+			SandTransformationBuff: heh.
 			SignutTransformationBuff: Never been more edgy
-			# Æ: Drae's stuff
-			AlarmClockBuff: They might short circuit if left alone
-			AltarBellBuff: The guiding stars
+			
+			# Pandemonium Box
+			AlarmClockBuff: Careful, they might short circuit
+			AltarBellBuff: The stars will guide your path
 			BestInstrumentBuff: Fragments of your journey, keep them safe
-			DustChimeBuff: The Adventure begins!
-			HarbingerOfWorkBuff: Their passion overheats\nTheir system's on repeat
+			DustChimeBuff: The adventure begins!
+			HarbingerOfWorkBuff: ''' 'Their passion overheats'
+				'Their system's on repeat' '''
 			MaladyBellsBuff: Your journey is not over, they will look after you
-			NurseryBellsBuff: A terrarian's best friends will now follow you!
-			ScratchedGongBuff: The fruits of your magnum opera nears completion
-			SpiritDinerBuff: It's a dark path ahead of you, they'll help
-			TubRuneBuff: Our final message
-			VaselineBuff: The sunrays shine through
-			WormBellBuff: Keep going
-			PandoraBuff: Dream, it's all over\nWe've been waiting for another sight to see
+			NurseryBellsBuff: A terrarian's best friends!
+			ScratchedGongBuff: Your magnum opera nears completion
+			SpiritDinerBuff: They'll help in your quest
+			TubRuneBuff: ...Our final message
+			VaselineBuff: The sunrays shine and follow
+			WormBellBuff: fucking help me homies I ain't got good ideas
+			PandoraBuff: ''' 'Running too late'
+				'Running out of time ' '''
 		}
 
-		BiomeName: 
-		{
+		BiomeName: {
 			AstralBlight: Astral Blight
 		}
 

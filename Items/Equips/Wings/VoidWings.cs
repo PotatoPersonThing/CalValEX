@@ -12,8 +12,6 @@ namespace CalValEX.Items.Equips.Wings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Void Wings");
-            Tooltip.SetDefault("Let the darkness carry you\n" + "Horizontal speed: 9\n" + "Acceleration multiplier: 2.5\n" + "Flight time: 230");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(230, 9f, 2.5f);

@@ -11,8 +11,6 @@ namespace CalValEX.Items.Equips.Backs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Prism Shell");
-            Tooltip.SetDefault("'Lookin' sharp'");
             SacrificeTotal = 1;
         }
 

@@ -8,8 +8,6 @@ namespace CalValEX.Buffs.Mounts
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Leviathan Hatchling");
-            //Description.SetDefault("Better catch a fish");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

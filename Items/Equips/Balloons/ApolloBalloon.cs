@@ -9,12 +9,8 @@ namespace CalValEX.Items.Equips.Balloons
     [AutoloadEquip(EquipType.Balloon)]
     public class ApolloBalloon : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("XS Leash-03");
-            Tooltip.SetDefault("'Houston...'");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
+
         public override void SetDefaults()
         {
             Item.width = 24;

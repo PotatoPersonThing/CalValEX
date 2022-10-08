@@ -6,11 +6,7 @@ namespace CalValEX.Items.Equips.Hats
     [AutoloadEquip(EquipType.Head)]
     public class SlimeGodMask : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Slime God Core Mask");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

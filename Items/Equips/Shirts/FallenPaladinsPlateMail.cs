@@ -5,13 +5,8 @@ using Terraria.ID;
 namespace CalValEX.Items.Equips.Shirts
 {
     [AutoloadEquip(EquipType.Body)]
-    public class FallenPaladinsPlateMail : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Fallen Paladin's Plate Mail");
-            SacrificeTotal = 1;
-        }
+    public class FallenPaladinsPlateMail : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

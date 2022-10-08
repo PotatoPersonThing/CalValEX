@@ -9,11 +9,7 @@ namespace CalValEX.Items.Equips.Balloons
     [AutoloadEquip(EquipType.Balloon)]
     public class AuricBalloon : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            Tooltip.SetDefault("'You're lucky I didn't make you get every other balloon for this.'");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

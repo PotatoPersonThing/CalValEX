@@ -40,7 +40,6 @@ namespace CalValEX.NPCs.JellyPriest
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Jelly Priestess");
             Main.npcFrameCount[NPC.type] = 25;
             NPCID.Sets.ExtraFramesCount[NPC.type] = 9;
             NPCID.Sets.AttackFrameCount[NPC.type] = 4;
@@ -442,9 +441,6 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<C>(), Item.buyPrice(0, 1, 0, 0), true, ref shop, ref nextSlot);
                 AddItem(ItemType<Items.Tiles.FurnitureSets.Wulfrum.WulfrumGlobe>(), Item.buyPrice(0, 1, 0, 0), true, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.DraedonStructures.LaboratoryConsoleItem>(), Item.buyPrice(0, 2, 50, 0), true, ref shop, ref nextSlot);
-                AddItem(ItemType<AgedRustGamingTable>(), Item.buyPrice(0, 15, 0, 0), true, ref shop, ref nextSlot);
-                AddItem(ItemType<RustGamingTable>(), Item.buyPrice(0, 15, 0, 0), true, ref shop, ref nextSlot);
-                AddItem(ItemType<RustGamingTable2>(), Item.buyPrice(0, 15, 0, 0), true, ref shop, ref nextSlot);
                 AddItem(ItemType<SulphurColumn>(), Item.buyPrice(0, 0, 5, 0), acid, ref shop, ref nextSlot);
                 AddItem(ItemType<SulphurGeyser>(), Item.buyPrice(0, 0, 10, 0), acid, ref shop, ref nextSlot);
                 AddItem(ItemType<Ribrod>(), Item.buyPrice(0, 0, 50, 0), acid, ref shop, ref nextSlot);
