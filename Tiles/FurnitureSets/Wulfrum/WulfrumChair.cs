@@ -94,14 +94,14 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
 
             player.noThrow = 2;
             player.cursorItemIconEnabled = true;
-            player.cursorItemIconID = ModContent.ItemType<WulfrumChairItem>();
+            //player.cursorItemIconID = ModContent.ItemType<WulfrumChairItem>();
 
             if (Main.tile[i, j].TileFrameX / 18 < 1)
                 player.cursorItemIconReversed = true;
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
-            Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<WulfrumChairItem>());
+        //public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
+            //Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<WulfrumChairItem>());
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) { 
             return settings.player.IsWithinSnappngRangeToTile(i, j, PlayerSittingHelper.ChairSittingMaxDistance);

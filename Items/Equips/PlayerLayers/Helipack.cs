@@ -29,7 +29,7 @@ namespace CalValEX.Items.Equips.PlayerLayers {
             CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
             float alb = (255 - drawPlayer.immuneAlpha) / 255f;
             int dyeShader = drawPlayer.dye?[1].dye ?? 0;
-            int secondyoffset;
+            int secondyoffset = 0;
 
             for (int n = 0; n < 18 + drawInfo.drawPlayer.extraAccessorySlots; n++) {
                 Item item = drawInfo.drawPlayer.armor[n];
@@ -41,12 +41,12 @@ namespace CalValEX.Items.Equips.PlayerLayers {
                 }
             }
 
-            if (drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 8 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 9 || 
+            /*if (drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 8 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 9 || 
                 drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 15 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 16 ||
                 drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 17)
                 secondyoffset = 2;
             else
-                secondyoffset = 0;
+                secondyoffset = 0;*/
 
             frameCounter++;
             if (frameCounter > 6) {
@@ -56,20 +56,30 @@ namespace CalValEX.Items.Equips.PlayerLayers {
                     frame = 0;
             }
 
+            Vector2 packPosition = new Vector2((int)(drawInfo.Position.X - (float)(drawInfo.drawPlayer.bodyFrame.Width / 2) + (float)(drawInfo.drawPlayer.width / 2)),
+                (int)(drawInfo.Position.Y + (float)drawInfo.drawPlayer.height - (float)drawInfo.drawPlayer.bodyFrame.Height));
+
+            packPosition -= Main.screenPosition;
+
+
             if (modPlayer.helipack) {
-                int gnuflip = -drawPlayer.direction;
-                int drawX = (int)(drawPlayer.position.X + drawPlayer.width / 2f - Main.screenPosition.X - gnuflip + (15 * gnuflip));
-                int drawY = (int)(drawPlayer.position.Y + drawPlayer.height - Main.screenPosition.Y - 4 - secondyoffset);
                 Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Items/Equips/Wings/WulfrumHelipack_Wings").Value;
+
+                int drawX = (int)(drawPlayer.position.X + drawPlayer.width / 2f - Main.screenPosition.X - (2 * drawPlayer.direction));
+                int drawY = (int)(drawPlayer.position.Y + drawPlayer.height - 20 - Main.screenPosition.Y - secondyoffset);
+                
+                if (drawPlayer.mount.Active)
+                    drawY += drawPlayer.mount.HeightBoost;
 
                 Rectangle texFrame = texture.Frame(1, 11, 0, frame);
                 Rectangle frameY = new Rectangle(0, 26 * frame, texture.Width, 26);
 
-                if (drawPlayer.mount.Active)
-                    drawY += drawPlayer.mount.HeightBoost;
+                //DrawData dat = new DrawData(texture, new Vector2(drawX, drawY), frameY, Color.White * alb, 0f, new Vector2(texture.Width / 2f,
+                    //texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
 
-                DrawData dat = new DrawData(texture, new Vector2(drawX, drawY), frameY, Color.White * alb, 0f, new Vector2(texture.Width / 2f,
-                    texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
+                DrawData dat = new DrawData(texture, new Vector2(packPosition.X - (2 * drawPlayer.direction), packPosition.Y), null, 
+                    drawInfo.itemColor, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, 
+                    drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
                 dat.shader = dyeShader;
                 drawInfo.DrawDataCache.Add(dat);
             }

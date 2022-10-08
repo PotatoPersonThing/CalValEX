@@ -25,7 +25,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             name.SetDefault("Wulfrum Candle");
             AddMapEntry(new Color(103, 137, 100), name);
             
-            ItemDrop = ModContent.ItemType<WulfrumCandleItem>();
+            //ItemDrop = ModContent.ItemType<WulfrumCandleItem>();
             DustType = 226;
         }
 

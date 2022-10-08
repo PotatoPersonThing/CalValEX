@@ -1,8 +1,11 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.GameContent.Bestiary;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace CalValEX.NPCs.Critters {
     public class PerfoGrub : ModNPC {
@@ -10,7 +13,8 @@ namespace CalValEX.NPCs.Critters {
             Main.npcFrameCount[NPC.type] = 4;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
-	        NPCID.Sets.CantTakeLunchMoney[Type] = true;
+            NPCID.Sets.CantTakeLunchMoney[Type] = true;
+            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new (0) { Velocity = 1f, Direction = -1 };
         }
 
         public override void SetDefaults() {
@@ -30,12 +34,25 @@ namespace CalValEX.NPCs.Critters {
             NPC.value = 0;
         }
 
-        public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry) {
-            bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
-            bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
-                Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Sky,
-                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A small grub-like parasite, the vile offspring of the Perforators."),
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
+            bestiaryEntry.UIInfoProvider = new CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
+            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCrimson,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.CrimsonDesert,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.CrimsonIce,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.CrimsonUndergroundDesert,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.UndergroundCrimson,
+                new FlavorTextBestiaryInfoElement("A small grub-like parasite, the vile offspring of the Perforators."),
             });
+        }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) {
+            if (NPCID.Sets.NPCBestiaryDrawOffset.TryGetValue(Type, out NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers)) {
+                NPCID.Sets.NPCBestiaryDrawOffset.Remove(Type);
+                NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
+            }
+
+            return true;
         }
 
         public override bool? CanBeHitByItem(Player player, Item item) {
@@ -54,6 +71,5 @@ namespace CalValEX.NPCs.Critters {
         }
 
         public override void OnCaughtBy(Player player, Item item, bool failed) => item.stack = 1;
-
     }
 }

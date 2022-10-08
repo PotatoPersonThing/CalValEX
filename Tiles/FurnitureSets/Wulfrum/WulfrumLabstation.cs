@@ -45,7 +45,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
                 spriteBatch.Draw(glowmask, drawPosition + new Vector2(0f, 8f), new Rectangle(xFrameOffset, yFrameOffset, 18, 8), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
-            Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 16, ItemType<WulfrumLabstationItem>());
+        //public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
+            //Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 16, ItemType<WulfrumLabstationItem>());
     }
 }

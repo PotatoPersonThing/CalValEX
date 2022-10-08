@@ -67,7 +67,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             }
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 48, ModContent.ItemType<WulfrumLampItem>());
+        //public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
+            //Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 48, ModContent.ItemType<WulfrumLampItem>());
     }
 }

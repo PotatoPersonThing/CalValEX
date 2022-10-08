@@ -38,7 +38,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
 			name.SetDefault("Wulfrum Dresser");
 			AddMapEntry(new Color(103, 137, 100), name);
 			ContainerName.SetDefault("Wulfrum Dresser");
-			DresserDrop = ModContent.ItemType<WulfrumDresserItem>();
+			//DresserDrop = ModContent.ItemType<WulfrumDresserItem>();
 			
 			DustType = 226;
 
@@ -135,7 +135,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
 				else
 					player.cursorItemIconText = "Wulfrum Dresser";
 				if (player.cursorItemIconText == "Wulfrum Dresser") {
-					player.cursorItemIconID = ModContent.ItemType<WulfrumDresserItem>();
+					//player.cursorItemIconID = ModContent.ItemType<WulfrumDresserItem>();
 					player.cursorItemIconText = "";
 				}
 			}
@@ -165,7 +165,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
 				else
 					player.cursorItemIconText = "Wulfrum Dresser";
 				if (player.cursorItemIconText == "Wulfrum Dresser") {
-					player.cursorItemIconID = ModContent.ItemType<WulfrumDresserItem>();
+					//player.cursorItemIconID = ModContent.ItemType<WulfrumDresserItem>();
 					player.cursorItemIconText = "";
 				}
 			}
@@ -179,10 +179,10 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
 
 		public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 
-		public override void KillMultiTile(int i, int j, int frameX, int frameY) {
+		/*public override void KillMultiTile(int i, int j, int frameX, int frameY) {
 			Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, DresserDrop);
 			Chest.DestroyChest(i, j);
-		}
+		}*/
 
 		public override void PostDraw(int i, int j, SpriteBatch spriteBatch) {
 			int xFrameOffset = Main.tile[i, j].TileFrameX;

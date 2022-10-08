@@ -1,4 +1,4 @@
-﻿using Terraria.ID;
+﻿/*using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.FurnitureSets.Wulfrum;
 using CalValEX.Items.Tiles.Blocks;
@@ -24,4 +24,4 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Wulfrum {
             Item.rare = ItemRarityID.Green;
         }
     }
-}
+}*/

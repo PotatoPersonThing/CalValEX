@@ -86,7 +86,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
 			// JEsus fuck what the fuck is any of this holy christ
 		}
 
-		public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, ModContent.ItemType<WulfrumClockItem>());
+		//public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
+            //Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, ModContent.ItemType<WulfrumClockItem>());
     }
 }

@@ -29,7 +29,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             
             AdjTiles = new int[] { TileID.Containers };
             ContainerName.SetDefault("Wulfrum Chest");
-            ChestDrop = ModContent.ItemType<WulfrumChestItem>();
+            //ChestDrop = ModContent.ItemType<WulfrumChestItem>();
             
             DustType = 226;
 
@@ -139,7 +139,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             else {
                 player.cursorItemIconText = Main.chest[chest].name.Length > 0 ? Main.chest[chest].name : "Wulfrum Chest";
                 if (player.cursorItemIconText == "Wulfrum Chest") {
-                    player.cursorItemIconID = ModContent.ItemType<WulfrumChestItem>();
+                    //player.cursorItemIconID = ModContent.ItemType<WulfrumChestItem>();
                     player.cursorItemIconText = "";
                 }
             }
@@ -156,10 +156,10 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             }
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY) {
+        /*public override void KillMultiTile(int i, int j, int frameX, int frameY) {
             Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ChestDrop);
             Chest.DestroyChest(i, j);
-        }
+        }*/
 
         public override ushort GetMapOption(int i, int j) => (ushort)(Main.tile[i, j].TileFrameX / 36);
 

@@ -57,14 +57,14 @@ using CalValEX.Items.Tiles.FurnitureSets.Auric;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
 using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
 using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
-using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
+//using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 using CalValEX.Items.Tiles.Monoliths;
 using CalValEX.Items.Tiles.Statues;
 using CalValEX.Items.Walls;
-using CalValEX.Items.PetComboItems;
+/*using CalValEX.Items.PetComboItems;
 using CalValEX.Items.PetComboItems.PreHardmode;
 using CalValEX.Items.PetComboItems.Hardmode;
-using CalValEX.Items.PetComboItems.PostMoonLord;
+using CalValEX.Items.PetComboItems.PostMoonLord;*/
 using CalValEX.Tiles.MiscFurniture;
 using CalValEX.Tiles.FurnitureSets.Auric;
 using CalValEX.Tiles.FurnitureSets.Wulfrum;
@@ -827,8 +827,8 @@ namespace CalValEX {
 				recipe.AddIngredient(ItemType<TubRune>());
 				recipe.AddTile(TileType<DraedonsForge>());
 				recipe.Register();
-			}
-			#endregion*/
+			}*/
+			#endregion
 
 			#region //Blocks
 			{
