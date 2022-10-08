@@ -317,7 +317,7 @@ namespace CalValEX
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DisrepairUnit>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.WulfrumPylon>())
+                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.WulfrumAmplifier>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumTransmitter>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumKeys>(), 10));

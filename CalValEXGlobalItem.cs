@@ -30,6 +30,7 @@ using CalValEX.Items.Tiles.Plants;
 using CalValEX.Items.Tiles.Statues;
 using CalamityMod.World;
 using CalamityMod.Items.TreasureBags;
+using CalamityMod.Items.TreasureBags.MiscGrabBags;
 using CalamityMod.Items;
 using CalamityMod.Items.Weapons.Rogue;
 using CalamityMod.Items.Weapons.Ranged;
@@ -236,6 +237,10 @@ namespace CalValEX
 			else if (item.type == ModContent.ItemType<CryogenBag>())
 			{
 				rule.OnSuccess(new CommonDrop(ModContent.ItemType<CoolShades>(), 10, chanceNumerator: 3));
+			}
+			else if (item.type == ModContent.ItemType<AquaticScourgeBag>())
+			{
+				rule.OnSuccess(new CommonDrop(ModContent.ItemType<MoistLocket>(), 10, chanceNumerator: 3));
 			}
 			else if (item.type == ModContent.ItemType<BrimstoneWaifuBag>())
 			{

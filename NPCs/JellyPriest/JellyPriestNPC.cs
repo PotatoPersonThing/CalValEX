@@ -88,13 +88,18 @@ namespace CalValEX.NPCs.JellyPriest
         { 
             if (CalValEXWorld.rescuedjelly && !CalValEXConfig.Instance.TownNPC)
             {
-                jellyspawn = true;
+                return true;
             }
-            return jellyspawn;
+            else
+            {
+                return false;
+            }
         }
 
         public override void AI()
         {
+	    if (!CalValEXWorld.rescuedjelly)
+            CalValEXWorld.rescuedjelly = true;
             NPC.breath += 2;
             if (CalValEXConfig.Instance.TownNPC)
             {
@@ -402,6 +407,7 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<CalamityMod.Items.Placeables.DraedonStructures.LaboratoryPipePlating>(), Item.buyPrice(0, 0, 0, 25), true, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.DraedonStructures.RustedPipes>(), Item.buyPrice(0, 0, 0, 25), true, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.Acidwood>(), Item.buyPrice(0, 0, 5, 0), true, ref shop, ref nextSlot);
+                AddItem(ItemType<CalamityMod.Items.Placeables.SulphurousSand>(), Item.buyPrice(0, 0, 0, 35), true, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.SulphurousSandstone>(), Item.buyPrice(0, 0, 0, 35), true, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.HardenedSulphurousSandstone>(), Item.buyPrice(0, 0, 0, 50), true, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.EutrophicSand>(), Item.buyPrice(0, 0, 5, 5), clam, ref shop, ref nextSlot);

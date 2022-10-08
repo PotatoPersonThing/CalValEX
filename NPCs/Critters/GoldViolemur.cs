@@ -102,11 +102,6 @@ namespace CalValEX.NPCs.Critters
             return 0f;
         }
 
-        public override void OnCaughtBy(Player player, Item item, bool failed)
-        {
-            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<GoldViolemurItem>());
-        }
-
         public override void HitEffect(int hitDirection, double damage)
         {
             if (NPC.life <= 0)
@@ -115,7 +110,5 @@ namespace CalValEX.NPCs.Critters
                 Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GoldViolemur2").Type, 1f);
             }
         }
-
-        // TODO: Hooks for Collision_MoveSnailOnSlopes and NPC.aiStyle = 67 problem
     }
 }

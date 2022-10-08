@@ -9,7 +9,7 @@ namespace CalValEX.Projectiles.Pets.Elementals
 
         public override Vector2 FlyingOffset => new Vector2(68f * -Main.player[Projectile.owner].direction, -50f);
 
-        public override string Texture => "CalamityMod/Projectiles/Summon/FungalClumpMinion";
+        public override string Texture => "CalamityMod/Projectiles/Typeless/FungalClumpMinion";
 
         public override void SetStaticDefaults()
         {
