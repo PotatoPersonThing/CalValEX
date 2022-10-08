@@ -4,14 +4,8 @@ using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Items.Hooks
 {
-    public class RavaHook : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Ravager Claw");
-            Tooltip.SetDefault("Here to gouge out your eyes\nReach: 43\nLaunch Velocity: 18\nPull Velocity: 20");
-            SacrificeTotal = 1;
-        }
+    public class RavaHook : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

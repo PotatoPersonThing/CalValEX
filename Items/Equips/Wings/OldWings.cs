@@ -10,8 +10,6 @@ namespace CalValEX.Items.Equips.Wings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Old Duke Wings");
-            Tooltip.SetDefault("Toxic propulsion!\n" + "Horizontal speed: 9.5\n" + "Acceleration multiplier: 2.7\n" + "Flight time: 190");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(190, 9.5f, 2.7f);
             SacrificeTotal = 1;

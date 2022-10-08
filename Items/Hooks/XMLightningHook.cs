@@ -10,12 +10,7 @@ namespace CalValEX.Items.Hooks
 {
     public class XMLightningHook : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("XM-Lightning Hook");
-            Tooltip.SetDefault("Snap at lightning speed!\nCannot be used while Chaos State is active\nReach: 60\nLaunch Velocity: 62\nPull Velocity: 35");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

@@ -14,9 +14,7 @@ namespace CalValEX.Items.Equips.Transformations
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Burning Eye");
 			SacrificeTotal = 1;
-			Tooltip.SetDefault("Engulfs the wearer in Brimstone Flames");
 			ItemID.Sets.ItemNoGravity[Item.type] = true;
 			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 5));
 			if (Main.netMode != NetmodeID.Server)

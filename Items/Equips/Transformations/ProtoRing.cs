@@ -13,9 +13,7 @@ namespace CalValEX.Items.Equips.Transformations
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Prototype Ring");
 			SacrificeTotal = 1;
-			Tooltip.SetDefault("Transforms the wearer into a small mech");
 			if (Main.netMode != NetmodeID.Server)
 			{
 				SetupDrawing();

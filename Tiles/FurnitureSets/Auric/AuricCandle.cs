@@ -29,10 +29,6 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             ItemDrop = ModContent.ItemType<AuricCandleItem>();
         }
 
-        /*public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<AuricCandleItem>());
-        }*/
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
             int xFrameOffset = Main.tile[i, j].TileFrameX;
@@ -51,7 +47,6 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
         public override bool RightClick(int i, int j)
         {
             WorldGen.KillTile(i, j);
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<AuricCandleItem>());
             if (Main.netMode != NetmodeID.SinglePlayer)
             {
                 NetMessage.SendData(17, -1, -1, null, 0, i, j);

@@ -6,14 +6,8 @@ using System.Collections.Generic;
 
 namespace CalValEX.Items.Hooks
 {
-    public class MawHook : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Cragmaw Spinehook");
-            Tooltip.SetDefault("Prehistoric pull power!\nReach: 31\nLaunch Velocity: 18\nPull Velocity: 17");
-            SacrificeTotal = 1;
-        }
+    public class MawHook : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

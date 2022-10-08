@@ -12,8 +12,6 @@ namespace CalValEX.Items.Equips.Shirts {
             }
         }
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Belladonna Spirit Cloak");
-            Tooltip.SetDefault("The latest fashion, all natural");
             SacrificeTotal = 1;
 
             if (Main.netMode != NetmodeID.Server) {

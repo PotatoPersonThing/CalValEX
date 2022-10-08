@@ -20,9 +20,11 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             TileObjectData.newTile.CoordinateHeights = new int[] { 16 };
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             TileObjectData.addTile(Type);
+            
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Wulfrum Candle");
             AddMapEntry(new Color(103, 137, 100), name);
+            
             ItemDrop = ModContent.ItemType<WulfrumCandleItem>();
             DustType = 226;
         }
@@ -43,7 +45,6 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
 
         public override bool RightClick(int i, int j) {
             WorldGen.KillTile(i, j);
-            Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<WulfrumCandleItem>());
             if (Main.netMode != NetmodeID.SinglePlayer) 
                 NetMessage.SendData(17, -1, -1, null, 0, i, j);
             return true;

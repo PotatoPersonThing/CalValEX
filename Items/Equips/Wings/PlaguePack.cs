@@ -8,8 +8,6 @@ namespace CalValEX.Items.Equips.Wings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Beelzebooster");
-            Tooltip.SetDefault("And they wonder how bees can get themselves off the ground\n" + "Horizontal speed: 7.8\n" + "Acceleration multiplier: 1.9\n" + "Flight time: 170");
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(170, 7.8f, 1.9f);
             SacrificeTotal = 1;

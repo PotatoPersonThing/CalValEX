@@ -32,7 +32,6 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
         public override bool RightClick(int i, int j)
         {
             WorldGen.KillTile(i, j);
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<PhantowaxCandleItem>());
             if (Main.netMode != NetmodeID.SinglePlayer)
             {
                 NetMessage.SendData(17, -1, -1, null, 0, i, j);

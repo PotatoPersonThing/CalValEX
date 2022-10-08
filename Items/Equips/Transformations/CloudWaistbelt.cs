@@ -14,8 +14,6 @@ namespace CalValEX.Items.Equips.Transformations
 		public override void SetStaticDefaults()
 		{
 			SacrificeTotal = 1;
-			DisplayName.SetDefault("Valkyrian Garments");
-			Tooltip.SetDefault("Surrounds the wearer with clouds");
 			if (Main.netMode != NetmodeID.Server)
 			{
 				SetupDrawing();

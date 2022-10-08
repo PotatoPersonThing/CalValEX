@@ -8,7 +8,6 @@ namespace CalValEX.Items.Equips.Wings {
     [AutoloadEquip(EquipType.Wings)]
     public class WulfrumHelipack : ModItem {
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("Extremely faulty\n" + "Horizontal speed: 0.8\n" + "Acceleration multiplier: 0.8\n" + "Flight time: 0.6");
             SacrificeTotal = 1;
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(48, 1f, 1f);
         }

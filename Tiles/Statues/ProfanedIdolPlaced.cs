@@ -11,6 +11,7 @@ using Terraria.GameContent.ObjectInteractions;
 
 namespace CalValEX.Tiles.Statues {
     public class ProfanedIdolPlaced : ModTile {
+        // Free me from this bugfixing hell I'm in agony
         private bool paused;
         public override void SetStaticDefaults() {
             Main.tileFrameImportant[Type] = true;
@@ -24,11 +25,14 @@ namespace CalValEX.Tiles.Statues {
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16, 16, 16 };
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.newTile.Origin = new Point16(2, 5);
-            AnimationFrameHeight = 126;
             TileObjectData.addTile(Type);
+            
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Profaned Idol");
             AddMapEntry(new Color(206, 116, 59), name);
+
+            AnimationFrameHeight = 126;
+            DustType = 8;
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter) {
@@ -47,6 +51,7 @@ namespace CalValEX.Tiles.Statues {
         }
 
         public override bool RightClick(int i, int j) {
+            Terraria.Audio.SoundEngine.PlaySound(SoundID.Mech);
             paused = !paused;
             return true;
         }
@@ -67,6 +72,26 @@ namespace CalValEX.Tiles.Statues {
             }
         }
 
+        public override void HitWire(int i, int j) {
+            int x = i - Main.tile[i, j].TileFrameX / 16 % 7;
+            int y = j - Main.tile[i, j].TileFrameY / 16 % 6;
+
+            if (Wiring.running) {
+                for (int l = 1; l < 7; l++)
+                    Wiring.SkipWire(x, y + l);
+
+                for (int m = 1; m < 6; m++)
+                    Wiring.SkipWire(x + m, y);
+
+                for (int n = 1; n < 6; n++) {
+                    for (int o = 1; o < 7; o++)
+                        Wiring.SkipWire(x + n, y + o);
+                }
+            }
+
+            RightClick(x, y);
+        }
+
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch) =>
             CalValEXGlobalTile.TileGlowmask(i, j, Request<Texture2D>("CalValEX/Tiles/Statues/ProfanedIdolPlaced_Glow").Value, 
                 spriteBatch, AnimationFrameHeight, (ushort)TileType<ProfanedIdolPlaced>());
@@ -75,7 +100,5 @@ namespace CalValEX.Tiles.Statues {
             Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<Provibust>());
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
-
-        public override void HitWire(int i, int j) => RightClick(i, j);
     }
 }

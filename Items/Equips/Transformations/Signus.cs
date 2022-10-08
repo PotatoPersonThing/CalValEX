@@ -51,8 +51,6 @@ namespace CalValEX.Items.Equips.Transformations
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Twilight Charm");
-			Tooltip.SetDefault("'One with the void'\n" + "Transforms the wearer into a nether spirit");
 			SacrificeTotal = 1;
 			ItemID.Sets.ItemNoGravity[Item.type] = true;
 			if (Main.netMode != NetmodeID.Server)

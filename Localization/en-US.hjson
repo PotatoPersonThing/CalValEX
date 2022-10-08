@@ -1,5 +1,5 @@
 ﻿Mods: {
-	CalValEX: {		
+	CalValEX: {
 		NPCName: {
 			# April fools!
 			Meldosaurus: Meldosaurus
@@ -106,9 +106,10 @@
 			WulfrumBalloon: Wulfrum Gyro Balloon
 
 			# Capes
-			EdiCape: Eidolist Cape
+			EidCape: Eidolist Cape
 			SigCape: Signus' Cape
 			YharimCape: Tyrant's Cape
+			YharimCapeBaby: Tyrant's Mantle
 
 			# Hats
 			DraedonHelmet: Arsenal Soldier Helmet
@@ -185,6 +186,69 @@
 			UniversalWormScarf: Universal Worm Scarf
 			YharonShackle: Yharon's Shackle
 
+			# Shields
+			AureusShield: Aureus Bulwark
+			EarthShield: Tower Shield of the Elemental
+			Invishield: Compensation
+			TrilobiteShield: Trilobuckler
+
+			# Shirts
+			AresChestplate: XF Model Chestplate
+			DraedonChestplate: Arsenal Soldier Chestplate
+			AstrachnidThorax: Astrachnid Thorax
+			BelladonnaCloak: Belladonna Spirit Cloak
+			BloodyMaryDress: Bloody Mary Dress
+			BrimmyBody: Brimstone Elemental Suit
+			Cryocoat: Cryocoat
+			CultistRobe: Cultist Assassin Robe
+			DemonshadeRobe: Ancient Demonshade Breastplate
+			DraedonBody: Draedon Thorax
+			EarthenBreastplate: Earthen Breastplate
+			FallenPaladinsPlateMail: Fallen Paladin's Plate Mail
+			PerennialDress: Perennial Dress
+			Polterskirt: Odd Polterghast Dress
+			ProfanedCultistRobes: Profaned Cultist Robes
+			ReaperSharkArms: Reaper Shark Arms
+
+			# Transformations
+			BurningEye: Burning Eye
+			CloudWaistBelt: Valkyrian Garments
+			ProtoRing: Prototype Ring
+			SandyBangles: Sandy Bangles
+			Signus: Twilight Charm
+
+			# Wings
+			AeroWings: Aero Wings
+			FollyWings: Folly Wings
+			GodspeedBoosters: Godspeed Boosters
+			JunglePhoenixWings: Chicken Wings
+			LeviWings: Leviathan Fin Wings
+			OldVoidWings: Revoided Wings
+			OldWings: Old Duke Wings
+			PlaguePack: Beelzebooster
+			PlaugeWings: Plaguebringer Wings
+			ScryllianWings: Scryllian Wings
+			TerminalWings: Wings of Termina
+			VoidWings: Void Wings
+			WulfrumHelipack: Wulfrum Helipack
+
+			# Hooks
+			MawHook: Cragmaw Spinehook
+				MawTeeth: Maw Jaw
+			PolterHook: Ghastly Chains
+				PhantomHook: Phantom Hook
+			ProfanedEnergyHook: Profaned Energy Hook
+				ProfanedHook: Profaned Hook
+			RavaHook: Ravager Claw
+				RavaClaw: Ravager Claw
+			ScavaHook: Ancient Scavenger Claw
+				ScavaClaw: Scavenger Claw
+			XMLightningHook: XM-Lightning Hook
+				THanosHook: T Hanos Hook
+
+			# Misc
+			ExodiumMoon: Exodium Orbiter
+
 			# Tiles
 			BubbleMachine: Effervescent Bubbler
 			MeldBlockItem: Meld Block
@@ -235,11 +299,11 @@
 			BackpackServer: ''' 'Draedon's eyes are on you' '''
 			PrismShell: ''' 'Lookin' sharp' '''
 
-
 			# Capes
-			EdiCape: Whispers of the deep can be heard through the weavings of this eldritch fabric...
+			EidCape: Whispers of the deep can be heard through the weavings of this eldritch fabric...
 			SigCape: Mask yourself in the shadows
 			YharimCape: Not the true one, but still regal and elegant
+			YharimCapeBaby: Still not the true one, looks like a kid's toy
 
 			# Hats
 			DraedonHelmet: '''Changes appearance depending on held item damage type
@@ -299,6 +363,115 @@
 			StormBandana: ''' 'Electrifying Fashion!' '''
 			UniversalWormScarf: ''' 'Eat it all, without bending reality.' '''
 			YharonShackle: It barely fits you...
+
+			# Shields
+			AureusShield: Smaller in execution
+			EarthShield: Looks sturdy, but it's actually soft, useless stone!
+			Invishield: Can be sold
+			TrilobiteShield: An ancient shield that's too old to block attacks
+
+			# Shirts
+			AresChestplate: ''' Summons four toy weapons to extend around you
+				'What do you MEAN they don't look the same?!?' '''
+			DraedonChestplate: ''' Changes appearance depending on held item damage type
+				CURRENTLY UNSTABLE '''
+			BelladonnaCloak: The latest in fashion, all natural
+			PerennialDress: Flowering out
+			ReaperSharkArms: Hitting the gym was never this easy!
+
+			# Transformations
+			BurningEye: Engulfs the wearer in Brimstone Flames
+			CloudWaistBelt: Surrounds the wearer with clouds
+			ProtoRing: Transforms the wearer into a small mech
+			SandyBangles: Encompasses the wearer in sand
+			Signus: ''' 'One with the void'
+				Transforms the wearer into a nether spirit '''
+
+			# Wings
+			AeroWings: ''' It's a windy day
+				Horizontal speed: 1
+				Acceleration multiplier: 1
+				Flight time: 32 '''
+			FollyWings: ''' Fly like an eagle
+				Horizontal speed: 9
+				Acceleration multiplier: 2.5
+				Flight time: 210 '''
+			GodspeedBoosters: ''' Devout propulsion!
+				Horizontal speed: 9
+				Acceleration multiplier: 2.7
+				Flight time: 200 '''
+			JunglePhoenixWings: ''' Hot
+				Horizontal speed: 11.5
+				Acceleration multiplier: 2.9
+				Flight time: 140 '''
+			LeviWings: ''' Flip flop
+				Horizontal speed: 6.75
+				Acceleration multiplier: 1.4
+				Flight time: 120 '''
+			OldVoidWings: ''' 'Literally carried out of the darkness'
+				Horizontal speed: 9
+				Acceleration multiplier: 2.5
+				Flight time: 250 '''
+			OldWings: ''' Toxic propulsion!
+				Horizontal speed: 9.5
+				Acceleration multiplier: 2.7
+				Flight time: 190 '''
+			PlaguePack: ''' And they wonder how bees can get themselves off the ground
+				Horizontal speed: 7.8
+				Acceleration multiplier: 1.9
+				Flight time: 170 '''
+			PlaugeWings: ''' Nanomachines not included
+				Horizontal speed: 7.75
+				Acceleration multiplier: 1.5
+				Flight time: 150 '''
+			ScryllianWings: ''' RISE!
+				Inflicts intense burns when worn before the flesh wall falls
+				Horizontal speed: 6.5
+				Acceleration multiplier: 1
+				Flight time: 60 '''
+			TerminalWings: ''' Through death and destruction new heights are attained
+				on wings of a pandemonic butterfly 
+				Horizontal speed: 1
+				Acceleration multiplier: 1
+				Flight time: 60 '''
+			VoidWings: ''' Let the darkness carry you
+				Horizontal speed: 9
+				Acceleration multiplier: 2.5
+				Flight time: 230 '''
+			WulfrumHelipack: ''' Extremely faulty
+				Horizontal speed: 0.8
+				Acceleration multiplier: 0.8
+				Flight time: 0.6 '''
+
+			# Hooks
+			MawHook: ''' Prehistoric pull power!
+				Reach: 31
+				Launch Velocity: 18
+				Pull Velocity: 17 '''
+			PolterHook: ''' Let the eternally suffering souls pull you forward!
+				Reach: 46
+				Launch Velocity: 16
+				Pull Velocity: 20 '''
+			ProfanedEnergyHook: ''' Rattle the holy chains
+				Reach: 37
+				Launch Velocity: 16
+				Pull Velocity: 30 '''
+			RavaHook: ''' Here to gouge out your eyes
+				Reach: 43
+				Launch Velocity: 18
+				Pull Velocity: 20 '''
+			ScavaHook: ''' Here to gouge out your eyes, runic style!
+				Reach: 50
+				Launch Velocity: 19
+				Pull Velocity: 25 '''
+			XMLightningHook: ''' Snap at lightning speed!
+				Cannot be used while Chaos State is active
+				Reach: 60
+				Launch Velocity: 62
+				Pull Velocity: 35 '''
+
+			# Misc
+			ExodiumMoon: A world revolving
 
 			# Tiles
 			BubbleMachine: That's like, groovy mannn

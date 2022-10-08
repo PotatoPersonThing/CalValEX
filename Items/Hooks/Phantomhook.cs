@@ -8,11 +8,6 @@ namespace CalValEX.Items.Hooks
 {
     public class Phantomhook : ModProjectile
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Phantom Hook");
-        }
-
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(ProjectileID.BatHook);

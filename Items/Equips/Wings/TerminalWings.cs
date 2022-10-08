@@ -10,8 +10,6 @@ namespace CalValEX.Items.Equips.Wings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Wings of Termina");
-            Tooltip.SetDefault("Through death and destruction new heights are attained, \non wings of a pandemonic butterfly \n" + "Horizontal speed: 1\n" + "Acceleration multiplier: 1\n" + "Flight time: 60");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(10, 6));
             /// ItemID.Sets.AnimatesAsSoul[Item.type] = true;
             ItemID.Sets.ItemIconPulse[Item.type] = false;

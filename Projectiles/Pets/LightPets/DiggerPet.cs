@@ -22,10 +22,8 @@ namespace CalValEX.Projectiles.Pets.LightPets {
         public override float GlowmaskOpacity => ModOwner.RepairBot ? 2 : 0.6f;
         public override float WanderDistance => ModOwner.RepairBot ? 220 : 120;
         public override float Intensity => ModOwner.RepairBot ? 2.2f : 0.7f;
-        public override float GetSpeed => MathHelper.Lerp(
-            ModOwner.RepairBot ? 22 : 10,
-            ModOwner.RepairBot ? 44 : 20,
-            MathHelper.Clamp(Projectile.Distance(IdealPosition) / (WanderDistance * 2.2f) - 1f, 0, 1));
+        public override float GetSpeed => MathHelper.Lerp(10, 20, MathHelper.Clamp(Projectile.Distance(IdealPosition) / (WanderDistance * 2.2f) - 1f, 0, 1)) * 
+            (ModOwner.RepairBot ? 1.8f : 0.8f);
         public override float BashHeadIn => 5;
 
         public override void SetStaticDefaults() {

@@ -1,15 +1,10 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace CalValEX.Items.Equips.Shirts.Draedon
-{
+namespace CalValEX.Items.Equips.Shirts.Draedon {
     [AutoloadEquip(EquipType.Body)]
-    public class DraedonChestplate : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Arsenal Soldier Chestplate");
-            Tooltip.SetDefault("Changes appearance depending on held item damage type\nCURRENTLY UNSTABLE");
+    public class DraedonChestplate : ModItem {
+        public override void SetStaticDefaults() {
             SacrificeTotal = 1;
             ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = true;
         }

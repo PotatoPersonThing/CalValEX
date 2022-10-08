@@ -12,6 +12,7 @@ using CalamityMod.Items.Accessories.Wings;
 using CalamityMod.Items.Accessories.Vanity;
 using CalamityMod.Items.Placeables.DraedonStructures;
 using CalamityMod.Items.Placeables.FurnitureMonolith;
+using CalamityMod.Items.DraedonMisc;
 using CalamityMod.Items.Weapons.Melee;
 using CalamityMod.Items.Weapons.Rogue;
 using CalamityMod.Items.Weapons.Summon;
@@ -209,10 +210,20 @@ namespace CalValEX {
 				recipe.AddTile(TileID.Loom);
 				recipe.Register();
 			}
-            #endregion
+			{
+				Recipe recipe = Recipe.Create(ItemType<YharimCapeBaby>());
+				recipe.AddIngredient(ItemID.HunterCloak);
+				recipe.AddIngredient(ItemID.SuperHeroCostume);
+				recipe.AddIngredient(ItemID.WinterCape);
+				recipe.AddIngredient(ItemID.ClothierJacket);
+				recipe.AddIngredient(ItemType<AuricBar>(), 8);
+				recipe.AddTile(TileID.Loom);
+				recipe.Register();
+			}
+			#endregion
 
-            #region //Hats
-            {
+			#region //Hats
+			{
                 Recipe recipe = Recipe.Create(ItemType<Aestheticrown>());
 				recipe.AddIngredient(ItemType<AerialiteBar>(), 2);
 				recipe.AddIngredient(ItemType<SeaPrism>(), 4);
@@ -547,6 +558,17 @@ namespace CalValEX {
 				recipe.AddIngredient(ItemType<DubiousPlating>(), 20);
 				recipe.AddIngredient(ItemType<MysteriousCircuitry>(), 20);
 				recipe.AddTile(TileID.MythrilAnvil);
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<HeartoftheSharks>());
+				recipe.AddIngredient(ItemType<BubbledFin>());
+				recipe.AddIngredient(ItemType<ReaperoidPills>());
+				recipe.AddIngredient(ItemType<DustyBadge>());
+				recipe.AddIngredient(ItemType<GrandScale>(), 1);
+				recipe.AddIngredient(ItemType<NuclearFumes>(), 15);
+				recipe.AddIngredient(ItemType<ReaperTooth>(), 15);
+				recipe.AddTile(TileID.LunarCraftingStation);
 				recipe.Register();
 			}
 			{
@@ -1097,7 +1119,7 @@ namespace CalValEX {
 				recipe.AddIngredient(ItemType<CalamityMod.Items.Placeables.DraedonStructures.RustedPlating>(), 15);
 				recipe.AddIngredient(ItemType<MysteriousCircuitry>(), 2);
 				recipe.AddIngredient(ItemType<DubiousPlating>(), 3);
-				recipe.AddIngredient(ItemType<PowerCellFactoryItem>(), 6);
+				recipe.AddIngredient(ItemType<DraedonPowerCell>(), 6);
 				recipe.AddTile(TileID.Anvils);
 				recipe.Register();
 			}
@@ -1142,7 +1164,7 @@ namespace CalValEX {
 				recipe.AddIngredient(ItemType<CalamityMod.Items.Placeables.DraedonStructures.LaboratoryPlating>(), 15);
 				recipe.AddIngredient(ItemType<MysteriousCircuitry>(), 2);
 				recipe.AddIngredient(ItemType<DubiousPlating>(), 3);
-				recipe.AddIngredient(ItemType<PowerCellFactoryItem>(), 6);
+				recipe.AddIngredient(ItemType<DraedonPowerCell>(), 6);
 				recipe.AddTile(TileID.Anvils);
 				recipe.Register();
 			}
@@ -1151,7 +1173,7 @@ namespace CalValEX {
 				recipe.AddIngredient(ItemType<CalamityMod.Items.Placeables.DraedonStructures.LaboratoryPlating>(), 15);
 				recipe.AddIngredient(ItemType<MysteriousCircuitry>(), 2);
 				recipe.AddIngredient(ItemType<DubiousPlating>(), 3);
-				recipe.AddIngredient(ItemType<PowerCellFactoryItem>(), 6);
+				recipe.AddIngredient(ItemType<DraedonPowerCell>(), 6);
 				recipe.AddTile(TileID.Anvils);
 				recipe.Register();
 			}
