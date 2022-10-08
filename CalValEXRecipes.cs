@@ -869,14 +869,14 @@ namespace CalValEX {
 			}
 			{
 				Recipe recipe = Recipe.Create(ItemType<Necrostone>(), 200);
-				recipe.AddIngredient(ItemType<CalamityMod.Items.TreasureBags.FleshyGeode>());
+				recipe.AddIngredient(ItemType<CalamityMod.Items.TreasureBags.MiscGrabBags.FleshyGeode>());
 				recipe.AddIngredient(ItemID.StoneBlock, 200);
 				recipe.AddTile(TileID.MythrilAnvil);
 				recipe.Register();
 			}
 			{
 				Recipe recipe = Recipe.Create(ItemType<Necrostone>(), 200);
-				recipe.AddIngredient(ItemType<CalamityMod.Items.TreasureBags.NecromanticGeode>());
+				recipe.AddIngredient(ItemType<CalamityMod.Items.TreasureBags.MiscGrabBags.NecromanticGeode>());
 				recipe.AddIngredient(ItemID.StoneBlock, 200);
 				recipe.AddTile(TileID.MythrilAnvil);
 				recipe.Register();
