@@ -1,11 +1,14 @@
+<<<<<<< Updated upstream
+//
+=======
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
-using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
+using CalValEX.Items.Tiles;
 
-namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
+namespace CalValEX.Tiles.MiscFurniture {
     public class WulfrumGlobePlaced : ModTile {
         public override void SetStaticDefaults() {
             TileID.Sets.DisableSmartCursor[Type] = true;
@@ -38,3 +41,4 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
         }
     }
 }
+>>>>>>> Stashed changes

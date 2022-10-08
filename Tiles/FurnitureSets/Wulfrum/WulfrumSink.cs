@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
-using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
+//using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
