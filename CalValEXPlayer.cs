@@ -1061,8 +1061,8 @@ namespace CalValEX {
                 } else if (scalMonolith) {
                     Player.ManageSpecialBiomeVisuals("CalamityMod:SupremeCalamitas", useScalMonolith, Player.Center);
                 } else if (CalValEXWorld.RockshrinEX) {
-                    //CalamityMod.Events.BossRushSky.ShouldDrawRegularly = true;
-                    //Player.ManageSpecialBiomeVisuals("CalamityMod:BossRush", TerminalMonolith, Player.Center);
+                    CalamityMod.Skies.BossRushSky.ShouldDrawRegularly = true;
+                    Player.ManageSpecialBiomeVisuals("CalamityMod:BossRush", TerminalMonolith, Player.Center);
                 } else if (cryoMonolith) {
                     CalamityMod.Skies.CryogenSky.ShouldDrawRegularly = true;
                     //Terraria.Graphics.Effects.SkyManager.Instance.Activate("CalamityMod:Cryogen", Player.Center);
