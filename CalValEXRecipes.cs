@@ -678,7 +678,7 @@ namespace CalValEX {
             #endregion
 
             #region //Pandemonium Box (LESSSS GOOOOOOO
-			#region //Prehardmode
+			/*#region //Prehardmode
 			{
 				Recipe recipe = Recipe.Create(ItemType<AlarmClock>());
 				recipe.AddIngredient(ItemType<Items.Pets.WulfrumController>());
@@ -718,7 +718,7 @@ namespace CalValEX {
 				recipe.AddTile(TileID.TinkerersWorkbench);
 				recipe.Register();
 			}
-            #endregion
+		        #endregion
 
 			#region //Hardmode
 			{
@@ -828,11 +828,11 @@ namespace CalValEX {
 				recipe.AddTile(TileType<DraedonsForge>());
 				recipe.Register();
 			}
-			#endregion
+			#endregion*/
 
 			#region //Blocks
 			{
-                Recipe recipe = Recipe.Create(ItemType<AuricBrick>(), 50);
+		                Recipe recipe = Recipe.Create(ItemType<AuricBrick>(), 50);
 				recipe.AddIngredient(ItemType<CalamityMod.Items.Placeables.Ores.AuricOre>());
 				recipe.AddIngredient(ItemID.StoneBlock, 50);
 				recipe.AddTile(TileType<CosmicAnvil>());
@@ -1732,7 +1732,7 @@ namespace CalValEX {
             #endregion
 
             #region //Wulfrum
-            {
+            /*{
                 Recipe recipe = Recipe.Create(ItemType<WulfrumBathtubItem>());
 				recipe.AddIngredient(ItemType<WulfrumPlating>(), 14);
 				recipe.AddTile(TileType<WulfrumLabstation>());
@@ -1789,12 +1789,12 @@ namespace CalValEX {
 				recipe.AddTile(TileType<WulfrumLabstation>());
 				recipe.Register();
 			}
-			/*{
+			{
 				Recipe recipe = Recipe.Create(ItemType<WulfrumDoorItem>());
 				recipe.AddIngredient(ItemType<WulfrumPlating>(), 6);
 				recipe.AddTile(TileType<WulfrumLabstation>());
 				recipe.Register();
-			}*/
+			}
 			{
 				Recipe recipe = Recipe.Create(ItemType<WulfrumDresserItem>());
 				recipe.AddIngredient(ItemType<WulfrumPlating>(), 16);
@@ -1847,7 +1847,7 @@ namespace CalValEX {
 				recipe.AddTile(TileType<WulfrumLabstation>());
 				recipe.Register();
 			}
-            /*{
+            		{
 				Recipe recipe = Recipe.Create(ItemType<WulfrumPlatformItem>(), 2);
 				recipe.AddIngredient(ItemType<WulfrumPlating>());
 				recipe.Register();
