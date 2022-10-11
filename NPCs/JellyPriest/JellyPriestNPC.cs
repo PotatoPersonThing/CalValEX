@@ -20,6 +20,7 @@ using CalamityMod.World;
 using CalamityMod;
 using Terraria.GameContent.Personalities;
 using CalValEX.Items.Tiles.FurnitureSets.Arsenal;
+using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 using CalValEX.Items.Tiles.Monoliths;
 
 namespace CalValEX.NPCs.JellyPriest
@@ -439,7 +440,7 @@ namespace CalValEX.NPCs.JellyPriest
             else if (shop2)
             {
                 AddItem(ItemType<C>(), Item.buyPrice(0, 1, 0, 0), true, ref shop, ref nextSlot);
-                AddItem(ItemType<Items.Tiles.WulfrumGlobe>(), Item.buyPrice(0, 1, 0, 0), true, ref shop, ref nextSlot);
+                AddItem(ItemType<WulfrumGlobe>(), Item.buyPrice(0, 1, 0, 0), true, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.DraedonStructures.LaboratoryConsoleItem>(), Item.buyPrice(0, 2, 50, 0), true, ref shop, ref nextSlot);
                 AddItem(ItemType<SulphurColumn>(), Item.buyPrice(0, 0, 5, 0), acid, ref shop, ref nextSlot);
                 AddItem(ItemType<SulphurGeyser>(), Item.buyPrice(0, 0, 10, 0), acid, ref shop, ref nextSlot);

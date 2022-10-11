@@ -20,7 +20,9 @@ namespace CalValEX.Items.Equips.Wings {
             Item.accessory = true;
         }
 
-        public override void UpdateVanity(Player player) => player.GetModPlayer<CalValEXPlayer>().prismshell = true;
+        public override void UpdateVanity(Player player) => player.GetModPlayer<CalValEXPlayer>().helipack = true;
+
+        public override void UpdateEquip(Player player) => player.GetModPlayer<CalValEXPlayer>().helipack = true;
 
         public override void UpdateAccessory(Player player, bool hideVisual) {
             player.wingTimeMax = 48;
@@ -34,9 +36,8 @@ namespace CalValEX.Items.Equips.Wings {
                 //player.wingTimeMax = 5;
                 player.GetModPlayer<CalValEXPlayer>().wulfrumjam = false;
             }
-
-            if (!hideVisual)
-                player.GetModPlayer<CalValEXPlayer>().helipack = true;
+            
+            player.GetModPlayer<CalValEXPlayer>().helipack = true;
         }
 
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,
@@ -59,10 +60,6 @@ namespace CalValEX.Items.Equips.Wings {
         public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration) {
             speed = 5.8f;
             acceleration *= 0.8f;
-        }
-
-        public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI) {
-            return false;
         }
     }
 }

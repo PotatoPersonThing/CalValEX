@@ -3,22 +3,14 @@ using Terraria.ModLoader;
 using Terraria.ID;
 
 namespace CalValEX.Items.Equips.Shirts {
-    [AutoloadEquip(EquipType.Body)]
+    [AutoloadEquip(EquipType.Body, EquipType.Legs)]
     public class BelladonnaCloak : ModItem {
-        public override void Load() {
-            if (Main.netMode != NetmodeID.Server) { 
-                EquipLoader.AddEquipTexture(Mod, "CalValEX/Items/Equips/Shirts/BelladonnaCloak_Legs", EquipType.Legs, this);
-                EquipLoader.AddEquipTexture(Mod, "CalValEX/Items/Equips/Shirts/BelladonnaCloak_Front", EquipType.Front, this);
-            }
-        }
         public override void SetStaticDefaults() {
             SacrificeTotal = 1;
 
             if (Main.netMode != NetmodeID.Server) {
                 var legEquipSlot = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);
                 ArmorIDs.Legs.Sets.HidesBottomSkin[legEquipSlot] = true;
-                var cloakEquipSlot = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Front);
-                ArmorIDs.Front.Sets.DrawsInNeckLayer[cloakEquipSlot] = true;
                 var bodyEquipSlot = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Body);
                 ArmorIDs.Body.Sets.HidesArms[bodyEquipSlot] = true;
                 ArmorIDs.Body.Sets.HidesHands[bodyEquipSlot] = true;

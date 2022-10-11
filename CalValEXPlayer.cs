@@ -247,11 +247,13 @@ namespace CalValEX {
         public bool vanityfunclump;
         public bool vanityyound;
         public bool vanityearth;
-        public int choppercounter = 0;
         public double rotcounter = 0;
         public double rotdeg = 0;
         public double rotsin = 0;
         public int chopperframe = 0;
+        public int choppercounter = 0;
+        public int helicounter = 0;
+        public int heliframe = 0;
         public int conecounter = 0;
         public int coneframe = 0;
         public int twincounter = 0;
@@ -578,7 +580,7 @@ namespace CalValEX {
             }
             if ((profanedCultist || profanedCultistForce) && !profanedCultistHide)
                 Player.legs = EquipLoader.GetEquipSlot(Mod, "ProfanedCultistRobes", EquipType.Legs);
-            if ((bellaCloak || bellaCloakForce) && !bellaCloakHide) { 
+            if ((bellaCloak || bellaCloakForce) && !bellaCloakHide) {
                 Player.legs = EquipLoader.GetEquipSlot(Mod, "BelladonnaCloak", EquipType.Legs);
                 Player.front = (sbyte)EquipLoader.GetEquipSlot(Mod, "BelladonnaCloak", EquipType.Front);
             }

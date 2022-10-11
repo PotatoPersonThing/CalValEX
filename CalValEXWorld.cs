@@ -21,13 +21,9 @@ namespace CalValEX
     {
         public static int astralTiles;
 
-        public static int cragTiles;
-
         public static int hellTiles;
 
         public static int labTiles;
-
-        public static int berryTiles;
 
         public static int dungeontiles;
 
@@ -166,7 +162,6 @@ namespace CalValEX
         public override void ResetNearbyTileEffects()
         {
             astralTiles = 0;
-            cragTiles = 0;
             hellTiles = 0;
             labTiles = 0;
             dungeontiles = 0;
@@ -175,8 +170,6 @@ namespace CalValEX
         {
             // Old Astral tiles
             astralTiles = tileCounts[TileType<AstralDirtPlaced>()] + tileCounts[TileType<AstralGrassPlaced>()] + tileCounts[TileType<XenostonePlaced>()] + tileCounts[TileType<AstralSandPlaced>()] + tileCounts[TileType<AstralHardenedSandPlaced>()] + tileCounts[TileType<AstralSandstonePlaced>()] + tileCounts[TileType<AstralClayPlaced>()] + tileCounts[TileType<AstralIcePlaced>()] + tileCounts[TileType<AstralSnowPlaced>()];
-            // Crags tiles
-            cragTiles = tileCounts[TileType<CalamityMod.Tiles.Crags.BrimstoneSlag>()];
             // Hell Lab tiles
             hellTiles = tileCounts[TileType<CalamityMod.Tiles.Plates.Chaosplate>()];
             // Lab tiles
