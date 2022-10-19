@@ -4,27 +4,11 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
 
-namespace CalValEX.Items.Equips.Shirts
-{
-    [AutoloadEquip(EquipType.Body)]
+namespace CalValEX.Items.Equips.Shirts {
+    [AutoloadEquip(EquipType.Body, EquipType.Legs)]
     public class BloodyMaryDress : ModItem
     {
-        public override void SetStaticDefaults() {
-            SacrificeTotal = 1;
-            if (Main.netMode != NetmodeID.Server)
-            {
-                int equipSlotLegs = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);
-                ArmorIDs.Legs.Sets.HidesBottomSkin[equipSlotLegs] = true;
-            }
-        }
-
-        public override void Load()
-        {
-            if (Main.netMode != NetmodeID.Server)
-            {
-                EquipLoader.AddEquipTexture(Mod, "CalValEX/Items/Equips/Shirts/BloodyMaryDress_Legs", EquipType.Legs, this);
-            }
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {
@@ -33,7 +17,7 @@ namespace CalValEX.Items.Equips.Shirts
             Item.rare = ItemRarityID.Purple;
             Item.vanity = true;
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Terraria.ID.ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = false;
+            ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = false;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

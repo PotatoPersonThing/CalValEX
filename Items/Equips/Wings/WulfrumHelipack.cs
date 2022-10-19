@@ -1,8 +1,6 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
 
 namespace CalValEX.Items.Equips.Wings {
     [AutoloadEquip(EquipType.Wings)]
@@ -29,11 +27,9 @@ namespace CalValEX.Items.Equips.Wings {
             if (hideVisual)
                 player.GetModPlayer<CalValEXPlayer>().wulfrumjam = false;
             else if (player.wingTime <= 0) {
-                //player.wingTimeMax = 0;
                 player.GetModPlayer<CalValEXPlayer>().wulfrumjam = true;
             }
             if (player.wingTime > 0) {
-                //player.wingTimeMax = 5;
                 player.GetModPlayer<CalValEXPlayer>().wulfrumjam = false;
             }
             
