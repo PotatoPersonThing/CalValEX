@@ -18,11 +18,10 @@ namespace CalValEX.Items.Equips.Wings {
             Item.accessory = true;
         }
 
-        public override void UpdateVanity(Player player) => player.GetModPlayer<CalValEXPlayer>().helipack = true;
-
-        public override void UpdateEquip(Player player) => player.GetModPlayer<CalValEXPlayer>().helipack = true;
+        public override void UpdateVanity(Player player) => player.GetModPlayer<CalValEXPlayer>().helipackVanity = true;
 
         public override void UpdateAccessory(Player player, bool hideVisual) {
+            player.GetModPlayer<CalValEXPlayer>().helipackVanity = false;
             player.wingTimeMax = 48;
             if (hideVisual)
                 player.GetModPlayer<CalValEXPlayer>().wulfrumjam = false;
@@ -32,8 +31,9 @@ namespace CalValEX.Items.Equips.Wings {
             if (player.wingTime > 0) {
                 player.GetModPlayer<CalValEXPlayer>().wulfrumjam = false;
             }
-            
-            player.GetModPlayer<CalValEXPlayer>().helipack = true;
+
+            if (!hideVisual || player.wingTime != player.wingTimeMax)
+                player.GetModPlayer<CalValEXPlayer>().helipack = true;
         }
 
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising,

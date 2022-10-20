@@ -320,6 +320,7 @@ namespace CalValEX {
         public bool bellaCloakHide;
         public bool bellaCloakForce;
         public bool helipack;
+        public bool helipackVanity;
 
         public override void Initialize() {
             ResetMyStuff();
@@ -402,19 +403,19 @@ namespace CalValEX {
             }
             for (int n = 13; n < 18 + Player.extraAccessorySlots; n++) {
                 Item item = Player.armor[n];
-                if (item.type == ModContent.ItemType<Items.Equips.Transformations.Signus>()) {
+                if (item.type == ItemType<Signus>()) {
                     signutHide = false;
                     signutForce = true;
-                } else if (item.type == ModContent.ItemType<Items.Equips.Transformations.ProtoRing>()) {
+                } else if (item.type == ItemType<ProtoRing>()) {
                     androHide = false;
                     androForce = true;
-                } else if (item.type == ModContent.ItemType<Items.Equips.Transformations.BurningEye>()) {
+                } else if (item.type == ItemType<BurningEye>()) {
                     classicHide = false;
                     classicForce = true;
-                } else if (item.type == ModContent.ItemType<Items.Equips.Transformations.CloudWaistbelt>()) {
+                } else if (item.type == ItemType<CloudWaistbelt>()) {
                     cloudHide = false;
                     cloudForce = true;
-                } else if (item.type == ModContent.ItemType<Items.Equips.Transformations.SandyBangles>()) {
+                } else if (item.type == ItemType<Items.Equips.Transformations.SandyBangles>()) {
                     sandHide = false;
                     sandForce = true;
                 }
@@ -905,6 +906,7 @@ namespace CalValEX {
             zygote = false;
             brimberry = false;
             helipack = false;
+            helipackVanity = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit) {

@@ -5,14 +5,8 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Mounts
 {
-    public class ProfanedBattery : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Holy Crystal Core");
-            Tooltip.SetDefault("Charged core of a profaned guardian: Could be used to make something powerful... but what?");
-            SacrificeTotal = 1;
-        }
+    public class ProfanedBattery : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

@@ -7,14 +7,8 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Mounts.InfiniteFlight
 {
-    public class YharonsAnklet : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Infernal Message Book");
-            SacrificeTotal = 1;
-            Tooltip.SetDefault("Summons a rideable perfect lesser Yharon clone\n'This is my message...'");
-        }
+    public class YharonsAnklet : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

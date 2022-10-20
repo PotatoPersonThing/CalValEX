@@ -7,15 +7,8 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.LightPets
 {
     [LegacyName("PhantomJar")]
-    public class PhantominaJar : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Phantom in a Jar");
-            Tooltip
-                .SetDefault("'Don't even think about it.'\n" + "Summons a Phantom Spirit to light your way\n" + "Provides a large amount of light in the abyss");
-            SacrificeTotal = 1;
-        }
+    public class PhantominaJar : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

@@ -7,14 +7,8 @@ using CalValEX.Items.Mounts;
 
 namespace CalValEX.Items.Mounts.Ground
 {
-    public class SilvaJeepItem : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Silvian Jeep Keys");
-            Tooltip.SetDefault("Safari time\nGreatly reduces health and damage if a boss is nearby");
-            SacrificeTotal = 1;
-        }
+    public class SilvaJeepItem : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

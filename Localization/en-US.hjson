@@ -249,12 +249,42 @@
 			# Misc
 			ExodiumMoon: Exodium Orbiter
 
-			# Tiles
-			BubbleMachine: Effervescent Bubbler
-			MeldBlockItem: Meld Block
-			WulfrumPlating: Wulfrum Plating
-			ThanatosPlating: XM-05 Armor Plating
-			ThanatosPlatingVent: XM-05 Armor Plating (Vent)
+			# Light Pets
+			AntarcticEssence: Antarctic Essence
+			AstralBinoculars: Astral Binoculars
+			ConstructionRemote: Construction Remote
+			CoreofVanity: Core of Vanity
+			CosmicBubble: Cosmic Bubble
+			DarksunSigil: Darksun Sigil
+			DivineFly: Divine Fly
+			EssenceofDisorder: Essence of Disorder
+			EssenceofYeet: Essence of Yeet
+			HolyTorch: The Holy Torch
+			PhantominaJar: Phantom in a Jar
+			ProfanedHeart: Profaned Heart
+			SunBun: Sun Bun
+			SuperstitiousJewel: Superstitious Jewel
+			WulfrumTransmitter: Wulfrum Transmitter
+
+			# Mounts
+			AuricCarKey: Auric Car Key
+			BloodstoneCarriageItem: Bloodstone Invitation
+			CrackedFossil: Crab Fossil
+			FloatyCarpetItem: Floaty Carpet
+			GodRiderItem: God Rider Kit
+			HadarianTail: Hadarian Egg
+			InfectedController: Diseased Joystick
+			LeviathanEgg: Leviathan Egg
+			PopUpShop: Pop-up Shop
+			ProfanedBattery: Holy Crystal Core
+			ProfanedCycleItem: Profaned Cycle
+			ProfanedFrame: Profaned Frame
+			ProfanedWheels: Hot Wheels
+			RadJuice: Radioactive Carton
+			ShadowShedding: Shadow Shedding
+			SilvaJeepItem: Silvian Jeep Keys
+			WulfrumKeys: Wulfrum Keys
+			YharonsAnklet: Infernal Message Book
 
 			# Pandemonium Box
 			AlarmClock: Alarm Clock
@@ -270,6 +300,13 @@
 			WormBell: Slither Charm
 			ScratchedGong: Scratched Gong
 			PandemoniumBox: Pandemonium Box
+
+			# Tiles
+			BubbleMachine: Effervescent Bubbler
+			MeldBlockItem: Meld Block
+			WulfrumPlating: Wulfrum Plating
+			ThanatosPlating: XM-05 Armor Plating
+			ThanatosPlatingVent: XM-05 Armor Plating (Vent)
 		}
 		
 		ItemTooltip:  {
@@ -473,8 +510,93 @@
 			# Misc
 			ExodiumMoon: A world revolving
 
-			# Tiles
-			BubbleMachine: That's like, groovy mannn
+			# Light Pets
+			AntarcticEssence: ''' UNOBTAINABLE
+				Does nothing for now '''
+				# Provides a moderate amount of light in the abyss
+			AstralBinoculars: ''' You can see something in the distance
+				Summons a Sightseeing Tour
+				Provides a moderate amount of light in the abyss '''
+			ConstructionRemote: ''' Summons a small digger to follow you and light your way
+				Caution: Pairing with a repair unit will result in supercharging! '''
+			CoreofVanity: ''' 'The frozen one is taking a break'
+				Summons pet Heat Sprits and a Sunskater to follow you
+				Provides a large amount of light in the abyss '''
+			CosmicBubble: ''' Summons the cosmic assistant to help you in your endeavors
+				Provides a gigantic amount of light in the abyss
+				'Enreden's developer pet, without him this mod likely wouldn't be here.' '''
+			DarksunSigil: ''' Summons Darksun Spirits to follow you
+				Provides a gigantic amount of light in the abyss '''
+			DivineFly: ''' 'Ascension.'
+				Summons a Grand Entity
+				Provides a large amount of light in the abyss '''
+			EssenceofDisorder: ''' Summons a pair of Heat Spirits to light your way 
+				Provides a moderate amount of light in the abyss
+				'Come burn with me' '''
+			EssenceofYeet: ''' 'Sunfish gang, sunfish gang.'
+				Summons a small Sunskater
+				Provides a small amount of light in the abyss '''
+			HolyTorch: ''' Attracts an annoying fairy
+				Provides a large amount of light in the abyss '''
+			PhantominaJar: ''' 'Don't even think about it.'
+				Summons a Phantom Spirit to light your way
+				Provides a large amount of light in the abyss '''
+			ProfanedHeart: ''' Equip this to receive a blessing of light
+				Summons a miniature Providence, accompanied by her guardians
+				Provides a large amount of light in the abyss '''
+			SunBun: ''' The bun above all
+				Summons the Sun Bun
+				Provides a large amount of light in the abyss
+				Boosts Bunny spawnrates... '''
+			SuperstitiousJewel: ''' Summons an Elemental, two Endothermic Runes, and two Phantom Sharks to follow you, emitting a crazy amount of light.
+				Provides a colossal amount of light in the abyss
+				'It looks like glass, but the magic is real.' '''
+			WulfrumTransmitter: ''' 'It's making a lot of dial up noises'
+				Summons a Prototype Wulfrum Amplifier
+				Provides a small amount of light in the abyss '''
+
+			# Mounts
+			AuricCarKey: ''' Yharim Car
+				Mortally reduces health and damage if a boss is nearby '''
+			BloodstoneCarriageItem: ''' An invitation to take a merry little stroll on a ride made of the deceased!
+				Reduces damage and health while a boss is nearby '''
+			CrackedFossil: ''' It's moving...
+				Summons a friendly rideable Anthozoan Crab
+				Reduces damage and health when a boss is nearby '''
+			FloatyCarpetItem: ''' A floating carpet made out of a Floaty!
+				Summons a floaty carpet that prevents fall damage when hovering '''
+			GodRiderItem: ''' Devour miles in the blink of an eye
+				Summons a rideable God Rider Hoverbike
+				Reduces damage and health when a boss is nearby '''
+			HadarianTail: ''' Contains an infected scavenger to let you soar to new heights
+				Reduces damage and health when a boss is nearby '''
+			InfectedController: ''' It emits 8 bit buzzing
+				Summons a rideable Plaguebringer
+				Reduces damage and health when a boss is nearby '''
+			LeviathanEgg: ''' Summons a young rideable Leviathan
+				Reduces damage and health when a boss is nearby '''
+			PopUpShop: ''' Summons a rideable Morshu
+                Consumes a Copper Coin from the coin slots every 5 seconds and becomes super-sonic
+                If there are no Copper Coins in the coin slots then Morshu becomes crippled '''
+			ProfanedBattery: Charged core of a profaned guardian: Could be used to make something powerful... but what?
+			ProfanedCycleItem: ''' When you need to get somewhere, in style
+				The Profaned Goddess' curse haunts the cycle, cutting your damage and health dramatically if a boss is nearby '''
+			ProfanedFrame: Some sort of ancient machine? It seems to be missing pieces...
+			ProfanedWheels: ''' Wheels made of pure profaned energy, they'd be good for doing donuts...
+				but what could be fast enough to use them? '''
+			RadJuice: ''' You probably shouldn't drink this
+				Summons a Nuclear Terror mount
+				Reduces damage and health when a boss is nearby '''
+			ShadowShedding: ''' Infestation!
+				Summons a smaller Hive Mind that you can ride inside of
+				Reduces damage and health when a boss is nearby '''
+			SilvaJeepItem: ''' Safari time
+				Greatly reduces health and damage if a boss is nearby '''
+			WulfrumKeys: ''' Gives you access to a Wulfrum Tank
+				The keys wield dark energy which will lay a fatal curse on your health and damage if a powerful entity is near
+				You already know how to operate it... somehow... '''
+			YharonsAnklet: ''' Summons a rideable perfect lesser Yharon clone
+				'This is my message...' '''
 
 			# Pandemonium Box
 			AlarmClock: Spare parts for your travels
@@ -494,6 +616,9 @@
 			PandemoniumBox: ''' 'And I wish I was the only one to leave'
 				The end of our journey, your zenith
 				Summons every pet you've met in your path'''
+
+			# Tiles
+			BubbleMachine: That's like, groovy mannn
 		}
 		
 		ProjectileName:  {
@@ -524,7 +649,7 @@
 			ImpBuff: Minimpious
 			PhantomBuff: Freed Phantom Spirit
 			ProBuff: The Profaned Armada
-			PylonBuff: Proto-Pylon
+			PylonBuff: Proto-Amplifier
 			SeerBuff: Sightseeing Tour
 			SolarBunBuff: Sun Bun
 			SupJewelBuff: Superstitious Jewel

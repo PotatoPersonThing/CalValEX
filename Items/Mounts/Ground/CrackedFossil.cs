@@ -7,14 +7,8 @@ using CalValEX.Items.Mounts;
 
 namespace CalValEX.Items.Mounts.Ground
 {
-    public class CrackedFossil : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Crab Fossil");
-            SacrificeTotal = 1;
-            Tooltip.SetDefault("It's moving...\nSummons a friendly rideable Anthozoan Crab\nReduces damage and health when a boss is nearby");
-        }
+    public class CrackedFossil : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

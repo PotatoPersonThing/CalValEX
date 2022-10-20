@@ -7,14 +7,8 @@ using CalValEX.Items.Mounts;
 
 namespace CalValEX.Items.Mounts.Ground
 {
-    public class RadJuice : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Radioactive Carton");
-            SacrificeTotal = 1;
-            Tooltip.SetDefault("You probably shouldn't drink this\nSummons a Nuclear Terror mount\nReduces damage and health when a boss is nearby");
-        }
+    public class RadJuice : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

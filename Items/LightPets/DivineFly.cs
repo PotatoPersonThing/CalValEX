@@ -7,15 +7,8 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.LightPets
 {
     [LegacyName("NuclearFly")]
-    public class DivineFly : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Divine Fly");
-            Tooltip
-                .SetDefault("'Ascension'\n" + "Summons a Grand Entity\n" + "Provides a large amount of light in the abyss");
-            SacrificeTotal = 1;
-        }
+    public class DivineFly : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

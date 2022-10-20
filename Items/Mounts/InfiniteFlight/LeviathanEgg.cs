@@ -7,14 +7,8 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Mounts.InfiniteFlight
 {
-    public class LeviathanEgg : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Leviathan Egg");
-            SacrificeTotal = 1;
-            Tooltip.SetDefault("Summons a young rideable Leviathan");
-        }
+    public class LeviathanEgg : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

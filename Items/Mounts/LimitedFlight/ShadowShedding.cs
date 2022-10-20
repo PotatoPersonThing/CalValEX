@@ -7,14 +7,8 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Mounts.LimitedFlight
 {
-    public class ShadowShedding : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Shadow Shedding");
-            Tooltip.SetDefault("Infestation!\n" + "Summons a smaller Hive Mind that you can ride inside of");
-            SacrificeTotal = 1;
-        }
+    public class ShadowShedding : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

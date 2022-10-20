@@ -37,7 +37,7 @@ namespace CalValEX.Items.Equips.PlayerLayers
                 for (int n = 0; n < 18 + drawInfo.drawPlayer.extraAccessorySlots; n++)
                 {
                     Item item = drawInfo.drawPlayer.armor[n];
-                    if (item.type == ModContent.ItemType<Items.Equips.ExodiumMoon>())
+                    if (item.type == ModContent.ItemType<ExodiumMoon>())
                     {
                         if (n > 9)
                             dyeShader = drawPlayer.dye?[n - 10].dye ?? 0;
@@ -48,7 +48,7 @@ namespace CalValEX.Items.Equips.PlayerLayers
                 Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Items/Equips/ExodiumMoon").Value;
                 Vector2 Circle = drawPlayer.Center + new Vector2(0, 300).RotatedBy(modPlayer.rotcounter);
                 Vector2 draw = Circle - Main.screenPosition;
-                DrawData data = new DrawData(texture, draw, null, drawInfo.colorArmorBody, (float)modPlayer.rotsin, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0)
+                DrawData data = new DrawData(texture, draw, null, drawInfo.colorArmorBody * alb, (float)modPlayer.rotsin, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0)
                 ;
                 data.shader = dyeShader;
                 drawInfo.DrawDataCache.Add(data);
