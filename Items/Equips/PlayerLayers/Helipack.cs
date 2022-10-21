@@ -23,8 +23,8 @@ namespace CalValEX.Items.Equips.PlayerLayers {
         }
 
         protected override void Draw(ref PlayerDrawSet drawInfo) {
-            if (drawInfo.shadow != 0f)
-                return;
+            //if (drawInfo.shadow != 0f)
+                //return;
 
             Player player = Main.LocalPlayer;
             Player drawPlayer = drawInfo.drawPlayer;
