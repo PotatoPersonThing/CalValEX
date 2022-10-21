@@ -9,8 +9,6 @@ namespace CalValEX.Items.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Essence of Yeet");
-            Tooltip.SetDefault("'Sunfish gang, sunfish gang.'\n" + "Summons a small Sunskater\n" + "Provides a small amount of light in the abyss");
             SacrificeTotal = 1;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
         }

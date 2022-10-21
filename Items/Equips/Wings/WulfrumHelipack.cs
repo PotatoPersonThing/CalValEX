@@ -1,8 +1,6 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
 
 namespace CalValEX.Items.Equips.Wings {
     [AutoloadEquip(EquipType.Wings)]
@@ -20,22 +18,21 @@ namespace CalValEX.Items.Equips.Wings {
             Item.accessory = true;
         }
 
-        public override void UpdateVanity(Player player) => player.GetModPlayer<CalValEXPlayer>().prismshell = true;
+        public override void UpdateVanity(Player player) => player.GetModPlayer<CalValEXPlayer>().helipackVanity = true;
 
         public override void UpdateAccessory(Player player, bool hideVisual) {
+            player.GetModPlayer<CalValEXPlayer>().helipackVanity = false;
             player.wingTimeMax = 48;
             if (hideVisual)
                 player.GetModPlayer<CalValEXPlayer>().wulfrumjam = false;
             else if (player.wingTime <= 0) {
-                //player.wingTimeMax = 0;
                 player.GetModPlayer<CalValEXPlayer>().wulfrumjam = true;
             }
             if (player.wingTime > 0) {
-                //player.wingTimeMax = 5;
                 player.GetModPlayer<CalValEXPlayer>().wulfrumjam = false;
             }
 
-            if (!hideVisual)
+            if (!hideVisual || player.wingTime != player.wingTimeMax)
                 player.GetModPlayer<CalValEXPlayer>().helipack = true;
         }
 
@@ -59,10 +56,6 @@ namespace CalValEX.Items.Equips.Wings {
         public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration) {
             speed = 5.8f;
             acceleration *= 0.8f;
-        }
-
-        public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI) {
-            return false;
         }
     }
 }

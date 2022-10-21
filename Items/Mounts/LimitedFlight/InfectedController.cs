@@ -3,14 +3,8 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Mounts.LimitedFlight
 {
-    public class InfectedController : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Diseased Joystick");
-            Tooltip.SetDefault("It emits 8 bit buzzing\n" + "Summons a rideable Plaguebringer");
-            SacrificeTotal = 1;
-        }
+    public class InfectedController : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

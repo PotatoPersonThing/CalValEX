@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.Enums;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
+//using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.Tiles.FurnitureSets.Wulfrum {

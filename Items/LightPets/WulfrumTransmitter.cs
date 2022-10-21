@@ -5,15 +5,8 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.LightPets
 {
     [LegacyName("PylonRemote")]
-    public class WulfrumTransmitter : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Wulfrum Transmitter");
-            SacrificeTotal = 1;
-            Tooltip
-                .SetDefault("'It's making a lot of dial up noises'\n" + "Summons a Prototype Wulfrum Pylon\n" + "Provides a small amount of light in the abyss");
-        }
+    public class WulfrumTransmitter : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

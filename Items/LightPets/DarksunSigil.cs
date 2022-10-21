@@ -12,7 +12,6 @@ namespace CalValEX.Items.LightPets
         public override void SetStaticDefaults()
         {
             ItemID.Sets.ItemNoGravity[Item.type] = true;
-            Tooltip.SetDefault("Summons Darksun Spirits to follow you\n" + "Provides a gigantic amount of light in the abyss");
             SacrificeTotal = 1;
         }
 

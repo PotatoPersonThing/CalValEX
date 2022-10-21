@@ -8,14 +8,8 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.LightPets
 {
-    public class HolyTorch : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("The Holy Torch");
-            Tooltip.SetDefault("Attracts an annoying fairy\n" + "Provides a large amount of light in the abyss");
-            SacrificeTotal = 1;
-        }
+    public class HolyTorch : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

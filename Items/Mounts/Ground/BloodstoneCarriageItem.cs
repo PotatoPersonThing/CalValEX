@@ -6,14 +6,8 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Mounts.Ground
 {
-    public class BloodstoneCarriageItem : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Bloodstone Invitation");
-            SacrificeTotal = 1;
-            Tooltip.SetDefault("An invitation to take a merry little stroll on a ride made of the deceased!\nReduces damage and health while a boss is nearby");
-        }
+    public class BloodstoneCarriageItem : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

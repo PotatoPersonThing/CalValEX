@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
+//using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.ObjectInteractions;

@@ -5,16 +5,8 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Mounts.Morshu
 {
-    public class PopUpShop : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Pop-up Shop");
-            Tooltip.SetDefault("Summons a rideable Morshu" +
-                "\nConsumes a Copper Coin from the coin slots every 5 seconds and becomes super-sonic" +
-                "\nIf there are no Copper Coins in the coin slots then Morshu becomes crippled");
-            SacrificeTotal = 1;
-        }
+    public class PopUpShop : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

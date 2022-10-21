@@ -3,12 +3,8 @@ using Terraria.ModLoader;
 using Terraria.ID;
 
 namespace CalValEX.Items.Equips.Shirts {
-    [AutoloadEquip(EquipType.Body)]
+    [AutoloadEquip(EquipType.Body, EquipType.Legs)]
     public class ProfanedCultistRobes : ModItem {
-        public override void Load() {
-            if (Main.netMode != NetmodeID.Server)
-                EquipLoader.AddEquipTexture(Mod, "CalValEX/Items/Equips/Shirts/ProfanedCultistRobes_Legs", EquipType.Legs, this);
-        }
         public override void SetStaticDefaults() {
             SacrificeTotal = 1;
 

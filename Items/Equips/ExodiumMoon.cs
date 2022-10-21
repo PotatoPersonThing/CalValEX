@@ -25,14 +25,13 @@ namespace CalValEX.Items.Equips
             Item.canBePlacedInVanityRegardlessOfConditions = true;
         }
 
-        public override void UpdateEquip(Player player)
-        {
-            player.GetModPlayer<CalValEXPlayer>().exorb = true;
-        }
+        public override void UpdateEquip(Player player) => player.GetModPlayer<CalValEXPlayer>().exorb = true;
 
-        public override void UpdateVanity(Player player)
-        {
-            player.GetModPlayer<CalValEXPlayer>().exorb = true;
+        public override void UpdateVanity(Player player) => player.GetModPlayer<CalValEXPlayer>().exorb = true;
+
+        public override void UpdateAccessory(Player player, bool hideVisual) {
+            if (!hideVisual)
+                player.GetModPlayer<CalValEXPlayer>().exorb = true;
         }
     }
 }

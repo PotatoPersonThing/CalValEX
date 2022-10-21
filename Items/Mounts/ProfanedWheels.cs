@@ -5,14 +5,8 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Mounts
 {
-    public class ProfanedWheels : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Hot Wheels");
-            Tooltip.SetDefault("Wheels made of pure profaned energy, They'd be good for doing donuts... \n but what could be fast enough to use them?");
-            SacrificeTotal = 1;
-        }
+    public class ProfanedWheels : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

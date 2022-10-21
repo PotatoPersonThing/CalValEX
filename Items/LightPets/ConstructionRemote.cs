@@ -9,10 +9,7 @@ using CalValEX.Projectiles.Pets.LightPets;
 
 namespace CalValEX.Items.LightPets {
     public class ConstructionRemote : ModItem {
-        public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Construction Remote");
-            Tooltip.SetDefault("Summons a small digger to follow you and light your way\nCaution: Pairing with a repair unit will result in supercharging!");
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults() {
             Item.CloneDefaults(ItemID.ZephyrFish);

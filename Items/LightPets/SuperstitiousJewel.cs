@@ -13,8 +13,6 @@ namespace CalValEX.Items.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Superstitious Jewel");
-            Tooltip.SetDefault("Summons an Elemental, two Endothermic Runes, and two Phantom Sharks to follow you, emitting a crazy amount of light.\n" + "Provides a colossal amount of light in the abyss\n" + "'It looks like glass, but the magic is real.'" );
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             SacrificeTotal = 1;
         }

@@ -12,6 +12,7 @@ namespace CalValEX
 {
 	public class CalValEXGlobalTile : GlobalTile
     {
+        private int cragCount;
         private int berryCount;
 
         /// <summary>This function lets you easily set a tile glowmask. Compatible with both blocks and furniture.</summary>
@@ -75,20 +76,36 @@ namespace CalValEX
         }
 
         public override void RandomUpdate(int i, int j, int type) {
-            // Checks every tile during runtime and returns it
             Tile tile = Framing.GetTileSafely(i, j);
 
-            if (tile.TileType == TileType<BrimPlantPlaced>()) {
-                CalValEXWorld.berryTiles++;
-            }
-
             // Several tile checks (is it ash, is it unactuated) and other checks to prevent it from spawning too many plants
-            if (tile.HasUnactuatedTile && tile.TileType == TileID.Ash 
-                && Main.rand.NextBool(7) && CalValEXWorld.cragTiles > 20 && berryCount < Main.rand.Next(5, 8)) {
+            if ((tile.TileType == TileID.Ash || tile.TileType == TileType<CalamityMod.Tiles.Crags.BrimstoneSlag>()) && tile.HasUnactuatedTile) {
+                cragCount = 0;
+                berryCount = 0;
 
-                // Check if the tile above is empty, not hammered and not a slope, then place the brimberry plant!!
-                if (Main.tile[i, j - 1].TileType == 0 && Main.tile[i, j].Slope == 0 && !Main.tile[i, j].IsHalfBlock)
-                    WorldGen.PlaceObject(i, j - 1, TileType<BrimPlantPlaced>(), false);
+                int r = 80; //bc magic numbers are cring
+                int xRadStart = i - r;
+                int xRadEnd = xRadStart + (r * 2);
+                int yRadStart = j - r;
+                int yRadEnd = yRadStart + (r * 2);
+
+                for (int x = xRadStart; x < xRadEnd && x < Main.maxTilesX; x++) {
+                    for (int y = yRadStart; y < yRadEnd && y < Main.maxTilesY; y++) {
+                        Tile tileCount = Framing.GetTileSafely(x, y);
+
+                        if (tileCount.TileType == TileType<CalamityMod.Tiles.Crags.BrimstoneSlag>())
+                            cragCount++;
+
+                        if (tileCount.TileType == TileType<BrimPlantPlaced>())
+                            berryCount++;
+                    }
+                }
+
+                if (cragCount > 30 && berryCount <= 6 && Main.rand.NextBool(48)) {
+                    // Check if the tile above is empty, not hammered and not a slope, then place the brimberry plant!!
+                    if (Main.tile[i, j - 1].TileType == 0 && Main.tile[i, j].Slope == 0 && !Main.tile[i, j].IsHalfBlock)
+                        WorldGen.PlaceObject(i, j - 1, TileType<BrimPlantPlaced>(), false);
+                }
             }
         }
     }

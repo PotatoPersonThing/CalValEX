@@ -7,14 +7,8 @@ using CalValEX.Items.Mounts;
 
 namespace CalValEX.Items.Mounts.Ground
 {
-    public class AuricCarKey : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Auric Car Key");
-            Tooltip.SetDefault("Yharim Car.\nMortally reduces health and damage if a boss is nearby");
-            SacrificeTotal = 1;
-        }
+    public class AuricCarKey : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {

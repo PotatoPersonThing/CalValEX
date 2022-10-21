@@ -247,11 +247,13 @@ namespace CalValEX {
         public bool vanityfunclump;
         public bool vanityyound;
         public bool vanityearth;
-        public int choppercounter = 0;
         public double rotcounter = 0;
         public double rotdeg = 0;
         public double rotsin = 0;
         public int chopperframe = 0;
+        public int choppercounter = 0;
+        public int helicounter = 0;
+        public int heliframe = 0;
         public int conecounter = 0;
         public int coneframe = 0;
         public int twincounter = 0;
@@ -318,6 +320,7 @@ namespace CalValEX {
         public bool bellaCloakHide;
         public bool bellaCloakForce;
         public bool helipack;
+        public bool helipackVanity;
 
         public override void Initialize() {
             ResetMyStuff();
@@ -400,19 +403,19 @@ namespace CalValEX {
             }
             for (int n = 13; n < 18 + Player.extraAccessorySlots; n++) {
                 Item item = Player.armor[n];
-                if (item.type == ModContent.ItemType<Items.Equips.Transformations.Signus>()) {
+                if (item.type == ItemType<Signus>()) {
                     signutHide = false;
                     signutForce = true;
-                } else if (item.type == ModContent.ItemType<Items.Equips.Transformations.ProtoRing>()) {
+                } else if (item.type == ItemType<ProtoRing>()) {
                     androHide = false;
                     androForce = true;
-                } else if (item.type == ModContent.ItemType<Items.Equips.Transformations.BurningEye>()) {
+                } else if (item.type == ItemType<BurningEye>()) {
                     classicHide = false;
                     classicForce = true;
-                } else if (item.type == ModContent.ItemType<Items.Equips.Transformations.CloudWaistbelt>()) {
+                } else if (item.type == ItemType<CloudWaistbelt>()) {
                     cloudHide = false;
                     cloudForce = true;
-                } else if (item.type == ModContent.ItemType<Items.Equips.Transformations.SandyBangles>()) {
+                } else if (item.type == ItemType<Items.Equips.Transformations.SandyBangles>()) {
                     sandHide = false;
                     sandForce = true;
                 }
@@ -572,16 +575,13 @@ namespace CalValEX {
             }
         }
         public override void FrameEffects() {
-            if ((maryTrans || maryForce) && !maryHide) {
-                var costume = GetInstance<Items.Equips.Shirts.BloodyMaryDress>();
+            if ((maryTrans || maryForce) && !maryHide)
                 Player.legs = EquipLoader.GetEquipSlot(Mod, "BloodyMaryDress", EquipType.Legs);
-            }
             if ((profanedCultist || profanedCultistForce) && !profanedCultistHide)
                 Player.legs = EquipLoader.GetEquipSlot(Mod, "ProfanedCultistRobes", EquipType.Legs);
-            if ((bellaCloak || bellaCloakForce) && !bellaCloakHide) { 
+            if ((bellaCloak || bellaCloakForce) && !bellaCloakHide)
                 Player.legs = EquipLoader.GetEquipSlot(Mod, "BelladonnaCloak", EquipType.Legs);
-                Player.front = (sbyte)EquipLoader.GetEquipSlot(Mod, "BelladonnaCloak", EquipType.Front);
-            }
+
             if ((signutTrans || signutForce) && !signutHide) {
                 var costume = GetInstance<Signus>();
                 Player.head = EquipLoader.GetEquipSlot(Mod, "Signus", EquipType.Head);
@@ -607,9 +607,6 @@ namespace CalValEX {
                 Player.head = EquipLoader.GetEquipSlot(Mod, "SandyBangles", EquipType.Head);
                 Player.body = EquipLoader.GetEquipSlot(Mod, "SandyBangles", EquipType.Body);
                 Player.legs = EquipLoader.GetEquipSlot(Mod, "SandyBangles", EquipType.Legs);
-            }
-            if (wulfrumjam) {
-                Player.wings = EquipLoader.GetEquipSlot(Mod, "BlankWings", EquipType.Wings);
             }
             if (cassette) {
                 Player.armorEffectDrawShadow = true;
@@ -678,13 +675,6 @@ namespace CalValEX {
 
         public override void PreUpdate() {
             //Custom player draw frame counters
-            int wulfrumflame = 9;
-            if (choppercounter >= 7) {
-                choppercounter = -1;
-                chopperframe = chopperframe == wulfrumflame - 1 ? 0 : chopperframe + 1;
-            }
-            choppercounter++;
-
             int coneflame = 6;
             if (conecounter >= 5) {
                 conecounter = -1;
@@ -916,6 +906,7 @@ namespace CalValEX {
             zygote = false;
             brimberry = false;
             helipack = false;
+            helipackVanity = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit) {
@@ -1136,40 +1127,6 @@ namespace CalValEX {
                 Main.playerDrawData.Add(data);
             }
         });*/
-
-        /*public static readonly PlayerLayer Chopper = new PlayerLayer("CalValEX", "Chopper", PlayerLayer.Wings, delegate (PlayerDrawInfo drawInfo)
-        {
-            Player drawPlayer = drawInfo.drawPlayer;
-            Mod mod = ModLoader.GetMod("CalValEX");
-            if (drawInfo.shadow != 0f)
-            {
-                return;
-            }
-            CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
-            Player player = Main.LocalPlayer;
-            if (modPlayer.wulfrumjam)
-            {
-                    int winflip = 1 * -drawPlayer.direction;
-                    Texture2D texture = mod.GetTexture("Items/Equips/Wings/WulfrumHelipackMalfunction");
-                    Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f - 10 * Player.direction, drawPlayer.gfxOffY - 2);
-                    //DrawData data = new DrawData(texture, new Vector2(drawX, drawY), null, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
-                    Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 9f);
-                    //float wulfrumframe = 8f / 8;
-                    //int wulfheight = (int)((float)(framecounter / texture.Height) * wulfrumframe) * (texture.Height / 8);
-                    Rectangle wulfsquare = texture.Frame(1, 9, 0, modPlayer.chopperframe);
-                    DrawData data = new DrawData(texture, wtf, wulfsquare, Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), (int)((drawInfo.position.Y - 4f - texture.Height / 2f) / 16f)), 0f, origin, 1, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0
-                    )
-                    {
-                        shader = drawInfo.wingShader
-                    }; 
-
-                spriteBatch.Draw(texture, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), wulfsquare, hive2alpha, npc.rotation, Utils.Size(wulfsquare) / 2f, npc.scale, SpriteEffects.None, 0f);
-                return false;
-
-
-            Main.playerDrawData.Add(data);
-            }
-        });
 
         /*public override void ModifyDrawLayers(List<PlayerLayer> layers)
         {
