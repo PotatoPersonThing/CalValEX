@@ -14,17 +14,23 @@ namespace CalValEX.Items.Equips.PlayerLayers {
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo) {
             bool heli = false;
-            if (drawInfo.drawPlayer.GetModPlayer<CalValEXPlayer>().helipack)
-                heli = true;
+            for (int n = 13; n < 18 + drawInfo.drawPlayer.extraAccessorySlots; n++) {
+                Item item = drawInfo.drawPlayer.armor[n];
+                if (item.type == ModContent.ItemType<WulfrumHelipack>())
+                    heli = true;
+            }
 
-            var wingLayer = PlayerDrawLayers.Wings.GetDefaultVisibility(drawInfo);
+            var wingLayer = PlayerDrawLayers.Wings.Visible;
+
+            if (wingLayer == false)
+                heli = false;
 
             return heli || wingLayer;
         }
 
         protected override void Draw(ref PlayerDrawSet drawInfo) {
-            //if (drawInfo.shadow != 0f)
-                //return;
+            if (drawInfo.shadow != 0f)
+                return;
 
             Player player = Main.LocalPlayer;
             Player drawPlayer = drawInfo.drawPlayer;
@@ -54,12 +60,12 @@ namespace CalValEX.Items.Equips.PlayerLayers {
             }
 
             Texture2D texture;
-            if (!modPlayer.wulfrumjam || modPlayer.helipackVanity)
+            if (!modPlayer.wulfrumjam)
                 texture = ModContent.Request<Texture2D>("CalValEX/Items/Equips/Wings/WulfrumHelipackEquipped").Value;
             else
                 texture = ModContent.Request<Texture2D>("CalValEX/Items/Equips/Wings/WulfrumHelipackMalfunction").Value;
 
-            if (modPlayer.helipack || modPlayer.helipackVanity) {
+            if (modPlayer.helipack) {
                 int dyeShader = drawPlayer.dye?[1].dye ?? 0;
                 for (int n = 0; n < 18 + drawInfo.drawPlayer.extraAccessorySlots; n++) {
                     Item item = drawInfo.drawPlayer.armor[n];

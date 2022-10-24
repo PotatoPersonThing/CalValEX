@@ -320,7 +320,6 @@ namespace CalValEX {
         public bool bellaCloakHide;
         public bool bellaCloakForce;
         public bool helipack;
-        public bool helipackVanity;
 
         public override void Initialize() {
             ResetMyStuff();
@@ -906,7 +905,6 @@ namespace CalValEX {
             zygote = false;
             brimberry = false;
             helipack = false;
-            helipackVanity = false;
         }
 
         public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit) {
