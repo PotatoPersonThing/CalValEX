@@ -1045,6 +1045,7 @@ namespace CalValEX {
 			WallRecipe(ItemType<Items.Tiles.Blocks.Astral.AstralDirt>(), ItemType<Items.Walls.Astral.AstralDirtWall>());
 			WallRecipe(ItemType<AstralHardenedSand>(), ItemType<Items.Walls.Astral.AstralHardenedSandWall>());
 			WallRecipe(ItemType<Items.Tiles.Blocks.Astral.AstralIce>(), ItemType<Items.Walls.Astral.AstralIceWall>());
+			WallRecipe(ItemType<FrostflakeBrick>(), ItemType<FrostflakeWall>());
 			WallRecipe(ItemType<AstralTreeWood>(), ItemType<Items.Walls.Astral.XenomonolithWall>());
 			WallRecipe(ItemType<Xenostone>(), ItemType<Items.Walls.Astral.XenostoneWall>());
 			WallRecipe(ItemType<AstralPlating>(), ItemType<AstralPlatingWall>());
