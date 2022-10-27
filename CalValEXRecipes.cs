@@ -236,6 +236,15 @@ namespace CalValEX {
 				recipe.Register();
 			}
 			{
+				Recipe recipe = Recipe.Create(ItemType<BelladonnaHat>());
+				recipe.AddIngredient(ItemID.Vine, 3);
+				recipe.AddIngredient(ItemID.JungleSpores, 8);
+				recipe.AddIngredient(ItemID.RichMahogany, 5);
+				recipe.AddIngredient(ItemID.Silk, 5);
+				recipe.AddTile(TileID.Anvils);
+				recipe.Register();
+			}
+			{
 				Recipe recipe = Recipe.Create(ItemType<BloodyMaryHat>());
 				recipe.AddIngredient(ItemType<BloodstoneCore>(), 3);
 				recipe.AddIngredient((ItemID.TheBrideHat), 1);
@@ -303,8 +312,17 @@ namespace CalValEX {
             #endregion
 
             #region //Shirts
-            {
-                Recipe recipe = Recipe.Create(ItemType<BloodyMaryDress>());
+			{
+				Recipe recipe = Recipe.Create(ItemType<BelladonnaCloak>());
+				recipe.AddIngredient(ItemID.Vine, 6);
+				recipe.AddIngredient(ItemID.JungleSpores, 15);
+				recipe.AddIngredient(ItemID.RichMahogany, 5);
+				recipe.AddIngredient(ItemID.Silk, 15);
+				recipe.AddTile(TileID.Anvils);
+				recipe.Register();
+			}
+            		{
+                		Recipe recipe = Recipe.Create(ItemType<BloodyMaryDress>());
 				recipe.AddIngredient(ItemType<BloodstoneCore>(), 8);
 				recipe.AddIngredient((ItemID.TheBrideDress), 1);
 				recipe.AddTile(TileID.LunarCraftingStation);
