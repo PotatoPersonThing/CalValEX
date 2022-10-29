@@ -236,6 +236,15 @@ namespace CalValEX {
 				recipe.Register();
 			}
 			{
+				Recipe recipe = Recipe.Create(ItemType<BelladonnaHat>());
+				recipe.AddIngredient(ItemID.Vine, 3);
+				recipe.AddIngredient(ItemID.JungleSpores, 8);
+				recipe.AddIngredient(ItemID.RichMahogany, 5);
+				recipe.AddIngredient(ItemID.Silk, 5);
+				recipe.AddTile(TileID.Anvils);
+				recipe.Register();
+			}
+			{
 				Recipe recipe = Recipe.Create(ItemType<BloodyMaryHat>());
 				recipe.AddIngredient(ItemType<BloodstoneCore>(), 3);
 				recipe.AddIngredient((ItemID.TheBrideHat), 1);
@@ -303,8 +312,17 @@ namespace CalValEX {
             #endregion
 
             #region //Shirts
-            {
-                Recipe recipe = Recipe.Create(ItemType<BloodyMaryDress>());
+			{
+				Recipe recipe = Recipe.Create(ItemType<BelladonnaCloak>());
+				recipe.AddIngredient(ItemID.Vine, 6);
+				recipe.AddIngredient(ItemID.JungleSpores, 15);
+				recipe.AddIngredient(ItemID.RichMahogany, 5);
+				recipe.AddIngredient(ItemID.Silk, 15);
+				recipe.AddTile(TileID.Anvils);
+				recipe.Register();
+			}
+            		{
+                		Recipe recipe = Recipe.Create(ItemType<BloodyMaryDress>());
 				recipe.AddIngredient(ItemType<BloodstoneCore>(), 8);
 				recipe.AddIngredient((ItemID.TheBrideDress), 1);
 				recipe.AddTile(TileID.LunarCraftingStation);
@@ -1045,6 +1063,7 @@ namespace CalValEX {
 			WallRecipe(ItemType<Items.Tiles.Blocks.Astral.AstralDirt>(), ItemType<Items.Walls.Astral.AstralDirtWall>());
 			WallRecipe(ItemType<AstralHardenedSand>(), ItemType<Items.Walls.Astral.AstralHardenedSandWall>());
 			WallRecipe(ItemType<Items.Tiles.Blocks.Astral.AstralIce>(), ItemType<Items.Walls.Astral.AstralIceWall>());
+			WallRecipe(ItemType<FrostflakeBrick>(), ItemType<FrostflakeWall>());
 			WallRecipe(ItemType<AstralTreeWood>(), ItemType<Items.Walls.Astral.XenomonolithWall>());
 			WallRecipe(ItemType<Xenostone>(), ItemType<Items.Walls.Astral.XenostoneWall>());
 			WallRecipe(ItemType<AstralPlating>(), ItemType<AstralPlatingWall>());

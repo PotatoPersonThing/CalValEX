@@ -1014,7 +1014,7 @@
                 DislikeCrowded: "The amount of people here is a bit unnerving, someone might break one of my statues.",
                 HateCrowded: "I can't build properly with everyone here, things are getting broken left and right!",
                 LoveBiome: "The {BiomeName} is pretty nice. I feel a warm presence... perhaps the goddess resides here...",
-                LikeBiome: "This place is peaceful - you can't go wrong building in a forest!",
+                LikeBiome: "This place is peaceful - you can't go wrong building in the {BiomeName}",
                 DislikeBiome: "The heat is unbearable here, I don't think the goddess would come to a place like this.",
                 HateBiome: "There are horrible creatures here, I can't build anything with them roaming!",
                 LikeNPC: "{NPCName} and I share an appreciation for the arts. They have fine taste.",
