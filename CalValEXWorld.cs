@@ -20,36 +20,32 @@ namespace CalValEX
     public class CalValEXWorld : ModSystem
     {
         public static int astralTiles;
-
         public static int hellTiles;
-
         public static int labTiles;
-
         public static int dungeontiles;
-
         public static bool rescuedjelly;
-
         public static bool jharim;
-
         public static bool orthofound;
-
         public static bool amogus;
-
         public static bool OneMonolith;
-
         public static bool TwoMonolith;
-
         public static bool Rockshrine;
-
         public static bool RockshrinEX;
-
         public static bool jharinter;
-
         public static bool downedMeldosaurus;
-
         public static bool masorev;
 
+        // Chickens
+        public static bool nugget = false;
+        public static bool draco = false;
+        public static bool folly = false;
+        public static bool godnug = false;
+        public static bool mammoth = false;
+        public static bool shadow = false;
 
+        public static bool AnyChickensAround() {
+            return !(nugget && draco && folly && godnug && mammoth && shadow);
+        }
 
         public override void OnWorldLoad()
         { 
@@ -74,51 +70,47 @@ namespace CalValEX
             downedMeldosaurus = false;
         }
 
-        public override void SaveWorldData(TagCompound downed)
-        {
+        public override void SaveWorldData(TagCompound tag) {
             if (rescuedjelly)
-            {
-                downed["rescuedjelly"] = true;
-            }
+                tag["rescuedjelly"] = true;
 
             if (jharim)
-            {
-                downed["jharim"] = true;
-            }
+                tag["jharim"] = true;
 
             if (orthofound)
-            {
-                downed["orthofound"] = true;
-            }
+                tag["orthofound"] = true;
 
             if (amogus)
-            {
-                downed["amogus"] = true;
-            }
+                tag["amogus"] = true;
 
             if (Rockshrine)
-            {
-                downed["Rockshrine"] = true;
-            }
+                tag["Rockshrine"] = true;
 
             if (RockshrinEX)
-            {
-                downed["RockshrinEX"] = true;
-            }
+                tag["RockshrinEX"] = true;
 
             if (jharinter)
-            {
-                downed["jharinter"] = true;
-            }
+                tag["jharinter"] = true;
 
             if (downedMeldosaurus)
-            {
-                downed["downedMeldosaurus"] = true;
-            }
+                tag["downedMeldosaurus"] = true;
+
+            // Chickens
+            if (nugget)
+                tag["nugget"] = true;
+            if (draco)
+                tag["draco"] = true;
+            if (folly)
+                tag["folly"] = true;
+            if (godnug)
+                tag["godnug"] = true;
+            if (mammoth)
+                tag["mammoth"] = true;
+            if (shadow)
+                tag["shadow"] = true;
         }
 
-        public override void LoadWorldData(TagCompound tag)
-        {
+        public override void LoadWorldData(TagCompound tag) {
             rescuedjelly = tag.ContainsKey("rescuedjelly");
             jharim = tag.ContainsKey("jharim");
             orthofound = tag.ContainsKey("orthofound");
@@ -127,7 +119,15 @@ namespace CalValEX
             RockshrinEX = tag.ContainsKey("RockshrinEX");
             jharinter = tag.ContainsKey("jharinter");
             downedMeldosaurus = tag.ContainsKey("downedMeldosaurus");
+
+            nugget = tag.ContainsKey("nugget");
+            draco = tag.ContainsKey("draco");
+            folly = tag.ContainsKey("folly");
+            godnug = tag.ContainsKey("godnug");
+            mammoth = tag.ContainsKey("mammoth");
+            shadow = tag.ContainsKey("shadow");
         }
+
         public override void NetSend(BinaryWriter writer)
         {
             BitsByte flags = new BitsByte();
