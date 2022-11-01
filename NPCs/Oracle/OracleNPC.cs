@@ -432,6 +432,12 @@ namespace CalValEX.NPCs.Oracle
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 0, 0);
                     ++nextSlot;
                 }
+                if (CalamityMod.DownedBossSystem.downedBrimstoneElemental)
+                {
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<BrimberryItem>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 15, 0, 0);
+                    ++nextSlot;
+                }
                 if (CalamityMod.DownedBossSystem.downedCalamitas)
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<SuspiciousLookingGBC>());
