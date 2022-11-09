@@ -75,7 +75,7 @@ namespace CalValEX
             sprit.Draw(glowmask, pos, frame, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
 
-        public override void RandomUpdate(int i, int j, int type) {
+        /*public override void RandomUpdate(int i, int j, int type) {
             Tile tile = Framing.GetTileSafely(i, j);
 
             // Several tile checks (is it ash, is it unactuated) and other checks to prevent it from spawning too many plants
@@ -107,6 +107,6 @@ namespace CalValEX
                         WorldGen.PlaceObject(i, j - 1, TileType<BrimPlantPlaced>(), false);
                 }
             }
-        }
+        }*/
     }
 }
