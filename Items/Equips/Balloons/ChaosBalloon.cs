@@ -15,21 +15,10 @@ namespace CalValEX.Items.Equips.Balloons
         {
             Item.width = 24;
             Item.height = 28;
-            Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = ItemRarityID.Purple;
+            Item.value = Item.sellPrice(0, 2, 0, 0);
+            Item.rare = 6;
             Item.accessory = true;
             Item.vanity = true;
-        }
-
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
-        {
-            foreach (TooltipLine tooltipLine in tooltips)
-            {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
-                {
-                    tooltipLine.OverrideColor = new Color(0, 255, 0);
-                }
-            }
         }
     }
 }

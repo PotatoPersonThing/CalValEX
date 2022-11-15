@@ -187,7 +187,7 @@ namespace CalValEX {
 				recipe.AddIngredient(ItemType<ChaosBalloon>());
 				recipe.AddIngredient(ItemType<Mirballoon>());
 				recipe.AddIngredient(ItemType<BoxBalloon>());
-				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.AddTile(TileID.MythrilAnvil);
 				recipe.Register();
 			}
 			{
@@ -472,7 +472,7 @@ namespace CalValEX {
 			{
 				Recipe recipe = Recipe.Create(ItemType<SilvaJeepItem>());
 				recipe.AddIngredient(ItemType<EffulgentFeather>(), 20);
-				recipe.AddIngredient(ItemType<Tenebris>(), 10);
+				recipe.AddIngredient(ItemType<PlantyMush>(), 10);
 				recipe.AddIngredient(ItemID.GoldBar, 10);
 				recipe.AddTile(TileType<CosmicAnvil>());
 				recipe.Register();
@@ -480,7 +480,7 @@ namespace CalValEX {
 			{
 				Recipe recipe = Recipe.Create(ItemType<SilvaJeepItem>());
 				recipe.AddIngredient(ItemType<EffulgentFeather>(), 20);
-				recipe.AddIngredient(ItemType<Tenebris>(), 10);
+				recipe.AddIngredient(ItemType<PlantyMush>(), 10);
 				recipe.AddIngredient(ItemID.PlatinumBar, 10);
 				recipe.AddTile(TileType<CosmicAnvil>());
 				recipe.Register();

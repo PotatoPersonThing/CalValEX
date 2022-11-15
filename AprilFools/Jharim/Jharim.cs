@@ -12,6 +12,7 @@ using Terraria.Localization;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Personalities;
 using System.Collections.Generic;
+using CalamityMod.NPCs.TownNPCs;
 
 namespace CalValEX.AprilFools.Jharim
 {
@@ -39,14 +40,14 @@ namespace CalValEX.AprilFools.Jharim
             NPCID.Sets.AttackTime[NPC.type] = 90;
             NPCID.Sets.AttackAverageChance[NPC.type] = 30;
             NPC.Happiness
-                .SetBiomeAffection<JungleBiome>(AffectionLevel.Like) // Example Person prefers the forest.
+                .SetBiomeAffection<JungleBiome>(AffectionLevel.Like) // Example Person prefers the jungle.
                 .SetBiomeAffection<SnowBiome>(AffectionLevel.Dislike) // Example Person dislikes the snow.
-                .SetBiomeAffection<OceanBiome>(AffectionLevel.Hate) // Example Person dislikes the snow.
-                .SetBiomeAffection<MushroomBiome>(AffectionLevel.Love) // Example Person likes the Example Surface Biome
+                .SetBiomeAffection<OceanBiome>(AffectionLevel.Hate) // Example Person dislikes the ocean.
+                .SetBiomeAffection<MushroomBiome>(AffectionLevel.Love) // Example Person likes the shroom biome.
                 .SetNPCAffection(NPCID.Dryad, AffectionLevel.Love) // Loves living near the dryad.
-                .SetNPCAffection(NPCID.Pirate, AffectionLevel.Like) // Likes living near the guide.
-                .SetNPCAffection(NPCID.WitchDoctor, AffectionLevel.Dislike) // Dislikes living near the merchant.
-                .SetNPCAffection(NPCID.TaxCollector, AffectionLevel.Hate) // Hates living near the demolitionist.
+                .SetNPCAffection(NPCID.Pirate, AffectionLevel.Like) // Likes living near the pirate.
+                .SetNPCAffection(NPCID.TaxCollector, AffectionLevel.Dislike) // Dislikes living near the tax collector.
+                .SetNPCAffection(ModContent.NPCType<WITCH>(), AffectionLevel.Hate) // Hates living near scal.
             ;
             if (!CalValEX.AprilFoolMonth)
             {
