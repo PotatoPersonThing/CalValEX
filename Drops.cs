@@ -211,6 +211,12 @@ namespace CalValEX
                 shop.item[nextSlot].SetDefaults(ModContent.ItemType<SwearshroomItem>());
                 shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2);
                 ++nextSlot;
+                if (NPC.downedPlantBoss)
+                {
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<ShroomiteVisage>());
+                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
+                ++nextSlot;
+            }
             }
 
             if (type == NPCID.Steampunker)
