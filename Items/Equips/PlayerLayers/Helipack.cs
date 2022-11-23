@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 
@@ -35,11 +34,8 @@ namespace CalValEX.Items.Equips.PlayerLayers {
             Player player = Main.LocalPlayer;
             Player drawPlayer = drawInfo.drawPlayer;
             CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
-            float alb = (255 - drawPlayer.immuneAlpha) / 255f;
 
-            Vector2 packPos =
-                new Vector2(
-                    (int)(drawInfo.Position.X - (drawInfo.drawPlayer.bodyFrame.Width / 2) + (drawInfo.drawPlayer.width / 2) - (16f * drawPlayer.direction)),
+            Vector2 packPos = new Vector2((int)(drawInfo.Position.X - (drawInfo.drawPlayer.bodyFrame.Width / 2) + (drawInfo.drawPlayer.width / 2) - (16f * drawPlayer.direction)),
                     (int)(drawInfo.Position.Y + drawInfo.drawPlayer.height) - 55f)
                 + drawInfo.drawPlayer.headPosition + drawInfo.headVect;
 
@@ -70,14 +66,17 @@ namespace CalValEX.Items.Equips.PlayerLayers {
                 for (int n = 0; n < 18 + drawInfo.drawPlayer.extraAccessorySlots; n++) {
                     Item item = drawInfo.drawPlayer.armor[n];
                     if (item.type == ModContent.ItemType<WulfrumHelipack>()) {
+                        if (n > 9)
+                            dyeShader = drawPlayer.dye?[n - 10].dye ?? 0;
+                        else
                             dyeShader = drawPlayer.dye?[n].dye ?? 0;
                     }
                 }
 
                 Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 10f);
                 Rectangle yFrame = texture.Frame(1, 10, 0, frame);
-                DrawData dat = new DrawData(texture, packPos, yFrame, Color.White * alb, 0f, origin, 1,
-                    drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
+                DrawData dat = new DrawData(texture, packPos, yFrame, Color.White, 0f, 
+                    origin, 1, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
                 dat.shader = dyeShader;
                 drawInfo.DrawDataCache.Add(dat);
             }
