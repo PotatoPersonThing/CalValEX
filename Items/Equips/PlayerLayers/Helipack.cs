@@ -35,8 +35,17 @@ namespace CalValEX.Items.Equips.PlayerLayers {
             Player drawPlayer = drawInfo.drawPlayer;
             CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
 
+
+            int secondyoffset;
+            var bodFrame = drawPlayer.bodyFrame;
+            if (bodFrame.Y == bodFrame.Height * 7 || bodFrame.Y == bodFrame.Height * 8 || bodFrame.Y == bodFrame.Height * 9
+                || bodFrame.Y == bodFrame.Height * 14 || bodFrame.Y == bodFrame.Height * 15 || bodFrame.Y == bodFrame.Height * 16)
+                secondyoffset = 2;
+            else
+                secondyoffset = 0;
+
             Vector2 packPos = new Vector2((int)(drawInfo.Position.X - (drawInfo.drawPlayer.bodyFrame.Width / 2) + (drawInfo.drawPlayer.width / 2) - (16f * drawPlayer.direction)),
-                    (int)(drawInfo.Position.Y + drawInfo.drawPlayer.height) - 55f)
+                    (int)(drawInfo.Position.Y + drawInfo.drawPlayer.height) - 55f - secondyoffset)
                 + drawInfo.drawPlayer.headPosition + drawInfo.headVect;
 
             packPos -= Main.screenPosition;
@@ -72,10 +81,9 @@ namespace CalValEX.Items.Equips.PlayerLayers {
                             dyeShader = drawPlayer.dye?[n].dye ?? 0;
                     }
                 }
-
                 Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 10f);
                 Rectangle yFrame = texture.Frame(1, 10, 0, frame);
-                DrawData dat = new DrawData(texture, packPos, yFrame, Color.White, 0f, 
+                DrawData dat = new DrawData(texture, packPos, yFrame, drawInfo.colorArmorBody, 0f, 
                     origin, 1, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
                 dat.shader = dyeShader;
                 drawInfo.DrawDataCache.Add(dat);
