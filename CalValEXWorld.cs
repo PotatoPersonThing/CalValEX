@@ -17,8 +17,11 @@ using CalValEX.Tiles.Plants;
 
 namespace CalValEX
 {
-    public class CalValEXWorld : ModSystem
-    {
+    public class CalValEXWorld : ModSystem {
+        public static bool AnyChickensAround() {
+            return !(nugget && draco && folly && godnug && mammoth && shadow);
+        }
+
         public static int astralTiles;
         public static int hellTiles;
         public static int labTiles;
@@ -43,10 +46,6 @@ namespace CalValEX
         public static bool mammoth = false;
         public static bool shadow = false;
 
-        public static bool AnyChickensAround() {
-            return !(nugget && draco && folly && godnug && mammoth && shadow);
-        }
-
         public override void OnWorldLoad()
         { 
             rescuedjelly = false;
@@ -57,6 +56,13 @@ namespace CalValEX
             RockshrinEX = false;
             jharinter = false;
             downedMeldosaurus = false;
+
+            nugget = false;
+            draco = false;
+            folly = false;
+            godnug = false;
+            mammoth = false;
+            shadow = false;
         }
         public override void OnWorldUnload()
         {
@@ -68,6 +74,13 @@ namespace CalValEX
             RockshrinEX = false;
             jharinter = false;
             downedMeldosaurus = false;
+
+            nugget = false;
+            draco = false;
+            folly = false;
+            godnug = false;
+            mammoth = false;
+            shadow = false;
         }
 
         public override void SaveWorldData(TagCompound tag) {
@@ -166,6 +179,7 @@ namespace CalValEX
             labTiles = 0;
             dungeontiles = 0;
         }
+
         public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts)
         {
             // Old Astral tiles

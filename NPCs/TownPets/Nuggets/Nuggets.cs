@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System.Collections.Generic;
 using Terraria;
@@ -7,10 +8,11 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
-using CalValEX;
 
 namespace CalValEX.NPCs.TownPets.Nuggets {
     public abstract class TownNuggets : ModNPC {
+        private int frame = 0;
+        private int frameCounter = 0;
         public override void SetStaticDefaults() {
             DisplayName.SetDefault(Language.GetTextValue("Nugget"));
             DisplayName.AddTranslation((int)GameCulture.CultureName.German, "Hund");
@@ -23,42 +25,72 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
             DisplayName.AddTranslation((int)GameCulture.CultureName.Polish, "Pies");
 
             Main.npcFrameCount[Type] = 9;
-            NPCID.Sets.ExtraFramesCount[Type] = 3;
-            NPCID.Sets.AttackFrameCount[Type] = NPCID.Sets.AttackFrameCount[NPCID.TownDog];
+            NPCID.Sets.ExtraFramesCount[Type] = 0;
+            NPCID.Sets.AttackFrameCount[Type] = 0;
             NPCID.Sets.HatOffsetY[Type] = NPCID.Sets.HatOffsetY[NPCID.TownDog];
-            NPCID.Sets.ExtraTextureCount[Type] = NPCID.Sets.ExtraTextureCount[NPCID.TownDog];
             NPCID.Sets.NPCFramingGroup[Type] = NPCID.Sets.NPCFramingGroup[NPCID.TownDog];
+            NPCID.Sets.ExtraTextureCount[Type] = 0;
             NPCID.Sets.IsTownPet[Type] = true;
 
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) { Hide = true };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
         }
 
+        public int Frame(int firstFrame, int lastFrame, int speed) {
+            frameCounter++;
+            if (frameCounter > speed) {
+                frameCounter = 0;
+                frame++;
+                if (frame > lastFrame)
+                    frame = firstFrame;
+            }
+
+            return frame;
+        }
+
+        public void DrawGlow(string nugName) {
+            Texture2D glowMask = ModContent.Request<Texture2D>("CalValEX/NPCs/TownPets/Nuggets/" + nugName + "_Glow").Value;
+            Main.EntitySpriteDraw(glowMask, NPC.position - Main.screenPosition - new Vector2(10 * NPC.spriteDirection, -14), NPC.frame, Color.White, NPC.rotation, 
+                new Vector2(glowMask.Width / 2, glowMask.Height / 2 / 9), NPC.scale, NPC.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+        }
+
+        public override void AI() {
+            if (Main.player[Main.myPlayer].talkNPC > -1 && Main.npc[Main.player[Main.myPlayer].talkNPC].type == Type)
+                Main.player[Main.myPlayer].isTheAnimalBeingPetSmall = true;
+        }
+
+        public override void FindFrame(int frameHeight) {
+            NPC.spriteDirection = NPC.direction;
+
+            switch (NPC.ai[0]) {
+                case 0:
+                    NPC.frame.Y = frameHeight * Frame(0, 2, 3);
+                    break;
+
+                case 1:
+                    NPC.frame.Y = frameHeight * Frame(3, 8, 3);
+                    break;
+
+                default:
+                    NPC.frame.Y = frameHeight * 6;
+                    break;
+            }
+        }
+
         public override void SetDefaults() {
             NPC.CloneDefaults(NPCID.TownDog);
             AIType = NPCID.TownDog;
-            AnimationType = NPCID.TownDog;
         }
 
-        /* dogs don't need it since they're the default
-        public override void AI()
-        {
-            // for petting corrections, since vanilla defaults petting to Town Dog Dimensions
-            // only height fix so far, messing with width triggers StopPetting() since that's also hardcoded to Dog width
-            if (Main.player[Main.myPlayer].talkNPC > -1 && Main.npc[Main.player[Main.myPlayer].talkNPC].type == Type)
-            {
-                Main.player[Main.myPlayer].isTheAnimalBeingPetSmall = true;
-            }
-        }
-        */
-
-        // Woofs for the world
         public override string GetChat() {
-            Main.player[Main.myPlayer].currentShoppingSettings.HappinessReport = ""; // workaround for happiness button showing up on Town Pets
+            Main.player[Main.myPlayer].currentShoppingSettings.HappinessReport = "";
             WeightedRandom<string> chat = new();
             chat.Add(Language.GetTextValue("Cluck!"));
             chat.Add(Language.GetTextValue("Peep peep"));
             chat.Add(Language.GetTextValue("Cluck cluck"));
+            chat.Add(Language.GetTextValue("Bawk!"));
+            chat.Add(Language.GetTextValue("Pock pock"));
+            chat.Add(Language.GetTextValue("Cock-a-doodle-doo"));
             return chat;
         }
     }
@@ -69,24 +101,28 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
         public override List<string> SetNPCNameList() {
             return new List<string>() {
                 "Melvin", // Bc big smoke
-                "Cluckin Bell", // GTA SA ref!!
+                "Mike", // The headless chicken
+                "Gordy", // Rango chicken
+                "Cluckin Bell",
                 "McDonald",
                 "Buckbeak",
-                "Mike", // The headless chicke
                 "Doodle",
                 "Beaky",
                 "Randy",
                 "Spurs",
-                "Gordy" // Rango chicken
+                "Yhary",
+                "Kulu-Ya-Ku",
+                "Kazooie"
             };
         }
 
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => DrawGlow(GetType().Name);
+
         public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
-            if (NPC.CountNPCS(ModContent.NPCType<NuggetNugget>()) < 1 && CalValEXWorld.nugget) {
+            if (NPC.CountNPCS(ModContent.NPCType<NuggetNugget>()) < 1 && CalValEXWorld.nugget)
                 return true;
-            } else {
+            else
                 return false;
-            }
         }
 
         public override ITownNPCProfile TownNPCProfile() {
@@ -112,17 +148,21 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
         public override List<string> SetNPCNameList() {
             return new List<string>() {
                 "Melvin", // Bc big smoke
-                "Cluckin Bell", // GTA SA ref!!
+                "Mike", // The headless chicken
+                "Gordy", // Rango chicken
+                "Cluckin Bell",
                 "McDonald",
                 "Buckbeak",
-                "Mike", // The headless chicke
                 "Doodle",
                 "Beaky",
                 "Randy",
                 "Spurs",
-                "Gordy" // Rango chicken
+                "Rocky",
+                "Aknosom"
             };
         }
+
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => DrawGlow(GetType().Name);
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
             if (NPC.CountNPCS(ModContent.NPCType<DracoNugget>()) < 1 && CalValEXWorld.draco) {
@@ -155,17 +195,21 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
         public override List<string> SetNPCNameList() {
             return new List<string>() {
                 "Melvin", // Bc big smoke
-                "Cluckin Bell", // GTA SA ref!!
+                "Mike", // The headless chicken
+                "Gordy", // Rango chicken
+                "Cluckin Bell",
                 "McDonald",
                 "Buckbeak",
-                "Mike", // The headless chicke
                 "Doodle",
                 "Beaky",
                 "Randy",
                 "Spurs",
-                "Gordy" // Rango chicken
+                "Yatagarasu",
+                "Huginn",
+                "Munnin"
             };
         }
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => DrawGlow(GetType().Name);
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
             if (NPC.CountNPCS(ModContent.NPCType<FollyNugget>()) < 1 && CalValEXWorld.folly) {
@@ -198,17 +242,21 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
         public override List<string> SetNPCNameList() {
             return new List<string>() {
                 "Melvin", // Bc big smoke
-                "Cluckin Bell", // GTA SA ref!!
+                "Mike", // The headless chicken
+                "Gordy", // Rango chicken
+                "Cluckin Bell",
                 "McDonald",
                 "Buckbeak",
-                "Mike", // The headless chicke
                 "Doodle",
                 "Beaky",
                 "Randy",
                 "Spurs",
-                "Gordy" // Rango chicken
+                "Fiery",
+                "Fatalis"
             };
         }
+
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => DrawGlow(GetType().Name);
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
             if (NPC.CountNPCS(ModContent.NPCType<GODNugget>()) < 1 && CalValEXWorld.godnug) {
@@ -241,17 +289,21 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
         public override List<string> SetNPCNameList() {
             return new List<string>() {
                 "Melvin", // Bc big smoke
-                "Cluckin Bell", // GTA SA ref!!
+                "Mike", // The headless chicken
+                "Gordy", // Rango chicken
+                "Cluckin Bell",
                 "McDonald",
                 "Buckbeak",
-                "Mike", // The headless chicke
                 "Doodle",
                 "Beaky",
                 "Randy",
                 "Spurs",
-                "Gordy" // Rango chicken
+                "Betty",
+                "Ibushi"
             };
         }
+
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => DrawGlow(GetType().Name);
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
             if (NPC.CountNPCS(ModContent.NPCType<MammothNugget>()) < 1 && CalValEXWorld.mammoth) {
@@ -284,15 +336,18 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
         public override List<string> SetNPCNameList() {
             return new List<string>() {
                 "Melvin", // Bc big smoke
-                "Cluckin Bell", // GTA SA ref!!
+                "Mike", // The headless chicken
+                "Gordy", // Rango chicken
+                "Cluckin Bell",
                 "McDonald",
                 "Buckbeak",
-                "Mike", // The headless chicke
                 "Doodle",
                 "Beaky",
                 "Randy",
                 "Spurs",
-                "Gordy" // Rango chicken
+                "Darky",
+                "Gore Magala",
+                "JubJub"
             };
         }
 
