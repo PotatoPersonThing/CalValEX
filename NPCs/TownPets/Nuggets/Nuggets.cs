@@ -10,6 +10,7 @@ using Terraria.ModLoader;
 using Terraria.Utilities;
 
 namespace CalValEX.NPCs.TownPets.Nuggets {
+    #region //Base NPC
     public abstract class TownNuggets : ModNPC {
         private int frame = 0;
         private int frameCounter = 0;
@@ -48,10 +49,11 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
             return frame;
         }
 
-        public void DrawGlow(string nugName) {
+        public void DrawGlow(string nugName, Vector2 screenPos) {
             Texture2D glowMask = ModContent.Request<Texture2D>("CalValEX/NPCs/TownPets/Nuggets/" + nugName + "_Glow").Value;
-            Main.EntitySpriteDraw(glowMask, NPC.position - Main.screenPosition - new Vector2(10 * NPC.spriteDirection, -14), NPC.frame, Color.White, NPC.rotation, 
-                new Vector2(glowMask.Width / 2, glowMask.Height / 2 / 9), NPC.scale, NPC.spriteDirection == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+            bool flip = NPC.spriteDirection == 1;
+            Main.EntitySpriteDraw(glowMask, NPC.position - new Vector2(-10 , -14) - screenPos, NPC.frame, Color.White, NPC.rotation, 
+                new Vector2(glowMask.Width / 2, glowMask.Height / 2 / 9), NPC.scale, flip ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
         }
 
         public override void AI() {
@@ -72,14 +74,26 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
                     break;
 
                 default:
-                    NPC.frame.Y = frameHeight * 6;
+                    NPC.frame.Y = frameHeight * 1;
                     break;
             }
         }
 
         public override void SetDefaults() {
-            NPC.CloneDefaults(NPCID.TownDog);
+            NPC.townNPC = true;
+            NPC.friendly = true;
+            NPC.width = 18;
+            NPC.height = 40;
+            NPC.aiStyle = 7;
+            NPC.damage = 15;
+            NPC.defense = 15;
+            NPC.lifeMax = 250;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.knockBackResist = 0.5f;
+
             AIType = NPCID.TownDog;
+            NPC.lavaImmune = true;
         }
 
         public override string GetChat() {
@@ -94,6 +108,7 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
             return chat;
         }
     }
+    #endregion
 
     #region // Nugget
     [AutoloadHead]
@@ -116,13 +131,26 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
             };
         }
 
-        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => DrawGlow(GetType().Name);
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => DrawGlow(GetType().Name, screenPos);
+
+        public override void AI() {
+            if (!CalValEXWorld.nugget)
+                CalValEXWorld.nugget = true;
+        }
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
-            if (NPC.CountNPCS(ModContent.NPCType<NuggetNugget>()) < 1 && CalValEXWorld.nugget)
+            Main.NewText(Language.GetTextValue("fuck me raw", 50, byte.MaxValue, 130));
+            if (CalValEXWorld.nugget) {
+                Main.NewText(Language.GetTextValue("inside the conditional, this is true", 50, byte.MaxValue, 130));
                 return true;
-            else
+            } else {
+                Main.NewText(Language.GetTextValue("inside the conditional, this is false", 50, byte.MaxValue, 130));
                 return false;
+            }
+        }
+
+        public override bool CheckConditions(int left, int right, int top, int bottom) {
+            return true;
         }
 
         public override ITownNPCProfile TownNPCProfile() {
@@ -162,14 +190,18 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
             };
         }
 
-        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => DrawGlow(GetType().Name);
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => DrawGlow(GetType().Name, screenPos);
+
+        public override void AI() {
+            if (!CalValEXWorld.draco)
+                CalValEXWorld.draco = true;
+        }
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
-            if (NPC.CountNPCS(ModContent.NPCType<DracoNugget>()) < 1 && CalValEXWorld.draco) {
+            if (CalValEXWorld.draco)
                 return true;
-            } else {
+            else
                 return false;
-            }
         }
 
         public override ITownNPCProfile TownNPCProfile() {
@@ -209,14 +241,18 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
                 "Munnin"
             };
         }
-        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => DrawGlow(GetType().Name);
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => DrawGlow(GetType().Name, screenPos);
+
+        public override void AI() {
+            if (!CalValEXWorld.folly)
+                CalValEXWorld.folly = true;
+        }
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
-            if (NPC.CountNPCS(ModContent.NPCType<FollyNugget>()) < 1 && CalValEXWorld.folly) {
+            if (CalValEXWorld.folly)
                 return true;
-            } else {
+            else
                 return false;
-            }
         }
 
         public override ITownNPCProfile TownNPCProfile() {
@@ -256,14 +292,18 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
             };
         }
 
-        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => DrawGlow(GetType().Name);
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => DrawGlow(GetType().Name, screenPos);
+
+        public override void AI() {
+            if (!CalValEXWorld.godnug)
+                CalValEXWorld.godnug = true;
+        }
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
-            if (NPC.CountNPCS(ModContent.NPCType<GODNugget>()) < 1 && CalValEXWorld.godnug) {
+            if (CalValEXWorld.godnug)
                 return true;
-            } else {
+            else
                 return false;
-            }
         }
 
         public override ITownNPCProfile TownNPCProfile() {
@@ -303,14 +343,18 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
             };
         }
 
-        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => DrawGlow(GetType().Name);
+        public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => DrawGlow(GetType().Name, screenPos);
+
+        public override void AI() {
+            if (!CalValEXWorld.mammoth)
+                CalValEXWorld.mammoth = true;
+        }
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
-            if (NPC.CountNPCS(ModContent.NPCType<MammothNugget>()) < 1 && CalValEXWorld.mammoth) {
+            if (CalValEXWorld.mammoth)
                 return true;
-            } else {
+            else
                 return false;
-            }
         }
 
         public override ITownNPCProfile TownNPCProfile() {
@@ -351,12 +395,16 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
             };
         }
 
+        public override void AI() {
+            if (!CalValEXWorld.shadow)
+                CalValEXWorld.shadow = true;
+        }
+
         public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
-            if (NPC.CountNPCS(ModContent.NPCType<ShadowNugget>()) < 1 && CalValEXWorld.shadow) {
+            if (CalValEXWorld.shadow) 
                 return true;
-            } else {
+            else
                 return false;
-            }
         }
 
         public override ITownNPCProfile TownNPCProfile() {

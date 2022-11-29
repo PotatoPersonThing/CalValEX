@@ -18,7 +18,7 @@ using CalValEX.Tiles.Plants;
 namespace CalValEX
 {
     public class CalValEXWorld : ModSystem {
-        public static bool AnyChickensAround() {
+        public static bool CanNugsSpawn() {
             return !(nugget && draco && folly && godnug && mammoth && shadow);
         }
 
@@ -39,12 +39,12 @@ namespace CalValEX
         public static bool masorev;
 
         // Chickens
-        public static bool nugget = false;
-        public static bool draco = false;
-        public static bool folly = false;
-        public static bool godnug = false;
-        public static bool mammoth = false;
-        public static bool shadow = false;
+        public static bool nugget;
+        public static bool draco;
+        public static bool folly;
+        public static bool godnug;
+        public static bool mammoth;
+        public static bool shadow;
 
         public override void OnWorldLoad()
         { 
@@ -83,6 +83,7 @@ namespace CalValEX
             shadow = false;
         }
 
+        #region //Flags
         public override void SaveWorldData(TagCompound tag) {
             if (rescuedjelly)
                 tag["rescuedjelly"] = true;
@@ -154,8 +155,18 @@ namespace CalValEX
 
             BitsByte flags2 = new BitsByte();
             flags2[0] = downedMeldosaurus;
+
+            BitsByte flags3 = new BitsByte();
+            flags3[0] = nugget;
+            flags3[1] = draco;
+            flags3[2] = folly;
+            flags3[3] = godnug;
+            flags3[4] = mammoth;
+            flags3[5] = shadow;
+
             writer.Write(flags);
             writer.Write(flags2);
+            writer.Write(flags3);
         }
         public override void NetReceive(BinaryReader reader)
         {
@@ -170,8 +181,18 @@ namespace CalValEX
 
             BitsByte flags2 = reader.ReadByte();
             downedMeldosaurus = flags2[0];
-        }
 
+            BitsByte flags3 = reader.ReadByte();
+            nugget = flags3[0];
+            draco = flags3[1];
+            folly = flags3[2];
+            godnug  = flags3[3];
+            mammoth = flags3[4];
+            shadow = flags3[5];
+        }
+        #endregion
+
+        #region //Tiles
         public override void ResetNearbyTileEffects()
         {
             astralTiles = 0;
@@ -191,6 +212,7 @@ namespace CalValEX
             //Dungeon tiles
             dungeontiles = tileCounts[TileID.BlueDungeonBrick] + tileCounts[TileID.PinkDungeonBrick] + tileCounts[TileID.GreenDungeonBrick];
         }
+        #endregion
 
         public override void PreUpdateNPCs()
         {
