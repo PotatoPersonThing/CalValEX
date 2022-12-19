@@ -31,22 +31,22 @@ namespace CalValEX.Items.Equips.PlayerLayers
             Player drawPlayer = drawInfo.drawPlayer;
             Player player = Main.LocalPlayer;
             CalValEXPlayer modPlayer = drawPlayer.GetModPlayer<CalValEXPlayer>();
-            int secondyoffset = 0;
+            int secondyoffset;
+            
+            var bodFrame = drawPlayer.bodyFrame;
+            if (bodFrame.Y == bodFrame.Height * 7 || bodFrame.Y == bodFrame.Height * 8 || bodFrame.Y == bodFrame.Height * 9
+                || bodFrame.Y == bodFrame.Height * 14 || bodFrame.Y == bodFrame.Height * 15 || bodFrame.Y == bodFrame.Height * 16)
+                secondyoffset = 2;
+            else
+                secondyoffset = 0;
+
             float alb = (255 - drawPlayer.immuneAlpha) / 255f;
             int dyeShader = drawPlayer.dye?[0].dye ?? 0;
-            /*if (drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 8 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 9 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 15 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 16 || drawPlayer.bodyFrame.Y == drawPlayer.bodyFrame.Height * 17)
-            {
-                secondyoffset = 2;
-            }
-            else
-            {
-                secondyoffset = 0;
-            }*/
 
             Vector2 headPosition = drawInfo.helmetOffset +
                 new Vector2(
                     (int)(drawInfo.Position.X - (float)(drawInfo.drawPlayer.bodyFrame.Width / 2) + (float)(drawInfo.drawPlayer.width / 2)),
-                    (int)(drawInfo.Position.Y + (float)drawInfo.drawPlayer.height - (float)drawInfo.drawPlayer.bodyFrame.Height))
+                    (int)(drawInfo.Position.Y + (float)drawInfo.drawPlayer.height - (float)drawInfo.drawPlayer.bodyFrame.Height) - secondyoffset)
                 + drawInfo.drawPlayer.headPosition
                 + drawInfo.headVect;
 

@@ -82,23 +82,15 @@ namespace CalValEX.Items.Pets.TownPets {
             if (CalValEXWorld.CanNugsSpawn()) {
                 int spawnwhichnug = Main.rand.Next(0, 6);
                 PickANug(spawnwhichnug);
-                if (Main.netMode == NetmodeID.SinglePlayer) {
-                    Main.NewText(Language.GetTextValue("The license teleports away to the Uber Eats delivery service"), 50, byte.MaxValue, 130);
-                    Main.NewText(Language.GetTextValue(CalValEXWorld.CanNugsSpawn().ToString() 
-                        + CalValEXWorld.nugget.ToString()
-                        + CalValEXWorld.folly.ToString()
-                        + CalValEXWorld.draco.ToString()
-                        + CalValEXWorld.godnug.ToString()
-                        + CalValEXWorld.shadow.ToString()
-                        + CalValEXWorld.mammoth.ToString()), 50, byte.MaxValue, 130);
-                } else
+                if (Main.netMode == NetmodeID.SinglePlayer)
+                    Main.NewText(Language.GetTextValue("The license teleports away to the McNugget delivery service!"), 50, byte.MaxValue, 130);
+                else
                     NetMessage.SendData(MessageID.SpawnBoss, -1, -1, null, player.whoAmI, -13f, 0.0f, 0.0f, 0, 0, 0);
                 return true;
-            } else if (!CalValEXWorld.CanNugsSpawn()) {
-                Main.NewText(Language.GetTextValue("there's already a fucking nugget in") + ($" {Main.worldName}") + Language.GetTextValue(", dumbass"), byte.MaxValue, 0, 0);
-                return true;
+            } else {
+                Main.NewText(Language.GetTextValue("There's not enough space for a rebirth in") + ($" {Main.worldName}") + Language.GetTextValue("!"), byte.MaxValue, 0, 0);
+                return false;
             }
-            return null;
         }
 
     }

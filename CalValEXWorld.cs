@@ -14,6 +14,11 @@ using System;
 using CalamityMod.Items.Materials;
 using CalValEX.AprilFools;
 using CalValEX.Tiles.Plants;
+using CalValEX.NPCs.TownPets.Nuggets;
+using Terraria.Chat;
+using Terraria.Localization;
+using Microsoft.Xna.Framework;
+using Microsoft.VisualBasic;
 
 namespace CalValEX
 {
@@ -230,6 +235,35 @@ namespace CalValEX
                 CalValEX.AprilFoolWeek = true;
                 CalValEX.AprilFoolMonth = true;
             }
+
+            if (nugget)
+                SpawnBitches<NuggetNugget>(nugget);
+            if (draco)
+                SpawnBitches<DracoNugget>(draco);
+            if (folly)
+                SpawnBitches<FollyNugget>(folly);
+            if (godnug)
+                SpawnBitches<GODNugget>(godnug);
+            if (mammoth)
+                SpawnBitches<MammothNugget>(mammoth);
+            if (shadow)
+                SpawnBitches<ShadowNugget>(shadow);
+        }
+
+        public void SpawnBitches<T>(bool nugSpawn) where T : ModNPC {
+            Player player = Main.LocalPlayer;
+
+            if (!NPC.AnyNPCs(NPCType<T>()) && nugSpawn && CanSpawnNow()) {
+                int newNug = NPC.NewNPC(Entity.GetSource_TownSpawn(), (int)(player.position.X + (96 * Main.LocalPlayer.direction)), (int)(player.position.Y - 16), NPCType<T>(), 1);
+                NPC nug = Main.npc[newNug];
+                nug.direction = -Main.LocalPlayer.direction;
+                nug.netUpdate = true;
+
+                if (Main.netMode == NetmodeID.SinglePlayer)
+                    Main.NewText(Language.GetTextValue(nug.FullName + " has risen from") + ($" {Main.worldName}'s ashes!"), 50, 125, 255);
+                else
+                    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue(nug.FullName + "has risen from") + $" {Main.worldName}'s ashes!"), new Color(50, 125, 255));
+            }
         }
 
         public static void UpdateWorldBool()
@@ -238,6 +272,16 @@ namespace CalValEX
             {
                 NetMessage.SendData(MessageID.WorldData);
             }
+        }
+
+        private static bool CanSpawnNow() {
+            if (Main.eclipse || Main.invasionType > 0 && Main.invasionDelay == 0 && Main.invasionSize > 0)
+                return false;
+
+            if (Main.fastForwardTime)
+                return false;
+
+            return Main.dayTime;
         }
     }
 }

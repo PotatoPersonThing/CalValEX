@@ -14,27 +14,39 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
     public abstract class TownNuggets : ModNPC {
         private int frame = 0;
         private int frameCounter = 0;
+        public static double spawnTime = double.MaxValue;
         public override void SetStaticDefaults() {
             DisplayName.SetDefault(Language.GetTextValue("Nugget"));
-            DisplayName.AddTranslation((int)GameCulture.CultureName.German, "Hund");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Italian, "Cane");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.French, "Chien");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Spanish, "Perro");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Russian, "Собака");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Chinese, "狗狗");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Portuguese, "Cão");
-            DisplayName.AddTranslation((int)GameCulture.CultureName.Polish, "Pies");
 
             Main.npcFrameCount[Type] = 9;
             NPCID.Sets.ExtraFramesCount[Type] = 0;
             NPCID.Sets.AttackFrameCount[Type] = 0;
+            NPCID.Sets.ExtraTextureCount[Type] = 0;
             NPCID.Sets.HatOffsetY[Type] = NPCID.Sets.HatOffsetY[NPCID.TownDog];
             NPCID.Sets.NPCFramingGroup[Type] = NPCID.Sets.NPCFramingGroup[NPCID.TownDog];
-            NPCID.Sets.ExtraTextureCount[Type] = 0;
             NPCID.Sets.IsTownPet[Type] = true;
 
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) { Hide = true };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
+        }
+
+        public override void SetDefaults() {
+            NPC.CloneDefaults(NPCID.TownDog);
+
+            AIType = NPCID.TownDog;
+            NPC.lavaImmune = true;
+        }
+
+        public override string GetChat() {
+            Main.player[Main.myPlayer].currentShoppingSettings.HappinessReport = "";
+            WeightedRandom<string> chat = new();
+            chat.Add(Language.GetTextValue("Cluck!"));
+            chat.Add(Language.GetTextValue("Peep peep"));
+            chat.Add(Language.GetTextValue("Cluck cluck"));
+            chat.Add(Language.GetTextValue("Bawk!"));
+            chat.Add(Language.GetTextValue("Pock pock"));
+            chat.Add(Language.GetTextValue("Cock-a-doodle-doo"));
+            return chat;
         }
 
         public int Frame(int firstFrame, int lastFrame, int speed) {
@@ -78,35 +90,6 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
                     break;
             }
         }
-
-        public override void SetDefaults() {
-            NPC.townNPC = true;
-            NPC.friendly = true;
-            NPC.width = 18;
-            NPC.height = 40;
-            NPC.aiStyle = 7;
-            NPC.damage = 15;
-            NPC.defense = 15;
-            NPC.lifeMax = 250;
-            NPC.HitSound = SoundID.NPCHit1;
-            NPC.DeathSound = SoundID.NPCDeath1;
-            NPC.knockBackResist = 0.5f;
-
-            AIType = NPCID.TownDog;
-            NPC.lavaImmune = true;
-        }
-
-        public override string GetChat() {
-            Main.player[Main.myPlayer].currentShoppingSettings.HappinessReport = "";
-            WeightedRandom<string> chat = new();
-            chat.Add(Language.GetTextValue("Cluck!"));
-            chat.Add(Language.GetTextValue("Peep peep"));
-            chat.Add(Language.GetTextValue("Cluck cluck"));
-            chat.Add(Language.GetTextValue("Bawk!"));
-            chat.Add(Language.GetTextValue("Pock pock"));
-            chat.Add(Language.GetTextValue("Cock-a-doodle-doo"));
-            return chat;
-        }
     }
     #endregion
 
@@ -125,9 +108,11 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
                 "Beaky",
                 "Randy",
                 "Spurs",
+                "Pollito",
                 "Yhary",
                 "Kulu-Ya-Ku",
-                "Kazooie"
+                "Kazooie",
+                "Taco"
             };
         }
 
@@ -136,21 +121,6 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
         public override void AI() {
             if (!CalValEXWorld.nugget)
                 CalValEXWorld.nugget = true;
-        }
-
-        public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
-            Main.NewText(Language.GetTextValue("fuck me raw", 50, byte.MaxValue, 130));
-            if (CalValEXWorld.nugget) {
-                Main.NewText(Language.GetTextValue("inside the conditional, this is true", 50, byte.MaxValue, 130));
-                return true;
-            } else {
-                Main.NewText(Language.GetTextValue("inside the conditional, this is false", 50, byte.MaxValue, 130));
-                return false;
-            }
-        }
-
-        public override bool CheckConditions(int left, int right, int top, int bottom) {
-            return true;
         }
 
         public override ITownNPCProfile TownNPCProfile() {
@@ -185,8 +155,11 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
                 "Beaky",
                 "Randy",
                 "Spurs",
+                "Pollito",
                 "Rocky",
-                "Aknosom"
+                "Aknosom",
+                "Pico",
+                "Frijol"
             };
         }
 
@@ -195,13 +168,6 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
         public override void AI() {
             if (!CalValEXWorld.draco)
                 CalValEXWorld.draco = true;
-        }
-
-        public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
-            if (CalValEXWorld.draco)
-                return true;
-            else
-                return false;
         }
 
         public override ITownNPCProfile TownNPCProfile() {
@@ -236,9 +202,11 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
                 "Beaky",
                 "Randy",
                 "Spurs",
+                "Pollito",
                 "Yatagarasu",
                 "Huginn",
-                "Munnin"
+                "Munnin",
+                "Alitas"
             };
         }
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => DrawGlow(GetType().Name, screenPos);
@@ -287,8 +255,10 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
                 "Beaky",
                 "Randy",
                 "Spurs",
+                "Pollito",
                 "Fiery",
-                "Fatalis"
+                "Fatalis",
+                "Guacamole"
             };
         }
 
@@ -338,8 +308,11 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
                 "Beaky",
                 "Randy",
                 "Spurs",
+                "Pollito",
                 "Betty",
-                "Ibushi"
+                "Ibushi",
+                "Pechuga",
+                "Sobras"
             };
         }
 
@@ -389,9 +362,11 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
                 "Beaky",
                 "Randy",
                 "Spurs",
+                "Pollito",
                 "Darky",
                 "Gore Magala",
-                "JubJub"
+                "JubJub",
+                "Mole"
             };
         }
 
