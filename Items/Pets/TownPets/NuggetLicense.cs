@@ -16,7 +16,7 @@ namespace CalValEX.Items.Pets.TownPets {
 
         public override void SetDefaults() => Item.CloneDefaults(ItemID.LicenseDog);
 
-        public int PickANug (int pick) {
+        public static int PickANug (int pick) {
             switch (pick) {
                 case 0:
                     if (!CalValEXWorld.nugget) {
@@ -83,13 +83,13 @@ namespace CalValEX.Items.Pets.TownPets {
                 int spawnwhichnug = Main.rand.Next(0, 6);
                 PickANug(spawnwhichnug);
                 if (Main.netMode == NetmodeID.SinglePlayer)
-                    Main.NewText(Language.GetTextValue("The license teleports away to the McNugget delivery service!"), 50, byte.MaxValue, 130);
+                    Main.NewText(Language.GetTextValue("The license teleports away to the McNugget delivery service..."), 50, byte.MaxValue, 130);
                 else
                     NetMessage.SendData(MessageID.SpawnBoss, -1, -1, null, player.whoAmI, -13f, 0.0f, 0.0f, 0, 0, 0);
                 return true;
             } else {
-                Main.NewText(Language.GetTextValue("There's not enough space for a rebirth in") + ($" {Main.worldName}") + Language.GetTextValue("!"), byte.MaxValue, 0, 0);
-                return false;
+                Main.NewText(Language.GetTextValue("There's not enough space for a rebirth in" + ($" {Main.worldName}") + "!"), byte.MaxValue, 0, 0);
+                return true;
             }
         }
 

@@ -1,8 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using CalValEX.Items.Pets.TownPets;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
@@ -61,6 +63,21 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
             return frame;
         }
 
+        public override void OnKill() {
+            CalValEXWorld.nugget = CalValEXWorld.draco = CalValEXWorld.folly = CalValEXWorld.godnug = CalValEXWorld.mammoth = CalValEXWorld.shadow = false;
+
+            if (CalValEXWorld.CanNugsSpawn()) {
+                int spawnwhichnug = Main.rand.Next(0, 6);
+                NuggetLicense.PickANug(spawnwhichnug);
+            } else {
+                Main.NewText(Language.GetTextValue("There's not enough space for a rebirth in" + ($" {Main.worldName}") + "!"), byte.MaxValue, 0, 0);
+            }
+        }
+
+        public override void OnSpawn(IEntitySource source) {
+
+        }
+
         public void DrawGlow(string nugName, Vector2 screenPos) {
             Texture2D glowMask = ModContent.Request<Texture2D>("CalValEX/NPCs/TownPets/Nuggets/" + nugName + "_Glow").Value;
             bool flip = NPC.spriteDirection == 1;
@@ -86,14 +103,14 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
                     break;
 
                 default:
-                    NPC.frame.Y = frameHeight * 1;
+                    NPC.frame.Y = frameHeight * Frame(0, 2, 3);
                     break;
             }
         }
     }
     #endregion
 
-    #region // Nugget
+    #region // Yharon
     [AutoloadHead]
     public class NuggetNugget : TownNuggets {
         public override List<string> SetNPCNameList() {

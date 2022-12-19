@@ -24,7 +24,7 @@ namespace CalValEX
 {
     public class CalValEXWorld : ModSystem {
         public static bool CanNugsSpawn() {
-            return !(nugget && draco && folly && godnug && mammoth && shadow);
+            return !(nugget || draco || folly || godnug || mammoth || shadow);
         }
 
         public static int astralTiles;
@@ -69,6 +69,7 @@ namespace CalValEX
             mammoth = false;
             shadow = false;
         }
+
         public override void OnWorldUnload()
         {
             rescuedjelly = false;
@@ -248,6 +249,10 @@ namespace CalValEX
                 SpawnBitches<MammothNugget>(mammoth);
             if (shadow)
                 SpawnBitches<ShadowNugget>(shadow);
+        }
+
+        public static double GetRandomSpawnTime(double minTime, double maxTime) {
+            return (maxTime - minTime) * Main.rand.NextDouble() + minTime;
         }
 
         public void SpawnBitches<T>(bool nugSpawn) where T : ModNPC {
