@@ -78,7 +78,17 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
         }
 
         public override void OnSpawn(IEntitySource source) {
+            for (int i = 0; i < 16; i++) {
+                int num = Dust.NewDust(NPC.position, 16, 16, DustID.FlameBurst, NPC.velocity.X / 2f, NPC.velocity.Y / 2f, 100, default(Color), 1);
+                
+                var dust = Main.dust[num];
 
+                dust.velocity *= 0.66f;
+                dust.scale -= 0.1f;
+
+                if (dust.scale < 0.5f)
+                    dust.active = false;
+            }
         }
 
         public void DrawGlow(string nugName, Vector2 screenPos) {

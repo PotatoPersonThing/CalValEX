@@ -486,9 +486,9 @@ namespace CalValEX.NPCs.Oracle
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 10, 0, 0);
                     ++nextSlot;
                 }
-                if ((calEntryCount + vanEntryCount) > 0.028 || CalamityMod.DownedBossSystem.downedDragonfolly) {
+                if ((calEntryCount > 0.365 && vanEntryCount > 0.324) || CalamityMod.DownedBossSystem.downedDragonfolly) {
                     shop.item[nextSlot].SetDefaults(ItemType<NuggetLicense>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 6, 60, 90);
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 6, 6, 9);
                     ++nextSlot;
                 }
             }
