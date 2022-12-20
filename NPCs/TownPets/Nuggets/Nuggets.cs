@@ -12,6 +12,9 @@ using Terraria.ModLoader;
 using Terraria.Utilities;
 
 namespace CalValEX.NPCs.TownPets.Nuggets {
+    // HIIIII if you're looking for ways to make ur own town pet, just know it's kinda complicated, if you have any doubts about this code or town pet code in general,
+    // send a message to Drædon Gaming#1669 on discord, I'll help as much as I can until tmod gets some documentation or something going, good luck!
+
     #region //Base NPC
     public abstract class TownNuggets : ModNPC {
         private int frame = 0;
@@ -140,6 +143,14 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
                 CalValEXWorld.nugget = true;
         }
 
+        public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
+            if (CalValEXWorld.nugget)
+                CalValEXWorld.isThereAHouse = true;
+            else
+                CalValEXWorld.isThereAHouse = false;
+            return true;
+        }
+
         public override ITownNPCProfile TownNPCProfile() {
             return new NuggetProfile();
         }
@@ -185,6 +196,14 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
         public override void AI() {
             if (!CalValEXWorld.draco)
                 CalValEXWorld.draco = true;
+        }
+
+        public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
+            if (CalValEXWorld.draco)
+                CalValEXWorld.isThereAHouse = true;
+            else
+                CalValEXWorld.isThereAHouse = false;
+            return true;
         }
 
         public override ITownNPCProfile TownNPCProfile() {
@@ -235,9 +254,10 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
             if (CalValEXWorld.folly)
-                return true;
+                CalValEXWorld.isThereAHouse = true;
             else
-                return false;
+                CalValEXWorld.isThereAHouse = false;
+            return true;
         }
 
         public override ITownNPCProfile TownNPCProfile() {
@@ -288,9 +308,10 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
             if (CalValEXWorld.godnug)
-                return true;
+                CalValEXWorld.isThereAHouse = true;
             else
-                return false;
+                CalValEXWorld.isThereAHouse = false;
+            return true;
         }
 
         public override ITownNPCProfile TownNPCProfile() {
@@ -342,9 +363,10 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
             if (CalValEXWorld.mammoth)
-                return true;
+                CalValEXWorld.isThereAHouse = true;
             else
-                return false;
+                CalValEXWorld.isThereAHouse = false;
+            return true;
         }
 
         public override ITownNPCProfile TownNPCProfile() {
@@ -393,10 +415,11 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
         }
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
-            if (CalValEXWorld.shadow) 
-                return true;
+            if (CalValEXWorld.shadow)
+                CalValEXWorld.isThereAHouse = true;
             else
-                return false;
+                CalValEXWorld.isThereAHouse = false;
+            return true;
         }
 
         public override ITownNPCProfile TownNPCProfile() {

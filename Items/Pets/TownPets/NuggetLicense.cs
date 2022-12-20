@@ -7,10 +7,10 @@ namespace CalValEX.Items.Pets.TownPets {
     public class NuggetLicense : ModItem {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Nugget License");
-            Tooltip.SetDefault("Use to adopt a nugget for your town" +
-                "\nAlready have a nugget?" +
+            Tooltip.SetDefault("Use to adopt a nugget for your town");
+                /*"\nAlready have a nugget?" +
                 "\nUse additional licenses to activate the Pet Exchange Program!" +
-                "\nFind the perfect fit for you and your nugget!");
+                "\nFind the perfect fit for you and your nugget!");*/
             SacrificeTotal = 1;
         }
 

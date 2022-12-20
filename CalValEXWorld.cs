@@ -50,6 +50,8 @@ namespace CalValEX
         public static bool godnug;
         public static bool mammoth;
         public static bool shadow;
+        private int nugCounter = 1;
+        public static bool isThereAHouse;
 
         public override void OnWorldLoad()
         { 
@@ -62,12 +64,7 @@ namespace CalValEX
             jharinter = false;
             downedMeldosaurus = false;
 
-            nugget = false;
-            draco = false;
-            folly = false;
-            godnug = false;
-            mammoth = false;
-            shadow = false;
+            nugget = draco = folly = godnug = mammoth = shadow = isThereAHouse = false;
         }
 
         public override void OnWorldUnload()
@@ -81,12 +78,7 @@ namespace CalValEX
             jharinter = false;
             downedMeldosaurus = false;
 
-            nugget = false;
-            draco = false;
-            folly = false;
-            godnug = false;
-            mammoth = false;
-            shadow = false;
+            nugget = draco = folly = godnug = mammoth = shadow = isThereAHouse = false;
         }
 
         #region //Flags
@@ -237,6 +229,7 @@ namespace CalValEX
                 CalValEX.AprilFoolMonth = true;
             }
 
+            // Call the spawning method
             if (nugget)
                 SpawnBitches<NuggetNugget>(nugget);
             if (draco)
@@ -251,14 +244,21 @@ namespace CalValEX
                 SpawnBitches<ShadowNugget>(shadow);
         }
 
-        public static double GetRandomSpawnTime(double minTime, double maxTime) {
-            return (maxTime - minTime) * Main.rand.NextDouble() + minTime;
-        }
-
+        // We use a generic method here so we can pass the ModNPC type as a paremeter, basically saving me from having to wrie this shit 6 times
         public void SpawnBitches<T>(bool nugSpawn) where T : ModNPC {
             Player player = Main.LocalPlayer;
 
-            if (!NPC.AnyNPCs(NPCType<T>()) && nugSpawn && CanSpawnNow()) {
+            // Random delay between death/reroll and spawn, measured in frames divided by 100
+            var maxCount = Main.rand.Next(9, 108);
+            
+            nugCounter++;
+            // Multiplied by 100 so there's not as many numbers to choose from, it's still a lot but it's better than 900-10800
+            if (nugCounter > (maxCount * 10)) {
+                nugCounter = 0;
+            }
+
+            if (!NPC.AnyNPCs(NPCType<T>()) && CanSpawnNow() && nugSpawn && isThereAHouse && nugCounter == 0) {
+                // We spawn the nug near the player facing them
                 int newNug = NPC.NewNPC(Entity.GetSource_TownSpawn(), (int)(player.position.X + (96 * Main.LocalPlayer.direction)), (int)(player.position.Y - 16), NPCType<T>(), 1);
                 NPC nug = Main.npc[newNug];
                 nug.direction = -Main.LocalPlayer.direction;
@@ -271,12 +271,9 @@ namespace CalValEX
             }
         }
 
-        public static void UpdateWorldBool()
-        {
+        public static void UpdateWorldBool() {
             if (Main.netMode == NetmodeID.Server)
-            {
                 NetMessage.SendData(MessageID.WorldData);
-            }
         }
 
         private static bool CanSpawnNow() {
