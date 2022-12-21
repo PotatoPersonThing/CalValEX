@@ -253,7 +253,7 @@ namespace CalValEX
             
             nugCounter++;
             // Multiplied by 100 so there's not as many numbers to choose from, it's still a lot but it's better than 900-10800
-            if (nugCounter > (maxCount * 10)) {
+            if (nugCounter > (maxCount * 100)) {
                 nugCounter = 0;
             }
 
