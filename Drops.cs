@@ -743,7 +743,6 @@ namespace CalValEX
                         normalOnly.Add(DropHelper.CalamityStyle(DropHelper.NormalWeaponDropRateFraction, items));
                     }
                     npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks && DownedBossSystem.downedYharon, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureSilva.SilvaCrystal>(), 1, 155, 265);
-                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SparrowMeat>(), 20));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<BumblefuckPlush>(), 4);
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<ExtraFluffyFeather>(), 10);
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 500));
