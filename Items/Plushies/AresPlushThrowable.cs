@@ -4,19 +4,13 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ModLoader;
 using CalValEX.Projectiles.Plushies;
-//using CalValEX.Items.Tiles.Plushies;
 
 namespace CalValEX.Items.Plushies
 {
     public class AresPlushThrowable : ModItem
     {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/AresPlush";
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Ares Plushie (Throwable)");
-            Tooltip.SetDefault("Can be thrown");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {
@@ -35,6 +29,7 @@ namespace CalValEX.Items.Plushies
             Item.shootSpeed = 6f;
             Item.maxStack = 99;
         }
+
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             //rarity 12 (Turquoise) = new Color(0, 255, 200)
@@ -54,16 +49,5 @@ namespace CalValEX.Items.Plushies
                 }
             }
         }
-
-        /*public override void AddRecipes()
-        {
-            
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<Items.Tiles.Plushies.AresPlush>());
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

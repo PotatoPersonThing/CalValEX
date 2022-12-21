@@ -11,12 +11,7 @@ namespace CalValEX.Items.Plushies
     public class SignusPlushThrowable : ModItem
     {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/SignusPlush";
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Signus Plushie (Throwable)");
-            Tooltip.SetDefault("Can be thrown");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {
@@ -36,16 +31,6 @@ namespace CalValEX.Items.Plushies
             Item.maxStack = 99;
         }
 
-        /*public override void AddRecipes()
-        {
-            
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<Items.Tiles.Plushies.SignusPlush>());
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             //rarity 12 (Turquoise) = new Color(0, 255, 200)

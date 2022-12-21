@@ -11,12 +11,7 @@ namespace CalValEX.Items.Plushies
     public class ApolloPlushThrowable : ModItem
     {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/ApolloPlush";
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Apollo Plushie (Throwable)");
-            Tooltip.SetDefault("Can be thrown");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {
@@ -54,16 +49,5 @@ namespace CalValEX.Items.Plushies
                 }
             }
         }
-
-        /*public override void AddRecipes()
-        {
-            
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<Items.Tiles.Plushies.ApolloPlush>());
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

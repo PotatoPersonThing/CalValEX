@@ -21,8 +21,6 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
         private int frameCounter = 0;
         public static double spawnTime = double.MaxValue;
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault(Language.GetTextValue("Nugget"));
-
             Main.npcFrameCount[Type] = 9;
             NPCID.Sets.ExtraFramesCount[Type] = 0;
             NPCID.Sets.AttackFrameCount[Type] = 0;

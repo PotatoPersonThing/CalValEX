@@ -11,12 +11,7 @@ namespace CalValEX.Items.Plushies
     public class ProvidencePlushThrowable : ModItem
     {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/ProvidencePlush";
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Providence Plushie (Throwable)");
-            Tooltip.SetDefault("Can be thrown");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {
@@ -35,6 +30,7 @@ namespace CalValEX.Items.Plushies
             Item.shootSpeed = 6f;
             Item.maxStack = 99;
         }
+
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             //rarity 12 (Turquoise) = new Color(0, 255, 200)
@@ -54,16 +50,5 @@ namespace CalValEX.Items.Plushies
                 }
             }
         }
-
-        /*public override void AddRecipes()
-        {
-            
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<Items.Tiles.Plushies.ProvidencePlush>());
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

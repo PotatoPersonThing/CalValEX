@@ -9,12 +9,7 @@ namespace CalValEX.Items.Plushies
     public class PerforatorPlushThrowable : ModItem
     {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/PerforatorPlush";
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Perforator Plushie (Throwable)");
-            Tooltip.SetDefault("Can be thrown");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {
@@ -33,16 +28,5 @@ namespace CalValEX.Items.Plushies
             Item.shootSpeed = 6f;
             Item.maxStack = 99;
         }
-
-        /*public override void AddRecipes()
-        {
-            
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<Items.Tiles.Plushies.PerforatorPlush>());
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

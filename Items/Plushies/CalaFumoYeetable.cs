@@ -9,14 +9,8 @@ using Terraria.DataStructures;
 
 namespace CalValEX.Items.Plushies
 {
-    public class CalaFumoYeetable : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Calamitas Plushie (Throwable)");
-            Tooltip.SetDefault("A dark artifact that must be handled with care\n" + "Can be thrown\n" + "Right click to make it spin while thrown");
-            SacrificeTotal = 1;
-        }
+    public class CalaFumoYeetable : ModItem {
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {
