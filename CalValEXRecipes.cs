@@ -104,7 +104,7 @@ namespace CalValEX {
 				recipe.AddIngredient(ItemType<ExtraFluffyFeather>());
 				recipe.AddIngredient(ItemType<JunglePhoenixWings>());
 				recipe.AddIngredient(ItemID.ChickenNugget);
-				recipe.AddTile(TileID.LunarCraftingStation);
+				recipe.AddTile(TileType<CosmicAnvil>());
 				recipe.Register();
 			}
 			{
