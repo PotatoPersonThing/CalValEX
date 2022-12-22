@@ -64,14 +64,17 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
             return frame;
         }
 
+        public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
+            CalValEXWorld.isThereAHouse = true;
+            return false;
+        }
+
         public override void OnKill() {
             CalValEXWorld.nugget = CalValEXWorld.draco = CalValEXWorld.folly = CalValEXWorld.godnug = CalValEXWorld.mammoth = CalValEXWorld.shadow = false;
 
             if (CalValEXWorld.CanNugsSpawn()) {
                 int spawnwhichnug = Main.rand.Next(0, 6);
                 NuggetLicense.PickANug(spawnwhichnug);
-            } else {
-                Main.NewText(Language.GetTextValue("There's not enough space for a rebirth in" + ($" {Main.worldName}") + "!"), byte.MaxValue, 0, 0);
             }
         }
 
@@ -151,14 +154,6 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
                 CalValEXWorld.nugget = true;
         }
 
-        public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
-            if (CalValEXWorld.nugget)
-                CalValEXWorld.isThereAHouse = true;
-            else
-                CalValEXWorld.isThereAHouse = false;
-            return true;
-        }
-
         public override ITownNPCProfile TownNPCProfile() {
             return new NuggetProfile();
         }
@@ -204,14 +199,6 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
         public override void AI() {
             if (!CalValEXWorld.draco)
                 CalValEXWorld.draco = true;
-        }
-
-        public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
-            if (CalValEXWorld.draco)
-                CalValEXWorld.isThereAHouse = true;
-            else
-                CalValEXWorld.isThereAHouse = false;
-            return true;
         }
 
         public override ITownNPCProfile TownNPCProfile() {
@@ -260,14 +247,6 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
                 CalValEXWorld.folly = true;
         }
 
-        public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
-            if (CalValEXWorld.folly)
-                CalValEXWorld.isThereAHouse = true;
-            else
-                CalValEXWorld.isThereAHouse = false;
-            return true;
-        }
-
         public override ITownNPCProfile TownNPCProfile() {
             return new FollyProfile();
         }
@@ -312,14 +291,6 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
         public override void AI() {
             if (!CalValEXWorld.godnug)
                 CalValEXWorld.godnug = true;
-        }
-
-        public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
-            if (CalValEXWorld.godnug)
-                CalValEXWorld.isThereAHouse = true;
-            else
-                CalValEXWorld.isThereAHouse = false;
-            return true;
         }
 
         public override ITownNPCProfile TownNPCProfile() {
@@ -369,14 +340,6 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
                 CalValEXWorld.mammoth = true;
         }
 
-        public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
-            if (CalValEXWorld.mammoth)
-                CalValEXWorld.isThereAHouse = true;
-            else
-                CalValEXWorld.isThereAHouse = false;
-            return true;
-        }
-
         public override ITownNPCProfile TownNPCProfile() {
             return new MammothProfile();
         }
@@ -420,14 +383,6 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
         public override void AI() {
             if (!CalValEXWorld.shadow)
                 CalValEXWorld.shadow = true;
-        }
-
-        public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
-            if (CalValEXWorld.shadow)
-                CalValEXWorld.isThereAHouse = true;
-            else
-                CalValEXWorld.isThereAHouse = false;
-            return true;
         }
 
         public override ITownNPCProfile TownNPCProfile() {

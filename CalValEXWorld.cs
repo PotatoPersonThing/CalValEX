@@ -256,7 +256,7 @@ namespace CalValEX
             if (nugCounter > (maxCount * 100))
                 nugCounter = 0;
 
-            if (!NPC.AnyNPCs(NPCType<T>()) && CanSpawnNow() && nugSpawn && isThereAHouse && nugCounter == 0) {
+            if (CanSpawnNow() && !NPC.AnyNPCs(NPCType<T>()) && nugSpawn && isThereAHouse && nugCounter == 0) {
                 // We spawn the nug near the player facing them
                 int newNug = NPC.NewNPC(Entity.GetSource_TownSpawn(), (int)(player.position.X + (96 * Main.LocalPlayer.direction)), (int)(player.position.Y - 16), NPCType<T>(), 1);
                 NPC nug = Main.npc[newNug];

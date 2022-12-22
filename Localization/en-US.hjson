@@ -39,7 +39,12 @@
 			OracleNPCPet_Pet: TUB
 
 			# Town NPCs
-			TownNuggets: Nugget
+			NuggetNugget: Nugget
+			DracoNugget: Draconian Nugget
+			FollyNugget: Fluffy Nugget
+			GODNugget: Phoenix Nugget
+			MammothNugget: Mini Mammoth Nugget
+			ShadowNugget: Shadow Nugget
 		}
 		
 		ItemName:  {
