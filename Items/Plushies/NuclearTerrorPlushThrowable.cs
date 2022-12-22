@@ -8,11 +8,7 @@ using Microsoft.Xna.Framework;
 namespace CalValEX.Items.Plushies {
     public class NuclearTerrorPlushThrowable : ModItem {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/NuclearTerrorPlush";
-        public override void SetStaticDefaults() {
-            DisplayName.SetDefault("NuclearTerror Plushie (Throwable)");
-            Tooltip.SetDefault("Can be thrown");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults() {
             Item.useStyle = 1;

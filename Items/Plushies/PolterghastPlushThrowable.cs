@@ -4,19 +4,13 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ModLoader;
 using CalValEX.Projectiles.Plushies;
-//using CalValEX.Items.Tiles.Plushies;
 
 namespace CalValEX.Items.Plushies
 {
     public class PolterghastPlushThrowable : ModItem
     {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/PolterghastPlush";
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Polterghast Plushie (Throwable)");
-            Tooltip.SetDefault("Can be thrown");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {
@@ -54,16 +48,5 @@ namespace CalValEX.Items.Plushies
                 }
             }
         }
-
-        /*public override void AddRecipes()
-        {
-            
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<Items.Tiles.Plushies.PolterghastPlush>());
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

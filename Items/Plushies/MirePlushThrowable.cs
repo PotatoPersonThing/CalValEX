@@ -8,11 +8,7 @@ using System.Collections.Generic;
 namespace CalValEX.Items.Plushies {
     public class MirePlushThrowableP1 : ModItem {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/MirePlushP1";
-        public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Shielded Cragmaw Mire Plushie (Throwable)");
-            Tooltip.SetDefault("Can be thrown");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults() {
             Item.useStyle = 1;

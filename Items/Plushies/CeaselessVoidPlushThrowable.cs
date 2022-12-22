@@ -11,12 +11,7 @@ namespace CalValEX.Items.Plushies
     public class CeaselessVoidPlushThrowable : ModItem
     {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/CeaselessVoidPlush";
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Ceaseless Void Plushie (Throwable)");
-            Tooltip.SetDefault("Can be thrown");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {
@@ -54,16 +49,5 @@ namespace CalValEX.Items.Plushies
                 }
             }
         }
-
-        /*public override void AddRecipes()
-        {
-            
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<Items.Tiles.Plushies.CeaselessVoidPlush>());
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

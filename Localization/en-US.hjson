@@ -37,6 +37,14 @@
 			JellyPriestNPC: Jelly Priestess
 			OracleNPC: Oracle
 			OracleNPCPet_Pet: TUB
+
+			# Town NPCs
+			NuggetNugget: Nugget
+			DracoNugget: Draconian Nugget
+			FollyNugget: Fluffy Nugget
+			GODNugget: Phoenix Nugget
+			MammothNugget: Mini Mammoth Nugget
+			ShadowNugget: Shadow Nugget
 		}
 		
 		ItemName:  {
@@ -300,6 +308,49 @@
 			WormBell: Slither Charm
 			ScratchedGong: Scratched Gong
 			PandemoniumBox: Pandemonium Box
+
+			# Town pets
+			NuggetLicense: Nugget License
+
+			# Plushies
+			AnahitaPlushThrowable: Anahita Plushie (Throwable)
+			ApolloPlushThrowable: Apollo Plushie (Throwable)
+			AquaticScourgePlushThrowable: Aquatic Scourge Plushie (Throwable)
+			AresPlushThrowable: Ares Plushie (Throwable)
+			ArtemisPlushThrowable: Artemis Plushie (Throwable)
+			AstrageldonPlushThrowable: Astrageldon Plushie (Throwable)
+			AstrumAureusPlushThrowable: Astrum Aureus Plushie (Throwable)
+			AstrumDeusPlushThrowable: Astrum Deus Plushie (Throwable)
+			BrimstoneElementalPlushThrowable: Brimstone Elemental Plushie (Throwable)
+			BumblefuckPlushThrowable: Dragonfolly Plushie (Throwable)
+			CalaFumoYeetable: Calamitas Plushie (Throwable)
+			CeaselessVoidPlushThrowable: Ceaseless Void Plushie (Throwable)
+			ClonePlushThrowable: Calamitas Clone Plushie (Throwable)
+			CrabulonPlushThrowable: Crabulon Plushie (Throwable)
+			CryogenPlushThrowable: Cryogen Plushie (Throwable)
+			DesertScourgePlushThrowable: Desert Scourge Plushie (Throwable)
+			DevourerofGodsPlushThrowable: Devourer of Gods Plushie (Throwable)
+			DraedonPlushThrowable: Draedon Plushie (Throwable)
+			GiantClamPlushThrowable: Giant Clam Plushie (Throwable)
+			HiveMindPlushThrowable: Hive Mind Plushie (Throwable)
+			JaredPlushThrowable: Eidolon Wyrm Plushie (Throwable)
+			LeviathanPlushThrowable: Leviathan Plushie (Throwable)
+			MaulerPlushThrowable: Mauler Plushie (Throwable)
+			MirePlushThrowable: Shielded Cragmaw Mire Plushie (Throwable)
+			NuclearTerrorPlushThrowable: Nuclear Terror Plushie (Throwable)
+			OldDukePlushThrowable: Old Duke Plushie (Throwable)
+			PerforatorPlushThrowable: Perforator Plushie (Throwable)
+			PlaguebringerGoliathPlushThrowable: Plaguebringer Goliath Plushie (Throwable)
+			PolterghastPlushThrowable: Polterghast Plushie (Throwable)
+			ProfanedGuardianPlushThrowable: Profaned Guardian Plushie (Throwable)
+			ProvidencePlushThrowable: Providence Plushie (Throwable)
+			RavagerPlushThrowable: Ravager Plushie (Throwable)
+			SandSharkPlushThrowable: Great Sand Shark Plushie (Throwable)
+			SignusPlushThrowable: Signus Plushie (Throwable)
+			SlimeGodPlushThrowable: Slime God Plushie (Throwable)
+			StormWeaverPlushThrowable: Storm Weaver Plushie (Throwable)
+			ThanatosPlushThrowable: Thanatos Plushie (Throwable)
+			YharonPlushThrowable: Yharon Plushie (Throwable)
 
 			# Tiles
 			BubbleMachine: Effervescent Bubbler
@@ -616,6 +667,49 @@
 			PandemoniumBox: ''' 'And I wish I was the only one to leave'
 				The end of our journey, your zenith
 				Summons every pet you've met in your path'''
+
+			# Town pets
+			NuggetLicense: Use to adopt a nugget for your town
+				
+			# Plushies
+			AnahitaPlushThrowable: Can be thrown
+			ApolloPlushThrowable: Can be thrown
+			AquaticScourgePlushThrowable: Can be thrown
+			AresPlushThrowable: Can be thrown
+			ArtemisPlushThrowable: Can be thrown
+			AstrageldonPlushThrowable: Can be thrown
+			AstrumAureusPlushThrowable: Can be thrown
+			AstrumDeusPlushThrowable: Can be thrown
+			BrimstoneElementalPlushThrowable: Can be thrown
+			BumblefuckPlushThrowable: Can be thrown
+			CalaFumoYeetable: Can be thrown
+			CeaselessVoidPlushThrowable: Can be thrown
+			ClonePlushThrowable: Can be thrown
+			CrabulonPlushThrowable: Can be thrown
+			CryogenPlushThrowable: Can be thrown
+			DesertScourgePlushThrowable: Can be thrown
+			DevourerofGodsPlushThrowable: Can be thrown
+			DraedonPlushThrowable: Can be thrown
+			GiantClamPlushThrowable: Can be thrown
+			HiveMindPlushThrowable: Can be thrown
+			JaredPlushThrowable: Can be thrown
+			LeviathanPlushThrowable: Can be thrown
+			MaulerPlushThrowable: Can be thrown
+			MirePlushThrowable: Can be thrown
+			NuclearTerrorPlushThrowable: Can be thrown
+			OldDukePlushThrowable: Can be thrown
+			PerforatorPlushThrowable: Can be thrown
+			PlaguebringerGoliathPlushThrowable: Can be thrown
+			PolterghastPlushThrowable: Can be thrown
+			ProfanedGuardianPlushThrowable: Can be thrown
+			ProvidencePlushThrowable: Can be thrown
+			RavagerPlushThrowable: Can be thrown
+			SandSharkPlushThrowable: Can be thrown
+			SignusPlushThrowable: Can be thrown
+			SlimeGodPlushThrowable: Can be thrown
+			StormWeaverPlushThrowable: Can be thrown
+			ThanatosPlushThrowable: Can be thrown
+			YharonPlushThrowable: Can be thrown
 
 			# Tiles
 			BubbleMachine: That's like, groovy mannn

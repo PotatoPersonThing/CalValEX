@@ -58,6 +58,8 @@ using CalamityMod.Items.Placeables.FurnitureStratus;
 using CalamityMod.Items.Placeables.FurniturePlagued;
 using CalamityMod.Items.Placeables.FurnitureProfaned;
 using CalamityMod.Items.Placeables.FurnitureSilva;
+using CalValEX.NPCs.TownPets.Nuggets;
+using CalValEX.Items.Pets.TownPets;
 
 namespace CalValEX
 {
@@ -165,6 +167,13 @@ namespace CalValEX
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<JellyPriestNPC>(),
                     "Find at the Ocean after defeating the Eye of Cthulhu");
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<AprilFools.Jharim.Jharim>(), "It's a secret");
+
+                censusMod.Call("TownNPCCondition", ModContent.NPCType<NuggetNugget>(), Language.GetText("Mods.CalValEX.Census") + $" [i:{ModContent.ItemType<NuggetLicense>()}]");
+                censusMod.Call("TownNPCCondition", ModContent.NPCType<DracoNugget>(), Language.GetTextValue("Mods.CalValEX.Census") + $" [i:{ModContent.ItemType<NuggetLicense>()}]");
+                censusMod.Call("TownNPCCondition", ModContent.NPCType<FollyNugget>(), Language.GetTextValue("Mods.CalValEX.Census") + $" [i:{ModContent.ItemType<NuggetLicense>()}]");
+                censusMod.Call("TownNPCCondition", ModContent.NPCType<GODNugget>(), Language.GetTextValue("Mods.CalValEX.Census") + $" [i:{ModContent.ItemType<NuggetLicense>()}]");
+                censusMod.Call("TownNPCCondition", ModContent.NPCType<MammothNugget>(), Language.GetTextValue("Mods.CalValEX.Census") + $" [i:{ModContent.ItemType<NuggetLicense>()}]");
+                censusMod.Call("TownNPCCondition", ModContent.NPCType<ShadowNugget>(), Language.GetTextValue("Mods.CalValEX.Census") + $" [i:{ModContent.ItemType<NuggetLicense>()}]");
             }
 
             //Christmas textures

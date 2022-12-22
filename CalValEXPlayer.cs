@@ -706,8 +706,10 @@ namespace CalValEX {
             rotcounter += Math.PI / 80;
             rotdeg = Math.Cos(rotcounter);
             rotsin = -Math.Sin(rotcounter);
+
             if (wulfrumjam && Main.rand.Next(2) == 0) {
-                Particle smoke = new SmallSmokeParticle(Player.Center, Vector2.Zero, Color.GreenYellow, new Color(40, 40, 40), Main.rand.NextFloat(0.4f, 0.8f), 145 - Main.rand.Next(50));
+                Vector2 smokeOffset = new Vector2(22 * Player.direction, 6);
+                Particle smoke = new SmallSmokeParticle(Player.Center - smokeOffset, Vector2.Zero, Color.GreenYellow, new Color(40, 40, 40), Main.rand.NextFloat(0.4f, 0.8f), 145 - Main.rand.Next(50));
                 smoke.Velocity = (smoke.Position - Player.Center) * 0.3f + Player.velocity;
                 GeneralParticleHandler.SpawnParticle(smoke);
             }

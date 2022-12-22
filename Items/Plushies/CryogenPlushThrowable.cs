@@ -9,12 +9,7 @@ namespace CalValEX.Items.Plushies
     public class CryogenPlushThrowable : ModItem
     {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/CryogenPlush";
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Cryogen Plushie (Throwable)");
-            Tooltip.SetDefault("Can be thrown");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {
@@ -33,16 +28,5 @@ namespace CalValEX.Items.Plushies
             Item.shootSpeed = 6f;
             Item.maxStack = 99;
         }
-
-        /*public override void AddRecipes()
-        {
-            
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<Items.Tiles.Plushies.CryogenPlush>());
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

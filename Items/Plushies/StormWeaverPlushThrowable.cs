@@ -11,12 +11,7 @@ namespace CalValEX.Items.Plushies
     public class StormWeaverPlushThrowable : ModItem
     {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/StormWeaverPlush";
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Storm Weaver Plushie (Throwable)");
-            Tooltip.SetDefault("Can be thrown");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {
@@ -54,16 +49,5 @@ namespace CalValEX.Items.Plushies
                 }
             }
         }
-
-        /*public override void AddRecipes()
-        {
-            
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<Items.Tiles.Plushies.StormWeaverPlush>());
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

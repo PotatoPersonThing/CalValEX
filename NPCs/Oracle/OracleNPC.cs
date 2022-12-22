@@ -13,6 +13,7 @@ using CalValEX.Projectiles.NPCs;
 using System.Collections.Generic;
 using CalamityMod.CalPlayer;
 using Terraria.GameContent.Personalities;
+using CalValEX.Items.Pets.TownPets;
 
 namespace CalValEX.NPCs.Oracle
 {
@@ -365,6 +366,7 @@ namespace CalValEX.NPCs.Oracle
 
         public override void SetupShop(Chest shop, ref int nextSlot)
         {
+
             //Mod calamityMod = ModLoader.GetMod("CalamityMod");
             shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.DoggoCollar>());
             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 50, 0);
@@ -379,6 +381,10 @@ namespace CalValEX.NPCs.Oracle
             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
             nextSlot++;
             Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
+            
+            var calEntryCount = Main.BestiaryDB.GetCompletedPercentByMod(clamMod);
+            var vanEntryCount = Main.GetBestiaryProgressReport().CompletionPercent;
+
             if (clamMod != null)
             {
                 if ((bool)clamMod.Call("GetBossDowned", "hivemind"))
@@ -478,6 +484,11 @@ namespace CalValEX.NPCs.Oracle
                 {
                     shop.item[nextSlot].SetDefaults(ModContent.ItemType<NuggetinaBiscuit>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 10, 0, 0);
+                    ++nextSlot;
+                }
+                if ((calEntryCount > 0.365 && vanEntryCount > 0.324) || CalamityMod.DownedBossSystem.downedDragonfolly) {
+                    shop.item[nextSlot].SetDefaults(ItemType<NuggetLicense>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 6, 6, 9);
                     ++nextSlot;
                 }
             }

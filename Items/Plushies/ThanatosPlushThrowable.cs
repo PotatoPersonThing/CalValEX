@@ -11,12 +11,7 @@ namespace CalValEX.Items.Plushies
     public class ThanatosPlushThrowable : ModItem
     {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/ThanatosPlush";
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Thanatos Plushie (Throwable)");
-            Tooltip.SetDefault("Can be thrown");
-            SacrificeTotal = 1;
-        }
+        public override void SetStaticDefaults() => SacrificeTotal = 1;
 
         public override void SetDefaults()
         {
@@ -54,16 +49,5 @@ namespace CalValEX.Items.Plushies
                 }
             }
         }
-
-        /*public override void AddRecipes()
-        {
-            
-            {
-                ModRecipe recipe = new ModRecipe(mod);
-                recipe.AddIngredient(ModContent.ItemType<Items.Tiles.Plushies.ThanatosPlush>());
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }
