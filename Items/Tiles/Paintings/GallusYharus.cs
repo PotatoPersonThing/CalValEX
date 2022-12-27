@@ -11,7 +11,7 @@ namespace CalValEX.Items.Tiles.Paintings
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Gallus Yharus");
-            Tooltip.SetDefault("'Willow'");
+            Tooltip.SetDefault("'Willow'\nA grand thank you to a wonderful woman and guardian");
             SacrificeTotal = 1;
         }
 
