@@ -38,6 +38,7 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
 
             AIType = NPCID.TownDog;
             NPC.lavaImmune = true;
+            NPC.lifeMax = 10000;
         }
 
         public override string GetChat() {

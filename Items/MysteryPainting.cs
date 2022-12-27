@@ -66,6 +66,7 @@ namespace CalValEX.Items
                 ModContent.ItemType<UCMMPainting>(),
                 ModContent.ItemType<OldUCMMPainting>(),
                 ModContent.ItemType<WormHeaven>(),
+                ModContent.ItemType<GallusYharus>(),
             };
 
             itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, paintings));
