@@ -28,15 +28,6 @@ using CalValEX.Items.Tiles.Monoliths;
 using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
 using CalValEX.Items.Tiles.Statues;
-using CalamityMod.World;
-using CalamityMod.Items.TreasureBags;
-using CalamityMod.Items.TreasureBags.MiscGrabBags;
-using CalamityMod.Items;
-using CalamityMod.Items.Weapons.Rogue;
-using CalamityMod.Items.Weapons.Ranged;
-using CalamityMod.Items.Weapons.Melee;
-using CalamityMod.Items.Weapons.Summon;
-using CalamityMod.Items.Armor.Wulfrum;
 using CalValEX.AprilFools;
 using Terraria;
 using Terraria.ID;
@@ -48,7 +39,6 @@ using System.Linq;
 using Terraria.ModLoader.Default;
 using CalValEX.Items.Tiles.Blueprints;
 using Microsoft.Xna.Framework.Graphics;
-using CalamityMod;
 
 namespace CalValEX
 {
@@ -57,8 +47,12 @@ namespace CalValEX
         public override bool InstancePerEntity => true;
         //public override bool CloneNewInstances => true;
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void SetDefaults(Item item)
         {
+            if (!CalValEX.CalamityActive)
+                return;
+
             if (item.type == ModContent.ItemType<CalamityMod.Items.Materials.Bloodstone>())
             {
                 item.useTurn = true;
@@ -89,7 +83,7 @@ namespace CalValEX
                 item.consumable = true;
                 item.createTile = ModContent.TileType<CeremonialUrnPlaced>();
             }
-            if (item.type == ModContent.ItemType<SupremeCalamitasCoffer>())
+            if (item.type == CalValEX.CalamityItem("SupremeCalamitasCoffer"))
             {
                 item.useTurn = true;
                 item.autoReuse = true;
@@ -99,7 +93,7 @@ namespace CalValEX
                 item.consumable = true;
                 item.createTile = ModContent.TileType<CalamitasCofferPlaced>();
             }
-            if (item.type == ModContent.ItemType<DraedonBag>())
+            if (item.type == CalValEX.CalamityItem("DraedonBag"))
             {
                 item.useTurn = true;
                 item.autoReuse = true;
@@ -190,8 +184,14 @@ namespace CalValEX
                 player.armorEffectDrawOutlines = true;
 			}
 		}
+
+        [JITWhenModsEnabled("CalamityMod")]
 		public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
 		{
+            if (!CalValEX.CalamityActive)
+                return;
+
+            /*
 			var rule = itemLoot.DefineConditionalDropSet(() => !CalValEXConfig.Instance.DisableVanityDrops);
             var rule2 = itemLoot.DefineConditionalDropSet(() => !CalValEXConfig.Instance.ConfigBossBlocks);
             var rule3 = itemLoot.DefineConditionalDropSet(() => DownedBossSystem.downedProvidence);
@@ -577,7 +577,10 @@ namespace CalValEX
         #endregion
         public override void RightClick(Item item, Player player)
         {
-			if (!CalValEXConfig.Instance.DisableVanityDrops && item.type == ModContent.ItemType<StarterBag>() && player.whoAmI == Main.myPlayer && CalValEX.AprilFoolWeek)
+            if (!CalValEX.CalamityActive)
+                return;
+
+            if (!CalValEXConfig.Instance.DisableVanityDrops && item.type == CalValEX.CalamityItem("StarterBag") && player.whoAmI == Main.myPlayer && CalValEX.AprilFoolWeek)
 			{
 				NPC.NewNPC(player.GetSource_ReleaseEntity(), (int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<AprilFools.Jharim.Jharim>(), 0, 0f, 0f, 0f, 0f, 255);
 			}
@@ -585,9 +588,12 @@ namespace CalValEX
 
         public override string IsArmorSet(Item head, Item body, Item legs)
         {
-            if (head.type == ModContent.ItemType <WulfrumHat>() &&
-                body.type == ModContent.ItemType <WulfrumJacket>() &&
-                legs.type == ModContent.ItemType <WulfrumOveralls>())
+            if (!CalValEX.CalamityActive)
+                return "";
+
+            if (head.type == CalValEX.CalamityItem("WulfrumHat") &&
+                body.type == CalValEX.CalamityItem("WulfrumJacket") &&
+                legs.type == CalValEX.CalamityItem("WulfrumOveralls"))
             {
                 return "Wulfrumset";
             }

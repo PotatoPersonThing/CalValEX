@@ -1,4 +1,3 @@
-using CalamityMod.CalPlayer;
 using CalValEX.AprilFools;
 using Microsoft.Xna.Framework;
 using System;
@@ -12,7 +11,6 @@ using Terraria.Localization;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.Personalities;
 using System.Collections.Generic;
-using CalamityMod.NPCs.TownNPCs;
 
 namespace CalValEX.AprilFools.Jharim
 {
@@ -47,8 +45,10 @@ namespace CalValEX.AprilFools.Jharim
                 .SetNPCAffection(NPCID.Dryad, AffectionLevel.Love) // Loves living near the dryad.
                 .SetNPCAffection(NPCID.Pirate, AffectionLevel.Like) // Likes living near the pirate.
                 .SetNPCAffection(NPCID.TaxCollector, AffectionLevel.Dislike) // Dislikes living near the tax collector.
-                .SetNPCAffection(ModContent.NPCType<WITCH>(), AffectionLevel.Hate) // Hates living near scal.
             ;
+            if (CalValEX.CalamityActive)
+                NPC.Happiness.SetNPCAffection(CalValEX.CalamityNPC("WITCH"), AffectionLevel.Hate); // Hates living near scal.
+
             if (!CalValEX.AprilFoolMonth)
             {
                 NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
@@ -105,11 +105,11 @@ namespace CalValEX.AprilFools.Jharim
 
         public override void AI()
         {
-            if (!CalValEX.AprilFoolMonth)
+            if (!CalValEX.AprilFoolMonth || !CalValEX.CalamityActive)
             {
                 NPC.active = false;
             }
-            if (NPC.AnyNPCs(NPCType<CalamityMod.NPCs.TownNPCs.WITCH>()) && !MELDOSAURUSED && NPC.life < NPC.lifeMax * 0.15f)
+            if ( NPC.AnyNPCs(CalValEX.CalamityNPC("WITCH")) && !MELDOSAURUSED && NPC.life < NPC.lifeMax * 0.15f)
             {
                 if (!lasercheck)
                 {
@@ -185,13 +185,16 @@ namespace CalValEX.AprilFools.Jharim
 
         public override List<string> SetNPCNameList() => new List<string>() { "Jharim" };
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override string GetChat()
         {
+            if (!CalValEX.CalamityActive)
+                return "h";
 
             CalValEXGlobalNPC.jharim = NPC.whoAmI;
             Player player = Main.player[Main.myPlayer];
             CalValEXPlayer CalValEXPlayer = player.GetModPlayer<CalValEXPlayer>();
-            CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
+            CalamityMod.CalPlayer.CalamityPlayer calPlayer = player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>();
             if (!MELDOSAURUSED)
             {
                 if (NPC.homeless)
@@ -221,19 +224,19 @@ namespace CalValEX.AprilFools.Jharim
                     return "These pillars are spookay, and those dark globs some of their friends drop are... I don't want to touch any... especially if its on fire, so please don't shoot me with any fiery weapons made of that stuff.";
                 }
 
-                int FAP = NPC.FindFirstNPC(ModContent.NPCType<CalamityMod.NPCs.TownNPCs.FAP>());
+                int FAP = NPC.FindFirstNPC(CalValEX.CalamityNPC("FAP"));
                 if (FAP >= 0 && Main.rand.NextFloat() < 0.25f)
                 {
                     return "Hyu Hyu Hyu... That purple lady stole my booze.";
                 }
 
-                int Cal = NPC.FindFirstNPC(ModContent.NPCType<CalamityMod.NPCs.TownNPCs.WITCH>());
+                int Cal = NPC.FindFirstNPC(CalValEX.CalamityNPC("WITCH"));
                 if (Cal >= 0 && Main.rand.NextFloat() < 0.25f)
                 {
                     return "GET THAT ACURSED WITCH AWAY FROM ME";
                 }
 
-                int SEAHOE = NPC.FindFirstNPC(ModContent.NPCType<CalamityMod.NPCs.TownNPCs.SEAHOE>());
+                int SEAHOE = NPC.FindFirstNPC(CalValEX.CalamityNPC("SEAHOE"));
                 if (SEAHOE >= 0 && Main.rand.NextFloat() < 0.25f)
                 {
                     if (Cal >= 0)
@@ -242,7 +245,7 @@ namespace CalValEX.AprilFools.Jharim
                         return "How is Amidas still alive, I thought that he got burnt by Soup Ree Calamitoad.";
                 }
 
-                if (NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.ExoMechs.Draedon>()) && Main.rand.NextFloat() < 0.25f)
+                if (NPC.AnyNPCs(CalValEX.CalamityNPC("Draedon")) && Main.rand.NextFloat() < 0.25f)
                 {
                     return "DRAAAAAAAAAEEEEEEEDOOOOOOOOOOOONNNNNNNNNNNNNNNNNNN I KNOW WHAT YOU DID!";
                 }
@@ -256,11 +259,12 @@ namespace CalValEX.AprilFools.Jharim
                     }
                 }*/
 
-                if (NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>()) && Main.rand.NextFloat() < 0.25f)
+                if (NPC.AnyNPCs(CalValEX.CalamityNPC("Yharon")) && Main.rand.NextFloat() < 0.25f)
                 {
                     return "Hyuck Hyuck Hyuck, my loyal friend Yharon! I demand you to stop atacking! ... Guess he doesn't recognize me...";
                 }
-                Mod clamMod = ModLoader.GetMod("CalamityMod");
+
+                Mod clamMod = CalValEX.Calamity;
                 if (((bool)clamMod.Call("GetBossDowned", "supremecalamitas")) && ((bool)clamMod.Call("GetBossDowned", "exomechs")) && Main.rand.NextFloat() < 0.25)
                 {
                     switch (Main.rand.Next(2))
@@ -489,7 +493,7 @@ namespace CalValEX.AprilFools.Jharim
                 projType = ModContent.ProjectileType<JharimLaser>();
 
                     else
-                        projType = ProjectileType<CalamityMod.Projectiles.Typeless.NobodyKnows>();
+                        projType = CalValEX.CalamityProjectile("NobodyKnows");
             attackDelay = 1;
             return;
         }
@@ -502,7 +506,7 @@ namespace CalValEX.AprilFools.Jharim
 
         public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit)
         {
-            if (projectile.type == ProjectileType<CalamityMod.Projectiles.Ranged.CosmicFire>())
+            if (projectile.type == CalValEX.CalamityProjectile("CosmicFire"))
             {
                 MELDOSAURUSED = true;
             }

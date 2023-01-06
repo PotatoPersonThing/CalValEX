@@ -10,7 +10,6 @@ using Terraria.ModLoader;
 using CalValEX.Projectiles.Pets;
 using Terraria.Chat;
 using Terraria.Audio;
-using CalamityMod.Projectiles.Boss;
 using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX.AprilFools
@@ -130,13 +129,16 @@ namespace CalValEX.AprilFools
         }
         public override void CustomBehaviour(Player player, ref int state, float walkingSpeed, float walkingInertia, float flyingSpeed, float flyingInertia)
         {
+            if (!CalValEX.CalamityActive)
+                return;
+
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-            if (deathcounter <= 0 && !player.HasBuff(ModContent.BuffType<AprilFools.AmogusBuff>()) && !NPC.AnyNPCs(ModContent.NPCType<Meldosaurus.Meldosaurus>()))
+            if (deathcounter <= 0 && !player.HasBuff(BuffType<AprilFools.AmogusBuff>()) && !NPC.AnyNPCs(NPCType<Meldosaurus.Meldosaurus>()))
             {
                 Projectile.active = false;
             }
 
-            if (NPC.AnyNPCs(ModContent.NPCType<Meldosaurus.Meldosaurus>()) && deathcounter <= 0)
+            if (NPC.AnyNPCs(NPCType<Meldosaurus.Meldosaurus>()) && deathcounter <= 0)
             {
                 Projectile.tileCollide = false;
                 state = 5;
@@ -165,48 +167,48 @@ namespace CalValEX.AprilFools
                         {
                             if (Main.rand.Next(2) == 0)
                             {
-                                raintype = ProjectileType<SandBlast>();
+                                raintype = CalValEX.CalamityProjectile("SandBlast");
                             }
                             else
                             {
-                                raintype = ProjectileType<UnstableEbonianGlob>();
+                                raintype = CalValEX.CalamityProjectile("UnstableEbonianGlob");
                             }
                         }
                         else if (deathcounter > 1800 && deathcounter <= 2700)
                         {
                             if (Main.rand.Next(2) == 0)
                             {
-                                raintype = ProjectileType<SCalBrimstoneFireblast>();
+                                raintype = CalValEX.CalamityProjectile("SCalBrimstoneFireblast");
                             }
                             else
                             {
-                                raintype = ProjectileType<AstralLaser>();
+                                raintype = CalValEX.CalamityProjectile("AstralLaser");
                             }
                         }
                         else if (deathcounter > 2700 && deathcounter <= 3600)
                         {
                             if (Main.rand.Next(2) == 0)
                             {
-                                raintype = ProjectileType<BrimstoneBarrage>();
+                                raintype = CalValEX.CalamityProjectile("BrimstoneBarrage");
                             }
                             else
                             {
-                                raintype = ProjectileType<ProfanedSpear>();
+                                raintype = CalValEX.CalamityProjectile("ProfanedSpear");
                             }
                         }
                         else if (deathcounter > 3600)
                         {
                             if (Main.rand.Next(3) == 0)
                             {
-                                raintype = ProjectileType<SignusScythe>();
+                                raintype = CalValEX.CalamityProjectile("SignusScythe");
                             }
                             else if (Main.rand.Next(2) == 0)
                             {
-                                raintype = ProjectileType<SCalBrimstoneGigablast>();
+                                raintype = CalValEX.CalamityProjectile("SCalBrimstoneGigablast");
                             }
                             else
                             {
-                                raintype = ProjectileType<ApolloRocket>();
+                                raintype = CalValEX.CalamityProjectile("ApolloRocket");
                             }
                         }
 
@@ -225,16 +227,16 @@ namespace CalValEX.AprilFools
                             {
                                 Terraria.Audio.SoundEngine.PlaySound(SoundID.Item11);
                             }
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileType<OldDukeGore>(), 180, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileType<MushBomb>(), 90, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileType<IchorBlob>(), 180, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileType<MoltenBlob>(), 120, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileType<IceRain>(), 80, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileType<ShadeNimbusHostile>(), 80, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("OldDukeGore") , 180, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("MushBomb") , 90, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("IchorBlob") , 180, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("MoltenBlob") , 120, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("IceRain"), 80, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("ShadeNimbusHostile"), 80, 0f, Main.myPlayer, 0f, 0f);
                             if (deathcounter >= 2700)
                             {
-                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileType<ScavengerLaser>(), 80, 0f, Main.myPlayer, 0f, 0f);
-                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), ProjectileType<PlagueStingerGoliathV2>(), 80, 0f, Main.myPlayer, 0f, 0f);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("ScavengerLaser"), 80, 0f, Main.myPlayer, 0f, 0f);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("PlagueStingerGoliathV2"), 80, 0f, Main.myPlayer, 0f, 0f);
                             }
                             for (int x = 0; x < 20; x++)
                             {
@@ -249,8 +251,8 @@ namespace CalValEX.AprilFools
                         birb++;
                         if (birb >= 1200)
                         {
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 1, 20, ProjectileType<BirbAuraFlare>(), 0, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 0, 0, ProjectileType<DoGBeamPortal>(), 0, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 1, 20, CalValEX.CalamityProjectile("BirbAuraFlare"), 0, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 0, 0, CalValEX.CalamityProjectile("DoGBeamPortal"), 0, 0f, Main.myPlayer, 0f, 0f);
                             birb = 0;
                         }
                     }
@@ -258,15 +260,15 @@ namespace CalValEX.AprilFools
                     {
                         if (deathcounter <= 1800)
                         {
-                            mine = ProjectileType<DeusMine>();
+                            mine = CalValEX.CalamityProjectile("DeusMine");
                         }
                         else if (deathcounter >= 1800 && deathcounter <= 2700)
                         {
-                            mine = ProjectileType<SirenSong>();
+                            mine = CalValEX.CalamityProjectile("SirenSong");
                         }
                         else if (deathcounter >= 2700)
                         {
-                            mine = ProjectileType<ToxicCloud>();
+                            mine = CalValEX.CalamityProjectile("ToxicCloud");
                         }
 
                         minetimer++;
@@ -284,7 +286,7 @@ namespace CalValEX.AprilFools
                         infernadotimer++;
                         if (infernadotimer >= 1200)
                         {
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 0, 20, ProjectileType<BigFlare>(), 80, 0f, Main.myPlayer, 0f, 0f);
+                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 0, 20, CalValEX.CalamityProjectile("BigFlare"), 80, 0f, Main.myPlayer, 0f, 0f);
                             infernadotimer = 0;
                         }
                     }
@@ -400,7 +402,7 @@ namespace CalValEX.AprilFools
                                 {
                                     if (chargetype == 4)
                                     {
-                                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, 0, 0, ProjectileType<CalamityMod.Projectiles.Rogue.ScarletBlast>(), 2020, 0, Main.myPlayer);
+                                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, 0, 0, CalValEX.CalamityProjectile("ScarletBlast"), 2020, 0, Main.myPlayer);
                                     }
                                     else
                                     {
@@ -542,7 +544,7 @@ namespace CalValEX.AprilFools
                                 Vector2 direction = targetPosition - position;
                                 direction.Normalize();
                                 float speed = 15f;
-                                int type = ProjectileType<CalamityMod.Projectiles.Ranged.AccelerationRoundProj>();
+                                int type = CalValEX.CalamityProjectile("AccelerationRoundProj");
                                 int damage = Main.expertMode ? 60 : 95;
                                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), position, direction * speed, type, damage, 0f, Main.myPlayer);
                                 attackcounter1 = 0;
@@ -568,7 +570,7 @@ namespace CalValEX.AprilFools
                                 Vector2 direction = targetPosition - position;
                                 direction.Normalize();
                                 float speed = 18f;
-                                int type = ProjectileType<CalamityMod.Projectiles.Ranged.AMRShot>();
+                                int type = CalValEX.CalamityProjectile("AMRShot");
                                 int damage = Main.expertMode ? 1702 : 2040;
                                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), position, direction * speed, type, damage, 0f, Main.myPlayer);
                             }

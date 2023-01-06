@@ -1,9 +1,9 @@
-﻿using CalamityMod.Projectiles.Ranged;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
-    public class GodsFire : CosmicFire //(Does this count as code theft)
+    [ExtendsFromMod("CalamityMod")]
+    public class GodsFire : CalamityMod.Projectiles.Ranged.CosmicFire //(Does this count as code theft)
     {
         public override void SetDefaults()
         {

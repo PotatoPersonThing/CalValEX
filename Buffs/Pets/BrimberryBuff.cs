@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using static Terraria.ModLoader.ModContent;
-using CalamityMod.Items.Weapons.Summon;
 
 namespace CalValEX.Buffs.Pets {
     public class BrimberryBuff : ModBuff {
@@ -24,7 +23,7 @@ namespace CalValEX.Buffs.Pets {
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, int buffIndex, ref BuffDrawParams drawParams) {
-            bool seek = Main.LocalPlayer.HasItem(ItemType<DormantBrimseeker>());
+            bool seek = CalValEX.CalamityActive &&  Main.LocalPlayer.HasItem(CalValEX.CalamityItem("DormantBrimseeker"));
             Texture2D tex = Request<Texture2D>("CalValEX/Buffs/Pets/BrimberryBuff").Value;
             Rectangle frame = new Rectangle(seek ? 36 : 0, 0, 32, 32);
             Main.EntitySpriteDraw(tex, drawParams.Position, frame, drawParams.DrawColor, 0, Vector2.Zero, 1, SpriteEffects.None, 0);

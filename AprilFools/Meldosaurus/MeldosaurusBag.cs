@@ -3,11 +3,6 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using CalamityMod;
 using Terraria.GameContent.ItemDropRules;
-using CalamityMod.Items.Weapons.Magic;
-using CalamityMod.Items.Weapons.Melee;
-using CalamityMod.Items.Weapons.Ranged;
-using CalamityMod.Items.Weapons.Rogue;
-using CalamityMod.Items.Weapons.Summon;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
@@ -30,8 +25,12 @@ namespace CalValEX.AprilFools.Meldosaurus
 
 		public override bool CanRightClick() => true;
 
+        [JITWhenModsEnabled("CalamityMod")]
 		public override void ModifyItemLoot(ItemLoot itemLoot)
 		{
+            if (!CalValEX.CalamityActive)
+                return;
+
 			itemLoot.Add(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<MeldosaurusMask>(), 7));
 			itemLoot.Add(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<CalamityMod.Items.Materials.MeldBlob>(), 1, 1, 2));
 

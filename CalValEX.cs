@@ -48,22 +48,12 @@ using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.Localization;
 using ReLogic.Content;
-using CalamityMod;
-using CalamityMod.Items.Accessories;
-using CalamityMod.Items.Placeables.Plates;
-using CalamityMod.Items.Placeables;
-using CalamityMod.Items.Placeables.FurnitureStatigel;
-using CalamityMod.Items.Placeables.FurnitureOtherworldly;
-using CalamityMod.Items.Placeables.FurnitureStratus;
-using CalamityMod.Items.Placeables.FurniturePlagued;
-using CalamityMod.Items.Placeables.FurnitureProfaned;
-using CalamityMod.Items.Placeables.FurnitureSilva;
 using CalValEX.NPCs.TownPets.Nuggets;
 using CalValEX.Items.Pets.TownPets;
 
 namespace CalValEX
 {
-    public class CalValEX : Mod
+    public partial class CalValEX : Mod
     {
         public enum MessageType
         {
@@ -102,6 +92,9 @@ namespace CalValEX
         public override void Load()
         {
             instance = this;
+
+            calamityActive = ModLoader.TryGetMod("CalamityMod", out calamity);
+
             ModLoader.TryGetMod("HEROsMod", out herosmod);
             ModLoader.TryGetMod("CalValPlus", out ortho);
             ModLoader.TryGetMod("BossChecklist", out bossChecklist);
@@ -180,7 +173,7 @@ namespace CalValEX
             ChristmasTextureChange.Load();
 
             //Boss log support
-            if (bossChecklist != null)
+            if (bossChecklist != null && CalamityActive)
             {
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Desert Scourge",
                     new List<int>
@@ -199,7 +192,7 @@ namespace CalValEX
                         ModContent.ItemType<MeatyWormTumor>(), ModContent.ItemType<SmallWorm>(),
                         ModContent.ItemType<MidWorm>(), ModContent.ItemType<BigWorm>()});
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Slime God",
-                    new List<int> { ModContent.ItemType<StatigelBlock>() });
+                    new List<int> { CalValEX.CalamityItem("StatigelBlock") });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Slime God",
                     new List<int> { ModContent.ItemType<SlimeGodMask>(), ModContent.ItemType<SlimeGodPlush>(), ModContent.ItemType<SlimeDeitysSoul>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Cryogen",
@@ -207,7 +200,7 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Aquatic Scourge",
                     new List<int> { ModContent.ItemType<AquaticScourgePlush>(), ModContent.ItemType<MoistLocket>(), ModContent.ItemType<BleachBallItem>() });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Brimstone Elemental",
-                    new List<int> { ModContent.ItemType<BrimstoneSlag>() });
+                    new List<int> { CalValEX.CalamityItem("BrimstoneSlag") });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Brimstone Elemental",
                     new List<int>
                     {
@@ -245,7 +238,7 @@ namespace CalValEX
                         });
                 }
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Plaguebringer Goliath",
-                    new List<int> { ModContent.ItemType<PlaguedContainmentBrick>(), ModContent.ItemType<PlagueHiveWand>() });
+                    new List<int> { CalValEX.CalamityItem("PlaguedContainmentBrick"), ModContent.ItemType<PlagueHiveWand>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Plaguebringer Goliath",
                     new List<int>
                     {
@@ -273,7 +266,7 @@ namespace CalValEX
                         ModContent.ItemType<ProfanedBattery>(), ModContent.ItemType<ProfanedWheels>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Dragonfolly",
-                    new List<int> { ModContent.ItemType<SilvaCrystal>() });
+                    new List<int> { CalValEX.CalamityItem("SilvaCrystal") });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Dragonfolly",
                     new List<int>
                     {
@@ -284,7 +277,7 @@ namespace CalValEX
                         ModContent.ItemType<AncientAuricTeslaHelm>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Providence",
-                    new List<int> { ModContent.ItemType<ProfanedRock>() });
+                    new List<int> { CalValEX.CalamityItem("ProfanedRock") });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Providence",
                     new List<int>
                     {
@@ -292,7 +285,7 @@ namespace CalValEX
                         ModContent.ItemType<ProfanedHeart>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Ceaseless Void",
-                    new List<int> { ModContent.ItemType<OtherworldlyStone>() });
+                    new List<int> { CalValEX.CalamityItem("OtherworldlyStone") });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Ceaseless Void",
                     new List<int>
                     {
@@ -301,7 +294,7 @@ namespace CalValEX
                         ModContent.ItemType<AncientAuricTeslaHelm>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Storm Weaver",
-                    new List<int> { ModContent.ItemType<OtherworldlyStone>() });
+                    new List<int> { CalValEX.CalamityItem("OtherworldlyStone") });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Storm Weaver",
                     new List<int>
                     {
@@ -310,7 +303,7 @@ namespace CalValEX
                         ModContent.ItemType<AncientAuricTeslaHelm>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Signus",
-                    new List<int> { ModContent.ItemType<OtherworldlyStone>() });
+                    new List<int> { CalValEX.CalamityItem("OtherworldlyStone") });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Signus",
                     new List<int>
                     {
@@ -320,7 +313,7 @@ namespace CalValEX
                         ModContent.ItemType<AncientAuricTeslaHelm>()
                     });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Polterghast",
-                    new List<int> { ModContent.ItemType<StratusBricks>(), ModContent.ItemType<PhantowaxBlock>() });
+                    new List<int> { CalValEX.CalamityItem("StratusBrick"), ModContent.ItemType<PhantowaxBlock>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Polterghast",
                     new List<int> {
                         ModContent.ItemType<PolterghastPlush>(),
@@ -353,7 +346,7 @@ namespace CalValEX
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Supreme Calamitas",
                     new List<int> { ModContent.ItemType<CalamitasFumo>(), ModContent.ItemType<GruelingMask>(), ModContent.ItemType<AncientAuricTeslaHelm>() });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Exo Mechs",
-                    new List<int> { ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPlating>(), ModContent.ItemType<XMLightningHook>() });
+                    new List<int> { CalValEX.CalamityItem("ExoPlating"), ModContent.ItemType<XMLightningHook>() });
                 bossChecklist.Call("AddToBossCollection", "CalamityMod", "Exo Mechs",
                     new List<int> { ModContent.ItemType<DraedonBody>(), ModContent.ItemType<DraedonLegs>(), ModContent.ItemType<DraedonPlush>(), ModContent.ItemType<AresPlush>(), ModContent.ItemType<ApolloPlush>(), ModContent.ItemType<ArtemisPlush>(), ModContent.ItemType<ThanatosPlush>(), ModContent.ItemType<AncientAuricTeslaHelm>(), ModContent.ItemType<ArtemisBalloonSmall>(), ModContent.ItemType<ApolloBalloonSmall>(), ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>(), ModContent.ItemType<Items.Pets.ExoMechs.GunmetalRemote>(), ModContent.ItemType<Items.Pets.ExoMechs.GeminiMarkImplants>(), ModContent.ItemType<Items.Pets.ExoMechs.OminousCore>() });
                 bossChecklist.Call("AddToBossLoot", "CalamityMod", "Adult Eidolon Wyrm",

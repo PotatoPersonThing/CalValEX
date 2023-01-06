@@ -1,18 +1,18 @@
 using Terraria;
 using Terraria.ModLoader;
-using CalamityMod.CalPlayer;
 
 namespace CalValEX
 {
     public class Bumble : GlobalNPC
     {
-        public override bool InstancePerEntity => true;
-
         public override void SetDefaults(NPC npc)
         {
+            if (!CalValEX.CalamityActive)
+                return;
+
             if (CalValEX.Bumble && !CalValEXConfig.Instance.DragonballName)
             {
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Bumblebirb.Bumblefuck>())
+                if (npc.type == CalValEX.CalamityNPC("Bumblefuck"))
                 {
                     if (Main.rand.NextFloat() < 0.01f)
                     {
@@ -24,7 +24,7 @@ namespace CalValEX
                     }
                 }
 
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Bumblebirb.Bumblefuck2>())
+                if (npc.type == CalValEX.CalamityNPC("Bumblefuck2"))
                 {
                     if (Main.rand.NextFloat() < 0.01f)
                     {
@@ -39,7 +39,7 @@ namespace CalValEX
 
             if (CalValEX.WulfrumsetReal)
             {
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.WulfrumGyrator>())
+                if (npc.type == CalValEX.CalamityNPC("WulfrumGryator"))
                 {
                     npc.GivenName = "John Wulfrum";
                 }

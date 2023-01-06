@@ -73,7 +73,7 @@ namespace CalValEX.AprilFools
 		public override void AI()
 		{
 			Main.dayTime = true;
-            if (!CalValEX.AprilFoolMonth)
+            if (!CalValEX.AprilFoolMonth || !CalValEX.CalamityActive)
             {
             NPC.active = false;
             }
@@ -89,7 +89,7 @@ namespace CalValEX.AprilFools
 		if ((float)(NPC.life + num2) < NPC.ai[3])
 		{
 			NPC.ai[3] = NPC.life;
-			int num1 = ModContent.NPCType<CalamityMod.NPCs.Providence.Providence>();
+			int num1 = CalValEX.CalamityNPC("Providence");
 			if (!prov1)
 			{
 				prov1 = true;
@@ -97,47 +97,47 @@ namespace CalValEX.AprilFools
 			else if (!prov2)
 			{
 				prov2 = true;
-				num1 = ModContent.NPCType<CalamityMod.NPCs.Providence.Providence>();
+				num1 = CalValEX.CalamityNPC("Providence");
 			}
 			else if (!prov3)
 			{
 				prov3 = true;
-				num1 = ModContent.NPCType<CalamityMod.NPCs.DevourerofGods.DevourerofGodsHead>();
+				num1 = CalValEX.CalamityNPC("DevourerofGodsHead");
 			}
 			else if (!dog1)
 			{
 				dog1 = true;
-				num1 = ModContent.NPCType<CalamityMod.NPCs.DevourerofGods.DevourerofGodsHead>();
+				num1 = CalValEX.CalamityNPC("DevourerofGodsHead");
 			}
 			else if (!dog2)
 			{
 				dog2 = true;
-				num1 = ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>();
+				num1 = CalValEX.CalamityNPC("Yharon");
 			}
 			else if (!dog3)
 			{
 				dog3 = true;
-				num1 = ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>();
+				num1 = CalValEX.CalamityNPC("Yharon");
 			}
 			else if (!yharon1)
 			{
 				yharon1 = true;
-				num1 = ModContent.NPCType<CalamityMod.NPCs.ExoMechs.Ares.AresBody>();
+				num1 = CalValEX.CalamityNPC("AresBody");
 			}
 			else if (!yharon2)
 			{
 				yharon2 = true;
-				num1 = ModContent.NPCType<CalamityMod.NPCs.ExoMechs.Ares.AresBody>();
+				num1 = CalValEX.CalamityNPC("AresBody");
 			}
 			else if (!yharon3)
 			{
 				yharon3 = true;
-				num1 = ModContent.NPCType<CalamityMod.NPCs.AdultEidolonWyrm.AdultEidolonWyrmHead>();
+				num1 = CalValEX.CalamityNPC("AdultEidolonWyrmHead");
 			}
 			else if (!scal1)
 			{
 				scal1 = true;
-				num1 = ModContent.NPCType<CalamityMod.NPCs.AdultEidolonWyrm.AdultEidolonWyrmHead>();
+				num1 = CalValEX.CalamityNPC("AdultEidolonWyrmHead");
 			}
 			NPC.SpawnOnPlayer(NPC.FindClosestPlayer(), num1);
 			NPC.SpawnOnPlayer(NPC.FindClosestPlayer(), NPCID.Retinazer);
