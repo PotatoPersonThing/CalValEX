@@ -4,9 +4,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Items.Critters;
-/*using CalamityMod;
+using CalamityMod;
 using CalamityMod.CustomRecipes;
-using CalamityMod.Items;*/
+using CalamityMod.Items;
 
 namespace CalValEX.Items.Pets
 {
@@ -31,7 +31,7 @@ namespace CalValEX.Items.Pets
             Item.buffType = ModContent.BuffType<Buffs.Pets.MechaGeorgeBuff>();
         }
 
-	//public override void ModifyTooltips(List<TooltipLine> tooltips) => CalamityGlobalItem.InsertKnowledgeTooltip(tooltips, 3);
+	    public override void ModifyTooltips(List<TooltipLine> tooltips) => CalamityGlobalItem.InsertKnowledgeTooltip(tooltips, 3);
 
         public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
         {
@@ -40,22 +40,5 @@ namespace CalValEX.Items.Pets
                 player.AddBuff(Item.buffType, 3600, true);
             }
         }
-
-       /* public override void AddRecipes()
-        {
-            //Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            if (calamityMod != null)
-            {
-		ArsenalTierGatedRecipe recipe = new ArsenalTierGatedRecipe(mod, 3);
-                recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 5);
-                recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 5);
-                recipe.AddIngredient(calamityMod.ItemType("InfectedArmorPlating"), 1);
-                recipe.AddIngredient(ModContent.ItemType<BubbleGum>(), 1);
-                recipe.AddIngredient(ModContent.ItemType<PlagueFrogItem>(), 1);
-                recipe.AddTile(TileID.MythrilAnvil);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
-            }
-        }*/
     }
 }

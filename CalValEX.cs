@@ -541,73 +541,6 @@ namespace CalValEX
             }
         }
 
-        public override void AddRecipeGroups()/* tModPorter Note: Removed. Use ModSystem.AddRecipeGroups */
-        {
-            RecipeGroup sand = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Sand"]];
-            sand.ValidItems.Add(ModContent.ItemType<AstralSand>());
-            RecipeGroup fieref = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Fireflies"]];
-            fieref.ValidItems.Add(ModContent.ItemType<Items.Critters.VaporoflyItem>());
-            fieref.ValidItems.Add(ModContent.ItemType<Items.Critters.BlinkerItem>());
-            RecipeGroup bf = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Butterflies"]];
-            bf.ValidItems.Add(ModContent.ItemType<Items.Critters.ProvFlyItem>());
-            bf.ValidItems.Add(ModContent.ItemType<Items.Critters.CrystalFlyItem>());
-            if (RecipeGroup.recipeGroupIDs.ContainsKey("WingsGroup"))
-            {
-                int index = RecipeGroup.recipeGroupIDs["WingsGroup"];
-                RecipeGroup groupe = RecipeGroup.recipeGroups[index];
-                groupe.ValidItems.Add(ModContent.ItemType<WulfrumHelipack>());
-                groupe.ValidItems.Add(ModContent.ItemType<AeroWings>());
-                groupe.ValidItems.Add(ModContent.ItemType<GodspeedBoosters>());
-                groupe.ValidItems.Add(ModContent.ItemType<FollyWings>());
-                groupe.ValidItems.Add(ModContent.ItemType<JunglePhoenixWings>());
-                groupe.ValidItems.Add(ModContent.ItemType<LeviWings>());
-                groupe.ValidItems.Add(ModContent.ItemType<OldVoidWings>());
-                groupe.ValidItems.Add(ModContent.ItemType<VoidWings>());
-                groupe.ValidItems.Add(ModContent.ItemType<PlaugeWings>());
-                groupe.ValidItems.Add(ModContent.ItemType<ScryllianWings>());
-                groupe.ValidItems.Add(ModContent.ItemType<TerminalWings>());
-            }
-            if (RecipeGroup.recipeGroupIDs.ContainsKey("AnyIceBlock"))
-            {
-                int index = RecipeGroup.recipeGroupIDs["AnyIceBlock"];
-                RecipeGroup groupe = RecipeGroup.recipeGroups[index];
-                groupe.ValidItems.Add(ModContent.ItemType<AstralIce>());
-            }
-            RecipeGroup group = new RecipeGroup(() => "Any Plate", new int[]
-            {
-                ModContent.ItemType<Plagueplate>(),
-                ModContent.ItemType<Cinderplate>(),
-                ModContent.ItemType<Chaosplate>(),
-                ModContent.ItemType<Navyplate>(),
-                ModContent.ItemType<Elumplate>()
-            });
-            RecipeGroup.RegisterGroup("AnyPlate", group);
-            
-            /*RecipeGroup group2 = new RecipeGroup(() => "Any Hardmode Drill", new int[]
-            {
-                ItemID.CobaltDrill,
-                ItemID.PalladiumDrill,
-                ItemID.MythrilDrill,
-                ItemID.OrichalcumDrill,
-                ItemID.AdamantiteDrill,
-                ItemID.TitaniumDrill,
-            });
-            RecipeGroup.RegisterGroup("AnyHardmodeDrill", group2);*/
-        }
-        public override void AddRecipes()/* tModPorter Note: Removed. Use ModSystem.AddRecipes */
-        {
-            if (cata != null)
-            {
-                cata.Call("itemset_superbossrarity", ModContent.ItemType<AstrageldonPlush>(), true);
-                cata.Call("itemset_superbossrarity", ModContent.ItemType<AstrageldonPlushThrowable>(), true);
-                cata.Call("itemset_superbossrarity", ModContent.ItemType<SpaceJunk>(), true);
-                cata.Call("itemset_superbossrarity", ModContent.ItemType<JaredPlush>(), true);
-                cata.Call("itemset_superbossrarity", ModContent.ItemType<JaredPlushThrowable>(), true);
-                cata.Call("itemset_superbossrarity", ModContent.ItemType<RespirationShrine>(), true);
-                cata.Call("itemset_superbossrarity", ModContent.ItemType<SoulShard>(), true);
-            }
-        }
-
         public void SetupHerosMod()
         {
             if (herosmod != null)
@@ -620,11 +553,6 @@ namespace CalValEX
                     // Permission Display Name
                     heropermissiondisplayname);
             }
-        }
-
-        public override void PostAddRecipes()/* tModPorter Note: Removed. Use ModSystem.PostAddRecipes */
-        {
-            SetupHerosMod();
         }
 
         public bool getPermission()

@@ -6,9 +6,12 @@ using Terraria.ModLoader.IO;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Tiles.AstralBlocks;
 using CalamityMod.Tiles.DraedonStructures;
-using CalamityMod.Tiles.Astral;
-using CalamityMod.Tiles.AstralDesert;
-using CalamityMod.Tiles.AstralSnow;
+using CalamityMod.Items.Placeables.Plates;
+using CalValEX.Items.Equips.Wings;
+using CalValEX.Items.Pets;
+using CalValEX.Items.Tiles;
+using CalValEX.Items.Plushies;
+using CalValEX.Items.Tiles.Plushies;
 using System.IO;
 using System;
 using CalamityMod.Items.Materials;
@@ -258,15 +261,23 @@ namespace CalValEX
 
             if (CanSpawnNow() && !NPC.AnyNPCs(NPCType<T>()) && nugSpawn && isThereAHouse && nugCounter == 0) {
                 // We spawn the nug near the player facing them
-                int newNug = NPC.NewNPC(Entity.GetSource_TownSpawn(), (int)(player.position.X + (96 * Main.LocalPlayer.direction)), (int)(player.position.Y - 16), NPCType<T>(), 1);
-                NPC nug = Main.npc[newNug];
-                nug.direction = -Main.LocalPlayer.direction;
-                nug.netUpdate = true;
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    int newNug = NPC.NewNPC(Entity.GetSource_TownSpawn(), (int)(player.position.X + (96 * Main.LocalPlayer.direction)), (int)(player.position.Y - 16), NPCType<T>(), 1);
+                    NPC nug = Main.npc[newNug];
+                    nug.direction = -Main.LocalPlayer.direction;
+                    nug.netUpdate = true;
 
-                if (Main.netMode == NetmodeID.SinglePlayer)
-                    Main.NewText(Language.GetTextValue(nug.FullName + " has risen from") + ($" {Main.worldName}'s ashes!"), 50, 125, 255);
-                else
-                    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue(nug.FullName + "has risen from") + $" {Main.worldName}'s ashes!"), new Color(50, 125, 255));
+                    if (nug.position.X < 10 || nug.position.X > Main.maxTilesX - 10)
+                    {
+                        nug.position.X = player.position.X;
+                    }
+
+                    if (Main.netMode == NetmodeID.SinglePlayer)
+                        Main.NewText(Language.GetTextValue(nug.FullName + " has risen from") + ($" {Main.worldName}'s ashes!"), 50, 125, 255);
+                    else
+                        ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue(nug.FullName + "has risen from") + $" {Main.worldName}'s ashes!"), new Color(50, 125, 255));
+                }
             }
         }
 
@@ -283,6 +294,78 @@ namespace CalValEX
                 return false;
 
             return Main.dayTime;
+        }
+
+        public override void AddRecipeGroups()/* tModPorter Note: Removed. Use ModSystem.AddRecipeGroups */
+        {
+            RecipeGroup sand = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Sand"]];
+            sand.ValidItems.Add(ModContent.ItemType<Items.Tiles.Blocks.Astral.AstralSand>());
+            RecipeGroup fieref = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Fireflies"]];
+            fieref.ValidItems.Add(ModContent.ItemType<Items.Critters.VaporoflyItem>());
+            fieref.ValidItems.Add(ModContent.ItemType<Items.Critters.BlinkerItem>());
+            RecipeGroup bf = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Butterflies"]];
+            bf.ValidItems.Add(ModContent.ItemType<Items.Critters.ProvFlyItem>());
+            bf.ValidItems.Add(ModContent.ItemType<Items.Critters.CrystalFlyItem>());
+            if (RecipeGroup.recipeGroupIDs.ContainsKey("WingsGroup"))
+            {
+                int index = RecipeGroup.recipeGroupIDs["WingsGroup"];
+                RecipeGroup groupe = RecipeGroup.recipeGroups[index];
+                groupe.ValidItems.Add(ModContent.ItemType<WulfrumHelipack>());
+                groupe.ValidItems.Add(ModContent.ItemType<AeroWings>());
+                groupe.ValidItems.Add(ModContent.ItemType<GodspeedBoosters>());
+                groupe.ValidItems.Add(ModContent.ItemType<FollyWings>());
+                groupe.ValidItems.Add(ModContent.ItemType<JunglePhoenixWings>());
+                groupe.ValidItems.Add(ModContent.ItemType<LeviWings>());
+                groupe.ValidItems.Add(ModContent.ItemType<OldVoidWings>());
+                groupe.ValidItems.Add(ModContent.ItemType<VoidWings>());
+                groupe.ValidItems.Add(ModContent.ItemType<PlaugeWings>());
+                groupe.ValidItems.Add(ModContent.ItemType<ScryllianWings>());
+                groupe.ValidItems.Add(ModContent.ItemType<TerminalWings>());
+            }
+            if (RecipeGroup.recipeGroupIDs.ContainsKey("AnyIceBlock"))
+            {
+                int index = RecipeGroup.recipeGroupIDs["AnyIceBlock"];
+                RecipeGroup groupe = RecipeGroup.recipeGroups[index];
+                groupe.ValidItems.Add(ModContent.ItemType<Items.Tiles.Blocks.Astral.AstralIce>());
+            }
+            RecipeGroup group = new RecipeGroup(() => "Any Plate", new int[]
+            {
+                ModContent.ItemType<Plagueplate>(),
+                ModContent.ItemType<Cinderplate>(),
+                ModContent.ItemType<Chaosplate>(),
+                ModContent.ItemType<Navyplate>(),
+                ModContent.ItemType<Elumplate>()
+            });
+            RecipeGroup.RegisterGroup("AnyPlate", group);
+
+            /*RecipeGroup group2 = new RecipeGroup(() => "Any Hardmode Drill", new int[]
+            {
+                ItemID.CobaltDrill,
+                ItemID.PalladiumDrill,
+                ItemID.MythrilDrill,
+                ItemID.OrichalcumDrill,
+                ItemID.AdamantiteDrill,
+                ItemID.TitaniumDrill,
+            });
+            RecipeGroup.RegisterGroup("AnyHardmodeDrill", group2);*/
+        }
+        public override void AddRecipes()/* tModPorter Note: Removed. Use ModSystem.AddRecipes */
+        {
+            if (CalValEX.instance.cata != null)
+            {
+                CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<AstrageldonPlush>(), true);
+                CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<AstrageldonPlushThrowable>(), true);
+                CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<SpaceJunk>(), true);
+                CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<JaredPlush>(), true);
+                CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<JaredPlushThrowable>(), true);
+                CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<RespirationShrine>(), true);
+                CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<SoulShard>(), true);
+            }
+        }
+
+        public override void PostAddRecipes()/* tModPorter Note: Removed. Use ModSystem.PostAddRecipes */
+        {
+            CalValEX.instance.SetupHerosMod();
         }
     }
 }

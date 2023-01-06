@@ -71,6 +71,8 @@ using CalValEX.Tiles.FurnitureSets.Wulfrum;
 using CalValEX.Tiles.Plants;
 using System.Collections.Generic;
 using System.Linq;
+using CalamityMod.CustomRecipes;
+using System;
 using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX {
@@ -576,6 +578,7 @@ namespace CalValEX {
 				recipe.AddIngredient(ItemType<DubiousPlating>(), 20);
 				recipe.AddIngredient(ItemType<MysteriousCircuitry>(), 20);
 				recipe.AddTile(TileID.MythrilAnvil);
+				recipe.AddCondition(ArsenalTierGatedRecipe.ConstructRecipeCondition(3, out Predicate<Recipe> condition), condition);
 				recipe.Register();
 			}
 			{
@@ -1336,10 +1339,15 @@ namespace CalValEX {
 				recipe.AddTile(TileType<StarstruckSynthesizerPlaced>());
 				recipe.Register();
 			}
-            #endregion
+			{
+				Recipe recipe = Recipe.Create(ItemType<OldAstralWorkbenchItem>());
+				recipe.AddIngredient(ItemType<AstralTreeWood>(), 10);
+				recipe.Register();
+			}
+			#endregion
 
-            #region //Auric
-            {
+			#region //Auric
+			{
                 Recipe recipe = Recipe.Create(ItemType<AuricManufacturer>());
 				recipe.AddIngredient(ItemType<AuricBrick>(), 20);
 				recipe.AddTile(TileID.LunarCraftingStation);
@@ -1451,6 +1459,11 @@ namespace CalValEX {
 				Recipe recipe = Recipe.Create(ItemType<AuricTableItem>());
 				recipe.AddIngredient(ItemType<AuricBrick>(), 8);
 				recipe.AddTile(TileType<AuricManufacturerPlaced>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<AuricWorkbenchItem>());
+				recipe.AddIngredient(ItemType<AuricBrick>(), 10);
 				recipe.Register();
 			}
 			{
@@ -1609,6 +1622,11 @@ namespace CalValEX {
 				recipe.Register();
 			}
 			{
+				Recipe recipe = Recipe.Create(ItemType<BloodstoneTableItem>());
+				recipe.AddIngredient(ItemType<ChiseledBloodstone>(), 10);
+				recipe.Register();
+			}
+			{
 				Recipe recipe = Recipe.Create(ItemType<BloodstonePlatformItem>(), 2);
 				recipe.AddIngredient(ItemType<ChiseledBloodstone>());
 				recipe.Register();
@@ -1741,6 +1759,11 @@ namespace CalValEX {
 			{
 				Recipe recipe = Recipe.Create(ItemType<PhantowaxPlatformItem>(), 2);
 				recipe.AddIngredient(ItemType<PhantowaxBlock>());
+				recipe.Register();
+			}
+			{
+				Recipe recipe = Recipe.Create(ItemType<PhantowaxWorkbenchItem>());
+				recipe.AddIngredient(ItemType<PhantowaxBlock>(), 10);
 				recipe.Register();
 			}
 			{
@@ -1912,7 +1935,7 @@ namespace CalValEX {
 			{
 				Recipe recipe = Recipe.Create(result);
 				recipe.AddIngredient(ingredient);
-				recipe.AddIngredient(ItemID.Wire, 50);
+				recipe.AddIngredient(ModContent.ItemType<DraedonPowerCell>(), 50);
 				recipe.AddTile(TileID.Anvils);
 				recipe.Register();
 			}
