@@ -5,8 +5,6 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Tiles.AstralBlocks;
-using CalamityMod.Tiles.DraedonStructures;
-using CalamityMod.Items.Placeables.Plates;
 using CalValEX.Items.Equips.Wings;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Tiles;
@@ -14,7 +12,6 @@ using CalValEX.Items.Plushies;
 using CalValEX.Items.Tiles.Plushies;
 using System.IO;
 using System;
-using CalamityMod.Items.Materials;
 using CalValEX.AprilFools;
 using CalValEX.Tiles.Plants;
 using CalValEX.NPCs.TownPets.Nuggets;
@@ -202,24 +199,33 @@ namespace CalValEX
             dungeontiles = 0;
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts)
         {
             // Old Astral tiles
             astralTiles = tileCounts[TileType<AstralDirtPlaced>()] + tileCounts[TileType<AstralGrassPlaced>()] + tileCounts[TileType<XenostonePlaced>()] + tileCounts[TileType<AstralSandPlaced>()] + tileCounts[TileType<AstralHardenedSandPlaced>()] + tileCounts[TileType<AstralSandstonePlaced>()] + tileCounts[TileType<AstralClayPlaced>()] + tileCounts[TileType<AstralIcePlaced>()] + tileCounts[TileType<AstralSnowPlaced>()];
             // Hell Lab tiles
-            hellTiles = tileCounts[TileType<CalamityMod.Tiles.Plates.Chaosplate>()];
+            hellTiles = tileCounts[CalValEX.CalamityTile("Chaosplate")];
             // Lab tiles
-            labTiles = tileCounts[TileType<LaboratoryPlating>()] + tileCounts[TileType < LaboratoryPanels>()] + tileCounts[TileType < RustedPlating>()] + tileCounts[TileType < LaboratoryPipePlating>()] + tileCounts[TileType < RustedPipes>()];
+            labTiles = tileCounts[CalValEX.CalamityTile("LaboratoryPlating")] + tileCounts[CalValEX.CalamityTile("LaboratoryPanels")] + tileCounts[CalValEX.CalamityTile("RustedPlating")] + tileCounts[CalValEX.CalamityTile("LaboratoryPipePlating")] + tileCounts[CalValEX.CalamityTile("RustedPipes")];
             //Dungeon tiles
             dungeontiles = tileCounts[TileID.BlueDungeonBrick] + tileCounts[TileID.PinkDungeonBrick] + tileCounts[TileID.GreenDungeonBrick];
         }
         #endregion
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void PreUpdateNPCs()
         {
-            if (CalamityMod.World.CalamityWorld.revenge || Main.masterMode)
+            if (CalValEX.CalamityActive)
             {
-                masorev = true;
+                if (CalamityMod.World.CalamityWorld.revenge || Main.masterMode)
+                {
+                    masorev = true;
+                }
+                else
+                {
+                    masorev = false;
+                }
             }
             else
             {
@@ -296,58 +302,62 @@ namespace CalValEX
             return Main.dayTime;
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void AddRecipeGroups()/* tModPorter Note: Removed. Use ModSystem.AddRecipeGroups */
         {
-            RecipeGroup sand = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Sand"]];
-            sand.ValidItems.Add(ModContent.ItemType<Items.Tiles.Blocks.Astral.AstralSand>());
-            RecipeGroup fieref = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Fireflies"]];
-            fieref.ValidItems.Add(ModContent.ItemType<Items.Critters.VaporoflyItem>());
-            fieref.ValidItems.Add(ModContent.ItemType<Items.Critters.BlinkerItem>());
-            RecipeGroup bf = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Butterflies"]];
-            bf.ValidItems.Add(ModContent.ItemType<Items.Critters.ProvFlyItem>());
-            bf.ValidItems.Add(ModContent.ItemType<Items.Critters.CrystalFlyItem>());
-            if (RecipeGroup.recipeGroupIDs.ContainsKey("WingsGroup"))
+            if (CalValEX.CalamityActive)
             {
-                int index = RecipeGroup.recipeGroupIDs["WingsGroup"];
-                RecipeGroup groupe = RecipeGroup.recipeGroups[index];
-                groupe.ValidItems.Add(ModContent.ItemType<WulfrumHelipack>());
-                groupe.ValidItems.Add(ModContent.ItemType<AeroWings>());
-                groupe.ValidItems.Add(ModContent.ItemType<GodspeedBoosters>());
-                groupe.ValidItems.Add(ModContent.ItemType<FollyWings>());
-                groupe.ValidItems.Add(ModContent.ItemType<JunglePhoenixWings>());
-                groupe.ValidItems.Add(ModContent.ItemType<LeviWings>());
-                groupe.ValidItems.Add(ModContent.ItemType<OldVoidWings>());
-                groupe.ValidItems.Add(ModContent.ItemType<VoidWings>());
-                groupe.ValidItems.Add(ModContent.ItemType<PlaugeWings>());
-                groupe.ValidItems.Add(ModContent.ItemType<ScryllianWings>());
-                groupe.ValidItems.Add(ModContent.ItemType<TerminalWings>());
-            }
-            if (RecipeGroup.recipeGroupIDs.ContainsKey("AnyIceBlock"))
-            {
-                int index = RecipeGroup.recipeGroupIDs["AnyIceBlock"];
-                RecipeGroup groupe = RecipeGroup.recipeGroups[index];
-                groupe.ValidItems.Add(ModContent.ItemType<Items.Tiles.Blocks.Astral.AstralIce>());
-            }
-            RecipeGroup group = new RecipeGroup(() => "Any Plate", new int[]
-            {
-                ModContent.ItemType<Plagueplate>(),
-                ModContent.ItemType<Cinderplate>(),
-                ModContent.ItemType<Chaosplate>(),
-                ModContent.ItemType<Navyplate>(),
-                ModContent.ItemType<Elumplate>()
-            });
-            RecipeGroup.RegisterGroup("AnyPlate", group);
+                RecipeGroup sand = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Sand"]];
+                sand.ValidItems.Add(ModContent.ItemType<Items.Tiles.Blocks.Astral.AstralSand>());
+                RecipeGroup fieref = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Fireflies"]];
+                fieref.ValidItems.Add(ModContent.ItemType<Items.Critters.VaporoflyItem>());
+                fieref.ValidItems.Add(ModContent.ItemType<Items.Critters.BlinkerItem>());
+                RecipeGroup bf = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Butterflies"]];
+                bf.ValidItems.Add(ModContent.ItemType<Items.Critters.ProvFlyItem>());
+                bf.ValidItems.Add(ModContent.ItemType<Items.Critters.CrystalFlyItem>());
+                if (RecipeGroup.recipeGroupIDs.ContainsKey("WingsGroup"))
+                {
+                    int index = RecipeGroup.recipeGroupIDs["WingsGroup"];
+                    RecipeGroup groupe = RecipeGroup.recipeGroups[index];
+                    groupe.ValidItems.Add(ModContent.ItemType<WulfrumHelipack>());
+                    groupe.ValidItems.Add(ModContent.ItemType<AeroWings>());
+                    groupe.ValidItems.Add(ModContent.ItemType<GodspeedBoosters>());
+                    groupe.ValidItems.Add(ModContent.ItemType<FollyWings>());
+                    groupe.ValidItems.Add(ModContent.ItemType<JunglePhoenixWings>());
+                    groupe.ValidItems.Add(ModContent.ItemType<LeviWings>());
+                    groupe.ValidItems.Add(ModContent.ItemType<OldVoidWings>());
+                    groupe.ValidItems.Add(ModContent.ItemType<VoidWings>());
+                    groupe.ValidItems.Add(ModContent.ItemType<PlaugeWings>());
+                    groupe.ValidItems.Add(ModContent.ItemType<ScryllianWings>());
+                    groupe.ValidItems.Add(ModContent.ItemType<TerminalWings>());
+                }
+                if (RecipeGroup.recipeGroupIDs.ContainsKey("AnyIceBlock"))
+                {
+                    int index = RecipeGroup.recipeGroupIDs["AnyIceBlock"];
+                    RecipeGroup groupe = RecipeGroup.recipeGroups[index];
+                    groupe.ValidItems.Add(ModContent.ItemType<Items.Tiles.Blocks.Astral.AstralIce>());
+                }
+                RecipeGroup group = new RecipeGroup(() => "Any Plate", new int[]
+                {
+                CalValEX.CalamityItem("Plagueplate"),
+                CalValEX.CalamityItem("Cinderplate"),
+                CalValEX.CalamityItem("Chaosplate"),
+                CalValEX.CalamityItem("Navyplate"),
+                CalValEX.CalamityItem("Elumplate")
+                });
+                RecipeGroup.RegisterGroup("AnyPlate", group);
 
-            /*RecipeGroup group2 = new RecipeGroup(() => "Any Hardmode Drill", new int[]
-            {
-                ItemID.CobaltDrill,
-                ItemID.PalladiumDrill,
-                ItemID.MythrilDrill,
-                ItemID.OrichalcumDrill,
-                ItemID.AdamantiteDrill,
-                ItemID.TitaniumDrill,
-            });
-            RecipeGroup.RegisterGroup("AnyHardmodeDrill", group2);*/
+                /*RecipeGroup group2 = new RecipeGroup(() => "Any Hardmode Drill", new int[]
+                {
+                    ItemID.CobaltDrill,
+                    ItemID.PalladiumDrill,
+                    ItemID.MythrilDrill,
+                    ItemID.OrichalcumDrill,
+                    ItemID.AdamantiteDrill,
+                    ItemID.TitaniumDrill,
+                });
+                RecipeGroup.RegisterGroup("AnyHardmodeDrill", group2);*/
+            }
         }
         public override void AddRecipes()/* tModPorter Note: Removed. Use ModSystem.AddRecipes */
         {

@@ -1,15 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 
-namespace CalValEX.Projectiles.Pets.Elementals
+namespace CalValEX.Projectiles.Pets
 {
     public class VanityFunClump : ModFlyingPet
     {
         public override float TeleportThreshold => 1200f;
 
         public override Vector2 FlyingOffset => new Vector2(68f * -Main.player[Projectile.owner].direction, -50f);
-
-        public override string Texture => "CalamityMod/Projectiles/Typeless/FungalClumpMinion";
 
         public override void SetStaticDefaults()
         {

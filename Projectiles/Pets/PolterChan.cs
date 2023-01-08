@@ -29,6 +29,7 @@ namespace CalValEX.Projectiles.Pets
             Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void Animation(int state)
         {
             Mod armasortof;
@@ -39,25 +40,28 @@ namespace CalValEX.Projectiles.Pets
             ModLoader.TryGetMod("CalValPlus", out cplus);
 
             //MAID mode
-            if (!CalValEXConfig.Instance.Polterskin && ((Main.masterMode && CalamityMod.World.CalamityWorld.death && (infernum != null && (bool)infernum.Call("GetInfernumActive")) && (armasortof != null && (bool)armasortof.Call("GetModifier", "instantdeathalways"))) || cplus != null))
+            if (CalValEX.CalamityActive)
             {
-                if (Projectile.frameCounter++ > 8)
+                if (!CalValEXConfig.Instance.Polterskin && ((Main.masterMode && CalamityMod.World.CalamityWorld.death && (infernum != null && (bool)infernum.Call("GetInfernumActive")) && (armasortof != null && (bool)armasortof.Call("GetModifier", "instantdeathalways"))) || cplus != null))
                 {
-                    Projectile.frameCounter = 0;
-                    Projectile.frame++;
-                    if (Projectile.frame >= 8)
-                        Projectile.frame = 4;
+                    if (Projectile.frameCounter++ > 8)
+                    {
+                        Projectile.frameCounter = 0;
+                        Projectile.frame++;
+                        if (Projectile.frame >= 8)
+                            Projectile.frame = 4;
+                    }
                 }
-            }
-            else
-            {
-                if (Projectile.frameCounter++ % 8 == 7)
+                else
                 {
-                    Projectile.frame++;
-                }
-                if (Projectile.frame >= 4)
-                {
-                    Projectile.frame = 0;
+                    if (Projectile.frameCounter++ % 8 == 7)
+                    {
+                        Projectile.frame++;
+                    }
+                    if (Projectile.frame >= 4)
+                    {
+                        Projectile.frame = 0;
+                    }
                 }
             }
         }

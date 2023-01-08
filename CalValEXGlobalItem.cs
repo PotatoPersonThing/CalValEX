@@ -53,7 +53,7 @@ namespace CalValEX
             if (!CalValEX.CalamityActive)
                 return;
 
-            if (item.type == ModContent.ItemType<CalamityMod.Items.Materials.Bloodstone>())
+            if (item.type == CalValEX.CalamityItem("Bloodstone"))
             {
                 item.useTurn = true;
                 item.autoReuse = true;
@@ -63,7 +63,7 @@ namespace CalValEX
                 item.consumable = true;
                 item.createTile = ModContent.TileType<BloodstonePlaced>();
             }
-            if (item.type == ModContent.ItemType<CalamityMod.Items.Materials.MeldConstruct>())
+            if (item.type == CalValEX.CalamityItem("MeldConstruct"))
             {
                 item.useTurn = true;
                 item.autoReuse = true;
@@ -73,7 +73,7 @@ namespace CalValEX
                 item.consumable = true;
                 item.createTile = ModContent.TileType<MeldConstructPlaced>();
             }
-            if (item.type == ModContent.ItemType<CalamityMod.Items.SummonItems.CeremonialUrn>())
+            if (item.type == CalValEX.CalamityItem("CeremonialUrn"))
             {
                 item.useTurn = true;
                 item.autoReuse = true;
@@ -575,6 +575,7 @@ namespace CalValEX
 			public string GetConditionDescription() => description;
 		}
         #endregion
+        [JITWhenModsEnabled("CalamityMod")]
         public override void RightClick(Item item, Player player)
         {
             if (!CalValEX.CalamityActive)
@@ -586,6 +587,7 @@ namespace CalValEX
 			}
 		}
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override string IsArmorSet(Item head, Item body, Item legs)
         {
             if (!CalValEX.CalamityActive)

@@ -98,5 +98,26 @@ namespace CalValEX
                 return content.Type;
             return -1;
         }
+
+        public static int CalamityTile(string name)
+        {
+            if (CalamityContent(name, out ModTile content))
+                return content.Type;
+            return -1;
+        }
+
+        public static int CalamityWall(string name)
+        {
+            if (CalamityContent(name, out ModWall content))
+                return content.Type;
+            return -1;
+        }
+
+        public static int CalamityBuff(string name)
+        {
+            if (CalamityContent(name, out ModBuff content))
+                return content.Type;
+            return -1;
+        }
     }
 }

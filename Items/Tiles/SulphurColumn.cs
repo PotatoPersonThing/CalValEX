@@ -1,5 +1,5 @@
 using Terraria.ModLoader;
-using CalValEX.Tiles.MiscFurniture;
+using Terraria;
 
 namespace CalValEX.Items.Tiles
 {
@@ -23,7 +23,16 @@ namespace CalValEX.Items.Tiles
             Item.width = 16;
             Item.height = 28;
             Item.rare = 4;
-            Item.createTile = ModContent.TileType<CalamityMod.Tiles.Abyss.SulphurousColumn>();
+        }
+
+        [JITWhenModsEnabled("CalamityMod")]
+        public override bool CanUseItem(Player player)
+        {
+            if (CalValEX.CalamityActive)
+            {
+                Item.createTile = CalValEX.CalamityTile("SulphurousColumn");
+            }
+            return true;
         }
     }
 }

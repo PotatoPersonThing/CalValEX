@@ -8,7 +8,9 @@ using CalValEX.Items.Pets;
 using ReLogic.Content;
 
 namespace CalValEX.Tiles.Plants {
-    public class BrimPlantPlaced : ModTile {
+    public class BrimPlantPlaced : ModTile
+    {
+        [JITWhenModsEnabled("CalamityMod")]
         public override void SetStaticDefaults() {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
@@ -21,7 +23,7 @@ namespace CalValEX.Tiles.Plants {
             TileID.Sets.IgnoredByGrowingSaplings[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             TileObjectData.newTile.AnchorValidTiles = new int[] {
-                TileType<CalamityMod.Tiles.Crags.BrimstoneSlag>(),
+                CalValEX.CalamityTile("BrimstoneSlag"),
                 TileID.Ash,
             };
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };

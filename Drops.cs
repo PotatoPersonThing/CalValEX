@@ -1,6 +1,4 @@
-using CalamityMod.World;
 using CalamityMod;
-using static CalamityMod.NPCs.ExoMechs.Ares.AresBody;
 using CalValEX.Items;
 using CalValEX.Items.Critters;
 using CalValEX.Items.Equips.Backs;
@@ -29,10 +27,8 @@ using CalValEX.Items.Tiles.Balloons;
 using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.Plushies;
 using CalValEX.NPCs.Critters;
-using CalValEX.Items.Tiles.Monoliths;
 using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
-using CalValEX.NPCs.JellyPriest;
 using CalValEX.NPCs.Oracle;
 using Terraria.GameContent.ItemDropRules;
 using Terraria;
@@ -42,12 +38,6 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using System.IO;
-using CalamityMod.Items.Accessories;
-using CalamityMod.Items.Weapons.Magic;
-using CalamityMod.Items.Weapons.Melee;
-using CalamityMod.Items.Weapons.Ranged;
-using CalamityMod.Items.Weapons.Rogue;
 using CalValEX.AprilFools;
 
 namespace CalValEX
@@ -76,6 +66,7 @@ namespace CalValEX
 
         public override bool InstancePerEntity => true;
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void SetupShop(int type, Chest shop, ref int nextSlot)
         {
             Mod alchLite;
@@ -106,81 +97,87 @@ namespace CalValEX
                     }
                 }
             }
-            if (type == ModContent.NPCType<CalamityMod.NPCs.TownNPCs.SEAHOE>())
+            if (CalValEX.CalamityActive)
             {
-                if (CalamityMod.DownedBossSystem.downedBoomerDuke)
+                if (type == CalValEX.CalamityNPC("SEAHOE"))
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<BloodwormScarf>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50);
-                    ++nextSlot;
+                    if (CalamityMod.DownedBossSystem.downedBoomerDuke)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<BloodwormScarf>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50);
+                        ++nextSlot;
+                    }
+
+                    if (CalamityMod.DownedBossSystem.downedSCal)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Yharlamitas>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(42);
+                        ++nextSlot;
+                    }
                 }
 
-                if (CalamityMod.DownedBossSystem.downedSCal)
+                if (type == CalValEX.CalamityNPC("DILF")) //Permafrost
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<Yharlamitas>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(42);
-                    ++nextSlot;
+                    if (CalamityMod.DownedBossSystem.downedCryogen)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<FrostflakeBrick>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 10);
+                        ++nextSlot;
+                    }
+                    if (CalamityMod.DownedBossSystem.downedSignus)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Signut>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(15);
+                        ++nextSlot;
+                    }
                 }
-            }
 
-            if (type == ModContent.NPCType<CalamityMod.NPCs.TownNPCs.DILF>()) //Permafrost
-            {
-                if (CalamityMod.DownedBossSystem.downedCryogen)
+                if (type == CalValEX.CalamityNPC("THIEF"))
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<FrostflakeBrick>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 10);
-                    ++nextSlot;
+                    if (CalamityMod.DownedBossSystem.downedAstrumAureus)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AureicFedora>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidTentacles>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidThorax>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
+                        ++nextSlot;
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidCranium>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
+                        ++nextSlot;
+                    }
                 }
-                if (CalamityMod.DownedBossSystem.downedSignus)
-                {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<Signut>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(15);
-                    ++nextSlot;
-                }
-            }
 
-            if (type == ModContent.NPCType<CalamityMod.NPCs.TownNPCs.THIEF>())
-            {
-                if (CalamityMod.DownedBossSystem.downedAstrumAureus)
+                if (type == CalValEX.CalamityNPC("FAP"))
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<AureicFedora>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10);
-                    ++nextSlot;
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidTentacles>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
-                    ++nextSlot;
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidThorax>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
-                    ++nextSlot;
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidCranium>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
+                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<OddMushroomPot>());
+                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 30);
                     ++nextSlot;
                 }
-            }
-
-            if (type == ModContent.NPCType<CalamityMod.NPCs.TownNPCs.FAP>())
-            {
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<OddMushroomPot>());
-                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 30);
-                ++nextSlot;
             }
 
             if (type == NPCID.Clothier)
             {
-                int bandit = NPC.FindFirstNPC(ModContent.NPCType<CalamityMod.NPCs.TownNPCs.THIEF>());
-                int archmage = NPC.FindFirstNPC(ModContent.NPCType<CalamityMod.NPCs.TownNPCs.DILF>());
-                if (bandit != -1)
+                if (CalValEX.CalamityActive)
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<BanditHat>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
-                    ++nextSlot;
-                }
+                    int bandit = NPC.FindFirstNPC(CalValEX.CalamityNPC("THIEF"));
+                    int archmage = NPC.FindFirstNPC(CalValEX.CalamityNPC("DILF"));
+                    if (bandit != -1)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<BanditHat>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
+                        ++nextSlot;
+                    }
 
-                if (archmage != -1)
-                {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<Permascarf>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
-                    ++nextSlot;
+                    if (archmage != -1)
+                    {
+                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Permascarf>());
+                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
+                        ++nextSlot;
+                    }
                 }
 
                 if (Main.LocalPlayer.ZoneDungeon || CalValEXWorld.dungeontiles > 100)
@@ -271,262 +268,263 @@ namespace CalValEX
             }
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
-            if (!CalValEXConfig.Instance.DisableVanityDrops)
+            /*if (!CalValEXConfig.Instance.DisableVanityDrops && CalValEX.CalamityActive)
             {
                 if (npc.type == ModContent.NPCType<OracleNPC>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<OracleBeanie>(), 1));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.TownNPCs.DILF>())
+                if (npc.type == CalValEX.CalamityNPC("DILF"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Permascarf>(), 1));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.TownNPCs.THIEF>())
+                if (npc.type == CalValEX.CalamityNPC("THIEF"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BanditHat>(), 1));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.BoxJellyfish>())
+                if (npc.type == CalValEX.CalamityNPC("BoxJellyfish"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BoxBalloon>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.Rimehound>())
+                if (npc.type == CalValEX.CalamityNPC("Rimehound"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TundraBall>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.Rotdog>())
+                if (npc.type == CalValEX.CalamityNPC("Rotdog"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RottenHotdog>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SunkenSea.PrismBack>())
+                if (npc.type == CalValEX.CalamityNPC("PrismBack"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PrismShell>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SulphurousSea.Catfish>())
+                if (npc.type == CalValEX.CalamityNPC("Catfish"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DecayingFishtail>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Crags.DespairStone>())
+                if (npc.type == CalValEX.CalamityNPC("DespairStone"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DespairMask>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Crags.Scryllar>())
+                if (npc.type == CalValEX.CalamityNPC("Scryllar"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ScryllianWings>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Crags.ScryllarRage>())
+                if (npc.type == CalValEX.CalamityNPC("ScryllarRage"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ScryllianWings>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.DraedonLabThings.RepairUnitCritter>())
+                if (npc.type == CalValEX.CalamityNPC("RepairUnitCritter"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DisrepairUnit>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.WulfrumAmplifier>())
+                if (npc.type == CalValEX.CalamityNPC("WulfrumAmplifier"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumTransmitter>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumKeys>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumHelipack>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.WulfrumGyrator>())
+                if (npc.type == CalValEX.CalamityNPC("WulfrumGyrator"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumController>(), 100));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumBalloon>(), 100));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.WulfrumRover>())
+                if (npc.type == CalValEX.CalamityNPC("WulfrumRover"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumController>(), 100));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RoverSpindle>(), 1000));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.WulfrumHovercraft>())
+                if (npc.type == CalValEX.CalamityNPC("WulfrumHovercraft"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumController>(), 100));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.WulfrumDrone>())
+                if (npc.type == CalValEX.CalamityNPC("WulfrumDrone"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumController>(), 100));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.CosmicElemental>())
+                if (npc.type == CalValEX.CalamityNPC("CosmicElemental"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CosmicCone>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.Sunskater>())
+                if (npc.type == CalValEX.CalamityNPC("Sunskater"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EssenceofYeet>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.CrawlerAmethyst>())
+                if (npc.type == CalValEX.CalamityNPC("CrawlerAmethyst"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AmethystGeode>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.CrawlerSapphire>())
+                if (npc.type == CalValEX.CalamityNPC("CrawlerSapphire"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SapphireGeode>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.CrawlerTopaz>())
+                if (npc.type == CalValEX.CalamityNPC("CrawlerTopaz"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TopazGeode>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.CrawlerEmerald>())
+                if (npc.type == CalValEX.CalamityNPC("CrawlerEmerald"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EmeraldGeode>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.CrawlerRuby>())
+                if (npc.type == CalValEX.CalamityNPC("CrawlerRuby"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RubyGeode>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.CrawlerDiamond>())
+                if (npc.type == CalValEX.CalamityNPC("CrawlerDiamond"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DiamondGeode>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.CrawlerAmber>())
+                if (npc.type == CalValEX.CalamityNPC("CrawlerAmber"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AmberGeode>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.CrawlerCrystal>())
+                if (npc.type == CalValEX.CalamityNPC("CrawlerCrystal"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CrystalGeode>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.ShockstormShuttle>())
+                if (npc.type == CalValEX.CalamityNPC("ShockstormShuttle"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShuttleBalloon>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AcidRain.SulphurousSkater>())
+                if (npc.type == CalValEX.CalamityNPC("SulphurousSkater"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AcidLamp>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.AeroSlime>())
+                if (npc.type == CalValEX.CalamityNPC("AeroSlime"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AeroWings>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SunkenSea.SeaFloaty>())
+                if (npc.type == CalValEX.CalamityNPC("SeaFloaty"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FloatyCarpetItem>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AcidRain.Orthocera>())
+                if (npc.type == CalValEX.CalamityNPC("Orthocera"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Help>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AcidRain.Trilobite>())
+                if (npc.type == CalValEX.CalamityNPC("Trilobite"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TrilobiteShield>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AcidRain.Mauler>())
+                if (npc.type == CalValEX.CalamityNPC("Mauler"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NuclearFumes>(), 1, 10, 25));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BubbledFin>(), 10));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<MaulerPlush>(), 4);
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AcidRain.NuclearTerror>())
+                if (npc.type == CalValEX.CalamityNPC("NuclearTerror"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NuclearFumes>(), 1, 10, 25));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<NuclearTerrorPlush>(), 4);
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.Bohldohr>())
+                if (npc.type == CalValEX.CalamityNPC("Bohldohr"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Eggstone>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AcidRain.FlakCrab>())
+                if (npc.type == CalValEX.CalamityNPC("FlakCrab"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FlakHeadCrab>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AcidRain.GammaSlime>())
+                if (npc.type == CalValEX.CalamityNPC("GammaSlime"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GammaHelmet>(), 30));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NuclearFumes>(), 5));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.PerennialSlime>())
+                if (npc.type == CalValEX.CalamityNPC("PerennialSlime"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PerennialFlower>(), 20));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PerennialDress>(), 20));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientPerennialFlower>(), 30));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Astral.BigSightseer>())
+                if (npc.type == CalValEX.CalamityNPC("BigSightseer"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AstralBinoculars>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Crags.HeatSpirit>())
+                if (npc.type == CalValEX.CalamityNPC("HeatSpirit"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EssenceofDisorder>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SulphurousSea.BelchingCoral>())
+                if (npc.type == CalValEX.CalamityNPC("BelchingCoral"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CoralMask>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SulphurousSea.AnthozoanCrab>())
+                if (npc.type == CalValEX.CalamityNPC("AnthozoanCrab"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CrackedFossil>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.Cryon>())
+                if (npc.type == CalValEX.CalamityNPC("Cryon"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Cryocap>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Cryocoat>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Crags.CultistAssassin>())
+                if (npc.type == CalValEX.CalamityNPC("CultistAssassin"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CultistHood>(), 30));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CultistRobe>(), 30));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CultistLegs>(), 30));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.ImpiousImmolator>())
+                if (npc.type == CalValEX.CalamityNPC("ImpiousImmolator"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedChewToy>(), 40));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HolyTorch>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.Cnidrion>())
+                if (npc.type == CalValEX.CalamityNPC("Cnidrion"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SunDriedShrimp>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.EidolonWyrmHead>())
+                if (npc.type == CalValEX.CalamityNPC("EidolonWyrmHead"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CanofWyrms>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.OverloadedSoldier>())
+                if (npc.type == CalValEX.CalamityNPC("OverloadedSoldier"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<UnloadedHelm>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HauntedPebble>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.DevilFish>())
+                if (npc.type == CalValEX.CalamityNPC("DevilFish"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilfishMask2>(), 20));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilfishMask3>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.DevilFishAlt>())
+                if (npc.type == CalValEX.CalamityNPC("DevilFishAlt"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilfishMask1>(), 20));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DevilfishMask3>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.MirageJelly>())
+                if (npc.type == CalValEX.CalamityNPC("MirageJelly"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Mirballoon>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<OldMirage>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Astral.Hadarian>())
+                if (npc.type == CalValEX.CalamityNPC("Hadarian"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<HadarianTail>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Astral.AstralSlime>())
+                if (npc.type == CalValEX.CalamityNPC("AstralSlime"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AstraEGGeldon>(), 87000));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.Eidolist>())
+                if (npc.type == CalValEX.CalamityNPC("Eidolist"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EidoMask>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Eidcape>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SunkenSea.GiantClam>())
+                if (npc.type == CalValEX.CalamityNPC("GiantClam"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ClamHermitMedallion>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ClamMask>(), 10));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<GiantClamPlush>(), 4);
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.PlagueEnemies.PlaguebringerMiniboss>())
+                if (npc.type == CalValEX.CalamityNPC("PlaguebringerMiniboss"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PlaguebringerPowerCell>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PlaugeWings>(), 15));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 10000));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.ThiccWaifu>())
+                if (npc.type == CalValEX.CalamityNPC("ThiccWaifu"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CloudCandy>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CloudWaistbelt>(), 10));
@@ -539,45 +537,45 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SmallSandPlushie>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SandyBangles>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.ProfanedEnergyBody>())
+                if (npc.type == CalValEX.CalamityNPC("ProfanedEnergyBody"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedChewToy>(), 40));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedEnergyHook>(), 20));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedBalloon>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.ScornEater>())
+                if (npc.type == CalValEX.CalamityNPC("ScornEater"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedChewToy>(), 40));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ScornEaterMask>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.ChaoticPuffer>())
+                if (npc.type == CalValEX.CalamityNPC("ChaoticPuffer"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ChaosBalloon>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.ReaperShark>())
+                if (npc.type == CalValEX.CalamityNPC("ReaperShark"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ReaperSharkArms>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<OmegaBlue>(), 40));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ReaperoidPills>(), 10));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Abyss.ColossalSquid>())
+                if (npc.type == CalValEX.CalamityNPC("ColossalSquid"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SquidHat>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<OmegaBlue>(), 40));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.Horse>())
+                if (npc.type == CalValEX.CalamityNPC("Horse"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EarthShield>(), 10));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EarthenHelmet>(), 20));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EarthenBreastplate>(), 20));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EarthenLeggings>(), 20));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.NormalNPCs.ArmoredDiggerHead>())
+                if (npc.type == CalValEX.CalamityNPC("ArmoredDiggerHead"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 10000));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ConstructionRemote>(), 4));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AcidRain.CragmawMire>())
+                if (npc.type == CalValEX.CalamityNPC("CragmawMire"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MawHook>(), 1));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NuclearFumes>(), 1, 5, 8));
@@ -585,7 +583,8 @@ namespace CalValEX
                     npcLoot.AddIf(() => CalValEXWorld.masorev && DownedBossSystem.downedPolterghast, ModContent.ItemType<MirePlushP1>(), 8);
                     npcLoot.AddIf(() => CalValEXWorld.masorev && DownedBossSystem.downedPolterghast, ModContent.ItemType<MirePlushP2>(), 6);
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.GreatSandShark.GreatSandShark>()) {
+                if (npc.type == CalValEX.CalamityNPC("GreatSandShark")) 
+                {
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<SandSharkPlush>(), 4);
                 }
                 if (npc.type == ModContent.NPCType<Xerocodile>())
@@ -597,7 +596,7 @@ namespace CalValEX
                     npcLoot.AddIf(() => CalamityMod.DownedBossSystem.downedYharon, ModContent.ItemType<Termipebbles>(), 1);
                 }
                 //Scourge
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.DesertScourge.DesertScourgeHead>())
+                if (npc.type == CalValEX.CalamityNPC("DesertScourgeHead"))
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<DesertMedallion>(), 5));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SlightlyMoistbutalsoSlightlyDryLocket>(), 7));
@@ -605,13 +604,13 @@ namespace CalValEX
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<DesertScourgePlush>(), 4);
                 }
                 //Crabulon
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Crabulon.Crabulon>())
+                if (npc.type == CalValEX.CalamityNPC("Crabulon"))
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ClawShroom>(), 3));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<CrabulonPlush>(), 4);
                 }
                 //Perfs
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Perforator.PerforatorHive>())
+                if (npc.type == CalValEX.CalamityNPC("PerforatorHive"))
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SmallWorm>(), 7));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<MidWorm>(), 7));
@@ -620,37 +619,37 @@ namespace CalValEX
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<PerforatorPlush>(), 4);
                 }
                 //Hive Mind
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.HiveMind.HiveMind>())
+                if (npc.type == CalValEX.CalamityNPC("HiveMind"))
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<RottenKey>(), 3));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<HiveMindPlush>(), 4);
                 }
                 //Slime Gods...
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodCore>())
+                if (npc.type == CalValEX.CalamityNPC("SlimeGodCore"))
                 {
-                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(), 1, 155, 265);
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, CalValEX.CalamityItem("StatigelBlock"), 1, 155, 265);
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<SlimeGodPlush>(), 4);
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<IonizedJellyCrystal>(), 50));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SlimeGodMask>(), 7));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SlimeDeitysSoul>(), 3));
                 }
                 //Cryogen
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Cryogen.Cryogen>())
+                if (npc.type == CalValEX.CalamityNPC("Cryogen"))
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<CoolShades>(), 3));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<CryogenPlush>(), 4);
                 }
                 //Aqua
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AquaticScourge.AquaticScourgeHead>())
+                if (npc.type == CalValEX.CalamityNPC("AquaticScourgeHead"))
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<MoistLocket>(), 3));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<BleachBallItem>(), 4));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<AquaticScourgePlush>(), 4);
                 }
                 //Brimmy
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.BrimstoneElemental.BrimstoneElemental>())
+                if (npc.type == CalValEX.CalamityNPC("BrimstoneElemental"))
                 {
-                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.BrimstoneSlag>(), 1, 155, 265);
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, CalValEX.CalamityItem("BrimstoneSlag"), 1, 155, 265);
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<BrimmySpirit>(), 10));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<BrimmyBody>(), 10));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<FoilSpoon>(), 20));
@@ -658,21 +657,21 @@ namespace CalValEX
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<BrimstoneElementalPlush>(), 4);
                 }
                 //Clone
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Calamitas.CalamitasClone>())
+                if (npc.type == CalValEX.CalamityNPC("CalamitasClone"))
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Calacirclet>(), 5));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 10000));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<ClonePlush>(), 4);
                 }
                 //Leviathan
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Leviathan.Leviathan>())
+                if (npc.type == CalValEX.CalamityNPC("Leviathan"))
                 {
                     npcLoot.AddIf(() => CalamityMod.NPCs.Leviathan.Leviathan.LastAnLStanding() && !Main.expertMode, ModContent.ItemType<FoilAtlantis>(), 3);
                     npcLoot.AddIf(() => CalamityMod.NPCs.Leviathan.Leviathan.LastAnLStanding() && !Main.expertMode, ModContent.ItemType<StrangeMusicNote>(), 40);
                     npcLoot.AddIf(() => CalamityMod.NPCs.Leviathan.Leviathan.LastAnLStanding() && CalValEXWorld.masorev, ModContent.ItemType<LeviathanPlush>(), 4);
                     npcLoot.AddIf(() => CalamityMod.NPCs.Leviathan.Leviathan.LastAnLStanding() && CalValEXWorld.masorev, ModContent.ItemType<AnahitaPlush>(), 20);
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Leviathan.Anahita>())
+                if (npc.type == CalValEX.CalamityNPC("Anahita"))
                 {
                     npcLoot.AddIf(() => CalamityMod.NPCs.Leviathan.Leviathan.LastAnLStanding() && !Main.expertMode, ModContent.ItemType<FoilAtlantis>(), 3);
                     npcLoot.AddIf(() => CalamityMod.NPCs.Leviathan.Leviathan.LastAnLStanding() && !Main.expertMode, ModContent.ItemType<StrangeMusicNote>(), 40);
@@ -680,7 +679,7 @@ namespace CalValEX
                     npcLoot.AddIf(() => CalamityMod.NPCs.Leviathan.Leviathan.LastAnLStanding() && CalValEXWorld.masorev, ModContent.ItemType<LeviathanPlush>(), 20);
                 }
                 //Astrum Aureus
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumAureus.AstrumAureus>())
+                if (npc.type == CalValEX.CalamityNPC("AstrumAureus"))
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AureusShield>(), 5));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AstralInfectedIcosahedron>(), 3));
@@ -690,16 +689,16 @@ namespace CalValEX
                     npcLoot.AddIf(() => geldonSummon, ModContent.ItemType<SpaceJunk>());
                 }
                 //PBG
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.PlaguebringerGoliath.PlaguebringerGoliath>())
+                if (npc.type == CalValEX.CalamityNPC("PlaguebringerGoliath"))
                 {
-                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurniturePlagued.PlaguedContainmentBrick>(), 1, 155, 265);
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, CalValEX.CalamityItem("PlaguedContainmentBrick"), 1, 155, 265);
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<InfectedController>(), 5));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<PlaguePack>(), 5));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<PlaguebringerGoliathPlush>(), 4);
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000));
                 }
                 //Ravager
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Ravager.RavagerBody>())
+                if (npc.type == CalValEX.CalamityNPC("RavagerBody"))
                 {
                     var normalOnly = npcLoot.DefineNormalOnlyDropSet();
                     {
@@ -718,7 +717,7 @@ namespace CalValEX
                 }
                 //Deus
                 //PS: FUCK deus lootcode, I pray to anyone who wants to make weakref support for this abomination
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusHead>())
+                if (npc.type == CalValEX.CalamityNPC("AstrumDeusHead"))
                 {
                     var lastWorm = npcLoot.DefineConditionalDropSet(info => !CalamityMod.NPCs.AstrumDeus.AstrumDeusHead.ShouldNotDropThings(info.npc));
                     bool blight(DropAttemptInfo info) => Main.LocalPlayer.InModBiome(ModContent.GetInstance<Biomes.AstralBlight>()) && !CalamityMod.NPCs.AstrumDeus.AstrumDeusHead.ShouldNotDropThings(info.npc);
@@ -730,7 +729,7 @@ namespace CalValEX
                     npcLoot.AddIf(masre, ModContent.ItemType<AstrumDeusPlush>(), 4);
                 }
                 //Bumblebirb
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Bumblebirb.Bumblefuck>())
+                if (npc.type == CalValEX.CalamityNPC("Bumblefuck"))
                 {
                     var normalOnly = npcLoot.DefineNormalOnlyDropSet();
                     {
@@ -742,24 +741,24 @@ namespace CalValEX
                         };
                         normalOnly.Add(DropHelper.CalamityStyle(DropHelper.NormalWeaponDropRateFraction, items));
                     }
-                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks && DownedBossSystem.downedYharon, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureSilva.SilvaCrystal>(), 1, 155, 265);
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks && DownedBossSystem.downedYharon, CalValEX.CalamityItem("SilvaCrystal"), 1, 155, 265);
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<BumblefuckPlush>(), 4);
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<ExtraFluffyFeather>(), 10);
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 500));
                     npcLoot.AddIf(() => bdogeMount, ModContent.ItemType<ExtraFluffyFeatherClump>());
                 }
                 //Providence
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Providence.Providence>())
+                if (npc.type == CalValEX.CalamityNPC("Providence"))
                 {
-                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureProfaned.ProfanedRock>(), 1, 155, 265);
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, CalValEX.CalamityItem("ProfanedRock"), 1, 155, 265);
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProviCrystal>(), 4));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProfanedHeart>(), 3));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<ProvidencePlush>(), 4);
                 }
                 //Storm Weaver
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.StormWeaver.StormWeaverHead>())
+                if (npc.type == CalValEX.CalamityNPC("StormWeaverHead"))
                 {
-                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks && DownedBossSystem.downedDoG, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(), 1, 155, 265);
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks && DownedBossSystem.downedDoG, CalValEX.CalamityItem("OtherworldlyStone"), 1, 155, 265);
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<StormBandana>(), 10));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ArmoredScrap>(), 6));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<StormMedal>(), 6));
@@ -767,7 +766,7 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 250));
                 }
                 //Signus
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Signus.Signus>())
+                if (npc.type == CalValEX.CalamityNPC("Signus"))
                 {
                     var normalOnly = npcLoot.DefineNormalOnlyDropSet();
                     {
@@ -781,15 +780,15 @@ namespace CalValEX
                         };
                         normalOnly.Add(DropHelper.CalamityStyle(DropHelper.NormalWeaponDropRateFraction, items));
                     }
-                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks && DownedBossSystem.downedDoG, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(), 1, 155, 265);
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks && DownedBossSystem.downedDoG, CalValEX.CalamityItem("OtherworldlyStone"), 1, 155, 265);
                     npcLoot.AddIf(() => junkoReference, ModContent.ItemType<SuspiciousLookingChineseCrown>());
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<SignusPlush>(), 4);
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 250));
                 }
                 //CV
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.CeaselessVoid.CeaselessVoid>())
+                if (npc.type == CalValEX.CalamityNPC("CeaselessVoid"))
                 {
-                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks && DownedBossSystem.downedDoG, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(), 1, 155, 265);
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks && DownedBossSystem.downedDoG, CalValEX.CalamityItem("OtherworldlyStone"), 1, 155, 265);
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<VoidWings>(), 10));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<OldVoidWings>(), 15));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<MirrorMatter>(), 3));
@@ -797,9 +796,9 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 250));
                 }
                 //Polterghast
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Polterghast.Polterghast>())
+                if (npc.type == CalValEX.CalamityNPC("Polterghast"))
                 {
-                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStratus.StratusBricks>(), 2, 155, 265);
+                    npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, CalValEX.CalamityItem("StratusBricks"), 2, 155, 265);
                     npcLoot.AddIf(() => !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<PhantowaxBlock>(), 2, 155, 265);
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Polterhook>(), 20));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<ToyScythe>(), 3);
@@ -807,7 +806,7 @@ namespace CalValEX
                     npcLoot.AddIf(() => !Main.expertMode, ModContent.ItemType<ZygoteinaBucket>(), 3);
                 }
                 //Old Duke
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.OldDuke.OldDuke>())
+                if (npc.type == CalValEX.CalamityNPC("OldDuke"))
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<OldWings>(), 3));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<CorrodedCleaver>(), 3));
@@ -815,7 +814,7 @@ namespace CalValEX
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<OldDukePlush>(), 4);
                 }
                 //DoG
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.DevourerofGods.DevourerofGodsHead>())
+                if (npc.type == CalValEX.CalamityNPC("DevourerofGodsHead"))
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<CosmicWormScarf>(), 5));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<RapturedWormScarf>(), 20));
@@ -824,7 +823,7 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 100));
                 }
                 //Yharon
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>())
+                if (npc.type == CalValEX.CalamityNPC("Yharon"))
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<YharonShackle>(), 3));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<JunglePhoenixWings>(), 5));
@@ -836,70 +835,70 @@ namespace CalValEX
                     npcLoot.AddIf(() => wolfram, ModContent.ItemType<RoverSpindle>());
                 }
                 //Supreme Cal
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SupremeCalamitas.SupremeCalamitas>())
+                if (npc.type == CalValEX.CalamityNPC("SupremeCalamitas"))
                 {
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<GruelingMask>(), 3));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<CalamitasFumo>(), 4);
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 10));
                 }
                 //Ares
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.ExoMechs.Ares.AresBody>())
+                if (npc.type == CalValEX.CalamityNPC("AresBody"))
                 {
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPlating>(), 1, 155, 265);
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>(), 3);
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonBody>(), 5);
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonLegs>(), 5);
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<OminousCore>(), 3);
-                    npcLoot.AddIf(() => CanDropLoot() && CalValEXWorld.masorev, ModContent.ItemType<AresPlush>());
-                    npcLoot.AddIf(() => CanDropLoot() && CalValEXWorld.masorev, ModContent.ItemType<DraedonPlush>(), 10);
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<AncientAuricTeslaHelm>(), 10);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, CalValEX.CalamityItem("ExoPlating"), 1, 155, 265);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>(), 3);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonBody>(), 5);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonLegs>(), 5);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<OminousCore>(), 3);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && CalValEXWorld.masorev, ModContent.ItemType<AresPlush>());
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && CalValEXWorld.masorev, ModContent.ItemType<DraedonPlush>(), 10);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<AncientAuricTeslaHelm>(), 10);
                 }
                 //Thanatos
-                if (npc.type == ModContent.NPCType < CalamityMod.NPCs.ExoMechs.Thanatos.ThanatosHead> ())
+                if (npc.type == CalValEX.CalamityNPC("ThanatosHead"))
                 {
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPlating>(), 1, 155, 265);
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<XMLightningHook>(), 3);
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonBody>(), 5);
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonLegs>(), 5);
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<GunmetalRemote>(), 3);
-                    npcLoot.AddIf(() => CanDropLoot() && CalValEXWorld.masorev, ModContent.ItemType<ThanatosPlush>());
-                    npcLoot.AddIf(() => CanDropLoot() && CalValEXWorld.masorev, ModContent.ItemType<DraedonPlush>(), 10);
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<AncientAuricTeslaHelm>(), 10);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, CalValEX.CalamityItem("ExoPlating"), 1, 155, 265);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<XMLightningHook>(), 3);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonBody>(), 5);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonLegs>(), 5);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<GunmetalRemote>(), 3);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && CalValEXWorld.masorev, ModContent.ItemType<ThanatosPlush>());
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && CalValEXWorld.masorev, ModContent.ItemType<DraedonPlush>(), 10);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<AncientAuricTeslaHelm>(), 10);
                 }
                 //Apollo
-                if (npc.type == ModContent.NPCType < CalamityMod.NPCs.ExoMechs.Apollo.Apollo> ())
+                if (npc.type == CalValEX.CalamityNPC("Apollo"))
                 {
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPlating>(), 1, 155, 265);
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<ArtemisBalloonSmall>(), 6);
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<ApolloBalloonSmall>(), 6);
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonBody>(), 5);
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonLegs>(), 5);
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<GeminiMarkImplants>(), 3);
-                    npcLoot.AddIf(() => CanDropLoot() && CalValEXWorld.masorev, ModContent.ItemType<ArtemisPlush>());
-                    npcLoot.AddIf(() => CanDropLoot() && CalValEXWorld.masorev, ModContent.ItemType<ApolloPlush>());
-                    npcLoot.AddIf(() => CanDropLoot() && CalValEXWorld.masorev, ModContent.ItemType<DraedonPlush>(), 10);
-                    npcLoot.AddIf(() => CanDropLoot() && !Main.expertMode, ModContent.ItemType<AncientAuricTeslaHelm>(), 10);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks, CalValEX.CalamityItem("ExoPlating"), 1, 155, 265);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<ArtemisBalloonSmall>(), 6);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<ApolloBalloonSmall>(), 6);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonBody>(), 5);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonLegs>(), 5);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<GeminiMarkImplants>(), 3);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && CalValEXWorld.masorev, ModContent.ItemType<ArtemisPlush>());
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && CalValEXWorld.masorev, ModContent.ItemType<ApolloPlush>());
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && CalValEXWorld.masorev, ModContent.ItemType<DraedonPlush>(), 10);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<AncientAuricTeslaHelm>(), 10);
                 }
                 //Wyrm
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AdultEidolonWyrm.AdultEidolonWyrmHead>())
+                if (npc.type == CalValEX.CalamityNPC("AdultEidolonWyrmHead"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Tiles.RespirationShrine>()));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SoulShard>()));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<JaredPlush>(), 4);
                 }
                 //Donuts
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.ProfanedGuardians.ProfanedGuardianCommander>())
+                if (npc.type == CalValEX.CalamityNPC("ProfanedGuardianCommander"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedWheels>(), 3));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedCultistMask>(), 5));
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedCultistRobes>(), 5));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<ProfanedGuardianPlush>(), 4);
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.ProfanedGuardians.ProfanedGuardianDefender>())
+                if (npc.type == CalValEX.CalamityNPC("ProfanedGuardianDefender"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedFrame>(), 3));
                 }
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.ProfanedGuardians.ProfanedGuardianHealer>())
+                if (npc.type == CalValEX.CalamityNPC("ProfanedGuardianHealer"))
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedBattery>(), 3));
                 }
@@ -926,7 +925,7 @@ namespace CalValEX
                 //Yharexs' Dev Pet (Calamity BABY)
                 if (CalamityMod.World.CalamityWorld.death)
                 {
-                    if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SupremeCalamitas.SupremeCalamitas>())
+                    if (npc.type == CalValEX.CalamityNPC("SupremeCalamitas"))
                     {
                         bool didIGetHit = false;
                         for (int i = 0; i < Main.maxPlayers; i++)
@@ -954,7 +953,8 @@ namespace CalValEX
                         }
                     }
                 }
-            }
+            }*/
+
         }
 
         int signuskill;
@@ -963,99 +963,103 @@ namespace CalValEX
         Vector2 jharimpos;
         int calashoot = 0;
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void AI(NPC npc)
         {
-            if ((npc.type == ModContent.NPCType<CalamityMod.NPCs.TownNPCs.WITCH>()) && (!CalValEXWorld.jharinter || !NPC.downedMoonlord))
+            if (CalValEX.CalamityActive)
             {
-                if (NPC.AnyNPCs(ModContent.NPCType<AprilFools.Jharim.Jharim>()))
+                if (npc.type == CalValEX.CalamityNPC("WITCH") && (!CalValEXWorld.jharinter || !NPC.downedMoonlord))
                 {
-                    for (int x = 0; x < Main.maxNPCs; x++)
+                    if (NPC.AnyNPCs(ModContent.NPCType<AprilFools.Jharim.Jharim>()))
                     {
-                        NPC npc3 = Main.npc[x];
-                        if (npc3.type == ModContent.NPCType<AprilFools.Jharim.Jharim>() && npc3.active)
+                        for (int x = 0; x < Main.maxNPCs; x++)
                         {
-                            jharimpos.X = npc3.Center.X;
-                            jharimpos.Y = npc3.Center.Y;
-                            calashoot++;
-                            if (npc3.position.X - npc.position.X >= 0)
+                            NPC npc3 = Main.npc[x];
+                            if (npc3.type == ModContent.NPCType<AprilFools.Jharim.Jharim>() && npc3.active)
                             {
-                                npc.direction = 1;
-                            }
-                            else
-                            {
-                                npc.direction = -1;
+                                jharimpos.X = npc3.Center.X;
+                                jharimpos.Y = npc3.Center.Y;
+                                calashoot++;
+                                if (npc3.position.X - npc.position.X >= 0)
+                                {
+                                    npc.direction = 1;
+                                }
+                                else
+                                {
+                                    npc.direction = -1;
+                                }
                             }
                         }
                     }
-                }
-                if (calashoot >= 5)
-                {
-                    Vector2 position = npc.Center;
-                    position.X = npc.Center.X + (20f * npc.direction);
-                    Vector2 direction = jharimpos - position;
-                    direction.Normalize();
-                    float speed = 10f;
-                    int type = ModContent.ProjectileType<Projectiles.JharimKiller>();
-                    int damage = 6666;
-                    Projectile.NewProjectile(npc.GetSource_FromAI(), position, direction * speed, type, damage, 0f, Main.myPlayer);
-                    calashoot = 0;
-                }
-            }
-            if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Signus.Signus>())
-            {
-                if ((npc.ai[0] == -33f || signusbackup) && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi)
-                {
-                    Dust dust;
-                    Vector2 position = npc.position;
-                    for (int a = 0; a < 3; a++)
+                    if (calashoot >= 5)
                     {
-                        dust = Main.dust[Terraria.Dust.NewDust(position, npc.width, npc.height, 16, 0f, 0f, 0, new Color(255, 255, 255), 1.578947f)];
-                        dust.shader = GameShaders.Armor.GetSecondaryShader(131, Main.LocalPlayer);
+                        Vector2 position = npc.Center;
+                        position.X = npc.Center.X + (20f * npc.direction);
+                        Vector2 direction = jharimpos - position;
+                        direction.Normalize();
+                        float speed = 10f;
+                        int type = ModContent.ProjectileType<Projectiles.JharimKiller>();
+                        int damage = 6666;
+                        Projectile.NewProjectile(npc.GetSource_FromAI(), position, direction * speed, type, damage, 0f, Main.myPlayer);
+                        calashoot = 0;
                     }
-                    npc.rotation = 0;
-                    npc.direction = -1;
-                    npc.spriteDirection = -1;
-                    signusshaker++;
-                    npc.alpha = 0;
-                    npc.velocity.X = 0;
-                    npc.velocity.Y = 0;
-                    signuskill++;
-                    npc.dontTakeDamage = true;
-                    for (int k = 0; k < npc.buffImmune.Length; k++)
+                }
+                if (npc.type == CalValEX.CalamityNPC("Signus"))
+                {
+                    if ((npc.ai[0] == -33f || signusbackup) && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi)
                     {
-                        npc.buffImmune[k] = true;
+                        Dust dust;
+                        Vector2 position = npc.position;
+                        for (int a = 0; a < 3; a++)
+                        {
+                            dust = Main.dust[Terraria.Dust.NewDust(position, npc.width, npc.height, 16, 0f, 0f, 0, new Color(255, 255, 255), 1.578947f)];
+                            dust.shader = GameShaders.Armor.GetSecondaryShader(131, Main.LocalPlayer);
+                        }
+                        npc.rotation = 0;
+                        npc.direction = -1;
+                        npc.spriteDirection = -1;
+                        signusshaker++;
+                        npc.alpha = 0;
+                        npc.velocity.X = 0;
+                        npc.velocity.Y = 0;
+                        signuskill++;
+                        npc.dontTakeDamage = true;
+                        for (int k = 0; k < npc.buffImmune.Length; k++)
+                        {
+                            npc.buffImmune[k] = true;
+                        }
+                        if (signuskill == 64)
+                        {
+                            signuskill = 0;
+                            npc.knockBackResist = 20f;
+                            npc.StrikeNPC(499999, 99f, npc.direction * 50, true, false, false);
+                            signusbackup = false;
+                        }
+                        if (signusshaker == 1)
+                        {
+                            npc.velocity.X = -5;
+                        }
+                        else if (signusshaker == 2)
+                        {
+                            npc.velocity.X = 5;
+                            signusshaker = 0;
+                        }
                     }
-                    if (signuskill == 64)
+                    else
                     {
                         signuskill = 0;
-                        npc.knockBackResist = 20f;
-                        npc.StrikeNPC(499999, 99f, npc.direction * 50, true, false, false);
-                        signusbackup = false;
-                    }
-                    if (signusshaker == 1)
-                    {
-                        npc.velocity.X = -5;
-                    }
-                    else if (signusshaker == 2)
-                    {
-                        npc.velocity.X = 5;
                         signusshaker = 0;
                     }
-                }
-                else
-                {
-                    signuskill = 0;
-                    signusshaker = 0;
-                }
-                if (!Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi)
-                {
-                    signusbackup = false;
-                    if (npc.ai[0] == -33f)
+                    if (!Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi)
                     {
-                        npc.ai[0] = 0f;
-                        npc.ai[1] = 0f;
-                        npc.ai[2] = 0f;
-                        npc.ai[3] = 0f;
+                        signusbackup = false;
+                        if (npc.ai[0] == -33f)
+                        {
+                            npc.ai[0] = 0f;
+                            npc.ai[1] = 0f;
+                            npc.ai[2] = 0f;
+                            npc.ai[3] = 0f;
+                        }
                     }
                 }
             }
@@ -1063,7 +1067,7 @@ namespace CalValEX
 
         public override bool StrikeNPC(NPC npc, ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
         {
-            if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Signus.Signus>() && !signusbackup && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi && Main.netMode != NetmodeID.Server)
+            if (npc.type == CalValEX.CalamityNPC("Signus") && !signusbackup && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi && Main.netMode != NetmodeID.Server)
             {
                 if (damage >= npc.life)
                 {
@@ -1088,9 +1092,9 @@ namespace CalValEX
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback,
             ref bool crit, ref int hitDirection)
         {
-            if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumAureus.AstrumAureus>())
+            if (npc.type == CalValEX.CalamityNPC("AstrumAureus"))
             {
-                if (projectile.type == ModContent.ProjectileType<CalamityMod.Projectiles.Summon.AstrageldonLaser>() || projectile.type == ModContent.ProjectileType<CalamityMod.Projectiles.Summon.AstrageldonSummon>())
+                if (projectile.type == CalValEX.CalamityProjectile("AstrageldonLaser") || projectile.type == CalValEX.CalamityProjectile("AstrageldonSummon"))
                 {
                     geldonSummon = true;
                 }
@@ -1099,9 +1103,9 @@ namespace CalValEX
                     geldonSummon = false;
                 }
             }
-            else if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Bumblebirb.Bumblefuck>())
+            else if (npc.type == CalValEX.CalamityNPC("Bumblefuck"))
             {
-                if (projectile.type == ModContent.ProjectileType<CalamityMod.Projectiles.Ranged.MiniatureFolly>() && projectile.DamageType != DamageClass.Ranged)
+                if (projectile.type == CalValEX.CalamityProjectile("MiniatureFolly") && projectile.DamageType != DamageClass.Ranged)
                 {
                     bdogeMount = true;
                 }
@@ -1110,9 +1114,9 @@ namespace CalValEX
                     bdogeMount = false;
                 }
             }
-            else if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>())
+            else if (npc.type == CalValEX.CalamityNPC("Yharon"))
             {
-                if (projectile.type == ModContent.ProjectileType<CalamityMod.Projectiles.Summon.WulfrumDroid>() || projectile.type == ModContent.ProjectileType<CalamityMod.Projectiles.Summon.WulfrumDroid>())
+                if (projectile.type == CalValEX.CalamityProjectile("WulfrumDroid"))
                 {
                     wolfram = true;
                 }
@@ -1121,10 +1125,10 @@ namespace CalValEX
                     wolfram = false;
                 }
             }
-            else if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Signus.Signus>())
+            else if (npc.type == CalValEX.CalamityNPC("Signus"))
             {
-                if (projectile.type == ModContent.ProjectileType<CalamityMod.Projectiles.Ranged.PristineFire>() ||
-                    projectile.type == ModContent.ProjectileType<CalamityMod.Projectiles.Ranged.PristineSecondary>())
+                if (projectile.type == CalValEX.CalamityProjectile("PristineFire") ||
+                    projectile.type == CalValEX.CalamityProjectile("PristineSecondary"))
                 {
                     junkoReference = true;
                 }
@@ -1134,6 +1138,8 @@ namespace CalValEX
                 }
             }
         }
+
+        [JITWhenModsEnabled("CalamityMod")]
         public void BossExclam(NPC npc, int[] types, bool downed, int boss)
         {
             if (npc.type == boss && !downed)
@@ -1142,88 +1148,44 @@ namespace CalValEX
             }
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override bool PreKill(NPC npc)
         {
-            /*BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedCLAM, ModContent.NPCType<CalamityMod.NPCs.SunkenSea.GiantClam>());
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedCrabulon, ModContent.NPCType<CalamityMod.NPCs.Crabulon.CrabulonIdle>());
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, NPC.downedBoss3, NPCID.SkeletronHead);
-            //Fuck slime god btw
-            if (!NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodSplit>())&& !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodRun>()) && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodRunSplit>()) && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGod>()))
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedSlimeGod, ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodCore>());
-            if (NPC.CountNPCS(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodSplit>()) == 1 && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodCore>()) && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodRun>()) && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodRunSplit>()) && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGod>()))
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedSlimeGod, ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodSplit>());
-            if (NPC.CountNPCS(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodRunSplit>()) == 1 && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodCore>()) && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodRun>()) && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodSplit>()) && !NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGod>()))
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedSlimeGod, ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodSplit>());
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, Main.hardMode, NPCID.WallofFlesh);
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedCryogen, ModContent.NPCType<CalamityMod.NPCs.Cryogen.Cryogen>());
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedCalamitas, ModContent.NPCType<CalamityMod.NPCs.Calamitas.CalamitasRun3>());
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, NPC.downedPlantBoss, NPCID.Plantera);
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedAstrageldon, ModContent.NPCType<CalamityMod.NPCs.AstrumAureus.AstrumAureus>());
-            if (!NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.Leviathan.Siren>()))
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedLeviathan, ModContent.NPCType<CalamityMod.NPCs.Leviathan.Leviathan>());
-            if (!NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.Leviathan.Leviathan>()))
-                BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedLeviathan, ModContent.NPCType<CalamityMod.NPCs.Leviathan.Siren>());
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, NPC.downedGolemBoss, NPCID.Golem);
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedPlaguebringer, ModContent.NPCType<CalamityMod.NPCs.PlaguebringerGoliath.PlaguebringerGoliath>());
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedScavenger, ModContent.NPCType<CalamityMod.NPCs.Ravager.RavagerBody>());
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedBumble, ModContent.NPCType<CalamityMod.NPCs.Bumblebirb.Bumblefuck>());
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedProvidence, ModContent.NPCType<CalamityMod.NPCs.Providence.Providence>());
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedSentinel1, ModContent.NPCType<CalamityMod.NPCs.CeaselessVoid.CeaselessVoid>());
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedSentinel2, ModContent.NPCType<CalamityMod.NPCs.StormWeaver.StormWeaverHead>());
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedSentinel3, ModContent.NPCType<CalamityMod.NPCs.Signus.Signus>());
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedPolterghast, ModContent.NPCType<CalamityMod.NPCs.Polterghast.Polterghast>());
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedBoomerDuke, ModContent.NPCType<CalamityMod.NPCs.OldDuke.OldDuke>());
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedDoG, ModContent.NPCType<CalamityMod.NPCs.DevourerofGods.DevourerofGodsHead>());
-            BossExclam(npc, new int[] { ModContent.NPCType<JellyPriestNPC>() }, CalamityWorld.downedYharon, ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>());
-            if (npc.type == NPCID.WallofFlesh && !Main.hardMode)
+            if (CalValEX.CalamityActive)
             {
-                CalamityMod.NPCs.CalamityGlobalNPC.SetNewShopVariable(new int[] { ModContent.NPCType<NPCs.Oracle.OracleNPC>() }, Main.hardMode);
-            }
-            if (!CalamityWorld.downedPerforator)
-                BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, CalamityWorld.downedHiveMind, ModContent.NPCType<CalamityMod.NPCs.HiveMind.HiveMind>());
-            if (!CalamityWorld.downedHiveMind)
-                BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, CalamityWorld.downedPerforator, ModContent.NPCType<CalamityMod.NPCs.Perforator.PerforatorHive>());
-            BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, CalamityWorld.downedCryogen, ModContent.NPCType<CalamityMod.NPCs.Cryogen.Cryogen>());
-            BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, NPC.downedPlantBoss, NPCID.Plantera);
-            BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, CalamityWorld.downedCalamitas, ModContent.NPCType<CalamityMod.NPCs.Calamitas.CalamitasRun3>());
-            BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, CalamityWorld.downedBumble, ModContent.NPCType<CalamityMod.NPCs.Bumblebirb.Bumblefuck>());
-            BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, CalamityWorld.downedProvidence, ModContent.NPCType<CalamityMod.NPCs.Providence.Providence>());
-            BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, CalamityWorld.downedSentinel3, ModContent.NPCType<CalamityMod.NPCs.Signus.Signus>());
-            BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, CalamityWorld.downedDoG, ModContent.NPCType<CalamityMod.NPCs.DevourerofGods.DevourerofGodsHead>());
-            BossExclam(npc, new int[] { ModContent.NPCType<OracleNPC>() }, CalamityWorld.downedYharon, ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>());*/
+                BossExclam(npc, new int[] { CalValEX.CalamityNPC("SEAHOE") }, CalamityMod.DownedBossSystem.downedBoomerDuke, CalValEX.CalamityNPC("OldDuke"));
+                BossExclam(npc, new int[] { CalValEX.CalamityNPC("SEAHOE") }, CalamityMod.DownedBossSystem.downedSCal, CalValEX.CalamityNPC("SupremeCalamitas"));
 
-            BossExclam(npc, new int[] { ModContent.NPCType<CalamityMod.NPCs.TownNPCs.SEAHOE>() }, CalamityMod.DownedBossSystem.downedBoomerDuke, ModContent.NPCType<CalamityMod.NPCs.OldDuke.OldDuke>());
-            BossExclam(npc, new int[] { ModContent.NPCType<CalamityMod.NPCs.TownNPCs.SEAHOE>() }, CalamityMod.DownedBossSystem.downedSCal, ModContent.NPCType<CalamityMod.NPCs.SupremeCalamitas.SupremeCalamitas>());
+                BossExclam(npc, new int[] { CalValEX.CalamityNPC("DILF") }, CalamityMod.DownedBossSystem.downedSignus, CalValEX.CalamityNPC("Signus"));
 
-            BossExclam(npc, new int[] { ModContent.NPCType<CalamityMod.NPCs.TownNPCs.DILF>() }, CalamityMod.DownedBossSystem.downedSignus, ModContent.NPCType<CalamityMod.NPCs.Signus.Signus>());
+                BossExclam(npc, new int[] { CalValEX.CalamityNPC("THIEF") }, CalamityMod.DownedBossSystem.downedAstrumAureus, CalValEX.CalamityNPC("AstrumAureus"));
 
-            BossExclam(npc, new int[] { ModContent.NPCType<CalamityMod.NPCs.TownNPCs.THIEF>() }, CalamityMod.DownedBossSystem.downedAstrumAureus, ModContent.NPCType<CalamityMod.NPCs.AstrumAureus.AstrumAureus>());
+                BossExclam(npc, new int[] { NPCID.PartyGirl }, CalamityMod.DownedBossSystem.downedPolterghast, CalValEX.CalamityNPC("Polterghast"));
 
-            BossExclam(npc, new int[] { NPCID.PartyGirl }, CalamityMod.DownedBossSystem.downedPolterghast, ModContent.NPCType<CalamityMod.NPCs.Polterghast.Polterghast>());
+                if (npc.type == CalValEX.CalamityNPC("CrabShroom") && Main.LocalPlayer.HasItem(ModContent.ItemType<PutridShroom>()) && NPC.AnyNPCs(CalValEX.CalamityNPC("Crabulon")))
+                {
+                    NPC.NewNPC(npc.GetSource_Death(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Swearshroom>());
+                }
 
-            if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Crabulon.CrabShroom>() && Main.LocalPlayer.HasItem(ModContent.ItemType<PutridShroom>()) && NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.Crabulon.Crabulon>()))
-            {
-                NPC.NewNPC(npc.GetSource_Death(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Swearshroom>());
-            }
+                if (npc.type == CalValEX.CalamityNPC("Signus") && junkoReference)
+                {
+                    Item.NewItem(npc.GetSource_FromAI(), npc.Hitbox, ModContent.ItemType<SuspiciousLookingChineseCrown>());
+                }
 
-            if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Signus.Signus>() && junkoReference)
-            {
-                Item.NewItem(npc.GetSource_FromAI(), npc.Hitbox, ModContent.ItemType<SuspiciousLookingChineseCrown>());
-            }
+                if (npc.type == CalValEX.CalamityNPC("Yharon") && wolfram)
+                {
+                    Item.NewItem(npc.GetSource_FromAI(), npc.Hitbox, ModContent.ItemType<RoverSpindle>());
+                }
 
-            if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>() && wolfram)
-            {
-                Item.NewItem(npc.GetSource_FromAI(), npc.Hitbox, ModContent.ItemType<RoverSpindle>());
-            }
+                if (npc.type == CalValEX.CalamityNPC("AstrumAureus") && geldonSummon)
+                {
+                    Item.NewItem(npc.GetSource_FromAI(), npc.Hitbox, ModContent.ItemType<SpaceJunk>());
+                }
 
-            if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumAureus.AstrumAureus>() && geldonSummon)
-            {
-                Item.NewItem(npc.GetSource_FromAI(), npc.Hitbox, ModContent.ItemType<SpaceJunk>());
-            }
-
-            if (npc.type == ModContent.NPCType<CalamityMod.NPCs.Bumblebirb.Bumblefuck>() && bdogeMount)
-            {
-                Item.NewItem(npc.GetSource_FromAI(), npc.Hitbox, ModContent.ItemType<ExtraFluffyFeatherClump>());
+                if (npc.type == CalValEX.CalamityNPC("Bumblefuck") && bdogeMount)
+                {
+                    Item.NewItem(npc.GetSource_FromAI(), npc.Hitbox, ModContent.ItemType<ExtraFluffyFeatherClump>());
+                }
             }
 
             int droppedMoney = 0;
@@ -1332,7 +1294,7 @@ namespace CalValEX
             if (Main.LocalPlayer.InModBiome(ModContent.GetInstance<Biomes.AstralBlight>()) || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok)
             {
                 //DEUS HEAD
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusHead>())
+                if (npc.type == CalValEX.CalamityNPC("AstrumDeusHead"))
                 {
                     Texture2D deusheadsprite = (ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusHeadOld").Value);
 
@@ -1346,7 +1308,7 @@ namespace CalValEX
                 }
 
                 //DEUS BODY
-                else if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusBody>())
+                else if (npc.type == CalValEX.CalamityNPC("AstrumDeusBody"))
                 {
                     Texture2D deusbodsprite = npc.localAI[3] == 1f ? ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusBodyAltOld").Value : ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusBodyOld").Value;
 
@@ -1360,7 +1322,7 @@ namespace CalValEX
                 }
 
                 //DEUS TAIL
-                else if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusTail>())
+                else if (npc.type == CalValEX.CalamityNPC("AstrumDeusTail"))
                 {
                     Texture2D deustailsprite = ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusTailOld").Value;
 
@@ -1379,7 +1341,7 @@ namespace CalValEX
 
         public override void PostDraw(NPC npc, SpriteBatch spriteBatch, Vector2 screenpos, Color drawColor)
         {
-            if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SlimeGod.SlimeGodCore>() && CalValEX.AprilFoolDay)
+            if (npc.type == CalValEX.CalamityNPC("SlimeGodCore") && CalValEX.AprilFoolDay)
             {
                 Texture2D tidepodgsprite = (ModContent.Request<Texture2D>("CalValEX/ExtraTextures/SlimeGod").Value);
 
@@ -1394,7 +1356,7 @@ namespace CalValEX
             else if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok)
             {
                 //DEUS HEAD
-                if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusHead>())
+                if (npc.type == CalValEX.CalamityNPC("AstrumDeusHead"))
                 {
                     Texture2D deusheadsprite2 = (ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusHeadOld_Glow").Value);
 
@@ -1406,7 +1368,7 @@ namespace CalValEX
                 }
 
                 //DEUS BODY
-                else if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusBody>())
+                else if (npc.type == CalValEX.CalamityNPC("AstrumDeusBody"))
                 {
                     Texture2D deusbodsprite2 = npc.localAI[3] == 1f ? ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusBodyAltOld_Glow").Value : ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusBodyOld_Glow").Value;
 
@@ -1418,7 +1380,7 @@ namespace CalValEX
                 }
 
                 //DEUS TAIL
-                else if (npc.type == ModContent.NPCType<CalamityMod.NPCs.AstrumDeus.AstrumDeusTail>())
+                else if (npc.type == CalValEX.CalamityNPC("AstrumDeusTail"))
                 {
                     Texture2D deustailsprite2 = (ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusTailOld_Glow").Value);
 
@@ -1432,12 +1394,13 @@ namespace CalValEX
         }
 
         //Disable Astral Blight overworld spawns
+        [JITWhenModsEnabled("CalamityMod")]
         public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo LocalPlayer)
         {
             Player player = LocalPlayer.Player;
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-            CalamityMod.CalPlayer.CalamityPlayer calp = player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>();
-            bool noevents = !CalamityMod.Events.AcidRainEvent.AcidRainEventIsOngoing && !Main.eclipse && !Main.snowMoon && !Main.pumpkinMoon && Main.invasionType == 0 && !player.ZoneTowerSolar && !player.ZoneTowerStardust && !player.ZoneTowerVortex & !player.ZoneTowerNebula && !player.ZoneOldOneArmy;
+            bool acid = CalValEX.CalamityActive ? !CalamityMod.Events.AcidRainEvent.AcidRainEventIsOngoing : true;
+            bool noevents = acid && !Main.eclipse && !Main.snowMoon && !Main.pumpkinMoon && Main.invasionType == 0 && !player.ZoneTowerSolar && !player.ZoneTowerStardust && !player.ZoneTowerVortex & !player.ZoneTowerNebula && !player.ZoneOldOneArmy;
             Mod cata;
             ModLoader.TryGetMod("CatalystMod", out cata);
             if (!CalValEXConfig.Instance.CritterSpawns)

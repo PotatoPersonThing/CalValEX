@@ -7,6 +7,7 @@ using CalamityMod.Projectiles.Magic;
 
 namespace CalValEX.Projectiles
 {
+    [ExtendsFromMod("CalamityMod")]
     public class JharimKiller : SeethingDischargeBrimstoneHellblast
     {
         public override string Texture => "CalamityMod/Projectiles/Boss/BrimstoneHellblast";

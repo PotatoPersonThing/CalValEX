@@ -103,6 +103,7 @@ namespace CalValEX.AprilFools.Jharim
             }
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
             if (!CalValEX.AprilFoolMonth || !CalValEX.CalamityActive)
@@ -394,6 +395,7 @@ namespace CalValEX.AprilFools.Jharim
             }
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void OnChatButtonClicked(bool firstButton, ref bool shop)
         {
             if (!MELDOSAURUSED)
@@ -406,7 +408,7 @@ namespace CalValEX.AprilFools.Jharim
                         boss = false;
                     }
                 }
-                else if (!firstButton)
+                else if (!firstButton && CalValEX.CalamityActive)
                 {
                     {
                         if (Main.myPlayer == Main.LocalPlayer.whoAmI)
@@ -487,13 +489,14 @@ namespace CalValEX.AprilFools.Jharim
             randExtraCooldown = 20;
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            if (!MELDOSAURUSED)
+            if (!MELDOSAURUSED && CalValEX.CalamityActive)
                 projType = ModContent.ProjectileType<JharimLaser>();
 
                     else
-                        projType = CalValEX.CalamityProjectile("NobodyKnows");
+                        projType = ProjectileID.None;
             attackDelay = 1;
             return;
         }

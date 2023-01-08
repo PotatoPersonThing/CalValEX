@@ -25,9 +25,9 @@ namespace CalValEX
         public bool isCalValPet;
         public override bool PreDraw(Projectile projectile, ref Color drawColor)
         {
-            if (CalValEXWorld.RockshrinEX)
+            if (CalValEXWorld.RockshrinEX && CalValEX.CalamityActive)
             {
-                if (projectile.type == ModContent.ProjectileType<CalamityMod.Projectiles.Boss.BrimstoneMonster>())
+                if (projectile.type == CalValEX.CalamityProjectile("BrimstoneMonster"))
                 {
                     Texture2D deusheadsprite = ModContent.Request<Texture2D>("CalValEX/Projectiles/BrimstoneMonster").Value;
 
@@ -69,7 +69,7 @@ namespace CalValEX
 
             if (proj.owner == Main.myPlayer && proj.type == Terraria.ID.ProjectileID.PureSpray)
                 PureConvert((int)(proj.position.X + proj.width / 2) / 16, (int)(proj.position.Y + proj.height / 2) / 16, 2);
-            if (proj.owner == Main.myPlayer && proj.type == ModContent.ProjectileType<CalamityMod.Projectiles.Typeless.AstralSpray>())
+            if (CalValEX.CalamityActive && proj.owner == Main.myPlayer && proj.type == CalValEX.CalamityProjectile("AstralSpray"))
                 InfectionConvert((int)(proj.position.X + proj.width / 2) / 16, (int)(proj.position.Y + proj.height / 2) / 16, 2);
 			if (proj.owner == Main.myPlayer && (proj.type == ProjectileID.CorruptSpray || proj.type == ProjectileID.CrimsonSpray || proj.type == ProjectileID.HallowSpray))
 				VoidConvert((int)(proj.position.X + proj.width / 2) / 16, (int)(proj.position.Y + proj.height / 2) / 16, 2);
@@ -263,57 +263,60 @@ namespace CalValEX
 
 		public void InfectionConvert(int i, int j, int size = 4)
 		{
-			for (int k = i - size; k <= i + size; k++)
+			if (CalValEX.CalamityActive)
 			{
-				for (int l = j - size; l <= j + size; l++)
+				for (int k = i - size; k <= i + size; k++)
 				{
-					if (WorldGen.InWorld(k, l, 1) && Math.Abs(k - i) + Math.Abs(l - j) < Math.Sqrt(size * size + size * size))
+					for (int l = j - size; l <= j + size; l++)
 					{
-						int type = Main.tile[k, l].TileType;
-						int typemed = Main.tile[k - 1, l].TileType;
-						int wall = Main.tile[k, l].WallType;
+						if (WorldGen.InWorld(k, l, 1) && Math.Abs(k - i) + Math.Abs(l - j) < Math.Sqrt(size * size + size * size))
+						{
+							int type = Main.tile[k, l].TileType;
+							int typemed = Main.tile[k - 1, l].TileType;
+							int wall = Main.tile[k, l].WallType;
 
-						if (type == ModContent.TileType<AstralTreeWoodPlaced>())
-						{
-							Main.tile[k, l].TileType = (ushort)ModContent.TileType<CalamityMod.Tiles.Astral.AstralMonolith>();
-							WorldGen.SquareTileFrame(k, l, true);
-							NetMessage.SendTileSquare(-1, k, l, 1);
-							break;
-						}
-						else if (type == ModContent.TileType<AstralGrassPlaced>())
-						{
-							Main.tile[k, l].TileType = (ushort)ModContent.TileType<CalamityMod.Tiles.Astral.AstralGrass>();
-							WorldGen.SquareTileFrame(k, l, true);
-							NetMessage.SendTileSquare(-1, k, l, 1);
-							break;
-						}
-						else if (type == ModContent.TileType<AstralDirtPlaced>())
-						{
-							Main.tile[k, l].TileType = (ushort)ModContent.TileType<CalamityMod.Tiles.Astral.AstralDirt>();
-							WorldGen.SquareTileFrame(k, l, true);
-							NetMessage.SendTileSquare(-1, k, l, 1);
-							break;
-						}
-						else if (type == ModContent.TileType<AstralClayPlaced>())
-						{
-							Main.tile[k, l].TileType = (ushort)ModContent.TileType<CalamityMod.Tiles.Astral.AstralClay>();
-							WorldGen.SquareTileFrame(k, l, true);
-							NetMessage.SendTileSquare(-1, k, l, 1);
-							break;
-						}
-						else if (type == ModContent.TileType<AstralSnowPlaced>())
-						{
-							Main.tile[k, l].TileType = (ushort)ModContent.TileType<CalamityMod.Tiles.AstralSnow.AstralSnow>();
-							WorldGen.SquareTileFrame(k, l, true);
-							NetMessage.SendTileSquare(-1, k, l, 1);
-							break;
-						}
-						if (wall == ModContent.WallType<AstralDirtWallPlaced>())
-						{
-							Main.tile[k, l].WallType = (ushort)ModContent.WallType<CalamityMod.Walls.AstralDirtWall>();
-							WorldGen.SquareWallFrame(k, l, true);
-							NetMessage.SendTileSquare(-1, k, l, 1);
-							break;
+							if (type == ModContent.TileType<AstralTreeWoodPlaced>())
+							{
+								Main.tile[k, l].TileType = (ushort)CalValEX.CalamityTile("AstralMonolith");
+								WorldGen.SquareTileFrame(k, l, true);
+								NetMessage.SendTileSquare(-1, k, l, 1);
+								break;
+							}
+							else if (type == ModContent.TileType<AstralGrassPlaced>())
+							{
+								Main.tile[k, l].TileType = (ushort)CalValEX.CalamityTile("AstralGrass");
+								WorldGen.SquareTileFrame(k, l, true);
+								NetMessage.SendTileSquare(-1, k, l, 1);
+								break;
+							}
+							else if (type == ModContent.TileType<AstralDirtPlaced>())
+							{
+								Main.tile[k, l].TileType = (ushort)CalValEX.CalamityTile("AstralDirt");
+								WorldGen.SquareTileFrame(k, l, true);
+								NetMessage.SendTileSquare(-1, k, l, 1);
+								break;
+							}
+							else if (type == ModContent.TileType<AstralClayPlaced>())
+							{
+								Main.tile[k, l].TileType = (ushort)CalValEX.CalamityTile("AstralClay");
+								WorldGen.SquareTileFrame(k, l, true);
+								NetMessage.SendTileSquare(-1, k, l, 1);
+								break;
+							}
+							else if (type == ModContent.TileType<AstralSnowPlaced>())
+							{
+								Main.tile[k, l].TileType = (ushort)CalValEX.CalamityTile("AstralSnow");
+								WorldGen.SquareTileFrame(k, l, true);
+								NetMessage.SendTileSquare(-1, k, l, 1);
+								break;
+							}
+							if (wall == ModContent.WallType<AstralDirtWallPlaced>())
+							{
+								Main.tile[k, l].WallType = (ushort)CalValEX.CalamityWall("AstralDirtWall");
+								WorldGen.SquareWallFrame(k, l, true);
+								NetMessage.SendTileSquare(-1, k, l, 1);
+								break;
+							}
 						}
 					}
 				}
@@ -370,16 +373,22 @@ namespace CalValEX
 				}
 			}
 		}
+
 		public override bool? CanHitNPC(Projectile projectile, NPC target)
-        	{
-            		if (projectile.type == ModContent.ProjectileType<CalamityMod.Projectiles.Ranged.CosmicFire>() && target.type == ModContent.NPCType< AprilFools.Jharim.Jharim >())
-            		{
-                		return true;
-            		}
-            		else
-            		{
-                	return null;
-            		}
-        	}
+        {
+			if (CalValEX.CalamityActive)
+			{
+				if (projectile.type == CalValEX.CalamityProjectile("CosmicFire") && target.type == ModContent.NPCType<AprilFools.Jharim.Jharim>())
+				{
+					return true;
+				}
+				else
+				{
+					return null;
+				}
+			}
+			else
+				return null;
+        }
     }
 }

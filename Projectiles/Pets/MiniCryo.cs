@@ -1,8 +1,7 @@
 ﻿using Terraria;
-using CalamityMod.Particles;
+using Terraria.ModLoader;
 using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -48,6 +47,7 @@ namespace CalValEX.Projectiles.Pets
                 Projectile.timeLeft = 2;
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void CustomBehaviour(Player player, ref int state, float flyingSpeed, float flyingInertia)
         {
             Vector2 vectorToOwner = player.Center - Projectile.Center;
@@ -55,9 +55,9 @@ namespace CalValEX.Projectiles.Pets
             Vector2 placementrun = new Vector2(Projectile.Center.X + Main.rand.Next(-5, 5), Projectile.Center.Y + Main.rand.Next(-6, 6));
             if ((Math.Abs(Projectile.velocity.X) > 5 || Math.Abs(Projectile.velocity.Y) > 5) && Main.rand.Next(2) == 0)
             {
-                Particle mist = new MediumMistParticle(placementrun, Vector2.Zero, new Color(172, 238, 255), new Color(145, 170, 188), Main.rand.NextFloat(0.15f, 0.45f), 245 - Main.rand.Next(50), 0.02f);
+                CalamityMod.Particles.Particle mist = new CalamityMod.Particles.MediumMistParticle(placementrun, Vector2.Zero, new Color(172, 238, 255), new Color(145, 170, 188), Main.rand.NextFloat(0.15f, 0.45f), 245 - Main.rand.Next(50), 0.02f);
                 mist.Velocity = (mist.Position - Projectile.Center) * 0.2f + Projectile.velocity;
-                GeneralParticleHandler.SpawnParticle(mist);
+                CalamityMod.Particles.GeneralParticleHandler.SpawnParticle(mist);
             }
         }
     }

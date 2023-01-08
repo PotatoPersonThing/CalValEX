@@ -13,13 +13,12 @@ namespace CalValEX.NPCs.Critters
 {
     public class OrthoceraApparition : ModNPC
     {
-        public override string Texture => "CalamityMod/NPCs/AcidRain/Orthocera";
-
         public override void SetStaticDefaults()
         {
             NPCID.Sets.CantTakeLunchMoney[Type] = true;
             Main.npcFrameCount[NPC.type] = 5;
         }
+        [JITWhenModsEnabled("CalamityMod")]
         public override void SetDefaults()
         {
             NPC.width = 62;
@@ -35,11 +34,6 @@ namespace CalValEX.NPCs.Critters
             NPC.chaseable = false;
             AIType = -1;
             NPC.npcSlots = 0.25f;
-            for (int i = 0; i < NPC.buffImmune.Length; i++)
-            {
-                NPC.buffImmune[ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.SulphuricPoisoning>()] = false;
-            }
-            SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.SulphurousSeaBiome>().Type };
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -63,8 +57,14 @@ namespace CalValEX.NPCs.Critters
         bool soundplayed = false;
         bool orthogod = false;
         int orthocount = 0;
+        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
+            if (CalValEX.CalamityActive)
+            {
+                SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.SulphurousSeaBiome>().Type };
+            }
+
             NPC.spriteDirection = -NPC.direction;
 
             Player player = Main.LocalPlayer;
@@ -136,11 +136,10 @@ namespace CalValEX.NPCs.Critters
             }
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            //Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            //Mod clamMod = ModLoader.GetMod("CalamityMod"); 
-            //if (clamMod != null)
+            if (CalValEX.CalamityActive)
             {
                 if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneSulphur && CalamityMod.DownedBossSystem.downedSCal && CalamityMod.DownedBossSystem.downedExoMechs && !NPC.AnyNPCs(ModContent.NPCType<OrthoceraApparition>()) && !CalValEXWorld.orthofound)
                 {

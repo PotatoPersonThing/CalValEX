@@ -75,7 +75,7 @@ namespace CalValEX.Tiles.MiscFurniture
                 {
                     feed = true;
                     Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath13);
-                    Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ItemID.Sandstone, Main.rand.Next(6, 21));
+                    Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, CalValEX.CalamityItem("SulphurousSandstone"), Main.rand.Next(6, 21));
                 }
                 if (choketimer == 460)
                 {

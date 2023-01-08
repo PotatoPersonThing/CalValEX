@@ -30,8 +30,8 @@ namespace CalValEX.Tiles.MiscFurniture
 
 		public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
 		{
-			Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModContent.ItemType<CalamityMod.Items.Rock>(), 1);
-			Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModContent.ItemType<CalamityMod.Items.SummonItems.Terminus>(), 1);
+			Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, CalValEX.CalamityItem("Rock"), 1);
+			Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, CalValEX.CalamityItem("Terminus"), 1);
 			CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
 			CalValEXWorld.RockshrinEX = false;
 			Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModContent.ItemType<TerminusShrine>());

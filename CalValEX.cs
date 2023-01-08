@@ -149,8 +149,11 @@ namespace CalValEX
 
         public override void PostSetupContent()
         {
-            Mod cal = ModLoader.GetMod("CalamityMod");
-            cal.Call("MakeItemExhumable", ModContent.ItemType<RottingCalamitousArtifact>(), ModContent.ItemType<CalamitousSoulArtifact>());
+            if (CalamityActive)
+            {
+                Mod cal = ModLoader.GetMod("CalamityMod");
+                cal.Call("MakeItemExhumable", ModContent.ItemType<RottingCalamitousArtifact>(), ModContent.ItemType<CalamitousSoulArtifact>());
+            }
 
             //Census support
             ModLoader.TryGetMod("Census", out Mod censusMod);

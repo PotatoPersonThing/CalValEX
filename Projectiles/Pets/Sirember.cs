@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 using System.IO;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.Audio;
-using CalamityMod.CalPlayer;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -90,11 +89,12 @@ namespace CalValEX.Projectiles.Pets
                 Projectile.timeLeft = 2;
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void CustomBehaviour(Player player, ref int state, float flyingSpeed, float flyingInertia)
         {
             int time1 = 23600;
             int time2 = 24260;
-            if (player.GetModPlayer<CalamityPlayer>().tFury)
+            if (CalValEX.CalamityActive && player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().tFury)
             {
                 time1 = 600;
                 time2 = 1260;

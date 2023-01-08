@@ -66,11 +66,17 @@ namespace CalValEX.NPCs.JellyPriest
             return "Greetings, land creature! I rise from this old sea in hopes of traveling and finding a certain deity from the old times, from when the sea was a beautiful reign for many. Do you have any hint about where I could find them?";         
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (CalamityMod.DownedBossSystem.downedEoCAcidRain && !CalValEXConfig.Instance.TownNPC && !CalValEXWorld.rescuedjelly && spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneSulphur && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestBound>()) && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestNPC>()))
+            if (CalValEX.CalamityActive)
             {
-                return 0.5f;
+                if (CalamityMod.DownedBossSystem.downedEoCAcidRain && !CalValEXConfig.Instance.TownNPC && !CalValEXWorld.rescuedjelly && spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneSulphur && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestBound>()) && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestNPC>()))
+                {
+                    return 0.5f;
+                }
+                else
+                    return 0;
             }
             else
             {

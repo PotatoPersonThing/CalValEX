@@ -25,9 +25,10 @@ namespace CalValEX.Tiles
             AddMapEntry(new Color(255, 0, 251), name);
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 8, 24, ModContent.ItemType<CalamityMod.Items.SummonItems.CeremonialUrn>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 8, 24, CalValEX.CalamityItem("CeremonialUrn"));
         }
     }
 }

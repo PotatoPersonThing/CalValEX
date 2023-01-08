@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
-using static CalamityMod.CalamityUtils;
-using CalamityMod;
 
 namespace CalValEX.Projectiles.Pets.ExoMechs
 {
@@ -35,13 +33,18 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             Main.projPet[Projectile.type] = true;
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void MoveTowardsIdealPosition()
         {
             //THIS CODE NEEDS CALAMITY 1.5.1.001 STUFF TO WORK PROPERLY!
 
             //If the owner is holding right click, shift its goal from the worms ideal position tothe mouse cursor
-            if (Owner.Calamity().mouseRight && Owner.HeldItem.type == ModContent.ItemType<GunmetalRemote>())
-                RelativeIdealPosition = Owner.Calamity().mouseWorld - Owner.Center;
+            if (CalValEX.CalamityActive)
+            {
+                CalamityMod.CalPlayer.CalamityPlayer calPlayer = Owner.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>();
+                if (calPlayer.mouseRight && Owner.HeldItem.type == ModContent.ItemType<GunmetalRemote>())
+                    RelativeIdealPosition = calPlayer.mouseWorld - Owner.Center;
+            }
 
             //Rotate towards its ideal position
             Projectile.rotation = Projectile.rotation.AngleTowards((IdealPosition - Projectile.Center).ToRotation(), MathHelper.Lerp(MaximumSteerAngle, MinimumSteerAngle, MathHelper.Clamp(Projectile.Distance(IdealPosition) / 80f, 0, 1)));

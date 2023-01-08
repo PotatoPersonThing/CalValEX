@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles
@@ -23,7 +24,16 @@ namespace CalValEX.Items.Tiles
             Item.width = 16;
             Item.height = 28;
             Item.rare = 4;
-            Item.createTile = ModContent.TileType<CalamityMod.Tiles.Abyss.SteamGeyser>();
+        }
+
+        [JITWhenModsEnabled("CalamityMod")]
+        public override bool CanUseItem(Player player)
+        {
+            if (CalValEX.CalamityActive)
+            {
+                Item.createTile = CalValEX.CalamityTile("SteamGeyser");
+            }
+            return true;
         }
     }
 }

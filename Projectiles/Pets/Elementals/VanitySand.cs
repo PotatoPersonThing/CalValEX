@@ -5,7 +5,6 @@ namespace CalValEX.Projectiles.Pets.Elementals
 {
     public class VanitySand : ModFlyingPet
     {
-        public override string Texture => "CalamityMod/Projectiles/Summon/SandElementalMinion";
         public override float TeleportThreshold => 1200f;
 
         public override bool ShouldFlyRotate => false;

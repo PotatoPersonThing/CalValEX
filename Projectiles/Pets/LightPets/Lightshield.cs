@@ -9,7 +9,6 @@ namespace CalValEX.Projectiles.Pets.LightPets
 {
     public class Lightshield : ModProjectile
     {
-        public override string Texture => "CalamityMod/NPCs/Cryogen/CryogenShield";
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Arctic Shield");

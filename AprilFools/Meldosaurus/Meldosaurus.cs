@@ -2,8 +2,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-//using CalamityMod.World;
-//using CalamityMod;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 
@@ -64,8 +62,11 @@ namespace CalValEX.AprilFools.Meldosaurus
 			});
 			}
 		}
+		[JITWhenModsEnabled("CalamityMod")]
 		public override void AI()
 		{
+			if (!CalValEX.CalamityActive)
+				return;
 			CalValEXGlobalNPC.meldodon = NPC.whoAmI;
 			//Die if it isnt april
 			//Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");

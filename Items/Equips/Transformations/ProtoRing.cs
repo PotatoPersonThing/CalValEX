@@ -38,19 +38,6 @@ namespace CalValEX.Items.Equips.Transformations
 				}
 			}
 		}
-		/*public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			Mod calamityMod = ModLoader.GetMod("CalamityMod");
-			if (calamityMod != null)
-			{
-				recipe.AddIngredient(calamityMod.ItemType("MysteriousCircuitry"), 18);
-				recipe.AddIngredient(calamityMod.ItemType("DubiousPlating"), 47);
-				recipe.AddTile(TileID.Anvils);
-				recipe.SetResult(this);
-				recipe.AddRecipe();
-			}
-		}*/
 		public override void Load()
 		{
 			if (Main.netMode != NetmodeID.Server)

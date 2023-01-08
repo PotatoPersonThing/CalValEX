@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using CalamityMod;
 using Terraria.ModLoader;
 
 namespace CalValEX.Items.Pets.ExoMechs
@@ -55,11 +54,14 @@ namespace CalValEX.Items.Pets.ExoMechs
         }
 
         //Listen for the mouseworld & right click from the owner. This is for mp syncing
+        [JITWhenModsEnabled("CalamityMod")]
         public override void HoldItem(Player player)
         {
-            //THIS CODE NEEDS CALAMITY 1.5.1.001 STUFF TO WORK PROPERLY!
-            player.Calamity().rightClickListener = true;
-            player.Calamity().mouseWorldListener = true;
+            if (CalValEX.CalamityActive)
+            {
+                player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().rightClickListener = true;
+                player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().mouseWorldListener = true;
+            }
         }
     }
 }

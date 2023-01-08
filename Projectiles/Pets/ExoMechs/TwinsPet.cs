@@ -4,14 +4,13 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
-using CalamityMod;
 
 namespace CalValEX.Projectiles.Pets.ExoMechs
 {
     public class TwinsPet : ModProjectile
     {
-        internal PrimitiveTrail ArtemisRibbon;
-        internal PrimitiveTrail ApolloRibbon;
+        internal CalamityMod.PrimitiveTrail ArtemisRibbon;
+        internal CalamityMod.PrimitiveTrail ApolloRibbon;
 
         public Vector2[] PositionsApollo;
         public Vector2[] PositionsArtemis;
@@ -127,10 +126,11 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
         }
 
         //STOLED FROM THE REAL ONES???
+        [JITWhenModsEnabled("CalamityMod")]
         public float RibbonTrailWidthFunction(float completionRatio)
         {
             float baseWidth = Utils.GetLerpValue(1f, 0.54f, 1 - completionRatio, true) * 5f;
-            float endTipWidth = CalamityUtils.Convert01To010(Utils.GetLerpValue(0.96f, 0.89f, 1 - completionRatio, true)) * 2.4f;
+            float endTipWidth = CalamityMod.CalamityUtils.Convert01To010(Utils.GetLerpValue(0.96f, 0.89f, 1 - completionRatio, true)) * 2.4f;
             return baseWidth + endTipWidth;
         }
         public Color OrangeRibbonTrailColorFunction(float completionRatio)
@@ -147,6 +147,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
         }
 
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D tex = (ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/ExoMechs/TwinsPet")).Value;
@@ -161,13 +162,16 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             Rectangle artemisFrame = new Rectangle(64, secondPhase ? 54 : 0, 62, 52);
             Vector2 origin = new Vector2(31, 36);
 
-            if (ArtemisRibbon is null)
-                ArtemisRibbon = new PrimitiveTrail(RibbonTrailWidthFunction, OrangeRibbonTrailColorFunction);
-            if (ApolloRibbon is null)
-                ApolloRibbon = new PrimitiveTrail(RibbonTrailWidthFunction, GreenRibbonTrailColorFunction);
+            if (CalValEX.CalamityActive)
+            {
+                if (ArtemisRibbon is null)
+                    ArtemisRibbon = new CalamityMod.PrimitiveTrail(RibbonTrailWidthFunction, OrangeRibbonTrailColorFunction);
+                if (ApolloRibbon is null)
+                    ApolloRibbon = new CalamityMod.PrimitiveTrail(RibbonTrailWidthFunction, GreenRibbonTrailColorFunction);
 
-            ApolloRibbon.Draw(PositionsApollo, Owner.velocity - Main.screenPosition, 66);
-            ArtemisRibbon.Draw(PositionsArtemis, Owner.velocity - Main.screenPosition, 66);
+                ApolloRibbon.Draw(PositionsApollo, Owner.velocity - Main.screenPosition, 66);
+                ArtemisRibbon.Draw(PositionsArtemis, Owner.velocity - Main.screenPosition, 66);
+            }
 
             Main.EntitySpriteDraw(tex, PositionsApollo[TrailLenght - 1] - Main.screenPosition, apolloFrame, lightColor, ApolloRotation, origin, Projectile.scale, 0, 0);
             Main.EntitySpriteDraw(tex, PositionsArtemis[TrailLenght - 1] - Main.screenPosition, artemisFrame, lightColor, ArtemisRotation, origin, Projectile.scale, 0, 0);

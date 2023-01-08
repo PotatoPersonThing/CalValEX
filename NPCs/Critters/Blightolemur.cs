@@ -33,10 +33,6 @@ namespace CalValEX.NPCs.Critters
             NPC.npcSlots = 0.25f;
             NPC.lifeMax = 20;
             NPC.chaseable = false;
-            for (int i = 0; i < NPC.buffImmune.Length; i++)
-            {
-                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.AstralInfectionDebuff>())] = false;
-            }
             Banner = NPC.type;
             BannerItem = ItemType<BleamurBanner>();
             NPC.HitSound = new Terraria.Audio.SoundStyle("CalValEX/Sounds/ViolemurHit");
@@ -90,6 +86,18 @@ namespace CalValEX.NPCs.Critters
             Rectangle minibirbsquare = new Rectangle(0, minibirbheight + 5, minibirbsprite.Width, minibirbsprite.Height / 5);
             SpriteEffects minibirbeffects = (NPC.direction != -1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
             spriteBatch.Draw(minibirbsprite, NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), minibirbsquare, Color.White, NPC.rotation, Utils.Size(minibirbsquare) / 2f, NPC.scale, minibirbeffects, 0f);
+        }
+
+        [JITWhenModsEnabled("CalamityMod")]
+        public override void AI()
+        {
+            if (CalValEX.CalamityActive)
+            {
+                for (int i = 0; i < NPC.buffImmune.Length; i++)
+                {
+                    NPC.buffImmune[CalValEX.CalamityBuff("AstralInfectionDebuff")] = false;
+                }
+            }
         }
     }
 }

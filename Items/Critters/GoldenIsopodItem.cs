@@ -18,14 +18,6 @@ namespace CalValEX.Items.Critters
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.GlowingSnail);
-            if (CalamityMod.DownedBossSystem.downedPolterghast || CalValEXConfig.Instance.IsopodBait)
-            {
-                Item.bait = 75;
-            }
-            else if (!CalamityMod.DownedBossSystem.downedPolterghast && !CalValEXConfig.Instance.IsopodBait)
-            {
-                Item.bait = 1;
-            }
             Item.makeNPC = (short)NPCType<GoldenIsopod>();
             Item.value = Item.sellPrice(0, 20, 0, 0);
         }

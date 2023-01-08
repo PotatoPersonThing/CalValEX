@@ -77,15 +77,15 @@ namespace CalValEX.Tiles.MiscFurniture
             int dust = Dust.NewDust(new Vector2(i, j) * 16f, 5, 5, 1, 0f, 6.315789f, 161, new Color(0, 217, 255), 1.315789f);
             if (Main.LocalPlayer.name == "Bumbledoge")
             {
-                Main.LocalPlayer.AddBuff(BuffID.Wet, 10);
+                Main.LocalPlayer.AddBuff(CalValEX.CalamityBuff("TemporalSadness"), 10);
             }
             else if (Main.LocalPlayer.name == "willowmaine")
             {
-                Main.LocalPlayer.AddBuff(BuffID.Wet, 10);
+                Main.LocalPlayer.AddBuff(CalValEX.CalamityBuff("TemporalSadness"), 10);
             }
             else if (Main.LocalPlayer.name == "Mochi")
             {
-                Main.LocalPlayer.AddBuff(BuffID.BrokenArmor, 10);
+                Main.LocalPlayer.AddBuff(CalValEX.CalamityBuff("TemporalSadness"), 10);
             }
             else
             {
@@ -122,7 +122,7 @@ namespace CalValEX.Tiles.MiscFurniture
                 {
                     feed = true;
                     Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath13);
-                    Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ItemID.Sandstone, Main.rand.Next(6, 21));
+                    Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, CalValEX.CalamityItem("SulphurousSandstone"), Main.rand.Next(6, 21));
                 }
                 if (choketimer == 360)
                 {
@@ -134,20 +134,20 @@ namespace CalValEX.Tiles.MiscFurniture
             }
             if (closer)
             {
-                if (Main.LocalPlayer.HasItem(ItemID.MagicConch))
+                if (Main.LocalPlayer.HasItem(CalValEX.CalamityItem("OrthoceraShell")))
                 {
                     int dust = Dust.NewDust(new Vector2(i, j) * 16f, 5, 5, 1, 0f, 6.315789f, 161, new Color(0, 217, 255), 1.315789f);
                     if (Main.LocalPlayer.name == "Bumbledoge")
                     {
-                        Main.LocalPlayer.AddBuff(BuffID.Wet, 10);
+                        Main.LocalPlayer.AddBuff(CalValEX.CalamityBuff("TemporalSadness"), 10);
                     }
                     else if (Main.LocalPlayer.name == "willowmaine")
                     {
-                        Main.LocalPlayer.AddBuff(BuffID.Wet, 10);
+                        Main.LocalPlayer.AddBuff(CalValEX.CalamityBuff("TemporalSadness"), 10);
                     }
                     else if (Main.LocalPlayer.name == "Mochi")
                     {
-                        Main.LocalPlayer.AddBuff(BuffID.Wet, 10);
+                        Main.LocalPlayer.AddBuff(CalValEX.CalamityBuff("TemporalSadness"), 10);
                     }
                     else
                     {

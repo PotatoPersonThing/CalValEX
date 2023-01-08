@@ -1,12 +1,7 @@
 using CalValEX.Buffs.Transformations;
 using CalValEX.Items.Equips.Transformations;
-using CalamityMod.CalPlayer;
 using System.Collections.Generic;
 using System.IO;
-using CalamityMod.Events;
-using CalamityMod;
-using CalamityMod.DataStructures;
-using CalamityMod.Particles;
 using CalValEX.Items.Equips.Hats.Draedon;
 using CalValEX.Items.Equips.Shirts.Draedon;
 using CalValEX.Items.Equips.Transformations;
@@ -29,10 +24,7 @@ using Terraria.DataStructures;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalamityMod.Items.Accessories;
 using static Terraria.ModLoader.ModContent;
-using static CalamityMod.Events.BossRushEvent;
-using static CalamityMod.CalamityUtils;
 using CalValEX.Items.Equips.Shirts;
 using CalValEX.Items.Equips.Wings;
 
@@ -435,7 +427,7 @@ namespace CalValEX {
                     twinballoon = true;
                 } else if (item.type == ItemType<WulfrumHelipack>()) {
                     helipack = true;
-                } else if (item.type == ItemType<HeartoftheElements>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
+                } else if (item.type == CalValEX.CalamityItem("HeartoftheElements") && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
                     bool brimmyspawned = Player.ownedProjectileCounts[ProjectileType<VanityBrimstone>()] <= 0;
                     bool cloudspawned = Player.ownedProjectileCounts[ProjectileType<VanityCloud>()] <= 0;
                     bool sandspawned = Player.ownedProjectileCounts[ProjectileType<VanitySand>()] <= 0;
@@ -473,28 +465,28 @@ namespace CalValEX {
                         anahitaspawned = false;
                     }
                     vanityhote = true;
-                } else if (item.type == ModContent.ItemType<RoseStone>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
+                } else if (item.type == CalValEX.CalamityItem("RoseStone") && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
                     bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityBrimstone>()] <= 0;
                     if (cryospawned && Player.whoAmI == Main.myPlayer) {
                         Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
                             0f, 0f, ProjectileType<VanityBrimstone>(), 0, 0f, Player.whoAmI);
                     }
                     vanitybrim = true;
-                } else if (item.type == ModContent.ItemType<EyeoftheStorm>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
+                } else if (item.type == CalValEX.CalamityItem("EyeoftheStorm") && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
                     bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityCloud>()] <= 0;
                     if (cryospawned && Player.whoAmI == Main.myPlayer) {
                         Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
                             0f, 0f, ProjectileType<VanityCloud>(), 0, 0f, Player.whoAmI);
                     }
                     vanitycloud = true;
-                } else if (item.type == ModContent.ItemType<WifeinaBottle>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
+                } else if (item.type == CalValEX.CalamityItem("WifeinaBottle") && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
                     bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanitySand>()] <= 0;
                     if (cryospawned && Player.whoAmI == Main.myPlayer) {
                         Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
                             0f, 0f, ProjectileType<VanitySand>(), 0, 0f, Player.whoAmI);
                     }
                     vanitysand = true;
-                } else if (item.type == ModContent.ItemType<WifeinaBottlewithBoobs>() && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
+                } else if (item.type == CalValEX.CalamityItem("WifeinaBottlewithBoobs") && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
                     if (CalValEX.AprilFoolDay) {
                         bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityEarth>()] <= 0;
                         if (cryospawned && Player.whoAmI == Main.myPlayer) {
@@ -511,28 +503,28 @@ namespace CalValEX {
                         }
                         vanityrare = true;
                     }
-                } else if (item.type == ModLoader.GetMod("CalamityMod").Find<ModItem>("PearlofEnthrallment").Type && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
+                } else if (item.type == CalValEX.CalamityItem("PearlofEnthrallment") && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
                     bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityAnahita>()] <= 0;
                     if (cryospawned && Player.whoAmI == Main.myPlayer) {
                         Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
                             0f, 0f, ProjectileType<VanityAnahita>(), 0, 0f, Player.whoAmI);
                     }
                     vanitysiren = true;
-                } else if (item.type == ModContent.ItemType<CryoStone>() && !CalValEXConfig.Instance.ColdShield && antisocial == null && !Main.gameMenu) {
+                } else if (item.type == CalValEX.CalamityItem("CryoStone") && !CalValEXConfig.Instance.ColdShield && antisocial == null && !Main.gameMenu) {
                     bool cryospawned = Player.ownedProjectileCounts[ProjectileType<Lightshield>()] <= 0;
                     if (cryospawned && Player.whoAmI == Main.myPlayer) {
                         Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
                             0f, 0f, ProjectileType<Lightshield>(), 0, 0f, Player.whoAmI);
                     }
                     Lightshield = true;
-                } else if (item.type == ModContent.ItemType<MutatedTruffle>() && !CalValEXConfig.Instance.YoungDukePSS && antisocial == null && !Main.gameMenu) {
+                } else if (item.type == CalValEX.CalamityItem("MutatedTruffle") && !CalValEXConfig.Instance.YoungDukePSS && antisocial == null && !Main.gameMenu) {
                     bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityYoungDuke>()] <= 0;
                     if (cryospawned && Player.whoAmI == Main.myPlayer) {
                         Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
                             0f, 0f, ProjectileType<VanityYoungDuke>(), 0, 0f, Player.whoAmI);
                     }
                     vanityyound = true;
-                } else if (item.type == ModContent.ItemType<FungalClump>() && !CalValEXConfig.Instance.FungusClump && antisocial == null && !Main.gameMenu) {
+                } else if (item.type == CalValEX.CalamityItem("FungalClump") && !CalValEXConfig.Instance.FungusClump && antisocial == null && !Main.gameMenu) {
                     bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityFunClump>()] <= 0;
                     if (cryospawned && Player.whoAmI == Main.myPlayer) {
                         Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
@@ -544,31 +536,31 @@ namespace CalValEX {
             //Despawn vanity elementals and cryo shield if in functional slots
             for (int n = 3; n < 10 + Player.extraAccessorySlots; n++) {
                 Item item = Player.armor[n];
-                if (item.type == ModContent.ItemType<HeartoftheElements>()) {
+                if (item.type == CalValEX.CalamityItem("HeartoftheElements")) {
                     vanityhote = false;
                 }
-                if (item.type == ModContent.ItemType<WifeinaBottle>()) {
+                if (item.type == CalValEX.CalamityItem("WifeinaBottle")) {
                     vanitysand = false;
                 }
-                if (item.type == ModContent.ItemType<WifeinaBottlewithBoobs>()) {
+                if (item.type == CalValEX.CalamityItem("WifeinaBottlewithBoobs")) {
                     vanityrare = false;
                 }
-                if (item.type == ModContent.ItemType<EyeoftheStorm>()) {
+                if (item.type == CalValEX.CalamityItem("EyeoftheStorm")) {
                     vanitycloud = false;
                 }
-                if (item.type == ModContent.ItemType<RoseStone>()) {
+                if (item.type == CalValEX.CalamityItem("RoseStone")) {
                     vanitybrim = false;
                 }
-                if (item.type == ModLoader.GetMod("CalamityMod").Find<ModItem>("PearlofEnthrallment").Type) {
+                if (item.type == CalValEX.CalamityItem("PearlofEnthrallment")) {
                     vanitysiren = false;
                 }
-                if (item.type == ModContent.ItemType<CryoStone>()) {
+                if (item.type == CalValEX.CalamityItem("CryoStone")) {
                     Lightshield = false;
                 }
-                if (item.type == ModContent.ItemType<FungalClump>()) {
+                if (item.type == CalValEX.CalamityItem("FungalClump")) {
                     vanityfunclump = false;
                 }
-                if (item.type == ModContent.ItemType<MutatedTruffle>()) {
+                if (item.type == CalValEX.CalamityItem("MutatedTruffle")) {
                     vanityyound = false;
                 }
             }
@@ -672,6 +664,7 @@ namespace CalValEX {
             morshuTimer = 0;
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void PreUpdate() {
             //Custom player draw frame counters
             int coneflame = 6;
@@ -707,11 +700,11 @@ namespace CalValEX {
             rotdeg = Math.Cos(rotcounter);
             rotsin = -Math.Sin(rotcounter);
 
-            if (wulfrumjam && Main.rand.Next(2) == 0) {
+            if (wulfrumjam && Main.rand.Next(2) == 0 && CalValEX.CalamityActive) {
                 Vector2 smokeOffset = new Vector2(22 * Player.direction, 6);
-                Particle smoke = new SmallSmokeParticle(Player.Center - smokeOffset, Vector2.Zero, Color.GreenYellow, new Color(40, 40, 40), Main.rand.NextFloat(0.4f, 0.8f), 145 - Main.rand.Next(50));
+                CalamityMod.Particles.Particle smoke = new CalamityMod.Particles.SmallSmokeParticle(Player.Center - smokeOffset, Vector2.Zero, Color.GreenYellow, new Color(40, 40, 40), Main.rand.NextFloat(0.4f, 0.8f), 145 - Main.rand.Next(50));
                 smoke.Velocity = (smoke.Position - Player.Center) * 0.3f + Player.velocity;
-                GeneralParticleHandler.SpawnParticle(smoke);
+                CalamityMod.Particles.GeneralParticleHandler.SpawnParticle(smoke);
             }
         }
 
@@ -936,7 +929,7 @@ namespace CalValEX {
         public override void OnHitByNPC(NPC npc, int damage, bool crit) {
             DoCalamityBabyThings(damage);
 
-            if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SupremeCalamitas.SupremeCalamitas>() && Player.immuneTime <= 0) {
+            if (npc.type == CalValEX.CalamityNPC("SupremeCalamitas") && Player.immuneTime <= 0) {
                 SCalHits++;
             }
         }
@@ -946,8 +939,10 @@ namespace CalValEX {
 
             for (int i = 0; i < Main.maxNPCs; i++)
                 if (Main.npc[i].active &&
-                    Main.npc[i].type == ModContent.NPCType<CalamityMod.NPCs.SupremeCalamitas.SupremeCalamitas>()) {
-                    if (Player.immuneTime <= 0) {
+                    Main.npc[i].type == CalValEX.CalamityNPC("SupremeCalamitas")) 
+                    {
+                    if (Player.immuneTime <= 0) 
+                    {
                         SCalHits++;
                     }
                 }
@@ -1000,6 +995,7 @@ namespace CalValEX {
                 }
             }
         }
+        [JITWhenModsEnabled("CalamityMod")]
         public override void CatchFish(FishingAttempt attempt, ref int itemDrop, ref int npcSpawn, ref AdvancedPopupRequest sonar, ref Vector2 sonarPosition) {
             if (Player.ZoneBeach && Main.rand.NextFloat() < 0.021f) {
                 itemDrop = ItemType<Items.Pets.Elementals.StrangeMusicNote>();
@@ -1010,11 +1006,13 @@ namespace CalValEX {
             if (ZoneAstral && Main.rand.NextFloat() < 0.0105f) {
                 itemDrop = ItemType<Items.Tiles.Plants.AstralOldYellow>();
             }
-            if (Player.GetModPlayer<CalamityPlayer>().ZoneSunkenSea && Main.hardMode && Main.rand.NextFloat() < 0.021f) {
+            if (CalValEX.CalamityActive)
+            if (Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneSunkenSea && Main.hardMode && Main.rand.NextFloat() < 0.021f) {
                 itemDrop = ItemType<Items.Tiles.SailfishTrophy>();
             }
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void PostUpdateMiscEffects() {
             bool bossIsAlive2 = false;
             for (int i = 0; i < Main.maxNPCs; i++) {
@@ -1023,43 +1021,13 @@ namespace CalValEX {
                     bossIsAlive2 = true;
                 }
             }
-            if (!bossIsAlive2) {
-                bool useCalMonolith = calMonolith;
-                bool useLeviMonolith = leviMonolith;
-                bool usePBGMonolith = pbgMonolith;
-                bool useProvMonolith = provMonolith;
-                bool useDogMonolith = dogMonolith;
-                bool useYharonMonolith = yharonMonolith;
-                bool useCryogenMonolith = cryoMonolith;
-                bool useExoMonolith = exoMonolith;
-                bool useBRMonolith = brMonolith;
-                bool useScalMonolith = scalMonolith;
+            if (!bossIsAlive2 && CalValEX.CalamityActive) 
+            {
                 bool TerminalMonolith = CalValEXWorld.RockshrinEX;
-                if (calMonolith) {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:CalamitasRun3", useCalMonolith, Player.Center);
-                } else if (leviMonolith) {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:Leviathan", useLeviMonolith, Player.Center);
-                } else if (pbgMonolith) {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:PlaguebringerGoliath", usePBGMonolith, Player.Center);
-                } else if (provMonolith) {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:Providence", useProvMonolith, Player.Center);
-                } else if (dogMonolith) {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:DevourerofGodsHead", useDogMonolith, Player.Center);
-                } else if (yharonMonolith) {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:Yharon", useYharonMonolith, Player.Center);
-                } else if (exoMonolith) {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:ExoMechs", useExoMonolith, Player.Center);
-                } else if (scalMonolith) {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:SupremeCalamitas", useScalMonolith, Player.Center);
-                } else if (CalValEXWorld.RockshrinEX) {
+                if (CalValEXWorld.RockshrinEX) 
+                {
                     CalamityMod.Skies.BossRushSky.ShouldDrawRegularly = true;
                     Player.ManageSpecialBiomeVisuals("CalamityMod:BossRush", TerminalMonolith, Player.Center);
-                } else if (cryoMonolith) {
-                    CalamityMod.Skies.CryogenSky.ShouldDrawRegularly = true;
-                    //Terraria.Graphics.Effects.SkyManager.Instance.Activate("CalamityMod:Cryogen", Player.Center);
-                    CalamityMod.Skies.CryogenSky.UpdateDrawEligibility();
-                    //SkyManager.Instance.Activate("CalamityMod:Cryogen", Player.Center);
-                    //CalamityMod.CryogenSky.UpdateDrawEligibility();
                 }
             }
         }

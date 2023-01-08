@@ -8,8 +8,6 @@ using CalValEX.Walls.AstralUnsafe;
 using CalValEX.Tiles.AstralMisc;
 using CalValEX.Walls.AstralSafe;
 using CalValEX.Dusts;
-using CalamityMod.Tiles.Astral;
-using CalamityMod.Walls;
 
 namespace CalValEX.Projectiles
 {
@@ -71,6 +69,7 @@ namespace CalValEX.Projectiles
 			Projectile.rotation += 0.3f * Projectile.direction;
 		}
 
+		[JITWhenModsEnabled("CalamityMod")]
 		public void Convert(int i, int j, int size = 4) 
         {
 			for (int k = i - size; k <= i + size; k++) {
@@ -81,7 +80,6 @@ namespace CalValEX.Projectiles
 						int type = Main.tile[k, l].TileType;
 						int typemed = Main.tile[k - 1, l].TileType;
 						int wall = Main.tile[k, l].WallType;
-						//Mod CalValEX = ModLoader.GetMod("CalamityMod");
 
 						//Stone
 						if (TileID.Sets.Conversion.Stone[type] || type == TileID.BlueMoss || type == TileID.BrownMoss || type == TileID.LavaMoss || type == TileID.GreenMoss || type == TileID.PurpleMoss || type == TileID.LongMoss || type == TileID.RedMoss) {
@@ -100,21 +98,21 @@ namespace CalValEX.Projectiles
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}
-                        else if (type == ModContent.TileType<AstralDirt>())
+                        else if (CalValEX.CalamityActive && type == CalValEX.CalamityTile("AstralDirt"))
                         {
                             Main.tile[k, l].TileType = (ushort)ModContent.TileType<AstralDirtPlaced>();
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                             break;
                         }
-						else if (type == ModContent.TileType<AstralClay>())
+						else if (CalValEX.CalamityActive && type == CalValEX.CalamityTile("AstralClay"))
                         {
                             Main.tile[k, l].TileType = (ushort)ModContent.TileType<AstralClayPlaced>();
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
                             break;
                         }
-						else if (type == ModContent.TileType<AstralMonolith>())
+						else if (CalValEX.CalamityActive && type == CalValEX.CalamityTile("AstralMonolith"))
 						{
 							Main.tile[k, l].TileType = (ushort)ModContent.TileType<AstralTreeWoodPlaced>();
 							WorldGen.SquareTileFrame(k, l, true);
@@ -252,7 +250,7 @@ namespace CalValEX.Projectiles
 							WorldGen.SquareWallFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}
-						else if (wall == ModContent.WallType<AstralDirtWall>())
+						else if (CalValEX.CalamityActive && wall == CalValEX.CalamityWall("AstralDirtWall"))
 						{
 							Main.tile[k, l].WallType = (ushort)ModContent.WallType<AstralDirtWallPlaced>();
 							WorldGen.SquareWallFrame(k, l, true);

@@ -1,4 +1,5 @@
-﻿using Terraria.ModLoader;
+﻿using Terraria;
+using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles.Blocks
 {
@@ -22,7 +23,16 @@ namespace CalValEX.Items.Tiles.Blocks
             Item.width = 16;
             Item.height = 28;
             Item.rare = 0;
-            Item.createTile = ModContent.TileType<CalamityMod.Tiles.Astral.AstralGrass>();
+        }
+
+        [JITWhenModsEnabled("CalamityMod")]
+        public override bool CanUseItem(Player player)
+        {
+            if (CalValEX.CalamityActive)
+            {
+                Item.createTile = CalValEX.CalamityTile("AstralGrass");
+            }
+            return true;
         }
     }
 }

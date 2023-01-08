@@ -1,12 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 
-namespace CalValEX.Projectiles.Pets.Elementals
+namespace CalValEX.Projectiles.Pets
 {
     public class VanityYoungDuke : ModFlyingPet
     {
-        public override string Texture => "CalamityMod/Projectiles/Summon/YoungDuke";
-
         public override bool ShouldFlyRotate => false;
 
         public override void SetStaticDefaults()

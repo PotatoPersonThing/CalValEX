@@ -6,16 +6,18 @@ using static Terraria.ModLoader.ModContent;
 using CalValEX;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Blocks;
-using CalamityMod.Tiles.FurnitureExo;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace CalValEX.Tiles.Blocks {
-	public class ThanatosPlatingPlaced : ModTile {
+	public class ThanatosPlatingPlaced : ModTile
+	{
+		[JITWhenModsEnabled("CalamityMod")]
 		public override void SetStaticDefaults()  {
 			Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = false;
 			Main.tileMerge[Type][TileType<ThanatosPlatingVentPlaced>()] = true;
-			Main.tileMerge[Type][TileType<ExoPrismPanelTile>()] = true;
+			if (CalValEX.CalamityActive)
+				Main.tileMerge[Type][CalValEX.CalamityTile("ExoPrismPanelTile")] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
 			
@@ -30,12 +32,15 @@ namespace CalValEX.Tiles.Blocks {
 			CalValEXGlobalTile.TileGlowmask(i, j, Request<Texture2D>("CalValEX/Tiles/Blocks/ThanatosPlatingPlaced_Glow").Value, spriteBatch);
 	}
 
-	public class ThanatosPlatingVentPlaced : ModTile {
+	public class ThanatosPlatingVentPlaced : ModTile
+	{
+		[JITWhenModsEnabled("CalamityMod")]
 		public override void SetStaticDefaults() {
 			Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = false;
 			Main.tileMerge[Type][TileType<ThanatosPlatingPlaced>()] = true;
-			Main.tileMerge[Type][TileType<ExoPrismPanelTile>()] = true;
+			if (CalValEX.CalamityActive)
+			Main.tileMerge[Type][CalValEX.CalamityTile("ExoPrismPanelTile")] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
 			

@@ -33,24 +33,14 @@ namespace CalValEX.NPCs.Critters
             NPC.damage = 0;
             NPC.defense = 0;
             NPC.lifeMax = 100;
-            if (CalamityMod.DownedBossSystem.downedProvidence)
-            {
-                NPC.lifeMax = 500;
-            }
             NPC.HitSound = SoundID.NPCHit33;
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.catchItem = (short)ItemType<EyedolItem>();
             NPC.lavaImmune = true;
             NPC.chaseable = false;
-            for (int i = 0; i < NPC.buffImmune.Length; i++)
-            {
-                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.BrimstoneFlames>())] = false;
-                NPC.buffImmune[(BuffID.OnFire)] = false;
-            }
             NPC.npcSlots = 0.25f;
             Banner = NPC.type;
             BannerItem = ItemType<EyedolBanner>();
-            SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.BrimstoneCragsBiome>().Type };
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -96,10 +86,10 @@ namespace CalValEX.NPCs.Critters
             }
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            //Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
-            //if (clamMod != null)
+            if (CalValEX.CalamityActive)
             {
                 if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneCalamity && !CalValEXConfig.Instance.CritterSpawns)
                 {
@@ -107,6 +97,29 @@ namespace CalValEX.NPCs.Critters
                 }
             }
             return 0f;
+        }
+
+        [JITWhenModsEnabled("CalamityMod")]
+        public override void AI()
+        {
+            if (CalValEX.CalamityActive)
+            {
+                if (CalamityMod.DownedBossSystem.downedProvidence)
+                {
+                    NPC.lifeMax = 500;
+                    if (NPC.ai[0] == 0)
+                    {
+                        NPC.life = 500;
+                        NPC.ai[0]++;
+                    }
+                }
+                for (int i = 0; i < NPC.buffImmune.Length; i++)
+                {
+                    NPC.buffImmune[CalValEX.CalamityBuff("BrimstoneFlames")] = false;
+                    NPC.buffImmune[(BuffID.OnFire)] = false;
+                }
+                SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.BrimstoneCragsBiome>().Type };
+            }
         }
     }
 }

@@ -26,9 +26,10 @@ namespace CalValEX.Tiles
             AddMapEntry(new Color(249, 119, 48), name);
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ModContent.ItemType<CalamityMod.Items.TreasureBags.SupremeCalamitasCoffer>());
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, CalValEX.CalamityItem("SupremeCalamitasCoffer"));
         }
     }
 }

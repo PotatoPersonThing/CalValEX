@@ -32,17 +32,12 @@ namespace CalValEX.NPCs.Critters
             NPC.npcSlots = 0.5f;
             NPC.catchItem = (short)ItemType<GAstJRItem>();
             NPC.lavaImmune = false;
-            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.Pinky;
             AnimationType = NPCID.BlueSlime;
             NPC.lifeMax = 100;
             NPC.Opacity = 255;
             NPC.value = 0;
             NPC.chaseable = false;
-            for (int i = 0; i < NPC.buffImmune.Length; i++)
-            {
-                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.AstralInfectionDebuff>())] = false;
-            }
             Banner = NPCType<AstJR>();
             BannerItem = ItemType<AstragellySlimeBanner>();
             SpawnModBiomes = new int[1] { ModContent.GetInstance<Biomes.AstralBlight>().Type };
@@ -58,6 +53,7 @@ namespace CalValEX.NPCs.Critters
 
         public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
             NPC.TargetClosest(false);
@@ -76,6 +72,13 @@ namespace CalValEX.NPCs.Critters
                 {
                     dust = Main.dust[Terraria.Dust.NewDust(positionRight, 13, 11, DustID.GoldCoin, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
                     dust.noGravity = true;
+                }
+            }
+            if (CalValEX.CalamityActive)
+            {
+                for (int i = 0; i < NPC.buffImmune.Length; i++)
+                {
+                    NPC.buffImmune[CalValEX.CalamityBuff("AstralInfectionDebuff")] = false;
                 }
             }
         }

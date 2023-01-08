@@ -5,8 +5,6 @@ namespace CalValEX.Projectiles.Pets.Elementals
 {
     public class VanityCloud : ModFlyingPet
     {
-        public override string Texture => "CalamityMod/NPCs/NormalNPCs/ThiccWaifu";
-
         public override float TeleportThreshold => 1200f;
 
         public override bool ShouldFlyRotate => false;
