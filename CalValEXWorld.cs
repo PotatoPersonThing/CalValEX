@@ -219,7 +219,7 @@ namespace CalValEX
         [JITWhenModsEnabled("CalamityMod")]
         public override void PreUpdateNPCs()
         {
-            /*if (CalValEX.CalamityActive)
+            if (CalValEX.CalamityActive)
             {
                 if (CalamityMod.World.CalamityWorld.revenge || Main.masterMode)
                 {
@@ -233,7 +233,7 @@ namespace CalValEX
             else
             {
                 masorev = false;
-            }*/
+            }
             if (Main.drunkWorld)
             {
                 CalValEX.AprilFoolDay = true;
