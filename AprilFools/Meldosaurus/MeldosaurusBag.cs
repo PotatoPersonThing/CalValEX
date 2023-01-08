@@ -1,7 +1,6 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using CalamityMod;
 using Terraria.GameContent.ItemDropRules;
 
 namespace CalValEX.AprilFools.Meldosaurus
@@ -28,17 +27,17 @@ namespace CalValEX.AprilFools.Meldosaurus
         [JITWhenModsEnabled("CalamityMod")]
 		public override void ModifyItemLoot(ItemLoot itemLoot)
 		{
-            if (!CalValEX.CalamityActive)
-                return;
-
 			itemLoot.Add(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<MeldosaurusMask>(), 7));
-			itemLoot.Add(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<CalamityMod.Items.Materials.MeldBlob>(), 1, 1, 2));
 
-            itemLoot.Add(DropHelper.CalamityStyle(DropHelper.BagWeaponDropRateFraction, new int[]
-            {
-                ModContent.ItemType<Nyanthrop>(),
-                ModContent.ItemType<ShadesBane>()
-            }));
+			/*if (CalValEX.CalamityActive)
+			{
+				itemLoot.Add(ItemDropRule.NotScalingWithLuck(CalValEX.CalamityItem("MeldBlob"), 1, 1, 2));
+				itemLoot.Add(CalamityMod.DropHelper.CalamityStyle(CalamityMod.DropHelper.BagWeaponDropRateFraction, new int[]
+				{
+				ModContent.ItemType<Nyanthrop>(),
+				ModContent.ItemType<ShadesBane>()
+				}));
+			}*/
 
             itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(ModContent.NPCType<Meldosaurus>()));
 		}

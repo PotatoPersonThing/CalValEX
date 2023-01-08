@@ -204,10 +204,13 @@ namespace CalValEX
         {
             // Old Astral tiles
             astralTiles = tileCounts[TileType<AstralDirtPlaced>()] + tileCounts[TileType<AstralGrassPlaced>()] + tileCounts[TileType<XenostonePlaced>()] + tileCounts[TileType<AstralSandPlaced>()] + tileCounts[TileType<AstralHardenedSandPlaced>()] + tileCounts[TileType<AstralSandstonePlaced>()] + tileCounts[TileType<AstralClayPlaced>()] + tileCounts[TileType<AstralIcePlaced>()] + tileCounts[TileType<AstralSnowPlaced>()];
-            // Hell Lab tiles
-            hellTiles = tileCounts[CalValEX.CalamityTile("Chaosplate")];
-            // Lab tiles
-            labTiles = tileCounts[CalValEX.CalamityTile("LaboratoryPlating")] + tileCounts[CalValEX.CalamityTile("LaboratoryPanels")] + tileCounts[CalValEX.CalamityTile("RustedPlating")] + tileCounts[CalValEX.CalamityTile("LaboratoryPipePlating")] + tileCounts[CalValEX.CalamityTile("RustedPipes")];
+            if (CalValEX.CalamityActive)
+            {
+                // Hell Lab tiles
+                hellTiles = tileCounts[CalValEX.CalamityTile("Chaosplate")];
+                // Lab tiles
+                labTiles = tileCounts[CalValEX.CalamityTile("LaboratoryPlating")] + tileCounts[CalValEX.CalamityTile("LaboratoryPanels")] + tileCounts[CalValEX.CalamityTile("RustedPlating")] + tileCounts[CalValEX.CalamityTile("LaboratoryPipePlating")] + tileCounts[CalValEX.CalamityTile("RustedPipes")];
+            }
             //Dungeon tiles
             dungeontiles = tileCounts[TileID.BlueDungeonBrick] + tileCounts[TileID.PinkDungeonBrick] + tileCounts[TileID.GreenDungeonBrick];
         }
@@ -216,7 +219,7 @@ namespace CalValEX
         [JITWhenModsEnabled("CalamityMod")]
         public override void PreUpdateNPCs()
         {
-            if (CalValEX.CalamityActive)
+            /*if (CalValEX.CalamityActive)
             {
                 if (CalamityMod.World.CalamityWorld.revenge || Main.masterMode)
                 {
@@ -230,7 +233,7 @@ namespace CalValEX
             else
             {
                 masorev = false;
-            }
+            }*/
             if (Main.drunkWorld)
             {
                 CalValEX.AprilFoolDay = true;
