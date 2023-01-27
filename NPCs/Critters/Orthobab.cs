@@ -60,7 +60,7 @@ namespace CalValEX.NPCs.Critters
         {
             if (CalValEX.CalamityActive)
             {
-                if ((bool)ModLoader.GetMod("CalamityMod").Call("GetZone", spawnInfo.Player, "sulphursea") && !CalValEXConfig.Instance.CritterSpawns)
+                if ((bool)ModLoader.GetMod("CalamityMod").Call("GetInZone", spawnInfo.Player, "sulphursea") && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     return 0.15f;
                 }
