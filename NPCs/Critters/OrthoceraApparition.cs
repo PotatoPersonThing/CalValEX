@@ -62,7 +62,7 @@ namespace CalValEX.NPCs.Critters
         {
             if (CalValEX.CalamityActive)
             {
-                SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.SulphurousSeaBiome>().Type };
+                //SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.SulphurousSeaBiome>().Type };
             }
 
             NPC.spriteDirection = -NPC.direction;
@@ -141,9 +141,13 @@ namespace CalValEX.NPCs.Critters
         {
             if (CalValEX.CalamityActive)
             {
-                if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneSulphur && CalamityMod.DownedBossSystem.downedSCal && CalamityMod.DownedBossSystem.downedExoMechs && !NPC.AnyNPCs(ModContent.NPCType<OrthoceraApparition>()) && !CalValEXWorld.orthofound)
+                Mod cal = ModLoader.GetMod("CalamityMod");
+                if ((bool)cal.Call("getbossdowned", "scal") && (bool)cal.Call("getbossdowned", "exomechs") && !NPC.AnyNPCs(ModContent.NPCType<OrthoceraApparition>()) && !CalValEXWorld.orthofound)
                 {
-                    return 5f;
+                    if ((bool)cal.Call("GetZone", spawnInfo.Player, "layer4"))
+                    {
+                        return 5f;
+                    }
                 }
             }
             return 0f;

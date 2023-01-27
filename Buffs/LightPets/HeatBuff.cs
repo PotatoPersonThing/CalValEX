@@ -14,8 +14,11 @@ namespace CalValEX.Buffs.LightPets
 
         public override void Update(Player player, ref int buffIndex)
         {
-            Mod clamMod = ModLoader.GetMod("CalamityMod");
-            clamMod.Call("AddAbyssLightStrength", Main.player[Main.myPlayer], 2);
+            if (CalValEX.CalamityActive)
+            {
+                Mod clamMod = ModLoader.GetMod("CalamityMod");
+                clamMod.Call("AddAbyssLightStrength", Main.player[Main.myPlayer], 2);
+            }
             player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().mHeat = true;
             bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<HeatPet>()] <= 0;

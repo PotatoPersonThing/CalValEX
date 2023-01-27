@@ -56,7 +56,7 @@ namespace CalValEX.NPCs.Critters
         {
             if (CalValEX.CalamityActive)
             {
-                if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneAbyssLayer4 && !CalValEXConfig.Instance.CritterSpawns)
+                if ((bool)ModLoader.GetMod("CalamityMod").Call("GetZone", spawnInfo.Player, "layer4") && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     if (spawnInfo.Water)
                     {
@@ -89,7 +89,7 @@ namespace CalValEX.NPCs.Critters
                 {
                     NPC.buffImmune[CalValEX.CalamityBuff("CrushDepth")] = false;
                 }
-                SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.AbyssLayer4Biome>().Type };
+                //SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.AbyssLayer4Biome>().Type };
             }
         }
     }

@@ -45,7 +45,7 @@ namespace CalValEX.NPCs.Critters
             NPC.Opacity = 255;
             NPC.value = 0;
             NPC.chaseable = false;
-            SpawnModBiomes = new int[1] { ModContent.GetInstance<Biomes.AstralBlight>().Type };
+            //SpawnModBiomes = new int[1] { ModContent.GetInstance<Biomes.AstralBlight>().Type };
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)

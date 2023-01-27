@@ -1,4 +1,3 @@
-using CalamityMod;
 using CalValEX.Items;
 using CalValEX.Items.Critters;
 using CalValEX.Items.Equips.Backs;

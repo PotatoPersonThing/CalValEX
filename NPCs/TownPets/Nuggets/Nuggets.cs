@@ -261,7 +261,7 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
             return ModContent.Request<Texture2D>("CalValEX/NPCs/TownPets/Nuggets/FollyNugget");
         }
 
-        public int GetHeadTextureIndex(NPC npc) => ModContent.GetModHeadSlot("CalValEX/NPCs/TownPets/Nuggets/FollyNuggetHead");
+        public int GetHeadTextureIndex(NPC npc) => ModContent.GetModHeadSlot("CalValEX/NPCs/TownPets/Nuggets/FollyNugget_Head");
     }
     #endregion
 

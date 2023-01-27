@@ -216,12 +216,11 @@ namespace CalValEX
         }
         #endregion
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void PreUpdateNPCs()
         {
             if (CalValEX.CalamityActive)
             {
-                if (CalamityMod.World.CalamityWorld.revenge || Main.masterMode)
+                if ((bool)ModLoader.GetMod("CalamityMod").Call("GetDifficultyActive", "revengeance") || Main.masterMode)
                 {
                     masorev = true;
                 }

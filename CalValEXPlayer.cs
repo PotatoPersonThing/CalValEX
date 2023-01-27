@@ -701,10 +701,10 @@ namespace CalValEX {
             rotsin = -Math.Sin(rotcounter);
 
             if (wulfrumjam && Main.rand.Next(2) == 0 && CalValEX.CalamityActive) {
-                Vector2 smokeOffset = new Vector2(22 * Player.direction, 6);
+                /*Vector2 smokeOffset = new Vector2(22 * Player.direction, 6);
                 CalamityMod.Particles.Particle smoke = new CalamityMod.Particles.SmallSmokeParticle(Player.Center - smokeOffset, Vector2.Zero, Color.GreenYellow, new Color(40, 40, 40), Main.rand.NextFloat(0.4f, 0.8f), 145 - Main.rand.Next(50));
                 smoke.Velocity = (smoke.Position - Player.Center) * 0.3f + Player.velocity;
-                CalamityMod.Particles.GeneralParticleHandler.SpawnParticle(smoke);
+                CalamityMod.Particles.GeneralParticleHandler.SpawnParticle(smoke);*/
             }
         }
 
@@ -1007,7 +1007,7 @@ namespace CalValEX {
                 itemDrop = ItemType<Items.Tiles.Plants.AstralOldYellow>();
             }
             if (CalValEX.CalamityActive)
-            if (Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneSunkenSea && Main.hardMode && Main.rand.NextFloat() < 0.021f) {
+            if ((bool)ModLoader.GetMod("CalamityMod").Call("getinzone", Player, "sunkensea") && Main.hardMode && Main.rand.NextFloat() < 0.021f) {
                 itemDrop = ItemType<Items.Tiles.SailfishTrophy>();
             }
         }
@@ -1026,8 +1026,9 @@ namespace CalValEX {
                 bool TerminalMonolith = CalValEXWorld.RockshrinEX;
                 if (CalValEXWorld.RockshrinEX) 
                 {
+                    /*
                     CalamityMod.Skies.BossRushSky.ShouldDrawRegularly = true;
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:BossRush", TerminalMonolith, Player.Center);
+                    Player.ManageSpecialBiomeVisuals("CalamityMod:BossRush", TerminalMonolith, Player.Center);*/
                 }
             }
         }

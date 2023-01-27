@@ -48,8 +48,7 @@ namespace CalValEX.NPCs.Critters
             NPC.chaseable = false;
             Banner = NPC.type;
             BannerItem = ItemType<AstragellySlimeBanner>();
-            if (CalValEX.CalamityActive)
-            SpawnModBiomes = new int[1] { ModContent.GetInstance<Biomes.AstralBlight>().Type };
+            //SpawnModBiomes = new int[1] { ModContent.GetInstance<Biomes.AstralBlight>().Type };
         }
 
         [JITWhenModsEnabled("CalamityMod")]

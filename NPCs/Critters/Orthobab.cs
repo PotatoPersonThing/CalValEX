@@ -60,7 +60,7 @@ namespace CalValEX.NPCs.Critters
         {
             if (CalValEX.CalamityActive)
             {
-                if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneSulphur && !CalValEXConfig.Instance.CritterSpawns)
+                if ((bool)ModLoader.GetMod("CalamityMod").Call("GetZone", spawnInfo.Player, "sulphursea") && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     return 0.15f;
                 }
@@ -78,7 +78,7 @@ namespace CalValEX.NPCs.Critters
                     NPC.buffImmune[CalValEX.CalamityBuff("SulphuricPoisoning")] = false;
                 }
 
-                SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.SulphurousSeaBiome>().Type };
+                //SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.SulphurousSeaBiome>().Type };
             }
         }
         // TODO: Hooks for Collision_MoveSnailOnSlopes and NPC.aiStyle = 67 problem

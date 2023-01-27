@@ -40,7 +40,7 @@ namespace CalValEX.NPCs.Critters
             NPC.chaseable = false;
             Banner = NPCType<AstJR>();
             BannerItem = ItemType<AstragellySlimeBanner>();
-            SpawnModBiomes = new int[1] { ModContent.GetInstance<Biomes.AstralBlight>().Type };
+            //SpawnModBiomes = new int[1] { ModContent.GetInstance<Biomes.AstralBlight>().Type };
         }
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
         {

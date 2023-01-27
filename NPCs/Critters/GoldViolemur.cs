@@ -80,7 +80,7 @@ namespace CalValEX.NPCs.Critters
                 {
                     NPC.buffImmune[CalValEX.CalamityBuff("AstralInfectionDebuff")] = false;
                 }
-                SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.AbovegroundAstralBiome>().Type };
+                //SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.AbovegroundAstralBiome>().Type };
             }
         }
 
@@ -89,7 +89,7 @@ namespace CalValEX.NPCs.Critters
         {
             if (CalValEX.CalamityActive)
             {
-                if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneAstral && !CalValEXConfig.Instance.CritterSpawns)
+                if ((bool)ModLoader.GetMod("CalamityMod").Call("GetZone", spawnInfo.Player, "astral") && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     if (spawnInfo.PlayerSafe)
                     {

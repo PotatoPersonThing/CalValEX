@@ -53,7 +53,7 @@ namespace CalValEX.NPCs.Critters
         {
             if (CalValEX.CalamityActive)
             {
-                if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneSulphur && !CalValEXConfig.Instance.CritterSpawns)
+                if ((bool)ModLoader.GetMod("CalamityMod").Call("GetZone", spawnInfo.Player, "sulphursea") && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     if (spawnInfo.Player.ZoneOverworldHeight)
                     {
@@ -81,7 +81,7 @@ namespace CalValEX.NPCs.Critters
                 {
                     NPC.buffImmune[CalValEX.CalamityBuff("SulphuricPoisoning")] = false;
                 }
-                SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.SulphurousSeaBiome>().Type };
+                //SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.SulphurousSeaBiome>().Type };
             }
             if (Main.rand.NextFloat() < 0.3421053f)
             {

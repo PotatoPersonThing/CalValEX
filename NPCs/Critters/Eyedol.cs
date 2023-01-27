@@ -91,7 +91,7 @@ namespace CalValEX.NPCs.Critters
         {
             if (CalValEX.CalamityActive)
             {
-                if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneCalamity && !CalValEXConfig.Instance.CritterSpawns)
+                if ((bool)ModLoader.GetMod("CalamityMod").Call("GetZone", spawnInfo.Player, "crags") && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     return 0.35f;
                 }
@@ -118,7 +118,7 @@ namespace CalValEX.NPCs.Critters
                     NPC.buffImmune[CalValEX.CalamityBuff("BrimstoneFlames")] = false;
                     NPC.buffImmune[(BuffID.OnFire)] = false;
                 }
-                SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.BrimstoneCragsBiome>().Type };
+                //SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.BrimstoneCragsBiome>().Type };
             }
         }
     }
