@@ -211,12 +211,12 @@ namespace CalValEX.NPCs.JellyPriest
                 }
             }
 
-            if (DownedBossSystem.downedSCal && Main.rand.NextFloat() < 0.25f)
+            if (DownedBossSystem.downedCalamitas && Main.rand.NextFloat() < 0.25f)
             {
                     return "Yeesh, through all of your adventures, I've stocked up quite the inventory!";
             }
 
-            if ((calPlayer.sirenWaifu || calPlayer.elementalHeart || (CalValEXPlayer.vanityhote && !CalValEXConfig.Instance.HeartVanity) || (CalValEXPlayer.vanitysiren && !CalValEXConfig.Instance.HeartVanity)) && Main.rand.NextFloat() < 0.25f)
+            if ((calPlayer.sirenWaifu || calPlayer.elementalHeart || calPlayer.allWaifusVanity || calPlayer.sirenWaifuVanity) && Main.rand.NextFloat() < 0.25f)
             {
                 return "You were successfully able to befriend the grand Water Elemental? I'm impressed.";
             }
@@ -394,7 +394,7 @@ namespace CalValEX.NPCs.JellyPriest
             bool polt = DownedBossSystem.downedPolterghast;
             bool boomer = DownedBossSystem.downedBoomerDuke;
             bool dog = DownedBossSystem.downedDoG;
-            bool scal = DownedBossSystem.downedSCal;
+            bool scal = DownedBossSystem.downedCalamitas;
             bool ass = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral;
             bool sammy = CalValEXWorld.hellTiles > 20 && Main.LocalPlayer.ZoneUnderworldHeight;
 
@@ -436,6 +436,7 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<Items.Tiles.Blocks.AuricBrick>(), Item.buyPrice(0, 1, 50, 0), DownedBossSystem.downedYharon, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPlating>(), Item.buyPrice(0, 2, 0, 0), DownedBossSystem.downedExoMechs, ref shop, ref nextSlot);
                 AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPrismPanel>(), Item.buyPrice(0, 2, 0, 0), DownedBossSystem.downedExoMechs, ref shop, ref nextSlot);
+                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureSacrilegious.OccultBrickItem>(), Item.buyPrice(0, 2, 0, 0), scal, ref shop, ref nextSlot);
             }
             else if (shop2)
             {
@@ -450,7 +451,7 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<Knight>(), Item.buyPrice(0, 0, 95, 0), Main.hardMode, ref shop, ref nextSlot);
                 AddItem(ItemType<DecommissionedDaedalusGolem>(), Item.buyPrice(0, 2, 50, 0), DownedBossSystem.downedCryogen, ref shop, ref nextSlot);
                 AddItem(ItemType<AuroraMonolith>(), Item.buyPrice(0, 4, 0, 0), DownedBossSystem.downedCryogen, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamitousMonolith>(), Item.buyPrice(0, 5, 0, 0), DownedBossSystem.downedCalamitas, ref shop, ref nextSlot);
+                AddItem(ItemType<CalamitousMonolith>(), Item.buyPrice(0, 5, 0, 0), DownedBossSystem.downedCalamitasClone, ref shop, ref nextSlot);
                 AddItem(ItemType<VeilBanner>(), Item.buyPrice(0, 5, 0, 0), NPC.downedPlantBoss, ref shop, ref nextSlot);
                 AddItem(ItemType<JunkArt>(), Item.buyPrice(0, 10, 0, 0), NPC.downedPlantBoss, ref shop, ref nextSlot);
                 AddItem(ItemType<HeartoftheCommunity>(), Item.buyPrice(0, 2, 0, 0), lev, ref shop, ref nextSlot);

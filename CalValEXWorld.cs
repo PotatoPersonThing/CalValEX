@@ -207,7 +207,7 @@ namespace CalValEX
             // Old Astral tiles
             astralTiles = tileCounts[TileType<AstralDirtPlaced>()] + tileCounts[TileType<AstralGrassPlaced>()] + tileCounts[TileType<XenostonePlaced>()] + tileCounts[TileType<AstralSandPlaced>()] + tileCounts[TileType<AstralHardenedSandPlaced>()] + tileCounts[TileType<AstralSandstonePlaced>()] + tileCounts[TileType<AstralClayPlaced>()] + tileCounts[TileType<AstralIcePlaced>()] + tileCounts[TileType<AstralSnowPlaced>()];
             // Hell Lab tiles
-            hellTiles = tileCounts[TileType<CalamityMod.Tiles.Plates.Chaosplate>()];
+            hellTiles = tileCounts[TileType<CalamityMod.Tiles.Plates.Havocplate>()];
             // Lab tiles
             labTiles = tileCounts[TileType<LaboratoryPlating>()] + tileCounts[TileType < LaboratoryPanels>()] + tileCounts[TileType < RustedPlating>()] + tileCounts[TileType < LaboratoryPipePlating>()] + tileCounts[TileType < RustedPipes>()];
             //Dungeon tiles
@@ -332,8 +332,9 @@ namespace CalValEX
             {
                 ModContent.ItemType<Plagueplate>(),
                 ModContent.ItemType<Cinderplate>(),
-                ModContent.ItemType<Chaosplate>(),
+                ModContent.ItemType<Havocplate>(),
                 ModContent.ItemType<Navyplate>(),
+                ModContent.ItemType<Onyxplate>(),
                 ModContent.ItemType<Elumplate>()
             });
             RecipeGroup.RegisterGroup("AnyPlate", group);

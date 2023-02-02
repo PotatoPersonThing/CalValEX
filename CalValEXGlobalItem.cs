@@ -89,7 +89,7 @@ namespace CalValEX
                 item.consumable = true;
                 item.createTile = ModContent.TileType<CeremonialUrnPlaced>();
             }
-            if (item.type == ModContent.ItemType<SupremeCalamitasCoffer>())
+            if (item.type == ModContent.ItemType<CalamitasCoffer>())
             {
                 item.useTurn = true;
                 item.autoReuse = true;
@@ -250,7 +250,7 @@ namespace CalValEX
 				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<RareBrimtulip>(), 5));
 				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<FoilSpoon>(), 20));
 			}
-			else if (item.type == ModContent.ItemType<CalamitasBag>())
+			else if (item.type == ModContent.ItemType<CalamitasCloneBag>())
 			{
 				IItemDropRule demonshade = ItemDropRule.Common(ModContent.ItemType<DemonshadeHood>());
 				demonshade.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DemonshadeRobe>()));
@@ -384,9 +384,10 @@ namespace CalValEX
 				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 10));
 				rule.OnSuccess(draedon);
 			}
-			else if (item.type == ModContent.ItemType<SupremeCalamitasCoffer>())
-			{
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 10));
+			else if (item.type == ModContent.ItemType<CalamitasCoffer>())
+            {
+                rule2.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureSacrilegious.OccultBrickItem>(), 1, 205, 335));
+                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 10));
 				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<GruelingMask>(), 3));
 			}
 

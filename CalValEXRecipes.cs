@@ -257,7 +257,7 @@ namespace CalValEX {
 				Recipe recipe = Recipe.Create(ItemType<FallenPaladinsHelmet>());
 				recipe.AddIngredient(ItemType<AshesofCalamity>());
 				recipe.AddIngredient(ItemType<ScoriaBar>());
-				recipe.AddIngredient(ItemType<CoreofChaos>());
+				recipe.AddIngredient(ItemType<CoreofHavoc>());
 				recipe.AddTile(TileID.MythrilAnvil);
 				recipe.Register();
 			}
@@ -271,7 +271,7 @@ namespace CalValEX {
 			{
 				Recipe recipe = Recipe.Create(ItemType<TrueCosmicCone>());
 				recipe.AddIngredient(ItemType<CosmicCone>());
-				recipe.AddIngredient(ItemType<CosmicCone>());
+				recipe.AddIngredient(ItemType<StonePile>());
 				recipe.AddIngredient(ItemType<CosmiliteBar>());
 				recipe.AddTile(TileType<CosmicAnvil>());
 				recipe.Register();
@@ -297,7 +297,7 @@ namespace CalValEX {
                 Recipe recipe = Recipe.Create(ItemType<FallenPaladinsGreaves>());
 				recipe.AddIngredient(ItemType<AshesofCalamity>());
 				recipe.AddIngredient(ItemType<ScoriaBar>(), 2);
-				recipe.AddIngredient(ItemType<CoreofChaos>());
+				recipe.AddIngredient(ItemType<CoreofHavoc>());
 				recipe.AddTile(TileID.MythrilAnvil);
 				recipe.Register();
 			}
@@ -334,7 +334,7 @@ namespace CalValEX {
 				Recipe recipe = Recipe.Create(ItemType<FallenPaladinsPlateMail>());
 				recipe.AddIngredient(ItemType<AshesofCalamity>(), 2);
 				recipe.AddIngredient(ItemType<ScoriaBar>(), 2);
-				recipe.AddIngredient(ItemType<CoreofChaos>());
+				recipe.AddIngredient(ItemType<CoreofHavoc>());
 				recipe.AddTile(TileID.MythrilAnvil);
 				recipe.Register();
 			}
@@ -497,7 +497,7 @@ namespace CalValEX {
 			}
 			{
 				Recipe recipe = Recipe.Create(ItemType<PopUpShop>());
-				recipe.AddIngredient(ItemType<ThiefsDime>());
+				recipe.AddIngredient(ItemType<CalamityMod.Items.Pets.ThiefsDime>());
 				recipe.AddIngredient(ItemID.LargeRuby);
 				recipe.AddIngredient(ItemID.RopeCoil, 5);
 				recipe.AddIngredient(ItemID.Bomb, 10);
