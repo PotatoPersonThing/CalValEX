@@ -174,7 +174,7 @@ namespace CalValEX.Projectiles.Pets
                     {
                         for (int i = 0; i < bossList.Count; i++)
                         {
-                           //NPC.NewNPC((int)Projectile.position.X, (int)Projectile.position.Y, calamityMod.TryFind<ModNPC>(bossList[i]));
+                           NPC.NewNPC((int)Projectile.position.X, (int)Projectile.position.Y, calamityMod.TryFind<ModNPC>(bossList[i]));
                         }
                     }
                     if (Projectile.ai[0] == (timeBetweenTexts * 5) + 30)

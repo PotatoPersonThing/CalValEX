@@ -268,10 +268,9 @@ namespace CalValEX
                     nug.direction = -Main.LocalPlayer.direction;
                     nug.netUpdate = true;
 
-                    if (nug.position.X < 10 || nug.position.X > Main.maxTilesX - 10)
-                    {
-                        nug.position.X = player.position.X;
-                    }
+                    // STAY INSIDE THE WORLD
+                    nug.position.X = MathHelper.Clamp(NPC.position.X, 150f, Main.maxTilesX * 16f - 150f);
+                    nug.position.Y = MathHelper.Clamp(NPC.position.Y, 150f, Main.maxTilesY * 16f - 150f);
 
                     if (Main.netMode == NetmodeID.SinglePlayer)
                         Main.NewText(Language.GetTextValue(nug.FullName + " has risen from") + ($" {Main.worldName}'s ashes!"), 50, 125, 255);
@@ -296,7 +295,7 @@ namespace CalValEX
             return Main.dayTime;
         }
 
-        public override void AddRecipeGroups()/* tModPorter Note: Removed. Use ModSystem.AddRecipeGroups */
+        public override void AddRecipeGroups()
         {
             RecipeGroup sand = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Sand"]];
             sand.ValidItems.Add(ModContent.ItemType<Items.Tiles.Blocks.Astral.AstralSand>());
