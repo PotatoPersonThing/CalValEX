@@ -269,8 +269,8 @@ namespace CalValEX
                     nug.netUpdate = true;
 
                     // STAY INSIDE THE WORLD
-                    nug.position.X = MathHelper.Clamp(NPC.position.X, 150f, Main.maxTilesX * 16f - 150f);
-                    nug.position.Y = MathHelper.Clamp(NPC.position.Y, 150f, Main.maxTilesY * 16f - 150f);
+                    nug.position.X = MathHelper.Clamp(nug.position.X, 150f, Main.maxTilesX * 16f - 150f);
+                    nug.position.Y = MathHelper.Clamp(nug.position.Y, 150f, Main.maxTilesY * 16f - 150f);
 
                     if (Main.netMode == NetmodeID.SinglePlayer)
                         Main.NewText(Language.GetTextValue(nug.FullName + " has risen from") + ($" {Main.worldName}'s ashes!"), 50, 125, 255);

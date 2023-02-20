@@ -1,4 +1,7 @@
 using Terraria.ModLoader;
+using Terraria;
+using Terraria.ID;
+using CalamityMod.Tiles.Abyss;
 
 namespace CalValEX.Items.Tiles
 {
@@ -22,7 +25,6 @@ namespace CalValEX.Items.Tiles
             Item.useTurn = true;
             Item.autoReuse = false;
         }
-    }
 
         public override bool AltFunctionUse(Player player)
         {
@@ -71,4 +73,5 @@ namespace CalValEX.Items.Tiles
             }
             return true;
         }
+    }
 }

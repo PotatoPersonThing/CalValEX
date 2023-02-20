@@ -2,6 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
+using CalValEX.Tiles.AstralBlocks;
 
 namespace CalValEX.Items.Tiles.Blocks
 {
@@ -29,9 +30,9 @@ namespace CalValEX.Items.Tiles.Blocks
 		{
 			Tile tile = Framing.GetTileSafely(Player.tileTargetX, Player.tileTargetY);
 			
-			if (tile.HasTile && tile.TileType == ModContent.TileType<Tiles.AstralBlocks.AstralDirtPlaced>() && player.IsInTileInteractionRange(Player.tileTargetX, Player.tileTargetY))
+			if (tile.HasTile && tile.TileType == ModContent.TileType<AstralDirtPlaced>() && player.IsInTileInteractionRange(Player.tileTargetX, Player.tileTargetY))
 			{
-				Main.tile[Player.tileTargetX, Player.tileTargetY].TileType = (ushort)ModContent.TileType<Tiles.AstralBlocks.AstralGrassPlaced>();
+				Main.tile[Player.tileTargetX, Player.tileTargetY].TileType = (ushort)ModContent.TileType<AstralGrassPlaced>();
 
 				SoundEngine.PlaySound(SoundID.Dig, player.Center);
 
