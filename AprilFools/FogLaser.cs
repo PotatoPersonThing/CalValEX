@@ -13,6 +13,7 @@ using ReLogic.Content;
 
 namespace CalValEX.AprilFools
 {
+    [ExtendsFromMod("CalamityMod")]
     public class FogLaser : BaseLaserbeamProjectile 
     {
         public override string Texture => "CalValEX/Items/Equips/Shields/Invishield_Shield";

@@ -2,6 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.AprilFools;
+using CalValEX.AprilFools.Jharim;
 
 namespace CalValEX.AprilFools
 {
@@ -27,10 +28,10 @@ namespace CalValEX.AprilFools
 		public override bool? UseItem(Player player)
 		{
 			Terraria.Audio.SoundEngine.PlaySound(SoundID.Item15, player.position);
-			if (Main.netMode != 1)
-			{
-				NPC.SpawnOnPlayer(player.whoAmI, (ModContent.NPCType<AprilFools.Jharim.Jharim>()));
-			}
+            if (Main.netMode != NetmodeID.MultiplayerClient)
+                NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<Jharim.Jharim>());
+            else
+                NetMessage.SendData(MessageID.SpawnBoss, -1, -1, null, player.whoAmI, ModContent.NPCType<Jharim.Jharim>());
 			return true;
 		}
 

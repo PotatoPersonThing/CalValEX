@@ -2,18 +2,15 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-//using CalamityMod.World;
-//using CalamityMod;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
-using CalamityMod;
-using CalamityMod.World;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
 	public class MeldwyrmTail : ModNPC
 
 	{
+		[JITWhenModsEnabled("CalamityMod")]
 		public override void SetDefaults()
 		{
 			NPC.damage = 0;
@@ -30,11 +27,16 @@ namespace CalValEX.AprilFools.Meldosaurus
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.netAlways = true;
-			NPC.Calamity().DR = 0.1f;
 		}
 
+
+		[JITWhenModsEnabled("CalamityMod")]
 		public override void AI()
 		{
+			if (CalValEX.CalamityActive)
+			{
+				NPC.GetGlobalNPC<CalamityMod.NPCs.CalamityGlobalNPC>().DR = 0.1f;
+			}
 			// Die immediately if the ahead segment is invalid.
 			if (NPC.ai[1] <= -1f || NPC.realLife <= -1f || !Main.npc[(int)NPC.ai[1]].active)
 			{
@@ -50,7 +52,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 
 			// Don't use a boss HP bar.
 			NPC aheadSegment = Main.npc[(int)NPC.ai[1]];
-			NPC.Calamity().ShouldCloseHPBar = true;
+			NPC.GetGlobalNPC<CalamityMod.NPCs.CalamityGlobalNPC>().ShouldCloseHPBar = true;
 
 			// Inherit various attributes from the head segment.
 			NPC head = Main.npc[NPC.realLife];

@@ -40,28 +40,25 @@ namespace CalValEX.Projectiles.Pets
             ModLoader.TryGetMod("CalValPlus", out cplus);
 
             //MAID mode
-            if (CalValEX.CalamityActive)
+            if (CalValEX.CalamityActive && !CalValEXConfig.Instance.Polterskin && ((Main.masterMode && (bool)CalValEX.Calamity.Call("GetDifficultyActive", "death") && (infernum != null && (bool)infernum.Call("GetInfernumActive")) && (armasortof != null && (bool)armasortof.Call("GetModifier", "instantdeathalways"))) || cplus != null))
             {
-                if (!CalValEXConfig.Instance.Polterskin && ((Main.masterMode && CalamityMod.World.CalamityWorld.death && (infernum != null && (bool)infernum.Call("GetInfernumActive")) && (armasortof != null && (bool)armasortof.Call("GetModifier", "instantdeathalways"))) || cplus != null))
+                if (Projectile.frameCounter++ > 8)
                 {
-                    if (Projectile.frameCounter++ > 8)
-                    {
-                        Projectile.frameCounter = 0;
-                        Projectile.frame++;
-                        if (Projectile.frame >= 8)
-                            Projectile.frame = 4;
-                    }
+                    Projectile.frameCounter = 0;
+                    Projectile.frame++;
+                    if (Projectile.frame >= 8)
+                        Projectile.frame = 4;
                 }
-                else
+            }
+            else
+            {
+                if (Projectile.frameCounter++ % 8 == 7)
                 {
-                    if (Projectile.frameCounter++ % 8 == 7)
-                    {
-                        Projectile.frame++;
-                    }
-                    if (Projectile.frame >= 4)
-                    {
-                        Projectile.frame = 0;
-                    }
+                    Projectile.frame++;
+                }
+                if (Projectile.frame >= 4)
+                {
+                    Projectile.frame = 0;
                 }
             }
         }

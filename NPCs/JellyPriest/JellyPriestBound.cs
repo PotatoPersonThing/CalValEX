@@ -71,7 +71,7 @@ namespace CalValEX.NPCs.JellyPriest
         {
             if (CalValEX.CalamityActive)
             {
-                if (CalamityMod.DownedBossSystem.downedEoCAcidRain && !CalValEXConfig.Instance.TownNPC && !CalValEXWorld.rescuedjelly && spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneSulphur && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestBound>()) && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestNPC>()))
+                if ((bool)CalValEX.Calamity.Call("GetBossDowned", "acidrain") && !CalValEXConfig.Instance.TownNPC && !CalValEXWorld.rescuedjelly && spawnInfo.Player.InModBiome(CalValEX.Calamity.Find<ModBiome>("SulphurousSea")) && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestBound>()) && !NPC.AnyNPCs(ModContent.NPCType<JellyPriestNPC>()))
                 {
                     return 0.5f;
                 }

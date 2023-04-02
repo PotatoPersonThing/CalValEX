@@ -61,6 +61,7 @@ namespace CalValEX.AprilFools
 			});
 			}
 		}
+		[JITWhenModsEnabled("CalamityMod")]
 		public override void AI()
 		{
 			Player target = Main.player[NPC.target];

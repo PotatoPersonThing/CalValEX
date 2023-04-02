@@ -6,9 +6,7 @@ using Terraria.ModLoader;
 //using CalamityMod;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
-using CalamityMod;
 using System;
-using CalamityMod.World;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
@@ -42,8 +40,6 @@ namespace CalValEX.AprilFools.Meldosaurus
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.netAlways = true;
-			NPC.Calamity().canBreakPlayerDefense = true;
-			NPC.Calamity().DR = 0.2f;
 			//bossBag = ModContent.ItemType<MeldosaurusBag>();
 		}
 		public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -56,8 +52,14 @@ namespace CalValEX.AprilFools.Meldosaurus
 			});
 			}
 		}
+		[JITWhenModsEnabled("CalamityMod")]
 		public override void AI()
 		{
+			if (CalValEX.CalamityActive)
+			{
+				NPC.GetGlobalNPC<CalamityMod.NPCs.CalamityGlobalNPC>().canBreakPlayerDefense = true;
+				NPC.GetGlobalNPC<CalamityMod.NPCs.CalamityGlobalNPC>().DR = 0.2f;
+			}
 			NPC meldosaurus = Main.npc[CalValEXGlobalNPC.meldodon];
 			// Create segments on the first frame.
 			if (Main.netMode != NetmodeID.MultiplayerClient && NPC.localAI[0] == 0f)

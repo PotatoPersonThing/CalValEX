@@ -444,6 +444,7 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<Items.Tiles.Blocks.PlagueHiveWand>(), Item.buyPrice(0, 1, 40, 0), pb, ref shop, ref nextSlot);
                 AddItem(ItemType<Items.Walls.PlagueHiveWall>(), Item.buyPrice(0, 0, 0, 10), pb, ref shop, ref nextSlot);
                 AddItem(ItemType<Items.Tiles.Blocks.Necrostone>(), Item.buyPrice(0, 0, 10, 0), CalamityMod.DownedBossSystem.downedRavager, ref shop, ref nextSlot);
+            }
             else if (shop2)
             {
                 AddItem(CalValEX.CalamityItem("UelibloomBrick"), Item.buyPrice(0, 0, 20, 0), prov, ref shop, ref nextSlot);
@@ -483,7 +484,7 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<AquaticMonolith>(), Item.buyPrice(0, 6, 0, 0), lev, ref shop, ref nextSlot);
                 AddItem(ItemType<PlagueMonolith>(), Item.buyPrice(0, 7, 0, 0), CalamityMod.DownedBossSystem.downedPlaguebringer, ref shop, ref nextSlot);
                 AddItem(ItemType<BubbleMachine>(), Item.buyPrice(0, 35, 0, 0), NPC.downedMartians, ref shop, ref nextSlot);
-                AddItem(ItemType<PlagueDialysis>(), Item.buyPrice(0, 35, 0, 0), DownedBossSystem.downedDragonfolly, ref shop, ref nextSlot);
+                AddItem(ItemType<PlagueDialysis>(), Item.buyPrice(0, 35, 0, 0), CalamityMod.DownedBossSystem.downedDragonfolly, ref shop, ref nextSlot);
                 AddItem(ItemType<Provibust>(), Item.buyPrice(1, 50, 0, 0), prov, ref shop, ref nextSlot);
                 AddItem(ItemType<UnholyMonolith>(), Item.buyPrice(0, 40, 0, 0), prov, ref shop, ref nextSlot);
                 AddItem(ItemType<Tesla>(), Item.buyPrice(2, 75, 0, 0), CalamityMod.DownedBossSystem.downedStormWeaver, ref shop, ref nextSlot);

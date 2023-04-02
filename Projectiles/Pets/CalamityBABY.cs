@@ -126,7 +126,6 @@ namespace CalValEX.Projectiles.Pets
         //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv//
         public override void CustomBehaviour(Player player, ref int state, float flyingSpeed, float flyingInertia)
         {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
             Vector2 vectorToOwner = player.Center - Projectile.Center;
             float distanceToOwner = vectorToOwner.Length();
 
@@ -170,11 +169,11 @@ namespace CalValEX.Projectiles.Pets
                     {
                         EdgyTalk("Next time call my friend if you want me to be your pet... or don't get hit.", Color.White, true);
                     }
-                    if (Projectile.ai[0] == timeBetweenTexts * 5)
+                    if (Projectile.ai[0] == timeBetweenTexts * 5 && CalValEX.CalamityActive)
                     {
                         for (int i = 0; i < bossList.Count; i++)
                         {
-                           NPC.NewNPC(Projectile.GetSource_FromThis(), (int)Projectile.position.X, (int)Projectile.position.Y, calamityMod.Find<ModNPC>(bossList[i]).Type);
+                           NPC.NewNPC(Projectile.GetSource_FromThis(), (int)Projectile.position.X, (int)Projectile.position.Y, CalValEX.Calamity.Find<ModNPC>(bossList[i]).Type);
                         }
                     }
                     if (Projectile.ai[0] == (timeBetweenTexts * 5) + 30)

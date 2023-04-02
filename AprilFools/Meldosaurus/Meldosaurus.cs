@@ -4,8 +4,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
-using CalamityMod;
-using CalamityMod.World;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
@@ -31,13 +29,16 @@ namespace CalValEX.AprilFools.Meldosaurus
 				NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
 			}
 		}
+
+
+		[JITWhenModsEnabled("CalamityMod")]
 		public override void SetDefaults()
 		{
 			NPC.damage = 110;
 			NPC.width = 118;
 			NPC.height = 84;
 			NPC.defense = 10;
-			NPC.lifeMax = CalamityWorld.revenge ? 140000 : 100000;
+			NPC.lifeMax = 100000;
 			NPC.boss = true;
 			NPC.aiStyle = -1;
 			Main.npcFrameCount[NPC.type] = 7;
@@ -50,8 +51,6 @@ namespace CalValEX.AprilFools.Meldosaurus
 			NPC.DeathSound = SoundID.NPCDeath1;
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/Meldosaurus");
 			NPC.netAlways = true;
-			NPC.Calamity().canBreakPlayerDefense = true;
-			NPC.Calamity().DR = 0.1f;
 			//bossBag = ModContent.ItemType<MeldosaurusBag>();
 		}
 		public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -69,6 +68,14 @@ namespace CalValEX.AprilFools.Meldosaurus
 		{
 			if (!CalValEX.CalamityActive)
 				return;
+
+
+			if (CalValEX.CalamityActive)
+			{
+				NPC.GetGlobalNPC<CalamityMod.NPCs.CalamityGlobalNPC>().canBreakPlayerDefense = true;
+				NPC.GetGlobalNPC<CalamityMod.NPCs.CalamityGlobalNPC>().DR = 0.1f;
+				NPC.lifeMax = CalamityMod.World.CalamityWorld.revenge ? 140000 : 100000;
+			}
 			Main.OurFavoriteColor = Color.DarkBlue;
 			bool expert = CalamityMod.Events.BossRushEvent.BossRushActive || Main.expertMode;
 			bool revenge = CalamityMod.Events.BossRushEvent.BossRushActive || CalamityMod.World.CalamityWorld.revenge;

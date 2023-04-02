@@ -70,7 +70,7 @@ namespace CalValEX.NPCs.Critters
         {
             if (CalValEX.CalamityActive)
             {
-                if (CalamityMod.DownedBossSystem.downedProvidence && Main.bloodMoon && !CalValEXConfig.Instance.CritterSpawns)
+                if ((bool)CalValEX.Calamity.Call("GetBossDowned", "providence") && Main.bloodMoon && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     if (spawnInfo.PlayerSafe)
                     {

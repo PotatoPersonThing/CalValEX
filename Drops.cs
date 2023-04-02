@@ -107,7 +107,7 @@ namespace CalValEX
                         ++nextSlot;
                     }
 
-                    if (CalamityMod.DownedBossSystem.downedSCal)
+                    if (CalamityMod.DownedBossSystem.downedCalamitas)
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Yharlamitas>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(42);
@@ -871,6 +871,7 @@ namespace CalValEX
                     npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<ArtemisBalloonSmall>(), 6);
                     npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<ApolloBalloonSmall>(), 6);
                     npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonBody>(), 5);
+                    npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonBody>(), 5);
                     npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<DraedonLegs>(), 5);
                     npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && !Main.expertMode, ModContent.ItemType<GeminiMarkImplants>(), 3);
                     npcLoot.AddIf(() => CalamityMod.NPCs.ExoMechs.Ares.AresBody.CanDropLoot() && CalValEXWorld.masorev, ModContent.ItemType<ArtemisPlush>());
@@ -1174,7 +1175,7 @@ namespace CalValEX
             if (CalValEX.CalamityActive)
             {
                 BossExclam(npc, new int[] { CalValEX.CalamityNPC("SEAHOE") }, CalamityMod.DownedBossSystem.downedBoomerDuke, CalValEX.CalamityNPC("OldDuke"));
-                BossExclam(npc, new int[] { CalValEX.CalamityNPC("SEAHOE") }, CalamityMod.DownedBossSystem.downedSCal, CalValEX.CalamityNPC("SupremeCalamitas"));
+                BossExclam(npc, new int[] { CalValEX.CalamityNPC("SEAHOE") }, CalamityMod.DownedBossSystem.downedCalamitas, CalValEX.CalamityNPC("SupremeCalamitas"));
 
                 BossExclam(npc, new int[] { CalValEX.CalamityNPC("DILF") }, CalamityMod.DownedBossSystem.downedSignus, CalValEX.CalamityNPC("Signus"));
 
@@ -1420,7 +1421,7 @@ namespace CalValEX
         {
             Player player = LocalPlayer.Player;
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-            bool acid = CalValEX.CalamityActive ? !CalamityMod.Events.AcidRainEvent.AcidRainEventIsOngoing : true;
+            bool acid = CalValEX.CalamityActive ? !(bool)CalValEX.Calamity.Call("AcidRainActive") : true;
             bool noevents = acid && !Main.eclipse && !Main.snowMoon && !Main.pumpkinMoon && Main.invasionType == 0 && !player.ZoneTowerSolar && !player.ZoneTowerStardust && !player.ZoneTowerVortex & !player.ZoneTowerNebula && !player.ZoneOldOneArmy;
             Mod cata;
             ModLoader.TryGetMod("CatalystMod", out cata);

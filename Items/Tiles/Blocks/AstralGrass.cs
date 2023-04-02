@@ -1,5 +1,8 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
+using Terraria.Audio;
+using CalValEX.Tiles.AstralBlocks;
+using Terraria.ID;
 
 namespace CalValEX.Items.Tiles.Blocks
 {
