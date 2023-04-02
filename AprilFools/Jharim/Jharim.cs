@@ -273,7 +273,7 @@ namespace CalValEX.AprilFools.Jharim
                     }
                 }
 
-                if ((calPlayer.sirenWaifu || calPlayer.elementalHeart || (CalValEXPlayer.vanityhote && !CalValEXConfig.Instance.HeartVanity) || (CalValEXPlayer.vanitysiren && !CalValEXConfig.Instance.HeartVanity)) && Main.rand.NextFloat() < 0.25f)
+                if ((calPlayer.sirenWaifu || calPlayer.elementalHeart || calPlayer.sirenWaifuVanity || calPlayer.allWaifusVanity) && Main.rand.NextFloat() < 0.25f)
                 {
                     return "OoooooO Fish Lady, tell me! Where's my fish tacos!";
                 }
@@ -407,10 +407,12 @@ namespace CalValEX.AprilFools.Jharim
                     {
                         if (Main.myPlayer == Main.LocalPlayer.whoAmI)
                         {
-                            if (CalamityMod.DownedBossSystem.downedExoMechs && CalamityMod.DownedBossSystem.downedSCal)
+                            if (CalamityMod.DownedBossSystem.downedExoMechs && CalamityMod.DownedBossSystem.downedCalamitas)
                             {
                                 NPC.active = false;
-                                NPC.SpawnOnPlayer(Main.player[Main.myPlayer].whoAmI, ModContent.NPCType<Fogbound>());
+                                NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, NPCType<Fogbound>());
+                                CalamityMod.CalamityUtils.DisplayLocalizedText("You've awoken me... time to pay the price...", Color.Gray);
+                                NPC.HitEffect();
                             }
                             else
                             {
@@ -451,6 +453,16 @@ namespace CalValEX.AprilFools.Jharim
             else
             {
                 StatueTeleport();
+            }
+        }
+
+        public override void HitEffect(int hitDirection, double damage)
+        {
+            if (NPC.life <= 0)
+            {
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Jharim").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Jharim2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Jharim3").Type, 1f);
             }
         }
 

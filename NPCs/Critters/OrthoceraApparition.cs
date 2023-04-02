@@ -142,7 +142,7 @@ namespace CalValEX.NPCs.Critters
             //Mod clamMod = ModLoader.GetMod("CalamityMod"); 
             //if (clamMod != null)
             {
-                if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneSulphur && CalamityMod.DownedBossSystem.downedSCal && CalamityMod.DownedBossSystem.downedExoMechs && !NPC.AnyNPCs(ModContent.NPCType<OrthoceraApparition>()) && !CalValEXWorld.orthofound)
+                if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneSulphur && CalamityMod.DownedBossSystem.downedCalamitas && CalamityMod.DownedBossSystem.downedExoMechs && !NPC.AnyNPCs(ModContent.NPCType<OrthoceraApparition>()) && !CalValEXWorld.orthofound)
                 {
                     return 5f;
                 }

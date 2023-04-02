@@ -6,6 +6,8 @@ using Terraria.ModLoader;
 //using CalamityMod;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
+using CalamityMod;
+using CalamityMod.World;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
@@ -37,7 +39,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 			NPC.width = 118;
 			NPC.height = 84;
 			NPC.defense = 10;
-			NPC.lifeMax = /*CalamityWorld.revenge ? 140000 :*/ 100000;
+			NPC.lifeMax = CalamityWorld.revenge ? 140000 : 100000;
 			NPC.boss = true;
 			NPC.aiStyle = -1;
 			Main.npcFrameCount[NPC.type] = 7;
@@ -50,8 +52,8 @@ namespace CalValEX.AprilFools.Meldosaurus
 			NPC.DeathSound = SoundID.NPCDeath1;
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/Meldosaurus");
 			NPC.netAlways = true;
-			//NPC.Calamity().canBreakPlayerDefense = true;
-			//NPC.Calamity().DR = 0.1f;
+			NPC.Calamity().canBreakPlayerDefense = true;
+			NPC.Calamity().DR = 0.1f;
 			//bossBag = ModContent.ItemType<MeldosaurusBag>();
 		}
 		public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -66,21 +68,34 @@ namespace CalValEX.AprilFools.Meldosaurus
 		}
 		public override void AI()
 		{
+			Main.OurFavoriteColor = Color.DarkBlue;
+			bool expert = CalamityMod.Events.BossRushEvent.BossRushActive || Main.expertMode;
+			bool revenge = CalamityMod.Events.BossRushEvent.BossRushActive || CalamityMod.World.CalamityWorld.revenge;
+			bool death = CalamityMod.Events.BossRushEvent.BossRushActive || CalamityMod.World.CalamityWorld.death;
+			bool malice = CalamityMod.Events.BossRushEvent.BossRushActive;
+			if (!malice)
+            {
+				if (!Main.raining)
+                {
+					if (Main.netMode != NetmodeID.MultiplayerClient)
+					Main.StartRain();
+					Main.SyncRain();
+                }
+            }
 			CalValEXGlobalNPC.meldodon = NPC.whoAmI;
 			//Die if it isnt april
-			//Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-			if (!CalValEX.AprilFoolMonth && !Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok/*&& orthoceraDLC == null*/)
+			if (!CalValEX.AprilFoolMonth && !Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok)
 			{
 				NPC.active = false;
 			}	
-			/*if (CalamityMod.World.CalamityWorld.malice && NPC.ai[0] != 5 && NPC.ai[0] != 6) //This is fine
+			if (malice && NPC.ai[0] != 5 && NPC.ai[0] != 6) //This is fine
             {
 				NPC.ai[1]++;
             }
-			if (CalamityMod.World.CalamityWorld.malice)
+			if (malice)
             {
 				NPC.ai[2]++;
-            }*/
+            }
 			//Under 5% health become desperate
 			if (NPC.life <= NPC.lifeMax * 0.05f)
             {
@@ -94,6 +109,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 				{
 					if (CalValEXWorld.amogus && !Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().amogus)
 					{
+						if (Main.netMode != NetmodeID.MultiplayerClient)
 						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, new Vector2(0, 0), ModContent.ProjectileType<Amogus>(), 0, 0, Main.myPlayer);
 					}
 					NPC.velocity.Y = -4f;
@@ -127,6 +143,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 					Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath13, NPC.Center);
 					for (int x = 0; x < 12; x++)
                     {
+						if (Main.netMode != NetmodeID.MultiplayerClient)
 						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, Main.rand.Next(-30, 30), Main.rand.Next(-20, -12), ModContent.ProjectileType<EntropicVomit>(), Main.expertMode ? 25 : 30, 0f, Main.myPlayer, Main.rand.Next(1,4));
                     }
 					NPC.ai[2] = 0;
@@ -174,7 +191,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 				}
 				else if (NPC.ai[1] == 31 | NPC.ai[1] == 91 || NPC.ai[1] == 131 || NPC.ai[1] == 181 || NPC.ai[1] == 231 || NPC.ai[1] == 281 || NPC.ai[1] == 331)
 				{
-					int chargespeed = /*CalamityMod.World.CalamityWorld.revenge ? 22 :*/ 18;
+					int chargespeed = revenge ? 22 : 18;
 					NPC.rotation = NPC.velocity.ToRotation();
 					Terraria.Audio.SoundEngine.PlaySound(SoundID.Item111, NPC.Center);
 					Vector2 position = NPC.Center;
@@ -184,10 +201,13 @@ namespace CalValEX.AprilFools.Meldosaurus
 					direction.Normalize();
 					NPC.velocity = direction * chargespeed;
 					int dmg = Main.expertMode ? 25 : 30;
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, 10, 10, ModContent.ProjectileType<EntropicVomit>(), dmg, 0, Main.myPlayer, Main.rand.Next(1, 4));
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, 10, -10, ModContent.ProjectileType<EntropicVomit>(), dmg, 0, Main.myPlayer, Main.rand.Next(1, 4));
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, -10, 10, ModContent.ProjectileType<EntropicVomit>(), dmg, 0, Main.myPlayer, Main.rand.Next(1, 4));
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, -10, -10, ModContent.ProjectileType<EntropicVomit>(), dmg, 0, Main.myPlayer, Main.rand.Next(1, 4));
+					if (Main.netMode != NetmodeID.MultiplayerClient)
+					{
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, 10, 10, ModContent.ProjectileType<EntropicVomit>(), dmg, 0, Main.myPlayer, Main.rand.Next(1, 4));
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, 10, -10, ModContent.ProjectileType<EntropicVomit>(), dmg, 0, Main.myPlayer, Main.rand.Next(1, 4));
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, -10, 10, ModContent.ProjectileType<EntropicVomit>(), dmg, 0, Main.myPlayer, Main.rand.Next(1, 4));
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, -10, -10, ModContent.ProjectileType<EntropicVomit>(), dmg, 0, Main.myPlayer, Main.rand.Next(1, 4));
+					}
 				}
 				if (NPC.ai[1] >= 381)
                 {
@@ -195,7 +215,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 						NewPhase(4);
 					else
 					{
-						if (Main.rand.Next(2) == 0)
+						if (Main.rand.NextBool(2))
 							NewPhase(5);
 						else
 							NewPhase(6);
@@ -244,6 +264,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 					float speed = 10f;
 					int type = ModContent.ProjectileType<TomeoFates>();
 					int damage = Main.expertMode ? 5 : 10;
+					if (Main.netMode != NetmodeID.MultiplayerClient)
 					Projectile.NewProjectile(NPC.GetSource_FromAI(), position, direction * speed, type, damage, 0f, Main.myPlayer);
 				}
 				if (NPC.ai[1] >= 60)
@@ -265,9 +286,12 @@ namespace CalValEX.AprilFools.Meldosaurus
 					}
 				}
 				if (NPC.ai[3] >= 5)
-                {
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X - 1400, NPC.Center.Y - 200, 0, 80, ModContent.ProjectileType<GodsFire>(), Main.expertMode ? 25 : 30, 20, 0);
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X + 600, NPC.Center.Y - 200, 0, 80, ModContent.ProjectileType<GodsFire>(), Main.expertMode ? 25 : 30, 20, 0);
+				{
+					if (Main.netMode != NetmodeID.MultiplayerClient)
+					{
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X - 1400, NPC.Center.Y - 200, 0, 80, ModContent.ProjectileType<GodsFire>(), Main.expertMode ? 25 : 30, 20, 0);
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X + 600, NPC.Center.Y - 200, 0, 80, ModContent.ProjectileType<GodsFire>(), Main.expertMode ? 25 : 30, 20, 0);
+					}
 					NPC.ai[3] = 0;
                 }
 				if (NPC.ai[1] >= 140)
@@ -300,7 +324,9 @@ namespace CalValEX.AprilFools.Meldosaurus
 				if (NPC.ai[2] >= 3)
 				{
 					Terraria.Audio.SoundEngine.PlaySound(SoundID.Item61, NPC.Center);
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, 0, 0, ModContent.ProjectileType<ShardofAntumbra>(), Main.expertMode ? 30 : 40, 0f, NPC.target);
+
+					if (Main.netMode != NetmodeID.MultiplayerClient)
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, 0, 0, ModContent.ProjectileType<ShardofAntumbra>(), Main.expertMode ? 30 : 40, 0f, NPC.target);
 					NPC.ai[2] = 0;
                 }
 				if (NPC.ai[1] >= 100)
@@ -338,7 +364,8 @@ namespace CalValEX.AprilFools.Meldosaurus
 				if (NPC.ai[2] >= 3)
 				{
 					Terraria.Audio.SoundEngine.PlaySound(SoundID.Item61, NPC.Center);
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, 0, 0, ModContent.ProjectileType<ShardofAntumbra>(), Main.expertMode ? 30 : 40, 0f, Main.myPlayer, NPC.target);
+					if (Main.netMode != NetmodeID.MultiplayerClient)
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, 0, 0, ModContent.ProjectileType<ShardofAntumbra>(), Main.expertMode ? 30 : 40, 0f, Main.myPlayer, NPC.target);
 					NPC.ai[2] = 0;
 				}
 				if (NPC.ai[1] >= 100)
@@ -370,6 +397,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 			//Clone ram
 			if (NPC.ai[0] == 8)
 			{
+				bool spawnWorms = NPC.CountNPCS(ModContent.NPCType<MeldwyrmHead>()) < 1 && expert;
 				if (!Main.expertMode)
                 {
 					NPC.alpha = 80;
@@ -378,9 +406,12 @@ namespace CalValEX.AprilFools.Meldosaurus
 				int dmg = Main.expertMode ? 33 : 55;
 				if (NPC.ai[1] == 0)
 				{
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), Main.player[NPC.target].position.X - distance, Main.player[NPC.target].position.Y + distance, 0, 0, ModContent.ProjectileType<MeldosaurusClone>(), dmg, 0, Main.myPlayer, NPC.target, 1);
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), Main.player[NPC.target].position.X + distance, Main.player[NPC.target].position.Y - distance, 0, 0, ModContent.ProjectileType<MeldosaurusClone>(), dmg, 0, Main.myPlayer, NPC.target, 2);
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), Main.player[NPC.target].position.X - distance, Main.player[NPC.target].position.Y - distance, 0, 0, ModContent.ProjectileType<MeldosaurusClone>(), dmg, 0, Main.myPlayer, NPC.target, 3);
+					if (Main.netMode != NetmodeID.MultiplayerClient)
+					{
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), Main.player[NPC.target].position.X - distance, Main.player[NPC.target].position.Y + distance, 0, 0, ModContent.ProjectileType<MeldosaurusClone>(), dmg, 0, Main.myPlayer, NPC.target, 1);
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), Main.player[NPC.target].position.X + distance, Main.player[NPC.target].position.Y - distance, 0, 0, ModContent.ProjectileType<MeldosaurusClone>(), dmg, 0, Main.myPlayer, NPC.target, 2);
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), Main.player[NPC.target].position.X - distance, Main.player[NPC.target].position.Y - distance, 0, 0, ModContent.ProjectileType<MeldosaurusClone>(), dmg, 0, Main.myPlayer, NPC.target, 3);
+					}
 				}
 				NPC.alpha = 0;
 				NPC.ai[1]++;
@@ -394,7 +425,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 				}
 				if (NPC.ai[1] == 31)
 				{
-					Terraria.Audio.SoundEngine.PlaySound(new Terraria.Audio.SoundStyle("Terraria/Sounds/Zombie_5"), NPC.Center);
+					Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie5, NPC.Center);
 					Vector2 position = NPC.Center;
 					position.X = NPC.Center.X + (30f * NPC.direction);
 					Vector2 targetPosition = Main.player[NPC.target].Center;
@@ -406,6 +437,15 @@ namespace CalValEX.AprilFools.Meldosaurus
                 {
 					NPC.alpha = 0;
 					NPC.velocity.X = NPC.velocity.Y = 0;
+					if (spawnWorms)
+					{
+						Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie5 with { Pitch = SoundID.Zombie5.Pitch - 0.5f }, Main.player[NPC.target].Center);
+						if (Main.netMode != NetmodeID.MultiplayerClient)
+						{
+							NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<MeldwyrmHead>(), 0, NPC.whoAmI, 1);
+							NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<MeldwyrmHead>(), 0, NPC.whoAmI, 2);
+						}
+					}
 					NewPhase(1);
                 }
 			}
@@ -423,16 +463,19 @@ namespace CalValEX.AprilFools.Meldosaurus
 				{
 					Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath13, NPC.Center);
 					for (int x = 0; x <= Main.rand.Next(4,6); x++)
-                    {
-						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, Main.rand.Next(-30, 30), Main.rand.Next(-40, 30), ModContent.ProjectileType<EntropicVomit>(), 30, 0f, Main.myPlayer, Main.rand.Next(1, 4));
+					{
+						if (Main.netMode != NetmodeID.MultiplayerClient)
+							Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X, NPC.Center.Y, Main.rand.Next(-30, 30), Main.rand.Next(-40, 30), ModContent.ProjectileType<EntropicVomit>(), 30, 0f, Main.myPlayer, Main.rand.Next(1, 4));
                     }
 					NPC.ai[1] = 0;
                 }
-            }
+            }			
 		}
 
 		public void NewPhase(int phase)
-        {
+		{
+			if (phase % 2 == 0)
+			Main.NewLightning();
 			NPC.alpha = 0;
 			NPC.ai[1] = 0;
 			NPC.ai[2] = 0;
@@ -525,6 +568,11 @@ namespace CalValEX.AprilFools.Meldosaurus
 				return true;
             }
 		}
+
+        public override void OnKill()
+        {
+            CalValEXWorld.downedMeldosaurus = true;
+        }
 
         /*public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
         {

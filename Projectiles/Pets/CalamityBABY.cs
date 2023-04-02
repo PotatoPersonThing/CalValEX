@@ -174,7 +174,7 @@ namespace CalValEX.Projectiles.Pets
                     {
                         for (int i = 0; i < bossList.Count; i++)
                         {
-                           //NPC.NewNPC((int)Projectile.position.X, (int)Projectile.position.Y, calamityMod.TryFind<ModNPC>(bossList[i]));
+                           NPC.NewNPC(Projectile.GetSource_FromThis(), (int)Projectile.position.X, (int)Projectile.position.Y, calamityMod.Find<ModNPC>(bossList[i]).Type);
                         }
                     }
                     if (Projectile.ai[0] == (timeBetweenTexts * 5) + 30)
@@ -274,7 +274,7 @@ namespace CalValEX.Projectiles.Pets
         {
             "Yharon",
             "SupremeCalamitas",
-            "DevourerofGodsHeadS",
+            "DevourerofGodsHead",
             "Providence",
             "Polterghast",
             "BrimstoneElemental",
