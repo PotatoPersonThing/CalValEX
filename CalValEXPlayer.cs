@@ -229,16 +229,6 @@ namespace CalValEX {
         public bool maryPrevious;
         public bool maryPower;
         public bool maryTrans;
-        //More stuff ig
-        public bool vanityhote;
-        public bool vanitysand;
-        public bool vanityrare;
-        public bool vanitysiren;
-        public bool vanitybrim;
-        public bool vanitycloud;
-        public bool vanityfunclump;
-        public bool vanityyound;
-        public bool vanityearth;
         public double rotcounter = 0;
         public double rotdeg = 0;
         public double rotsin = 0;
@@ -427,141 +417,6 @@ namespace CalValEX {
                     twinballoon = true;
                 } else if (item.type == ItemType<WulfrumHelipack>()) {
                     helipack = true;
-                } else if (item.type == CalValEX.CalamityItem("HeartoftheElements") && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
-                    bool brimmyspawned = Player.ownedProjectileCounts[ProjectileType<VanityBrimstone>()] <= 0;
-                    bool cloudspawned = Player.ownedProjectileCounts[ProjectileType<VanityCloud>()] <= 0;
-                    bool sandspawned = Player.ownedProjectileCounts[ProjectileType<VanitySand>()] <= 0;
-                    bool raresandspawned = Player.ownedProjectileCounts[ProjectileType<VanityRareSand>()] <= 0;
-                    bool earthspawned = Player.ownedProjectileCounts[ProjectileType<VanityEarth>()] <= 0;
-                    bool anahitaspawned = Player.ownedProjectileCounts[ProjectileType<VanityAnahita>()] <= 0;
-                    if (brimmyspawned && Player.whoAmI == Main.myPlayer) {
-                        Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                            0f, 0f, ProjectileType<VanityBrimstone>(), 0, 0f, Player.whoAmI);
-                        brimmyspawned = false;
-                    }
-                    if (cloudspawned && Player.whoAmI == Main.myPlayer) {
-                        Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                            0f, 0f, ProjectileType<VanityCloud>(), 0, 0f, Player.whoAmI);
-                        cloudspawned = false;
-                    }
-                    if (sandspawned && Player.whoAmI == Main.myPlayer) {
-                        Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                            0f, 0f, ProjectileType<VanitySand>(), 0, 0f, Player.whoAmI);
-                        sandspawned = false;
-                    }
-                    if (earthspawned && Player.whoAmI == Main.myPlayer && CalValEX.AprilFoolDay) {
-                        Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                        0f, 0f, ProjectileType<VanityEarth>(), 0, 0f, Player.whoAmI);
-                        earthspawned = false;
-                    }
-                    if (raresandspawned && Player.whoAmI == Main.myPlayer && !CalValEX.AprilFoolDay) {
-                        Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                            0f, 0f, ProjectileType<VanityRareSand>(), 0, 0f, Player.whoAmI);
-                        raresandspawned = false;
-                    }
-                    if (anahitaspawned && Player.whoAmI == Main.myPlayer) {
-                        Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                            0f, 0f, ProjectileType<VanityAnahita>(), 0, 0f, Player.whoAmI);
-                        anahitaspawned = false;
-                    }
-                    vanityhote = true;
-                } else if (item.type == CalValEX.CalamityItem("RoseStone") && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
-                    bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityBrimstone>()] <= 0;
-                    if (cryospawned && Player.whoAmI == Main.myPlayer) {
-                        Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                            0f, 0f, ProjectileType<VanityBrimstone>(), 0, 0f, Player.whoAmI);
-                    }
-                    vanitybrim = true;
-                } else if (item.type == CalValEX.CalamityItem("EyeoftheStorm") && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
-                    bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityCloud>()] <= 0;
-                    if (cryospawned && Player.whoAmI == Main.myPlayer) {
-                        Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                            0f, 0f, ProjectileType<VanityCloud>(), 0, 0f, Player.whoAmI);
-                    }
-                    vanitycloud = true;
-                } else if (item.type == CalValEX.CalamityItem("WifeinaBottle") && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
-                    bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanitySand>()] <= 0;
-                    if (cryospawned && Player.whoAmI == Main.myPlayer) {
-                        Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                            0f, 0f, ProjectileType<VanitySand>(), 0, 0f, Player.whoAmI);
-                    }
-                    vanitysand = true;
-                } else if (item.type == CalValEX.CalamityItem("WifeinaBottlewithBoobs") && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
-                    if (CalValEX.AprilFoolDay) {
-                        bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityEarth>()] <= 0;
-                        if (cryospawned && Player.whoAmI == Main.myPlayer) {
-                            Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                                0f, 0f, ProjectileType<VanityEarth>(), 0, 0f, Player.whoAmI);
-                        }
-                        vanityearth = true;
-
-                    } else {
-                        bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityRareSand>()] <= 0;
-                        if (cryospawned && Player.whoAmI == Main.myPlayer) {
-                            Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                                0f, 0f, ProjectileType<VanityRareSand>(), 0, 0f, Player.whoAmI);
-                        }
-                        vanityrare = true;
-                    }
-                } else if (item.type == CalValEX.CalamityItem("PearlofEnthrallment") && !CalValEXConfig.Instance.HeartVanity && antisocial == null && !Main.gameMenu) {
-                    bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityAnahita>()] <= 0;
-                    if (cryospawned && Player.whoAmI == Main.myPlayer) {
-                        Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                            0f, 0f, ProjectileType<VanityAnahita>(), 0, 0f, Player.whoAmI);
-                    }
-                    vanitysiren = true;
-                } else if (item.type == CalValEX.CalamityItem("CryoStone") && !CalValEXConfig.Instance.ColdShield && antisocial == null && !Main.gameMenu) {
-                    bool cryospawned = Player.ownedProjectileCounts[ProjectileType<Lightshield>()] <= 0;
-                    if (cryospawned && Player.whoAmI == Main.myPlayer) {
-                        Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                            0f, 0f, ProjectileType<Lightshield>(), 0, 0f, Player.whoAmI);
-                    }
-                    Lightshield = true;
-                } else if (item.type == CalValEX.CalamityItem("MutatedTruffle") && !CalValEXConfig.Instance.YoungDukePSS && antisocial == null && !Main.gameMenu) {
-                    bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityYoungDuke>()] <= 0;
-                    if (cryospawned && Player.whoAmI == Main.myPlayer) {
-                        Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                            0f, 0f, ProjectileType<VanityYoungDuke>(), 0, 0f, Player.whoAmI);
-                    }
-                    vanityyound = true;
-                } else if (item.type == CalValEX.CalamityItem("FungalClump") && !CalValEXConfig.Instance.FungusClump && antisocial == null && !Main.gameMenu) {
-                    bool cryospawned = Player.ownedProjectileCounts[ProjectileType<VanityFunClump>()] <= 0;
-                    if (cryospawned && Player.whoAmI == Main.myPlayer) {
-                        Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                            0f, 0f, ProjectileType<VanityFunClump>(), 0, 0f, Player.whoAmI);
-                    }
-                    vanityfunclump = true;
-                }
-            }
-            //Despawn vanity elementals and cryo shield if in functional slots
-            for (int n = 3; n < 10 + Player.extraAccessorySlots; n++) {
-                Item item = Player.armor[n];
-                if (item.type == CalValEX.CalamityItem("HeartoftheElements")) {
-                    vanityhote = false;
-                }
-                if (item.type == CalValEX.CalamityItem("WifeinaBottle")) {
-                    vanitysand = false;
-                }
-                if (item.type == CalValEX.CalamityItem("WifeinaBottlewithBoobs")) {
-                    vanityrare = false;
-                }
-                if (item.type == CalValEX.CalamityItem("EyeoftheStorm")) {
-                    vanitycloud = false;
-                }
-                if (item.type == CalValEX.CalamityItem("RoseStone")) {
-                    vanitybrim = false;
-                }
-                if (item.type == CalValEX.CalamityItem("PearlofEnthrallment")) {
-                    vanitysiren = false;
-                }
-                if (item.type == CalValEX.CalamityItem("CryoStone")) {
-                    Lightshield = false;
-                }
-                if (item.type == CalValEX.CalamityItem("FungalClump")) {
-                    vanityfunclump = false;
-                }
-                if (item.type == CalValEX.CalamityItem("MutatedTruffle")) {
-                    vanityyound = false;
                 }
             }
         }
@@ -843,15 +698,6 @@ namespace CalValEX {
             morshu = false;
             morshugun = false;
             scaldown = false;
-            vanityhote = false;
-            vanitybrim = false;
-            vanityrare = false;
-            vanitysand = false;
-            vanitysiren = false;
-            vanitycloud = false;
-            vanityyound = false;
-            vanityfunclump = false;
-            vanityearth = false;
             avalon = false;
             wulfrumjam = false;
             conejo = false;
