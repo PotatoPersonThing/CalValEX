@@ -250,7 +250,7 @@ namespace CalValEX
 				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<RareBrimtulip>(), 5));
 				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<FoilSpoon>(), 20));
 			}
-			else if (item.type == ModContent.ItemType<CalamitasBag>())
+			else if (item.type == ModContent.ItemType<CalamitasCloneBag>())
 			{
 				IItemDropRule demonshade = ItemDropRule.Common(ModContent.ItemType<DemonshadeHood>());
 				demonshade.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DemonshadeRobe>()));
@@ -384,9 +384,10 @@ namespace CalValEX
 				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 10));
 				rule.OnSuccess(draedon);
 			}
-			else if (item.type == ModContent.ItemType<SupremeCalamitasCoffer>())
-			{
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 10));
+			else if (item.type == ModContent.ItemType<CalamitasCoffer>())
+            {
+                rule2.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureSacrilegious.OccultBrickItem>(), 1, 205, 335));
+                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 10));
 				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<GruelingMask>(), 3));
 			}
 
@@ -398,7 +399,7 @@ namespace CalValEX
 			#endregion
 
 			#region crates
-            if (item.type == ModContent.ItemType<CalamityMod.Items.Fishing.SulphurCatches.AbyssalCrate>())
+            if (item.type == ModContent.ItemType<CalamityMod.Items.Fishing.SulphurCatches.SulphurousCrate>())
 			{
                 rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AcidGun>(), 100));
                 rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<CursedLockpick>(), 50));
@@ -581,40 +582,10 @@ namespace CalValEX
             if (!CalValEX.CalamityActive)
                 return;
 
-            if (!CalValEXConfig.Instance.DisableVanityDrops && item.type == CalValEX.CalamityItem("StarterBag") && player.whoAmI == Main.myPlayer && CalValEX.AprilFoolWeek)
+            if (!CalValEXConfig.Instance.DisableVanityDrops && item.type == CalValEX.CalamityItem("StarterBag") && player.whoAmI == Main.myPlayer && CalValEX.AprilFoolWeek&& !NPC.AnyNPCs(ModContent.NPCType<AprilFools.Jharim.Jharim>()))
 			{
 				NPC.NewNPC(player.GetSource_ReleaseEntity(), (int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<AprilFools.Jharim.Jharim>(), 0, 0f, 0f, 0f, 0f, 255);
 			}
 		}
-
-        [JITWhenModsEnabled("CalamityMod")]
-        public override string IsArmorSet(Item head, Item body, Item legs)
-        {
-            if (!CalValEX.CalamityActive)
-                return "";
-
-            if (head.type == CalValEX.CalamityItem("WulfrumHat") &&
-                body.type == CalValEX.CalamityItem("WulfrumJacket") &&
-                legs.type == CalValEX.CalamityItem("WulfrumOveralls"))
-            {
-                return "Wulfrumset";
-            }
-
-            return "";
-        }
-
-        public override void UpdateArmorSet(Player player, string set)
-        {
-            if (player.HasBuff(ModContent.BuffType<Buffs.LightPets.PylonBuff>()) &&
-                player.HasBuff(ModContent.BuffType<WulfrumArmy>()) &&
-                player.HasBuff(ModContent.BuffType<TractorMount>()) && set == "Wulfrumset")
-            {
-                CalValEX.WulfrumsetReal = true;
-            }
-            else
-            {
-                CalValEX.WulfrumsetReal = false;
-            }
-        }
     }
 }

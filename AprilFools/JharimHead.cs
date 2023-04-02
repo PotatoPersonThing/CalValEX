@@ -35,8 +35,8 @@ namespace CalValEX.AprilFools
 		}
 
 		public override bool CanUseItem(Player player)
-        {
-            if (!CalValEX.AprilFoolMonth)
+		{
+			if (!CalValEX.AprilFoolMonth)
             {
 				return false;
             }

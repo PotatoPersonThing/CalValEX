@@ -124,11 +124,10 @@ namespace CalValEX {
 		//		recipe.Register();
 		//	}
 		//	#endregion
-			
 		//	#region //Critters
 		//	{
   //              Recipe recipe = Recipe.Create(ItemType<XerocodileItem>());
-		//		recipe.AddIngredient(ItemType<CalamityMod.Items.Fishing.Xerocodile>(), 10);
+		//		recipe.AddIngredient(ItemType<CalamityMod.Items.Fishing.Gorecodile>(), 10);
 		//		recipe.AddTile(TileID.LunarCraftingStation);
 		//		recipe.Register();
 		//	}
@@ -312,7 +311,6 @@ namespace CalValEX {
 		//		recipe.Register();
 		//	}
   //          #endregion
-
   //          #region //Shirts
 		//	{
 		//		Recipe recipe = Recipe.Create(ItemType<BelladonnaCloak>());

@@ -29,6 +29,7 @@ namespace CalValEX
 
         public static int astralTiles;
         public static int hellTiles;
+        public static int jungleTiles;
         public static int labTiles;
         public static int dungeontiles;
         public static bool rescuedjelly;
@@ -41,6 +42,7 @@ namespace CalValEX
         public static bool RockshrinEX;
         public static bool jharinter;
         public static bool downedMeldosaurus;
+        public static bool downedFogbound;
         public static bool masorev;
 
         // Chickens
@@ -63,6 +65,7 @@ namespace CalValEX
             RockshrinEX = false;
             jharinter = false;
             downedMeldosaurus = false;
+            downedFogbound = false;
 
             nugget = draco = folly = godnug = mammoth = shadow = isThereAHouse = false;
         }
@@ -77,6 +80,7 @@ namespace CalValEX
             RockshrinEX = false;
             jharinter = false;
             downedMeldosaurus = false;
+            downedFogbound = false;
 
             nugget = draco = folly = godnug = mammoth = shadow = isThereAHouse = false;
         }
@@ -107,6 +111,9 @@ namespace CalValEX
             if (downedMeldosaurus)
                 tag["downedMeldosaurus"] = true;
 
+            if (downedFogbound)
+                tag["downedFogbound"] = true;
+
             // Chickens
             if (nugget)
                 tag["nugget"] = true;
@@ -131,6 +138,7 @@ namespace CalValEX
             RockshrinEX = tag.ContainsKey("RockshrinEX");
             jharinter = tag.ContainsKey("jharinter");
             downedMeldosaurus = tag.ContainsKey("downedMeldosaurus");
+            downedFogbound = tag.ContainsKey("downedFogbound");
 
             nugget = tag.ContainsKey("nugget");
             draco = tag.ContainsKey("draco");
@@ -153,6 +161,7 @@ namespace CalValEX
 
             BitsByte flags2 = new BitsByte();
             flags2[0] = downedMeldosaurus;
+            flags2[1] = downedFogbound;
 
             BitsByte flags3 = new BitsByte();
             flags3[0] = nugget;
@@ -179,6 +188,7 @@ namespace CalValEX
 
             BitsByte flags2 = reader.ReadByte();
             downedMeldosaurus = flags2[0];
+            downedFogbound = flags2[1];
 
             BitsByte flags3 = reader.ReadByte();
             nugget = flags3[0];
@@ -276,10 +286,9 @@ namespace CalValEX
                     nug.direction = -Main.LocalPlayer.direction;
                     nug.netUpdate = true;
 
-                    if (nug.position.X < 10 || nug.position.X > Main.maxTilesX - 10)
-                    {
-                        nug.position.X = player.position.X;
-                    }
+                    // STAY INSIDE THE WORLD
+                    nug.position.X = MathHelper.Clamp(nug.position.X, 150f, Main.maxTilesX * 16f - 150f);
+                    nug.position.Y = MathHelper.Clamp(nug.position.Y, 150f, Main.maxTilesY * 16f - 150f);
 
                     if (Main.netMode == NetmodeID.SinglePlayer)
                         Main.NewText(Language.GetTextValue(nug.FullName + " has risen from") + ($" {Main.worldName}'s ashes!"), 50, 125, 255);
@@ -368,10 +377,6 @@ namespace CalValEX
                 CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<AstrageldonPlush>(), true);
                 CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<AstrageldonPlushThrowable>(), true);
                 CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<SpaceJunk>(), true);
-                CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<JaredPlush>(), true);
-                CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<JaredPlushThrowable>(), true);
-                CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<RespirationShrine>(), true);
-                CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<SoulShard>(), true);
             }
         }
 

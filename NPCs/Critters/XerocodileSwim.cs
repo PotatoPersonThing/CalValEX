@@ -57,7 +57,7 @@ namespace CalValEX.NPCs.Critters
             }
             if (!Main.bloodMoon)
             {
-                Item.NewItem(NPC.GetSource_FromAI(), NPC.position, NPC.width, NPC.height, CalValEX.CalamityItem("Xerocodile"), 1, false, 0, false, false);
+                Item.NewItem(NPC.GetSource_FromAI(), NPC.position, NPC.width, NPC.height, CalValEX.CalamityItem("Gorecodile"), 1, false, 0, false, false);
                 NPC.active = false;
             }
         }

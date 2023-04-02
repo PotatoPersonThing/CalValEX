@@ -31,6 +31,8 @@ namespace CalValEX.NPCs.JellyPriest
 
         private static bool shop3;
 
+        private static bool shop4;
+
         public int shoptype = 1;
 
         public override string Texture => "CalValEX/NPCs/JellyPriest/JellyPriestNPC";
@@ -59,7 +61,7 @@ namespace CalValEX.NPCs.JellyPriest
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Ocean,
-				new FlavorTextBestiaryInfoElement("A jellyfish that took an odd evolutionary turn. Her affinity for building synergizes with her devotion to a forgotten goddess."),
+				new FlavorTextBestiaryInfoElement("A jellyfish that took an odd evolutionary turn. Her affinity for building synergizes with her devotion to the Water Elemental."),
             });
         }
 
@@ -153,7 +155,7 @@ namespace CalValEX.NPCs.JellyPriest
                         return "Being free from those vines is great and all, but I need a place to settle for my sculpting.";
 
                     default:
-                        return "Greetings, land creature! I rise from this old sea in hopes of traveling and finding a certain deity from the old times, from when the sea was a beautiful reign for many. Do you have any hint about where I could find them?";
+                        return "Greetings, land creature! I rise from this old sea in hopes of traveling and finding a certain idol from the old times, from when the sea was a beautiful reign for many. Do you have any hint about where I could find them?";
                 }
             }
 
@@ -194,7 +196,7 @@ namespace CalValEX.NPCs.JellyPriest
                         return "The great sea king I've heard many tales of... And you say that you found him inside a clam...? Oh my, isn't that pathetic now.";
 
                     default:
-                        return "Do you think Amidias knows anything about the sea deity I'm searching? It seems that old horse got a lot of knowledge about story.";
+                        return "Do you think Amidias knows anything about the sea idol I'm searching? It seems that old horse got a lot of knowledge about story.";
                 }
             }
             if (CalamityMod.DownedBossSystem.downedLeviathan && Main.rand.NextFloat() < 0.25f && !NPC.AnyNPCs(CalValEX.CalamityNPC("Anahita")))
@@ -202,19 +204,18 @@ namespace CalValEX.NPCs.JellyPriest
                 switch (Main.rand.Next(2))
                 {
                     case 0:
-                        return "Oh! So you did find the location of the deity I'm searching for? Please explain in detail everything about them, I would love to start working on my offerings and monuments as soon as possible.";
+                        return "Oh! So you did find the location of the idol I'm searching for? Please explain in detail everything about them, I would love to start working on my offerings and monuments as soon as possible.";
 
                     default:
-                        return "For some reason, the goddess' presence feels like it's weakened. I hope nothing bad happened to her.";
+                        return "For some reason, the idol's presence feels like it's weakened. I hope nothing bad happened to her.";
                 }
             }
-
-            if (CalamityMod.DownedBossSystem.downedSCal && Main.rand.NextFloat() < 0.25f)
+            if (CalamityMod.DownedBossSystem.downedCalamitas && Main.rand.NextFloat() < 0.25f)
             {
                     return "Yeesh, through all of your adventures, I've stocked up quite the inventory!";
             }
 
-            if ((calPlayer.sirenWaifu || calPlayer.elementalHeart || (CalValEXPlayer.vanityhote && !CalValEXConfig.Instance.HeartVanity) || (CalValEXPlayer.vanitysiren && !CalValEXConfig.Instance.HeartVanity)) && Main.rand.NextFloat() < 0.25f)
+            if ((calPlayer.sirenWaifu || calPlayer.elementalHeart || calPlayer.allWaifusVanity || calPlayer.sirenWaifuVanity) && Main.rand.NextFloat() < 0.25f)
             {
                 return "You were successfully able to befriend the grand Water Elemental? I'm impressed.";
             }
@@ -231,12 +232,12 @@ namespace CalValEX.NPCs.JellyPriest
 
             if ((calPlayer.sirenPet) && Main.rand.NextFloat() < 0.25f)
             {
-                return "Awe, that little one is cute. She reminds me a lot of the deity I seek.";
+                return "Awe, that little one is cute. She reminds me a lot of the idol I seek.";
             }
 
             if ((CalValEXPlayer.babywaterclone) && Main.rand.NextFloat() < 0.25f)
             {
-                return "That little one has a presence that feels similar, but different to the deity I seek.";
+                return "That little one has a presence that feels similar, but different to the idol I seek.";
             }
 
             if (Main.eclipse)
@@ -256,7 +257,7 @@ namespace CalValEX.NPCs.JellyPriest
                 switch (Main.rand.Next(2))
                 {
                     case 0:
-                        return "Parties are fun! Hopefully one day, I can help make one which will catch the eye of the goddess I seek.";
+                        return "Parties are fun! Hopefully one day, I can help make one which will catch the eye of the idol I seek.";
 
                     default:
                         return "There's a lot of celebration today. Hopefully I can spice things up with my decorations!";
@@ -293,7 +294,7 @@ namespace CalValEX.NPCs.JellyPriest
                             return "I actually have higher motivation to work at night, the moon reminds me of someone...";
 
                         default:
-                            return "I wonder if the deity I seek watches the moon like I do.";
+                            return "I wonder if the idol I seek watches the moon like I do.";
                     }
                 }
             }
@@ -321,8 +322,10 @@ namespace CalValEX.NPCs.JellyPriest
             if (shoptype == 1)
                 button = "Blocks";
             else if (shoptype == 2)
-                button = "General";
+                button = "Lategame Blocks";
             else if (shoptype == 3)
+                button = "General";
+            else if (shoptype == 4)
                 button = "Plants";
             else 
                 button = "Blocks";
@@ -340,25 +343,35 @@ namespace CalValEX.NPCs.JellyPriest
                         shop1 = true;
                         shop2 = false;
                         shop3 = false;
+                        shop4 = false;
                     }
                     else if (shoptype == 2)
                     {
                         shop1 = false;
                         shop2 = true;
                         shop3 = false;
+                        shop4 = false;
+                    }
+                    else if (shoptype == 3)
+                    {
+                        shop1 = false;
+                        shop2 = false;
+                        shop3 = true;
+                        shop4 = false;
                     }
                     else
                     {
                         shop1 = false;
                         shop2 = false;
-                        shop3 = true;
+                        shop3 = false;
+                        shop4 = true;
                     }
                 }
             }
             else if (!firstButton)
             {
                 shop = false;
-                if (shoptype < 3)
+                if (shoptype < 4)
                 {
                     shoptype++;
                 }
@@ -396,9 +409,10 @@ namespace CalValEX.NPCs.JellyPriest
             bool polt = CalamityMod.DownedBossSystem.downedPolterghast;
             bool boomer = CalamityMod.DownedBossSystem.downedBoomerDuke;
             bool dog = CalamityMod.DownedBossSystem.downedDoG;
-            bool scal = CalamityMod.DownedBossSystem.downedSCal;
+            bool scal = CalamityMod.DownedBossSystem.downedCalamitas;
             bool ass = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral;
             bool sammy = CalValEXWorld.hellTiles > 20 && Main.LocalPlayer.ZoneUnderworldHeight;
+            bool jun = CalValEXWorld.jungleTiles > 20 && Main.LocalPlayer.ZoneJungle;
 
             if (shop1)
             {
@@ -412,18 +426,26 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(CalValEX.CalamityItem("SulphurousSand"), Item.buyPrice(0, 0, 0, 35), true, ref shop, ref nextSlot);
                 AddItem(CalValEX.CalamityItem("SulphurousSandstone"), Item.buyPrice(0, 0, 0, 35), true, ref shop, ref nextSlot);
                 AddItem(CalValEX.CalamityItem("HardenedSulphurousSandstone"), Item.buyPrice(0, 0, 0, 50), true, ref shop, ref nextSlot);
+                AddItem(CalValEX.CalamityItem("SulphurousShale"), Item.buyPrice(0, 0, 0, 75), true, ref shop, ref nextSlot);
                 AddItem(CalValEX.CalamityItem("EutrophicSand"), Item.buyPrice(0, 0, 5, 5), clam, ref shop, ref nextSlot);
+                AddItem(CalValEX.CalamityItem("Navystone"), Item.buyPrice(0, 0, 7, 0), clam, ref shop, ref nextSlot);
                 AddItem(CalValEX.CalamityItem("SmoothNavystone"), Item.buyPrice(0, 0, 2, 5), clam, ref shop, ref nextSlot);
                 AddItem(CalValEX.CalamityItem("AbyssGravel"), Item.buyPrice(0, 0, 2, 5), NPC.downedBoss3, ref shop, ref nextSlot);
                 AddItem(CalValEX.CalamityItem("StatigelBlock"), Item.buyPrice(0, 0, 3, 5), sg, ref shop, ref nextSlot);
                 AddItem(ItemType<Items.Tiles.Blocks.AstralGrass>(), Item.buyPrice(0, 0, 0, 10), Main.hardMode, ref shop, ref nextSlot);
                 AddItem(CalValEX.CalamityItem("AstralMonolith"), Item.buyPrice(0, 0, 2, 5), Main.hardMode, ref shop, ref nextSlot);
                 AddItem(ItemType<Items.Tiles.Blocks.AstralPearlBlock>(), Item.buyPrice(0, 0, 3, 0), Main.hardMode, ref shop, ref nextSlot);
-                AddItem(CalValEX.CalamityItem("Voidstone"), Item.buyPrice(0, 0, 2, 5), NPC.downedGolemBoss, ref shop, ref nextSlot);
+                AddItem(CalValEX.CalamityItem("BrimstoneSlag"), Item.buyPrice(0, 0, 4, 0), CalamityMod.DownedBossSystem.downedBrimstoneElemental, ref shop, ref nextSlot);
+                AddItem(CalValEX.CalamityItem("ScorchedRemains"), Item.buyPrice(0, 0, 4, 0), CalamityMod.DownedBossSystem.downedBrimstoneElemental, ref shop, ref nextSlot);
+                AddItem(CalValEX.CalamityItem("PyreMantle"), Item.buyPrice(0, 0, 4, 50), NPC.downedGolemBoss, ref shop, ref nextSlot);
+                AddItem(CalValEX.CalamityItem("MoltenPyreMantle"), Item.buyPrice(0, 0, 4, 50), NPC.downedGolemBoss, ref shop, ref nextSlot);
+                AddItem(CalValEX.CalamityItem("Voidstone"), Item.buyPrice(0, 0, 5, 0), NPC.downedGolemBoss, ref shop, ref nextSlot);
                 AddItem(CalValEX.CalamityItem("PlaguedContainmentBrick"), Item.buyPrice(0, 0, 5, 0), pb, ref shop, ref nextSlot);
                 AddItem(ItemType<Items.Tiles.Blocks.PlagueHiveWand>(), Item.buyPrice(0, 1, 40, 0), pb, ref shop, ref nextSlot);
                 AddItem(ItemType<Items.Walls.PlagueHiveWall>(), Item.buyPrice(0, 0, 0, 10), pb, ref shop, ref nextSlot);
                 AddItem(ItemType<Items.Tiles.Blocks.Necrostone>(), Item.buyPrice(0, 0, 10, 0), CalamityMod.DownedBossSystem.downedRavager, ref shop, ref nextSlot);
+            else if (shop2)
+            {
                 AddItem(CalValEX.CalamityItem("UelibloomBrick"), Item.buyPrice(0, 0, 20, 0), prov, ref shop, ref nextSlot);
                 AddItem(CalValEX.CalamityItem("ProfanedRock"), Item.buyPrice(0, 0, 66, 66), prov, ref shop, ref nextSlot);
                 AddItem(CalValEX.CalamityItem("ProfanedCrystal"), Item.buyPrice(0, 6, 66, 66), prov, ref shop, ref nextSlot);
@@ -438,8 +460,9 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<Items.Tiles.Blocks.AuricBrick>(), Item.buyPrice(0, 1, 50, 0), CalamityMod.DownedBossSystem.downedYharon, ref shop, ref nextSlot);
                 AddItem(CalValEX.CalamityItem("ExoPlating"), Item.buyPrice(0, 2, 0, 0), CalamityMod.DownedBossSystem.downedExoMechs, ref shop, ref nextSlot);
                 AddItem(CalValEX.CalamityItem("ExoPrismPanel"), Item.buyPrice(0, 2, 0, 0), CalamityMod.DownedBossSystem.downedExoMechs, ref shop, ref nextSlot);
+                AddItem(CalValEX.CalamityItem("OccultBrickItem"), Item.buyPrice(0, 2, 0, 0), scal, ref shop, ref nextSlot);
             }
-            else if (shop2)
+            else if (shop3)
             {
                 AddItem(ItemType<C>(), Item.buyPrice(0, 1, 0, 0), true, ref shop, ref nextSlot);
                 AddItem(ItemType<WulfrumGlobe>(), Item.buyPrice(0, 1, 0, 0), true, ref shop, ref nextSlot);
@@ -452,7 +475,7 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<Knight>(), Item.buyPrice(0, 0, 95, 0), Main.hardMode, ref shop, ref nextSlot);
                 AddItem(ItemType<DecommissionedDaedalusGolem>(), Item.buyPrice(0, 2, 50, 0), CalamityMod.DownedBossSystem.downedCryogen, ref shop, ref nextSlot);
                 AddItem(ItemType<AuroraMonolith>(), Item.buyPrice(0, 4, 0, 0), CalamityMod.DownedBossSystem.downedCryogen, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamitousMonolith>(), Item.buyPrice(0, 5, 0, 0), CalamityMod.DownedBossSystem.downedCalamitas, ref shop, ref nextSlot);
+                AddItem(ItemType<CalamitousMonolith>(), Item.buyPrice(0, 5, 0, 0), CalamityMod.DownedBossSystem.downedCalamitasClone, ref shop, ref nextSlot);
                 AddItem(ItemType<VeilBanner>(), Item.buyPrice(0, 5, 0, 0), NPC.downedPlantBoss, ref shop, ref nextSlot);
                 AddItem(ItemType<JunkArt>(), Item.buyPrice(0, 10, 0, 0), NPC.downedPlantBoss, ref shop, ref nextSlot);
                 AddItem(ItemType<HeartoftheCommunity>(), Item.buyPrice(0, 2, 0, 0), lev, ref shop, ref nextSlot);
@@ -460,7 +483,7 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<AquaticMonolith>(), Item.buyPrice(0, 6, 0, 0), lev, ref shop, ref nextSlot);
                 AddItem(ItemType<PlagueMonolith>(), Item.buyPrice(0, 7, 0, 0), CalamityMod.DownedBossSystem.downedPlaguebringer, ref shop, ref nextSlot);
                 AddItem(ItemType<BubbleMachine>(), Item.buyPrice(0, 35, 0, 0), NPC.downedMartians, ref shop, ref nextSlot);
-                AddItem(ItemType<PlagueDialysis>(), Item.buyPrice(0, 35, 0, 0), CalamityMod.DownedBossSystem.downedDragonfolly, ref shop, ref nextSlot);
+                AddItem(ItemType<PlagueDialysis>(), Item.buyPrice(0, 35, 0, 0), DownedBossSystem.downedDragonfolly, ref shop, ref nextSlot);
                 AddItem(ItemType<Provibust>(), Item.buyPrice(1, 50, 0, 0), prov, ref shop, ref nextSlot);
                 AddItem(ItemType<UnholyMonolith>(), Item.buyPrice(0, 40, 0, 0), prov, ref shop, ref nextSlot);
                 AddItem(ItemType<Tesla>(), Item.buyPrice(2, 75, 0, 0), CalamityMod.DownedBossSystem.downedStormWeaver, ref shop, ref nextSlot);
@@ -479,7 +502,7 @@ namespace CalValEX.NPCs.JellyPriest
                 AddItem(ItemType<DemonShield>(), Item.buyPrice(0, 60, 0, 0), scal, ref shop, ref nextSlot);
                 AddItem(ItemType<Se>(), Item.buyPrice(6, 66, 66, 66), scal, ref shop, ref nextSlot);
             }
-            else if (shop3)
+            else if (shop4)
             {
                 AddItem(ItemType<FleshThing>(), Item.buyPrice(0, 0, 60, 0), true, ref shop, ref nextSlot);
                 AddItem(ItemType<Anemone>(), Item.buyPrice(0, 0, 20, 0), clam, ref shop, ref nextSlot);

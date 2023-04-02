@@ -1,6 +1,25 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
+using CalamityMod.Tiles.SunkenSea;
+using CalamityMod.Walls;
+using CalamityMod.Items.DraedonMisc;
+using CalamityMod.Items.Materials;
+using CalamityMod.Items.Weapons.Melee;
+using CalamityMod.Items.LabFinders;
+using CalamityMod.Schematics;
+using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.WorldBuilding;
+using static CalamityMod.World.DraedonStructures;
+using CalamityMod;
+
 
 namespace CalValEX.Items.Pets
 {
@@ -29,6 +48,14 @@ namespace CalValEX.Items.Pets
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
+                //CalamityMod.World.Planets.LuminitePlanet.GenerateLuminitePlanetoids();
+                //CalamityMod.World.BrimstoneCrag.GenAllCragsStuff();
+
+                /*{
+                    string mapKey = "Sunken Sea Laboratory";
+                    bool hasPlacedLogAndSchematic = false;
+                    CalamityMod.Schematics.SchematicManager.PlaceSchematic(mapKey, new Point((int)Main.MouseWorld.X / 16, (int)Main.MouseWorld.Y / 16), SchematicAnchor.TopLeft, ref hasPlacedLogAndSchematic, new Action<Chest, int, bool>(FillSunkenSeaLaboratoryChest));
+                }*/
                 player.AddBuff(Item.buffType, 3600, true);
             }
         }

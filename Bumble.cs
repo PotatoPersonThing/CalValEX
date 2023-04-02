@@ -36,14 +36,6 @@ namespace CalValEX
                     }
                 }
             }
-
-            if (CalValEX.WulfrumsetReal)
-            {
-                if (npc.type == CalValEX.CalamityNPC("WulfrumGryator"))
-                {
-                    npc.GivenName = "John Wulfrum";
-                }
-            }
         }
     }
 }

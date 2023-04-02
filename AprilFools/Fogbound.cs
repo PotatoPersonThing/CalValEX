@@ -7,6 +7,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX;
+using Terraria.GameContent.Bestiary;
+using Terraria.Audio;
 //using Terraria.World.Generation;
 
 namespace CalValEX.AprilFools
@@ -14,18 +16,7 @@ namespace CalValEX.AprilFools
 	[AutoloadBossHead]
 	public class Fogbound : ModNPC
 	
-	{
-		private bool prov1;
-		private bool prov2;
-		private bool prov3;
-		private bool dog1;
-		private bool dog2;
-		private bool dog3;
-		private bool yharon1;
-		private bool yharon2;
-		private bool yharon3;
-		private bool scal1;
-		
+	{		
 		public override void SetStaticDefaults()
 		{
 			if (!CalValEX.AprilFoolMonth)
@@ -40,14 +31,13 @@ namespace CalValEX.AprilFools
 		public override void SetDefaults()
 		{
 			NPC.damage = 69420666; 
-			NPC.width = 100; 
-			NPC.height = 100; 
+			NPC.width = 120; 
+			NPC.height = 134; 
 			NPC.defense = 10;
-			NPC.lifeMax = 100000000;
+			NPC.lifeMax = 650000;
 			NPC.boss = true;
-			NPC.aiStyle = 11; 
-			Main.npcFrameCount[NPC.type] = 1; 
-            AIType = 11; 
+			NPC.aiStyle = -1; 
+			Main.npcFrameCount[NPC.type] = 1;
 			NPC.knockBackResist = 0f;
 			NPC.value = Item.buyPrice(0, 10, 0, 0);
 			NPC.alpha = 1;
@@ -59,6 +49,7 @@ namespace CalValEX.AprilFools
 			NPC.DeathSound = SoundID.NPCDeath3;
 			Music = MusicID.LunarBoss;
 			NPC.netAlways = true;
+			NPC.chaseable = false;
 		}
 		public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
 		{
@@ -66,89 +57,249 @@ namespace CalValEX.AprilFools
 			{
 				bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
 				Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
-				new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A viscious and unfitting creature for this universe. We call it the Fogbound."),
+				new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("The soul the Death God, we call it the Fogbound. Although one may logically assume that a god possesses two souls when they consume an Auric Soul, this is not the case. Rather, they fuse into something greater than the sum of its parts."),
 			});
 			}
 		}
 		public override void AI()
 		{
-			Main.dayTime = true;
-            if (!CalValEX.AprilFoolMonth || !CalValEX.CalamityActive)
+			Player target = Main.player[NPC.target];
+			float lifeRatio = NPC.life/NPC.lifeMax;
+            if (!CalValEX.AprilFoolMonth && !Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok)
             {
-            NPC.active = false;
+				NPC.active = false;
             }
-            int num2 = (int)((double)NPC.lifeMax * 0.1);
-			if (NPC.ai[3] == 0f && NPC.life > 0)
-		{
-			NPC.ai[3] = NPC.lifeMax;
+			if (Main.dayTime && NPC.life <= NPC.lifeMax * 0.5f)
+            {
+				for (int k = 0; k < 50; k++)
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, 16, 0, -1f, 0, default, 1f);
+				NPC.active = false;
+				CalamityMod.CalamityUtils.DisplayLocalizedText("You foolish mortal, you may only witness me at my fullest at the witching hour...", Color.Gray);
+			}
+			NPC.localAI[0]++;
+			if (NPC.localAI[0] >= 600 && NPC.ai[0] == 1)
+            {
+				Vector2 dist = target.Center - NPC.Center;
+				float yRand = 0;
+				float xRand = 0;
+				while (xRand == 0)
+				{
+					xRand = Main.rand.Next(-1, 2);
+				}
+				while (yRand == 0)
+                {
+					yRand = Main.rand.Next(-1, 2);
+				}
+				for (int k = 0; k < 50; k++)
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, 16, 0, -1f, 0, default, 1f);
+				SoundEngine.PlaySound(SoundID.Item20);
+				NPC.Center = new Vector2((int)(target.Center.X + dist.X * xRand),(int)( target.Center.Y - dist.Y * yRand));
+				NPC.localAI[0] = 0;
+            }
+			switch (NPC.ai[0])
+            {
+				case 0:
+                    {
+						NPC.damage = 0;
+						NPC.velocity.X = 0;
+						NPC.velocity.Y = -10;
+						NPC.ai[1]++;
+						if (NPC.ai[1] > 60)
+                        {
+							ChangeAI(1);
+                        }
+                    }
+					break;
+				case 1:
+                    {
+						NPC.damage = 69420666;
+						float fistGate = CalamityMod.Events.BossRushEvent.BossRushActive ? 5 : CalamityMod.World.CalamityWorld.death ? 7 : CalamityMod.World.CalamityWorld.revenge ? 10 : Main.expertMode ? 15 : 20;
+						Vector2 distanceFromDestination = target.Center - NPC.Center;
+						CalamityMod.CalamityUtils.SmoothMovement(NPC, 100, distanceFromDestination, 10, 1, true);
+						NPC.ai[1]++;
+						NPC.ai[2]++;
+						NPC.rotation = NPC.rotation.AngleLerp(0, 0.2f);
+						if (NPC.ai[1] >= fistGate)
+                        {
+							FistMeDaddy();
+							NPC.ai[1] = 0;
+                        }
+						if (NPC.ai[2] >= 300)
+                        {
+							ChangeAI(2);
+                        }
+                    }
+					break;
+				case 2:
+                    {
+						float phaseTime = Math.Clamp(100 - (lifeRatio * 100), 10, 10000);
+						float chargeSpeed = 20 + (10 - (lifeRatio * 10));
+						if (NPC.ai[1] == 0)
+                        {
+							Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar);
+							NPC.velocity = NPC.DirectionTo(target.position) * chargeSpeed;
+                        }
+						NPC.ai[1]++;
+						NPC.rotation += NPC.velocity.X > 0 ? 5 : -5;
+						if (NPC.ai[1] >= phaseTime)
+                        {
+							ChangeAI(1);
+                        }
+                    }
+					break;
+				case 3:
+					{
+						NPC.velocity *= 0f;
+						if (NPC.ai[1] == 0)
+                        {
+							if (Main.netMode != NetmodeID.MultiplayerClient)
+							{
+								int p = Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<FogLaser>(), NPC.damage * 2, 0f, Main.myPlayer, NPC.whoAmI);
+								if (p < Main.maxProjectiles + 1)
+								{
+									// Shoot laser either to the left or right of the player
+									float offset = Main.rand.NextBool(2) ? MathHelper.PiOver2 : -MathHelper.PiOver2;
+									// Rotate left and right respectively
+									Main.projectile[p].ai[1] = offset == MathHelper.PiOver2 ? 0 : 1;
+									Main.projectile[p].rotation = NPC.Center.AngleTo(target.Center) + offset;
+									NPC.localAI[2] = p;
+								}
+							}
+							for (int i = 0; i < Main.maxProjectiles; i++)
+                            {
+								Projectile proj = Main.projectile[i];
+								if (proj.type == ModContent.ProjectileType<FogboundFist>())
+								{
+									for (int j = 0; j < 20; j++)
+									{
+										Dust.NewDust(proj.position, proj.width, proj.height, 16, 0, -1f, 0, default, 1f);
+									}
+									proj.active = false;
+								}
+                            }
+						}
+						else if (NPC.ai[1] < 120)
+						{
+							NPC.rotation = NPC.rotation.AngleLerp(0, 0.4f);
+							int num5 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 16, 0f, 0f, 200, default, 1.5f);
+							Main.dust[num5].noGravity = true;
+							Main.dust[num5].velocity *= 0.75f;
+							Main.dust[num5].fadeIn = 1.3f;
+							Vector2 vector = new Vector2((float)Main.rand.Next(-200, 201), (float)Main.rand.Next(-200, 201));
+							vector.Normalize();
+							vector *= (float)Main.rand.Next(100, 200) * 0.04f;
+							Main.dust[num5].velocity = vector;
+							vector.Normalize();
+							vector *= 34f;
+							Main.dust[num5].position = NPC.Center - vector;
+						}
+						else if (NPC.ai[1] == 120)
+						{
+							Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie104, NPC.Center);
+							float screenShakePower = 20 * Utils.GetLerpValue(1300f, 0f, NPC.Distance(Main.LocalPlayer.Center), true);
+							if (Main.LocalPlayer.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().GeneralScreenShakePower < screenShakePower)
+								Main.LocalPlayer.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().GeneralScreenShakePower = screenShakePower;
+						}
+						NPC.ai[1]++;
+						if (NPC.ai[1] >= 480)
+                        {
+							ChangeAI(2);
+						}
+					}
+					break;
+            }
 		}
-		if (NPC.life <= 0 || Main.netMode == 1)
-		{
-			return;
-		}
-		if ((float)(NPC.life + num2) < NPC.ai[3])
-		{
-			NPC.ai[3] = NPC.life;
-			int num1 = CalValEX.CalamityNPC("Providence");
-			if (!prov1)
+
+		public void ChangeAI(int phase)
+        {
+			if (NPC.ai[0] == 1 && !Main.dayTime && NPC.life <= NPC.lifeMax * 0.5f)
 			{
-				prov1 = true;
+				NPC.ai[0] = 3;
 			}
-			else if (!prov2)
+			else
 			{
-				prov2 = true;
-				num1 = CalValEX.CalamityNPC("Providence");
+				NPC.ai[0] = phase;
 			}
-			else if (!prov3)
+			NPC.ai[1] = 0;
+			NPC.ai[2] = 0;
+			NPC.ai[3] = 0;
+			NPC.TargetClosest();
+        }
+
+		public void FistMeDaddy()
+        {
+			float startDist = Main.rand.NextFloat(1260f, 1270f);
+			Vector2 startDir = Main.rand.NextVector2Unit();
+			Vector2 startPoint = Main.player[NPC.target].Center + (startDir * startDist);
+
+			float speed = 10;
+			Vector2 velocity = startDir * (-speed);
+			if (Main.netMode != NetmodeID.MultiplayerClient)
 			{
-				prov3 = true;
-				num1 = CalValEX.CalamityNPC("DevourerofGodsHead");
+				Projectile.NewProjectile(NPC.GetSource_FromAI(), startPoint, velocity, ModContent.ProjectileType<FogboundFist>(), NPC.damage / 2, 0, Main.myPlayer, NPC.whoAmI);
 			}
-			else if (!dog1)
-			{
-				dog1 = true;
-				num1 = CalValEX.CalamityNPC("DevourerofGodsHead");
-			}
-			else if (!dog2)
-			{
-				dog2 = true;
-				num1 = CalValEX.CalamityNPC("Yharon");
-			}
-			else if (!dog3)
-			{
-				dog3 = true;
-				num1 = CalValEX.CalamityNPC("Yharon");
-			}
-			else if (!yharon1)
-			{
-				yharon1 = true;
-				num1 = CalValEX.CalamityNPC("AresBody");
-			}
-			else if (!yharon2)
-			{
-				yharon2 = true;
-				num1 = CalValEX.CalamityNPC("AresBody");
-			}
-			else if (!yharon3)
-			{
-				yharon3 = true;
-				num1 = CalValEX.CalamityNPC("AdultEidolonWyrmHead");
-			}
-			else if (!scal1)
-			{
-				scal1 = true;
-				num1 = CalValEX.CalamityNPC("AdultEidolonWyrmHead");
-			}
-			NPC.SpawnOnPlayer(NPC.FindClosestPlayer(), num1);
-			NPC.SpawnOnPlayer(NPC.FindClosestPlayer(), NPCID.Retinazer);
-			NPC.SpawnOnPlayer(NPC.FindClosestPlayer(), NPCID.Spazmatism);
-			}
-	}
+        }
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{
 			NPC.lifeMax = (int)(NPC.lifeMax * 0.55f * bossLifeScale);
 			NPC.damage = (int)(NPC.damage * 0.65f);
 		}
-	}
+
+		public override void OnHitPlayer(Player player, int damage, bool crit)
+		{
+			if (damage > 0)
+			{
+				player.AddBuff(BuffID.Darkness, 120, true);
+				if (Main.getGoodWorld && Main.drunkWorld)
+				{
+					player.AddBuff(BuffID.Obstructed, 120, true);
+				}
+			}
+		}
+
+		public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+		{
+			Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
+			Texture2D fisttexture = ModContent.Request<Texture2D>("CalValEX/AprilFools/FogboundFist").Value;
+			Texture2D glowtexture = NPC.ai[0] == 3 ? ModContent.Request<Texture2D>("CalValEX/AprilFools/FogboundGlowEnrage").Value : ModContent.Request<Texture2D>("CalValEX/AprilFools/FogboundGlow").Value;
+			Player target = Main.player[NPC.target];
+			Vector2 dist = NPC.Center - target.Center;
+			Rectangle frameRectangle = texture.Frame(1, 1, 0, 0);
+			List<Vector2> points = new List<Vector2>
+			{
+				NPC.Center - Main.screenPosition,
+				NPC.Center - Main.screenPosition + -2 * dist.Y * Vector2.UnitY,
+				NPC.Center - Main.screenPosition + -2 * dist.Y * Vector2.UnitY + -2 * dist.X * Vector2.UnitX,
+				NPC.Center - Main.screenPosition + -2 * dist.X * Vector2.UnitX
+			};
+			for (int i = 0; i < points.Count; i++)
+			{
+				float rot = i > 1 ? -NPC.rotation : NPC.rotation;
+				SpriteEffects dir = dist.X < 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.FlipVertically;
+				if (i > 1)
+				{
+					dir = dist.X >= 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.FlipVertically;
+				}
+				spriteBatch.Draw(texture, points[i], null, drawColor, rot, frameRectangle.Size() / 2, 1f, SpriteEffects.None, 0);
+				if (NPC.life <= NPC.lifeMax * 0.5f)
+				{
+					spriteBatch.Draw(fisttexture, points[i] + Vector2.UnitX * 180 + Vector2.UnitY * (float)Math.Sin(Main.GlobalTimeWrappedHourly * 5) * 16, null, drawColor, rot, frameRectangle.Size() / 2, 1f, dir, 0);
+					spriteBatch.Draw(fisttexture, points[i] - Vector2.UnitX * 120 + Vector2.UnitY * (float)Math.Sin(Main.GlobalTimeWrappedHourly * 5) * 16, null, drawColor, rot, frameRectangle.Size() / 2, 1f, dir, 0);
+				}
+				spriteBatch.Draw(glowtexture, points[i], null, Color.White, rot, frameRectangle.Size() / 2, 1f, SpriteEffects.None, 0);
+			}
+			return false;
+        }
+
+        public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
+        {
+			return Main.expertMode ? false : true;
+        }
+
+        public override void OnKill()
+        {
+            CalValEXWorld.downedFogbound = true;
+        }
+    }
 }
