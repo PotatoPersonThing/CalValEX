@@ -128,7 +128,7 @@ namespace CalValEX {
 			#region //Critters
 			{
                 Recipe recipe = Recipe.Create(ItemType<XerocodileItem>());
-				recipe.AddIngredient(ItemType<CalamityMod.Items.Fishing.Xerocodile>(), 10);
+				recipe.AddIngredient(ItemType<CalamityMod.Items.Fishing.Gorecodile>(), 10);
 				recipe.AddTile(TileID.LunarCraftingStation);
 				recipe.Register();
 			}
@@ -981,6 +981,7 @@ namespace CalValEX {
 			PlushRecipe(ItemType<GiantClamPlushThrowable>(), ItemType<GiantClamPlush>());
 			PlushRecipe(ItemType<SandSharkPlushThrowable>(), ItemType<SandSharkPlush>());
 			PlushRecipe(ItemType<HiveMindPlushThrowable>(), ItemType<HiveMindPlush>());
+			PlushRecipe(ItemType<HypnosPlushThrowable>(), ItemType<HypnosPlush>());
 			PlushRecipe(ItemType<JaredPlushThrowable>(), ItemType<JaredPlush>());
 			PlushRecipe(ItemType<LeviathanPlushThrowable>(), ItemType<LeviathanPlush>());
 			PlushRecipe(ItemType<MaulerPlushThrowable>(), ItemType<MaulerPlush>());
@@ -1007,7 +1008,6 @@ namespace CalValEX {
 
             #region //Blueprints
             BlueprintRecipe(ItemType<CalamityMod.Items.Potions.AureusCell>(), ItemType<AstrumAureusLog>());
-			BlueprintRecipe(ItemType<EffulgentFeather>(), ItemType<BumblebirbLog>());
 			BlueprintRecipe(ItemType<AshesofCalamity>(), ItemType<CalamitasLog>());
 			BlueprintRecipe(ItemID.SoulofMight, ItemType<DestroyerLog>());
 			BlueprintRecipe(ItemType<CosmiliteBar>(), ItemType<DogLog>());

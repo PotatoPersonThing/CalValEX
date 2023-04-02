@@ -399,7 +399,7 @@ namespace CalValEX
 			#endregion
 
 			#region crates
-            if (item.type == ModContent.ItemType<CalamityMod.Items.Fishing.SulphurCatches.AbyssalCrate>())
+            if (item.type == ModContent.ItemType<CalamityMod.Items.Fishing.SulphurCatches.SulphurousCrate>())
 			{
                 rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AcidGun>(), 100));
                 rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<CursedLockpick>(), 50));
@@ -578,36 +578,10 @@ namespace CalValEX
         #endregion
         public override void RightClick(Item item, Player player)
         {
-			if (!CalValEXConfig.Instance.DisableVanityDrops && item.type == ModContent.ItemType<StarterBag>() && player.whoAmI == Main.myPlayer && CalValEX.AprilFoolWeek)
+			if (!CalValEXConfig.Instance.DisableVanityDrops && item.type == ModContent.ItemType<StarterBag>() && player.whoAmI == Main.myPlayer && CalValEX.AprilFoolWeek && !NPC.AnyNPCs(ModContent.NPCType<AprilFools.Jharim.Jharim>()))
 			{
 				NPC.NewNPC(player.GetSource_ReleaseEntity(), (int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<AprilFools.Jharim.Jharim>(), 0, 0f, 0f, 0f, 0f, 255);
 			}
 		}
-
-        public override string IsArmorSet(Item head, Item body, Item legs)
-        {
-            if (head.type == ModContent.ItemType <WulfrumHat>() &&
-                body.type == ModContent.ItemType <WulfrumJacket>() &&
-                legs.type == ModContent.ItemType <WulfrumOveralls>())
-            {
-                return "Wulfrumset";
-            }
-
-            return "";
-        }
-
-        public override void UpdateArmorSet(Player player, string set)
-        {
-            if (player.HasBuff(ModContent.BuffType<Buffs.LightPets.PylonBuff>()) &&
-                player.HasBuff(ModContent.BuffType<WulfrumArmy>()) &&
-                player.HasBuff(ModContent.BuffType<TractorMount>()) && set == "Wulfrumset")
-            {
-                CalValEX.WulfrumsetReal = true;
-            }
-            else
-            {
-                CalValEX.WulfrumsetReal = false;
-            }
-        }
     }
 }

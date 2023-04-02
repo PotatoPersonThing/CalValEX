@@ -10,7 +10,7 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Yharon Cloning Vat");
+            DisplayName.SetDefault("Swarmer Conservation Tube");
             Tooltip
                 .SetDefault("'Sealed away for eternity'");
             SacrificeTotal = 1;

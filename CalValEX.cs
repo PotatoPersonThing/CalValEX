@@ -84,8 +84,6 @@ namespace CalValEX
         public bool hasPermission;
 
         public static bool Bumble;
-        public static bool Wulfrumset;
-        public static bool WulfrumsetReal;
 
         public static bool AprilFoolMonth;
         public static bool AprilFoolWeek;
@@ -95,9 +93,6 @@ namespace CalValEX
         public static int day;
         public static int month;
         public static Texture2D AstralSky;
-
-        public static MethodInfo compactFraming;
-        public static MethodInfo brimstoneFraming;
 
         public override void Load()
         {
@@ -138,11 +133,8 @@ namespace CalValEX
 
             currentDate = null;
             Bumble = false;
-            Wulfrumset = false;
             day = -1;
             month = -1;
-            compactFraming = null;
-            brimstoneFraming = null;
             AstralSky = null;
             AprilFoolDay = false;
             AprilFoolWeek = false;
@@ -165,7 +157,7 @@ namespace CalValEX
             {
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<OracleNPC>(), "Equip a Pet or Light Pet");
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<JellyPriestNPC>(),
-                    "Find at the Ocean after defeating the Eye of Cthulhu");
+                    "Find at the Sulphurous Sea after defeating the Acid Rain's first tier");
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<AprilFools.Jharim.Jharim>(), "It's a secret");
 
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<NuggetNugget>(), Language.GetText("Mods.CalValEX.Census") + $" [i:{ModContent.ItemType<NuggetLicense>()}]");

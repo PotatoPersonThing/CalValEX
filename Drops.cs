@@ -917,11 +917,32 @@ namespace CalValEX
                     npcLoot.Add(DropHelper.CalamityStyle(DropHelper.NormalWeaponDropRateFraction, weapons));
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusBag>()));
                     npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusRelic>());
+                    npcLoot.AddIf(() => !CalValEXWorld.downedMeldosaurus, ModContent.ItemType<AprilFools.Meldosaurus.KnowledgeMeldosaurus>());
                 }
                 //Fogbound
                 if (npc.type == ModContent.NPCType<AprilFools.Fogbound>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PurifiedFog>(), 1));
+                    npcLoot.AddIf(() => !CalValEXWorld.downedFogbound, ModContent.ItemType<AprilFools.KnowledgeFogbound>());
+                }
+                Mod CatalystMod;
+                Mod Hypnos;
+                ModLoader.TryGetMod("CatalystMod", out CatalystMod);
+                ModLoader.TryGetMod("Hypnos", out Hypnos);
+                if (Hypnos != null)
+                {
+                    if (npc.type == Hypnos.Find<ModNPC>("HypnosBoss").Type)
+                    {
+                        npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<HypnosPlush>(), 4);
+                    }
+                }
+                if (CatalystMod != null)
+                {
+                    if (npc.type == CatalystMod.Find<ModNPC>("Astrageldon").Type)
+                    {
+                        npcLoot.AddIf(() => CalValEXWorld.masorev, ModContent.ItemType<AstrageldonPlush>(), 4);
+                        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SpaceJunk>(), 3));
+                    }
                 }
 
                 //Yharexs' Dev Pet (Calamity BABY)

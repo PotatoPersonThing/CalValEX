@@ -32,6 +32,7 @@ namespace CalValEX
 
         public static int astralTiles;
         public static int hellTiles;
+        public static int jungleTiles;
         public static int labTiles;
         public static int dungeontiles;
         public static bool rescuedjelly;
@@ -44,6 +45,7 @@ namespace CalValEX
         public static bool RockshrinEX;
         public static bool jharinter;
         public static bool downedMeldosaurus;
+        public static bool downedFogbound;
         public static bool masorev;
 
         // Chickens
@@ -66,6 +68,7 @@ namespace CalValEX
             RockshrinEX = false;
             jharinter = false;
             downedMeldosaurus = false;
+            downedFogbound = false;
 
             nugget = draco = folly = godnug = mammoth = shadow = isThereAHouse = false;
         }
@@ -80,6 +83,7 @@ namespace CalValEX
             RockshrinEX = false;
             jharinter = false;
             downedMeldosaurus = false;
+            downedFogbound = false;
 
             nugget = draco = folly = godnug = mammoth = shadow = isThereAHouse = false;
         }
@@ -110,6 +114,9 @@ namespace CalValEX
             if (downedMeldosaurus)
                 tag["downedMeldosaurus"] = true;
 
+            if (downedFogbound)
+                tag["downedFogbound"] = true;
+
             // Chickens
             if (nugget)
                 tag["nugget"] = true;
@@ -134,6 +141,7 @@ namespace CalValEX
             RockshrinEX = tag.ContainsKey("RockshrinEX");
             jharinter = tag.ContainsKey("jharinter");
             downedMeldosaurus = tag.ContainsKey("downedMeldosaurus");
+            downedFogbound = tag.ContainsKey("downedFogbound");
 
             nugget = tag.ContainsKey("nugget");
             draco = tag.ContainsKey("draco");
@@ -156,6 +164,7 @@ namespace CalValEX
 
             BitsByte flags2 = new BitsByte();
             flags2[0] = downedMeldosaurus;
+            flags2[1] = downedFogbound;
 
             BitsByte flags3 = new BitsByte();
             flags3[0] = nugget;
@@ -182,6 +191,7 @@ namespace CalValEX
 
             BitsByte flags2 = reader.ReadByte();
             downedMeldosaurus = flags2[0];
+            downedFogbound = flags2[1];
 
             BitsByte flags3 = reader.ReadByte();
             nugget = flags3[0];
@@ -208,6 +218,8 @@ namespace CalValEX
             astralTiles = tileCounts[TileType<AstralDirtPlaced>()] + tileCounts[TileType<AstralGrassPlaced>()] + tileCounts[TileType<XenostonePlaced>()] + tileCounts[TileType<AstralSandPlaced>()] + tileCounts[TileType<AstralHardenedSandPlaced>()] + tileCounts[TileType<AstralSandstonePlaced>()] + tileCounts[TileType<AstralClayPlaced>()] + tileCounts[TileType<AstralIcePlaced>()] + tileCounts[TileType<AstralSnowPlaced>()];
             // Hell Lab tiles
             hellTiles = tileCounts[TileType<CalamityMod.Tiles.Plates.Havocplate>()];
+            // Hell Lab tiles
+            hellTiles = tileCounts[TileType<CalamityMod.Tiles.Plates.PlagueContainmentCells>()];
             // Lab tiles
             labTiles = tileCounts[TileType<LaboratoryPlating>()] + tileCounts[TileType < LaboratoryPanels>()] + tileCounts[TileType < RustedPlating>()] + tileCounts[TileType < LaboratoryPipePlating>()] + tileCounts[TileType < RustedPipes>()];
             //Dungeon tiles
@@ -356,10 +368,6 @@ namespace CalValEX
                 CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<AstrageldonPlush>(), true);
                 CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<AstrageldonPlushThrowable>(), true);
                 CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<SpaceJunk>(), true);
-                CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<JaredPlush>(), true);
-                CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<JaredPlushThrowable>(), true);
-                CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<RespirationShrine>(), true);
-                CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<SoulShard>(), true);
             }
         }
 
