@@ -56,7 +56,7 @@ namespace CalValEX.NPCs.Critters
         {
             if (CalValEX.CalamityActive)
             {
-                if ((bool)ModLoader.GetMod("CalamityMod").Call("GetInZone", spawnInfo.Player, "layer4") && !CalValEXConfig.Instance.CritterSpawns)
+                if (CalValEX.InCalamityBiome(spawnInfo.Player, "AbyssLayer4Biome") && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     if (spawnInfo.Water)
                     {

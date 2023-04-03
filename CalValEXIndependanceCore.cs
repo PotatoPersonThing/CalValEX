@@ -119,5 +119,19 @@ namespace CalValEX
                 return content.Type;
             return -1;
         }
+
+        public static ModBiome CalamityBiome(string name)
+        {
+            if (CalamityContent(name, out ModBiome content))
+                return content;
+            return null;
+        }
+
+        public static bool InCalamityBiome(Player player, string biome)
+        {
+            if (player.InModBiome(CalamityBiome(biome)))
+                return true;
+            return false;
+        }
     }
 }

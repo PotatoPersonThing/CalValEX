@@ -55,7 +55,7 @@ namespace CalValEX.NPCs.Critters
         {
             if (CalValEX.CalamityActive)
             {
-                if ((bool)ModLoader.GetMod("CalamityMod").Call("GetInZone", spawnInfo.Player, "astral") && !CalValEXConfig.Instance.CritterSpawns)
+                if (CalValEX.InCalamityBiome(spawnInfo.Player, "AbovegroundAstralBiome") && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     if (spawnInfo.PlayerSafe)
                     {

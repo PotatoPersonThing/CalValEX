@@ -91,7 +91,7 @@ namespace CalValEX.NPCs.Critters
         {
             if (CalValEX.CalamityActive)
             {
-                if ((bool)ModLoader.GetMod("CalamityMod").Call("GetInZone", spawnInfo.Player, "crags") && !CalValEXConfig.Instance.CritterSpawns)
+                if (spawnInfo.Player.InModBiome(CalValEX.CalamityBiome("BrimstoneCragsBiome")) && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     return 0.35f;
                 }

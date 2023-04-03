@@ -144,7 +144,7 @@ namespace CalValEX.NPCs.Critters
                 Mod cal = ModLoader.GetMod("CalamityMod");
                 if ((bool)cal.Call("getbossdowned", "scal") && (bool)cal.Call("getbossdowned", "exomechs") && !NPC.AnyNPCs(ModContent.NPCType<OrthoceraApparition>()) && !CalValEXWorld.orthofound)
                 {
-                    if ((bool)cal.Call("GetInZone", spawnInfo.Player, "layer4"))
+                    if (CalValEX.InCalamityBiome(spawnInfo.Player, "SulphurousSeaBiome"));
                     {
                         return 5f;
                     }

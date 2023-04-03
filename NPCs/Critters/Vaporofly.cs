@@ -53,7 +53,7 @@ namespace CalValEX.NPCs.Critters
         {
             if (CalValEX.CalamityActive)
             {
-                if ((bool)ModLoader.GetMod("CalamityMod").Call("GetInZone", spawnInfo.Player, "sulphursea") && !CalValEXConfig.Instance.CritterSpawns)
+                if (CalValEX.InCalamityBiome(spawnInfo.Player, "SulphurousSeaBiome") && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     if (spawnInfo.Player.ZoneOverworldHeight)
                     {

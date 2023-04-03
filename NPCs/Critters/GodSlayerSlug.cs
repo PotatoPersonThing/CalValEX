@@ -62,16 +62,20 @@ namespace CalValEX.NPCs.Critters
         [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (CalValEX.CalamityActive && (bool)ModLoader.GetMod("CalamityMod").Call("GetBossDowned", "devourerofgods") && !CalValEXConfig.Instance.CritterSpawns && spawnInfo.Player.ZoneSkyHeight)
+            if (CalValEX.CalamityActive)
             {
-                if (Main.raining)
+                if ((bool)CalValEX.Calamity.Call("GetBossDowned", "devourerofgods") && !CalValEXConfig.Instance.CritterSpawns && spawnInfo.Player.ZoneSkyHeight)
                 {
-                    return 0.4f;
+                    if (Main.raining)
+                    {
+                        return 0.4f;
+                    }
+                    else
+                    {
+                        return 0.05f;
+                    }
                 }
-                else
-                {
-                    return 0.05f;
-                }
+                return 0f;
             }
             else
             {

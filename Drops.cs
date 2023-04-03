@@ -100,14 +100,14 @@ namespace CalValEX
             {
                 if (type == CalValEX.CalamityNPC("SEAHOE"))
                 {
-                    if (CalamityMod.DownedBossSystem.downedBoomerDuke)
+                    if ((bool)CalValEX.Calamity.Call("GetBossDowned", "oldduke"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<BloodwormScarf>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50);
                         ++nextSlot;
                     }
 
-                    if (CalamityMod.DownedBossSystem.downedCalamitas)
+                    if ((bool)CalValEX.Calamity.Call("GetBossDowned", "scal"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Yharlamitas>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(42);
@@ -116,13 +116,13 @@ namespace CalValEX
                 }
                 if (type == CalValEX.CalamityNPC("DILF")) //Permafrost
                 {
-                    if (CalamityMod.DownedBossSystem.downedCryogen)
+                    if ((bool)CalValEX.Calamity.Call("GetBossDowned", "cryogen"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<FrostflakeBrick>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 10);
                         ++nextSlot;
                     }
-                    if (CalamityMod.DownedBossSystem.downedSignus)
+                    if ((bool)CalValEX.Calamity.Call("GetBossDowned", "signus"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<Signut>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(15);
@@ -132,7 +132,7 @@ namespace CalValEX
 
                 if (type == CalValEX.CalamityNPC("THIEF"))
                 {
-                    if (CalamityMod.DownedBossSystem.downedAstrumAureus)
+                    if ((bool)CalValEX.Calamity.Call("GetBossDowned", "astrumaureus"))
                     {
                         shop.item[nextSlot].SetDefaults(ModContent.ItemType<AureicFedora>());
                         shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10);
@@ -989,6 +989,7 @@ namespace CalValEX
         {
             if (CalValEX.CalamityActive)
             {
+                Mod.TryFind<ModProjectile>("JharimKiller", out ModProjectile brimbuck);
                 if (npc.type == CalValEX.CalamityNPC("WITCH") && (!CalValEXWorld.jharinter || !NPC.downedMoonlord))
                 {
                     if (NPC.AnyNPCs(ModContent.NPCType<AprilFools.Jharim.Jharim>()))
@@ -1019,7 +1020,7 @@ namespace CalValEX
                         Vector2 direction = jharimpos - position;
                         direction.Normalize();
                         float speed = 10f;
-                        int type = ModContent.ProjectileType<Projectiles.JharimKiller>();
+                        int type = brimbuck.Type;
                         int damage = 6666;
                         Projectile.NewProjectile(npc.GetSource_FromAI(), position, direction * speed, type, damage, 0f, Main.myPlayer);
                         calashoot = 0;
@@ -1088,24 +1089,28 @@ namespace CalValEX
 
         public override bool StrikeNPC(NPC npc, ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
         {
-            if (npc.type == CalValEX.CalamityNPC("Signus") && !signusbackup && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi && Main.netMode != NetmodeID.Server)
+            if (CalValEX.CalamityActive)
             {
-                if (damage >= npc.life)
+                if (npc.type == CalValEX.CalamityNPC("Signus") && !signusbackup && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi && Main.netMode != NetmodeID.Server)
                 {
-                    npc.dontTakeDamage = true;
-                    damage = npc.life - 1;
-                    npc.ai[0] = -33f;
-                    npc.ai[1] = -33f;
-                    npc.ai[2] = -33f;
-                    npc.ai[3] = -33f;
-                    signusbackup = true;
-                    crit = false;
+                    if (damage >= npc.life)
+                    {
+                        npc.dontTakeDamage = true;
+                        damage = npc.life - 1;
+                        npc.ai[0] = -33f;
+                        npc.ai[1] = -33f;
+                        npc.ai[2] = -33f;
+                        npc.ai[3] = -33f;
+                        signusbackup = true;
+                        crit = false;
+                    }
+                    else
+                    {
+                        signusbackup = false;
+                    }
+                    return false;
                 }
-                else
-                {
-                    signusbackup = false;
-                }
-                return false;
+                return true;
             }
             return true;
         }
@@ -1113,49 +1118,52 @@ namespace CalValEX
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback,
             ref bool crit, ref int hitDirection)
         {
-            if (npc.type == CalValEX.CalamityNPC("AstrumAureus"))
+            if (CalValEX.CalamityActive)
             {
-                if (projectile.type == CalValEX.CalamityProjectile("AstrageldonLaser") || projectile.type == CalValEX.CalamityProjectile("AstrageldonSummon"))
+                if (npc.type == CalValEX.CalamityNPC("AstrumAureus"))
                 {
-                    geldonSummon = true;
+                    if (projectile.type == CalValEX.CalamityProjectile("AstrageldonLaser") || projectile.type == CalValEX.CalamityProjectile("AstrageldonSummon"))
+                    {
+                        geldonSummon = true;
+                    }
+                    else
+                    {
+                        geldonSummon = false;
+                    }
                 }
-                else
+                else if (npc.type == CalValEX.CalamityNPC("Bumblefuck"))
                 {
-                    geldonSummon = false;
+                    if (projectile.type == CalValEX.CalamityProjectile("MiniatureFolly") && projectile.DamageType != DamageClass.Ranged)
+                    {
+                        bdogeMount = true;
+                    }
+                    else
+                    {
+                        bdogeMount = false;
+                    }
                 }
-            }
-            else if (npc.type == CalValEX.CalamityNPC("Bumblefuck"))
-            {
-                if (projectile.type == CalValEX.CalamityProjectile("MiniatureFolly") && projectile.DamageType != DamageClass.Ranged)
+                else if (npc.type == CalValEX.CalamityNPC("Yharon"))
                 {
-                    bdogeMount = true;
+                    if (projectile.type == CalValEX.CalamityProjectile("WulfrumDroid"))
+                    {
+                        wolfram = true;
+                    }
+                    else
+                    {
+                        wolfram = false;
+                    }
                 }
-                else
+                else if (npc.type == CalValEX.CalamityNPC("Signus"))
                 {
-                    bdogeMount = false;
-                }
-            }
-            else if (npc.type == CalValEX.CalamityNPC("Yharon"))
-            {
-                if (projectile.type == CalValEX.CalamityProjectile("WulfrumDroid"))
-                {
-                    wolfram = true;
-                }
-                else
-                {
-                    wolfram = false;
-                }
-            }
-            else if (npc.type == CalValEX.CalamityNPC("Signus"))
-            {
-                if (projectile.type == CalValEX.CalamityProjectile("PristineFire") ||
-                    projectile.type == CalValEX.CalamityProjectile("PristineSecondary"))
-                {
-                    junkoReference = true;
-                }
-                else
-                {
-                    junkoReference = false;
+                    if (projectile.type == CalValEX.CalamityProjectile("PristineFire") ||
+                        projectile.type == CalValEX.CalamityProjectile("PristineSecondary"))
+                    {
+                        junkoReference = true;
+                    }
+                    else
+                    {
+                        junkoReference = false;
+                    }
                 }
             }
         }
@@ -1174,14 +1182,14 @@ namespace CalValEX
         {
             if (CalValEX.CalamityActive)
             {
-                BossExclam(npc, new int[] { CalValEX.CalamityNPC("SEAHOE") }, CalamityMod.DownedBossSystem.downedBoomerDuke, CalValEX.CalamityNPC("OldDuke"));
-                BossExclam(npc, new int[] { CalValEX.CalamityNPC("SEAHOE") }, CalamityMod.DownedBossSystem.downedCalamitas, CalValEX.CalamityNPC("SupremeCalamitas"));
+                BossExclam(npc, new int[] { CalValEX.CalamityNPC("SEAHOE") }, (bool)CalValEX.Calamity.Call("GetBossDowned", "oldduke"), CalValEX.CalamityNPC("OldDuke"));
+                BossExclam(npc, new int[] { CalValEX.CalamityNPC("SEAHOE") }, (bool)CalValEX.Calamity.Call("GetBossDowned", "scal"), CalValEX.CalamityNPC("SupremeCalamitas"));
 
-                BossExclam(npc, new int[] { CalValEX.CalamityNPC("DILF") }, CalamityMod.DownedBossSystem.downedSignus, CalValEX.CalamityNPC("Signus"));
+                BossExclam(npc, new int[] { CalValEX.CalamityNPC("DILF") }, (bool)CalValEX.Calamity.Call("GetBossDowned", "signus"), CalValEX.CalamityNPC("Signus"));
 
-                BossExclam(npc, new int[] { CalValEX.CalamityNPC("THIEF") }, CalamityMod.DownedBossSystem.downedAstrumAureus, CalValEX.CalamityNPC("AstrumAureus"));
+                BossExclam(npc, new int[] { CalValEX.CalamityNPC("THIEF") }, (bool)CalValEX.Calamity.Call("GetBossDowned", "astrumaureus"), CalValEX.CalamityNPC("AstrumAureus"));
 
-                BossExclam(npc, new int[] { NPCID.PartyGirl }, CalamityMod.DownedBossSystem.downedPolterghast, CalValEX.CalamityNPC("Polterghast"));
+                BossExclam(npc, new int[] { NPCID.PartyGirl }, (bool)CalValEX.Calamity.Call("GetBossDowned", "polterghast"), CalValEX.CalamityNPC("Polterghast"));
 
                 if (npc.type == CalValEX.CalamityNPC("CrabShroom") && Main.LocalPlayer.HasItem(ModContent.ItemType<PutridShroom>()) && NPC.AnyNPCs(CalValEX.CalamityNPC("Crabulon")))
                 {
@@ -1363,54 +1371,57 @@ namespace CalValEX
 
         public override void PostDraw(NPC npc, SpriteBatch spriteBatch, Vector2 screenpos, Color drawColor)
         {
-            if (npc.type == CalValEX.CalamityNPC("SlimeGodCore") && CalValEX.AprilFoolDay)
+            if (CalValEX.CalamityActive)
             {
-                Texture2D tidepodgsprite = (ModContent.Request<Texture2D>("CalValEX/ExtraTextures/SlimeGod").Value);
-
-                float tidepodgframe = 1f / (float)Main.npcFrameCount[npc.type];
-                int tidepodgheight = (int)((float)(npc.frame.Y / npc.frame.Height) * tidepodgframe) * (tidepodgsprite.Height / 1);
-
-                Rectangle tidepodgsquare = new Rectangle(0, tidepodgheight, tidepodgsprite.Width, tidepodgsprite.Height / 1);
-                Color tidepodgalpha = npc.GetAlpha(drawColor);
-                spriteBatch.Draw(tidepodgsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), tidepodgsquare, tidepodgalpha, npc.rotation, Utils.Size(tidepodgsquare) / 2f, npc.scale, SpriteEffects.None, 0f);
-            }
-
-            else if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok)
-            {
-                //DEUS HEAD
-                if (npc.type == CalValEX.CalamityNPC("AstrumDeusHead"))
+                if (npc.type == CalValEX.CalamityNPC("SlimeGodCore") && CalValEX.AprilFoolDay)
                 {
-                    Texture2D deusheadsprite2 = (ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusHeadOld_Glow").Value);
+                    Texture2D tidepodgsprite = (ModContent.Request<Texture2D>("CalValEX/ExtraTextures/SlimeGod").Value);
 
-                    float deusheadframe2 = 1f / (float)Main.npcFrameCount[npc.type];
-                    int deusheadheight2 = (int)((float)(npc.frame.Y / npc.frame.Height) * deusheadframe2) * (deusheadsprite2.Height / 1);
+                    float tidepodgframe = 1f / (float)Main.npcFrameCount[npc.type];
+                    int tidepodgheight = (int)((float)(npc.frame.Y / npc.frame.Height) * tidepodgframe) * (tidepodgsprite.Height / 1);
 
-                    Rectangle deusheadsquare2 = new Rectangle(0, deusheadheight2, deusheadsprite2.Width, deusheadsprite2.Height / 1);
-                    spriteBatch.Draw(deusheadsprite2, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deusheadsquare2, Color.White, npc.rotation, Utils.Size(deusheadsquare2) / 2f, npc.scale, SpriteEffects.None, 0f);
+                    Rectangle tidepodgsquare = new Rectangle(0, tidepodgheight, tidepodgsprite.Width, tidepodgsprite.Height / 1);
+                    Color tidepodgalpha = npc.GetAlpha(drawColor);
+                    spriteBatch.Draw(tidepodgsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), tidepodgsquare, tidepodgalpha, npc.rotation, Utils.Size(tidepodgsquare) / 2f, npc.scale, SpriteEffects.None, 0f);
                 }
 
-                //DEUS BODY
-                else if (npc.type == CalValEX.CalamityNPC("AstrumDeusBody"))
+                else if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok)
                 {
-                    Texture2D deusbodsprite2 = npc.localAI[3] == 1f ? ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusBodyAltOld_Glow").Value : ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusBodyOld_Glow").Value;
+                    //DEUS HEAD
+                    if (npc.type == CalValEX.CalamityNPC("AstrumDeusHead"))
+                    {
+                        Texture2D deusheadsprite2 = (ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusHeadOld_Glow").Value);
 
-                    float deusbodframe2 = 1f / (float)Main.npcFrameCount[npc.type];
-                    int deusbodheight2 = (int)((float)(npc.frame.Y / npc.frame.Height) * deusbodframe2) * (deusbodsprite2.Height / 1);
+                        float deusheadframe2 = 1f / (float)Main.npcFrameCount[npc.type];
+                        int deusheadheight2 = (int)((float)(npc.frame.Y / npc.frame.Height) * deusheadframe2) * (deusheadsprite2.Height / 1);
 
-                    Rectangle deusbodsquare2 = new Rectangle(0, deusbodheight2, deusbodsprite2.Width, deusbodsprite2.Height / 1);
-                    spriteBatch.Draw(deusbodsprite2, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deusbodsquare2, Color.White, npc.rotation, Utils.Size(deusbodsquare2) / 2f, npc.scale, SpriteEffects.None, 0f);
-                }
+                        Rectangle deusheadsquare2 = new Rectangle(0, deusheadheight2, deusheadsprite2.Width, deusheadsprite2.Height / 1);
+                        spriteBatch.Draw(deusheadsprite2, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deusheadsquare2, Color.White, npc.rotation, Utils.Size(deusheadsquare2) / 2f, npc.scale, SpriteEffects.None, 0f);
+                    }
 
-                //DEUS TAIL
-                else if (npc.type == CalValEX.CalamityNPC("AstrumDeusTail"))
-                {
-                    Texture2D deustailsprite2 = (ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusTailOld_Glow").Value);
+                    //DEUS BODY
+                    else if (npc.type == CalValEX.CalamityNPC("AstrumDeusBody"))
+                    {
+                        Texture2D deusbodsprite2 = npc.localAI[3] == 1f ? ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusBodyAltOld_Glow").Value : ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusBodyOld_Glow").Value;
 
-                    float deustailframe2 = 1f / (float)Main.npcFrameCount[npc.type];
-                    int deustailheight2 = (int)((float)(npc.frame.Y / npc.frame.Height) * deustailframe2) * (deustailsprite2.Height / 1);
+                        float deusbodframe2 = 1f / (float)Main.npcFrameCount[npc.type];
+                        int deusbodheight2 = (int)((float)(npc.frame.Y / npc.frame.Height) * deusbodframe2) * (deusbodsprite2.Height / 1);
 
-                    Rectangle deustailsquare2 = new Rectangle(0, deustailheight2, deustailsprite2.Width, deustailsprite2.Height / 1);
-                    spriteBatch.Draw(deustailsprite2, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deustailsquare2, Color.White, npc.rotation, Utils.Size(deustailsquare2) / 2f, npc.scale, SpriteEffects.None, 0f);
+                        Rectangle deusbodsquare2 = new Rectangle(0, deusbodheight2, deusbodsprite2.Width, deusbodsprite2.Height / 1);
+                        spriteBatch.Draw(deusbodsprite2, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deusbodsquare2, Color.White, npc.rotation, Utils.Size(deusbodsquare2) / 2f, npc.scale, SpriteEffects.None, 0f);
+                    }
+
+                    //DEUS TAIL
+                    else if (npc.type == CalValEX.CalamityNPC("AstrumDeusTail"))
+                    {
+                        Texture2D deustailsprite2 = (ModContent.Request<Texture2D>("CalValEX/NPCs/AstrumDeus/DeusTailOld_Glow").Value);
+
+                        float deustailframe2 = 1f / (float)Main.npcFrameCount[npc.type];
+                        int deustailheight2 = (int)((float)(npc.frame.Y / npc.frame.Height) * deustailframe2) * (deustailsprite2.Height / 1);
+
+                        Rectangle deustailsquare2 = new Rectangle(0, deustailheight2, deustailsprite2.Width, deustailsprite2.Height / 1);
+                        spriteBatch.Draw(deustailsprite2, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deustailsquare2, Color.White, npc.rotation, Utils.Size(deustailsquare2) / 2f, npc.scale, SpriteEffects.None, 0f);
+                    }
                 }
             }
         }
