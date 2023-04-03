@@ -106,54 +106,57 @@ namespace CalValEX.AprilFools.Jharim
         [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
-            if (!CalValEX.AprilFoolMonth || !CalValEX.CalamityActive)
+            if (!CalValEX.AprilFoolMonth)
             {
                 NPC.active = false;
             }
-            if ( NPC.AnyNPCs(CalValEX.CalamityNPC("WITCH")) && !MELDOSAURUSED && NPC.life < NPC.lifeMax * 0.15f)
+            if (CalValEX.CalamityActive)
             {
-                if (!lasercheck)
+                if (NPC.AnyNPCs(CalValEX.CalamityNPC("WITCH")) && !MELDOSAURUSED && NPC.life < NPC.lifeMax * 0.15f)
                 {
-                    lasercheck = true;
-                    firinglaser = true;
-                }
-                for (int x = 0; x < Main.maxNPCs; x++)
-                {
-                    NPC npc3 = Main.npc[x];
-                    if (npc3.type == NPCType<CalamityMod.NPCs.TownNPCs.WITCH>())
+                    if (!lasercheck)
                     {
-                        if (npc3.active)
+                        lasercheck = true;
+                        firinglaser = true;
+                    }
+                    for (int x = 0; x < Main.maxNPCs; x++)
+                    {
+                        NPC npc3 = Main.npc[x];
+                        if (npc3.type == CalValEX.CalamityNPC("WITCH"))
                         {
-                            jharimpos.X = npc3.Center.X;
-                            jharimpos.Y = npc3.Center.Y;
-                            if (npc3.position.X - NPC.position.X >= 0)
+                            if (npc3.active)
                             {
-                                NPC.direction = 1;
+                                jharimpos.X = npc3.Center.X;
+                                jharimpos.Y = npc3.Center.Y;
+                                if (npc3.position.X - NPC.position.X >= 0)
+                                {
+                                    NPC.direction = 1;
+                                }
+                                else
+                                {
+                                    NPC.direction = -1;
+                                }
                             }
                             else
                             {
-                                NPC.direction = -1;
+                                CalValEXWorld.jharinter = true;
+                                lasercheck = false;
                             }
                         }
-                        else
-                        {
-                            CalValEXWorld.jharinter = true;
-                            lasercheck = false;
-                        }
                     }
-                }
-                if (firinglaser)
-                {
-                    Vector2 position = NPC.Center;
-                    position.X = NPC.Center.X;
-                    Vector2 direction = jharimpos - position;
-                    direction.Normalize();
-                    float speed = 10f;
-                    int type = ProjectileType<JharimLaser>();
-                    int damage = 6666666;
-                    Projectile.NewProjectile(NPC.GetSource_FromAI(), position, direction * speed, type, damage, 0f, Main.myPlayer);
-                    firinglaser = false;
-                    NPC.defense = 999;
+                    if (firinglaser)
+                    {
+                        Vector2 position = NPC.Center;
+                        position.X = NPC.Center.X;
+                        Vector2 direction = jharimpos - position;
+                        direction.Normalize();
+                        float speed = 10f;
+                        int type = CalValEX.CalamityActive ? Mod.Find<ModProjectile>("JharimLaser").Type : 0;
+                        int damage = 6666666;
+                        Projectile.NewProjectile(NPC.GetSource_FromAI(), position, direction * speed, type, damage, 0f, Main.myPlayer);
+                        firinglaser = false;
+                        NPC.defense = 999;
+                    }
                 }
             }
             if (MELDOSAURUSED)
@@ -413,7 +416,7 @@ namespace CalValEX.AprilFools.Jharim
                     {
                         if (Main.myPlayer == Main.LocalPlayer.whoAmI)
                         {
-                            if (CalamityMod.DownedBossSystem.downedExoMechs && CalamityMod.DownedBossSystem.downedCalamitas)
+                            if ((bool)CalValEX.Calamity.Call("GetBossDowned", "scal") && (bool)CalValEX.Calamity.Call("GetBossDowned", "draedon"))
                             {
                                 NPC.active = false;
                                 NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, NPCType<Fogbound>());
@@ -504,11 +507,11 @@ namespace CalValEX.AprilFools.Jharim
         [JITWhenModsEnabled("CalamityMod")]
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            if (!MELDOSAURUSED && CalValEX.CalamityActive)
-                projType = ModContent.ProjectileType<JharimLaser>();
-
-                    else
-                        projType = ProjectileID.None;
+            int prod = CalValEX.CalamityActive ? Mod.Find<ModProjectile>("JharimLaser").Type : 0;
+            if (!MELDOSAURUSED)
+                projType = prod;
+            else
+                projType = ProjectileID.None;
             attackDelay = 1;
             return;
         }
@@ -521,7 +524,14 @@ namespace CalValEX.AprilFools.Jharim
 
         public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit)
         {
-            if (projectile.type == CalValEX.CalamityProjectile("CosmicFire"))
+            if (CalValEX.CalamityActive)
+            {
+                if (projectile.type == CalValEX.CalamityProjectile("CosmicFire"))
+                {
+                    MELDOSAURUSED = true;
+                }
+            }
+            else if (projectile.type == ProjectileID.VortexBeaterRocket)
             {
                 MELDOSAURUSED = true;
             }

@@ -129,9 +129,6 @@ namespace CalValEX.AprilFools
         }
         public override void CustomBehaviour(Player player, ref int state, float walkingSpeed, float walkingInertia, float flyingSpeed, float flyingInertia)
         {
-            if (!CalValEX.CalamityActive)
-                return;
-
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
             if (deathcounter <= 0 && !player.HasBuff(BuffType<AprilFools.AmogusBuff>()) && !NPC.AnyNPCs(NPCType<Meldosaurus.Meldosaurus>()))
             {
@@ -144,7 +141,7 @@ namespace CalValEX.AprilFools
                 state = 5;
             }
 
-            if ((!CalValEX.AprilFoolMonth && state != 4 && !CalValEXWorld.amogus) || modPlayer.rockhat)
+            if ((!CalValEX.AprilFoolMonth && state != 4 && !CalValEXWorld.amogus && CalValEX.CalamityActive) || modPlayer.rockhat)
             {
                 deathcounter++;
                 if (deathcounter >= 300)
@@ -156,192 +153,195 @@ namespace CalValEX.AprilFools
             switch (state)
             {
                 case 3:
-                    Vector2 playerpos;
-                    playerpos.X = player.position.X + (Main.rand.Next(-256, 256));
-                    playerpos.Y = player.position.Y - 256;
-                    if (deathcounter >= 900)
+                    if (CalValEX.CalamityActive)
                     {
-                        sandblasttimer++;
+                        Vector2 playerpos;
+                        playerpos.X = player.position.X + (Main.rand.Next(-256, 256));
+                        playerpos.Y = player.position.Y - 256;
+                        if (deathcounter >= 900)
+                        {
+                            sandblasttimer++;
 
-                        if (deathcounter <= 1800)
-                        {
-                            if (Main.rand.Next(2) == 0)
+                            if (deathcounter <= 1800)
                             {
-                                raintype = CalValEX.CalamityProjectile("SandBlast");
+                                if (Main.rand.Next(2) == 0)
+                                {
+                                    raintype = CalValEX.CalamityProjectile("SandBlast");
+                                }
+                                else
+                                {
+                                    raintype = CalValEX.CalamityProjectile("UnstableEbonianGlob");
+                                }
                             }
-                            else
+                            else if (deathcounter > 1800 && deathcounter <= 2700)
                             {
-                                raintype = CalValEX.CalamityProjectile("UnstableEbonianGlob");
+                                if (Main.rand.Next(2) == 0)
+                                {
+                                    raintype = CalValEX.CalamityProjectile("SCalBrimstoneFireblast");
+                                }
+                                else
+                                {
+                                    raintype = CalValEX.CalamityProjectile("AstralLaser");
+                                }
                             }
-                        }
-                        else if (deathcounter > 1800 && deathcounter <= 2700)
-                        {
-                            if (Main.rand.Next(2) == 0)
+                            else if (deathcounter > 2700 && deathcounter <= 3600)
                             {
-                                raintype = CalValEX.CalamityProjectile("SCalBrimstoneFireblast");
+                                if (Main.rand.Next(2) == 0)
+                                {
+                                    raintype = CalValEX.CalamityProjectile("BrimstoneBarrage");
+                                }
+                                else
+                                {
+                                    raintype = CalValEX.CalamityProjectile("ProfanedSpear");
+                                }
                             }
-                            else
+                            else if (deathcounter > 3600)
                             {
-                                raintype = CalValEX.CalamityProjectile("AstralLaser");
+                                if (Main.rand.Next(3) == 0)
+                                {
+                                    raintype = CalValEX.CalamityProjectile("SignusScythe");
+                                }
+                                else if (Main.rand.Next(2) == 0)
+                                {
+                                    raintype = CalValEX.CalamityProjectile("SCalBrimstoneGigablast");
+                                }
+                                else
+                                {
+                                    raintype = CalValEX.CalamityProjectile("ApolloRocket");
+                                }
                             }
-                        }
-                        else if (deathcounter > 2700 && deathcounter <= 3600)
-                        {
-                            if (Main.rand.Next(2) == 0)
-                            {
-                                raintype = CalValEX.CalamityProjectile("BrimstoneBarrage");
-                            }
-                            else
-                            {
-                                raintype = CalValEX.CalamityProjectile("ProfanedSpear");
-                            }
-                        }
-                        else if (deathcounter > 3600)
-                        {
-                            if (Main.rand.Next(3) == 0)
-                            {
-                                raintype = CalValEX.CalamityProjectile("SignusScythe");
-                            }
-                            else if (Main.rand.Next(2) == 0)
-                            {
-                                raintype = CalValEX.CalamityProjectile("SCalBrimstoneGigablast");
-                            }
-                            else
-                            {
-                                raintype = CalValEX.CalamityProjectile("ApolloRocket");
-                            }
-                        }
 
-                        if (sandblasttimer >= 10)
-                        {
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 0, 5, raintype, 80, 0f, Main.myPlayer, 0f, 0f);
-                            sandblasttimer = 0;
-                        }
-                    }
-                    if (deathcounter >= 1080)
-                    {
-                        mushroom++;
-                        if (mushroom >= 120)
-                        {
-                            for (int x = 0; x < 10; x++)
+                            if (sandblasttimer >= 10)
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item11);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 0, 5, raintype, 80, 0f, Main.myPlayer, 0f, 0f);
+                                sandblasttimer = 0;
                             }
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("OldDukeGore") , 180, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("MushBomb") , 90, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("IchorBlob") , 180, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("MoltenBlob") , 120, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("IceRain"), 80, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("ShadeNimbusHostile"), 80, 0f, Main.myPlayer, 0f, 0f);
-                            if (deathcounter >= 2700)
+                        }
+                        if (deathcounter >= 1080)
+                        {
+                            mushroom++;
+                            if (mushroom >= 120)
                             {
-                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("ScavengerLaser"), 80, 0f, Main.myPlayer, 0f, 0f);
-                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("PlagueStingerGoliathV2"), 80, 0f, Main.myPlayer, 0f, 0f);
+                                for (int x = 0; x < 10; x++)
+                                {
+                                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item11);
+                                }
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("OldDukeGore"), 180, 0f, Main.myPlayer, 0f, 0f);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("MushBomb"), 90, 0f, Main.myPlayer, 0f, 0f);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("IchorBlob"), 180, 0f, Main.myPlayer, 0f, 0f);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("MoltenBlob"), 120, 0f, Main.myPlayer, 0f, 0f);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("IceRain"), 80, 0f, Main.myPlayer, 0f, 0f);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("ShadeNimbusHostile"), 80, 0f, Main.myPlayer, 0f, 0f);
+                                if (deathcounter >= 2700)
+                                {
+                                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("ScavengerLaser"), 80, 0f, Main.myPlayer, 0f, 0f);
+                                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("PlagueStingerGoliathV2"), 80, 0f, Main.myPlayer, 0f, 0f);
+                                }
+                                for (int x = 0; x < 20; x++)
+                                {
+                                    Dust dust;
+                                    dust = Main.dust[Terraria.Dust.NewDust(playerpos, 30, 30, 16, 0f, 0f, 0, new Color(255, 255, 255), 1.644737f)];
+                                }
+                                mushroom = 0;
                             }
-                            for (int x = 0; x < 20; x++)
+                        }
+                        if (deathcounter >= 1400)
+                        {
+                            birb++;
+                            if (birb >= 1200)
                             {
-                                Dust dust;
-                                dust = Main.dust[Terraria.Dust.NewDust(playerpos, 30, 30, 16, 0f, 0f, 0, new Color(255, 255, 255), 1.644737f)];
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 1, 20, CalValEX.CalamityProjectile("BirbAuraFlare"), 0, 0f, Main.myPlayer, 0f, 0f);
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 0, 0, CalValEX.CalamityProjectile("DoGBeamPortal"), 0, 0f, Main.myPlayer, 0f, 0f);
+                                birb = 0;
                             }
-                            mushroom = 0;
                         }
-                    }
-                    if (deathcounter >= 1400)
-                    {
-                        birb++;
-                        if (birb >= 1200)
+                        if (deathcounter >= 1000)
                         {
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 1, 20, CalValEX.CalamityProjectile("BirbAuraFlare"), 0, 0f, Main.myPlayer, 0f, 0f);
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 0, 0, CalValEX.CalamityProjectile("DoGBeamPortal"), 0, 0f, Main.myPlayer, 0f, 0f);
-                            birb = 0;
-                        }
-                    }
-                    if (deathcounter >= 1000)
-                    {
-                        if (deathcounter <= 1800)
-                        {
-                            mine = CalValEX.CalamityProjectile("DeusMine");
-                        }
-                        else if (deathcounter >= 1800 && deathcounter <= 2700)
-                        {
-                            mine = CalValEX.CalamityProjectile("SirenSong");
-                        }
-                        else if (deathcounter >= 2700)
-                        {
-                            mine = CalValEX.CalamityProjectile("ToxicCloud");
-                        }
+                            if (deathcounter <= 1800)
+                            {
+                                mine = CalValEX.CalamityProjectile("DeusMine");
+                            }
+                            else if (deathcounter >= 1800 && deathcounter <= 2700)
+                            {
+                                mine = CalValEX.CalamityProjectile("SirenSong");
+                            }
+                            else if (deathcounter >= 2700)
+                            {
+                                mine = CalValEX.CalamityProjectile("ToxicCloud");
+                            }
 
-                        minetimer++;
-                        if (minetimer >= 240)
-                        {
-                            for (int x = 0; x < 8; x++)
+                            minetimer++;
+                            if (minetimer >= 240)
                             {
-                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Main.rand.Next(-2, 2), Main.rand.Next(-2, 2), mine, 80, 0f, Main.myPlayer, 0f, 0f);
-                                minetimer = 0;
+                                for (int x = 0; x < 8; x++)
+                                {
+                                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Main.rand.Next(-2, 2), Main.rand.Next(-2, 2), mine, 80, 0f, Main.myPlayer, 0f, 0f);
+                                    minetimer = 0;
+                                }
                             }
                         }
-                    }
-                    if (deathcounter >= 1800)
-                    {
-                        infernadotimer++;
-                        if (infernadotimer >= 1200)
+                        if (deathcounter >= 1800)
                         {
-                            Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 0, 20, CalValEX.CalamityProjectile("BigFlare"), 80, 0f, Main.myPlayer, 0f, 0f);
-                            infernadotimer = 0;
+                            infernadotimer++;
+                            if (infernadotimer >= 1200)
+                            {
+                                Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, 0, 20, CalValEX.CalamityProjectile("BigFlare"), 80, 0f, Main.myPlayer, 0f, 0f);
+                                infernadotimer = 0;
+                            }
                         }
-                    }
-                    if (deathcounter <= 540)
-                    {
-                        Projectile.velocity.X = 0;
-                        Projectile.velocity.Y = 0;
-                    }
-                    if (deathcounter > 540 && deathcounter <= 900)
-                    {
-                        Projectile.position.Y = player.position.Y;
-                        Projectile.position.X = player.position.X + 256;
-                    }
-                    if (deathcounter > 900)
-                    {
-                        Projectile.position.Y = player.position.Y - 256;
-                        Projectile.position.X = player.position.X;
-                    }
-                    if (deathcounter > 540 && deathcounter < 820)
-                    {
-                        Projectile.scale *= 1.008f;
-                        if (Projectile.frameCounter++ > 4)
+                        if (deathcounter <= 540)
                         {
-                            Projectile.frameCounter = 0;
-                            Projectile.frame++;
-                            if (Projectile.frame >= 4)
-                                Projectile.frame = 0;
+                            Projectile.velocity.X = 0;
+                            Projectile.velocity.Y = 0;
                         }
-                    }
-                    if (deathcounter == 300)
-                    {
-                        EdgyTalk("HOOOOOOOOOOOOOOOOLD UP", Color.White, true);
-                    }
-                    if (deathcounter == 420)
-                    {
-                        EdgyTalk("This isn't April... why am I here...", Color.White, true);
-                    }
-                    if (deathcounter == 540)
-                    {
-                        EdgyTalk("Could it be that... Someone has been cheating!? AN IMPOSTER EVEN?!?!?!", Color.White, true);
-                        Projectile.rotation = 0;
-                    }
-                    if (deathcounter == 680)
-                    {
-                        EdgyTalk("That's pretty sus kid, and you know what we do to sussy little ones right?", Color.White, true);
-                    }
-                    if (deathcounter == 820)
-                    {
-                        EdgyTalk("We eject them.", Color.DarkRed, true);
-                        Projectile.alpha = 50;
-                        Projectile.rotation = 0;
-                    }
-                    if (deathcounter >= 4200 && !modPlayer.rockhat)
-                    {
-                        state = 4;
+                        if (deathcounter > 540 && deathcounter <= 900)
+                        {
+                            Projectile.position.Y = player.position.Y;
+                            Projectile.position.X = player.position.X + 256;
+                        }
+                        if (deathcounter > 900)
+                        {
+                            Projectile.position.Y = player.position.Y - 256;
+                            Projectile.position.X = player.position.X;
+                        }
+                        if (deathcounter > 540 && deathcounter < 820)
+                        {
+                            Projectile.scale *= 1.008f;
+                            if (Projectile.frameCounter++ > 4)
+                            {
+                                Projectile.frameCounter = 0;
+                                Projectile.frame++;
+                                if (Projectile.frame >= 4)
+                                    Projectile.frame = 0;
+                            }
+                        }
+                        if (deathcounter == 300)
+                        {
+                            EdgyTalk("HOOOOOOOOOOOOOOOOLD UP", Color.White, true);
+                        }
+                        if (deathcounter == 420)
+                        {
+                            EdgyTalk("This isn't April... why am I here...", Color.White, true);
+                        }
+                        if (deathcounter == 540)
+                        {
+                            EdgyTalk("Could it be that... Someone has been cheating!? AN IMPOSTER EVEN?!?!?!", Color.White, true);
+                            Projectile.rotation = 0;
+                        }
+                        if (deathcounter == 680)
+                        {
+                            EdgyTalk("That's pretty sus kid, and you know what we do to sussy little ones right?", Color.White, true);
+                        }
+                        if (deathcounter == 820)
+                        {
+                            EdgyTalk("We eject them.", Color.DarkRed, true);
+                            Projectile.alpha = 50;
+                            Projectile.rotation = 0;
+                        }
+                        if (deathcounter >= 4200 && !modPlayer.rockhat)
+                        {
+                            state = 4;
+                        }
                     }
                     break;
 
@@ -402,7 +402,7 @@ namespace CalValEX.AprilFools
                                 {
                                     if (chargetype == 4)
                                     {
-                                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, 0, 0, CalValEX.CalamityProjectile("ScarletBlast"), 2020, 0, Main.myPlayer);
+                                        Projectile.NewProjectile(Projectile.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, 0, 0, ProjectileID.InfernoFriendlyBlast, 2020, 0, Main.myPlayer);
                                     }
                                     else
                                     {
@@ -544,7 +544,7 @@ namespace CalValEX.AprilFools
                                 Vector2 direction = targetPosition - position;
                                 direction.Normalize();
                                 float speed = 15f;
-                                int type = CalValEX.CalamityProjectile("AccelerationRoundProj");
+                                int type = ProjectileID.BulletHighVelocity;
                                 int damage = Main.expertMode ? 60 : 95;
                                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), position, direction * speed, type, damage, 0f, Main.myPlayer);
                                 attackcounter1 = 0;
@@ -563,14 +563,14 @@ namespace CalValEX.AprilFools
                             Projectile.velocity.Y = 0;
                             if (attackcounter1 == 60)
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(new SoundStyle("CalValEX/Sounds/Item/LargeWeaponFire"), Projectile.position);
+                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
                                 Vector2 position = Projectile.Center;
                                 position.X = Projectile.Center.X + (10f * Projectile.direction);
                                 Vector2 targetPosition = Main.npc[CalValEXGlobalNPC.meldodon].Center;
                                 Vector2 direction = targetPosition - position;
                                 direction.Normalize();
                                 float speed = 18f;
-                                int type = CalValEX.CalamityProjectile("AMRShot");
+                                int type = ProjectileID.IchorBullet;
                                 int damage = Main.expertMode ? 1702 : 2040;
                                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), position, direction * speed, type, damage, 0f, Main.myPlayer);
                             }

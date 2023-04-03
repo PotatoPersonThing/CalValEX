@@ -388,7 +388,16 @@ namespace CalValEX
 				}
 			}
 			else
-				return null;
+			{
+				if (projectile.type == ProjectileID.VortexBeaterRocket && target.type == ModContent.NPCType<AprilFools.Jharim.Jharim>())
+				{
+					return true;
+				}
+				else
+				{
+					return null;
+				}
+			}
         }
     }
 }

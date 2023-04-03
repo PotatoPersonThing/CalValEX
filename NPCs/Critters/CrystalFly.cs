@@ -55,9 +55,10 @@ namespace CalValEX.NPCs.Critters
         [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
+            if (CalValEX.CalamityActive)
             for (int i = 0; i < NPC.buffImmune.Length; i++)
             {
-                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.HolyFlames>())] = false;
+                NPC.buffImmune[CalValEX.CalamityBuff("HolyFlames")] = false;
             }
         }
         public override bool? CanBeHitByItem(Player player, Item item) => null;

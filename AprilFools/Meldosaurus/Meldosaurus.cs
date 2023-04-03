@@ -51,7 +51,12 @@ namespace CalValEX.AprilFools.Meldosaurus
 			NPC.DeathSound = SoundID.NPCDeath1;
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/Meldosaurus");
 			NPC.netAlways = true;
-			//bossBag = ModContent.ItemType<MeldosaurusBag>();
+			if (CalValEX.CalamityActive)
+			{
+				CalValEX.Calamity.Call("SetDefenseDamageNPC", true);
+				CalValEX.Calamity.Call("SetDamageReductionSpecific", 0.1f);
+				NPC.lifeMax = (bool)CalValEX.Calamity.Call("GetDifficultyActive", "revengeance") ? 140000 : 100000;
+			}
 		}
 		public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
 		{
@@ -66,21 +71,18 @@ namespace CalValEX.AprilFools.Meldosaurus
 		[JITWhenModsEnabled("CalamityMod")]
 		public override void AI()
 		{
-			if (!CalValEX.CalamityActive)
-				return;
-
-
+			Main.OurFavoriteColor = Color.DarkBlue;
+			bool expert = Main.expertMode;
+			bool revenge = false;
+			bool death = false;
+			bool malice = false;
 			if (CalValEX.CalamityActive)
 			{
-				NPC.GetGlobalNPC<CalamityMod.NPCs.CalamityGlobalNPC>().canBreakPlayerDefense = true;
-				NPC.GetGlobalNPC<CalamityMod.NPCs.CalamityGlobalNPC>().DR = 0.1f;
-				NPC.lifeMax = CalamityMod.World.CalamityWorld.revenge ? 140000 : 100000;
+				expert = (bool)CalValEX.Calamity.Call("GetDifficultyActive", "bossrush") || Main.expertMode;
+				revenge = (bool)CalValEX.Calamity.Call("GetDifficultyActive", "bossrush") || (bool)CalValEX.Calamity.Call("GetDifficultyActive", "revengeance");
+				death = (bool)CalValEX.Calamity.Call("GetDifficultyActive", "bossrush") || (bool)CalValEX.Calamity.Call("GetDifficultyActive", "death");
+				malice = (bool)CalValEX.Calamity.Call("GetDifficultyActive", "bossrush");
 			}
-			Main.OurFavoriteColor = Color.DarkBlue;
-			bool expert = CalamityMod.Events.BossRushEvent.BossRushActive || Main.expertMode;
-			bool revenge = CalamityMod.Events.BossRushEvent.BossRushActive || CalamityMod.World.CalamityWorld.revenge;
-			bool death = CalamityMod.Events.BossRushEvent.BossRushActive || CalamityMod.World.CalamityWorld.death;
-			bool malice = CalamityMod.Events.BossRushEvent.BossRushActive;
 			if (!malice)
             {
 				if (!Main.raining)
@@ -186,11 +188,27 @@ namespace CalValEX.AprilFools.Meldosaurus
 				NPC.ai[2]++;
 				int direcX = NPC.direction *-1;
 				int direcY = NPC.directionY *-1;
-				if (NPC.ai[2] >= 5)
+				if (CalValEX.CalamityActive)
 				{
-					Terraria.Audio.SoundEngine.PlaySound(SoundID.Item20, NPC.Center);
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, NPC.velocity.X *-0.1f, NPC.velocity.Y *-0.1f, ModContent.ProjectileType<GodsFire>(), Main.expertMode ? 25 : 30, 0f);
-					NPC.ai[2] = 0;
+					int proj = Mod.Find<ModProjectile>("GodsFire").Type;
+					if (NPC.ai[2] >= 5)
+					{
+						Terraria.Audio.SoundEngine.PlaySound(SoundID.Item20, NPC.Center);
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, NPC.velocity.X * -0.1f, NPC.velocity.Y * -0.1f, proj, Main.expertMode ? 25 : 30, 0f);
+						NPC.ai[2] = 0;
+					}
+				}
+				else
+				{
+					if (!fate)
+						NewPhase(4);
+					else
+					{
+						if (Main.rand.NextBool(2))
+							NewPhase(5);
+						else
+							NewPhase(6);
+					}
 				}
 				if (NPC.ai[1] <= 90)
 				{
@@ -293,12 +311,13 @@ namespace CalValEX.AprilFools.Meldosaurus
 						}
 					}
 				}
-				if (NPC.ai[3] >= 5)
+				if (NPC.ai[3] >= 5 && CalValEX.CalamityActive)
 				{
 					if (Main.netMode != NetmodeID.MultiplayerClient)
 					{
-						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X - 1400, NPC.Center.Y - 200, 0, 80, ModContent.ProjectileType<GodsFire>(), Main.expertMode ? 25 : 30, 20, 0);
-						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X + 600, NPC.Center.Y - 200, 0, 80, ModContent.ProjectileType<GodsFire>(), Main.expertMode ? 25 : 30, 20, 0);
+						int proj = Mod.Find<ModProjectile>("GodsFire").Type;
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X - 1400, NPC.Center.Y - 200, 0, 80, proj, Main.expertMode ? 25 : 30, 20, 0);
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X + 600, NPC.Center.Y - 200, 0, 80, proj, Main.expertMode ? 25 : 30, 20, 0);
 					}
 					NPC.ai[3] = 0;
                 }

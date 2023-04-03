@@ -27,16 +27,16 @@ namespace CalValEX.AprilFools.Meldosaurus
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.netAlways = true;
+			if (CalValEX.CalamityActive)
+			{
+				CalValEX.Calamity.Call("SetDamageReductionSpecific", 0.1f);
+			}
 		}
 
 
 		[JITWhenModsEnabled("CalamityMod")]
 		public override void AI()
 		{
-			if (CalValEX.CalamityActive)
-			{
-				NPC.GetGlobalNPC<CalamityMod.NPCs.CalamityGlobalNPC>().DR = 0.1f;
-			}
 			// Die immediately if the ahead segment is invalid.
 			if (NPC.ai[1] <= -1f || NPC.realLife <= -1f || !Main.npc[(int)NPC.ai[1]].active)
 			{
@@ -52,7 +52,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 
 			// Don't use a boss HP bar.
 			NPC aheadSegment = Main.npc[(int)NPC.ai[1]];
-			NPC.GetGlobalNPC<CalamityMod.NPCs.CalamityGlobalNPC>().ShouldCloseHPBar = true;
+			//NPC.GetGlobalNPC<CalamityMod.NPCs.CalamityGlobalNPC>().ShouldCloseHPBar = true;
 
 			// Inherit various attributes from the head segment.
 			NPC head = Main.npc[NPC.realLife];
