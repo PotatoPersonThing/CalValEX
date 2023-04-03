@@ -43,7 +43,6 @@ namespace CalValEX.Projectiles.Pets
             // Custom AI here
             Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-            CalamityMod.CalPlayer.CalamityPlayer calPlayer = player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>();
             if (player.dead)
             {
                 modPlayer.goozmaPet = false;
@@ -147,9 +146,7 @@ namespace CalValEX.Projectiles.Pets
          * 29 = astral blight
          * 30 = arsenal
          */
-            if (CalValEX.CalamityActive)
-            {
-                if (CalamityMod.Events.BossRushEvent.BossRushActive) //Auric
+                if (CalValEX.CalamityActive && (bool)CalValEX.Calamity.Call("GetDifficultyActive", "bossrush")) //Auric
                 {
                     GoozmaSlimeGods = new List<int>
                 {
@@ -210,11 +207,11 @@ namespace CalValEX.Projectiles.Pets
                     {
                         AddDeity(29);
                     }
-                    else if (calPlayer.ZoneAstral) //I wonder what this could be
+                    else if (CalValEX.CalamityActive && (bool)CalValEX.Calamity.Call("GetInZone", player, "astral")) //I wonder what this could be
                     {
                         AddDeity(4);
                     }
-                    else if (calPlayer.ZoneCalamity) //Charred
+                    else if (CalValEX.CalamityActive && (bool)CalValEX.Calamity.Call("GetInZone", player, "crags")) //Charred
                     {
                         AddDeity(6);
                     }
@@ -230,19 +227,19 @@ namespace CalValEX.Projectiles.Pets
                     {
                         AddDeity(9);
                     }
-                    else if (calPlayer.ZoneAbyssLayer1 || calPlayer.ZoneAbyssLayer2) //Scoria
+                    else if (CalValEX.CalamityActive && ((bool)CalValEX.Calamity.Call("GetInZone", player, "layer1") || (bool)CalValEX.Calamity.Call("GetInZone", player, "layer2"))) //Scoria
                     {
                         AddDeity(21);
                     }
-                    else if (calPlayer.ZoneAbyssLayer3) //Mirage
+                    else if (CalValEX.CalamityActive && (bool)CalValEX.Calamity.Call("GetInZone", player, "layer3")) //Mirage
                     {
                         AddDeity(11);
                     }
-                    else if (calPlayer.ZoneAbyssLayer4) //Lumenyl
+                    else if (CalValEX.CalamityActive && (bool)CalValEX.Calamity.Call("GetInZone", player, "layer4")) //Lumenyl
                     {
                         AddDeity(22);
                     }
-                    else if (calPlayer.ZoneSunkenSea) //Prism
+                    else if (CalValEX.CalamityActive && (bool)CalValEX.Calamity.Call("GetInZone", player, "sunkensea")) //Prism
                     {
                         AddDeity(14);
                     }
@@ -274,9 +271,9 @@ namespace CalValEX.Projectiles.Pets
                     {
                         AddDeity(20);
                     }
-                    else if (calPlayer.ZoneSulphur)
+                    else if (CalValEX.CalamityActive && (bool)CalValEX.Calamity.Call("GetInZone", player, "sulphuroussea"))
                     {
-                        if (CalamityMod.Events.AcidRainEvent.AcidRainEventIsOngoing) //Gamma
+                        if ((bool)CalValEX.Calamity.Call("AcidRainActive")) //Gamma
                         {
                             AddDeity(16);
                         }
@@ -297,7 +294,6 @@ namespace CalValEX.Projectiles.Pets
                     {
                         AddDeity(5);
                     }
-                }
             }
         }
 

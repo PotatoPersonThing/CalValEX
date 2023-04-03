@@ -48,9 +48,6 @@ namespace CalValEX.Projectiles.Pets {
 
         [JITWhenModsEnabled("CalamityMod")]
         private void DrawCord() {
-
-            if (CalValEX.CalamityActive)
-            {
                 //This is absolutely disgusting but I'm too lazy to math out something better
                 Vector2 chainlink = new Vector2(Projectile.Center.X, Projectile.Center.Y);
                 if (Projectile.frame == 0)
@@ -82,7 +79,7 @@ namespace CalValEX.Projectiles.Pets {
                 Vector2 controlPoint1 = Owner.Center - new Vector2(0, 0.5f) * mainCurv;
                 Vector2 controlPoint2 = Projectile.Center + new Vector2(0, 1.2f) * mainCurv;
 
-                CalamityMod.DataStructures.BezierCurve curve = new CalamityMod.DataStructures.BezierCurve(new Vector2[] { Owner.Center, controlPoint1, controlPoint2, chainlink });
+                Effects.BezierCurve curve = new Effects.BezierCurve(new Vector2[] { Owner.Center, controlPoint1, controlPoint2, chainlink });
                 int numPoints = 25; //"Should make dynamic based on curve length, but I'm not sure how to smoothly do that while using a bezier curve" -Graydee, from the code i referenced. I do agree.
                 Vector2[] cordPositions = curve.GetPoints(numPoints).ToArray();
 
@@ -97,7 +94,6 @@ namespace CalValEX.Projectiles.Pets {
                     Vector2 origin = new Vector2(cordTex.Width / 2, cordTex.Height); //Draw from center bottom of texture
                     Main.EntitySpriteDraw(cordTex, position - Main.screenPosition, null, chainLightColor, rotation, origin, scale, SpriteEffects.None, 0);
                 }
-            }
         }
 
         public override void PostDraw(Color lightColor) {

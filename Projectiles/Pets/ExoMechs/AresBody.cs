@@ -181,8 +181,6 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
         [JITWhenModsEnabled("CalamityMod")]
         private void DrawChain()
         {
-            if (CalValEX.CalamityActive)
-            {
                 Texture2D chainTex = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/ExoMechs/AresChain").Value;
 
                 float curvature = MathHelper.Clamp(Math.Abs(Owner.Center.X - Projectile.Center.X) / 50f * 80, 15, 80);
@@ -190,7 +188,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
                 Vector2 controlPoint1 = Owner.Center - Vector2.UnitY * curvature;
                 Vector2 controlPoint2 = Projectile.Center + Vector2.UnitY * curvature;
 
-                CalamityMod.DataStructures.BezierCurve curve = new CalamityMod.DataStructures.BezierCurve(new Vector2[] { Owner.Center, controlPoint1, controlPoint2, Projectile.Center });
+                Effects.BezierCurve curve = new Effects.BezierCurve(new Vector2[] { Owner.Center, controlPoint1, controlPoint2, Projectile.Center });
                 int numPoints = 20; //"Should make dynamic based on curve length, but I'm not sure how to smoothly do that while using a bezier curve" -Graydee, from the code i referenced. I do agree.
                 Vector2[] chainPositions = curve.GetPoints(numPoints).ToArray();
 
@@ -205,7 +203,6 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
                     Vector2 origin = new Vector2(chainTex.Width / 2, chainTex.Height); //Draw from center bottom of texture
                     Main.EntitySpriteDraw(chainTex, position - Main.screenPosition, null, chainLightColor, rotation, origin, scale, SpriteEffects.None, 0);
                 }
-            }
         }
 
         public override void PostDraw(Color lightColor)
