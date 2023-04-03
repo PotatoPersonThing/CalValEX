@@ -24,7 +24,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
         public Player Owner => Main.player[Projectile.owner];
 
         public static int TrailLenght = 30;
-        public float SpinRadius => 100 + (Owner.GetModPlayer<CalValEXPlayer>().ares ? 200 : 0); //Change the 200 for any distance you want to add whenever ares is equipped
+        public float SpinRadius => 125 + (Owner.GetModPlayer<CalValEXPlayer>().ares ? 200 : 0); //Change the 200 for any distance you want to add whenever ares is equipped
 
 
         public override void SetStaticDefaults()
@@ -126,9 +126,9 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
         //STOLED FROM THE REAL ONES???
         public float RibbonTrailWidthFunction(float completionRatio)
         {
-            float baseWidth = Utils.GetLerpValue(1f, 0.54f, 1 - completionRatio, true) * 5f;
-            float endTipWidth = (float)Math.Sin(MathHelper.Pi * MathHelper.Clamp((Utils.GetLerpValue(0.96f, 0.89f, 1 - completionRatio, true)), 0f, 1f)) * 2.4f;
-            return baseWidth + endTipWidth;
+            float tail = (float)Math.Pow(completionRatio, 2) * 7;
+            float bump = Utils.GetLerpValue(0.7f, 0.8f, 1-completionRatio, true) * Utils.GetLerpValue(1f, 0.8f, 1-completionRatio, true) * 4;
+            return tail + bump;
         }
         public Color OrangeRibbonTrailColorFunction(float completionRatio)
         {
