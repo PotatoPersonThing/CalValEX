@@ -58,10 +58,10 @@ namespace CalValEX
         public readonly float vanityMinChance = 0.05f; //5%
         public readonly float vanityNormalChance = 0.1f; //10%
 
-        private bool bdogeMount;
-        private bool geldonSummon;
-        private bool junkoReference;
-        private bool wolfram;
+        public bool bdogeMount;
+        public bool geldonSummon;
+        public bool junkoReference;
+        public bool wolfram;
 
 
         public static int meldodon = -1;
@@ -267,460 +267,6 @@ namespace CalValEX
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1);
                     ++nextSlot;
                 }
-            }
-        }
-
-        public class MasterRevCondition : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (!CalValEX.CalamityActive)
-                    return false;
-                return (CalValEX.CalamityActive && ((bool)CalValEX.Calamity.Call("GetDifficultyActive", "revengeance") || Main.masterMode)) || (Main.masterMode && !CalValEX.CalamityActive);
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class FogboundCondition : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (!CalValEX.CalamityActive)
-                    return false;
-                return CalValEX.CalamityActive && (bool)CalValEX.Calamity.Call("GetBossDowned", "adulteidolonwyrm") && !CalValEX.AprilFoolMonth;
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return false;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class FogboundCondition2 : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (!CalValEX.CalamityActive)
-                    return false;
-                return CalValEX.CalamityActive && !(bool)CalValEX.Calamity.Call("GetBossDowned", "adulteidolonwyrm") && !CalValEX.AprilFoolMonth;
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return false;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class Polteralive : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (!CalValEX.CalamityActive)
-                    return false;
-                return (CalValEX.CalamityActive && !(bool)CalValEX.Calamity.Call("GetBossDowned", "polterghast") && ((bool)CalValEX.Calamity.Call("GetDifficultyActive", "revengeance") || Main.masterMode)) || (!CalValEX.CalamityActive && Main.masterMode);
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class Polterdead : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (!CalValEX.CalamityActive)
-                    return false;
-                return (CalValEX.CalamityActive && (bool)CalValEX.Calamity.Call("GetBossDowned", "polterghast") && ((bool)CalValEX.Calamity.Call("GetDifficultyActive", "revengeance") || Main.masterMode)) || (!CalValEX.CalamityActive && Main.masterMode);
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class YharonDowned : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (!CalValEX.CalamityActive)
-                    return false;
-                return CalValEX.CalamityActive && (bool)CalValEX.Calamity.Call("GetBossDowned", "yharon");
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class BlockDrops : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                return !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks;
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class SilvaCrystal : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (!CalValEX.CalamityActive)
-                    return false;
-                return CalValEX.CalamityActive && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks && (bool)CalValEX.Calamity.Call("GetBossDowned", "yharon");
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class OtherworldlyStoneDrop : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (!CalValEX.CalamityActive)
-                    return false;
-                return CalValEX.CalamityActive && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks && (bool)CalValEX.Calamity.Call("GetBossDowned", "devourerofgods");
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class LevihitaPlushies : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (!CalValEX.CalamityActive)
-                    return false;
-                return CalValEX.CalamityActive && (NPC.CountNPCS(CalValEX.CalamityNPC("Anahita")) + NPC.CountNPCS(CalValEX.CalamityNPC("Leviathan")) <= 1)
-                    && (((bool)CalValEX.Calamity.Call("GetDifficultyActive", "revengeance") || Main.masterMode) || (!CalValEX.CalamityActive && Main.masterMode));
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class Levihita : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (!CalValEX.CalamityActive)
-                    return false;
-                return CalValEX.CalamityActive && (NPC.CountNPCS(CalValEX.CalamityNPC("Anahita")) + NPC.CountNPCS(CalValEX.CalamityNPC("Leviathan")) <= 1) && !Main.expertMode;
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class DeusFUCKMasorev : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-
-                if (CalValEX.CalamityActive)
-                {
-                    float[] deusAI = (float[])CalValEX.Calamity.Call("GetCalamityAI", info.npc);
-                return ((bool)CalValEX.Calamity.Call("GetDifficultyActive", "revengeance") || Main.masterMode) && CalValEX.CalamityActive && !(deusAI[0] == 0f || 
-                    (((bool)CalValEX.Calamity.Call("GetDifficultyActive", "death") || (bool)CalValEX.Calamity.Call("GetDifficultyActive", "bossrush")) && deusAI[0] != 3f));
-                }
-                return false;
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class DeusFUCK : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-
-                if (CalValEX.CalamityActive)
-                {
-                    float[] deusAI = (float[])CalValEX.Calamity.Call("GetCalamityAI", info.npc);
-                return CalValEX.CalamityActive && !(deusAI[0] == 0f || (((bool)CalValEX.Calamity.Call("GetDifficultyActive", "death") || (bool)CalValEX.Calamity.Call("GetDifficultyActive", "bossrush")) && deusAI[0] != 3f));
-                }
-                return false;
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class DeusFUCKBlight : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (CalValEX.CalamityActive)
-                {
-                    float[] deusAI = (float[])CalValEX.Calamity.Call("GetCalamityAI", info.npc);
-                    return (Main.LocalPlayer.InModBiome<Biomes.AstralBlight>() || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok) && CalValEX.CalamityActive && !(deusAI[0] == 0f ||
-                        (((bool)CalValEX.Calamity.Call("GetDifficultyActive", "death") || (bool)CalValEX.Calamity.Call("GetDifficultyActive", "bossrush")) && deusAI[0] != 3f));
-                }
-                return false;
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class Exodrop : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (!CalValEX.CalamityActive)
-                    return false;
-                return CalValEX.CalamityActive && NPC.CountNPCS(CalValEX.CalamityNPC("ThanatosHead")) +
-                NPC.CountNPCS(CalValEX.CalamityNPC("AresBody")) +
-                NPC.CountNPCS(CalValEX.CalamityNPC("Apollo")) <= 1;
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class ExoPlush : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (!CalValEX.CalamityActive)
-                    return false;
-                return CalValEX.CalamityActive && ((bool)CalValEX.Calamity.Call("GetDifficultyActive", "revengeance") || Main.masterMode) && NPC.CountNPCS(CalValEX.CalamityNPC("ThanatosHead")) +
-                NPC.CountNPCS(CalValEX.CalamityNPC("AresBody")) +
-                NPC.CountNPCS(CalValEX.CalamityNPC("Apollo")) <= 1;
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class ExoPlating : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (!CalValEX.CalamityActive)
-                    return false;
-                return CalValEX.CalamityActive && (NPC.CountNPCS(CalValEX.CalamityNPC("ThanatosHead")) +
-                NPC.CountNPCS(CalValEX.CalamityNPC("AresBody")) +
-                NPC.CountNPCS(CalValEX.CalamityNPC("Apollo")) <= 1) && !Main.expertMode && !CalValEXConfig.Instance.ConfigBossBlocks;
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class Fogdowned : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (!CalValEX.CalamityActive)
-                    return false;
-                return CalValEX.CalamityActive && CalValEXWorld.downedFogbound; // Calamity must be active since the lore item relies on Calamity
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class MeldosaurusDowned : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                return CalValEXWorld.downedMeldosaurus;
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class JunkoDrop : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (!CalValEX.CalamityActive)
-                    return false;
-                return info.npc.GetGlobalNPC<CalValEXGlobalNPC>().junkoReference && CalValEX.CalamityActive;
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class RoverDrop : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (!CalValEX.CalamityActive)
-                    return false;
-                return info.npc.GetGlobalNPC<CalValEXGlobalNPC>().wolfram && CalValEX.CalamityActive;
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class GeldonDrop : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (!CalValEX.CalamityActive)
-                    return false;
-                return info.npc.GetGlobalNPC<CalValEXGlobalNPC>().geldonSummon && CalValEX.CalamityActive;
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
-            }
-        }
-        public class DogeDrop : IItemDropRuleCondition
-        {
-            public bool CanDrop(DropAttemptInfo info)
-            {
-                if (!CalValEX.CalamityActive)
-                    return false;
-                return info.npc.GetGlobalNPC<CalValEXGlobalNPC>().bdogeMount && CalValEX.CalamityActive;
-            }
-
-            public bool CanShowItemDropInUI()
-            {
-                return true;
-            }
-
-            public string GetConditionDescription()
-            {
-                return null;
             }
         }
 
@@ -1188,9 +734,7 @@ namespace CalValEX
                         ModContent.ItemType<Birbhat>(),
                         ModContent.ItemType<FollyWings>(),
                         ModContent.ItemType<DocilePheromones>()}));
-
-
-                        npcLoot.Add(ItemDropRule.ByCondition(new SilvaCrystal(), CalValEX.CalamityItem("SilvaCrystal"), 1, 155, 265));
+                        notExpertRule.OnSuccess(ItemDropRule.ByCondition(new SilvaCrystal(), CalValEX.CalamityItem("SilvaCrystal"), 1, 155, 265));
                         npcLoot.Add(ItemDropRule.ByCondition(new MasterRevCondition(), ModContent.ItemType<ExtraFluffyFeather>()));
                         AddPlushDrop(npcLoot, ModContent.ItemType<BumblefuckPlush>()); ;
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 500));
@@ -1207,7 +751,8 @@ namespace CalValEX
                     //Storm Weaver
                     if (npc.type == CalValEX.CalamityNPC("StormWeaverHead"))
                     {
-                        npcLoot.Add(ItemDropRule.ByCondition(new OtherworldlyStoneDrop(), CalValEX.CalamityItem("OtherworldlyStone"), 1, 155, 265));
+                        LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+                        notExpertRule.OnSuccess(ItemDropRule.ByCondition(new OtherworldlyStoneDrop(), CalValEX.CalamityItem("OtherworldlyStone"), 1, 155, 265));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<StormBandana>(), 10));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ArmoredScrap>(), 6));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<StormMedal>(), 6));
@@ -1225,7 +770,7 @@ namespace CalValEX
                         ModContent.ItemType<SignusEmblem>(),
                         ModContent.ItemType<ShadowCloth>(),
                         ModContent.ItemType<SignusNether>()}));
-                        npcLoot.Add(ItemDropRule.ByCondition(new OtherworldlyStoneDrop(), CalValEX.CalamityItem("OtherworldlyStone"), 1, 155, 265));
+                        notExpertRule.OnSuccess(ItemDropRule.ByCondition(new OtherworldlyStoneDrop(), CalValEX.CalamityItem("OtherworldlyStone"), 1, 155, 265));
                         npcLoot.Add(ItemDropRule.ByCondition(new JunkoDrop(), ModContent.ItemType<SuspiciousLookingChineseCrown>()));
                         AddPlushDrop(npcLoot, ModContent.ItemType<SignusPlush>());
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 250));
@@ -1233,7 +778,8 @@ namespace CalValEX
                     //CV
                     if (npc.type == CalValEX.CalamityNPC("CeaselessVoid"))
                     {
-                        npcLoot.Add(ItemDropRule.ByCondition(new OtherworldlyStoneDrop(), CalValEX.CalamityItem("OtherworldlyStone"), 1, 155, 265));
+                        LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+                        notExpertRule.OnSuccess(ItemDropRule.ByCondition(new OtherworldlyStoneDrop(), CalValEX.CalamityItem("OtherworldlyStone"), 1, 155, 265));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<VoidWings>(), 10));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<OldVoidWings>(), 15));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<MirrorMatter>(), 3));
@@ -1243,8 +789,9 @@ namespace CalValEX
                     //Polterghast
                     if (npc.type == CalValEX.CalamityNPC("Polterghast"))
                     {
-                        npcLoot.Add(ItemDropRule.ByCondition(new BlockDrops(), CalValEX.CalamityItem("StratusBricks"), 2, 155, 265));
-                        npcLoot.Add(ItemDropRule.ByCondition(new BlockDrops(), ModContent.ItemType<PhantowaxBlock>(), 2, 155, 265));
+                        LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+                        notExpertRule.OnSuccess(ItemDropRule.ByCondition(new BlockDrops(), CalValEX.CalamityItem("StratusBricks"), 2, 155, 265));
+                        notExpertRule.OnSuccess(ItemDropRule.ByCondition(new BlockDrops(), ModContent.ItemType<PhantowaxBlock>(), 2, 155, 265));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Polterhook>(), 20));
                         npcLoot.Add(ItemDropRule.ByCondition(new MasterRevCondition(), ModContent.ItemType<ToyScythe>(), 3));
                         AddPlushDrop(npcLoot, ModContent.ItemType<PolterghastPlush>());
@@ -1442,7 +989,8 @@ namespace CalValEX
         }
         public static void AddBlockDrop(NPCLoot loot, int item)
         {
-            loot.Add(ItemDropRule.ByCondition(new BlockDrops(), item, 1, 55, 265));
+            LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+            notExpertRule.OnSuccess(ItemDropRule.ByCondition(new BlockDrops(), item, 1, 55, 265));
         }
 
         int signuskill;
