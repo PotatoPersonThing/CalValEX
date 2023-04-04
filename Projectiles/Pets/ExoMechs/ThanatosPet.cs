@@ -41,9 +41,8 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             //If the owner is holding right click, shift its goal from the worms ideal position tothe mouse cursor
             if (CalValEX.CalamityActive)
             {
-                CalamityMod.CalPlayer.CalamityPlayer calPlayer = Owner.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>();
-                if (calPlayer.mouseRight && Owner.HeldItem.type == ModContent.ItemType<GunmetalRemote>())
-                    RelativeIdealPosition = calPlayer.mouseWorld - Owner.Center;
+                if ((bool)CalValEX.Calamity.Call("GetRightClick") && Owner.HeldItem.type == ModContent.ItemType<GunmetalRemote>())
+                    RelativeIdealPosition = (Vector2)CalValEX.Calamity.Call("GetMouseWorld") - Owner.Center;
             }
 
             //Rotate towards its ideal position
