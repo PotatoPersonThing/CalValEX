@@ -29,7 +29,7 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dune Pest");
+            // DisplayName.SetDefault("Dune Pest");
             Main.projFrames[Projectile.type] = 1;
             Main.projPet[Projectile.type] = true;
         }

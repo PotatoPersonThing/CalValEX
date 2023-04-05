@@ -11,9 +11,9 @@ namespace CalValEX.Items.Tiles.Monoliths
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bittercold Construct");
-            Tooltip.SetDefault("][[]][][][][[]");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Bittercold Construct");
+            // Tooltip.SetDefault("][[]][][][][[]");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

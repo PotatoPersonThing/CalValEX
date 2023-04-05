@@ -8,8 +8,8 @@ namespace CalValEX.Items.Tiles.Blocks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Polished Astral Monolith");
-            SacrificeTotal = 100;
+            // DisplayName.SetDefault("Polished Astral Monolith");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

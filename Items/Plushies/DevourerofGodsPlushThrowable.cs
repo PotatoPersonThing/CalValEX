@@ -11,7 +11,7 @@ namespace CalValEX.Items.Plushies
     public class DevourerofGodsPlushThrowable : ModItem
     {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/DevourerofGodsPlush";
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults()
         {

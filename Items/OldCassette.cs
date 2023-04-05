@@ -11,12 +11,12 @@ namespace CalValEX.Items
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Old Cassette");
-            Tooltip.SetDefault("Favorite this item to activate player afterimages\n" + "'It contains some edgy anime episodes from the 90's'");
+            // DisplayName.SetDefault("Old Cassette");
+            // Tooltip.SetDefault("Favorite this item to activate player afterimages\n" + "'It contains some edgy anime episodes from the 90's'");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 20));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             ItemID.Sets.ItemIconPulse[Item.type] = false;
-            SacrificeTotal = 1;
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

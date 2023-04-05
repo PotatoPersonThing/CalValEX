@@ -15,7 +15,7 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Devourer of Gods (real)");
+            // DisplayName.SetDefault("Devourer of Gods (real)");
             ProjectileID.Sets.NeedsUUID[Projectile.type] = true;
             Main.projPet[Projectile.type] = true;
         }

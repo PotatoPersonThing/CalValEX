@@ -401,7 +401,7 @@ namespace CalValEX.AprilFools.Jharim
         }
 
         [JITWhenModsEnabled("CalamityMod")]
-        public override void OnChatButtonClicked(bool firstButton, ref bool shop)
+        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
         {
             if (!MELDOSAURUSED)
             {
@@ -422,7 +422,7 @@ namespace CalValEX.AprilFools.Jharim
                             {
                                 NPC.active = false;
                                 NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, NPCType<Fogbound>());
-                                CalamityMod.CalamityUtils.DisplayLocalizedText("You've awoken me... time to pay the price...", Color.Gray);
+                                Main.NewText("You've awoken me... time to pay the price...", Color.Gray);
                                 NPC.HitEffect();
                             }
                             else
@@ -435,7 +435,7 @@ namespace CalValEX.AprilFools.Jharim
             }
         }
 
-        public override void SetupShop(Chest shop, ref int nextSlot)
+        public override void ModifyActiveShop(string shopName, Item[] items)
         {
             if (!MELDOSAURUSED)
             {
@@ -467,7 +467,7 @@ namespace CalValEX.AprilFools.Jharim
             }
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0)
             {
@@ -524,7 +524,7 @@ namespace CalValEX.AprilFools.Jharim
             multiplier = 24f;
         }
 
-        public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit)
+        public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone)
         {
             if (CalValEX.CalamityActive)
             {

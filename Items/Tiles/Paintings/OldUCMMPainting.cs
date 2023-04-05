@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Unofficial Calamity Mod Music (old)");
-            Tooltip.SetDefault("'Heart Plus Up!'\n" + "'Vintage tunes'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Unofficial Calamity Mod Music (old)");
+            // Tooltip.SetDefault("'Heart Plus Up!'\n" + "'Vintage tunes'");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

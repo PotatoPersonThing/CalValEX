@@ -9,10 +9,10 @@ namespace CalValEX.Items.Tiles.Blueprints
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Aged Blueprint");
-            Tooltip
-                .SetDefault("Do Not Distribute?");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Aged Blueprint");
+            /* Tooltip
+                .SetDefault("Do Not Distribute?"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

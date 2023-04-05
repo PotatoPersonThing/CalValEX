@@ -10,9 +10,9 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Eye of Xeroc");
-            Tooltip.SetDefault("'PokerFace'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("The Eye of Xeroc");
+            // Tooltip.SetDefault("'PokerFace'");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

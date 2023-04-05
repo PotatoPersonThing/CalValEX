@@ -10,9 +10,9 @@ namespace CalValEX.Items.Pets.ExoMechs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ominous Core");
-            Tooltip.SetDefault("The rotting mechanism emits surprisingly friendly fumes\n" + "Summons a toy variant of the diabolical monstrosity");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Ominous Core");
+            // Tooltip.SetDefault("The rotting mechanism emits surprisingly friendly fumes\n" + "Summons a toy variant of the diabolical monstrosity");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

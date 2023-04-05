@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles.Balloons
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Tied Water Balloons");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Tied Water Balloons");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

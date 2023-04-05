@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using CalValEX.Items.Tiles;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
@@ -27,8 +28,8 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 }; //
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Hanging Heart");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Hanging Heart");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 

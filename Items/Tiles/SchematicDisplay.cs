@@ -10,9 +10,9 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Schematic Display");
-            Tooltip.SetDefault("Displays a letter\n"+ "<right> to display another letter");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Schematic Display");
+            // Tooltip.SetDefault("Displays a letter\n"+ "<right> to display another letter");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -15,7 +15,7 @@ namespace CalValEX.Projectiles.Boi
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Atlantis");
+            // DisplayName.SetDefault("Atlantis");
             Main.projFrames[Projectile.type] = 1;
         }
 

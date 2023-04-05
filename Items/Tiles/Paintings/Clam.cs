@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ohayou!");
-            Tooltip.SetDefault("'Yharex'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Ohayou!");
+            // Tooltip.SetDefault("'Yharex'");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

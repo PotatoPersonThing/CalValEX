@@ -16,7 +16,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Polter-Chan");
+            // DisplayName.SetDefault("Polter-Chan");
             Main.projFrames[Projectile.type] = 8;
         }
 

@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 //using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 using Terraria.ObjectData;
@@ -21,8 +22,8 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             TileObjectData.addTile(Type);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Wulfrum Candle");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Wulfrum Candle");
             AddMapEntry(new Color(103, 137, 100), name);
             
             //ItemDrop = ModContent.ItemType<WulfrumCandleItem>();

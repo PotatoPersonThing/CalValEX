@@ -7,10 +7,10 @@ namespace CalValEX.Items.Tiles.Statues
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Statue of Calamity");
-            Tooltip
-                .SetDefault("A tale begins");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Statue of Calamity");
+            /* Tooltip
+                .SetDefault("A tale begins"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

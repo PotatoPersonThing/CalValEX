@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -25,8 +26,8 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
             TileObjectData.addTile(Type);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Bloodstone Work Bench");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Bloodstone Work Bench");
             AddMapEntry(new Color(139, 0, 0), name);
             AdjTiles = new int[] { TileID.WorkBenches };
         }

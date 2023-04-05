@@ -10,10 +10,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Reaperoid Pills");
-            Tooltip
-                .SetDefault("So that's how they got so buff...\n" + "Summons a walking Reaper");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Reaperoid Pills");
+            /* Tooltip
+                .SetDefault("So that's how they got so buff...\n" + "Summons a walking Reaper"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

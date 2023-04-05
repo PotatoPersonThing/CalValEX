@@ -23,12 +23,12 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             Main.tileOreFinderPriority[Type] = 500;
             TileID.Sets.HasOutlines[Type] = true;
             TileID.Sets.BasicChest[Type] = true;
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Wulfrum Chest");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Wulfrum Chest");
             AddMapEntry(new Color(103, 137, 100), name, MapChestName);
             
             AdjTiles = new int[] { TileID.Containers };
-            ContainerName.SetDefault("Wulfrum Chest");
+            ContainerName/* tModPorter Note: Removed. Override DefaultContainerName instead */.SetDefault("Wulfrum Chest");
             //ChestDrop = ModContent.ItemType<WulfrumChestItem>();
             
             DustType = 226;

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -22,8 +23,8 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16 }; //
             AnimationFrameHeight = 18;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Glub glub");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Glub glub");
             AddMapEntry(new Color(0, 167, 255), name);
         }
 

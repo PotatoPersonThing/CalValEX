@@ -11,7 +11,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Arctic Shield");
+            // DisplayName.SetDefault("Arctic Shield");
             Main.projFrames[Projectile.type] = 1;
             Main.projPet[Projectile.type] = true;
             ProjectileID.Sets.LightPet[Projectile.type] = true;

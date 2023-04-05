@@ -8,9 +8,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Clawshroom");
-            Tooltip.SetDefault("Snip snap!\n" + "Summons a small Crabulon");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Clawshroom");
+            // Tooltip.SetDefault("Snip snap!\n" + "Summons a small Crabulon");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

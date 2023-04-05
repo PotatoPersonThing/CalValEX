@@ -16,7 +16,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: true);
-            DisplayName.SetDefault("Sunfish");
+            // DisplayName.SetDefault("Sunfish");
             Main.projFrames[Projectile.type] = 1;
         }
 

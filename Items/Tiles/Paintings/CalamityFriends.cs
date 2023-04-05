@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Little Buddies");
-            Tooltip.SetDefault("'Mochi'\nFriends!");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Little Buddies");
+            // Tooltip.SetDefault("'Mochi'\nFriends!");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

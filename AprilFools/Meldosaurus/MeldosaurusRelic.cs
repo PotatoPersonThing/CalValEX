@@ -8,7 +8,7 @@ namespace CalValEX.AprilFools.Meldosaurus
     {
         public override void SetStaticDefaults()
         {
-            SacrificeTotal = 1;
+            Item.ResearchUnlockCount = 1;
         }
         [JITWhenModsEnabled("CalamityMod")]
         public override void SetDefaults()

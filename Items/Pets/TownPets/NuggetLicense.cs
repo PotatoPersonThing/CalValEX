@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Pets.TownPets {
     public class NuggetLicense : ModItem {
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults() => Item.CloneDefaults(ItemID.LicenseDog);
 
@@ -78,7 +78,7 @@ namespace CalValEX.Items.Pets.TownPets {
                 if (Main.netMode == NetmodeID.SinglePlayer)
                     Main.NewText(Language.GetTextValue("The license teleports away to the McNugget delivery service..."), 50, byte.MaxValue, 130);
                 else
-                    NetMessage.SendData(MessageID.SpawnBoss, -1, -1, null, player.whoAmI, -13f, 0.0f, 0.0f, 0, 0, 0);
+                    NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, -1, -1, null, player.whoAmI, -13f, 0.0f, 0.0f, 0, 0, 0);
                 return true;
             } else {
                 Main.NewText(Language.GetTextValue("There's not enough space for a rebirth in" + ($" {Main.worldName}") + "!"), byte.MaxValue, 0, 0);

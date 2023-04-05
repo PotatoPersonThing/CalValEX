@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.Monoliths
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Calamitous Ritual Basin");
-            SacrificeTotal = 1;
-            Tooltip.SetDefault("The fire dances above it with entertaining intent");
+            // DisplayName.SetDefault("Calamitous Ritual Basin");
+            Item.ResearchUnlockCount = 1;
+            // Tooltip.SetDefault("The fire dances above it with entertaining intent");
         }
 
         public override void SetDefaults()

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace CalValEX.Items.Hooks
 {
     public class MawHook : ModItem {
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults()
         {

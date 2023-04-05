@@ -100,7 +100,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: true);
-            DisplayName.SetDefault("Dark Sun Elemental");
+            // DisplayName.SetDefault("Dark Sun Elemental");
             Main.projFrames[Projectile.type] = 4;
         }
 
@@ -150,7 +150,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: true);
-            DisplayName.SetDefault("Phantoshark");
+            // DisplayName.SetDefault("Phantoshark");
             Main.projFrames[Projectile.type] = 8;
         }
 
@@ -236,7 +236,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: true);
-            DisplayName.SetDefault("Phantofish");
+            // DisplayName.SetDefault("Phantofish");
             Main.projFrames[Projectile.type] = 1;
         }
 
@@ -291,7 +291,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: true);
-            DisplayName.SetDefault("Endo Runes");
+            // DisplayName.SetDefault("Endo Runes");
             Main.projFrames[Projectile.type] = 1;
         }
 

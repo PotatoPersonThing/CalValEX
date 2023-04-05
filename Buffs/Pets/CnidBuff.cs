@@ -7,8 +7,8 @@ namespace CalValEX.Buffs.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Little Cnidrion");
-            Description.SetDefault("The poor thing could really use a tissue...");
+            // DisplayName.SetDefault("Little Cnidrion");
+            // Description.SetDefault("The poor thing could really use a tissue...");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

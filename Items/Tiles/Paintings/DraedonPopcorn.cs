@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Mechanical Gamer");
-            Tooltip.SetDefault("'Mathew Maple'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("The Mechanical Gamer");
+            // Tooltip.SetDefault("'Mathew Maple'");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

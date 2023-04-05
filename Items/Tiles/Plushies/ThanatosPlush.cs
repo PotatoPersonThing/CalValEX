@@ -10,9 +10,9 @@ namespace CalValEX.Items.Tiles.Plushies
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Thanatos Plushie (Placeable)");
-            Tooltip.SetDefault("Master drop");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Thanatos Plushie (Placeable)");
+            // Tooltip.SetDefault("Master drop");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

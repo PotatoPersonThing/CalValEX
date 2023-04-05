@@ -9,9 +9,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cool Shades");
-            Tooltip.SetDefault("Rad\n" + "Summons a miniature Cryogen");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Cool Shades");
+            // Tooltip.SetDefault("Rad\n" + "Summons a miniature Cryogen");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -10,9 +10,9 @@ namespace CalValEX.Items.Pets.ExoMechs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dark Gunmetal Remote");
-            Tooltip.SetDefault("T Hanos\n" + "Summons a shorter and friendlier version of the high-tech digger");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Dark Gunmetal Remote");
+            // Tooltip.SetDefault("T Hanos\n" + "Summons a shorter and friendlier version of the high-tech digger");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

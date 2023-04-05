@@ -11,10 +11,10 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Heart of the Community");
-            Tooltip
-                .SetDefault("My greatest creation, handle it with care");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Heart of the Community");
+            /* Tooltip
+                .SetDefault("My greatest creation, handle it with care"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

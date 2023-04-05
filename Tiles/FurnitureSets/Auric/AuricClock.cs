@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using CalValEX.Items.Tiles.FurnitureSets.Auric;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Microsoft.Xna.Framework.Graphics;
@@ -20,7 +21,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             TileObjectData.newTile.Height = 5;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 16, 16, 16 };
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
+            LocalizedText name = CreateMapEntryName();
 			TileID.Sets.Clock[Type] = true;
 			AddMapEntry(new Color(139, 0, 0), name);
             AdjTiles = new int[] { TileID.GrandfatherClocks };

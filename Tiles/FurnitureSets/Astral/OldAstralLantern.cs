@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using CalValEX.Items.Tiles.FurnitureSets.Astral;
 using Terraria.ObjectData;
@@ -27,8 +28,8 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Xenomonolith Lantern");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Xenomonolith Lantern");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 

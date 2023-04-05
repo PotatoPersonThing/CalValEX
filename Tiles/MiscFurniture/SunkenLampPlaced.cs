@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Items.Tiles;
@@ -25,8 +26,8 @@ namespace CalValEX.Tiles.MiscFurniture
             AnimationFrameHeight = 54;
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Sunken Lamp");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Sunken Lamp");
             AddMapEntry(new Color(91, 198, 201), name);
         }
 

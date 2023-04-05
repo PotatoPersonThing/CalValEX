@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Unofficial Calamity Mod Music");
-            Tooltip.SetDefault("'IbanPlay'\n" + "'World of sound'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Unofficial Calamity Mod Music");
+            // Tooltip.SetDefault("'IbanPlay'\n" + "'World of sound'");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

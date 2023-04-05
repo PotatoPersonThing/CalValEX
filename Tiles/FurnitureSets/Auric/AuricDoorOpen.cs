@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ObjectData;
@@ -59,12 +60,12 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             TileID.Sets.HousingWalls[Type] = true; //needed for non-solid blocks to count as walls
             TileID.Sets.HasOutlines[Type] = true;
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Auric Door");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Auric Door");
             AddMapEntry(new Color(139, 0, 0), name);
             
             AdjTiles = new int[] { TileID.OpenDoor };
-            CloseDoorID = ModContent.TileType<AuricDoorClosed>();
+            CloseDoorID/* tModPorter Note: Removed. Use TileID.Sets.CloseDoorID instead */ = ModContent.TileType<AuricDoorClosed>();
         }
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {

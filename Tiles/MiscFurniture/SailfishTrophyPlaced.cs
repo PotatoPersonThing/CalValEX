@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -22,8 +23,8 @@ namespace CalValEX.Tiles.MiscFurniture
 
             AnimationFrameHeight = 72;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Sailfish Trophy");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Sailfish Trophy");
             AddMapEntry(new Color(039, 109, 148), name);
         }
 

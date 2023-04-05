@@ -10,10 +10,10 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Toy Evolution");
-            Tooltip
-                .SetDefault("'Pondering the orb...'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Toy Evolution");
+            /* Tooltip
+                .SetDefault("'Pondering the orb...'"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

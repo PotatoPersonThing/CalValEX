@@ -11,9 +11,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Extra Fluffy Feather Clump");
-            Tooltip.SetDefault("ISEJFDOIJNJSNFDGUISDBJNGSDJG\nSummons beasts, so horrific, that you will die");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Extra Fluffy Feather Clump");
+            // Tooltip.SetDefault("ISEJFDOIJNJSNFDGUISDBJNGSDJG\nSummons beasts, so horrific, that you will die");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

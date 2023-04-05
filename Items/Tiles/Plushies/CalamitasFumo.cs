@@ -10,9 +10,9 @@ namespace CalValEX.Items.Tiles.Plushies
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Calamitas Plushie (Placeable)");
-            Tooltip.SetDefault("A dark artifact that must be handled with care\nMaster drop");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Calamitas Plushie (Placeable)");
+            // Tooltip.SetDefault("A dark artifact that must be handled with care\nMaster drop");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

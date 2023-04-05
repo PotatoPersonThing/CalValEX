@@ -7,9 +7,9 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("V for Vanities!");
-            Tooltip.SetDefault("'Willow'\nV!");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("V for Vanities!");
+            // Tooltip.SetDefault("'Willow'\nV!");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

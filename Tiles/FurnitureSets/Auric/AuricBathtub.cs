@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Items.Tiles.FurnitureSets.Auric;
@@ -21,8 +22,8 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Auric Bathtub");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Auric Bathtub");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 

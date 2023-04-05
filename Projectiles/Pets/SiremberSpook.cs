@@ -10,7 +10,7 @@ namespace CalValEX.Projectiles.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Giant Decapitated Floating Siren Head");
+            // DisplayName.SetDefault("Giant Decapitated Floating Siren Head");
             Main.projFrames[Projectile.type] = 6; //frames
         }
 

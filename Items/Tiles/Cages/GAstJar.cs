@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles.Cages
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gold Astral Jelly Jar");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Gold Astral Jelly Jar");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

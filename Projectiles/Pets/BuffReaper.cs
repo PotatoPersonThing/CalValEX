@@ -13,7 +13,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Buff lil man");
+            // DisplayName.SetDefault("Buff lil man");
             Main.projFrames[Projectile.type] = 15;
         }
 

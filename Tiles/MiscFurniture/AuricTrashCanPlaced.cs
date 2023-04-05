@@ -25,12 +25,12 @@ namespace CalValEX.Tiles.MiscFurniture
             TileID.Sets.BasicChest[Type] = true;
             Main.tileOreFinderPriority[Type] = 500;
             TileID.Sets.HasOutlines[Type] = true;
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Auric Trash Can");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Auric Trash Can");
             AddMapEntry(new Color(36, 18, 38), name, MapChestName);
             AdjTiles = new int[] { TileID.Containers };
-            ContainerName.SetDefault("Auric Trash Can");
-            ChestDrop = ModContent.ItemType<AuricTrashCan>();
+            ContainerName/* tModPorter Note: Removed. Override DefaultContainerName instead */.SetDefault("Auric Trash Can");
+            ItemDrop = ModContent.ItemType<AuricTrashCan>();
 
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
@@ -84,7 +84,7 @@ namespace CalValEX.Tiles.MiscFurniture
 
         public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
         {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ChestDrop);
+            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemDrop);
             Chest.DestroyChest(i, j);
         }
 

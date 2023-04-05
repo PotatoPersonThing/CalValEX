@@ -101,7 +101,7 @@ namespace CalValEX.NPCs.JellyPriest
             }
         }
 
-        public override bool StrikeNPC(ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
+        public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
             damage = 1;
             crit = false;

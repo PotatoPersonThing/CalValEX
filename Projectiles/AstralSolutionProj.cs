@@ -14,7 +14,7 @@ namespace CalValEX.Projectiles
 	public class AstralSolutionProj : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Xeno Spray");
+			// DisplayName.SetDefault("Xeno Spray");
 		}
 
 		public override void SetDefaults() {

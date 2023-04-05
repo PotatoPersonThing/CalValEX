@@ -11,9 +11,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cosmic Rapture");
-            Tooltip.SetDefault("Summons the Devourer of the cosmos to follow you");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Cosmic Rapture");
+            // Tooltip.SetDefault("Summons the Devourer of the cosmos to follow you");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

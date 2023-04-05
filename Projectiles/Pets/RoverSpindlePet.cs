@@ -15,7 +15,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("RoverdriveZ");
+            // DisplayName.SetDefault("RoverdriveZ");
             Main.projFrames[Projectile.type] = 13;
         }
 

@@ -11,9 +11,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Geminga");
-            Tooltip.SetDefault("A highly condensed star\n" + "Summons a swarm of 11 lesser star deities");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Geminga");
+            // Tooltip.SetDefault("A highly condensed star\n" + "Summons a swarm of 11 lesser star deities");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

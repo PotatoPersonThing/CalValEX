@@ -38,7 +38,7 @@ namespace CalValEX.Items.Equips.Transformations
 			Item.height = 28;
 			Item.accessory = true;
 			Item.rare = 11;
-			Item.canBePlacedInVanityRegardlessOfConditions = true;
+			Item.hasVanityEffects = true;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
@@ -51,7 +51,7 @@ namespace CalValEX.Items.Equips.Transformations
 
 		public override void SetStaticDefaults()
 		{
-			SacrificeTotal = 1;
+			Item.ResearchUnlockCount = 1;
 			ItemID.Sets.ItemNoGravity[Item.type] = true;
 			if (Main.netMode != NetmodeID.Server)
 			{

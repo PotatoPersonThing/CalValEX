@@ -10,10 +10,10 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Swarmer Conservation Tube");
-            Tooltip
-                .SetDefault("'Sealed away for eternity'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Swarmer Conservation Tube");
+            /* Tooltip
+                .SetDefault("'Sealed away for eternity'"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

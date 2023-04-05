@@ -11,9 +11,9 @@ namespace CalValEX.Items.Tiles.Monoliths
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Profaned Fountain");
-            SacrificeTotal = 1;
-            Tooltip.SetDefault("No it doesn't change any liquid colors");
+            // DisplayName.SetDefault("Profaned Fountain");
+            Item.ResearchUnlockCount = 1;
+            // Tooltip.SetDefault("No it doesn't change any liquid colors");
         }
 
         public override void SetDefaults()

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Items.Tiles.FurnitureSets.Astral;
@@ -20,7 +21,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
 			TileID.Sets.Clock[Type] = true;
 			TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 16, 16, 16 };
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
+            LocalizedText name = CreateMapEntryName();
             AddMapEntry(new Color(139, 0, 0), name);
             AdjTiles = new int[] { TileID.GrandfatherClocks };
         }

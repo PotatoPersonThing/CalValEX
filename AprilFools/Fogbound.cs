@@ -241,20 +241,20 @@ namespace CalValEX.AprilFools
 			}
         }
 		
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 		{
 			NPC.lifeMax = (int)(NPC.lifeMax * 0.55f * bossLifeScale);
 			NPC.damage = (int)(NPC.damage * 0.65f);
 		}
 
-		public override void OnHitPlayer(Player player, int damage, bool crit)
+		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 		{
-			if (damage > 0)
+			if (hurtInfo.Damage > 0)
 			{
-				player.AddBuff(BuffID.Darkness, 120, true);
+				target.AddBuff(BuffID.Darkness, 120, true);
 				if (Main.getGoodWorld && Main.drunkWorld)
 				{
-					player.AddBuff(BuffID.Obstructed, 120, true);
+					target.AddBuff(BuffID.Obstructed, 120, true);
 				}
 			}
 		}

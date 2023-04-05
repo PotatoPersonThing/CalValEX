@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Items.Tiles.FurnitureSets.Auric;
@@ -25,8 +26,8 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Auric Chandelier");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Auric Chandelier");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 

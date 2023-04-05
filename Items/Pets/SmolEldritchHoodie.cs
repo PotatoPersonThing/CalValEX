@@ -11,10 +11,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Smol Eldritch Hoodie");
-            Tooltip
-                .SetDefault("Baby's first hood\n" + "Summons a hooded Eidolist");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Smol Eldritch Hoodie");
+            /* Tooltip
+                .SetDefault("Baby's first hood\n" + "Summons a hooded Eidolist"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

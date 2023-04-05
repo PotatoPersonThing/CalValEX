@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Phantowax Platform");
-            SacrificeTotal = 200;
+            // DisplayName.SetDefault("Phantowax Platform");
+            Item.ResearchUnlockCount = 200;
         }
 
         public override void SetDefaults()

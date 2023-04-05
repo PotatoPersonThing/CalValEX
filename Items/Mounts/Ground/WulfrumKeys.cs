@@ -6,7 +6,7 @@ namespace CalValEX.Items.Mounts.Ground
 
 {
     public class WulfrumKeys : ModItem {
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults()
         {

@@ -10,7 +10,7 @@ namespace CalValEX.Projectiles.NPCs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ink Shot");
+            // DisplayName.SetDefault("Ink Shot");
         }
 
         public override void SetDefaults()

@@ -13,7 +13,7 @@ namespace CalValEX.Projectiles.Pets.Elementals
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Water Gal");
+            // DisplayName.SetDefault("Water Gal");
             Main.projFrames[Projectile.type] = 4;
         }
 

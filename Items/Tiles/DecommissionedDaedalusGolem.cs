@@ -8,9 +8,9 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Decommissioned Daedalus Golem");
-            Tooltip.SetDefault("'4.3%...'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Decommissioned Daedalus Golem");
+            // Tooltip.SetDefault("'4.3%...'");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -7,9 +7,9 @@ namespace CalValEX.Items.Tiles.Plants
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Acid Tape Dispenser");
-            Tooltip.SetDefault("Places an infinite amount of Sulphurous Vines");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Acid Tape Dispenser");
+            // Tooltip.SetDefault("Places an infinite amount of Sulphurous Vines");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

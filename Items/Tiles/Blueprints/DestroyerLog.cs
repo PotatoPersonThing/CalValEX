@@ -11,10 +11,10 @@ namespace CalValEX.Items.Tiles.Blueprints
         public override string Texture => "CalValEX/Items/Tiles/Blueprints/Blueprint";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Destroyer Blueprint");
-            Tooltip
-                .SetDefault("Do Not Distribute");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Destroyer Blueprint");
+            /* Tooltip
+                .SetDefault("Do Not Distribute"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

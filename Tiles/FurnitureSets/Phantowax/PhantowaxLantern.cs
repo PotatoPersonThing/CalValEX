@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -28,8 +29,8 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Phantowax Lantern");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Phantowax Lantern");
             AddMapEntry(new Color(94, 39, 93), name);
         }
 

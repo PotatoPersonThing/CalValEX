@@ -8,9 +8,9 @@ namespace CalValEX.Items.Equips.Hats
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("");
-            Tooltip.SetDefault("");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("");
+            // Tooltip.SetDefault("");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

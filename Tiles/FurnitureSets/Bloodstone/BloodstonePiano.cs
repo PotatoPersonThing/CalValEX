@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -24,8 +25,8 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 }; //
             TileObjectData.addTile(Type);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Bloodstone Piano");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Bloodstone Piano");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 

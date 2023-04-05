@@ -10,7 +10,7 @@ using Terraria.DataStructures;
 namespace CalValEX.Items.Plushies
 {
     public class CalaFumoYeetable : ModItem {
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults()
         {

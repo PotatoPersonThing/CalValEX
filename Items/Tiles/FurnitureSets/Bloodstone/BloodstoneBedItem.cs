@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bloodstone Bed");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Bloodstone Bed");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

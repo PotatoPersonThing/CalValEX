@@ -22,8 +22,8 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             TileID.Sets.CanBeSleptIn[Type] = true;
             TileID.Sets.InteractibleByNPCs[Type] = true;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Wulfrum Bed");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Wulfrum Bed");
             AddMapEntry(new Color(103, 137, 100), name);
             DustType = 226;
 

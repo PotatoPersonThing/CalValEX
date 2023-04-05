@@ -10,9 +10,9 @@ namespace CalValEX.Items.Tiles.Plants
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Odd Mushroom Pot");
-            Tooltip.SetDefault("Now you can grow your own shrooms... well not really");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Odd Mushroom Pot");
+            // Tooltip.SetDefault("Now you can grow your own shrooms... well not really");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

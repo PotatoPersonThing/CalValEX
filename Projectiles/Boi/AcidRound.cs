@@ -13,7 +13,7 @@ namespace CalValEX.Projectiles.Boi
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Terror Bullet");
+            // DisplayName.SetDefault("Terror Bullet");
             Main.projFrames[Projectile.type] = 1;
         }
 

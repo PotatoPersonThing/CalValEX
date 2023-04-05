@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 //using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -21,8 +22,8 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 };
             TileObjectData.addTile(Type);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Wulfrum Lantern");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Wulfrum Lantern");
             AddMapEntry(new Color(103, 137, 100), name);
 
             DustType = 226;

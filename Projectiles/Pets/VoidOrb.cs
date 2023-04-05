@@ -13,7 +13,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Void Orb");
+            // DisplayName.SetDefault("Void Orb");
             Main.projFrames[Projectile.type] = 6;
         }
 

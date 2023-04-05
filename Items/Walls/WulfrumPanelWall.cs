@@ -9,8 +9,8 @@ namespace CalValEX.Items.Walls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Wulfrum Panel Wall");
-            SacrificeTotal = 400;
+            // DisplayName.SetDefault("Wulfrum Panel Wall");
+            Item.ResearchUnlockCount = 400;
         }
 
         public override void SetDefaults()

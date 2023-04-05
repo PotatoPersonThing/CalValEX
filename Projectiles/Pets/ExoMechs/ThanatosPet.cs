@@ -28,7 +28,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Toy Thanatos");
+            // DisplayName.SetDefault("Toy Thanatos");
             Main.projFrames[Projectile.type] = 5;
             Main.projPet[Projectile.type] = true;
         }

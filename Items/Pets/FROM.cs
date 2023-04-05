@@ -10,10 +10,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Frog-Only Memory");
-            Tooltip
-                .SetDefault("Summons a virtual private entity\n" + "'There's also a serial code...?'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Frog-Only Memory");
+            /* Tooltip
+                .SetDefault("Summons a virtual private entity\n" + "'There's also a serial code...?'"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

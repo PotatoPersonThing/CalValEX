@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lost Souls");
-            Tooltip.SetDefault("'Mathew Maple'\nLost and Afraid");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Lost Souls");
+            // Tooltip.SetDefault("'Mathew Maple'\nLost and Afraid");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

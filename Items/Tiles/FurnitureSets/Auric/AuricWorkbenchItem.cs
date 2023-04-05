@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Auric
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Auric Work Bench");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Auric Work Bench");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

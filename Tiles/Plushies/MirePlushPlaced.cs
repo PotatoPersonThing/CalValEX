@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -16,8 +17,8 @@ namespace CalValEX.Tiles.Plushies {
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Cragmaw Mire Plush");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Cragmaw Mire Plush");
             AddMapEntry(new Color(144, 148, 144), name);
             DustType = 11;
             
@@ -36,8 +37,8 @@ namespace CalValEX.Tiles.Plushies {
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Cragmaw Mire Plush");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Cragmaw Mire Plush");
             AddMapEntry(new Color(144, 148, 144), name);
             DustType = 11;
 

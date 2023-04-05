@@ -21,7 +21,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Aureophage");
+            // DisplayName.SetDefault("Aureophage");
             Main.projFrames[Projectile.type] = 18;
         }
 

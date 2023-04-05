@@ -10,7 +10,7 @@ namespace CalValEX.Items.Dyes
     {
         public override void SetStaticDefaults()
         {
-            SacrificeTotal = 3;
+            Item.ResearchUnlockCount = 3;
         }
 
         public override void SetDefaults()

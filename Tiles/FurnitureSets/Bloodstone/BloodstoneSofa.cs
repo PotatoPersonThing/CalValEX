@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -24,8 +25,8 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Bloodstone Sofa");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Bloodstone Sofa");
             AddMapEntry(new Color(139, 0, 0), name);
             AdjTiles = new int[] { TileID.Chairs };
         }

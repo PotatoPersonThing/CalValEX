@@ -33,7 +33,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Toy Ares");
+            // DisplayName.SetDefault("Toy Ares");
             Main.projFrames[Projectile.type] = 1;
             Main.projPet[Projectile.type] = true;
             //DrawOriginOffsetY = -15;

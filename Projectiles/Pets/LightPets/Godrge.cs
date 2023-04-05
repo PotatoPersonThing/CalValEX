@@ -11,7 +11,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: true);
-            DisplayName.SetDefault("Nuclear George");
+            // DisplayName.SetDefault("Nuclear George");
         }
 
         public override void SetDefaults()

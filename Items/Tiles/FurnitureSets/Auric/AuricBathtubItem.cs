@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Auric
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Auric Bathtub");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Auric Bathtub");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -29,7 +29,7 @@ namespace CalValEX.AprilFools.Jharim
         public override Texture2D LaserEndTexture => ModContent.Request<Texture2D>("CalValEX/AprilFools/Jharim/JharimLaserEnd", AssetRequestMode.ImmediateLoad).Value;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Jharim Buster");
+            // DisplayName.SetDefault("Jharim Buster");
             Main.projFrames[Projectile.type] = 5;
             ProjectileID.Sets.DrawScreenCheckFluff[Projectile.type] = 10000;
         }
@@ -132,7 +132,7 @@ namespace CalValEX.AprilFools.Jharim
             return false;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             //Interaction never happens again after performed once
             if (CalValEX.CalamityActive && target.type == CalValEX.CalamityNPC("WITCH") && target.life <= 0)

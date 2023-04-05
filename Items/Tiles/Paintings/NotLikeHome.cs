@@ -7,9 +7,9 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Not Like Home");
-            Tooltip.SetDefault("'Mathew Maple'\nFriends!");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Not Like Home");
+            // Tooltip.SetDefault("'Mathew Maple'\nFriends!");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

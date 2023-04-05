@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Items.Tiles.Cages;
@@ -24,8 +25,8 @@ namespace CalValEX.Tiles.Cages
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Cooler Astrageldon in a Jar");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Cooler Astrageldon in a Jar");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
@@ -24,8 +25,8 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Bloodstone Candelabra");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Bloodstone Candelabra");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 

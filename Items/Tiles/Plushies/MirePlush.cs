@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.Plushies {
     public class MirePlushP1 : ModItem {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/MirePlushP1";
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Shielded Cragmaw Mire Plushie (Placeable)");
-            Tooltip.SetDefault("Master drop");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Shielded Cragmaw Mire Plushie (Placeable)");
+            // Tooltip.SetDefault("Master drop");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults() {
@@ -54,9 +54,9 @@ namespace CalValEX.Items.Tiles.Plushies {
     public class MirePlushP2 : ModItem {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/MirePlushP2";
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Slimy Cragmaw Mire Plushie (Placeable)");
-            Tooltip.SetDefault("Master drop");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Slimy Cragmaw Mire Plushie (Placeable)");
+            // Tooltip.SetDefault("Master drop");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults() {

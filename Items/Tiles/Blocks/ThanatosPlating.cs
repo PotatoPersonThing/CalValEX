@@ -5,7 +5,7 @@ using Terraria;
 
 namespace CalValEX.Items.Tiles.Blocks {
     public class ThanatosPlating : ModItem {
-        public override void SetStaticDefaults() => SacrificeTotal = 500;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 500;
 
         public override void SetDefaults() {
             Item.width = 12;
@@ -23,7 +23,7 @@ namespace CalValEX.Items.Tiles.Blocks {
     }
 
     public class ThanatosPlatingVent : ModItem {
-        public override void SetStaticDefaults() => SacrificeTotal = 500;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 500;
 
         public override void SetDefaults() {
             Item.width = 12;

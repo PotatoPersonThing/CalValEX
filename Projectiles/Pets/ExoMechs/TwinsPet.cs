@@ -29,7 +29,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Toy Twins");
+            // DisplayName.SetDefault("Toy Twins");
             Main.projFrames[Projectile.type] = 1;
             Main.projPet[Projectile.type] = true;
         }

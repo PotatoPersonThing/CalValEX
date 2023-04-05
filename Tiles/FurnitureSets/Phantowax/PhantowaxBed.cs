@@ -25,8 +25,8 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileID.Sets.CanBeSleptIn[Type] = true; // Facilitates calling ModifySleepingTargetInfo
             TileID.Sets.InteractibleByNPCs[Type] = true; // Town NPCs will palm their hand at this tile
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Phantowax Bed");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Phantowax Bed");
             AddMapEntry(new Color(94, 39, 93), name);
             
             AdjTiles = new int[] { TileID.Beds };

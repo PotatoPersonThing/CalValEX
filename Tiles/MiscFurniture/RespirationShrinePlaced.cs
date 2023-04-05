@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -23,9 +24,9 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x4);
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16 }; //
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
+            LocalizedText name = CreateMapEntryName();
             AnimationFrameHeight = 72;
-            name.SetDefault("Respiration Shrine");
+            // name.SetDefault("Respiration Shrine");
             AddMapEntry(new Color(0, 255, 200), name);
         }
 

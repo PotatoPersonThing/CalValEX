@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chiseled Bloodstone Platform");
-            SacrificeTotal = 200;
+            // DisplayName.SetDefault("Chiseled Bloodstone Platform");
+            Item.ResearchUnlockCount = 200;
         }
 
         public override void SetDefaults()

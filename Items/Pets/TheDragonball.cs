@@ -11,10 +11,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Dragonball");
-            Tooltip
-                .SetDefault("Uh oh\n" + "Summons a spherical Dragonfolly\n"+"Causes failed dragon clones to have identity crises");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("The Dragonball");
+            /* Tooltip
+                .SetDefault("Uh oh\n" + "Summons a spherical Dragonfolly\n"+"Causes failed dragon clones to have identity crises"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

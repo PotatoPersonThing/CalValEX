@@ -66,7 +66,7 @@ namespace CalValEX.NPCs.Critters
 
         public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0)
             {

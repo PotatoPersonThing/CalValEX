@@ -5,7 +5,7 @@ using Terraria.ID;
 namespace CalValEX.Items.Equips.Shields {
     [AutoloadEquip(EquipType.Shield)]
     public class AureusShield : ModItem {
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults() {
             Item.width = 24;

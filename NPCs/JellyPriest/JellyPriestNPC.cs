@@ -83,7 +83,7 @@ namespace CalValEX.NPCs.JellyPriest
 
         private bool jellyspawn = false;
 
-        public override bool CanTownNPCSpawn(int numTownNPCs, int money)
+        public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
         { 
             if (CalValEXWorld.rescuedjelly && !CalValEXConfig.Instance.TownNPC)
             {
@@ -334,7 +334,7 @@ namespace CalValEX.NPCs.JellyPriest
             button2 = "Switch Shop";
         }
 
-        public override void OnChatButtonClicked(bool firstButton, ref bool shop)
+        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
         {
             if (firstButton)
             {
@@ -395,11 +395,8 @@ namespace CalValEX.NPCs.JellyPriest
         }
 
         [JITWhenModsEnabled("CalamityMod")]
-        public override void SetupShop(Chest shop, ref int nextSlot)
+        public override void ModifyActiveShop(string shopName, Item[] items)
         {
-            if (!CalValEX.CalamityActive)
-                return;
-
             bool acid = CalValEX.CalamityActive ? (CalValEX.InCalamityBiome(Main.LocalPlayer, "SulphurousSeaBiome") || (bool)CalValEX.Calamity.Call("GetBossDowned", "acidrainscourge")) : false;
             bool clam = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "giantclam") : false;
             bool ds = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "desertscourge") : false;
@@ -637,7 +634,7 @@ namespace CalValEX.NPCs.JellyPriest
             multiplier = 24f;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             /*if (NPC.life <= 0)
             {

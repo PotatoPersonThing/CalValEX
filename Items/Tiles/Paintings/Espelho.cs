@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Espelho");
-            Tooltip.SetDefault("'Triangle'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Espelho");
+            // Tooltip.SetDefault("'Triangle'");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

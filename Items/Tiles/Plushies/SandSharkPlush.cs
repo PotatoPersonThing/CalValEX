@@ -5,9 +5,9 @@ using CalValEX.Tiles.Plushies;
 namespace CalValEX.Items.Tiles.Plushies {
     public class SandSharkPlush : ModItem {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Great Sand Shark Plushie (Placeable)");
-            Tooltip.SetDefault("Master drop");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Great Sand Shark Plushie (Placeable)");
+            // Tooltip.SetDefault("Master drop");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults() {

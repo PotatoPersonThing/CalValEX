@@ -9,9 +9,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Astral Infected Icosahedron");
-            Tooltip.SetDefault("Roll for initiative!\n" + "Transforms into an Aureophage");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Astral Infected Icosahedron");
+            // Tooltip.SetDefault("Roll for initiative!\n" + "Transforms into an Aureophage");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

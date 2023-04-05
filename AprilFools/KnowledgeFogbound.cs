@@ -19,7 +19,7 @@ Ironic that of all the gods, it was the one who’s domain was Death that feared
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("The Fogbound");
+            // DisplayName.SetDefault("The Fogbound");
         }
 
         public override void SetDefaults()

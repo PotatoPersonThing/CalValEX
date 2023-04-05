@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -23,8 +24,8 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             TileObjectData.addTile(Type);
             DustType = 226;
 
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Wulfrum Piano");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Wulfrum Piano");
             AddMapEntry(new Color(103, 137, 100), name);
         }
 

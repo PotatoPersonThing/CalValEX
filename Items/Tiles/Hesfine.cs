@@ -11,10 +11,10 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Orthocera Jacuzzi");
-            Tooltip
-                .SetDefault(":Grab:");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Orthocera Jacuzzi");
+            /* Tooltip
+                .SetDefault(":Grab:"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

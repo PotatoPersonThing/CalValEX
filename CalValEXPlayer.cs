@@ -1,4 +1,4 @@
-using CalValEX.Buffs.Transformations;
+﻿using CalValEX.Buffs.Transformations;
 using CalValEX.Items.Equips.Transformations;
 using System.Collections.Generic;
 using System.IO;
@@ -751,7 +751,7 @@ namespace CalValEX {
             helipack = false;
         }
 
-        public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit) {
+        public override void OnHurt(Player.HurtInfo info) {
             DoCalamityBabyThings((int)damage);
             if (signutTrans) {
                 Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit49, Player.position);
@@ -766,16 +766,15 @@ namespace CalValEX {
                 Terraria.Audio.SoundEngine.PlaySound(SoundID.FemaleHit, Player.position);
         }
 
-        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit,
-            ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource, ref int cooldownCounter) {
+        public override void ModifyHurt(ref Player.HurtModifiers modifiers) {
             if (signutTrans) playSound = false;
             if (cloudTrans) playSound = false;
             if (classicTrans) playSound = false;
             if (sandTrans) playSound = false;
-            return base.PreHurt(pvp, quiet, ref damage, ref hitDirection, ref crit, ref customDamage, ref playSound, ref genGore, ref damageSource, ref cooldownCounter);
+            return base.ModifyHurt(pvp, quiet, ref damage, ref hitDirection, ref crit, ref customDamage, ref playSound, ref genGore, ref damageSource, ref cooldownCounter);
 
         }
-        public override void OnHitByNPC(NPC npc, int damage, bool crit) {
+        public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo) {
             DoCalamityBabyThings(damage);
 
             if (npc.type == CalValEX.CalamityNPC("SupremeCalamitas") && Player.immuneTime <= 0) {
@@ -783,7 +782,7 @@ namespace CalValEX {
             }
         }
 
-        public override void OnHitByProjectile(Projectile proj, int damage, bool crit) {
+        public override void OnHitByProjectile(Projectile proj, Player.HurtInfo hurtInfo) {
             DoCalamityBabyThings(damage);
 
             for (int i = 0; i < Main.maxNPCs; i++)
@@ -882,7 +881,7 @@ namespace CalValEX {
             }
         }
 
-        public override void clientClone(ModPlayer clientClone) {
+        public override void CopyClientState(ModPlayer clientClone)/* tModPorter Suggestion: Replace Item.Clone usages with Item.CopyNetStateTo */ {
             CalValEXPlayer clone = clientClone as CalValEXPlayer;
             clone.SCalHits = SCalHits;
         }

@@ -39,7 +39,7 @@ namespace CalValEX.Projectiles.Boi
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Boi UI");
+            // DisplayName.SetDefault("Boi UI");
             Main.projFrames[Projectile.type] = 1;
         }
 

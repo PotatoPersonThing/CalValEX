@@ -63,7 +63,7 @@ namespace CalValEX.NPCs.Oracle
             });
         }
 
-        public override bool CanTownNPCSpawn(int numTownNPCs, int money)
+        public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
         {
             if (!CalValEXConfig.Instance.TownNPC)
             {
@@ -298,7 +298,7 @@ namespace CalValEX.NPCs.Oracle
             button2 = "Divination";
         }
 
-        public override void OnChatButtonClicked(bool firstButton, ref bool shop)
+        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
         {
             if (firstButton)
             {
@@ -368,7 +368,7 @@ namespace CalValEX.NPCs.Oracle
         }
 
         [JITWhenModsEnabled("CalamityMod")]
-        public override void SetupShop(Chest shop, ref int nextSlot)
+        public override void ModifyActiveShop(string shopName, Item[] items)
         {
             shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.DoggoCollar>());
             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 50, 0);
@@ -605,7 +605,7 @@ namespace CalValEX.NPCs.Oracle
                     Projectile.NewProjectile(NPC.GetSource_FromAI(), position, NPC.velocity, ModContent.ProjectileType<OracleNPCPet_Pet>(), NPC.damage, 0f, Main.myPlayer);
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0)
             {

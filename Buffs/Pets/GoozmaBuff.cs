@@ -9,8 +9,8 @@ namespace CalValEX.Buffs.Pets
         public override void SetStaticDefaults()
         {
             // DisplayName and Description are automatically set from the .lang files, but below is how it is done normally.
-            DisplayName.SetDefault("Goozma");
-            Description.SetDefault("The last trace of that which has been erased from time itself.");
+            // DisplayName.SetDefault("Goozma");
+            // Description.SetDefault("The last trace of that which has been erased from time itself.");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

@@ -9,9 +9,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Inky Pollution");
-            Tooltip.SetDefault("Tis a shame what we do to the environment\n" + "Summons a baby squid");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Inky Pollution");
+            // Tooltip.SetDefault("Tis a shame what we do to the environment\n" + "Summons a baby squid");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

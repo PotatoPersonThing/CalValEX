@@ -8,8 +8,8 @@ namespace CalValEX.Items.Tiles.Blocks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Astral Pearl Block");
-            SacrificeTotal = 100;
+            // DisplayName.SetDefault("Astral Pearl Block");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

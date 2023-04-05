@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 //using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -25,8 +26,8 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
             TileObjectData.addTile(Type);
 
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Wulfrum Work Bench");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Wulfrum Work Bench");
             AddMapEntry(new Color(103, 137, 100), name);
             AdjTiles = new int[] { TileID.WorkBenches, TileID.Anvils };
         }

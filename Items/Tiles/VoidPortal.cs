@@ -9,10 +9,10 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Void Portal");
-            Tooltip
-                .SetDefault("The void calls out");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Void Portal");
+            /* Tooltip
+                .SetDefault("The void calls out"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

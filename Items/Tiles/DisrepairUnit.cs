@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("'You're sick in the head'");
-            SacrificeTotal = 1;
+            // Tooltip.SetDefault("'You're sick in the head'");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

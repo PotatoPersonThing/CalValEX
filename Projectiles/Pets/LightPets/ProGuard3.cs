@@ -12,7 +12,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: true);
-            DisplayName.SetDefault("Angry Small Potato");
+            // DisplayName.SetDefault("Angry Small Potato");
             Main.projFrames[Projectile.type] = 6;
         }
 

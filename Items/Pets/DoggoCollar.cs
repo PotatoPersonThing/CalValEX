@@ -11,10 +11,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Doggo Collar");
-            Tooltip
-                .SetDefault("Summons a pet Chihuahua");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Doggo Collar");
+            /* Tooltip
+                .SetDefault("Summons a pet Chihuahua"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

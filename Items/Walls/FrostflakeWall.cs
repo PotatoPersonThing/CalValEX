@@ -9,8 +9,8 @@ namespace CalValEX.Items.Walls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Frostflake Brick Wall");
-            SacrificeTotal = 400;
+            // DisplayName.SetDefault("Frostflake Brick Wall");
+            Item.ResearchUnlockCount = 400;
         }
 
         public override void SetDefaults()

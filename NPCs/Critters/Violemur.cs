@@ -73,7 +73,7 @@ namespace CalValEX.NPCs.Critters
             }
             return 0f;
         }
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0)
             {

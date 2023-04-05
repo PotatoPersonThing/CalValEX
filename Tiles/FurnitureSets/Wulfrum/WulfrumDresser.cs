@@ -34,10 +34,10 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Wulfrum Dresser");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Wulfrum Dresser");
 			AddMapEntry(new Color(103, 137, 100), name);
-			ContainerName.SetDefault("Wulfrum Dresser");
+			ContainerName/* tModPorter Note: Removed. Override DefaultContainerName instead */.SetDefault("Wulfrum Dresser");
 			//DresserDrop = ModContent.ItemType<WulfrumDresserItem>();
 			
 			DustType = 226;

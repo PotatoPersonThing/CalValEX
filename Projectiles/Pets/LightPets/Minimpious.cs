@@ -10,7 +10,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Minimpious");
+            // DisplayName.SetDefault("Minimpious");
             Main.projFrames[Projectile.type] = 5;
             Main.projPet[Projectile.type] = true;
             ProjectileID.Sets.LightPet[Projectile.type] = true;

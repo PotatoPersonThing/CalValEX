@@ -6,7 +6,7 @@ namespace CalValEX.Items.Equips.Legs.Draedon
     [AutoloadEquip(EquipType.Legs)]
     public class DraedonLeggings : ModItem
     {
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults()
         {

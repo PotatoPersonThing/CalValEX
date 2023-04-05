@@ -9,8 +9,8 @@ namespace CalValEX.AprilFools.Meldosaurus
 	{
 		public override void SetStaticDefaults()
 		{
-			SacrificeTotal = 3;
-			Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+			Item.ResearchUnlockCount = 3;
+			// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 		}
 		public override void SetDefaults()
 		{

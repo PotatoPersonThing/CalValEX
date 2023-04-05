@@ -7,8 +7,8 @@ namespace CalValEX.Buffs.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("George");
-            Description.SetDefault("George");
+            // DisplayName.SetDefault("George");
+            // Description.SetDefault("George");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

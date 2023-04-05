@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Phantowax Grandfather Clock");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Phantowax Grandfather Clock");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

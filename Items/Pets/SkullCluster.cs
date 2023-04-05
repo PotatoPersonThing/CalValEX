@@ -10,10 +10,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Skull Cluster");
-            Tooltip
-                .SetDefault("Two skulls pop out of the pile with glowing eyes\n" + "Summons a miniature necrotic flesh golem");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Skull Cluster");
+            /* Tooltip
+                .SetDefault("Two skulls pop out of the pile with glowing eyes\n" + "Summons a miniature necrotic flesh golem"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

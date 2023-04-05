@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ID;
 using CalValEX.Items.Tiles;
@@ -23,8 +24,8 @@ namespace CalValEX.Tiles.MiscFurniture
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 };
 			TileObjectData.addTile(Type);
 			AnimationFrameHeight = 54;
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Terminus Shrine");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Terminus Shrine");
 			AddMapEntry(new Color(113, 142, 162), name);
 		}
 

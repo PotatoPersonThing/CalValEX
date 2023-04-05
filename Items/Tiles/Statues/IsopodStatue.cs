@@ -10,8 +10,8 @@ namespace CalValEX.Items.Tiles.Statues
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Abyssal Isopod Statue");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Abyssal Isopod Statue");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

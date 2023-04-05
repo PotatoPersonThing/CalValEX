@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -22,8 +23,8 @@ namespace CalValEX.Tiles.Paintings
             TileObjectData.newTile.Height = 5;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16 }; //
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Worm Heaven");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Worm Heaven");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 

@@ -17,7 +17,7 @@ namespace CalValEX.Projectiles.Pets.Scuttlers
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault(ScuttlerName + " Scuttler");
+            // DisplayName.SetDefault(ScuttlerName + " Scuttler");
             Main.projFrames[Projectile.type] = 4;
         }
 

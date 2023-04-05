@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
@@ -25,8 +26,8 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Phantowax Candelabra");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Phantowax Candelabra");
             AddMapEntry(new Color(94, 39, 93), name);
         }
 

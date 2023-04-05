@@ -9,10 +9,10 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Starstruck Synthesizer");
-            Tooltip
-                .SetDefault("Used for special crafting");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Starstruck Synthesizer");
+            /* Tooltip
+                .SetDefault("Used for special crafting"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

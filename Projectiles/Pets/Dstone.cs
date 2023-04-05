@@ -19,7 +19,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Unhappy Stone");
+            // DisplayName.SetDefault("Unhappy Stone");
             Main.projFrames[Projectile.type] = 1;
         }
 

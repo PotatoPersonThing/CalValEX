@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -24,8 +25,8 @@ namespace CalValEX.Tiles.MiscFurniture
 
             AnimationFrameHeight = 54;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Irradiated Tank");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Irradiated Tank");
             AddMapEntry(new Color(0, 255, 117), name);
         }
 

@@ -15,7 +15,7 @@ namespace CalValEX.Projectiles.Pong
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Slime God Slider");
+            // DisplayName.SetDefault("Slime God Slider");
             Main.projFrames[Projectile.type] = 1;
         }
 

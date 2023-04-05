@@ -16,7 +16,7 @@ namespace CalValEX.Projectiles.Boi
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Spider");
+            // DisplayName.SetDefault("Spider");
             Main.projFrames[Projectile.type] = 1;
         }
 

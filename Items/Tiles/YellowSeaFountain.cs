@@ -6,8 +6,8 @@ using Terraria.ID;
 namespace CalValEX.Items.Tiles {
     public class YellowSeaFountain : ModItem {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Yellow Sea Fountain");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Yellow Sea Fountain");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults() {

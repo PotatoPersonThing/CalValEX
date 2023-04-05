@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles.Cages
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Blinker in a Bottle");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Blinker in a Bottle");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

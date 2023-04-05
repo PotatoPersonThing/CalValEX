@@ -14,7 +14,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Province Pilferer");
+            // DisplayName.SetDefault("Province Pilferer");
             Main.projFrames[Projectile.type] = 11;
         }
 

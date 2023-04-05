@@ -10,9 +10,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Repurposed Monitor");
-            Tooltip.SetDefault("Summons a faulty repair bot to follow you");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Repurposed Monitor");
+            // Tooltip.SetDefault("Summons a faulty repair bot to follow you");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -23,8 +24,8 @@ namespace CalValEX.Tiles.Blueprints
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16 }; //
             TileObjectData.newTile.CoordinatePadding = 0;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Aged Blueprint");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Aged Blueprint");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 

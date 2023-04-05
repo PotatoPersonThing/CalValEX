@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ID;
 using CalValEX.Items.Tiles;
@@ -19,8 +20,8 @@ namespace CalValEX.Tiles.MiscFurniture {
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 };
 			TileObjectData.addTile(Type);
 			AnimationFrameHeight = 54;
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Calamity Torch");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Calamity Torch");
 			AddMapEntry(new Color(136, 23, 88), name);
 		}
 

@@ -11,9 +11,9 @@ namespace CalValEX.Items.Pets.ExoMechs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Exo Gemstone");
-            Tooltip.SetDefault("Summons the full miniaturized exo ensemble");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Exo Gemstone");
+            // Tooltip.SetDefault("Summons the full miniaturized exo ensemble");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

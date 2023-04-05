@@ -13,8 +13,8 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ionized Jelly Crystal");
-            Tooltip.SetDefault("Summons the pinnacle of slime evolution\n" +
+            // DisplayName.SetDefault("Ionized Jelly Crystal");
+            /* Tooltip.SetDefault("Summons the pinnacle of slime evolution\n" +
                 "\n" +
                 "\n" +
                 "Did you ever hear the tragedy of Goozma The Amorphous Deity? I thought not. It's not a story the Tyrant would tell you.\n" +
@@ -24,10 +24,10 @@ namespace CalValEX.Items.Pets
                 "It became so powerful that the only thing it was afraid of was losing it's power, which eventually, of course, it did.\n" +
                 "Unfortunately, Goozma's power grew so great for it to become a temporal anomaly.\n" +
                 "A temporal anomaly which a power beyond our universe had no choice but to erase, so that it never existed in the first place.\n" +
-                "Ironic. The very growth in power which made Goozma a deity in the first place, was also the cause of its demise");
+                "Ironic. The very growth in power which made Goozma a deity in the first place, was also the cause of its demise"); */
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 8));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
-            SacrificeTotal = 1;
+            Item.ResearchUnlockCount = 1;
         }
         public override void SetDefaults()
         {

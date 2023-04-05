@@ -7,10 +7,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Compensation");
-            Tooltip
-                .SetDefault("Can be sold for a decent price");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Compensation");
+            /* Tooltip
+                .SetDefault("Can be sold for a decent price"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -8,10 +8,10 @@ namespace CalValEX.Items.Tiles.Statues
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Earthen Knight Statue");
-            Tooltip
-                .SetDefault("'Not tournament legal'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Earthen Knight Statue");
+            /* Tooltip
+                .SetDefault("'Not tournament legal'"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -23,8 +23,8 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             TileID.Sets.CanBeSleptIn[Type] = true; // Facilitates calling ModifySleepingTargetInfo
             TileID.Sets.InteractibleByNPCs[Type] = true; // Town NPCs will palm their hand at this tile
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Bloodstone Bed");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Bloodstone Bed");
             AddMapEntry(new Color(139, 0, 0), name);
             
             AdjTiles = new int[] { TileID.Beds };

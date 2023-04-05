@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
 using Terraria.ObjectData;
@@ -31,8 +32,8 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileObjectData.addAlternate(1); //facing right will use the second texture style
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Phantowax Chair");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Phantowax Chair");
             AddMapEntry(new Color(94, 39, 93), name);
             TileID.Sets.CanBeSatOnForNPCs[Type] = true;
             TileID.Sets.CanBeSatOnForPlayers[Type] = true;

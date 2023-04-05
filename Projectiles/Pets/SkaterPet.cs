@@ -11,7 +11,7 @@ namespace CalValEX.Projectiles.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Skater Nymph");
+            // DisplayName.SetDefault("Skater Nymph");
             Main.projFrames[Projectile.type] = 6; //in code it's always one less
             Main.projPet[Projectile.type] = true;
         }

@@ -10,7 +10,7 @@ namespace CalValEX.Projectiles.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("EWyrm");
+            // DisplayName.SetDefault("EWyrm");
             Main.projFrames[Projectile.type] = 7;
             Main.projPet[Projectile.type] = true;
         }

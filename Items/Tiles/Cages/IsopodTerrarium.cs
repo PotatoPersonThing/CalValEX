@@ -11,8 +11,8 @@ namespace CalValEX.Items.Tiles.Cages
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Isopod Cage");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Isopod Cage");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

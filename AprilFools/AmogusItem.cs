@@ -12,7 +12,7 @@ namespace CalValEX.AprilFools
     {
         public override void SetStaticDefaults()
         {
-            SacrificeTotal = 1;
+            Item.ResearchUnlockCount = 1;
             /*if (CalValEX.month == 4)
             {
                 //DisplayName.SetDefault("Stratus Astronaut");

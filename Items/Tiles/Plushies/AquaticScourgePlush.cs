@@ -8,9 +8,9 @@ namespace CalValEX.Items.Tiles.Plushies
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Aquatic Scourge Plushie (Placeable)");
-            Tooltip.SetDefault("Master drop");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Aquatic Scourge Plushie (Placeable)");
+            // Tooltip.SetDefault("Master drop");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

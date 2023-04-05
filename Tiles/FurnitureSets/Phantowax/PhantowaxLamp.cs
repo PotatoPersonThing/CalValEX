@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -23,8 +24,8 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1xX);
             TileObjectData.newTile.CoordinatePadding = 0;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Phantowax Lamp");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Phantowax Lamp");
             AddMapEntry(new Color(94, 39, 93), name);
         }
 

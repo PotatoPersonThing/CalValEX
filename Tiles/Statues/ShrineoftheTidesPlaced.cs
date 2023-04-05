@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -22,8 +23,8 @@ namespace CalValEX.Tiles.Statues
             TileObjectData.newTile.Height = 6;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16, 16 }; //
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Shrine of the Tides");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Shrine of the Tides");
             AddMapEntry(new Color(42, 123, 181), name);
         }
 

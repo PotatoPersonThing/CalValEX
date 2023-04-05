@@ -7,9 +7,9 @@ using System.Collections.Generic;
 namespace CalValEX.Items.Tiles.Plushies {
     public class MaulerPlush : ModItem {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Mauler Plushie (Placeable)");
-            Tooltip.SetDefault("Master drop");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Mauler Plushie (Placeable)");
+            // Tooltip.SetDefault("Master drop");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults() {

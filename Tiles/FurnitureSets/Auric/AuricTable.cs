@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using CalValEX.Items.Tiles.FurnitureSets.Auric;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Microsoft.Xna.Framework.Graphics;
@@ -26,8 +27,8 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Auric Table");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Auric Table");
             AddMapEntry(new Color(139, 0, 0), name);
             AdjTiles = new int[] { TileID.Tables };
         }

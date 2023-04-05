@@ -31,7 +31,7 @@ namespace CalValEX.AprilFools
         public override Texture2D LaserEndTexture => ModContent.Request<Texture2D>("CalamityMod/ExtraTextures/Lasers/UltimaRayEnd", AssetRequestMode.ImmediateLoad).Value;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fogck you");
+            // DisplayName.SetDefault("Fogck you");
             Main.projFrames[Projectile.type] = 1;
             ProjectileID.Sets.DrawScreenCheckFluff[Projectile.type] = 10000;
         }

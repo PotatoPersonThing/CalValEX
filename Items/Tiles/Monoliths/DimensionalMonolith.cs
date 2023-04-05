@@ -11,9 +11,9 @@ namespace CalValEX.Items.Tiles.Monoliths
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dimensional Obelisk");
-            Tooltip.SetDefault("It appears to be trying to signal something, with no success");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Dimensional Obelisk");
+            // Tooltip.SetDefault("It appears to be trying to signal something, with no success");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

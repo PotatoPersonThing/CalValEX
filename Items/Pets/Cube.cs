@@ -12,10 +12,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("A Cube");
-            Tooltip.SetDefault("'Heil the Cube Lord'\n" + "Summons a cube\n"+
-                "Causes sickened star deities to blight");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("A Cube");
+            /* Tooltip.SetDefault("'Heil the Cube Lord'\n" + "Summons a cube\n"+
+                "Causes sickened star deities to blight"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

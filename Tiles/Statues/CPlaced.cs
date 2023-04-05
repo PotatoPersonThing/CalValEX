@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -22,8 +23,8 @@ namespace CalValEX.Tiles.Statues
             TileObjectData.newTile.Height = 4;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16 }; //
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Calamity");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Calamity");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using CalValEX.Items.Tiles.FurnitureSets.Astral;
 using Terraria.ObjectData;
@@ -23,8 +24,8 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 }; //
             TileObjectData.addTile(Type);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Xenomonolith Pipe Organ");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Xenomonolith Pipe Organ");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 

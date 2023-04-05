@@ -10,9 +10,9 @@ namespace CalValEX.Items.Tiles.Plants
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Potted Decapodita Sprout");
-            SacrificeTotal = 1;
-            Tooltip.SetDefault("Fungus");
+            // DisplayName.SetDefault("Potted Decapodita Sprout");
+            Item.ResearchUnlockCount = 1;
+            // Tooltip.SetDefault("Fungus");
         }
 
         public override void SetDefaults()

@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Auric
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chiseled Auric Platform");
-            SacrificeTotal = 200;
+            // DisplayName.SetDefault("Chiseled Auric Platform");
+            Item.ResearchUnlockCount = 200;
         }
 
         public override void SetDefaults()

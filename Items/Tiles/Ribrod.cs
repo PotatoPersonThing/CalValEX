@@ -8,9 +8,9 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ribcage Wand");
-            Tooltip.SetDefault("Places Sulphurous Ribs\n" + "Right click to change rib");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Ribcage Wand");
+            // Tooltip.SetDefault("Places Sulphurous Ribs\n" + "Right click to change rib");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

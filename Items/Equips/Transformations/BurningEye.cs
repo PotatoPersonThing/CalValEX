@@ -14,7 +14,7 @@ namespace CalValEX.Items.Equips.Transformations
 	{
 		public override void SetStaticDefaults()
 		{
-			SacrificeTotal = 1;
+			Item.ResearchUnlockCount = 1;
 			ItemID.Sets.ItemNoGravity[Item.type] = true;
 			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 5));
 			if (Main.netMode != NetmodeID.Server)
@@ -51,7 +51,7 @@ namespace CalValEX.Items.Equips.Transformations
 			Item.accessory = true;
 			Item.rare = 6;
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-			Item.canBePlacedInVanityRegardlessOfConditions = true;
+			Item.hasVanityEffects = true;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)

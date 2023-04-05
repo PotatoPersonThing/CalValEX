@@ -10,7 +10,7 @@ namespace CalValEX.AprilFools
 	{
 		public override void SetStaticDefaults()
 		{
-			SacrificeTotal = 1;
+			Item.ResearchUnlockCount = 1;
 		}
 		public override void SetDefaults()
 		{
@@ -31,7 +31,7 @@ namespace CalValEX.AprilFools
             if (Main.netMode != NetmodeID.MultiplayerClient)
                 NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<Jharim.Jharim>());
             else
-                NetMessage.SendData(MessageID.SpawnBoss, -1, -1, null, player.whoAmI, ModContent.NPCType<Jharim.Jharim>());
+                NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, -1, -1, null, player.whoAmI, ModContent.NPCType<Jharim.Jharim>());
 			return true;
 		}
 

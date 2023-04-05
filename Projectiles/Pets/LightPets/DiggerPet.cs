@@ -27,7 +27,7 @@ namespace CalValEX.Projectiles.Pets.LightPets {
         public override float BashHeadIn => 5;
 
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Miniature Digger");
+            // DisplayName.SetDefault("Miniature Digger");
             Main.projFrames[Projectile.type] = 1;
             Main.projPet[Projectile.type] = true;
             ProjectileID.Sets.LightPet[Projectile.type] = true;

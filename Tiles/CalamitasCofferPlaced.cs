@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -21,8 +22,8 @@ namespace CalValEX.Tiles
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Treasure Coffer");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Treasure Coffer");
             AddMapEntry(new Color(249, 119, 48), name);
         }
 

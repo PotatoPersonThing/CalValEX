@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles.Cages
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bleamur Perch");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Bleamur Perch");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

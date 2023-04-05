@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -22,8 +23,8 @@ namespace CalValEX.Tiles.Plants
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 }; //
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Twisting Nether Sapling");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Twisting Nether Sapling");
             AddMapEntry(new Color(209, 0, 255), name);
         }
 

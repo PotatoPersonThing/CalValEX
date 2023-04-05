@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Items.Tiles.Banners;
@@ -26,8 +27,8 @@ namespace CalValEX.Tiles.Banners
             TileObjectData.addTile(Type);
             DustType = -1;
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Bleamur Banner");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Bleamur Banner");
             AddMapEntry(new Color(0, 255, 242), name);
         }
 

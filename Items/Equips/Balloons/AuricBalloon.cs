@@ -9,7 +9,7 @@ namespace CalValEX.Items.Equips.Balloons
     [AutoloadEquip(EquipType.Balloon)]
     public class AuricBalloon : ModItem
     {
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults()
         {

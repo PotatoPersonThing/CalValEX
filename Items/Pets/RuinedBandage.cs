@@ -11,10 +11,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ruined Bandage");
-            Tooltip
-                .SetDefault("le punch, le smash, and break a hand\n" + "Summons Euros");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Ruined Bandage");
+            /* Tooltip
+                .SetDefault("le punch, le smash, and break a hand\n" + "Summons Euros"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

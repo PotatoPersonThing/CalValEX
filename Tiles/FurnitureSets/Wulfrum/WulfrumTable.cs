@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 //using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -23,8 +24,8 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Wulfrum Table");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Wulfrum Table");
             AddMapEntry(new Color(103, 137, 100), name);
             
             DustType = 226;

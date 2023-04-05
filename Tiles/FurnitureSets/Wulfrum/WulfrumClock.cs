@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 //using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -17,7 +18,7 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             TileObjectData.newTile.Height = 5;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 16, 16, 16 };
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
+            LocalizedText name = CreateMapEntryName();
 			TileID.Sets.Clock[Type] = true;
 			AddMapEntry(new Color(103, 137, 100), name);
 

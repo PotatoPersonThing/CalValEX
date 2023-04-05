@@ -11,9 +11,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault(":Sirember:");
-            Tooltip.SetDefault("Alway Rember...\n" + "Summons the wrath of the tide goddess");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault(":Sirember:");
+            // Tooltip.SetDefault("Alway Rember...\n" + "Summons the wrath of the tide goddess");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

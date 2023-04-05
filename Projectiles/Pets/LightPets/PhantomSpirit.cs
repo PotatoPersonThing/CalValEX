@@ -11,7 +11,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Phantom Spirit");
+            // DisplayName.SetDefault("Phantom Spirit");
             Main.projFrames[Projectile.type] = 7;
             Main.projPet[Projectile.type] = true;
             DrawOriginOffsetY = -15;

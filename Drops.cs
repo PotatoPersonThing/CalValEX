@@ -70,7 +70,7 @@ namespace CalValEX
         public override bool InstancePerEntity => true;
 
         [JITWhenModsEnabled("CalamityMod")]
-        public override void SetupShop(int type, Chest shop, ref int nextSlot)
+        public override void ModifyActiveShop(NPC npc, string shopName, Item[] items)
         {
             Mod alchLite;
             ModLoader.TryGetMod("AlchemistNPCLite", out alchLite);
@@ -1102,7 +1102,7 @@ namespace CalValEX
             }
         }
 
-        public override bool StrikeNPC(NPC npc, ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
+        public override void ModifyIncomingHit(NPC npc, ref NPC.HitModifiers modifiers)
         {
             if (CalValEX.CalamityActive)
             {
@@ -1130,8 +1130,7 @@ namespace CalValEX
             return true;
         }
         
-        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback,
-            ref bool crit, ref int hitDirection)
+        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)
         {
             if (CalValEX.CalamityActive)
             {

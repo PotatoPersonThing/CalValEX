@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Equips.Capes {
     [AutoloadEquip(EquipType.Back)]
     public class YharimCapeBaby : ModItem {
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults() {
             Item.width = 38;

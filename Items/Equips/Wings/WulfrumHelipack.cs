@@ -6,7 +6,7 @@ namespace CalValEX.Items.Equips.Wings {
     [AutoloadEquip(EquipType.Wings)]
     public class WulfrumHelipack : ModItem {
         public override void SetStaticDefaults() {
-            SacrificeTotal = 1;
+            Item.ResearchUnlockCount = 1;
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(48, 1f, 1f);
         }
 

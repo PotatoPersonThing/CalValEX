@@ -12,7 +12,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Mini Signus");
+            // DisplayName.SetDefault("Mini Signus");
             Main.projFrames[Projectile.type] = 4;
         }
 

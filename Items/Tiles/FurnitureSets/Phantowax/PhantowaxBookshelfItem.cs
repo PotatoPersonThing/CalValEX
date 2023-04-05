@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Phantowax Bookcase");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Phantowax Bookcase");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

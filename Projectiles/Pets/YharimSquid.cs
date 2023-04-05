@@ -16,7 +16,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Yharim Squid");
+            // DisplayName.SetDefault("Yharim Squid");
             Main.projFrames[Projectile.type] = 8;
         }
 

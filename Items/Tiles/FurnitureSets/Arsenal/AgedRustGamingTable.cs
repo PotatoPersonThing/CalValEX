@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Arsenal
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Aged Lab Gaming Table");
-            Tooltip.SetDefault("G@m3 0n1");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Aged Lab Gaming Table");
+            // Tooltip.SetDefault("G@m3 0n1");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

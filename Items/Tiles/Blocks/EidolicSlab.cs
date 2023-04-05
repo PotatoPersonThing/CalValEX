@@ -8,8 +8,8 @@ namespace CalValEX.Items.Tiles.Blocks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Eidolic Slab");
-            SacrificeTotal = 100;
+            // DisplayName.SetDefault("Eidolic Slab");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

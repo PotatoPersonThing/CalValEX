@@ -13,7 +13,7 @@ namespace CalValEX.Projectiles.Boi
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Anahita");
+            // DisplayName.SetDefault("Anahita");
             Main.projFrames[Projectile.type] = 1;
         }
 

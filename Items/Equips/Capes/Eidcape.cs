@@ -6,7 +6,7 @@ namespace CalValEX.Items.Equips.Capes
     [AutoloadEquip(EquipType.Front)]
     public class Eidcape : ModItem
     {
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults()
         {

@@ -10,10 +10,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bubbled Fin");
-            Tooltip
-                .SetDefault("How did it even get in there?\n" + "Summons a Smauler");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Bubbled Fin");
+            /* Tooltip
+                .SetDefault("How did it even get in there?\n" + "Summons a Smauler"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

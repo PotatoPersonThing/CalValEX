@@ -10,10 +10,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Toy Scythe");
-            Tooltip
-                .SetDefault("Belongs to a mischievous spirit\n" + "Summons a smol Polter-Chan");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Toy Scythe");
+            /* Tooltip
+                .SetDefault("Belongs to a mischievous spirit\n" + "Summons a smol Polter-Chan"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

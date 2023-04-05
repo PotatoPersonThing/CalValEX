@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Blazing Conflict");
-            Tooltip.SetDefault("Yharex\nFire vs fire");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Blazing Conflict");
+            // Tooltip.SetDefault("Yharex\nFire vs fire");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

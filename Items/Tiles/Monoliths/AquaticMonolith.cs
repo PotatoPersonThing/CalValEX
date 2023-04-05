@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.Monoliths
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Tiny Decapitated Leviathan Head");
-            Tooltip.SetDefault("Why would you even want this");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Tiny Decapitated Leviathan Head");
+            // Tooltip.SetDefault("Why would you even want this");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

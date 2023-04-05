@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -24,8 +25,8 @@ namespace CalValEX.Tiles.Plants
 
             AnimationFrameHeight = 54;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Sulphuric Coral");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Sulphuric Coral");
             AddMapEntry(new Color(0, 167, 255), name);
         }
 

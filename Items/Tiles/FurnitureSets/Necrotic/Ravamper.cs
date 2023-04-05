@@ -8,10 +8,10 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Necrotic Bonfire");
-            Tooltip
-                .SetDefault("Praise the sun!");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Necrotic Bonfire");
+            /* Tooltip
+                .SetDefault("Praise the sun!"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using CalValEX.Tiles.AstralBlocks;
 using Terraria.ObjectData;
@@ -36,8 +37,8 @@ namespace CalValEX.Tiles.AstralMisc
 			TileID.Sets.TreeSapling[Type] = true;
 			TileObjectData.addTile(Type);
 
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Blighted Astral Palm Sapling");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Blighted Astral Palm Sapling");
 			AddMapEntry(new Color(200, 200, 200), name);
 
 			AdjTiles = new int[] { TileID.Saplings };

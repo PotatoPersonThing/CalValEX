@@ -13,7 +13,7 @@ namespace CalValEX.Projectiles
         public override string Texture => "CalamityMod/Projectiles/Boss/BrimstoneHellblast";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Eat crap Jharim");
+            // DisplayName.SetDefault("Eat crap Jharim");
             Main.projFrames[Projectile.type] = 4;
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 0;

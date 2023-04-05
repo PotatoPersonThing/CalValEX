@@ -9,8 +9,8 @@ namespace CalValEX.Items.Walls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Blighted Astral Brick Wall");
-            SacrificeTotal = 400;
+            // DisplayName.SetDefault("Blighted Astral Brick Wall");
+            Item.ResearchUnlockCount = 400;
         }
 
         public override void SetDefaults()

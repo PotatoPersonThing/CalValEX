@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Items.Tiles.FurnitureSets.Astral;
@@ -41,12 +42,12 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             TileObjectData.addAlternate(0);
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Xenomonolith Door");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Xenomonolith Door");
             AddMapEntry(new Color(139, 0, 0), name);
             
             AdjTiles = new int[] { TileID.ClosedDoor };
-            OpenDoorID = ModContent.TileType<OldAstralDoorOpen>();
+            OpenDoorID/* tModPorter Note: Removed. Use TileID.Sets.OpenDoorID instead */ = ModContent.TileType<OldAstralDoorOpen>();
         }
 
         public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;

@@ -25,7 +25,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Clam Hermit");
+            // DisplayName.SetDefault("Clam Hermit");
             Main.projFrames[Projectile.type] = 15;
         }
 

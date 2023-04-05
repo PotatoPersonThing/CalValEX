@@ -5,7 +5,7 @@ using static Terraria.ModLoader.ModContent;
 namespace CalValEX.Items.Hooks
 {
     public class RavaHook : ModItem {
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults()
         {

@@ -10,9 +10,9 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Steam Geyser");
-            Tooltip.SetDefault("Hazardous! Be careful!\n" + "Right click to cycle between variants");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Steam Geyser");
+            // Tooltip.SetDefault("Hazardous! Be careful!\n" + "Right click to cycle between variants");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

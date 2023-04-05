@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -28,9 +29,9 @@ namespace CalValEX.Tiles.Plants {
             };
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
+            LocalizedText name = CreateMapEntryName();
             
-            name.SetDefault("Brimberry Plant");
+            // name.SetDefault("Brimberry Plant");
             AddMapEntry(new Color(201, 30, 12), name);
         }
 

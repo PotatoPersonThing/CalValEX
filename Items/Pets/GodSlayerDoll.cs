@@ -11,9 +11,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("God Slayer Doll");
-            Tooltip.SetDefault("'The sentinels will recognize a new leader'\n" + "Summons a small Cosmic Assassin, Stasis Probe, and Dark Energy");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("God Slayer Doll");
+            // Tooltip.SetDefault("'The sentinels will recognize a new leader'\n" + "Summons a small Cosmic Assassin, Stasis Probe, and Dark Energy");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

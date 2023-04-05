@@ -7,8 +7,8 @@ namespace CalValEX.Buffs.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cool Blue Dudes");
-            Description.SetDefault("Some very coul bleu doods");
+            // DisplayName.SetDefault("Cool Blue Dudes");
+            // Description.SetDefault("Some very coul bleu doods");
             Main.buffNoTimeDisplay[Type] = true;
             Main.vanityPet[Type] = true;
         }

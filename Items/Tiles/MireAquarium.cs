@@ -10,10 +10,10 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mire Aquarium");
-            Tooltip
-                .SetDefault("'Hopefully it doesn't try to break out...'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Mire Aquarium");
+            /* Tooltip
+                .SetDefault("'Hopefully it doesn't try to break out...'"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -9,7 +9,7 @@ using CalValEX.Projectiles.Pets.LightPets;
 
 namespace CalValEX.Items.LightPets {
     public class ConstructionRemote : ModItem {
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults() {
             Item.CloneDefaults(ItemID.ZephyrFish);

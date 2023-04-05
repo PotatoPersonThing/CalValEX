@@ -7,7 +7,7 @@ namespace CalValEX.Items.Equips.Shirts.AresChestplate
 {
     [AutoloadEquip(EquipType.Body)]
     public class AresChestplate : ModItem {
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults()
         {

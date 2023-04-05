@@ -307,7 +307,7 @@ namespace CalValEX
             if (Main.eclipse || Main.invasionType > 0 && Main.invasionDelay == 0 && Main.invasionSize > 0)
                 return false;
 
-            if (Main.fastForwardTime)
+            if (Main.fastForwardTime/* tModPorter Note: Removed. Suggestion: IsFastForwardingTime(), fastForwardTimeToDawn or fastForwardTimeToDusk */)
                 return false;
 
             return Main.dayTime;

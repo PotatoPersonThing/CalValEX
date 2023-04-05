@@ -35,7 +35,7 @@ namespace CalValEX.AprilFools
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Amogus");
+            // DisplayName.SetDefault("Amogus");
             Main.projFrames[Projectile.type] = 4; //frames
             Main.projPet[Projectile.type] = true;
         }

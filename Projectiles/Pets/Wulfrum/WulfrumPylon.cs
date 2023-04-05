@@ -8,7 +8,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Wulfrum Pylon");
+            // DisplayName.SetDefault("Wulfrum Pylon");
             Main.projFrames[Projectile.type] = 7;
             Main.projPet[Projectile.type] = true;
             ProjectileID.Sets.LightPet[Projectile.type] = true;

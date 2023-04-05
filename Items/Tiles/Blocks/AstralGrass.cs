@@ -10,8 +10,8 @@ namespace CalValEX.Items.Tiles.Blocks
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Blighted Astral Grass Seeds");
-			Tooltip.SetDefault("Places grass on blighted astral dirt");
+			// DisplayName.SetDefault("Blighted Astral Grass Seeds");
+			// Tooltip.SetDefault("Places grass on blighted astral dirt");
 		}
 		public override void SetDefaults()
 		{

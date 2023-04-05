@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 namespace CalValEX.Items.Mounts.InfiniteFlight
 {
     public class YharonsAnklet : ModItem {
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults()
         {

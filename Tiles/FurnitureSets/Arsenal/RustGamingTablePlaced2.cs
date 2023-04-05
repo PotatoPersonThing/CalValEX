@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -24,8 +25,8 @@ namespace CalValEX.Tiles.FurnitureSets.Arsenal
             AnimationFrameHeight = 54;
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Lab Gaming Table 2");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Lab Gaming Table 2");
             AddMapEntry(new Color(80, 87, 87), name);
             AdjTiles = new int[] { TileID.Tables };
         }

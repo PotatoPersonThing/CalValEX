@@ -10,10 +10,10 @@ namespace CalValEX.Items.Tiles.Blueprints
         public override string Texture => "CalValEX/Items/Tiles/Blueprints/Blueprint";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Orthocera Exile Plan");
-            Tooltip
-                .SetDefault("Please Distribute");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Orthocera Exile Plan");
+            /* Tooltip
+                .SetDefault("Please Distribute"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

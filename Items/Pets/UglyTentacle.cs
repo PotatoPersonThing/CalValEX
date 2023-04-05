@@ -10,10 +10,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ugly Tentacle");
-            Tooltip
-                .SetDefault("fat\n" + "Summons T.U.B");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Ugly Tentacle");
+            /* Tooltip
+                .SetDefault("fat\n" + "Summons T.U.B"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

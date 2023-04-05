@@ -13,7 +13,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cosmic Assistant");
+            // DisplayName.SetDefault("Cosmic Assistant");
             Main.projPet[Projectile.type] = true;
             ProjectileID.Sets.LightPet[Projectile.type] = true;
         }

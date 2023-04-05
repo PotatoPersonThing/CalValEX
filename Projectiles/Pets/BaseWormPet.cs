@@ -165,7 +165,7 @@ namespace CalValEX.Projectiles.Pets
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Base Worm Head");
+			// DisplayName.SetDefault("Base Worm Head");
 			ProjectileID.Sets.NeedsUUID[Projectile.type] = true;
 			Main.projPet[Projectile.type] = true;
 		}

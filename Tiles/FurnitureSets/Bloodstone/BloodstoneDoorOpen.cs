@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -58,12 +59,12 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             TileID.Sets.HousingWalls[Type] = true; //needed for non-solid blocks to count as walls
             TileID.Sets.HasOutlines[Type] = true;
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Bloodstone Door");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Bloodstone Door");
             AddMapEntry(new Color(139, 0, 0), name);
             
             AdjTiles = new int[] { TileID.OpenDoor };
-            CloseDoorID = ModContent.TileType<BloodstoneDoorClosed>();
+            CloseDoorID/* tModPorter Note: Removed. Use TileID.Sets.CloseDoorID instead */ = ModContent.TileType<BloodstoneDoorClosed>();
         }
 
         public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;

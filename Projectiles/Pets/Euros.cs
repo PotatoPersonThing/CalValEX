@@ -23,7 +23,7 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chibii Euros");
+            // DisplayName.SetDefault("Chibii Euros");
             Main.projFrames[Projectile.type] = 25;
             Main.projPet[Projectile.type] = true;
         }

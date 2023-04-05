@@ -12,7 +12,7 @@ namespace CalValEX.Projectiles.Pets {
         public override Vector2 FlyingOffset => new Vector2(94f * -Main.player[Projectile.owner].direction, -100f);
         public override void SetStaticDefaults() {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Ghastly Zygote");
+            // DisplayName.SetDefault("Ghastly Zygote");
             Main.projFrames[Projectile.type] = 5;
         }
 

@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -24,8 +25,8 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileObjectData.newTile.CoordinatePadding = 0;
             TileObjectData.addTile(Type);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Phantowax Piano");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Phantowax Piano");
             AddMapEntry(new Color(94, 39, 93), name);
         }
 

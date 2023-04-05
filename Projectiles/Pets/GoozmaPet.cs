@@ -16,7 +16,7 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Goozma");
+            // DisplayName.SetDefault("Goozma");
             ProjectileID.Sets.NeedsUUID[Projectile.type] = true;
             Main.projPet[Projectile.type] = true;
         }

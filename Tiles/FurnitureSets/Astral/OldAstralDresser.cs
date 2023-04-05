@@ -37,12 +37,12 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Xenomonolith Dresser");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Xenomonolith Dresser");
 			AddMapEntry(new Color(100, 100, 100), name);
-			ContainerName.SetDefault("Xenomonolith Dresser");
+			ContainerName/* tModPorter Note: Removed. Override DefaultContainerName instead */.SetDefault("Xenomonolith Dresser");
 			AdjTiles = new int[] { TileID.Dressers };
-			DresserDrop = ModContent.ItemType<OldAstralDresserItem>();
+			ItemDrop = ModContent.ItemType<OldAstralDresserItem>();
 			DustType = ModContent.DustType<Dusts.AstralDust>();
 		}
 		public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
@@ -225,7 +225,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, DresserDrop);
+			Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, ItemDrop);
 			Chest.DestroyChest(i, j);
 		}
 	}

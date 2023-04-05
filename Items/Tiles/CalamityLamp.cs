@@ -8,9 +8,9 @@ using Terraria;
 namespace CalValEX.Items.Tiles {
     public class CalamityLamp : ModItem {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Brimstone Flambeau");
-            Tooltip.SetDefault("Something malicious is brewing");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Brimstone Flambeau");
+            // Tooltip.SetDefault("Something malicious is brewing");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults() {

@@ -14,7 +14,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Cool Blue Slime God");
+            // DisplayName.SetDefault("Cool Blue Slime God");
         }
 
         public override void SetDefaults()

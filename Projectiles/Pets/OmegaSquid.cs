@@ -11,7 +11,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Omega Squid");
+            // DisplayName.SetDefault("Omega Squid");
             Main.projFrames[Projectile.type] = 6;
         }
 

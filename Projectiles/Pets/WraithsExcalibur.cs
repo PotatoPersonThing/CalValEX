@@ -7,7 +7,7 @@ namespace CalValEX.Projectiles.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Wraith's Excalibur");
+            // DisplayName.SetDefault("Wraith's Excalibur");
             Main.projFrames[Projectile.type] = 5;
         }
 
@@ -16,7 +16,7 @@ namespace CalValEX.Projectiles.Pets
             Projectile.CloneDefaults(197);
             base.AIType = 197;
             base.DrawOriginOffsetY = -33;
-            //Æ: lol (lol
+            //?: lol (lol
             Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 

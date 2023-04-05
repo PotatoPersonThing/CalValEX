@@ -11,7 +11,7 @@ namespace CalValEX.Items.Equips
         public override void SetStaticDefaults()
         {
             ItemID.Sets.ItemNoGravity[Item.type] = true;
-            SacrificeTotal = 1;
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()
@@ -22,7 +22,7 @@ namespace CalValEX.Items.Equips
             Item.rare = 11;
             Item.accessory = true;
             Item.vanity = true;
-            Item.canBePlacedInVanityRegardlessOfConditions = true;
+            Item.hasVanityEffects = true;
         }
 
         public override void UpdateEquip(Player player) => player.GetModPlayer<CalValEXPlayer>().exorb = true;

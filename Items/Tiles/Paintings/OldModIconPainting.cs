@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Calamity's Vanities (old)");
-            Tooltip.SetDefault("'Yharex'\n" + "'Old!!!'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Calamity's Vanities (old)");
+            // Tooltip.SetDefault("'Yharex'\n" + "'Old!!!'");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

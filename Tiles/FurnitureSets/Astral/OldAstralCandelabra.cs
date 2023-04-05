@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -24,8 +25,8 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Xenomonolith Candelabra");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Xenomonolith Candelabra");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 

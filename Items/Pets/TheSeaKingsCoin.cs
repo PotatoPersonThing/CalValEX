@@ -11,9 +11,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("The Sea King's Coin");
-            Tooltip.SetDefault("Blessed with pest power\n" + "Summons both the Aquatic and Desert Pests");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("The Sea King's Coin");
+            // Tooltip.SetDefault("Blessed with pest power\n" + "Summons both the Aquatic and Desert Pests");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

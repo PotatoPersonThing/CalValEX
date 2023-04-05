@@ -14,7 +14,7 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Jared");
+            // DisplayName.SetDefault("Jared");
             ProjectileID.Sets.NeedsUUID[Projectile.type] = true;
             Main.projPet[Projectile.type] = true;
         }

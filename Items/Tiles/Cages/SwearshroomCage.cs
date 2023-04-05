@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles.Cages
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Swearshroom Cage");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Swearshroom Cage");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

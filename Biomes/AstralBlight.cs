@@ -30,7 +30,7 @@ namespace CalValEX.Biomes
 		// Use SetStaticDefaults to assign the display name
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Astral Blight");
+			// DisplayName.SetDefault("Astral Blight");
 		}
 
 		// Calculate when the biome is active.

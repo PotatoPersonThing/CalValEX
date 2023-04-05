@@ -10,9 +10,9 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Inactive Power Cell Factory");
-            Tooltip.SetDefault("An unpowered Power Cell Factory\n" + "Break to reactivate");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Inactive Power Cell Factory");
+            // Tooltip.SetDefault("An unpowered Power Cell Factory\n" + "Break to reactivate");
+            Item.ResearchUnlockCount = 1;
         }
 
         [JITWhenModsEnabled("CalamityMod")]

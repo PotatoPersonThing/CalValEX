@@ -9,7 +9,7 @@ namespace CalValEX.Projectiles.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ebonian Slime Demigod");
+            // DisplayName.SetDefault("Ebonian Slime Demigod");
             Main.projFrames[Projectile.type] = 7; //frames
             Main.projPet[Projectile.type] = true;
         }

@@ -15,7 +15,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: true);
-            DisplayName.SetDefault("Baby Cinder Spirit");
+            // DisplayName.SetDefault("Baby Cinder Spirit");
             Main.projFrames[Projectile.type] = 4;
         }
 

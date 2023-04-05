@@ -11,9 +11,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mirror Matter");
-            Tooltip.SetDefault("'They always say breaking mirrors is bad luck'\n" + "Summons a small piece of Dark Energy");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Mirror Matter");
+            // Tooltip.SetDefault("'They always say breaking mirrors is bad luck'\n" + "Summons a small piece of Dark Energy");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -23,8 +24,8 @@ namespace CalValEX.Tiles.MiscFurniture {
             TileObjectData.newTile.CoordinatePadding = 0;
             AnimationFrameHeight = 128;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Bumbletube");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Bumbletube");
             AddMapEntry(new Color(128, 188, 67), name);
         }
 

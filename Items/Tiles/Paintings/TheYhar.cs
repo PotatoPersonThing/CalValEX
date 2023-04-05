@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault(":THE_YHAR:");
-            Tooltip.SetDefault("You gotta admit, he's a very cool dude despite his crimes");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault(":THE_YHAR:");
+            // Tooltip.SetDefault("You gotta admit, he's a very cool dude despite his crimes");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

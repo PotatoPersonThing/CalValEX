@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using CalValEX.Items.Tiles.FurnitureSets.Auric;
 using Terraria.ObjectData;
@@ -32,8 +33,8 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             TileObjectData.addAlternate(1); //facing right will use the second texture style
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Auric Chair");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Auric Chair");
             AddMapEntry(new Color(139, 0, 0), name);
             TileID.Sets.CanBeSatOnForNPCs[Type] = true;
             TileID.Sets.CanBeSatOnForPlayers[Type] = true;

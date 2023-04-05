@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -25,8 +26,8 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Phantowax Sofa");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Phantowax Sofa");
             AddMapEntry(new Color(94, 39, 93), name);
             AdjTiles = new int[] { TileID.Chairs };
         }

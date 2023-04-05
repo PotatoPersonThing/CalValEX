@@ -6,9 +6,9 @@ using CalValEX.Tiles.MiscFurniture;
 namespace CalValEX.Items.Tiles {
     public class MoulderingAltarItem : ModItem {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Mouldering Altar");
-            Tooltip.SetDefault("Counts as a demon altar");
-            SacrificeTotal = 5;
+            // DisplayName.SetDefault("Mouldering Altar");
+            // Tooltip.SetDefault("Counts as a demon altar");
+            Item.ResearchUnlockCount = 5;
         }
 
         public override void SetDefaults() {
@@ -27,9 +27,9 @@ namespace CalValEX.Items.Tiles {
     }
     public class VisceralAltarItem : ModItem {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Visceral Altar");
-            Tooltip.SetDefault("Counts as a crimson altar");
-            SacrificeTotal = 5;
+            // DisplayName.SetDefault("Visceral Altar");
+            // Tooltip.SetDefault("Counts as a crimson altar");
+            Item.ResearchUnlockCount = 5;
         }
 
         public override void SetDefaults() {

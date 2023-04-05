@@ -22,8 +22,8 @@ namespace CalValEX.Tiles.MiscFurniture {
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 };
             TileObjectData.addTile(Type);
 
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Yellow Sea Fountain");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Yellow Sea Fountain");
             AddMapEntry(new Color(76, 58, 59), name);
         }
 

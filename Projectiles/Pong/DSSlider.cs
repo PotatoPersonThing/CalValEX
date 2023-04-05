@@ -14,7 +14,7 @@ namespace CalValEX.Projectiles.Pong
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Desert Scourge Slider");
+            // DisplayName.SetDefault("Desert Scourge Slider");
             Main.projFrames[Projectile.type] = 1;
         }
 

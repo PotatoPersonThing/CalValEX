@@ -496,10 +496,6 @@ namespace CalValEX
                 {
                     modplayer.SirenHeart = true;
                 }
-                if (item.type == CalValEX.CalamityItem("PearlofEnthrallment") || item.type == CalValEX.CalamityItem("HeartoftheElements"))
-                {
-                    modplayer.SirenAccessory = true;
-                }
                 if (item.type == CalValEX.CalamityItem("CirrusDress"))
                 {
                     modplayer.CirrusDress = true;

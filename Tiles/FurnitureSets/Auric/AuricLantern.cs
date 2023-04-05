@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using CalValEX.Items.Tiles.FurnitureSets.Auric;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -21,8 +22,8 @@ namespace CalValEX.Tiles.FurnitureSets.Auric {
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 }; //
             TileObjectData.addTile(Type);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Auric Lantern");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Auric Lantern");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 

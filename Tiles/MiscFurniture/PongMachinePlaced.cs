@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Items.Tiles;
@@ -20,8 +21,8 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16 };
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Pong Machine");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Pong Machine");
             AddMapEntry(new Color(0, 118, 49), name);
         }
 

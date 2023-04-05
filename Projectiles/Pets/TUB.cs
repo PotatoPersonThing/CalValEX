@@ -7,7 +7,7 @@ namespace CalValEX.Projectiles.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("TUB");
+            // DisplayName.SetDefault("TUB");
             Main.projFrames[Projectile.type] = 11;
             Main.projPet[Projectile.type] = true;
         }

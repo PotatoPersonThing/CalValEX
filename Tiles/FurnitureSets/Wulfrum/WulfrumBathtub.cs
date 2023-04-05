@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.Enums;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 //using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
@@ -20,8 +21,8 @@ namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Wulfrum Bathtub");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Wulfrum Bathtub");
             AddMapEntry(new Color(103, 137, 100), name);
             DustType = 226;
         }

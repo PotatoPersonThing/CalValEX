@@ -12,7 +12,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Stasis Drone");
+            // DisplayName.SetDefault("Stasis Drone");
             Main.projFrames[Projectile.type] = 3;
         }
 
