@@ -752,7 +752,7 @@ namespace CalValEX {
         }
 
         public override void OnHurt(Player.HurtInfo info) {
-            DoCalamityBabyThings((int)damage);
+            DoCalamityBabyThings(info.Damage);
             if (signutTrans) {
                 Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit49, Player.position);
                 for (int x = 0; x < 15; x++) {
@@ -767,15 +767,15 @@ namespace CalValEX {
         }
 
         public override void ModifyHurt(ref Player.HurtModifiers modifiers) {
-            if (signutTrans) playSound = false;
-            if (cloudTrans) playSound = false;
-            if (classicTrans) playSound = false;
-            if (sandTrans) playSound = false;
-            return base.ModifyHurt(pvp, quiet, ref damage, ref hitDirection, ref crit, ref customDamage, ref playSound, ref genGore, ref damageSource, ref cooldownCounter);
+            if (signutTrans) modifiers.DisableSound();
+            if (cloudTrans) modifiers.DisableSound();
+            if (classicTrans) modifiers.DisableSound();
+            if (sandTrans) modifiers.DisableSound();
+            return;
 
         }
         public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo) {
-            DoCalamityBabyThings(damage);
+            DoCalamityBabyThings(hurtInfo.Damage);
 
             if (npc.type == CalValEX.CalamityNPC("SupremeCalamitas") && Player.immuneTime <= 0) {
                 SCalHits++;
@@ -783,7 +783,7 @@ namespace CalValEX {
         }
 
         public override void OnHitByProjectile(Projectile proj, Player.HurtInfo hurtInfo) {
-            DoCalamityBabyThings(damage);
+            DoCalamityBabyThings(hurtInfo.Damage);
 
             for (int i = 0; i < Main.maxNPCs; i++)
                 if (Main.npc[i].active &&

@@ -35,6 +35,8 @@ namespace CalValEX.NPCs.JellyPriest
 
         public int shoptype = 1;
 
+        public const string ShopName = "Shop";
+
         public override string Texture => "CalValEX/NPCs/JellyPriest/JellyPriestNPC";
        // public override string[] AltTextures => new[] { "CalValEX/NPCs/JellyPriest/JellyPriestNPC_Alt" };
 
@@ -334,45 +336,32 @@ namespace CalValEX.NPCs.JellyPriest
             button2 = "Switch Shop";
         }
 
-        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
+        public override void OnChatButtonClicked(bool firstButton, ref string shop)
         {
             if (firstButton)
             {
-                shop = true;
+                shop = ShopName;
                 {
                     if (shoptype == 1)
                     {
-                        shop1 = true;
-                        shop2 = false;
-                        shop3 = false;
-                        shop4 = false;
+                        shop = "Blocks1";
                     }
                     else if (shoptype == 2)
                     {
-                        shop1 = false;
-                        shop2 = true;
-                        shop3 = false;
-                        shop4 = false;
+                        shop = "Blocks2";
                     }
                     else if (shoptype == 3)
                     {
-                        shop1 = false;
-                        shop2 = false;
-                        shop3 = true;
-                        shop4 = false;
+                        shop = "Furniture";
                     }
                     else
                     {
-                        shop1 = false;
-                        shop2 = false;
-                        shop3 = false;
-                        shop4 = true;
+                        shop = "Plants";
                     }
                 }
             }
             else if (!firstButton)
             {
-                shop = false;
                 if (shoptype < 4)
                 {
                     shoptype++;
@@ -384,19 +373,17 @@ namespace CalValEX.NPCs.JellyPriest
             }
         }
 
-        public static void AddItem(int item, int price, bool condition, ref Chest shop, ref int nextSlot)
+        public static void AddItem(NPCShop shop, int item, bool condition = true)
         {
             if (condition)
             {
-                shop.item[nextSlot].SetDefaults(item);
-                shop.item[nextSlot].shopCustomPrice = price;
-                nextSlot++;
+                shop.Add(item);
             }
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
-        public override void ModifyActiveShop(string shopName, Item[] items)
+        public override void AddShops()
         {
+            bool calamity = CalValEX.CalamityActive;
             bool acid = CalValEX.CalamityActive ? (CalValEX.InCalamityBiome(Main.LocalPlayer, "SulphurousSeaBiome") || (bool)CalValEX.Calamity.Call("GetBossDowned", "acidrainscourge")) : false;
             bool clam = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "giantclam") : false;
             bool ds = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "desertscourge") : false;
@@ -423,11 +410,54 @@ namespace CalValEX.NPCs.JellyPriest
             bool yharon = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "yharon") : false;
             bool exo = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "draedon") : false;
             bool scal = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "scal") : false;
-            bool ass = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral;
-            bool sammy = CalValEXWorld.hellTiles > 20 && Main.LocalPlayer.ZoneUnderworldHeight;
-            bool jun = CalValEXWorld.jungleTiles > 20 && Main.LocalPlayer.ZoneJungle;
+            //bool ass = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral;
+            //bool sammy = CalValEXWorld.hellTiles > 20 && Main.LocalPlayer.ZoneUnderworldHeight;
+            //bool jun = CalValEXWorld.jungleTiles > 20 && Main.LocalPlayer.ZoneJungle;
 
-            if (shop1)
+            #region Block Shop
+            var blockShop = new NPCShop(Type, "Blocks1");
+
+            AddItem(blockShop, CalValEX.CalamityItem("LaboratoryPlating"), calamity);
+            AddItem(blockShop, CalValEX.CalamityItem("LaboratoryPanels"), calamity);
+            AddItem(blockShop, CalValEX.CalamityItem("HazardChevronPanels"), calamity);
+            AddItem(blockShop, CalValEX.CalamityItem("RustedPlating"), calamity);
+            AddItem(blockShop, CalValEX.CalamityItem("LaboratoryPipePlating"), calamity);
+            AddItem(blockShop, CalValEX.CalamityItem("RustedPipes"), calamity);
+            AddItem(blockShop, CalValEX.CalamityItem("Acidwood"), calamity);
+            AddItem(blockShop, CalValEX.CalamityItem("SulphurousSand"), calamity);
+            AddItem(blockShop, CalValEX.CalamityItem("SulphurousSandstone"), calamity);
+            AddItem(blockShop, CalValEX.CalamityItem("HardenedSulphurousSandstone"), calamity);
+            AddItem(blockShop, CalValEX.CalamityItem("SulphurousShale"), calamity);
+            AddItem(blockShop, CalValEX.CalamityItem("EutrophicSand"), clam);
+            AddItem(blockShop, CalValEX.CalamityItem("Navystone"), clam);
+            AddItem(blockShop, CalValEX.CalamityItem("SmoothNavystone"), clam);
+            AddItem(blockShop, CalValEX.CalamityItem("AbyssGravel"), NPC.downedBoss3);
+            AddItem(blockShop, CalValEX.CalamityItem("StatigelBlock"), sg);
+            AddItem(blockShop, ItemType<Items.Tiles.Blocks.AstralGrass>(), Main.hardMode);
+            AddItem(blockShop, CalValEX.CalamityItem("AstralMonolith"), Main.hardMode);
+            AddItem(blockShop, ItemType<Items.Tiles.Blocks.AstralPearlBlock>(), Main.hardMode);
+            AddItem(blockShop, CalValEX.CalamityItem("BrimstoneSlag"), brim);
+            AddItem(blockShop, CalValEX.CalamityItem("ScorchedRemains"), brim);
+            AddItem(blockShop, CalValEX.CalamityItem("PyreMantle"), NPC.downedGolemBoss);
+            AddItem(blockShop, CalValEX.CalamityItem("MoltenPyreMantle"), NPC.downedGolemBoss);
+            AddItem(blockShop, CalValEX.CalamityItem("Voidstone"), NPC.downedGolemBoss);
+            AddItem(blockShop, CalValEX.CalamityItem("PlaguedContainmentBrick"), pb);
+            AddItem(blockShop, ItemType<Items.Tiles.Blocks.PlagueHiveWand>(), pb);
+            AddItem(blockShop, ItemType<Items.Walls.PlagueHiveWall>(), pb);
+            AddItem(blockShop, ItemType<Items.Tiles.Blocks.Necrostone>(), rav);
+
+            blockShop.Register();
+            #endregion
+
+            #region Block Shop 2
+
+            #endregion
+        }
+
+        [JITWhenModsEnabled("CalamityMod")]
+        public override void ModifyActiveShop(string shopName, Item[] items)
+        {
+           /* if (shop1)
             {
                 if (CalValEX.CalamityActive)
                 {
@@ -570,7 +600,7 @@ namespace CalValEX.NPCs.JellyPriest
             else
             {
                 AddItem(ItemType<Items.Equips.Shields.Invishield>(), Item.buyPrice(8, 0, 0, 0), true, ref shop, ref nextSlot);
-            }         
+            }  */       
         }
 
         public override bool CanGoToStatue(bool toKingStatue)

@@ -30,7 +30,6 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             AddMapEntry(new Color(36, 18, 38), name, MapChestName);
             
             AdjTiles = new int[] { TileID.Containers };
-            ContainerName/* tModPorter Note: Removed. Override DefaultContainerName instead */.SetDefault("Bloodstone Chest");
             ItemDrop = ModContent.ItemType<BloodstoneChestItem>();
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);

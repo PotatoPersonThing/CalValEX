@@ -405,7 +405,7 @@ namespace CalValEX.AprilFools.Jharim
         {
             if (!MELDOSAURUSED)
             {
-                if (firstButton)
+                /*if (firstButton)
                 {
                     shop = true;
                     {
@@ -413,7 +413,7 @@ namespace CalValEX.AprilFools.Jharim
                         boss = false;
                     }
                 }
-                else if (!firstButton && CalValEX.CalamityActive)
+                else*/ if (!firstButton && CalValEX.CalamityActive)
                 {
                     {
                         if (Main.myPlayer == Main.LocalPlayer.whoAmI)
@@ -441,9 +441,9 @@ namespace CalValEX.AprilFools.Jharim
             {
                 if (shop1)
                 {
-                    shop.item[nextSlot].SetDefaults(ItemType<AprilFools.AmogusItem>());
+                    /*shop.item[nextSlot].SetDefaults(ItemType<AprilFools.AmogusItem>());
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
-                    nextSlot++;
+                    nextSlot++;*/
                 }
             }
         }

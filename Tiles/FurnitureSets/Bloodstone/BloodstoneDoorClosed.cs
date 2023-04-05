@@ -47,7 +47,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             AddMapEntry(new Color(139, 0, 0), name);
             
             AdjTiles = new int[] { TileID.ClosedDoor };
-            OpenDoorID/* tModPorter Note: Removed. Use TileID.Sets.OpenDoorID instead */ = ModContent.TileType<BloodstoneDoorOpen>();
+            TileID.Sets.OpenDoorID[Type] = ModContent.TileType<BloodstoneDoorOpen>();
         }
 
         public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;

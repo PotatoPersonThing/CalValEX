@@ -302,11 +302,11 @@ namespace CalValEX.NPCs.Oracle
         {
             if (firstButton)
             {
-                shop = true;
+                shopName = "Shop";
             }
             else
             {
-                shop = false;
+                shopName = "null";
                 if (Main.myPlayer == Main.LocalPlayer.whoAmI)
                 {
                     if (!Main.LocalPlayer.GetModPlayer<OraclePlayer>().playerHasGottenBag)
@@ -370,7 +370,7 @@ namespace CalValEX.NPCs.Oracle
         [JITWhenModsEnabled("CalamityMod")]
         public override void ModifyActiveShop(string shopName, Item[] items)
         {
-            shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.DoggoCollar>());
+           /*  shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.DoggoCollar>());
             shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 50, 0);
             nextSlot++;
             shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.BambooStick>());
@@ -494,7 +494,7 @@ namespace CalValEX.NPCs.Oracle
                         ++nextSlot;
                     }
                 }
-            }
+            }*/
         }
 
         public override bool CanGoToStatue(bool toKingStatue)

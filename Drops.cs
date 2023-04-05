@@ -72,10 +72,11 @@ namespace CalValEX
         [JITWhenModsEnabled("CalamityMod")]
         public override void ModifyActiveShop(NPC npc, string shopName, Item[] items)
         {
-            Mod alchLite;
+            /*Mod alchLite;
             ModLoader.TryGetMod("AlchemistNPCLite", out alchLite);
             Mod alchFull;
             ModLoader.TryGetMod("AlchemistNPC", out alchFull);
+            int type = npc.type;
             if (alchLite != null)
             {
                 if (type == alchLite.Find<ModNPC>("Musician").Type)
@@ -267,7 +268,7 @@ namespace CalValEX
                     shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1);
                     ++nextSlot;
                 }
-            }
+            }*/
         }
 
         [JITWhenModsEnabled("CalamityMod")]
@@ -1067,9 +1068,13 @@ namespace CalValEX
                         }
                         if (signuskill == 64)
                         {
+                            /*NPC.HitInfo hitinfo;
+                            hitinfo.Damage = 4999999;
+                            hitinfo.Knockback = 99f;
+                            hitinfo.HitDirection = npc.direction * 50;*/
                             signuskill = 0;
                             npc.knockBackResist = 20f;
-                            npc.StrikeNPC(499999, 99f, npc.direction * 50, true, false, false);
+                           // npc.StrikeNPC(499999, 99f, npc.direction * 50, true, false, false);
                             signusbackup = false;
                         }
                         if (signusshaker == 1)
@@ -1106,12 +1111,12 @@ namespace CalValEX
         {
             if (CalValEX.CalamityActive)
             {
-                if (npc.type == CalValEX.CalamityNPC("Signus") && !signusbackup && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi && Main.netMode != NetmodeID.Server)
+                /*if (npc.type == CalValEX.CalamityNPC("Signus") && !signusbackup && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi && Main.netMode != NetmodeID.Server)
                 {
-                    if (damage >= npc.life)
+                    if (modifiers.SourceDamage >= npc.life)
                     {
                         npc.dontTakeDamage = true;
-                        damage = npc.life - 1;
+                        modifiers.FinalDamage = npc.life - 1;
                         npc.ai[0] = -33f;
                         npc.ai[1] = -33f;
                         npc.ai[2] = -33f;
@@ -1123,11 +1128,8 @@ namespace CalValEX
                     {
                         signusbackup = false;
                     }
-                    return false;
-                }
-                return true;
+                }*/
             }
-            return true;
         }
         
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)

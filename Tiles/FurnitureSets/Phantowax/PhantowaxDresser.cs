@@ -40,7 +40,6 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Phantowax Dresser");
 			AddMapEntry(new Color(100, 100, 100), name);
-			ContainerName/* tModPorter Note: Removed. Override DefaultContainerName instead */.SetDefault("Phantowax Dresser");
 			AdjTiles = new int[] { TileID.Dressers };
 			ItemDrop = ModContent.ItemType<PhantowaxDresserItem>();
 		}

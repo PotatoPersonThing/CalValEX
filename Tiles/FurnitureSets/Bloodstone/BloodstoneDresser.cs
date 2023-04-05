@@ -40,7 +40,6 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Bloodstone Dresser");
 			AddMapEntry(new Color(100, 100, 100), name);
-			ContainerName/* tModPorter Note: Removed. Override DefaultContainerName instead */.SetDefault("Bloodstone Dresser");
 			AdjTiles = new int[] { TileID.Dressers };
 			ItemDrop = ModContent.ItemType<BloodstoneDresserItem>();
 		}

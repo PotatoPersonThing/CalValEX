@@ -306,7 +306,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 							framebuffer = 0;
 							framecounter = 0;
 							NPC.ai[3] = 2;
-							NPC.StrikeNPC(40, 0, (int)proj.velocity.X, true);
+							//NPC.StrikeNPC(40, 0, (int)proj.velocity.X, true);
 							proj.active = false;
 						}
 					}
@@ -640,7 +640,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 		{
-			NPC.lifeMax = (int)(NPC.lifeMax * 0.7f * bossLifeScale);
+			NPC.lifeMax = (int)(NPC.lifeMax * 0.7f * balance);
 			NPC.damage = (int)(NPC.damage * 0.7f);
 		}
 

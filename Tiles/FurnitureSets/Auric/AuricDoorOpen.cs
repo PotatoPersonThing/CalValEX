@@ -65,7 +65,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             AddMapEntry(new Color(139, 0, 0), name);
             
             AdjTiles = new int[] { TileID.OpenDoor };
-            CloseDoorID/* tModPorter Note: Removed. Use TileID.Sets.CloseDoorID instead */ = ModContent.TileType<AuricDoorClosed>();
+            TileID.Sets.CloseDoorID[Type] = ModContent.TileType<AuricDoorClosed>();
         }
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {

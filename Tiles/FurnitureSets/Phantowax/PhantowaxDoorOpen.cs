@@ -64,7 +64,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             AddMapEntry(new Color(139, 0, 0), name);
             
             AdjTiles = new int[] { TileID.OpenDoor };
-            CloseDoorID/* tModPorter Note: Removed. Use TileID.Sets.CloseDoorID instead */ = ModContent.TileType<PhantowaxDoorClosed>();
+            TileID.Sets.CloseDoorID[Type] = ModContent.TileType<PhantowaxDoorClosed>();
         }
 
         public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;

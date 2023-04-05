@@ -29,7 +29,7 @@ namespace CalValEX.Items.Tiles.Blocks
 		{
 			Tile tile = Framing.GetTileSafely(Player.tileTargetX, Player.tileTargetY);
 			
-			if (tile.HasTile && tile.TileType == ModContent.TileType<AstralDirtPlaced>() && player.IsInTileInteractionRange(Player.tileTargetX, Player.tileTargetY))
+			if (tile.HasTile && tile.TileType == ModContent.TileType<AstralDirtPlaced>() && player.IsInTileInteractionRange(Player.tileTargetX, Player.tileTargetY, Terraria.DataStructures.TileReachCheckSettings.Simple))
 			{
 				Main.tile[Player.tileTargetX, Player.tileTargetY].TileType = (ushort)ModContent.TileType<AstralGrassPlaced>();
 

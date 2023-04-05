@@ -20,7 +20,7 @@ namespace CalValEX.Tiles.AstralBlocks
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileSand[Type] = true;
-			TileID.Sets.TouchDamageSands/* tModPorter Suggestion: Suffocate */[Type] = 15;
+			TileID.Sets.Suffocate[Type] = true;
 			DustType = ModContent.DustType<AstralDust>();
 			TileID.Sets.Conversion.Sand[Type] = true;
 			TileID.Sets.ForAdvancedCollision.ForSandshark[Type] = true;

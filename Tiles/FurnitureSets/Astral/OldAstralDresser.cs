@@ -40,7 +40,6 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Xenomonolith Dresser");
 			AddMapEntry(new Color(100, 100, 100), name);
-			ContainerName/* tModPorter Note: Removed. Override DefaultContainerName instead */.SetDefault("Xenomonolith Dresser");
 			AdjTiles = new int[] { TileID.Dressers };
 			ItemDrop = ModContent.ItemType<OldAstralDresserItem>();
 			DustType = ModContent.DustType<Dusts.AstralDust>();

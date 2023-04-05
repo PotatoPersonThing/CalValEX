@@ -243,7 +243,7 @@ namespace CalValEX.AprilFools
 		
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 		{
-			NPC.lifeMax = (int)(NPC.lifeMax * 0.55f * bossLifeScale);
+			NPC.lifeMax = (int)(NPC.lifeMax * 0.55f * balance);
 			NPC.damage = (int)(NPC.damage * 0.65f);
 		}
 
@@ -252,7 +252,7 @@ namespace CalValEX.AprilFools
 			if (hurtInfo.Damage > 0)
 			{
 				target.AddBuff(BuffID.Darkness, 120, true);
-				if (Main.getGoodWorld && Main.drunkWorld)
+				if (Main.zenithWorld)
 				{
 					target.AddBuff(BuffID.Obstructed, 120, true);
 				}

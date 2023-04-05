@@ -40,7 +40,6 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Auric Dresser");
 			AddMapEntry(new Color(100, 100, 100), name);
-			ContainerName/* tModPorter Note: Removed. Override DefaultContainerName instead */.SetDefault("Auric Dresser");
 			AdjTiles = new int[] { TileID.Dressers };
 			ItemDrop = ModContent.ItemType<AuricDresserItem>();
 			DustType = 227;

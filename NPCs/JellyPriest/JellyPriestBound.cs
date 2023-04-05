@@ -103,11 +103,11 @@ namespace CalValEX.NPCs.JellyPriest
 
         public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers)
         {
-            damage = 1;
-            crit = false;
-            knockback = 0;
+            modifiers.DisableCrit();
+            //modifiers.Knockback = 0;
+            modifiers.SetMaxDamage(1);
             NPC.Transform(ModContent.NPCType<JellyPriestNPC>());
-            return false;
+            return;
         }
         public override bool CheckDead()
         {

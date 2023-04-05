@@ -47,7 +47,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             AddMapEntry(new Color(139, 0, 0), name);
             
             AdjTiles = new int[] { TileID.ClosedDoor };
-            OpenDoorID/* tModPorter Note: Removed. Use TileID.Sets.OpenDoorID instead */ = ModContent.TileType<OldAstralDoorOpen>();
+            TileID.Sets.OpenDoorID[Type] = ModContent.TileType<OldAstralDoorOpen>();
         }
 
         public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;

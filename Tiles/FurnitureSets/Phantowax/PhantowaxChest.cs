@@ -29,7 +29,6 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             AddMapEntry(new Color(36, 18, 38), name, MapChestName);
             
             AdjTiles = new int[] { TileID.Containers };
-            ContainerName/* tModPorter Note: Removed. Override DefaultContainerName instead */.SetDefault("Phantowax Chest");
             ItemDrop = ModContent.ItemType<PhantowaxChestItem>();
 
 
