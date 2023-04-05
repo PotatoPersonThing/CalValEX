@@ -45,8 +45,6 @@ namespace CalValEX {
         public bool BoldLizard;
         public bool CalamityBABYBool;
         public bool CalamityBabyGotHit;
-
-        //Monoliths
         public bool calMonolith = false;
         public bool catfish;
         public bool Chihuahua;
@@ -265,12 +263,6 @@ namespace CalValEX {
         public bool boienemy3;
         public int boistage;
         public int boihealth = 3;
-        /*public float pongballposx;
-        public float pongballposy;
-        public float sliderposx;
-        public float sliderposy;*/
-        //Enchants
-        public bool soupench = false;
         public int bossded;
         public bool aresarms;
         public bool lumpe;
@@ -278,6 +270,17 @@ namespace CalValEX {
         public bool ares;
         public bool thanos;
         public bool twins;
+        /*public float pongballposx;
+        public float pongballposy;
+        public float sliderposx;
+        public float sliderposy;*/
+        //Enchants
+        public bool soupench = false;
+
+        // Bootleg Calamity bools
+        public bool SirenHeart;
+        public bool CirrusDress;
+
         //Æ: Drae's bools
         public bool digger;
         public bool BestInst;

@@ -59,8 +59,8 @@ namespace CalValEX.Items.Pets.ExoMechs
         {
             if (CalValEX.CalamityActive)
             {
-                player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().rightClickListener = true;
-                player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().mouseWorldListener = true;
+                CalValEX.Calamity.Call("SetRightClickListener", player, true);
+                CalValEX.Calamity.Call("SetMouseWorldListener", player, true);
             }
         }
     }

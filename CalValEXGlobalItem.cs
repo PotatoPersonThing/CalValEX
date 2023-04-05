@@ -53,128 +53,26 @@ namespace CalValEX
             if (!CalValEX.CalamityActive)
                 return;
 
-            if (item.type == CalValEX.CalamityItem("Bloodstone"))
-            {
-                item.useTurn = true;
-                item.autoReuse = true;
-                item.useAnimation = 15;
-                item.useTime = 10;
-                item.useStyle = ItemUseStyleID.Swing;
-                item.consumable = true;
-                item.createTile = ModContent.TileType<BloodstonePlaced>();
-            }
-            if (item.type == CalValEX.CalamityItem("MeldConstruct"))
-            {
-                item.useTurn = true;
-                item.autoReuse = true;
-                item.useAnimation = 15;
-                item.useTime = 10;
-                item.useStyle = ItemUseStyleID.Swing;
-                item.consumable = true;
-                item.createTile = ModContent.TileType<MeldConstructPlaced>();
-            }
-            if (item.type == CalValEX.CalamityItem("CeremonialUrn"))
-            {
-                item.useTurn = true;
-                item.autoReuse = true;
-                item.useAnimation = 15;
-                item.useTime = 10;
-                item.useStyle = ItemUseStyleID.Swing;
-                item.consumable = true;
-                item.createTile = ModContent.TileType<CeremonialUrnPlaced>();
-            }
-            if (item.type == CalValEX.CalamityItem("SupremeCalamitasCoffer"))
-            {
-                item.useTurn = true;
-                item.autoReuse = true;
-                item.useAnimation = 15;
-                item.useTime = 10;
-                item.useStyle = ItemUseStyleID.Swing;
-                item.consumable = true;
-                item.createTile = ModContent.TileType<CalamitasCofferPlaced>();
-            }
-            if (item.type == CalValEX.CalamityItem("DraedonBag"))
-            {
-                item.useTurn = true;
-                item.autoReuse = true;
-                item.useAnimation = 15;
-                item.useTime = 10;
-                item.useStyle = ItemUseStyleID.Swing;
-                item.consumable = true;
-                item.createTile = ModContent.TileType<DraedonQuoteonQuoteBagPlaced>();
-            }
+            MakePlaceable(item, CalValEX.CalamityItem("Bloodstone"), ModContent.TileType<BloodstonePlaced>());
+            MakePlaceable(item, CalValEX.CalamityItem("MeldConstruct"), ModContent.TileType<MeldConstructPlaced>());
+            MakePlaceable(item, CalValEX.CalamityItem("CeremonialUrn"), ModContent.TileType<CeremonialUrnPlaced>());
+            MakePlaceable(item, CalValEX.CalamityItem("SupremeCalamitasCoffer"), ModContent.TileType<CalamitasCofferPlaced>());
+            MakePlaceable(item, CalValEX.CalamityItem("DraedonBag"), ModContent.TileType<DraedonQuoteonQuoteBagPlaced>());
         }
 
-        /*public override void ModifyWeaponDamage(Item item, Player player, ref float add, ref float mult)
+        public void MakePlaceable(Item item, int theitem, int tile)
         {
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
-            bool april = (CalValEX.month == 4 && (CalValEX.day == 1 || CalValEX.day == 2 || CalValEX.day == 3 || CalValEX.day == 4 || CalValEX.day == 5 || CalValEX.day == 6 || CalValEX.day == 7));
-            if (orthoceraDLC != null || april)
+            if (item.type == theitem)
             {
-                if (item.type == calamityMod.ItemType("CosmicDischarge"))
-                {
-                    item.damage = item.damage + ((bool)calamityMod.Call("GetBossDowned", "yharon") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") ? 1 : 0);
-                }
-                else if (item.type == calamityMod.ItemType("SHPC"))
-                {
-                    item.damage = item.damage + (NPC.downedMechBoss1 ? 0 : 1)
-                        + (NPC.downedMechBoss2 ? 0 : 1) + (NPC.downedMechBoss3 ? 0 : 1)
-                        + (NPC.downedPlantBoss ? 0 : 1) + (NPC.downedGolemBoss ? 0 : 1)
-                        + (NPC.downedMoonlord ? 0 : 1)
-                        + ((bool)calamityMod.Call("GetBossDowned", "providence") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "devourerofgods") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "yharon") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") ? 1 : 0);
-                }
-                else if (item.type == calamityMod.ItemType("BlossomFlux"))
-                {
-                    item.damage = item.damage + (NPC.downedGolemBoss ? 0 : 1)
-                        + (NPC.downedMoonlord ? 0 : 1)
-                        + ((bool)calamityMod.Call("GetBossDowned", "providence") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "devourerofgods") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "yharon") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") ? 1 : 0);
-                }
-                else if (item.type == calamityMod.ItemType("Malachite"))
-                {
-                    item.damage = item.damage + (NPC.downedMoonlord ? 0 : 1)
-                        + ((bool)calamityMod.Call("GetBossDowned", "providence") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "devourerofgods") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "yharon") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") ? 1 : 0);
-                }
-                else if (item.type == calamityMod.ItemType("AegisBlade"))
-                {
-                    item.damage = item.damage + (NPC.downedMoonlord ? 0 : 1)
-                        + ((bool)calamityMod.Call("GetBossDowned", "providence") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "devourerofgods") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "yharon") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") ? 1 : 0);
-                }
-                else if (item.type == calamityMod.ItemType("BrinyBaron"))
-                {
-                    item.damage = item.damage + (NPC.downedMoonlord ? 0 : 1)
-                        + ((bool)calamityMod.Call("GetBossDowned", "providence") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "devourerofgods") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "yharon") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") ? 1 : 0);
-                }
-                else if (item.type == calamityMod.ItemType("Vesuvius"))
-                {
-                    item.damage = item.damage + (NPC.downedMoonlord ? 0 : 1)
-                        + ((bool)calamityMod.Call("GetBossDowned", "providence") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "devourerofgods") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "yharon") ? 1 : 0)
-                        + ((bool)calamityMod.Call("GetBossDowned", "supremecalamitas") ? 1 : 0);
-                }
-                else if (item.type == calamityMod.ItemType("ElementalBlaster"))
-                {
-                    item.damage = item.damage + 1;
-                }
+                item.useTurn = true;
+                item.autoReuse = true;
+                item.useAnimation = 15;
+                item.useTime = 10;
+                item.useStyle = ItemUseStyleID.Swing;
+                item.consumable = true;
+                item.createTile = tile;
             }
-        }*/
+        }
 
         public override void ArmorSetShadows(Player player, string set)
         {
@@ -230,9 +128,10 @@ namespace CalValEX
 			}
 			else if (item.type == CalValEX.CalamityItem("SlimeGodBag"))
 			{
-				rule2.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(), 1, 205, 335));
+				rule2.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("StatigelBlock"), 1, 205, 335));
 				rule.OnSuccess(new CommonDrop(ModContent.ItemType<SlimeDeitysSoul>(), 10, chanceNumerator: 3));
-			}
+                rule.OnSuccess(new CommonDrop(ModContent.ItemType<SlimeGodMask>(), 7));
+            }
 			else if (item.type == CalValEX.CalamityItem("CryogenBag"))
 			{
 				rule.OnSuccess(new CommonDrop(ModContent.ItemType<CoolShades>(), 10, chanceNumerator: 3));
@@ -243,8 +142,8 @@ namespace CalValEX
 			}
 			else if (item.type == CalValEX.CalamityItem("BrimstoneWaifuBag"))
 			{
-				rule2.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.BrimstoneSlag>(), 1, 205, 335));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<BrimmyBody>(), 5));
+				rule2.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("BrimstoneSlag"), 1, 205, 335));
+                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<BrimmyBody>(), 5));
 				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<BrimmySpirit>(), 5));
 				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<RareBrimtulip>(), 5));
 				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<FoilSpoon>(), 20));
@@ -275,8 +174,8 @@ namespace CalValEX
 			}
 			else if (item.type == CalValEX.CalamityItem("PlaguebringerGoliathBag"))
 			{
-				rule2.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurniturePlagued.PlaguedContainmentBrick>(), 1, 205, 335));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 250));
+				rule2.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("PlaguedContainmentBrick"), 1, 205, 335));
+                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 250));
 				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<InfectedController>(), 5));
 				rule.OnSuccess(new CommonDrop(ModContent.ItemType<PlaguePack>(), 10, chanceNumerator: 3));
 				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<PlagueHiveWand>(), 3));
@@ -297,42 +196,44 @@ namespace CalValEX
 			}
 			else if (item.type == CalValEX.CalamityItem("DragonfollyBag"))
 			{
-				rule4.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureSilva.SilvaCrystal>(), 1, 205, 335));
-				rule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<FollyWings>(), ModContent.ItemType<Birbhat>(), ModContent.ItemType<DocilePheromones>()));
+				rule4.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("SilvaCrystal"), 1, 205, 335));
+                rule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<FollyWings>(), ModContent.ItemType<Birbhat>(), ModContent.ItemType<DocilePheromones>()));
 				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 200));
 			}
 			else if (item.type == CalValEX.CalamityItem("ProvidenceBag"))
 			{
-				rule2.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureProfaned.ProfanedRock>(), 1, 205, 335));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<ProfanedHeart>(), 10, chanceNumerator: 3));
+				rule2.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("ProfanedRock"), 1, 205, 335));
+                rule.OnSuccess(new CommonDrop(ModContent.ItemType<ProfanedHeart>(), 10, chanceNumerator: 3));
 				rule.OnSuccess(new CommonDrop(ModContent.ItemType<ProviCrystal>(), 10, chanceNumerator: 3));
 			}
 			else if (item.type == CalValEX.CalamityItem("StormWeaverBag"))
-			{
-				rule5.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(), 1, 205, 335));
-				rule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuckWithX(10, 3, ModContent.ItemType<StormMedal>(), ModContent.ItemType<ArmoredScrap>()));
+            {
+                rule5.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("OtherworldlyStone"), 1, 205, 335));
+                rule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuckWithX(10, 3, ModContent.ItemType<StormMedal>(), ModContent.ItemType<ArmoredScrap>()));
 				rule.OnSuccess(new CommonDrop(ModContent.ItemType<StormBandana>(), 10, chanceNumerator: 3));
 				rule.OnSuccess(new CommonDrop(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000, chanceNumerator: 7));
 			}
 			else if (item.type == CalValEX.CalamityItem("CeaselessVoidBag"))
 			{
-				rule5.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(), 1, 205, 335));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<MirrorMatter>(), 10, chanceNumerator: 3));
+				rule5.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("OtherworldlyStone"), 1, 205, 335));
+
+                rule.OnSuccess(new CommonDrop(ModContent.ItemType<MirrorMatter>(), 10, chanceNumerator: 3));
 				rule.OnSuccess(new CommonDrop(ModContent.ItemType<VoidWings>(), 10, chanceNumerator: 3));
 				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<OldVoidWings>(), 20));
 				rule.OnSuccess(new CommonDrop(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000, chanceNumerator: 7));
 			}
 			else if (item.type == CalValEX.CalamityItem("SignusBag"))
-			{
-				rule5.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(), 1, 205, 335));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<ShadowCloth>(), 10, chanceNumerator: 3));
+            {
+                rule5.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("OtherworldlyStone"), 1, 205, 335));
+                rule.OnSuccess(new CommonDrop(ModContent.ItemType<ShadowCloth>(), 10, chanceNumerator: 3));
 				rule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<SignusEmblem>(), ModContent.ItemType<SignusNether>(), ModContent.ItemType<SignusBalloon>(), ModContent.ItemType<Items.Equips.Capes.SigCape>()));
 				rule.OnSuccess(new CommonDrop(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000, chanceNumerator: 7));
 			}
 			else if (item.type == CalValEX.CalamityItem("PolterghastBag"))
 			{
-				rule2.OnSuccess(new OneFromRulesRule(1, ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureStratus.StratusBricks>(), 1, 205, 335), ItemDropRule.Common(ModContent.ItemType<PhantowaxBlock>(), 1, 205, 335)));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Polterhook>(), 10));
+				rule2.OnSuccess(new OneFromRulesRule(1, ItemDropRule.Common(CalValEX.CalamityItem("StratusBricks"), 1, 205, 335), ItemDropRule.Common(CalValEX.CalamityItem("PhantowaxBlock"), 1, 205, 335)));
+
+                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Polterhook>(), 10));
                 rule.OnSuccess(new CommonDrop(ModContent.ItemType<ZygoteinaBucket>(), 10, chanceNumerator: 3));
             }
 			else if (item.type == CalValEX.CalamityItem("OldDukeBag"))
@@ -368,10 +269,9 @@ namespace CalValEX
 				draedon.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DraedonLegs>()));
 				IItemDropRule balloons = ItemDropRule.NotScalingWithLuck(ModContent.ItemType<ApolloBalloonSmall>(), 2);
 				balloons.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ArtemisBalloonSmall>()));
+				rule2.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("ExoPlating"), 1, 205, 335));
 
-				rule2.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPlating>(), 1, 205, 335));
-
-				rule7.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<XMLightningHook>(), 2));
+                rule7.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<XMLightningHook>(), 2));
 				rule7.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Items.Pets.ExoMechs.GunmetalRemote>(), 2));
 
 				rule8.OnSuccess(balloons);
@@ -385,7 +285,7 @@ namespace CalValEX
 			}
 			else if (item.type == CalValEX.CalamityItem("CalamitasCoffer"))
             {
-                rule2.OnSuccess(ItemDropRule.Common(ModContent.ItemType<CalamityMod.Items.Placeables.FurnitureSacrilegious.OccultBrickItem>(), 1, 205, 335));
+                rule2.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("OccultBrickItem"), 1, 205, 335));
                 rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 10));
 				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<GruelingMask>(), 3));
 			}
@@ -411,7 +311,7 @@ namespace CalValEX
                 rule11.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<NuclearFumes>(), 10, 2, 11));
                 rule12.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<BelchingCoral>(), 20));
             }
-            else if (item.type == ModContent.ItemType<CalamityMod.Items.Fishing.AstralCatches.AstralCrate>())
+            else if (item.type == CalValEX.CalamityItem("AstralCrate"))
             {
                 rule.OnSuccess(new CommonDrop(ModContent.ItemType<MonolithPot>(), 100, 1, 1, 3));
                 rule11.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<NetherTree>(), 20));
@@ -428,8 +328,8 @@ namespace CalValEX
             }
 			#endregion
 
-			/*#region spaghetti starter
-			if (item.type != ModContent.ItemType<StarterBag>())
+			#region spaghetti starter
+			/*if (item.type != ModContent.ItemType<StarterBag>())
                 return;
 
             LeadingConditionRule[] names = new LeadingConditionRule[]
@@ -528,8 +428,8 @@ namespace CalValEX
             names[24].OnSuccess(dorira);
             names[25].OnSuccess(ItemDropRule.Common(ModContent.ItemType<InkyArtifact>()));
             names[26].OnSuccess(triangle);
-            names[27].OnSuccess(brimmy);
-            #endregion*/
+            names[27].OnSuccess(brimmy);*/
+            #endregion
         }
 		#region drop rules
         private class PlayerNameRule : IItemDropRuleCondition
@@ -586,5 +486,53 @@ namespace CalValEX
 				NPC.NewNPC(player.GetSource_ReleaseEntity(), (int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<AprilFools.Jharim.Jharim>(), 0, 0f, 0f, 0f, 0f, 255);
 			}
 		}
+
+        public override void UpdateAccessory(Item item, Player player, bool hide)
+        {
+            CalValEXPlayer modplayer = player.GetModPlayer<CalValEXPlayer>();
+            if (CalValEX.CalamityActive)
+            {
+                if (item.type == CalValEX.CalamityItem("AquaticHeart") && !hide)
+                {
+                    modplayer.SirenHeart = true;
+                }
+                if (item.type == CalValEX.CalamityItem("PearlofEnthrallment") || item.type == CalValEX.CalamityItem("HeartoftheElements"))
+                {
+                    modplayer.SirenAccessory = true;
+                }
+                if (item.type == CalValEX.CalamityItem("CirrusDress"))
+                {
+                    modplayer.CirrusDress = true;
+                }
+            }
+        }
+
+        public override void UpdateVanity(Item item, Player player)
+        {
+            CalValEXPlayer modplayer = player.GetModPlayer<CalValEXPlayer>();
+            if (CalValEX.CalamityActive)
+            {
+                if (item.type == CalValEX.CalamityItem("AquaticHeart"))
+                {
+                    modplayer.SirenHeart = true;
+                }
+                if (item.type == CalValEX.CalamityItem("CirrusDress"))
+                {
+                    modplayer.CirrusDress = true;
+                }
+            }
+        }
+
+        public override void UpdateEquip(Item item, Player player)
+        {
+            CalValEXPlayer modplayer = player.GetModPlayer<CalValEXPlayer>();
+            if (CalValEX.CalamityActive)
+            {
+                if (item.type == CalValEX.CalamityItem("CirrusDress"))
+                {
+                    modplayer.CirrusDress = true;
+                }
+            }
+        }
     }
 }

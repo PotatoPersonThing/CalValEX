@@ -192,13 +192,9 @@ namespace CalValEX.AprilFools.Jharim
         [JITWhenModsEnabled("CalamityMod")]
         public override string GetChat()
         {
-            if (!CalValEX.CalamityActive)
-                return "h";
-
             CalValEXGlobalNPC.jharim = NPC.whoAmI;
             Player player = Main.player[Main.myPlayer];
             CalValEXPlayer CalValEXPlayer = player.GetModPlayer<CalValEXPlayer>();
-            CalamityMod.CalPlayer.CalamityPlayer calPlayer = player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>();
             if (!MELDOSAURUSED)
             {
                 if (NPC.homeless)
@@ -216,11 +212,6 @@ namespace CalValEX.AprilFools.Jharim
                     }
                 }
 
-                if (calPlayer.cirrusDress)
-                {
-                    return "NO NO NOT THE STAR NEVER AGAIN NO NO NO!";
-                }
-
                 //Main.NewText("MISC EQUIPS 0 TYPE: " + Main.player[Main.myPlayer].miscEquips[0].type + "|MISC EQUIPS 1 TYPE: " + Main.player[Main.myPlayer].miscEquips[1].type);
 
                 if ((NPC.AnyNPCs(NPCID.LunarTowerNebula) || NPC.AnyNPCs(NPCID.LunarTowerVortex) || NPC.AnyNPCs(NPCID.LunarTowerStardust) || NPC.AnyNPCs(NPCID.LunarTowerSolar)) && Main.rand.NextFloat() < 0.25f)
@@ -228,62 +219,70 @@ namespace CalValEX.AprilFools.Jharim
                     return "These pillars are spookay, and those dark globs some of their friends drop are... I don't want to touch any... especially if its on fire, so please don't shoot me with any fiery weapons made of that stuff.";
                 }
 
-                int FAP = NPC.FindFirstNPC(CalValEX.CalamityNPC("FAP"));
-                if (FAP >= 0 && Main.rand.NextFloat() < 0.25f)
+                if (CalValEX.CalamityActive)
                 {
-                    return "Hyu Hyu Hyu... That purple lady stole my booze.";
-                }
-
-                int Cal = NPC.FindFirstNPC(CalValEX.CalamityNPC("WITCH"));
-                if (Cal >= 0 && Main.rand.NextFloat() < 0.25f)
-                {
-                    return "GET THAT ACURSED WITCH AWAY FROM ME";
-                }
-
-                int SEAHOE = NPC.FindFirstNPC(CalValEX.CalamityNPC("SEAHOE"));
-                if (SEAHOE >= 0 && Main.rand.NextFloat() < 0.25f)
-                {
-                    if (Cal >= 0)
-                        return "How is Amidas still alive, I thought that he got burnt by that DUMB witch.";
-                    else
-                        return "How is Amidas still alive, I thought that he got burnt by Soup Ree Calamitoad.";
-                }
-
-                if (NPC.AnyNPCs(CalValEX.CalamityNPC("Draedon")) && Main.rand.NextFloat() < 0.25f)
-                {
-                    return "DRAAAAAAAAAEEEEEEEDOOOOOOOOOOOONNNNNNNNNNNNNNNNNNN I KNOW WHAT YOU DID!";
-                }
-
-                /*Mod apoc = ModLoader.GetMod("ApothTestMod");
-                if (apoc != null)
-                {
-                    if (NPC.AnyNPCs((apoc.NPCType("THELORDE"))))
+                    if (CalValEXPlayer.CirrusDress)
                     {
-                        return "IMPOSTER!";
+                        return "NO NO NOT THE STAR NEVER AGAIN NO NO NO!";
                     }
-                }*/
 
-                if (NPC.AnyNPCs(CalValEX.CalamityNPC("Yharon")) && Main.rand.NextFloat() < 0.25f)
-                {
-                    return "Hyuck Hyuck Hyuck, my loyal friend Yharon! I demand you to stop atacking! ... Guess he doesn't recognize me...";
-                }
-
-                Mod clamMod = CalValEX.Calamity;
-                if (((bool)clamMod.Call("GetBossDowned", "supremecalamitas")) && ((bool)clamMod.Call("GetBossDowned", "exomechs")) && Main.rand.NextFloat() < 0.25)
-                {
-                    switch (Main.rand.Next(2))
+                    int FAP = NPC.FindFirstNPC(CalValEX.CalamityNPC("FAP"));
+                    if (FAP >= 0 && Main.rand.NextFloat() < 0.25f)
                     {
-                        case 0:
-                            return "It is time for you to face him.";
-
-                        default:
-                            return "The god of the universe... he is willing to face you now.";
+                        return "Hyu Hyu Hyu... That purple lady stole my booze.";
                     }
-                }
 
-                if ((calPlayer.sirenWaifu || calPlayer.elementalHeart || calPlayer.sirenWaifuVanity || calPlayer.allWaifusVanity) && Main.rand.NextFloat() < 0.25f)
-                {
-                    return "OoooooO Fish Lady, tell me! Where's my fish tacos!";
+                    int Cal = NPC.FindFirstNPC(CalValEX.CalamityNPC("WITCH"));
+                    if (Cal >= 0 && Main.rand.NextFloat() < 0.25f)
+                    {
+                        return "GET THAT ACURSED WITCH AWAY FROM ME";
+                    }
+
+                    int SEAHOE = NPC.FindFirstNPC(CalValEX.CalamityNPC("SEAHOE"));
+                    if (SEAHOE >= 0 && Main.rand.NextFloat() < 0.25f)
+                    {
+                        if (Cal >= 0)
+                            return "How is Amidas still alive, I thought that he got burnt by that DUMB witch.";
+                        else
+                            return "How is Amidas still alive, I thought that he got burnt by Soup Ree Calamitoad.";
+                    }
+
+                    if (NPC.AnyNPCs(CalValEX.CalamityNPC("Draedon")) && Main.rand.NextFloat() < 0.25f)
+                    {
+                        return "DRAAAAAAAAAEEEEEEEDOOOOOOOOOOOONNNNNNNNNNNNNNNNNNN I KNOW WHAT YOU DID!";
+                    }
+
+                    /*Mod apoc = ModLoader.GetMod("ApothTestMod");
+                    if (apoc != null)
+                    {
+                        if (NPC.AnyNPCs((apoc.NPCType("THELORDE"))))
+                        {
+                            return "IMPOSTER!";
+                        }
+                    }*/
+
+                    if (NPC.AnyNPCs(CalValEX.CalamityNPC("Yharon")) && Main.rand.NextFloat() < 0.25f)
+                    {
+                        return "Hyuck Hyuck Hyuck, my loyal friend Yharon! I demand you to stop atacking! ... Guess he doesn't recognize me...";
+                    }
+
+                    Mod clamMod = CalValEX.Calamity;
+                    if (((bool)clamMod.Call("GetBossDowned", "supremecalamitas")) && ((bool)clamMod.Call("GetBossDowned", "exomechs")) && Main.rand.NextFloat() < 0.25)
+                    {
+                        switch (Main.rand.Next(2))
+                        {
+                            case 0:
+                                return "It is time for you to face him.";
+
+                            default:
+                                return "The god of the universe... he is willing to face you now.";
+                        }
+                    }
+
+                    if (player.ownedProjectileCounts[CalValEX.CalamityProjectile("WaterElemental")] > 0 && Main.rand.NextFloat() < 0.25f)
+                    {
+                        return "OoooooO Fish Lady, tell me! Where's my fish tacos!";
+                    }
                 }
 
                 if (Main.eclipse)
@@ -298,27 +297,30 @@ namespace CalValEX.AprilFools.Jharim
                     }
                 }
 
-                if (CalamityMod.Events.BossRushEvent.BossRushActive)
+                if (CalValEX.CalamityActive)
                 {
-                    switch (Main.rand.Next(2))
+                    if ((bool)CalValEX.Calamity.Call("GetDifficultyActive", "bossrush"))
                     {
-                        case 0:
-                            return "THE SKY IS COLLAPSING, IT'S THE END AGAIN!";
+                        switch (Main.rand.Next(2))
+                        {
+                            case 0:
+                                return "THE SKY IS COLLAPSING, IT'S THE END AGAIN!";
 
-                        default:
-                            return "THE MOTH, THEY'LL RECKON HAVOC UPON ME AND FLING ME OFF EXISTENCE AAAAAHHHHHHHHHH";
+                            default:
+                                return "THE MOTH, THEY'LL RECKON HAVOC UPON ME AND FLING ME OFF EXISTENCE AAAAAHHHHHHHHHH";
+                        }
                     }
-                }
 
-                if (CalamityMod.Events.AcidRainEvent.AcidRainEventIsOngoing)
-                {
-                    switch (Main.rand.Next(2))
+                    if ((bool)CalValEX.Calamity.Call("AcidRainActive"))
                     {
-                        case 0:
-                            return "ribbit.";
+                        switch (Main.rand.Next(2))
+                        {
+                            case 0:
+                                return "ribbit.";
 
-                        default:
-                            return "I'm feeling kinda drunk right now Hyickup Hyickup. Maybe I should stop drinking highly toxic acid...";
+                            default:
+                                return "I'm feeling kinda drunk right now Hyickup Hyickup. Maybe I should stop drinking highly toxic acid...";
+                        }
                     }
                 }
 

@@ -582,7 +582,7 @@ namespace CalValEX
                     if (npc.type == CalValEX.CalamityNPC("CragmawMire"))
                     {
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MawHook>(), 1));
-                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NuclearFumes>(), 1, 5, 8));
+                        npcLoot.Add(ItemDropRule.ByCondition(new PolterDowned(), ModContent.ItemType<NuclearFumes>(), 1, 5, 8));
                         npcLoot.Add(ItemDropRule.ByCondition(new Polteralive(), ModContent.ItemType<MirePlushP1>(), 4));
                         npcLoot.Add(ItemDropRule.ByCondition(new Polterdead(), ModContent.ItemType<MirePlushP1>(), 8));
                         npcLoot.Add(ItemDropRule.ByCondition(new Polterdead(), ModContent.ItemType<MirePlushP2>(), 8));
