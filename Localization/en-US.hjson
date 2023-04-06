@@ -5531,7 +5531,7 @@ Mods: {
 			}
 
 			RedPandaBuff: {
-				DisplayName: Tara, the Tarafying panda is following you
+				DisplayName: Tara
 				Description: Tara, the Tarafying panda is following you
 			}
 
@@ -5780,6 +5780,7 @@ Mods: {
 		}
 
 		Biomes.AstralBlight.DisplayName: Astral Blight
+		Conditions.Acid: fuck you
 
 		TownNPCMood: {
 			Jharim: {

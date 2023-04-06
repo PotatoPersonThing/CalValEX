@@ -373,7 +373,7 @@ namespace CalValEX.NPCs.JellyPriest
                 }
             }
         }
-        public static List<(string, int, int, bool, string)> shopEntries = new List<(string, int, int, bool, string)>();
+        public static List<(string, int, int, Condition, string)> shopEntries = new List<(string, int, int, Condition, string)>();
 
         public static void AddItem(NPCShop shop, int item, bool condition = true, string conditionpar = "")
         {
@@ -382,84 +382,97 @@ namespace CalValEX.NPCs.JellyPriest
 
         public override void AddShops()
         {
-            bool calamity = CalValEX.CalamityActive;
-            bool acid = CalValEX.CalamityActive ? (CalValEX.InCalamityBiome(Main.LocalPlayer, "SulphurousSeaBiome") || (bool)CalValEX.Calamity.Call("GetBossDowned", "acidrainscourge")) : false;
-            bool clam = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "giantclam") : false;
-            bool ds = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "desertscourge") : false;
-            bool crab = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "crabulon") : false;
-            bool hive = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "hivemind") : false;
-            bool perf = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "perforators") : false;
-            bool sg = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "slimegod") : false;
-            bool cirno = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "cryogen") : false;
-            bool aqua = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "aquaticscourge") : false;
-            bool brim = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "brimstoneelemental") : false;
-            bool cala = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "calamitasclone") : false;
-            bool oreo = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "astrumaureus") : false;
-            bool lev = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "leviathan") : false;
-            bool pb = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "plaguebringergoliath") : false;
-            bool rav = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "ravager") : false;
-            bool birb = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "dragonfolly") : false;
-            bool prov = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "providence") : false;
-            bool weavie = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "stormweaver") : false;
-            bool toaster = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "ceaselessvoid") : false;
-            bool siggy = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "signus") : false;
-            bool polt = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "polterghast") : false;
-            bool boomer = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "oldduke") : false;
-            bool dog = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "devourerofgods") : false;
-            bool yharon = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "yharon") : false;
-            bool exo = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "draedon") : false;
-            bool scal = CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "scal") : false;
+            Condition calamity = new Condition("FUCK", () =>  CalValEX.CalamityActive);
+            Condition acid = new Condition("FUCK", () => CalValEX.CalamityActive ? (CalValEX.InCalamityBiome(Main.LocalPlayer, "SulphurousSeaBiome") || (bool)CalValEX.Calamity.Call("GetBossDowned", "acidrainscourge")) : false);
+            Condition clam = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "giantclam") : false);
+            Condition ds = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "desertscourge") : false);
+            Condition crab = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "crabulon") : false);
+            Condition hive = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "hivemind") : false);
+            Condition perf = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "perforators") : false);
+            Condition sg = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "slimegod") : false);
+            Condition cirno = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "cryogen") : false);
+            Condition aqua = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "aquaticscourge") : false);
+            Condition brim = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "brimstoneelemental") : false);
+            Condition cala = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "calamitasclone") : false);
+            Condition oreo = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "astrumaureus") : false);
+            Condition lev = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "leviathan") : false);
+            Condition pb = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "plaguebringergoliath") : false);
+            Condition rav = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "ravager") : false);
+            Condition birb = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "dragonfolly") : false);
+            Condition prov = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "providence") : false);
+            Condition weavie = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "stormweaver") : false);
+            Condition toaster = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "ceaselessvoid") : false);
+            Condition siggy = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "signus") : false);
+            Condition polt = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "polterghast") : false);
+            Condition boomer = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "oldduke") : false);
+            Condition dog = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "devourerofgods") : false);
+            Condition yharon = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "yharon") : false);
+            Condition exo = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "draedon") : false);
+            Condition scal = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "scal") : false);
             //bool ass = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral;
             //bool sammy = CalValEXWorld.hellTiles > 20 && Main.LocalPlayer.ZoneUnderworldHeight;
             //bool jun = CalValEXWorld.jungleTiles > 20 && Main.LocalPlayer.ZoneJungle;
 
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("LaboratoryPlating"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("LaboratoryPanels"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("HazardChevronPanels"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("RustedPlating"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("LaboratoryPipePlating"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("RustedPipes"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("Acidwood"), Item.buyPrice(0, 0, 5, 0), calamity, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("SulphurousSand"), Item.buyPrice(0, 0, 0, 35), calamity, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("SulphurousShale"), Item.buyPrice(0, 0, 0, 35), calamity, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("EutrophicSand"), Item.buyPrice(0, 0, 0, 50), clam, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("Navystone"), Item.buyPrice(0, 0, 0, 75), clam, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("SmoothNavystone"), Item.buyPrice(0, 0, 2, 5), clam, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("AbyssGravel"), Item.buyPrice(0, 0,2, 5), NPC.downedBoss3, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("StatigelBlock"), Item.buyPrice(0, 0, 3, 5), sg, ""));
-            shopEntries.Add(("Blocks1", ItemType<AstralGrass>(), Item.buyPrice(0, 0, 0, 10), Main.hardMode, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("AstralMonolith"), Item.buyPrice(0, 0, 2, 5), Main.hardMode, ""));
-            shopEntries.Add(("Blocks1", ItemType<AstralPearlBlock>(), Item.buyPrice(0, 0, 3, 0), Main.hardMode, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("BrimstoneSlag"), Item.buyPrice(0, 0, 4, 0), brim, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("ScorchedRemains"), Item.buyPrice(0, 0, 4, 0), brim, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("PyreMantle"), Item.buyPrice(0, 0, 4, 50), NPC.downedGolemBoss, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("MoltenPyreMantle"), Item.buyPrice(0, 0, 4, 50), NPC.downedGolemBoss, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("Voidstone"), Item.buyPrice(0, 0, 5, 0), NPC.downedGolemBoss, ""));
-            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("PlaguedContainmentBrick"), Item.buyPrice(0, 0, 5, 0), pb, ""));
-            shopEntries.Add(("Blocks1", ItemType<PlagueHiveWand>(), Item.buyPrice(0, 1, 40, 0), pb, ""));
-            shopEntries.Add(("Blocks1", ItemType<Items.Walls.PlagueHiveWall>(), Item.buyPrice(0, 0, 0, 10), pb, ""));
-            shopEntries.Add(("Blocks1", ItemType<Necrostone>(), Item.buyPrice(0, 0, 10, 0), rav, ""));
 
-            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("UelibloomBrick"), Item.buyPrice(0, 0, 20, 0), prov, ""));
-            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("ProfanedRock"), Item.buyPrice(0, 0, 66, 66), prov, ""));
-            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("ProfanedCrystal"), Item.buyPrice(0, 6, 66, 66), prov, ""));
-            shopEntries.Add(("Blocks2", ItemType<ChiseledBloodstone>(), Item.buyPrice(0, 0, 40, 0), prov, ""));
-            shopEntries.Add(("Blocks2", ItemType<PhantowaxBlock>(), Item.buyPrice(0, 0, 50, 0), polt, ""));
-            shopEntries.Add(("Blocks2", ItemType<EidolicSlab>(), Item.buyPrice(0, 1, 0, 0), polt, ""));
-            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("StratusBricks"), Item.buyPrice(0, 0, 80, 0), polt, ""));
-            shopEntries.Add(("Blocks2", ItemType<AzufreSludge>(), Item.buyPrice(0, 0, 50, 0), boomer, ""));
-            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("CosmiliteBrick"), Item.buyPrice(0, 0, 80, 0), dog, ""));
-            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("OtherworldlyStone"), Item.buyPrice(0, 0, 90, 0), dog, ""));
-            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("SilvaCrystal"), Item.buyPrice(0, 1, 0, 0), dog, ""));
-            shopEntries.Add(("Blocks2", ItemType<AuricBrick>(), Item.buyPrice(0, 1, 50, 0), yharon, ""));
-            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("ExoPlating"), Item.buyPrice(0, 2, 0, 0), exo, ""));
-            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("ExoPrismPanel"), Item.buyPrice(0, 2, 0, 0), exo, ""));
-            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("OccultBrickItem"), Item.buyPrice(0, 2, 0, 0), scal, ""));
+            if (CalValEX.CalamityActive)
+            {
+                shopEntries.Add(("Blocks1", CalValEX.CalamityItem("LaboratoryPlating"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
+                shopEntries.Add(("Blocks1", CalValEX.CalamityItem("LaboratoryPanels"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
+                shopEntries.Add(("Blocks1", CalValEX.CalamityItem("HazardChevronPanels"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
+                shopEntries.Add(("Blocks1", CalValEX.CalamityItem("RustedPlating"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
+                shopEntries.Add(("Blocks1", CalValEX.CalamityItem("LaboratoryPipePlating"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
+                shopEntries.Add(("Blocks1", CalValEX.CalamityItem("RustedPipes"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
+                shopEntries.Add(("Blocks1", CalValEX.CalamityItem("Acidwood"), Item.buyPrice(0, 0, 5, 0), calamity, ""));
+                shopEntries.Add(("Blocks1", CalValEX.CalamityItem("SulphurousSand"), Item.buyPrice(0, 0, 0, 35), calamity, ""));
+                shopEntries.Add(("Blocks1", CalValEX.CalamityItem("SulphurousShale"), Item.buyPrice(0, 0, 0, 35), calamity, ""));
+                shopEntries.Add(("Blocks1", CalValEX.CalamityItem("EutrophicSand"), Item.buyPrice(0, 0, 0, 50), clam, ""));
+                shopEntries.Add(("Blocks1", CalValEX.CalamityItem("Navystone"), Item.buyPrice(0, 0, 0, 75), clam, ""));
+                shopEntries.Add(("Blocks1", CalValEX.CalamityItem("SmoothNavystone"), Item.buyPrice(0, 0, 2, 5), clam, ""));
+                shopEntries.Add(("Blocks1", CalValEX.CalamityItem("AbyssGravel"), Item.buyPrice(0, 0, 2, 5), Condition.DownedSkeletron, ""));
+                shopEntries.Add(("Blocks1", CalValEX.CalamityItem("StatigelBlock"), Item.buyPrice(0, 0, 3, 5), sg, ""));
+            }
+            shopEntries.Add(("Blocks1", ItemType<AstralGrass>(), Item.buyPrice(0, 0, 0, 10), Condition.Hardmode, ""));
+            if (CalValEX.CalamityActive)
+            {
+                shopEntries.Add(("Blocks1", CalValEX.CalamityItem("AstralMonolith"), Item.buyPrice(0, 0, 2, 5), Condition.Hardmode, ""));
+            }
+            shopEntries.Add(("Blocks1", ItemType<AstralPearlBlock>(), Item.buyPrice(0, 0, 3, 0), Condition.Hardmode, ""));
+            if (CalValEX.CalamityActive)
+            {
+                shopEntries.Add(("Blocks1", CalValEX.CalamityItem("BrimstoneSlag"), Item.buyPrice(0, 0, 4, 0), brim, ""));
+                shopEntries.Add(("Blocks1", CalValEX.CalamityItem("ScorchedRemains"), Item.buyPrice(0, 0, 4, 0), brim, ""));
+            }
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("PyreMantle"), Item.buyPrice(0, 0, 4, 50), Condition.DownedGolem, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("MoltenPyreMantle"), Item.buyPrice(0, 0, 4, 50),Condition.DownedGolem, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("Voidstone"), Item.buyPrice(0, 0, 5, 0), Condition.DownedGolem, ""));
+            if (CalValEX.CalamityActive)
+            {
+                shopEntries.Add(("Blocks1", CalValEX.CalamityItem("PlaguedContainmentBrick"), Item.buyPrice(0, 0, 5, 0), pb, ""));
+                shopEntries.Add(("Blocks1", ItemType<PlagueHiveWand>(), Item.buyPrice(0, 1, 40, 0), pb, ""));
+                shopEntries.Add(("Blocks1", ItemType<Items.Walls.PlagueHiveWall>(), Item.buyPrice(0, 0, 0, 10), pb, ""));
+                shopEntries.Add(("Blocks1", ItemType<Necrostone>(), Item.buyPrice(0, 0, 10, 0), rav, ""));
 
-            shopEntries.Add(("Furniture", ItemType<Items.Tiles.Statues.C>(), Item.buyPrice(0, 1, 0, 0), true, ""));
-            shopEntries.Add(("Furniture", ItemType<Items.Tiles.FurnitureSets.Wulfrum.WulfrumGlobe>(), Item.buyPrice(0, 1, 0, 0), true, ""));
+                shopEntries.Add(("Blocks2", CalValEX.CalamityItem("UelibloomBrick"), Item.buyPrice(0, 0, 20, 0), prov, ""));
+                shopEntries.Add(("Blocks2", CalValEX.CalamityItem("ProfanedRock"), Item.buyPrice(0, 0, 66, 66), prov, ""));
+                shopEntries.Add(("Blocks2", CalValEX.CalamityItem("ProfanedCrystal"), Item.buyPrice(0, 6, 66, 66), prov, ""));
+                shopEntries.Add(("Blocks2", ItemType<ChiseledBloodstone>(), Item.buyPrice(0, 0, 40, 0), prov, ""));
+                shopEntries.Add(("Blocks2", ItemType<PhantowaxBlock>(), Item.buyPrice(0, 0, 50, 0), polt, ""));
+                shopEntries.Add(("Blocks2", ItemType<EidolicSlab>(), Item.buyPrice(0, 1, 0, 0), polt, ""));
+                shopEntries.Add(("Blocks2", CalValEX.CalamityItem("StratusBricks"), Item.buyPrice(0, 0, 80, 0), polt, ""));
+                shopEntries.Add(("Blocks2", ItemType<AzufreSludge>(), Item.buyPrice(0, 0, 50, 0), boomer, ""));
+                shopEntries.Add(("Blocks2", CalValEX.CalamityItem("CosmiliteBrick"), Item.buyPrice(0, 0, 80, 0), dog, ""));
+                shopEntries.Add(("Blocks2", CalValEX.CalamityItem("OtherworldlyStone"), Item.buyPrice(0, 0, 90, 0), dog, ""));
+                shopEntries.Add(("Blocks2", CalValEX.CalamityItem("SilvaCrystal"), Item.buyPrice(0, 1, 0, 0), dog, ""));
+                shopEntries.Add(("Blocks2", ItemType<AuricBrick>(), Item.buyPrice(0, 1, 50, 0), yharon, ""));
+                shopEntries.Add(("Blocks2", CalValEX.CalamityItem("ExoPlating"), Item.buyPrice(0, 2, 0, 0), exo, ""));
+                shopEntries.Add(("Blocks2", CalValEX.CalamityItem("ExoPrismPanel"), Item.buyPrice(0, 2, 0, 0), exo, ""));
+                shopEntries.Add(("Blocks2", CalValEX.CalamityItem("OccultBrickItem"), Item.buyPrice(0, 2, 0, 0), scal, ""));
+            }
 
-            shopEntries.Add(("Plant", ItemType<Items.Tiles.FurnitureSets.Wulfrum.WulfrumGlobe>(), Item.buyPrice(0, 0, 0, 25), true, ""));
+            shopEntries.Add(("Furniture", ItemType<Items.Tiles.Statues.C>(), Item.buyPrice(0, 1, 0, 0), Condition.NpcIsPresent(NPC.type), ""));
+            shopEntries.Add(("Furniture", ItemType<Items.Tiles.FurnitureSets.Wulfrum.WulfrumGlobe>(), Item.buyPrice(0, 1, 0, 0), Condition.NpcIsPresent(NPC.type), ""));
+
+            shopEntries.Add(("Plant", ItemType<Items.Tiles.FurnitureSets.Wulfrum.WulfrumGlobe>(), Item.buyPrice(0, 0, 0, 25), Condition.NpcIsPresent(NPC.type), ""));
 
             var blockShop = new NPCShop(Type, "Blocks1");
             var blockShop2 = new NPCShop(Type, "Blocks2");
@@ -488,8 +501,7 @@ namespace CalValEX.NPCs.JellyPriest
                     {
                         shop = plantShop;
                     }
-                    if (shopEntries[i].Item4 == true)
-                    shop.Add(shopEntries[i].Item2);
+                    shop.Add(shopEntries[i].Item2, shopEntries[i].Item4);
                 }
             }
             blockShop.Register();
@@ -517,10 +529,6 @@ namespace CalValEX.NPCs.JellyPriest
                         if (item.type == shopEntries[j].Item2)
                         {
                             item.shopCustomPrice = shopEntries[j].Item3;
-                            if (!shopEntries[j].Item4)
-                            {
-                                item.type = 0;
-                            }
                         }
                     }       
                 }
