@@ -26,14 +26,6 @@ namespace CalValEX.NPCs.JellyPriest
     [AutoloadHead]
     public class JellyPriestNPC : ModNPC
     {
-        private static bool shop1;
-
-        private static bool shop2;
-
-        private static bool shop3;
-
-        private static bool shop4;
-
         public int shoptype = 1;
 
         public const string ShopName = "Shop";
@@ -375,11 +367,6 @@ namespace CalValEX.NPCs.JellyPriest
         }
         public static List<(string, int, int, Condition, string)> shopEntries = new List<(string, int, int, Condition, string)>();
 
-        public static void AddItem(NPCShop shop, int item, bool condition = true, string conditionpar = "")
-        {
-            shop.Add(item, condition: new Condition(conditionpar, () => condition));
-        }
-
         public override void AddShops()
         {
             Condition calamity = new Condition("FUCK", () =>  CalValEX.CalamityActive);
@@ -646,15 +633,9 @@ namespace CalValEX.NPCs.JellyPriest
         public override void SendExtraAI(BinaryWriter writer)
         {
             writer.Write(shoptype);
-            writer.Write(shop1);
-            writer.Write(shop2);
-            writer.Write(shop3);
         }
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            shop1 = reader.ReadBoolean();
-            shop2 = reader.ReadBoolean();
-            shop3 = reader.ReadBoolean();
             shoptype = reader.ReadInt32();
         }
     }

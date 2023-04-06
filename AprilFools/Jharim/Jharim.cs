@@ -427,15 +427,11 @@ namespace CalValEX.AprilFools.Jharim
         {
             if (!MELDOSAURUSED)
             {
-                /*if (firstButton)
+                if (firstButton)
                 {
-                    shop = true;
-                    {
-                        shop1 = true;
-                        boss = false;
-                    }
+                    shopName = "Jharim";
                 }
-                else*/ if (!firstButton && CalValEX.CalamityActive)
+                else if (!firstButton && CalValEX.CalamityActive)
                 {
                     {
                         if (Main.myPlayer == Main.LocalPlayer.whoAmI)
@@ -456,18 +452,11 @@ namespace CalValEX.AprilFools.Jharim
                 }
             }
         }
-
-        public override void ModifyActiveShop(string shopName, Item[] items)
+        public override void AddShops()
         {
-            if (!MELDOSAURUSED)
-            {
-                if (shop1)
-                {
-                    /*shop.item[nextSlot].SetDefaults(ItemType<AprilFools.AmogusItem>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
-                    nextSlot++;*/
-                }
-            }
+            var blockShop = new NPCShop(Type, "Jharim");
+            blockShop.Add(ItemType<AmogusItem>());
+            blockShop.Register();
         }
 
         public override bool CanGoToStatue(bool toKingStatue)

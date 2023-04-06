@@ -21,6 +21,8 @@ namespace CalValEX.NPCs.Oracle
     {
         public override string Texture => "CalValEX/NPCs/Oracle/OracleNPC";
 
+        public const string ShopName = "Shop";
+
         public override void SetStaticDefaults()
         {
             Main.npcFrameCount[NPC.type] = 23;
@@ -306,7 +308,6 @@ namespace CalValEX.NPCs.Oracle
             }
             else
             {
-                shopName = "null";
                 if (Main.myPlayer == Main.LocalPlayer.whoAmI)
                 {
                     if (!Main.LocalPlayer.GetModPlayer<OraclePlayer>().playerHasGottenBag)
@@ -367,134 +368,98 @@ namespace CalValEX.NPCs.Oracle
             }
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
+        public static List<(string, int, int, Condition, string)> shopEntries = new List<(string, int, int, Condition, string)>();
+        public override void AddShops()
+        {
+            Condition calamity = new Condition("FUCK", () => CalValEX.CalamityActive);
+            Condition acid = new Condition("FUCK", () => CalValEX.CalamityActive ? (CalValEX.InCalamityBiome(Main.LocalPlayer, "SulphurousSeaBiome") || (bool)CalValEX.Calamity.Call("GetBossDowned", "acidraineoc")) : false);
+            Condition clam = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "giantclam") : false);
+            Condition ds = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "desertscourge") : false);
+            Condition crab = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "crabulon") : false);
+            Condition hive = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "hivemind") && !WorldGen.crimson : false);
+            Condition perf = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "perforators") && WorldGen.crimson : false);
+            Condition sg = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "slimegod") : false);
+            Condition cirno = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "cryogen") : false);
+            Condition aqua = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "aquaticscourge") : false);
+            Condition brim = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "brimstoneelemental") : false);
+            Condition cala = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "calamitasclone") : false);
+            Condition oreo = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "astrumaureus") : false);
+            Condition lev = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "leviathan") : false);
+            Condition pb = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "plaguebringergoliath") : false);
+            Condition rav = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "ravager") : false);
+            Condition birb = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "dragonfolly") : false);
+            Condition prov = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "providence") : false);
+            Condition weavie = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "stormweaver") : false);
+            Condition toaster = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "ceaselessvoid") : false);
+            Condition siggy = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "signus") : false);
+            Condition polt = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "polterghast") : false);
+            Condition boomer = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "oldduke") : false);
+            Condition dog = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "devourerofgods") : false);
+            Condition yharon = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "yharon") : false);
+            Condition exo = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "draedon") : false);
+            Condition scal = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "scal") : false);
+            Condition ass = new Condition("FUCK", () => Main.LocalPlayer.InModBiome<Biomes.AstralBlight>());
+            Condition sammy = new Condition("FUCK", () => CalValEXWorld.hellTiles > 20 && Main.LocalPlayer.ZoneUnderworldHeight);
+            Condition jun = new Condition("FUCK", () => CalValEXWorld.jungleTiles > 20 && Main.LocalPlayer.ZoneJungle);
+            Condition evil = new Condition("FUCK", () => CalValEX.CalamityActive ? ((bool)CalValEX.Calamity.Call("GetBossDowned", "hivemind") || (bool)CalValEX.Calamity.Call("GetBossDowned", "perforators")) : false);
+            Condition nugget = new Condition("FUCK", () => ((Main.BestiaryDB.GetCompletedPercentByMod(CalValEX.Calamity) > 0.365 && Main.GetBestiaryProgressReport().CompletionPercent > 0.324) || (bool)CalValEX.Calamity.Call("GetBossDowned", "dragonfolly")) || (Main.GetBestiaryProgressReport().CompletionPercent > 0.324 && !CalValEX.CalamityActive));
+
+            shopEntries.Add(("Pets", ItemType<DoggoCollar>(), Item.buyPrice(0, 1, 50, 0), Condition.NpcIsPresent(NPC.type), ""));
+            shopEntries.Add(("Pets", ItemType<BambooStick>(), Item.buyPrice(0, 2, 0, 0), Condition.NpcIsPresent(NPC.type), ""));
+            shopEntries.Add(("Pets", ItemType<RuinedBandage>(), Item.buyPrice(0, 2, 50, 0), Condition.NpcIsPresent(NPC.type), ""));
+            shopEntries.Add(("Pets", ItemType<Cube>(), Item.buyPrice(0, 3, 0, 0), Condition.NpcIsPresent(NPC.type), ""));
+            shopEntries.Add(("Pets", ItemType<AerialiteBubble>(), Item.buyPrice(0, 5, 50, 0), evil, ""));
+            shopEntries.Add(("Pets", ItemType<SmolEldritchHoodie>(), Item.buyPrice(0, 10, 0, 0), Condition.DownedPlantera, ""));
+            shopEntries.Add(("Pets", ItemType<UglyTentacle>(), Item.buyPrice(0, 20, 0, 0), Condition.NpcIsPresent(NPC.type), ""));
+            shopEntries.Add(("Pets", ItemType<BubbleGum>(), Item.buyPrice(0, 1, 0, 0), acid, ""));
+            shopEntries.Add(("Pets", ItemType<MeatyWormTumor>(), Item.buyPrice(0, 20, 0, 0), hive, ""));
+            shopEntries.Add(("Pets", ItemType<RottenKey>(), Item.buyPrice(0, 20, 0, 0), perf, ""));
+            shopEntries.Add(("Pets", ItemType<CooperShortsword>(), Item.buyPrice(0, 10, 0, 0), cirno, ""));
+            shopEntries.Add(("Pets", ItemType<BrimberryItem>(), Item.buyPrice(0, 15, 0, 0), brim, ""));
+            shopEntries.Add(("Pets", ItemType<SuspiciousLookingGBC>(), Item.buyPrice(0, 20, 0, 0), cala, ""));
+            shopEntries.Add(("Pets", ItemType<DeepseaLantern>(), Item.buyPrice(0, 20, 0, 0), cala, ""));
+            shopEntries.Add(("Pets", ItemType<TheDragonball>(), Item.buyPrice(0, 75, 0, 0), birb, ""));
+            shopEntries.Add(("Pets", ItemType<ProfanedChewToy>(), Item.buyPrice(0, 80, 0, 0), prov, ""));
+            shopEntries.Add(("Pets", ItemType<SuspiciousLookingChineseCrown>(), Item.buyPrice(0, 95, 0, 0), siggy, ""));
+            shopEntries.Add(("Pets", ItemType<Items.LightPets.CosmicBubble>(), Item.buyPrice(1, 0, 0, 0), dog, ""));
+            shopEntries.Add(("Pets", ItemType<NuggetinaBiscuit>(), Item.buyPrice(1, 10, 0, 0), yharon, ""));
+            shopEntries.Add(("Pets", ItemType<NuggetLicense>(), Item.buyPrice(1, 10, 0, 0), nugget, ""));
+
+            var blockShop = new NPCShop(Type, "Pets");
+
+            for (int i = 0; i < shopEntries.Count; i++)
+            {
+                var shop = blockShop;
+                if (shopEntries[i].Item2 > -1)
+                {
+                    blockShop.Add(shopEntries[i].Item2, shopEntries[i].Item4);
+                }
+            }
+            blockShop.Register();
+        }
+
         public override void ModifyActiveShop(string shopName, Item[] items)
         {
-           /*  shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.DoggoCollar>());
-            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 50, 0);
-            nextSlot++;
-            shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.BambooStick>());
-            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 2, 0, 0);
-            nextSlot++;
-            shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.RuinedBandage>());
-            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 2, 50, 0);
-            nextSlot++;
-            shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.Cube>());
-            shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3, 0, 0);
-            nextSlot++;
-            if (CalValEX.CalamityActive)
+            for (int i = 0; i < items.Length; i++)
             {
-                Mod clamMod = ModLoader.GetMod("CalamityMod");
-
-                var calEntryCount = Main.BestiaryDB.GetCompletedPercentByMod(clamMod);
-                var vanEntryCount = Main.GetBestiaryProgressReport().CompletionPercent;
-
-                if (clamMod != null)
+                Item item = items[i];
+                // Skip 'air' items and null items.
+                if (item == null || item.type == ItemID.None)
                 {
-                    if ((bool)clamMod.Call("GetBossDowned", "hivemind"))
+                    continue;
+                }
+
+                for (int j = 0; j < shopEntries.Count; j++)
+                {
+                    if (shopEntries[j].Item2 > -1)
                     {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AerialiteBubble>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 50, 0);
-                        ++nextSlot;
-                    }
-                    else if ((bool)clamMod.Call("GetBossDowned", "perforator"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AerialiteBubble>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5, 50, 0);
-                        ++nextSlot;
-                    }
-                    if ((bool)NPC.downedPlantBoss)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<SmolEldritchHoodie>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 0, 0);
-                        ++nextSlot;
-                    }
-                    shop.item[nextSlot].SetDefaults(ItemType<Items.Pets.UglyTentacle>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
-                    nextSlot++;
-                    if (rachelname)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<BubbleGum>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
-                        nextSlot++;
-                    }
-                    else if (CalValEX.InCalamityBiome(Main.LocalPlayer, "SulphurousSeaBiome") || (bool)clamMod.Call("AcidRainActive") || (bool)clamMod.Call("GetBossDowned", "acidraineoc"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<BubbleGum>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 0, 0);
-                        nextSlot++;
-                    }
-                    if ((bool)clamMod.Call("GetBossDowned", "hivemind") && WorldGen.crimson)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<MeatyWormTumor>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
-                        ++nextSlot;
-                    }
-                    if ((bool)clamMod.Call("GetBossDowned", "perforators") && !WorldGen.crimson)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<RottenKey>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
-                        ++nextSlot;
-                    }
-                    if ((bool)clamMod.Call("GetBossDowned", "cryogen"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<CooperShortsword>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10, 0, 0);
-                        ++nextSlot;
-                    }
-                    if ((bool)clamMod.Call("GetBossDowned", "brimstoneelemental"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<BrimberryItem>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 15, 0, 0);
-                        ++nextSlot;
-                    }
-                    if ((bool)clamMod.Call("GetBossDowned", "calamitasclone"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<SuspiciousLookingGBC>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
-                        ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<DeepseaLantern>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 20, 0, 0);
-                        ++nextSlot;
-                    }
-                    if ((bool)clamMod.Call("GetBossDowned", "dragonfolly"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<TheDragonball>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 75, 0, 0);
-                        ++nextSlot;
-                    }
-                    if ((bool)clamMod.Call("GetBossDowned", "providence"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<ProfanedChewToy>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 80, 0, 0);
-                        ++nextSlot;
-                    }
-                    if ((bool)clamMod.Call("GetBossDowned", "signus"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<SuspiciousLookingChineseCrown>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 95, 0, 0);
-                        ++nextSlot;
-                    }
-                    if ((bool)clamMod.Call("GetBossDowned", "devourerofgods"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.LightPets.CosmicBubble>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 0, 0, 0);
-                        ++nextSlot;
-                    }
-                    if ((bool)clamMod.Call("GetBossDowned", "yharon"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<NuggetinaBiscuit>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 10, 0, 0);
-                        ++nextSlot;
-                    }
-                    if ((calEntryCount > 0.365 && vanEntryCount > 0.324) || (bool)clamMod.Call("GetBossDowned", "dragonfolly"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ItemType<NuggetLicense>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 6, 6, 9);
-                        ++nextSlot;
+                        if (item.type == shopEntries[j].Item2)
+                        {
+                            item.shopCustomPrice = shopEntries[j].Item3;
+                        }
                     }
                 }
-            }*/
+            }
         }
 
         public override bool CanGoToStatue(bool toKingStatue)
