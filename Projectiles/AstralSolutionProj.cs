@@ -165,7 +165,7 @@ namespace CalValEX.Projectiles
 							WorldGen.SquareTileFrame(k, l, true);
 							NetMessage.SendTileSquare(-1, k, l, 1);
 						}
-						else if (type == ModContent.TileType<CalamityMod.Tiles.AstralSnow.AstralSnow>())
+						else if (type == CalValEX.CalamityTile("AstralSnow"))
 						{
 							Main.tile[k, l].TileType = (ushort)ModContent.TileType<AstralSnowPlaced>();
 							WorldGen.SquareTileFrame(k, l, true);

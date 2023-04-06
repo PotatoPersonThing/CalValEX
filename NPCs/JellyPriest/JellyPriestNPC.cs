@@ -357,7 +357,7 @@ namespace CalValEX.NPCs.JellyPriest
                     }
                     else
                     {
-                        shop = "Plants";
+                        shop = "Plant";
                     }
                 }
             }
@@ -409,7 +409,7 @@ namespace CalValEX.NPCs.JellyPriest
             Condition yharon = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "yharon") : false);
             Condition exo = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "draedon") : false);
             Condition scal = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "scal") : false);
-            Condition ass = new Condition("FUCK", () =>  Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral);
+            Condition ass = new Condition("FUCK", () =>  Main.LocalPlayer.InModBiome<Biomes.AstralBlight>());
             Condition sammy = new Condition("FUCK", () => CalValEXWorld.hellTiles > 20 && Main.LocalPlayer.ZoneUnderworldHeight);
             Condition jun = new Condition("FUCK", () =>   CalValEXWorld.jungleTiles > 20 && Main.LocalPlayer.ZoneJungle);
 
