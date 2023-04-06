@@ -9,6 +9,7 @@ using static Terraria.ModLoader.ModContent;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent;
 using Terraria.GameContent.Personalities;
 using System.Collections.Generic;
 
@@ -27,6 +28,15 @@ namespace CalValEX.AprilFools.Jharim
         public bool lasercheck = false;
         Vector2 jharimpos;
 
+        private static int ShimmerHeadIndex;
+        private static Profiles.StackedNPCProfile NPCProfile;
+
+        public override void Load()
+        {
+            // Adds our Shimmer Head to the NPCHeadLoader.
+            ShimmerHeadIndex = Mod.AddNPCHeadTexture(Type, "CalValEX/AprilFools/Jharim/Jharim_Shimmer_Head");
+        }
+
         public override void SetStaticDefaults()
         {
            // DisplayName.SetDefault("Jungle Tyrant");
@@ -37,6 +47,15 @@ namespace CalValEX.AprilFools.Jharim
             NPCID.Sets.AttackType[NPC.type] = 0;
             NPCID.Sets.AttackTime[NPC.type] = 90;
             NPCID.Sets.AttackAverageChance[NPC.type] = 30;
+
+            NPCID.Sets.ShimmerTownTransform[Type] = true; // Allows for this NPC to have a different texture after touching the Shimmer liquid.
+
+
+            // This creates a "profile" for ExamplePerson, which allows for different textures during a party and/or while the NPC is shimmered.
+            NPCProfile = new Profiles.StackedNPCProfile(
+                new Profiles.DefaultNPCProfile(Texture, NPCHeadLoader.GetHeadSlot(HeadTexture), Texture),
+                new Profiles.DefaultNPCProfile("CalValEX/AprilFools/Jharim/Jharim_Shimmer", ShimmerHeadIndex)
+            );
             NPC.Happiness
                 .SetBiomeAffection<JungleBiome>(AffectionLevel.Like) // Example Person prefers the jungle.
                 .SetBiomeAffection<SnowBiome>(AffectionLevel.Dislike) // Example Person dislikes the snow.
@@ -188,6 +207,10 @@ namespace CalValEX.AprilFools.Jharim
         }
 
         public override List<string> SetNPCNameList() => new List<string>() { "Jharim" };
+        public override ITownNPCProfile TownNPCProfile()
+        {
+            return NPCProfile;
+        }
 
         [JITWhenModsEnabled("CalamityMod")]
         public override string GetChat()
@@ -211,8 +234,6 @@ namespace CalValEX.AprilFools.Jharim
                             return "Hyuck Hyuck Hyuck, I as Great Jungle Tyrant, will aid you on your quest to defeat the Non-Great Jungle Tyrant... by doing nothing!";
                     }
                 }
-
-                //Main.NewText("MISC EQUIPS 0 TYPE: " + Main.player[Main.myPlayer].miscEquips[0].type + "|MISC EQUIPS 1 TYPE: " + Main.player[Main.myPlayer].miscEquips[1].type);
 
                 if ((NPC.AnyNPCs(NPCID.LunarTowerNebula) || NPC.AnyNPCs(NPCID.LunarTowerVortex) || NPC.AnyNPCs(NPCID.LunarTowerStardust) || NPC.AnyNPCs(NPCID.LunarTowerSolar)) && Main.rand.NextFloat() < 0.25f)
                 {
@@ -396,6 +417,7 @@ namespace CalValEX.AprilFools.Jharim
             if (!MELDOSAURUSED)
             {
                 button = "Shop";
+                if (CalValEX.CalamityActive)
                 button2 = "Summon";
             }
         }
@@ -471,9 +493,9 @@ namespace CalValEX.AprilFools.Jharim
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Jharim").Type, 1f);
-                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Jharim2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Jharim3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("JharimGore").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("JharimGore2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("JharimGore3").Type, 1f);
             }
         }
 
@@ -526,16 +548,19 @@ namespace CalValEX.AprilFools.Jharim
 
         public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone)
         {
-            if (CalValEX.CalamityActive)
+            if (!NPC.IsShimmerVariant)
             {
-                if (projectile.type == CalValEX.CalamityProjectile("CosmicFire"))
+                if (CalValEX.CalamityActive)
+                {
+                    if (projectile.type == CalValEX.CalamityProjectile("CosmicFire"))
+                    {
+                        MELDOSAURUSED = true;
+                    }
+                }
+                else if (projectile.type == ProjectileID.VortexBeaterRocket)
                 {
                     MELDOSAURUSED = true;
                 }
-            }
-            else if (projectile.type == ProjectileID.VortexBeaterRocket)
-            {
-                MELDOSAURUSED = true;
             }
         }
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

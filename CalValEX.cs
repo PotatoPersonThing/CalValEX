@@ -84,6 +84,7 @@ namespace CalValEX
         public static int month;
         public static Texture2D AstralSky;
 
+
         public override void Load()
         {
             instance = this;
