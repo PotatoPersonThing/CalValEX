@@ -304,7 +304,7 @@ namespace CalValEX.NPCs.Oracle
         {
             if (firstButton)
             {
-                shopName = "Shop";
+                shopName = "Pets";
             }
             else
             {
@@ -402,7 +402,7 @@ namespace CalValEX.NPCs.Oracle
             Condition sammy = new Condition("FUCK", () => CalValEXWorld.hellTiles > 20 && Main.LocalPlayer.ZoneUnderworldHeight);
             Condition jun = new Condition("FUCK", () => CalValEXWorld.jungleTiles > 20 && Main.LocalPlayer.ZoneJungle);
             Condition evil = new Condition("FUCK", () => CalValEX.CalamityActive ? ((bool)CalValEX.Calamity.Call("GetBossDowned", "hivemind") || (bool)CalValEX.Calamity.Call("GetBossDowned", "perforators")) : false);
-            Condition nugget = new Condition("FUCK", () => ((Main.BestiaryDB.GetCompletedPercentByMod(CalValEX.Calamity) > 0.365 && Main.GetBestiaryProgressReport().CompletionPercent > 0.324) || (bool)CalValEX.Calamity.Call("GetBossDowned", "dragonfolly")) || (Main.GetBestiaryProgressReport().CompletionPercent > 0.324 && !CalValEX.CalamityActive));
+            Condition nugget = new Condition("FUCK", () => CalValEX.CalamityActive ? ((Main.BestiaryDB.GetCompletedPercentByMod(CalValEX.Calamity) > 0.365 && Main.GetBestiaryProgressReport().CompletionPercent > 0.324) || (bool)CalValEX.Calamity.Call("GetBossDowned", "dragonfolly")) : (Main.GetBestiaryProgressReport().CompletionPercent > 0.324));
 
             shopEntries.Add(("Pets", ItemType<DoggoCollar>(), Item.buyPrice(0, 1, 50, 0), Condition.NpcIsPresent(NPC.type), ""));
             shopEntries.Add(("Pets", ItemType<BambooStick>(), Item.buyPrice(0, 2, 0, 0), Condition.NpcIsPresent(NPC.type), ""));
