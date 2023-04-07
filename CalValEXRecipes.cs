@@ -77,7 +77,7 @@ namespace CalValEX
             if (CalValEX.AprilFoolMonth)
             {
                 {
-                    Recipe recipe = Recipe.Create(ItemType<AprilFools.Meldosaurus.MeldosaurusRelic>());
+                    Recipe recipe = Recipe.Create(ItemType<AprilFools.Meldosaurus.KnowledgeMeldosaurus>());
                     recipe.AddIngredient(ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusTrophy>());
                     recipe.AddTile(TileID.Bookcases);
                     recipe.Register();
