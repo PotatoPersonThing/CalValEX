@@ -1068,13 +1068,9 @@ namespace CalValEX
                         }
                         if (signuskill == 64)
                         {
-                            /*NPC.HitInfo hitinfo;
-                            hitinfo.Damage = 4999999;
-                            hitinfo.Knockback = 99f;
-                            hitinfo.HitDirection = npc.direction * 50;*/
                             signuskill = 0;
                             npc.knockBackResist = 20f;
-                           // npc.StrikeNPC(499999, 99f, npc.direction * 50, true, false, false);
+                            npc.SimpleStrikeNPC(499999, npc.direction, false, npc.direction * 50, noPlayerInteraction: true);
                             signusbackup = false;
                         }
                         if (signusshaker == 1)
@@ -1109,11 +1105,11 @@ namespace CalValEX
 
         public override void ModifyIncomingHit(NPC npc, ref NPC.HitModifiers modifiers)
         {
-            if (CalValEX.CalamityActive)
+            /*if (CalValEX.CalamityActive)
             {
-                /*if (npc.type == CalValEX.CalamityNPC("Signus") && !signusbackup && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi && Main.netMode != NetmodeID.Server)
+                if (npc.type == CalValEX.CalamityNPC("Signus") && !signusbackup && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi && Main.netMode != NetmodeID.Server)
                 {
-                    if (modifiers.SourceDamage >= npc.life)
+                    if ((int)modifiers.SourceDamage >= npc.life)
                     {
                         npc.dontTakeDamage = true;
                         modifiers.FinalDamage = npc.life - 1;
@@ -1122,14 +1118,14 @@ namespace CalValEX
                         npc.ai[2] = -33f;
                         npc.ai[3] = -33f;
                         signusbackup = true;
-                        crit = false;
+                        modifiers.DisableCrit();
                     }
                     else
                     {
                         signusbackup = false;
                     }
-                }*/
-            }
+                }
+            }*/
         }
         
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)
@@ -1336,7 +1332,6 @@ namespace CalValEX
 
         public override bool PreDraw(NPC npc, SpriteBatch spriteBatch, Vector2 screenpos, Color drawColor)
         {
-            //ModLoader.GetMod("Cala").GetContent<ModBiome>().
             if (Main.LocalPlayer.InModBiome(ModContent.GetInstance<Biomes.AstralBlight>()) || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok)
             {
                 //DEUS HEAD
@@ -1488,6 +1483,39 @@ namespace CalValEX
                     }
                 }
 
+            }
+        }
+
+        public override void ModifyTypeName(NPC npc, ref string typeName)
+        {
+            if (!CalValEX.CalamityActive)
+                return;
+
+            if (CalValEX.Bumble && !CalValEXConfig.Instance.DragonballName)
+            {
+                if (npc.type == CalValEX.CalamityNPC("Bumblefuck") && npc.TypeName == "The Dragonfolly")
+                {
+                    if (Main.rand.NextFloat() < 0.01f)
+                    {
+                        typeName = "Bumblebirb";
+                    }
+                    else
+                    {
+                        typeName = "Blunderbird";
+                    }
+                }
+
+                if (npc.type == CalValEX.CalamityNPC("Bumblefuck2") && npc.TypeName == "Draconic Swarmer")
+                {
+                    if (Main.rand.NextFloat() < 0.01f)
+                    {
+                        typeName = "Bumblebirb";
+                    }
+                    else
+                    {
+                        typeName = "Blunderling";
+                    }
+                }
             }
         }
     }

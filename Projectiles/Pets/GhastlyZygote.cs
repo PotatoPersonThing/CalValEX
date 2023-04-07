@@ -101,9 +101,11 @@ namespace CalValEX.Projectiles.Pets {
             Rectangle frame = tex.Frame(1, Main.projFrames[Projectile.type], 0, Projectile.frame);
             frame.Height -= 1;
             float originOffsetX = (tex.Width - Projectile.width) * 0.5f + Projectile.width * 0.5f + DrawOriginOffsetX;
-            Main.EntitySpriteDraw(tex, Projectile.position - Main.screenPosition + new Vector2(originOffsetX + DrawOffsetX, Projectile.height / 2 + Projectile.gfxOffY),
+            float extraY = Projectile.isAPreviewDummy ? -50 : 0;
+            SpriteEffects effec = Projectile.isAPreviewDummy ? SpriteEffects.FlipHorizontally : (Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
+            Main.EntitySpriteDraw(tex, Projectile.position - Main.screenPosition + new Vector2(originOffsetX + DrawOffsetX, Projectile.height / 2 + Projectile.gfxOffY + extraY),
                 frame, Color.White, 0, new Vector2(originOffsetX, Projectile.height / 2 - DrawOriginOffsetY), Projectile.scale,
-                Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+                effec, 0);
         }
     }
 }

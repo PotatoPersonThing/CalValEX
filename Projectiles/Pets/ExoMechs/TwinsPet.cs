@@ -148,7 +148,6 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
         {
             Texture2D tex = (ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/ExoMechs/TwinsPet")).Value;
 
-
             bool secondPhase = false;
             if (Owner.velocity.Length() > 10)
                 secondPhase = true;
@@ -157,6 +156,13 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             Rectangle apolloFrame = new Rectangle(0, secondPhase ? 54 : 0, 62, 52);
             Rectangle artemisFrame = new Rectangle(64, secondPhase ? 54 : 0, 62, 52);
             Vector2 origin = new Vector2(31, 36);
+
+            if (Projectile.isAPreviewDummy)
+            {
+                Main.EntitySpriteDraw(tex, Projectile.position - Main.screenPosition + Vector2.UnitX * 20, new Rectangle(0, 0, 62, 52), lightColor, MathHelper.PiOver2, origin, Projectile.scale, 0, 0);
+                Main.EntitySpriteDraw(tex, Projectile.position - Main.screenPosition + Vector2.UnitX * 20 - Vector2.UnitY * 40, new Rectangle(64, 0, 62, 52), lightColor, MathHelper.PiOver2, origin, Projectile.scale, 0, 0);
+                return false;
+            }
 
             float[] RotationsApollo = new float[PositionsApollo.Length];
             float[] RotationsArtemis = new float[PositionsArtemis.Length];

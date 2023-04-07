@@ -306,7 +306,9 @@ namespace CalValEX.AprilFools.Meldosaurus
 							framebuffer = 0;
 							framecounter = 0;
 							NPC.ai[3] = 2;
-							//NPC.StrikeNPC(40, 0, (int)proj.velocity.X, true);
+							NPC.HitInfo bruh = new NPC.HitInfo();
+							bruh.Damage = NPC.lifeMax / 20;
+							NPC.StrikeNPC(bruh, noPlayerInteraction: true);
 							proj.active = false;
 						}
 					}
