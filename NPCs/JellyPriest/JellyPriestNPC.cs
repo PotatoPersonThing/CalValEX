@@ -400,6 +400,7 @@ namespace CalValEX.NPCs.JellyPriest
             Condition sammy = new Condition("FUCK", () => CalValEXWorld.hellTiles > 20 && Main.LocalPlayer.ZoneUnderworldHeight);
             Condition jun = new Condition("FUCK", () =>   CalValEXWorld.jungleTiles > 20 && Main.LocalPlayer.ZoneJungle);
 
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("WulfrumPlating"), Item.buyPrice(0, 0, 0, 20), calamity, ""));
             shopEntries.Add(("Blocks1", CalValEX.CalamityItem("LaboratoryPlating"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
             shopEntries.Add(("Blocks1", CalValEX.CalamityItem("LaboratoryPanels"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
             shopEntries.Add(("Blocks1", CalValEX.CalamityItem("HazardChevronPanels"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
