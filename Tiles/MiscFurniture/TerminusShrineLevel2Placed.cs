@@ -28,13 +28,6 @@ namespace CalValEX.Tiles.MiscFurniture
 			AddMapEntry(new Color(113, 142, 162), name);
 		}
 
-		public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
-		{
-			Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, CalValEX.CalamityItem("Terminus"), 1);
-			CalValEXWorld.Rockshrine = false;
-			Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModContent.ItemType<TerminusShrine>());
-		}
-
 		private int count;
 		private int rotation;
 		private float stonepos;

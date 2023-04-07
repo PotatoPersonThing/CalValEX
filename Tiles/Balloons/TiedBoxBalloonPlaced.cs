@@ -28,11 +28,6 @@ namespace CalValEX.Tiles.Balloons
             AddMapEntry(new Color(255, 0, 251), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 24, ItemType<TiedBoxBalloon>());
-        }
-
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
             frameCounter++;

@@ -29,9 +29,6 @@ namespace CalValEX.Tiles.MiscFurniture {
             AddMapEntry(new Color(128, 188, 67), name);
         }
 
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY) =>
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ItemType<PlagueDialysis>());
-
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch) =>
             CalValEXGlobalTile.TileGlowmask(i, j, Request<Texture2D>("CalValEX/Tiles/MiscFurniture/PlagueDialysisPlaced_Glow").Value, spriteBatch, AnimationFrameHeight, Type);
     }

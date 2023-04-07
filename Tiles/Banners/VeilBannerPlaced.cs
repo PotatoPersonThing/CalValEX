@@ -32,22 +32,6 @@ namespace CalValEX.Tiles.Banners
             AddMapEntry(new Color(0, 255, 242), name);
         }
 
-        public override void KillMultiTile(int i, int j, int TileFrameX, int frameY)
-        {
-            int style = TileFrameX / 18;
-            string item;
-            switch (style)
-            {
-                case 0:
-                    item = "VeilBanner";
-                    break;
-
-                default:
-                    return;
-            }
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 48, ModContent.ItemType<VeilBanner>());
-        }
-
         public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)
         {
             if (i % 2 == 1)

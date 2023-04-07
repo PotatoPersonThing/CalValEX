@@ -26,10 +26,5 @@ namespace CalValEX.Tiles.Statues
             // name.SetDefault("Earthen Knight Statue");
             AddMapEntry(new Color(92, 64, 72), name);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 24, ItemType<Knight>());
-        }
     }
 }

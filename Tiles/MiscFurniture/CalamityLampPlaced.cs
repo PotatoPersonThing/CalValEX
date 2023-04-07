@@ -25,9 +25,6 @@ namespace CalValEX.Tiles.MiscFurniture {
 			AddMapEntry(new Color(136, 23, 88), name);
 		}
 
-		public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY) =>
-			Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModContent.ItemType<CalamityLamp>());
-
 		public override void AnimateTile(ref int frame, ref int frameCounter) {
 			frameCounter++;
 			if (frameCounter > 6) {

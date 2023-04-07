@@ -29,11 +29,6 @@ namespace CalValEX.Tiles.MiscFurniture
             // name.SetDefault("Schematic Display");
             AddMapEntry(new Color(79, 80, 92), name);
         }
-
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ModContent.ItemType<SchematicDisplay>());
-        }
         public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
 
         public override bool RightClick(int i, int j)

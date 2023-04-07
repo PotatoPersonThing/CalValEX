@@ -27,10 +27,5 @@ namespace CalValEX.Tiles.Statues
             // name.SetDefault("Shrine of the Tides");
             AddMapEntry(new Color(42, 123, 181), name);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<ShrineoftheTides>());
-        }
     }
 }

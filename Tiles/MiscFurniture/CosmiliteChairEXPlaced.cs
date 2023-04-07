@@ -33,10 +33,5 @@ namespace CalValEX.Tiles.MiscFurniture
             AddMapEntry(new Color(221, 116, 242), name);
             AdjTiles = new int[] { TileID.Chairs };
         }
-
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ModContent.ItemType<CosmiliteChairEX>());
-        }
     }
 }

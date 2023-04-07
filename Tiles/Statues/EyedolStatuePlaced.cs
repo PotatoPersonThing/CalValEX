@@ -29,11 +29,6 @@ namespace CalValEX.Tiles.Statues
             
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<EyedolStatue>());
-        }
-
         public override void HitWire(int i, int j)
         {
             int y = j - Main.tile[i, j].TileFrameY / 18;

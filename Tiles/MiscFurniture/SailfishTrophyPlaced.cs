@@ -27,10 +27,5 @@ namespace CalValEX.Tiles.MiscFurniture
             // name.SetDefault("Sailfish Trophy");
             AddMapEntry(new Color(039, 109, 148), name);
         }
-
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<SailfishTrophy>());
-        }
     }
 }

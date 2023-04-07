@@ -27,10 +27,5 @@ namespace CalValEX.Tiles.Plants
             // name.SetDefault("Twisting Nether Sapling");
             AddMapEntry(new Color(209, 0, 255), name);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 24, ItemType<NetherTree>());
-        }
     }
 }

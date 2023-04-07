@@ -1103,29 +1103,22 @@ namespace CalValEX
             }
         }
 
-        public override void ModifyIncomingHit(NPC npc, ref NPC.HitModifiers modifiers)
+        public override bool CheckDead(NPC npc)
         {
-            /*if (CalValEX.CalamityActive)
+            if (CalValEX.CalamityActive)
             {
                 if (npc.type == CalValEX.CalamityNPC("Signus") && !signusbackup && Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().junsi && Main.netMode != NetmodeID.Server)
                 {
-                    if ((int)modifiers.SourceDamage >= npc.life)
-                    {
-                        npc.dontTakeDamage = true;
-                        modifiers.FinalDamage = npc.life - 1;
-                        npc.ai[0] = -33f;
-                        npc.ai[1] = -33f;
-                        npc.ai[2] = -33f;
-                        npc.ai[3] = -33f;
-                        signusbackup = true;
-                        modifiers.DisableCrit();
-                    }
-                    else
-                    {
-                        signusbackup = false;
-                    }
+                    npc.dontTakeDamage = true;
+                    npc.ai[0] = -33f;
+                    npc.ai[1] = -33f;
+                    npc.ai[2] = -33f;
+                    npc.ai[3] = -33f;
+                    signusbackup = true;
                 }
-            }*/
+                return true;
+            }
+            return true;
         }
         
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)

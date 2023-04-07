@@ -82,10 +82,5 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
 			Main.NewText($"Time: {intTime}:{text2} {text}", 255, 240, 20);
 			return true;
 		}
-
-		public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, ModContent.ItemType<PhantowaxClockItem>());
-        }
     }
 }

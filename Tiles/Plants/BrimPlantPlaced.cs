@@ -34,10 +34,5 @@ namespace CalValEX.Tiles.Plants {
             // name.SetDefault("Brimberry Plant");
             AddMapEntry(new Color(201, 30, 12), name);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY) {
-            if (Main.rand.NextFloat() < .25f)
-                Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ItemType<BrimberryItem>());
-        }
     }
 }

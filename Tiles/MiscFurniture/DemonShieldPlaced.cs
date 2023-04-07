@@ -38,10 +38,5 @@ namespace CalValEX.Tiles.MiscFurniture
             // name.SetDefault("Wall accessory.,,");
             AddMapEntry(new Color(255, 0, 251), name);
         }
-
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ItemType<DemonShield>());
-        }
     }
 }

@@ -31,11 +31,6 @@ namespace CalValEX.Tiles.MiscFurniture
             AddMapEntry(new Color(91, 198, 201), name);
         }
 
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 48, ModContent.ItemType<SunkenLamp>());
-        }
-
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
             Tile tile = Main.tile[i, j];

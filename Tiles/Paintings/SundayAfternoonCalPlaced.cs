@@ -28,10 +28,5 @@ namespace CalValEX.Tiles.Paintings
             // name.SetDefault("A Sunday Afternoon in the World of Calamity.");
             AddMapEntry(new Color(139, 0, 0), name);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 88, 56, ItemType<SundayAfternoon>());
-        }
     }
 }

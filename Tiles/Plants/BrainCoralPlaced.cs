@@ -27,10 +27,5 @@ namespace CalValEX.Tiles.Plants
             // name.SetDefault("Potted Brain Coral");
             AddMapEntry(new Color(255, 0, 251), name);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ItemType<BrainCoral>());
-        }
     }
 }

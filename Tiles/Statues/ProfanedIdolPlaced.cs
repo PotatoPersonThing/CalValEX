@@ -97,9 +97,6 @@ namespace CalValEX.Tiles.Statues {
             CalValEXGlobalTile.TileGlowmask(i, j, Request<Texture2D>("CalValEX/Tiles/Statues/ProfanedIdolPlaced_Glow").Value, 
                 spriteBatch, AnimationFrameHeight, (ushort)TileType<ProfanedIdolPlaced>());
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
-            Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<Provibust>());
-
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
     }
 }

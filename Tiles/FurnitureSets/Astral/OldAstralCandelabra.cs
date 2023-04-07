@@ -30,11 +30,6 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             AddMapEntry(new Color(139, 0, 0), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<OldAstralCandelabraItem>());
-        }
-
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
             Tile tile = Main.tile[i, j];

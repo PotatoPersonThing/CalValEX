@@ -32,22 +32,6 @@ namespace CalValEX.Tiles.Cages
             // name.SetDefault("Nuclear Fly in a Jar");
             AddMapEntry(new Color(0, 255, 200), name);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            int style = frameX / 18;
-            string item;
-            switch (style)
-            {
-                case 0:
-                    item = "NukeJar";
-                    break;
-
-                default:
-                    return;
-            }
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 48, ModContent.ItemType<NukeJar>());
-        }
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
             CalValEXGlobalTile.TileGlowmask(i, j, ModContent.Request<Texture2D>("CalValEX/Tiles/Cages/NukeJarPlaced_Glow").Value, spriteBatch);

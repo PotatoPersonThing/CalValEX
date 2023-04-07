@@ -30,11 +30,6 @@ namespace CalValEX.Tiles.Banners
             AddMapEntry(new Color(139, 0, 0), name);
         }
 
-        public override void KillMultiTile(int i, int j, int TileFrameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<CalamitasBanner>());
-        }
-
         /*public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)
         {
             if (i % 2 == 1)

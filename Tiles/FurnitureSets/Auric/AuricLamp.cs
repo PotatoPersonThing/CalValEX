@@ -29,11 +29,6 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             AddMapEntry(new Color(139, 0, 0), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 48, ModContent.ItemType<AuricLampItem>());
-        }
-
         public override void HitWire(int i, int j)
         {
             Tile tile = Main.tile[i, j];

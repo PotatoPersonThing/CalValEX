@@ -32,11 +32,6 @@ namespace CalValEX.Tiles.Banners
             AddMapEntry(new Color(0, 255, 242), name);
         }
 
-        public override void KillMultiTile(int i, int j, int TileFrameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 48, ModContent.ItemType<GodSlayerSlugBanner>());
-        }
-
         public override void NearbyEffects(int i, int j, bool closer)
         {
             if (closer)

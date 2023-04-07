@@ -27,10 +27,5 @@ namespace CalValEX.Tiles.Paintings
             // name.SetDefault(":THE_YHAR:");
             AddMapEntry(new Color(255, 0, 0), name);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ItemType<TheYhar>());
-        }
     }
 }

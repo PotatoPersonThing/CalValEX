@@ -27,10 +27,5 @@ namespace CalValEX.Tiles.Paintings
             // name.SetDefault("Cosmic Terror");
             AddMapEntry(new Color(91, 93, 140), name);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ItemType<CosmicTerror>());
-        }
     }
 }

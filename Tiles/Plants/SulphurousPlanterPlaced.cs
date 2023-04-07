@@ -33,10 +33,5 @@ namespace CalValEX.Tiles.Plants
         {
             CalValEXGlobalTile.TileGlowmask(i, j, Request<Texture2D>("CalValEX/Tiles/Plants/SulphurousPlanterPlaced_Glow").Value, spriteBatch);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<SulphurousPlanter>());
-        }
     }
 }

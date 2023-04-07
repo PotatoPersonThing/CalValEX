@@ -25,11 +25,6 @@ namespace CalValEX.Tiles.MiscFurniture
 			AddMapEntry(new Color(200, 200, 200), name);
 		}
 
-		public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
-		{
-			Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 48, ModContent.ItemType<AstralMusicBox>());
-		}
-
 		public override void MouseOver(int i, int j)
 		{
 			Player player = Main.LocalPlayer;

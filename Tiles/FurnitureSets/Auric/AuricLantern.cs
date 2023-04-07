@@ -41,9 +41,6 @@ namespace CalValEX.Tiles.FurnitureSets.Auric {
             spriteBatch.Draw(glowmask, drawPosition, new Rectangle(xFrameOffset, yFrameOffset, 18, 18), drawColour, 0.0f, Vector2.Zero, 1f, effects, 0.0f);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<AuricLanternItem>());
-
         public override void HitWire(int i, int j) {
             Tile tile = Main.tile[i, j];
             int topY = j - tile.TileFrameY / 18 % 2;

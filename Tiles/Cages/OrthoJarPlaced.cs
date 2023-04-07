@@ -33,22 +33,6 @@ namespace CalValEX.Tiles.Cages
             AddMapEntry(new Color(0, 255, 200), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            int style = frameX / 18;
-            string item;
-            switch (style)
-            {
-                case 0:
-                    item = "OrthoJar";
-                    break;
-
-                default:
-                    return;
-            }
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 48, ModContent.ItemType<OrthoJar>());
-        }
-
         public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)
         {
             if (i % 2 == 1)

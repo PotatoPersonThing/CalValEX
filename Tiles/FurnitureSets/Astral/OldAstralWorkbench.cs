@@ -31,10 +31,5 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             AddMapEntry(new Color(139, 0, 0), name);
             AdjTiles = new int[] { TileID.WorkBenches };
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 16, ItemType<OldAstralWorkbenchItem>());
-        }
     }
 }

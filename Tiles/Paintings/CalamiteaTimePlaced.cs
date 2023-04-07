@@ -27,10 +27,5 @@ namespace CalValEX.Tiles.Paintings
             // name.SetDefault("Calamitea Time");
             AddMapEntry(new Color(124, 192, 222), name);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 48, ItemType<CalamiteaTime>());
-        }
     }
 }

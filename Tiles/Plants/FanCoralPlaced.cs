@@ -29,11 +29,6 @@ namespace CalValEX.Tiles.Plants
             AddMapEntry(new Color(255, 0, 251), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 24, ItemType<FanCoral>());
-        }
-
         public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
             r = 0.3f;

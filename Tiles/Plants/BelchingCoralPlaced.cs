@@ -30,11 +30,6 @@ namespace CalValEX.Tiles.Plants
             AddMapEntry(new Color(0, 167, 255), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ItemType<BelchingCoral>());
-        }
-
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
             frameCounter++;

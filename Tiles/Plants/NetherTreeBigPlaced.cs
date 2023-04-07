@@ -28,10 +28,5 @@ namespace CalValEX.Tiles.Plants
             // name.SetDefault("Nether Willow");
             AddMapEntry(new Color(29, 43, 66), name);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ItemType<NetherTreeBig>());
-        }
     }
 }

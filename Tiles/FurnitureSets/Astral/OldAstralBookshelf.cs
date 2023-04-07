@@ -29,10 +29,5 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             AddMapEntry(new Color(139, 0, 0), name);
             AdjTiles = new int[] { TileID.Bookcases };
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 32, ItemType<OldAstralBookshelfItem>());
-        }
     }
 }

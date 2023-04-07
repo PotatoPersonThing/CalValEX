@@ -30,10 +30,6 @@ namespace CalValEX.Tiles.Cages
             AddMapEntry(new Color(139, 0, 0), name);
             AnimationFrameHeight = 36;
         }
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<BlinkerInABottle>());
-        }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {

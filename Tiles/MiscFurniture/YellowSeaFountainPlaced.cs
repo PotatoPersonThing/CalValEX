@@ -27,9 +27,6 @@ namespace CalValEX.Tiles.MiscFurniture {
             AddMapEntry(new Color(76, 58, 59), name);
         }
 
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY) =>
-            Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ModContent.ItemType<YellowSeaFountain>());
-
         public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
 
         public override bool RightClick(int i, int j) {

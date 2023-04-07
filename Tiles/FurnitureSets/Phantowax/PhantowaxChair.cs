@@ -41,10 +41,6 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             AdjTiles = new int[] { TileID.Chairs };
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<PhantowaxChairItem>());
-        }
         public override void ModifySittingTargetInfo(int i, int j, ref TileRestingInfo info)
         {
             Tile tile = Framing.GetTileSafely(i, j);

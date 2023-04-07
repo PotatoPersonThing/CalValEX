@@ -46,10 +46,5 @@ namespace CalValEX.Tiles.MiscFurniture
             localPlayer.cursorItemIconEnabled = true;
             localPlayer.cursorItemIconID = ModContent.ItemType<PongMachine>();
         }
-
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, ModContent.ItemType<PongMachine>());
-        }
     }
 }

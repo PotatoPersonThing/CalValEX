@@ -24,10 +24,5 @@ namespace CalValEX.Tiles.MiscFurniture
             // name.SetDefault("Decommissioned Daedalus Golem");
             AddMapEntry(new Color(0, 118, 49), name);
         }
-
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, ModContent.ItemType<DecommissionedDaedalusGolem>());
-        }
     }
 }

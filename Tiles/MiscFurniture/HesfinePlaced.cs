@@ -33,11 +33,6 @@ namespace CalValEX.Tiles.MiscFurniture
             AddMapEntry(new Color(139, 0, 0), name);
         }
 
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ItemType<Hesfine>());
-        }
-
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
             frameCounter++;

@@ -28,10 +28,5 @@ namespace CalValEX.Tiles.Paintings
             // name.SetDefault("Espelho");
             AddMapEntry(new Color(139, 0, 0), name);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ItemType<Espelho>());
-        }
     }
 }

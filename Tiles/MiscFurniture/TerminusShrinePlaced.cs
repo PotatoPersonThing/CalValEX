@@ -40,7 +40,6 @@ namespace CalValEX.Tiles.MiscFurniture
 			}
 			l2 = false;
 			l3 = false;*/
-			Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModContent.ItemType<TerminusShrine>());
 		}
 
 		/*private int count;

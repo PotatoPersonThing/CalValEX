@@ -30,11 +30,6 @@ namespace CalValEX.Tiles.Blueprints
             // name.SetDefault("Yharon Cloning Project Blueprint");
             AddMapEntry(new Color(139, 0, 0), name);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 48, ItemType<BumblebirbLog>());
-        }
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
             frameCounter++;

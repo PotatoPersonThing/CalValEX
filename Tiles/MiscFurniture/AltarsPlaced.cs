@@ -28,10 +28,6 @@ namespace CalValEX.Tiles.MiscFurniture {
 
             AdjTiles = new int[] { TileID.DemonAltar };
         }
-
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY) {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<MoulderingAltarItem>());
-        }
     }
     public class VisceralAltarPlaced : ModTile {
 
@@ -53,10 +49,5 @@ namespace CalValEX.Tiles.MiscFurniture {
 
             AdjTiles = new int[] { TileID.DemonAltar };
         }
-
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY) {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<VisceralAltarItem>());
-        }
-
     }
 }

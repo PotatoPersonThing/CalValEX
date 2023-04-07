@@ -22,8 +22,5 @@ namespace CalValEX.Tiles.MiscFurniture {
             // name.SetDefault("Fake Roxcalibur");
             AddMapEntry(new Color(249, 119, 48), name);
         }
-
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY) => 
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ItemType<RoxFake>());
     }
 }

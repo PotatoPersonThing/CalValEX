@@ -32,11 +32,6 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
             AddMapEntry(new Color(139, 0, 0), name);
         }
 
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 16, ItemType<Ravamper>());
-        }
-
         public override void NearbyEffects(int i, int j, bool closer)
         {
             if (closer)

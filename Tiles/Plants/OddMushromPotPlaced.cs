@@ -28,10 +28,5 @@ namespace CalValEX.Tiles.Plants
             // name.SetDefault("Fungus");
             AddMapEntry(new Color(214, 171, 111), name);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ItemType<OddMushroomPot>());
-        }
     }
 }

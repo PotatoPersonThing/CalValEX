@@ -27,10 +27,5 @@ namespace CalValEX.Tiles.Paintings
             // name.SetDefault("Rogue Extractor");
             AddMapEntry(new Color(209, 0, 255), name);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 48, ItemType<RogueExtractor>());
-        }
     }
 }

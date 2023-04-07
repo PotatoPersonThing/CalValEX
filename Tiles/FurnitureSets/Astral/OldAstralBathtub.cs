@@ -25,10 +25,5 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             // name.SetDefault("Xenomonolith Bathtub");
             AddMapEntry(new Color(139, 0, 0), name);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 64, 32, ItemType<OldAstralBathtubItem>());
-        }
     }
 }
