@@ -15,7 +15,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: true);
-            DisplayName.SetDefault("Mini Sightseer");
+            // DisplayName.SetDefault("Mini Sightseer");
             Main.projFrames[Projectile.type] = 4;
         }
 

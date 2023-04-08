@@ -45,11 +45,7 @@ namespace CalValEX.NPCs.Critters
             NPC.Opacity = 255;
             NPC.value = 0;
             NPC.chaseable = false;
-            for (int i = 0; i < NPC.buffImmune.Length; i++)
-            {
-                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.AstralInfectionDebuff>())] = false;
-            }
-            SpawnModBiomes = new int[1] { ModContent.GetInstance<Biomes.AstralBlight>().Type };
+            //SpawnModBiomes = new int[1] { ModContent.GetInstance<Biomes.AstralBlight>().Type };
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -63,6 +59,7 @@ namespace CalValEX.NPCs.Critters
 
         public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         { 
             if (Main.rand.NextFloat() < 0.3421053f)
@@ -83,6 +80,11 @@ namespace CalValEX.NPCs.Critters
                 }
             }
             NPC.TargetClosest(false);
+            if (CalValEX.CalamityActive)
+            for (int i = 0; i < NPC.buffImmune.Length; i++)
+            {
+                NPC.buffImmune[CalValEX.CalamityBuff("AstralInfectionDebuff")] = false;
+            }
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

@@ -9,10 +9,10 @@ namespace CalValEX.Items.Pets.Elementals
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Strange Music Note");
-            Tooltip.SetDefault("An elemental's favorite sound!\n" + "Summons a Vibrant Siren Child");
+            // DisplayName.SetDefault("Strange Music Note");
+            // Tooltip.SetDefault("An elemental's favorite sound!\n" + "Summons a Vibrant Siren Child");
             ItemID.Sets.ItemNoGravity[Item.type] = true;
-            SacrificeTotal = 1;
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

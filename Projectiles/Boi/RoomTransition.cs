@@ -11,7 +11,7 @@ namespace CalValEX.Projectiles.Boi
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Room Transition");
+            // DisplayName.SetDefault("Room Transition");
             Main.projFrames[Projectile.type] = 1;
         }
 

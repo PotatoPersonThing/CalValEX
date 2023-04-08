@@ -65,7 +65,7 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
             return frame;
         }
 
-        public override bool CanTownNPCSpawn(int numTownNPCs, int money) {
+        public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */ {
             CalValEXWorld.isThereAHouse = true;
             return false;
         }

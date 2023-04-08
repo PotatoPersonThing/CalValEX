@@ -165,7 +165,7 @@ namespace CalValEX.Projectiles.Pets
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Base Worm Head");
+			// DisplayName.SetDefault("Base Worm Head");
 			ProjectileID.Sets.NeedsUUID[Projectile.type] = true;
 			Main.projPet[Projectile.type] = true;
 		}
@@ -352,9 +352,8 @@ namespace CalValEX.Projectiles.Pets
 					Player owner = Main.player[Projectile.owner];
 					Lighting.AddLight(segmentCenter, Lightcolor.ToVector3());
 
-					Mod calamityMod = ModLoader.GetMod("CalamityMod");
-					if (calamityMod != null)
-						calamityMod.Call("AddAbyssLightStrength", owner, AbyssLightLevel);
+					if (CalValEX.CalamityActive)
+						CalValEX.Calamity.Call("AddAbyssLightStrength", owner, AbyssLightLevel);
 				}
 			}
         }

@@ -10,9 +10,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Soul Shard");
-            Tooltip.SetDefault("The madness of the abyss echoes through your flesh\n" + "Summons an Eidolon Wyrm to follow you");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Soul Shard");
+            // Tooltip.SetDefault("The madness of the abyss echoes through your flesh\n" + "Summons an Eidolon Wyrm to follow you");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

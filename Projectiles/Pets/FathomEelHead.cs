@@ -16,7 +16,7 @@ namespace CalValEX.Projectiles.Pets
         private bool SpawnedSegments = false;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fathom Eel");
+            // DisplayName.SetDefault("Fathom Eel");
             ProjectileID.Sets.NeedsUUID[Projectile.type] = true;
             Main.projPet[Projectile.type] = true;
         }

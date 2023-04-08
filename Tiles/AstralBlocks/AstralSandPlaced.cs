@@ -7,12 +7,12 @@ using CalValEX.Tiles.AstralMisc;
 using CalValEX.Items.Tiles.Blocks.Astral;
 using CalValEX.Dusts;
 using CalValEX.Projectiles;
-using CalamityMod;
 
 namespace CalValEX.Tiles.AstralBlocks
 {
 	public class AstralSandPlaced : ModTile
 	{
+		[JITWhenModsEnabled("CalamityMod")]
 		public override void SetStaticDefaults() 
         {
 			Main.tileSolid[Type] = true;
@@ -20,16 +20,13 @@ namespace CalValEX.Tiles.AstralBlocks
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileSand[Type] = true;
-			TileID.Sets.TouchDamageSands[Type] = 15;
+			TileID.Sets.Suffocate[Type] = true;
 			DustType = ModContent.DustType<AstralDust>();
 			TileID.Sets.Conversion.Sand[Type] = true;
 			TileID.Sets.ForAdvancedCollision.ForSandshark[Type] = true;
 			TileID.Sets.Falling[Type] = true;
 			AddMapEntry(new Color(104, 127, 164));
 			ItemDrop = ModContent.ItemType<AstralSand>();
-			CalamityUtils.MergeWithGeneral(Type);
-			CalamityUtils.MergeWithDesert(Type);
-			CalamityUtils.MergeAstralTiles(Type);
 			TileID.Sets.CanBeDugByShovel[Type] = true;
 		}
 		public override void NumDust(int i, int j, bool fail, ref int num)

@@ -4,12 +4,12 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Items.Tiles.Blocks.Astral;
 using CalValEX.Dusts;
-using CalamityMod;
 
 namespace CalValEX.Tiles.AstralBlocks
 {
     public class AstralSandstonePlaced : ModTile
     {
+        [JITWhenModsEnabled("CalamityMod")]
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
@@ -20,9 +20,6 @@ namespace CalValEX.Tiles.AstralBlocks
             DustType = ModContent.DustType<AstralDust>();
             ItemDrop = ModContent.ItemType<AstralSandstone>();
             AddMapEntry(new Color(78, 45, 91));
-            CalamityUtils.MergeWithGeneral(Type);
-            CalamityUtils.MergeWithDesert(Type);
-            CalamityUtils.MergeAstralTiles(Type);
         }
         public override void NumDust(int i, int j, bool fail, ref int num)
         {

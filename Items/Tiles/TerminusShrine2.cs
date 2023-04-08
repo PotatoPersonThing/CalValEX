@@ -11,9 +11,9 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Terminus Shrine Level 2");
-            Tooltip.SetDefault("An altar witholding an apocalyptic artifact");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Terminus Shrine Level 2");
+            // Tooltip.SetDefault("An altar witholding an apocalyptic artifact");
+            Item.ResearchUnlockCount = 1;
 
         }
 

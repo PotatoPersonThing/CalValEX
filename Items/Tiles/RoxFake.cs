@@ -10,10 +10,10 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Placeable Roxcalibur");
-            Tooltip
-                .SetDefault("'You can rock!'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Placeable Roxcalibur");
+            /* Tooltip
+                .SetDefault("'You can rock!'"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -9,9 +9,9 @@ namespace CalValEX.Items.Pets.Elementals
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cloud Candy");
-            Tooltip.SetDefault("An elemental's favorite sweet!\n" + "Summons a Miniature Cloud Elemental");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Cloud Candy");
+            // Tooltip.SetDefault("An elemental's favorite sweet!\n" + "Summons a Miniature Cloud Elemental");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

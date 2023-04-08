@@ -10,8 +10,8 @@ namespace CalValEX.Items.Tiles.Statues
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Plague Frog Statue");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Plague Frog Statue");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

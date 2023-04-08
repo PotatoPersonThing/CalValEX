@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace CalValEX.Items.Plushies {
     public class MaulerPlushThrowable : ModItem {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/MaulerPlush";
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults() {
             Item.useStyle = 1;

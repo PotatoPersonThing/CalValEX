@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles.Plants
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Botanic Bonsai");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Botanic Bonsai");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

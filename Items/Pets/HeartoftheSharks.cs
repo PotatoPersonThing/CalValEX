@@ -11,9 +11,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Heart of the Sharks");
-            Tooltip.SetDefault("'It's time for the week of the shark!'\n" + "Summons a trio of sharks");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Heart of the Sharks");
+            // Tooltip.SetDefault("'It's time for the week of the shark!'\n" + "Summons a trio of sharks");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

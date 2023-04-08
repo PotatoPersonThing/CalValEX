@@ -8,9 +8,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Tundra Ball");
-            Tooltip.SetDefault("A chew toy said to have the power to tame the angriest of dogs\n" + "Summons a very angry puppy");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Tundra Ball");
+            // Tooltip.SetDefault("A chew toy said to have the power to tame the angriest of dogs\n" + "Summons a very angry puppy");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

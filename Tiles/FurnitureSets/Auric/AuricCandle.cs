@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using CalValEX.Items.Tiles.FurnitureSets.Auric;
 using Terraria.ObjectData;
@@ -23,8 +24,8 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             TileObjectData.newTile.CoordinateHeights = new int[] { 16 };
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Auric Candle");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Auric Candle");
             AddMapEntry(new Color(139, 0, 0), name);
             ItemDrop = ModContent.ItemType<AuricCandleItem>();
         }

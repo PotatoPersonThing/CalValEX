@@ -37,12 +37,11 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Auric Dresser");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Auric Dresser");
 			AddMapEntry(new Color(100, 100, 100), name);
-			ContainerName.SetDefault("Auric Dresser");
 			AdjTiles = new int[] { TileID.Dressers };
-			DresserDrop = ModContent.ItemType<AuricDresserItem>();
+			ItemDrop = ModContent.ItemType<AuricDresserItem>();
 			DustType = 227;
 		}
 		public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
@@ -225,7 +224,6 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, DresserDrop);
 			Chest.DestroyChest(i, j);
 		}
 		public override void PostDraw(int i, int j, SpriteBatch spriteBatch)

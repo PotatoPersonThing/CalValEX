@@ -8,8 +8,8 @@ namespace CalValEX.Items.Tiles.Blocks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hallowed Brick");
-            SacrificeTotal = 100;
+            // DisplayName.SetDefault("Hallowed Brick");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

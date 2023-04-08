@@ -5,7 +5,7 @@ namespace CalValEX.Items.Equips.Shirts.Draedon {
     [AutoloadEquip(EquipType.Body)]
     public class DraedonChestplate : ModItem {
         public override void SetStaticDefaults() {
-            SacrificeTotal = 1;
+            Item.ResearchUnlockCount = 1;
             ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = true;
         }
 

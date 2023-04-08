@@ -10,10 +10,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Strange Bamboo Stick");
-            Tooltip
-                .SetDefault("Its scent attracts a unique animal\n" + "Summons a Red Panda pet");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Strange Bamboo Stick");
+            /* Tooltip
+                .SetDefault("Its scent attracts a unique animal\n" + "Summons a Red Panda pet"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

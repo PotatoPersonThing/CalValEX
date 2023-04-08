@@ -9,10 +9,10 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sailfish Trophy");
-            Tooltip
-                .SetDefault("'What if it were you \n" + "hanging up on this wall?'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Sailfish Trophy");
+            /* Tooltip
+                .SetDefault("'What if it were you \n" + "hanging up on this wall?'"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

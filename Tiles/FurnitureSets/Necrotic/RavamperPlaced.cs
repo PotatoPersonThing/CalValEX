@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -26,14 +27,9 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
             AnimationFrameHeight = 36;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Necrotic Bonfire");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Necrotic Bonfire");
             AddMapEntry(new Color(139, 0, 0), name);
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 16, ItemType<Ravamper>());
         }
 
         public override void NearbyEffects(int i, int j, bool closer)

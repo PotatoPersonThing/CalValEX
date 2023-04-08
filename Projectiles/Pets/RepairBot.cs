@@ -15,7 +15,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Repair Bot");
+            // DisplayName.SetDefault("Repair Bot");
             Main.projFrames[Projectile.type] = 17;
         }
 

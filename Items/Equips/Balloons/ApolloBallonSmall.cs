@@ -11,8 +11,8 @@ namespace CalValEX.Items.Equips.Balloons
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("");
-            SacrificeTotal = 1;
+            // Tooltip.SetDefault("");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

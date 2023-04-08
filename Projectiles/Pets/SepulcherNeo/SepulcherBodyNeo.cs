@@ -15,7 +15,7 @@ namespace CalValEX.Projectiles.Pets.SepulcherNeo
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sepulcher Body");
+            // DisplayName.SetDefault("Sepulcher Body");
             ProjectileID.Sets.NeedsUUID[Projectile.type] = true;
             Main.projPet[Projectile.type] = true;
         }

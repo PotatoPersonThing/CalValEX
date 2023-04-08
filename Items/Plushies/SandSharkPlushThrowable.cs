@@ -6,7 +6,7 @@ using CalValEX.Projectiles.Plushies;
 namespace CalValEX.Items.Plushies {
     public class SandSharkPlushThrowable : ModItem {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/SandSharkPlush";
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults() {
             Item.useStyle = 1;

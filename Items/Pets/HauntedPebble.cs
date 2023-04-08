@@ -9,11 +9,11 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Haunted Pebble");
-            Tooltip
-                .SetDefault("'Spookay~'\n" + "Summons a Phantom Debris larvae");
+            // DisplayName.SetDefault("Haunted Pebble");
+            /* Tooltip
+                .SetDefault("'Spookay~'\n" + "Summons a Phantom Debris larvae"); */
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 6));
-            SacrificeTotal = 1;
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

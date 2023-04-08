@@ -23,7 +23,7 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lil Weaver");
+            // DisplayName.SetDefault("Lil Weaver");
             Main.projFrames[Projectile.type] = 1;
             Main.projPet[Projectile.type] = true;
         }

@@ -9,10 +9,10 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Storm Coil");
-            Tooltip
-                .SetDefault("Zap");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Storm Coil");
+            /* Tooltip
+                .SetDefault("Zap"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

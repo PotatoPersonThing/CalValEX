@@ -8,8 +8,8 @@ namespace CalValEX.Items.Tiles.Blocks.Astral
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Blighted Astral Sandstone");
-            SacrificeTotal = 100;
+            // DisplayName.SetDefault("Blighted Astral Sandstone");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

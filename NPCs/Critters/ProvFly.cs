@@ -36,14 +36,9 @@ namespace CalValEX.NPCs.Critters
 
             NPC.catchItem = (short)ItemType<ProvFlyItem>();
             NPC.lavaImmune = true;
-            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.GoldButterfly;
             AnimationType = NPCID.GoldButterfly;
             NPC.chaseable = false;
-            for (int i = 0; i < NPC.buffImmune.Length; i++)
-            {
-                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.HolyFlames>())] = false;
-            }
         }
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
         {
@@ -63,5 +58,14 @@ namespace CalValEX.NPCs.Critters
             return Terraria.ModLoader.Utilities.SpawnCondition.Underworld.Chance * 0.7f;
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
+        public override void AI()
+        {
+            if (CalValEX.CalamityActive)
+            for (int i = 0; i < NPC.buffImmune.Length; i++)
+            {
+                NPC.buffImmune[CalValEX.CalamityBuff("HolyFlames")] = false;
+            }
+        }
     }
 }

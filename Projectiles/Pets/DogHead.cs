@@ -15,7 +15,7 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Devourer of Gods (real)");
+            // DisplayName.SetDefault("Devourer of Gods (real)");
             ProjectileID.Sets.NeedsUUID[Projectile.type] = true;
             Main.projPet[Projectile.type] = true;
         }
@@ -159,12 +159,21 @@ namespace CalValEX.Projectiles.Pets
             Projectile.height = 392;
             Projectile.Center = Projectile.position;
         }
-        public override void PostDraw(Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
             Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/DogHead_Glow").Value;
             int frameHeight = texture.Height / Main.projFrames[Projectile.type];
             int hei = frameHeight * Projectile.frame;
-            Main.EntitySpriteDraw(texture, Projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * Projectile.frame, texture.Width, frameHeight)), Color.White, Projectile.rotation, Projectile.Size / 2f, 1f, SpriteEffects.None, 0);
+            Vector2 defaultpos = Projectile.Center - Main.screenPosition;
+            Vector2 besPosition = defaultpos + Vector2.UnitY * 185 + Vector2.UnitX * -65;
+            Vector2 finalPos = Projectile.isAPreviewDummy ? besPosition : defaultpos;
+            float rotation = Projectile.isAPreviewDummy ? MathHelper.PiOver2 : Projectile.rotation;
+            float size = Projectile.isAPreviewDummy ? 0.2f : 1f;
+
+            Main.EntitySpriteDraw(ModContent.Request<Texture2D>(Texture).Value, finalPos, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * Projectile.frame, texture.Width, frameHeight)), Projectile.GetAlpha(lightColor), rotation, Projectile.Size / 2f, size, SpriteEffects.None, 0);
+            Main.EntitySpriteDraw(texture, finalPos, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * Projectile.frame, texture.Width, frameHeight)), Color.White, rotation, Projectile.Size / 2f, size, SpriteEffects.None, 0);
+
+            return false;
         }
     }
 }

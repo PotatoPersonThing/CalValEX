@@ -7,7 +7,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Mini Bumble");
+            // DisplayName.SetDefault("Mini Bumble");
             Main.projFrames[Projectile.type] = 4;
         }
 

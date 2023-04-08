@@ -23,37 +23,21 @@ namespace CalValEX.NPCs.Critters
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void SetDefaults()
         {
             NPC.width = 56;
             NPC.height = 26;
-            //NPC.aiStyle = 67;
-            //NPC.damage = 0;
-            //NPC.defense = 0;
-            //NPC.lifeMax = 2000;
-            //NPC.HitSound = SoundID.NPCHit38;
-            //NPC.DeathSound = SoundID.NPCDeath1;
-            //NPC.npcSlots = 0.5f;
-            //NPC.noGravity = true;
-            //NPC.catchItem = 2007;
-
             NPC.CloneDefaults(NPCID.GlowingSnail);
             NPC.catchItem = (short)ItemType<IsopodItem>();
             NPC.lavaImmune = false;
-            //NPC.aiStyle = 0;
-            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.GlowingSnail;
             AnimationType = NPCID.GlowingSnail;
             NPC.HitSound = SoundID.NPCHit38;
             NPC.lifeMax = 2000;
             NPC.chaseable = false;
-            for (int i = 0; i < NPC.buffImmune.Length; i++)
-            {
-                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.CrushDepth>())] = false;
-            }
             Banner = NPC.type;
             BannerItem = ItemType<IsopodBanner>();
-            SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.AbyssLayer4Biome>().Type };
         }
         public override bool? CanBeHitByItem(Player player, Item item) => null;
 
@@ -67,12 +51,12 @@ namespace CalValEX.NPCs.Critters
             });
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            //Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
-            //if (clamMod != null)
+            if (CalValEX.CalamityActive)
             {
-                if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneAbyssLayer4 && !CalValEXConfig.Instance.CritterSpawns)
+                if (CalValEX.InCalamityBiome(spawnInfo.Player, "AbyssLayer4Biome") && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     if (spawnInfo.Water)
                     {
@@ -85,7 +69,7 @@ namespace CalValEX.NPCs.Critters
 
 
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0)
             {
@@ -96,6 +80,17 @@ namespace CalValEX.NPCs.Critters
             }
         }
 
-        // TODO: Hooks for Collision_MoveSnailOnSlopes and NPC.aiStyle = 67 problem
+        [JITWhenModsEnabled("CalamityMod")]
+        public override void AI()
+        {
+            if (CalValEX.CalamityActive)
+            {
+                for (int i = 0; i < NPC.buffImmune.Length; i++)
+                {
+                    NPC.buffImmune[CalValEX.CalamityBuff("CrushDepth")] = false;
+                }
+                //SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.AbyssLayer4Biome>().Type };
+            }
+        }
     }
 }

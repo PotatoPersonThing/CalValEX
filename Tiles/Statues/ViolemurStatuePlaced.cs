@@ -1,6 +1,7 @@
 using CalValEX.Items.Critters;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -21,16 +22,11 @@ namespace CalValEX.Tiles.Statues
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Violemur Statue");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Violemur Statue");
             AddMapEntry(new Color(144, 148, 144), name);
             DustType = 11;
             
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<ViolemurStatue>());
         }
 
         public override void HitWire(int i, int j)

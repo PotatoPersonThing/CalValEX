@@ -11,9 +11,9 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Tubeman of Entropy");
-            Tooltip.SetDefault("'Embrace chaos'\n"+"Inflates into a flailing Sepulcher balloon\n");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Tubeman of Entropy");
+            // Tooltip.SetDefault("'Embrace chaos'\n"+"Inflates into a flailing Sepulcher balloon\n");
+            Item.ResearchUnlockCount = 1;
 
         }
 

@@ -1,4 +1,3 @@
-using CalamityMod.CalPlayer;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Banners;
 using CalValEX.Items.Tiles.Blueprints;
@@ -16,30 +15,23 @@ using Terraria.GameContent.Bestiary;
 using Terraria.DataStructures;
 using CalValEX.Projectiles.NPCs;
 using System.IO;
-using CalamityMod.World;
-using CalamityMod;
 using Terraria.GameContent.Personalities;
 using CalValEX.Items.Tiles.FurnitureSets.Arsenal;
 using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 using CalValEX.Items.Tiles.Monoliths;
+using CalValEX.Items.Tiles.Blocks;
 
 namespace CalValEX.NPCs.JellyPriest
 {
     [AutoloadHead]
     public class JellyPriestNPC : ModNPC
     {
-        private static bool shop1;
-
-        private static bool shop2;
-
-        private static bool shop3;
-
-        private static bool shop4;
-
         public int shoptype = 1;
 
+        public const string ShopName = "Shop";
+
         public override string Texture => "CalValEX/NPCs/JellyPriest/JellyPriestNPC";
-       // public override string[] AltTextures => new[] { "CalValEX/NPCs/JellyPriest/JellyPriestNPC_Alt" };
+        // public override string[] AltTextures => new[] { "CalValEX/NPCs/JellyPriest/JellyPriestNPC_Alt" };
 
         public override void SetStaticDefaults()
         {
@@ -63,8 +55,8 @@ namespace CalValEX.NPCs.JellyPriest
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
-				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Ocean,
-				new FlavorTextBestiaryInfoElement("A jellyfish that took an odd evolutionary turn. Her affinity for building synergizes with her devotion to the Water Elemental."),
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Ocean,
+                new FlavorTextBestiaryInfoElement("A jellyfish that took an odd evolutionary turn. Her affinity for building synergizes with her devotion to the Water Elemental."),
             });
         }
 
@@ -86,8 +78,8 @@ namespace CalValEX.NPCs.JellyPriest
 
         private bool jellyspawn = false;
 
-        public override bool CanTownNPCSpawn(int numTownNPCs, int money)
-        { 
+        public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
+        {
             if (CalValEXWorld.rescuedjelly && !CalValEXConfig.Instance.TownNPC)
             {
                 return true;
@@ -100,8 +92,8 @@ namespace CalValEX.NPCs.JellyPriest
 
         public override void AI()
         {
-	    if (!CalValEXWorld.rescuedjelly)
-            CalValEXWorld.rescuedjelly = true;
+            if (!CalValEXWorld.rescuedjelly)
+                CalValEXWorld.rescuedjelly = true;
             NPC.breath += 2;
             if (CalValEXConfig.Instance.TownNPC)
             {
@@ -115,24 +107,24 @@ namespace CalValEX.NPCs.JellyPriest
         };
         public override List<string> SetNPCNameList() => PossibleNames;
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override string GetChat()
         {
             Player player = Main.player[Main.myPlayer];
             CalValEXPlayer CalValEXPlayer = player.GetModPlayer<CalValEXPlayer>();
 
-            CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
-
-            if (NPC.AnyNPCs(NPCType<CalamityMod.NPCs.Leviathan.Anahita>()))
-            {
-                switch (Main.rand.Next(2))
+            if (CalValEX.CalamityActive)
+                if (NPC.AnyNPCs(CalValEX.CalamityNPC("Anahita")))
                 {
-                    case 0:
-                        return "Oh my Xeroc! It's her! I have to wrap up preparations quickly!";
+                    switch (Main.rand.Next(2))
+                    {
+                        case 0:
+                            return "Oh my Xeroc! It's her! I have to wrap up preparations quickly!";
 
-                    default:
-                        return "After all of my preparations, she is finally here! Anahita of the Tides!";
+                        default:
+                            return "After all of my preparations, she is finally here! Anahita of the Tides!";
+                    }
                 }
-            }
 
             if (CalValEXPlayer.sirember && CalValEXPlayer.bossded <= 0)
             {
@@ -163,79 +155,81 @@ namespace CalValEX.NPCs.JellyPriest
 
             //Main.NewText("MISC EQUIPS 0 TYPE: " + Main.player[Main.myPlayer].miscEquips[0].type + "|MISC EQUIPS 1 TYPE: " + Main.player[Main.myPlayer].miscEquips[1].type);
 
-            int FAP = NPC.FindFirstNPC(NPCType<CalamityMod.NPCs.TownNPCs.FAP>());
-            if (FAP >= 0 && Main.rand.NextFloat() < 0.25f)
+            if (CalValEX.CalamityActive)
             {
-                switch (Main.rand.Next(2))
+                int FAP = NPC.FindFirstNPC(CalValEX.CalamityNPC("FAP"));
+                if (FAP >= 0 && Main.rand.NextFloat() < 0.25f)
                 {
-                    case 0:
-                        return "I don't feel very comfortable with how close that 'Princess' gets to me when I'm showing her some decorations, I'm starting to think she wants to make food out of me by what she says...!";
+                    switch (Main.rand.Next(2))
+                    {
+                        case 0:
+                            return "I don't feel very comfortable with how close that 'Princess' gets to me when I'm showing her some decorations, I'm starting to think she wants to make food out of me by what she says...!";
 
-                    default:
-                        return "The last time that Cirrus got near my decorations, she tore off one of my bust's heads!";
+                        default:
+                            return "The last time that Cirrus got near my decorations, she tore off one of my bust's heads!";
+                    }
                 }
-            }
 
-            int WITCH = NPC.FindFirstNPC(NPCType<CalamityMod.NPCs.TownNPCs.WITCH>());
-            if (WITCH >= 0 && Main.rand.NextFloat() < 0.25f)
-            {
-                switch (Main.rand.Next(2))
+                int WITCH = NPC.FindFirstNPC(CalValEX.CalamityNPC("WITCH"));
+                if (WITCH >= 0 && Main.rand.NextFloat() < 0.25f)
                 {
-                    case 0:
-                        return "That witch... she does not give me any good memories...";
+                    switch (Main.rand.Next(2))
+                    {
+                        case 0:
+                            return "That witch... she does not give me any good memories...";
 
-                    default:
-                        return "Have you heard of the Brimstone Witch's destruction of the capital of the underworld? It was quite a tragedy... a lot of architecture ruined!";
+                        default:
+                            return "Have you heard of the Brimstone Witch's destruction of the capital of the underworld? It was quite a tragedy... a lot of architecture ruined!";
+                    }
                 }
-            }
 
-            int SEAHOE = NPC.FindFirstNPC(NPCType<CalamityMod.NPCs.TownNPCs.SEAHOE>());
-            if (SEAHOE >= 0 && Main.rand.NextFloat() < 0.25f)
-            {
-                switch (Main.rand.Next(2))
+                int SEAHOE = NPC.FindFirstNPC(CalValEX.CalamityNPC("SEAHOE"));
+                if (SEAHOE >= 0 && Main.rand.NextFloat() < 0.25f)
                 {
-                    case 0:
-                        return "The great sea king I've heard many tales of... And you say that you found him inside a clam...? Oh my, isn't that pathetic now.";
+                    switch (Main.rand.Next(2))
+                    {
+                        case 0:
+                            return "The great sea king I've heard many tales of... And you say that you found him inside a clam...? Oh my, isn't that pathetic now.";
 
-                    default:
-                        return "Do you think Amidias knows anything about the sea idol I'm searching? It seems that old horse got a lot of knowledge about story.";
+                        default:
+                            return "Do you think Amidias knows anything about the sea idol I'm searching? It seems that old horse got a lot of knowledge about story.";
+                    }
                 }
-            }
-            if (DownedBossSystem.downedLeviathan && Main.rand.NextFloat() < 0.25f && !NPC.AnyNPCs(NPCType<CalamityMod.NPCs.Leviathan.Anahita>()))
-            {
-                switch (Main.rand.Next(2))
+                if ((bool)CalValEX.Calamity.Call("GetBossDowned", "leviathan") && Main.rand.NextFloat() < 0.25f && !NPC.AnyNPCs(CalValEX.CalamityNPC("Anahita")))
                 {
-                    case 0:
-                        return "Oh! So you did find the location of the idol I'm searching for? Please explain in detail everything about them, I would love to start working on my offerings and monuments as soon as possible.";
+                    switch (Main.rand.Next(2))
+                    {
+                        case 0:
+                            return "Oh! So you did find the location of the idol I'm searching for? Please explain in detail everything about them, I would love to start working on my offerings and monuments as soon as possible.";
 
-                    default:
-                        return "For some reason, the idol's presence feels like it's weakened. I hope nothing bad happened to her.";
+                        default:
+                            return "For some reason, the idol's presence feels like it's weakened. I hope nothing bad happened to her.";
+                    }
                 }
-            }
-
-            if (DownedBossSystem.downedCalamitas && Main.rand.NextFloat() < 0.25f)
-            {
+                if ((bool)CalValEX.Calamity.Call("GetBossDowned", "scal") && Main.rand.NextFloat() < 0.25f)
+                {
                     return "Yeesh, through all of your adventures, I've stocked up quite the inventory!";
-            }
+                }
 
-            if ((calPlayer.sirenWaifu || calPlayer.elementalHeart || calPlayer.allWaifusVanity || calPlayer.sirenWaifuVanity) && Main.rand.NextFloat() < 0.25f)
-            {
-                return "You were successfully able to befriend the grand Water Elemental? I'm impressed.";
-            }
+                if (player.ownedProjectileCounts[CalValEX.CalamityProjectile("WaterElemental")] > 0 && Main.rand.NextFloat() < 0.25f)
+                {
+                    return "You were successfully able to befriend the grand Water Elemental? I'm impressed.";
+                }
 
-            if ((calPlayer.aquaticHeart && !calPlayer.aquaticHeartHide) && Main.rand.NextFloat() < 0.25f)
-            {
-                return "OH! Please, welcome yourself to my shop. I've been preparing these just for you.";
-            }
+                if (CalValEXPlayer.SirenHeart && Main.rand.NextFloat() < 0.25f)
+                {
+                    return "OH! Please, welcome yourself to my shop. I've been preparing these just for you.";
+                }
 
-            if (calPlayer.cirrusDress && Main.rand.NextFloat() < 0.25f)
-            {
-                return "That's a pretty dress! I know someone who was working on a similar one, but it took so long that they gave up.";
-            }
+                if (CalValEXPlayer.CirrusDress && Main.rand.NextFloat() < 0.25f)
+                {
+                    return "That's a pretty dress! I know someone who was working on a similar one, but it took so long that they gave up.";
+                }
 
-            if ((calPlayer.sirenPet) && Main.rand.NextFloat() < 0.25f)
-            {
-                return "Awe, that little one is cute. She reminds me a lot of the idol I seek.";
+                if (player.ownedProjectileCounts[CalValEX.CalamityProjectile("OceanSpirit")] > 0 && Main.rand.NextFloat() < 0.25f)
+                {
+                    return "Awe, that little one is cute. She reminds me a lot of the idol I seek.";
+                }
             }
 
             if ((CalValEXPlayer.babywaterclone) && Main.rand.NextFloat() < 0.25f)
@@ -330,50 +324,37 @@ namespace CalValEX.NPCs.JellyPriest
                 button = "General";
             else if (shoptype == 4)
                 button = "Plants";
-            else 
+            else
                 button = "Blocks";
             button2 = "Switch Shop";
         }
 
-        public override void OnChatButtonClicked(bool firstButton, ref bool shop)
+        public override void OnChatButtonClicked(bool firstButton, ref string shop)
         {
             if (firstButton)
             {
-                shop = true;
+                //shop = ShopName;
                 {
                     if (shoptype == 1)
                     {
-                        shop1 = true;
-                        shop2 = false;
-                        shop3 = false;
-                        shop4 = false;
+                        shop = "Blocks1";
                     }
                     else if (shoptype == 2)
                     {
-                        shop1 = false;
-                        shop2 = true;
-                        shop3 = false;
-                        shop4 = false;
+                        shop = "Blocks2";
                     }
                     else if (shoptype == 3)
                     {
-                        shop1 = false;
-                        shop2 = false;
-                        shop3 = true;
-                        shop4 = false;
+                        shop = "Furniture";
                     }
                     else
                     {
-                        shop1 = false;
-                        shop2 = false;
-                        shop3 = false;
-                        shop4 = true;
+                        shop = "Plant";
                     }
                 }
             }
             else if (!firstButton)
             {
-                shop = false;
                 if (shoptype < 4)
                 {
                     shoptype++;
@@ -384,157 +365,200 @@ namespace CalValEX.NPCs.JellyPriest
                 }
             }
         }
+        public static List<(string, int, int, Condition, string)> shopEntries = new List<(string, int, int, Condition, string)>();
 
-        public static void AddItem(int item, int price, bool condition, ref Chest shop, ref int nextSlot)
+        public override void AddShops()
         {
-            if (condition)
+            Condition calamity = new Condition("FUCK", () =>  CalValEX.CalamityActive);
+            Condition acid = new Condition("FUCK", () => CalValEX.CalamityActive ? (CalValEX.InCalamityBiome(Main.LocalPlayer, "SulphurousSeaBiome") || (bool)CalValEX.Calamity.Call("GetBossDowned", "acidrainscourge")) : false);
+            Condition clam = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "giantclam") : false);
+            Condition ds = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "desertscourge") : false);
+            Condition crab = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "crabulon") : false);
+            Condition hive = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "hivemind") : false);
+            Condition perf = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "perforators") : false);
+            Condition sg = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "slimegod") : false);
+            Condition cirno = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "cryogen") : false);
+            Condition aqua = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "aquaticscourge") : false);
+            Condition brim = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "brimstoneelemental") : false);
+            Condition cala = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "calamitasclone") : false);
+            Condition oreo = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "astrumaureus") : false);
+            Condition lev = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "leviathan") : false);
+            Condition pb = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "plaguebringergoliath") : false);
+            Condition rav = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "ravager") : false);
+            Condition birb = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "dragonfolly") : false);
+            Condition prov = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "providence") : false);
+            Condition weavie = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "stormweaver") : false);
+            Condition toaster = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "ceaselessvoid") : false);
+            Condition siggy = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "signus") : false);
+            Condition polt = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "polterghast") : false);
+            Condition boomer = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "oldduke") : false);
+            Condition dog = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "devourerofgods") : false);
+            Condition yharon = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "yharon") : false);
+            Condition exo = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "draedon") : false);
+            Condition scal = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "scal") : false);
+            Condition ass = new Condition("FUCK", () =>  Main.LocalPlayer.InModBiome<Biomes.AstralBlight>());
+            Condition sammy = new Condition("FUCK", () => CalValEXWorld.hellTiles > 20 && Main.LocalPlayer.ZoneUnderworldHeight);
+            Condition jun = new Condition("FUCK", () =>   CalValEXWorld.jungleTiles > 20 && Main.LocalPlayer.ZoneJungle);
+
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("WulfrumPlating"), Item.buyPrice(0, 0, 0, 20), calamity, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("LaboratoryPlating"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("LaboratoryPanels"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("HazardChevronPanels"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("RustedPlating"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("LaboratoryPipePlating"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("RustedPipes"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("Acidwood"), Item.buyPrice(0, 0, 5, 0), calamity, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("SulphurousSand"), Item.buyPrice(0, 0, 0, 35), calamity, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("SulphurousShale"), Item.buyPrice(0, 0, 0, 35), calamity, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("EutrophicSand"), Item.buyPrice(0, 0, 0, 50), clam, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("Navystone"), Item.buyPrice(0, 0, 0, 75), clam, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("SmoothNavystone"), Item.buyPrice(0, 0, 2, 5), clam, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("AbyssGravel"), Item.buyPrice(0, 0, 2, 5), Condition.DownedSkeletron, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("StatigelBlock"), Item.buyPrice(0, 0, 3, 5), sg, ""));
+            shopEntries.Add(("Blocks1", ItemType<AstralGrass>(), Item.buyPrice(0, 0, 0, 10), Condition.Hardmode, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("AstralMonolith"), Item.buyPrice(0, 0, 2, 5), Condition.Hardmode, ""));
+            shopEntries.Add(("Blocks1", ItemType<AstralPearlBlock>(), Item.buyPrice(0, 0, 3, 0), Condition.Hardmode, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("BrimstoneSlag"), Item.buyPrice(0, 0, 4, 0), brim, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("ScorchedRemains"), Item.buyPrice(0, 0, 4, 0), brim, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("PyreMantle"), Item.buyPrice(0, 0, 4, 50), Condition.DownedGolem, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("MoltenPyreMantle"), Item.buyPrice(0, 0, 4, 50),Condition.DownedGolem, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("Voidstone"), Item.buyPrice(0, 0, 5, 0), Condition.DownedGolem, ""));
+            shopEntries.Add(("Blocks1", CalValEX.CalamityItem("PlaguedContainmentBrick"), Item.buyPrice(0, 0, 5, 0), pb, ""));
+            shopEntries.Add(("Blocks1", ItemType<PlagueHiveWand>(), Item.buyPrice(0, 1, 40, 0), pb, ""));
+            shopEntries.Add(("Blocks1", ItemType<Items.Walls.PlagueHiveWall>(), Item.buyPrice(0, 0, 0, 10), pb, ""));
+            shopEntries.Add(("Blocks1", ItemType<Necrostone>(), Item.buyPrice(0, 0, 10, 0), rav, ""));
+
+            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("UelibloomBrick"), Item.buyPrice(0, 0, 20, 0), prov, ""));
+            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("ProfanedRock"), Item.buyPrice(0, 0, 66, 66), prov, ""));
+            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("ProfanedCrystal"), Item.buyPrice(0, 6, 66, 66), prov, ""));
+            shopEntries.Add(("Blocks2", ItemType<ChiseledBloodstone>(), Item.buyPrice(0, 0, 40, 0), prov, ""));
+            shopEntries.Add(("Blocks2", ItemType<PhantowaxBlock>(), Item.buyPrice(0, 0, 50, 0), polt, ""));
+            shopEntries.Add(("Blocks2", ItemType<EidolicSlab>(), Item.buyPrice(0, 1, 0, 0), polt, ""));
+            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("StratusBricks"), Item.buyPrice(0, 0, 80, 0), polt, ""));
+            shopEntries.Add(("Blocks2", ItemType<AzufreSludge>(), Item.buyPrice(0, 0, 50, 0), boomer, ""));
+            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("CosmiliteBrick"), Item.buyPrice(0, 0, 80, 0), dog, ""));
+            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("OtherworldlyStone"), Item.buyPrice(0, 0, 90, 0), dog, ""));
+            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("SilvaCrystal"), Item.buyPrice(0, 1, 0, 0), dog, ""));
+            shopEntries.Add(("Blocks2", ItemType<AuricBrick>(), Item.buyPrice(0, 1, 50, 0), yharon, ""));
+            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("ExoPlating"), Item.buyPrice(0, 2, 0, 0), exo, ""));
+            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("ExoPrismPanel"), Item.buyPrice(0, 2, 0, 0), exo, ""));
+            shopEntries.Add(("Blocks2", CalValEX.CalamityItem("OccultBrickItem"), Item.buyPrice(0, 2, 0, 0), scal, ""));
+
+            shopEntries.Add(("Furniture", ItemType<Items.Tiles.Statues.C>(), Item.buyPrice(0, 1, 0, 0), Condition.NpcIsPresent(NPC.type), ""));
+            shopEntries.Add(("Furniture", ItemType<Items.Tiles.FurnitureSets.Wulfrum.WulfrumGlobe>(), Item.buyPrice(0, 1, 0, 0), Condition.NpcIsPresent(NPC.type), ""));
+            shopEntries.Add(("Furniture", CalValEX.CalamityItem("LaboratoryConsoleItem"), Item.buyPrice(0, 2, 50, 0), calamity, ""));
+            shopEntries.Add(("Furniture", ItemType<SulphurColumn>(), Item.buyPrice(0, 0, 5, 0), calamity, ""));
+            shopEntries.Add(("Furniture", ItemType<SulphurGeyser>(), Item.buyPrice(0, 0, 10, 0), calamity, ""));
+            shopEntries.Add(("Furniture", ItemType<Ribrod>(), Item.buyPrice(0, 0, 50, 0), calamity, ""));
+            shopEntries.Add(("Furniture", ItemType<SunkenLamp>(), Item.buyPrice(0, 0, 50, 0), clam, ""));
+            shopEntries.Add(("Furniture", ItemType<RoxFake>(), Item.buyPrice(0, 1, 0, 0), Condition.Hardmode, ""));
+            shopEntries.Add(("Furniture", ItemType<Knight>(), Item.buyPrice(0, 0, 95, 0), Condition.Hardmode, ""));
+            shopEntries.Add(("Furniture", ItemType<DecommissionedDaedalusGolem>(), Item.buyPrice(0, 2, 50, 0), cirno, ""));
+            shopEntries.Add(("Furniture", ItemType<AuroraMonolith>(), Item.buyPrice(0, 4, 0, 0), cirno, ""));
+            shopEntries.Add(("Furniture", ItemType<CalamitousMonolith>(), Item.buyPrice(0, 5, 0, 0), cala, ""));
+            shopEntries.Add(("Furniture", ItemType<VeilBanner>(), Item.buyPrice(0, 4, 0, 0), Condition.DownedPlantera, ""));
+            shopEntries.Add(("Furniture", ItemType<JunkArt>(), Item.buyPrice(0, 4, 0, 0), Condition.DownedPlantera, ""));
+            shopEntries.Add(("Furniture", ItemType<HeartoftheCommunity>(), Item.buyPrice(0, 2, 0, 0), lev, ""));
+            shopEntries.Add(("Furniture", ItemType<ShrineoftheTides>(), Item.buyPrice(0, 5, 0, 0), lev, ""));
+            shopEntries.Add(("Furniture", ItemType<AquaticMonolith>(), Item.buyPrice(0, 6, 0, 0), lev, ""));
+            shopEntries.Add(("Furniture", ItemType<PlagueMonolith>(), Item.buyPrice(0, 7, 0, 0), pb, ""));
+            shopEntries.Add(("Furniture", ItemType<BubbleMachine>(), Item.buyPrice(0, 35, 0, 0), Condition.DownedMartians, ""));
+            shopEntries.Add(("Furniture", ItemType<PlagueDialysis>(), Item.buyPrice(0, 1, 50, 0), jun, ""));
+            shopEntries.Add(("Furniture", ItemType<Provibust>(), Item.buyPrice(1, 50, 0, 0), prov, ""));
+            shopEntries.Add(("Furniture", ItemType<UnholyMonolith>(), Item.buyPrice(0, 40, 0, 0), prov, ""));
+            shopEntries.Add(("Furniture", ItemType<Tesla>(), Item.buyPrice(2, 75, 0, 0), weavie, ""));
+            shopEntries.Add(("Furniture", ItemType<Evolution>(), Item.buyPrice(1, 75, 0, 0), toaster, ""));
+            shopEntries.Add(("Furniture", ItemType<VoidPortal>(), Item.buyPrice(2, 75, 0, 0), toaster, ""));
+            shopEntries.Add(("Furniture", ItemType<MireAquarium>(), Item.buyPrice(2, 0, 0, 0), boomer, ""));
+            shopEntries.Add(("Furniture", ItemType<SulphuricTank>(), Item.buyPrice(0, 50, 0, 0), boomer, ""));
+            shopEntries.Add(("Furniture", ItemType<Help>(), Item.buyPrice(76, 0, 0, 0), boomer, ""));
+            shopEntries.Add(("Furniture", ItemType<DimensionalMonolith>(), Item.buyPrice(0, 13, 0, 0), dog, ""));
+            shopEntries.Add(("Furniture", ItemType<InfernalMonolith>(), Item.buyPrice(0, 15, 0, 0), yharon, ""));
+            shopEntries.Add(("Furniture", ItemType<SamLog>(), Item.buyPrice(5, 0, 0, 0), sammy, ""));
+            shopEntries.Add(("Furniture", ItemType<ExoMonolith>(), Item.buyPrice(0, 30, 0, 0), exo, ""));
+            shopEntries.Add(("Furniture", ItemType<BrimstoneHeart>(), Item.buyPrice(0, 20, 0, 0), scal, ""));
+            shopEntries.Add(("Furniture", ItemType<CalamitasBanner>(), Item.buyPrice(0, 60, 0, 0), scal, ""));
+            shopEntries.Add(("Furniture", ItemType<DemonShield>(), Item.buyPrice(0, 60, 0, 0), scal, ""));
+            shopEntries.Add(("Furniture", ItemType<Se>(), Item.buyPrice(6, 66, 66, 66), scal, ""));
+
+            shopEntries.Add(("Plant", ItemType<FleshThing>(), Item.buyPrice(0, 0, 60, 0), Condition.NpcIsPresent(NPC.type), ""));
+            shopEntries.Add(("Plant", ItemType<Anemone>(), Item.buyPrice(0, 0, 60, 0), clam, ""));
+            shopEntries.Add(("Plant", ItemType<BrainCoral>(), Item.buyPrice(0, 0, 60, 0), clam, ""));
+            shopEntries.Add(("Plant", ItemType<FanCoral>(), Item.buyPrice(0, 0, 60, 0), clam, ""));
+            shopEntries.Add(("Plant", ItemType<SSCoral>(), Item.buyPrice(0, 0, 60, 0), clam, ""));
+            shopEntries.Add(("Plant", ItemType<TableCoral>(), Item.buyPrice(0, 0, 60, 0), clam, ""));
+            shopEntries.Add(("Plant", ItemType<SulphurousCactus>(), Item.buyPrice(0, 0, 30, 0), acid, ""));
+            shopEntries.Add(("Plant", ItemType<SulphurousPlanter>(), Item.buyPrice(0, 0, 40, 0), acid, ""));
+            shopEntries.Add(("Plant", ItemType<PottedDecapoditaSprout>(), Item.buyPrice(0, 0, 50, 0), crab, ""));
+            shopEntries.Add(("Plant", ItemType<MonolithPot>(), Item.buyPrice(0, 0, 95, 0), Condition.Hardmode, ""));
+            shopEntries.Add(("Plant", ItemType<BelchingCoral>(), Item.buyPrice(0, 2, 0, 0), aqua, ""));
+            shopEntries.Add(("Plant", ItemType<AstralOldPurple>(), Item.buyPrice(0, 1, 0, 0), ass, ""));
+            shopEntries.Add(("Plant", ItemType<AstralOldYellow>(), Item.buyPrice(0, 1, 0, 0), ass, ""));
+            shopEntries.Add(("Plant", ItemType<BotanicPot>(), Item.buyPrice(0, 20, 0, 0), prov, ""));
+            shopEntries.Add(("Plant", ItemType<HolyStudedBonsai>(), Item.buyPrice(0, 20, 0, 0), prov, ""));
+            shopEntries.Add(("Plant", ItemType<BloodstoneRoses>(), Item.buyPrice(0, 20, 0, 0), prov, ""));
+            shopEntries.Add(("Plant", ItemType<NetherTree>(), Item.buyPrice(1, 75, 0, 0), siggy, ""));
+            shopEntries.Add(("Plant", ItemType<NetherTreeBig>(), Item.buyPrice(2, 75, 0, 0), siggy, ""));
+            shopEntries.Add(("Plant", ItemType<EidolonTree>(), Item.buyPrice(0, 50, 0, 0), polt, ""));
+
+            var blockShop = new NPCShop(Type, "Blocks1");
+            var blockShop2 = new NPCShop(Type, "Blocks2");
+            var furnShop = new NPCShop(Type, "Furniture");
+            var plantShop = new NPCShop(Type, "Plant");
+
+            for (int i = 0; i < shopEntries.Count; i++)
             {
-                shop.item[nextSlot].SetDefaults(item);
-                shop.item[nextSlot].shopCustomPrice = price;
-                nextSlot++;
+                var shop = blockShop;
+                if (shopEntries[i].Item2 > -1)
+                {
+                    if (blockShop.Name == shopEntries[i].Item1)
+                    {
+                        shop = blockShop;
+                    }
+                    if (blockShop2.Name == shopEntries[i].Item1)
+                    {
+                        shop = blockShop2;
+                    }
+                    if (furnShop.Name == shopEntries[i].Item1)
+                    {
+                        shop = furnShop;
+                    }
+                    if (plantShop.Name == shopEntries[i].Item1)
+                    {
+                        shop = plantShop;
+                    }
+                    shop.Add(shopEntries[i].Item2, shopEntries[i].Item4);
+                }
             }
+            blockShop.Register();
+            blockShop2.Register();
+            furnShop.Register();
+            plantShop.Register();
         }
 
-        public override void SetupShop(Chest shop, ref int nextSlot)
+        [JITWhenModsEnabled("CalamityMod")]
+        public override void ModifyActiveShop(string shopName, Item[] items)
         {
-            bool acid = Main.player[Main.myPlayer].GetModPlayer<CalamityPlayer>().ZoneSulphur || DownedBossSystem.downedAquaticScourgeAcidRain;
-            bool clam = DownedBossSystem.downedCLAM;
-            bool sg = DownedBossSystem.downedSlimeGod;
-            bool lev = DownedBossSystem.downedLeviathan;
-            bool pb = DownedBossSystem.downedPlaguebringer;
-            bool prov = DownedBossSystem.downedProvidence;
-            bool toaster = DownedBossSystem.downedCeaselessVoid;
-            bool siggy = DownedBossSystem.downedSignus;
-            bool polt = DownedBossSystem.downedPolterghast;
-            bool boomer = DownedBossSystem.downedBoomerDuke;
-            bool dog = DownedBossSystem.downedDoG;
-            bool scal = DownedBossSystem.downedCalamitas;
-            bool ass = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral;
-            bool sammy = CalValEXWorld.hellTiles > 20 && Main.LocalPlayer.ZoneUnderworldHeight;
-            bool jun = CalValEXWorld.jungleTiles > 20 && Main.LocalPlayer.ZoneJungle;
-
-            if (shop1)
+            for (int i = 0; i < items.Length; i++)
             {
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureWulfrum.WulfrumPlating>(), Item.buyPrice(0, 0, 0, 10), true, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.DraedonStructures.LaboratoryPlating>(), Item.buyPrice(0, 0, 0, 25), true, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.DraedonStructures.LaboratoryPanels>(), Item.buyPrice(0, 0, 0, 25), true, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.DraedonStructures.HazardChevronPanels>(), Item.buyPrice(0, 0, 0, 25), true, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.DraedonStructures.RustedPlating>(), Item.buyPrice(0, 0, 0, 25), true, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.DraedonStructures.LaboratoryPipePlating>(), Item.buyPrice(0, 0, 0, 25), true, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.DraedonStructures.RustedPipes>(), Item.buyPrice(0, 0, 0, 25), true, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.Acidwood>(), Item.buyPrice(0, 0, 5, 0), true, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.SulphurousSand>(), Item.buyPrice(0, 0, 0, 35), true, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.SulphurousSandstone>(), Item.buyPrice(0, 0, 0, 35), true, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.HardenedSulphurousSandstone>(), Item.buyPrice(0, 0, 0, 50), true, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.SulphurousShale>(), Item.buyPrice(0, 0, 0, 75), true, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.EutrophicSand>(), Item.buyPrice(0, 0, 5, 5), clam, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.Navystone>(), Item.buyPrice(0, 0, 7, 0), clam, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureEutrophic.SmoothNavystone>(), Item.buyPrice(0, 0, 2, 5), clam, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.AbyssGravel>(), Item.buyPrice(0, 0, 2, 5), NPC.downedBoss3, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureStatigel.StatigelBlock>(), Item.buyPrice(0, 0, 3, 5), sg, ref shop, ref nextSlot);
-                AddItem(ItemType<Items.Tiles.Blocks.AstralGrass>(), Item.buyPrice(0, 0, 0, 10), Main.hardMode, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.AstralMonolith>(), Item.buyPrice(0, 0, 2, 5), Main.hardMode, ref shop, ref nextSlot);
-                AddItem(ItemType<Items.Tiles.Blocks.AstralPearlBlock>(), Item.buyPrice(0, 0, 3, 0), Main.hardMode, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.BrimstoneSlag>(), Item.buyPrice(0, 0, 4, 0), DownedBossSystem.downedBrimstoneElemental, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.ScorchedRemains>(), Item.buyPrice(0, 0, 4, 0), DownedBossSystem.downedBrimstoneElemental, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.PyreMantle>(), Item.buyPrice(0, 0, 4, 50), NPC.downedGolemBoss, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.PyreMantleMolten>(), Item.buyPrice(0, 0, 4, 50), NPC.downedGolemBoss, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.Voidstone>(), Item.buyPrice(0, 0, 5, 0), NPC.downedGolemBoss, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurniturePlagued.PlaguedContainmentBrick>(), Item.buyPrice(0, 0, 5, 0), pb, ref shop, ref nextSlot);
-                AddItem(ItemType<Items.Tiles.Blocks.PlagueHiveWand>(), Item.buyPrice(0, 1, 40, 0), pb, ref shop, ref nextSlot);
-                AddItem(ItemType<Items.Walls.PlagueHiveWall>(), Item.buyPrice(0, 0, 0, 10), pb, ref shop, ref nextSlot);
-                AddItem(ItemType<Items.Tiles.Blocks.Necrostone>(), Item.buyPrice(0, 0, 10, 0), DownedBossSystem.downedRavager, ref shop, ref nextSlot);
-            }
-            else if (shop2)
-            {
-                AddItem(ItemType<CalamityMod.Items.Placeables.UelibloomBrick>(), Item.buyPrice(0, 0, 20, 0), prov, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureProfaned.ProfanedRock>(), Item.buyPrice(0, 0, 66, 66), prov, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureProfaned.ProfanedCrystal>(), Item.buyPrice(0, 6, 66, 66), prov, ref shop, ref nextSlot);
-                AddItem(ItemType<Items.Tiles.Blocks.ChiseledBloodstone>(), Item.buyPrice(0, 0, 40, 0), prov, ref shop, ref nextSlot);
-                AddItem(ItemType<Items.Tiles.Blocks.PhantowaxBlock>(), Item.buyPrice(0, 0, 50, 0), polt, ref shop, ref nextSlot);
-                AddItem(ItemType<Items.Tiles.Blocks.EidolicSlab>(), Item.buyPrice(0, 1, 0, 0), polt, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureStratus.StratusBricks>(), Item.buyPrice(0, 0, 80, 0), polt, ref shop, ref nextSlot);
-                AddItem(ItemType<Items.Tiles.Blocks.AzufreSludge>(), Item.buyPrice(0, 0, 50, 0), boomer, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureCosmilite.CosmiliteBrick>(), Item.buyPrice(0, 0, 80, 0), dog, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureOtherworldly.OtherworldlyStone>(), Item.buyPrice(0, 0, 90, 0), dog, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureSilva.SilvaCrystal>(), Item.buyPrice(0, 1, 0, 0), dog, ref shop, ref nextSlot);
-                AddItem(ItemType<Items.Tiles.Blocks.AuricBrick>(), Item.buyPrice(0, 1, 50, 0), DownedBossSystem.downedYharon, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPlating>(), Item.buyPrice(0, 2, 0, 0), DownedBossSystem.downedExoMechs, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureExo.ExoPrismPanel>(), Item.buyPrice(0, 2, 0, 0), DownedBossSystem.downedExoMechs, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.FurnitureSacrilegious.OccultBrickItem>(), Item.buyPrice(0, 2, 0, 0), scal, ref shop, ref nextSlot);
-            }
-            else if (shop3)
-            {
-                AddItem(ItemType<C>(), Item.buyPrice(0, 1, 0, 0), true, ref shop, ref nextSlot);
-                AddItem(ItemType<WulfrumGlobe>(), Item.buyPrice(0, 1, 0, 0), true, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityMod.Items.Placeables.DraedonStructures.LaboratoryConsoleItem>(), Item.buyPrice(0, 2, 50, 0), true, ref shop, ref nextSlot);
-                AddItem(ItemType<SulphurColumn>(), Item.buyPrice(0, 0, 5, 0), acid, ref shop, ref nextSlot);
-                AddItem(ItemType<SulphurGeyser>(), Item.buyPrice(0, 0, 10, 0), acid, ref shop, ref nextSlot);
-                AddItem(ItemType<Ribrod>(), Item.buyPrice(0, 0, 50, 0), acid, ref shop, ref nextSlot);
-                AddItem(ItemType<SunkenLamp>(), Item.buyPrice(0, 0, 50, 0), clam, ref shop, ref nextSlot);
-                AddItem(ItemType<RoxFake>(), Item.buyPrice(0, 1, 0, 0), Main.hardMode, ref shop, ref nextSlot);
-                AddItem(ItemType<Knight>(), Item.buyPrice(0, 0, 95, 0), Main.hardMode, ref shop, ref nextSlot);
-                AddItem(ItemType<DecommissionedDaedalusGolem>(), Item.buyPrice(0, 2, 50, 0), DownedBossSystem.downedCryogen, ref shop, ref nextSlot);
-                AddItem(ItemType<AuroraMonolith>(), Item.buyPrice(0, 4, 0, 0), DownedBossSystem.downedCryogen, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamitousMonolith>(), Item.buyPrice(0, 5, 0, 0), DownedBossSystem.downedCalamitasClone, ref shop, ref nextSlot);
-                AddItem(ItemType<VeilBanner>(), Item.buyPrice(0, 5, 0, 0), NPC.downedPlantBoss, ref shop, ref nextSlot);
-                AddItem(ItemType<JunkArt>(), Item.buyPrice(0, 10, 0, 0), NPC.downedPlantBoss, ref shop, ref nextSlot);
-                AddItem(ItemType<HeartoftheCommunity>(), Item.buyPrice(0, 2, 0, 0), lev, ref shop, ref nextSlot);
-                AddItem(ItemType<ShrineoftheTides>(), Item.buyPrice(0, 5, 0, 0), lev, ref shop, ref nextSlot);
-                AddItem(ItemType<AquaticMonolith>(), Item.buyPrice(0, 6, 0, 0), lev, ref shop, ref nextSlot);
-                AddItem(ItemType<PlagueMonolith>(), Item.buyPrice(0, 7, 0, 0), DownedBossSystem.downedPlaguebringer, ref shop, ref nextSlot);
-                AddItem(ItemType<BubbleMachine>(), Item.buyPrice(0, 35, 0, 0), NPC.downedMartians, ref shop, ref nextSlot);
-                AddItem(ItemType<PlagueDialysis>(), Item.buyPrice(0, 35, 0, 0), DownedBossSystem.downedDragonfolly, ref shop, ref nextSlot);
-                AddItem(ItemType<BumblebirbLog>(), Item.buyPrice(0, 50, 0, 0), DownedBossSystem.downedDragonfolly && jun, ref shop, ref nextSlot);
-                AddItem(ItemType<Provibust>(), Item.buyPrice(1, 50, 0, 0), prov, ref shop, ref nextSlot);
-                AddItem(ItemType<UnholyMonolith>(), Item.buyPrice(0, 40, 0, 0), prov, ref shop, ref nextSlot);
-                AddItem(ItemType<Tesla>(), Item.buyPrice(2, 75, 0, 0), DownedBossSystem.downedStormWeaver, ref shop, ref nextSlot);
-                AddItem(ItemType<Evolution>(), Item.buyPrice(1, 75, 0, 0), toaster, ref shop, ref nextSlot);
-                AddItem(ItemType<VoidPortal>(), Item.buyPrice(2, 75, 0, 0), toaster, ref shop, ref nextSlot);
-                AddItem(ItemType<SamLog>(), Item.buyPrice(5, 0, 0, 0), sammy, ref shop, ref nextSlot);
-                AddItem(ItemType<MireAquarium>(), Item.buyPrice(2, 0, 0, 0), boomer, ref shop, ref nextSlot);
-                AddItem(ItemType<SulphuricTank>(), Item.buyPrice(0, 50, 0, 0), boomer, ref shop, ref nextSlot);
-                AddItem(ItemType<Help>(), Item.buyPrice(76, 0, 0, 0), boomer, ref shop, ref nextSlot);
-                AddItem(ItemType<DimensionalMonolith>(), Item.buyPrice(0, 13, 0, 0), DownedBossSystem.downedDoG, ref shop, ref nextSlot);
-                AddItem(ItemType<InfernalMonolith>(), Item.buyPrice(0, 15, 0, 0), DownedBossSystem.downedYharon, ref shop, ref nextSlot);
-                AddItem(ItemType<ExoMonolith>(), Item.buyPrice(0, 30, 0, 0), DownedBossSystem.downedExoMechs, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamityLamp>(), Item.buyPrice(0, 20, 0, 0), scal, ref shop, ref nextSlot);
-                AddItem(ItemType<BrimstoneHeart>(), Item.buyPrice(0, 20, 0, 0), scal, ref shop, ref nextSlot);
-                AddItem(ItemType<CalamitasBanner>(), Item.buyPrice(0, 60, 0, 0), scal, ref shop, ref nextSlot);
-                AddItem(ItemType<DemonShield>(), Item.buyPrice(0, 60, 0, 0), scal, ref shop, ref nextSlot);
-                AddItem(ItemType<Se>(), Item.buyPrice(6, 66, 66, 66), scal, ref shop, ref nextSlot);
-            }
-            else if (shop4)
-            {
-                AddItem(ItemType<FleshThing>(), Item.buyPrice(0, 0, 60, 0), true, ref shop, ref nextSlot);
-                AddItem(ItemType<Anemone>(), Item.buyPrice(0, 0, 20, 0), clam, ref shop, ref nextSlot);
-                AddItem(ItemType<BrainCoral>(), Item.buyPrice(0, 0, 20, 0), clam, ref shop, ref nextSlot);
-                AddItem(ItemType<FanCoral>(), Item.buyPrice(0, 0, 20, 0), clam, ref shop, ref nextSlot);
-                AddItem(ItemType<SSCoral>(), Item.buyPrice(0, 0, 20, 0), clam, ref shop, ref nextSlot);
-                AddItem(ItemType<TableCoral>(), Item.buyPrice(0, 0, 20, 0), clam, ref shop, ref nextSlot);
-                AddItem(ItemType<SulphurousCactus>(), Item.buyPrice(0, 0, 30, 0), acid, ref shop, ref nextSlot);
-                AddItem(ItemType<SulphurousPlanter>(), Item.buyPrice(0, 0, 40, 0), acid, ref shop, ref nextSlot);
-                AddItem(ItemType<PottedDecapoditaSprout>(), Item.buyPrice(0, 0, 50, 0), DownedBossSystem.downedCrabulon, ref shop, ref nextSlot);
-                AddItem(ItemType<MonolithPot>(), Item.buyPrice(0, 0, 95, 0), Main.hardMode, ref shop, ref nextSlot);
-                AddItem(ItemType<BelchingCoral>(), Item.buyPrice(0, 2, 0, 0), DownedBossSystem.downedAquaticScourge, ref shop, ref nextSlot);
-                if (NPC.downedPlantBoss)
+                Item item = items[i];
+                // Skip 'air' items and null items.
+                if (item == null || item.type == ItemID.None)
                 {
-                    AddItem(ItemType<AstralOldPurple>(), Item.buyPrice(1, 0, 0, 0), !ass, ref shop, ref nextSlot);
-                    AddItem(ItemType<AstralOldPurple>(), Item.buyPrice(0, 1, 0, 0), ass, ref shop, ref nextSlot);
-                    AddItem(ItemType<AstralOldYellow>(), Item.buyPrice(1, 0, 0, 0), !ass, ref shop, ref nextSlot);
-                    AddItem(ItemType<AstralOldYellow>(), Item.buyPrice(0, 1, 0, 0), ass, ref shop, ref nextSlot);
+                    continue;
                 }
-                AddItem(ItemType<BotanicPot>(), Item.buyPrice(0, 20, 0, 0), prov, ref shop, ref nextSlot);
-                AddItem(ItemType<HolyStudedBonsai>(), Item.buyPrice(0, 20, 0, 0), prov, ref shop, ref nextSlot);
-                AddItem(ItemType<BloodstoneRoses>(), Item.buyPrice(0, 20, 0, 0), prov, ref shop, ref nextSlot);
-                AddItem(ItemType<NetherTree>(), Item.buyPrice(1, 75, 0, 0), siggy, ref shop, ref nextSlot);
-                AddItem(ItemType<NetherTreeBig>(), Item.buyPrice(2, 75, 0, 0), siggy, ref shop, ref nextSlot);
-                AddItem(ItemType<EidolonTree>(), Item.buyPrice(0, 50, 0, 0), polt, ref shop, ref nextSlot);
+
+                for (int j = 0; j < shopEntries.Count; j++)
+                {
+                    if (shopEntries[j].Item2 > -1)
+                    {
+                        if (item.type == shopEntries[j].Item2)
+                        {
+                            item.shopCustomPrice = shopEntries[j].Item3;
+                        }
+                    }       
+                }
             }
-            else
-            {
-                AddItem(ItemType<Items.Equips.Shields.Invishield>(), Item.buyPrice(8, 0, 0, 0), true, ref shop, ref nextSlot);
-            }         
         }
 
         public override bool CanGoToStatue(bool toKingStatue)
@@ -598,7 +622,7 @@ namespace CalValEX.NPCs.JellyPriest
             multiplier = 24f;
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             /*if (NPC.life <= 0)
             {
@@ -610,15 +634,9 @@ namespace CalValEX.NPCs.JellyPriest
         public override void SendExtraAI(BinaryWriter writer)
         {
             writer.Write(shoptype);
-            writer.Write(shop1);
-            writer.Write(shop2);
-            writer.Write(shop3);
         }
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            shop1 = reader.ReadBoolean();
-            shop2 = reader.ReadBoolean();
-            shop3 = reader.ReadBoolean();
             shoptype = reader.ReadInt32();
         }
     }

@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Items.Tiles.Cages;
@@ -24,14 +25,10 @@ namespace CalValEX.Tiles.Cages
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Blinker in a Bottle");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Blinker in a Bottle");
             AddMapEntry(new Color(139, 0, 0), name);
             AnimationFrameHeight = 36;
-        }
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<BlinkerInABottle>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

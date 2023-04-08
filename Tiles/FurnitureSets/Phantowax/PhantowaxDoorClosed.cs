@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
 using Terraria.ObjectData;
@@ -41,20 +42,15 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileObjectData.addAlternate(0);
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Phantowax Door");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Phantowax Door");
             AddMapEntry(new Color(139, 0, 0), name);
             
             AdjTiles = new int[] { TileID.ClosedDoor };
-            OpenDoorID = ModContent.TileType<PhantowaxDoorOpen>();
+            TileID.Sets.OpenDoorID[Type] = ModContent.TileType<PhantowaxDoorOpen>();
         }
 
         public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 48, ModContent.ItemType<PhantowaxDoorItem>());
-        }
 
         public override void MouseOver(int i, int j)
         {

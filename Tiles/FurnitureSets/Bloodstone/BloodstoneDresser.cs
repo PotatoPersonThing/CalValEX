@@ -37,12 +37,11 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
 			TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Bloodstone Dresser");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Bloodstone Dresser");
 			AddMapEntry(new Color(100, 100, 100), name);
-			ContainerName.SetDefault("Bloodstone Dresser");
 			AdjTiles = new int[] { TileID.Dressers };
-			DresserDrop = ModContent.ItemType<BloodstoneDresserItem>();
+			ItemDrop = ModContent.ItemType<BloodstoneDresserItem>();
 		}
 
 
@@ -226,7 +225,6 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
 
 		public override void KillMultiTile(int i, int j, int frameX, int frameY)
 		{
-			Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, DresserDrop);
 			Chest.DestroyChest(i, j);
 		}
 	}

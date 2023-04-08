@@ -12,10 +12,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Docile Pheromones");
-            Tooltip
-                .SetDefault("'Smells like lemon'\n" + "Summons a small Draconic Swarmer");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Docile Pheromones");
+            /* Tooltip
+                .SetDefault("'Smells like lemon'\n" + "Summons a small Draconic Swarmer"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

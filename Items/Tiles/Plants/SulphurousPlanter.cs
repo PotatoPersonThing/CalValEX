@@ -9,10 +9,10 @@ namespace CalValEX.Items.Tiles.Plants
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Acid Vine Planter");
-            Tooltip
-                .SetDefault("You are baffled by how they are standing up");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Acid Vine Planter");
+            /* Tooltip
+                .SetDefault("You are baffled by how they are standing up"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

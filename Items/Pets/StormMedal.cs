@@ -12,13 +12,13 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Storm Medal");
-            Tooltip.SetDefault("'Heads or worms?'\n" + "Summons a young Storm Weaver");
+            // DisplayName.SetDefault("Storm Medal");
+            // Tooltip.SetDefault("'Heads or worms?'\n" + "Summons a young Storm Weaver");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 6));
             /// ItemID.Sets.AnimatesAsSoul[Item.type] = true;
             ItemID.Sets.ItemIconPulse[Item.type] = false;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
-            SacrificeTotal = 1;
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -5,7 +5,7 @@ using CalValEX.Tiles.Blocks;
 namespace CalValEX.Items.Tiles.Blocks {
     public class MeldBlock : ModItem {
         public override void SetStaticDefaults() {
-            SacrificeTotal = 100;
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults() {

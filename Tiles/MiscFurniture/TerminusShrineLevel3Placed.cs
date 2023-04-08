@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ID;
 using CalValEX.Items.Tiles;
@@ -23,18 +24,9 @@ namespace CalValEX.Tiles.MiscFurniture
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 };
 			TileObjectData.addTile(Type);
 			AnimationFrameHeight = 54;
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Terminus Shrine");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Terminus Shrine");
 			AddMapEntry(new Color(113, 142, 162), name);
-		}
-
-		public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
-		{
-			Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModContent.ItemType<CalamityMod.Items.Rock>(), 1);
-			Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModContent.ItemType<CalamityMod.Items.SummonItems.Terminus>(), 1);
-			CalValEXPlayer modPlayer = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
-			CalValEXWorld.RockshrinEX = false;
-			Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ModContent.ItemType<TerminusShrine>());
 		}
 
 		private int count;

@@ -8,9 +8,9 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Pong Machine");
-            Tooltip.SetDefault("INCOMPLETE ITEM, EXTREMELY UNSTABLE\nPong game");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Pong Machine");
+            // Tooltip.SetDefault("INCOMPLETE ITEM, EXTREMELY UNSTABLE\nPong game");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -13,7 +13,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Cryokid");
+            // DisplayName.SetDefault("Cryokid");
             Main.projFrames[Projectile.type] = 4;
         }
 

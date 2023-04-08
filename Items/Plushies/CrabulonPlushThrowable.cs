@@ -9,7 +9,7 @@ namespace CalValEX.Items.Plushies
     public class CrabulonPlushThrowable : ModItem
     {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/CrabulonPlush";
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults()
         {

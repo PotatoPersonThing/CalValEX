@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("An Ancient Calamity");
-            Tooltip.SetDefault("'Blockaroz'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("An Ancient Calamity");
+            // Tooltip.SetDefault("'Blockaroz'");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

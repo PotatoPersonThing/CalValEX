@@ -9,10 +9,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Decaying Fishtail");
-            Tooltip
-                .SetDefault("Summons a pet catfish...?\n"+"Only an unholy nightmarish abomination would want something this putrid");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Decaying Fishtail");
+            /* Tooltip
+                .SetDefault("Summons a pet catfish...?\n"+"Only an unholy nightmarish abomination would want something this putrid"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

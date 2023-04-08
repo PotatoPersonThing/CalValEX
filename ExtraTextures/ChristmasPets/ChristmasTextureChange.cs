@@ -13,6 +13,7 @@ namespace CalValEX.ExtraTextures.ChristmasPets
     //I am aware that this is awful, but its the easiest way to do it.
     public static class ChristmasTextureChange
     {
+        [JITWhenModsEnabled("CalamityMod")]
         public static void Load()
         {
             string path = "CalValEX/ExtraTextures/ChristmasPets/";
@@ -106,7 +107,7 @@ namespace CalValEX.ExtraTextures.ChristmasPets
                 TextureAssets.Projectile[ModContent.ProjectileType<CoolBlueSlime>()] = ModContent.Request<Texture2D>(path + "CoolBlueSlime");
                 TextureAssets.Projectile[ModContent.ProjectileType<RoverSpindlePet>()] = ModContent.Request<Texture2D>(path + "RoverSpindlePet");
                 TextureAssets.Projectile[ModContent.ProjectileType<Smauler>()] = ModContent.Request<Texture2D>(path + "Smauler");
-                TextureAssets.Npc[ModContent.NPCType<CalamityMod.NPCs.AcidRain.BabyFlakCrab>()] = ModContent.Request<Texture2D>(path + "ChrismasFlak");
+                TextureAssets.Npc[CalValEX.CalamityNPC("BabyFlakCrab")] = ModContent.Request<Texture2D>(path + "ChrismasFlak");
                 TextureAssets.Projectile[ModContent.ProjectileType<FathomEelHead>()] = ModContent.Request<Texture2D>(path + "FathomEelHead");
             }
         }

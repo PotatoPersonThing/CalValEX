@@ -10,8 +10,8 @@ namespace CalValEX.Items.Tiles.Statues
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Violemur Statue");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Violemur Statue");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

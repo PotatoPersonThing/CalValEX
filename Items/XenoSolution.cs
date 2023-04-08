@@ -8,10 +8,10 @@ namespace CalValEX.Items
 	public class XenoSolution : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Blighted Astral Solution");
-			Tooltip.SetDefault("Used by the Clentaminator"
-				+ "\nSpreads the Astral Blight");
-			SacrificeTotal = 99;
+			// DisplayName.SetDefault("Blighted Astral Solution");
+			/* Tooltip.SetDefault("Used by the Clentaminator"
+				+ "\nSpreads the Astral Blight"); */
+			Item.ResearchUnlockCount = 99;
 		}
 
 		public override void SetDefaults() {

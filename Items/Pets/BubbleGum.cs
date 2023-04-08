@@ -8,10 +8,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bubble Gum");
-            Tooltip
-                .SetDefault("Summons a divine entity");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Bubble Gum");
+            /* Tooltip
+                .SetDefault("Summons a divine entity"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

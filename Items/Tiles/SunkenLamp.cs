@@ -7,9 +7,9 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sunken Lamp");
-            Tooltip.SetDefault("Trippy");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Sunken Lamp");
+            // Tooltip.SetDefault("Trippy");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

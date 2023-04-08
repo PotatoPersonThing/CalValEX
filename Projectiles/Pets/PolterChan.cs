@@ -16,7 +16,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Polter-Chan");
+            // DisplayName.SetDefault("Polter-Chan");
             Main.projFrames[Projectile.type] = 8;
         }
 
@@ -29,6 +29,7 @@ namespace CalValEX.Projectiles.Pets
             Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void Animation(int state)
         {
             Mod armasortof;
@@ -39,7 +40,7 @@ namespace CalValEX.Projectiles.Pets
             ModLoader.TryGetMod("CalValPlus", out cplus);
 
             //MAID mode
-            if (!CalValEXConfig.Instance.Polterskin && ((Main.masterMode && CalamityMod.World.CalamityWorld.death && (infernum != null && (bool)infernum.Call("GetInfernumActive")) && (armasortof != null && (bool)armasortof.Call("GetModifier", "instantdeathalways"))) || cplus != null))
+            if (CalValEX.CalamityActive && !CalValEXConfig.Instance.Polterskin && ((Main.masterMode && (bool)CalValEX.Calamity.Call("GetDifficultyActive", "death") && (infernum != null && (bool)infernum.Call("GetInfernumActive")) && (armasortof != null && (bool)armasortof.Call("GetModifier", "instantdeathalways"))) || cplus != null))
             {
                 if (Projectile.frameCounter++ > 8)
                 {

@@ -5,7 +5,7 @@ using CalValEX.NPCs.Critters;
 
 namespace CalValEX.Items.Critters {
     public class NeuroFlyItem : ModItem {
-        public override void SetStaticDefaults() => SacrificeTotal = 5;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 5;
 
         public override void SetDefaults() {
             Item.CloneDefaults(ItemID.GlowingSnail);

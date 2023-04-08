@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Phantowax Chest");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Phantowax Chest");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

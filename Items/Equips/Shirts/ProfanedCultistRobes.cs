@@ -6,7 +6,7 @@ namespace CalValEX.Items.Equips.Shirts {
     [AutoloadEquip(EquipType.Body, EquipType.Legs)]
     public class ProfanedCultistRobes : ModItem {
         public override void SetStaticDefaults() {
-            SacrificeTotal = 1;
+            Item.ResearchUnlockCount = 1;
 
             if (Main.netMode != NetmodeID.Server) {
                 var legEquipSlot = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);

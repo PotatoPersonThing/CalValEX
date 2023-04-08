@@ -48,22 +48,12 @@ using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.Localization;
 using ReLogic.Content;
-using CalamityMod;
-using CalamityMod.Items.Accessories;
-using CalamityMod.Items.Placeables.Plates;
-using CalamityMod.Items.Placeables;
-using CalamityMod.Items.Placeables.FurnitureStatigel;
-using CalamityMod.Items.Placeables.FurnitureOtherworldly;
-using CalamityMod.Items.Placeables.FurnitureStratus;
-using CalamityMod.Items.Placeables.FurniturePlagued;
-using CalamityMod.Items.Placeables.FurnitureProfaned;
-using CalamityMod.Items.Placeables.FurnitureSilva;
 using CalValEX.NPCs.TownPets.Nuggets;
 using CalValEX.Items.Pets.TownPets;
 
 namespace CalValEX
 {
-    public class CalValEX : Mod
+    public partial class CalValEX : Mod
     {
         public enum MessageType
         {
@@ -94,9 +84,13 @@ namespace CalValEX
         public static int month;
         public static Texture2D AstralSky;
 
+
         public override void Load()
         {
             instance = this;
+
+            calamityActive = ModLoader.TryGetMod("CalamityMod", out calamity);
+
             ModLoader.TryGetMod("HEROsMod", out herosmod);
             ModLoader.TryGetMod("CalValPlus", out ortho);
             ModLoader.TryGetMod("BossChecklist", out bossChecklist);
@@ -148,8 +142,11 @@ namespace CalValEX
 
         public override void PostSetupContent()
         {
-            Mod cal = ModLoader.GetMod("CalamityMod");
-            cal.Call("MakeItemExhumable", ModContent.ItemType<RottingCalamitousArtifact>(), ModContent.ItemType<CalamitousSoulArtifact>());
+            if (CalamityActive)
+            {
+                Mod cal = ModLoader.GetMod("CalamityMod");
+                cal.Call("MakeItemExhumable", ModContent.ItemType<RottingCalamitousArtifact>(), ModContent.ItemType<CalamitousSoulArtifact>());
+            }
 
             //Census support
             ModLoader.TryGetMod("Census", out Mod censusMod);
@@ -170,7 +167,6 @@ namespace CalValEX
 
             //Christmas textures
             ChristmasTextureChange.Load();
-
             /*if (ModContent.GetInstance<CalValEXConfig>().DiscordRichPresence)
             {
                 try

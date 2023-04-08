@@ -14,7 +14,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Cool Blue Signut");
+            // DisplayName.SetDefault("Cool Blue Signut");
             Main.projFrames[Projectile.type] = 7;
         }
 

@@ -7,8 +7,8 @@ namespace CalValEX.Items.Tiles.Blocks.Astral
     public class Xenostone : ModItem
     {
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Xenostone");
-            SacrificeTotal = 100;
+			// DisplayName.SetDefault("Xenostone");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

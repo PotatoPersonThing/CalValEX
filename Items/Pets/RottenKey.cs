@@ -9,9 +9,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rotten Key");
-            Tooltip.SetDefault("The key to pacifying a microbial cluster\n" + "Summons a chunk of The Hive Mind");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Rotten Key");
+            // Tooltip.SetDefault("The key to pacifying a microbial cluster\n" + "Summons a chunk of The Hive Mind");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -7,8 +7,8 @@ namespace CalValEX.Items.Tiles.Plants
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Potted Astral Monolith");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Potted Astral Monolith");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

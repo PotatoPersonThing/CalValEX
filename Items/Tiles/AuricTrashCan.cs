@@ -11,9 +11,9 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Auric Trash Can");
-            Tooltip.SetDefault("I've lost control of my life");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Auric Trash Can");
+            // Tooltip.SetDefault("I've lost control of my life");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

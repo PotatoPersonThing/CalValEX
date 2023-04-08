@@ -8,9 +8,9 @@ namespace CalValEX.Items.Walls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Compensation");
-            Tooltip.SetDefault("Can be sold");
-            SacrificeTotal = 400;
+            // DisplayName.SetDefault("Compensation");
+            // Tooltip.SetDefault("Can be sold");
+            Item.ResearchUnlockCount = 400;
         }
 
         public override void SetDefaults()

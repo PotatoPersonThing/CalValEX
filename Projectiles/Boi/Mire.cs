@@ -17,7 +17,7 @@ namespace CalValEX.Projectiles.Boi
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mire");
+            // DisplayName.SetDefault("Mire");
             Main.projFrames[Projectile.type] = 1;
         }
 

@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.Plants
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Living Grass");
-            Tooltip.SetDefault("A strange fleshy substance birthed by the crimson and cared for by Draedon");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Living Grass");
+            // Tooltip.SetDefault("A strange fleshy substance birthed by the crimson and cared for by Draedon");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

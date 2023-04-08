@@ -10,10 +10,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rover Spindle");
-            Tooltip
-                .SetDefault("Crusty\n" + "Summons a suspiciously familiar Wulfrum Robot");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Rover Spindle");
+            /* Tooltip
+                .SetDefault("Crusty\n" + "Summons a suspiciously familiar Wulfrum Robot"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

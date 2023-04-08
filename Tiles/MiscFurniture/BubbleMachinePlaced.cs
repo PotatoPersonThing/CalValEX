@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -22,14 +23,9 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16 }; //
             AnimationFrameHeight = 18;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Glub glub");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Glub glub");
             AddMapEntry(new Color(0, 167, 255), name);
-        }
-
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<BubbleMachine>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

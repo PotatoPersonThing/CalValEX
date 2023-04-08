@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Calamity's Vanities");
-            Tooltip.SetDefault("'IbanPlay and Starr'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Calamity's Vanities");
+            // Tooltip.SetDefault("'IbanPlay and Starr'");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -24,14 +25,9 @@ namespace CalValEX.Tiles.Plants
 
             AnimationFrameHeight = 54;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Sulphuric Coral");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Sulphuric Coral");
             AddMapEntry(new Color(0, 167, 255), name);
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ItemType<BelchingCoral>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

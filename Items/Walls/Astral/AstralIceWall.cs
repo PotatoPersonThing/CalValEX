@@ -9,8 +9,8 @@ namespace CalValEX.Items.Walls.Astral
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Blighted Astral Ice Wall");
-            SacrificeTotal = 400;
+            // DisplayName.SetDefault("Blighted Astral Ice Wall");
+            Item.ResearchUnlockCount = 400;
         }
 
         public override void SetDefaults()

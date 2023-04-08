@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using CalamityMod;
 using Terraria.ModLoader;
 
 namespace CalValEX.Items.Pets.ExoMechs
@@ -11,9 +10,9 @@ namespace CalValEX.Items.Pets.ExoMechs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dark Gunmetal Remote");
-            Tooltip.SetDefault("T Hanos\n" + "Summons a shorter and friendlier version of the high-tech digger");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Dark Gunmetal Remote");
+            // Tooltip.SetDefault("T Hanos\n" + "Summons a shorter and friendlier version of the high-tech digger");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()
@@ -55,11 +54,14 @@ namespace CalValEX.Items.Pets.ExoMechs
         }
 
         //Listen for the mouseworld & right click from the owner. This is for mp syncing
+        [JITWhenModsEnabled("CalamityMod")]
         public override void HoldItem(Player player)
         {
-            //THIS CODE NEEDS CALAMITY 1.5.1.001 STUFF TO WORK PROPERLY!
-            player.Calamity().rightClickListener = true;
-            player.Calamity().mouseWorldListener = true;
+            if (CalValEX.CalamityActive)
+            {
+                CalValEX.Calamity.Call("SetRightClickListener", player, true);
+                CalValEX.Calamity.Call("SetMouseWorldListener", player, true);
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ObjectData;
@@ -59,12 +60,12 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             TileID.Sets.HousingWalls[Type] = true; //needed for non-solid blocks to count as walls
             TileID.Sets.HasOutlines[Type] = true;
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Auric Door");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Auric Door");
             AddMapEntry(new Color(139, 0, 0), name);
             
             AdjTiles = new int[] { TileID.OpenDoor };
-            CloseDoorID = ModContent.TileType<AuricDoorClosed>();
+            TileID.Sets.CloseDoorID[Type] = ModContent.TileType<AuricDoorClosed>();
         }
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
@@ -82,11 +83,6 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
         }
 
         public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 48, ModContent.ItemType<AuricDoorItem>());
-        }
 
         public override void MouseOver(int i, int j)
         {

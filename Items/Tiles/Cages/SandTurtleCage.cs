@@ -12,8 +12,8 @@ namespace CalValEX.Items.Tiles.Cages
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sand Turtle Cage");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Sand Turtle Cage");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

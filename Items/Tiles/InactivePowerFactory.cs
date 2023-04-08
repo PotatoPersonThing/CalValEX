@@ -1,4 +1,5 @@
-﻿using Terraria.ModLoader;
+﻿using Terraria;
+using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
@@ -9,12 +10,12 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Inactive Power Cell Factory");
-            Tooltip.SetDefault("An unpowered Power Cell Factory\n" + "Break to reactivate");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Inactive Power Cell Factory");
+            // Tooltip.SetDefault("An unpowered Power Cell Factory\n" + "Break to reactivate");
+            Item.ResearchUnlockCount = 1;
         }
 
-        public override string Texture => "CalamityMod/Items/Placeables/DraedonStructures/PowerCellFactoryItem";
+        [JITWhenModsEnabled("CalamityMod")]
         public override void SetDefaults()
         {
             Item.useStyle = 1;
@@ -27,7 +28,16 @@ namespace CalValEX.Items.Tiles
             Item.width = 16;
             Item.height = 28;
             Item.rare = 3;
-            Item.createTile = ModContent.TileType<CalamityMod.Tiles.DraedonStructures.InactivePowerCellFactory>();
+        }
+
+        [JITWhenModsEnabled("CalamityMod")]
+        public override bool CanUseItem(Player player)
+        {
+            if (CalValEX.CalamityActive)
+            {
+                Item.createTile = CalValEX.CalamityTile("InactivePowerCellFactory");
+            }
+            return true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

@@ -9,16 +9,16 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cool Shades");
-            Tooltip.SetDefault("Rad\n" + "Summons a miniature Cryogen");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Cool Shades");
+            // Tooltip.SetDefault("Rad\n" + "Summons a miniature Cryogen");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.ZephyrFish);
             Item.UseSound = SoundID.NPCHit5;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.MiniCryo>();
+            Item.shoot = CalValEX.CalamityActive ? ModContent.ProjectileType<Projectiles.Pets.MiniCryo>() : ModContent.ProjectileType<Projectiles.Pets.MiniCryoCalless>();
             Item.buffType = ModContent.BuffType<Buffs.Pets.ChilledOut>();
             Item.value = Item.sellPrice(0, 2, 0, 0);
             Item.rare = 5;

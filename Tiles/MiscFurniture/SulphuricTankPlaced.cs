@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -24,14 +25,9 @@ namespace CalValEX.Tiles.MiscFurniture
 
             AnimationFrameHeight = 54;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Irradiated Tank");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Irradiated Tank");
             AddMapEntry(new Color(0, 255, 117), name);
-        }
-
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 8, 24, ItemType<SulphuricTank>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

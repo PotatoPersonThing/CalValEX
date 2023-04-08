@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
 using Terraria.ObjectData;
@@ -31,18 +32,13 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             TileObjectData.addAlternate(1); //facing right will use the second texture style
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Bloodstone Chair");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Bloodstone Chair");
             AddMapEntry(new Color(139, 0, 0), name);
             TileID.Sets.CanBeSatOnForNPCs[Type] = true;
             TileID.Sets.CanBeSatOnForPlayers[Type] = true;
 
             AdjTiles = new int[] { TileID.Chairs };
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<BloodstoneChairItem>());
         }
         public override void ModifySittingTargetInfo(int i, int j, ref TileRestingInfo info)
         {

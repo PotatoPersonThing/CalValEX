@@ -18,7 +18,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: true);
-            DisplayName.SetDefault("Darksun Fish");
+            // DisplayName.SetDefault("Darksun Fish");
             Main.projFrames[Projectile.type] = 4;
         }
 
@@ -106,7 +106,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: true);
-            DisplayName.SetDefault("Darksun Skull");
+            // DisplayName.SetDefault("Darksun Skull");
             Main.projFrames[Projectile.type] = 4;
         }
 
@@ -159,7 +159,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: true);
-            DisplayName.SetDefault("Darksun Small Skull");
+            // DisplayName.SetDefault("Darksun Small Skull");
             Main.projFrames[Projectile.type] = 4;
         }
 

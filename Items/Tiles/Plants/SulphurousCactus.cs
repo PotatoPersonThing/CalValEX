@@ -7,8 +7,8 @@ namespace CalValEX.Items.Tiles.Plants
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Potted Sulphurous Cactus");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Potted Sulphurous Cactus");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

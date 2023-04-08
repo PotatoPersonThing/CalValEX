@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -23,13 +24,10 @@ namespace CalValEX.Tiles.MiscFurniture {
             TileObjectData.newTile.CoordinatePadding = 0;
             AnimationFrameHeight = 128;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Bumbletube");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Bumbletube");
             AddMapEntry(new Color(128, 188, 67), name);
         }
-
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY) =>
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 24, 24, ItemType<PlagueDialysis>());
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch) =>
             CalValEXGlobalTile.TileGlowmask(i, j, Request<Texture2D>("CalValEX/Tiles/MiscFurniture/PlagueDialysisPlaced_Glow").Value, spriteBatch, AnimationFrameHeight, Type);

@@ -9,10 +9,10 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Calamity Moment");
-            Tooltip
-                .SetDefault("Wait...");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Calamity Moment");
+            /* Tooltip
+                .SetDefault("Wait..."); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

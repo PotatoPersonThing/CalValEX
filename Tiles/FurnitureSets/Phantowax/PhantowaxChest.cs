@@ -24,13 +24,12 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             Main.tileNoAttach[Type] = true;
             Main.tileOreFinderPriority[Type] = 500;
             TileID.Sets.BasicChest[Type] = true;
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Phantowax Chest");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Phantowax Chest");
             AddMapEntry(new Color(36, 18, 38), name, MapChestName);
             
             AdjTiles = new int[] { TileID.Containers };
-            ContainerName.SetDefault("Phantowax Chest");
-            ChestDrop = ModContent.ItemType<PhantowaxChestItem>();
+            ItemDrop = ModContent.ItemType<PhantowaxChestItem>();
 
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
@@ -84,7 +83,6 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ChestDrop);
             Chest.DestroyChest(i, j);
         }
 

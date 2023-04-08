@@ -14,10 +14,10 @@ using System;
 namespace CalValEX.Items.Pets {
     public class BrimberryItem : ModItem {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Brimstone Berry");
-            Tooltip.SetDefault(CalValEX.month == 6 ? "I can double jump!" : "Summons an ancient fruit" +
-                "\nOften used as offering to the Brimstone Goddess");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Brimstone Berry");
+            /* Tooltip.SetDefault(CalValEX.month == 6 ? "I can double jump!" : "Summons an ancient fruit" +
+                "\nOften used as offering to the Brimstone Goddess"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults() {
@@ -44,7 +44,7 @@ namespace CalValEX.Items.Pets {
         }
 
         private Tuple<Texture2D, bool> Assets() {
-            return Tuple.Create(Request<Texture2D>("CalValEX/Items/Pets/BrimberryItem").Value, Main.LocalPlayer.HasItem(ItemType<DormantBrimseeker>()));
+            return Tuple.Create(Request<Texture2D>("CalValEX/Items/Pets/BrimberryItem").Value, Main.LocalPlayer.HasItem(CalValEX.CalamityItem("DormantBrimseeker")));
         }
 
         public override void UseStyle(Player player, Rectangle heldItemFrame) {

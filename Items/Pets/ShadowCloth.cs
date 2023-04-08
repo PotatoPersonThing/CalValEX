@@ -11,9 +11,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shadow Cloth");
-            Tooltip.SetDefault("Summons an assassin to lurk behind you.");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Shadow Cloth");
+            // Tooltip.SetDefault("Summons an assassin to lurk behind you.");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

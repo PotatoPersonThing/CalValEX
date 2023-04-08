@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace CalValEX.Items.Plushies {
     public class MirePlushThrowableP1 : ModItem {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/MirePlushP1";
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults() {
             Item.useStyle = 1;
@@ -51,9 +51,9 @@ namespace CalValEX.Items.Plushies {
     public class MirePlushThrowableP2 : ModItem {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/MirePlushP2";
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Slimy Cragmaw Mire Plushie (Throwable)");
-            Tooltip.SetDefault("Can be thrown");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Slimy Cragmaw Mire Plushie (Throwable)");
+            // Tooltip.SetDefault("Can be thrown");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults() {

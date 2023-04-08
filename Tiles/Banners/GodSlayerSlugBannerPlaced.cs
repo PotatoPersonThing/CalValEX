@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Items.Tiles.Banners;
@@ -26,14 +27,9 @@ namespace CalValEX.Tiles.Banners
             TileObjectData.addTile(Type);
             DustType = -1;
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("God Slayer Slug Banner");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("God Slayer Slug Banner");
             AddMapEntry(new Color(0, 255, 242), name);
-        }
-
-        public override void KillMultiTile(int i, int j, int TileFrameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 48, ModContent.ItemType<GodSlayerSlugBanner>());
         }
 
         public override void NearbyEffects(int i, int j, bool closer)

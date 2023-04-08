@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Astral
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Xenomonolith Door");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Xenomonolith Door");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

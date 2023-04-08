@@ -9,9 +9,9 @@ namespace CalValEX.Items
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Compensation");
-			Tooltip.SetDefault("Can be sold");
-			SacrificeTotal = 99;
+			// DisplayName.SetDefault("Compensation");
+			// Tooltip.SetDefault("Can be sold");
+			Item.ResearchUnlockCount = 99;
 		}
 
 		public override void SetDefaults()

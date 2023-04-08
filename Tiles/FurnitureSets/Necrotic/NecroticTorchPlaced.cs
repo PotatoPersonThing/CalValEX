@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -38,8 +39,8 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
             TileObjectData.addAlternate(0);
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Torch");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Torch");
             AddMapEntry(new Color(7, 52, 114), name);
             ItemDrop = ItemType<Items.Tiles.FurnitureSets.Necrotic.NecroticTorch>();
             

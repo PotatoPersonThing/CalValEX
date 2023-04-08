@@ -10,7 +10,7 @@ namespace CalValEX.Projectiles.Pets {
 
         public override void SetStaticDefaults() {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Brimberry");
+            // DisplayName.SetDefault("Brimberry");
             Main.projFrames[Projectile.type] = 4;
         }
 
@@ -23,7 +23,7 @@ namespace CalValEX.Projectiles.Pets {
         }
 
         public override bool PreDraw(ref Color lightColor) {
-            bool seek = Main.LocalPlayer.HasItem(ItemType<DormantBrimseeker>());
+            bool seek = Main.LocalPlayer.HasItem(CalValEX.CalamityItem("DormantBrimseeker"));
             Texture2D tex = Request<Texture2D>("CalValEX/Projectiles/Pets/BrimberryPet").Value;
             Rectangle frame = tex.Frame(2, Main.projFrames[Projectile.type], seek ? 1 : 0, Projectile.frame);
             frame.Height -= 1;

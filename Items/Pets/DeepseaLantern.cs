@@ -18,9 +18,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Deep Sea Lantern");
-            Tooltip.SetDefault("'Might call upon a creature looking for food'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Deep Sea Lantern");
+            // Tooltip.SetDefault("'Might call upon a creature looking for food'");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -11,12 +11,12 @@ namespace CalValEX.Items
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Termipebbles");
-            Tooltip.SetDefault("Used to craft Terminus-themed vanities\n" + "'Do NOT eat.'");
+            // DisplayName.SetDefault("Termipebbles");
+            // Tooltip.SetDefault("Used to craft Terminus-themed vanities\n" + "'Do NOT eat.'");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             ItemID.Sets.ItemIconPulse[Item.type] = false;
-            SacrificeTotal = 25;
+            Item.ResearchUnlockCount = 25;
         }
 
         public override void SetDefaults()

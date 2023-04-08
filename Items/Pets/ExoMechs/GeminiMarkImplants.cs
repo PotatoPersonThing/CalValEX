@@ -10,9 +10,9 @@ namespace CalValEX.Items.Pets.ExoMechs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Gemini Mark Implants");
-            Tooltip.SetDefault("22 Vision\n" + "Summons smaller replicas of the advanced surveillance ships");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Gemini Mark Implants");
+            // Tooltip.SetDefault("22 Vision\n" + "Summons smaller replicas of the advanced surveillance ships");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

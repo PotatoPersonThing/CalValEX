@@ -8,8 +8,8 @@ namespace CalValEX.Items.Tiles.Blocks.Astral
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Xenomonolith");
-            SacrificeTotal = 100;
+            // DisplayName.SetDefault("Xenomonolith");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

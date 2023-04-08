@@ -10,9 +10,9 @@ namespace CalValEX.Items
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mystery Painting");
-            Tooltip.SetDefault("<right> for a random painting");
-            SacrificeTotal = 3;
+            // DisplayName.SetDefault("Mystery Painting");
+            // Tooltip.SetDefault("<right> for a random painting");
+            Item.ResearchUnlockCount = 3;
         }
 
         public override void SetDefaults()

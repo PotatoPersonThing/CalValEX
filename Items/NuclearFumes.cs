@@ -10,10 +10,10 @@ namespace CalValEX.Items
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Nuclear Fumes");
-            Tooltip.SetDefault("Don't inhale them");
+            // DisplayName.SetDefault("Nuclear Fumes");
+            // Tooltip.SetDefault("Don't inhale them");
             ItemID.Sets.ItemNoGravity[Item.type] = true;
-            SacrificeTotal = 25;
+            Item.ResearchUnlockCount = 25;
         }
 
         public override void SetDefaults()

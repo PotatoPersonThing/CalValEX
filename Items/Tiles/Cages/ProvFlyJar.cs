@@ -11,8 +11,8 @@ namespace CalValEX.Items.Tiles.Cages
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Blazing Butterfly Jar");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Blazing Butterfly Jar");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

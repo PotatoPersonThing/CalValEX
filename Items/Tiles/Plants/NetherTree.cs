@@ -9,10 +9,10 @@ namespace CalValEX.Items.Tiles.Plants
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Twisting Nether Sapling");
-            Tooltip
-                .SetDefault("Vicious");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Twisting Nether Sapling");
+            /* Tooltip
+                .SetDefault("Vicious"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

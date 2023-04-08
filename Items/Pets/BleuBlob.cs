@@ -12,12 +12,12 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bleu Blob");
-            Tooltip.SetDefault("Summons some cool blue dudes");
+            // DisplayName.SetDefault("Bleu Blob");
+            // Tooltip.SetDefault("Summons some cool blue dudes");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 4));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
-            SacrificeTotal = 1;
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

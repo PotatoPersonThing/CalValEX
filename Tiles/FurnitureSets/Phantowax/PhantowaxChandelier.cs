@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -25,8 +26,8 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Phantowax Chandelier");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Phantowax Chandelier");
             AddMapEntry(new Color(94, 39, 93), name);
         }
 
@@ -40,11 +41,6 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
                 g = 0.4f;
                 b = 0.9f;
             }
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, ItemType<PhantowaxChandelierItem>());
         }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using CalValEX.Items.Tiles.Banners;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -24,14 +25,9 @@ namespace CalValEX.Tiles.Banners
             TileObjectData.newTile.Height = 5;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16 }; //
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Acursed Banner");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Acursed Banner");
             AddMapEntry(new Color(139, 0, 0), name);
-        }
-
-        public override void KillMultiTile(int i, int j, int TileFrameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<CalamitasBanner>());
         }
 
         /*public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)

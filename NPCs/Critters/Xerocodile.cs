@@ -51,26 +51,27 @@ namespace CalValEX.NPCs.Critters
 
         public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
-            //Mod clamMod = ModLoader.GetMod("CalamityMod");
             if (NPC.wet)
             {
                 NPC.Transform(ModContent.NPCType<XerocodileSwim>());
             }
             if (!Main.bloodMoon)
             {
-                Item.NewItem(NPC.GetSource_FromAI(), NPC.position, NPC.width, NPC.height, ModContent.ItemType<CalamityMod.Items.Fishing.Gorecodile>(), 1, false, 0, false, false);
+                if (CalValEX.CalamityActive)
+                Item.NewItem(NPC.GetSource_FromAI(), NPC.position, NPC.width, NPC.height, CalValEX.CalamityItem("Gorecodile"), 1, false, 0, false, false);
                 NPC.active = false;
             }
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            //Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
-            //if (clamMod != null)
+            if (CalValEX.CalamityActive)
             {
-                if (CalamityMod.DownedBossSystem.downedProvidence && Main.bloodMoon && !CalValEXConfig.Instance.CritterSpawns)
+                if ((bool)CalValEX.Calamity.Call("GetBossDowned", "providence") && Main.bloodMoon && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     if (spawnInfo.PlayerSafe)
                     {
@@ -84,7 +85,7 @@ namespace CalValEX.NPCs.Critters
             }
             return 0f;
         }
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0)
             {

@@ -5,7 +5,7 @@ using Terraria.ID;
 namespace CalValEX.Items.Equips.Shirts {
     [AutoloadEquip(EquipType.Body, EquipType.Legs)]
     public class BelladonnaCloak : ModItem {
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults() {
             Item.width = 38;

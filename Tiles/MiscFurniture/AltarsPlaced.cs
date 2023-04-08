@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -21,15 +22,11 @@ namespace CalValEX.Tiles.MiscFurniture {
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
             TileObjectData.addTile(Type);
 
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Mouldering Altar");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Mouldering Altar");
             AddMapEntry(new Color(94, 67, 72), name);
 
             AdjTiles = new int[] { TileID.DemonAltar };
-        }
-
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY) {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<MoulderingAltarItem>());
         }
     }
     public class VisceralAltarPlaced : ModTile {
@@ -46,16 +43,11 @@ namespace CalValEX.Tiles.MiscFurniture {
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 };
             TileObjectData.addTile(Type);
 
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Visceral Altar");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Visceral Altar");
             AddMapEntry(new Color(153, 54, 63), name);
 
             AdjTiles = new int[] { TileID.DemonAltar };
         }
-
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY) {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<VisceralAltarItem>());
-        }
-
     }
 }

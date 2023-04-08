@@ -1,4 +1,3 @@
-using CalamityMod.CalPlayer;
 using CalValEX.AprilFools;
 using Microsoft.Xna.Framework;
 using System;
@@ -10,9 +9,9 @@ using static Terraria.ModLoader.ModContent;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
 using Terraria.GameContent.Bestiary;
+using Terraria.GameContent;
 using Terraria.GameContent.Personalities;
 using System.Collections.Generic;
-using CalamityMod.NPCs.TownNPCs;
 
 namespace CalValEX.AprilFools.Jharim
 {
@@ -29,6 +28,15 @@ namespace CalValEX.AprilFools.Jharim
         public bool lasercheck = false;
         Vector2 jharimpos;
 
+        private static int ShimmerHeadIndex;
+        private static Profiles.StackedNPCProfile NPCProfile;
+
+        public override void Load()
+        {
+            // Adds our Shimmer Head to the NPCHeadLoader.
+            ShimmerHeadIndex = Mod.AddNPCHeadTexture(Type, "CalValEX/AprilFools/Jharim/Jharim_Shimmer_Head");
+        }
+
         public override void SetStaticDefaults()
         {
            // DisplayName.SetDefault("Jungle Tyrant");
@@ -39,6 +47,15 @@ namespace CalValEX.AprilFools.Jharim
             NPCID.Sets.AttackType[NPC.type] = 0;
             NPCID.Sets.AttackTime[NPC.type] = 90;
             NPCID.Sets.AttackAverageChance[NPC.type] = 30;
+
+            NPCID.Sets.ShimmerTownTransform[Type] = true; // Allows for this NPC to have a different texture after touching the Shimmer liquid.
+
+
+            // This creates a "profile" for ExamplePerson, which allows for different textures during a party and/or while the NPC is shimmered.
+            NPCProfile = new Profiles.StackedNPCProfile(
+                new Profiles.DefaultNPCProfile(Texture, NPCHeadLoader.GetHeadSlot(HeadTexture), Texture),
+                new Profiles.DefaultNPCProfile("CalValEX/AprilFools/Jharim/Jharim_Shimmer", ShimmerHeadIndex)
+            );
             NPC.Happiness
                 .SetBiomeAffection<JungleBiome>(AffectionLevel.Like) // Example Person prefers the jungle.
                 .SetBiomeAffection<SnowBiome>(AffectionLevel.Dislike) // Example Person dislikes the snow.
@@ -47,8 +64,10 @@ namespace CalValEX.AprilFools.Jharim
                 .SetNPCAffection(NPCID.Dryad, AffectionLevel.Love) // Loves living near the dryad.
                 .SetNPCAffection(NPCID.Pirate, AffectionLevel.Like) // Likes living near the pirate.
                 .SetNPCAffection(NPCID.TaxCollector, AffectionLevel.Dislike) // Dislikes living near the tax collector.
-                .SetNPCAffection(ModContent.NPCType<WITCH>(), AffectionLevel.Hate) // Hates living near scal.
             ;
+            if (CalValEX.CalamityActive)
+                NPC.Happiness.SetNPCAffection(CalValEX.CalamityNPC("WITCH"), AffectionLevel.Hate); // Hates living near scal.
+
             if (!CalValEX.AprilFoolMonth)
             {
                 NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
@@ -103,56 +122,60 @@ namespace CalValEX.AprilFools.Jharim
             }
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
             if (!CalValEX.AprilFoolMonth)
             {
                 NPC.active = false;
             }
-            if (NPC.AnyNPCs(NPCType<CalamityMod.NPCs.TownNPCs.WITCH>()) && !MELDOSAURUSED && NPC.life < NPC.lifeMax * 0.15f)
+            if (CalValEX.CalamityActive)
             {
-                if (!lasercheck)
+                if (NPC.AnyNPCs(CalValEX.CalamityNPC("WITCH")) && !MELDOSAURUSED && NPC.life < NPC.lifeMax * 0.15f)
                 {
-                    lasercheck = true;
-                    firinglaser = true;
-                }
-                for (int x = 0; x < Main.maxNPCs; x++)
-                {
-                    NPC npc3 = Main.npc[x];
-                    if (npc3.type == NPCType<CalamityMod.NPCs.TownNPCs.WITCH>())
+                    if (!lasercheck)
                     {
-                        if (npc3.active)
+                        lasercheck = true;
+                        firinglaser = true;
+                    }
+                    for (int x = 0; x < Main.maxNPCs; x++)
+                    {
+                        NPC npc3 = Main.npc[x];
+                        if (npc3.type == CalValEX.CalamityNPC("WITCH"))
                         {
-                            jharimpos.X = npc3.Center.X;
-                            jharimpos.Y = npc3.Center.Y;
-                            if (npc3.position.X - NPC.position.X >= 0)
+                            if (npc3.active)
                             {
-                                NPC.direction = 1;
+                                jharimpos.X = npc3.Center.X;
+                                jharimpos.Y = npc3.Center.Y;
+                                if (npc3.position.X - NPC.position.X >= 0)
+                                {
+                                    NPC.direction = 1;
+                                }
+                                else
+                                {
+                                    NPC.direction = -1;
+                                }
                             }
                             else
                             {
-                                NPC.direction = -1;
+                                CalValEXWorld.jharinter = true;
+                                lasercheck = false;
                             }
                         }
-                        else
-                        {
-                            CalValEXWorld.jharinter = true;
-                            lasercheck = false;
-                        }
                     }
-                }
-                if (firinglaser)
-                {
-                    Vector2 position = NPC.Center;
-                    position.X = NPC.Center.X;
-                    Vector2 direction = jharimpos - position;
-                    direction.Normalize();
-                    float speed = 10f;
-                    int type = ProjectileType<JharimLaser>();
-                    int damage = 6666666;
-                    Projectile.NewProjectile(NPC.GetSource_FromAI(), position, direction * speed, type, damage, 0f, Main.myPlayer);
-                    firinglaser = false;
-                    NPC.defense = 999;
+                    if (firinglaser)
+                    {
+                        Vector2 position = NPC.Center;
+                        position.X = NPC.Center.X;
+                        Vector2 direction = jharimpos - position;
+                        direction.Normalize();
+                        float speed = 10f;
+                        int type = CalValEX.CalamityActive ? Mod.Find<ModProjectile>("JharimLaser").Type : 0;
+                        int damage = 6666666;
+                        Projectile.NewProjectile(NPC.GetSource_FromAI(), position, direction * speed, type, damage, 0f, Main.myPlayer);
+                        firinglaser = false;
+                        NPC.defense = 999;
+                    }
                 }
             }
             if (MELDOSAURUSED)
@@ -184,14 +207,17 @@ namespace CalValEX.AprilFools.Jharim
         }
 
         public override List<string> SetNPCNameList() => new List<string>() { "Jharim" };
+        public override ITownNPCProfile TownNPCProfile()
+        {
+            return NPCProfile;
+        }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override string GetChat()
         {
-
             CalValEXGlobalNPC.jharim = NPC.whoAmI;
             Player player = Main.player[Main.myPlayer];
             CalValEXPlayer CalValEXPlayer = player.GetModPlayer<CalValEXPlayer>();
-            CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
             if (!MELDOSAURUSED)
             {
                 if (NPC.homeless)
@@ -209,73 +235,75 @@ namespace CalValEX.AprilFools.Jharim
                     }
                 }
 
-                if (calPlayer.cirrusDress)
-                {
-                    return "NO NO NOT THE STAR NEVER AGAIN NO NO NO!";
-                }
-
-                //Main.NewText("MISC EQUIPS 0 TYPE: " + Main.player[Main.myPlayer].miscEquips[0].type + "|MISC EQUIPS 1 TYPE: " + Main.player[Main.myPlayer].miscEquips[1].type);
-
                 if ((NPC.AnyNPCs(NPCID.LunarTowerNebula) || NPC.AnyNPCs(NPCID.LunarTowerVortex) || NPC.AnyNPCs(NPCID.LunarTowerStardust) || NPC.AnyNPCs(NPCID.LunarTowerSolar)) && Main.rand.NextFloat() < 0.25f)
                 {
                     return "These pillars are spookay, and those dark globs some of their friends drop are... I don't want to touch any... especially if its on fire, so please don't shoot me with any fiery weapons made of that stuff.";
                 }
 
-                int FAP = NPC.FindFirstNPC(ModContent.NPCType<CalamityMod.NPCs.TownNPCs.FAP>());
-                if (FAP >= 0 && Main.rand.NextFloat() < 0.25f)
+                if (CalValEX.CalamityActive)
                 {
-                    return "Hyu Hyu Hyu... That purple lady stole my booze.";
-                }
-
-                int Cal = NPC.FindFirstNPC(ModContent.NPCType<CalamityMod.NPCs.TownNPCs.WITCH>());
-                if (Cal >= 0 && Main.rand.NextFloat() < 0.25f)
-                {
-                    return "GET THAT ACURSED WITCH AWAY FROM ME";
-                }
-
-                int SEAHOE = NPC.FindFirstNPC(ModContent.NPCType<CalamityMod.NPCs.TownNPCs.SEAHOE>());
-                if (SEAHOE >= 0 && Main.rand.NextFloat() < 0.25f)
-                {
-                    if (Cal >= 0)
-                        return "How is Amidas still alive, I thought that he got burnt by that DUMB witch.";
-                    else
-                        return "How is Amidas still alive, I thought that he got burnt by Soup Ree Calamitoad.";
-                }
-
-                if (NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.ExoMechs.Draedon>()) && Main.rand.NextFloat() < 0.25f)
-                {
-                    return "DRAAAAAAAAAEEEEEEEDOOOOOOOOOOOONNNNNNNNNNNNNNNNNNN I KNOW WHAT YOU DID!";
-                }
-
-                /*Mod apoc = ModLoader.GetMod("ApothTestMod");
-                if (apoc != null)
-                {
-                    if (NPC.AnyNPCs((apoc.NPCType("THELORDE"))))
+                    if (CalValEXPlayer.CirrusDress)
                     {
-                        return "IMPOSTER!";
+                        return "NO NO NOT THE STAR NEVER AGAIN NO NO NO!";
                     }
-                }*/
 
-                if (NPC.AnyNPCs(ModContent.NPCType<CalamityMod.NPCs.Yharon.Yharon>()) && Main.rand.NextFloat() < 0.25f)
-                {
-                    return "Hyuck Hyuck Hyuck, my loyal friend Yharon! I demand you to stop atacking! ... Guess he doesn't recognize me...";
-                }
-                Mod clamMod = ModLoader.GetMod("CalamityMod");
-                if (((bool)clamMod.Call("GetBossDowned", "supremecalamitas")) && ((bool)clamMod.Call("GetBossDowned", "exomechs")) && Main.rand.NextFloat() < 0.25)
-                {
-                    switch (Main.rand.Next(2))
+                    int FAP = NPC.FindFirstNPC(CalValEX.CalamityNPC("FAP"));
+                    if (FAP >= 0 && Main.rand.NextFloat() < 0.25f)
                     {
-                        case 0:
-                            return "It is time for you to face him.";
-
-                        default:
-                            return "The god of the universe... he is willing to face you now.";
+                        return "Hyu Hyu Hyu... That purple lady stole my booze.";
                     }
-                }
 
-                if ((calPlayer.sirenWaifu || calPlayer.elementalHeart || calPlayer.sirenWaifuVanity || calPlayer.allWaifusVanity) && Main.rand.NextFloat() < 0.25f)
-                {
-                    return "OoooooO Fish Lady, tell me! Where's my fish tacos!";
+                    int Cal = NPC.FindFirstNPC(CalValEX.CalamityNPC("WITCH"));
+                    if (Cal >= 0 && Main.rand.NextFloat() < 0.25f)
+                    {
+                        return "GET THAT ACURSED WITCH AWAY FROM ME";
+                    }
+
+                    int SEAHOE = NPC.FindFirstNPC(CalValEX.CalamityNPC("SEAHOE"));
+                    if (SEAHOE >= 0 && Main.rand.NextFloat() < 0.25f)
+                    {
+                        if (Cal >= 0)
+                            return "How is Amidas still alive, I thought that he got burnt by that DUMB witch.";
+                        else
+                            return "How is Amidas still alive, I thought that he got burnt by Soup Ree Calamitoad.";
+                    }
+
+                    if (NPC.AnyNPCs(CalValEX.CalamityNPC("Draedon")) && Main.rand.NextFloat() < 0.25f)
+                    {
+                        return "DRAAAAAAAAAEEEEEEEDOOOOOOOOOOOONNNNNNNNNNNNNNNNNNN I KNOW WHAT YOU DID!";
+                    }
+
+                    /*Mod apoc = ModLoader.GetMod("ApothTestMod");
+                    if (apoc != null)
+                    {
+                        if (NPC.AnyNPCs((apoc.NPCType("THELORDE"))))
+                        {
+                            return "IMPOSTER!";
+                        }
+                    }*/
+
+                    if (NPC.AnyNPCs(CalValEX.CalamityNPC("Yharon")) && Main.rand.NextFloat() < 0.25f)
+                    {
+                        return "Hyuck Hyuck Hyuck, my loyal friend Yharon! I demand you to stop atacking! ... Guess he doesn't recognize me...";
+                    }
+
+                    Mod clamMod = CalValEX.Calamity;
+                    if (((bool)clamMod.Call("GetBossDowned", "supremecalamitas")) && ((bool)clamMod.Call("GetBossDowned", "exomechs")) && Main.rand.NextFloat() < 0.25)
+                    {
+                        switch (Main.rand.Next(2))
+                        {
+                            case 0:
+                                return "It is time for you to face him.";
+
+                            default:
+                                return "The god of the universe... he is willing to face you now.";
+                        }
+                    }
+
+                    if (player.ownedProjectileCounts[CalValEX.CalamityProjectile("WaterElemental")] > 0 && Main.rand.NextFloat() < 0.25f)
+                    {
+                        return "OoooooO Fish Lady, tell me! Where's my fish tacos!";
+                    }
                 }
 
                 if (Main.eclipse)
@@ -290,27 +318,30 @@ namespace CalValEX.AprilFools.Jharim
                     }
                 }
 
-                if (CalamityMod.Events.BossRushEvent.BossRushActive)
+                if (CalValEX.CalamityActive)
                 {
-                    switch (Main.rand.Next(2))
+                    if ((bool)CalValEX.Calamity.Call("GetDifficultyActive", "bossrush"))
                     {
-                        case 0:
-                            return "THE SKY IS COLLAPSING, IT'S THE END AGAIN!";
+                        switch (Main.rand.Next(2))
+                        {
+                            case 0:
+                                return "THE SKY IS COLLAPSING, IT'S THE END AGAIN!";
 
-                        default:
-                            return "THE MOTH, THEY'LL RECKON HAVOC UPON ME AND FLING ME OFF EXISTENCE AAAAAHHHHHHHHHH";
+                            default:
+                                return "THE MOTH, THEY'LL RECKON HAVOC UPON ME AND FLING ME OFF EXISTENCE AAAAAHHHHHHHHHH";
+                        }
                     }
-                }
 
-                if (CalamityMod.Events.AcidRainEvent.AcidRainEventIsOngoing)
-                {
-                    switch (Main.rand.Next(2))
+                    if ((bool)CalValEX.Calamity.Call("AcidRainActive"))
                     {
-                        case 0:
-                            return "ribbit.";
+                        switch (Main.rand.Next(2))
+                        {
+                            case 0:
+                                return "ribbit.";
 
-                        default:
-                            return "I'm feeling kinda drunk right now Hyickup Hyickup. Maybe I should stop drinking highly toxic acid...";
+                            default:
+                                return "I'm feeling kinda drunk right now Hyickup Hyickup. Maybe I should stop drinking highly toxic acid...";
+                        }
                     }
                 }
 
@@ -386,32 +417,30 @@ namespace CalValEX.AprilFools.Jharim
             if (!MELDOSAURUSED)
             {
                 button = "Shop";
+                if (CalValEX.CalamityActive)
                 button2 = "Summon";
             }
         }
 
-        public override void OnChatButtonClicked(bool firstButton, ref bool shop)
+        [JITWhenModsEnabled("CalamityMod")]
+        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
         {
             if (!MELDOSAURUSED)
             {
                 if (firstButton)
                 {
-                    shop = true;
-                    {
-                        shop1 = true;
-                        boss = false;
-                    }
+                    shopName = "Jharim";
                 }
-                else if (!firstButton)
+                else if (!firstButton && CalValEX.CalamityActive)
                 {
                     {
                         if (Main.myPlayer == Main.LocalPlayer.whoAmI)
                         {
-                            if (CalamityMod.DownedBossSystem.downedExoMechs && CalamityMod.DownedBossSystem.downedCalamitas)
+                            if ((bool)CalValEX.Calamity.Call("GetBossDowned", "scal") && (bool)CalValEX.Calamity.Call("GetBossDowned", "draedon"))
                             {
                                 NPC.active = false;
                                 NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, NPCType<Fogbound>());
-                                CalamityMod.CalamityUtils.DisplayLocalizedText("You've awoken me... time to pay the price...", Color.Gray);
+                                Main.NewText("You've awoken me... time to pay the price...", Color.Gray);
                                 NPC.HitEffect();
                             }
                             else
@@ -423,18 +452,11 @@ namespace CalValEX.AprilFools.Jharim
                 }
             }
         }
-
-        public override void SetupShop(Chest shop, ref int nextSlot)
+        public override void AddShops()
         {
-            if (!MELDOSAURUSED)
-            {
-                if (shop1)
-                {
-                    shop.item[nextSlot].SetDefaults(ItemType<AprilFools.AmogusItem>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
-                    nextSlot++;
-                }
-            }
+            var blockShop = new NPCShop(Type, "Jharim");
+            blockShop.Add(ItemType<AmogusItem>());
+            blockShop.Register();
         }
 
         public override bool CanGoToStatue(bool toKingStatue)
@@ -456,13 +478,13 @@ namespace CalValEX.AprilFools.Jharim
             }
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Jharim").Type, 1f);
-                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Jharim2").Type, 1f);
-                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Jharim3").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("JharimGore").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("JharimGore2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("JharimGore3").Type, 1f);
             }
         }
 
@@ -495,13 +517,14 @@ namespace CalValEX.AprilFools.Jharim
             randExtraCooldown = 20;
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
+            int prod = CalValEX.CalamityActive ? Mod.Find<ModProjectile>("JharimLaser").Type : 0;
             if (!MELDOSAURUSED)
-                projType = ModContent.ProjectileType<JharimLaser>();
-
-                    else
-                        projType = ProjectileType<CalamityMod.Projectiles.Typeless.NobodyKnows>();
+                projType = prod;
+            else
+                projType = ProjectileID.None;
             attackDelay = 1;
             return;
         }
@@ -512,11 +535,21 @@ namespace CalValEX.AprilFools.Jharim
             multiplier = 24f;
         }
 
-        public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit)
+        public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone)
         {
-            if (projectile.type == ProjectileType<CalamityMod.Projectiles.Ranged.CosmicFire>())
+            if (!NPC.IsShimmerVariant)
             {
-                MELDOSAURUSED = true;
+                if (CalValEX.CalamityActive)
+                {
+                    if (projectile.type == CalValEX.CalamityProjectile("CosmicFire"))
+                    {
+                        MELDOSAURUSED = true;
+                    }
+                }
+                else if (projectile.type == ProjectileID.VortexBeaterRocket)
+                {
+                    MELDOSAURUSED = true;
+                }
             }
         }
         public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

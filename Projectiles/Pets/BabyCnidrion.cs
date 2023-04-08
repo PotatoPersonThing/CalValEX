@@ -16,7 +16,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Sneeze Dragon");
+            // DisplayName.SetDefault("Sneeze Dragon");
             Main.projFrames[Projectile.type] = 7;
         }
 

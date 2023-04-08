@@ -8,8 +8,8 @@ namespace CalValEX.Items.Tiles.Blocks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Polished Xenomonolith");
-            SacrificeTotal = 100;
+            // DisplayName.SetDefault("Polished Xenomonolith");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

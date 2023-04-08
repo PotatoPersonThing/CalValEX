@@ -7,8 +7,8 @@ namespace CalValEX.Items.Tiles.Plants
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Potted Brain Coral");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Potted Brain Coral");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

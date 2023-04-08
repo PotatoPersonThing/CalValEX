@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
@@ -24,8 +25,8 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Bloodstone Chandelier");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Bloodstone Chandelier");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 
@@ -39,11 +40,6 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
                 g = 0.75f;
                 b = 0.6f;
             }
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, ItemType<BloodstoneChandelierItem>());
         }
     }
 }

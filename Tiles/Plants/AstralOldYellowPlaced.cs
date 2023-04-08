@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -22,14 +23,9 @@ namespace CalValEX.Tiles.Plants
             TileObjectData.newTile.Height = 6;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16, 16 }; //
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Yellow Xenomonolith");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Yellow Xenomonolith");
             AddMapEntry(new Color(255, 0, 251), name);
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 48, ItemType<AstralOldYellow>());
         }
     }
 }

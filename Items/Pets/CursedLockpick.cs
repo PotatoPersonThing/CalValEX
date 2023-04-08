@@ -8,10 +8,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cursed Lockpick");
-            Tooltip
-                .SetDefault("Crusty\n" + "Summons a Rusty Mimic pet");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Cursed Lockpick");
+            /* Tooltip
+                .SetDefault("Crusty\n" + "Summons a Rusty Mimic pet"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -7,12 +7,13 @@ using CalamityMod.Projectiles.Magic;
 
 namespace CalValEX.Projectiles
 {
+    [ExtendsFromMod("CalamityMod")]
     public class JharimKiller : SeethingDischargeBrimstoneHellblast
     {
         public override string Texture => "CalamityMod/Projectiles/Boss/BrimstoneHellblast";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Eat crap Jharim");
+            // DisplayName.SetDefault("Eat crap Jharim");
             Main.projFrames[Projectile.type] = 4;
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 0;

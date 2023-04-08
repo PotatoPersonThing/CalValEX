@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using CalValEX.Items.Tiles.FurnitureSets.Auric;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -21,8 +22,8 @@ namespace CalValEX.Tiles.FurnitureSets.Auric {
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 }; //
             TileObjectData.addTile(Type);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Auric Lantern");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Auric Lantern");
             AddMapEntry(new Color(139, 0, 0), name);
         }
 
@@ -39,9 +40,6 @@ namespace CalValEX.Tiles.FurnitureSets.Auric {
                 drawPosition.X -= 2f;
             spriteBatch.Draw(glowmask, drawPosition, new Rectangle(xFrameOffset, yFrameOffset, 18, 18), drawColour, 0.0f, Vector2.Zero, 1f, effects, 0.0f);
         }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 32, ModContent.ItemType<AuricLanternItem>());
 
         public override void HitWire(int i, int j) {
             Tile tile = Main.tile[i, j];

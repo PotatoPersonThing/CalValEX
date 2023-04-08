@@ -17,7 +17,7 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Jared Head");
+            // DisplayName.SetDefault("Jared Head");
             ProjectileID.Sets.NeedsUUID[Projectile.type] = true;
 			Main.projPet[Projectile.type] = true;
 		}
@@ -322,10 +322,19 @@ namespace CalValEX.Projectiles.Pets
         }
         public override void PostDraw(Color lightColor)
         {
-            Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/JaredHead_Glow").Value;
-			int frameHeight = texture.Height / Main.projFrames[Projectile.type];
-			int hei = frameHeight * Projectile.frame;
-			Main.EntitySpriteDraw(texture, Projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * Projectile.frame, texture.Width, frameHeight)), Color.White, Projectile.rotation, Projectile.Size / 2f, 1f, SpriteEffects.None, 0);
-        }
+			if (Projectile.isAPreviewDummy)
+			{
+				Projectile.rotation = MathHelper.PiOver2;
+				Projectile.position.X -= 110;
+				Projectile.position.Y -= 30;
+			}
+			else
+			{
+				Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/JaredHead_Glow").Value;
+				int frameHeight = texture.Height / Main.projFrames[Projectile.type];
+				int hei = frameHeight * Projectile.frame;
+				Main.EntitySpriteDraw(texture, Projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * Projectile.frame, texture.Width, frameHeight)), Color.White, Projectile.rotation, Projectile.Size / 2f, 1f, SpriteEffects.None, 0);
+			}
+		}
     }
 }

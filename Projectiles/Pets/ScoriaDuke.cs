@@ -12,7 +12,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Scoria Duke");
+            // DisplayName.SetDefault("Scoria Duke");
             Main.projFrames[Projectile.type] = 4;
         }
 

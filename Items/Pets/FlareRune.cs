@@ -10,10 +10,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Flare Rune");
-            Tooltip.SetDefault("Summons Avalon, an ascended Profaned Guardian infused with profaned and cosmic energy\n" +
-                "'WuH'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Flare Rune");
+            /* Tooltip.SetDefault("Summons Avalon, an ascended Profaned Guardian infused with profaned and cosmic energy\n" +
+                "'WuH'"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

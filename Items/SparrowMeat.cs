@@ -10,9 +10,9 @@ namespace CalValEX.Items
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sparrow Meat");
-            Tooltip.SetDefault("There's a bit of pink cloth in it");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Sparrow Meat");
+            // Tooltip.SetDefault("There's a bit of pink cloth in it");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

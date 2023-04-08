@@ -11,9 +11,9 @@ namespace CalValEX.Items
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chaotic Puffball");
-            Tooltip.SetDefault("It probably won't detonate...");
-            SacrificeTotal = 5;
+            // DisplayName.SetDefault("Chaotic Puffball");
+            // Tooltip.SetDefault("It probably won't detonate...");
+            Item.ResearchUnlockCount = 5;
         }
 
         public override void SetDefaults()

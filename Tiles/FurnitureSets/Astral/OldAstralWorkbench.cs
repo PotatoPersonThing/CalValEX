@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Items.Tiles.FurnitureSets.Astral;
@@ -25,15 +26,10 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
             TileObjectData.addTile(Type);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Xenomonolith Work Bench");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Xenomonolith Work Bench");
             AddMapEntry(new Color(139, 0, 0), name);
             AdjTiles = new int[] { TileID.WorkBenches };
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 16, ItemType<OldAstralWorkbenchItem>());
         }
     }
 }

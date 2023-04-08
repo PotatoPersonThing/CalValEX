@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Items.Tiles;
@@ -27,15 +28,10 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.addAlternate(1); //facing right will use the second texture style
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Cosmlite Chair EX");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Cosmlite Chair EX");
             AddMapEntry(new Color(221, 116, 242), name);
             AdjTiles = new int[] { TileID.Chairs };
-        }
-
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ModContent.ItemType<CosmiliteChairEX>());
         }
     }
 }

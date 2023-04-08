@@ -19,7 +19,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Wulfrom Gyrothing");
+            // DisplayName.SetDefault("Wulfrom Gyrothing");
             Main.projFrames[Projectile.type] = 10;
         }
 

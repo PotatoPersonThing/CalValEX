@@ -13,10 +13,10 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sulphuric Tank");
-            Tooltip
-                .SetDefault("ZZZX93");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Sulphuric Tank");
+            /* Tooltip
+                .SetDefault("ZZZX93"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

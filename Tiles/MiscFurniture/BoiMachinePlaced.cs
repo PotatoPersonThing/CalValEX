@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Items.Tiles;
@@ -20,8 +21,8 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16 };
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Boi Machine");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Boi Machine");
             AddMapEntry(new Color(0, 118, 49), name);
         }
 
@@ -45,11 +46,6 @@ namespace CalValEX.Tiles.MiscFurniture
             localPlayer.noThrow = 2;
             localPlayer.cursorItemIconEnabled = true;
             localPlayer.cursorItemIconID = ModContent.ItemType<BoiMachine>();
-        }
-
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 48, 32, ModContent.ItemType<BoiMachine>());
         }
     }
 }

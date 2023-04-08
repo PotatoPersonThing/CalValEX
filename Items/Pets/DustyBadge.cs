@@ -9,9 +9,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Dusty Badge");
-            Tooltip.SetDefault("Looks tasty\n" + "Summons the Great Sand Shark's Great Grandson");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Dusty Badge");
+            // Tooltip.SetDefault("Looks tasty\n" + "Summons the Great Sand Shark's Great Grandson");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

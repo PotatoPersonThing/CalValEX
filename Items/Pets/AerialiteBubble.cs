@@ -12,9 +12,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Aerialite Bubble");
-            Tooltip.SetDefault("An odd sphere covered in light gel\n"+ "Summons a duo of Aero Slimes");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Aerialite Bubble");
+            // Tooltip.SetDefault("An odd sphere covered in light gel\n"+ "Summons a duo of Aero Slimes");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

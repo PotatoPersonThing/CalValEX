@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Signut");
-            Tooltip.SetDefault("'Yharex'\nDon't judge me, being trapped in ice for a long time does stuff to your mind");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Signut");
+            // Tooltip.SetDefault("'Yharex'\nDon't judge me, being trapped in ice for a long time does stuff to your mind");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

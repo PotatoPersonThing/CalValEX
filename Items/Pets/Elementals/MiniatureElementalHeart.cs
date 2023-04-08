@@ -10,13 +10,13 @@ namespace CalValEX.Items.Pets.Elementals
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Miniature Elemental Heart");
-            Tooltip.SetDefault("Its like you're running a daycare or something...\n" + "Summons all of the Miniature Elementals");
+            // DisplayName.SetDefault("Miniature Elemental Heart");
+            // Tooltip.SetDefault("Its like you're running a daycare or something...\n" + "Summons all of the Miniature Elementals");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
             ItemID.Sets.AnimatesAsSoul[Item.type] = true;
             ItemID.Sets.ItemIconPulse[Item.type] = false;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
-            SacrificeTotal = 1;
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

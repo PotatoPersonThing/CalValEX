@@ -9,7 +9,7 @@ namespace CalValEX.Items.Plushies
     public class AstrageldonPlushThrowable : ModItem
     {
         public override string Texture => "CalValEX/Items/Tiles/Plushies/AstrageldonPlush";
-        public override void SetStaticDefaults() => SacrificeTotal = 1;
+        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults()
         {

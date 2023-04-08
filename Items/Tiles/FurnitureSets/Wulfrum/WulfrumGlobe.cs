@@ -8,9 +8,9 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Wulfrum
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Wulfrum Globe");
-            Tooltip.SetDefault("Spin spin spin");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Wulfrum Globe");
+            // Tooltip.SetDefault("Spin spin spin");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -9,10 +9,10 @@ namespace CalValEX.Items.Tiles.Statues
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Shrine of the Tides");
-            Tooltip
-                .SetDefault("My gift to the Water Goddess");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Shrine of the Tides");
+            /* Tooltip
+                .SetDefault("My gift to the Water Goddess"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

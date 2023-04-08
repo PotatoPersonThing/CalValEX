@@ -12,9 +12,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rotting Calamitous Artifact");
-            Tooltip.SetDefault("'The grave rises'\n"+"Summons a pet Sepulchling");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Rotting Calamitous Artifact");
+            // Tooltip.SetDefault("'The grave rises'\n"+"Summons a pet Sepulchling");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

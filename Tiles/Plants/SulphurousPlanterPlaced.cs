@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -23,19 +24,14 @@ namespace CalValEX.Tiles.Plants
             TileObjectData.newTile.Height = 4;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16 }; //
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Acid Vine Planter");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Acid Vine Planter");
             AddMapEntry(new Color(67, 235, 45), name);
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
             CalValEXGlobalTile.TileGlowmask(i, j, Request<Texture2D>("CalValEX/Tiles/Plants/SulphurousPlanterPlaced_Glow").Value, spriteBatch);
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<SulphurousPlanter>());
         }
     }
 }

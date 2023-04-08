@@ -7,9 +7,9 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("A Sunday Afternoon in the World of Calamity");
-            Tooltip.SetDefault("'Mathew Maple'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("A Sunday Afternoon in the World of Calamity");
+            // Tooltip.SetDefault("'Mathew Maple'");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

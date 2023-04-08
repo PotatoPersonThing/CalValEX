@@ -7,7 +7,7 @@ namespace CalValEX.Projectiles.NPCs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Oracle's Magic 8 Ball");
+            // DisplayName.SetDefault("Oracle's Magic 8 Ball");
         }
 
         public override void SetDefaults()

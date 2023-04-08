@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Items.Tiles.FurnitureSets.Astral;
@@ -22,14 +23,9 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1xX);
             Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Xenomonolith Lamp");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Xenomonolith Lamp");
             AddMapEntry(new Color(139, 0, 0), name);
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 48, ModContent.ItemType<OldAstralLampItem>());
         }
 
         public override void HitWire(int i, int j)

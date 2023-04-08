@@ -23,8 +23,8 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             TileID.Sets.CanBeSleptIn[Type] = true; // Facilitates calling ModifySleepingTargetInfo
             TileID.Sets.InteractibleByNPCs[Type] = true; // Town NPCs will palm their hand at this tile
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Xenomonolith Bed");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Xenomonolith Bed");
             AddMapEntry(new Color(139, 0, 0), name);
             
             AdjTiles = new int[] { TileID.Beds };
@@ -36,11 +36,6 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
         public override void NumDust(int i, int j, bool fail, ref int num)
         {
             num = 1;
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 64, 32, ModContent.ItemType<OldAstralBedItem>());
         }
         public override void ModifySleepingTargetInfo(int i, int j, ref TileRestingInfo info)
         {

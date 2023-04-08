@@ -1,12 +1,8 @@
-using MonoMod.Cil;
-using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
-using Terraria.DataStructures;
-using Microsoft.Xna.Framework;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -25,24 +21,10 @@ namespace CalValEX.NPCs.Critters
         {
             NPC.width = 22;
             NPC.height = 18;
-            //NPC.aiStyle = 67;
-            //NPC.damage = 0;
-            //NPC.defense = 0;
-            //NPC.lifeMax = 2000;
-            //NPC.HitSound = SoundID.NPCHit38;
-            //NPC.DeathSound = SoundID.NPCDeath1;
-            //NPC.npcSlots = 0.5f;
-            //NPC.noGravity = true;
-            //NPC.catchItem = 2007;
-
             NPC.CloneDefaults(NPCID.GlowingSnail);
             NPC.catchItem = (short)ItemType<GodSlayerSlugItem>();
             NPC.lavaImmune = false;
             NPC.chaseable = false;
-            for (int i = 0; i < NPC.buffImmune.Length; i++)
-            {
-                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.GodSlayerInferno>())] = false;
-            }
             AIType = NPCID.GlowingSnail;
             NPC.HitSound = SoundID.NPCHit1;
             NPC.lifeMax = 5000;
@@ -77,19 +59,23 @@ namespace CalValEX.NPCs.Critters
             }
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            //Mod calamityMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
-            if (CalamityMod.DownedBossSystem.downedDoG && !CalValEXConfig.Instance.CritterSpawns && spawnInfo.Player.ZoneSkyHeight)
+            if (CalValEX.CalamityActive)
             {
-                if (Main.raining)
+                if ((bool)CalValEX.Calamity.Call("GetBossDowned", "devourerofgods") && !CalValEXConfig.Instance.CritterSpawns && spawnInfo.Player.ZoneSkyHeight)
                 {
-                    return 0.4f;
+                    if (Main.raining)
+                    {
+                        return 0.4f;
+                    }
+                    else
+                    {
+                        return 0.05f;
+                    }
                 }
-                else
-                {
-                    return 0.05f;
-                }
+                return 0f;
             }
             else
             {

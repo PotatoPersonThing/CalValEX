@@ -13,7 +13,7 @@ namespace CalValEX.Items.LightPets
         {
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 6));
-            SacrificeTotal = 1;
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

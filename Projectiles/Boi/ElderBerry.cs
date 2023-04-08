@@ -14,7 +14,7 @@ namespace CalValEX.Projectiles.Boi
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Elderberry");
+            // DisplayName.SetDefault("Elderberry");
             Main.projFrames[Projectile.type] = 1;
         }
 

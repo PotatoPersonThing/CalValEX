@@ -11,10 +11,10 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Stuck Orthocera");
-            Tooltip
-                .SetDefault("Help me\n" + "Can be fed Green Mushrooms");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Stuck Orthocera");
+            /* Tooltip
+                .SetDefault("Help me\n" + "Can be fed Green Mushrooms"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

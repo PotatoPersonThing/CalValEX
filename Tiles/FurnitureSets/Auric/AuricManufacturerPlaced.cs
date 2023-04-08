@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -24,14 +25,9 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             TileObjectData.newTile.CoordinatePadding = 0;
             AnimationFrameHeight = 48;
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Auric Manufacturer");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Auric Manufacturer");
             AddMapEntry(new Color(0, 167, 255), name);
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<AuricManufacturer>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

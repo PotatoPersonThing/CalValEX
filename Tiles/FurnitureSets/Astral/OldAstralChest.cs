@@ -25,13 +25,12 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             Main.tileOreFinderPriority[Type] = 500;
             TileID.Sets.HasOutlines[Type] = true;
             TileID.Sets.BasicChest[Type] = true;
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Xenomonolith Chest");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Xenomonolith Chest");
             AddMapEntry(new Color(36, 18, 38), name, MapChestName);
             
             AdjTiles = new int[] { TileID.Containers };
-            ContainerName.SetDefault("Xenomonolith Chest");
-            ChestDrop = ModContent.ItemType<OldAstralChestItem>();
+            ItemDrop = ModContent.ItemType<OldAstralChestItem>();
 
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
@@ -85,7 +84,6 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ChestDrop);
             Chest.DestroyChest(i, j);
         }
 

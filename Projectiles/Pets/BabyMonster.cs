@@ -19,7 +19,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Baby Monster");
+            // DisplayName.SetDefault("Baby Monster");
         }
 
         public override void SetDefaults()

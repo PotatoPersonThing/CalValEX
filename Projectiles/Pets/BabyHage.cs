@@ -19,7 +19,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Hage");
+            // DisplayName.SetDefault("Hage");
         }
 
         public override void SetDefaults()

@@ -8,9 +8,9 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Reconstructed Particle Accelerator");
-            Tooltip.SetDefault("'Reassembled from old blueprints. The flower inside has grown vibrantly after five years.'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Reconstructed Particle Accelerator");
+            // Tooltip.SetDefault("'Reassembled from old blueprints. The flower inside has grown vibrantly after five years.'");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

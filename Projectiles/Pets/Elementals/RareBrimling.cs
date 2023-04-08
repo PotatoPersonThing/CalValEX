@@ -12,7 +12,7 @@ namespace CalValEX.Projectiles.Pets.Elementals
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Rare Brimling");
+            // DisplayName.SetDefault("Rare Brimling");
             Main.projFrames[Projectile.type] = 4;
         }
 

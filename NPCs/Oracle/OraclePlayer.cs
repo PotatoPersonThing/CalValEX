@@ -38,7 +38,7 @@ namespace CalValEX.NPCs.Oracle
             playerHasGottenBag = tag.GetBool("playerHasGottenBag");
         }
 
-        public override void clientClone(ModPlayer clientClone)
+        public override void CopyClientState(ModPlayer clientClone)/* tModPorter Suggestion: Replace Item.Clone usages with Item.CopyNetStateTo */
         {
             OraclePlayer clone = clientClone as OraclePlayer;
             clone.playerHasGottenBag = playerHasGottenBag;

@@ -11,7 +11,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Avalon");
+            // DisplayName.SetDefault("Avalon");
             Main.projFrames[Projectile.type] = 6;
         }
 

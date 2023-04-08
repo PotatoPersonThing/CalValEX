@@ -15,7 +15,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Phantom Larva");
+            // DisplayName.SetDefault("Phantom Larva");
             Main.projFrames[Projectile.type] = 7;
         }
 

@@ -25,13 +25,12 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             Main.tileOreFinderPriority[Type] = 500;
             TileID.Sets.HasOutlines[Type] = true;
             TileID.Sets.BasicChest[Type] = true;
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Bloodstone Chest");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Bloodstone Chest");
             AddMapEntry(new Color(36, 18, 38), name, MapChestName);
             
             AdjTiles = new int[] { TileID.Containers };
-            ContainerName.SetDefault("Bloodstone Chest");
-            ChestDrop = ModContent.ItemType<BloodstoneChestItem>();
+            ItemDrop = ModContent.ItemType<BloodstoneChestItem>();
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             TileObjectData.newTile.Origin = new Point16(0, 1);
@@ -84,7 +83,6 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ChestDrop);
             Chest.DestroyChest(i, j);
         }
 

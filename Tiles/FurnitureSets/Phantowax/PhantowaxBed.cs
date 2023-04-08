@@ -25,8 +25,8 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileID.Sets.CanBeSleptIn[Type] = true; // Facilitates calling ModifySleepingTargetInfo
             TileID.Sets.InteractibleByNPCs[Type] = true; // Town NPCs will palm their hand at this tile
             TileObjectData.addTile(Type);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Phantowax Bed");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Phantowax Bed");
             AddMapEntry(new Color(94, 39, 93), name);
             
             AdjTiles = new int[] { TileID.Beds };
@@ -38,11 +38,6 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
         public override void NumDust(int i, int j, bool fail, ref int num)
         {
             num = 1;
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 64, 32, ModContent.ItemType<PhantowaxBedItem>());
         }
         public override void ModifySleepingTargetInfo(int i, int j, ref TileRestingInfo info)
         {

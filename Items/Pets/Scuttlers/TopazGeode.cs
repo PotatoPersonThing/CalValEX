@@ -9,10 +9,10 @@ namespace CalValEX.Items.Pets.Scuttlers
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Topaz Geode");
-            Tooltip
-                .SetDefault("May contain a scuttler");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Topaz Geode");
+            /* Tooltip
+                .SetDefault("May contain a scuttler"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -2,12 +2,8 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-//using CalamityMod.World;
-//using CalamityMod;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
-using CalamityMod;
-using CalamityMod.World;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
@@ -33,13 +29,16 @@ namespace CalValEX.AprilFools.Meldosaurus
 				NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
 			}
 		}
+
+
+		[JITWhenModsEnabled("CalamityMod")]
 		public override void SetDefaults()
 		{
 			NPC.damage = 110;
 			NPC.width = 118;
 			NPC.height = 84;
 			NPC.defense = 10;
-			NPC.lifeMax = CalamityWorld.revenge ? 140000 : 100000;
+			NPC.lifeMax = 100000;
 			NPC.boss = true;
 			NPC.aiStyle = -1;
 			Main.npcFrameCount[NPC.type] = 7;
@@ -52,9 +51,12 @@ namespace CalValEX.AprilFools.Meldosaurus
 			NPC.DeathSound = SoundID.NPCDeath1;
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/Meldosaurus");
 			NPC.netAlways = true;
-			NPC.Calamity().canBreakPlayerDefense = true;
-			NPC.Calamity().DR = 0.1f;
-			//bossBag = ModContent.ItemType<MeldosaurusBag>();
+			if (CalValEX.CalamityActive)
+			{
+				CalValEX.Calamity.Call("SetDefenseDamageNPC", true);
+				CalValEX.Calamity.Call("SetDamageReductionSpecific", 0.1f);
+				NPC.lifeMax = (bool)CalValEX.Calamity.Call("GetDifficultyActive", "revengeance") ? 140000 : 100000;
+			}
 		}
 		public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
 		{
@@ -66,13 +68,21 @@ namespace CalValEX.AprilFools.Meldosaurus
 			});
 			}
 		}
+		[JITWhenModsEnabled("CalamityMod")]
 		public override void AI()
 		{
 			Main.OurFavoriteColor = Color.DarkBlue;
-			bool expert = CalamityMod.Events.BossRushEvent.BossRushActive || Main.expertMode;
-			bool revenge = CalamityMod.Events.BossRushEvent.BossRushActive || CalamityMod.World.CalamityWorld.revenge;
-			bool death = CalamityMod.Events.BossRushEvent.BossRushActive || CalamityMod.World.CalamityWorld.death;
-			bool malice = CalamityMod.Events.BossRushEvent.BossRushActive;
+			bool expert = Main.expertMode;
+			bool revenge = false;
+			bool death = false;
+			bool malice = false;
+			if (CalValEX.CalamityActive)
+			{
+				expert = (bool)CalValEX.Calamity.Call("GetDifficultyActive", "bossrush") || Main.expertMode;
+				revenge = (bool)CalValEX.Calamity.Call("GetDifficultyActive", "bossrush") || (bool)CalValEX.Calamity.Call("GetDifficultyActive", "revengeance");
+				death = (bool)CalValEX.Calamity.Call("GetDifficultyActive", "bossrush") || (bool)CalValEX.Calamity.Call("GetDifficultyActive", "death");
+				malice = (bool)CalValEX.Calamity.Call("GetDifficultyActive", "bossrush");
+			}
 			if (!malice)
             {
 				if (!Main.raining)
@@ -178,11 +188,27 @@ namespace CalValEX.AprilFools.Meldosaurus
 				NPC.ai[2]++;
 				int direcX = NPC.direction *-1;
 				int direcY = NPC.directionY *-1;
-				if (NPC.ai[2] >= 5)
+				if (CalValEX.CalamityActive)
 				{
-					Terraria.Audio.SoundEngine.PlaySound(SoundID.Item20, NPC.Center);
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, NPC.velocity.X *-0.1f, NPC.velocity.Y *-0.1f, ModContent.ProjectileType<GodsFire>(), Main.expertMode ? 25 : 30, 0f);
-					NPC.ai[2] = 0;
+					int proj = Mod.Find<ModProjectile>("GodsFire").Type;
+					if (NPC.ai[2] >= 5)
+					{
+						Terraria.Audio.SoundEngine.PlaySound(SoundID.Item20, NPC.Center);
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, NPC.velocity.X * -0.1f, NPC.velocity.Y * -0.1f, proj, Main.expertMode ? 25 : 30, 0f);
+						NPC.ai[2] = 0;
+					}
+				}
+				else
+				{
+					if (!fate)
+						NewPhase(4);
+					else
+					{
+						if (Main.rand.NextBool(2))
+							NewPhase(5);
+						else
+							NewPhase(6);
+					}
 				}
 				if (NPC.ai[1] <= 90)
 				{
@@ -280,17 +306,20 @@ namespace CalValEX.AprilFools.Meldosaurus
 							framebuffer = 0;
 							framecounter = 0;
 							NPC.ai[3] = 2;
-							NPC.StrikeNPC(40, 0, (int)proj.velocity.X, true);
+							NPC.HitInfo bruh = new NPC.HitInfo();
+							bruh.Damage = NPC.lifeMax / 20;
+							NPC.StrikeNPC(bruh, noPlayerInteraction: true);
 							proj.active = false;
 						}
 					}
 				}
-				if (NPC.ai[3] >= 5)
+				if (NPC.ai[3] >= 5 && CalValEX.CalamityActive)
 				{
 					if (Main.netMode != NetmodeID.MultiplayerClient)
 					{
-						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X - 1400, NPC.Center.Y - 200, 0, 80, ModContent.ProjectileType<GodsFire>(), Main.expertMode ? 25 : 30, 20, 0);
-						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X + 600, NPC.Center.Y - 200, 0, 80, ModContent.ProjectileType<GodsFire>(), Main.expertMode ? 25 : 30, 20, 0);
+						int proj = Mod.Find<ModProjectile>("GodsFire").Type;
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X - 1400, NPC.Center.Y - 200, 0, 80, proj, Main.expertMode ? 25 : 30, 20, 0);
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center.X + 600, NPC.Center.Y - 200, 0, 80, proj, Main.expertMode ? 25 : 30, 20, 0);
 					}
 					NPC.ai[3] = 0;
                 }
@@ -611,9 +640,9 @@ namespace CalValEX.AprilFools.Meldosaurus
 			CalValEXWorld.downedMeldosaurus = true;
 		}*/
 
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 		{
-			NPC.lifeMax = (int)(NPC.lifeMax * 0.7f * bossLifeScale);
+			NPC.lifeMax = (int)(NPC.lifeMax * 0.7f * balance);
 			NPC.damage = (int)(NPC.damage * 0.7f);
 		}
 

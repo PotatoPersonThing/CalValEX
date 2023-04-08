@@ -29,10 +29,6 @@ namespace CalValEX.Tiles.Monoliths
         }
 
         private bool yharonon;
-        public override void KillMultiTile(int i, int j, int TileFrameX, int TileFrameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 48, ModContent.ItemType<InfernalMonolith>());
-        }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {

@@ -21,6 +21,7 @@ namespace CalValEX.AprilFools
             Projectile.aiStyle = -1;
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
             Projectile.rotation = Projectile.velocity.ToRotation() + (float)System.Math.PI;

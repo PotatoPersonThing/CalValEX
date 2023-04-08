@@ -1,4 +1,3 @@
-using CalamityMod.CalPlayer;
 using Terraria.GameContent;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -17,7 +16,7 @@ namespace CalValEX.Projectiles.Pets
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Goozma");
+            // DisplayName.SetDefault("Goozma");
             ProjectileID.Sets.NeedsUUID[Projectile.type] = true;
             Main.projPet[Projectile.type] = true;
         }
@@ -38,12 +37,12 @@ namespace CalValEX.Projectiles.Pets
 
         public List<int> GoozmaSlimeGods = new List<int>();
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
             // Custom AI here
             Player player = Main.player[Projectile.owner];
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-            CalamityPlayer calPlayer = player.GetModPlayer<CalamityPlayer>();
             if (player.dead)
             {
                 modPlayer.goozmaPet = false;
@@ -147,154 +146,154 @@ namespace CalValEX.Projectiles.Pets
          * 29 = astral blight
          * 30 = arsenal
          */
-            if (CalamityMod.Events.BossRushEvent.BossRushActive) //Auric
-            {
-                GoozmaSlimeGods = new List<int>
+                if (CalValEX.CalamityActive && (bool)CalValEX.Calamity.Call("GetDifficultyActive", "bossrush")) //Auric
+                {
+                    GoozmaSlimeGods = new List<int>
                 {
                     19,19,19,19,
                 };
-            }
-            else if (Main.eclipse) //Darksun
-            {
-                GoozmaSlimeGods = new List<int>
+                }
+                else if (Main.eclipse) //Darksun
+                {
+                    GoozmaSlimeGods = new List<int>
                 {
                     28,28,28,28,
                 };
-            }
-            else if (Main.snowMoon) //Endothermic
-            {
-                GoozmaSlimeGods = new List<int>
+                }
+                else if (Main.snowMoon) //Endothermic
+                {
+                    GoozmaSlimeGods = new List<int>
                 {
                     25,25,25,25,
                 };
-            }
-            else if (Main.pumpkinMoon) //Nightmare
-            {
-                GoozmaSlimeGods = new List<int>
+                }
+                else if (Main.pumpkinMoon) //Nightmare
+                {
+                    GoozmaSlimeGods = new List<int>
                 {
                     26,26,26,26,
                 };
-            }
-            else if (Main.bloodMoon) //Bloodstone
-            {
-                GoozmaSlimeGods = new List<int>
+                }
+                else if (Main.bloodMoon) //Bloodstone
+                {
+                    GoozmaSlimeGods = new List<int>
                 {
                     27,27,27,27,
                 };
-            }
-            else
-            {
-                if (player.ZoneTowerVortex || player.ZoneTowerSolar || player.ZoneTowerStardust || player.ZoneTowerNebula)
-                {
-                    AddDeity(23);
                 }
-                else if (modPlayer.ZoneLab) //Astral Blight
+                else
                 {
-                    AddDeity(30);
-                }
-                else if (player.ZoneCorrupt) //Ebonian
-                {
-                    AddDeity(1);
-                }
-                else if (player.ZoneCrimson) //Crimulan
-                {
-                    AddDeity(2);
-                }
-                else if (player.ZoneHallow) //Crystalline
-                {
-                    AddDeity(3);
-                }
-                else if (modPlayer.ZoneAstral) //Astral Blight
-                {
-                    AddDeity(29);
-                }
-                else if (calPlayer.ZoneAstral) //I wonder what this could be
-                {
-                    AddDeity(4);
-                }
-                else if (calPlayer.ZoneCalamity) //Charred
-                {
-                    AddDeity(6);
-                }
-                else if (player.ZoneDesert) //Victide
-                {
-                    AddDeity(18);
-                }
-                else if (player.ZoneSkyHeight) //Exodium
-                {
-                    AddDeity(12);
-                }
-                else if (player.ZoneUnderworldHeight) //Chaotic
-                {
-                    AddDeity(9);
-                }
-                else if (calPlayer.ZoneAbyssLayer1 || calPlayer.ZoneAbyssLayer2) //Scoria
-                {
-                    AddDeity(21);
-                }
-                else if (calPlayer.ZoneAbyssLayer3) //Mirage
-                {
-                    AddDeity(11);
-                }
-                else if (calPlayer.ZoneAbyssLayer4) //Lumenyl
-                {
-                    AddDeity(22);
-                }
-                else if (calPlayer.ZoneSunkenSea) //Prism
-                {
-                    AddDeity(14);
-                }
-                else if (player.ZoneJungle && player.ZoneRockLayerHeight) //Plague
-                {
-                    AddDeity(10);
-                }
-                else if (player.ZoneJungle && player.ZoneDirtLayerHeight) //Plague alt
-                {
-                    AddDeity(10);
-                }
-                else if (player.ZoneJungle && !player.ZoneDirtLayerHeight && !player.ZoneRockLayerHeight) //Uelibloom
-                {
-                    AddDeity(15);
-                }
-                else if (player.ZoneDungeon) //Phantoplasm
-                {
-                    AddDeity(13);
-                }
-                else if (player.ZoneSnow && player.ZoneRockLayerHeight) //Cryogenic
-                {
-                    AddDeity(24);
-                }
-                else if (player.ZoneSnow && player.ZoneDirtLayerHeight) //Cryogenic alt
-                {
-                    AddDeity(24);
-                }
-                else if (player.ZoneSnow && !player.ZoneDirtLayerHeight && !player.ZoneRockLayerHeight) //Cryonic
-                {
-                    AddDeity(20);
-                }
-                else if (calPlayer.ZoneSulphur)
-                {
-                    if (CalamityMod.Events.AcidRainEvent.AcidRainEventIsOngoing) //Gamma
+                    if (player.ZoneTowerVortex || player.ZoneTowerSolar || player.ZoneTowerStardust || player.ZoneTowerNebula)
                     {
-                        AddDeity(16);
+                        AddDeity(23);
                     }
-                    else //Irradiated
+                    else if (modPlayer.ZoneLab) //Astral Blight
                     {
-                        AddDeity(17);
+                        AddDeity(30);
                     }
-                }
-                else if (player.ZoneBeach) //Box Jelly
-                {
-                    AddDeity(8);
-                }
-                else if (player.ZoneDirtLayerHeight || player.ZoneRockLayerHeight) //Perennial
-                {
-                    AddDeity(7);
-                }
-                else //Wulfrum
-                {
-                    AddDeity(5);
-                }
+                    else if (player.ZoneCorrupt) //Ebonian
+                    {
+                        AddDeity(1);
+                    }
+                    else if (player.ZoneCrimson) //Crimulan
+                    {
+                        AddDeity(2);
+                    }
+                    else if (player.ZoneHallow) //Crystalline
+                    {
+                        AddDeity(3);
+                    }
+                    else if (modPlayer.ZoneAstral) //Astral Blight
+                    {
+                        AddDeity(29);
+                    }
+                    else if (CalValEX.CalamityActive && (bool)CalValEX.Calamity.Call("GetInZone", player, "astral")) //I wonder what this could be
+                    {
+                        AddDeity(4);
+                    }
+                    else if (CalValEX.CalamityActive && (bool)CalValEX.Calamity.Call("GetInZone", player, "crags")) //Charred
+                    {
+                        AddDeity(6);
+                    }
+                    else if (player.ZoneDesert) //Victide
+                    {
+                        AddDeity(18);
+                    }
+                    else if (player.ZoneSkyHeight) //Exodium
+                    {
+                        AddDeity(12);
+                    }
+                    else if (player.ZoneUnderworldHeight) //Chaotic
+                    {
+                        AddDeity(9);
+                    }
+                    else if (CalValEX.CalamityActive && ((bool)CalValEX.Calamity.Call("GetInZone", player, "layer1") || (bool)CalValEX.Calamity.Call("GetInZone", player, "layer2"))) //Scoria
+                    {
+                        AddDeity(21);
+                    }
+                    else if (CalValEX.CalamityActive && (bool)CalValEX.Calamity.Call("GetInZone", player, "layer3")) //Mirage
+                    {
+                        AddDeity(11);
+                    }
+                    else if (CalValEX.CalamityActive && (bool)CalValEX.Calamity.Call("GetInZone", player, "layer4")) //Lumenyl
+                    {
+                        AddDeity(22);
+                    }
+                    else if (CalValEX.CalamityActive && (bool)CalValEX.Calamity.Call("GetInZone", player, "sunkensea")) //Prism
+                    {
+                        AddDeity(14);
+                    }
+                    else if (player.ZoneJungle && player.ZoneRockLayerHeight) //Plague
+                    {
+                        AddDeity(10);
+                    }
+                    else if (player.ZoneJungle && player.ZoneDirtLayerHeight) //Plague alt
+                    {
+                        AddDeity(10);
+                    }
+                    else if (player.ZoneJungle && !player.ZoneDirtLayerHeight && !player.ZoneRockLayerHeight) //Uelibloom
+                    {
+                        AddDeity(15);
+                    }
+                    else if (player.ZoneDungeon) //Phantoplasm
+                    {
+                        AddDeity(13);
+                    }
+                    else if (player.ZoneSnow && player.ZoneRockLayerHeight) //Cryogenic
+                    {
+                        AddDeity(24);
+                    }
+                    else if (player.ZoneSnow && player.ZoneDirtLayerHeight) //Cryogenic alt
+                    {
+                        AddDeity(24);
+                    }
+                    else if (player.ZoneSnow && !player.ZoneDirtLayerHeight && !player.ZoneRockLayerHeight) //Cryonic
+                    {
+                        AddDeity(20);
+                    }
+                    else if (CalValEX.CalamityActive && (bool)CalValEX.Calamity.Call("GetInZone", player, "sulphuroussea"))
+                    {
+                        if ((bool)CalValEX.Calamity.Call("AcidRainActive")) //Gamma
+                        {
+                            AddDeity(16);
+                        }
+                        else //Irradiated
+                        {
+                            AddDeity(17);
+                        }
+                    }
+                    else if (player.ZoneBeach) //Box Jelly
+                    {
+                        AddDeity(8);
+                    }
+                    else if (player.ZoneDirtLayerHeight || player.ZoneRockLayerHeight) //Perennial
+                    {
+                        AddDeity(7);
+                    }
+                    else //Wulfrum
+                    {
+                        AddDeity(5);
+                    }
             }
         }
 

@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
-using CalamityMod.DataStructures;
 
 namespace CalValEX.Projectiles.Pets.ExoMechs
 {
@@ -34,7 +33,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Toy Ares");
+            // DisplayName.SetDefault("Toy Ares");
             Main.projFrames[Projectile.type] = 1;
             Main.projPet[Projectile.type] = true;
             //DrawOriginOffsetY = -15;
@@ -179,30 +178,31 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             Main.EntitySpriteDraw(handTex, handPosition + offset - Main.screenPosition, handFrame, Color.White, rotation + (flipped ? 0 : MathHelper.Pi), handOrigin, Projectile.scale, flip, 0);
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         private void DrawChain()
         {
-            Texture2D chainTex = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/ExoMechs/AresChain").Value;
+                Texture2D chainTex = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/ExoMechs/AresChain").Value;
 
-            float curvature = MathHelper.Clamp(Math.Abs(Owner.Center.X - Projectile.Center.X) / 50f * 80, 15, 80);
+                float curvature = MathHelper.Clamp(Math.Abs(Owner.Center.X - Projectile.Center.X) / 50f * 80, 15, 80);
 
-            Vector2 controlPoint1 = Owner.Center - Vector2.UnitY * curvature;
-            Vector2 controlPoint2 = Projectile.Center + Vector2.UnitY * curvature;
+                Vector2 controlPoint1 = Owner.Center - Vector2.UnitY * curvature;
+                Vector2 controlPoint2 = Projectile.Center + Vector2.UnitY * curvature;
 
-            BezierCurve curve = new BezierCurve(new Vector2[] { Owner.Center, controlPoint1, controlPoint2, Projectile.Center });
-            int numPoints = 20; //"Should make dynamic based on curve length, but I'm not sure how to smoothly do that while using a bezier curve" -Graydee, from the code i referenced. I do agree.
-            Vector2[] chainPositions = curve.GetPoints(numPoints).ToArray();
+                Effects.BezierCurve curve = new Effects.BezierCurve(new Vector2[] { Owner.Center, controlPoint1, controlPoint2, Projectile.Center });
+                int numPoints = 20; //"Should make dynamic based on curve length, but I'm not sure how to smoothly do that while using a bezier curve" -Graydee, from the code i referenced. I do agree.
+                Vector2[] chainPositions = curve.GetPoints(numPoints).ToArray();
 
-            //Draw each chain segment bar the very first one
-            for (int i = 1; i < numPoints; i++)
-            {
-                Vector2 position = chainPositions[i];
-                float rotation = (chainPositions[i] - chainPositions[i - 1]).ToRotation() - MathHelper.PiOver2; //Calculate rotation based on direction from last point
-                float yScale = Vector2.Distance(chainPositions[i], chainPositions[i - 1]) / chainTex.Height; //Calculate how much to squash/stretch for smooth chain based on distance between points
-                Vector2 scale = new Vector2(1, yScale);
-                Color chainLightColor = Lighting.GetColor((int)position.X / 16, (int)position.Y / 16); //Lighting of the position of the chain segment
-                Vector2 origin = new Vector2(chainTex.Width / 2, chainTex.Height); //Draw from center bottom of texture
-                Main.EntitySpriteDraw(chainTex, position - Main.screenPosition, null, chainLightColor, rotation, origin, scale, SpriteEffects.None, 0);
-            }
+                //Draw each chain segment bar the very first one
+                for (int i = 1; i < numPoints; i++)
+                {
+                    Vector2 position = chainPositions[i];
+                    float rotation = (chainPositions[i] - chainPositions[i - 1]).ToRotation() - MathHelper.PiOver2; //Calculate rotation based on direction from last point
+                    float yScale = Vector2.Distance(chainPositions[i], chainPositions[i - 1]) / chainTex.Height; //Calculate how much to squash/stretch for smooth chain based on distance between points
+                    Vector2 scale = new Vector2(1, yScale);
+                    Color chainLightColor = Lighting.GetColor((int)position.X / 16, (int)position.Y / 16); //Lighting of the position of the chain segment
+                    Vector2 origin = new Vector2(chainTex.Width / 2, chainTex.Height); //Draw from center bottom of texture
+                    Main.EntitySpriteDraw(chainTex, position - Main.screenPosition, null, chainLightColor, rotation, origin, scale, SpriteEffects.None, 0);
+                }
         }
 
         public override void PostDraw(Color lightColor)

@@ -7,7 +7,7 @@ namespace CalValEX.Projectiles.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Fogbound");
+            // DisplayName.SetDefault("Fogbound");
             Main.projFrames[Projectile.type] = 1;
         }
 

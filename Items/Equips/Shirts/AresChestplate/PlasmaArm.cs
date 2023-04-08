@@ -10,7 +10,7 @@ namespace CalValEX.Items.Equips.Shirts.AresChestplate
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Plasma arm");
+            // DisplayName.SetDefault("Plasma arm");
         }
 
         public override void SetDefaults()

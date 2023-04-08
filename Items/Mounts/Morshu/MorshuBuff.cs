@@ -7,8 +7,8 @@ namespace CalValEX.Items.Mounts.Morshu
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Morshu Buff");
-            Description.SetDefault("Rope coil? Gel? Bombs? You want it? It's yours my friend, as long as you have a giant ruby...");
+            // DisplayName.SetDefault("Morshu Buff");
+            // Description.SetDefault("Rope coil? Gel? Bombs? You want it? It's yours my friend, as long as you have a giant ruby...");
             Main.buffNoTimeDisplay[Type] = true;
             Main.buffNoSave[Type] = true;
         }

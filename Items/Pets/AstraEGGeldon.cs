@@ -15,9 +15,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("AstraEGGeldon");
-            Tooltip.SetDefault("'Now you can stop asking how I was born'\nSummons an edgy amalgamate to accompany you");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("AstraEGGeldon");
+            // Tooltip.SetDefault("'Now you can stop asking how I was born'\nSummons an edgy amalgamate to accompany you");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

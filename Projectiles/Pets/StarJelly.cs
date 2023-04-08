@@ -14,7 +14,7 @@ namespace CalValEX.Projectiles.Pets
         //public PrimitiveTrail TrailDrawer = null;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Star Jelly");
+            // DisplayName.SetDefault("Star Jelly");
             Main.projFrames[Projectile.type] = 7;
             Main.projPet[Projectile.type] = true;
         }

@@ -11,8 +11,8 @@ namespace CalValEX.Items.Tiles.Banners
         // The tooltip for this item is automatically assigned from .lang files
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("Great for blocking out the sun!");
-            SacrificeTotal = 1;
+            // Tooltip.SetDefault("Great for blocking out the sun!");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

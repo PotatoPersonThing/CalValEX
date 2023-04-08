@@ -1,12 +1,7 @@
-using CalValEX.Buffs.Transformations;
+﻿using CalValEX.Buffs.Transformations;
 using CalValEX.Items.Equips.Transformations;
-using CalamityMod.CalPlayer;
 using System.Collections.Generic;
 using System.IO;
-using CalamityMod.Events;
-using CalamityMod;
-using CalamityMod.DataStructures;
-using CalamityMod.Particles;
 using CalValEX.Items.Equips.Hats.Draedon;
 using CalValEX.Items.Equips.Shirts.Draedon;
 using CalValEX.Items.Equips.Transformations;
@@ -29,10 +24,7 @@ using Terraria.DataStructures;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalamityMod.Items.Accessories;
 using static Terraria.ModLoader.ModContent;
-using static CalamityMod.Events.BossRushEvent;
-using static CalamityMod.CalamityUtils;
 using CalValEX.Items.Equips.Shirts;
 using CalValEX.Items.Equips.Wings;
 
@@ -53,8 +45,6 @@ namespace CalValEX {
         public bool BoldLizard;
         public bool CalamityBABYBool;
         public bool CalamityBabyGotHit;
-
-        //Monoliths
         public bool calMonolith = false;
         public bool catfish;
         public bool Chihuahua;
@@ -273,12 +263,6 @@ namespace CalValEX {
         public bool boienemy3;
         public int boistage;
         public int boihealth = 3;
-        /*public float pongballposx;
-        public float pongballposy;
-        public float sliderposx;
-        public float sliderposy;*/
-        //Enchants
-        public bool soupench = false;
         public int bossded;
         public bool aresarms;
         public bool lumpe;
@@ -286,6 +270,17 @@ namespace CalValEX {
         public bool ares;
         public bool thanos;
         public bool twins;
+        /*public float pongballposx;
+        public float pongballposy;
+        public float sliderposx;
+        public float sliderposy;*/
+        //Enchants
+        public bool soupench = false;
+
+        // Bootleg Calamity bools
+        public bool SirenHeart;
+        public bool CirrusDress;
+
         //Æ: Drae's bools
         public bool digger;
         public bool BestInst;
@@ -527,6 +522,7 @@ namespace CalValEX {
             morshuTimer = 0;
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void PreUpdate() {
             //Custom player draw frame counters
             int coneflame = 6;
@@ -562,11 +558,11 @@ namespace CalValEX {
             rotdeg = Math.Cos(rotcounter);
             rotsin = -Math.Sin(rotcounter);
 
-            if (wulfrumjam && Main.rand.Next(2) == 0) {
-                Vector2 smokeOffset = new Vector2(22 * Player.direction, 6);
-                Particle smoke = new SmallSmokeParticle(Player.Center - smokeOffset, Vector2.Zero, Color.GreenYellow, new Color(40, 40, 40), Main.rand.NextFloat(0.4f, 0.8f), 145 - Main.rand.Next(50));
+            if (wulfrumjam && Main.rand.Next(2) == 0 && CalValEX.CalamityActive) {
+                /*Vector2 smokeOffset = new Vector2(22 * Player.direction, 6);
+                CalamityMod.Particles.Particle smoke = new CalamityMod.Particles.SmallSmokeParticle(Player.Center - smokeOffset, Vector2.Zero, Color.GreenYellow, new Color(40, 40, 40), Main.rand.NextFloat(0.4f, 0.8f), 145 - Main.rand.Next(50));
                 smoke.Velocity = (smoke.Position - Player.Center) * 0.3f + Player.velocity;
-                GeneralParticleHandler.SpawnParticle(smoke);
+                CalamityMod.Particles.GeneralParticleHandler.SpawnParticle(smoke);*/
             }
         }
 
@@ -755,8 +751,8 @@ namespace CalValEX {
             helipack = false;
         }
 
-        public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit) {
-            DoCalamityBabyThings((int)damage);
+        public override void OnHurt(Player.HurtInfo info) {
+            DoCalamityBabyThings(info.Damage);
             if (signutTrans) {
                 Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit49, Player.position);
                 for (int x = 0; x < 15; x++) {
@@ -770,30 +766,31 @@ namespace CalValEX {
                 Terraria.Audio.SoundEngine.PlaySound(SoundID.FemaleHit, Player.position);
         }
 
-        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit,
-            ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource, ref int cooldownCounter) {
-            if (signutTrans) playSound = false;
-            if (cloudTrans) playSound = false;
-            if (classicTrans) playSound = false;
-            if (sandTrans) playSound = false;
-            return base.PreHurt(pvp, quiet, ref damage, ref hitDirection, ref crit, ref customDamage, ref playSound, ref genGore, ref damageSource, ref cooldownCounter);
+        public override void ModifyHurt(ref Player.HurtModifiers modifiers) {
+            if (signutTrans) modifiers.DisableSound();
+            if (cloudTrans) modifiers.DisableSound();
+            if (classicTrans) modifiers.DisableSound();
+            if (sandTrans) modifiers.DisableSound();
+            return;
 
         }
-        public override void OnHitByNPC(NPC npc, int damage, bool crit) {
-            DoCalamityBabyThings(damage);
+        public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo) {
+            DoCalamityBabyThings(hurtInfo.Damage);
 
-            if (npc.type == ModContent.NPCType<CalamityMod.NPCs.SupremeCalamitas.SupremeCalamitas>() && Player.immuneTime <= 0) {
+            if (npc.type == CalValEX.CalamityNPC("SupremeCalamitas") && Player.immuneTime <= 0) {
                 SCalHits++;
             }
         }
 
-        public override void OnHitByProjectile(Projectile proj, int damage, bool crit) {
-            DoCalamityBabyThings(damage);
+        public override void OnHitByProjectile(Projectile proj, Player.HurtInfo hurtInfo) {
+            DoCalamityBabyThings(hurtInfo.Damage);
 
             for (int i = 0; i < Main.maxNPCs; i++)
                 if (Main.npc[i].active &&
-                    Main.npc[i].type == ModContent.NPCType<CalamityMod.NPCs.SupremeCalamitas.SupremeCalamitas>()) {
-                    if (Player.immuneTime <= 0) {
+                    Main.npc[i].type == CalValEX.CalamityNPC("SupremeCalamitas")) 
+                    {
+                    if (Player.immuneTime <= 0) 
+                    {
                         SCalHits++;
                     }
                 }
@@ -846,6 +843,7 @@ namespace CalValEX {
                 }
             }
         }
+        [JITWhenModsEnabled("CalamityMod")]
         public override void CatchFish(FishingAttempt attempt, ref int itemDrop, ref int npcSpawn, ref AdvancedPopupRequest sonar, ref Vector2 sonarPosition) {
             if (Player.ZoneBeach && Main.rand.NextFloat() < 0.021f) {
                 itemDrop = ItemType<Items.Pets.Elementals.StrangeMusicNote>();
@@ -856,11 +854,13 @@ namespace CalValEX {
             if (ZoneAstral && Main.rand.NextFloat() < 0.0105f) {
                 itemDrop = ItemType<Items.Tiles.Plants.AstralOldYellow>();
             }
-            if (Player.GetModPlayer<CalamityPlayer>().ZoneSunkenSea && Main.hardMode && Main.rand.NextFloat() < 0.021f) {
+            if (CalValEX.CalamityActive)
+            if ((bool)ModLoader.GetMod("CalamityMod").Call("getinzone", Player, "sunkensea") && Main.hardMode && Main.rand.NextFloat() < 0.021f) {
                 itemDrop = ItemType<Items.Tiles.SailfishTrophy>();
             }
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void PostUpdateMiscEffects() {
             bool bossIsAlive2 = false;
             for (int i = 0; i < Main.maxNPCs; i++) {
@@ -869,48 +869,19 @@ namespace CalValEX {
                     bossIsAlive2 = true;
                 }
             }
-            if (!bossIsAlive2) {
-                bool useCalMonolith = calMonolith;
-                bool useLeviMonolith = leviMonolith;
-                bool usePBGMonolith = pbgMonolith;
-                bool useProvMonolith = provMonolith;
-                bool useDogMonolith = dogMonolith;
-                bool useYharonMonolith = yharonMonolith;
-                bool useCryogenMonolith = cryoMonolith;
-                bool useExoMonolith = exoMonolith;
-                bool useBRMonolith = brMonolith;
-                bool useScalMonolith = scalMonolith;
+            if (!bossIsAlive2 && CalValEX.CalamityActive) 
+            {
                 bool TerminalMonolith = CalValEXWorld.RockshrinEX;
-                if (calMonolith) {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:CalamitasRun3", useCalMonolith, Player.Center);
-                } else if (leviMonolith) {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:Leviathan", useLeviMonolith, Player.Center);
-                } else if (pbgMonolith) {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:PlaguebringerGoliath", usePBGMonolith, Player.Center);
-                } else if (provMonolith) {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:Providence", useProvMonolith, Player.Center);
-                } else if (dogMonolith) {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:DevourerofGodsHead", useDogMonolith, Player.Center);
-                } else if (yharonMonolith) {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:Yharon", useYharonMonolith, Player.Center);
-                } else if (exoMonolith) {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:ExoMechs", useExoMonolith, Player.Center);
-                } else if (scalMonolith) {
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:SupremeCalamitas", useScalMonolith, Player.Center);
-                } else if (CalValEXWorld.RockshrinEX) {
+                if (CalValEXWorld.RockshrinEX) 
+                {
+                    /*
                     CalamityMod.Skies.BossRushSky.ShouldDrawRegularly = true;
-                    Player.ManageSpecialBiomeVisuals("CalamityMod:BossRush", TerminalMonolith, Player.Center);
-                } else if (cryoMonolith) {
-                    CalamityMod.Skies.CryogenSky.ShouldDrawRegularly = true;
-                    //Terraria.Graphics.Effects.SkyManager.Instance.Activate("CalamityMod:Cryogen", Player.Center);
-                    CalamityMod.Skies.CryogenSky.UpdateDrawEligibility();
-                    //SkyManager.Instance.Activate("CalamityMod:Cryogen", Player.Center);
-                    //CalamityMod.CryogenSky.UpdateDrawEligibility();
+                    Player.ManageSpecialBiomeVisuals("CalamityMod:BossRush", TerminalMonolith, Player.Center);*/
                 }
             }
         }
 
-        public override void clientClone(ModPlayer clientClone) {
+        public override void CopyClientState(ModPlayer clientClone)/* tModPorter Suggestion: Replace Item.Clone usages with Item.CopyNetStateTo */ {
             CalValEXPlayer clone = clientClone as CalValEXPlayer;
             clone.SCalHits = SCalHits;
         }

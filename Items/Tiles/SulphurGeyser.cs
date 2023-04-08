@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
@@ -9,9 +10,9 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Steam Geyser");
-            Tooltip.SetDefault("Hazardous! Be careful!\n" + "Right click to cycle between variants");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Steam Geyser");
+            // Tooltip.SetDefault("Hazardous! Be careful!\n" + "Right click to cycle between variants");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()
@@ -58,15 +59,15 @@ namespace CalValEX.Items.Tiles
                     switch (RibCount)
                     {
                         case 0:
-                            Item.createTile = ModContent.TileType<SteamGeyser1>();
+                Item.createTile = CalValEX.CalamityTile("SteamGeyser1");
                             return true;
 
                         case 1:
-                            Item.createTile = ModContent.TileType<SteamGeyser2>();
+                Item.createTile = CalValEX.CalamityTile("SteamGeyser2");
                             return true;
 
                         case 2:
-                            Item.createTile = ModContent.TileType<SteamGeyser3>();
+                Item.createTile = CalValEX.CalamityTile("SteamGeyser3");
                             return true;
                     }
                 }

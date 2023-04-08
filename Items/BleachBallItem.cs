@@ -6,9 +6,9 @@ using CalValEX.Projectiles;
 namespace CalValEX.Items {
     public class BleachBallItem : ModItem {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Bleach Ball Beach Ball");
-            Tooltip.SetDefault("Careful, might pop");
-            SacrificeTotal = 5;
+            // DisplayName.SetDefault("Bleach Ball Beach Ball");
+            // Tooltip.SetDefault("Careful, might pop");
+            Item.ResearchUnlockCount = 5;
         }
 
         public override void SetDefaults() {

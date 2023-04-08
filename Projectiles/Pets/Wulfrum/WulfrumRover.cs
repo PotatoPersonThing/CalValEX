@@ -15,7 +15,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Wulfrom Rover");
+            // DisplayName.SetDefault("Wulfrom Rover");
             Main.projFrames[Projectile.type] = 8;
         }
 

@@ -9,9 +9,9 @@ namespace CalValEX.Items.Tiles.Blocks
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Compensation");
-            Tooltip.SetDefault("Can be sold");
-            SacrificeTotal = 100;
+            // DisplayName.SetDefault("Compensation");
+            // Tooltip.SetDefault("Can be sold");
+            Item.ResearchUnlockCount = 100;
         }
 
         public override void SetDefaults()

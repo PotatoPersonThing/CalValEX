@@ -9,9 +9,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Meaty Worm Tumor");
-            Tooltip.SetDefault("May contain tied worms\n" + "Summons a ball of flesh with a small Perforator sticking out");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Meaty Worm Tumor");
+            // Tooltip.SetDefault("May contain tied worms\n" + "Summons a ball of flesh with a small Perforator sticking out");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

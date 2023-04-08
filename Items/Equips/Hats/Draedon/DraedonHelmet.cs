@@ -9,7 +9,7 @@ namespace CalValEX.Items.Equips.Hats.Draedon
         public override void SetStaticDefaults()
         {
             ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
-            SacrificeTotal = 1;
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

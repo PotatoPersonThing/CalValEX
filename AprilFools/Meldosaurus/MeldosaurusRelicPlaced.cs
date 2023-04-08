@@ -1,10 +1,10 @@
 ﻿using System;
-using CalamityMod.Tiles.BaseTiles;
 using Terraria.ModLoader;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
-    public class MeldosaurusRelicPlaced : BaseBossRelic //ADVANCED code theft!!!!!!(!(!(!
+    [ExtendsFromMod("CalamityMod")]
+    public class MeldosaurusRelicPlaced : CalamityMod.Tiles.BaseTiles.BaseBossRelic //ADVANCED code theft!!!!!!(!(!(!
     {
         public override string RelicTextureName => "CalValEX/AprilFools/Meldosaurus/MeldosaurusRelicPlaced";
 

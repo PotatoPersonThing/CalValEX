@@ -1,12 +1,11 @@
-﻿using CalamityMod;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalamityMod.Items.LoreItems;
 
 namespace CalValEX.AprilFools
 {
-    public class KnowledgeFogbound : LoreItem
+    [ExtendsFromMod("CalamityMod")]
+    public class KnowledgeFogbound : CalamityMod.Items.LoreItems.LoreItem
     {
         public override string Lore =>
 @"Undoubtedly one of the most threatening beings in Terraria, for even I nearly lost my life in my encounter with him.
@@ -20,7 +19,7 @@ Ironic that of all the gods, it was the one who’s domain was Death that feared
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("The Fogbound");
+            // DisplayName.SetDefault("The Fogbound");
         }
 
         public override void SetDefaults()

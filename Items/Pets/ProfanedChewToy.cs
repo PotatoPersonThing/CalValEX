@@ -11,10 +11,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Profaned Chew Toy");
-            Tooltip
-                .SetDefault("Seems dusty\n" + "Summons an ungodly radical dude");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Profaned Chew Toy");
+            /* Tooltip
+                .SetDefault("Seems dusty\n" + "Summons an ungodly radical dude"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -10,7 +10,7 @@ namespace CalValEX.Projectiles.NPCs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Oracle Card");
+            // DisplayName.SetDefault("Oracle Card");
         }
 
         public override void SetDefaults()

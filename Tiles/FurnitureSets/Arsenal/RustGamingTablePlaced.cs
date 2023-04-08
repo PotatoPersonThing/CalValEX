@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -24,15 +25,10 @@ namespace CalValEX.Tiles.FurnitureSets.Arsenal
             AnimationFrameHeight = 54;
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Lab Gaming Table");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Lab Gaming Table");
             AddMapEntry(new Color(80, 87, 87), name);
             AdjTiles = new int[] { TileID.Tables };
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 80, 48, ItemType<RustGamingTable>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

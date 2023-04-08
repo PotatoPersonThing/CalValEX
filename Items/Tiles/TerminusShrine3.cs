@@ -11,9 +11,9 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Terminus Shrine Level 3");
-            Tooltip.SetDefault("The End.");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Terminus Shrine Level 3");
+            // Tooltip.SetDefault("The End.");
+            Item.ResearchUnlockCount = 1;
 
         }
 

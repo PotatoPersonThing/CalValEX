@@ -14,7 +14,7 @@ namespace CalValEX.Projectiles.Pong
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Pong Slider");
+            // DisplayName.SetDefault("Pong Slider");
             Main.projFrames[Projectile.type] = 1;
         }
 

@@ -10,9 +10,9 @@ namespace CalValEX.Items.Tiles.Plushies
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hypnos Plushie (Placeable)");
-            Tooltip.SetDefault("Master drop");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Hypnos Plushie (Placeable)");
+            // Tooltip.SetDefault("Master drop");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

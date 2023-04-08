@@ -7,9 +7,9 @@ using Microsoft.Xna.Framework;
 namespace CalValEX.Items.Pets {
     public class ZygoteinaBucket : ModItem {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Zygote in a Bucket");
-            Tooltip.SetDefault("Summons an ancient ghastly fetus");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Zygote in a Bucket");
+            // Tooltip.SetDefault("Summons an ancient ghastly fetus");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults() {

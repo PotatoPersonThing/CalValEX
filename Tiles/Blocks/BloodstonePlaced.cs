@@ -7,11 +7,13 @@ namespace CalValEX.Tiles.Blocks
 {
     public class BloodstonePlaced : ModTile
     {
+        [JITWhenModsEnabled("CalamityMod")]
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
-            ItemDrop = ModContent.ItemType<CalamityMod.Items.Materials.Bloodstone>();
+            if (CalValEX.CalamityActive)
+            ItemDrop = CalValEX.CalamityItem("Bloodstone");
             AddMapEntry(new Color(126, 94, 87));
             AnimationFrameHeight = 90;
         }

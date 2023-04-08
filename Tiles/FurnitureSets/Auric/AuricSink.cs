@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using CalValEX.Items.Tiles.FurnitureSets.Auric;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -24,8 +25,8 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 18 }; //
             TileObjectData.addTile(Type);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Auric Sink");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Auric Sink");
             AddMapEntry(new Color(139, 0, 0), name);
             AdjTiles = new int[] { TileID.Sinks };
         }
@@ -42,11 +43,6 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
                 spriteBatch.Draw(glowmask, drawPosition, new Rectangle(xFrameOffset, yFrameOffset, 18, 18), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
             else if (trackTile.IsHalfBlock)
                 spriteBatch.Draw(glowmask, drawPosition + new Vector2(0f, 8f), new Rectangle(xFrameOffset, yFrameOffset, 18, 8), drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
-        }
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY)
-        {
-            Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<AuricSinkItem>());
         }
     }
 }

@@ -8,8 +8,8 @@ namespace CalValEX.Items.Walls
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bloodstone Wall");
-            SacrificeTotal = 400;
+            // DisplayName.SetDefault("Bloodstone Wall");
+            Item.ResearchUnlockCount = 400;
         }
 
         public override void SetDefaults()

@@ -22,8 +22,11 @@ namespace CalValEX.Buffs.LightPets
                 Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
                     0f, 0f, ModContent.ProjectileType<SolarBunny>(), 0, 0f, player.whoAmI);
             }
-            Mod clamMod = ModLoader.GetMod("CalamityMod");
-            clamMod.Call("AddAbyssLightStrength", Main.player[Main.myPlayer], 3);
+            if (CalValEX.CalamityActive)
+            {
+                Mod clamMod = ModLoader.GetMod("CalamityMod");
+                clamMod.Call("AddAbyssLightStrength", Main.player[Main.myPlayer], 3);
+            }
         }
     }
 }

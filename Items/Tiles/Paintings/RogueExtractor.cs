@@ -7,9 +7,9 @@ namespace CalValEX.Items.Tiles.Paintings
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rogue Extractor");
-            Tooltip.SetDefault("'Mathew Maple'\n");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Rogue Extractor");
+            // Tooltip.SetDefault("'Mathew Maple'\n");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

@@ -8,12 +8,12 @@ using Terraria.Enums;
 using static Terraria.Projectile;
 using System.IO;
 using System.Linq;
-using CalamityMod.Projectiles.BaseProjectiles;
 using ReLogic.Content;
 
 namespace CalValEX.AprilFools.Jharim
 {
-    public class JharimLaser : BaseLaserbeamProjectile //I can't believe Jharim would use a base projectile from Calamity, literal thievery! ban!!!!
+    [ExtendsFromMod("CalamityMod")]
+    public class JharimLaser : CalamityMod.Projectiles.BaseProjectiles.BaseLaserbeamProjectile //I can't believe Jharim would use a base projectile from Calamity, literal thievery! ban!!!!
     {
         float laserscale = 1f;
         bool playedsound = false;
@@ -29,7 +29,7 @@ namespace CalValEX.AprilFools.Jharim
         public override Texture2D LaserEndTexture => ModContent.Request<Texture2D>("CalValEX/AprilFools/Jharim/JharimLaserEnd", AssetRequestMode.ImmediateLoad).Value;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Jharim Buster");
+            // DisplayName.SetDefault("Jharim Buster");
             Main.projFrames[Projectile.type] = 5;
             ProjectileID.Sets.DrawScreenCheckFluff[Projectile.type] = 10000;
         }
@@ -120,7 +120,7 @@ namespace CalValEX.AprilFools.Jharim
         public override bool? CanHitNPC(NPC target)
         {
             //Specifically only hurts SCal and no other town NPC
-            if (target.type == ModContent.NPCType<CalamityMod.NPCs.TownNPCs.WITCH>())
+            if (CalValEX.CalamityActive && target.type == CalValEX.CalamityNPC("WITCH"))
             {
                 return true;
             }
@@ -132,10 +132,10 @@ namespace CalValEX.AprilFools.Jharim
             return false;
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             //Interaction never happens again after performed once
-            if (target.type == ModContent.NPCType<CalamityMod.NPCs.TownNPCs.WITCH>() && target.life <= 0)
+            if (CalValEX.CalamityActive && target.type == CalValEX.CalamityNPC("WITCH") && target.life <= 0)
             {
                 CalValEXWorld.jharinter = true;
             }

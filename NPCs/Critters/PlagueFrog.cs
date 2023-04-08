@@ -31,10 +31,6 @@ namespace CalValEX.NPCs.Critters
             AnimationType = NPCID.Frog;
             NPC.lifeMax = 20;
             NPC.chaseable = false;
-            for (int i = 0; i < NPC.buffImmune.Length; i++)
-            {
-                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.Plague>())] = false;
-            }
         }
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
         {
@@ -44,6 +40,7 @@ namespace CalValEX.NPCs.Critters
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("The plague unleashed by the scientist didn't just infect the already hostile creatures. Peaceful lifeforms such as frogs were also unfortunate enough to fall victim to it."),
             });
         }
+        [JITWhenModsEnabled("CalamityMod")]
 
         public override void AI()
         {
@@ -56,6 +53,13 @@ namespace CalValEX.NPCs.Critters
                 if (proj != null && proj.active && proj.getRect().Intersects(thisRect) & proj.type == ProjectileID.PurificationPowder)
                 {
                     NPC.Transform(NPCID.Frog);
+                }
+            }
+            if (CalValEX.CalamityActive)
+            {
+                for (int i = 0; i < NPC.buffImmune.Length; i++)
+                {
+                    NPC.buffImmune[CalValEX.CalamityBuff("Plague")] = false;
                 }
             }
         }
@@ -73,7 +77,7 @@ namespace CalValEX.NPCs.Critters
         }
 
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0)
             {

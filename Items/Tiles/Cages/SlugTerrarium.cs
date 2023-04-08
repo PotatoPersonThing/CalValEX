@@ -11,8 +11,8 @@ namespace CalValEX.Items.Tiles.Cages
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("God Slayer Slug Cage");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("God Slayer Slug Cage");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

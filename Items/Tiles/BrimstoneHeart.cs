@@ -10,9 +10,9 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hanging Brimstone Heart");
-            Tooltip.SetDefault("+Up!");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Hanging Brimstone Heart");
+            // Tooltip.SetDefault("+Up!");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

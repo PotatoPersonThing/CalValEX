@@ -11,9 +11,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Extra Fluffy Feather");
-            Tooltip.SetDefault("Attracts the last of a species\n" + "Summons a mini birb");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Extra Fluffy Feather");
+            // Tooltip.SetDefault("Attracts the last of a species\n" + "Summons a mini birb");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

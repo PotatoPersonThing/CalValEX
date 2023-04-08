@@ -10,7 +10,7 @@ namespace CalValEX.AprilFools
     {
         public override void SetStaticDefaults()
         {
-            SacrificeTotal = 1;
+            Item.ResearchUnlockCount = 1;
         }
         public override void SetDefaults()
         {
@@ -37,7 +37,7 @@ namespace CalValEX.AprilFools
             }
 		}
 
-        public override void ModifyHitNPC(Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
+        public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)
         {
             if (player.controlUseItem)
                 Projectile.NewProjectile(player.GetSource_ItemUse(Item), target.position.X + target.Size.X * 0.5f, target.position.Y + target.Size.Y * 0.5f, Main.rand.Next(-13,13), Main.rand.Next(-13, 13), ProjectileID.CursedFlameFriendly, 201, 0.1f);

@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles.Monoliths
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Plague Dialysis Machine");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Plague Dialysis Machine");
+            Item.ResearchUnlockCount = 1;
             //Tooltip.SetDefault("Emits harmless plague gas when activated\n" + "Cannot be used if any other Calamity monoliths are currently active");
         }
 

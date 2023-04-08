@@ -11,9 +11,9 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Can of Wyrms");
-            Tooltip.SetDefault("It's surprising how the deep adapted to the scraps above\n" + "Summons an Eidolon Inchwyrm");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Can of Wyrms");
+            // Tooltip.SetDefault("It's surprising how the deep adapted to the scraps above\n" + "Summons an Eidolon Inchwyrm");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

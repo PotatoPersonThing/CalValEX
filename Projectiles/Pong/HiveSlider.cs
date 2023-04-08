@@ -14,7 +14,7 @@ namespace CalValEX.Projectiles.Pong
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Hive Mind Slider");
+            // DisplayName.SetDefault("Hive Mind Slider");
             Main.projFrames[Projectile.type] = 1;
         }
 

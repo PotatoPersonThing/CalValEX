@@ -1,4 +1,4 @@
-using Terraria.ID;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles.Plants
@@ -7,9 +7,9 @@ namespace CalValEX.Items.Tiles.Plants
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Acid Tape Dispenser");
-            Tooltip.SetDefault("Places an infinite amount of Sulphurous Vines");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Acid Tape Dispenser");
+            // Tooltip.SetDefault("Places an infinite amount of Sulphurous Vines");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()
@@ -23,7 +23,16 @@ namespace CalValEX.Items.Tiles.Plants
             Item.width = 16;
             Item.height = 28;
             Item.rare = 4;
-            Item.createTile = ModContent.TileType<CalamityMod.Tiles.Abyss.SulphurousVines>();
+        }
+
+        [JITWhenModsEnabled("CalamityMod")]
+        public override bool CanUseItem(Player player)
+        {
+            if (CalValEX.CalamityActive)
+            {
+                Item.createTile = CalValEX.CalamityTile("SulphurousVines");
+            }
+            return true;
         }
     }
 }

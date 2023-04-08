@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
@@ -27,8 +28,8 @@ namespace CalValEX.Tiles.Statues {
             TileObjectData.newTile.Origin = new Point16(2, 5);
             TileObjectData.addTile(Type);
             
-            ModTranslation name = CreateMapEntryName();
-            name.SetDefault("Profaned Idol");
+            LocalizedText name = CreateMapEntryName();
+            // name.SetDefault("Profaned Idol");
             AddMapEntry(new Color(206, 116, 59), name);
 
             AnimationFrameHeight = 126;
@@ -95,9 +96,6 @@ namespace CalValEX.Tiles.Statues {
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch) =>
             CalValEXGlobalTile.TileGlowmask(i, j, Request<Texture2D>("CalValEX/Tiles/Statues/ProfanedIdolPlaced_Glow").Value, 
                 spriteBatch, AnimationFrameHeight, (ushort)TileType<ProfanedIdolPlaced>());
-
-        public override void KillMultiTile(int i, int j, int frameX, int frameY) =>
-            Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, ItemType<Provibust>());
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
     }

@@ -11,20 +11,12 @@ namespace CalValEX.Items.Critters
     {
         public override void SetStaticDefaults()
         {
-            SacrificeTotal = 5;
+            Item.ResearchUnlockCount = 5;
         }
 
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.GlowingSnail);
-            if (CalamityMod.DownedBossSystem.downedPolterghast || CalValEXConfig.Instance.IsopodBait)
-            {
-                Item.bait = 55;
-            }
-            else if (!CalamityMod.DownedBossSystem.downedPolterghast && !CalValEXConfig.Instance.IsopodBait)
-            {
-                Item.bait = 1;
-            }
             Item.makeNPC = (short)NPCType<Isopod>();
         }
 

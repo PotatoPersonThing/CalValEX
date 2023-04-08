@@ -9,8 +9,8 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Phantowax Chair");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Phantowax Chair");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

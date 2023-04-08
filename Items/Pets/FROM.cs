@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Items.Critters;
-using CalamityMod;
-using CalamityMod.CustomRecipes;
-using CalamityMod.Items;
 
 namespace CalValEX.Items.Pets
 {
@@ -14,10 +10,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Frog-Only Memory");
-            Tooltip
-                .SetDefault("Summons a virtual private entity\n" + "'There's also a serial code...?'");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Frog-Only Memory");
+            /* Tooltip
+                .SetDefault("Summons a virtual private entity\n" + "'There's also a serial code...?'"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()
@@ -31,7 +27,12 @@ namespace CalValEX.Items.Pets
             Item.buffType = ModContent.BuffType<Buffs.Pets.MechaGeorgeBuff>();
         }
 
-	    public override void ModifyTooltips(List<TooltipLine> tooltips) => CalamityGlobalItem.InsertKnowledgeTooltip(tooltips, 3);
+        [JITWhenModsEnabled("CalamityMod")]
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            if (CalValEX.CalamityActive)
+            CalamityMod.Items.CalamityGlobalItem.InsertKnowledgeTooltip(tooltips, 3);
+        }
 
         public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
         {

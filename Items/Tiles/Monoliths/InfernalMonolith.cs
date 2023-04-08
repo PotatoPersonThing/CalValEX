@@ -11,9 +11,9 @@ namespace CalValEX.Items.Tiles.Monoliths
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Infernal Altar");
-            SacrificeTotal = 1;
-            Tooltip.SetDefault("The flame roars with uselessness");
+            // DisplayName.SetDefault("Infernal Altar");
+            Item.ResearchUnlockCount = 1;
+            // Tooltip.SetDefault("The flame roars with uselessness");
         }
 
         public override void SetDefaults()

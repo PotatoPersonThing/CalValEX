@@ -17,7 +17,7 @@ namespace CalValEX.Projectiles.Pong
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Perforator Slider");
+            // DisplayName.SetDefault("Perforator Slider");
             Main.projFrames[Projectile.type] = 1;
         }
 

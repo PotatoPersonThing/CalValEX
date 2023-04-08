@@ -12,7 +12,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Mecha George");
+            // DisplayName.SetDefault("Mecha George");
             Main.projFrames[Projectile.type] = 11;
         }
 

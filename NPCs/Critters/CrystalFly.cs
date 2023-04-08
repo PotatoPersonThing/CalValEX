@@ -41,10 +41,6 @@ namespace CalValEX.NPCs.Critters
             AnimationType = NPCID.GoldButterfly;
             NPC.lifeMax = 20;
             NPC.chaseable = false;
-            for (int i = 0; i < NPC.buffImmune.Length; i++)
-            {
-                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.HolyFlames>())] = false;
-            }
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -54,6 +50,16 @@ namespace CalValEX.NPCs.Critters
                 Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheHallow,
                 new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A butterfly possessing energy from one of two halves of a fiery goddess' power."),
             });
+        }
+
+        [JITWhenModsEnabled("CalamityMod")]
+        public override void AI()
+        {
+            if (CalValEX.CalamityActive)
+            for (int i = 0; i < NPC.buffImmune.Length; i++)
+            {
+                NPC.buffImmune[CalValEX.CalamityBuff("HolyFlames")] = false;
+            }
         }
         public override bool? CanBeHitByItem(Player player, Item item) => null;
 

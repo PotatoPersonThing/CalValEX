@@ -15,7 +15,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Smol Crab");
+            // DisplayName.SetDefault("Smol Crab");
             Main.projFrames[Projectile.type] = 6;
         }
 

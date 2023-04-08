@@ -22,6 +22,7 @@ namespace CalValEX.NPCs.Critters
             NPCID.Sets.CantTakeLunchMoney[Type] = true;
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override void SetDefaults()
         {
             NPC.noGravity = true;
@@ -41,11 +42,6 @@ namespace CalValEX.NPCs.Critters
             AnimationType = NPCID.Goldfish;
             NPC.lifeMax = 5;
             NPC.chaseable = false;
-            for (int i = 0; i < NPC.buffImmune.Length; i++)
-            {
-                NPC.buffImmune[(ModContent.BuffType<CalamityMod.Buffs.DamageOverTime.SulphuricPoisoning>())] = false;
-            }
-            SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.SulphurousSeaBiome>().Type };
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -59,12 +55,12 @@ namespace CalValEX.NPCs.Critters
 
         public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
+        [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            //Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
-            //if (clamMod != null)
+            if (CalValEX.CalamityActive)
             {
-                if (spawnInfo.Player.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().ZoneSulphur && !CalValEXConfig.Instance.CritterSpawns)
+                if (CalValEX.InCalamityBiome(spawnInfo.Player, "SulphurousSeaBiome") && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     return 0.15f;
                 }
@@ -72,7 +68,19 @@ namespace CalValEX.NPCs.Critters
             return 0f;
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
+        public override void AI()
+        {
+            if (CalValEX.CalamityActive)
+            {
+                for (int i = 0; i < NPC.buffImmune.Length; i++)
+                {
+                    NPC.buffImmune[CalValEX.CalamityBuff("SulphuricPoisoning")] = false;
+                }
 
+                //SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.SulphurousSeaBiome>().Type };
+            }
+        }
         // TODO: Hooks for Collision_MoveSnailOnSlopes and NPC.aiStyle = 67 problem
     }
 }

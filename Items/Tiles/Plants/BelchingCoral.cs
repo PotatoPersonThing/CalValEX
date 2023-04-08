@@ -7,10 +7,10 @@ namespace CalValEX.Items.Tiles.Plants
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Sulphuric Coral");
-            Tooltip
-                .SetDefault("Don't put your bare hand into it");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Sulphuric Coral");
+            /* Tooltip
+                .SetDefault("Don't put your bare hand into it"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

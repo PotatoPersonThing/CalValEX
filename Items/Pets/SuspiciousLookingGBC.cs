@@ -11,10 +11,10 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Suspicious Looking GBC");
-            Tooltip
-                .SetDefault("What could this mean?\n" + "Summons an abandonded roomba rescued from a trash heap");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Suspicious Looking GBC");
+            /* Tooltip
+                .SetDefault("What could this mean?\n" + "Summons an abandonded roomba rescued from a trash heap"); */
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

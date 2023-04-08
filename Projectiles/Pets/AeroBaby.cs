@@ -14,7 +14,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            DisplayName.SetDefault("Aero Baby");
+            // DisplayName.SetDefault("Aero Baby");
             Main.projFrames[Projectile.type] = 4;
         }
 

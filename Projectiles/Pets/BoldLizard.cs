@@ -8,7 +8,7 @@ namespace CalValEX.Projectiles.Pets
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rocc Lizard");
+            // DisplayName.SetDefault("Rocc Lizard");
             Main.projFrames[Projectile.type] = 10;
             Main.projPet[Projectile.type] = true;
         }

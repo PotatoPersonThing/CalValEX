@@ -10,9 +10,9 @@ namespace CalValEX.Items.Tiles
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Demon Ram Shield");
-            Tooltip.SetDefault("It's too big to wear, no ramming sorry");
-            SacrificeTotal = 1;
+            // DisplayName.SetDefault("Demon Ram Shield");
+            // Tooltip.SetDefault("It's too big to wear, no ramming sorry");
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()
