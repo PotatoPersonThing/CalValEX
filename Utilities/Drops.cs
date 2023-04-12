@@ -127,10 +127,10 @@ namespace CalValEX
             }
             if (type == NPCID.PartyGirl)
             {
-                shop.Add(ModContent.ItemType<TiedMirageBalloon>(), Condition.DownedPlantera)
-                    .Add(ModContent.ItemType<TiedBoxBalloon>(), Condition.DownedSkeletron)
-                    .Add(ModContent.ItemType<TiedChaosBalloon>(), Condition.DownedCultist)
-                    .Add(ModContent.ItemType<TiedBoB2>(), Condition.DownedCultist)
+                shop.Add(ModContent.ItemType<TiedMirageBalloon>(), Condition.PlayerCarriesItem(ModContent.ItemType<Mirballoon>()))
+                    .Add(ModContent.ItemType<TiedBoxBalloon>(), Condition.PlayerCarriesItem(ModContent.ItemType<BoxBalloon>()))
+                    .Add(ModContent.ItemType<TiedChaosBalloon>(), Condition.PlayerCarriesItem(ModContent.ItemType<ChaosBalloon>()))
+                    .Add(ModContent.ItemType<TiedBoB2>(), Condition.PlayerCarriesItem(ModContent.ItemType<BoB2>()))
                     .Add(ModContent.ItemType<ChaoticPuffball>(), CalValEXConditions.polt);
             }
         }
