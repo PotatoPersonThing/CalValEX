@@ -18,8 +18,6 @@ namespace CalValEX.AprilFools.Jharim
     [AutoloadHead]
     public class Jharim : ModNPC
     {
-        private static bool shop1;
-        private static bool boss;
         private bool MELDOSAURUSED;
         private int textcounter;
         public int framebuffer = 0;

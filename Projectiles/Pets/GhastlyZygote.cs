@@ -79,7 +79,7 @@ namespace CalValEX.Projectiles.Pets {
                 Vector2 controlPoint1 = Owner.Center - new Vector2(0, 0.5f) * mainCurv;
                 Vector2 controlPoint2 = Projectile.Center + new Vector2(0, 1.2f) * mainCurv;
 
-                Effects.BezierCurve curve = new Effects.BezierCurve(new Vector2[] { Owner.Center, controlPoint1, controlPoint2, chainlink });
+                BezierCurve curve = new BezierCurve(new Vector2[] { Owner.Center, controlPoint1, controlPoint2, chainlink });
                 int numPoints = 25; //"Should make dynamic based on curve length, but I'm not sure how to smoothly do that while using a bezier curve" -Graydee, from the code i referenced. I do agree.
                 Vector2[] cordPositions = curve.GetPoints(numPoints).ToArray();
 

@@ -188,7 +188,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
                 Vector2 controlPoint1 = Owner.Center - Vector2.UnitY * curvature;
                 Vector2 controlPoint2 = Projectile.Center + Vector2.UnitY * curvature;
 
-                Effects.BezierCurve curve = new Effects.BezierCurve(new Vector2[] { Owner.Center, controlPoint1, controlPoint2, Projectile.Center });
+                BezierCurve curve = new BezierCurve(new Vector2[] { Owner.Center, controlPoint1, controlPoint2, Projectile.Center });
                 int numPoints = 20; //"Should make dynamic based on curve length, but I'm not sure how to smoothly do that while using a bezier curve" -Graydee, from the code i referenced. I do agree.
                 Vector2[] chainPositions = curve.GetPoints(numPoints).ToArray();
 

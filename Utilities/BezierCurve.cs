@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 
-namespace CalValEX.Effects
+namespace CalValEX
 {
     public class BezierCurve
     {

@@ -20,6 +20,7 @@ using CalValEX.Items.Tiles.FurnitureSets.Arsenal;
 using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 using CalValEX.Items.Tiles.Monoliths;
 using CalValEX.Items.Tiles.Blocks;
+using static CalValEX.CalValEXConditions;
 
 namespace CalValEX.NPCs.JellyPriest
 {
@@ -369,37 +370,6 @@ namespace CalValEX.NPCs.JellyPriest
 
         public override void AddShops()
         {
-            Condition calamity = new Condition("FUCK", () =>  CalValEX.CalamityActive);
-            Condition acid = new Condition("FUCK", () => CalValEX.CalamityActive ? (CalValEX.InCalamityBiome(Main.LocalPlayer, "SulphurousSeaBiome") || (bool)CalValEX.Calamity.Call("GetBossDowned", "acidrainscourge")) : false);
-            Condition clam = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "giantclam") : false);
-            Condition ds = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "desertscourge") : false);
-            Condition crab = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "crabulon") : false);
-            Condition hive = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "hivemind") : false);
-            Condition perf = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "perforators") : false);
-            Condition sg = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "slimegod") : false);
-            Condition cirno = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "cryogen") : false);
-            Condition aqua = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "aquaticscourge") : false);
-            Condition brim = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "brimstoneelemental") : false);
-            Condition cala = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "calamitasclone") : false);
-            Condition oreo = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "astrumaureus") : false);
-            Condition lev = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "leviathan") : false);
-            Condition pb = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "plaguebringergoliath") : false);
-            Condition rav = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "ravager") : false);
-            Condition birb = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "dragonfolly") : false);
-            Condition prov = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "providence") : false);
-            Condition weavie = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "stormweaver") : false);
-            Condition toaster = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "ceaselessvoid") : false);
-            Condition siggy = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "signus") : false);
-            Condition polt = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "polterghast") : false);
-            Condition boomer = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "oldduke") : false);
-            Condition dog = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "devourerofgods") : false);
-            Condition yharon = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "yharon") : false);
-            Condition exo = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "draedon") : false);
-            Condition scal = new Condition("FUCK", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "scal") : false);
-            Condition ass = new Condition("FUCK", () =>  Main.LocalPlayer.InModBiome<Biomes.AstralBlight>());
-            Condition sammy = new Condition("FUCK", () => CalValEXWorld.hellTiles > 20 && Main.LocalPlayer.ZoneUnderworldHeight);
-            Condition jun = new Condition("FUCK", () =>   CalValEXWorld.jungleTiles > 20 && Main.LocalPlayer.ZoneJungle);
-
             shopEntries.Add(("Blocks1", CalValEX.CalamityItem("WulfrumPlating"), Item.buyPrice(0, 0, 0, 20), calamity, ""));
             shopEntries.Add(("Blocks1", CalValEX.CalamityItem("LaboratoryPlating"), Item.buyPrice(0, 0, 0, 25), calamity, ""));
             shopEntries.Add(("Blocks1", CalValEX.CalamityItem("LaboratoryPanels"), Item.buyPrice(0, 0, 0, 25), calamity, ""));

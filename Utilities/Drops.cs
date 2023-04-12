@@ -47,228 +47,92 @@ namespace CalValEX
 {
     public class CalValEXGlobalNPC : GlobalNPC
     {
-        public readonly float bossHookChance = 0.1f; //10%
-        public readonly float bossPetChance = 0.2f; //20%
-        public readonly float minibossChance = 0.1f; //10%
-        public readonly float normalEnemyChance = 0.05f; //5%
-        public readonly float rareEnemyChance = 0.1f; //10%
-        public readonly float RIVChance = 0.075f; //7.5%
-        public readonly float vanityMaxChance = 0.15f; //15%
-
-        public readonly float vanityMinChance = 0.05f; //5%
-        public readonly float vanityNormalChance = 0.1f; //10%
-
         public bool bdogeMount;
         public bool geldonSummon;
         public bool junkoReference;
         public bool wolfram;
-
 
         public static int meldodon = -1;
         public static int jharim = -1;
 
         public override bool InstancePerEntity => true;
 
-        [JITWhenModsEnabled("CalamityMod")]
-        public override void ModifyActiveShop(NPC npc, string shopName, Item[] items)
+        public override void ModifyShop(NPCShop shop)
         {
-            /*Mod alchLite;
+            Mod alchLite;
             ModLoader.TryGetMod("AlchemistNPCLite", out alchLite);
             Mod alchFull;
             ModLoader.TryGetMod("AlchemistNPC", out alchFull);
-            int type = npc.type;
+            int type = shop.NpcType;
+
             if (alchLite != null)
             {
                 if (type == alchLite.Find<ModNPC>("Musician").Type)
                 {
-                    if (Main.hardMode)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralMusicBox>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10);
-                        ++nextSlot;
-                    }
+                    shop.Add(ModContent.ItemType<AstralMusicBox>(), CalValEXConditions.oreo);
                 }
             }
             if (alchFull != null)
             {
                 if (type == alchFull.Find<ModNPC>("Musician").Type)
                 {
-                    if (Main.hardMode)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralMusicBox>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10);
-                        ++nextSlot;
-                    }
+                    shop.Add(ModContent.ItemType<AstralMusicBox>(), CalValEXConditions.oreo);
                 }
             }
             if (CalValEX.CalamityActive)
             {
-                if (type == CalValEX.CalamityNPC("SEAHOE"))
+                if (type == CalValEX.Calamity.Find<ModNPC>("SEAHOE").Type)
                 {
-                    if ((bool)CalValEX.Calamity.Call("GetBossDowned", "oldduke"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<BloodwormScarf>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(1, 50);
-                        ++nextSlot;
-                    }
-
-                    if ((bool)CalValEX.Calamity.Call("GetBossDowned", "scal"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Yharlamitas>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(42);
-                        ++nextSlot;
-                    }
+                    shop.Add(ModContent.ItemType<BloodwormScarf>(), CalValEXConditions.boomer)
+                        .Add(ModContent.ItemType<Yharlamitas>(), CalValEXConditions.scal);
                 }
-                if (type == CalValEX.CalamityNPC("DILF")) //Permafrost
+                if (type == CalValEX.Calamity.Find<ModNPC>("DILF").Type)
                 {
-                    if ((bool)CalValEX.Calamity.Call("GetBossDowned", "cryogen"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<FrostflakeBrick>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 10);
-                        ++nextSlot;
-                    }
-                    if ((bool)CalValEX.Calamity.Call("GetBossDowned", "signus"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Signut>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(15);
-                        ++nextSlot;
-                    }
+                    shop.Add(ModContent.ItemType<FrostflakeBrick>())
+                        .Add(ModContent.ItemType<Signut>(), CalValEXConditions.siggy);
                 }
-
-                if (type == CalValEX.CalamityNPC("THIEF"))
+                if (type == CalValEX.Calamity.Find<ModNPC>("THIEF").Type)
                 {
-                    if ((bool)CalValEX.Calamity.Call("GetBossDowned", "astrumaureus"))
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AureicFedora>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 10);
-                        ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidTentacles>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
-                        ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidThorax>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
-                        ++nextSlot;
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstrachnidCranium>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
-                        ++nextSlot;
-                    }
+                    shop.Add(ModContent.ItemType<AureicFedora>(), CalValEXConditions.oreo)
+                        .Add(ModContent.ItemType<AstrachnidCranium>(), CalValEXConditions.oreo)
+                        .Add(ModContent.ItemType<AstrachnidTentacles>(), CalValEXConditions.oreo)
+                        .Add(ModContent.ItemType<AstrachnidThorax>(), CalValEXConditions.oreo);
                 }
-
-                if (type == CalValEX.CalamityNPC("FAP"))
+                if (type == CalValEX.Calamity.Find<ModNPC>("FAP").Type)
                 {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<OddMushroomPot>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 30);
-                    ++nextSlot;
+                    shop.Add(ModContent.ItemType<OddMushroomPot>(), CalValEXConditions.oreo);
                 }
             }
-
-            if (type == NPCID.Clothier)
-            {
-                if (CalValEX.CalamityActive)
-                {
-                    int bandit = NPC.FindFirstNPC(CalValEX.CalamityNPC("THIEF"));
-                    int archmage = NPC.FindFirstNPC(CalValEX.CalamityNPC("DILF"));
-                    if (bandit != -1)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<BanditHat>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
-                        ++nextSlot;
-                    }
-
-                    if (archmage != -1)
-                    {
-                        shop.item[nextSlot].SetDefaults(ModContent.ItemType<Permascarf>());
-                        shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
-                        ++nextSlot;
-                    }
-                }
-
-                if (Main.LocalPlayer.ZoneDungeon || CalValEXWorld.dungeontiles > 100)
-                {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<PolterMask>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
-                    ++nextSlot;
-
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<Polterskirt>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
-                    ++nextSlot;
-
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<PolterStockings>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 3);
-                    ++nextSlot;
-                }
-            }
-
-            if (type == NPCID.Dryad && Main.hardMode)
-            {
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<AstralGrass>());
-                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 0, 50);
-                ++nextSlot;
-            }
-
-            if (type == NPCID.Truffle)
-            {
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<SwearshroomItem>());
-                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 2);
-                ++nextSlot;
-                if (NPC.downedPlantBoss)
-                {
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<ShroomiteVisage>());
-                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
-                ++nextSlot;
-            }
-            }
-
             if (type == NPCID.Steampunker)
             {
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<XenoSolution>());
-                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5);
-                ++nextSlot;
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<StarstruckSynthesizer>());
-                shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 5);
-                ++nextSlot;
+                shop.Add(ModContent.ItemType<XenoSolution>(), Condition.Hardmode)
+                    .Add(ModContent.ItemType<StarstruckSynthesizer>(), Condition.Hardmode);
             }
-
+            if (type == NPCID.Dryad)
+            {
+                shop.Add(ModContent.ItemType<AstralGrass>(), Condition.Hardmode);
+            }
+            if (type == NPCID.Truffle)
+            {
+                shop.Add(ModContent.ItemType<SwearshroomItem>())
+                    .Add(ModContent.ItemType<ShroomiteVisage>(), Condition.DownedPlantera);
+            }
+            if (type == NPCID.Clothier)
+            {
+                shop.Add(ModContent.ItemType<PolterMask>(), CalValEXConditions.dungeon)
+                    .Add(ModContent.ItemType<Polterskirt>(), CalValEXConditions.dungeon)
+                    .Add(ModContent.ItemType<PolterStockings>(), CalValEXConditions.dungeon)
+                    .Add(ModContent.ItemType<BanditHat>(), CalValEXConditions.bandit)
+                    .Add(ModContent.ItemType<Permascarf>(), CalValEXConditions.perma);
+            }
             if (type == NPCID.PartyGirl)
             {
-                if (Main.LocalPlayer.HasItem(ModContent.ItemType<Mirballoon>()) ||
-                    Main.LocalPlayer.HasItem(ModContent.ItemType<BoB2>()))
-                {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedMirageBalloon>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5);
-                    ++nextSlot;
-                }
-
-                if (Main.LocalPlayer.HasItem(ModContent.ItemType<BoxBalloon>()) ||
-                    Main.LocalPlayer.HasItem(ModContent.ItemType<BoB2>()))
-                {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedBoxBalloon>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5);
-                    ++nextSlot;
-                }
-
-                if (Main.LocalPlayer.HasItem(ModContent.ItemType<ChaosBalloon>()) ||
-                    Main.LocalPlayer.HasItem(ModContent.ItemType<BoB2>()))
-                {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedChaosBalloon>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5);
-                    ++nextSlot;
-                }
-
-                if (Main.LocalPlayer.HasItem(ModContent.ItemType<BoB2>()))
-                {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<TiedBoB2>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 0, 5);
-                    ++nextSlot;
-                }
-
-                if (CalValEX.CalamityActive && (bool)CalValEX.Calamity.Call("GetBossDowned", "polterghast"))
-                {
-                    shop.item[nextSlot].SetDefaults(ModContent.ItemType<ChaoticPuffball>());
-                    shop.item[nextSlot].shopCustomPrice = Item.buyPrice(0, 1);
-                    ++nextSlot;
-                }
-            }*/
+                shop.Add(ModContent.ItemType<TiedMirageBalloon>(), Condition.DownedPlantera)
+                    .Add(ModContent.ItemType<TiedBoxBalloon>(), Condition.DownedSkeletron)
+                    .Add(ModContent.ItemType<TiedChaosBalloon>(), Condition.DownedCultist)
+                    .Add(ModContent.ItemType<TiedBoB2>(), Condition.DownedCultist)
+                    .Add(ModContent.ItemType<ChaoticPuffball>(), CalValEXConditions.polt);
+            }
         }
 
         [JITWhenModsEnabled("CalamityMod")]
