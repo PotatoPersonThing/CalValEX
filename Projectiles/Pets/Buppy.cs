@@ -78,7 +78,7 @@ namespace CalValEX.Projectiles.Pets
 
                     if (yapcount == 300) //this won't run the animation code since it checks only one value
                     {
-                        SoundEngine.PlaySound(SoundID.NPCHit46);
+                        SoundEngine.PlaySound(SoundID.NPCHit46, Main.player[Projectile.owner].position);
                         if (Projectile.frame != 7 && Projectile.frame != 6)
                         {
                             Projectile.frame = 6;
@@ -93,7 +93,7 @@ namespace CalValEX.Projectiles.Pets
                     }
                     if (yapcount >= 330) //this won't run the animation code since it resets instantly
                     {
-                        SoundEngine.PlaySound(SoundID.NPCHit46);
+                        SoundEngine.PlaySound(SoundID.NPCHit46, Main.player[Projectile.owner].position);
                         yapcount = 0; //<---
                         if (Projectile.frame != 7 && Projectile.frame != 6)
                         {
@@ -124,6 +124,8 @@ namespace CalValEX.Projectiles.Pets
         int yapcount;
         public override void CustomBehaviour(Player player, ref int state, float walkingSpeed, float walkingInertia, float flyingSpeed, float flyingInertia)
         {
+if (!CalValEXConfig.Instance.Pitbul)
+{
             for (int x = 0; x < Main.maxNPCs; x++)
             {
                 NPC npc = Main.npc[x];
@@ -132,6 +134,7 @@ namespace CalValEX.Projectiles.Pets
                     yapcount++; //careful as it will break when theres more than 1 rare enemy, the code that checks if it barked or not checks values, not over or under.
                 }
             }
+}
         }
 
         public override void SendExtraAI(BinaryWriter writer)

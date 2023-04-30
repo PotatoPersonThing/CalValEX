@@ -53,6 +53,12 @@ namespace CalValEX
         [Tooltip("Makes it so that the Toy Scythe's pet always uses its default skin")]
         public bool Polterskin { get; set; }
 
+        [Label("Disable Pitbull Barking")]
+        [BackgroundColor(192, 54, 64, 192)]
+        [DefaultValue(false)]
+        [Tooltip("Makes it so that the Pitbull pet doesn't bark at rare enemies")]
+        public bool Pitbul { get; set; }
+
         [Header("NPCs")]
         [Label("Disable Town NPCs")]
         [BackgroundColor(192, 54, 64, 192)]
