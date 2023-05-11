@@ -24,6 +24,8 @@ namespace CalValEX.AprilFools.Jharim
         public int framecounter = 0;
         public bool firinglaser = false;
         public bool lasercheck = false;
+        public int shopnum = 1;
+        public int maxshops = 1;
         Vector2 jharimpos;
 
         private static int ShimmerHeadIndex;
@@ -123,7 +125,7 @@ namespace CalValEX.AprilFools.Jharim
         [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
-            if (!CalValEX.AprilFoolMonth)
+            if (!CalValEX.AprilFoolMonth && CalValEX.CalamityActive)
             {
                 NPC.active = false;
             }
@@ -216,6 +218,17 @@ namespace CalValEX.AprilFools.Jharim
             CalValEXGlobalNPC.jharim = NPC.whoAmI;
             Player player = Main.player[Main.myPlayer];
             CalValEXPlayer CalValEXPlayer = player.GetModPlayer<CalValEXPlayer>();
+            int itemamt = 0;
+            for (int i = 0; i < ContentSamples.ItemsByType.Count; i++)
+            {
+                Item item = ContentSamples.ItemsByType[i];
+                if ((item.ModItem?.Mod ?? null) == CalValEX.instance)
+                {
+                    itemamt++;
+                }
+            }
+
+            maxshops = itemamt / 39;
             if (!MELDOSAURUSED)
             {
                 if (NPC.homeless)
@@ -414,9 +427,8 @@ namespace CalValEX.AprilFools.Jharim
         {
             if (!MELDOSAURUSED)
             {
-                button = "Shop";
-                if (CalValEX.CalamityActive)
-                button2 = "Summon";
+                button = CalValEX.CalamityActive ? "Shop" : "Shop " + shopnum;
+                button2 = CalValEX.CalamityActive ? "Summon" : "Cycle Shop";
             }
         }
 
@@ -427,10 +439,14 @@ namespace CalValEX.AprilFools.Jharim
             {
                 if (firstButton)
                 {
-                    shopName = "Jharim";
+                    if (CalValEX.CalamityActive)
+                        shopName = "Jharim";
+                    else
+                        shopName = "Jharim" + shopnum;
                 }
-                else if (!firstButton && CalValEX.CalamityActive)
+                else if (!firstButton)
                 {
+                    if (CalValEX.CalamityActive)
                     {
                         if (Main.myPlayer == Main.LocalPlayer.whoAmI)
                         {
@@ -447,14 +463,59 @@ namespace CalValEX.AprilFools.Jharim
                             }
                         }
                     }
+                    else
+                    {
+                        if (shopnum < maxshops)
+                            shopnum++;
+                        else
+                            shopnum = 1;
+                    }
                 }
             }
         }
         public override void AddShops()
         {
-            var blockShop = new NPCShop(Type, "Jharim");
-            blockShop.Add(ItemType<AmogusItem>());
-            blockShop.Register();
+            if (CalValEX.CalamityActive)
+            {
+                var blockShop = new NPCShop(Type, "Jharim");
+                blockShop.Add(ItemType<AmogusItem>());
+                blockShop.Register();
+            }
+            else
+            {
+                int itemamt = 0;
+                for (int i = 0; i < ContentSamples.ItemsByType.Count; i++)
+                {
+                    Item item = ContentSamples.ItemsByType[i];
+                    if ((item.ModItem?.Mod ?? null) == CalValEX.instance)
+                    {
+                        itemamt++;
+                    }
+                }
+
+                maxshops = itemamt / 39;
+                int currentiter = 0;
+                int s = 0;
+                int progress = 0;
+                for (int h = 0; 0 < 17; h++)
+                {
+                    var shope = new NPCShop(Type, "Jharim" + (h + 1));
+                    for (int j = 0; j < 39; j++)
+                    {
+                        for (int i = progress; i < ContentSamples.ItemsByType.Count; i++)
+                        {
+                            Item item = ContentSamples.ItemsByType[i];
+                            if ((item.ModItem?.Mod ?? null) == CalValEX.instance)
+                            {
+                                shope.Add(item.type);
+                                progress = i;
+                                break;
+                            }
+                        }
+                    }
+                    shope.Register();
+                }
+            }
         }
 
         public override bool CanGoToStatue(bool toKingStatue)
