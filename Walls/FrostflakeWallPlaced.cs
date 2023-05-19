@@ -10,7 +10,7 @@ namespace CalValEX.Walls
         public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            ItemDrop = ModContent.ItemType<FrostflakeWall>();
+            //ItemDrop = ModContent.ItemType<FrostflakeWall>();
             AddMapEntry(new Color(7, 99, 133));
             DustType = 92;
         }

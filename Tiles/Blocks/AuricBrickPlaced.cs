@@ -14,7 +14,7 @@ namespace CalValEX.Tiles.Blocks
             Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            ItemDrop = ModContent.ItemType<AuricBrick>();
+            //ItemDrop = ModContent.ItemType<AuricBrick>();
             HitSound = SoundID.Tink;
             AddMapEntry(new Color(242, 202, 39));
             DustType = 159;

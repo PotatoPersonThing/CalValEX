@@ -18,7 +18,7 @@ namespace CalValEX.Tiles.Blocks
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
 			HitSound = SoundID.Tink;
-			ItemDrop = ModContent.ItemType<HallowedBrick>();
+			//ItemDrop = ModContent.ItemType<HallowedBrick>();
 			AddMapEntry(new Color(200, 209, 157));
 		}
 	}

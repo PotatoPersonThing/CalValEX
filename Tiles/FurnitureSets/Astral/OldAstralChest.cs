@@ -30,7 +30,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             AddMapEntry(new Color(36, 18, 38), name, MapChestName);
             
             AdjTiles = new int[] { TileID.Containers };
-            ItemDrop = ModContent.ItemType<OldAstralChestItem>();
+            //ItemDrop = ModContent.ItemType<OldAstralChestItem>();
 
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);

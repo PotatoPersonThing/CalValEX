@@ -16,7 +16,7 @@ namespace CalValEX.Tiles.AstralBlocks
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            ItemDrop = ModContent.ItemType<AstralSnow>();
+            //ItemDrop = ModContent.ItemType<AstralSnow>();
             DustType = ModContent.DustType<AstralDust>();
             AddMapEntry(new Color(243, 213, 245));
             Main.tileBlendAll[this.Type] = true;

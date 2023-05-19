@@ -31,7 +31,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             AddMapEntry(new Color(94, 39, 93));
-            ItemDrop = ModContent.ItemType<PhantowaxPlatformItem>();
+            //ItemDrop = ModContent.ItemType<PhantowaxPlatformItem>();
             
             AdjTiles = new int[] { TileID.Platforms };
         }

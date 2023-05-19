@@ -10,7 +10,7 @@ namespace CalValEX.Walls
         public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            ItemDrop = ModContent.ItemType<HallowedBrickWall>();
+            //ItemDrop = ModContent.ItemType<HallowedBrickWall>();
             AddMapEntry(new Color(78, 105, 77));
         }
     }

@@ -29,7 +29,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             AddMapEntry(new Color(36, 18, 38), name, MapChestName);
             
             AdjTiles = new int[] { TileID.Containers };
-            ItemDrop = ModContent.ItemType<PhantowaxChestItem>();
+            //ItemDrop = ModContent.ItemType<PhantowaxChestItem>();
 
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);

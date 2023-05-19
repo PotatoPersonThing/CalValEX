@@ -41,7 +41,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
 			// name.SetDefault("Bloodstone Dresser");
 			AddMapEntry(new Color(100, 100, 100), name);
 			AdjTiles = new int[] { TileID.Dressers };
-			ItemDrop = ModContent.ItemType<BloodstoneDresserItem>();
+			//ItemDrop = ModContent.ItemType<BloodstoneDresserItem>();
 		}
 
 

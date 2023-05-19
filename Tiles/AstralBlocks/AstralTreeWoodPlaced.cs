@@ -12,7 +12,7 @@ namespace CalValEX.Tiles.AstralBlocks
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
-            ItemDrop = ModContent.ItemType<AstralTreeWood>();
+            //ItemDrop = ModContent.ItemType<AstralTreeWood>();
             AddMapEntry(new Color(78, 45, 91));
             AnimationFrameHeight = 90;
         }

@@ -10,7 +10,7 @@ namespace CalValEX.Walls
         public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            ItemDrop = ModContent.ItemType<PolishedXenomonolithWall>();
+            //ItemDrop = ModContent.ItemType<PolishedXenomonolithWall>();
             AddMapEntry(new Color(54, 13, 71));
         }
     }

@@ -30,7 +30,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             AddMapEntry(new Color(36, 18, 38), name, MapChestName);
             
             AdjTiles = new int[] { TileID.Containers };
-            ItemDrop = ModContent.ItemType<BloodstoneChestItem>();
+            //ItemDrop = ModContent.ItemType<BloodstoneChestItem>();
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             TileObjectData.newTile.Origin = new Point16(0, 1);

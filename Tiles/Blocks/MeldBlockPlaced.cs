@@ -11,7 +11,7 @@ namespace CalValEX.Tiles.Blocks {
             Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            ItemDrop = ModContent.ItemType<MeldBlock>();
+            //ItemDrop = ModContent.ItemType<MeldBlock>();
             DustType = 173;
             AddMapEntry(new Color(19, 24, 27));
             Main.tileBlendAll[this.Type] = true;

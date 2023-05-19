@@ -25,7 +25,8 @@ namespace CalValEX.AprilFools.Jharim
         public bool firinglaser = false;
         public bool lasercheck = false;
         public int shopnum = 1;
-        public int maxshops = 1;
+        public int maxshops = 18;
+        public List<int> cvitems = new List<int> { };
         Vector2 jharimpos;
 
         private static int ShimmerHeadIndex;
@@ -218,7 +219,7 @@ namespace CalValEX.AprilFools.Jharim
             CalValEXGlobalNPC.jharim = NPC.whoAmI;
             Player player = Main.player[Main.myPlayer];
             CalValEXPlayer CalValEXPlayer = player.GetModPlayer<CalValEXPlayer>();
-            int itemamt = 0;
+           /* int itemamt = 0;
             for (int i = 0; i < ContentSamples.ItemsByType.Count; i++)
             {
                 Item item = ContentSamples.ItemsByType[i];
@@ -226,9 +227,9 @@ namespace CalValEX.AprilFools.Jharim
                 {
                     itemamt++;
                 }
-            }
+            }*/
 
-            maxshops = itemamt / 39;
+            //maxshops = itemamt / 39;
             if (!MELDOSAURUSED)
             {
                 if (NPC.homeless)
@@ -483,39 +484,64 @@ namespace CalValEX.AprilFools.Jharim
             }
             else
             {
-                int itemamt = 0;
                 for (int i = 0; i < ContentSamples.ItemsByType.Count; i++)
                 {
                     Item item = ContentSamples.ItemsByType[i];
-                    if ((item.ModItem?.Mod ?? null) == CalValEX.instance)
+                    // if the item is from CalVal, add it to the shop
+                    if ((item.ModItem?.Mod ?? null) == CalValEX.instance && item.Name != "Compensation")
                     {
-                        itemamt++;
+                        cvitems.Add(i);
                     }
                 }
 
-                maxshops = itemamt / 39;
-                int currentiter = 0;
-                int s = 0;
                 int progress = 0;
-                for (int h = 0; 0 < 17; h++)
+
+                for (int s = 1; s < maxshops + 1; s++)
                 {
-                    var shope = new NPCShop(Type, "Jharim" + (h + 1));
-                    for (int j = 0; j < 39; j++)
+                    var shope = new NPCShop(Type, "Jharim" + s);
+                    for (int i = 0 + progress; i < 39 + progress; i++)
                     {
-                        for (int i = progress; i < ContentSamples.ItemsByType.Count; i++)
+                        if (i < cvitems.Count)
                         {
-                            Item item = ContentSamples.ItemsByType[i];
-                            if ((item.ModItem?.Mod ?? null) == CalValEX.instance)
-                            {
-                                shope.Add(item.type);
-                                progress = i;
-                                break;
-                            }
+                            Item item = ContentSamples.ItemsByType[cvitems[i]];
+                            item.value = DecidePrice(item);
+                            shope.Add(item);
                         }
                     }
+                    progress += 39;
                     shope.Register();
                 }
             }
+        }
+
+        public override void ModifyActiveShop(string shopName, Item[] items)
+        {
+        }
+
+        public static int DecidePrice(Item item)
+        {
+            int price = 0;
+            // Ore-HM
+            if (item.rare < 4)
+            {
+                price = Item.buyPrice(gold: 20);
+                // Blocks
+                if (item.createTile > 0 && item.rare == 0)
+                {
+                    price /= 1000;
+                }
+            }
+            // Post-ML
+            else if (item.rare > 10)
+            {
+                price = Item.buyPrice(gold: 60);
+            }
+            // Hardmode
+            else
+            {
+                price = Item.buyPrice(gold: 40);
+            }
+            return price;
         }
 
         public override bool CanGoToStatue(bool toKingStatue)

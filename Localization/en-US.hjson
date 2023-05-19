@@ -1,4 +1,3 @@
-
 Mods: {
 	CalValEX: {
 		NPCs: {
@@ -357,22 +356,22 @@ Mods: {
 				# Capes
 				DisplayName: Eidolist Cape
 				# Capes
-				Tooltip: 'Whispers of the deep can be heard through the weavings of this eldritch fabric...'
+				Tooltip: Whispers of the deep can be heard through the weavings of this eldritch fabric...
 			}
 
 			SigCape: {
 				DisplayName: Signus' Cape
-				Tooltip: 'Mask yourself in the shadows'
+				Tooltip: Mask yourself in the shadows
 			}
 
 			YharimCape: {
 				DisplayName: Tyrant's Cape
-				Tooltip: 'Not the true one, but still regal and elegant'
+				Tooltip: Not the true one, but still regal and elegant
 			}
 
 			YharimCapeBaby: {
 				DisplayName: Auric Mantle
-				Tooltip: 'Still not the true one, looks like a kid's toy'
+				Tooltip: "'Still not the true one, looks like a kid's toy'"
 			}
 
 			DraedonHelmet: {
@@ -388,12 +387,12 @@ Mods: {
 
 			Aestheticrown: {
 				DisplayName: Aestheticrest
-				Tooltip: 'Biteki-Chan'
+				Tooltip: Biteki-Chan
 			}
 
 			AncientAuricTeslaHelm: {
 				DisplayName: Ancient Auric Tesla Helm
-				Tooltip: 'A polished piece of an ancient armor'
+				Tooltip: A polished piece of an ancient armor
 			}
 
 			AncientPerennialFlower: {
@@ -413,7 +412,7 @@ Mods: {
 
 			AureicFedora: {
 				DisplayName: Aureic Fedora
-				Tooltip: 'Just don't tip it on someone directly'
+				Tooltip: "'Just don't tip it on someone directly'"
 			}
 
 			BanditHat: {
@@ -423,7 +422,7 @@ Mods: {
 
 			BelladonnaHat: {
 				DisplayName: Belladona Spirit Hat
-				Tooltip: 'Poisonous, but stylish'
+				Tooltip: Poisonous, but stylish
 			}
 
 			BigWorm: {
@@ -433,17 +432,17 @@ Mods: {
 
 			BirbHat: {
 				DisplayName: Follyhat
-				Tooltip: 'The one hat to rule them all'
+				Tooltip: The one hat to rule them all
 			}
 
 			BloodyMaryHat: {
 				DisplayName: Bloody Mary Hat
-				Tooltip: 'Feeling elegant'
+				Tooltip: Feeling elegant
 			}
 
 			CalaCirclet: {
 				DisplayName: Calamity Circlet
-				Tooltip: 'Cursed?'
+				Tooltip: Cursed?
 			}
 
 			ClamMask: {
@@ -453,12 +452,12 @@ Mods: {
 
 			CoralMask: {
 				DisplayName: Belching Coral Mask
-				Tooltip: 'It's big brine time'
+				Tooltip: "'It's big brine time'"
 			}
 
 			CosmicCone: {
 				DisplayName: The Cosmic Cone
-				Tooltip: 'A hat so pointy it could pierce the heavens'
+				Tooltip: A hat so pointy it could pierce the heavens
 			}
 
 			Cryocap: {
@@ -478,22 +477,22 @@ Mods: {
 
 			DevilfishMask1: {
 				DisplayName: Curly Devil Fish Mask
-				Tooltip: 'Edgy'
+				Tooltip: Edgy
 			}
 
 			DevilfishMask2: {
 				DisplayName: Pointed Devil Fish Mask
-				Tooltip: 'Edgier'
+				Tooltip: Edgier
 			}
 
 			DevilfishMask3: {
 				DisplayName: Exposed Devil Fish Mask
-				Tooltip: 'Rubbing salt on the wound'
+				Tooltip: Rubbing salt on the wound
 			}
 
 			DummyMask: {
 				DisplayName: Dummy Mask
-				Tooltip: 'The only dummy here is you'
+				Tooltip: The only dummy here is you
 			}
 
 			EarthenHelmet: {
@@ -513,22 +512,22 @@ Mods: {
 
 			FlakHeadCrab: {
 				DisplayName: Flak Head Crab
-				Tooltip: 'It appears you have a parasite'
+				Tooltip: It appears you have a parasite
 			}
 
 			GammaHelmet: {
 				DisplayName: Gamma Sludge
-				Tooltip: "I'm Radioactive!"
+				Tooltip: I'm Radioactive!
 			}
 
 			GruelingMask: {
 				DisplayName: Grueling Mask
-				Tooltip: "Yaaagh!"
+				Tooltip: Yaaagh!
 			}
 
 			MaulerMask: {
 				DisplayName: Mauler Mask
-				Tooltip: 'Mauling faces since the 80s'
+				Tooltip: Mauling faces since the 80s
 			}
 
 			MidWorm: {
@@ -543,7 +542,7 @@ Mods: {
 
 			OmegaBlue: {
 				DisplayName: Ancient Omega Blue Helmet
-				Tooltip: 'You are beneath my notice, wyrm!'
+				Tooltip: You are beneath my notice, wyrm!
 			}
 
 			OracleBeanie: {
@@ -568,12 +567,12 @@ Mods: {
 
 			ScornEaterMask: {
 				DisplayName: Scorn Eater Mask
-				Tooltip: 'The searing fire blazes fiercly'
+				Tooltip: The searing fire blazes fiercly
 			}
 
 			SeaCrown: {
 				DisplayName: Sea Empress Crown
-				Tooltip: 'Wearing this will make you feel royal'
+				Tooltip: Wearing this will make you feel royal
 			}
 
 			SlimeGodMask: {
@@ -593,7 +592,7 @@ Mods: {
 
 			SquidHat: {
 				DisplayName: The Squid Hat
-				Tooltip: 'Splattershot sold separately'
+				Tooltip: Splattershot sold separately
 			}
 
 			StonePile: {
@@ -617,7 +616,7 @@ Mods: {
 
 			UnloadedHelm: {
 				DisplayName: Unloaded Helm
-				Tooltip: 'Still reeks'
+				Tooltip: Still reeks
 			}
 
 			DraedonLeggings: {
@@ -674,12 +673,12 @@ Mods: {
 
 			SignusNether: {
 				DisplayName: Nether Spirit
-				Tooltip: 'Gaining literal nether regions'
+				Tooltip: Gaining literal nether regions
 			}
 
 			TerrorLegs: {
 				DisplayName: Terror Legs
-				Tooltip: 'They're twitching'
+				Tooltip: "'They're twitching'"
 			}
 
 			AstBandana: {
@@ -691,7 +690,7 @@ Mods: {
 
 			BloodwormScarf: {
 				DisplayName: Bloodworm Scarf
-				Tooltip: 'That bloody creature is trying to burrow into your neck!'
+				Tooltip: That bloody creature is trying to burrow into your neck!
 			}
 
 			CosmicWormScarf: {
@@ -701,27 +700,27 @@ Mods: {
 
 			DesertMedallion: {
 				DisplayName: Budget Desert Medallion
-				Tooltip: 'Because the other one is too cursed to wear'
+				Tooltip: Because the other one is too cursed to wear
 			}
 
 			PermaScarf: {
 				DisplayName: Permafrost's Scarf
-				Tooltip: 'Stay Frosty'
+				Tooltip: Stay Frosty
 			}
 
 			ProviCrystal: {
 				DisplayName: Unholy Charm
-				Tooltip: 'A rare treasure gifted from the profaned goddess'
+				Tooltip: A rare treasure gifted from the profaned goddess
 			}
 
 			RapturedWormScarf: {
 				DisplayName: Raptured Worm Scarf
-				Tooltip: 'So stylish it bends the fabric of reality!'
+				Tooltip: So stylish it bends the fabric of reality!
 			}
 
 			SignusEmblem: {
 				DisplayName: Signus Emblem
-				Tooltip: 'Contains some abyssal energy'
+				Tooltip: Contains some abyssal energy
 			}
 
 			StormBandana: {
@@ -736,19 +735,19 @@ Mods: {
 
 			YharonShackle: {
 				DisplayName: Yharon's Shackle
-				Tooltip: 'It barely fits you...'
+				Tooltip: It barely fits you...
 			}
 
 			AureusShield: {
 				# Shields
 				DisplayName: Aureus Bulwark
 				# Shields
-				Tooltip: 'Smaller in execution'
+				Tooltip: Smaller in execution
 			}
 
 			EarthShield: {
 				DisplayName: Tower Shield of the Elemental
-				Tooltip: 'Looks sturdy, but it's actually soft, useless stone!'
+				Tooltip: "'Looks sturdy, but it's actually soft, useless stone!'"
 			}
 
 			Invishield: {
@@ -758,7 +757,7 @@ Mods: {
 
 			TrilobiteShield: {
 				DisplayName: Trilobuckler
-				Tooltip: 'An ancient shield that's too old to block attacks'
+				Tooltip: "'An ancient shield that's too old to block attacks'"
 			}
 
 			AresChestplate: {
@@ -788,7 +787,7 @@ Mods: {
 
 			BelladonnaCloak: {
 				DisplayName: Belladonna Spirit Cloak
-				Tooltip: 'The latest in fashion, all natural'
+				Tooltip: The latest in fashion, all natural
 			}
 
 			BloodyMaryDress: {
@@ -833,7 +832,7 @@ Mods: {
 
 			PerennialDress: {
 				DisplayName: Perennial Dress
-				Tooltip: 'Flowering out'
+				Tooltip: Flowering out
 			}
 
 			Polterskirt: {
@@ -848,7 +847,7 @@ Mods: {
 
 			ReaperSharkArms: {
 				DisplayName: Reaper Shark Arms
-				Tooltip: 'Hitting the gym was never this easy!'
+				Tooltip: Hitting the gym was never this easy!
 			}
 
 			BurningEye: {
@@ -1114,7 +1113,7 @@ Mods: {
 				# Misc
 				DisplayName: Exodium Orbiter
 				# Misc
-				Tooltip: 'A world revolving'
+				Tooltip: A world revolving
 			}
 
 			AntarcticEssence: {
@@ -1358,7 +1357,7 @@ Mods: {
 
 			ProfanedBattery: {
 				DisplayName: Holy Crystal Core
-				Tooltip: 'Charged core of a Profaned Guardian'
+				Tooltip: Charged core of a Profaned Guardian
 			}
 
 			ProfanedCycleItem: {
@@ -1373,15 +1372,12 @@ Mods: {
 
 			ProfanedFrame: {
 				DisplayName: Profaned Frame
-				Tooltip: 'Some sort of ancient framework'
+				Tooltip: Some sort of ancient framework
 			}
 
 			ProfanedWheels: {
 				DisplayName: Hot Wheels
-				Tooltip:
-					'''
-					'Wheels made of pure profaned energy'
-					'''
+				Tooltip: "'Wheels made of pure profaned energy'"
 			}
 
 			RadJuice: {
@@ -1437,52 +1433,52 @@ Mods: {
 				# Pandemonium Box
 				DisplayName: Alarm Clock
 				# Pandemonium Box
-				Tooltip: 'Spare parts for your travels'
+				Tooltip: Spare parts for your travels
 			}
 
 			NurseryBell: {
 				DisplayName: Nursery Bell
-				Tooltip: 'Our best friends...'
+				Tooltip: Our best friends...
 			}
 
 			DustChime: {
 				DisplayName: Dust Chime
-				Tooltip: 'The winds of progress!'
+				Tooltip: The winds of progress!
 			}
 
 			BestInstrument: {
 				DisplayName: Best Instrument
-				Tooltip: 'Pieces of your journey'
+				Tooltip: Pieces of your journey
 			}
 
 			HarbingerOfWork: {
 				DisplayName: Harbinger of Work
-				Tooltip: 'Feels like robot love!'
+				Tooltip: Feels like robot love!
 			}
 
 			MaladyBells: {
 				DisplayName: Malady Bells
-				Tooltip: 'Starting anew!'
+				Tooltip: Starting anew!
 			}
 
 			SpiritDinerBell: {
 				DisplayName: Dead Ringer
-				Tooltip: 'Halfway there'
+				Tooltip: Halfway there
 			}
 
 			AltarBell: {
 				DisplayName: Altar Bell
-				Tooltip: 'The gods from the heavens on the palm of your hand'
+				Tooltip: The gods from the heavens on the palm of your hand
 			}
 
 			TubRune: {
 				DisplayName: T.U.B. Rune
-				Tooltip: 'Change the world...'
+				Tooltip: Change the world...
 			}
 
 			VaselineBell: {
 				DisplayName: Vaseline Bell
-				Tooltip: 'All at once I come alive, it's a rebirth!'
+				Tooltip: "'All at once I come alive, it's a rebirth!'"
 			}
 
 			WormBell: {
@@ -1716,7 +1712,7 @@ Mods: {
 				# Tiles
 				DisplayName: Effervescent Bubbler
 				# Tiles
-				Tooltip: 'That's like, groovy mannn'
+				Tooltip: "'That's like, groovy mannn'"
 			}
 
 			MeldBlockItem.DisplayName: Meld Block
@@ -1748,7 +1744,7 @@ Mods: {
 
 			ChaoticPuffball: {
 				DisplayName: Chaotic Puffball
-				Tooltip: 'It probably won't detonate...'
+				Tooltip: "'It probably won't detonate...'"
 			}
 
 			BlightedAstralPinkDye: {
@@ -1808,7 +1804,7 @@ Mods: {
 
 			NuclearFumes: {
 				DisplayName: Nuclear Fumes
-				Tooltip: 'Don't inhale them'
+				Tooltip: "'Don't inhale them'"
 			}
 
 			OldCassette: {
@@ -2338,11 +2334,11 @@ Mods: {
 
 			PurifiedFog: {
 				DisplayName: Purified Fog
-				Tooltip: 
-				'''
-				Summons a creature of stygian depths
-				'Keep him bound'
-				'''
+				Tooltip:
+					'''
+					Summons a creature of stygian depths
+					'Keep him bound'
+					'''
 			}
 
 			ReaperoidPills: {
@@ -2407,20 +2403,20 @@ Mods: {
 
 			AmberGeode: {
 				DisplayName: Amber Geode
-				Tooltip: 
-				'''
-				Summons an Amber Scuttlet
-				'Could contain a scuttler'
-				'''
+				Tooltip:
+					'''
+					Summons an Amber Scuttlet
+					'Could contain a scuttler'
+					'''
 			}
 
 			AmethystGeode: {
 				DisplayName: Amethyst Geode
 				Tooltip:
-				'''
-				Summons an Amythest Scuttlet
-				'May contain a scuttler'
-				'''
+					'''
+					Summons an Amythest Scuttlet
+					'May contain a scuttler'
+					'''
 			}
 
 			BejeweledSpike: {
@@ -2434,56 +2430,56 @@ Mods: {
 
 			CrystalGeode: {
 				DisplayName: Crystal Geode
-				Tooltip: 
-				'''
-				Summons a Crystal Scuttlet
-				'Might contain a scuttler'
-				'''
+				Tooltip:
+					'''
+					Summons a Crystal Scuttlet
+					'Might contain a scuttler'
+					'''
 			}
 
 			DiamondGeode: {
 				DisplayName: Diamond Geode
-				Tooltip: 
-				'''
-				Summons a Diamond Scuttlet
-				'Can contain a scuttler'
-				'''
+				Tooltip:
+					'''
+					Summons a Diamond Scuttlet
+					'Can contain a scuttler'
+					'''
 			}
 
 			EmeraldGeode: {
 				DisplayName: Emerald Geode
-				Tooltip: 
-				'''
-				Summons an Emerald Scuttlet
-				'Should contain a scuttler'
-				'''
+				Tooltip:
+					'''
+					Summons an Emerald Scuttlet
+					'Should contain a scuttler'
+					'''
 			}
 
 			RubyGeode: {
 				DisplayName: Ruby Geode
-				Tooltip: 
-				'''
-				Summons a Ruby Scuttlet
-				'Possibly contains a scuttler'
-				'''
+				Tooltip:
+					'''
+					Summons a Ruby Scuttlet
+					'Possibly contains a scuttler'
+					'''
 			}
 
 			SapphireGeode: {
 				DisplayName: Sapphire Geode
-				Tooltip: 
-				'''
-				Summons an Amber Scuttlet
-				'Capable of containing a scuttler'
-				'''
+				Tooltip:
+					'''
+					Summons an Amber Scuttlet
+					'Capable of containing a scuttler'
+					'''
 			}
 
 			TopazGeode: {
 				DisplayName: Topaz Geode
-				Tooltip: 
-				'''
-				Summons an Amber Scuttlet
-				'Potentially contains a scuttler'
-				'''
+				Tooltip:
+					'''
+					Summons an Amber Scuttlet
+					'Potentially contains a scuttler'
+					'''
 			}
 
 			ShadowCloth: {
@@ -2547,10 +2543,7 @@ Mods: {
 
 			SpaceJunk: {
 				DisplayName: Space Junk
-				Tooltip: 
-				'''
-				Summons the forgotten blob of the astral meteor
-				'''
+				Tooltip: Summons the forgotten blob of the astral meteor
 			}
 
 			StormMedal: {
@@ -2691,7 +2684,7 @@ Mods: {
 
 			AuricTrashCan: {
 				DisplayName: Auric Trash Can
-				Tooltip: 'I've lost control of my life'
+				Tooltip: "'I've lost control of my life'"
 			}
 
 			TiedBoB2: {
@@ -2751,7 +2744,7 @@ Mods: {
 
 			VeilBanner: {
 				DisplayName: Veil Banner
-				Tooltip: 'Great for blocking out the sun!'
+				Tooltip: Great for blocking out the sun!
 			}
 
 			ViolemurBanner: {
@@ -2911,67 +2904,67 @@ Mods: {
 
 			AgedBlueprint: {
 				DisplayName: Aged Blueprint
-				Tooltip: 'Do Not Distribute?'
+				Tooltip: Do Not Distribute?
 			}
 
 			AstrumAureusLog: {
 				DisplayName: Astrum Aureus Blueprint
-				Tooltip: 'Do Not Distribute'
+				Tooltip: Do Not Distribute
 			}
 
 			BumblebirbLog: {
 				DisplayName: "[SCRAPPED] Yharon Cloning Project Blueprint"
-				Tooltip: 'Do Not Distribute'
+				Tooltip: Do Not Distribute
 			}
 
 			CalamitasLog: {
 				DisplayName: Calamitas Cloning Project Blueprint
-				Tooltip: 'Do Not Distribute'
+				Tooltip: Do Not Distribute
 			}
 
 			DestroyerLog: {
 				DisplayName: Destroyer Blueprint
-				Tooltip: 'Do Not Distribute'
+				Tooltip: Do Not Distribute
 			}
 
 			DogLog: {
 				DisplayName: Cosmilite Plating Blueprint
-				Tooltip: 'Do Not Distribute'
+				Tooltip: Do Not Distribute
 			}
 
 			MurasamaLog: {
 				DisplayName: Murasama Blueprint
-				Tooltip: 'Do Not Distribute'
+				Tooltip: Do Not Distribute
 			}
 
 			OrthoceraLog: {
 				DisplayName: Orthocera Exile Plan
-				Tooltip: 'Please Distribute'
+				Tooltip: Please Distribute
 			}
 
 			PlagueLog: {
 				DisplayName: Plague Blueprint
-				Tooltip: 'Do Not Distribute'
+				Tooltip: Do Not Distribute
 			}
 
 			PrimeLog: {
 				DisplayName: Skeletron Prime Blueprint
-				Tooltip: 'Do Not Distribute'
+				Tooltip: Do Not Distribute
 			}
 
 			SamLog: {
 				DisplayName: Murasama Blueprint EX
-				Tooltip: 'Do Not Distribute'
+				Tooltip: Do Not Distribute
 			}
 
 			TwinsLog: {
 				DisplayName: Twins Blueprint
-				Tooltip: 'Do Not Distribute'
+				Tooltip: Do Not Distribute
 			}
 
 			YharmorLog: {
 				DisplayName: Auric Armor Blueprint
-				Tooltip: 'Do Not Distribute'
+				Tooltip: Do Not Distribute
 			}
 
 			BoiMachine: {
@@ -2985,7 +2978,7 @@ Mods: {
 
 			BrimstoneHeart: {
 				DisplayName: Hanging Brimstone Heart
-				Tooltip: 'Plus Up'
+				Tooltip: Plus Up
 			}
 
 			AstJar: {
@@ -3085,7 +3078,7 @@ Mods: {
 
 			CalamityLamp: {
 				DisplayName: Brimstone Flambeau
-				Tooltip: 'Something malicious is brewing'
+				Tooltip: Something malicious is brewing
 			}
 
 			CosmiliteChairEX: {
@@ -3100,7 +3093,7 @@ Mods: {
 
 			DemonShield: {
 				DisplayName: Demon Ram Shield
-				Tooltip: 'It's too big to wear'
+				Tooltip: "'It's too big to wear'"
 			}
 
 			DisrepairUnit: {
@@ -3115,12 +3108,12 @@ Mods: {
 
 			AgedRustGamingTable: {
 				DisplayName: Aged Lab Gaming Table
-				Tooltip: 'G@m3 0n1'
+				Tooltip: G@m3 0n1
 			}
 
 			RustGamingTable: {
 				DisplayName: Lab Gaming Table
-				Tooltip: 'Game On!'
+				Tooltip: Game On!
 			}
 
 			RustGamingTable2: {
@@ -3420,7 +3413,7 @@ Mods: {
 
 			Ravamper: {
 				DisplayName: Necrotic Bonfire
-				Tooltip: 'Praise the sun!'
+				Tooltip: Praise the sun!
 			}
 
 			PhantowaxBathtubItem: {
@@ -3520,12 +3513,12 @@ Mods: {
 
 			WulfrumGlobe: {
 				DisplayName: Wulfrum Globe
-				Tooltip: 'Spin spin spin'
+				Tooltip: Spin spin spin
 			}
 
 			HeartoftheCommunity: {
 				DisplayName: Heart of the Community
-				Tooltip: 'My greatest creation, handle it with care'
+				Tooltip: My greatest creation, handle it with care
 			}
 
 			Help: {
@@ -3563,7 +3556,7 @@ Mods: {
 
 			AquaticMonolith: {
 				DisplayName: Tiny Decapitated Leviathan Head
-				Tooltip: 'Why would you even want this'
+				Tooltip: Why would you even want this
 			}
 
 			AuroraMonolith: {
@@ -3573,12 +3566,12 @@ Mods: {
 
 			CalamitousMonolith: {
 				DisplayName: Calamitous Ritual Basin
-				Tooltip: 'The fire dances above it with entertaining intent'
+				Tooltip: The fire dances above it with entertaining intent
 			}
 
 			DimensionalMonolith: {
 				DisplayName: Dimensional Obelisk
-				Tooltip: 'It appears to be trying to signal something, with no success'
+				Tooltip: It appears to be trying to signal something, with no success
 			}
 
 			ExoMonolith: {
@@ -3588,7 +3581,7 @@ Mods: {
 
 			InfernalMonolith: {
 				DisplayName: Infernal Altar
-				Tooltip: 'The flame roars with uselessness'
+				Tooltip: The flame roars with uselessness
 			}
 
 			PlagueMonolith: {
@@ -3598,7 +3591,7 @@ Mods: {
 
 			UnholyMonolith: {
 				DisplayName: Profaned Fountain
-				Tooltip: 'No, it doesn't change any liquid colors'
+				Tooltip: "'No, it doesn't change any liquid colors'"
 			}
 
 			MoulderingAltarItem: {
@@ -3802,7 +3795,7 @@ Mods: {
 
 			TheYhar: {
 				DisplayName: ":THE_YHAR:"
-				Tooltip: 'You gotta admit, he's a very cool dude despite his crimes'
+				Tooltip: "'You gotta admit, he's a very cool dude despite his crimes'"
 			}
 
 			UCMMPainting: {
@@ -3844,7 +3837,7 @@ Mods: {
 
 			Yharlamitas: {
 				DisplayName: Calamity Moment
-				Tooltip: 'Wait...'
+				Tooltip: Wait...
 			}
 
 			PlagueDialysis: {
@@ -3874,7 +3867,7 @@ Mods: {
 
 			BelchingCoral: {
 				DisplayName: Sulphuric Coral
-				Tooltip: 'Don't put your bare hand into it'
+				Tooltip: "'Don't put your bare hand into it'"
 			}
 
 			BloodstoneRoses: {
@@ -3904,7 +3897,7 @@ Mods: {
 
 			FleshThing: {
 				DisplayName: Living Grass
-				Tooltip: 'A strange fleshy substance birthed by the crimson and cared for by Draedon'
+				Tooltip: A strange fleshy substance birthed by the crimson and cared for by Draedon
 			}
 
 			HolyStudedBonsai: {
@@ -3919,22 +3912,22 @@ Mods: {
 
 			NetherTree: {
 				DisplayName: Twisting Nether Sapling
-				Tooltip: 'Vicious'
+				Tooltip: Vicious
 			}
 
 			NetherTreeBig: {
 				DisplayName: Twisting Nether Tree
-				Tooltip: 'Vehement'
+				Tooltip: Vehement
 			}
 
 			OddMushroomPot: {
 				DisplayName: Odd Mushroom Pot
-				Tooltip: 'Now you can grow your own shrooms!... Not really'
+				Tooltip: Now you can grow your own shrooms!... Not really
 			}
 
 			PottedDecapoditaSprout: {
 				DisplayName: Potted Decapodita Sprout
-				Tooltip: 'Have a fungus'
+				Tooltip: Have a fungus
 			}
 
 			SSCoral: {
@@ -3949,7 +3942,7 @@ Mods: {
 
 			SulphurousPlanter: {
 				DisplayName: Acid Vine Planter
-				Tooltip: 'You are baffled by how they are standing up'
+				Tooltip: You are baffled by how they are standing up
 			}
 
 			TableCoral: {
@@ -4228,7 +4221,7 @@ Mods: {
 
 			C: {
 				DisplayName: Statue of Calamity
-				Tooltip: 'A tale begins'
+				Tooltip: A tale begins
 			}
 
 			EyedolStatue: {
@@ -4258,12 +4251,12 @@ Mods: {
 
 			Provibust: {
 				DisplayName: Profaned Idol
-				Tooltip: 'I shall die for you m'lord'
+				Tooltip: "'I shall die for you m'lord'"
 			}
 
 			ShrineoftheTides: {
 				DisplayName: Shrine of the Tides
-				Tooltip: 'My gift to the Water Elemental'
+				Tooltip: My gift to the Water Elemental
 			}
 
 			ViolemurStatue: {
@@ -4287,32 +4280,32 @@ Mods: {
 
 			SulphuricTank: {
 				DisplayName: Sulphuric Tank
-				Tooltip: 'ZZZX93'
+				Tooltip: ZZZX93
 			}
 
 			SunkenLamp: {
 				DisplayName: Sunken Lamp
-				Tooltip: 'Trippy'
+				Tooltip: Trippy
 			}
 
 			TerminusShrine: {
 				DisplayName: Terminus Shrine
-				Tooltip: 'An altar made to hold the apocalyptic artifact'
+				Tooltip: An altar made to hold the apocalyptic artifact
 			}
 
 			TerminusShrine2: {
 				DisplayName: Terminus Shrine Level 2
-				Tooltip: 'An altar witholding an apocalyptic artifact'
+				Tooltip: An altar witholding an apocalyptic artifact
 			}
 
 			TerminusShrine3: {
 				DisplayName: Terminus Shrine Level 3
-				Tooltip: 'The End.'
+				Tooltip: The End.
 			}
 
 			Tesla: {
 				DisplayName: Storm Coil
-				Tooltip: 'Zap'
+				Tooltip: Zap
 			}
 
 			VisceralAltarItem: {
@@ -4322,7 +4315,7 @@ Mods: {
 
 			VoidPortal: {
 				DisplayName: Void Portal
-				Tooltip: 'The void calls out'
+				Tooltip: The void calls out
 			}
 
 			YellowSeaFountain: {
@@ -5472,10 +5465,7 @@ Mods: {
 
 			GoozmaBuff: {
 				DisplayName: Goozma
-				Description: 
-				'''
-				The last trace of that which has been erased from time itself...
-				'''
+				Description: The last trace of that which has been erased from time itself...
 			}
 
 			GrandBuff: {

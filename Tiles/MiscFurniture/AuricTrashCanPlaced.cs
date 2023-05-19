@@ -29,7 +29,7 @@ namespace CalValEX.Tiles.MiscFurniture
             // name.SetDefault("Auric Trash Can");
             AddMapEntry(new Color(36, 18, 38), name, MapChestName);
             AdjTiles = new int[] { TileID.Containers };
-            ItemDrop = ModContent.ItemType<AuricTrashCan>();
+            //ItemDrop = ModContent.ItemType<AuricTrashCan>();
 
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);

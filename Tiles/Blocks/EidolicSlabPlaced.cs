@@ -14,7 +14,7 @@ namespace CalValEX.Tiles.Blocks
             Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            ItemDrop = ModContent.ItemType<EidolicSlab>();
+            //ItemDrop = ModContent.ItemType<EidolicSlab>();
             AddMapEntry(new Color(0, 76, 82));
             DustType = 187;
         }

@@ -41,7 +41,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
 			// name.SetDefault("Phantowax Dresser");
 			AddMapEntry(new Color(100, 100, 100), name);
 			AdjTiles = new int[] { TileID.Dressers };
-			ItemDrop = ModContent.ItemType<PhantowaxDresserItem>();
+			//ItemDrop = ModContent.ItemType<PhantowaxDresserItem>();
 		}
 		public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;
 

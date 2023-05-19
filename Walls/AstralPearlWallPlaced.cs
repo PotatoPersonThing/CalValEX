@@ -10,7 +10,7 @@ namespace CalValEX.Walls
         public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            ItemDrop = ModContent.ItemType<AstralPearlWall>();
+            //ItemDrop = ModContent.ItemType<AstralPearlWall>();
             AddMapEntry(new Color(34, 102, 89));
         }
     }

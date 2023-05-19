@@ -10,7 +10,7 @@ namespace CalValEX.Walls
         public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            ItemDrop = ModContent.ItemType<ChiseledBloodstoneBrickWall>();
+            //ItemDrop = ModContent.ItemType<ChiseledBloodstoneBrickWall>();
             AddMapEntry(new Color(54, 14, 12));
         }
     }

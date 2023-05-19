@@ -10,7 +10,7 @@ namespace CalValEX.Walls
         public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            ItemDrop = ModContent.ItemType<PhantowaxWall>();
+            //ItemDrop = ModContent.ItemType<PhantowaxWall>();
             AddMapEntry(new Color(232, 39, 30));
         }
     }

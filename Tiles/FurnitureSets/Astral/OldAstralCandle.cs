@@ -27,7 +27,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Xenomonolith Candle");
             AddMapEntry(new Color(139, 0, 0), name);
-            ItemDrop = ModContent.ItemType<OldAstralCandleItem>();
+            //ItemDrop = ModContent.ItemType<OldAstralCandleItem>();
         }
 
         public override bool RightClick(int i, int j)

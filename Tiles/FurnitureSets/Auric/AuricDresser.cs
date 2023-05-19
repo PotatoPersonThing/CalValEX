@@ -41,7 +41,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
 			// name.SetDefault("Auric Dresser");
 			AddMapEntry(new Color(100, 100, 100), name);
 			AdjTiles = new int[] { TileID.Dressers };
-			ItemDrop = ModContent.ItemType<AuricDresserItem>();
+			//ItemDrop = ModContent.ItemType<AuricDresserItem>();
 			DustType = 227;
 		}
 		public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;

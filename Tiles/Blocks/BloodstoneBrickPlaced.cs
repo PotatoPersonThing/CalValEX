@@ -11,7 +11,7 @@ namespace CalValEX.Tiles.Blocks
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
-            ItemDrop = ModContent.ItemType<BloodstoneBrick>();
+            //ItemDrop = ModContent.ItemType<BloodstoneBrick>();
             AddMapEntry(new Color(126, 94, 87));
             AnimationFrameHeight = 90;
         }

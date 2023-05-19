@@ -16,7 +16,7 @@ namespace CalValEX.Tiles
             Main.tileNoAttach[Type] = false;
             Main.tileSolidTop[Type] = true;
             Main.tileLavaDeath[Type] = true;
-            ItemDrop = CalValEX.CalamityItem("MeldConstruct");
+            //ItemDrop = CalValEX.CalamityItem("MeldConstruct");
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             TileObjectData.newTile.CoordinateHeights = new[] { 16 };
             AddMapEntry(new Color(70, 45, 45));

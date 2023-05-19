@@ -13,7 +13,7 @@ namespace CalValEX.Tiles.Blocks
             Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            ItemDrop = ModContent.ItemType<AstralPlating>();
+            //ItemDrop = ModContent.ItemType<AstralPlating>();
             AddMapEntry(new Color(101, 171, 167));
             DustType = 173;
         }

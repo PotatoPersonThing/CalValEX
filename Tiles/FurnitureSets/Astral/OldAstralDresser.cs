@@ -41,7 +41,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
 			// name.SetDefault("Xenomonolith Dresser");
 			AddMapEntry(new Color(100, 100, 100), name);
 			AdjTiles = new int[] { TileID.Dressers };
-			ItemDrop = ModContent.ItemType<OldAstralDresserItem>();
+			//ItemDrop = ModContent.ItemType<OldAstralDresserItem>();
 			DustType = ModContent.DustType<Dusts.AstralDust>();
 		}
 		public override bool HasSmartInteract(int i, int j, Terraria.GameContent.ObjectInteractions.SmartInteractScanSettings settings) => true;

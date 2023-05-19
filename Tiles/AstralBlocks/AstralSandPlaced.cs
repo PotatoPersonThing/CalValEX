@@ -26,7 +26,7 @@ namespace CalValEX.Tiles.AstralBlocks
 			TileID.Sets.ForAdvancedCollision.ForSandshark[Type] = true;
 			TileID.Sets.Falling[Type] = true;
 			AddMapEntry(new Color(104, 127, 164));
-			ItemDrop = ModContent.ItemType<AstralSand>();
+			//ItemDrop = ModContent.ItemType<AstralSand>();
 			TileID.Sets.CanBeDugByShovel[Type] = true;
 		}
 		public override void NumDust(int i, int j, bool fail, ref int num)

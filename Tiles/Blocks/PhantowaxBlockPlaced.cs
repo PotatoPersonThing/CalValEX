@@ -13,7 +13,7 @@ namespace CalValEX.Tiles.Blocks
             Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            ItemDrop = ModContent.ItemType<PhantowaxBlock>();
+            //ItemDrop = ModContent.ItemType<PhantowaxBlock>();
             AddMapEntry(new Color(94, 39, 93));
         }
     }

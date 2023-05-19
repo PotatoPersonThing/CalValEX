@@ -15,7 +15,7 @@ namespace CalValEX.Tiles.AstralBlocks
             Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            ItemDrop = ModContent.ItemType<PolishedXenomonolith>();
+            //ItemDrop = ModContent.ItemType<PolishedXenomonolith>();
             DustType = ModContent.DustType<AstralDust>();
             AddMapEntry(new Color(271, 49, 42));
             Main.tileBlendAll[this.Type] = true;

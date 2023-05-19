@@ -31,7 +31,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             AddMapEntry(new Color(36, 18, 38), name, MapChestName);
             
             AdjTiles = new int[] { TileID.Containers };
-            ItemDrop = ModContent.ItemType<AuricChestItem>();
+            //ItemDrop = ModContent.ItemType<AuricChestItem>();
 
 
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);

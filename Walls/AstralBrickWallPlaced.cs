@@ -14,7 +14,7 @@ namespace CalValEX.Walls
             Main.wallHouse[Type] = false;
             AddMapEntry(new Color(37, 10, 38));
             DustType = ModContent.DustType<AstralDust>();
-            ItemDrop = ModContent.ItemType<AstralBrickWall>();
+            //ItemDrop = ModContent.ItemType<AstralBrickWall>();
         }
     }
 }

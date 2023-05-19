@@ -13,7 +13,7 @@ namespace CalValEX.Tiles.Blocks
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
             if (CalValEX.CalamityActive)
-            ItemDrop = CalValEX.CalamityItem("Bloodstone");
+            //ItemDrop = CalValEX.CalamityItem("Bloodstone");
             AddMapEntry(new Color(126, 94, 87));
             AnimationFrameHeight = 90;
         }

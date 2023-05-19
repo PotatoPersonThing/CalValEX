@@ -16,7 +16,7 @@ namespace CalValEX.Tiles.AstralBlocks
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
             DustType = ModContent.DustType<AstralDust>();
-            ItemDrop = ModContent.ItemType<AstralClay>();
+            //ItemDrop = ModContent.ItemType<AstralClay>();
             AddMapEntry(new Color(78, 45, 91));
             Main.tileBlendAll[this.Type] = true;
         }

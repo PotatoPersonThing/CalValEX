@@ -31,7 +31,7 @@ namespace CalValEX.Items.Pets
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             if (CalValEX.CalamityActive)
-            CalamityMod.Items.CalamityGlobalItem.InsertKnowledgeTooltip(tooltips, 3);
+                ArsenalTooltip(tooltips);
         }
 
         public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
@@ -40,6 +40,11 @@ namespace CalValEX.Items.Pets
             {
                 player.AddBuff(Item.buffType, 3600, true);
             }
+        }
+
+        public static void ArsenalTooltip(List<TooltipLine> tooltips)
+        {
+            CalamityMod.Items.CalamityGlobalItem.InsertKnowledgeTooltip(tooltips, 3);
         }
     }
 }

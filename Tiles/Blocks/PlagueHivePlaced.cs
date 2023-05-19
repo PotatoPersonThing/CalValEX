@@ -14,6 +14,7 @@ namespace CalValEX.Tiles.Blocks
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
             AddMapEntry(new Color(0, 76, 82));
+            RegisterItemDrop(Terraria.ID.ItemID.HoneyBlock);
             DustType = 214;
         }
     }

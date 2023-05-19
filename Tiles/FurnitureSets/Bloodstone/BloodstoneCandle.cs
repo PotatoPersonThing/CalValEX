@@ -27,7 +27,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Bloodstone Candle");
             AddMapEntry(new Color(139, 0, 0), name);
-            ItemDrop = ModContent.ItemType<BloodstoneCandleItem>();
+            //ItemDrop = ModContent.ItemType<BloodstoneCandleItem>();
         }
 
         public override void HitWire(int i, int j) {

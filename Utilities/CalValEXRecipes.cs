@@ -541,6 +541,7 @@ namespace CalValEX
                 recipe.AddIngredient(ItemType<VaporoflyItem>());
                 recipe.AddIngredient(ItemType<NuclearFumes>(), 10);
                 recipe.AddTile(TileID.LunarCraftingStation);
+                ArsenalTG(recipe);
                 recipe.Register();
             }
             {
@@ -1272,6 +1273,11 @@ namespace CalValEX
         public override void PostAddRecipes()
         {
             ShimmerMeTimbers();
+        }
+
+        void ArsenalTG(Recipe recipe)
+        {
+            //recipe.AddCondition(CalamityMod.CustomRecipes.ArsenalTierGatedRecipe.ConstructRecipeCondition(2, out Predicate<Recipe> condition), condition);
         }
 
         void ShimmerMeTimbers()

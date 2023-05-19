@@ -13,7 +13,7 @@ namespace CalValEX.Tiles.Blocks
             Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            ItemDrop = ModContent.ItemType<ShadowBrick>();
+            //ItemDrop = ModContent.ItemType<ShadowBrick>();
             AddMapEntry(new Color(47, 1, 51));
             DustType = 187;
         }

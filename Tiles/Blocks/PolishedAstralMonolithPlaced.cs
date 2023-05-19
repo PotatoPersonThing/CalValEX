@@ -14,7 +14,7 @@ namespace CalValEX.Tiles.Blocks
             Main.tileMergeDirt[Type] = false;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
-            ItemDrop = ModContent.ItemType<PolishedAstralMonolith>();
+            //ItemDrop = ModContent.ItemType<PolishedAstralMonolith>();
             //Mod calamityMod = ModLoader.GetMod("CalamityMod");
             //DustType = calamityMod.DustType("AstralBlue");
             AddMapEntry(new Color(260, 42, 24));

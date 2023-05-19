@@ -31,7 +31,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             AddMapEntry(new Color(139, 0, 0));
-            ItemDrop = ModContent.ItemType<AuricPlatformItem>();
+            //ItemDrop = ModContent.ItemType<AuricPlatformItem>();
             AdjTiles = new int[] { TileID.Platforms };
         }
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)

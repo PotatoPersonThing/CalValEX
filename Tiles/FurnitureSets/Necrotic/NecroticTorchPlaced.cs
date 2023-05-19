@@ -42,7 +42,7 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Torch");
             AddMapEntry(new Color(7, 52, 114), name);
-            ItemDrop = ItemType<Items.Tiles.FurnitureSets.Necrotic.NecroticTorch>();
+            //ItemDrop = ItemType<Items.Tiles.FurnitureSets.Necrotic.NecroticTorch>();
             
             AdjTiles = new int[] { TileID.Torches };
             TileID.Sets.Torch[Type] = true;

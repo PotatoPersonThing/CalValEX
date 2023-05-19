@@ -12,7 +12,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
 		public override void SetStaticDefaults()
 		{
 			Main.wallHouse[Type] = true;
-			ItemDrop = ModContent.ItemType<BloodstoneBrickWall>();
+			//ItemDrop = ModContent.ItemType<BloodstoneBrickWall>();
 			AddMapEntry(new Color(108, 59, 16));
         }
 

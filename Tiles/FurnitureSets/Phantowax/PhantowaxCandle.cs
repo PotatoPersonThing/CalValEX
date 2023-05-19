@@ -27,7 +27,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Phantowax Candle");
             AddMapEntry(new Color(94, 39, 93), name);
-            ItemDrop = ModContent.ItemType<PhantowaxCandleItem>();
+            //ItemDrop = ModContent.ItemType<PhantowaxCandleItem>();
         }
 
         public override bool RightClick(int i, int j)

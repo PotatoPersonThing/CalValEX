@@ -27,7 +27,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Auric Candle");
             AddMapEntry(new Color(139, 0, 0), name);
-            ItemDrop = ModContent.ItemType<AuricCandleItem>();
+            //ItemDrop = ModContent.ItemType<AuricCandleItem>();
         }
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)

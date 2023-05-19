@@ -12,7 +12,7 @@ namespace CalValEX.Walls.AstralSafe
         public override void SetStaticDefaults()
         {
             Main.wallHouse[Type] = true;
-            ItemDrop = ModContent.ItemType<AstralIceWall>();
+            //ItemDrop = ModContent.ItemType<AstralIceWall>();
             AddMapEntry(new Color(37, 10, 38));
             DustType = ModContent.DustType<AstralDust>();
         }

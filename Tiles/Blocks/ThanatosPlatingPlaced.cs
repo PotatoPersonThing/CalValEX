@@ -23,7 +23,7 @@ namespace CalValEX.Tiles.Blocks {
 			
 			HitSound = SoundID.Tink;
 			DustType = 226;
-			ItemDrop = ItemType<ThanatosPlating>();
+			//ItemDrop = ItemType<ThanatosPlating>();
 			
 			AddMapEntry(new Color(51, 56, 63));
 		}
@@ -46,7 +46,7 @@ namespace CalValEX.Tiles.Blocks {
 			
 			HitSound = SoundID.Tink;
 			DustType = 226;
-			ItemDrop = ItemType<ThanatosPlatingVent>();
+			//ItemDrop = ItemType<ThanatosPlatingVent>();
 			
 			AddMapEntry(new Color(51, 56, 63));
 		}

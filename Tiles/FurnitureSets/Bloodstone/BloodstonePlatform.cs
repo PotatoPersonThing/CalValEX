@@ -30,7 +30,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
             AddMapEntry(new Color(139, 0, 0));
-            ItemDrop = ModContent.ItemType<BloodstonePlatformItem>();
+            //ItemDrop = ModContent.ItemType<BloodstonePlatformItem>();
             AdjTiles = new int[] { TileID.Platforms };
         }
 
