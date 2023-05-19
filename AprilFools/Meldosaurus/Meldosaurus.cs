@@ -188,27 +188,16 @@ namespace CalValEX.AprilFools.Meldosaurus
 				NPC.ai[2]++;
 				int direcX = NPC.direction *-1;
 				int direcY = NPC.directionY *-1;
+				int proj = ProjectileID.CursedFlameHostile;
 				if (CalValEX.CalamityActive)
 				{
-					int proj = Mod.Find<ModProjectile>("GodsFire").Type;
-					if (NPC.ai[2] >= 5)
-					{
-						Terraria.Audio.SoundEngine.PlaySound(SoundID.Item20, NPC.Center);
-						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, NPC.velocity.X * -0.1f, NPC.velocity.Y * -0.1f, proj, Main.expertMode ? 25 : 30, 0f);
-						NPC.ai[2] = 0;
-					}
+					proj = Mod.Find<ModProjectile>("GodsFire").Type;
 				}
-				else
+				if (NPC.ai[2] >= 5)
 				{
-					if (!fate)
-						NewPhase(4);
-					else
-					{
-						if (Main.rand.NextBool(2))
-							NewPhase(5);
-						else
-							NewPhase(6);
-					}
+					Terraria.Audio.SoundEngine.PlaySound(SoundID.Item20, NPC.Center);
+					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position.X, NPC.position.Y, NPC.velocity.X * -0.1f, NPC.velocity.Y * -0.1f, proj, Main.expertMode ? 25 : 30, 0f);
+					NPC.ai[2] = 0;
 				}
 				if (NPC.ai[1] <= 90)
 				{

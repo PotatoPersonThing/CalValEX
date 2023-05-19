@@ -223,17 +223,7 @@ namespace CalValEX.AprilFools.Jharim
             CalValEXGlobalNPC.jharim = NPC.whoAmI;
             Player player = Main.player[Main.myPlayer];
             CalValEXPlayer CalValEXPlayer = player.GetModPlayer<CalValEXPlayer>();
-           /* int itemamt = 0;
-            for (int i = 0; i < ContentSamples.ItemsByType.Count; i++)
-            {
-                Item item = ContentSamples.ItemsByType[i];
-                if ((item.ModItem?.Mod ?? null) == CalValEX.instance)
-                {
-                    itemamt++;
-                }
-            }*/
 
-            //maxshops = itemamt / 39;
             if (!MELDOSAURUSED)
             {
                 if (NPC.homeless)

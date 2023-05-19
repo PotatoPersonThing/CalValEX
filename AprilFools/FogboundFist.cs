@@ -25,6 +25,15 @@ namespace CalValEX.AprilFools
         public override void AI()
         {
             Projectile.rotation = Projectile.velocity.ToRotation() + (float)System.Math.PI;
+            if (CalValEX.CalamityActive)
+            {
+                SpawnSmoke();
+            }
+        }
+
+        [JITWhenModsEnabled("CalamityMod")]
+        public void SpawnSmoke()
+        {
             Vector2 placementrun = new Vector2(Projectile.Center.X + Main.rand.Next(-5, 5), Projectile.Center.Y + Main.rand.Next(-6, 6));
             if (Main.rand.NextBool(8))
             {

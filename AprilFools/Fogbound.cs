@@ -75,7 +75,14 @@ namespace CalValEX.AprilFools
 				for (int k = 0; k < 50; k++)
 					Dust.NewDust(NPC.position, NPC.width, NPC.height, 16, 0, -1f, 0, default, 1f);
 				NPC.active = false;
-				CalamityMod.CalamityUtils.DisplayLocalizedText("You foolish mortal, you may only witness me at my fullest at the witching hour...", Color.Gray);
+				if (CalValEX.CalamityActive)
+				{
+					CalamityText("You foolish mortal, you may only witness me at my fullest at the witching hour...", Color.Gray);
+				}
+				else
+                {
+					Main.NewText("You foolish mortal, you may only witness me at my fullest at the witching hour...", Color.Gray);
+                }
 			}
 			NPC.localAI[0]++;
 			if (NPC.localAI[0] >= 600 && NPC.ai[0] == 1)
@@ -114,9 +121,16 @@ namespace CalValEX.AprilFools
 				case 1:
                     {
 						NPC.damage = 69420666;
-						float fistGate = CalamityMod.Events.BossRushEvent.BossRushActive ? 5 : CalamityMod.World.CalamityWorld.death ? 7 : CalamityMod.World.CalamityWorld.revenge ? 10 : Main.expertMode ? 15 : 20;
+						float fistGate = NERBValues(20, 15, 10, 7, 5);
 						Vector2 distanceFromDestination = target.Center - NPC.Center;
-						CalamityMod.CalamityUtils.SmoothMovement(NPC, 100, distanceFromDestination, 10, 1, true);
+						if (CalValEX.CalamityActive)
+                        {
+							CalamityMovement(distanceFromDestination);
+                        }
+						else
+						{
+							NPC.velocity = Vector2.Lerp(NPC.velocity, NPC.DirectionTo(target.position) * 7, 0.1f);
+						}
 						NPC.ai[1]++;
 						NPC.ai[2]++;
 						NPC.rotation = NPC.rotation.AngleLerp(0, 0.2f);
@@ -155,7 +169,7 @@ namespace CalValEX.AprilFools
                         {
 							if (Main.netMode != NetmodeID.MultiplayerClient)
 							{
-								int p = Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<FogLaser>(), NPC.damage * 2, 0f, Main.myPlayer, NPC.whoAmI);
+								int p = Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, Vector2.Zero, CalValEX.instance.Find<ModProjectile>("FogLaser").Type, NPC.damage * 2, 0f, Main.myPlayer, NPC.whoAmI);
 								if (p < Main.maxProjectiles + 1)
 								{
 									// Shoot laser either to the left or right of the player
@@ -197,9 +211,10 @@ namespace CalValEX.AprilFools
 						else if (NPC.ai[1] == 120)
 						{
 							Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie104, NPC.Center);
-							float screenShakePower = 20 * Utils.GetLerpValue(1300f, 0f, NPC.Distance(Main.LocalPlayer.Center), true);
-							if (Main.LocalPlayer.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().GeneralScreenShakePower < screenShakePower)
-								Main.LocalPlayer.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().GeneralScreenShakePower = screenShakePower;
+							if (CalValEX.CalamityActive)
+							{
+								ShakeScreen();
+							}
 						}
 						NPC.ai[1]++;
 						if (NPC.ai[1] >= 480)
@@ -211,9 +226,94 @@ namespace CalValEX.AprilFools
             }
 		}
 
+		[JITWhenModsEnabled("CalamityMod")]
+		public void CalamityMovement(Vector2 distanceFromDestination)
+		{
+			CalamityMod.CalamityUtils.SmoothMovement(NPC, 100, distanceFromDestination, 10, 1, true);
+		}
+
+		[JITWhenModsEnabled("CalamityMod")]
+		public void CalamityText(string text, Color color)
+		{
+			CalamityMod.CalamityUtils.DisplayLocalizedText(text, color);
+		}
+
+		[JITWhenModsEnabled("CalamityMod")]
+		public void ShakeScreen()
+		{
+			float screenShakePower = 20 * Utils.GetLerpValue(1300f, 0f, NPC.Distance(Main.LocalPlayer.Center), true);
+			if (Main.LocalPlayer.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().GeneralScreenShakePower < screenShakePower)
+				Main.LocalPlayer.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>().GeneralScreenShakePower = screenShakePower;
+		}
+
+		public static int NERBValues(int? normal = null, int? expert = null, int? rev = null, int? death = null, int? malice = null)
+		{
+			if (CalValEX.CalamityActive)
+			{
+				if ((bool)CalValEX.Calamity.Call("GetDifficultyActive", "bossrush"))
+				{
+					if (malice != null)
+						return (int)malice;
+					else if (death != null)
+						return (int)death;
+					else if (rev != null)
+						return (int)rev;
+					else if (expert != null)
+						return (int)expert;
+					else
+						return (int)normal;
+				}
+				if ((bool)CalValEX.Calamity.Call("GetDifficultyActive", "death"))
+				{
+					if (death != null)
+						return (int)death;
+					else if (rev != null)
+						return (int)rev;
+					else if (expert != null)
+						return (int)expert;
+					else
+						return (int)normal;
+				}
+				else if ((bool)CalValEX.Calamity.Call("GetDifficultyActive", "revengeance"))
+				{
+					if (rev != null)
+						return (int)rev;
+					else if (expert != null)
+						return (int)expert;
+					else
+						return (int)normal;
+				}
+				else if (Main.expertMode)
+				{
+					if (expert != null)
+						return (int)expert;
+					else
+						return (int)normal;
+				}
+				else
+				{
+					return (int)normal;
+				}
+			}
+			else
+            {
+				if (Main.expertMode)
+				{
+					if (expert != null)
+						return (int)expert;
+					else
+						return (int)normal;
+				}
+				else
+				{
+					return (int)normal;
+				}
+			}
+        }
+
 		public void ChangeAI(int phase)
         {
-			if (NPC.ai[0] == 1 && !Main.dayTime && NPC.life <= NPC.lifeMax * 0.5f)
+			if (NPC.ai[0] == 1 && !Main.dayTime && NPC.life <= NPC.lifeMax * 0.5f && CalValEX.CalamityActive)
 			{
 				NPC.ai[0] = 3;
 			}
