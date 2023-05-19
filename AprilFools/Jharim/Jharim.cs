@@ -96,7 +96,7 @@ namespace CalValEX.AprilFools.Jharim
         }
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
         {
-            if (CalValEX.AprilFoolMonth)
+            if (CalValEX.AprilFoolMonth || !CalValEX.CalamityActive)
             {
                 bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
                 Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.SurfaceMushroom,
@@ -129,6 +129,10 @@ namespace CalValEX.AprilFools.Jharim
             if (!CalValEX.AprilFoolMonth && CalValEX.CalamityActive)
             {
                 NPC.active = false;
+            }
+            if (!CalValEXWorld.jharim)
+            {
+                CalValEXWorld.jharim = true;
             }
             if (CalValEX.CalamityActive)
             {
@@ -542,6 +546,28 @@ namespace CalValEX.AprilFools.Jharim
                 price = Item.buyPrice(gold: 40);
             }
             return price;
+        }
+        public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
+        {
+            if (!CalValEXConfig.Instance.TownNPC)
+            {
+                if (CalValEX.CalamityActive && CalValEX.AprilFoolWeek && CalValEXWorld.jharim)
+                {
+                    return true;
+                }
+                else if (!CalValEX.CalamityActive)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public override bool CanGoToStatue(bool toKingStatue)

@@ -42,6 +42,7 @@ namespace CalValEX.Items.Pets
             }
         }
 
+        [JITWhenModsEnabled("CalamityMod")]
         public static void ArsenalTooltip(List<TooltipLine> tooltips)
         {
             CalamityMod.Items.CalamityGlobalItem.InsertKnowledgeTooltip(tooltips, 3);
