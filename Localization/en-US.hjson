@@ -4466,6 +4466,11 @@ Mods: {
 				DisplayName: Compensation
 				Tooltip: Can be sold
 			}
+
+			KnowledgeFogbound: {
+				DisplayName: Knowledge Fogbound
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -4705,6 +4710,9 @@ Mods: {
 			PongBall.DisplayName: Pong Ball
 			PongUI.DisplayName: Pong UI
 			SGSlider.DisplayName: Slime God Slider
+			FogLaser.DisplayName: Fog Laser
+			JharimLaser.DisplayName: Jharim Laser
+			JharimKiller.DisplayName: Jharim Killer
 		}
 
 		Tiles: {
