@@ -13,6 +13,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
         public override void SetStaticDefaults()
         {
             Item.ResearchUnlockCount = 100;
+			ItemID.Sets.Torches[Item.type] = true;
         }
 
         public override void SetDefaults()
@@ -46,19 +47,5 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Necrotic
                 Lighting.AddLight((int)((Item.position.X + Item.width / 2) / 16f), (int)((Item.position.Y + Item.height / 2) / 16f), 1f, 1f, 1f);
             }
         }
-
-        public override void AutoLightSelect(ref bool dryTorch, ref bool wetTorch, ref bool glowstick)
-        {
-            dryTorch = true;
-        }
-
-        /*public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Torch, 5);
-            recipe.AddIngredient(ItemType<Necrostone>(), 1);
-            recipe.SetResult(this, 5);
-            recipe.AddRecipe();
-        }*/
     }
 }

@@ -3,7 +3,30 @@ Mods: {
 		NPCs: {
 			# April fools!
 			Meldosaurus.DisplayName: Meldosaurus
-			Jharim.DisplayName: Jungle Tyrant
+
+			Jharim: {
+				DisplayName: Jungle Tyrant
+
+				TownNPCMood: {
+					Content: I am content.
+					NoHome: I hate not having a home.
+					FarFromHome: I am too far from home.
+					LoveSpace: I love having so much space.
+					DislikeCrowded: I dislike how crowded I am.
+					HateCrowded: I hate how crowded I am.
+					LoveBiome: I love {BiomeName}.
+					LikeBiome: I like {BiomeName}.
+					DislikeBiome: I dislike {BiomeName}.
+					HateBiome: I hate {BiomeName}.
+					LoveNPC: I love {NPCName}.
+					LikeNPC: I like {NPCName}.
+					DislikeNPC: I dislike {NPCName}.
+					HateNPC: I hate {NPCName}.
+					LikeNPC_Princess: I like {NPCName}.
+					Princess_LovesNPC: I like {NPCName}.
+				}
+			}
+
 			Fogbound.DisplayName: Hyper Ultra Omega Fogbound GOD EX: Prepare to Stygian Edition
 			# Critters
 			AstJR.DisplayName: Astragelly Slime
@@ -32,8 +55,53 @@ Mods: {
 			XerocodileSwim.DisplayName: Awakened Xerocodile
 			# Town NPCs
 			JellyPriestBound.DisplayName: Bound Jelly Priestess
-			JellyPriestNPC.DisplayName: Jelly Priestess
-			OracleNPC.DisplayName: Oracle
+
+			JellyPriestNPC: {
+				DisplayName: Jelly Priestess
+
+				TownNPCMood: {
+					Content: I am content.
+					NoHome: I hate not having a home.
+					FarFromHome: I am too far from home.
+					LoveSpace: I love having so much space.
+					DislikeCrowded: I dislike how crowded I am.
+					HateCrowded: I hate how crowded I am.
+					LoveBiome: I love {BiomeName}.
+					LikeBiome: I like {BiomeName}.
+					DislikeBiome: I dislike {BiomeName}.
+					HateBiome: I hate {BiomeName}.
+					LoveNPC: I love {NPCName}.
+					LikeNPC: I like {NPCName}.
+					DislikeNPC: I dislike {NPCName}.
+					HateNPC: I hate {NPCName}.
+					LikeNPC_Princess: I like {NPCName}.
+					Princess_LovesNPC: I like {NPCName}.
+				}
+			}
+
+			OracleNPC: {
+				DisplayName: Oracle
+
+				TownNPCMood: {
+					Content: I am content.
+					NoHome: I hate not having a home.
+					FarFromHome: I am too far from home.
+					LoveSpace: I love having so much space.
+					DislikeCrowded: I dislike how crowded I am.
+					HateCrowded: I hate how crowded I am.
+					LoveBiome: I love {BiomeName}.
+					LikeBiome: I like {BiomeName}.
+					DislikeBiome: I dislike {BiomeName}.
+					HateBiome: I hate {BiomeName}.
+					LoveNPC: I love {NPCName}.
+					LikeNPC: I like {NPCName}.
+					DislikeNPC: I dislike {NPCName}.
+					HateNPC: I hate {NPCName}.
+					LikeNPC_Princess: I like {NPCName}.
+					Princess_LovesNPC: I like {NPCName}.
+				}
+			}
+
 			OracleNPCPet_Pet.DisplayName: TUB
 			# Town NPCs
 			NuggetNugget.DisplayName: Nugget
@@ -5825,7 +5893,13 @@ Mods: {
 			}
 		}
 
-		Biomes.AstralBlight.DisplayName: Astral Blight
+		Biomes: {
+			AstralBlight: {
+				DisplayName: Astral Blight
+				TownNPCDialogueName: the Astral Blight
+			}
+		}
+
 		Conditions.Acid: fuck you
 
 		TownNPCMood: {
