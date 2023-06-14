@@ -21,6 +21,8 @@ namespace CalValEX.Tiles.MiscFurniture {
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Fake Roxcalibur");
             AddMapEntry(new Color(249, 119, 48), name);
+            if (ModLoader.HasMod("CalamityMod"))
+                RegisterItemDrop(CalValEX.CalamityItem("Roxcalibur"));
         }
     }
 }

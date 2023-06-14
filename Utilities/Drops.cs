@@ -214,10 +214,6 @@ namespace CalValEX
                     {
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumController>(), 100));
                     }
-                    if (npc.type == CalValEX.CalamityNPC("CosmicElemental"))
-                    {
-                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CosmicCone>(), 10));
-                    }
                     if (npc.type == CalValEX.CalamityNPC("Sunskater"))
                     {
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EssenceofYeet>(), 20));

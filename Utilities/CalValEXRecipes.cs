@@ -381,11 +381,7 @@ namespace CalValEX
                 Recipe recipe = Recipe.Create(ItemType<Aestheticrown>());
                 recipe.AddIngredient(CalValEX.CalamityItem("AerialiteBar"), 2);
                 recipe.AddIngredient(CalValEX.CalamityItem("SeaPrism"), 4);
-                recipe.AddIngredient((ItemID.Glass), 7);
-                recipe.AddIngredient((ItemID.Gel), 5);
-                recipe.AddIngredient((ItemID.MeteoriteBar), 3);
-                recipe.AddIngredient((ItemID.HellstoneBar), 3);
-                recipe.AddIngredient((ItemID.FallenStar), 1);
+                recipe.AddIngredient((ItemID.FallenStar), 2);
                 recipe.AddTile(TileID.Anvils);
                 recipe.Register();
             }
@@ -394,6 +390,14 @@ namespace CalValEX
                 recipe.AddIngredient(CalValEX.CalamityItem("BloodstoneCore"), 3);
                 recipe.AddIngredient((ItemID.TheBrideHat), 1);
                 recipe.AddTile(TileID.LunarCraftingStation);
+                recipe.Register();
+            }
+            {
+                Recipe recipe = Recipe.Create(ItemType<CosmicCone>());
+                recipe.AddIngredient((ItemID.EnchantedSword), 1);
+                recipe.AddIngredient(ItemID.MeteoriteBar, 10);
+                recipe.AddIngredient((ItemID.Granite), 50);
+                recipe.AddTile(TileID.Anvils);
                 recipe.Register();
             }
             {
@@ -1140,12 +1144,6 @@ namespace CalValEX
                 recipe.AddIngredient(CalValEX.CalamityItem("MysteriousCircuitry"), 2);
                 recipe.AddIngredient(CalValEX.CalamityItem("DubiousPlating"), 3);
                 recipe.AddIngredient(CalValEX.CalamityItem("DraedonPowerCell"), 6);
-                recipe.AddTile(TileID.Anvils);
-                recipe.Register();
-            }
-            {
-                Recipe recipe = Recipe.Create(ItemType<InactivePowerFactory>());
-                recipe.AddIngredient(CalValEX.CalamityItem("PowerCellFactoryItem"));
                 recipe.AddTile(TileID.Anvils);
                 recipe.Register();
             }
