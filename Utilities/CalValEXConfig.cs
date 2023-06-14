@@ -8,15 +8,15 @@ using Terraria.ModLoader.Config;
 
 namespace CalValEX
 {
-    [Label("Config")]
     [BackgroundColor(49, 32, 36, 216)]
     public class CalValEXConfig : ModConfig
     {
         public static CalValEXConfig Instance;
         public override ConfigScope Mode => ConfigScope.ServerSide;
 
-        [Header("Drops")]
-        [Label("Disable All Drops")]
+        [Header("DropsHeader")]
+
+        [LabelKeyAttribute("Disable All Drops")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("Disables all of the mod's direct drops")]
@@ -28,7 +28,8 @@ namespace CalValEX
         [Tooltip("Makes it so that bosses and their bags no longer drop blocks")]
         public bool ConfigBossBlocks { get; set; }
 
-        [Header("Pets")]
+        [Header("PetsHeader")]
+
         [Label("True Size")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
@@ -59,7 +60,8 @@ namespace CalValEX
         [Tooltip("Makes it so that the Pitbull pet doesn't bark at rare enemies")]
         public bool Pitbul { get; set; }
 
-        [Header("NPCs")]
+        [Header("NPCsHeader")]
+
         [Label("Disable Town NPCs")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
@@ -78,7 +80,7 @@ namespace CalValEX
         [Tooltip("Makes it so that all Calamity's Vanities critters no longer spawn naturally")]
         public bool CritterSpawns { get; set; }
 
-        [Header("Vanity Minions")]
+        [Header("VanityHeader")]
 
         [Label("Disable Vanity Elementals")]
         [BackgroundColor(192, 54, 64, 192)]
@@ -104,7 +106,8 @@ namespace CalValEX
         [Tooltip("Disables Mutated Truffle from summoning its Young Duke while in vanity slots")]
         public bool YoungDukePSS { get; set; }
 
-        [Header("Other")]
+        [Header("MiscHeader")]
+
         [Label("Disable Mount Nerf")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
@@ -118,7 +121,8 @@ namespace CalValEX
         [Tooltip("Whether or not to initialize the Discord Rich Presence addons for the Discord Rich Presence mod by Purplefin Neptuna.\nRequires that mod to be active in order to do anything.")]
         public bool DiscordRichPresence { get; set; }
 
-        [Header("Config Access")]
+        [Header("ConfigHeader")]
+
         [Label("Enable Server Owner Exclusive Config Access")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]

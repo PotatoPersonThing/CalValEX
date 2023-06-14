@@ -71,7 +71,7 @@ namespace CalValEX.NPCs.Critters
 
         public override void OnCaughtBy(Player player, Item item, bool failed)
         {
-            Item.NewItem(new EntitySource_CatchEntity(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<GoldenIsopodItem>());
+            Item.NewItem(new EntitySource_Caught(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<GoldenIsopodItem>());
         }
 
         public override void HitEffect(NPC.HitInfo hit)

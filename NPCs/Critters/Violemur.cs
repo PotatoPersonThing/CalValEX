@@ -8,6 +8,8 @@ using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
+using Terraria.Audio;
+using Terraria.Graphics.CameraModifiers;
 //using CalamityMod.CalPlayer;
 
 namespace CalValEX.NPCs.Critters
@@ -73,14 +75,17 @@ namespace CalValEX.NPCs.Critters
             }
             return 0f;
         }
-        public override void HitEffect(NPC.HitInfo hit)
-        {
-            if (NPC.life <= 0)
-            {
+
+        public override void HitEffect(NPC.HitInfo hit) {
+            if (Main.netMode == NetmodeID.Server)
+                return;
+
+            if (NPC.life <= 0) {
                 Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Violemur").Type, 1f);
                 Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Violemur2").Type, 1f);
             }
         }
+
 
         [JITWhenModsEnabled("CalamityMod")]
         public override void AI()

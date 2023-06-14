@@ -1,0 +1,23 @@
+# This file contains all the translations for ModConfig elements.
+
+Common: {
+	LocalizedLabel: This Label is from the localization files: {$Mods.ExampleMod.Common.PaperAirplane}
+	LocalizedTooltip: This tooltip is from the localization files.
+	LocalizedHeader: Headers can help organize
+	LocalizedLabelDynamic: Localized Label Dynamic
+	InterpolatedLabel: Item: [i:{0}]. Number: {1} {^1:change;changes}. Text: {2}. Localized Text: {3}.
+	InterpolatedTooltip: "[c/{1}:Use to disable the] [c/{2}:{0}] [c/{1}:feature]"
+}
+
+CalValExConfig: {
+	DisplayName: Config
+
+	Headers: {
+		DropsHeader: Drops
+		PetsHeader: Pets
+		NPCsHeader: NPCs
+		VanityHeader: Vanity Minions
+		MiscHeader: Other
+		ConfigHeader: Config Access
+	}
+}
