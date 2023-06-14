@@ -16,11 +16,11 @@ namespace CalValEX
 
         [Header("DropsHeader")]
 
-        [LabelKeyAttribute("Disable All Drops")]
+        [LabelKey("DropsGenLabel")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
-        [Tooltip("Disables all of the mod's direct drops")]
-        public bool DisableVanityDrops { get; set; }
+        [TooltipKey("DropsGenTip")]
+        public bool DisableVanityDrops; /*{ get; set; }*/
 
         [Label("Disable Boss Block Drops")]
         [BackgroundColor(192, 54, 64, 192)]
