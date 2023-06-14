@@ -20,7 +20,7 @@ namespace CalValEX
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [TooltipKey("DropsGenTip")]
-        public bool DisableVanityDrops; /*{ get; set; }*/
+        public bool DisableVanityDrops { get; set; }
 
         [Label("Disable Boss Block Drops")]
         [BackgroundColor(192, 54, 64, 192)]
