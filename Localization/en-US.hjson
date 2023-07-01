@@ -3605,7 +3605,7 @@ Mods: {
 
 			InactivePowerFactory: {
 				DisplayName: Compensation
-				Tooltip: "Can be sold"
+				Tooltip: Can be sold
 			}
 
 			JunkArt: {
@@ -4239,12 +4239,12 @@ Mods: {
 
 			Ribrod: {
 				DisplayName: Compensation
-				Tooltip: "Can be sold"
+				Tooltip: Can be sold
 			}
 
 			RoxFake: {
 				DisplayName: Compensation
-				Tooltip: "Can be sold"
+				Tooltip: Can be sold
 			}
 
 			SailfishTrophy: {
@@ -4326,7 +4326,7 @@ Mods: {
 
 			SulphurColumn: {
 				DisplayName: Compensation
-				Tooltip: "Can be sold"
+				Tooltip: Can be sold
 			}
 
 			SulphurGeyser: {
@@ -4529,6 +4529,11 @@ Mods: {
 
 			KnowledgeFogbound: {
 				DisplayName: Knowledge Fogbound
+				Tooltip: ""
+			}
+
+			SulphuricDye: {
+				DisplayName: Sulphuric Dye
 				Tooltip: ""
 			}
 		}
@@ -4773,6 +4778,8 @@ Mods: {
 			FogLaser.DisplayName: Fog Laser
 			JharimLaser.DisplayName: Jharim Laser
 			JharimKiller.DisplayName: Jharim Killer
+			Ranged.GodsFire.DisplayName: Gods Fire
+			Magic.JharimKiller.DisplayName: Jharim Killer
 		}
 
 		Tiles: {
@@ -5893,5 +5900,102 @@ Mods: {
 		}
 
 		Conditions.Acid: fuck you
+
+		Configs: {
+			CalValEXConfig: {
+				DisplayName: Config
+
+				DisableVanityDrops: {
+					Label: Disable All Drops
+					Tooltip: Disables all of the mod's direct drops
+				}
+
+				ConfigBossBlocks: {
+					Label: Disable Boss Block Drops
+					Tooltip: Makes it so that bosses and their bags no longer drop blocks
+				}
+
+				FatDog: {
+					Label: True Size
+					Tooltip: Makes a certain pet a lot larger when true
+				}
+
+				SupCombo: {
+					Label: Superstitious Spirit Parade
+					Tooltip: Allows the Superstitious Jewel to summon the 11 ingredient pets used to craft it
+				}
+
+				DragonballName: {
+					Label: Disable Dragonball Easter Egg
+					Tooltip: Disables the easter egg caused by the Dragonball pet
+				}
+
+				Polterskin: {
+					Label: Disable Toy Scythe Skins
+					Tooltip: Makes it so that the Toy Scythe's pet always uses its default skin
+				}
+
+				Pitbul: {
+					Label: Disable Pitbull Barking
+					Tooltip: Makes it so that the Pitbull pet doesn't bark at rare enemies
+				}
+
+				Headers.NPCs: NPCs
+
+				TownNPC: {
+					Label: Disable Town NPCs
+					Tooltip: Prevents the Oracle and Jelly Priestess from spawning
+				}
+
+				IsopodBait: {
+					Label: Disable Isopod Bait Scaling
+					Tooltip: Makes it so that Abyssal Isopods have max bait power at all times
+				}
+
+				CritterSpawns: {
+					Label: Disable Critter Spawns
+					Tooltip: Makes it so that all Calamity's Vanities critters no longer spawn naturally
+				}
+
+				GroundMountLol: {
+					Label: Disable Mount Nerf
+					Tooltip: Disables the stat cripple which ground mounts give
+				}
+
+				DiscordRichPresence: {
+					Label: Discord Rich Presence ([c/ffa11:Requires DRP Mod!])
+					Tooltip:
+						'''
+						Whether or not to initialize the Discord Rich Presence addons for the Discord Rich Presence mod by Purplefin Neptuna.
+						Requires that mod to be active in order to do anything.
+						'''
+				}
+
+				OwnerOnly: {
+					Label: Enable Server Owner Exclusive Config Access
+					Tooltip:
+						'''
+						Recommended for Host & Play or hosting server on same machine you play on.
+						If not enabled, all users can make changes to the config
+						'''
+				}
+
+				HerosPerm: {
+					Label: Enable Hero's Mod Config Changes via Permission System
+					Tooltip:
+						'''
+						For those that use Heros Mod in multiplayer.
+						If not enabled, all users can make changes to the config
+						'''
+				}
+			}
+		}
+
+		Config: {
+			Drops: Drops
+			Pets: Pets
+			OtherHeader: Other
+			HeroHeader: Config Access
+		}
 	}
 }
