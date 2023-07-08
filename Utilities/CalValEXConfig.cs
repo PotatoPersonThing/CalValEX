@@ -13,100 +13,64 @@ namespace CalValEX
     {
         public static CalValEXConfig Instance;
         public override ConfigScope Mode => ConfigScope.ServerSide;
-
-        [Header("DropsHeader")]
-
-        [LabelKey("DropsGenLabel")]
+		
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [TooltipKey("DropsGenTip")]
         public bool DisableVanityDrops { get; set; }
 
-        [Label("Disable Boss Block Drops")]
+        [Label("$Mods.CalValEX.Config.Bl0cks.Label")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("Makes it so that bosses and their bags no longer drop blocks")]
         public bool ConfigBossBlocks { get; set; }
 
-        [Header("PetsHeader")]
 
-        [Label("True Size")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("Makes a certain pet a lot larger when true")]
         public bool FatDog { get; set; }
 
-        [Label("Superstitious Spirit Parade")]
+        [Label("$Mods.CalValEX.Config.Sup.Label")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("Allows the Superstitious Jewel to summon the 11 ingredient pets used to craft it")]
         public bool SupCombo { get; set; }
 
-        [Label("Disable Dragonball Easter Egg")]
+        [Label("$Mods.CalValEX.Config.Birb.Label")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("Disables the easter egg caused by the Dragonball pet")]
         public bool DragonballName { get; set; }
 
-        [Label("Disable Toy Scythe Skins")]
+        [Label("$Mods.CalValEX.Config.Polt.Label")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("Makes it so that the Toy Scythe's pet always uses its default skin")]
         public bool Polterskin { get; set; }
 
-        [Label("Disable Pitbull Barking")]
+        [Label("$Mods.CalValEX.Config.Bark.Label")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("Makes it so that the Pitbull pet doesn't bark at rare enemies")]
         public bool Pitbul { get; set; }
 
-        [Header("NPCsHeader")]
-
-        [Label("Disable Town NPCs")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("Prevents the Oracle and Jelly Priestess from spawning")]
         public bool TownNPC { get; set; }
 
-        [Label("Disable Isopod Bait Scaling")]
+        [Label("$Mods.CalValEX.Config.Isopod.Label")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("Makes it so that Abyssal Isopods have max bait power at all times")]
         public bool IsopodBait { get; set; }
 
-        [Label("Disable Critter Spawns")]
+        [Label("$Mods.CalValEX.Config.Critters.Label")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("Makes it so that all Calamity's Vanities critters no longer spawn naturally")]
         public bool CritterSpawns { get; set; }
-
-        [Header("VanityHeader")]
-
-        [Label("Disable Vanity Elementals")]
-        [BackgroundColor(192, 54, 64, 192)]
-        [DefaultValue(false)]
-        [Tooltip("Disables the elemental accessories from spawning their Elementals while in vanity slots")]
-        public bool HeartVanity { get; set; }
-
-        [Label("Disable Vanity Cryo Stone")]
-        [BackgroundColor(192, 54, 64, 192)]
-        [DefaultValue(false)]
-        [Tooltip("Disables Cryo Stone from summoning its Ice Shield while in vanity slots")]
-        public bool ColdShield { get; set; }
-
-        [Label("Disable Vanity Fungal Clump")]
-        [BackgroundColor(192, 54, 64, 192)]
-        [DefaultValue(false)]
-        [Tooltip("Disables Fungal Clump from summoning its Fungal Clump minion while in vanity slots")]
-        public bool FungusClump { get; set; }
-
-        [Label("Disable Vanity Young Duke")]
-        [BackgroundColor(192, 54, 64, 192)]
-        [DefaultValue(false)]
-        [Tooltip("Disables Mutated Truffle from summoning its Young Duke while in vanity slots")]
-        public bool YoungDukePSS { get; set; }
-
-        [Header("MiscHeader")]
 
         [Label("Disable Mount Nerf")]
         [BackgroundColor(192, 54, 64, 192)]
@@ -114,23 +78,20 @@ namespace CalValEX
         [Tooltip("Disables the stat cripple which ground mounts give")]
         public bool GroundMountLol { get; set; }
 
-        [Label("Discord Rich Presence ([c/ffaa11:Requires DRP Mod!])")]
+        [Label("$Mods.CalValEX.Config.DRP.Label")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(true)]
         [ReloadRequired()]
         [Tooltip("Whether or not to initialize the Discord Rich Presence addons for the Discord Rich Presence mod by Purplefin Neptuna.\nRequires that mod to be active in order to do anything.")]
         public bool DiscordRichPresence { get; set; }
 
-        [Header("ConfigHeader")]
-
-        [Label("Enable Server Owner Exclusive Config Access")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("Recommended for Host & Play or hosting server on same machine you play on.\n" +
             "If not enabled, all users can make changes to the config")]
         public bool OwnerOnly { get; set; }
 
-        [Label("Enable Hero's Mod Config Changes via Permission System")]
+        [Label("$Mods.CalValEX.Config.HerosPerm.Label")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("For those that use Heros Mod in multiplayer.\n" +

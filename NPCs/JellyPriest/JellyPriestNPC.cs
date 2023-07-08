@@ -419,9 +419,7 @@ namespace CalValEX.NPCs.JellyPriest
             shopEntries.Add(("Furniture", CalValEX.CalamityItem("LaboratoryConsoleItem"), Item.buyPrice(0, 2, 50, 0), calamity, ""));
             shopEntries.Add(("Furniture", ItemType<SulphurColumn>(), Item.buyPrice(0, 0, 5, 0), calamity, ""));
             shopEntries.Add(("Furniture", ItemType<SulphurGeyser>(), Item.buyPrice(0, 0, 10, 0), calamity, ""));
-            shopEntries.Add(("Furniture", ItemType<Ribrod>(), Item.buyPrice(0, 0, 50, 0), calamity, ""));
             shopEntries.Add(("Furniture", ItemType<SunkenLamp>(), Item.buyPrice(0, 0, 50, 0), clam, ""));
-            shopEntries.Add(("Furniture", ItemType<RoxFake>(), Item.buyPrice(0, 1, 0, 0), Condition.Hardmode, ""));
             shopEntries.Add(("Furniture", ItemType<Knight>(), Item.buyPrice(0, 0, 95, 0), Condition.Hardmode, ""));
             shopEntries.Add(("Furniture", ItemType<DecommissionedDaedalusGolem>(), Item.buyPrice(0, 2, 50, 0), cirno, ""));
             shopEntries.Add(("Furniture", ItemType<AuroraMonolith>(), Item.buyPrice(0, 4, 0, 0), cirno, ""));

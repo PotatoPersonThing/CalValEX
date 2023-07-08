@@ -68,12 +68,6 @@ namespace CalValEX.NPCs.Critters
             }
             return 0f;
         }
-
-        public override void OnCaughtBy(Player player, Item item, bool failed)
-        {
-            Item.NewItem(new EntitySource_Caught(player, NPC), new Vector2(player.position.X, player.position.Y), ItemType<GoldenIsopodItem>());
-        }
-
         public override void HitEffect(NPC.HitInfo hit)
         {
             if (NPC.life <= 0)

@@ -13,26 +13,11 @@ namespace CalValEX.Items.Tiles
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
-            Item.useTurn = true;
-            Item.useAnimation = 15;
-            Item.useTime = 10;
-            Item.autoReuse = true;
             Item.maxStack = 99;
-            Item.consumable = true;
             Item.width = 16;
             Item.height = 28;
-            Item.rare = 4;
-        }
-
-        [JITWhenModsEnabled("CalamityMod")]
-        public override bool CanUseItem(Player player)
-        {
-            if (CalValEX.CalamityActive)
-            {
-                Item.createTile = CalValEX.CalamityTile("SulphurousColumn");
-            }
-            return true;
+            Item.rare = -1;
+            Item.value = Item.sellPrice(0, 0, 10, 0);
         }
     }
 }
