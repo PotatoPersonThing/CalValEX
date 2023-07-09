@@ -13,10 +13,12 @@ namespace CalValEX
     {
         public static CalValEXConfig Instance;
         public override ConfigScope Mode => ConfigScope.ServerSide;
-		
+
+        [Header("$Mods.CalValEX.Config.Drops")]
+        [Label("$Mods.CalValEX.Config.Dr0ps.Label")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
-        [TooltipKey("DropsGenTip")]
+        [Tooltip("DropsGenTip")]
         public bool DisableVanityDrops { get; set; }
 
         [Label("$Mods.CalValEX.Config.Bl0cks.Label")]

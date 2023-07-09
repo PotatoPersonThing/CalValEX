@@ -5,12 +5,8 @@ using CalValEX.Tiles.Statues;
 
 namespace CalValEX.Items.Tiles.Statues {
     public class Provibust : ModItem {
-        public override void SetStaticDefaults() {
-            // DisplayName.SetDefault("Profaned Idol");
-            /* Tooltip
-                .SetDefault("I shall die for you m'lord"); */
+        public override void SetStaticDefaults() => 
             Item.ResearchUnlockCount = 1;
-        }
 
         public override void SetDefaults() {
             Item.useStyle = 1;

@@ -1,18 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using static Terraria.ModLoader.ModContent;
-using CalValEX.Items.Tiles;
+using Terraria.DataStructures;
 
-namespace CalValEX.Tiles.MiscFurniture
-{
-    public class BubbleMachinePlaced : ModTile
-    {
-        public override void SetStaticDefaults()
-        {
+namespace CalValEX.Tiles.MiscFurniture {
+    public class BubbleMachinePlaced : ModTile {
+        public override void SetStaticDefaults() {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileLavaDeath[Type] = true;
@@ -20,25 +15,23 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x1);
             TileObjectData.newTile.Width = 4;
             TileObjectData.newTile.Height = 4;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16 }; //
-            AnimationFrameHeight = 18;
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16 };
+            TileObjectData.newTile.Origin = new Point16(1, 2);
             TileObjectData.addTile(Type);
+            
             LocalizedText name = CreateMapEntryName();
-            // name.SetDefault("Glub glub");
             AddMapEntry(new Color(0, 167, 255), name);
+
+            AnimationFrameHeight = 72;
         }
 
-        public override void AnimateTile(ref int frame, ref int frameCounter)
-        {
+        public override void AnimateTile(ref int frame, ref int frameCounter) {
             frameCounter++;
-            if (frameCounter > 6) //make this number lower/bigger for faster/slower animation
-            {
+            if (frameCounter > 5) {
                 frameCounter = 0;
                 frame++;
-                if (frame > 12)
-                {
+                if (frame > 11)
                     frame = 0;
-                }
             }
         }
     }

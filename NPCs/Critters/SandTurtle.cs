@@ -176,8 +176,10 @@ namespace CalValEX.NPCs.Critters
         }
 
 
-        public override void HitEffect(NPC.HitInfo hit)
-        {
+        public override void HitEffect(NPC.HitInfo hit) {
+            if (Main.netMode == NetmodeID.Server)
+                return;
+
             if (NPC.life <= 0)
             {
                 Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SandTurtle").Type, 1f);

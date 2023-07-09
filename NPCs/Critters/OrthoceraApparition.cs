@@ -18,6 +18,7 @@ namespace CalValEX.NPCs.Critters
             NPCID.Sets.CantTakeLunchMoney[Type] = true;
             Main.npcFrameCount[NPC.type] = 5;
         }
+
         [JITWhenModsEnabled("CalamityMod")]
         public override void SetDefaults()
         {
@@ -144,7 +145,7 @@ namespace CalValEX.NPCs.Critters
                 Mod cal = ModLoader.GetMod("CalamityMod");
                 if ((bool)cal.Call("getbossdowned", "scal") && (bool)cal.Call("getbossdowned", "exomechs") && !NPC.AnyNPCs(ModContent.NPCType<OrthoceraApparition>()) && !CalValEXWorld.orthofound)
                 {
-                    if (CalValEX.InCalamityBiome(spawnInfo.Player, "SulphurousSeaBiome"));
+                    if (CalValEX.InCalamityBiome(spawnInfo.Player, "SulphurousSeaBiome"))
                     {
                         return 5f;
                     }

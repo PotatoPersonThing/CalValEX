@@ -66,8 +66,10 @@ namespace CalValEX.NPCs.Critters
 
         public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
-        public override void HitEffect(NPC.HitInfo hit)
-        {
+        public override void HitEffect(NPC.HitInfo hit) {
+            if (Main.netMode == NetmodeID.Server)
+                return;
+
             if (NPC.life <= 0)
             {
                 Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Bleamur").Type, 1f);
@@ -76,6 +78,7 @@ namespace CalValEX.NPCs.Critters
                 Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Bleamur4").Type, 1f);
             }
         }
+
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
             Texture2D minibirbsprite = (ModContent.Request<Texture2D>("CalValEX/NPCs/Critters/Blightolemur_Glow").Value);
