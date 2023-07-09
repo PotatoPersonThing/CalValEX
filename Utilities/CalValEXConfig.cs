@@ -8,7 +8,7 @@ using Terraria.ModLoader.Config;
 
 namespace CalValEX
 {
-    [BackgroundColor(49, 32, 36, 216)]
+     [BackgroundColor(49, 32, 36, 216)]
     public class CalValEXConfig : ModConfig
     {
         public static CalValEXConfig Instance;
@@ -18,7 +18,7 @@ namespace CalValEX
         [Label("$Mods.CalValEX.Config.Dr0ps.Label")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
-        [Tooltip("DropsGenTip")]
+        [Tooltip("Disables all of the mod's direct drops")]
         public bool DisableVanityDrops { get; set; }
 
         [Label("$Mods.CalValEX.Config.Bl0cks.Label")]
@@ -27,7 +27,8 @@ namespace CalValEX
         [Tooltip("Makes it so that bosses and their bags no longer drop blocks")]
         public bool ConfigBossBlocks { get; set; }
 
-
+        [Header("$Mods.CalValEX.Config.Pets")]
+        [Label("$Mods.CalValEX.Config.Doggers.Label")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("Makes a certain pet a lot larger when true")]
