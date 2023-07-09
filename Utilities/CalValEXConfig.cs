@@ -18,7 +18,7 @@ namespace CalValEX
         [Label("$Mods.CalValEX.Config.Dr0ps.Label")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
-        [Tooltip("Disables all of the mod's direct drops")]
+        [Tooltip("DropsGenTip")]
         public bool DisableVanityDrops { get; set; }
 
         [Label("$Mods.CalValEX.Config.Bl0cks.Label")]
@@ -27,8 +27,7 @@ namespace CalValEX
         [Tooltip("Makes it so that bosses and their bags no longer drop blocks")]
         public bool ConfigBossBlocks { get; set; }
 
-        [Header("$Mods.CalValEX.Config.Pets")]
-        [Label("$Mods.CalValEX.Config.Doggers.Label")]
+
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("Makes a certain pet a lot larger when true")]
@@ -58,8 +57,6 @@ namespace CalValEX
         [Tooltip("Makes it so that the Pitbull pet doesn't bark at rare enemies")]
         public bool Pitbul { get; set; }
 
-        [Header("NPCs")]
-        [Label("$Mods.CalValEX.Config.Towny.Label")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("Prevents the Oracle and Jelly Priestess from spawning")]
@@ -77,7 +74,6 @@ namespace CalValEX
         [Tooltip("Makes it so that all Calamity's Vanities critters no longer spawn naturally")]
         public bool CritterSpawns { get; set; }
 
-        [Header("$Mods.CalValEX.Config.OtherHeader")]
         [Label("Disable Mount Nerf")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
@@ -91,8 +87,6 @@ namespace CalValEX
         [Tooltip("Whether or not to initialize the Discord Rich Presence addons for the Discord Rich Presence mod by Purplefin Neptuna.\nRequires that mod to be active in order to do anything.")]
         public bool DiscordRichPresence { get; set; }
 
-        [Header("$Mods.CalValEX.Config.HeroHeader")]
-        [Label("$Mods.CalValEX.Config.HerosHeader.Label")]
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         [Tooltip("Recommended for Host & Play or hosting server on same machine you play on.\n" +

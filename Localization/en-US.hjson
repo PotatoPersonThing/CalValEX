@@ -113,6 +113,9 @@ Mods: {
 			MeldwyrmBody.DisplayName: Meldwyrm
 			MeldwyrmHead.DisplayName: Meldwyrm
 			MeldwyrmTail.DisplayName: Meldwyrm
+			MeldWyrmBody.DisplayName: Meld Wyrm Body
+			MeldWyrmHead.DisplayName: Meld Wyrm Head
+			MeldWyrmTail.DisplayName: Meld Wyrm Tail
 		}
 
 		Items: {
@@ -529,8 +532,8 @@ Mods: {
 			}
 
 			Cryocap: {
-				DisplayName: ""
-				Tooltip: ""
+				DisplayName: Cryocap
+				Tooltip: Brain Freeze!
 			}
 
 			CultistHood: {

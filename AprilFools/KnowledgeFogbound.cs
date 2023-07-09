@@ -37,9 +37,10 @@ Ironic that of all the gods, it was the one who’s domain was Death that feared
             TooltipLine line = tooltips.FirstOrDefault(x => x.Mod == "Terraria" && x.Name == "Tooltip0");
             if (!Main.keyState.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.LeftShift))
             {
+                string tooltipString = "[c/E3AF40:Whispers from on high dance in your ears...]@[c/BEBEBE:Press \"Left Shift\" to listen closer]";
+
                 if (line != null)
-                    line.Text = "[c/E3AF40:Whispers from on high dance in your ears...]
-	[c/BEBEBE:Press "Left Shift" to listen closer]";
+                    line.Text = tooltipString.Replace("@", "\r\n");
                 return;
             }
 

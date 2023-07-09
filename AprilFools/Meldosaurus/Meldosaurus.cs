@@ -254,7 +254,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 				{
 					for (int x = 0; x < 20; x++)
 					{
-						Dust.NewDust(NPC.Center, NPC.width, NPC.height, 27, 0, 0);
+						Dust.NewDust(NPC.Center, NPC.width, NPC.height, DustID.Shadowflame, 0, 0);
 					}
 				}
 				NPC.ai[1]++;
@@ -263,7 +263,7 @@ namespace CalValEX.AprilFools.Meldosaurus
                 {
 					for (int x = 0; x < 20; x++)
                     {
-						Dust.NewDust(NPC.Center, NPC.width, NPC.height, 27, 0, 0);
+						Dust.NewDust(NPC.Center, NPC.width, NPC.height, DustID.Shadowflame, 0, 0);
                     }
 					NPC.position.X = Main.player[NPC.target].Center.X + 400;
 					NPC.position.Y = Main.player[NPC.target].Center.Y - 280;
@@ -415,7 +415,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 			//Clone ram
 			if (NPC.ai[0] == 8)
 			{
-				bool spawnWorms = NPC.CountNPCS(ModContent.NPCType<MeldwyrmHead>()) < 1 && expert;
+				bool spawnWorms = NPC.CountNPCS(ModContent.NPCType<MeldWyrmHead>()) < 1 && expert;
 				if (!Main.expertMode)
                 {
 					NPC.alpha = 80;
@@ -460,8 +460,8 @@ namespace CalValEX.AprilFools.Meldosaurus
 						Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie5 with { Pitch = SoundID.Zombie5.Pitch - 0.5f }, Main.player[NPC.target].Center);
 						if (Main.netMode != NetmodeID.MultiplayerClient)
 						{
-							NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<MeldwyrmHead>(), 0, NPC.whoAmI, 1);
-							NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<MeldwyrmHead>(), 0, NPC.whoAmI, 2);
+							NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<MeldWyrmHead>(), 0, NPC.whoAmI, 1);
+							NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<MeldWyrmHead>(), 0, NPC.whoAmI, 2);
 						}
 					}
 					NewPhase(1);

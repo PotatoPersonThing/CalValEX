@@ -2,16 +2,12 @@
 using Terraria.ID;
 using CalValEX.Tiles.MiscFurniture;
 
-namespace CalValEX.Items.Tiles
-{
-    public class BubbleMachine : ModItem
-    {
-        public override void SetStaticDefaults()
-        {
+namespace CalValEX.Items.Tiles {
+    public class BubbleMachine : ModItem {
+        public override void SetStaticDefaults() =>
             Item.ResearchUnlockCount = 1;
-        }
-        public override void SetDefaults()
-        {
+
+        public override void SetDefaults() {
             Item.useStyle = 1;
             Item.useTurn = true;
             Item.useAnimation = 15;

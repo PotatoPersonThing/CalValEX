@@ -13,7 +13,7 @@ using Terraria.Utilities;
 
 namespace CalValEX.NPCs.TownPets.Nuggets {
     // HIIIII if you're looking for ways to make ur own town pet, just know it's kinda complicated, if you have any doubts about this code or town pet code in general,
-    // send a message to Drædon Gaming#1669 on discord, I'll help as much as I can until tmod gets some documentation or something going, good luck!
+    // send a message to Reika#0876 on discord, I'll help as much as I can until tmod gets some documentation or something going, good luck!
 
     #region //Base NPC
     public abstract class TownNuggets : ModNPC {

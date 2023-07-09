@@ -2,12 +2,10 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
-using System.IO;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
-	public class MeldwyrmTail : ModNPC
+	public class MeldWyrmTail : ModNPC
 
 	{
 		[JITWhenModsEnabled("CalamityMod")]

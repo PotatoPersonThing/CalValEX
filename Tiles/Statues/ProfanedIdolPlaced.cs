@@ -29,7 +29,6 @@ namespace CalValEX.Tiles.Statues {
             TileObjectData.addTile(Type);
             
             LocalizedText name = CreateMapEntryName();
-            // name.SetDefault("Profaned Idol");
             AddMapEntry(new Color(206, 116, 59), name);
 
             AnimationFrameHeight = 126;
