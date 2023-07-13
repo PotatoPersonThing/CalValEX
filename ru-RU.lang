@@ -1,0 +1,198 @@
+##########################
+#-# File translated by #-#
+#-# : fox              #-#
+##########################
+
+## To-Do (aka missing translations)
+##   Buffs.Pets
+##   Buffs.Pets.Elementals
+##   Buffs.Pets.Scuttlers
+##   Items.Equips.Backs
+##   Items.Equips.Balloons
+##   Items.Equips.Blanks
+##   Items.Equips.Capes
+##   Items.Equips.Hats
+##   Items.Equips.Hats.Draedon
+##   Items.Equips.Legs
+##   Items.Equips.Legs.Draedon
+##   Items.Equips.Scarves
+##   Items.Equips.Shields
+##   Items.Equips.Shirts
+##   Items.Equips.Shirts.Draedon
+##   Items.Equips.Transformations
+##   Items.Equips.Wings
+##   Items.Hooks
+##   Items.LightPets
+##   Items.Mounts.Ground
+##   Items.Mounts.InfiniteFlight
+##   Items.Mounts.LimitedFlight
+##   Items.Mounts.Morshu
+##   Items.Pets
+##   Items.Pets.Elementals
+##   Items.Pets.Scuttlers
+##   Items.Plushies
+##   Items.Tiles
+##   Items.Tiles.Balloons
+##   Items.Tiles.Banners
+##   Items.Tiles.Blocks
+##   Items.Tiles.Blocks.Astral
+##   Items.Tiles.Blueprints
+##   Items.Tiles.Cages
+##   Items.Tiles.FurnitureSets.Arsenal
+##   Items.Tiles.FurnirureSets.Astral
+##   Items.Tiles.FurnitureSets.Bloodstone
+##   Items.Tiles.FurnitureSets.Necrotic
+##   Items.Tiles.FurnitureSets.Phantowax
+##   Items.Tiles.FurnitureSets.Wulfrum
+##   Items.Tiles.Monoliths
+##   Items.Tiles.Paintings
+##   Items.Tiles.Plants
+##   Items.Tiles.Plushies
+##   Items.Tiles.Statues
+##   Items.Walls
+##   Items.Walls.Astral
+##   NPCs.Critters
+##   NPCs.JellyPriest
+##   NPCs.Oracle
+##   Projectiles
+##   Projectiles.NPCs
+##   Projectiles.Pets
+##   Projectiles.Pets.Elementals
+##   Projectiles.Pets.LightPets
+##   Projectiles.Pets.Scuttlers
+##   Projectiles.Pets.Wulfrum
+##   Projectiles.Plushies
+##   Tiles
+##   Tiles.AstralBlocks
+##   Tiles.AstralMisc
+##   Tiles.Balloons
+##   Tiles.Banners
+##   Tiles.Blocks
+##   Tiles.Blueprints
+##   Tiles.Cages
+##   Tiles.FurnitureSets.Arsenal
+##   Tiles.FurnitureSets.Astral
+##   Tiles.FurnitureSets.Bloodstone
+##   Tiles.FurnitureSets.Necrotic
+##   Tiles.FurnitureSets.Phantowax
+##   Tiles.MiscFurniture
+##   Tiles.Monoliths
+##   Tiles.Paintings
+##   Tiles.Plants
+##   Tiles.Plushies
+##   Tiles.Statues
+
+BuffName.DarksunSpiritBuff=Духи темного солнца
+BuffDescription.DarksunSpiritBuff=Духи темного солнца решили последовать за вами!
+BuffName.EnredBuff=Космический помощник
+BuffDescription.EnredBuff=Он здесь, чтобы помочь!
+BuffName.GodrgeBuff=Ядерный Джордж
+BuffDescription.GodrgeBuff=Жалкий.
+BuffName.HeatBuff=Черепа хаоса
+BuffDescription.HeatBuff=Он здесь, чтобы судить вас за ваши грехи... не совсем
+BuffName.ImpBuff=Минималистичный
+BuffDescription.ImpBuff=Привет!
+BuffName.LightshieldBuff=Арктический щит
+BuffDescription.LightshieldBuff=Вы освоили вращение!
+BuffName.PhantomBuff=Освобожденный призрачный дух
+BuffDescription.PhantomBuff=Наконец-то свободен, но по-прежнему следует за вами!
+BuffName.ProBuff=Оскверненная армада
+BuffDescription.ProBuff=Провиденс и ее армия светят святым светом сквозь тьму.
+BuffName.PylonBuff=Протопилон
+BuffDescription.PylonBuff=Заряжает других протоботов
+BuffName.SeerBuff=Тур по достопримечательностям
+BuffDescription.SeerBuff=Увидем мир вместе
+BuffName.SolarBunBuff=Солнечный зайчик
+BuffDescription.SolarBunBuff=Грейтесь под божественным светом
+BuffName.SupJewelBuff=Суеверный самоцвет
+BuffDescription.SupJewelBuff=Чисто нечисто
+BuffName.VanityCoreBuff=Ядро стиля
+BuffDescription.VanityCoreBuff=Все ладят!
+BuffName.YeetBuff=Литрыба
+BuffDescription.YeetBuff=Теперь за вами последует детский санскейтер.
+BuffName.AnthozoanBuff=Кембрийские ракообразные
+BuffDescription.AnthozoanBuff=Он не будет бросать в тебя камни
+BuffName.AuricTeslaBuff=Золотосодержащий
+BuffDescription.AuricTeslaBuff=Автомобиль-Ярим\nАвтомобиль-Ярим
+BuffName.BikeBuff=Осквернённый мотоцикл
+BuffDescription.BikeBuff=Когда вам действительно нужно куда-то добраться, стильно.
+BuffName.BloodstoneCarriageBuff=Карета кровавого камня
+BuffDescription.BuffstoneCarriageBuff=Можно даже назвать это вы-
+BuffName.FloatyBuff=Плавучий коврик
+BuffDescription.FloatyBuff=Предупреждение: полет не включен.
+BuffName.GodRiderBuff=Бог наездник
+BuffDescription.GodRiderBuff=Езда на пространственных приливах
+BuffName.HadarianBuff=Хадарианец неоперившийся
+BuffDescription.HadarianBuff=SCREEEE
+BuffName.HiveVuff=Конгломерация разума
+BuffDescription.HiveVuff=Клянусь, это не то, что ты думаешь
+BuffName.LeviathanMountBuff=Детеныш левиафана
+BuffDescription.LeviathanMountBuff=Лучше поймать рыбу
+BuffName.NuclearHorrorBuff=Ядерный ужас
+BuffDescription.NuclerHorrorBuff=Почему это вам не поможет
+BuffName.PBGMountBuff=Чумной всадник
+BuffDescription.PBGMountBuff=Ты должен верить в себя
+BuffName.SilvaJeepBuff=Сильвианский джип
+BuffDescription.SilvaJeepBuff=Бип бип, я джип
+BuffName.TractorMount=Вольфрамовый танк
+BuffDescription.TractorMount=Вперед, солдат!
+BuffName.YharonMountBuff=Ярит
+BuffDescription.YharonMountBuff=Он наконец-то здесь!
+# Buffs.Pets
+# Buffs.Pets.Elementals
+# Buffs.Pets.Scuttlers
+BuffName.ClassicBrimmyBuff=Трансформация в серного Элементаля
+BuffDescription.ClassicBrimmyBuff=Да, вы можете прикосаться к воде
+BuffName.CloudTransformationBuff=Трансформация в облачного Элементаля
+BuffDescription.CloudTransformationBuff=Чувствую облачности
+BuffName.ProtoRingBuff=Прото-андромеда
+BuffDescription.ProtoRingBuff=Все еще прорабатываю изгибы
+BuffName.SandTransformationBuff=Трансформация в песчаного Элементаля
+BuffDescription.SandTransformationBuff=хех.
+BuffName.SignutTransformationBuff=Эфирный убийца
+BuffDescription.SignutTransformationBuff=Никогда не был более резким
+ItemName.MysteryPainting=Мистическая картина
+ItemTooltip.MysteryPainting=<right> для случайной картины
+ItemName.NuclearFumes=Ядерные пары
+ItemTooltip.NuclearFumes=Не вдыхайте их
+ItemName.OldCassette=Старая кассета
+ItemTooltip.OldCassette=Добавьте этот предмет в избранное, чтобы активировать остаточные изображения игрока\n'В нем есть несколько крутых аниме-эпизодов 90-х'
+ItemName.PutridShroom=Ароматический гриб
+ItemTooltip.PutridShroom=Делает крабовые грибы большого грибного краба пассивными, но также приводит в ярость при поражении\nДержит маленького грибкового краба на голове даже при движении\n'Пахнет сыром...?'
+ItemName.SparrowMeat=Мясо воробья
+ItemTooltip.SparrowMeat=В нем немного розовой ткани
+ItemName.Termipebbles=Термибулыжник
+ItemTooltip.Termipebbles=Используется для изготовления одежды стиля на тему Терминуса.
+ItemName.XenoSolution=Испорченный астральный раствор
+ItemTooltip.XenoSolution=Используется с очистителем\nРаспространяет астральную порочность
+ItemName.YellowSolution=Желтый раствор
+ItemTooltip.YellowSolution=Используется с очистителем\nОтчищает астральную порочность
+ItemName.AstJRItem=Астрагелевый слизень
+ItemName.BlightolemurItem=Блиамур
+ItemName.BlinkerItem=Мигалка
+ItemName.CrystalFlyItem=Хрустальная бабочка
+ItemName.EyedolItem=Идол
+ItemName.GAstJRItem=Золотой астрагелевый слизень
+ItemName.GodSlayerSlug=Слизень убийцы богов
+ItemName.GoldEyedolItem=Золотой идол
+ItemName.GoldViolemurItem=Золотой виолемур
+ItemName.GoldenIsopodItem=Золотая изопода
+ItemName.IsopodItem=Изопода бездны
+ItemName.NukeFlyItem=Паромуха
+ItemName.OrthobabItem=Детеныш ортоцеры
+ItemName.PlaguedFrogItem=Чумная лягушка
+ItemName.ProvFlyItem=Пылающая бабочка
+ItemName.SandTurtleItem=Песчаная черепаха
+ItemName.SwearshroomItem=Клятвогриб
+ItemName.ViolemurItem=Виолемур
+ItemName.XerocodileItem=Пробужденный ксерокодил
+ItemName.DraedonHologramDye=Краситель голограммы Дредона
+ItemName.ExodiumMoon=Экзодиум орбитер
+ItemTooltip.ExodiumMoon=Вращающийся мир
+## THE REST OF Equips.X, PUT DEM HERE ##
+ItemName.ProfanedBattery=Священное кристаллическое ядро
+ItemTooltip.ProfanedBattery=Заряженное ядро оскверненного стража: можно использовать для создания чего-то могущественного... но чего?
+ItemName.ProfanedFrame=Оскверненная рама
+ItemTooltip.ProfanedFrame=Какая-то древняя машина? Кажется, не хватает кусочков...
+ItemName.ProfanedWheels=Горячие колеса
+ItemTooltip.ProfanedWheels=Колеса, сделанные из чистой оскверненной энергии, с них можно делать пончики...\n но что может быть достаточно быстрым, чтобы их использовать?
