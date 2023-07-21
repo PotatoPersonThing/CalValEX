@@ -2381,12 +2381,8 @@ Mods: {
 			}
 
 			PlaguebringerPowerCell: {
-				DisplayName: Plaguebringer Power Cell
-				Tooltip:
-					'''
-					Summons a miniature Plaguebringer
-					'Full of vitamin Bee!'
-					'''
+				DisplayName: Compensation
+				Tooltip: Can be sold for a decent price
 			}
 
 			PristineExcalibur: {

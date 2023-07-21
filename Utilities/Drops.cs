@@ -412,7 +412,7 @@ namespace CalValEX
                     }
                     if (npc.type == CalValEX.CalamityNPC("PlaguebringerMiniboss"))
                     {
-                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PlaguebringerPowerCell>(), 10));
+                        //npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PlaguebringerPowerCell>(), 10));
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PlaugeWings>(), 15));
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 10000));
                     }
