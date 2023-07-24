@@ -86,9 +86,9 @@ namespace CalValEX.AprilFools.Meldosaurus
 			{
 				int nextSegmentIndex;
 				if (i < 15 - 1)
-					nextSegmentIndex = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<MeldWyrmBody>(), NPC.whoAmI);
+					nextSegmentIndex = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<MeldwyrmBody>(), NPC.whoAmI);
 				else 
-					nextSegmentIndex = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<MeldWyrmTail>(), NPC.whoAmI);
+					nextSegmentIndex = NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<MeldwyrmTail>(), NPC.whoAmI);
 				Main.npc[nextSegmentIndex].realLife = NPC.whoAmI;
 				Main.npc[nextSegmentIndex].ai[2] = NPC.whoAmI;
 				Main.npc[nextSegmentIndex].ai[1] = previousSegment;
