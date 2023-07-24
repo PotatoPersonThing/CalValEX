@@ -8,7 +8,7 @@ using System;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
-	public class MeldWyrmHead : ModNPC
+	public class MeldwyrmHead : ModNPC
 
 	{
 		public override void SetStaticDefaults()

@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
-	public class MeldWyrmTail : ModNPC
+	public class MeldwyrmTail : ModNPC
 
 	{
 		[JITWhenModsEnabled("CalamityMod")]

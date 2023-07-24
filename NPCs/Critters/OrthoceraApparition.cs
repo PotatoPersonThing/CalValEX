@@ -149,7 +149,9 @@ namespace CalValEX.NPCs.Critters
                     {
                         return 5f;
                     }
+                    return 0f;
                 }
+                return 0f;
             }
             return 0f;
         }

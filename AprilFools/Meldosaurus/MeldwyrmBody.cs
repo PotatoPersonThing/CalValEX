@@ -9,7 +9,7 @@ using System.IO;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
-	public class MeldWyrmBody : ModNPC
+	public class MeldwyrmBody : ModNPC
 	{
 		[JITWhenModsEnabled("CalamityMod")]
 		public override void SetDefaults()
