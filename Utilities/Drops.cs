@@ -740,7 +740,7 @@ namespace CalValEX
                         npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), ModContent.ItemType<DraedonPlush>(), 10));
                     }
                     //Wyrm
-                    if (npc.type == CalValEX.CalamityNPC("AdultEidolonWyrmHead"))
+                    if (npc.type == CalValEX.CalamityNPC("PrimordialWyrmHead"))
                     {
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Tiles.RespirationShrine>()));
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SoulShard>()));
