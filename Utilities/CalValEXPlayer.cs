@@ -855,7 +855,7 @@ namespace CalValEX {
                 itemDrop = ItemType<Items.Tiles.Plants.AstralOldYellow>();
             }
             if (CalValEX.CalamityActive)
-            if ((bool)ModLoader.GetMod("CalamityMod").Call("getinzone", Player, "sunkensea") && Main.hardMode && Main.rand.NextFloat() < 0.021f) {
+            if ((bool)ModLoader.GetMod("CalamityMod").Call("GetInZone", Player, "sunkensea") && Main.hardMode && Main.rand.NextFloat() < 0.021f) {
                 itemDrop = ItemType<Items.Tiles.SailfishTrophy>();
             }
         }

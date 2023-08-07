@@ -278,15 +278,10 @@ namespace CalValEX.AprilFools.Jharim
                     {
                         return "DRAAAAAAAAAEEEEEEEDOOOOOOOOOOOONNNNNNNNNNNNNNNNNNN I KNOW WHAT YOU DID!";
                     }
-
-                    /*Mod apoc = ModLoader.GetMod("ApothTestMod");
-                    if (apoc != null)
-                    {
-                        if (NPC.AnyNPCs((apoc.NPCType("THELORDE"))))
+                        if (NPC.AnyNPCs((CalValEX.CalamityNPC("THELORDE"))))
                         {
                             return "IMPOSTER!";
                         }
-                    }*/
 
                     if (NPC.AnyNPCs(CalValEX.CalamityNPC("Yharon")) && Main.rand.NextFloat() < 0.25f)
                     {
@@ -306,7 +301,7 @@ namespace CalValEX.AprilFools.Jharim
                         }
                     }
 
-                    if (player.ownedProjectileCounts[CalValEX.CalamityProjectile("WaterElemental")] > 0 && Main.rand.NextFloat() < 0.25f)
+                    if (player.ownedProjectileCounts[CalValEX.CalamityProjectile("WaterElementalMinion")] > 0 && Main.rand.NextFloat() < 0.25f)
                     {
                         return "OoooooO Fish Lady, tell me! Where's my fish tacos!";
                     }

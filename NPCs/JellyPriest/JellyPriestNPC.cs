@@ -212,7 +212,7 @@ namespace CalValEX.NPCs.JellyPriest
                     return "Yeesh, through all of your adventures, I've stocked up quite the inventory!";
                 }
 
-                if (player.ownedProjectileCounts[CalValEX.CalamityProjectile("WaterElemental")] > 0 && Main.rand.NextFloat() < 0.25f)
+                if (player.ownedProjectileCounts[CalValEX.CalamityProjectile("WaterElementalMinion")] > 0 && Main.rand.NextFloat() < 0.25f)
                 {
                     return "You were successfully able to befriend the grand Water Elemental? I'm impressed.";
                 }

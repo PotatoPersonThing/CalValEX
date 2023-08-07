@@ -293,7 +293,7 @@ namespace CalValEX
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PerennialDress>(), 20));
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientPerennialFlower>(), 30));
                     }
-                    if (npc.type == CalValEX.CalamityNPC("BigSightseer"))
+                    if (npc.type == CalValEX.CalamityNPC("SightseerCollider"))
                     {
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AstralBinoculars>(), 20));
                     }
@@ -314,7 +314,7 @@ namespace CalValEX
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Cryocap>(), 10));
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Cryocoat>(), 10));
                     }
-                    if (npc.type == CalValEX.CalamityNPC("CultistAssassin"))
+                    if (npc.type == CalValEX.CalamityNPC("RenegadeWarlock"))
                     {
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CultistHood>(), 30));
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<CultistRobe>(), 30));

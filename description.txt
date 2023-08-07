@@ -1,4 +1,5 @@
 Calamity's Vanities is a mod which aims to add more vanity items/pets to the Calamity mod. 
+The mod does not require Calamity to run.
 
 Note: This mod is not an official addon to Calamity, rather just a fun fan made mod.
 
