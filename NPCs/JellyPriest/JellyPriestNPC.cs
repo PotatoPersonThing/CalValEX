@@ -417,7 +417,6 @@ namespace CalValEX.NPCs.JellyPriest
             shopEntries.Add(("Furniture", ItemType<Items.Tiles.Statues.C>(), Item.buyPrice(0, 1, 0, 0), Condition.NpcIsPresent(NPC.type), ""));
             shopEntries.Add(("Furniture", ItemType<Items.Tiles.FurnitureSets.Wulfrum.WulfrumGlobe>(), Item.buyPrice(0, 1, 0, 0), Condition.NpcIsPresent(NPC.type), ""));
             shopEntries.Add(("Furniture", CalValEX.CalamityItem("LaboratoryConsoleItem"), Item.buyPrice(0, 2, 50, 0), calamity, ""));
-            shopEntries.Add(("Furniture", ItemType<SulphurColumn>(), Item.buyPrice(0, 0, 5, 0), calamity, ""));
             shopEntries.Add(("Furniture", ItemType<SulphurGeyser>(), Item.buyPrice(0, 0, 10, 0), calamity, ""));
             shopEntries.Add(("Furniture", ItemType<SunkenLamp>(), Item.buyPrice(0, 0, 50, 0), clam, ""));
             shopEntries.Add(("Furniture", ItemType<Knight>(), Item.buyPrice(0, 0, 95, 0), Condition.Hardmode, ""));

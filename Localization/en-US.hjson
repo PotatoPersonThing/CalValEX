@@ -4535,6 +4535,11 @@ Mods: {
 				DisplayName: Sulphuric Dye
 				Tooltip: ""
 			}
+
+			TyrantFeed: {
+				DisplayName: Tyrant Feed
+				Tooltip: Potassium
+			}
 		}
 
 		Projectiles: {
@@ -5121,6 +5126,7 @@ Mods: {
 			ProfanedIdolPlaced.MapEntry: Profaned Idol
 			ShrineoftheTidesPlaced.MapEntry: Shrine of the Tides
 			ViolemurStatuePlaced.MapEntry: Violemur Statue
+			TyrantFeedPlaced.MapEntry: Tyrant Feed Placed
 		}
 
 		Buffs: {

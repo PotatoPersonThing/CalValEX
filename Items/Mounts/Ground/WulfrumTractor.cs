@@ -32,10 +32,10 @@ namespace CalValEX.Items.Mounts.Ground
             MountData.playerYOffsets = array;
             MountData.xOffset = 4;
             MountData.bodyFrame = 3;
-            MountData.yOffset = 16;
+            MountData.yOffset = 14;
             MountData.playerHeadOffset = 0;
-            MountData.standingFrameCount = 4;
-            MountData.standingFrameDelay = 12;
+            MountData.standingFrameCount = 0;
+            MountData.standingFrameDelay = 0;
             MountData.standingFrameStart = 0;
             // MountData.runningFrameCount = 4;
             // MountData.runningFrameDelay = 65;
