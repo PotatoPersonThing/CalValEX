@@ -105,149 +105,144 @@ namespace CalValEX
             #region bags
             if (item.type == CalValEX.CalamityItem("StarterBag"))
 			{
-				rule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<C>()));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<C>())));
 			}
 			else if (item.type == CalValEX.CalamityItem("DesertScourgeBag"))
 			{
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<DesertMedallion>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<DriedLocket>(), 5));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<SlightlyMoistbutalsoSlightlyDryLocket>(), 100, chanceNumerator: 7));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<DesertMedallion>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<DriedLocket>(), 5)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<SlightlyMoistbutalsoSlightlyDryLocket>(), 100, chanceNumerator: 7)));
 			}
 			else if (item.type == CalValEX.CalamityItem("CrabulonBag"))
 			{
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<ClawShroom>(), 10, chanceNumerator: 3));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<ClawShroom>(), 10, chanceNumerator: 3)));
 			}
 			else if (item.type == CalValEX.CalamityItem("HiveMindBag"))
 			{
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<RottenKey>(), 10, chanceNumerator: 3));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<RottenKey>(), 10, chanceNumerator: 3)));
 			}
 			else if (item.type == CalValEX.CalamityItem("PerforatorBag"))
 			{
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<MeatyWormTumor>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(new OneFromOptionsNotScaledWithLuckDropRule(100, 40, ModContent.ItemType<SmallWorm>(), ModContent.ItemType<MidWorm>(), ModContent.ItemType<BigWorm>()));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<MeatyWormTumor>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(new OneFromOptionsNotScaledWithLuckDropRule(100, 40, ModContent.ItemType<SmallWorm>(), ModContent.ItemType<MidWorm>(), ModContent.ItemType<BigWorm>())));
 			}
 			else if (item.type == CalValEX.CalamityItem("SlimeGodBag"))
 			{
-				rule2.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("StatigelBlock"), 1, 205, 335));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<SlimeDeitysSoul>(), 10, chanceNumerator: 3));
-                rule.OnSuccess(new CommonDrop(ModContent.ItemType<SlimeGodMask>(), 7));
+				itemLoot.Add(rule2.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("StatigelBlock"), 1, 205, 335)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<SlimeDeitysSoul>(), 10, chanceNumerator: 3)));
+                itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<SlimeGodMask>(), 7)));
             }
 			else if (item.type == CalValEX.CalamityItem("CryogenBag"))
 			{
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<CoolShades>(), 10, chanceNumerator: 3));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<CoolShades>(), 10, chanceNumerator: 3)));
 			}
 			else if (item.type == CalValEX.CalamityItem("AquaticScourgeBag"))
 			{
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<MoistLocket>(), 10, chanceNumerator: 3));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<MoistLocket>(), 10, chanceNumerator: 3)));
 			}
 			else if (item.type == CalValEX.CalamityItem("BrimstoneWaifuBag"))
 			{
-				rule2.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("BrimstoneSlag"), 1, 205, 335));
-                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<BrimmyBody>(), 5));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<BrimmySpirit>(), 5));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<RareBrimtulip>(), 5));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<FoilSpoon>(), 20));
+				itemLoot.Add(rule2.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("BrimstoneSlag"), 1, 205, 335)));
+                itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<BrimmyBody>(), 5)));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<BrimmySpirit>(), 5)));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<RareBrimtulip>(), 5)));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<FoilSpoon>(), 20)));
 			}
 			else if (item.type == CalValEX.CalamityItem("CalamitasCloneBag"))
 			{
-				IItemDropRule demonshade = ItemDropRule.Common(ModContent.ItemType<DemonshadeHood>());
-				demonshade.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DemonshadeRobe>()));
-				demonshade.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DemonshadePants>()));
-
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<Calacirclet>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000));
-				rule3.OnSuccess(demonshade);
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<Calacirclet>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000)));
 			}
 			else if (item.type == CalValEX.CalamityItem("LeviathanBag"))
 			{
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<AquaticMonolith>(), 100, chanceNumerator: 15));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<LeviWings>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<LeviathanEgg>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<FoilAtlantis>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<StrangeMusicNote>(), 100));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<AquaticMonolith>(), 100, chanceNumerator: 15)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<LeviWings>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<LeviathanEgg>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<FoilAtlantis>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<StrangeMusicNote>(), 100)));
 			}
 			else if (item.type == CalValEX.CalamityItem("AstrumAureusBag"))
 			{
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AstralInfectedIcosahedron>(), 5));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AureusShield>(), 5));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AstralInfectedIcosahedron>(), 5)));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AureusShield>(), 5)));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000)));
 			}
 			else if (item.type == CalValEX.CalamityItem("PlaguebringerGoliathBag"))
 			{
-				rule2.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("PlaguedContainmentBrick"), 1, 205, 335));
-                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 250));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<InfectedController>(), 5));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<PlaguePack>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<PlagueHiveWand>(), 3));
+				itemLoot.Add(rule2.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("PlaguedContainmentBrick"), 1, 205, 335)));
+                itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 250)));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<InfectedController>(), 5)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<PlaguePack>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<PlagueHiveWand>(), 3)));
 			}
 			else if (item.type == CalValEX.CalamityItem("RavagerBag"))
 			{
-				rule2.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Necrostone>(), 1, 205, 335));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<SkullCluster>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<ScavaHook>(), 100, chanceNumerator: 7));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<RavaHook>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<SkullBalloon>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<StonePile>(), 10, chanceNumerator: 3));
+				itemLoot.Add(rule2.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Necrostone>(), 1, 205, 335)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<SkullCluster>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<ScavaHook>(), 100, chanceNumerator: 7)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<RavaHook>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<SkullBalloon>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<StonePile>(), 10, chanceNumerator: 3)));
 			}
 			else if (item.type == CalValEX.CalamityItem("AstrumDeusBag"))
 			{
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<Geminga>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AstBandana>(), 5));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<Geminga>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AstBandana>(), 5)));
 			}
 			else if (item.type == CalValEX.CalamityItem("DragonfollyBag"))
 			{
-				rule4.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("SilvaCrystal"), 1, 205, 335));
-                rule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<FollyWings>(), ModContent.ItemType<Birbhat>(), ModContent.ItemType<DocilePheromones>()));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 200));
+				itemLoot.Add(rule4.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("SilvaCrystal"), 1, 205, 335)));
+                itemLoot.Add(rule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<FollyWings>(), ModContent.ItemType<Birbhat>(), ModContent.ItemType<DocilePheromones>())));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 200)));
 			}
 			else if (item.type == CalValEX.CalamityItem("ProvidenceBag"))
 			{
-				rule2.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("ProfanedRock"), 1, 205, 335));
-                rule.OnSuccess(new CommonDrop(ModContent.ItemType<ProfanedHeart>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<ProviCrystal>(), 10, chanceNumerator: 3));
+				itemLoot.Add(rule2.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("ProfanedRock"), 1, 205, 335)));
+                itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<ProfanedHeart>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<ProviCrystal>(), 10, chanceNumerator: 3)));
 			}
 			else if (item.type == CalValEX.CalamityItem("StormWeaverBag"))
             {
-                rule5.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("OtherworldlyStone"), 1, 205, 335));
-                rule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuckWithX(10, 3, ModContent.ItemType<StormMedal>(), ModContent.ItemType<ArmoredScrap>()));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<StormBandana>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000, chanceNumerator: 7));
+                itemLoot.Add(rule5.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("OtherworldlyStone"), 1, 205, 335)));
+                itemLoot.Add(rule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuckWithX(10, 3, ModContent.ItemType<StormMedal>(), ModContent.ItemType<ArmoredScrap>())));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<StormBandana>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000, chanceNumerator: 7)));
 			}
 			else if (item.type == CalValEX.CalamityItem("CeaselessVoidBag"))
 			{
-				rule5.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("OtherworldlyStone"), 1, 205, 335));
+				itemLoot.Add(rule5.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("OtherworldlyStone"), 1, 205, 335)));
 
-                rule.OnSuccess(new CommonDrop(ModContent.ItemType<MirrorMatter>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<VoidWings>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<OldVoidWings>(), 20));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000, chanceNumerator: 7));
+                itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<MirrorMatter>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<VoidWings>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<OldVoidWings>(), 20)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000, chanceNumerator: 7)));
 			}
 			else if (item.type == CalValEX.CalamityItem("SignusBag"))
             {
-                rule5.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("OtherworldlyStone"), 1, 205, 335));
-                rule.OnSuccess(new CommonDrop(ModContent.ItemType<ShadowCloth>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<SignusEmblem>(), ModContent.ItemType<SignusNether>(), ModContent.ItemType<SignusBalloon>(), ModContent.ItemType<Items.Equips.Capes.SigCape>()));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000, chanceNumerator: 7));
+                itemLoot.Add(rule5.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("OtherworldlyStone"), 1, 205, 335)));
+                itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<ShadowCloth>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<SignusEmblem>(), ModContent.ItemType<SignusNether>(), ModContent.ItemType<SignusBalloon>(), ModContent.ItemType<Items.Equips.Capes.SigCape>())));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000, chanceNumerator: 7)));
 			}
 			else if (item.type == CalValEX.CalamityItem("PolterghastBag"))
 			{
-				rule2.OnSuccess(new OneFromRulesRule(1, ItemDropRule.Common(CalValEX.CalamityItem("StratusBricks"), 1, 205, 335), ItemDropRule.Common(CalValEX.CalamityItem("PhantowaxBlock"), 1, 205, 335)));
+				itemLoot.Add(rule2.OnSuccess(new OneFromRulesRule(1, ItemDropRule.Common(CalValEX.CalamityItem("StratusBricks"), 1, 205, 335), ItemDropRule.Common(CalValEX.CalamityItem("PhantowaxBlock"), 1, 205, 335))));
 
-                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Polterhook>(), 10));
-                rule.OnSuccess(new CommonDrop(ModContent.ItemType<ZygoteinaBucket>(), 10, chanceNumerator: 3));
+                itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Polterhook>(), 10)));
+                itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<ZygoteinaBucket>(), 10, chanceNumerator: 3)));
             }
 			else if (item.type == CalValEX.CalamityItem("OldDukeBag"))
 			{
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<OldWings>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<CorrodedCleaver>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<CharredChopper>(), 100, chanceNumerator: 7));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<OldWings>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<CorrodedCleaver>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<CharredChopper>(), 100, chanceNumerator: 7)));
 			}
 			else if (item.type == CalValEX.CalamityItem("DevourerofGodsBag"))
 			{
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<CosmicWormScarf>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<CosmicRapture>(), 5));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<RapturedWormScarf>(), 100, chanceNumerator: 7));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 100));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<CosmicWormScarf>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<CosmicRapture>(), 5)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<RapturedWormScarf>(), 100, chanceNumerator: 7)));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 100)));
 			}
 			else if (item.type == CalValEX.CalamityItem("YharonBag"))
 			{
@@ -255,13 +250,13 @@ namespace CalValEX
 				demonshade.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DemonshadeRobe>()));
 				demonshade.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DemonshadePants>()));
 
-				rule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Termipebbles>(), 1, 5, 8));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<JunglePhoenixWings>(), 10, chanceNumerator: 3));
-				rule6.OnSuccess(new CommonDrop(ModContent.ItemType<YharonsAnklet>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<NuggetinaBiscuit>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(new CommonDrop(ModContent.ItemType<YharonShackle>(), 10, chanceNumerator: 3));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 20));
-				rule.OnSuccess(demonshade);
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Termipebbles>(), 1, 5, 8)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<JunglePhoenixWings>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule6.OnSuccess(new CommonDrop(ModContent.ItemType<YharonsAnklet>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<NuggetinaBiscuit>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<YharonShackle>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 20)));
+				itemLoot.Add(rule.OnSuccess(demonshade));
 			}
 			else if (item.type == CalValEX.CalamityItem("DraedonBag"))
 			{
@@ -269,62 +264,62 @@ namespace CalValEX
 				draedon.OnSuccess(ItemDropRule.Common(ModContent.ItemType<DraedonLegs>()));
 				IItemDropRule balloons = ItemDropRule.NotScalingWithLuck(ModContent.ItemType<ApolloBalloonSmall>(), 2);
 				balloons.OnSuccess(ItemDropRule.Common(ModContent.ItemType<ArtemisBalloonSmall>()));
-				rule2.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("ExoPlating"), 1, 205, 335));
+				itemLoot.Add(rule2.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("ExoPlating"), 1, 205, 335)));
 
-                rule7.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<XMLightningHook>(), 2));
-				rule7.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Items.Pets.ExoMechs.GunmetalRemote>(), 2));
+                itemLoot.Add(rule7.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<XMLightningHook>(), 2)));
+				itemLoot.Add(rule7.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Items.Pets.ExoMechs.GunmetalRemote>(), 2)));
 
-				rule8.OnSuccess(balloons);
-				rule8.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Items.Pets.ExoMechs.GeminiMarkImplants>(), 2));
+				itemLoot.Add(rule8.OnSuccess(balloons));
+				itemLoot.Add(rule8.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Items.Pets.ExoMechs.GeminiMarkImplants>(), 2)));
 
-				rule9.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>(), 2));
-				rule9.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Items.Pets.ExoMechs.OminousCore>(), 2));
+				itemLoot.Add(rule9.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>(), 2)));
+				itemLoot.Add(rule9.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Items.Pets.ExoMechs.OminousCore>(), 2)));
 
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 10));
-				rule.OnSuccess(draedon);
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 10)));
+				itemLoot.Add(rule.OnSuccess(draedon));
 			}
 			else if (item.type == CalValEX.CalamityItem("CalamitasCoffer"))
             {
-                rule2.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("OccultBrickItem"), 1, 205, 335));
-                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 10));
-				rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<GruelingMask>(), 3));
+                itemLoot.Add(rule2.OnSuccess(ItemDropRule.Common(CalValEX.CalamityItem("OccultBrickItem"), 1, 205, 335)));
+                itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 10)));
+				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<GruelingMask>(), 3)));
 			}
 
 			if (ModLoader.TryGetMod("CatalystMod", out Mod catalyst))
 			{
 				if (item.type == catalyst.Find<ModItem>("AstrageldonBag").Type)
-					rule.OnSuccess(new CommonDrop(ModContent.ItemType<SpaceJunk>(), 10, chanceNumerator: 3));
+					itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<SpaceJunk>(), 10, chanceNumerator: 3)));
 			}
 			#endregion
 
 			#region crates
             if (item.type == CalValEX.CalamityItem("SulphurousCrate"))
 			{
-                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AcidGun>(), 100));
-                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<CursedLockpick>(), 50));
-                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurColumn>(), 20, 5, 7));
-                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurGeyser>(), 20, 2, 3));
-                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurousCactus>(), 20, 1, 3));
-                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurousPlanter>(), 25));
-                rule10.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<InkyPollution>(), 50));
-                rule11.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<EidolonTree>(), 40));
-                rule11.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<NuclearFumes>(), 10, 2, 11));
-                rule12.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<BelchingCoral>(), 20));
+                itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AcidGun>(), 100)));
+                itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<CursedLockpick>(), 50)));
+                itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurColumn>(), 20, 5, 7)));
+                itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurGeyser>(), 20, 2, 3)));
+                itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurousCactus>(), 20, 1, 3)));
+                itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurousPlanter>(), 25)));
+                itemLoot.Add(rule10.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<InkyPollution>(), 50)));
+                itemLoot.Add(rule11.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<EidolonTree>(), 40)));
+                itemLoot.Add(rule11.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<NuclearFumes>(), 10, 2, 11)));
+                itemLoot.Add(rule12.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<BelchingCoral>(), 20)));
             }
             else if (item.type == CalValEX.CalamityItem("AstralCrate"))
             {
-                rule.OnSuccess(new CommonDrop(ModContent.ItemType<MonolithPot>(), 100, 1, 1, 3));
-                rule11.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<NetherTree>(), 20));
+                itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<MonolithPot>(), 100, 1, 1, 3)));
+                itemLoot.Add(rule11.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<NetherTree>(), 20)));
             }
             else if (item.type == CalValEX.CalamityItem("SunkenCrate"))
             {
-                rule.OnSuccess(new CommonDrop(ModContent.ItemType<SSCoral>(), 100, 1, 1, 3));
-                rule.OnSuccess(new CommonDrop(ModContent.ItemType<Anemone>(), 100, 1, 1, 3));
-                rule.OnSuccess(new CommonDrop(ModContent.ItemType<TableCoral>(), 100, 1, 1, 3));
-                rule.OnSuccess(new CommonDrop(ModContent.ItemType<FanCoral>(), 100, 1, 1, 3));
-                rule.OnSuccess(new CommonDrop(ModContent.ItemType<BrainCoral>(), 100, 1, 1, 3));
-                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SeaCrown>(), 100));
-                rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SunkenLamp>(), 40));
+                itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<SSCoral>(), 100, 1, 1, 3)));
+                itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<Anemone>(), 100, 1, 1, 3)));
+                itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<TableCoral>(), 100, 1, 1, 3)));
+                itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<FanCoral>(), 100, 1, 1, 3)));
+                itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<BrainCoral>(), 100, 1, 1, 3)));
+                itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SeaCrown>(), 100)));
+                itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SunkenLamp>(), 40)));
             }
 			#endregion
 
@@ -483,7 +478,7 @@ namespace CalValEX
 
             if (!CalValEXConfig.Instance.DisableVanityDrops && item.type == CalValEX.CalamityItem("StarterBag") && player.whoAmI == Main.myPlayer && CalValEX.AprilFoolWeek&& !NPC.AnyNPCs(ModContent.NPCType<AprilFools.Jharim.Jharim>()))
 			{
-				NPC.NewNPC(player.GetSource_ReleaseEntity(), (int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<AprilFools.Jharim.Jharim>(), 0, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC(player.GetSource_ReleaseEntity(), (int)player.Center.X, (int)player.Center.Y, ModContent.NPCType<AprilFools.Jharim.Jharim>());
 			}
 		}
 
