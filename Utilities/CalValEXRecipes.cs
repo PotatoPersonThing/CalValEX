@@ -105,6 +105,7 @@ namespace CalValEX
             PlushRecipe(ItemType<DevourerofGodsPlushThrowable>(), ItemType<DevourerofGodsPlush>());
             PlushRecipe(ItemType<DraedonPlushThrowable>(), ItemType<DraedonPlush>());
             PlushRecipe(ItemType<GiantClamPlushThrowable>(), ItemType<GiantClamPlush>());
+            PlushRecipe(ItemType<GoozmaPlushThrowable>(), ItemType<GoozmaPlush>());
             PlushRecipe(ItemType<SandSharkPlushThrowable>(), ItemType<SandSharkPlush>());
             PlushRecipe(ItemType<HiveMindPlushThrowable>(), ItemType<HiveMindPlush>());
             PlushRecipe(ItemType<HypnosPlushThrowable>(), ItemType<HypnosPlush>());

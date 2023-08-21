@@ -54,6 +54,8 @@ namespace CalValEX
         public static bool shadow;
         private int nugCounter = 1;
         public static bool isThereAHouse;
+        public static bool ninja;
+        public static bool astro;
 
         public override void OnWorldLoad()
         { 
@@ -68,6 +70,8 @@ namespace CalValEX
             downedFogbound = false;
 
             nugget = draco = folly = godnug = mammoth = shadow = isThereAHouse = false;
+            ninja = false;
+            astro = false;
         }
 
         public override void OnWorldUnload()
@@ -81,6 +85,8 @@ namespace CalValEX
             jharinter = false;
             downedMeldosaurus = false;
             downedFogbound = false;
+            ninja = false;
+            astro = false;
 
             nugget = draco = folly = godnug = mammoth = shadow = isThereAHouse = false;
         }
@@ -127,6 +133,10 @@ namespace CalValEX
                 tag["mammoth"] = true;
             if (shadow)
                 tag["shadow"] = true;
+            if (ninja)
+                tag["ninja"] = true;
+            if (astro)
+                tag["astro"] = true;
         }
 
         public override void LoadWorldData(TagCompound tag) {
@@ -146,6 +156,9 @@ namespace CalValEX
             godnug = tag.ContainsKey("godnug");
             mammoth = tag.ContainsKey("mammoth");
             shadow = tag.ContainsKey("shadow");
+
+            ninja = tag.ContainsKey("ninja");
+            astro = tag.ContainsKey("astro");
         }
 
         public override void NetSend(BinaryWriter writer)
@@ -162,6 +175,8 @@ namespace CalValEX
             BitsByte flags2 = new BitsByte();
             flags2[0] = downedMeldosaurus;
             flags2[1] = downedFogbound;
+            flags2[2] = ninja;
+            flags2[3] = astro;
 
             BitsByte flags3 = new BitsByte();
             flags3[0] = nugget;
@@ -189,6 +204,8 @@ namespace CalValEX
             BitsByte flags2 = reader.ReadByte();
             downedMeldosaurus = flags2[0];
             downedFogbound = flags2[1];
+            ninja = flags2[2];
+            astro = flags2[3];
 
             BitsByte flags3 = reader.ReadByte();
             nugget = flags3[0];

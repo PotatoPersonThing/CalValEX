@@ -12,6 +12,7 @@ using static Terraria.ModLoader.ModContent;
 using CalValEX.Projectiles.NPCs;
 using System.Collections.Generic;
 using Terraria.GameContent.Personalities;
+using Terraria.Utilities;
 using CalValEX.Items.Pets.TownPets;
 using static CalValEX.CalValEXConditions;
 
@@ -110,156 +111,97 @@ namespace CalValEX.NPCs.Oracle
                 }
             }
 
-            //Main.NewText("MISC EQUIPS 0 TYPE: " + Main.player[Main.myPlayer].miscEquips[0].type + "|MISC EQUIPS 1 TYPE: " + Main.player[Main.myPlayer].miscEquips[1].type);
+            WeightedRandom<string> dialogue = new WeightedRandom<string>();
 
             if (Main.player[Main.myPlayer].miscEquips[0].type != ItemID.None || Main.player[Main.myPlayer].miscEquips[1].type != ItemID.None)
             {
-                if (Main.rand.NextFloat() < 0.25f)
+                if (!Main.bloodMoon)
                 {
-                    if (!Main.bloodMoon)
-                    {
-                        switch (Main.rand.Next(2))
-                        {
-                            case 0:
-                                return "Aww... I love your little buddy, " + Main.player[Main.myPlayer].name + ". You take care of 'em, 'kay?";
-
-                            default:
-                                return "What a cutie you have there, punk! You better care of em', 'kay?";
-                        }
-                    }
-                    else
-                    {
-                        switch (Main.rand.Next(2))
-                        {
-                            case 0:
-                                return "You should be happy that your buddy there isn't like TUB.";
-
-                            default:
-                                return "Maybe you should start putting your buddy away, for your own safety.";
-                        }
-                    }
+                    dialogue.Add("Aww... I love your little buddy, " + Main.player[Main.myPlayer].name + ". You take care of 'em, 'kay?");
+                    dialogue.Add("What a cutie you have there, punk! You better care of em', 'kay?");
+                }
+                else
+                {
+                    dialogue.Add("You should be happy that your buddy there isn't like TUB.");
+                    dialogue.Add("Maybe you should start putting your buddy away, for your own safety.");
                 }
             }
 
-            //CalamityMod.CalPlayer.CalamityPlayer calPlayer = Main.LocalPlayer.GetModPlayer<CalamityMod.CalPlayer.CalamityPlayer>();
-
-            if (Main.hardMode && Main.rand.NextFloat() < 0.12f)
+            if (Main.hardMode)
             {
-                return "Y'know, if you're trying to find a certain little Water Elemental, you may have better luck if you take a fishing trip instead of resorting to violence.";
+                if (!CalValEXWorld.astro)
+                {
+                    dialogue.Add("I was looking through that spacey area the other day and saw a large robot. It appeared to have some slime leaking out of it... wonder if it could be dislodged with more space goo or somethin.");
+                }
+                dialogue.Add("Y'know, if you're trying to find a certain little Water Elemental, you may have better luck if you take a fishing trip instead of resorting to violence.");
             }
 
             if (CalValEX.CalamityActive)
             {
-                if (NPC.AnyNPCs(CalValEX.CalamityNPC("Bumblefuck")) && Main.rand.NextFloat() < 0.25f)
+                if (NPC.AnyNPCs(CalValEX.CalamityNPC("Bumblefuck")))
                 {
-                    return "That little birb over there seems to have a lot of little friends you can recover!";
+                    dialogue.Add("That little birb over there seems to have a lot of little friends you can recover!");
                 }
 
                 int WITCH = NPC.FindFirstNPC(CalValEX.CalamityNPC("WITCH"));
-                if (WITCH >= 0 && Main.rand.NextFloat() < 0.25f)
+                if (WITCH >= 0)
                 {
-                    return "Some people may fear Calamitas, but she's got a lot of cute little ones with her like those bats and the necropede! She can't be that bad.";
+                    dialogue.Add("Some people may fear Calamitas, but she's got a lot of cute little ones with her like those bats and the necropede! She can't be that bad.");
                 }
 
-                if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().CirrusDress && Main.rand.NextFloat() < 0.25f)
+                if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().CirrusDress)
                 {
-                    return "Hey, ya'd rather wear those alcohol drenched rags than something more stylish? Not judging.";
+                    dialogue.Add("Hey, ya'd rather wear those alcohol drenched rags than something more stylish? Not judging.");
                 }
             }
 
             int wizard = NPC.FindFirstNPC(NPCID.Wizard);
-            if (wizard >= 0 && Main.rand.NextFloat() < 0.25f)
+            if (wizard >= 0)
             {
-                switch (Main.rand.Next(2))
-                {
-                    case 0:
-                        return Main.npc[wizard].GivenName + " may seem like a weird old dude with a silly costume, but his magic is real for sure.";
-
-                    default:
-                        return "Hey punk, can you talk to " + Main.npc[wizard].GivenName + "? I have a buddy that he might enjoy having!";
-                }
+                dialogue.Add(Main.npc[wizard].GivenName + " may seem like a weird old dude with a silly costume, but his magic is real for sure.");
+                dialogue.Add("Hey punk, can you talk to " + Main.npc[wizard].GivenName + "? I have a buddy that he might enjoy having!");
             }
 
             if (!Main.expertMode)
             {
-                switch (Main.rand.Next(2))
-                {
-                    case 0:
-                        return "Y'know kid, a lot of little buddies tend to only follow those who challenge themselves. Some could say that they will only follow Experts.";
-
-                    default:
-                        return "While your current adventure gives many opportunity to find little friends, I heard that Experts attract a lot more!";
-                }
+                dialogue.Add("Y'know kid, a lot of little buddies tend to only follow those who challenge themselves. Some could say that they will only follow Experts.");
+                dialogue.Add("While your current adventure gives many opportunity to find little friends, I heard that Experts attract a lot more!");
             }
 
             if (Main.eclipse)
             {
-                switch (Main.rand.Next(4))
-                {
-                    case 0:
-                        return "I'm happy that none of my friends become as mindless as these monsters!";
-
-                    case 1:
-                        return "Hey " + Main.player[Main.myPlayer].name + ", if you see one of my babies go a little more agressive than usual, please don't hurt them.";
-
-                    case 2:
-                        return "Hey punk! Promise me to protect me and my buddies, alright?";
-
-                    default:
-                        return "I sure am glad that my friends are not going mad on this weird day.";
-                }
+                dialogue.Add("I'm happy that none of my friends become as mindless as these monsters!");
+                dialogue.Add("Hey " + Main.player[Main.myPlayer].name + ", if you see one of my babies go a little more agressive than usual, please don't hurt them.");
+                dialogue.Add("Hey punk! Promise me to protect me and my buddies, alright?");
+                dialogue.Add("I sure am glad that my friends are not going mad on this weird day.");
             }
 
             if (BirthdayParty.PartyIsUp)
             {
-                switch (Main.rand.Next(2))
-                {
-                    case 0:
-                        return "My cuties are having a blast in this fine day! You should get one to have a great day yourself!";
-
-                    default:
-                        return "Today is a great day to get a new pal! You should totally get one today bro.";
-                }
+                dialogue.Add("My cuties are having a blast in this fine day! You should get one to have a great day yourself!");
+                dialogue.Add("Today is a great day to get a new pal! You should totally get one today bro.");
             }
 
             if (!Main.bloodMoon)
             {
                 if (Main.dayTime)
                 {
-                    switch (Main.rand.Next(5))
+                    if (!CalValEXWorld.ninja)
                     {
-                        case 0:
-                            return "Hey punk! I got some cute pets and I know you wanna buy one of 'em.";
-
-                        case 1:
-                            return "You're destined to do great things, bro. Do one right now and give these babies a home.";
-
-                        case 2:
-                            return "How does my little pet TUB eat? Well... ya don't wanna know that, bud.";
-
-                        case 3:
-                            return "Being clairvoyant helps find me pets in need and homes for the ones I have. Which have you got today " + Main.player[Main.myPlayer].name + "?";
-
-                        default:
-                            return "Been expecting you, punk. Right on time. Now let's talk about those cuties.";
+                        dialogue.Add("Have you ever tried throwing a metal star at a slime? I heard if ya do it enough, it'll take a liken to you");
                     }
+                    dialogue.Add("Hey punk! I got some cute pets and I know you wanna buy one of 'em");
+                    dialogue.Add("You're destined to do great things, bro. Do one right now and give these babies a home.");
+                    dialogue.Add("How does my little pet TUB eat? Well... ya don't wanna know that, bud.");
+                    dialogue.Add("Being clairvoyant helps find me pets in need and homes for the ones I have. Which have you got today " + Main.player[Main.myPlayer].name + "?");
+                    dialogue.Add("Been expecting you, punk. Right on time. Now let's talk about those cuties.");
                 }
                 else
                 {
-                    switch (Main.rand.Next(4))
-                    {
-                        case 0:
-                            return "The stars are watching you, punk. Don't fail 'em.";
-
-                        case 1:
-                            return "It's dark and gloomy outside. Why not buy one of my little pals to keep you spirits up?";
-
-                        case 2:
-                            return "It's never too late to get one of these babies. Get one now, punk!";
-
-                        default:
-                            return "Do you need a buddy in these dark times?";
-                    }
+                    dialogue.Add("The stars are watching you, punk. Don't fail 'em.");
+                    dialogue.Add("It's dark and gloomy outside. Why not buy one of my little pals to keep you spirits up?");
+                    dialogue.Add("It's never too late to get one of these babies. Get one now, punk!");
+                    dialogue.Add("Do you need a buddy in these dark times?");                    
                 }
             }
             else
@@ -272,27 +214,14 @@ namespace CalValEX.NPCs.Oracle
                     return "YOU ARE NEXT.";
                 }
 
-                switch (Main.rand.Next(6))
-                {
-                    case 0:
-                        return "You better get one of these babies, or else.";
-
-                    case 1:
-                        return "You don't want to know what by buddy TUB can do to you in these times.";
-
-                    case 2:
-                        return "You better don't get in the way of me and one of my babies.";
-
-                    case 3:
-                        return "Hey " + Main.player[Main.myPlayer].name + ", maybe you should try to hide for tonight.";
-
-                    case 4:
-                        return "You better run tonight, punk. TUB is looking for you and it won't go easy.";
-
-                    default:
-                        return "If you like living you should start hiding.";
-                }
+                dialogue.Add("You better get one of these babies, or else.");
+                dialogue.Add("You don't want to know what by buddy TUB can do to you in these times.");
+                dialogue.Add("You better don't get in the way of me and one of my babies.");
+                dialogue.Add("Hey " + Main.player[Main.myPlayer].name + ", maybe you should try to hide for tonight.");
+                dialogue.Add("You better run tonight, punk. TUB is looking for you and it won't go easy.");
+                dialogue.Add("If you like living you should start hiding.");
             }
+            return dialogue;
         }
 
         public override void SetChatButtons(ref string button, ref string button2)

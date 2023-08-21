@@ -57,6 +57,10 @@ namespace CalValEX.AprilFools.Meldosaurus
 		[JITWhenModsEnabled("CalamityMod")]
 		public override void AI()
 		{
+			if (CalValEXGlobalNPC.meldodon <= -1)
+            {
+				NPC.HitEffect(0, NPC.lifeMax * 55, true);
+            }
 			NPC meldosaurus = Main.npc[CalValEXGlobalNPC.meldodon];
 			// Create segments on the first frame.
 			if (Main.netMode != NetmodeID.MultiplayerClient && NPC.localAI[0] == 0f)

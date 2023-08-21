@@ -226,7 +226,7 @@ namespace CalValEX
 			}
 			else if (item.type == CalValEX.CalamityItem("PolterghastBag"))
 			{
-				itemLoot.Add(rule2.OnSuccess(new OneFromRulesRule(1, ItemDropRule.Common(CalValEX.CalamityItem("StratusBricks"), 1, 205, 335), ItemDropRule.Common(CalValEX.CalamityItem("PhantowaxBlock"), 1, 205, 335))));
+				itemLoot.Add(rule2.OnSuccess(new OneFromRulesRule(1, ItemDropRule.Common(CalValEX.CalamityItem("StratusBricks"), 1, 205, 335), ItemDropRule.Common(ModContent.ItemType<PhantowaxBlock>(), 1, 205, 335))));
 
                 itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<Polterhook>(), 10)));
                 itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<ZygoteinaBucket>(), 10, chanceNumerator: 3)));
@@ -285,9 +285,9 @@ namespace CalValEX
 				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<GruelingMask>(), 3)));
 			}
 
-			if (ModLoader.TryGetMod("CatalystMod", out Mod catalyst))
+			if (ModLoader.HasMod("CatalystMod"))
 			{
-				if (item.type == catalyst.Find<ModItem>("AstrageldonBag").Type)
+				if (item.type == ModLoader.GetMod("CatalystMod").Find<ModItem>("AstrageldonBag").Type)
 					itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<SpaceJunk>(), 10, chanceNumerator: 3)));
 			}
 			#endregion
@@ -297,7 +297,6 @@ namespace CalValEX
 			{
                 itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AcidGun>(), 100)));
                 itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<CursedLockpick>(), 50)));
-                itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurColumn>(), 20, 5, 7)));
                 itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurGeyser>(), 20, 2, 3)));
                 itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurousCactus>(), 20, 1, 3)));
                 itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SulphurousPlanter>(), 25)));

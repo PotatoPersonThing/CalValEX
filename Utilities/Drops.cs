@@ -990,6 +990,29 @@ namespace CalValEX
                     if (projectile.type == CalValEX.CalamityProjectile("AstrageldonLaser") || projectile.type == CalValEX.CalamityProjectile("AstrageldonSummon"))
                     {
                         npc.GetGlobalNPC<CalValEXGlobalNPC>().geldonSummon = true;
+                        if (!NPC.AnyNPCs(ModContent.NPCType<NPCs.TownPets.Slimes.AstroSlime>()))
+                        {
+                            NPC.NewNPC(npc.GetSource_FromThis(), (int)projectile.Center.X, (int)projectile.Center.Y, ModContent.NPCType<NPCs.TownPets.Slimes.AstroSlime>());
+                            if (!CalValEXWorld.astro)
+                            {
+                                CalValEXWorld.astro = true;
+                                CalValEXWorld.UpdateWorldBool();
+                            }
+                            Terraria.Audio.SoundEngine.PlaySound(SoundID.Item117, projectile.Center);
+                            int dustAmt = 16;
+                            for (int dustIndex = 0; dustIndex < dustAmt; dustIndex++)
+                            {
+                                int assdust = CalValEX.Calamity.Find<ModDust>("AstralOrange").Type;
+                                Vector2 vector6 = Vector2.Normalize(projectile.velocity) * new Vector2((float)projectile.width / 2f, (float)projectile.height) * 0.75f;
+                                vector6 = vector6.RotatedBy((double)((float)(dustIndex - (dustAmt / 2 - 1)) * MathHelper.TwoPi / (float)dustAmt), default) + projectile.Center;
+                                Vector2 vector7 = vector6 - projectile.Center;
+                                int dusty = Dust.NewDust(vector6 + vector7, 0, 0, assdust, vector7.X * 1f, vector7.Y * 1f, 100, default, 1.1f);
+                                Main.dust[dusty].noGravity = true;
+                                Main.dust[dusty].noLight = true;
+                                Main.dust[dusty].velocity = vector7;
+                            }
+                            projectile.Kill();
+                        }
                     }
                     else
                     {
@@ -1028,6 +1051,30 @@ namespace CalValEX
                     else
                     {
                         npc.GetGlobalNPC<CalValEXGlobalNPC>().junkoReference = false;
+                    }
+                }
+                else if (npc.aiStyle == NPCAIStyleID.Slime && !NPC.AnyNPCs(ModContent.NPCType<NPCs.TownPets.Slimes.NinjaSlime>()) && Main.rand.NextBool(22))
+                {
+                    bool titShuriken = CalValEX.CalamityActive ? projectile.type == CalValEX.CalamityProjectile("TitaniumShurikenProjectile") : false;
+                    bool boomShuriken = false;
+                    if (ModLoader.HasMod("Fargowiltas"))
+                    {
+                        if (projectile.type == ModLoader.GetMod("Fargowiltas").Find<ModProjectile>("ShurikenProj").Type)
+                        {
+                            boomShuriken = true;
+                        }
+                    }
+                    if (projectile.type == ProjectileID.Shuriken || titShuriken || boomShuriken)
+                    {
+                        NPC.NewNPC(npc.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<NPCs.TownPets.Slimes.NinjaSlime>());
+                        if (!CalValEXWorld.ninja)
+                        {
+                            CalValEXWorld.ninja = true;
+                            CalValEXWorld.UpdateWorldBool();
+                        }
+
+                        npc.active = false;
+                        projectile.Kill();
                     }
                 }
             }
@@ -1327,11 +1374,11 @@ namespace CalValEX
                     {
                         if (!player.HasItem(cata.Find<ModItem>("AstralCommunicator").Type))
                         {
-                            pool.Add(cata.Find<ModNPC>("AstrageldonSlime").Type, 0.002f);
+                            pool.Add(cata.Find<ModNPC>("AscendedAstralSlime").Type, 0.002f);
                         }
                         if ((bool)cata.Call("DownedAstrageldon", Mod))
                         {
-                            pool.Add(cata.Find<ModNPC>("ArmoredAstralSlime").Type, 0.02f);
+                            pool.Add(cata.Find<ModNPC>("NovaSlime").Type, 0.02f);
                         }
                     }
                 }

@@ -12,6 +12,14 @@ namespace CalValEX.AprilFools.Meldosaurus
 	public class MeldwyrmBody : ModNPC
 	{
 		[JITWhenModsEnabled("CalamityMod")]
+		public override void SetStaticDefaults()
+		{
+			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+			{
+				Hide = true
+			};
+			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
+		}
 		public override void SetDefaults()
 		{
 			NPC.damage = 0;

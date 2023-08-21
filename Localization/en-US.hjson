@@ -25,6 +25,8 @@ Mods: {
 					Princess_LovesNPC: "{NPCName} is such a goofy fella."
 					HateCrowded: I hate how crowded I am.
 				}
+
+				Census.SpawnCondition: It's a secret
 			}
 
 			Fogbound.DisplayName: Hyper Ultra Omega Fogbound GOD EX: Prepare to Stygian Edition
@@ -77,6 +79,8 @@ Mods: {
 					LoveNPC: I love {NPCName}.
 					HateNPC: I hate {NPCName}.
 				}
+
+				Census.SpawnCondition: Find at the Sulphurous Sea after defeating the Acid Rain's first tier
 			}
 
 			OracleNPC: {
@@ -100,22 +104,59 @@ Mods: {
 					LoveNPC: I love {NPCName}.
 					HateNPC: I hate {NPCName}.
 				}
+
+				Census.SpawnCondition: Equip a Pet or Light Pet
 			}
 
 			OracleNPCPet_Pet.DisplayName: TUB
-			# Town NPCs
-			NuggetNugget.DisplayName: Nugget
-			DracoNugget.DisplayName: Draconian Nugget
-			FollyNugget.DisplayName: Fluffy Nugget
-			GODNugget.DisplayName: Phoenix Nugget
-			MammothNugget.DisplayName: Mini Mammoth Nugget
-			ShadowNugget.DisplayName: Shadow Nugget
+
+			NuggetNugget: {
+				# Town NPCs
+				DisplayName: Nugget
+				Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
+			}
+
+			DracoNugget: {
+				DisplayName: Draconian Nugget
+				Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
+			}
+
+			FollyNugget: {
+				DisplayName: Fluffy Nugget
+				Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
+			}
+
+			GODNugget: {
+				DisplayName: Phoenix Nugget
+				Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
+			}
+
+			MammothNugget: {
+				DisplayName: Mini Mammoth Nugget
+				Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
+			}
+
+			ShadowNugget: {
+				DisplayName: Shadow Nugget
+				Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
+			}
+
 			MeldwyrmBody.DisplayName: Meldwyrm
 			MeldwyrmHead.DisplayName: Meldwyrm
 			MeldwyrmTail.DisplayName: Meldwyrm
 			MeldWyrmBody.DisplayName: Meld Wyrm Body
 			MeldWyrmHead.DisplayName: Meld Wyrm Head
 			MeldWyrmTail.DisplayName: Meld Wyrm Tail
+
+			NinjaSlime: {
+				DisplayName: Ninja Slime
+				Census.SpawnCondition: Conditions unknown
+			}
+
+			AstroSlime: {
+				DisplayName: Astro Slime
+				Census.SpawnCondition: Conditions unknown
+			}
 		}
 
 		Items: {
@@ -4540,6 +4581,16 @@ Mods: {
 				DisplayName: Tyrant Feed
 				Tooltip: Potassium
 			}
+
+			GoozmaPlush: {
+				Tooltip: ""
+				DisplayName: Goozma Plush
+			}
+
+			GoozmaPlushThrowable: {
+				Tooltip: ""
+				DisplayName: Goozma Plush Throwable
+			}
 		}
 
 		Projectiles: {
@@ -4784,6 +4835,7 @@ Mods: {
 			JharimKiller.DisplayName: Jharim Killer
 			Ranged.GodsFire.DisplayName: Gods Fire
 			Magic.JharimKiller.DisplayName: Jharim Killer
+			GoozmaPlush.DisplayName: Goozma Plush
 		}
 
 		Tiles: {
@@ -5127,6 +5179,7 @@ Mods: {
 			ShrineoftheTidesPlaced.MapEntry: Shrine of the Tides
 			ViolemurStatuePlaced.MapEntry: Violemur Statue
 			TyrantFeedPlaced.MapEntry: Tyrant Feed Placed
+			GoozmaPlushPlaced.MapEntry: Goozma Plush Placed
 		}
 
 		Buffs: {

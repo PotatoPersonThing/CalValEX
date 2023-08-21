@@ -305,6 +305,7 @@ namespace CalValEX {
         public bool bellaCloakHide;
         public bool bellaCloakForce;
         public bool helipack;
+        public bool CalValPat;
 
         public override void Initialize() {
             ResetMyStuff();
@@ -749,6 +750,7 @@ namespace CalValEX {
             zygote = false;
             brimberry = false;
             helipack = false;
+            CalValPat = false;
         }
 
         public override void OnHurt(Player.HurtInfo info) {

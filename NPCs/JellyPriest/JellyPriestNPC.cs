@@ -13,6 +13,7 @@ using static Terraria.ModLoader.ModContent;
 using System.Collections.Generic;
 using Terraria.GameContent.Bestiary;
 using Terraria.DataStructures;
+using Terraria.Utilities;
 using CalValEX.Projectiles.NPCs;
 using System.IO;
 using Terraria.GameContent.Personalities;
@@ -154,88 +155,67 @@ namespace CalValEX.NPCs.JellyPriest
                 }
             }
 
+            WeightedRandom<string> dialogue = new WeightedRandom<string>();
+
             //Main.NewText("MISC EQUIPS 0 TYPE: " + Main.player[Main.myPlayer].miscEquips[0].type + "|MISC EQUIPS 1 TYPE: " + Main.player[Main.myPlayer].miscEquips[1].type);
 
             if (CalValEX.CalamityActive)
             {
                 int FAP = NPC.FindFirstNPC(CalValEX.CalamityNPC("FAP"));
-                if (FAP >= 0 && Main.rand.NextFloat() < 0.25f)
+                if (FAP >= 0)
                 {
-                    switch (Main.rand.Next(2))
-                    {
-                        case 0:
-                            return "I don't feel very comfortable with how close that 'Princess' gets to me when I'm showing her some decorations, I'm starting to think she wants to make food out of me by what she says...!";
-
-                        default:
-                            return "The last time that Cirrus got near my decorations, she tore off one of my bust's heads!";
-                    }
+                    dialogue.Add("I don't feel very comfortable with how close that 'Princess' gets to me when I'm showing her some decorations, I'm starting to think she wants to make food out of me by what she says...!");
+                    dialogue.Add("The last time that Cirrus got near my decorations, she tore off one of my bust's heads!");
                 }
 
                 int WITCH = NPC.FindFirstNPC(CalValEX.CalamityNPC("WITCH"));
-                if (WITCH >= 0 && Main.rand.NextFloat() < 0.25f)
+                if (WITCH >= 0)
                 {
-                    switch (Main.rand.Next(2))
-                    {
-                        case 0:
-                            return "That witch... she does not give me any good memories...";
-
-                        default:
-                            return "Have you heard of the Brimstone Witch's destruction of the capital of the underworld? It was quite a tragedy... a lot of architecture ruined!";
-                    }
+                    dialogue.Add("That witch... she does not give me any good memories...");
+                    dialogue.Add("Have you heard of the Brimstone Witch's destruction of the capital of the underworld? It was quite a tragedy... a lot of architecture ruined!");
                 }
 
                 int SEAHOE = NPC.FindFirstNPC(CalValEX.CalamityNPC("SEAHOE"));
-                if (SEAHOE >= 0 && Main.rand.NextFloat() < 0.25f)
+                if (SEAHOE >= 0)
                 {
-                    switch (Main.rand.Next(2))
-                    {
-                        case 0:
-                            return "The great sea king I've heard many tales of... And you say that you found him inside a clam...? Oh my, isn't that pathetic now.";
-
-                        default:
-                            return "Do you think Amidias knows anything about the sea idol I'm searching? It seems that old horse got a lot of knowledge about story.";
-                    }
+                    dialogue.Add("The great sea king I've heard many tales of... And you say that you found him inside a clam...? Oh my, isn't that pathetic now.");
+                    dialogue.Add("Do you think Amidias knows anything about the sea idol I'm searching? It seems that old horse got a lot of knowledge about story.");
                 }
-                if ((bool)CalValEX.Calamity.Call("GetBossDowned", "leviathan") && Main.rand.NextFloat() < 0.25f && !NPC.AnyNPCs(CalValEX.CalamityNPC("Anahita")))
+                if ((bool)CalValEX.Calamity.Call("GetBossDowned", "leviathan") && !NPC.AnyNPCs(CalValEX.CalamityNPC("Anahita")))
                 {
-                    switch (Main.rand.Next(2))
-                    {
-                        case 0:
-                            return "Oh! So you did find the location of the idol I'm searching for? Please explain in detail everything about them, I would love to start working on my offerings and monuments as soon as possible.";
-
-                        default:
-                            return "For some reason, the idol's presence feels like it's weakened. I hope nothing bad happened to her.";
-                    }
+                    dialogue.Add("Oh! So you did find the location of the idol I'm searching for? Please explain in detail everything about them, I would love to start working on my offerings and monuments as soon as possible.");
+                    dialogue.Add("For some reason, the idol's presence feels like it's weakened. I hope nothing bad happened to her.");
+                    
                 }
-                if ((bool)CalValEX.Calamity.Call("GetBossDowned", "scal") && Main.rand.NextFloat() < 0.25f)
+                if ((bool)CalValEX.Calamity.Call("GetBossDowned", "scal"))
                 {
-                    return "Yeesh, through all of your adventures, I've stocked up quite the inventory!";
+                    dialogue.Add("Yeesh, through all of your adventures, I've stocked up quite the inventory!");
                 }
 
-                if (player.ownedProjectileCounts[CalValEX.CalamityProjectile("WaterElementalMinion")] > 0 && Main.rand.NextFloat() < 0.25f)
+                if (player.ownedProjectileCounts[CalValEX.CalamityProjectile("WaterElementalMinion")] > 0)
                 {
-                    return "You were successfully able to befriend the grand Water Elemental? I'm impressed.";
+                    dialogue.Add("You were successfully able to befriend the grand Water Elemental? I'm impressed.");
                 }
 
-                if (CalValEXPlayer.SirenHeart && Main.rand.NextFloat() < 0.25f)
+                if (CalValEXPlayer.SirenHeart)
                 {
-                    return "OH! Please, welcome yourself to my shop. I've been preparing these just for you.";
+                    dialogue.Add("OH! Please, welcome yourself to my shop. I've been preparing these just for you.");
                 }
 
-                if (CalValEXPlayer.CirrusDress && Main.rand.NextFloat() < 0.25f)
+                if (CalValEXPlayer.CirrusDress)
                 {
-                    return "That's a pretty dress! I know someone who was working on a similar one, but it took so long that they gave up.";
+                    dialogue.Add("That's a pretty dress! I know someone who was working on a similar one, but it took so long that they gave up.");
                 }
 
-                if (player.ownedProjectileCounts[CalValEX.CalamityProjectile("OceanSpirit")] > 0 && Main.rand.NextFloat() < 0.25f)
+                if (player.ownedProjectileCounts[CalValEX.CalamityProjectile("OceanSpirit")] > 0)
                 {
-                    return "Awe, that little one is cute. She reminds me a lot of the idol I seek.";
+                    dialogue.Add("Awe, that little one is cute. She reminds me a lot of the idol I seek.");
                 }
             }
 
-            if ((CalValEXPlayer.babywaterclone) && Main.rand.NextFloat() < 0.25f)
+            if (CalValEXPlayer.babywaterclone)
             {
-                return "That little one has a presence that feels similar, but different to the idol I seek.";
+                dialogue.Add("That little one has a presence that feels similar, but different to the idol I seek.");
             }
 
             if (Main.eclipse)
@@ -252,67 +232,34 @@ namespace CalValEX.NPCs.JellyPriest
 
             if (BirthdayParty.PartyIsUp)
             {
-                switch (Main.rand.Next(2))
-                {
-                    case 0:
-                        return "Parties are fun! Hopefully one day, I can help make one which will catch the eye of the idol I seek.";
-
-                    default:
-                        return "There's a lot of celebration today. Hopefully I can spice things up with my decorations!";
-                }
+                dialogue.Add("Parties are fun! Hopefully one day, I can help make one which will catch the eye of the idol I seek.");
+                dialogue.Add("There's a lot of celebration today. Hopefully I can spice things up with my decorations!");
             }
 
             if (!Main.bloodMoon)
             {
                 if (Main.dayTime)
                 {
-                    switch (Main.rand.Next(5))
-                    {
-                        case 0:
-                            return "This place reeks of sadness, let me help you get the place better with some beautiful decorations will you.";
-
-                        case 1:
-                            return "I told you already, I'm not going back into that stinky sea to get you materials for your stuff... unless you have some extra change with you, of course.";
-
-                        case 2:
-                            return "I would love to decorate your place for free, but I require some coins for buying offerings you know?";
-
-                        default:
-                            return "Oh, where I got this apron and tools from? It is all handmade by myself with resources from around my place! You learn to do this stuff over time with enough passion.";
-                    }
+                    dialogue.Add("This place reeks of sadness, let me help you get the place better with some beautiful decorations will you.");
+                    dialogue.Add("I told you already, I'm not going back into that stinky sea to get you materials for your stuff... unless you have some extra change with you, of course.");
+                    dialogue.Add("I would love to decorate your place for free, but I require some coins for buying offerings you know?");
+                    dialogue.Add("Oh, where I got this apron and tools from? It is all handmade by myself with resources from around my place! You learn to do this stuff over time with enough passion.");
                 }
                 else
                 {
-                    switch (Main.rand.Next(4))
-                    {
-                        case 0:
-                            return "Although the night sky makes things harder to see, some of my decorations can pierce the darkness with colorful light.";
-
-                        case 1:
-                            return "I actually have higher motivation to work at night, the moon reminds me of someone...";
-
-                        default:
-                            return "I wonder if the idol I seek watches the moon like I do.";
-                    }
+                    dialogue.Add("Although the night sky makes things harder to see, some of my decorations can pierce the darkness with colorful light.");
+                    dialogue.Add("I actually have higher motivation to work at night, the moon reminds me of someone...");
+                    dialogue.Add("I wonder if the idol I seek watches the moon like I do.");
                 }
             }
             else
             {
-                switch (Main.rand.Next(6))
-                {
-                    case 0:
-                        return "This isn't a night where I feel like working.";
-
-                    case 1:
-                        return "Darling, could you keep an eye on the furniture? Stuff seems to be getting out of control for some reason.";
-
-                    case 2:
-                        return "The eerie redness of the sky does not look pretty on most of my decorations...";
-
-                    default:
-                        return "Stay away from my statues!";
-                }
+                dialogue.Add("This isn't a night where I feel like working.");
+                dialogue.Add("Darling, could you keep an eye on the furniture? Stuff seems to be getting out of control for some reason.");
+                dialogue.Add("The eerie redness of the sky does not look pretty on most of my decorations...");
+                dialogue.Add("Stay away from my statues!");
             }
+            return dialogue;
         }
 
         public override void SetChatButtons(ref string button, ref string button2)

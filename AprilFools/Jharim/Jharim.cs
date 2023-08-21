@@ -7,8 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.Localization;
-using Terraria.GameContent.Bestiary;
+using Terraria.Utilities;
 using Terraria.GameContent;
 using Terraria.GameContent.Personalities;
 using System.Collections.Generic;
@@ -241,171 +240,121 @@ namespace CalValEX.AprilFools.Jharim
                     }
                 }
 
+                WeightedRandom<string> dialogue = new WeightedRandom<string>();
+
                 if ((NPC.AnyNPCs(NPCID.LunarTowerNebula) || NPC.AnyNPCs(NPCID.LunarTowerVortex) || NPC.AnyNPCs(NPCID.LunarTowerStardust) || NPC.AnyNPCs(NPCID.LunarTowerSolar)) && Main.rand.NextFloat() < 0.25f)
                 {
-                    return "These pillars are spookay, and those dark globs some of their friends drop are... I don't want to touch any... especially if its on fire, so please don't shoot me with any fiery weapons made of that stuff.";
+                    dialogue.Add("These pillars are spookay, and those dark globs some of their friends drop are... I don't want to touch any... especially if its on fire, so please don't shoot me with any fiery weapons made of that stuff.");
                 }
 
                 if (CalValEX.CalamityActive)
                 {
                     if (CalValEXPlayer.CirrusDress)
                     {
-                        return "NO NO NOT THE STAR NEVER AGAIN NO NO NO!";
+                        dialogue.Add("NO NO NOT THE STAR NEVER AGAIN NO NO NO!");
                     }
 
                     int FAP = NPC.FindFirstNPC(CalValEX.CalamityNPC("FAP"));
-                    if (FAP >= 0 && Main.rand.NextFloat() < 0.25f)
+                    if (FAP >= 0)
                     {
-                        return "Hyu Hyu Hyu... That purple lady stole my booze.";
+                        dialogue.Add("Hyu Hyu Hyu... That purple lady stole my booze.");
                     }
 
                     int Cal = NPC.FindFirstNPC(CalValEX.CalamityNPC("WITCH"));
-                    if (Cal >= 0 && Main.rand.NextFloat() < 0.25f)
+                    if (Cal >= 0)
                     {
-                        return "GET THAT ACURSED WITCH AWAY FROM ME";
+                        dialogue.Add("GET THAT ACURSED WITCH AWAY FROM ME");
                     }
 
                     int SEAHOE = NPC.FindFirstNPC(CalValEX.CalamityNPC("SEAHOE"));
-                    if (SEAHOE >= 0 && Main.rand.NextFloat() < 0.25f)
+                    if (SEAHOE >= 0)
                     {
                         if (Cal >= 0)
-                            return "How is Amidas still alive, I thought that he got burnt by that DUMB witch.";
+                            dialogue.Add("How is Amidas still alive, I thought that he got burnt by that DUMB witch.");
                         else
-                            return "How is Amidas still alive, I thought that he got burnt by Soup Ree Calamitoad.";
+                            dialogue.Add("How is Amidas still alive, I thought that he got burnt by Soup Ree Calamitoad.");
                     }
 
-                    if (NPC.AnyNPCs(CalValEX.CalamityNPC("Draedon")) && Main.rand.NextFloat() < 0.25f)
+                    if (NPC.AnyNPCs(CalValEX.CalamityNPC("Draedon")))
                     {
-                        return "DRAAAAAAAAAEEEEEEEDOOOOOOOOOOOONNNNNNNNNNNNNNNNNNN I KNOW WHAT YOU DID!";
+                        dialogue.Add("DRAAAAAAAAAEEEEEEEDOOOOOOOOOOOONNNNNNNNNNNNNNNNNNN I KNOW WHAT YOU DID!");
                     }
-                        if (NPC.AnyNPCs((CalValEX.CalamityNPC("THELORDE"))))
-                        {
-                            return "IMPOSTER!";
-                        }
 
-                    if (NPC.AnyNPCs(CalValEX.CalamityNPC("Yharon")) && Main.rand.NextFloat() < 0.25f)
+                    if (NPC.AnyNPCs(CalValEX.CalamityNPC("THELORDE")))
                     {
-                        return "Hyuck Hyuck Hyuck, my loyal friend Yharon! I demand you to stop atacking! ... Guess he doesn't recognize me...";
+                        dialogue.Add("IMPOSTER!");
+                    }
+
+                    if (NPC.AnyNPCs(CalValEX.CalamityNPC("Yharon")))
+                    {
+                        dialogue.Add("Hyuck Hyuck Hyuck, my loyal friend Yharon! I demand you to stop atacking! ... Guess he doesn't recognize me...");
                     }
 
                     Mod clamMod = CalValEX.Calamity;
-                    if (((bool)clamMod.Call("GetBossDowned", "supremecalamitas")) && ((bool)clamMod.Call("GetBossDowned", "exomechs")) && Main.rand.NextFloat() < 0.25)
+                    if (((bool)clamMod.Call("GetBossDowned", "supremecalamitas")) && ((bool)clamMod.Call("GetBossDowned", "exomechs")))
                     {
-                        switch (Main.rand.Next(2))
-                        {
-                            case 0:
-                                return "It is time for you to face him.";
-
-                            default:
-                                return "The god of the universe... he is willing to face you now.";
-                        }
+                        dialogue.Add("It is time for you to face him.");
+                        dialogue.Add("The god of the universe... he is willing to face you now.");
                     }
 
-                    if (player.ownedProjectileCounts[CalValEX.CalamityProjectile("WaterElementalMinion")] > 0 && Main.rand.NextFloat() < 0.25f)
+                    if (player.ownedProjectileCounts[CalValEX.CalamityProjectile("WaterElementalMinion")] > 0)
                     {
-                        return "OoooooO Fish Lady, tell me! Where's my fish tacos!";
+                        dialogue.Add("OoooooO Fish Lady, tell me! Where's my fish tacos!");
                     }
                 }
 
                 if (Main.eclipse)
                 {
-                    switch (Main.rand.Next(2))
-                    {
-                        case 0:
-                            return "Hyuck Hyuck Hyuck, why is it so dark.";
-
-                        default:
-                            return "Hmm, I KNOW! I should go and wrestle one of those moths! I've wrestled a lot of moths before!";
-                    }
+                    dialogue.Add("Hyuck Hyuck Hyuck, why is it so dark.");
+                    dialogue.Add("Hmm, I KNOW! I should go and wrestle one of those moths! I've wrestled a lot of moths before!");
+                    
                 }
 
                 if (CalValEX.CalamityActive)
                 {
                     if ((bool)CalValEX.Calamity.Call("GetDifficultyActive", "bossrush"))
                     {
-                        switch (Main.rand.Next(2))
-                        {
-                            case 0:
-                                return "THE SKY IS COLLAPSING, IT'S THE END AGAIN!";
-
-                            default:
-                                return "THE MOTH, THEY'LL RECKON HAVOC UPON ME AND FLING ME OFF EXISTENCE AAAAAHHHHHHHHHH";
-                        }
+                        dialogue.Add("THE SKY IS COLLAPSING, IT'S THE END AGAIN!");
+                        dialogue.Add("THE MOTH, THEY'LL RECKON HAVOC UPON ME AND FLING ME OFF EXISTENCE AAAAAHHHHHHHHHH");
                     }
 
                     if ((bool)CalValEX.Calamity.Call("AcidRainActive"))
                     {
-                        switch (Main.rand.Next(2))
-                        {
-                            case 0:
-                                return "ribbit.";
-
-                            default:
-                                return "I'm feeling kinda drunk right now Hyickup Hyickup. Maybe I should stop drinking highly toxic acid...";
-                        }
+                        dialogue.Add("ribbit.");
+                        dialogue.Add("I'm feeling kinda drunk right now Hyickup Hyickup. Maybe I should stop drinking highly toxic acid...");
                     }
                 }
 
                 if (BirthdayParty.PartyIsUp)
                 {
-                    switch (Main.rand.Next(2))
-                    {
-                        case 0:
-                            return "Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck .";
-
-                        default:
-                            return "PARTY TIMEEEEEEEEEEEEE HYUCK HYUCK HYUCK.";
-                    }
+                    dialogue.Add("Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck .");
+                    dialogue.Add("PARTY TIMEEEEEEEEEEEEE HYUCK HYUCK HYUCK.");
                 }
 
                 if (!Main.bloodMoon)
                 {
                     if (Main.dayTime)
                     {
-                        switch (Main.rand.Next(4))
-                        {
-                            case 0:
-                                return "Hyuck Hyuck Hyuck, Jharim the Great orders you to get fish for me! ... what do you mean you don't want to!?";
-
-                            case 1:
-                                return "Yharim is a faker, I AM THE ONLY JUNGLE TYRANT!";
-
-                            case 2:
-                                return "HYuHck HYuHck HYuHck. Why am I spelling like this?";
-
-                            default:
-                                return "When I was younger, I tortured a bee for a minute straight then bashed nails into its body. It was funny and got a lot of views on TubeYou.";
-                        }
+                        dialogue.Add("Hyuck Hyuck Hyuck, Jharim the Great orders you to get fish for me! ... what do you mean you don't want to!?");
+                        dialogue.Add("Yharim is a faker, I AM THE ONLY JUNGLE TYRANT!");
+                        dialogue.Add("HYuHck HYuHck HYuHck. Why am I spelling like this?");
+                        dialogue.Add("When I was younger, I tortured a bee for a minute straight then bashed nails into its body. It was funny and got a lot of views on TubeYou.");
+                        
                     }
                     else
                     {
-                        switch (Main.rand.Next(4))
-                        {
-                            case 0:
-                                return "It's dark.";
-
-                            case 1:
-                                return "Hyuck Hyuck Hyuck, nights remind me of the time that I went to the beach and was almost assassinated!";
-
-                            default:
-                                return "I wonder where my pet dog went.";
-                        }
+                        dialogue.Add("It's dark.");
+                        dialogue.Add("Hyuck Hyuck Hyuck, nights remind me of the time that I went to the beach and was almost assassinated!");
+                        dialogue.Add("I wonder where my pet dog went.");
                     }
                 }
                 else
                 {
-                    switch (Main.rand.Next(3))
-                    {
-                        case 0:
-                            return "Run.";
-
-                        case 1:
-                            return "The red moon... a cursed thing... Anyways where's my eggos, chop chop little one.";
-
-                        default:
-                            return "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.";
-                    }
+                    dialogue.Add("Run.");
+                    dialogue.Add("The red moon... a cursed thing... Anyways where's my eggos, chop chop little one.");
+                    dialogue.Add("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.");
                 }
+                return dialogue;
             }
             else
             {
@@ -515,7 +464,7 @@ namespace CalValEX.AprilFools.Jharim
             {
                 price = Item.buyPrice(gold: 20);
                 // Blocks
-                if (item.createTile > 0 && item.rare == 0)
+                if ((item.createTile > 0 || item.createWall > 0) && item.rare == 0)
                 {
                     price /= 1000;
                 }
