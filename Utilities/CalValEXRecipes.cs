@@ -310,6 +310,13 @@ namespace CalValEX
                 recipe.AddTile(TileID.DyeVat);
                 recipe.Register();
             }
+            {
+                Recipe recipe = Recipe.Create(ItemType<SulphuricDye>());
+                recipe.AddIngredient(ItemID.BottledWater);
+                recipe.AddIngredient(CalValEX.CalamityItem("SulfuricScale"));
+                recipe.AddTile(TileID.DyeVat);
+                recipe.Register();
+            }
             #endregion
 
             #region //Backpacks

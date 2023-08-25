@@ -792,8 +792,10 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new Fogdowned(), Mod.Find<ModItem>("KnowledgeFogbound").Type));
                 }
             }
+            Mod Goozmod;
             Mod CatalystMod;
             Mod Hypnos;
+            ModLoader.TryGetMod("CalamityHunt", out Goozmod);
             ModLoader.TryGetMod("CatalystMod", out CatalystMod);
             ModLoader.TryGetMod("Hypnos", out Hypnos);
             if (Hypnos != null)
@@ -809,6 +811,13 @@ namespace CalValEX
                 {
                     AddPlushDrop(npcLoot, ModContent.ItemType<AstrageldonPlush>());
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SpaceJunk>(), 3));
+                }
+            }
+            if (Goozmod != null)
+            {
+                if (npc.type == Goozmod.Find<ModNPC>("Goozma").Type)
+                {
+                    AddPlushDrop(npcLoot, ModContent.ItemType<GoozmaPlush>());
                 }
             }
 
@@ -1368,21 +1377,6 @@ namespace CalValEX
                         pool.Add(NPCID.Bunny, 0.001f);
                     }
                 }
-                if (cata != null)
-                {
-                    if (player.ZoneOverworldHeight)
-                    {
-                        if (!player.HasItem(cata.Find<ModItem>("AstralCommunicator").Type))
-                        {
-                            pool.Add(cata.Find<ModNPC>("AscendedAstralSlime").Type, 0.002f);
-                        }
-                        if ((bool)cata.Call("DownedAstrageldon", Mod))
-                        {
-                            pool.Add(cata.Find<ModNPC>("NovaSlime").Type, 0.02f);
-                        }
-                    }
-                }
-
             }
         }
 
