@@ -992,6 +992,31 @@ namespace CalValEX
         
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers)
         {
+             if (npc.aiStyle == NPCAIStyleID.Slime && !NPC.AnyNPCs(ModContent.NPCType<NPCs.TownPets.Slimes.NinjaSlime>()) && Main.rand.NextBool(22))
+                {
+                    bool titShuriken = CalValEX.CalamityActive ? projectile.type == CalValEX.CalamityProjectile("TitaniumShurikenProjectile") : false;
+                    bool boomShuriken = false;
+                    if (ModLoader.HasMod("Fargowiltas"))
+                    {
+                        if (projectile.type == ModLoader.GetMod("Fargowiltas").Find<ModProjectile>("ShurikenProj").Type)
+                        {
+                            boomShuriken = true;
+                        }
+                    }
+                    if (projectile.type == ProjectileID.Shuriken || titShuriken || boomShuriken)
+                    {
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            NPC.NewNPC(npc.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<NPCs.TownPets.Slimes.NinjaSlime>());
+                        if (!CalValEXWorld.ninja)
+                        {
+                            CalValEXWorld.ninja = true;
+                            CalValEXWorld.UpdateWorldBool();
+                        }
+
+                        npc.active = false;
+                        projectile.Kill();
+                    }
+                }
             if (CalValEX.CalamityActive)
             {
                 if (npc.type == CalValEX.CalamityNPC("AstrumAureus"))
@@ -1001,7 +1026,8 @@ namespace CalValEX
                         npc.GetGlobalNPC<CalValEXGlobalNPC>().geldonSummon = true;
                         if (!NPC.AnyNPCs(ModContent.NPCType<NPCs.TownPets.Slimes.AstroSlime>()))
                         {
-                            NPC.NewNPC(npc.GetSource_FromThis(), (int)projectile.Center.X, (int)projectile.Center.Y, ModContent.NPCType<NPCs.TownPets.Slimes.AstroSlime>());
+                            if (Main.netMode != NetmodeID.MultiplayerClient)                            
+                                NPC.NewNPC(npc.GetSource_FromThis(), (int)projectile.Center.X, (int)projectile.Center.Y, ModContent.NPCType<NPCs.TownPets.Slimes.AstroSlime>());
                             if (!CalValEXWorld.astro)
                             {
                                 CalValEXWorld.astro = true;
@@ -1060,30 +1086,6 @@ namespace CalValEX
                     else
                     {
                         npc.GetGlobalNPC<CalValEXGlobalNPC>().junkoReference = false;
-                    }
-                }
-                else if (npc.aiStyle == NPCAIStyleID.Slime && !NPC.AnyNPCs(ModContent.NPCType<NPCs.TownPets.Slimes.NinjaSlime>()) && Main.rand.NextBool(22))
-                {
-                    bool titShuriken = CalValEX.CalamityActive ? projectile.type == CalValEX.CalamityProjectile("TitaniumShurikenProjectile") : false;
-                    bool boomShuriken = false;
-                    if (ModLoader.HasMod("Fargowiltas"))
-                    {
-                        if (projectile.type == ModLoader.GetMod("Fargowiltas").Find<ModProjectile>("ShurikenProj").Type)
-                        {
-                            boomShuriken = true;
-                        }
-                    }
-                    if (projectile.type == ProjectileID.Shuriken || titShuriken || boomShuriken)
-                    {
-                        NPC.NewNPC(npc.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<NPCs.TownPets.Slimes.NinjaSlime>());
-                        if (!CalValEXWorld.ninja)
-                        {
-                            CalValEXWorld.ninja = true;
-                            CalValEXWorld.UpdateWorldBool();
-                        }
-
-                        npc.active = false;
-                        projectile.Kill();
                     }
                 }
             }

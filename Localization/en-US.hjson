@@ -2513,7 +2513,7 @@ Mods: {
 				DisplayName: Amber Geode
 				Tooltip:
 					'''
-					Summons an Amber Scuttlet
+					Summons an Amber Scuttler
 					'Could contain a scuttler'
 					'''
 			}
@@ -2522,7 +2522,7 @@ Mods: {
 				DisplayName: Amethyst Geode
 				Tooltip:
 					'''
-					Summons an Amythest Scuttlet
+					Summons an Amythest Scuttler
 					'May contain a scuttler'
 					'''
 			}
@@ -2540,7 +2540,7 @@ Mods: {
 				DisplayName: Crystal Geode
 				Tooltip:
 					'''
-					Summons a Crystal Scuttlet
+					Summons a Crystal Scuttler
 					'Might contain a scuttler'
 					'''
 			}
@@ -2549,7 +2549,7 @@ Mods: {
 				DisplayName: Diamond Geode
 				Tooltip:
 					'''
-					Summons a Diamond Scuttlet
+					Summons a Diamond Scuttler
 					'Can contain a scuttler'
 					'''
 			}
@@ -2558,7 +2558,7 @@ Mods: {
 				DisplayName: Emerald Geode
 				Tooltip:
 					'''
-					Summons an Emerald Scuttlet
+					Summons an Emerald Scuttler
 					'Should contain a scuttler'
 					'''
 			}
@@ -2567,7 +2567,7 @@ Mods: {
 				DisplayName: Ruby Geode
 				Tooltip:
 					'''
-					Summons a Ruby Scuttlet
+					Summons a Ruby Scuttler
 					'Possibly contains a scuttler'
 					'''
 			}
@@ -2576,7 +2576,7 @@ Mods: {
 				DisplayName: Sapphire Geode
 				Tooltip:
 					'''
-					Summons an Amber Scuttlet
+					Summons an Sapphire Scuttler
 					'Capable of containing a scuttler'
 					'''
 			}
@@ -2585,7 +2585,7 @@ Mods: {
 				DisplayName: Topaz Geode
 				Tooltip:
 					'''
-					Summons an Amber Scuttlet
+					Summons an Topaz Scuttler
 					'Potentially contains a scuttler'
 					'''
 			}
