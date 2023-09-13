@@ -22,12 +22,6 @@ namespace CalValEX.Items.Equips.Wings
             Item.value = Item.sellPrice(0, 1, 0, 0);
         }
 
-        public override void UpdateAccessory(Player player, bool hideVisual)
-        {           
-            if (!Main.hardMode)
-                player.AddBuff(Terraria.ID.BuffID.CursedInferno, 2);
-        }
-
         public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
         {
             ascentWhenFalling = 0.5f;
