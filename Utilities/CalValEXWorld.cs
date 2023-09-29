@@ -56,6 +56,7 @@ namespace CalValEX
         public static bool isThereAHouse;
         public static bool ninja;
         public static bool astro;
+        public static bool tarr;
 
         public override void OnWorldLoad()
         { 
@@ -72,6 +73,7 @@ namespace CalValEX
             nugget = draco = folly = godnug = mammoth = shadow = isThereAHouse = false;
             ninja = false;
             astro = false;
+            tarr = false;
         }
 
         public override void OnWorldUnload()
@@ -87,6 +89,7 @@ namespace CalValEX
             downedFogbound = false;
             ninja = false;
             astro = false;
+            tarr = false;
 
             nugget = draco = folly = godnug = mammoth = shadow = isThereAHouse = false;
         }
@@ -137,6 +140,8 @@ namespace CalValEX
                 tag["ninja"] = true;
             if (astro)
                 tag["astro"] = true;
+            if (tarr)
+                tag["tarr"] = true;
         }
 
         public override void LoadWorldData(TagCompound tag) {
@@ -159,6 +164,7 @@ namespace CalValEX
 
             ninja = tag.ContainsKey("ninja");
             astro = tag.ContainsKey("astro");
+            tarr = tag.ContainsKey("tarr");
         }
 
         public override void NetSend(BinaryWriter writer)
@@ -177,6 +183,7 @@ namespace CalValEX
             flags2[1] = downedFogbound;
             flags2[2] = ninja;
             flags2[3] = astro;
+            flags2[4] = tarr;
 
             BitsByte flags3 = new BitsByte();
             flags3[0] = nugget;
@@ -206,6 +213,7 @@ namespace CalValEX
             downedFogbound = flags2[1];
             ninja = flags2[2];
             astro = flags2[3];
+            tarr = flags2[4];
 
             BitsByte flags3 = reader.ReadByte();
             nugget = flags3[0];

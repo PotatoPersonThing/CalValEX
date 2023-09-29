@@ -1103,6 +1103,22 @@ namespace CalValEX
         [JITWhenModsEnabled("CalamityMod")]
         public override bool PreKill(NPC npc)
         {
+            if (ModLoader.HasMod("CalamityHunt"))
+            {
+                if (npc.type == ModLoader.GetMod("CalamityHunt").Find<ModNPC>("Goozma").Type)
+{
+                if (!NPC.AnyNPCs(NPCs.TownPets.Slimes.Tarr))
+{
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            NPC.NewNPC(npc.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<NPCs.TownPets.Slimes.Tarr>());
+                        if (!CalValEXWorld.tarr)
+                        {
+                            CalValEXWorld.tarr = true;
+                            CalValEXWorld.UpdateWorldBool();
+                        }
+}
+}
+            }
             if (CalValEX.CalamityActive)
             {
                 BossExclam(npc, new int[] { CalValEX.CalamityNPC("SEAHOE") }, (bool)CalValEX.Calamity.Call("GetBossDowned", "oldduke"), CalValEX.CalamityNPC("OldDuke"));
