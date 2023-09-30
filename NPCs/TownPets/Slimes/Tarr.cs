@@ -84,67 +84,27 @@ namespace CalValEX.NPCs.TownPets.Slimes {
 
         public override void AI() {
             Player player = Main.player[Main.myPlayer];
-            /*
-            if (player.talkNPC > -1 && Main.npc[player.talkNPC].type == Type)
-            {
-                int targetDirection = (NPC.Center.X > player.Center.X) ? 1 : (-1);
-                Vector2 playerPositionWhenPetting2 = (NPC.Bottom + new Vector2((float)(-targetDirection * 30), 0f)).Floor();
-                if (player.talkNPC == -1)
-                {
-                    return;
-                }
-                int num = System.Math.Sign(NPC.Center.X - player.Center.X);
-                if (player.controlLeft || player.controlRight || player.controlUp || player.controlDown || player.controlJump || player.pulley || player.mount.Active || num != player.direction)
-                {
-                    return;
-                }
-                /*if (player.Bottom.Distance(playerPositionWhenPetting2) > 31f)
-                {
-                    return;
-                }*/
-                /*Vector2 offset = playerPositionWhenPetting2 - player.Bottom;
-                bool flag = player.CanSnapToPosition(offset);
-                if (flag && !WorldGen.SolidTileAllowBottomSlope((int)playerPositionWhenPetting2.X / 16, (int)playerPositionWhenPetting2.Y / 16))
-                {
-                    flag = false;
-                }
-                if (!flag)
-                {
-                    return;
-                }
-                player.StopVanityActions();
-                player.RemoveAllGrapplingHooks();
-                if (player.mount.Active)
-                {
-                    player.mount.Dismount(player);
-                }
-                player.Bottom = playerPositionWhenPetting2;
-                player.ChangeDir(targetDirection);
-                player.velocity = Vector2.Zero;
-                player.gravDir = 1f;
-                if (player.whoAmI == Main.myPlayer)
-                {
-                    Terraria.GameContent.Achievements.AchievementsHelper.HandleSpecialEvent(player, 21);
-                }
-                int num17 = player.miscCounter % 14 / 7;
-                Player.CompositeArmStretchAmount stretch11 = Player.CompositeArmStretchAmount.ThreeQuarters;
-                if (num17 == 1)
-                {
-                    stretch11 = Player.CompositeArmStretchAmount.Full;
-                }
-                float num16 = 0.1f;
-                if (player.isTheAnimalBeingPetSmall)
-                {
-                    num16 = 0.1f;
-                }
-                player.SetCompositeArmBack(enabled: true, stretch11, MathHelper.Pi * -2f * num16 * (float)player.direction);
-            }*/
 
             NPC.position.X = MathHelper.Clamp(NPC.position.X, 150f, Main.maxTilesX * 16f - 150f);
             NPC.position.Y = MathHelper.Clamp(NPC.position.Y, 150f, Main.maxTilesY * 16f - 150f);
             if (!CalValEXWorld.tar)
             {
                 CalValEXWorld.tar = true;
+            }
+            if (CalValEX.CalamityActive && !ModLoader.HasMod("CalamityHunt"))
+            {
+                if (NPC.AnyNPCs(CalValEX.CalamityNPC("SlimeGod")))
+                {
+                    NPC.dontTakeDamage = true;
+                }
+                else
+                {
+                    NPC.dontTakeDamage = true;
+                }
+            }
+            else
+            {
+                NPC.dontTakeDamage = true;
             }
         }
 

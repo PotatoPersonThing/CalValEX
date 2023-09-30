@@ -42,6 +42,7 @@ using System.Collections.Generic;
 using CalValEX.AprilFools;
 using Terraria.DataStructures;
 using Terraria.Localization;
+using System.Security.Policy;
 
 namespace CalValEX
 {
@@ -1426,6 +1427,27 @@ namespace CalValEX
                     else
                     {
                         typeName = "Blunderling";
+                    }
+                }
+            }
+        }
+
+        public override void OnKill(NPC npc)
+        {
+            if (CalValEX.CalamityActive /*&& !ModLoader.HasMod("CalamityHunt")*/)
+            {
+                if (NPCID.Sets.IsTownSlime[npc.type] && NPC.AnyNPCs(CalValEX.CalamityNPC("SlimeGodCore")))
+                {
+                    Main.NewText("Woe is me");
+                    if (!NPC.AnyNPCs(ModContent.NPCType<NPCs.TownPets.Slimes.Tarr>()))
+                    {
+                        if (Main.netMode != NetmodeID.MultiplayerClient)
+                            NPC.NewNPC(npc.GetSource_Death(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<NPCs.TownPets.Slimes.Tarr>());
+                        if (!CalValEXWorld.tar)
+                        {
+                            CalValEXWorld.tar = true;
+                            CalValEXWorld.UpdateWorldBool();
+                        }
                     }
                 }
             }
