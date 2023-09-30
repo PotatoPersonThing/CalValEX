@@ -157,6 +157,8 @@ Mods: {
 				DisplayName: Astro Slime
 				Census.SpawnCondition: Conditions unknown
 			}
+
+			Tarr.DisplayName: Tarr
 		}
 
 		Items: {

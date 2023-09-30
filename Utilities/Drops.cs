@@ -1107,13 +1107,13 @@ namespace CalValEX
             {
                 if (npc.type == ModLoader.GetMod("CalamityHunt").Find<ModNPC>("Goozma").Type)
 {
-                if (!NPC.AnyNPCs(NPCs.TownPets.Slimes.Tarr))
+                if (!NPC.AnyNPCs(ModContent.NPCType<NPCs.TownPets.Slimes.Tarr>()))
 {
                         if (Main.netMode != NetmodeID.MultiplayerClient)
                             NPC.NewNPC(npc.GetSource_FromThis(), (int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<NPCs.TownPets.Slimes.Tarr>());
-                        if (!CalValEXWorld.tarr)
+                        if (!CalValEXWorld.tar)
                         {
-                            CalValEXWorld.tarr = true;
+                            CalValEXWorld.tar = true;
                             CalValEXWorld.UpdateWorldBool();
                         }
 }
