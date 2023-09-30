@@ -59,7 +59,7 @@ namespace CalValEX.Projectiles.Pets
             }
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             for (int x = 0; x < 60; x++)
             {

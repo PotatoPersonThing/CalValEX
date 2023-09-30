@@ -16,7 +16,7 @@ namespace CalValEX.Projectiles.Plushies
             Projectile.friendly = true;
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             Item.NewItem(Projectile.GetSource_DropAsItem(), Projectile.getRect(), ModContent.ItemType<Items.Plushies.HiveMindPlushThrowable>());
         }

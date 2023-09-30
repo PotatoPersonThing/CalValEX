@@ -42,7 +42,7 @@ namespace CalValEX.Projectiles.NPCs
             }
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             int killdust = 0;
             while (killdust < 9)

@@ -14,7 +14,7 @@ namespace CalValEX.Projectiles {
             Projectile.friendly = true;
         }
 
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
             Item.NewItem(Projectile.GetSource_DropAsItem(), Projectile.getRect(), ModContent.ItemType<BleachBallItem>());
         }
     }
