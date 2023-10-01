@@ -186,7 +186,9 @@ namespace CalValEX.NPCs.TownPets.Slimes {
             spriteBatch.Draw(TextureAssets.Npc[Type].Value, NPC.Center - screenPos, NPC.frame, drawColor * 0.2f, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, fx, 0);
             spriteBatch.End();
             spriteBatch.Begin(sortMode, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.Transform);
-            spriteBatch.Draw(ModContent.Request<Texture2D>("CalValEX/NPCs/TownPets/Slimes/TarrGlow").Value, NPC.Center - screenPos, NPC.frame, Main.DiscoColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, fx, 0);
+            Color dicko = Main.DiscoColor;
+            Color newColor = new Color(dicko.R + 222, dicko.G + 222, dicko.B + 222);
+            spriteBatch.Draw(ModContent.Request<Texture2D>("CalValEX/NPCs/TownPets/Slimes/TarrGlow").Value, NPC.Center - screenPos, NPC.frame, newColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, fx, 0);
             return false;
         }
     }
