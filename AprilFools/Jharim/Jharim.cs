@@ -11,6 +11,7 @@ using Terraria.Utilities;
 using Terraria.GameContent;
 using Terraria.GameContent.Personalities;
 using System.Collections.Generic;
+using Terraria.Localization;
 
 namespace CalValEX.AprilFools.Jharim
 {
@@ -99,7 +100,7 @@ namespace CalValEX.AprilFools.Jharim
             {
                 bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
                 Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.SurfaceMushroom,
-                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A bumbling idiot."),
+                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Bestiary")),
             });
             }
         }
@@ -190,15 +191,15 @@ namespace CalValEX.AprilFools.Jharim
                 NPC.velocity.X *= 0.04f;
                 if (textcounter == 1)
                 {
-                    EdgyTalk("GRAHGAHGAH WHY WOULD YOU DO THAT!", Color.White, true);
+                    EdgyTalk(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.EdgyTalk1"), Color.White, true);
                 }
                 else if (textcounter == 120)
                 {
-                    EdgyTalk("IT    IS GOING TO WAKE UP HELPHELPHELP", Color.White, true);
+                    EdgyTalk(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.EdgyTalk2"), Color.White, true);
                 }
                 else if (textcounter == 240 || textcounter == 280 || textcounter == 300 || textcounter == 310 || textcounter == 305 || textcounter == 310 || textcounter == 315 || textcounter == 320)
                 {
-                    EdgyTalk("ORULQDORULQDORULQDORULQD", Color.DarkGreen, true);
+                    EdgyTalk(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.EdgyTalk3"), Color.DarkGreen, true);
                 }
                 if (textcounter == 360)
                 {
@@ -230,13 +231,13 @@ namespace CalValEX.AprilFools.Jharim
                     switch (Main.rand.Next(3))
                     {
                         case 0:
-                            return "Hyuck Hyuck Hyuck, hello I am Jharim the Great Jungle Tyrant. I appear in seek of someone to defeat a great beast for me.";
+                            return Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.homeless1");
 
                         case 1:
-                            return "That bag wasn't very comfy. I think I ate a fly in there.";
+                            return Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.homeless2");
 
                         default:
-                            return "Hyuck Hyuck Hyuck, I as Great Jungle Tyrant, will aid you on your quest to defeat the Non-Great Jungle Tyrant... by doing nothing!";
+                            return Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.homeless3");
                     }
                 }
 
@@ -244,69 +245,69 @@ namespace CalValEX.AprilFools.Jharim
 
                 if ((NPC.AnyNPCs(NPCID.LunarTowerNebula) || NPC.AnyNPCs(NPCID.LunarTowerVortex) || NPC.AnyNPCs(NPCID.LunarTowerStardust) || NPC.AnyNPCs(NPCID.LunarTowerSolar)) && Main.rand.NextFloat() < 0.25f)
                 {
-                    dialogue.Add("These pillars are spookay, and those dark globs some of their friends drop are... I don't want to touch any... especially if its on fire, so please don't shoot me with any fiery weapons made of that stuff.");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.LunarTower"));
                 }
 
                 if (CalValEX.CalamityActive)
                 {
                     if (CalValEXPlayer.CirrusDress)
                     {
-                        dialogue.Add("NO NO NOT THE STAR NEVER AGAIN NO NO NO!");
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.CirrusDress"));
                     }
 
                     int FAP = NPC.FindFirstNPC(CalValEX.CalamityNPC("FAP"));
                     if (FAP >= 0)
                     {
-                        dialogue.Add("Hyu Hyu Hyu... That purple lady stole my booze.");
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.FAP"));
                     }
 
                     int Cal = NPC.FindFirstNPC(CalValEX.CalamityNPC("WITCH"));
                     if (Cal >= 0)
                     {
-                        dialogue.Add("GET THAT ACURSED WITCH AWAY FROM ME");
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.WITCH"));
                     }
 
                     int SEAHOE = NPC.FindFirstNPC(CalValEX.CalamityNPC("SEAHOE"));
                     if (SEAHOE >= 0)
                     {
                         if (Cal >= 0)
-                            dialogue.Add("How is Amidas still alive, I thought that he got burnt by that DUMB witch.");
+                            dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.SEAHOE1"));
                         else
-                            dialogue.Add("How is Amidas still alive, I thought that he got burnt by Soup Ree Calamitoad.");
+                            dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.SEAHOE2"));
                     }
 
                     if (NPC.AnyNPCs(CalValEX.CalamityNPC("Draedon")))
                     {
-                        dialogue.Add("DRAAAAAAAAAEEEEEEEDOOOOOOOOOOOONNNNNNNNNNNNNNNNNNN I KNOW WHAT YOU DID!");
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.Draedon"));
                     }
 
                     if (NPC.AnyNPCs(CalValEX.CalamityNPC("THELORDE")))
                     {
-                        dialogue.Add("IMPOSTER!");
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.THELORDE"));
                     }
 
                     if (NPC.AnyNPCs(CalValEX.CalamityNPC("Yharon")))
                     {
-                        dialogue.Add("Hyuck Hyuck Hyuck, my loyal friend Yharon! I demand you to stop atacking! ... Guess he doesn't recognize me...");
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.Yharon"));
                     }
 
                     Mod clamMod = CalValEX.Calamity;
                     if (((bool)clamMod.Call("GetBossDowned", "supremecalamitas")) && ((bool)clamMod.Call("GetBossDowned", "exomechs")))
                     {
-                        dialogue.Add("It is time for you to face him.");
-                        dialogue.Add("The god of the universe... he is willing to face you now.");
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.GetBossDowned1"));
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.GetBossDowned2"));
                     }
 
                     if (player.ownedProjectileCounts[CalValEX.CalamityProjectile("WaterElementalMinion")] > 0)
                     {
-                        dialogue.Add("OoooooO Fish Lady, tell me! Where's my fish tacos!");
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.WaterElementalMinion"));
                     }
                 }
 
                 if (Main.eclipse)
                 {
-                    dialogue.Add("Hyuck Hyuck Hyuck, why is it so dark.");
-                    dialogue.Add("Hmm, I KNOW! I should go and wrestle one of those moths! I've wrestled a lot of moths before!");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.eclipse1"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.eclipse2"));
                     
                 }
 
@@ -314,51 +315,51 @@ namespace CalValEX.AprilFools.Jharim
                 {
                     if ((bool)CalValEX.Calamity.Call("GetDifficultyActive", "bossrush"))
                     {
-                        dialogue.Add("THE SKY IS COLLAPSING, IT'S THE END AGAIN!");
-                        dialogue.Add("THE MOTH, THEY'LL RECKON HAVOC UPON ME AND FLING ME OFF EXISTENCE AAAAAHHHHHHHHHH");
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.bossrush1"));
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.bossrush2"));
                     }
 
                     if ((bool)CalValEX.Calamity.Call("AcidRainActive"))
                     {
-                        dialogue.Add("ribbit.");
-                        dialogue.Add("I'm feeling kinda drunk right now Hyickup Hyickup. Maybe I should stop drinking highly toxic acid...");
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.AcidRainActive1"));
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.AcidRainActive2"));
                     }
                 }
 
                 if (BirthdayParty.PartyIsUp)
                 {
-                    dialogue.Add("Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck Hyuck .");
-                    dialogue.Add("PARTY TIMEEEEEEEEEEEEE HYUCK HYUCK HYUCK.");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.PartyIsUp1"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.PartyIsUp2"));
                 }
 
                 if (!Main.bloodMoon)
                 {
                     if (Main.dayTime)
                     {
-                        dialogue.Add("Hyuck Hyuck Hyuck, Jharim the Great orders you to get fish for me! ... what do you mean you don't want to!?");
-                        dialogue.Add("Yharim is a faker, I AM THE ONLY JUNGLE TYRANT!");
-                        dialogue.Add("HYuHck HYuHck HYuHck. Why am I spelling like this?");
-                        dialogue.Add("When I was younger, I tortured a bee for a minute straight then bashed nails into its body. It was funny and got a lot of views on TubeYou.");
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.Day1"));
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.Day2"));
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.Day3"));
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.Day4"));
                         
                     }
                     else
                     {
-                        dialogue.Add("It's dark.");
-                        dialogue.Add("Hyuck Hyuck Hyuck, nights remind me of the time that I went to the beach and was almost assassinated!");
-                        dialogue.Add("I wonder where my pet dog went.");
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.Night1"));
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.Night2"));
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.Night3"));
                     }
                 }
                 else
                 {
-                    dialogue.Add("Run.");
-                    dialogue.Add("The red moon... a cursed thing... Anyways where's my eggos, chop chop little one.");
-                    dialogue.Add("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.bloodMoon1"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.bloodMoon2"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.bloodMoon3"));
                 }
                 return dialogue;
             }
             else
             {
-                return "GAHUGIEGJIWEGUIEUWG";
+                return Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.0");
             }
         }
 
@@ -366,8 +367,8 @@ namespace CalValEX.AprilFools.Jharim
         {
             if (!MELDOSAURUSED)
             {
-                button = CalValEX.CalamityActive ? "Shop" : "Shop " + shopnum;
-                button2 = CalValEX.CalamityActive ? "Summon" : "Cycle Shop";
+                button = CalValEX.CalamityActive ? "Shop" : Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.ChatButtons1") + shopnum;
+                button2 = CalValEX.CalamityActive ? "Summon" : Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.ChatButtons2");
             }
         }
 
@@ -393,12 +394,12 @@ namespace CalValEX.AprilFools.Jharim
                             {
                                 NPC.active = false;
                                 NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, NPCType<Fogbound>());
-                                Main.NewText("You've awoken me... time to pay the price...", Color.Gray);
+                                Main.NewText(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.ButtonClicked1"), Color.Gray);
                                 NPC.HitEffect();
                             }
                             else
                             {
-                                Main.npcChatText = "The time is not here yet. He will only appear after both the supreme witch and the mechanical abominations have been silenced.";
+                                Main.npcChatText = Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.ButtonClicked2");
                             }
                         }
                     }
