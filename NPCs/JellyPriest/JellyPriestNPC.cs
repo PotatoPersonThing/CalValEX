@@ -22,6 +22,7 @@ using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 using CalValEX.Items.Tiles.Monoliths;
 using CalValEX.Items.Tiles.Blocks;
 using static CalValEX.CalValEXConditions;
+using Terraria.Localization;
 
 namespace CalValEX.NPCs.JellyPriest
 {
@@ -58,7 +59,7 @@ namespace CalValEX.NPCs.JellyPriest
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Ocean,
-                new FlavorTextBestiaryInfoElement("A jellyfish that took an odd evolutionary turn. Her affinity for building synergizes with her devotion to the Water Elemental."),
+                new FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Bestiary")),
             });
         }
 
@@ -121,26 +122,26 @@ namespace CalValEX.NPCs.JellyPriest
                     switch (Main.rand.Next(2))
                     {
                         case 0:
-                            return "Oh my Xeroc! It's her! I have to wrap up preparations quickly!";
+                            return Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.0");
 
                         default:
-                            return "After all of my preparations, she is finally here! Anahita of the Tides!";
+                            return Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.00");
                     }
                 }
 
             if (CalValEXPlayer.sirember && CalValEXPlayer.bossded <= 0)
             {
-                return "WHAT IS THAT HORRIBLE MONSTROSITY";
+                return Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.bossed");
             }
 
             if (CalValEXPlayer.sirember && CalValEXPlayer.bossded > 0 && NPC.GivenName != "Kuti")
             {
-                return "...Actually, that thing is sort of cute.";
+                return Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.Kuti0");
             }
 
             if (CalValEXPlayer.sirember && CalValEXPlayer.bossded > 0 && NPC.GivenName == "Kuti")
             {
-                return "Aww, that floating blob you got there is adorable! Reminds me of my magnificent childhood home! I miss it...";
+                return Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.Kuti1");
             }
 
             if (NPC.homeless)
@@ -148,10 +149,10 @@ namespace CalValEX.NPCs.JellyPriest
                 switch (Main.rand.Next(2))
                 {
                     case 0:
-                        return "Being free from those vines is great and all, but I need a place to settle for my sculpting.";
+                        return Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.homeless1");
 
                     default:
-                        return "Greetings, land creature! I rise from this old sea in hopes of traveling and finding a certain idol from the old times, from when the sea was a beautiful reign for many. Do you have any hint about where I could find them?";
+                        return Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.homeless2");
                 }
             }
 
@@ -164,58 +165,58 @@ namespace CalValEX.NPCs.JellyPriest
                 int FAP = NPC.FindFirstNPC(CalValEX.CalamityNPC("FAP"));
                 if (FAP >= 0)
                 {
-                    dialogue.Add("I don't feel very comfortable with how close that 'Princess' gets to me when I'm showing her some decorations, I'm starting to think she wants to make food out of me by what she says...!");
-                    dialogue.Add("The last time that Cirrus got near my decorations, she tore off one of my bust's heads!");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.FAP1"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.FAP2"));
                 }
 
                 int WITCH = NPC.FindFirstNPC(CalValEX.CalamityNPC("WITCH"));
                 if (WITCH >= 0)
                 {
-                    dialogue.Add("That witch... she does not give me any good memories...");
-                    dialogue.Add("Have you heard of the Brimstone Witch's destruction of the capital of the underworld? It was quite a tragedy... a lot of architecture ruined!");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.WITCH1"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.WITCH2"));
                 }
 
                 int SEAHOE = NPC.FindFirstNPC(CalValEX.CalamityNPC("SEAHOE"));
                 if (SEAHOE >= 0)
                 {
-                    dialogue.Add("The great sea king I've heard many tales of... And you say that you found him inside a clam...? Oh my, isn't that pathetic now.");
-                    dialogue.Add("Do you think Amidias knows anything about the sea idol I'm searching? It seems that old horse got a lot of knowledge about story.");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.SEAHOE1"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.SEAHOE2"));
                 }
                 if ((bool)CalValEX.Calamity.Call("GetBossDowned", "leviathan") && !NPC.AnyNPCs(CalValEX.CalamityNPC("Anahita")))
                 {
-                    dialogue.Add("Oh! So you did find the location of the idol I'm searching for? Please explain in detail everything about them, I would love to start working on my offerings and monuments as soon as possible.");
-                    dialogue.Add("For some reason, the idol's presence feels like it's weakened. I hope nothing bad happened to her.");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.leviathan1"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.leviathan2"));
                     
                 }
                 if ((bool)CalValEX.Calamity.Call("GetBossDowned", "scal"))
                 {
-                    dialogue.Add("Yeesh, through all of your adventures, I've stocked up quite the inventory!");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.scal"));
                 }
 
                 if (player.ownedProjectileCounts[CalValEX.CalamityProjectile("WaterElementalMinion")] > 0)
                 {
-                    dialogue.Add("You were successfully able to befriend the grand Water Elemental? I'm impressed.");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.WaterElementalMinion"));
                 }
 
                 if (CalValEXPlayer.SirenHeart)
                 {
-                    dialogue.Add("OH! Please, welcome yourself to my shop. I've been preparing these just for you.");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.SirenHeart"));
                 }
 
                 if (CalValEXPlayer.CirrusDress)
                 {
-                    dialogue.Add("That's a pretty dress! I know someone who was working on a similar one, but it took so long that they gave up.");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.CirrusDress"));
                 }
 
                 if (player.ownedProjectileCounts[CalValEX.CalamityProjectile("OceanSpirit")] > 0)
                 {
-                    dialogue.Add("Awe, that little one is cute. She reminds me a lot of the idol I seek.");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.OceanSpirit"));
                 }
             }
 
             if (CalValEXPlayer.babywaterclone)
             {
-                dialogue.Add("That little one has a presence that feels similar, but different to the idol I seek.");
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.babywaterclone"));
             }
 
             if (Main.eclipse)
@@ -223,41 +224,41 @@ namespace CalValEX.NPCs.JellyPriest
                 switch (Main.rand.Next(2))
                 {
                     case 0:
-                        return "It seems spooky out there, how about you stay inside my humble abode.";
+                        return Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.eclipse1");
 
                     default:
-                        return "Hmm, maybe I can use those bits of cloth that some of those creatures have to make something.";
+                        return Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.eclipse2");
                 }
             }
 
             if (BirthdayParty.PartyIsUp)
             {
-                dialogue.Add("Parties are fun! Hopefully one day, I can help make one which will catch the eye of the idol I seek.");
-                dialogue.Add("There's a lot of celebration today. Hopefully I can spice things up with my decorations!");
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.PartyIsUp1"));
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.PartyIsUp2"));
             }
 
             if (!Main.bloodMoon)
             {
                 if (Main.dayTime)
                 {
-                    dialogue.Add("This place reeks of sadness, let me help you get the place better with some beautiful decorations will you.");
-                    dialogue.Add("I told you already, I'm not going back into that stinky sea to get you materials for your stuff... unless you have some extra change with you, of course.");
-                    dialogue.Add("I would love to decorate your place for free, but I require some coins for buying offerings you know?");
-                    dialogue.Add("Oh, where I got this apron and tools from? It is all handmade by myself with resources from around my place! You learn to do this stuff over time with enough passion.");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.Day1"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.Day2"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.Day3"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.Day4"));
                 }
                 else
                 {
-                    dialogue.Add("Although the night sky makes things harder to see, some of my decorations can pierce the darkness with colorful light.");
-                    dialogue.Add("I actually have higher motivation to work at night, the moon reminds me of someone...");
-                    dialogue.Add("I wonder if the idol I seek watches the moon like I do.");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.Night1"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.Night2"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.Night3"));
                 }
             }
             else
             {
-                dialogue.Add("This isn't a night where I feel like working.");
-                dialogue.Add("Darling, could you keep an eye on the furniture? Stuff seems to be getting out of control for some reason.");
-                dialogue.Add("The eerie redness of the sky does not look pretty on most of my decorations...");
-                dialogue.Add("Stay away from my statues!");
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.bloodMoon1"));
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.bloodMoon2"));
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.bloodMoon3"));
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.bloodMoon4"));
             }
             return dialogue;
         }
@@ -265,16 +266,16 @@ namespace CalValEX.NPCs.JellyPriest
         public override void SetChatButtons(ref string button, ref string button2)
         {
             if (shoptype == 1)
-                button = "Blocks";
+                button = Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.ChatButtons1");
             else if (shoptype == 2)
-                button = "Lategame Blocks";
+                button = Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.ChatButtons2");
             else if (shoptype == 3)
-                button = "General";
+                button = Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.ChatButtons3");
             else if (shoptype == 4)
-                button = "Plants";
+                button = Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.ChatButtons4");
             else
-                button = "Blocks";
-            button2 = "Switch Shop";
+                button = Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.ChatButtons5");
+            button2 = Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.ChatButtons0");
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref string shop)

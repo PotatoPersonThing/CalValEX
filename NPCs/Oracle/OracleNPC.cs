@@ -63,7 +63,7 @@ namespace CalValEX.NPCs.Oracle
         {
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
                 Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
-                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A clairvoyant with a passion for collecting little creatures. She is accomponied by a squishy little critter that she created using her mystic powers."),
+                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Bestiary")),
             });
         }
 
@@ -104,10 +104,10 @@ namespace CalValEX.NPCs.Oracle
                 switch (Main.rand.Next(2))
                 {
                     case 0:
-                        return "I know, I know, you can't make homes for each of my buddies, but could you spare one for me?";
+                        return Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.homeless1");
 
                     default:
-                        return "I might not be very useful for your adventure, but believe me, my babies are adorable!";
+                        return Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.homeless2");
                 }
             }
 
@@ -117,13 +117,13 @@ namespace CalValEX.NPCs.Oracle
             {
                 if (!Main.bloodMoon)
                 {
-                    dialogue.Add("Aww... I love your little buddy, " + Main.player[Main.myPlayer].name + ". You take care of 'em, 'kay?");
-                    dialogue.Add("What a cutie you have there, punk! You better care of em', 'kay?");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.miscEquips1") + Main.player[Main.myPlayer].name + Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.miscEquips11"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.miscEquips2"));
                 }
                 else
                 {
-                    dialogue.Add("You should be happy that your buddy there isn't like TUB.");
-                    dialogue.Add("Maybe you should start putting your buddy away, for your own safety.");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.miscEquips3"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.miscEquips4"));
                 }
             }
 
@@ -131,55 +131,55 @@ namespace CalValEX.NPCs.Oracle
             {
                 if (!CalValEXWorld.astro)
                 {
-                    dialogue.Add("I was looking through that spacey area the other day and saw a large robot. It appeared to have some slime leaking out of it... wonder if it could be dislodged with more space goo or somethin.");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.astro1"));
                 }
-                dialogue.Add("Y'know, if you're trying to find a certain little Water Elemental, you may have better luck if you take a fishing trip instead of resorting to violence.");
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.astro2"));
             }
 
             if (CalValEX.CalamityActive)
             {
                 if (NPC.AnyNPCs(CalValEX.CalamityNPC("Bumblefuck")))
                 {
-                    dialogue.Add("That little birb over there seems to have a lot of little friends you can recover!");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.Bumblefuck"));
                 }
 
                 int WITCH = NPC.FindFirstNPC(CalValEX.CalamityNPC("WITCH"));
                 if (WITCH >= 0)
                 {
-                    dialogue.Add("Some people may fear Calamitas, but she's got a lot of cute little ones with her like those bats and the necropede! She can't be that bad.");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.WITCH"));
                 }
 
                 if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().CirrusDress)
                 {
-                    dialogue.Add("Hey, ya'd rather wear those alcohol drenched rags than something more stylish? Not judging.");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.CirrusDress"));
                 }
             }
 
             int wizard = NPC.FindFirstNPC(NPCID.Wizard);
             if (wizard >= 0)
             {
-                dialogue.Add(Main.npc[wizard].GivenName + " may seem like a weird old dude with a silly costume, but his magic is real for sure.");
-                dialogue.Add("Hey punk, can you talk to " + Main.npc[wizard].GivenName + "? I have a buddy that he might enjoy having!");
+                dialogue.Add(Main.npc[wizard].GivenName + Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.Wizard1"));
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.Wizard2") + Main.npc[wizard].GivenName + Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.Wizard22"));
             }
 
             if (!Main.expertMode)
             {
-                dialogue.Add("Y'know kid, a lot of little buddies tend to only follow those who challenge themselves. Some could say that they will only follow Experts.");
-                dialogue.Add("While your current adventure gives many opportunity to find little friends, I heard that Experts attract a lot more!");
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.expertMode1"));
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.expertMode2"));
             }
 
             if (Main.eclipse)
             {
-                dialogue.Add("I'm happy that none of my friends become as mindless as these monsters!");
-                dialogue.Add("Hey " + Main.player[Main.myPlayer].name + ", if you see one of my babies go a little more agressive than usual, please don't hurt them.");
-                dialogue.Add("Hey punk! Promise me to protect me and my buddies, alright?");
-                dialogue.Add("I sure am glad that my friends are not going mad on this weird day.");
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.eclipse1"));
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.eclipse2") + Main.player[Main.myPlayer].name + Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.eclipse2"));
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.eclipse3"));
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.eclipse4"));
             }
 
             if (BirthdayParty.PartyIsUp)
             {
-                dialogue.Add("My cuties are having a blast in this fine day! You should get one to have a great day yourself!");
-                dialogue.Add("Today is a great day to get a new pal! You should totally get one today bro.");
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.PartyIsUp1"));
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.PartyIsUp2"));
             }
 
             if (!Main.bloodMoon)
@@ -188,20 +188,20 @@ namespace CalValEX.NPCs.Oracle
                 {
                     if (!CalValEXWorld.ninja)
                     {
-                        dialogue.Add("Have you ever tried throwing a metal star at a slime? I heard if ya do it enough, it'll take a liken to you");
+                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.ninja"));
                     }
-                    dialogue.Add("Hey punk! I got some cute pets and I know you wanna buy one of 'em");
-                    dialogue.Add("You're destined to do great things, bro. Do one right now and give these babies a home.");
-                    dialogue.Add("How does my little pet TUB eat? Well... ya don't wanna know that, bud.");
-                    dialogue.Add("Being clairvoyant helps find me pets in need and homes for the ones I have. Which have you got today " + Main.player[Main.myPlayer].name + "?");
-                    dialogue.Add("Been expecting you, punk. Right on time. Now let's talk about those cuties.");
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.Day1"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.Day2"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.Day3"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.Day4") + Main.player[Main.myPlayer].name + Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.Day44"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.Day5"));
                 }
                 else
                 {
-                    dialogue.Add("The stars are watching you, punk. Don't fail 'em.");
-                    dialogue.Add("It's dark and gloomy outside. Why not buy one of my little pals to keep you spirits up?");
-                    dialogue.Add("It's never too late to get one of these babies. Get one now, punk!");
-                    dialogue.Add("Do you need a buddy in these dark times?");                    
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.Night1"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.Night2"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.Night3"));
+                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.Night4"));                    
                 }
             }
             else
@@ -211,15 +211,15 @@ namespace CalValEX.NPCs.Oracle
                     //pet becomes angery at you for like, a minute (or you go far away from the npc)
                     OracleGlobalNPC.playerTarget = Main.player[Main.myPlayer].whoAmI;
                     OracleGlobalNPC.playerTargetTimer = Main.rand.Next(3600, 7201); //1 to 2 minutes
-                    return "YOU ARE NEXT.";
+                    return Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.Next");
                 }
 
-                dialogue.Add("You better get one of these babies, or else.");
-                dialogue.Add("You don't want to know what by buddy TUB can do to you in these times.");
-                dialogue.Add("You better don't get in the way of me and one of my babies.");
-                dialogue.Add("Hey " + Main.player[Main.myPlayer].name + ", maybe you should try to hide for tonight.");
-                dialogue.Add("You better run tonight, punk. TUB is looking for you and it won't go easy.");
-                dialogue.Add("If you like living you should start hiding.");
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.bloodMoon1"));
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.bloodMoon2"));
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.bloodMoon3"));
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.bloodMoon4") + Main.player[Main.myPlayer].name + Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.bloodMoon44"));
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.bloodMoon5"));
+                dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.bloodMoon6"));
             }
             return dialogue;
         }
@@ -227,7 +227,7 @@ namespace CalValEX.NPCs.Oracle
         public override void SetChatButtons(ref string button, ref string button2)
         {
             button = Language.GetTextValue("LegacyInterface.28");
-            button2 = "Divination";
+            button2 = Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.ChatButtons");
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref string shopName)
@@ -242,7 +242,7 @@ namespace CalValEX.NPCs.Oracle
                 {
                     if (!Main.LocalPlayer.GetModPlayer<OraclePlayer>().playerHasGottenBag)
                     {
-                        Main.npcChatText = "Here's what TUB found with my divination!";
+                        Main.npcChatText = Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.ButtonClicked1");
                         Main.LocalPlayer.GetModPlayer<OraclePlayer>().playerHasGottenBag = true;
                         if (CalValEX.month == 10)
                         {
@@ -292,7 +292,7 @@ namespace CalValEX.NPCs.Oracle
                     }
                     else
                     {
-                        Main.npcChatText = "Sorry dude, only one reading per day!";
+                        Main.npcChatText = Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.ButtonClicked2");
                     }
                 }
             }
