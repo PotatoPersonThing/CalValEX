@@ -306,8 +306,12 @@ namespace CalValEX {
         public bool bellaCloakForce;
         public bool helipack;
         public bool CalValPat;
+        public bool jellyInv;
+        public bool oracleInv;
 
         public override void Initialize() {
+            jellyInv = false;
+            oracleInv = false;
             ResetMyStuff();
             CalamityBabyGotHit = false;
             morshuTimer = 0;
@@ -751,6 +755,8 @@ namespace CalValEX {
             brimberry = false;
             helipack = false;
             CalValPat = false;
+
+
         }
 
         public override void OnHurt(Player.HurtInfo info) {

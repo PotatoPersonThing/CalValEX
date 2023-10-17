@@ -65,23 +65,26 @@ namespace CalValEX
         public override void AddRecipes()
         {
             #region //April Fools
-            if (CalValEX.AprilFoolWeek)
             {
-                {
-                    Recipe recipe = Recipe.Create(ItemType<JharimHead>());
-                    recipe.AddIngredient(ItemID.GoldOre);
-                    recipe.AddTile(TileID.WorkBenches);
-                    recipe.Register();
-                }
+                Recipe recipe = Recipe.Create(ItemType<JharimHead>());
+                recipe.AddIngredient(ItemID.GoldOre);
+                recipe.AddTile(TileID.WorkBenches);
+                recipe.AddCondition(new Condition("During April Fools week or on the getfixedboi seed.", () => Main.zenithWorld || CalValEX.AprilFoolWeek));
+                recipe.Register();
             }
-            if (CalValEX.AprilFoolMonth)
             {
-                {
-                    Recipe recipe = Recipe.Create(ItemType<AprilFools.Meldosaurus.KnowledgeMeldosaurus>());
-                    recipe.AddIngredient(ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusTrophy>());
-                    recipe.AddTile(TileID.Bookcases);
-                    recipe.Register();
-                }
+                Recipe recipe = Recipe.Create(ItemType<JharimHead>());
+                recipe.AddIngredient(ItemID.PlatinumOre);
+                recipe.AddTile(TileID.WorkBenches);
+                recipe.AddCondition(new Condition("During April Fools week or on the getfixedboi seed.", () => Main.zenithWorld || CalValEX.AprilFoolWeek));
+                recipe.Register();
+            }
+            {
+                Recipe recipe = Recipe.Create(ItemType<AprilFools.Meldosaurus.KnowledgeMeldosaurus>());
+                recipe.AddIngredient(ItemType<AprilFools.Meldosaurus.MeldosaurusTrophy>());
+                recipe.AddTile(TileID.Bookcases);
+                recipe.AddCondition(new Condition("During April Fools month on the getfixedboi seed.", () => Main.zenithWorld || CalValEX.AprilFoolMonth));
+                recipe.Register();
             }
             #endregion
 

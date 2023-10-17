@@ -43,6 +43,7 @@ using CalValEX.AprilFools;
 using Terraria.DataStructures;
 using Terraria.Localization;
 using System.Security.Policy;
+using CalValEX.NPCs.JellyPriest;
 
 namespace CalValEX
 {
@@ -1093,9 +1094,9 @@ namespace CalValEX
         }
 
         [JITWhenModsEnabled("CalamityMod")]
-        public void BossExclam(NPC npc, int[] types, bool downed, int boss)
+        public void BossExclam(NPC npc, int[] types, bool downed, int boss, bool additionalCondition = true)
         {
-            if (npc.type == boss && !downed)
+            if (npc.type == boss && !downed && additionalCondition)
             {
                 CalamityMod.NPCs.CalamityGlobalNPC.SetNewShopVariable(types, downed);
             }
@@ -1122,6 +1123,47 @@ namespace CalValEX
             }
             if (CalValEX.CalamityActive)
             {
+                int jellyID = ModContent.NPCType<JellyPriestNPC>();
+                int oracleID = ModContent.NPCType<OracleNPC>();
+
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "giantclam"), CalValEX.CalamityNPC("GiantClam"));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "crabulon"), CalValEX.CalamityNPC("Crabulon"));
+                BossExclam(npc, new int[] { jellyID }, NPC.downedBoss3, NPCID.SkeletronHead);
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "slimegod"), CalValEX.CalamityNPC("SlimeGodCore"));
+                BossExclam(npc, new int[] { jellyID }, Main.hardMode, NPCID.WallofFlesh);
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "cryogen"), CalValEX.CalamityNPC("Cryogen"));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "aquaticscourge"), CalValEX.CalamityNPC("AquaticScourgeHead"));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "brimstoneelemental"), CalValEX.CalamityNPC("BrimstoneElemental"));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "calamitasclone"), CalValEX.CalamityNPC("CalamitasClone"));
+                BossExclam(npc, new int[] { jellyID }, NPC.downedPlantBoss, NPCID.Plantera);
+                BossExclam(npc, new int[] { jellyID }, NPC.downedGolemBoss, NPCID.Golem);
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "leviathan"), CalValEX.CalamityNPC("Anahita"), !NPC.AnyNPCs(CalValEX.CalamityNPC("Leviathan")));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "leviathan"), CalValEX.CalamityNPC("Leviathan"), !NPC.AnyNPCs(CalValEX.CalamityNPC("Anahita")));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "plaguebringergoliath"), CalValEX.CalamityNPC("PlaguebringerGoliath"));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "ravager"), CalValEX.CalamityNPC("RavagerBody"));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "providence"), CalValEX.CalamityNPC("Providence"));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "stormweaver"), CalValEX.CalamityNPC("StormWeaverHead"));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "ceaselessvoid"), CalValEX.CalamityNPC("CeaselessVoid"));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "signus"), CalValEX.CalamityNPC("Signus"));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "polterghast"), CalValEX.CalamityNPC("Polterghast"));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "oldduke"), CalValEX.CalamityNPC("OldDuke"));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "devourerofgods"), CalValEX.CalamityNPC("DevourerofGodsHead"));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "yharon"), CalValEX.CalamityNPC("Yharon"));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "exomechs"), CalValEX.CalamityNPC("AresBody"), !NPC.AnyNPCs(CalValEX.CalamityNPC("Apollo")) && !NPC.AnyNPCs(CalValEX.CalamityNPC("ThanatosHead")));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "exomechs"), CalValEX.CalamityNPC("Apollo"), !NPC.AnyNPCs(CalValEX.CalamityNPC("AresBody")) && !NPC.AnyNPCs(CalValEX.CalamityNPC("ThanatosHead")));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "exomechs"), CalValEX.CalamityNPC("ThanatosHead"), !NPC.AnyNPCs(CalValEX.CalamityNPC("Apollo")) && !NPC.AnyNPCs(CalValEX.CalamityNPC("AresBody")));
+                BossExclam(npc, new int[] { jellyID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "supremecalamitas"), CalValEX.CalamityNPC("SupremeCalamitas"));
+
+                BossExclam(npc, new int[] { oracleID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "hivemind"), CalValEX.CalamityNPC("HiveMind"));
+                BossExclam(npc, new int[] { oracleID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "perforator"), CalValEX.CalamityNPC("PerforatorHive"));
+                BossExclam(npc, new int[] { oracleID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "cryogen"), CalValEX.CalamityNPC("Cryogen"));
+                BossExclam(npc, new int[] { oracleID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "brimstoneelemental"), CalValEX.CalamityNPC("BrimstoneElemental"));
+                BossExclam(npc, new int[] { oracleID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "calamitasclone"), CalValEX.CalamityNPC("CalamitasClone"));
+                BossExclam(npc, new int[] { oracleID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "dragonfolly"), CalValEX.CalamityNPC("Bumblefuck"));
+                BossExclam(npc, new int[] { oracleID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "signus"), CalValEX.CalamityNPC("Signus"));
+                BossExclam(npc, new int[] { oracleID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "devourerofgods"), CalValEX.CalamityNPC("DevourerofGodsHead"));
+                BossExclam(npc, new int[] { oracleID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "yharon"), CalValEX.CalamityNPC("Yharon"));
+
                 BossExclam(npc, new int[] { CalValEX.CalamityNPC("SEAHOE") }, (bool)CalValEX.Calamity.Call("GetBossDowned", "oldduke"), CalValEX.CalamityNPC("OldDuke"));
                 BossExclam(npc, new int[] { CalValEX.CalamityNPC("SEAHOE") }, (bool)CalValEX.Calamity.Call("GetBossDowned", "scal"), CalValEX.CalamityNPC("SupremeCalamitas"));
 
@@ -1434,7 +1476,7 @@ namespace CalValEX
 
         public override void OnKill(NPC npc)
         {
-            if (CalValEX.CalamityActive /*&& !ModLoader.HasMod("CalamityHunt")*/)
+            if (CalValEX.CalamityActive && !ModLoader.HasMod("CalamityHunt"))
             {
                 if (NPCID.Sets.IsTownSlime[npc.type] && NPC.AnyNPCs(CalValEX.CalamityNPC("SlimeGodCore")))
                 {

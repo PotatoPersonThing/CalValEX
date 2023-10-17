@@ -140,12 +140,32 @@ namespace CalValEX
             ChristmasTextureChange.Unload();
         }
 
+        public static bool GetShopJelly(Player player)
+        {
+            return Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().jellyInv;
+        }
+        public static void SetShopJelly(Player player, bool enabled)
+        {
+            Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().jellyInv = enabled;
+        }
+
+        public static bool GetShopOracle(Player player)
+        {
+            return Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().oracleInv;
+        }
+        public static void SetShopOracle(Player player, bool enabled)
+        {
+            Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().oracleInv = enabled;
+        }
+
         public override void PostSetupContent()
         {
             if (CalamityActive)
             {
                 Mod cal = ModLoader.GetMod("CalamityMod");
                 cal.Call("MakeItemExhumable", ModContent.ItemType<RottingCalamitousArtifact>(), ModContent.ItemType<CalamitousSoulArtifact>());
+                cal.Call("RegisterNPCShop", ModContent.NPCType<JellyPriestNPC>(), new Predicate<Player>(GetShopJelly), new Action<Player, bool>(SetShopJelly));
+                cal.Call("RegisterNPCShop", ModContent.NPCType<OracleNPC>(), new Predicate<Player>(GetShopOracle), new Action<Player, bool>(SetShopOracle));
             }
 
             //Census support
@@ -158,6 +178,7 @@ namespace CalValEX
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<AprilFools.Jharim.Jharim>(), "It's a secret");
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<NPCs.TownPets.Slimes.AstroSlime>(), "Hit Astrum Aureus with the ABandoned Slime Staff's minion");
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<NPCs.TownPets.Slimes.NinjaSlime>(), "Has a chance to spawn upon hitting any normal slime with a Shuriken");
+                censusMod.Call("TownNPCCondition", ModContent.NPCType<NPCs.TownPets.Slimes.Tarr>(), "Defeat Goozma (with CalamityHunt) or let the Slime God eat a town slime (without CalamityHunt)");
 
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<NuggetNugget>(), Language.GetText("Mods.CalValEX.Census") + $" [i:{ModContent.ItemType<NuggetLicense>()}]");
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<DracoNugget>(), Language.GetTextValue("Mods.CalValEX.Census") + $" [i:{ModContent.ItemType<NuggetLicense>()}]");
