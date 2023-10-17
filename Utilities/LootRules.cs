@@ -124,7 +124,7 @@ namespace CalValEX
         {
             public bool CanDrop(DropAttemptInfo info)
             {
-                return !CalValEXConfig.Instance.ConfigBossBlocks;
+                return !CalValEXConfig.Instance.ConfigBossBlocks && CalValEX.CalamityActive;
             }
 
             public bool CanShowItemDropInUI()

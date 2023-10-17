@@ -22,20 +22,20 @@ namespace CalValEX
         public static Condition oreo = new("After Astrum Aureus has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "astrumaureus") : NPC.downedPlantBoss);
         public static Condition lev = new("After Leviathan and Anahita have been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "leviathan") : NPC.downedPlantBoss);
         public static Condition pb = new("After Calamitas has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "plaguebringergoliath") : NPC.downedGolemBoss);
-        public static Condition rav = new("After Ravager has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "ravager") : NPC.downedEmpressOfLight);
+        public static Condition rav = new("After Ravager has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "ravager") : NPC.downedGolemBoss);
         public static Condition deus = new("After Astrum Deus has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "astrumdeus") : NPC.downedAncientCultist);
-        public static Condition donut = new("After the Profaned Guardians have been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "profanedguardians") : NPC.downedEmpressOfLight);
+        public static Condition donut = new("After the Profaned Guardians have been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "profanedguardians") : NPC.downedQueenSlime);
         public static Condition birb = new("After The Dragonfolly has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "dragonfolly") : NPC.downedGolemBoss);
         public static Condition prov = new("After Providence has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "providence") : NPC.downedEmpressOfLight);
         public static Condition weavie = new("After Storm Weaver has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "stormweaver") : NPC.downedMechBoss2);
         public static Condition toaster = new("After Ceaseless Void has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "ceaselessvoid") : NPC.downedMechBoss1);
         public static Condition siggy = new("After Signus has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "signus") : NPC.downedMechBoss3);
-        public static Condition polt = new("After Polterghast has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "polterghast") : NPC.downedAncientCultist);
+        public static Condition polt = new("After Polterghast has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "polterghast") : NPC.downedPlantBoss);
         public static Condition boomer = new("After The Old Duke has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "oldduke") : NPC.downedFishron);
-        public static Condition dog = new("After The Devourer of Gods has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "devourerofgods") : NPC.downedMartians);
-        public static Condition yharon = new("After Yharon has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "yharon") : NPC.downedGolemBoss);
-        public static Condition exo = new("After the Exo Mechs have been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "draedon") : NPC.downedMoonlord);
-        public static Condition scal = new("After Calamitas has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "scal") : NPC.downedMoonlord);
+        public static Condition dog = new("After The Devourer of Gods has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "devourerofgods") : NPC.downedMoonlord);
+        public static Condition yharon = new("After Yharon has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "yharon") : NPC.downedFishron);
+        public static Condition exo = new("After the Exo Mechs have been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "draedon") : NPC.downedMechBossAny);
+        public static Condition scal = new("After Calamitas has been defeated", () => CalValEX.CalamityActive ? (bool)CalValEX.Calamity.Call("GetBossDowned", "scal") : NPC.downedAncientCultist);
         // Misc downed conditions
         public static Condition acid = new("After Acid Rain tier 2 has been cleared or in the Sulphurous Sea", () => CalValEX.CalamityActive ? (CalValEX.InCalamityBiome(Main.LocalPlayer, "SulphurousSeaBiome") || (bool)CalValEX.Calamity.Call("GetBossDowned", "acidrainscourge")) : false);
         public static Condition evil = new Condition("If either the Hive Mind or The Perforators have been defeated", () => CalValEX.CalamityActive ? ((bool)CalValEX.Calamity.Call("GetBossDowned", "hivemind") || (bool)CalValEX.Calamity.Call("GetBossDowned", "perforators")) : false);
