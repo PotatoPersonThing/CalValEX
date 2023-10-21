@@ -32,7 +32,11 @@ namespace CalValEX.CalamityID
 {
     public class CalNPCID
     {
+        #region Minibosses
         public static int GiantClam => CalamityID.NPCRelation("GiantClam", NPCID.EyeofCthulhu);
+        #endregion
+
+        #region Bosses
         public static int DesertScourge => CalamityID.NPCRelation("DesertScourgeHead", NPCID.EyeofCthulhu);
         public static int Crabulon => CalamityID.NPCRelation("Crabulon", NPCID.BrainofCthulhu);
         public static int HiveMind => CalamityID.NPCRelation("HiveMind", NPCID.EaterofWorldsHead);
@@ -66,9 +70,11 @@ namespace CalValEX.CalamityID
         public static int Thanatos => CalamityID.NPCRelation("ThanatosHead", NPCID.TheDestroyer);
         public static int SupremeCalamitas => CalamityID.NPCRelation("SupremeCalamitas", NPCID.CultistBoss);
         public static int PrimordialWyrm => CalamityID.NPCRelation("PrimordialWyrmHead", NPCID.MoonLordCore);
+        #endregion
     }
     public class CalItemID
     {
+        #region Bags
         public static int StarterBag => CalamityID.ItemRelation("StarterBag", ItemID.KingSlimeBossBag);
         public static int DesertScourgeBag => CalamityID.ItemRelation("DesertScourgeBag", ItemID.EyeOfCthulhuBossBag);
         public static int CrabulonBag => CalamityID.ItemRelation("CrabulonBag", ItemID.BrainOfCthulhuBossBag);
@@ -95,8 +101,12 @@ namespace CalValEX.CalamityID
         public static int YharonBag => CalamityID.ItemRelation("YharonBag", ItemID.FishronBossBag);
         public static int DraedonBox => CalamityID.ItemRelation("DraedonBag", ItemID.MoonLordBossBag);
         public static int SupremeCalamitasCoffer => CalamityID.ItemRelation("CalamitasCoffer", ItemID.MoonLordBossBag);
+        #endregion
+
+        #region Crates
         public static int SulphurousCrate => CalamityID.ItemRelation("SulphurousCrate", ItemID.OceanCrateHard);
         public static int SunkenCrate => CalamityID.ItemRelation("SunkenCrate", ItemID.OasisCrateHard);
         public static int AstralCrate => CalamityID.ItemRelation("AstralCrate", ItemID.FloatingIslandFishingCrateHard);
+        #endregion
     }
 }

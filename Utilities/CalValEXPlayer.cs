@@ -27,6 +27,12 @@ using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Equips.Shirts;
 using CalValEX.Items.Equips.Wings;
+using CalValEX.Items.Mounts.Ground;
+using CalamityMod.Particles;
+using rail;
+using CalamityMod.Items.Accessories;
+using CalamityMod.NPCs.TownNPCs;
+using System.Diagnostics.Contracts;
 
 namespace CalValEX {
     public class CalValEXPlayer : ModPlayer {
@@ -308,6 +314,7 @@ namespace CalValEX {
         public bool CalValPat;
         public bool jellyInv;
         public bool oracleInv;
+        public bool bikeShred;
 
         public override void Initialize() {
             jellyInv = false;
@@ -570,6 +577,123 @@ namespace CalValEX {
                 CalamityMod.Particles.GeneralParticleHandler.SpawnParticle(smoke);*/
             }
         }
+        public override void PostUpdate()
+        {
+            bool flag21 = Player.onTrack;
+            bool flag22 = false;
+            if (Player.mount.Type == MountType<ProfanedCycle>())
+            {
+                Player.fartKartCloudDelay = Math.Max(0, Player.fartKartCloudDelay - 1);
+                float num18 = ((Player.ignoreWater || Player.merman) ? 1f : (Player.shimmerWet ? 0.25f : (Player.honeyWet ? 0.25f : ((!Player.wet) ? 1f : 0.5f))));
+                Player.velocity *= num18;
+                BitsByte bitsByte = Minecart.TrackCollision(Player, ref Player.position, ref Player.velocity, ref Player.lastBoost, Player.width, Player.height, Player.controlDown, Player.controlUp, Player.fallStart2, trackOnly: false, Player.mount.Delegations);
+                if (bitsByte[0])
+                {
+                    Player.onTrack = true;
+                    //Player.gfxOffY = Minecart.TrackRotation(Player, ref Player.fullRotation, Player.position + Player.velocity, Player.width, Player.height, Player.controlDown, Player.controlUp, Player.mount.Delegations);
+                    //Player.fullRotationOrigin = new Vector2((float)(Player.width / 2), (float)Player.height);
+
+                    Vector2 impactPoint = Player.Bottom + Vector2.UnitX * 8 * -Player.direction;
+                    Vector2 bloodSpawnPosition = Player.Bottom + Main.rand.NextVector2Circular(16, 16) * 0.04f;
+                    Vector2 splatterDirection = (new Vector2(bloodSpawnPosition.X * -Player.direction, bloodSpawnPosition.Y)).SafeNormalize(Vector2.UnitY);
+                    for (int i = 0; i < 2; i++)
+                    {
+                        int sparkLifetime = Main.rand.Next(2, 11);
+                        float sparkScale = Main.rand.NextFloat(0.8f, 1f);
+                        Color sparkColor = Color.Lerp(Color.Silver, Color.Gold, Main.rand.NextFloat(0.7f));
+                        sparkColor = Color.Lerp(sparkColor, Color.Orange, Main.rand.NextFloat());
+
+                        if (Main.rand.NextBool(10))
+                            sparkScale *= 2f;
+
+                        Vector2 sparkVelocity = splatterDirection.RotatedByRandom(0.6f) * Main.rand.NextFloat(12f, 25f);
+                        sparkVelocity.Y -= 6f;
+                        SparkParticle spark = new SparkParticle(impactPoint, sparkVelocity, true, sparkLifetime, sparkScale, sparkColor);
+                        GeneralParticleHandler.SpawnParticle(spark);
+                    }
+                }
+                if (flag21 && !Player.onTrack)
+                {
+                    Player.mount.Delegations.MinecartJumpingSound(Player, Player.position, Player.width, Player.height);
+                }
+                if (bitsByte[1])
+                {
+                    if (Player.controlLeft || Player.controlRight)
+                    {
+                        if (Player.cartFlip)
+                        {
+                            Player.cartFlip = false;
+                        }
+                        else
+                        {
+                            Player.cartFlip = true;
+                        }
+                    }
+                    if (Player.velocity.X > 0f)
+                    {
+                        Player.direction = 1;
+                    }
+                    else if (Player.velocity.X < 0f)
+                    {
+                        Player.direction = -1;
+                    }
+                    Player.mount.Delegations.MinecartBumperSound(Player, Player.position, Player.width, Player.height);
+                }
+                Player.velocity /= num18;
+                if (bitsByte[3] && Player.whoAmI == Main.myPlayer)
+                {
+                    flag22 = true;
+                }
+                if (bitsByte[2])
+                {
+                    Player.cartRampTime = (int)(Math.Abs(Player.velocity.X) / Player.mount.RunSpeed * 20f);
+                }
+                if (bitsByte[4])
+                {
+                    Player.trackBoost -= 4f;
+                }
+                if (bitsByte[5])
+                {
+                    Player.trackBoost += 4f;
+                }
+                /*int cordX = (int)(Player.Bottom.X / 16);
+                int cordY = (int)(Player.Bottom.Y / 16);
+                Tile t = Main.tile[cordX, cordY - 1];
+                Dust d = Dust.NewDustPerfect(Player.Bottom - Vector2.UnitY * 16, DustID.GemRuby);
+                d.velocity = Vector2.Zero;
+                d.noGravity = true;
+                if ((t.TileType == TileID.MinecartTrack || Main.tile[cordX, cordY + 1].TileType == TileID.MinecartTrack) && !Player.controlDown)
+                {
+                    Minecart.TrackCollision(Player, ref Player.position, ref Player.velocity, ref Player.lastBoost, Player.width, Player.height, Player.controlDown, Player.controlUp, Player.fallStart2, false, Player.mount.Delegations);
+                    //Player.position.Y -= 0.5f;
+                    Player.cartRampTime = (int)(Math.Abs(Player.velocity.X) / Player.mount.RunSpeed * 20f);
+                    Vector2 impactPoint = Player.Bottom + Vector2.UnitX * 8 * -Player.direction;
+                    Vector2 bloodSpawnPosition = Player.Bottom + Main.rand.NextVector2Circular(16, 16) * 0.04f;
+                    Vector2 splatterDirection = (new Vector2(bloodSpawnPosition.X * -Player.direction, bloodSpawnPosition.Y)).SafeNormalize(Vector2.UnitY);
+                    for (int i = 0; i < 2; i++)
+                    {
+                        int sparkLifetime = Main.rand.Next(2, 11);
+                        float sparkScale = Main.rand.NextFloat(0.8f, 1f);
+                        Color sparkColor = Color.Lerp(Color.Silver, Color.Gold, Main.rand.NextFloat(0.7f));
+                        sparkColor = Color.Lerp(sparkColor, Color.Orange, Main.rand.NextFloat());
+
+                        if (Main.rand.NextBool(10))
+                            sparkScale *= 2f;
+
+                        Vector2 sparkVelocity = splatterDirection.RotatedByRandom(0.6f) * Main.rand.NextFloat(12f, 25f);
+                        sparkVelocity.Y -= 6f;
+                        SparkParticle spark = new SparkParticle(impactPoint, sparkVelocity, true, sparkLifetime, sparkScale, sparkColor);
+                        GeneralParticleHandler.SpawnParticle(spark);
+                    }
+                    bikeShred = true;
+                }
+                if ((Main.tile[cordX, cordY].TileType == TileID.MinecartTrack && Main.tile[cordX, cordY].TileFrameX > 5) || (Main.tile[cordX, cordY].TileType == TileID.MinecartTrack && Main.tile[cordX, cordY].TileFrameX > 5))
+                {
+                   /// Main.NewText(Main.tile[cordX, cordY].TileFrameX);
+                   // Player.position.Y -= 16f;
+                }*/
+            }
+        }
 
         private void ResetMyStuff() {
             mBirb = false;
@@ -755,6 +879,7 @@ namespace CalValEX {
             brimberry = false;
             helipack = false;
             CalValPat = false;
+            bikeShred = false;
 
 
         }

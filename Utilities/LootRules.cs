@@ -11,8 +11,8 @@ namespace CalValEX
             public bool CanDrop(DropAttemptInfo info)
             {
                 if (!CalValEX.CalamityActive)
-                    return false;
-                return (CalValEX.CalamityActive && ((bool)CalValEX.Calamity.Call("GetDifficultyActive", "revengeance") || Main.masterMode)) || (Main.masterMode && !CalValEX.CalamityActive);
+                    return Main.masterMode;
+                return CalValEX.CalamityActive && ((bool)CalValEX.Calamity.Call("GetDifficultyActive", "revengeance") || Main.masterMode);
             }
 
             public bool CanShowItemDropInUI()

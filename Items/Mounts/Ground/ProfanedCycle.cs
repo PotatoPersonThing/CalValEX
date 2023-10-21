@@ -1,3 +1,4 @@
+using CalamityMod.Particles;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -70,7 +71,7 @@ namespace CalValEX.Items.Mounts.Ground
 
         public override void UpdateEffects(Player player)
         {
-            if (Math.Abs(player.velocity.X) > 20)
+            if (Math.Abs(player.velocity.X) > 20 || player.GetModPlayer<CalValEXPlayer>().bikeShred)
             {
                 MountData.runningFrameCount = 4;
                 MountData.runningFrameDelay = 65;
@@ -81,8 +82,11 @@ namespace CalValEX.Items.Mounts.Ground
                 MountData.runSpeed = 20f;
                 MountData.acceleration = 0.11f;
 
-                if (player.whoAmI == Main.myPlayer)
+                if (Math.Abs(player.velocity.X) > 20)
+                {
+                    if (player.whoAmI == Main.myPlayer)
                     Dust.NewDust(player.position, 47, 30, 6, 3.684211f, 0f, 0, new Color(255, 255, 255), 1f);
+                }
             }
             else
             {
