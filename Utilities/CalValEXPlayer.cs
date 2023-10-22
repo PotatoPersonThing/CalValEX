@@ -607,7 +607,7 @@ namespace CalValEX {
                             sparkScale *= 2f;
 
                         Vector2 sparkVelocity = splatterDirection.RotatedByRandom(0.6f) * Main.rand.NextFloat(12f, 25f);
-                        sparkVelocity.Y -= 6f;
+                        sparkVelocity.Y -= 10f;
                         SparkParticle spark = new SparkParticle(impactPoint, sparkVelocity, true, sparkLifetime, sparkScale, sparkColor);
                         GeneralParticleHandler.SpawnParticle(spark);
                     }
