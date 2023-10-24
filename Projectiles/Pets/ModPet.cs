@@ -151,7 +151,14 @@ namespace CalValEX.Projectiles.Pets
         }
 
         /// <summary>
-        /// Allows you to add custom logic when this pet teleports, like adding dust
+        /// Allows you to add custom logic when this pet teleports, like adding dust. Runs before the actual teleportation.
+        /// </summary>
+        public virtual void PreTeleport()
+        {
+        }
+
+        /// <summary>
+        /// Allows you to add custom logic when this pet teleports, like adding dust. Runs after the teleportation.
         /// </summary>
         public virtual void OnTeleport()
         {

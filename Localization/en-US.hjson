@@ -2495,7 +2495,7 @@ Mods: {
 				DisplayName: Inky Artifact
 				Tooltip:
 					'''
-					Summons an Omega Blue Squid
+					Summons a pair of Omega Blue Cultists
 					'For Omega version 50% off!!'
 					'''
 			}
@@ -4872,7 +4872,6 @@ Mods: {
 			MoistScourgeTail.DisplayName: Desert Pest
 			NuclearfuryshronPet.DisplayName: Dukapitated Pet
 			Nugget.DisplayName: THE NUGGET
-			OmegaSquid.DisplayName: Omega Squid
 			PBGmini.DisplayName: Poor Sick Bee
 			PhantomPet.DisplayName: Phantom Larva
 			Pillager.DisplayName: Province Pilferer
@@ -4978,6 +4977,8 @@ Mods: {
 			Ranged.GodsFire.DisplayName: Gods Fire
 			Magic.JharimKiller.DisplayName: Jharim Killer
 			GoozmaPlush.DisplayName: Goozma Plush
+			OmegaCultistCandle.DisplayName: Omega Cultist
+			OmegaCultistTrident.DisplayName: Omega Cultist
 		}
 
 		Tiles: {
@@ -5809,8 +5810,8 @@ Mods: {
 			}
 
 			OmegaSquidBuff: {
-				DisplayName: Omega Squiddo
-				Description: The real Cthulhu
+				DisplayName: Omega Cultists
+				Description: Your own little devotes
 			}
 
 			OrbBuff: {

@@ -494,10 +494,17 @@ namespace CalValEX.Buffs.PetComboBuffs
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<Nugget>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
-            bool petProjectileNotSpawnedBP = player.ownedProjectileCounts[ModContent.ProjectileType<OmegaSquid>()] <= 0;
+            bool petProjectileNotSpawnedBP = player.ownedProjectileCounts[ModContent.ProjectileType<OmegaCultistTrident>()] <= 0;
             if (petProjectileNotSpawnedBP && player.whoAmI == Main.myPlayer){
                 Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
-                    player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<OmegaSquid>(), 0, 0f, player.whoAmI, 0f, 0f);
+                    player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<OmegaCultistTrident>(), 0, 0f, player.whoAmI, 0f, 0f);
+            }
+
+            bool petProjectileNotSpawnedBP2 = player.ownedProjectileCounts[ModContent.ProjectileType<OmegaCultistCandle>()] <= 0;
+            if (petProjectileNotSpawnedBP2 && player.whoAmI == Main.myPlayer)
+            {
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
+                    player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<OmegaCultistCandle>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
             bool petProjectileNotSpawnedBQ = player.ownedProjectileCounts[ModContent.ProjectileType<Dragonball>()] <= 0;

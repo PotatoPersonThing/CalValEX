@@ -185,6 +185,7 @@ namespace CalValEX.Projectiles.Pets
 
             if (lengthToPlayer > TeleportThreshold && CanTeleport)
             {
+                PreTeleport();
                 Projectile.position = player.Center;
                 Projectile.velocity *= 0.1f;
                 OnTeleport();
