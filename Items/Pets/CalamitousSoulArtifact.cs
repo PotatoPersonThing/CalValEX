@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
+using CalamityMod.Items.Accessories;
 
 namespace CalValEX.Items.Pets
 {
@@ -14,6 +15,8 @@ namespace CalValEX.Items.Pets
             // DisplayName.SetDefault("Calamitous Soul Artifact");
             Item.ResearchUnlockCount = 1;
             // Tooltip.SetDefault("Entropy\n" + "Summons a benevolent necropede\n" + "[c/C61B40:After crawling for decades in everlasting agony]\n"+ "[c/C61B40:the mobile graveyard finally finds a true friend.]");
+
+            ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<RottingCalamitousArtifact>();
         }
 
         public override void SetDefaults()
