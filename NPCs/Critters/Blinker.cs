@@ -52,7 +52,8 @@ namespace CalValEX.NPCs.Critters
         {
             bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
-                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A Twinkler that has adapted to the Astral Blight's unique environment. They are a popular food source for its inhabitants."),
+                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement($"Mods.CalValEX.Bestiary.{Name}")
+                //("A Twinkler that has adapted to the Astral Blight's unique environment. They are a popular food source for its inhabitants."),
             });
         }
         public override bool? CanBeHitByItem(Player player, Item item) => null;

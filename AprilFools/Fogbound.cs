@@ -57,7 +57,8 @@ namespace CalValEX.AprilFools
 			{
 				bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
 				Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
-				new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("The soul the Death God, we call it the Fogbound. Although one may logically assume that a god possesses two souls when they consume an Auric Soul, this is not the case. Rather, they fuse into something greater than the sum of its parts."),
+				new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement($"Mods.CalValEX.Bestiary.{Name}")
+				//("The soul the Death God, we call it the Fogbound. Although one may logically assume that a god possesses two souls when they consume an Auric Soul, this is not the case. Rather, they fuse into something greater than the sum of its parts."),
 			});
 			}
 		}

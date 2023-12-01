@@ -48,7 +48,8 @@ namespace CalValEX.NPCs.Critters
             bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
                 Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheHallow,
-                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A butterfly possessing energy from one of two halves of a fiery goddess' power."),
+                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement($"Mods.CalValEX.Bestiary.{Name}")
+                //("A butterfly possessing energy from one of two halves of a fiery goddess' power."),
             });
         }
 

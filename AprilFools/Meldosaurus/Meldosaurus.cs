@@ -64,7 +64,8 @@ namespace CalValEX.AprilFools.Meldosaurus
 			{
 				bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
 				Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
-				new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("Evolution corrupted by the remains of the dark gods. It seeks acceptance from the other celestial creatures to no success."),
+				new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement($"Mods.CalValEX.Bestiary.{Name}")
+				//("Evolution corrupted by the remains of the dark gods. It seeks acceptance from the other celestial creatures to no success."),
 			});
 			}
 		}

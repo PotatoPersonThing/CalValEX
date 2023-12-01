@@ -47,7 +47,8 @@ namespace CalValEX.NPCs.Critters
             bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
                 Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.UndergroundMushroom,
-                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("The great crustacean's spores are not happy that their host has been destroyed. These wicked fungi have psychopathic tendencies, but are completely harmless."),
+                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement($"Mods.CalValEX.Bestiary.{Name}")
+                //("The great crustacean's spores are not happy that their host has been destroyed. These wicked fungi have psychopathic tendencies, but are completely harmless."),
             });
         }
         public override bool? CanBeHitByItem(Player player, Item item) => null;

@@ -45,7 +45,8 @@ namespace CalValEX.NPCs.Critters
         {
             bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
-                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("Curious little mammals that have fallen victim to the extraterrestrial virus. Violemurs still hold some degree of independence in contrast to the infection's other lifeforms."),
+                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement($"Mods.CalValEX.Bestiary.{Name}")
+                //("Curious little mammals that have fallen victim to the extraterrestrial virus. Violemurs still hold some degree of independence in contrast to the infection's other lifeforms."),
             });
         }
         public override bool? CanBeHitByItem(Player player, Item item) => null;

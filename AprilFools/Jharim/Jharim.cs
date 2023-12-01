@@ -367,8 +367,8 @@ namespace CalValEX.AprilFools.Jharim
         {
             if (!MELDOSAURUSED)
             {
-                button = CalValEX.CalamityActive ? "Shop" : Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.ChatButtons1") + shopnum;
-                button2 = CalValEX.CalamityActive ? "Summon" : Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.ChatButtons2");
+                button = CalValEX.CalamityActive ? Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.ChatButtons0") : Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.ChatButtons1") + shopnum;
+                button2 = CalValEX.CalamityActive ? Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.ChatButtons3") : Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.ChatButtons2");
             }
         }
 

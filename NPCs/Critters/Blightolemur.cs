@@ -43,7 +43,8 @@ namespace CalValEX.NPCs.Critters
         {
             bestiaryEntry.UIInfoProvider = new CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
-                new FlavorTextBestiaryInfoElement("On another fractal of the light spectrum from the Violemurs, the Bleamurs frollic peacefully in the Astral Blight, while using their tail patterns to attract prey."),
+                new FlavorTextBestiaryInfoElement($"Mods.CalValEX.Bestiary.{Name}")
+                //("On another fractal of the light spectrum from the Violemurs, the Bleamurs frollic peacefully in the Astral Blight, while using their tail patterns to attract prey."),
             });
         }
 

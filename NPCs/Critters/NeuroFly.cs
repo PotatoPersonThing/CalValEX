@@ -41,7 +41,8 @@ namespace CalValEX.NPCs.Critters {
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.CorruptIce,
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.CorruptUndergroundDesert,
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.UndergroundCorruption,
-                new FlavorTextBestiaryInfoElement("One of the many creatures assisting the Hive Mind, although not physically connected, they share a psychic connection. Its sole purpose is to spread the virus."),
+                new FlavorTextBestiaryInfoElement($"Mods.CalValEX.Bestiary.{Name}")
+                //("One of the many creatures assisting the Hive Mind, although not physically connected, they share a psychic connection. Its sole purpose is to spread the virus."),
             });
         }
 

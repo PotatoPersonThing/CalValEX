@@ -48,7 +48,8 @@ namespace CalValEX.NPCs.Critters
         {
             bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
-                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A rare critter variant. The Gold Violemur is said to be a leader of sorts to the infection's other Violemurs."),
+                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement($"Mods.CalValEX.Bestiary.{Name}")
+                //("A rare critter variant. The Gold Violemur is said to be a leader of sorts to the infection's other Violemurs."),
             });
         }
         public override bool? CanBeHitByItem(Player player, Item item) => null;

@@ -47,7 +47,8 @@ namespace CalValEX.NPCs.Critters
         {
             bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
-                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("Back in the prime of the capital, some would make small idols to worship the goddess at home. The destruction of the capital infused some of these with magic, giving them sentience."),
+                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement($"Mods.CalValEX.Bestiary.{Name}")
+                //("Back in the prime of the capital, some would make small idols to worship the goddess at home. The destruction of the capital infused some of these with magic, giving them sentience."),
             });
         }
         public override bool? CanBeHitByItem(Player player, Item item) => null;

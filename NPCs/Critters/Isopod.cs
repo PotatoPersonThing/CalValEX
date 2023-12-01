@@ -47,7 +47,8 @@ namespace CalValEX.NPCs.Critters
         {
             bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
-                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A docile scavenger that makes itself at home at the bottom of the Abyss. They are known to clean up the remains of any victims to the Abyss' other fauna."),
+                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement($"Mods.CalValEX.Bestiary.{Name}")
+                //("A docile scavenger that makes itself at home at the bottom of the Abyss. They are known to clean up the remains of any victims to the Abyss' other fauna."),
             });
         }
 

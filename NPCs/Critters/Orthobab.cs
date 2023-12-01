@@ -48,7 +48,8 @@ namespace CalValEX.NPCs.Critters
         {
             bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
-                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("Newer offspring of The Shelled. Despite their bumbling appearance, any one of these may very well grow into something horrific."),
+                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement($"Mods.CalValEX.Bestiary.{Name}")
+                //("Newer offspring of The Shelled. Despite their bumbling appearance, any one of these may very well grow into something horrific."),
             });
         }
         public override bool? CanBeHitByItem(Player player, Item item) => null;

@@ -63,8 +63,12 @@ Mods: {
 					0: GAHUGIEGJIWEGUIEUWG
 				}
 
+				ChatButtons0: Shop
 				ChatButtons1: "Shop "
 				ChatButtons2: Cycle Shop
+				ChatButtons3: Summon
+				ButtonClicked1: You've awoken me... time to pay the price...
+				ButtonClicked2: The time is not here yet. He will only appear after both the supreme witch and the mechanical abominations have been silenced.
 				EdgyTalk1: GRAHGAHGAH WHY WOULD YOU DO THAT!
 				EdgyTalk2: IT    IS GOING TO WAKE UP HELPHELPHELP
 				EdgyTalk3: ORULQDORULQDORULQDORULQD
@@ -168,8 +172,6 @@ Mods: {
 				ChatButtons4: Plants
 				ChatButtons5: Blocks
 				ChatButtons0: Switch Shop
-				ButtonClicked1: You've awoken me... time to pay the price...
-				ButtonClicked2: The time is not here yet. He will only appear after both the supreme witch and the mechanical abominations have been silenced.
 				Bestiary: A jellyfish that took an odd evolutionary turn. Her affinity for building synergizes with her devotion to the Water Elemental.
 				Census.SpawnCondition: Find at the Sulphurous Sea after defeating the Acid Rain's first tier
 			}
@@ -254,6 +256,9 @@ Mods: {
 			NuggetNugget: {
 				# Town NPCs
 				DisplayName: Nugget
+				NuggetSpawn: "{0} has risen from {1}'s ashes!"
+				Canspawn: The license teleports away to the McNugget delivery service...
+				Nospace: There's not enough space for a rebirth in {0} !
 				Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
 			}
 
@@ -300,6 +305,34 @@ Mods: {
 			}
 
 			Tarr.DisplayName: Tarr
+		}
+
+		Bestiary: {
+			GoldenIsopod: Even in the darkest of places, gilded entities such as the Gold Isopod can be found.
+			GoldEyedol: A specially crafted idol possessed by a spirit. The construct was previously used by the ruler of the capital themself.
+			GoldViolemur: A rare critter variant. The Gold Violemur is said to be a leader of sorts to the infection's other Violemurs.
+			Orthobab: Newer offspring of The Shelled. Despite their bumbling appearance, any one of these may very well grow into something horrific.
+			ProvFly: A butterfly possessing energy from one of two halves of a fiery goddess' power.
+			PerfoGrub: A small grub-like parasite, the vile offspring of the Perforators.
+			Eyedol: Back in the prime of the capital, some would make small idols to worship the goddess at home. The destruction of the capital infused some of these with magic, giving them sentience.
+			OrthoceraApparition: A harbinger of an apocalypse to come. Do not take its warning lightly.
+			AstJR: A sentient glob from the alien environment. Unlike other slimes, it possesses no offensive capabilities.
+			GAstJR: A sentient glob from the alien environment. Unlike other slimes, it possesses no offensive capabilities.
+			Blightolemur: On another fractal of the light spectrum from the Violemurs, the Bleamurs frollic peacefully in the Astral Blight, while using their tail patterns to attract prey.
+			PlagueFrog: The plague unleashed by the scientist didn't just infect the already hostile creatures. Peaceful lifeforms such as frogs were also unfortunate enough to fall victim to it.
+			Violemur: Curious little mammals that have fallen victim to the extraterrestrial virus. Violemurs still hold some degree of independence in contrast to the infection's other lifeforms.
+			Swearshroom: The great crustacean's spores are not happy that their host has been destroyed. These wicked fungi have psychopathic tendencies, but are completely harmless.
+			SandTurtle: A horrific and violent testudine with high defensive capabilities. They are too dangerous to be left alive.
+			Xerocodile: An ancient species of reptile that only comes out during Blood Moons. They are otherwise too frail to linger, and any sunlight exposure is lethal.
+			Vaporofly: An ancient insect species that was revitalized by the radioactive waters.
+			Blinker: A Twinkler that has adapted to the Astral Blight's unique environment. They are a popular food source for its inhabitants.
+			CrystalFly: A butterfly possessing energy from one of two halves of a fiery goddess' power.
+			Isopod: A docile scavenger that makes itself at home at the bottom of the Abyss. They are known to clean up the remains of any victims to the Abyss' other fauna.
+			GodSlayerSlug: Mimicking the purple worm-like appearance of the cosmic worms, this little bug peacefully wanders the upper atmosphere.
+			NeuroFly: One of the many creatures assisting the Hive Mind, although not physically connected, they share a psychic connection. Its sole purpose is to spread the virus.
+			Fogbound: The soul the Death God, we call it the Fogbound. Although one may logically assume that a god possesses two souls when they consume an Auric Soul, this is not the case. Rather, they fuse into something greater than the sum of its parts.
+			Meldosaurus: Evolution corrupted by the remains of the dark gods. It seeks acceptance from the other celestial creatures to no success.
+			MeldwyrmHead: A parasitic tapewyrm that saught refuge inside of the alien dinosaur. It is likely that similar creatures carve out the insides of the mysterious pillars.
 		}
 
 		Items: {
