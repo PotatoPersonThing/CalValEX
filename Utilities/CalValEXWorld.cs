@@ -19,6 +19,7 @@ using Terraria.Chat;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using Microsoft.VisualBasic;
+using Humanizer;
 
 namespace CalValEX
 {
@@ -316,9 +317,10 @@ namespace CalValEX
                     nug.position.Y = MathHelper.Clamp(nug.position.Y, 150f, Main.maxTilesY * 16f - 150f);
 
                     if (Main.netMode == NetmodeID.SinglePlayer)
-                        Main.NewText(Language.GetTextValue(nug.FullName + " has risen from") + ($" {Main.worldName}'s ashes!"), 50, 125, 255);
+                        Main.NewText(Language.GetTextValue("Mods.CalValEX.NPCs.NuggetNugget.NuggetSpawn").FormatWith(nug.FullName, Main.worldName), 50, 125, 255);
+                        //nug.FullName + " has risen from " + Main.worldName + "'s ashes!"
                     else
-                        ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue(nug.FullName + "has risen from") + $" {Main.worldName}'s ashes!"), new Color(50, 125, 255));
+                        ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral(Language.GetTextValue("Mods.CalValEX.NPCs.NuggetNugget.NuggetSpawn").FormatWith(nug.FullName, Main.worldName)), new Color(50, 125, 255));
                 }
             }
         }

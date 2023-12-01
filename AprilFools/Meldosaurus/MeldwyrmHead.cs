@@ -50,7 +50,8 @@ namespace CalValEX.AprilFools.Meldosaurus
 			{
 				bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
 				Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
-				new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A parasitic tapewyrm that saught refuge inside of the alien dinosaur. It is likely that similar creatures carve out the insides of the mysterious pillars."),
+				new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement($"Mods.CalValEX.Bestiary.MeldwyrmHead")
+				//("A parasitic tapewyrm that saught refuge inside of the alien dinosaur. It is likely that similar creatures carve out the insides of the mysterious pillars."),
 			});
 			}
 		}

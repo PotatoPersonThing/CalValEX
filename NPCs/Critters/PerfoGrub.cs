@@ -42,7 +42,8 @@ namespace CalValEX.NPCs.Critters {
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.CrimsonIce,
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.CrimsonUndergroundDesert,
                 BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.UndergroundCrimson,
-                new FlavorTextBestiaryInfoElement("A small grub-like parasite, the vile offspring of the Perforators."),
+                new FlavorTextBestiaryInfoElement($"Mods.CalValEX.Bestiary.{Name}")
+                //("A small grub-like parasite, the vile offspring of the Perforators."),
             });
         }
 

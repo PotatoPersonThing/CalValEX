@@ -41,7 +41,8 @@ namespace CalValEX.NPCs.Critters
         {
             bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
-                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A harbinger of an apocalypse to come. Do not take its warning lightly."),
+                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement($"Mods.CalValEX.Bestiary.{Name}")
+                //("A harbinger of an apocalypse to come. Do not take its warning lightly."),
             });
         }
 

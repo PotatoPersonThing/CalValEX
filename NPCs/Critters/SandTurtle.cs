@@ -48,7 +48,8 @@ namespace CalValEX.NPCs.Critters
             bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
             bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
                 Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.UndergroundDesert,
-                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement("A horrific and violent testudine with high defensive capabilities. They are too dangerous to be left alive."),
+                new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement($"Mods.CalValEX.Bestiary.{Name}")
+                //("A horrific and violent testudine with high defensive capabilities. They are too dangerous to be left alive."),
             });
         }
         public override bool? CanBeHitByItem(Player player, Item item) => null;

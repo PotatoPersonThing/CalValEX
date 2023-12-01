@@ -2,6 +2,7 @@
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Humanizer;
 
 namespace CalValEX.Items.Pets.TownPets {
     public class NuggetLicense : ModItem {
@@ -76,12 +77,12 @@ namespace CalValEX.Items.Pets.TownPets {
                 int spawnwhichnug = Main.rand.Next(0, 6);
                 PickANug(spawnwhichnug);
                 if (Main.netMode == NetmodeID.SinglePlayer)
-                    Main.NewText(Language.GetTextValue("The license teleports away to the McNugget delivery service..."), 50, byte.MaxValue, 130);
+                    Main.NewText(Language.GetTextValue("Mods.CalValEX.NPCs.NuggetNugget.Canspawn"), 50, byte.MaxValue, 130);
                 else
                     NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, -1, -1, null, player.whoAmI, -13f, 0.0f, 0.0f, 0, 0, 0);
                 return true;
             } else {
-                Main.NewText(Language.GetTextValue("There's not enough space for a rebirth in" + ($" {Main.worldName}") + "!"), byte.MaxValue, 0, 0);
+                Main.NewText(Language.GetTextValue("Mods.CalValEX.NPCs.NuggetNugget.Nospace").FormatWith(Main.worldName), byte.MaxValue, 0, 0);
                 return true;
             }
         }
