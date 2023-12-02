@@ -93,18 +93,18 @@ namespace CalValEX.NPCs.TownPets.Slimes {
             }
             if (CalValEX.CalamityActive && !ModLoader.HasMod("CalamityHunt"))
             {
-                if (NPC.AnyNPCs(CalValEX.CalamityNPC("SlimeGod")))
+                if (NPC.AnyNPCs(CalamityID.CalNPCID.SlimeGod))
                 {
                     NPC.dontTakeDamage = true;
                 }
                 else
                 {
-                    NPC.dontTakeDamage = true;
+                    NPC.dontTakeDamage = false;
                 }
             }
             else
             {
-                NPC.dontTakeDamage = true;
+                NPC.dontTakeDamage = false;
             }
         }
 
