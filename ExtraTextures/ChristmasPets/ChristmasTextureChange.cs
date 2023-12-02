@@ -34,9 +34,9 @@ namespace CalValEX.ExtraTextures.ChristmasPets
                 TextureAssets.Projectile[ModContent.ProjectileType<Minimpious>()] = ModContent.Request<Texture2D>(path + "Minimpious");
                 TextureAssets.Projectile[ModContent.ProjectileType<BabyCnidrion>()] = ModContent.Request<Texture2D>(path + "BabyCnidrion");
                 TextureAssets.Projectile[ModContent.ProjectileType<PhantomSpirit>()] = ModContent.Request<Texture2D>(path + "PhantomSpirit");
-                TextureAssets.Projectile[ModContent.ProjectileType<ProGuard1>()] = ModContent.Request<Texture2D>(path + "ProGuard1");
+                /*TextureAssets.Projectile[ModContent.ProjectileType<ProGuard1>()] = ModContent.Request<Texture2D>(path + "ProGuard1");
                 TextureAssets.Projectile[ModContent.ProjectileType<ProGuard2>()] = ModContent.Request<Texture2D>(path + "ProGuard1");
-                TextureAssets.Projectile[ModContent.ProjectileType<ProGuard3>()] = ModContent.Request<Texture2D>(path + "ProGuard1");
+                TextureAssets.Projectile[ModContent.ProjectileType<ProGuard3>()] = ModContent.Request<Texture2D>(path + "ProGuard1");*/
                 TextureAssets.Projectile[ModContent.ProjectileType<BabySquid>()] = ModContent.Request<Texture2D>(path + "BabySquid");
                 TextureAssets.Projectile[ModContent.ProjectileType<BugDoge>()] = ModContent.Request<Texture2D>(path + "BugDoge");
                 TextureAssets.Projectile[ModContent.ProjectileType<CalamityBABY>()] = ModContent.Request<Texture2D>(path + "CalamityBABY");

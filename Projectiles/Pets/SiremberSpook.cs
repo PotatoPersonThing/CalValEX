@@ -27,12 +27,11 @@ namespace CalValEX.Projectiles.Pets
             Projectile.friendly = true;
             Projectile.tileCollide = false;
             Projectile.aiStyle = -1;
-            Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
         public override void AI()
         {
-            
+            Projectile.velocity = Vector2.Zero;
             Player player = Main.LocalPlayer;
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
