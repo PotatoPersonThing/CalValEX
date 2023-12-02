@@ -29,7 +29,7 @@ namespace CalValEX.Projectiles.Pets
             Projectile.width = 38;
             Projectile.height = 36;
             Projectile.ignoreWater = true;
-            DrawOriginOffsetY = 10;
+            DrawOriginOffsetY = CalValEX.month == 12 ? 0 : 10;
             Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
