@@ -304,7 +304,10 @@ Mods: {
 				Census.SpawnCondition: Conditions unknown
 			}
 
-			Tarr.DisplayName: Tarr
+			Tarr: {
+				DisplayName: Tarr
+				Census.SpawnCondition: Defeat Goozma (with CalamityHunt) or let the Slime God eat a town slime (without CalamityHunt)
+			}
 		}
 
 		Bestiary: {

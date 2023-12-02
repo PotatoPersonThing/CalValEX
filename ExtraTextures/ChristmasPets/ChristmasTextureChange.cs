@@ -107,7 +107,10 @@ namespace CalValEX.ExtraTextures.ChristmasPets
                 TextureAssets.Projectile[ModContent.ProjectileType<CoolBlueSlime>()] = ModContent.Request<Texture2D>(path + "CoolBlueSlime");
                 TextureAssets.Projectile[ModContent.ProjectileType<RoverSpindlePet>()] = ModContent.Request<Texture2D>(path + "RoverSpindlePet");
                 TextureAssets.Projectile[ModContent.ProjectileType<Smauler>()] = ModContent.Request<Texture2D>(path + "Smauler");
-                TextureAssets.Npc[CalValEX.CalamityNPC("BabyFlakCrab")] = ModContent.Request<Texture2D>(path + "ChrismasFlak");
+                if (CalValEX.CalamityActive)
+                {
+                    TextureAssets.Npc[CalValEX.CalamityNPC("BabyFlakCrab")] = ModContent.Request<Texture2D>(path + "ChrismasFlak");
+                }
                 TextureAssets.Projectile[ModContent.ProjectileType<FathomEelHead>()] = ModContent.Request<Texture2D>(path + "FathomEelHead");
             }
         }
