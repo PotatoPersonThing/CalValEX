@@ -94,7 +94,7 @@ namespace CalValEX.Projectiles.Pets
             Texture2D glowMask;
             if (CalValEX.month == 12)
             {
-                glowMask = ModContent.Request<Texture2D>("ExtraTextures/ChristmasPets/AndroombaGlow").Value;
+                glowMask = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/ChristmasPets/AndroombaGlow").Value;
             }
             else
             {
