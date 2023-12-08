@@ -4769,6 +4769,16 @@ Mods: {
 				Tooltip: ""
 				DisplayName: Goozma Plush Throwable
 			}
+
+			Aeroplate: {
+				DisplayName: Aeroplate
+				Tooltip: ""
+			}
+
+			AeroplateWall: {
+				DisplayName: Aeroplate Wall
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {

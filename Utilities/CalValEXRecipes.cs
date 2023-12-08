@@ -275,6 +275,7 @@ namespace CalValEX
             WallRecipe(ItemType<Necrostone>(), ItemType<NecrostoneWall>());
             WallRecipe(ItemType<WulfrumPlating>(), ItemType<WulfrumPanelWall>());
             WallRecipe(ItemType<HallowedBrick>(), ItemType<HallowedBrickWall>());
+            WallRecipe(ItemType<Aeroplate>(), ItemType<AeroplateWall>());
             #endregion
 
             AstralRecipe(ItemType<PolishedXenomonolith>(), ItemType<PolishedAstralMonolith>());

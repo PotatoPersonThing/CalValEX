@@ -590,27 +590,8 @@ namespace CalValEX {
                 if (bitsByte[0])
                 {
                     Player.onTrack = true;
-                    //Player.gfxOffY = Minecart.TrackRotation(Player, ref Player.fullRotation, Player.position + Player.velocity, Player.width, Player.height, Player.controlDown, Player.controlUp, Player.mount.Delegations);
-                    //Player.fullRotationOrigin = new Vector2((float)(Player.width / 2), (float)Player.height);
-
-                    Vector2 impactPoint = Player.Bottom + Vector2.UnitX * 8 * -Player.direction;
-                    Vector2 bloodSpawnPosition = Player.Bottom + Main.rand.NextVector2Circular(16, 16) * 0.04f;
-                    Vector2 splatterDirection = (new Vector2(bloodSpawnPosition.X * -Player.direction, bloodSpawnPosition.Y)).SafeNormalize(Vector2.UnitY);
-                    for (int i = 0; i < 2; i++)
-                    {
-                        int sparkLifetime = Main.rand.Next(2, 11);
-                        float sparkScale = Main.rand.NextFloat(0.8f, 1f);
-                        Color sparkColor = Color.Lerp(Color.Silver, Color.Gold, Main.rand.NextFloat(0.7f));
-                        sparkColor = Color.Lerp(sparkColor, Color.Orange, Main.rand.NextFloat());
-
-                        if (Main.rand.NextBool(10))
-                            sparkScale *= 2f;
-
-                        Vector2 sparkVelocity = splatterDirection.RotatedByRandom(0.6f) * Main.rand.NextFloat(12f, 25f);
-                        sparkVelocity.Y -= 10f;
-                        SparkParticle spark = new SparkParticle(impactPoint, sparkVelocity, true, sparkLifetime, sparkScale, sparkColor);
-                        GeneralParticleHandler.SpawnParticle(spark);
-                    }
+                    if (CalValEX.CalamityActive)
+                        SpawnGrindSparks();
                 }
                 if (flag21 && !Player.onTrack)
                 {
@@ -692,6 +673,30 @@ namespace CalValEX {
                    /// Main.NewText(Main.tile[cordX, cordY].TileFrameX);
                    // Player.position.Y -= 16f;
                 }*/
+            }
+        }
+        [JITWhenModsEnabled("CalamityMod")]
+
+        public void SpawnGrindSparks()
+        {
+
+            Vector2 impactPoint = Player.Bottom + Vector2.UnitX * 8 * -Player.direction;
+            Vector2 bloodSpawnPosition = Player.Bottom + Main.rand.NextVector2Circular(16, 16) * 0.04f;
+            Vector2 splatterDirection = (new Vector2(bloodSpawnPosition.X * -Player.direction, bloodSpawnPosition.Y)).SafeNormalize(Vector2.UnitY);
+            for (int i = 0; i < 2; i++)
+            {
+                int sparkLifetime = Main.rand.Next(2, 11);
+                float sparkScale = Main.rand.NextFloat(0.8f, 1f);
+                Color sparkColor = Color.Lerp(Color.Silver, Color.Gold, Main.rand.NextFloat(0.7f));
+                sparkColor = Color.Lerp(sparkColor, Color.Orange, Main.rand.NextFloat());
+
+                if (Main.rand.NextBool(10))
+                    sparkScale *= 2f;
+
+                Vector2 sparkVelocity = splatterDirection.RotatedByRandom(0.6f) * Main.rand.NextFloat(12f, 25f);
+                sparkVelocity.Y -= 10f;
+                SparkParticle spark = new SparkParticle(impactPoint, sparkVelocity, true, sparkLifetime, sparkScale, sparkColor);
+                GeneralParticleHandler.SpawnParticle(spark);
             }
         }
 
