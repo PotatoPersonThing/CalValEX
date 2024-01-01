@@ -1,7 +1,6 @@
 using CalValEX.Buffs.LightPets;
 using CalValEX.Projectiles.Pets.LightPets;
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,7 +16,7 @@ namespace CalValEX.Items.LightPets
             Item.UseSound = SoundID.NPCHit5;
             Item.shoot = ModContent.ProjectileType<Minimpious>();
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.buffType = ModContent.BuffType<ImpBuff>();
         }
 

@@ -395,7 +395,7 @@ namespace CalValEX.NPCs.Oracle
             if (CalValEX.month == 10 || Main.halloween)
             {
                 Texture2D texture = ModContent.Request<Texture2D>("CalValEX/NPCs/Oracle/OracleNPCPet_Pet_Halloween").Value;
-                Rectangle rectangle = new Rectangle(0, texture.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture.Width, texture.Height / Main.projFrames[Projectile.type]);
+                Rectangle rectangle = new(0, texture.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture.Width, texture.Height / Main.projFrames[Projectile.type]);
                 Vector2 position = Projectile.Center - Main.screenPosition;
                 position.X += DrawOffsetX;
                 position.Y += DrawOriginOffsetY;

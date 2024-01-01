@@ -13,7 +13,7 @@ namespace CalValEX.Projectiles.Pets.Wulfrum
 
         public override float FlyingSpeed => 16f;
 
-        public override Vector2 FlyingOffset => new Vector2(48 * -Main.player[Projectile.owner].direction, -90f);
+        public override Vector2 FlyingOffset => new(48 * -Main.player[Projectile.owner].direction, -90f);
 
         public override void SetStaticDefaults()
         {

@@ -1,6 +1,5 @@
 ﻿using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 using CalValEX.AprilFools;
 using CalValEX.Items;
@@ -12,17 +11,14 @@ using CalValEX.Items.Equips.Capes;
 using CalValEX.Items.Equips.Hats;
 using CalValEX.Items.Equips.Legs;
 using CalValEX.Items.Equips.Scarves;
-using CalValEX.Items.Equips.Shields;
 using CalValEX.Items.Equips.Shirts;
 using CalValEX.Items.Equips.Transformations;
 using CalValEX.Items.Equips.Wings;
-using CalValEX.Items.Hooks;
 using CalValEX.Items.LightPets;
 using CalValEX.Items.Mounts;
 using CalValEX.Items.Mounts.Ground;
 using CalValEX.Items.Mounts.Morshu;
 using CalValEX.Items.Mounts.LimitedFlight;
-using CalValEX.Items.Mounts.InfiniteFlight;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Pets.Elementals;
 using CalValEX.Items.Pets.ExoMechs;
@@ -38,10 +34,7 @@ using CalValEX.Items.Tiles.FurnitureSets.Arsenal;
 using CalValEX.Items.Tiles.FurnitureSets.Astral;
 using CalValEX.Items.Tiles.FurnitureSets.Auric;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
-using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
 using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
-using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
-using CalValEX.Items.Tiles.Monoliths;
 using CalValEX.Items.Tiles.Statues;
 using CalValEX.Items.Walls;
 /*using CalValEX.Items.PetComboItems;
@@ -50,12 +43,10 @@ using CalValEX.Items.PetComboItems.Hardmode;
 using CalValEX.Items.PetComboItems.PostMoonLord;*/
 using CalValEX.Tiles.MiscFurniture;
 using CalValEX.Tiles.FurnitureSets.Auric;
-using CalValEX.Tiles.FurnitureSets.Wulfrum;
 using CalValEX.Tiles.Plants;
 using System.Collections.Generic;
 using System.Linq;
 //using CalamityMod.CustomRecipes;
-using System;
 using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX
@@ -1257,7 +1248,7 @@ namespace CalValEX
                     s.requiredItem[4].SetDefaults(ItemType<AuricBrick>(), false);
                     s.requiredItem[4].stack = 50;
 
-                    s.requiredTile[0] = ModContent.TileType<AuricManufacturerPlaced>();
+                    s.requiredTile[0] = TileType<AuricManufacturerPlaced>();
                     s.createItem.SetDefaults(CalValEX.CalamityItem("AuricToilet"), false);
                     s.createItem.stack = 1;
                 });
@@ -1292,7 +1283,7 @@ namespace CalValEX
 
         void ShimmerMeTimbers()
         {
-            List<(int, int)> blacklist = new List<(int, int)>();
+            List<(int, int)> blacklist = new();
 
             var ci = CalValEX.CalamityItem;
             blacklist.Add((ci("WulfrumPlating"), ci("WulfrumMetalScrap")));
@@ -1312,7 +1303,7 @@ namespace CalValEX
             blacklist.Add((ci("HazardChevronPanels"), ci("LaboratoryPanels")));
             blacklist.Add((ci("LaboratoryPipePlating"), ci("RustedPipes")));
 
-            List<int> labList = new List<int>();
+            List<int> labList = new();
 
             labList.Add(ci("LaboratoryPanels"));
             labList.Add(ci("RustedPipes"));

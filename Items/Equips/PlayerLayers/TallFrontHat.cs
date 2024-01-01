@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
-using CalValEX.Items.Equips.Hats;
 
 namespace CalValEX.Items.Equips.PlayerLayers
 {
@@ -63,7 +62,7 @@ namespace CalValEX.Items.Equips.PlayerLayers
                 int drawY = (int)(drawPlayer.position.Y + drawPlayer.height - 20 - Main.screenPosition.Y - secondyoffset);
                 if (drawPlayer.mount.Active)
                     drawY += drawPlayer.mount.HeightBoost; 
-                DrawData dat = new DrawData(texture, new Vector2(headPosition.X - (2 * drawPlayer.direction), headPosition.Y), null, drawInfo.colorArmorHead, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
+                DrawData dat = new(texture, new Vector2(headPosition.X - (2 * drawPlayer.direction), headPosition.Y), null, drawInfo.colorArmorHead, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
                 dat.shader = dyeShader;
                 drawInfo.DrawDataCache.Add(dat);
             }

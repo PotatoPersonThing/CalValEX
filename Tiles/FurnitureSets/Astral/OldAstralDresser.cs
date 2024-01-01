@@ -9,11 +9,10 @@ using Terraria.ObjectData;
 using Terraria.DataStructures;
 using CalValEX.Items.Tiles.FurnitureSets.Astral;
 using Terraria.Audio;
-using Terraria.GameContent.ObjectInteractions;
 
 namespace CalValEX.Tiles.FurnitureSets.Astral
 {
-	public class OldAstralDresser : ModTile
+    public class OldAstralDresser : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

@@ -1,12 +1,10 @@
 using Terraria;
-using Terraria.ModLoader;
-using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 
 
 namespace CalValEX
 {
-        public class MasterRevCondition : IItemDropRuleCondition
+    public class MasterRevCondition : IItemDropRuleCondition
         {
             public bool CanDrop(DropAttemptInfo info)
             {

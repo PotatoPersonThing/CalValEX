@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -30,7 +28,7 @@ namespace CalValEX.Projectiles.NPCs
             int killdust = 0;
             while (killdust < 9)
             {
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 97, -Projectile.velocity.X * 0.05f, -Projectile.velocity.Y * 0.05f, 50, default, 1f);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.PurpleMoss, -Projectile.velocity.X * 0.05f, -Projectile.velocity.Y * 0.05f, 50, default, 1f);
                 killdust += 1;
             }
         }

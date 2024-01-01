@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Items.Tiles.Plants
 {
@@ -14,7 +15,7 @@ namespace CalValEX.Items.Tiles.Plants
 
         public override void SetDefaults()
         {
-            Item.useStyle = 4;
+            Item.useStyle = ItemUseStyleID.HoldUp;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -22,7 +23,7 @@ namespace CalValEX.Items.Tiles.Plants
             Item.maxStack = 1;
             Item.width = 16;
             Item.height = 28;
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
         }
 
         [JITWhenModsEnabled("CalamityMod")]

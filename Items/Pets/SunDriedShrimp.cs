@@ -21,7 +21,7 @@ namespace CalValEX.Items.Pets
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.BabyCnidrion>();
             Item.value = Item.sellPrice(0, 1, 0, 0);
             //Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.buffType = ModContent.BuffType<Buffs.Pets.CnidBuff>();
         }
 

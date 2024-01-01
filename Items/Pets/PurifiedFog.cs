@@ -20,7 +20,7 @@ namespace CalValEX.Items.Pets
             Item.CloneDefaults(ItemID.ZephyrFish);
             Item.UseSound = SoundID.NPCHit57;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.FogPet>();
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.buffType = ModContent.BuffType<Buffs.Pets.FogBuff>();
         }
 

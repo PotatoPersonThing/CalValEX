@@ -14,7 +14,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(197);
-            base.AIType = 197;
+            AIType = 197;
         }
 
         public override bool PreAI()

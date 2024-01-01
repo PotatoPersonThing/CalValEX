@@ -4,7 +4,6 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
@@ -14,7 +13,7 @@ namespace CalValEX.Tiles.MiscFurniture
     {
         public override void SetStaticDefaults()
         {
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             // Main.tileFlame[Type] = true; This breaks it.
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;

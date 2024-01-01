@@ -17,7 +17,7 @@ namespace CalValEX.Tiles.MiscFurniture
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall
             TileID.Sets.HasOutlines[Type] = true;
@@ -69,8 +69,8 @@ namespace CalValEX.Tiles.MiscFurniture
             Player localPlayer = Main.LocalPlayer;
             localPlayer.noThrow = 2;
             localPlayer.cursorItemIconEnabled = true;
-            localPlayer.cursorItemIconID = ModContent.ItemType<Help>();
-            int dust = Dust.NewDust(new Vector2(i, j) * 16f, 5, 5, 1, 0f, 6.315789f, 161, new Color(0, 217, 255), 1.315789f);
+            localPlayer.cursorItemIconID = ItemType<Help>();
+            int dust = Dust.NewDust(new Vector2(i, j) * 16f, 5, 5, DustID.Stone, 0f, 6.315789f, 161, new Color(0, 217, 255), 1.315789f);
             if (Main.LocalPlayer.name == "Bumbledoge")
             {
                 Main.LocalPlayer.AddBuff(CalValEX.CalamityBuff("TemporalSadness"), 10);
@@ -132,7 +132,7 @@ namespace CalValEX.Tiles.MiscFurniture
             {
                 if (Main.LocalPlayer.HasItem(CalValEX.CalamityItem("OrthoceraShell")))
                 {
-                    int dust = Dust.NewDust(new Vector2(i, j) * 16f, 5, 5, 1, 0f, 6.315789f, 161, new Color(0, 217, 255), 1.315789f);
+                    int dust = Dust.NewDust(new Vector2(i, j) * 16f, 5, 5, DustID.Stone, 0f, 6.315789f, 161, new Color(0, 217, 255), 1.315789f);
                     if (Main.LocalPlayer.name == "Bumbledoge")
                     {
                         Main.LocalPlayer.AddBuff(CalValEX.CalamityBuff("TemporalSadness"), 10);

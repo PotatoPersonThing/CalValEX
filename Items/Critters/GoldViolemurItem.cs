@@ -15,7 +15,7 @@ namespace CalValEX.Items.Critters
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.autoReuse = true;
             Item.useTurn = true;
             Item.useAnimation = 15;
@@ -25,7 +25,7 @@ namespace CalValEX.Items.Critters
             Item.width = 22;
             Item.height = 18;
             Item.noUseGraphic = true;
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.makeNPC = (short)NPCType<GoldViolemur>();
             Item.value = Item.sellPrice(0, 10, 0, 0);
         }

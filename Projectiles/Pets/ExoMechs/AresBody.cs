@@ -12,7 +12,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
         bool isInfernumActive;
         Mod infern;
         //A list of the ideal positions for each arm. The first 2 variables of the Vector2 represent the relative position of the arm to the body and the last variable represents the rotation of the hand
-        internal readonly List<Vector3> IdealPositions = new List<Vector3>()
+        internal readonly List<Vector3> IdealPositions = new()
         {
             new Vector3(-170f, -32f, MathHelper.ToRadians(240)), //Top left arm
             new Vector3(-100f, 42f, MathHelper.ToRadians(270)), //Bottom left arm
@@ -23,7 +23,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
 
         private Vector2 GetIdealPosition(int i) => Projectile.Center + new Vector2(IdealPositions[i].X, IdealPositions[i].Y);
 
-        private Vector2 BobVector => new Vector2(0, -2 + 4 * MathHelper.Clamp((float)Math.Sin(Main.time % MathHelper.Pi), 0, 1) * 0.7f + 0.3f);
+        private Vector2 BobVector => new(0, -2 + 4 * MathHelper.Clamp((float)Math.Sin(Main.time % MathHelper.Pi), 0, 1) * 0.7f + 0.3f);
 
         private List<Vector3> ArmPositions;
 
@@ -88,7 +88,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
                     //Make the arm lag behind a bit
                     Vector3 armPosition = ArmPositions[i];
                     Vector2 idealArmPosition = GetIdealPosition(i);
-                    Vector2 vector2position = new Vector2(armPosition.X, armPosition.Y);
+                    Vector2 vector2position = new(armPosition.X, armPosition.Y);
                     vector2position = Vector2.Lerp(vector2position, idealArmPosition, 0.2f) + BobVector;
 
                     //Make the cannon look at the mouse cursor if its close enough
@@ -145,12 +145,12 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             Texture2D armTex = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/ExoMechs/AresArm").Value;
             Texture2D forearmTex = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/ExoMechs/AresForearm").Value;
 
-            Rectangle armFrame = new Rectangle(0, top ? 0 : 42, armTex.Width, 40);
-            Rectangle handFrame = new Rectangle(0, infernum ? 40 : 0, 60, 38);
+            Rectangle armFrame = new(0, top ? 0 : 42, armTex.Width, 40);
+            Rectangle handFrame = new(0, infernum ? 40 : 0, 60, 38);
 
-            Vector2 armOrigin = new Vector2(flipped ? 0 : armFrame.Width, armFrame.Height / 2);
-            Vector2 forearmOrigin = new Vector2(flipped ? 0 : forearmTex.Width, forearmTex.Height / 2);
-            Vector2 handOrigin = new Vector2(flipped ? 28 : 22, 22); //22
+            Vector2 armOrigin = new(flipped ? 0 : armFrame.Width, armFrame.Height / 2);
+            Vector2 forearmOrigin = new(flipped ? 0 : forearmTex.Width, forearmTex.Height / 2);
+            Vector2 handOrigin = new(flipped ? 28 : 22, 22); //22
 
             Vector2 armPosition = Projectile.Center + position * 0.1f;
 
@@ -188,7 +188,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
                 Vector2 controlPoint1 = Owner.Center - Vector2.UnitY * curvature;
                 Vector2 controlPoint2 = Projectile.Center + Vector2.UnitY * curvature;
 
-                BezierCurve curve = new BezierCurve(new Vector2[] { Owner.Center, controlPoint1, controlPoint2, Projectile.Center });
+                BezierCurve curve = new(new Vector2[] { Owner.Center, controlPoint1, controlPoint2, Projectile.Center });
                 int numPoints = 20; //"Should make dynamic based on curve length, but I'm not sure how to smoothly do that while using a bezier curve" -Graydee, from the code i referenced. I do agree.
                 Vector2[] chainPositions = curve.GetPoints(numPoints).ToArray();
 
@@ -198,9 +198,9 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
                     Vector2 position = chainPositions[i];
                     float rotation = (chainPositions[i] - chainPositions[i - 1]).ToRotation() - MathHelper.PiOver2; //Calculate rotation based on direction from last point
                     float yScale = Vector2.Distance(chainPositions[i], chainPositions[i - 1]) / chainTex.Height; //Calculate how much to squash/stretch for smooth chain based on distance between points
-                    Vector2 scale = new Vector2(1, yScale);
+                    Vector2 scale = new(1, yScale);
                     Color chainLightColor = Lighting.GetColor((int)position.X / 16, (int)position.Y / 16); //Lighting of the position of the chain segment
-                    Vector2 origin = new Vector2(chainTex.Width / 2, chainTex.Height); //Draw from center bottom of texture
+                    Vector2 origin = new(chainTex.Width / 2, chainTex.Height); //Draw from center bottom of texture
                     Main.EntitySpriteDraw(chainTex, position - Main.screenPosition, null, chainLightColor, rotation, origin, scale, SpriteEffects.None, 0);
                 }
         }

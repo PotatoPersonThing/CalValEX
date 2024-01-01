@@ -24,7 +24,7 @@ namespace CalValEX.Items.Tiles.Paintings
             Item.createTile = ModContent.TileType<SleepingGiantPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 7;
+            Item.rare = ItemRarityID.Lime;
         }
     }
 }

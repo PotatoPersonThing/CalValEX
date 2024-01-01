@@ -1,6 +1,3 @@
-using CalValEX.Items.Critters;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.Cages;
@@ -17,7 +14,7 @@ namespace CalValEX.Items.Tiles.Cages
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -27,7 +24,7 @@ namespace CalValEX.Items.Tiles.Cages
             Item.createTile = ModContent.TileType<ProvFlyJarPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
         }
 
         /*public override void AddRecipes()

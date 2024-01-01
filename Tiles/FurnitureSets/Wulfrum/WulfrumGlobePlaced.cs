@@ -2,10 +2,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using static Terraria.ModLoader.ModContent;
-using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 
-namespace CalValEX.Tiles.FurnitureSets.Wulfrum {
+namespace CalValEX.Tiles.FurnitureSets.Wulfrum
+{
     public class WulfrumGlobePlaced : ModTile {
         public override void SetStaticDefaults() {
             TileID.Sets.DisableSmartCursor[Type] = true;

@@ -24,7 +24,7 @@ namespace CalValEX.Items.Tiles.Paintings
             Item.createTile = ModContent.TileType<VVanitiesPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
         }
     }
 }

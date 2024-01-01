@@ -14,7 +14,7 @@ namespace CalValEX.Items.LightPets
             Item.UseSound = SoundID.NPCHit41;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.Wulfrum.WulfrumPylon>();
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.buffType = ModContent.BuffType<Buffs.LightPets.PylonBuff>();
         }
 

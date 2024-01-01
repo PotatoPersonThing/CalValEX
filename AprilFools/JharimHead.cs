@@ -1,12 +1,10 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.AprilFools;
-using CalValEX.AprilFools.Jharim;
 
 namespace CalValEX.AprilFools
 {
-	public class JharimHead : ModItem
+    public class JharimHead : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -17,10 +15,10 @@ namespace CalValEX.AprilFools
 			Item.width = 28;
 			Item.height = 18;
 			Item.maxStack = 1;
-			Item.rare = 9;
+			Item.rare = ItemRarityID.Cyan;
 			Item.useAnimation = 45;
 			Item.useTime = 45;
-			Item.useStyle = 4;
+			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.UseSound = SoundID.Item44;
 			Item.consumable = true;
 		}

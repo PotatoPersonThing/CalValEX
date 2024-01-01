@@ -55,23 +55,23 @@ namespace CalValEX.Items.Equips.PlayerLayers
             if (modPlayer.aesthetic)
             {
                 Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Items/Equips/Hats/AestheticrownEquipped").Value;
-                DrawData dat = new DrawData(texture, new Vector2(headPosition.X + (1 * drawPlayer.direction), headPosition.Y - 1), null, drawInfo.colorArmorHead, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
+                DrawData dat = new(texture, new Vector2(headPosition.X + (1 * drawPlayer.direction), headPosition.Y - 1), null, drawInfo.colorArmorHead, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
                 dat.shader = dyeShader;
                 drawInfo.DrawDataCache.Add(dat);
             }
             if (modPlayer.rockhat)
             {
                 Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Items/Equips/Hats/StonePileEquipped").Value;
-                DrawData dat = new DrawData(texture, new Vector2(headPosition.X, headPosition.Y), null, drawInfo.colorArmorHead, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
+                DrawData dat = new(texture, new Vector2(headPosition.X, headPosition.Y), null, drawInfo.colorArmorHead, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
                 dat.shader = dyeShader;
                 drawInfo.DrawDataCache.Add(dat);
             }
             if (modPlayer.conejo)
             {
                 Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Items/Equips/Hats/TrueCosmicConeEquipped").Value;
-                Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
+                Vector2 origin = new(texture.Width / 2f, texture.Height / 2f / 6f);
                 Rectangle conesquare = texture.Frame(1, 6, 0, modPlayer.coneframe);
-                DrawData dat = new DrawData(texture, new Vector2(headPosition.X, headPosition.Y - 75), conesquare, drawInfo.colorArmorHead, 0f, origin, 1, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0
+                DrawData dat = new(texture, new Vector2(headPosition.X, headPosition.Y - 75), conesquare, drawInfo.colorArmorHead, 0f, origin, 1, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0
                 );
                 dat.shader = dyeShader;
                 drawInfo.DrawDataCache.Add(dat);

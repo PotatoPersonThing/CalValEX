@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -16,7 +14,7 @@ namespace CalValEX.Items.Critters
 
         public override void SetDefaults()
         {
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.CloneDefaults(ItemID.JuliaButterfly);
             Item.makeNPC = (short)NPCType<CrystalFly>();
             Item.bait = 45;

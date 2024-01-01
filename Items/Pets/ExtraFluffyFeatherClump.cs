@@ -23,7 +23,7 @@ namespace CalValEX.Items.Pets
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.MiniDoge>();
             Item.value = Item.sellPrice(5, 9, 6, 6);
             Item.buffType = ModContent.BuffType<Buffs.Pets.MiniDogeBuff>();
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
         }
 
         public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)

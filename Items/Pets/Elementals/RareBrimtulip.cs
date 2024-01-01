@@ -21,7 +21,7 @@ namespace CalValEX.Items.Pets.Elementals
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.Elementals.RareBrimling>();
             Item.value = Item.sellPrice(0, 2, 0, 0);
             //Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            Item.rare = 5;
+            Item.rare = ItemRarityID.Pink;
             Item.buffType = ModContent.BuffType<Buffs.Pets.Elementals.rarebrimlingbuff>();
         }
 

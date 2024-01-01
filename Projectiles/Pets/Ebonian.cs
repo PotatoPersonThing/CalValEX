@@ -24,8 +24,8 @@ namespace CalValEX.Projectiles.Pets
             Projectile.friendly = true;
             Projectile.ignoreWater = true;
             Projectile.tileCollide = true;
-            base.DrawOffsetX = 6;
-            base.DrawOriginOffsetY = 8;
+            DrawOffsetX = 6;
+            DrawOriginOffsetY = 8;
             Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
@@ -145,7 +145,7 @@ namespace CalValEX.Projectiles.Pets
 
             //flying offset, so that it flys behind and a little above the player
             float offsetX = 48 * -owner.direction;
-            Vector2 offset = new Vector2(offsetX, -50f);
+            Vector2 offset = new(offsetX, -50f);
 
             //--------------------------------------------------------------------------------
 

@@ -1,5 +1,4 @@
 using Terraria.ID;
-using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Tiles.FurnitureSets.Phantowax;
 using Terraria.ModLoader;
 
@@ -15,7 +14,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -25,7 +24,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
             Item.createTile = ModContent.TileType<PhantowaxCandelabra>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 0;
+            Item.rare = ItemRarityID.White;
         }
 
         /*public override void AddRecipes()

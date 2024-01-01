@@ -1,13 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Enums;
-using static Terraria.Projectile;
 using System.IO;
-using System.Linq;
 using ReLogic.Content;
 
 namespace CalValEX.AprilFools.Jharim
@@ -53,7 +49,7 @@ namespace CalValEX.AprilFools.Jharim
             //Theres definitely a better way to do this but im lazy
             if (!playedsound)
             {
-                Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.Zombie104, Projectile.Center);
+                Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie104, Projectile.Center);
                 playedsound = true;
             }
             return true;

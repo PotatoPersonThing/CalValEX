@@ -1,17 +1,15 @@
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Projectiles.Pets;
 using CalValEX.Buffs.Pets;
 using Microsoft.Xna.Framework.Graphics;
 using static Terraria.ModLoader.ModContent;
-using CalamityMod.Items.Weapons.Summon;
 using System;
 
-namespace CalValEX.Items.Pets {
+namespace CalValEX.Items.Pets
+{
     public class BrimberryItem : ModItem {
         public override void SetStaticDefaults() {
             // DisplayName.SetDefault("Brimstone Berry");

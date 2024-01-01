@@ -1,7 +1,6 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.FurnitureSets.Bloodstone;
-using CalValEX.Items.Tiles.Blocks;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
 {
@@ -15,7 +14,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -25,7 +24,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Bloodstone
             Item.createTile = ModContent.TileType<BloodstoneBathtub>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 0;
+            Item.rare = ItemRarityID.White;
         }
 
         /*public override void AddRecipes()

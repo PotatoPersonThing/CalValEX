@@ -18,7 +18,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileBlockLight[Type] = true;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileSolid[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;

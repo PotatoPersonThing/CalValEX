@@ -10,8 +10,8 @@ namespace CalValEX.Items.Hooks
     {
         public override void SetStaticDefaults()
         {
-            base.DrawOriginOffsetY = -10;
-            base.DrawOffsetX = -11;
+            DrawOriginOffsetY = -10;
+            DrawOffsetX = -11;
         }
 
         public override void SetDefaults()

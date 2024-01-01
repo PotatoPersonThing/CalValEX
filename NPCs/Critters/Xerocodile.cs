@@ -1,14 +1,8 @@
-﻿using CalValEX.Items.Tiles.Banners;
-using MonoMod.Cil;
-using System;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
-using CalValEX.Items;
-using Terraria.DataStructures;
-using Microsoft.Xna.Framework;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -57,7 +51,7 @@ namespace CalValEX.NPCs.Critters
         {
             if (NPC.wet)
             {
-                NPC.Transform(ModContent.NPCType<XerocodileSwim>());
+                NPC.Transform(NPCType<XerocodileSwim>());
             }
             if (!Main.bloodMoon)
             {

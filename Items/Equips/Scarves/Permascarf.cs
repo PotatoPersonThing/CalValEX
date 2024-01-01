@@ -1,7 +1,6 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Items.Equips.Scarves
 {
@@ -14,7 +13,7 @@ namespace CalValEX.Items.Equips.Scarves
             Item.width = 24;
             Item.height = 26;
             Item.value = Item.sellPrice(0, 2, 0, 0);
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.accessory = true;
             Item.vanity = true;
         }

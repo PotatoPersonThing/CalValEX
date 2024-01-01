@@ -1,5 +1,4 @@
-﻿using System;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {

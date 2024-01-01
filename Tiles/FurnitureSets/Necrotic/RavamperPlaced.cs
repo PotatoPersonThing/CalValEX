@@ -19,7 +19,7 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
             Main.tileLavaDeath[Type] = true;
             Main.tileFrameImportant[Type] = true;
             TileID.Sets.HasOutlines[Type] = true;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
             TileObjectData.newTile.Width = 3;
@@ -47,7 +47,7 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
         {
             Tile tile = Main.tile[i, j];
             Texture2D texture = Request<Texture2D>("CalValEX/Tiles/FurnitureSets/Necrotic/RavamperPlaced").Value;
-            Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
+            Vector2 zero = new(Main.offScreenRange, Main.offScreenRange);
             if (Main.drawToScreen)
             {
                 zero = Vector2.Zero;

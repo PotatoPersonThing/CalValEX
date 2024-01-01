@@ -1,4 +1,3 @@
-using CalValEX.Items.Critters;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

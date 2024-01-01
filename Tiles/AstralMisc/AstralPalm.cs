@@ -4,14 +4,13 @@ using CalValEX.Items.Tiles.Blocks.Astral;
 using CalValEX.Tiles.AstralBlocks;
 using ReLogic.Content;
 using Terraria.GameContent;
-using Terraria;
 
 namespace CalValEX.Tiles.AstralMisc
 {
-	public class AstralPalm : ModPalmTree
+    public class AstralPalm : ModPalmTree
 	{
-		public override TreePaintingSettings TreeShaderSettings => new TreePaintingSettings
-		{
+		public override TreePaintingSettings TreeShaderSettings => new()
+        {
 			UseSpecialGroups = true,
 			SpecialGroupMinimalHueValue = 11f / 72f,
 			SpecialGroupMaximumHueValue = 0.25f,

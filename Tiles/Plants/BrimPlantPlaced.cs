@@ -4,11 +4,9 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using static Terraria.ModLoader.ModContent;
-using CalValEX.Items.Pets;
-using ReLogic.Content;
 
-namespace CalValEX.Tiles.Plants {
+namespace CalValEX.Tiles.Plants
+{
     public class BrimPlantPlaced : ModTile
     {
         [JITWhenModsEnabled("CalamityMod")]

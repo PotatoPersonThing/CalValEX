@@ -1,16 +1,11 @@
-using CalValEX.Tiles.Plants;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
-using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX
 {
-	public class CalValEXGlobalTile : GlobalTile
+    public class CalValEXGlobalTile : GlobalTile
     {
         private int cragCount;
         private int berryCount;
@@ -65,8 +60,8 @@ namespace CalValEX
             Chest chest = Main.chest[chestI];
             int cFrame = chest.frame;
             Texture2D glowmask = text;
-            Rectangle frame = new Rectangle(tile.TileFrameX, 38 * cFrame + tile.TileFrameY, 16, 16);
-            Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
+            Rectangle frame = new(tile.TileFrameX, 38 * cFrame + tile.TileFrameY, 16, 16);
+            Vector2 zero = new(Main.offScreenRange, Main.offScreenRange);
             if (Main.drawToScreen)
             {
                 zero = Vector2.Zero;

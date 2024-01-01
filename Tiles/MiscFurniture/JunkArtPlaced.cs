@@ -3,7 +3,6 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {

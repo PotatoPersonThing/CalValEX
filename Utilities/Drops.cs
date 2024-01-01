@@ -29,20 +29,15 @@ using CalValEX.NPCs.Critters;
 using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
 using CalValEX.NPCs.Oracle;
-using System;
 using Terraria.GameContent.ItemDropRules;
 using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Utilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using CalValEX.AprilFools;
-using Terraria.DataStructures;
-using Terraria.Localization;
-using System.Security.Policy;
 using CalValEX.NPCs.JellyPriest;
 using CalValEX.CalamityID;
 
@@ -568,7 +563,7 @@ namespace CalValEX
                     //Ravager
                     if (npc.type == CalNPCID.Ravager)
                     {
-                        LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+                        LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
                         notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, new int[]{
                         ModContent.ItemType<SkullBalloon>(),
@@ -583,7 +578,7 @@ namespace CalValEX
                     //PS: FUCK deus lootcode, I pray to anyone who wants to make weakref support for this abomination _ YuH 2022
                     if (npc.type == CalNPCID.AstrumDeus)
                     {
-                        LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+                        LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
                         npcLoot.Add(ItemDropRule.ByCondition(new DeusFUCKBlight(), ModContent.ItemType<AstrumDeusMask>()));
                         npcLoot.Add(ItemDropRule.ByCondition(new DeusFUCKMasorev(), ModContent.ItemType<AstrumDeusPlush>(), 4));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new DeusFUCK(), ModContent.ItemType<AstBandana>(), 4));
@@ -592,7 +587,7 @@ namespace CalValEX
                     //Bumblebirb
                     if (npc.type == CalNPCID.Bumblebirb)
                     {
-                        LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+                        LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
                         notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, new int[]{
                         ModContent.ItemType<Birbhat>(),
@@ -615,7 +610,7 @@ namespace CalValEX
                     //Storm Weaver
                     if (npc.type == CalNPCID.StormWeaver)
                     {
-                        LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+                        LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new OtherworldlyStoneDrop(), CalValEX.CalamityItem("OtherworldlyStone"), 1, 155, 265));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<StormBandana>(), 10));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ArmoredScrap>(), 6));
@@ -626,7 +621,7 @@ namespace CalValEX
                     //Signus
                     if (npc.type == CalNPCID.Signus)
                     {
-                        LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+                        LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
                         notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, new int[]{
                         ModContent.ItemType<SignusBalloon>(),
@@ -642,7 +637,7 @@ namespace CalValEX
                     //CV
                     if (npc.type == CalNPCID.CeaselessVoid)
                     {
-                        LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+                        LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new OtherworldlyStoneDrop(), CalValEX.CalamityItem("OtherworldlyStone"), 1, 155, 265));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<VoidWings>(), 10));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<OldVoidWings>(), 15));
@@ -653,7 +648,7 @@ namespace CalValEX
                     //Polterghast
                     if (npc.type == CalNPCID.Polterghast)
                     {
-                        LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+                        LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new BlockDrops(), CalValEX.CalamityItem("StratusBricks"), 2, 155, 265));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new BlockDrops(), ModContent.ItemType<PhantowaxBlock>(), 2, 155, 265));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Polterhook>(), 20));
@@ -701,7 +696,7 @@ namespace CalValEX
                     //Ares
                     if (npc.type == CalNPCID.Ares)
                     {
-                        LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+                        LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new Exodrop(), ModContent.ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>(), 3));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new Exodrop(), ModContent.ItemType<DraedonBody>(), 5));
@@ -715,7 +710,7 @@ namespace CalValEX
                     //Thanatos
                     if (npc.type == CalNPCID.Thanatos)
                     {
-                        LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+                        LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new Exodrop(), ModContent.ItemType<XMLightningHook>(), 3));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new Exodrop(), ModContent.ItemType<DraedonBody>(), 5));
@@ -729,7 +724,7 @@ namespace CalValEX
                     //Apollo
                     if (npc.type == CalNPCID.Apollo)
                     {
-                        LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+                        LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new Exodrop(), ModContent.ItemType<ArtemisBalloonSmall>(), 3));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new Exodrop(), ModContent.ItemType<ApolloBalloonSmall>(), 3));
@@ -770,7 +765,7 @@ namespace CalValEX
             //Meldosaurus
             if (npc.type == ModContent.NPCType<AprilFools.Meldosaurus.Meldosaurus>())
             {
-                LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+                LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
                 notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, new int[]{
                         ModContent.ItemType<ShadesBane>(),
@@ -862,7 +857,7 @@ namespace CalValEX
         }
         public static void AddBlockDrop(NPCLoot loot, int item)
         {
-            LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+            LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
             notExpertRule.OnSuccess(ItemDropRule.ByCondition(new BlockDrops(), item, 1, 55, 265));
         }
 
@@ -922,7 +917,7 @@ namespace CalValEX
                         Vector2 position = npc.position;
                         for (int a = 0; a < 3; a++)
                         {
-                            dust = Main.dust[Terraria.Dust.NewDust(position, npc.width, npc.height, 16, 0f, 0f, 0, new Color(255, 255, 255), 1.578947f)];
+                            dust = Main.dust[Dust.NewDust(position, npc.width, npc.height, DustID.Cloud, 0f, 0f, 0, new Color(255, 255, 255), 1.578947f)];
                             dust.shader = GameShaders.Armor.GetSecondaryShader(131, Main.LocalPlayer);
                         }
                         npc.rotation = 0;
@@ -1222,12 +1217,12 @@ namespace CalValEX
                                 if (value > 1000000f)
                                 {
                                     int platCoins = (int)(value / 1000000f);
-                                    if (platCoins > 50 && Main.rand.Next(5) == 0)
+                                    if (platCoins > 50 && Main.rand.NextBool(5))
                                     {
                                         platCoins /= Main.rand.Next(3) + 1;
                                     }
 
-                                    if (Main.rand.Next(5) == 0)
+                                    if (Main.rand.NextBool(5))
                                     {
                                         platCoins /= Main.rand.Next(3) + 1;
                                     }
@@ -1240,12 +1235,12 @@ namespace CalValEX
                                 if (value > 10000f)
                                 {
                                     int goldCoins = (int)(value / 10000f);
-                                    if (goldCoins > 50 && Main.rand.Next(5) == 0)
+                                    if (goldCoins > 50 && Main.rand.NextBool(5))
                                     {
                                         goldCoins /= Main.rand.Next(3) + 1;
                                     }
 
-                                    if (Main.rand.Next(5) == 0)
+                                    if (Main.rand.NextBool(5))
                                     {
                                         goldCoins /= Main.rand.Next(3) + 1;
                                     }
@@ -1258,12 +1253,12 @@ namespace CalValEX
                                 if (value > 100f)
                                 {
                                     int silverCoins = (int)(value / 100f);
-                                    if (silverCoins > 50 && Main.rand.Next(5) == 0)
+                                    if (silverCoins > 50 && Main.rand.NextBool(5))
                                     {
                                         silverCoins /= Main.rand.Next(3) + 1;
                                     }
 
-                                    if (Main.rand.Next(5) == 0)
+                                    if (Main.rand.NextBool(5))
                                     {
                                         silverCoins /= Main.rand.Next(3) + 1;
                                     }
@@ -1274,12 +1269,12 @@ namespace CalValEX
                                 }
 
                                 int copperCoins = (int)value;
-                                if (copperCoins > 50 && Main.rand.Next(5) == 0)
+                                if (copperCoins > 50 && Main.rand.NextBool(5))
                                 {
                                     copperCoins /= Main.rand.Next(3) + 1;
                                 }
 
-                                if (Main.rand.Next(5) == 0)
+                                if (Main.rand.NextBool(5))
                                 {
                                     copperCoins /= Main.rand.Next(4) + 1;
                                 }
@@ -1313,7 +1308,7 @@ namespace CalValEX
                     float deusheadframe = 1f / (float)Main.npcFrameCount[npc.type];
                     int deusheadheight = (int)((float)(npc.frame.Y / npc.frame.Height) * deusheadframe) * (deusheadsprite.Height / 1);
 
-                    Rectangle deusheadsquare = new Rectangle(0, deusheadheight, deusheadsprite.Width, deusheadsprite.Height / 1);
+                    Rectangle deusheadsquare = new(0, deusheadheight, deusheadsprite.Width, deusheadsprite.Height / 1);
                     Color deusheadalpha = npc.GetAlpha(drawColor);
                     Main.EntitySpriteDraw(deusheadsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deusheadsquare, deusheadalpha, npc.rotation, Utils.Size(deusheadsquare) / 2f, npc.scale, SpriteEffects.None, 0);
                     return false;
@@ -1327,7 +1322,7 @@ namespace CalValEX
                     float deusbodframe = 1f / (float)Main.npcFrameCount[npc.type];
                     int deusbodheight = (int)((float)(npc.frame.Y / npc.frame.Height) * deusbodframe) * (deusbodsprite.Height / 1);
 
-                    Rectangle deusbodsquare = new Rectangle(0, deusbodheight, deusbodsprite.Width, deusbodsprite.Height / 1);
+                    Rectangle deusbodsquare = new(0, deusbodheight, deusbodsprite.Width, deusbodsprite.Height / 1);
                     Color deusbodalpha = npc.GetAlpha(drawColor);
                     Main.EntitySpriteDraw(deusbodsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deusbodsquare, deusbodalpha, npc.rotation, Utils.Size(deusbodsquare) / 2f, npc.scale, SpriteEffects.None, 0);
                     return false;
@@ -1341,7 +1336,7 @@ namespace CalValEX
                     float deustailframe = 1f / (float)Main.npcFrameCount[npc.type];
                     int deustailheight = (int)((float)(npc.frame.Y / npc.frame.Height) * deustailframe) * (deustailsprite.Height / 1);
 
-                    Rectangle deustailsquare = new Rectangle(0, deustailheight, deustailsprite.Width, deustailsprite.Height / 1);
+                    Rectangle deustailsquare = new(0, deustailheight, deustailsprite.Width, deustailsprite.Height / 1);
                     Color deustailalpha = npc.GetAlpha(drawColor);
                     Main.EntitySpriteDraw(deustailsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deustailsquare, deustailalpha, npc.rotation, Utils.Size(deustailsquare) / 2f, npc.scale, SpriteEffects.None, 0);
                     return false;
@@ -1362,7 +1357,7 @@ namespace CalValEX
                     float tidepodgframe = 1f / (float)Main.npcFrameCount[npc.type];
                     int tidepodgheight = (int)((float)(npc.frame.Y / npc.frame.Height) * tidepodgframe) * (tidepodgsprite.Height / 1);
 
-                    Rectangle tidepodgsquare = new Rectangle(0, tidepodgheight, tidepodgsprite.Width, tidepodgsprite.Height / 1);
+                    Rectangle tidepodgsquare = new(0, tidepodgheight, tidepodgsprite.Width, tidepodgsprite.Height / 1);
                     Color tidepodgalpha = npc.GetAlpha(drawColor);
                     spriteBatch.Draw(tidepodgsprite, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), tidepodgsquare, tidepodgalpha, npc.rotation, Utils.Size(tidepodgsquare) / 2f, npc.scale, SpriteEffects.None, 0f);
                 }
@@ -1377,7 +1372,7 @@ namespace CalValEX
                         float deusheadframe2 = 1f / (float)Main.npcFrameCount[npc.type];
                         int deusheadheight2 = (int)((float)(npc.frame.Y / npc.frame.Height) * deusheadframe2) * (deusheadsprite2.Height / 1);
 
-                        Rectangle deusheadsquare2 = new Rectangle(0, deusheadheight2, deusheadsprite2.Width, deusheadsprite2.Height / 1);
+                        Rectangle deusheadsquare2 = new(0, deusheadheight2, deusheadsprite2.Width, deusheadsprite2.Height / 1);
                         spriteBatch.Draw(deusheadsprite2, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deusheadsquare2, Color.White, npc.rotation, Utils.Size(deusheadsquare2) / 2f, npc.scale, SpriteEffects.None, 0f);
                     }
 
@@ -1389,7 +1384,7 @@ namespace CalValEX
                         float deusbodframe2 = 1f / (float)Main.npcFrameCount[npc.type];
                         int deusbodheight2 = (int)((float)(npc.frame.Y / npc.frame.Height) * deusbodframe2) * (deusbodsprite2.Height / 1);
 
-                        Rectangle deusbodsquare2 = new Rectangle(0, deusbodheight2, deusbodsprite2.Width, deusbodsprite2.Height / 1);
+                        Rectangle deusbodsquare2 = new(0, deusbodheight2, deusbodsprite2.Width, deusbodsprite2.Height / 1);
                         spriteBatch.Draw(deusbodsprite2, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deusbodsquare2, Color.White, npc.rotation, Utils.Size(deusbodsquare2) / 2f, npc.scale, SpriteEffects.None, 0f);
                     }
 
@@ -1401,7 +1396,7 @@ namespace CalValEX
                         float deustailframe2 = 1f / (float)Main.npcFrameCount[npc.type];
                         int deustailheight2 = (int)((float)(npc.frame.Y / npc.frame.Height) * deustailframe2) * (deustailsprite2.Height / 1);
 
-                        Rectangle deustailsquare2 = new Rectangle(0, deustailheight2, deustailsprite2.Width, deustailsprite2.Height / 1);
+                        Rectangle deustailsquare2 = new(0, deustailheight2, deustailsprite2.Width, deustailsprite2.Height / 1);
                         spriteBatch.Draw(deustailsprite2, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), deustailsquare2, Color.White, npc.rotation, Utils.Size(deustailsquare2) / 2f, npc.scale, SpriteEffects.None, 0f);
                     }
                 }

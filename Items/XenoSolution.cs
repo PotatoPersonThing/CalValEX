@@ -20,7 +20,7 @@ namespace CalValEX.Items
 			Item.width = 10;
 			Item.height = 12;
 			Item.value = Item.buyPrice(0, 0, 25, 0);
-			Item.rare = 4;
+			Item.rare = ItemRarityID.LightRed;
 			Item.maxStack = 999;
 			Item.consumable = true;
 		}

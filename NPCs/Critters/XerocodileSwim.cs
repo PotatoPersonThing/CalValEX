@@ -1,13 +1,8 @@
-﻿using MonoMod.Cil;
-using System;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
-using CalValEX.Items;
-using Terraria.DataStructures;
-using Microsoft.Xna.Framework;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -19,7 +14,7 @@ namespace CalValEX.NPCs.Critters
             Main.npcFrameCount[NPC.type] = 6;
             NPCID.Sets.CantTakeLunchMoney[Type] = true;
             Main.npcCatchable[NPC.type] = true;
-            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new(0)
             {
                 Hide = true
             };
@@ -53,7 +48,7 @@ namespace CalValEX.NPCs.Critters
         {
             if (!NPC.wet)
             {
-                NPC.Transform(ModContent.NPCType<Xerocodile>());
+                NPC.Transform(NPCType<Xerocodile>());
             }
             if (!Main.bloodMoon)
             {

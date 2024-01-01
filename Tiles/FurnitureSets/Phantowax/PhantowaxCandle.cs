@@ -2,7 +2,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
-using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -35,7 +34,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             WorldGen.KillTile(i, j);
             if (Main.netMode != NetmodeID.SinglePlayer)
             {
-                NetMessage.SendData(17, -1, -1, null, 0, i, j);
+                NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 0, i, j);
             }
             return true;
         }

@@ -1,10 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Localization;
-using System.Collections.Generic;
 
 namespace CalValEX.AprilFools
 {
@@ -37,7 +34,7 @@ namespace CalValEX.AprilFools
             Item.UseSound = new Terraria.Audio.SoundStyle("CalValEX/Sounds/Item/AmogusScream");
             Item.shoot = ModContent.ProjectileType<Amogus>();
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 10;
+            Item.rare = ItemRarityID.Red;
             Item.buffType = ModContent.BuffType<AmogusBuff>();
             Item.noUseGraphic = true;
             Item.expert = true;

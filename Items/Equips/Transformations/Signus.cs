@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Items.Equips.Capes;
-using CalValEX.Items.Equips.Legs;
-using CalValEX.Items.Equips.Scarves;
 
 namespace CalValEX.Items.Equips.Transformations
 {
-	public class Signus: ModItem
+    public class Signus: ModItem
 	{
 		public override void Load()
 		{
@@ -37,7 +34,7 @@ namespace CalValEX.Items.Equips.Transformations
 			Item.width = 24;
 			Item.height = 28;
 			Item.accessory = true;
-			Item.rare = 11;
+			Item.rare = ItemRarityID.Purple;
 			Item.hasVanityEffects = true;
 		}
 

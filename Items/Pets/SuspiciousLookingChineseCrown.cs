@@ -23,7 +23,7 @@ namespace CalValEX.Items.Pets
             Item.UseSound = SoundID.NPCHit49;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.Junko>();
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.buffType = ModContent.BuffType<Buffs.Pets.JunkoBuff>();
         }
 

@@ -3,13 +3,11 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-using CalValEX;
-using CalValEX.Items.Tiles;
-using CalValEX.Items.Tiles.Blocks;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace CalValEX.Tiles.Blocks {
-	public class ThanatosPlatingPlaced : ModTile
+namespace CalValEX.Tiles.Blocks
+{
+    public class ThanatosPlatingPlaced : ModTile
 	{
 		[JITWhenModsEnabled("CalamityMod")]
 		public override void SetStaticDefaults()  {

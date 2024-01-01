@@ -11,7 +11,7 @@ namespace CalValEX.Projectiles.Pets
         int i = 0;
         public override string Texture => "CalValEX/Projectiles/Plushies/ItsReal";
 
-        public override Vector2 FlyingOffset => new Vector2(68f * -Main.player[Projectile.owner].direction, -50f);
+        public override Vector2 FlyingOffset => new(68f * -Main.player[Projectile.owner].direction, -50f);
 
         public override void SetStaticDefaults()
         {

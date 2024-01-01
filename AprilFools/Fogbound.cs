@@ -1,19 +1,17 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX;
 using Terraria.GameContent.Bestiary;
 using Terraria.Audio;
 //using Terraria.World.Generation;
 
 namespace CalValEX.AprilFools
 {
-	[AutoloadBossHead]
+    [AutoloadBossHead]
 	public class Fogbound : ModNPC
 	
 	{		
@@ -21,7 +19,7 @@ namespace CalValEX.AprilFools
 		{
 			if (!CalValEX.AprilFoolMonth)
 			{
-				NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+				NPCID.Sets.NPCBestiaryDrawModifiers value = new(0)
 				{
 					Hide = true
 				};
@@ -56,7 +54,7 @@ namespace CalValEX.AprilFools
 			if (CalValEX.AprilFoolMonth)
 			{
 				bestiaryEntry.Info.AddRange(new Terraria.GameContent.Bestiary.IBestiaryInfoElement[] {
-				Terraria.GameContent.Bestiary.BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
 				new Terraria.GameContent.Bestiary.FlavorTextBestiaryInfoElement($"Mods.CalValEX.Bestiary.{Name}")
 				//("The soul the Death God, we call it the Fogbound. Although one may logically assume that a god possesses two souls when they consume an Auric Soul, this is not the case. Rather, they fuse into something greater than the sum of its parts."),
 			});
@@ -74,7 +72,7 @@ namespace CalValEX.AprilFools
 			if (Main.dayTime && NPC.life <= NPC.lifeMax * 0.5f)
             {
 				for (int k = 0; k < 50; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 16, 0, -1f, 0, default, 1f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Cloud, 0, -1f, 0, default, 1f);
 				NPC.active = false;
 				if (CalValEX.CalamityActive)
 				{
@@ -100,7 +98,7 @@ namespace CalValEX.AprilFools
 					yRand = Main.rand.Next(-1, 2);
 				}
 				for (int k = 0; k < 50; k++)
-					Dust.NewDust(NPC.position, NPC.width, NPC.height, 16, 0, -1f, 0, default, 1f);
+					Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Cloud, 0, -1f, 0, default, 1f);
 				SoundEngine.PlaySound(SoundID.Item20);
 				NPC.Center = new Vector2((int)(target.Center.X + dist.X * xRand),(int)( target.Center.Y - dist.Y * yRand));
 				NPC.localAI[0] = 0;
@@ -152,7 +150,7 @@ namespace CalValEX.AprilFools
 						float chargeSpeed = 20 + (10 - (lifeRatio * 10));
 						if (NPC.ai[1] == 0)
                         {
-							Terraria.Audio.SoundEngine.PlaySound(SoundID.Roar);
+                            SoundEngine.PlaySound(SoundID.Roar);
 							NPC.velocity = NPC.DirectionTo(target.position) * chargeSpeed;
                         }
 						NPC.ai[1]++;
@@ -188,7 +186,7 @@ namespace CalValEX.AprilFools
 								{
 									for (int j = 0; j < 20; j++)
 									{
-										Dust.NewDust(proj.position, proj.width, proj.height, 16, 0, -1f, 0, default, 1f);
+										Dust.NewDust(proj.position, proj.width, proj.height, DustID.Cloud, 0, -1f, 0, default, 1f);
 									}
 									proj.active = false;
 								}
@@ -197,11 +195,11 @@ namespace CalValEX.AprilFools
 						else if (NPC.ai[1] < 120)
 						{
 							NPC.rotation = NPC.rotation.AngleLerp(0, 0.4f);
-							int num5 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 16, 0f, 0f, 200, default, 1.5f);
+							int num5 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Cloud, 0f, 0f, 200, default, 1.5f);
 							Main.dust[num5].noGravity = true;
 							Main.dust[num5].velocity *= 0.75f;
 							Main.dust[num5].fadeIn = 1.3f;
-							Vector2 vector = new Vector2((float)Main.rand.Next(-200, 201), (float)Main.rand.Next(-200, 201));
+							Vector2 vector = new((float)Main.rand.Next(-200, 201), (float)Main.rand.Next(-200, 201));
 							vector.Normalize();
 							vector *= (float)Main.rand.Next(100, 200) * 0.04f;
 							Main.dust[num5].velocity = vector;
@@ -211,7 +209,7 @@ namespace CalValEX.AprilFools
 						}
 						else if (NPC.ai[1] == 120)
 						{
-							Terraria.Audio.SoundEngine.PlaySound(SoundID.Zombie104, NPC.Center);
+                            SoundEngine.PlaySound(SoundID.Zombie104, NPC.Center);
 							if (CalValEX.CalamityActive)
 							{
 								ShakeScreen();
@@ -368,8 +366,8 @@ namespace CalValEX.AprilFools
 			Player target = Main.player[NPC.target];
 			Vector2 dist = NPC.Center - target.Center;
 			Rectangle frameRectangle = texture.Frame(1, 1, 0, 0);
-			List<Vector2> points = new List<Vector2>
-			{
+			List<Vector2> points = new()
+            {
 				NPC.Center - Main.screenPosition,
 				NPC.Center - Main.screenPosition + -2 * dist.Y * Vector2.UnitY,
 				NPC.Center - Main.screenPosition + -2 * dist.Y * Vector2.UnitY + -2 * dist.X * Vector2.UnitX,

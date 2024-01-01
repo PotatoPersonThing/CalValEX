@@ -12,7 +12,7 @@ namespace CalValEX.Items.Hooks
             Item.CloneDefaults(ItemID.BatHook);
             Item.shootSpeed = 18f;
             Item.shoot = ProjectileType<RavaClaw>();
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
         }
     }
 }

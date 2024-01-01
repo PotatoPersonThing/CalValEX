@@ -1,5 +1,4 @@
-﻿using CalValEX.Items.Pets;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -16,9 +15,9 @@ namespace CalValEX.Items.Mounts.InfiniteFlight
             Item.height = 30;
             Item.useTime = 20;
             Item.useAnimation = 20;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.UseSound = SoundID.NPCHit56;
             Item.noMelee = true;
             Item.mountType = ModContent.MountType<YharonMount>();

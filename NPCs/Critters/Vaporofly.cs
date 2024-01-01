@@ -1,13 +1,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MonoMod.Cil;
-using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
-using Terraria.DataStructures;
 //using CalamityMod.CalPlayer;
 
 namespace CalValEX.NPCs.Critters
@@ -68,9 +65,9 @@ namespace CalValEX.NPCs.Critters
 
         public void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale)
         {
-            Vector2 origin = new Vector2(NPC.width * .5f, NPC.height * .5f);
+            Vector2 origin = new(NPC.width * .5f, NPC.height * .5f);
             SpriteEffects effect = NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-            spriteBatch.Draw(ModContent.Request<Texture2D>("Items/Critters/Vaporofly_Glow").Value, NPC.Center - Main.screenPosition, new Rectangle?(), Color.White, rotation, origin, scale, effect, 0f);
+            spriteBatch.Draw(Request<Texture2D>("Items/Critters/Vaporofly_Glow").Value, NPC.Center - Main.screenPosition, new Rectangle?(), Color.White, rotation, origin, scale, effect, 0f);
         }
 
         [JITWhenModsEnabled("CalamityMod")]
@@ -88,16 +85,16 @@ namespace CalValEX.NPCs.Critters
             {
                 Dust dust;
                 // You need to set position depending on what you are doing. You may need to subtract width/2 and height/2 as well to center the spawn rectangle.
-                Vector2 positionLeft = new Vector2(NPC.position.X + 9, NPC.position.Y);
-                Vector2 positionRight = new Vector2(NPC.position.X - 9, NPC.position.Y);
+                Vector2 positionLeft = new(NPC.position.X + 9, NPC.position.Y);
+                Vector2 positionRight = new(NPC.position.X - 9, NPC.position.Y);
                 if (NPC.direction == -1)
                 {
-                    dust = Main.dust[Terraria.Dust.NewDust(positionLeft, 0, 0, DustID.Torch, 1f, 1f, 0, new Color(109, 255, 0), 0.5f)];
+                    dust = Main.dust[Dust.NewDust(positionLeft, 0, 0, DustID.Torch, 1f, 1f, 0, new Color(109, 255, 0), 0.5f)];
                     dust.noGravity = true;
                 }
                 else if (NPC.direction != 0)
                 {
-                    dust = Main.dust[Terraria.Dust.NewDust(positionRight, 0, 0, DustID.Torch, 1f, 1f, 0, new Color(109, 255, 0), 0.5f)];
+                    dust = Main.dust[Dust.NewDust(positionRight, 0, 0, DustID.Torch, 1f, 1f, 0, new Color(109, 255, 0), 0.5f)];
                     dust.noGravity = true;
                 }
             }
@@ -105,11 +102,11 @@ namespace CalValEX.NPCs.Critters
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
 
-            Texture2D texture = ModContent.Request<Texture2D>("CalValEX/NPCs/Critters/Vaporofly_Glow").Value;
+            Texture2D texture = Request<Texture2D>("CalValEX/NPCs/Critters/Vaporofly_Glow").Value;
             float vapeframe = 8f / (float)Main.npcFrameCount[NPC.type];
             int vapeheight = (int)((float)(NPC.frame.Y / NPC.frame.Height) * vapeframe) * (texture.Height / 8);
 
-            Rectangle vapesquare = new Rectangle(0, vapeheight, texture.Width, texture.Height / 8);
+            Rectangle vapesquare = new(0, vapeheight, texture.Width, texture.Height / 8);
 
             SpriteEffects rainbowy = SpriteEffects.None;
             if (NPC.spriteDirection == 1)

@@ -3,6 +3,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
+using CalValEX.Projectiles.Pets;
+using CalamityMod.Items.Placeables.FurnitureWulfrum;
+using CalValEX.Projectiles.Pets.Wulfrum;
 
 namespace CalValEX.Items.Pets
 {
@@ -21,7 +24,7 @@ namespace CalValEX.Items.Pets
             Item.UseSound = SoundID.NPCHit4;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.Wulfrum.WulfrumDrone>();
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.buffType = ModContent.BuffType<Buffs.Pets.WulfrumArmy>();
         }
 
@@ -33,17 +36,13 @@ namespace CalValEX.Items.Pets
             }
         }
 
-
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            type = ModContent.ProjectileType<Projectiles.Pets.Wulfrum.WulfrumDrone>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
-            type = ModContent.ProjectileType<Projectiles.Pets.Wulfrum.WulfrumOrb>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
-            type = ModContent.ProjectileType<Projectiles.Pets.Wulfrum.WulfrumHover>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
-            type = ModContent.ProjectileType<Projectiles.Pets.Wulfrum.WulfrumRover>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
+            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<WulfrumDrone>(), damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<WulfrumOrb>(), damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<WulfrumHover>(), damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<WulfrumRover>(), damage, knockback, player.whoAmI);
+            return false;
         }
     }
 }

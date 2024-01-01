@@ -26,7 +26,7 @@ namespace CalValEX.Items.Tiles.Banners
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.rare = 5;
+            Item.rare = ItemRarityID.Pink;
             Item.value = Item.buyPrice(0, 0, 10, 0);
             Item.createTile = TileType<VeilBannerPlaced>();
             Item.placeStyle = 0;

@@ -1,7 +1,6 @@
 using Terraria.ModLoader;
 using CalValEX.Tiles.Balloons;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
+using Terraria.ID;
 
 namespace CalValEX.Items.Tiles.Balloons
 {
@@ -15,7 +14,7 @@ namespace CalValEX.Items.Tiles.Balloons
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -25,7 +24,7 @@ namespace CalValEX.Items.Tiles.Balloons
             Item.createTile = ModContent.TileType<TiedBoB2Placed>();
             Item.width = 16;
             Item.height = 40;
-            Item.rare = 6;
+            Item.rare = ItemRarityID.LightPurple;
         }
     }
 }

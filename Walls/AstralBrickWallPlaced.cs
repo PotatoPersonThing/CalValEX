@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Items.Walls;
 using CalValEX.Dusts;
 
 namespace CalValEX.Walls

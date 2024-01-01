@@ -1,8 +1,5 @@
 ﻿using Terraria;
 //using CalamityMod.Particles;
-using System;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace CalValEX.Projectiles.Pets
 {

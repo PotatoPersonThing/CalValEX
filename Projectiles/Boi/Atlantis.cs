@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.Audio;
@@ -77,7 +76,7 @@ namespace CalValEX.Projectiles.Boi
                 }
                 if (Projectile.ai[0] >= 65)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item71, Projectile.position);
+                    SoundEngine.PlaySound(SoundID.Item71, Projectile.position);
                     Projectile.ai[0] = 0;
                 }
                 

@@ -4,7 +4,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
 using Terraria.ObjectData;
 
 namespace CalValEX.Tiles.FurnitureSets.Bloodstone
@@ -15,7 +14,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
         {
             // Main.tileFlame[Type] = true; This breaks it.
             Main.tileLighted[Type] = true;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.StyleOnTable1x1);
@@ -46,7 +45,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             WorldGen.KillTile(i, j);
             if (Main.netMode != NetmodeID.SinglePlayer)
             {
-                NetMessage.SendData(17, -1, -1, null, 0, i, j);
+                NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 0, i, j);
             }
             return true;
         }

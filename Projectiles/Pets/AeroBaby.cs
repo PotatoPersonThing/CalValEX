@@ -5,7 +5,7 @@ namespace CalValEX.Projectiles.Pets
 {
     public class AeroBaby : ModFlyingPet
     {
-        public override Vector2 FlyingOffset => new Vector2(38f * -Main.player[Projectile.owner].direction, -70f);
+        public override Vector2 FlyingOffset => new(38f * -Main.player[Projectile.owner].direction, -70f);
 
         public override float TeleportThreshold => 1440f;
 

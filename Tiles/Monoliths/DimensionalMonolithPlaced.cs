@@ -5,7 +5,6 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using static CalValEX.CalValEXWorld;
 using CalValEX.Items.Tiles.Monoliths;
 
 namespace CalValEX.Tiles.Monoliths
@@ -16,7 +15,7 @@ namespace CalValEX.Tiles.Monoliths
         {
             Main.tileFrameImportant[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.Width = 3;
             TileObjectData.newTile.Height = 5;
             TileObjectData.newTile.Origin = new Point16(1, 2);
@@ -41,7 +40,7 @@ namespace CalValEX.Tiles.Monoliths
             Tile tile = Main.tile[i, j];
             Texture2D texture;
             texture = ModContent.Request<Texture2D>("CalValEX/Tiles/Monoliths/DimensionalMonolithPlaced").Value;
-            Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
+            Vector2 zero = new(Main.offScreenRange, Main.offScreenRange);
             if (Main.drawToScreen)
             {
                 zero = Vector2.Zero;

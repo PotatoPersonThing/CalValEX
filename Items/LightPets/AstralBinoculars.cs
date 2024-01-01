@@ -1,3 +1,4 @@
+using CalValEX.Projectiles.Pets.LightPets;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -28,12 +29,10 @@ namespace CalValEX.Items.LightPets
         }
        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
        {
-            type = ModContent.ProjectileType<Projectiles.Pets.LightPets.SeerS>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
-            type = ModContent.ProjectileType<Projectiles.Pets.LightPets.SeerM>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
-            type = ModContent.ProjectileType<Projectiles.Pets.LightPets.SeerL>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
+            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<SeerS>(), damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<SeerL>(), damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<SeerM>(), damage, knockback, player.whoAmI);
+            return false;
        }
     }
 }

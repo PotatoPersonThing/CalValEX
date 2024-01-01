@@ -9,11 +9,10 @@ using Terraria.ObjectData;
 using Terraria.DataStructures;
 using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
 using Terraria.Audio;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace CalValEX.Tiles.FurnitureSets.Bloodstone
 {
-	public class BloodstoneDresser : ModTile
+    public class BloodstoneDresser : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

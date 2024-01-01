@@ -3,14 +3,12 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Tiles.AstralMisc;
-using CalValEX.Items.Tiles.Blocks.Astral;
 using CalValEX.Dusts;
 using CalValEX.Projectiles;
 
 namespace CalValEX.Tiles.AstralBlocks
 {
-	public class AstralSandPlaced : ModTile
+    public class AstralSandPlaced : ModTile
 	{
 		[JITWhenModsEnabled("CalamityMod")]
 		public override void SetStaticDefaults() 

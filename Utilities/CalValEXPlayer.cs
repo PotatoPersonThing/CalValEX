@@ -1,27 +1,14 @@
 ﻿using CalValEX.Buffs.Transformations;
 using CalValEX.Items.Equips.Transformations;
-using System.Collections.Generic;
-using System.IO;
-using CalValEX.Items.Equips.Hats.Draedon;
-using CalValEX.Items.Equips.Shirts.Draedon;
-using CalValEX.Items.Equips.Transformations;
 using CalValEX.Items.Equips.Hats;
-using CalValEX.Buffs.Transformations;
 using CalValEX.Items.Mounts.Morshu;
 using CalValEX.Items.Equips.Shirts.AresChestplate;
 using CalValEX.Items.Equips.Balloons;
 using CalValEX.Projectiles.Pets;
-using CalValEX.Projectiles.Pets.LightPets;
-using CalValEX.Items.Equips.Backs;
-using CalValEX.Projectiles.Pets.Elementals;
-using CalValEX.Items.Equips.PlayerLayers.ClassSpecific;
-using CalValEX.Biomes;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -29,12 +16,9 @@ using CalValEX.Items.Equips.Shirts;
 using CalValEX.Items.Equips.Wings;
 using CalValEX.Items.Mounts.Ground;
 using CalamityMod.Particles;
-using rail;
-using CalamityMod.Items.Accessories;
-using CalamityMod.NPCs.TownNPCs;
-using System.Diagnostics.Contracts;
 
-namespace CalValEX {
+namespace CalValEX
+{
     public class CalValEXPlayer : ModPlayer {
         //public static readonly ClassSpecificPlayerLayer DraedonSet = new ClassSpecificPlayerLayer("CalValEX/Items/Equips/Shirts/Draedon/", "CalValEX/Items/Equips/Hats/Draedon/", "DraedonChestplate", "DraedonHelmet");
 
@@ -357,25 +341,25 @@ namespace CalValEX {
                 specan = true;
             }
             if (Player.armor[11].type == ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>()) {
-                bool gausspawned = Player.ownedProjectileCounts[ModContent.ProjectileType<GaussArm>()] <= 0;
-                bool laserpawned = Player.ownedProjectileCounts[ModContent.ProjectileType<LaserArm>()] <= 0;
-                bool teslaspawned = Player.ownedProjectileCounts[ModContent.ProjectileType<TeslaArm>()] <= 0;
-                bool plasmaspawned = Player.ownedProjectileCounts[ModContent.ProjectileType<PlasmaArm>()] <= 0;
+                bool gausspawned = Player.ownedProjectileCounts[ProjectileType<GaussArm>()] <= 0;
+                bool laserpawned = Player.ownedProjectileCounts[ProjectileType<LaserArm>()] <= 0;
+                bool teslaspawned = Player.ownedProjectileCounts[ProjectileType<TeslaArm>()] <= 0;
+                bool plasmaspawned = Player.ownedProjectileCounts[ProjectileType<PlasmaArm>()] <= 0;
                 if (gausspawned && Player.whoAmI == Main.myPlayer) {
                     Projectile.NewProjectile(Player.GetSource_Accessory(Player.armor[11]), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                        0, 0, ModContent.ProjectileType<GaussArm>(), 0, 0f, Player.whoAmI);
+                        0, 0, ProjectileType<GaussArm>(), 0, 0f, Player.whoAmI);
                 }
                 if (laserpawned && Player.whoAmI == Main.myPlayer) {
                     Projectile.NewProjectile(Player.GetSource_Accessory(Player.armor[11]), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                       0, 0, ModContent.ProjectileType<LaserArm>(), 0, 0f, Player.whoAmI);
+                       0, 0, ProjectileType<LaserArm>(), 0, 0f, Player.whoAmI);
                 }
                 if (teslaspawned && Player.whoAmI == Main.myPlayer) {
                     Projectile.NewProjectile(Player.GetSource_Accessory(Player.armor[11]), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                       0, 0, ModContent.ProjectileType<TeslaArm>(), 0, 0f, Player.whoAmI);
+                       0, 0, ProjectileType<TeslaArm>(), 0, 0f, Player.whoAmI);
                 }
                 if (plasmaspawned && Player.whoAmI == Main.myPlayer) {
                     Projectile.NewProjectile(Player.GetSource_Accessory(Player.armor[11]), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
-                       0, 0, ModContent.ProjectileType<PlasmaArm>(), 0, 0f, Player.whoAmI);
+                       0, 0, ProjectileType<PlasmaArm>(), 0, 0f, Player.whoAmI);
                 }
                 aresarms = true;
             }
@@ -476,15 +460,15 @@ namespace CalValEX {
         }
         public override void UpdateVisibleAccessories() {
             if (signutTrans)
-                Player.AddBuff(ModContent.BuffType<Buffs.Transformations.SignutTransformationBuff>(), 60, true);
+                Player.AddBuff(BuffType<SignutTransformationBuff>(), 60, true);
             else if (androTrans)
-                Player.AddBuff(ModContent.BuffType<Buffs.Transformations.ProtoRingBuff>(), 60, true);
+                Player.AddBuff(BuffType<ProtoRingBuff>(), 60, true);
             else if (classicTrans)
-                Player.AddBuff(ModContent.BuffType<Buffs.Transformations.ClassicBrimmyBuff>(), 60, true);
+                Player.AddBuff(BuffType<ClassicBrimmyBuff>(), 60, true);
             else if (cloudTrans)
-                Player.AddBuff(ModContent.BuffType<Buffs.Transformations.CloudTransformationBuff>(), 60, true);
+                Player.AddBuff(BuffType<CloudTransformationBuff>(), 60, true);
             else if (sandTrans)
-                Player.AddBuff(ModContent.BuffType<Buffs.Transformations.SandTransformationBuff>(), 60, true);
+                Player.AddBuff(BuffType<SandTransformationBuff>(), 60, true);
         }
 
         public override void PreUpdateMovement() {
@@ -522,7 +506,7 @@ namespace CalValEX {
         }
 
         public override void PostUpdateBuffs() {
-            if (!Player.HasBuff(ModContent.BuffType<MorshuBuff>())) {
+            if (!Player.HasBuff(BuffType<MorshuBuff>())) {
                 morshuTimer = 0;
             }
         }
@@ -570,7 +554,7 @@ namespace CalValEX {
             rotdeg = Math.Cos(rotcounter);
             rotsin = -Math.Sin(rotcounter);
 
-            if (wulfrumjam && Main.rand.Next(2) == 0 && CalValEX.CalamityActive) {
+            if (wulfrumjam && Main.rand.NextBool(2)&& CalValEX.CalamityActive) {
                 /*Vector2 smokeOffset = new Vector2(22 * Player.direction, 6);
                 CalamityMod.Particles.Particle smoke = new CalamityMod.Particles.SmallSmokeParticle(Player.Center - smokeOffset, Vector2.Zero, Color.GreenYellow, new Color(40, 40, 40), Main.rand.NextFloat(0.4f, 0.8f), 145 - Main.rand.Next(50));
                 smoke.Velocity = (smoke.Position - Player.Center) * 0.3f + Player.velocity;
@@ -580,7 +564,6 @@ namespace CalValEX {
         public override void PostUpdate()
         {
             bool flag21 = Player.onTrack;
-            bool flag22 = false;
             if (Player.mount.Type == MountType<ProfanedCycle>())
             {
                 Player.fartKartCloudDelay = Math.Max(0, Player.fartKartCloudDelay - 1);
@@ -621,10 +604,6 @@ namespace CalValEX {
                     Player.mount.Delegations.MinecartBumperSound(Player, Player.position, Player.width, Player.height);
                 }
                 Player.velocity /= num18;
-                if (bitsByte[3] && Player.whoAmI == Main.myPlayer)
-                {
-                    flag22 = true;
-                }
                 if (bitsByte[2])
                 {
                     Player.cartRampTime = (int)(Math.Abs(Player.velocity.X) / Player.mount.RunSpeed * 20f);
@@ -695,7 +674,7 @@ namespace CalValEX {
 
                 Vector2 sparkVelocity = splatterDirection.RotatedByRandom(0.6f) * Main.rand.NextFloat(12f, 25f);
                 sparkVelocity.Y -= 10f;
-                SparkParticle spark = new SparkParticle(impactPoint, sparkVelocity, true, sparkLifetime, sparkScale, sparkColor);
+                SparkParticle spark = new(impactPoint, sparkVelocity, true, sparkLifetime, sparkScale, sparkColor);
                 GeneralParticleHandler.SpawnParticle(spark);
             }
         }
@@ -896,7 +875,7 @@ namespace CalValEX {
                 for (int x = 0; x < 15; x++) {
                     Dust dust;
                     Vector2 position = Main.LocalPlayer.Center;
-                    dust = Main.dust[Terraria.Dust.NewDust(Player.Center, 26, 15, 191, 0f, 0f, 147, new Color(255, 255, 255), 0.9868422f)];
+                    dust = Main.dust[Dust.NewDust(Player.Center, 26, 15, DustID.SpookyWood, 0f, 0f, 147, new Color(255, 255, 255), 0.9868422f)];
                 }
             }
 
@@ -914,8 +893,8 @@ namespace CalValEX {
         }
         public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo) {
             DoCalamityBabyThings(hurtInfo.Damage);
-
-            if (npc.type == CalValEX.CalamityNPC("SupremeCalamitas") && Player.immuneTime <= 0) {
+            if (npc.type == CalamityID.CalNPCID.SupremeCalamitas && Player.immuneTime <= 0)
+            {
                 SCalHits++;
             }
         }
@@ -925,7 +904,7 @@ namespace CalValEX {
 
             for (int i = 0; i < Main.maxNPCs; i++)
                 if (Main.npc[i].active &&
-                    Main.npc[i].type == CalValEX.CalamityNPC("SupremeCalamitas")) 
+                    Main.npc[i].type == CalamityID.CalNPCID.SupremeCalamitas) 
                     {
                     if (Player.immuneTime <= 0) 
                     {

@@ -1,7 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.FurnitureSets.Astral;
-using CalValEX.Items.Tiles.Blocks.Astral;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Astral
 {
@@ -15,7 +14,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Astral
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -25,7 +24,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Astral
             Item.createTile = ModContent.TileType<OldAstralCandelabra>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 0;
+            Item.rare = ItemRarityID.White;
         }
 
         /*public override void AddRecipes()

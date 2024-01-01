@@ -4,16 +4,16 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Projectiles.Pets;
 
-namespace CalValEX.Projectiles.Pets.LightPets {
+namespace CalValEX.Projectiles.Pets.LightPets
+{
     public class DiggerPet : BaseWormPet {
         //Æ: Chronicles of my descent into madness. Also I can double jump now
         //Æ, 7/6/22: That's right baby, the queen's back
         public override string Texture => "CalValEX/Projectiles/Pets/LightPets/DiggerHead";
-        public override WormPetVisualSegment HeadSegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/LightPets/DiggerHead", true, 1, 1);
-        public override WormPetVisualSegment BodySegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/LightPets/DiggerSegment", true, 1, 1);
-        public override WormPetVisualSegment TailSegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/LightPets/DiggerTail", true, 1, 1);
+        public override WormPetVisualSegment HeadSegment() => new("CalValEX/Projectiles/Pets/LightPets/DiggerHead", true, 1, 1);
+        public override WormPetVisualSegment BodySegment() => new("CalValEX/Projectiles/Pets/LightPets/DiggerSegment", true, 1, 1);
+        public override WormPetVisualSegment TailSegment() => new("CalValEX/Projectiles/Pets/LightPets/DiggerTail", true, 1, 1);
         public override int SegmentSize() => 26;
         public override int SegmentCount() => ModOwner.RepairBot ? 24 : 9;
         public override bool ExistenceCondition() => ModOwner.digger;
@@ -60,7 +60,7 @@ namespace CalValEX.Projectiles.Pets.LightPets {
                 frameWidth -= currentSegment.Variants > 1 ? 2 : 0;
                 frameHeight -= (Main.projFrames[Projectile.type] > 1) ? 2 : 0;
 
-                Rectangle frame = new Rectangle(frameStartX, frameStartY, frameWidth, frameHeight);
+                Rectangle frame = new(frameStartX, frameStartY, frameWidth, frameHeight);
                 Vector2 origin = bodySegment ? frame.Size() / 2f : i == 0 ? new Vector2(frame.Width / 2f, frame.Height - SegmentSize() / 2f) : new Vector2(frame.Width / 2f, SegmentSize() / 2f);
 
                 if (i == 0)

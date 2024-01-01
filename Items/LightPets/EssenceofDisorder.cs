@@ -1,3 +1,5 @@
+using CalValEX.Projectiles.Pets;
+using CalValEX.Projectiles.Pets.LightPets;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -19,7 +21,7 @@ namespace CalValEX.Items.LightPets
             Item.UseSound = SoundID.Item45;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.LightPets.HeatPet>();
             Item.value = Item.sellPrice(0, 2, 0, 0);
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.buffType = ModContent.BuffType<Buffs.LightPets.HeatBuff>();
         }
 
@@ -33,10 +35,9 @@ namespace CalValEX.Items.LightPets
 
        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Microsoft.Xna.Framework.Vector2 position, Microsoft.Xna.Framework.Vector2 velocity, int type, int damage, float knockback)
         {
-            type = ModContent.ProjectileType<Projectiles.Pets.LightPets.HeatBaby>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
-            type = ModContent.ProjectileType<Projectiles.Pets.LightPets.HeatPet>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
+            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<HeatBaby>(), damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<HeatPet>(), damage, knockback, player.whoAmI);
+            return false;
         }
     }
 }

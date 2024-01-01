@@ -2,7 +2,6 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Dusts;
 
 namespace CalValEX.Tiles.AstralBlocks

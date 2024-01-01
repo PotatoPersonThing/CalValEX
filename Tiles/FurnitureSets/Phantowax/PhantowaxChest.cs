@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -20,7 +19,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             Main.tileShine2[Type] = true;
             Main.tileShine[Type] = 1200;
             Main.tileFrameImportant[Type] = true;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileOreFinderPriority[Type] = 500;
             TileID.Sets.BasicChest[Type] = true;

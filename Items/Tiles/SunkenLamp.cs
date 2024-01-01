@@ -1,5 +1,6 @@
 using Terraria.ModLoader;
 using CalValEX.Tiles.MiscFurniture;
+using Terraria.ID;
 
 namespace CalValEX.Items.Tiles
 {
@@ -14,7 +15,7 @@ namespace CalValEX.Items.Tiles
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -24,7 +25,7 @@ namespace CalValEX.Items.Tiles
             Item.createTile = ModContent.TileType<SunkenLampPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
         }
     }
 }

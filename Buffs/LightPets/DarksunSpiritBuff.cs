@@ -20,7 +20,7 @@ namespace CalValEX.Buffs.LightPets
                 Mod clamMod = ModLoader.GetMod("CalamityMod");
                 clamMod.Call("AddAbyssLightStrength", Main.player[Main.myPlayer], 4);
             }
-            List<int> pets = new List<int>
+            List<int> pets = new()
             {
                 ModContent.ProjectileType<DarksunSpirit_Fish>(),
                 ModContent.ProjectileType<DarksunSpiritSkull_1>(),

@@ -2,13 +2,9 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria;
-using Terraria.ModLoader;
 using Terraria.DataStructures;
 using Terraria.Enums;
-using Terraria.ID;
 using CalValEX.Dusts;
-using Terraria.ObjectData;
 
 namespace CalValEX.Tiles.AstralMisc
 {

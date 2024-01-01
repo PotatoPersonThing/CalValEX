@@ -21,7 +21,7 @@ namespace CalValEX.Items.Pets
             Item.shoot = CalValEX.CalamityActive ? ModContent.ProjectileType<Projectiles.Pets.MiniCryo>() : ModContent.ProjectileType<Projectiles.Pets.MiniCryoCalless>();
             Item.buffType = ModContent.BuffType<Buffs.Pets.ChilledOut>();
             Item.value = Item.sellPrice(0, 2, 0, 0);
-            Item.rare = 5;
+            Item.rare = ItemRarityID.Pink;
         }
 
         public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)

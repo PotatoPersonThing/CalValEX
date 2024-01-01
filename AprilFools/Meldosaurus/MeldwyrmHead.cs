@@ -15,7 +15,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 		{
 			if (!CalValEX.AprilFoolMonth)
 			{
-				NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+				NPCID.Sets.NPCBestiaryDrawModifiers value = new(0)
 				{
 					Hide = true
 				};
@@ -77,8 +77,8 @@ namespace CalValEX.AprilFools.Meldosaurus
 			float idealx = MathHelper.Lerp(NPC.position.X, hyposx, 0.4f);
 			float idealy = MathHelper.Lerp(NPC.position.Y, hyposy, 0.4f);
 			//NPC.position = new Vector2(idealx, idealy);
-			Vector2 idealpos = new Vector2(hyposx, hyposy);
-			Dust.NewDustDirect(idealpos, 1, 1, 1);
+			Vector2 idealpos = new(hyposx, hyposy);
+			Dust.NewDustDirect(idealpos, 1, 1, DustID.Stone);
 
 			NPC.velocity = NPC.position.DirectionTo(new Vector2(hyposx, hyposy)) * 30;
 

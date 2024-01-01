@@ -20,7 +20,7 @@ namespace CalValEX.Items.Equips.Balloons
             Item.width = 24;
             Item.height = 42;
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
             Item.vanity = true;
         }

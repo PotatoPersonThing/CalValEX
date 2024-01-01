@@ -2,7 +2,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.IO;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -63,7 +62,7 @@ namespace CalValEX.Projectiles.Pets
             for (int x = 0; x < 60; x++)
             {
                 Dust dust;
-                dust = Main.dust[Terraria.Dust.NewDust(Projectile.Center, 30, 30, 16, 0f, 0f, 0, new Color(255, 255, 255), 1.644737f)];
+                dust = Main.dust[Dust.NewDust(Projectile.Center, 30, 30, DustID.Cloud, 0f, 0f, 0, new Color(255, 255, 255), 1.644737f)];
             }
         }
     }

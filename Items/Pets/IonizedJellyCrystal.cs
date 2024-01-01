@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -35,7 +34,7 @@ namespace CalValEX.Items.Pets
             Item.shoot = ProjectileType<Projectiles.Pets.GoozmaPet>();
             Item.buffType = BuffType<Buffs.Pets.GoozmaBuff>();
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.noUseGraphic = true;
             Item.UseSound = SoundID.Item81;
         }

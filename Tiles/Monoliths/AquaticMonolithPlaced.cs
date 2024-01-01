@@ -15,7 +15,7 @@ namespace CalValEX.Tiles.Monoliths
         {
             Main.tileFrameImportant[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.Origin = new Point16(1, 2);
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 18 };
             TileObjectData.addTile(Type);
@@ -37,7 +37,7 @@ namespace CalValEX.Tiles.Monoliths
             Tile tile = Main.tile[i, j];
             Texture2D texture;
             texture = ModContent.Request<Texture2D>("CalValEX/Tiles/Monoliths/AquaticMonolithPlaced").Value;
-            Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
+            Vector2 zero = new(Main.offScreenRange, Main.offScreenRange);
             if (Main.drawToScreen)
             {
                 zero = Vector2.Zero;

@@ -2,14 +2,13 @@
 using System;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 
 // If you don't know what to change this to, don't mess with this code.
 // You will fail
 namespace CalValEX.Projectiles.Pets.SepulcherNeo
 {
-	public class SepulcherHeadNeo : ModProjectile
+    public class SepulcherHeadNeo : ModProjectile
 	{
 		private static readonly int Size = 60;
 		private static readonly int SegmentCount = 6;

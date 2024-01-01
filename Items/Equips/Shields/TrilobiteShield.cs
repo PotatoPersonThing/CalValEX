@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Items.Equips.Shields {
     [AutoloadEquip(EquipType.Shield)]
@@ -10,7 +11,7 @@ namespace CalValEX.Items.Equips.Shields {
             Item.width = 24;
             Item.height = 28;
             Item.value = Item.sellPrice(0, 2, 0, 0);
-            Item.rare = 5;
+            Item.rare = ItemRarityID.Pink;
             Item.accessory = true;
             Item.vanity = true;
         }

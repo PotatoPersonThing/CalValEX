@@ -27,7 +27,7 @@ namespace CalValEX.Items.Tiles.Paintings
             Item.createTile = ModContent.TileType<EyeofXerocPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

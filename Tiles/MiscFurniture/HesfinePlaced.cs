@@ -4,9 +4,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using static Terraria.ModLoader.ModContent;
 using Terraria.Graphics.Shaders;
-using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
@@ -18,7 +16,7 @@ namespace CalValEX.Tiles.MiscFurniture
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
@@ -83,7 +81,7 @@ namespace CalValEX.Tiles.MiscFurniture
             }
             if (Main.rand.Next(24) < 2)
             {
-                Dust dust = Dust.NewDustDirect(new Vector2(i, j) * 16f, 30, 30, 271, 0f, 0f, 255, new Color(255, 255, 255), 1f);
+                Dust dust = Dust.NewDustDirect(new Vector2(i, j) * 16f, 30, 30, DustID.HealingPlus, 0f, 0f, 255, new Color(255, 255, 255), 1f);
                 dust.shader = GameShaders.Armor.GetSecondaryShader(29, Main.LocalPlayer);
             }
         }
@@ -109,7 +107,7 @@ namespace CalValEX.Tiles.MiscFurniture
             }
             for (int x = 0; x < 100; x++)
             {
-                Dust dust = Dust.NewDustDirect(new Vector2(i, j) * 16f, 30, 30, 271, 0f, 0f, 255, new Color(255, 255, 255), 1f);
+                Dust dust = Dust.NewDustDirect(new Vector2(i, j) * 16f, 30, 30, DustID.HealingPlus, 0f, 0f, 255, new Color(255, 255, 255), 1f);
                 dust.shader = GameShaders.Armor.GetSecondaryShader(29, Main.LocalPlayer);
             }
             return true;

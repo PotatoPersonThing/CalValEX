@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
-using CalValEX.Items.Equips.Hats;
 
 namespace CalValEX.Items.Equips.PlayerLayers
 {
@@ -48,9 +47,9 @@ namespace CalValEX.Items.Equips.PlayerLayers
                 int winflip = 1 * -drawPlayer.direction;
                 Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Items/Equips/Balloons/ApolloBalloonEquipped").Value;
                 Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * drawPlayer.direction + (40 * drawPlayer.direction), drawPlayer.gfxOffY - 170 - secondyoffset);
-                Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
+                Vector2 origin = new(texture.Width / 2f, texture.Height / 2f / 6f);
                 Rectangle conesquare = texture.Frame(1, 5, 0, modPlayer.twinframe);
-                DrawData data = new DrawData(texture, wtf, conesquare, drawInfo.colorArmorBody, 0f, origin, 1, drawPlayer.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0
+                DrawData data = new(texture, wtf, conesquare, drawInfo.colorArmorBody, 0f, origin, 1, drawPlayer.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0
                 );
                 data.shader = dyeShader;
                 drawInfo.DrawDataCache.Add(data);
@@ -71,9 +70,9 @@ namespace CalValEX.Items.Equips.PlayerLayers
                 }
                 Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Items/Equips/Balloons/ArtemisBalloonEquipped").Value;
                 Vector2 wtf = drawPlayer.Center - Main.screenPosition + new Vector2(0f * drawPlayer.direction - (140 * drawPlayer.direction), drawPlayer.gfxOffY - 170 - secondyoffset);
-                Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 6f);
+                Vector2 origin = new(texture.Width / 2f, texture.Height / 2f / 6f);
                 Rectangle conesquare = texture.Frame(1, 5, 0, modPlayer.twinframe);
-                DrawData data = new DrawData(texture, wtf, conesquare, drawInfo.colorArmorBody, 0f, origin, 1, drawPlayer.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0
+                DrawData data = new(texture, wtf, conesquare, drawInfo.colorArmorBody, 0f, origin, 1, drawPlayer.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0
                 );
                 data.shader = dyeShader;
                 drawInfo.DrawDataCache.Add(data);

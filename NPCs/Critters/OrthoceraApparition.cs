@@ -1,12 +1,8 @@
-﻿using CalValEX.Items.Tiles.Banners;
-using MonoMod.Cil;
-using System;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 //using CalamityMod.CalPlayer;
 
 namespace CalValEX.NPCs.Critters
@@ -88,7 +84,7 @@ namespace CalValEX.NPCs.Critters
             {
                 if (!soundplayed)
                 {
-                    Vector2 orthopos = new Vector2(player.position.X + 500 * DungeonDirection, player.position.Y);
+                    Vector2 orthopos = new(player.position.X + 500 * DungeonDirection, player.position.Y);
                     NPC.position = orthopos;
                     Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath13, NPC.position);
                     soundplayed = true;
@@ -96,7 +92,7 @@ namespace CalValEX.NPCs.Critters
                     for (int x = 0; x < 60; x++)
                     {
                         Dust dust;
-                        dust = Main.dust[Terraria.Dust.NewDust(NPC.Center, 63, 63, DustID.Enchanted_Gold, 0f, 0f, 0, new Color(8, 255, 0), 0.9210526f)];
+                        dust = Main.dust[Dust.NewDust(NPC.Center, 63, 63, DustID.Enchanted_Gold, 0f, 0f, 0, new Color(8, 255, 0), 0.9210526f)];
                     }
                 }
                 orthocount++;
@@ -117,7 +113,7 @@ namespace CalValEX.NPCs.Critters
                     for (int x = 0; x < 60; x++)
                     {
                         Dust dust;
-                        dust = Main.dust[Terraria.Dust.NewDust(NPC.Center, 63, 63, DustID.Enchanted_Gold, 0f, 0f, 0, new Color(8, 255, 0), 0.9210526f)];
+                        dust = Main.dust[Dust.NewDust(NPC.Center, 63, 63, DustID.Enchanted_Gold, 0f, 0f, 0, new Color(8, 255, 0), 0.9210526f)];
                     }
                     CalValEXWorld.orthofound = true;
                     CalValEXWorld.UpdateWorldBool();
@@ -144,7 +140,7 @@ namespace CalValEX.NPCs.Critters
             if (CalValEX.CalamityActive)
             {
                 Mod cal = ModLoader.GetMod("CalamityMod");
-                if ((bool)cal.Call("GetBossDowned", "scal") && (bool)cal.Call("GetBossDowned", "exomechs") && !NPC.AnyNPCs(ModContent.NPCType<OrthoceraApparition>()) && !CalValEXWorld.orthofound)
+                if ((bool)cal.Call("GetBossDowned", "scal") && (bool)cal.Call("GetBossDowned", "exomechs") && !NPC.AnyNPCs(NPCType<OrthoceraApparition>()) && !CalValEXWorld.orthofound)
                 {
                     if (CalValEX.InCalamityBiome(spawnInfo.Player, "SulphurousSeaBiome"))
                     {

@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -18,7 +16,7 @@ namespace CalValEX.Items.Equips.Hats
             Item.value = Item.sellPrice(0, 3, 0, 0);
             Item.rare = ItemRarityID.Purple;
             Item.vanity = true;
-            Terraria.ID.ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
+            ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
         }
     }
 }

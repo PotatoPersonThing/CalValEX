@@ -1,6 +1,5 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Walls;
 
 namespace CalValEX.Items.Walls

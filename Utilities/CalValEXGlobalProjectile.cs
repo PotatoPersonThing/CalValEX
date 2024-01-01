@@ -2,14 +2,12 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using System.Collections.Generic;
 using Terraria.ID;
 using System;
 using CalValEX.Tiles.AstralBlocks;
 using CalValEX.Walls.AstralUnsafe;
 using CalValEX.Tiles.AstralMisc;
 using CalValEX.Walls.AstralSafe;
-using CalValEX.Dusts;
 
 namespace CalValEX
 {
@@ -31,7 +29,7 @@ namespace CalValEX
                 {
                     Texture2D deusheadsprite = ModContent.Request<Texture2D>("CalValEX/Projectiles/BrimstoneMonster").Value;
 
-                    Rectangle deusheadsquare = new Rectangle(0, 0, deusheadsprite.Width, deusheadsprite.Height);
+                    Rectangle deusheadsquare = new(0, 0, deusheadsprite.Width, deusheadsprite.Height);
                     Color deusheadalpha = projectile.GetAlpha(drawColor);
                     Main.EntitySpriteDraw(deusheadsprite, projectile.Center - Main.screenPosition + new Vector2(0f, projectile.gfxOffY), deusheadsquare, deusheadalpha, projectile.rotation, Utils.Size(deusheadsquare) / 2f, projectile.scale, SpriteEffects.None, 0);
                     return false;
@@ -67,7 +65,7 @@ namespace CalValEX
                 }
             }
 
-            if (proj.owner == Main.myPlayer && proj.type == Terraria.ID.ProjectileID.PureSpray)
+            if (proj.owner == Main.myPlayer && proj.type == ProjectileID.PureSpray)
                 PureConvert((int)(proj.position.X + proj.width / 2) / 16, (int)(proj.position.Y + proj.height / 2) / 16, 2);
             if (CalValEX.CalamityActive && proj.owner == Main.myPlayer && proj.type == CalValEX.CalamityProjectile("AstralSpray"))
                 InfectionConvert((int)(proj.position.X + proj.width / 2) / 16, (int)(proj.position.Y + proj.height / 2) / 16, 2);

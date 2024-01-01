@@ -3,10 +3,9 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using static Terraria.ModLoader.ModContent;
-using CalValEX.Items.Tiles.Plushies;
 
-namespace CalValEX.Tiles.Plushies {
+namespace CalValEX.Tiles.Plushies
+{
     public class MaulerPlushPlaced : ModTile {
         public override void SetStaticDefaults() {
             Main.tileFrameImportant[Type] = true;

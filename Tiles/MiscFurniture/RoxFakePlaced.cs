@@ -4,11 +4,9 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using static Terraria.ModLoader.ModContent;
-using Terraria.Graphics.Shaders;
-using CalValEX.Items.Tiles;
 
-namespace CalValEX.Tiles.MiscFurniture {
+namespace CalValEX.Tiles.MiscFurniture
+{
     public class RoxFakePlaced : ModTile {
         public override void SetStaticDefaults() {
             Main.tileFrameImportant[Type] = true;

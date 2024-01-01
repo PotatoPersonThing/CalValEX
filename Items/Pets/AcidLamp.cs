@@ -1,29 +1,11 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using CalamityMod.Tiles.SunkenSea;
-using CalamityMod.Walls;
-using CalamityMod.Items.DraedonMisc;
-using CalamityMod.Items.Materials;
-using CalamityMod.Items.Weapons.Melee;
-using CalamityMod.Items.LabFinders;
-using CalamityMod.Schematics;
-using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.WorldBuilding;
-using static CalamityMod.World.DraedonStructures;
-using CalamityMod;
 
 
 namespace CalValEX.Items.Pets
 {
-    
+
     [LegacyName("SkaterEgg")]
     public class AcidLamp : ModItem
     {
@@ -40,7 +22,7 @@ namespace CalValEX.Items.Pets
             Item.UseSound = SoundID.Item112;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.SkaterPet>();
             Item.value = Item.sellPrice(0, 2, 0, 0);
-            Item.rare = 5;
+            Item.rare = ItemRarityID.Pink;
             Item.buffType = ModContent.BuffType<Buffs.Pets.SkaterBuff>();
         }
 

@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using System.IO;
 using Terraria;
 using Terraria.ID;
-using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets
@@ -93,7 +92,7 @@ namespace CalValEX.Projectiles.Pets
         /// <summary>
         /// Default is 48 pixels (3 tiles) on the back of the player and 50 pixels (3.125 tiles) up
         /// </summary>
-        public virtual Vector2 FlyingOffset => new Vector2(48f * -Main.player[Projectile.owner].direction, -50f);
+        public virtual Vector2 FlyingOffset => new(48f * -Main.player[Projectile.owner].direction, -50f);
 
         /// <summary>
         /// Default is true

@@ -219,10 +219,10 @@ namespace CalValEX.Projectiles.Pets
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D texture = ModContent.Request<Texture2D>(auraTexture).Value;
-            Rectangle sourceRectangle = new Rectangle(0, 46 * auraFrame, texture.Width, texture.Height / auraFrames);
-            Vector2 origin = new Vector2(texture.Width, texture.Height / auraFrames);
+            Rectangle sourceRectangle = new(0, 46 * auraFrame, texture.Width, texture.Height / auraFrames);
+            Vector2 origin = new(texture.Width, texture.Height / auraFrames);
             SpriteEffects spriteEffects = SpriteEffects.None;
-            Vector2 offset = new Vector2(-4f, 0);
+            Vector2 offset = new(-4f, 0);
 
             if (Projectile.spriteDirection == -1)
             {

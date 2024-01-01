@@ -15,7 +15,7 @@ namespace CalValEX
         {
             float perStep = 1f / totalPoints;
 
-            List<Vector2> points = new List<Vector2>();
+            List<Vector2> points = new();
 
             for (float step = 0f; step <= 1f; step += perStep)
                 points.Add(Evaluate(step));

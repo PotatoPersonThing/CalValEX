@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -15,7 +14,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             TileID.Sets.HasOutlines[Type] = true;
-			Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
             TileObjectData.newTile.Height = 5;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 16, 16, 16 };

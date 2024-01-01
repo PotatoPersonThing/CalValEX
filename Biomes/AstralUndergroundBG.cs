@@ -1,9 +1,8 @@
-﻿using Terraria;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
 namespace CalValEX.Biomes
 {
-	public class AstralUndergroundBG : ModUndergroundBackgroundStyle
+    public class AstralUndergroundBG : ModUndergroundBackgroundStyle
 	{
 		public override void FillTextureArray(int[] textureSlots)
 		{

@@ -3,7 +3,6 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
 // If you don't know what to change this to, don't mess with this code.

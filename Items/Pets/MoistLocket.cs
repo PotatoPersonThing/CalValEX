@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
 
 namespace CalValEX.Items.Pets
@@ -22,7 +21,7 @@ namespace CalValEX.Items.Pets
             Item.UseSound = SoundID.NPCHit13;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.AquaPet>();
             Item.value = Item.sellPrice(0, 2, 0, 0);
-            Item.rare = 6;
+            Item.rare = ItemRarityID.LightPurple;
             Item.buffType = ModContent.BuffType<Buffs.Pets.AquaBuff>();
         }
         public override void UseStyle(Player player, Rectangle heldItemFrame)

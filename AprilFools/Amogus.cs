@@ -1,12 +1,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
-using Terraria.ModLoader;
 using CalValEX.Projectiles.Pets;
 using Terraria.Chat;
 using Terraria.Audio;
@@ -51,8 +49,8 @@ namespace CalValEX.AprilFools
             Projectile.friendly = true;
             Projectile.ignoreWater = true;
             Projectile.tileCollide = true;
-            base.DrawOffsetX = -7;
-            base.DrawOriginOffsetY = 0;
+            DrawOffsetX = -7;
+            DrawOriginOffsetY = 0;
             DrawOffsetX = -7;
             DrawOriginOffsetY = 0;
         }
@@ -164,7 +162,7 @@ namespace CalValEX.AprilFools
 
                             if (deathcounter <= 1800)
                             {
-                                if (Main.rand.Next(2) == 0)
+                                if (Main.rand.NextBool(2))
                                 {
                                     raintype = CalValEX.CalamityProjectile("SandBlast");
                                 }
@@ -175,7 +173,7 @@ namespace CalValEX.AprilFools
                             }
                             else if (deathcounter > 1800 && deathcounter <= 2700)
                             {
-                                if (Main.rand.Next(2) == 0)
+                                if (Main.rand.NextBool(2))
                                 {
                                     raintype = CalValEX.CalamityProjectile("SCalBrimstoneFireblast");
                                 }
@@ -186,7 +184,7 @@ namespace CalValEX.AprilFools
                             }
                             else if (deathcounter > 2700 && deathcounter <= 3600)
                             {
-                                if (Main.rand.Next(2) == 0)
+                                if (Main.rand.NextBool(2))
                                 {
                                     raintype = CalValEX.CalamityProjectile("BrimstoneBarrage");
                                 }
@@ -197,11 +195,11 @@ namespace CalValEX.AprilFools
                             }
                             else if (deathcounter > 3600)
                             {
-                                if (Main.rand.Next(3) == 0)
+                                if (Main.rand.NextBool(3))
                                 {
                                     raintype = CalValEX.CalamityProjectile("SignusScythe");
                                 }
-                                else if (Main.rand.Next(2) == 0)
+                                else if (Main.rand.NextBool(2))
                                 {
                                     raintype = CalValEX.CalamityProjectile("SCalBrimstoneGigablast");
                                 }
@@ -224,7 +222,7 @@ namespace CalValEX.AprilFools
                             {
                                 for (int x = 0; x < 10; x++)
                                 {
-                                    Terraria.Audio.SoundEngine.PlaySound(SoundID.Item11);
+                                    SoundEngine.PlaySound(SoundID.Item11);
                                 }
                                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("OldDukeGore"), 180, 0f, Main.myPlayer, 0f, 0f);
                                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), playerpos.X, playerpos.Y, Main.rand.Next(-5, 5), Main.rand.Next(-5, -3), CalValEX.CalamityProjectile("MushBomb"), 90, 0f, Main.myPlayer, 0f, 0f);
@@ -240,7 +238,7 @@ namespace CalValEX.AprilFools
                                 for (int x = 0; x < 20; x++)
                                 {
                                     Dust dust;
-                                    dust = Main.dust[Terraria.Dust.NewDust(playerpos, 30, 30, 16, 0f, 0f, 0, new Color(255, 255, 255), 1.644737f)];
+                                    dust = Main.dust[Dust.NewDust(playerpos, 30, 30, DustID.Cloud, 0f, 0f, 0, new Color(255, 255, 255), 1.644737f)];
                                 }
                                 mushroom = 0;
                             }
@@ -382,7 +380,7 @@ namespace CalValEX.AprilFools
                     break;
                 case 5:
                     {
-                        if (!NPC.AnyNPCs(ModContent.NPCType<Meldosaurus.Meldosaurus>()))
+                        if (!NPC.AnyNPCs(NPCType<Meldosaurus.Meldosaurus>()))
                         {
                             attackcounter1 = 0;
                             attackcounter2 = 0;
@@ -398,7 +396,7 @@ namespace CalValEX.AprilFools
                             {
                                 var npc = Main.npc[i];
 
-                                if (npc != null && npc.active && npc.getRect().Intersects(thisRect) && npc.type == ModContent.NPCType<Meldosaurus.Meldosaurus>() && attackcounter2 <= 20)
+                                if (npc != null && npc.active && npc.getRect().Intersects(thisRect) && npc.type == NPCType<Meldosaurus.Meldosaurus>() && attackcounter2 <= 20)
                                 {
                                     if (chargetype == 4)
                                     {
@@ -496,7 +494,7 @@ namespace CalValEX.AprilFools
                             float distanceX = 480f;
                             float yoffset = 0f;
 
-                            Vector2 vector40 = new Vector2(Projectile.position.X + (float)Projectile.width * 0.5f, Projectile.position.Y + (float)Projectile.height * 0.5f);
+                            Vector2 vector40 = new(Projectile.position.X + (float)Projectile.width * 0.5f, Projectile.position.Y + (float)Projectile.height * 0.5f);
                             float num415 = Main.npc[CalValEXGlobalNPC.meldodon].position.X + (float)(Main.npc[CalValEXGlobalNPC.meldodon].width / 2) + (float)(num412 * distanceX) - vector40.X;
                             float num416 = Main.npc[CalValEXGlobalNPC.meldodon].position.Y + (float)(Main.npc[CalValEXGlobalNPC.meldodon].height / 2) + yoffset - vector40.Y;
                             float num417 = (float)Math.Sqrt(num415 * num415 + num416 * num416);
@@ -537,7 +535,7 @@ namespace CalValEX.AprilFools
                             }
                             if (attackcounter1 >= 5)
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item41, Projectile.position);
+                                SoundEngine.PlaySound(SoundID.Item41, Projectile.position);
                                 Vector2 position = Projectile.Center;
                                 position.X = Projectile.Center.X + (10f * Projectile.direction);
                                 Vector2 targetPosition = Main.npc[CalValEXGlobalNPC.meldodon].Center;
@@ -563,7 +561,7 @@ namespace CalValEX.AprilFools
                             Projectile.velocity.Y = 0;
                             if (attackcounter1 == 60)
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
+                                SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
                                 Vector2 position = Projectile.Center;
                                 position.X = Projectile.Center.X + (10f * Projectile.direction);
                                 Vector2 targetPosition = Main.npc[CalValEXGlobalNPC.meldodon].Center;
@@ -590,7 +588,7 @@ namespace CalValEX.AprilFools
                             float distanceX = 580f;
                             float yoffset = -300f;
 
-                            Vector2 vector40 = new Vector2(Projectile.position.X + (float)Projectile.width * 0.5f, Projectile.position.Y + (float)Projectile.height * 0.5f);
+                            Vector2 vector40 = new(Projectile.position.X + (float)Projectile.width * 0.5f, Projectile.position.Y + (float)Projectile.height * 0.5f);
                             float num415 = Main.npc[CalValEXGlobalNPC.meldodon].position.X + (float)(Main.npc[CalValEXGlobalNPC.meldodon].width / 2) + (float)(num412 * distanceX) - vector40.X;
                             float num416 = Main.npc[CalValEXGlobalNPC.meldodon].position.Y + (float)(Main.npc[CalValEXGlobalNPC.meldodon].height / 2) + yoffset - vector40.Y;
                             float num417 = (float)Math.Sqrt(num415 * num415 + num416 * num416);
@@ -631,7 +629,7 @@ namespace CalValEX.AprilFools
                             }
                             if (attackcounter1 >= 40)
                             {
-                                Terraria.Audio.SoundEngine.PlaySound(SoundID.Item21, Projectile.position);
+                                SoundEngine.PlaySound(SoundID.Item21, Projectile.position);
                                 Vector2 position = Projectile.Center;
                                 position.X = Projectile.Center.X + (10f * Projectile.direction);
                                 Vector2 targetPosition = Main.npc[CalValEXGlobalNPC.meldodon].Center;
@@ -707,20 +705,20 @@ namespace CalValEX.AprilFools
             Texture2D deusheadsprite;
             if ((attackphase == 1 || attackphase == 2) && state == 5)
             {
-                deusheadsprite = (ModContent.Request<Texture2D>("CalValEX/AprilFools/AmogusGun").Value);
+                deusheadsprite = (Request<Texture2D>("CalValEX/AprilFools/AmogusGun").Value);
             }
             else if (attackphase == 0 && state == 5)
             {
-                deusheadsprite = (ModContent.Request<Texture2D>("CalValEX/AprilFools/AmogusKnife").Value);
+                deusheadsprite = (Request<Texture2D>("CalValEX/AprilFools/AmogusKnife").Value);
             }
             else
             {
-                deusheadsprite = (ModContent.Request<Texture2D>("CalValEX/Items/Equips/Shields/Invishield_Shield").Value);
+                deusheadsprite = (Request<Texture2D>("CalValEX/Items/Equips/Shields/Invishield_Shield").Value);
             }
 
             int deusheadheight = deusheadsprite.Height;
 
-            Rectangle deusheadsquare = new Rectangle(0, 0, deusheadsprite.Width, deusheadsprite.Height);
+            Rectangle deusheadsquare = new(0, 0, deusheadsprite.Width, deusheadsprite.Height);
             Color deusheadalpha = Projectile.GetAlpha(lightColor);
             Main.EntitySpriteDraw(deusheadsprite, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY + 10), deusheadsquare, deusheadalpha, Projectile.rotation, Utils.Size(deusheadsquare) / 2f, Projectile.scale, Projectile.spriteDirection != 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
         }

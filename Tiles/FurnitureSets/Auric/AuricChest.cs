@@ -1,11 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
 using CalValEX.Items.Tiles.FurnitureSets.Auric;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -18,7 +16,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
         {
             Main.tileSpelunker[Type] = true;
             Main.tileContainer[Type] = true;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileShine2[Type] = true;
             Main.tileShine[Type] = 1200;
             Main.tileFrameImportant[Type] = true;

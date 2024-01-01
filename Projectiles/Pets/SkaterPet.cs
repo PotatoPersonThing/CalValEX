@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using System.IO;
 using Terraria;
 using Terraria.ModLoader;
@@ -146,7 +145,7 @@ namespace CalValEX.Projectiles.Pets
                     }
 
                     float offsetX = 48 * -owner.direction;
-                    Vector2 offset = new Vector2(offsetX, -50f);
+                    Vector2 offset = new(offsetX, -50f);
                     vectorToIdlePosition += offset;
                     distanceToIdlePosition = vectorToIdlePosition.Length();
                     //MOVE IF TOO FAR AWAY FROM PLAYER

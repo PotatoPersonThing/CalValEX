@@ -19,7 +19,7 @@ namespace CalValEX.Items.Tiles.Blueprints
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -29,7 +29,7 @@ namespace CalValEX.Items.Tiles.Blueprints
             Item.createTile = ModContent.TileType<PrimeBlueprintPlaced>();
             Item.width = 46;
             Item.height = 32;
-            Item.rare = 5;
+            Item.rare = ItemRarityID.Pink;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

@@ -1,5 +1,4 @@
-﻿using CalValEX.Items.Plushies;
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Plushies

@@ -22,7 +22,7 @@ namespace CalValEX.Items.Pets
             Item.UseSound = SoundID.Item58;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.PolterChan>();
             Item.value = Item.sellPrice(0, 2, 4, 1);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.buffType = ModContent.BuffType<Buffs.Pets.PolterBuff>();
         }
 

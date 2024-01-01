@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using CalValEX.Items.Tiles.Blocks;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace CalValEX.Tiles.Blocks

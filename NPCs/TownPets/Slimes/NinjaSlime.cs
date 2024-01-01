@@ -1,17 +1,13 @@
-﻿using CalValEX.Items.Pets.TownPets;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
+﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.DataStructures;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace CalValEX.NPCs.TownPets.Slimes {
+namespace CalValEX.NPCs.TownPets.Slimes
+{
     // HIIIII if you're looking for ways to make ur own town pet, just know it's kinda complicated, if you have any doubts about this code or town pet code in general,
     // send a message to Reika#0876 on discord, I'll help as much as I can until tmod gets some documentation or something going, good luck!
     [AutoloadHead]
@@ -27,7 +23,7 @@ namespace CalValEX.NPCs.TownPets.Slimes {
             NPCID.Sets.IsTownPet[Type] = true;
             NPCID.Sets.IsTownSlime[Type] = true;
 
-            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) { Hide = true };
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new(0) { Hide = true };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
         }
 
@@ -49,7 +45,7 @@ namespace CalValEX.NPCs.TownPets.Slimes {
             chat.Add(Language.GetTextValue("*drowning noises*"), 0.01f);
             return chat;
         }
-        public static List<string> PossibleNames = new List<string>()
+        public static List<string> PossibleNames = new()
         {
             "Slipstream Sam", "Sasuke", "Sine", "Sekiro", "Sakura", "Slash", "Shadow", "Shade", "Shatter", "Strike"
         };

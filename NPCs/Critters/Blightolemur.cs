@@ -7,7 +7,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using CalValEX.Items.Critters;
 using Terraria.GameContent.Bestiary;
-using Terraria.DataStructures;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -50,7 +49,7 @@ namespace CalValEX.NPCs.Critters
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (spawnInfo.Player.InModBiome(ModContent.GetInstance<Biomes.AstralBlight>()) && !CalValEXConfig.Instance.CritterSpawns)
+            if (spawnInfo.Player.InModBiome(GetInstance<Biomes.AstralBlight>()) && !CalValEXConfig.Instance.CritterSpawns)
             {
                 if (spawnInfo.PlayerSafe)
                 {
@@ -82,12 +81,12 @@ namespace CalValEX.NPCs.Critters
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D minibirbsprite = (ModContent.Request<Texture2D>("CalValEX/NPCs/Critters/Blightolemur_Glow").Value);
+            Texture2D minibirbsprite = (Request<Texture2D>("CalValEX/NPCs/Critters/Blightolemur_Glow").Value);
 
             float minibirbframe = 5f / (float)Main.npcFrameCount[NPC.type];
             int minibirbheight = (int)(float)((NPC.frame.Y / NPC.frame.Height) * minibirbframe) * (minibirbsprite.Height / 5);
 
-            Rectangle minibirbsquare = new Rectangle(0, minibirbheight + 5, minibirbsprite.Width, minibirbsprite.Height / 5);
+            Rectangle minibirbsquare = new(0, minibirbheight + 5, minibirbsprite.Width, minibirbsprite.Height / 5);
             SpriteEffects minibirbeffects = (NPC.direction != -1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
             spriteBatch.Draw(minibirbsprite, NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), minibirbsquare, Color.White, NPC.rotation, Utils.Size(minibirbsquare) / 2f, NPC.scale, minibirbeffects, 0f);
         }

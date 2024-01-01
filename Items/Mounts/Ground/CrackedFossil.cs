@@ -1,9 +1,6 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Items.Mounts;
 
 namespace CalValEX.Items.Mounts.Ground
 {
@@ -16,9 +13,9 @@ namespace CalValEX.Items.Mounts.Ground
             Item.height = 30;
             Item.useTime = 20;
             Item.useAnimation = 20;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.value = Item.sellPrice(0, 2, 0, 0);
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.UseSound = SoundID.Item2;
             Item.noMelee = true;
             Item.mountType = ModContent.MountType<AnthozoanCrab>();

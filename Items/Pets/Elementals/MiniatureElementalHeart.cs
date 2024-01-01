@@ -26,7 +26,7 @@ namespace CalValEX.Items.Pets.Elementals
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.Elementals.RareBrimling>();
             Item.value = Item.sellPrice(0, 3, 0, 0);
             Item.expert = true;
-            Item.rare = 10;
+            Item.rare = ItemRarityID.Red;
             Item.buffType = ModContent.BuffType<Buffs.Pets.Elementals.minihotebuff>();
             Item.noUseGraphic = true;
         }

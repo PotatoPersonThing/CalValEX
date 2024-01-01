@@ -44,10 +44,10 @@ namespace CalValEX.Projectiles.Pong
 
             devcooldown--;
 
-            if (Main.rand.Next(120) == 0 && devcooldown <= 0)
+            if (Main.rand.NextBool(120)&& devcooldown <= 0)
             {
                 movementdev = 120;
-                if (Main.rand.Next(2) == 0)
+                if (Main.rand.NextBool(2))
                 {
                     movementdevtype = 1;
                 }
@@ -104,7 +104,7 @@ namespace CalValEX.Projectiles.Pong
             if (modPlayer.pongactive)
             {
                 Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongSlider").Value;
-                Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2.Width, texture2.Height / Main.projFrames[Projectile.type]);
+                Rectangle rectangle2 = new(0, texture2.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2.Width, texture2.Height / Main.projFrames[Projectile.type]);
                 Vector2 position2 = Projectile.Center - Main.screenPosition;
                 position2.X += DrawOffsetX;
                 position2.Y += DrawOriginOffsetY;

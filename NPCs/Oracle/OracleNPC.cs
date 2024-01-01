@@ -1,5 +1,4 @@
 using CalValEX.Items;
-using CalValEX.Items.Equips.Hats;
 using CalValEX.Items.Pets;
 using Microsoft.Xna.Framework;
 using System;
@@ -90,7 +89,7 @@ namespace CalValEX.NPCs.Oracle
 
 
 
-        public static List<string> PossibleNames = new List<string>()
+        public static List<string> PossibleNames = new()
         {
             "Maddi", "Tiggy", "Gabriel", "Lex", "Gwyn", "Sammy", "Eve", "Emily", "Lilith", "Rachel", "Leah", "Rebecca", "Alex", "Mabel"
         };
@@ -111,7 +110,7 @@ namespace CalValEX.NPCs.Oracle
                 }
             }
 
-            WeightedRandom<string> dialogue = new WeightedRandom<string>();
+            WeightedRandom<string> dialogue = new();
 
             if (Main.player[Main.myPlayer].miscEquips[0].type != ItemID.None || Main.player[Main.myPlayer].miscEquips[1].type != ItemID.None)
             {
@@ -298,7 +297,7 @@ namespace CalValEX.NPCs.Oracle
             }
         }
 
-        public static List<(string, int, int, Condition, string)> shopEntries = new List<(string, int, int, Condition, string)>();
+        public static List<(string, int, int, Condition, string)> shopEntries = new();
         public override void AddShops()
         {
             shopEntries.Add(("Pets", ItemType<DoggoCollar>(), Item.buyPrice(0, 1, 50, 0), Condition.NpcIsPresent(NPC.type), ""));
@@ -413,14 +412,14 @@ namespace CalValEX.NPCs.Oracle
         {
             if (Main.rand.NextBool(7))
             {
-                projType = ModContent.ProjectileType<OracleNPC_8Ball>();
+                projType = ProjectileType<OracleNPC_8Ball>();
                 attackDelay = 1;
                 OracleWeapon = 1;
                 return;
             }
             else
             {
-                projType = ModContent.ProjectileType<OracleNPC_Cards>();
+                projType = ProjectileType<OracleNPC_Cards>();
                 attackDelay = 1;
                 OracleWeapon = 0;
             }
@@ -455,7 +454,7 @@ namespace CalValEX.NPCs.Oracle
             bool iExist = false;
             for (int i = 0; i < Main.maxProjectiles; i++)
             {
-                if (Main.projectile[i].type == ModContent.ProjectileType<OracleNPCPet_Pet>() && Main.projectile[i].active)
+                if (Main.projectile[i].type == ProjectileType<OracleNPCPet_Pet>() && Main.projectile[i].active)
                     iExist = true;
             }
 
@@ -464,7 +463,7 @@ namespace CalValEX.NPCs.Oracle
 
             if (!iExist)
                 if (Main.netMode != NetmodeID.MultiplayerClient)
-                    Projectile.NewProjectile(NPC.GetSource_FromAI(), position, NPC.velocity, ModContent.ProjectileType<OracleNPCPet_Pet>(), NPC.damage, 0f, Main.myPlayer);
+                    Projectile.NewProjectile(NPC.GetSource_FromAI(), position, NPC.velocity, ProjectileType<OracleNPCPet_Pet>(), NPC.damage, 0f, Main.myPlayer);
         }
 
         public override void HitEffect(NPC.HitInfo hit)

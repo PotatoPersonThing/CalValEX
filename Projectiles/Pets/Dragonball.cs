@@ -65,7 +65,7 @@ namespace CalValEX.Projectiles.Pets
             CalValEX.Bumble = true;
 
             float offsetX = 48 * -owner.direction;
-            Vector2 offset = new Vector2(offsetX, -50f);
+            Vector2 offset = new(offsetX, -50f);
 
             Vector2 vectorToOwner = owner.Center - Projectile.Center;
             float distanceToOwner = vectorToOwner.Length();

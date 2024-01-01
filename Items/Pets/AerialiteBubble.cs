@@ -1,3 +1,5 @@
+using CalValEX.Projectiles.Pets;
+using CalValEX.Projectiles.Pets.LightPets;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -23,7 +25,7 @@ namespace CalValEX.Items.Pets
             Item.UseSound = SoundID.NPCHit1;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.AeroBaby>();
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.buffType = ModContent.BuffType<Buffs.Pets.AeroBuff>();
         }
 
@@ -57,10 +59,9 @@ namespace CalValEX.Items.Pets
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            type = ModContent.ProjectileType<Projectiles.Pets.AeroBaby>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
-            type = ModContent.ProjectileType<Projectiles.Pets.AeroSlimePet>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
+            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<AeroBaby>(), damage, knockback, player.whoAmI);
+            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<AeroSlimePet>(), damage, knockback, player.whoAmI);
+            return false;
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
-using CalValEX.Projectiles.Pets;
 
 namespace CalValEX.Buffs.Pets
 {

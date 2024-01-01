@@ -7,7 +7,6 @@ using Terraria.ObjectData;
 using CalValEX.Items.Tiles.FurnitureSets.Auric;
 using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.GameContent.ObjectInteractions;
 using Terraria.Localization;
 
 namespace CalValEX.Tiles.FurnitureSets.Auric
@@ -19,7 +18,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             Main.tileFrameImportant[Type] = true;
             TileID.Sets.HasOutlines[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2);
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
             TileID.Sets.CanBeSleptIn[Type] = true; // Facilitates calling ModifySleepingTargetInfo
             TileID.Sets.InteractibleByNPCs[Type] = true; // Town NPCs will palm their hand at this tile

@@ -22,7 +22,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 			NPCID.Sets.TrailCacheLength[NPC.type] = 21;
 			if (!CalValEX.AprilFoolMonth)
 			{
-				NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+				NPCID.Sets.NPCBestiaryDrawModifiers value = new(0)
 				{
 					Hide = true
 				};
@@ -296,7 +296,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 							framebuffer = 0;
 							framecounter = 0;
 							NPC.ai[3] = 2;
-							NPC.HitInfo bruh = new NPC.HitInfo();
+							NPC.HitInfo bruh = new();
 							bruh.Damage = NPC.lifeMax / 20;
 							NPC.StrikeNPC(bruh, noPlayerInteraction: true);
 							proj.active = false;
@@ -535,7 +535,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 
 				int deusheadheight = framecounter * (deusheadsprite.Height / 4);
 
-				Rectangle deusheadsquare = new Rectangle(0, deusheadheight, deusheadsprite.Width, deusheadsprite.Height / 4);
+				Rectangle deusheadsquare = new(0, deusheadheight, deusheadsprite.Width, deusheadsprite.Height / 4);
 				Color deusheadalpha = NPC.GetAlpha(drawColor);
 				spriteBatch.Draw(deusheadsprite, NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), deusheadsquare, deusheadalpha, NPC.rotation, Utils.Size(deusheadsquare) / 2f, NPC.scale, SpriteEffects.None, 0f);
 				return false;
@@ -558,7 +558,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 
 				int deusheadheight = framecounter * (deusheadsprite.Height / 13);
 
-				Rectangle deusheadsquare = new Rectangle(0, deusheadheight, deusheadsprite.Width, deusheadsprite.Height / 13);
+				Rectangle deusheadsquare = new(0, deusheadheight, deusheadsprite.Width, deusheadsprite.Height / 13);
 				Color deusheadalpha = NPC.GetAlpha(drawColor);
 				spriteBatch.Draw(deusheadsprite, NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), deusheadsquare, deusheadalpha, NPC.rotation, Utils.Size(deusheadsquare) / 2f, NPC.scale, SpriteEffects.None, 0f);
 				return false;
@@ -576,7 +576,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 
 				int deusheadheight = framecounter * (deusheadsprite.Height / 9);
 
-				Rectangle deusheadsquare = new Rectangle(0, deusheadheight, deusheadsprite.Width, deusheadsprite.Height / 9);
+				Rectangle deusheadsquare = new(0, deusheadheight, deusheadsprite.Width, deusheadsprite.Height / 9);
 				Color deusheadalpha = NPC.GetAlpha(drawColor);
 				spriteBatch.Draw(deusheadsprite, NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), deusheadsquare, deusheadalpha, NPC.rotation, Utils.Size(deusheadsquare) / 2f, NPC.scale, SpriteEffects.None, 0f);
 				return false;

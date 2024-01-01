@@ -48,7 +48,7 @@ namespace CalValEX.Items.Equips.PlayerLayers
                 Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Items/Equips/ExodiumMoon").Value;
                 Vector2 Circle = drawPlayer.Center + new Vector2(0, 300).RotatedBy(modPlayer.rotcounter);
                 Vector2 draw = Circle - Main.screenPosition;
-                DrawData data = new DrawData(texture, draw, null, drawInfo.colorArmorBody * alb, (float)modPlayer.rotsin, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0)
+                DrawData data = new(texture, draw, null, drawInfo.colorArmorBody * alb, (float)modPlayer.rotsin, new Vector2(texture.Width / 2f, texture.Height), 1f, SpriteEffects.None, 0)
                 ;
                 data.shader = dyeShader;
                 drawInfo.DrawDataCache.Add(data);

@@ -1,6 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
@@ -13,7 +12,7 @@ namespace CalValEX.AprilFools.Meldosaurus
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -23,7 +22,7 @@ namespace CalValEX.AprilFools.Meldosaurus
             Item.createTile = ModContent.TileType<MeldosaurusTrophyPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
         }
     }
 }

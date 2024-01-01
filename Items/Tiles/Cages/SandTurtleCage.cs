@@ -1,7 +1,4 @@
-﻿using CalValEX.Items.Critters;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.Cages;
@@ -18,7 +15,7 @@ namespace CalValEX.Items.Tiles.Cages
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -28,7 +25,7 @@ namespace CalValEX.Items.Tiles.Cages
             Item.createTile = ModContent.TileType<SandTurtleCagePlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.value = Item.sellPrice(0, 0, 10, 0);
         }
 

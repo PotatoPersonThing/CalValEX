@@ -1,8 +1,5 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Items.Tiles.Blocks.Astral;
-using CalValEX.Tiles.AstralBlocks;
-using CalValEX.Tiles.MiscFurniture;
 using CalValEX.Tiles.Blocks;
 
 namespace CalValEX.Items.Tiles.Blocks

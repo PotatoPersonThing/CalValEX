@@ -2,7 +2,6 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Items.Tiles.Blocks.Astral;
 using CalValEX.Dusts;
 using CalValEX.Tiles.AstralMisc;
 
@@ -40,7 +39,7 @@ namespace CalValEX.Tiles.AstralBlocks
 
         public override void RandomUpdate(int i, int j)
         {
-            if (Main.rand.Next(7) == 0)
+            if (Main.rand.NextBool(7))
             {
                 int grassspawned;
                 int pos;
@@ -76,7 +75,7 @@ namespace CalValEX.Tiles.AstralBlocks
                                 }
                                 else
                                 {
-                                    if (Main.rand.Next(1) == 0)
+                                    if (Main.rand.NextBool(1))
                                     {
                                         Main.tile[x, y].TileType = (ushort)ModContent.TileType<AstralGrassPlaced>();
                                     }

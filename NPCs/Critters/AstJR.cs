@@ -1,13 +1,9 @@
 using CalValEX.Items.Tiles.Banners;
-using MonoMod.Cil;
-using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
-using Terraria.DataStructures;
-using Microsoft.Xna.Framework;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -71,7 +67,7 @@ namespace CalValEX.NPCs.Critters
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (spawnInfo.Player.InModBiome(ModContent.GetInstance<Biomes.AstralBlight>()) && !CalValEXConfig.Instance.CritterSpawns)
+            if (spawnInfo.Player.InModBiome(GetInstance<Biomes.AstralBlight>()) && !CalValEXConfig.Instance.CritterSpawns)
             {
                 if (spawnInfo.PlayerSafe)
                 {

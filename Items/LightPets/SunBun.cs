@@ -16,7 +16,7 @@ namespace CalValEX.Items.LightPets
             Item.UseSound = SoundID.NPCHit51;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.LightPets.SolarBunny>();
             Item.value = Item.sellPrice(0, 0, 0, 1);
-            Item.rare = 10;
+            Item.rare = ItemRarityID.Red;
             Item.buffType = ModContent.BuffType<Buffs.LightPets.SolarBunBuff>();
         }
 

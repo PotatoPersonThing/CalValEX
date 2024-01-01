@@ -6,9 +6,9 @@ namespace CalValEX.Projectiles.Pets
     public class SWPet : BaseWormPet
     {
         public override string Texture => "CalValEX/Projectiles/Pets/SWPetHead";
-        public override WormPetVisualSegment HeadSegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/SWPetHead");
-        public override WormPetVisualSegment BodySegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/SWPetBody");
-        public override WormPetVisualSegment TailSegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/SWPetTail");
+        public override WormPetVisualSegment HeadSegment() => new("CalValEX/Projectiles/Pets/SWPetHead");
+        public override WormPetVisualSegment BodySegment() => new("CalValEX/Projectiles/Pets/SWPetBody");
+        public override WormPetVisualSegment TailSegment() => new("CalValEX/Projectiles/Pets/SWPetTail");
 
         public override int SegmentSize() => 12;
 

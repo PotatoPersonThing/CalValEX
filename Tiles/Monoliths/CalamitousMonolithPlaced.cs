@@ -14,7 +14,7 @@ namespace CalValEX.Tiles.Monoliths
         public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
             TileObjectData.newTile.Width = 2;
             TileObjectData.newTile.Height = 3;
@@ -40,7 +40,7 @@ namespace CalValEX.Tiles.Monoliths
             Tile tile = Main.tile[i, j];
             Texture2D texture;
             texture = ModContent.Request<Texture2D>("CalValEX/Tiles/Monoliths/CalamitousMonolithPlaced").Value;
-            Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
+            Vector2 zero = new(Main.offScreenRange, Main.offScreenRange);
             if (Main.drawToScreen)
             {
                 zero = Vector2.Zero;

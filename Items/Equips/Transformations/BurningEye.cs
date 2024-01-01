@@ -1,16 +1,11 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Items.Equips.Capes;
-using CalValEX.Items.Equips.Legs;
-using CalValEX.Items.Equips.Scarves;
 using Terraria.DataStructures;
 
 namespace CalValEX.Items.Equips.Transformations
 {
-	public class BurningEye : ModItem
+    public class BurningEye : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -49,7 +44,7 @@ namespace CalValEX.Items.Equips.Transformations
 			Item.width = 24;
 			Item.height = 28;
 			Item.accessory = true;
-			Item.rare = 6;
+			Item.rare = ItemRarityID.LightPurple;
 			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 			Item.hasVanityEffects = true;
 		}

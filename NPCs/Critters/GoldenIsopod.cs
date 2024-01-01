@@ -1,14 +1,11 @@
 using CalValEX.Items.Tiles.Banners;
 using Microsoft.Xna.Framework;
-using MonoMod.Cil;
-using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
 //using CalamityMod.CalPlayer;
-using Terraria.DataStructures;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -86,16 +83,16 @@ namespace CalValEX.NPCs.Critters
             if (Main.rand.NextFloat() < 0.1f)
             {
                 Dust dust;
-                Vector2 positionLeft = new Vector2(NPC.position.X, NPC.position.Y - 8);
-                Vector2 positionRight = new Vector2(NPC.position.X, NPC.position.Y - 8);
+                Vector2 positionLeft = new(NPC.position.X, NPC.position.Y - 8);
+                Vector2 positionRight = new(NPC.position.X, NPC.position.Y - 8);
                 if (NPC.direction == -1)
                 {
-                    dust = Main.dust[Terraria.Dust.NewDust(positionLeft, 3, 3, DustID.GoldCoin, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
+                    dust = Main.dust[Dust.NewDust(positionLeft, 3, 3, DustID.GoldCoin, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
                     dust.noGravity = true;
                 }
                 else if (NPC.direction != 0)
                 {
-                    dust = Main.dust[Terraria.Dust.NewDust(positionRight, 3, 3, DustID.GoldCoin, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
+                    dust = Main.dust[Dust.NewDust(positionRight, 3, 3, DustID.GoldCoin, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
                     dust.noGravity = true;
                 }
             }

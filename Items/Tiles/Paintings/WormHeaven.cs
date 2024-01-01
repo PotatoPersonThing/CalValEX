@@ -24,7 +24,7 @@ namespace CalValEX.Items.Tiles.Paintings
             Item.createTile = ModContent.TileType<WormHeavenPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
         }
     }
 }

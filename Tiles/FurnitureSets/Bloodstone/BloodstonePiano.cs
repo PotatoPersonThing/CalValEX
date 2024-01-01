@@ -4,8 +4,6 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using static Terraria.ModLoader.ModContent;
-using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
 
 namespace CalValEX.Tiles.FurnitureSets.Bloodstone
 {
@@ -15,7 +13,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
         {
             Main.tileSolidTop[Type] = true;
             Main.tileFrameImportant[Type] = true;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileLavaDeath[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall

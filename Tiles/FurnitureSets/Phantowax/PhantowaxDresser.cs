@@ -9,11 +9,10 @@ using Terraria.ObjectData;
 using Terraria.DataStructures;
 using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
 using Terraria.Audio;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace CalValEX.Tiles.FurnitureSets.Phantowax
 {
-	public class PhantowaxDresser : ModTile
+    public class PhantowaxDresser : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

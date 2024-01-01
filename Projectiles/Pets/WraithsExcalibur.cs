@@ -14,8 +14,8 @@ namespace CalValEX.Projectiles.Pets
         public override void SetDefaults()
         {
             Projectile.CloneDefaults(197);
-            base.AIType = 197;
-            base.DrawOriginOffsetY = -33;
+            AIType = 197;
+            DrawOriginOffsetY = -33;
             //?: lol (lol
             Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }

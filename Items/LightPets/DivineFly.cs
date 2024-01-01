@@ -1,5 +1,3 @@
-using CalValEX.Items.Critters;
-using CalValEX.Items.Pets;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -16,7 +14,7 @@ namespace CalValEX.Items.LightPets
             Item.UseSound = SoundID.NPCHit49;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.LightPets.Godrge>();
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.expert = true;
             Item.buffType = ModContent.BuffType<Buffs.LightPets.GodrgeBuff>();
         }

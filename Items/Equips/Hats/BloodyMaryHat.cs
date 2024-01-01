@@ -17,8 +17,8 @@ namespace CalValEX.Items.Equips.Hats
             Item.height = 28;
             Item.value = Item.sellPrice(0, 3, 0, 0);
             Item.vanity = true;
-            Item.rare = 11;
-            Terraria.ID.ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
+            Item.rare = ItemRarityID.Purple;
+            ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {

@@ -1,6 +1,5 @@
 using CalValEX.Projectiles.Pets.LightPets.SupJewel;
 using CalValEX.Projectiles.Pets.LightPets;
-using CalValEX.Projectiles.Pets;
 using Terraria;
 using Terraria.ModLoader;
 using System.Collections.Generic;
@@ -71,7 +70,7 @@ namespace CalValEX.Buffs.LightPets
 
             if (CalValEXConfig.Instance.SupCombo)
             {
-                List<int> petscombo = new List<int>
+                List<int> petscombo = new()
                 {
                     ModContent.ProjectileType<HeatPet>(),
                     ModContent.ProjectileType<HeatBaby>(),

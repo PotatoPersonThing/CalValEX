@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -17,7 +16,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
         {
             Main.tileSpelunker[Type] = true;
             Main.tileContainer[Type] = true;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileShine2[Type] = true;
             Main.tileShine[Type] = 1200;
             Main.tileFrameImportant[Type] = true;

@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,7 +10,7 @@ namespace CalValEX.Items.Hooks
 
         public override void SetDefaults()
         {
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.CloneDefaults(ItemID.BatHook);
             Item.value = Item.sellPrice(1, 1, 0, 0);
             Item.shootSpeed = 16f;

@@ -2,9 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
-using Terraria.GameContent;
 using Terraria.Graphics.Effects;
-using Terraria.ID;
 
 namespace CalValEX.Biomes
 {

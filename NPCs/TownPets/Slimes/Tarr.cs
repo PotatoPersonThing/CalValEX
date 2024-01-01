@@ -1,18 +1,17 @@
-﻿using CalValEX.Items.Pets.TownPets;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using System;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace CalValEX.NPCs.TownPets.Slimes {
+namespace CalValEX.NPCs.TownPets.Slimes
+{
     // HIIIII if you're looking for ways to make ur own town pet, just know it's kinda complicated, if you have any doubts about this code or town pet code in general,
     // send a message to Reika#0876 on discord, I'll help as much as I can until tmod gets some documentation or something going, good luck!
     [AutoloadHead]
@@ -28,7 +27,7 @@ namespace CalValEX.NPCs.TownPets.Slimes {
             NPCID.Sets.IsTownPet[Type] = true;
             NPCID.Sets.IsTownSlime[Type] = true;
 
-            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) { Hide = true };
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new(0) { Hide = true };
             NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
         }
 
@@ -51,7 +50,7 @@ namespace CalValEX.NPCs.TownPets.Slimes {
             chat.Add(Language.GetTextValue("Gronch"));
             return chat;
         }
-        public static List<string> PossibleNames = new List<string>()
+        public static List<string> PossibleNames = new()
         {
             "Sugma", "Sludgetar", "Sooty", "Slabbish", "Slickster", "Swirls", "Sable", "Stickytoil", "Smoltar", "Slithergrime"
         };
@@ -187,7 +186,7 @@ namespace CalValEX.NPCs.TownPets.Slimes {
             spriteBatch.End();
             spriteBatch.Begin(sortMode, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.Transform);
             Color dicko = Main.DiscoColor;
-            Color newColor = new Color(dicko.R + 222, dicko.G + 222, dicko.B + 222);
+            Color newColor = new(dicko.R + 222, dicko.G + 222, dicko.B + 222);
             spriteBatch.Draw(ModContent.Request<Texture2D>("CalValEX/NPCs/TownPets/Slimes/TarrGlow").Value, NPC.Center - screenPos, NPC.frame, newColor, NPC.rotation, NPC.frame.Size() * 0.5f, NPC.scale, fx, 0);
             return false;
         }

@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Items.Equips.Legs
 {
@@ -12,7 +13,7 @@ namespace CalValEX.Items.Equips.Legs
         {
             Item.width = 18;
             Item.height = 14;
-            Item.rare = 5;
+            Item.rare = ItemRarityID.Pink;
             Item.vanity = true;
             Item.value = Item.sellPrice(0, 2, 0, 0);
             Terraria.ID.ArmorIDs.Legs.Sets.OverridesLegs[Item.legSlot] = true;

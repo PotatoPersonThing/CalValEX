@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Items.Equips.Shirts
 {
@@ -14,7 +15,7 @@ namespace CalValEX.Items.Equips.Shirts
             Item.width = 24;
             Item.height = 28;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.vanity = true;
         }
 

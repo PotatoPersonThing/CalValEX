@@ -1,5 +1,6 @@
 ﻿using Terraria;
 using Microsoft.Xna.Framework;
+using Terraria.ID;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -8,7 +9,7 @@ namespace CalValEX.Projectiles.Pets
         public override bool FacesLeft => false;
         public override float TeleportThreshold => 1440f;
 
-        public override Vector2 FlyingOffset => new Vector2(90f * -Main.player[Projectile.owner].direction, -75f);
+        public override Vector2 FlyingOffset => new(90f * -Main.player[Projectile.owner].direction, -75f);
 
         private bool sigtep = false;
         public override void SetStaticDefaults()
@@ -63,7 +64,7 @@ namespace CalValEX.Projectiles.Pets
             {
                 for (int x = 0; x < 20; x++)
                 {
-                    Dust.NewDust(Projectile.Center, 30, 30, 173, 0f, 0f, 0, new Color(255, 255, 255), 0.8f);
+                    Dust.NewDust(Projectile.Center, 30, 30, DustID.ShadowbeamStaff, 0f, 0f, 0, new Color(255, 255, 255), 0.8f);
                 }
             }
 
@@ -72,7 +73,7 @@ namespace CalValEX.Projectiles.Pets
                 Projectile.alpha = 255;
                 for (int x = 0; x < 5; x++)
                 {
-                    Dust.NewDust(Projectile.Center, 30, 30, 173, 0f, 0f, 0, new Color(255, 255, 255), 0.8f);
+                    Dust.NewDust(Projectile.Center, 30, 30, DustID.ShadowbeamStaff, 0f, 0f, 0, new Color(255, 255, 255), 0.8f);
                 }
             }
         }

@@ -4,7 +4,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using CalValEX.Items.Tiles.FurnitureSets.Astral;
 using Terraria.ObjectData;
 
 namespace CalValEX.Tiles.FurnitureSets.Astral
@@ -35,7 +34,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             WorldGen.KillTile(i, j);
             if (Main.netMode != NetmodeID.SinglePlayer)
             {
-                NetMessage.SendData(17, -1, -1, null, 0, i, j);
+                NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 0, i, j);
             }
             return true;
         }

@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria.ID;
 using CalValEX.Tiles.MiscFurniture;
 using Terraria.ModLoader;
@@ -18,7 +16,7 @@ namespace CalValEX.Items.Tiles
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;

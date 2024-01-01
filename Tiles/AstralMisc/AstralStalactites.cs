@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using CalValEX.Dusts;
 using Terraria.ModLoader;
 

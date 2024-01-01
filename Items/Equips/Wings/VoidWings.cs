@@ -14,7 +14,7 @@ namespace CalValEX.Items.Equips.Wings
         {
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            Terraria.ID.ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(230, 9f, 2.5f);
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(230, 9f, 2.5f);
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             Item.ResearchUnlockCount = 1;
         }
@@ -24,7 +24,7 @@ namespace CalValEX.Items.Equips.Wings
             Item.width = 26;
             Item.height = 26;
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
         }
 

@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -24,7 +23,7 @@ namespace CalValEX.Items.Pets
             Item.UseSound = SoundID.NPCHit13;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.BuffReaper>();
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.buffType = ModContent.BuffType<Buffs.Pets.ShartBuff>();
             Item.noUseGraphic = true;
         }

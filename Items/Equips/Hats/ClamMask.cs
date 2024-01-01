@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Items.Equips.Hats
 {
@@ -14,7 +15,7 @@ namespace CalValEX.Items.Equips.Hats
             //Item.height = 28;
             Item.height = 50;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.vanity = true;
         }
     }

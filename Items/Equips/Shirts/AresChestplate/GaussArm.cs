@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Items.Equips.Shirts.AresChestplate
@@ -47,7 +46,7 @@ namespace CalValEX.Items.Equips.Shirts.AresChestplate
         public override bool PreDraw(ref Color lightColor)
         {
             Player player = Main.player[Projectile.owner];
-            Vector2 distToProj = new Vector2(Projectile.Center.X, Projectile.Center.Y);
+            Vector2 distToProj = new(Projectile.Center.X, Projectile.Center.Y);
             float projRotation = Projectile.AngleTo(player.MountedCenter) - 1.57f;
             bool doIDraw = true;
             Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Items/Equips/Shirts/AresChestplate/AresTube").Value; //change this accordingly to your chain texture

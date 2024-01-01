@@ -1,6 +1,5 @@
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Tiles.FurnitureSets.Phantowax;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
@@ -15,7 +14,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -25,7 +24,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Phantowax
             Item.createTile = ModContent.TileType<PhantowaxChair>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 0;
+            Item.rare = ItemRarityID.White;
         }
 
         /*public override void AddRecipes()

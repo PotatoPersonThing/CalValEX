@@ -1,8 +1,6 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using CalValEX.Projectiles.Pets;
-using CalValEX.Projectiles.Pets.LightPets;
 
 namespace CalValEX.Buffs.PetComboBuffs
 {

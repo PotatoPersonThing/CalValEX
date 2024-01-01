@@ -1,6 +1,4 @@
-﻿using CalValEX.Buffs.LightPets;
-using Terraria;
-using System.IO;
+﻿using Terraria;
 
 namespace CalValEX.Projectiles.Pets
 {

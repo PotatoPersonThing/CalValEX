@@ -1,5 +1,6 @@
 using Terraria.ModLoader;
 using CalValEX.Tiles.Statues;
+using Terraria.ID;
 
 namespace CalValEX.Items.Tiles.Statues
 {
@@ -15,7 +16,7 @@ namespace CalValEX.Items.Tiles.Statues
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -25,7 +26,7 @@ namespace CalValEX.Items.Tiles.Statues
             Item.createTile = ModContent.TileType<CPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
         }
     }
 }

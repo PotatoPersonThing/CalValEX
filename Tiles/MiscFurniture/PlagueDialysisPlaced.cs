@@ -5,14 +5,14 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
-using CalValEX.Items.Tiles;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace CalValEX.Tiles.MiscFurniture {
+namespace CalValEX.Tiles.MiscFurniture
+{
     public class PlagueDialysisPlaced : ModTile {
         public override void SetStaticDefaults() {
             Main.tileSolidTop[Type] = true;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileLavaDeath[Type] = true;

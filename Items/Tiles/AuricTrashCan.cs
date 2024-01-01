@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using CalValEX.Tiles.MiscFurniture;
+﻿using CalValEX.Tiles.MiscFurniture;
 using Terraria.ModLoader;
 using Terraria.ID;
 //using CalValEX.Tiles.FurnitureSets.Auric;
@@ -18,7 +16,7 @@ namespace CalValEX.Items.Tiles
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -28,7 +26,7 @@ namespace CalValEX.Items.Tiles
             Item.createTile = ModContent.TileType<AuricTrashCanPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
         }
 
         //public override void ModifyTooltips(List<TooltipLine> tooltips) => ItemUtils.CheckRarity(CalamityRarity.Violet, tooltips);

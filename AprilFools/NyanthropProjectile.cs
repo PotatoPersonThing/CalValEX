@@ -27,7 +27,7 @@ namespace CalValEX.AprilFools
 
         public override void AI()
         {
-			if (Main.rand.Next(5) == 0) 
+			if (Main.rand.NextBool(5)) 
 			{
 				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, Main.rand.Next(-4,4), Main.rand.Next(-4, 4), ProjectileID.Typhoon, 20, 2f, Projectile.owner);
             }

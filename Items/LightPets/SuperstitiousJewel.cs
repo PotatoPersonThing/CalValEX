@@ -3,8 +3,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using CalValEX.Items.Pets;
-using CalValEX.Items.Equips.Balloons;
 
 namespace CalValEX.Items.LightPets
 {

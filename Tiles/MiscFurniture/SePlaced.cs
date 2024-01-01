@@ -4,11 +4,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
-using CalValEX.Items.Tiles;
 using System;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using Terraria.Localization;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
@@ -18,7 +16,7 @@ namespace CalValEX.Tiles.MiscFurniture
         int negavar;
         public override void SetStaticDefaults()
         {
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileLavaDeath[Type] = true;
@@ -177,32 +175,32 @@ namespace CalValEX.Tiles.MiscFurniture
 
                 //Defining the sizes and stuff
 
-                Rectangle sourceRectangle1 = new Rectangle(0, 0, Seg1.Width, Seg1.Height);
-                Vector2 origin1 = new Vector2(Seg1.Width, Seg1.Height);
+                Rectangle sourceRectangle1 = new(0, 0, Seg1.Width, Seg1.Height);
+                Vector2 origin1 = new(Seg1.Width, Seg1.Height);
 
-                Rectangle sourceRectangle2 = new Rectangle(0, 0, Seg2.Width, Seg2.Height);
-                Vector2 origin2 = new Vector2(Seg2.Width, Seg2.Height);
+                Rectangle sourceRectangle2 = new(0, 0, Seg2.Width, Seg2.Height);
+                Vector2 origin2 = new(Seg2.Width, Seg2.Height);
 
-                Rectangle sourceRectangle3 = new Rectangle(0, 0, Seg3.Width, Seg3.Height);
-                Vector2 origin3 = new Vector2(Seg1.Width, Seg3.Height);
+                Rectangle sourceRectangle3 = new(0, 0, Seg3.Width, Seg3.Height);
+                Vector2 origin3 = new(Seg1.Width, Seg3.Height);
 
-                Rectangle sourceRectangle4 = new Rectangle(0, 0, Seg4.Width, Seg4.Height);
-                Vector2 origin4 = new Vector2(Seg1.Width, Seg4.Height);
+                Rectangle sourceRectangle4 = new(0, 0, Seg4.Width, Seg4.Height);
+                Vector2 origin4 = new(Seg1.Width, Seg4.Height);
 
-                Rectangle sourceRectangle7 = new Rectangle(0, 0, Seg7.Width, Seg7.Height);
-                Vector2 origin7 = new Vector2(Seg7.Width, Seg7.Height);
+                Rectangle sourceRectangle7 = new(0, 0, Seg7.Width, Seg7.Height);
+                Vector2 origin7 = new(Seg7.Width, Seg7.Height);
 
-                Rectangle sourceRectangle5 = new Rectangle(0, 0, Seg5.Width, Seg5.Height);
-                Vector2 origin5 = new Vector2(Seg5.Width, Seg5.Height);
+                Rectangle sourceRectangle5 = new(0, 0, Seg5.Width, Seg5.Height);
+                Vector2 origin5 = new(Seg5.Width, Seg5.Height);
 
-                Rectangle sourceRectangle6 = new Rectangle(0, 0, Seg6.Width, Seg6.Height);
-                Vector2 origin6 = new Vector2(Seg6.Width, Seg6.Height);
+                Rectangle sourceRectangle6 = new(0, 0, Seg6.Width, Seg6.Height);
+                Vector2 origin6 = new(Seg6.Width, Seg6.Height);
 
-                Rectangle sourceRectanglel = new Rectangle(0, 0, ArmL.Width, ArmL.Height);
-                Vector2 originl = new Vector2(ArmL.Width, ArmL.Height);
+                Rectangle sourceRectanglel = new(0, 0, ArmL.Width, ArmL.Height);
+                Vector2 originl = new(ArmL.Width, ArmL.Height);
 
-                Rectangle sourceRectangler = new Rectangle(0, 0, ArmR.Width, ArmR.Height);
-                Vector2 originr = new Vector2(ArmR.Width, ArmR.Height);
+                Rectangle sourceRectangler = new(0, 0, ArmR.Width, ArmR.Height);
+                Vector2 originr = new(ArmR.Width, ArmR.Height);
 
                 //Just the color and tile pos
 
@@ -212,15 +210,15 @@ namespace CalValEX.Tiles.MiscFurniture
                 //Y positions add all previous segment heights + a few extra sometimes because lol offsets.
                 //Arms get larger x offsets due to arms
 
-                Vector2 position1 = new Vector2(position.X + x1, position.Y + 6 + y1);
-                Vector2 position2 = new Vector2(position.X + x2, position.Y - Seg1.Height + y2);
-                Vector2 position3 = new Vector2(position.X - 10 + x3, position.Y - Seg1.Height - Seg2.Height + y3);
-                Vector2 position4 = new Vector2(position.X + x4, position.Y - Seg1.Height - Seg2.Height - Seg3.Height + 6 + y4);
-                Vector2 position5 = new Vector2(position.X + x5, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height + 6 + y5);
-                Vector2 position6 = new Vector2(position.X + x6, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height + 9 + y6);
-                Vector2 position7 = new Vector2(position.X + x7, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height - Seg6.Height + 8 + y7);
-                Vector2 leftposition = new Vector2(position.X + xl - 25, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height + yl);
-                Vector2 rightposition = new Vector2(position.X + xr + 25, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height + yr);
+                Vector2 position1 = new(position.X + x1, position.Y + 6 + y1);
+                Vector2 position2 = new(position.X + x2, position.Y - Seg1.Height + y2);
+                Vector2 position3 = new(position.X - 10 + x3, position.Y - Seg1.Height - Seg2.Height + y3);
+                Vector2 position4 = new(position.X + x4, position.Y - Seg1.Height - Seg2.Height - Seg3.Height + 6 + y4);
+                Vector2 position5 = new(position.X + x5, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height + 6 + y5);
+                Vector2 position6 = new(position.X + x6, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height + 9 + y6);
+                Vector2 position7 = new(position.X + x7, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height - Seg6.Height + 8 + y7);
+                Vector2 leftposition = new(position.X + xl - 25, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height + yl);
+                Vector2 rightposition = new(position.X + xr + 25, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height + yr);
 
                 //Prevent dividing by 0 errors. If rotation counter is not zero, then absolute value is 30 / 30 or - 30 / 30
 

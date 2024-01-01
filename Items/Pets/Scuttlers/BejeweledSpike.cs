@@ -21,7 +21,7 @@ namespace CalValEX.Items.Pets.Scuttlers
             Item.UseSound = SoundID.NPCHit31;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.Scuttlers.BejeweledScuttler>();
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.width = 26;
             Item.height = 32;
             Item.buffType = ModContent.BuffType<Buffs.Pets.Scuttlers.BejeweledBuff>();

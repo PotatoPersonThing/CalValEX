@@ -1,11 +1,8 @@
 using Terraria;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 //using CalamityMod;
-using System;
 using Terraria.ModLoader;
 using Terraria.ID;
-using Terraria.Graphics.Shaders;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -60,9 +57,9 @@ namespace CalValEX.Projectiles.Pets
             }
         }
 
-        private static Color ShaderColorOne = new Color(189, 255, 254);
-        private static Color ShaderColorTwo = new Color(115, 234, 255);
-        private static Color ShaderEndColor = new Color(33, 222, 255);
+        private static Color ShaderColorOne = new(189, 255, 254);
+        private static Color ShaderColorTwo = new(115, 234, 255);
+        private static Color ShaderEndColor = new(33, 222, 255);
 
         /*private float PrimitiveWidthFunction(float completionRatio)
         {

@@ -12,9 +12,9 @@ namespace CalValEX.Items.Tiles.Blocks {
             Item.width = 16;
             Item.height = 16;
             Item.maxStack = 999;
-            Item.rare = 0;
+            Item.rare = ItemRarityID.White;
             Item.useTurn = true;
-            Item.rare = 0;
+            Item.rare = ItemRarityID.White;
             Item.autoReuse = true;
             Item.useAnimation = 15;
             Item.useTime = 10;

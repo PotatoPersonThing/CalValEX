@@ -1,7 +1,6 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Walls.AstralSafe;
-using CalValEX.Items.Tiles.Blocks.Astral;
 
 namespace CalValEX.Items.Walls.Astral
 {
@@ -18,7 +17,7 @@ namespace CalValEX.Items.Walls.Astral
             Item.width = 12;
             Item.height = 12;
             Item.maxStack = 999;
-            Item.rare = 0;
+            Item.rare = ItemRarityID.White;
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;

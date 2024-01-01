@@ -4,9 +4,6 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using static Terraria.ModLoader.ModContent;
-using Terraria.Graphics.Shaders;
-using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles
 {

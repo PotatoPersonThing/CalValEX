@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.Audio;
@@ -11,7 +10,7 @@ namespace CalValEX.Projectiles.Boi
     public class BoiRock : ModProjectile
     {
         public override string Texture => "CalValEX/ExtraTextures/Boi/Block";
-        List<int> push = new List<int>() { ModContent.ProjectileType<Brimhita>(), ModContent.ProjectileType<Anahita>(), ModContent.ProjectileType<Spider>(), ModContent.ProjectileType<Terror>() };
+        List<int> push = new() { ModContent.ProjectileType<Brimhita>(), ModContent.ProjectileType<Anahita>(), ModContent.ProjectileType<Spider>(), ModContent.ProjectileType<Terror>() };
 
         public override void SetStaticDefaults()
         {
@@ -44,7 +43,7 @@ namespace CalValEX.Projectiles.Boi
 
                 if (proj != null && proj.active && proj.getRect().Intersects(thisRect) && proj.type == ModContent.ProjectileType<AnahitaTear>())
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.Item10, Projectile.Center);
+                    SoundEngine.PlaySound(SoundID.Item10, Projectile.Center);
                     if ((proj.timeLeft < 110 && proj.velocity.Y > 0) || proj.velocity.Y <= 0)
                     proj.active = false;
                 }
@@ -56,10 +55,10 @@ namespace CalValEX.Projectiles.Boi
                 if (proj != null && proj.active && push.Contains(proj.type) && proj.getRect().Intersects(thisRect))
                 {
                     Vector2 relative = proj.position - Projectile.position;
-                    Rectangle rightbox = new Rectangle((int)proj.position.X + proj.width, (int)proj.position.Y + 8, proj.width / 2, proj.height - 16);
-                    Rectangle leftbox = new Rectangle((int)proj.position.X, (int)proj.position.Y + 8, proj.width / 2, proj.height - 16);
-                    Rectangle bottombox = new Rectangle((int)proj.position.X + 8, (int)proj.position.Y + proj.height, proj.width - 16, proj.height / 2);
-                    Rectangle topbox = new Rectangle((int)proj.position.X + 8, (int)proj.position.Y, proj.width - 16, proj.height / 2);
+                    Rectangle rightbox = new((int)proj.position.X + proj.width, (int)proj.position.Y + 8, proj.width / 2, proj.height - 16);
+                    Rectangle leftbox = new((int)proj.position.X, (int)proj.position.Y + 8, proj.width / 2, proj.height - 16);
+                    Rectangle bottombox = new((int)proj.position.X + 8, (int)proj.position.Y + proj.height, proj.width - 16, proj.height / 2);
+                    Rectangle topbox = new((int)proj.position.X + 8, (int)proj.position.Y, proj.width - 16, proj.height / 2);
                     //If ana is to the right of the block and moving left
                     if (relative.X >= 0 && proj.velocity.X < 0)
                     {

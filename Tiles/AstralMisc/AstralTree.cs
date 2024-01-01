@@ -16,8 +16,8 @@ namespace CalValEX.Tiles.AstralMisc
 		}
 
 		public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("CalValEX/Tiles/AstralMisc/AstralTree");
-		public override TreePaintingSettings TreeShaderSettings => new TreePaintingSettings
-		{
+		public override TreePaintingSettings TreeShaderSettings => new()
+        {
 			UseSpecialGroups = true,
 			SpecialGroupMinimalHueValue = 11f / 72f,
 			SpecialGroupMaximumHueValue = 0.25f,

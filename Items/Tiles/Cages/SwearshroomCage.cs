@@ -1,4 +1,3 @@
-using CalValEX.Items.Critters;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.Cages;
@@ -15,7 +14,7 @@ namespace CalValEX.Items.Tiles.Cages
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -25,7 +24,7 @@ namespace CalValEX.Items.Tiles.Cages
             Item.createTile = ModContent.TileType<SwearshroomCagePlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
         }
 
         /*public override void AddRecipes()

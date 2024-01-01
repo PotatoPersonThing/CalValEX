@@ -4,7 +4,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using CalValEX.Items.Tiles.FurnitureSets.Auric;
 using Terraria.ObjectData;
 
 namespace CalValEX.Tiles.FurnitureSets.Auric
@@ -17,7 +16,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.StyleOnTable1x1);
             TileObjectData.newTile.Width = 1;
             TileObjectData.newTile.Height = 1;
@@ -50,7 +49,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             WorldGen.KillTile(i, j);
             if (Main.netMode != NetmodeID.SinglePlayer)
             {
-                NetMessage.SendData(17, -1, -1, null, 0, i, j);
+                NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 0, i, j);
             }
             return true;
         }

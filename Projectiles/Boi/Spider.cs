@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -79,7 +78,7 @@ namespace CalValEX.Projectiles.Boi
             }
             if (aitimer >= 60)
             {
-                if (Main.rand.Next(2) == 0)
+                if (Main.rand.NextBool(2))
                 {
                     for (int i = 0; i < Main.maxProjectiles; i++)
                     {

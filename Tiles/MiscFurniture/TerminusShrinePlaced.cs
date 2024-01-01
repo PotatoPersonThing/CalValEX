@@ -1,19 +1,17 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ID;
-using CalValEX.Items.Tiles;
 using Terraria.ObjectData;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-	public class TerminusShrinePlaced : ModTile
+    public class TerminusShrinePlaced : ModTile
 	{
 		public override void SetStaticDefaults()
 		{
-			Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLighted[Type] = true;
 			Main.tileLavaDeath[Type] = true;

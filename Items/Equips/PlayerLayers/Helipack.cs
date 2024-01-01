@@ -81,9 +81,9 @@ namespace CalValEX.Items.Equips.PlayerLayers {
                             dyeShader = drawPlayer.dye?[n].dye ?? 0;
                     }
                 }
-                Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f / 10f);
+                Vector2 origin = new(texture.Width / 2f, texture.Height / 2f / 10f);
                 Rectangle yFrame = texture.Frame(1, 10, 0, frame);
-                DrawData dat = new DrawData(texture, packPos, yFrame, drawInfo.colorArmorBody, 0f, 
+                DrawData dat = new(texture, packPos, yFrame, drawInfo.colorArmorBody, 0f, 
                     origin, 1, drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
                 dat.shader = dyeShader;
                 drawInfo.DrawDataCache.Add(dat);

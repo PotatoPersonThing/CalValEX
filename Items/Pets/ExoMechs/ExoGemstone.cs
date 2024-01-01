@@ -22,7 +22,7 @@ namespace CalValEX.Items.Pets.ExoMechs
             Item.UseSound = SoundID.NPCHit4;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.ExoMechs.TwinsPet>();
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.buffType = ModContent.BuffType<Buffs.Pets.ExoMechs.ExoMayhemBuff>();
         }
 

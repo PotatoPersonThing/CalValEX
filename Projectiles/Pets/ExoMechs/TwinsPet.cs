@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -16,7 +15,7 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
         public float ApolloRotation;
         public float ArtemisRotation;
 
-        public Color RibbonStartColor = new Color(34, 40, 48);
+        public Color RibbonStartColor = new(34, 40, 48);
 
 
         public ref float Initialized => ref Projectile.ai[0];
@@ -133,13 +132,13 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
         public Color OrangeRibbonTrailColorFunction(float completionRatio)
         {
             Color startingColor = RibbonStartColor;
-            Color endColor = new Color(219, 82, 28);
+            Color endColor = new(219, 82, 28);
             return Color.Lerp(startingColor, endColor, (float)Math.Pow(1 - completionRatio, 1.5D)) * 0.7f;
         }
         public Color GreenRibbonTrailColorFunction(float completionRatio)
         {
             Color startingColor = RibbonStartColor;
-            Color endColor = new Color(40, 160, 32);
+            Color endColor = new(40, 160, 32);
             return Color.Lerp(startingColor, endColor, (float)Math.Pow(1 - completionRatio, 1.5D)) * 0.7f;
         }
 
@@ -153,9 +152,9 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
                 secondPhase = true;
 
 
-            Rectangle apolloFrame = new Rectangle(0, secondPhase ? 54 : 0, 62, 52);
-            Rectangle artemisFrame = new Rectangle(64, secondPhase ? 54 : 0, 62, 52);
-            Vector2 origin = new Vector2(31, 36);
+            Rectangle apolloFrame = new(0, secondPhase ? 54 : 0, 62, 52);
+            Rectangle artemisFrame = new(64, secondPhase ? 54 : 0, 62, 52);
+            Vector2 origin = new(31, 36);
 
             if (Projectile.isAPreviewDummy)
             {
@@ -174,8 +173,8 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             RotationsApollo[0] = ApolloRotation;
             RotationsArtemis[0] = ArtemisRotation;
 
-            Terraria.Graphics.VertexStrip apolloStrip = new Terraria.Graphics.VertexStrip();
-            Terraria.Graphics.VertexStrip artemisStrip = new Terraria.Graphics.VertexStrip();
+            Terraria.Graphics.VertexStrip apolloStrip = new();
+            Terraria.Graphics.VertexStrip artemisStrip = new();
             apolloStrip.PrepareStripWithProceduralPadding(PositionsApollo, RotationsApollo, GreenRibbonTrailColorFunction, RibbonTrailWidthFunction, -Main.screenPosition, true);
             artemisStrip.PrepareStripWithProceduralPadding(PositionsArtemis, RotationsArtemis, OrangeRibbonTrailColorFunction, RibbonTrailWidthFunction, -Main.screenPosition, true);
 

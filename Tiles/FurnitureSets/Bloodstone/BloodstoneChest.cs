@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -19,7 +18,7 @@ namespace CalValEX.Tiles.FurnitureSets.Bloodstone
             Main.tileContainer[Type] = true;
             Main.tileShine2[Type] = true;
             Main.tileShine[Type] = 1200;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileOreFinderPriority[Type] = 500;

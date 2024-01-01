@@ -1,20 +1,14 @@
-﻿
-using CalValEX.Items.Pets.ExoMechs;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets
 {
     public class Sepulchling : BaseWormPet
     {
         public override string Texture => "CalValEX/Projectiles/Pets/SepulcherHead";
-        public override WormPetVisualSegment HeadSegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/SepulcherHead");
-        public override WormPetVisualSegment BodySegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/SepulcherBody");
-        public override WormPetVisualSegment TailSegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/SepulcherTail");
+        public override WormPetVisualSegment HeadSegment() => new("CalValEX/Projectiles/Pets/SepulcherHead");
+        public override WormPetVisualSegment BodySegment() => new("CalValEX/Projectiles/Pets/SepulcherBody");
+        public override WormPetVisualSegment TailSegment() => new("CalValEX/Projectiles/Pets/SepulcherTail");
 
         public override int SegmentSize() => 25;
 

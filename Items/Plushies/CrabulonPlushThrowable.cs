@@ -13,12 +13,12 @@ namespace CalValEX.Items.Plushies
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.width = 44;
             Item.height = 44;
             Item.consumable = true;
             Item.UseSound = SoundID.Item1;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.useAnimation = 20;
             Item.useTime = 20;
             Item.noUseGraphic = true;

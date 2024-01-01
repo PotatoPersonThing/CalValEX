@@ -1,6 +1,5 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Walls;
 
 namespace CalValEX.Items.Walls
@@ -18,7 +17,7 @@ namespace CalValEX.Items.Walls
             Item.width = 12;
             Item.height = 12;
             Item.maxStack = 999;
-            Item.rare = 0;
+            Item.rare = ItemRarityID.White;
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;

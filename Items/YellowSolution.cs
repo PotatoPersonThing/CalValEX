@@ -1,11 +1,10 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Projectiles;
 
 namespace CalValEX.Items
 {
-	public class YellowSolution : ModItem
+    public class YellowSolution : ModItem
 	{
 		public override void SetStaticDefaults()
 		{

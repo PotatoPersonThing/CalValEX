@@ -24,7 +24,7 @@ namespace CalValEX.Items.Tiles.Paintings
             Item.createTile = ModContent.TileType<DarkMagicPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
         }
     }
 }

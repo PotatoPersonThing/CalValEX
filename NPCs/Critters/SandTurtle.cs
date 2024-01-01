@@ -1,13 +1,9 @@
-﻿using CalValEX.Items.Tiles.Banners;
-using MonoMod.Cil;
-using System;
+﻿using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
-using Microsoft.Xna.Framework;
-using Terraria.DataStructures;
 
 namespace CalValEX.NPCs.Critters
 {

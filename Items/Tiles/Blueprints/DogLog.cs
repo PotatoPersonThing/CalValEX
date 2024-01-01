@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ModLoader;
 using CalValEX.Tiles.Blueprints;
+using Terraria.ID;
 
 namespace CalValEX.Items.Tiles.Blueprints
 {
@@ -18,7 +19,7 @@ namespace CalValEX.Items.Tiles.Blueprints
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -28,7 +29,7 @@ namespace CalValEX.Items.Tiles.Blueprints
             Item.createTile = ModContent.TileType<DogBlueprintPlaced>();
             Item.width = 46;
             Item.height = 32;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Projectiles.NPCs
 {
@@ -38,7 +39,7 @@ namespace CalValEX.Projectiles.NPCs
             int killdust = 0;
             while (killdust < 9)
             {
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 33, -Projectile.velocity.X * 0.05f, -Projectile.velocity.Y * 0.05f, 50, default, 1f);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Water, -Projectile.velocity.X * 0.05f, -Projectile.velocity.Y * 0.05f, 50, default, 1f);
                 killdust += 1;
             }
         }

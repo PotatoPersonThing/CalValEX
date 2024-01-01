@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
 using CalValEX.Projectiles.Pets;
@@ -807,7 +806,8 @@ namespace CalValEX.Buffs.PetComboBuffs
             }
 
             if (CalValEXConfig.Instance.SupCombo){
-                List<int> petscombo = new List<int>{
+                List<int> petscombo = new()
+                {
                     ModContent.ProjectileType<HeatPet>(),
                     ModContent.ProjectileType<HeatBaby>(),
                     ModContent.ProjectileType<Skeetyeet>(),

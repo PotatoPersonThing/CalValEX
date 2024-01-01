@@ -66,15 +66,15 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
             Lighting.AddLight(Projectile.position, new Vector3(1.61568627f, 0.901960784f, 0.462745098f));
 
-            if (Main.rand.Next(5) == 0)
+            if (Main.rand.NextBool(5))
             {
-                int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 55, 0, 0, 125);
+                int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Pixie, 0, 0, 125);
                 Main.dust[dust].noGravity = true;
                 Main.dust[dust].velocity *= 0.3f;
                 Main.dust[dust].shader = GameShaders.Armor.GetSecondaryShader(player.cLight, player);
             }
 
-            Vector2 extraPos = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
+            Vector2 extraPos = new(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
             float posX = player.position.X + (player.width / 2) - extraPos.X;
             float posY = player.position.Y + (player.width / 2) - extraPos.Y;
 

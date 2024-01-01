@@ -2,9 +2,9 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using CalValEX.Items.Tiles.Blocks;
 
-namespace CalValEX.Tiles.Blocks {
+namespace CalValEX.Tiles.Blocks
+{
     public class MeldBlockPlaced : ModTile {
         public override void SetStaticDefaults() {
             Main.tileSolid[Type] = true;

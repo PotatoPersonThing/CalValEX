@@ -4,7 +4,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using CalValEX.Items.Tiles.FurnitureSets.Astral;
 using Terraria.ObjectData;
 
 namespace CalValEX.Tiles.FurnitureSets.Astral
@@ -20,7 +19,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
             TileObjectData.newTile.Width = 1;
             TileObjectData.newTile.Height = 2;

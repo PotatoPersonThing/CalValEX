@@ -15,7 +15,7 @@ namespace CalValEX.Items.Tiles
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -25,7 +25,7 @@ namespace CalValEX.Items.Tiles
             Item.createTile = ModContent.TileType<DecommissionedDaedalusGolemPlaced>();
             Item.width = 48;
             Item.height = 32;
-            Item.rare = 5;
+            Item.rare = ItemRarityID.Pink;
         }
     }
 }

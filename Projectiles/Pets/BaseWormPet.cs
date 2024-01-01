@@ -63,7 +63,7 @@ namespace CalValEX.Projectiles.Pets
 		public abstract WormPetVisualSegment BodySegment();
 		public abstract WormPetVisualSegment TailSegment();
 
-		private Dictionary<string, WormPetVisualSegment> DefaultSegments => new Dictionary<string, WormPetVisualSegment>()
+		private Dictionary<string, WormPetVisualSegment> DefaultSegments => new()
 		{
 			{ "Head" , HeadSegment() },
 			{ "Body" , BodySegment() },
@@ -74,7 +74,7 @@ namespace CalValEX.Projectiles.Pets
 		/// A dictionary that contains custom segment types if you need to use them
 		/// If you want to add custom segments, please remember to not use the "Head", "Body" and "Tail" keys since those are used by the base worm.
 		/// </summary>
-		public virtual Dictionary<string, WormPetVisualSegment> CustomSegments => new Dictionary<string, WormPetVisualSegment>() { };
+		public virtual Dictionary<string, WormPetVisualSegment> CustomSegments => new() { };
 
 		/// <summary>
 		/// The "height" of a segment. Only counted for the body, the head and tail may be longer and it will be automatically adjusted for it
@@ -239,7 +239,7 @@ namespace CalValEX.Projectiles.Pets
 			Segments = new List<WormPetSegment>(SegmentCount());
 			for (int i = 0; i < SegmentCount(); i++)
             {
-				WormPetSegment segment = new WormPetSegment();
+				WormPetSegment segment = new();
 				segment.head = false;
 				segment.position = Projectile.Center + Vector2.UnitY * SegmentSize() * i;
 				segment.oldPosition = segment.position;
@@ -444,7 +444,7 @@ namespace CalValEX.Projectiles.Pets
 				frameWidth -= currentSegment.Variants > 1 ? 2 : 0; 
 				frameHeight -= (Main.projFrames[Projectile.type] > 1) ? 2 : 0;
 
-				Rectangle frame = new Rectangle(frameStartX, frameStartY, frameWidth, frameHeight);
+				Rectangle frame = new(frameStartX, frameStartY, frameWidth, frameHeight);
 				Vector2 origin = bodySegment ? frame.Size() / 2f : i == 0 ? new Vector2(frame.Width / 2f, frame.Height - SegmentSize() / 2f) : new Vector2(frame.Width / 2f, SegmentSize() / 2f);
 
 				if (i == 0)

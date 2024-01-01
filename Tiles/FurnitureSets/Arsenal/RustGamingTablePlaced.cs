@@ -4,8 +4,6 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using static Terraria.ModLoader.ModContent;
-using CalValEX.Items.Tiles.FurnitureSets.Arsenal;
 
 namespace CalValEX.Tiles.FurnitureSets.Arsenal
 {
@@ -14,7 +12,7 @@ namespace CalValEX.Tiles.FurnitureSets.Arsenal
         public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileLighted[Type] = true;
             Main.tileTable[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall

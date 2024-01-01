@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -24,7 +22,7 @@ namespace CalValEX.Items.Pets
             Item.UseSound = SoundID.NPCHit51;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.FollyPet>();
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.buffType = ModContent.BuffType<Buffs.Pets.FollyBuff>();
         }
 

@@ -21,7 +21,7 @@ namespace CalValEX.Items.Equips.Wings
         public override void SetDefaults()
         {
             Item.value = 10000;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
             Item.value = Item.sellPrice(0, 3, 0, 0);
         }

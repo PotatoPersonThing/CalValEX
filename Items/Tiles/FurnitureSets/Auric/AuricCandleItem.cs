@@ -1,6 +1,5 @@
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Tiles.FurnitureSets.Auric;
 
 namespace CalValEX.Items.Tiles.FurnitureSets.Auric
@@ -15,7 +14,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Auric
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -25,7 +24,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Auric
             Item.createTile = ModContent.TileType<AuricCandle>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 0;
+            Item.rare = ItemRarityID.White;
         }
 
         /*public override void AddRecipes()

@@ -34,8 +34,8 @@ namespace CalValEX.Projectiles.Pets.LightPets
         {
             Player player = Main.player[Projectile.owner];
             Texture2D texture = ModContent.Request<Texture2D>(CosmicTexture).Value;
-            Rectangle sourceRectangle = new Rectangle(0, 40 * frame, texture.Width, texture.Height / 6);
-            Vector2 origin = new Vector2(texture.Width, texture.Height);
+            Rectangle sourceRectangle = new(0, 40 * frame, texture.Width, texture.Height / 6);
+            Vector2 origin = new(texture.Width, texture.Height);
             Vector2 position = player.Center;
             position.Y += 36f;
             position -= Main.screenPosition;

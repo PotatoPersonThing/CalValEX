@@ -1,4 +1,3 @@
-using CalValEX.AprilFools;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -26,7 +25,7 @@ namespace CalValEX.AprilFools.Jharim
         public bool lasercheck = false;
         public int shopnum = 1;
         public int maxshops = 18;
-        public List<int> cvitems = new List<int> { };
+        public List<int> cvitems = new() { };
         Vector2 jharimpos;
 
         private static int ShimmerHeadIndex;
@@ -71,7 +70,7 @@ namespace CalValEX.AprilFools.Jharim
 
             if (!CalValEX.AprilFoolMonth)
             {
-                NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+                NPCID.Sets.NPCBestiaryDrawModifiers value = new(0)
                 {
                     Hide = true
                 };
@@ -211,7 +210,7 @@ namespace CalValEX.AprilFools.Jharim
             }
         }
 
-        public override List<string> SetNPCNameList() => new List<string>() { "Jharim" };
+        public override List<string> SetNPCNameList() => new() { "Jharim" };
         public override ITownNPCProfile TownNPCProfile()
         {
             return NPCProfile;
@@ -241,7 +240,7 @@ namespace CalValEX.AprilFools.Jharim
                     }
                 }
 
-                WeightedRandom<string> dialogue = new WeightedRandom<string>();
+                WeightedRandom<string> dialogue = new();
 
                 if ((NPC.AnyNPCs(NPCID.LunarTowerNebula) || NPC.AnyNPCs(NPCID.LunarTowerVortex) || NPC.AnyNPCs(NPCID.LunarTowerStardust) || NPC.AnyNPCs(NPCID.LunarTowerSolar)) && Main.rand.NextFloat() < 0.25f)
                 {
@@ -461,17 +460,17 @@ namespace CalValEX.AprilFools.Jharim
         {
             int price = 0;
             // Ore-HM
-            if (item.rare < 4)
+            if (item.rare < ItemRarityID.LightRed)
             {
                 price = Item.buyPrice(gold: 20);
                 // Blocks
-                if ((item.createTile > 0 || item.createWall > 0) && item.rare == 0)
+                if ((item.createTile > TileID.Dirt || item.createWall > 0) && item.rare == ItemRarityID.White)
                 {
                     price /= 1000;
                 }
             }
             // Post-ML
-            else if (item.rare > 10)
+            else if (item.rare > ItemRarityID.Red)
             {
                 price = Item.buyPrice(gold: 60);
             }
@@ -613,11 +612,11 @@ namespace CalValEX.AprilFools.Jharim
                     framecounter = 0;
                 }
 
-                Texture2D deusheadsprite = (ModContent.Request<Texture2D>("CalValEX/AprilFools/Meldosaurus/JharimsBane").Value);
+                Texture2D deusheadsprite = (Request<Texture2D>("CalValEX/AprilFools/Meldosaurus/JharimsBane").Value);
 
                 int deusheadheight = framecounter * (deusheadsprite.Height / 6);
 
-                Rectangle deusheadsquare = new Rectangle(0, deusheadheight, deusheadsprite.Width, deusheadsprite.Height / 6);
+                Rectangle deusheadsquare = new(0, deusheadheight, deusheadsprite.Width, deusheadsprite.Height / 6);
                 Color deusheadalpha = NPC.GetAlpha(drawColor);
                 spriteBatch.Draw(deusheadsprite, NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), deusheadsquare, deusheadalpha, NPC.rotation, Utils.Size(deusheadsquare) / 2f, NPC.scale, SpriteEffects.None, 0);
                 return false;

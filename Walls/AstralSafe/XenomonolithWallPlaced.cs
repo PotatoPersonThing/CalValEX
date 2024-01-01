@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using CalValEX.Items.Walls.Astral;
 
 namespace CalValEX.Walls.AstralSafe
 {

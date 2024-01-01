@@ -19,7 +19,7 @@ namespace CalValEX.Items.Tiles
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -28,7 +28,7 @@ namespace CalValEX.Items.Tiles
             Item.consumable = true;
             Item.width = 16;
             Item.height = 28;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.createTile = ModContent.TileType<SePlaced>();
         }
 

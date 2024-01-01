@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
-using CalValEX.Items.Tiles.Banners;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;

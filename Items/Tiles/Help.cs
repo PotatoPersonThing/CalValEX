@@ -2,8 +2,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.MiscFurniture;
 using Terraria;
-using Microsoft.Xna.Framework;
-using Terraria.GameContent.Creative;
 
 namespace CalValEX.Items.Tiles
 {
@@ -19,7 +17,7 @@ namespace CalValEX.Items.Tiles
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -29,7 +27,7 @@ namespace CalValEX.Items.Tiles
             Item.createTile = ModContent.TileType<Helplaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 5;
+            Item.rare = ItemRarityID.Pink;
         }
     }
 }

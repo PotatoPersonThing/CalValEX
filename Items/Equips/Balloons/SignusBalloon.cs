@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Items.Equips.Balloons
 {
@@ -15,7 +16,7 @@ namespace CalValEX.Items.Equips.Balloons
             Item.width = 22;
             Item.height = 44;
             Item.value = Item.sellPrice(0, 15, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.accessory = true;
             Item.vanity = true;
         }

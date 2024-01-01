@@ -1,8 +1,6 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.Plushies;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 
 namespace CalValEX.Items.Tiles.Plushies
 {
@@ -17,12 +15,12 @@ namespace CalValEX.Items.Tiles.Plushies
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.width = 44;
             Item.height = 44;
             Item.consumable = true;
             Item.UseSound = SoundID.Item1;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.useAnimation = 20;
             Item.useTime = 20;
             Item.noUseGraphic = true;

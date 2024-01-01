@@ -75,9 +75,9 @@ namespace CalValEX.Projectiles.Pets.LightPets
             Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/LightPets/DarksunSpirit_Aura").Value;
             Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/LightPets/DarksunSpirit_Aura_Glowmask").Value;
 
-            Rectangle sourceRectangle = new Rectangle(0, 0, texture.Width, texture.Height);
+            Rectangle sourceRectangle = new(0, 0, texture.Width, texture.Height);
 
-            Vector2 origin = new Vector2(texture.Width, texture.Height);
+            Vector2 origin = new(texture.Width, texture.Height);
 
             Main.EntitySpriteDraw(texture, player.Center - Main.screenPosition, sourceRectangle, lightColor, rotation, origin / 2f, 1f + extraScale, SpriteEffects.None, 0);
             Main.EntitySpriteDraw(texture2, player.Center - Main.screenPosition, sourceRectangle, Color.White, rotation, origin / 2f, 1f + extraScale, SpriteEffects.None, 0);
@@ -101,7 +101,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
         public override float SpeedupThreshold => 640;
 
-        public override Vector2 FlyingOffset => new Vector2(16f * Main.player[Projectile.owner].direction, 0f);
+        public override Vector2 FlyingOffset => new(16f * Main.player[Projectile.owner].direction, 0f);
 
         public override void SetStaticDefaults()
         {
@@ -154,7 +154,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
         public override float SpeedupThreshold => 640;
 
-        public override Vector2 FlyingOffset => new Vector2(16f * -Main.player[Projectile.owner].direction, 0f);
+        public override Vector2 FlyingOffset => new(16f * -Main.player[Projectile.owner].direction, 0f);
 
         public override void SetStaticDefaults()
         {

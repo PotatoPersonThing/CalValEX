@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Items.Equips.Capes
 {
@@ -13,7 +14,7 @@ namespace CalValEX.Items.Equips.Capes
             Item.width = 24;
             Item.height = 28;
             Item.value = Item.sellPrice(0, 2, 0, 0);
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.accessory = true;
             Item.vanity = true;
         }

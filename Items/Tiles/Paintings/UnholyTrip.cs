@@ -1,6 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Terraria.ID; using CalValEX.Tiles.Paintings;
+﻿using Terraria.ID;
+using CalValEX.Tiles.Paintings;
 using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles.Paintings
@@ -26,7 +25,7 @@ namespace CalValEX.Items.Tiles.Paintings
             Item.createTile = ModContent.TileType<UnholyTripPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
         }
     }
 }

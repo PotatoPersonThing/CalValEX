@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Terraria.ModLoader;
 using CalValEX.Tiles.Plants;
+using Terraria.ID;
 
 namespace CalValEX.Items.Tiles.Plants
 {
@@ -17,7 +18,7 @@ namespace CalValEX.Items.Tiles.Plants
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -27,7 +28,7 @@ namespace CalValEX.Items.Tiles.Plants
             Item.createTile = ModContent.TileType<NetherTreeBigPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

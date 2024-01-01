@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using CalValEX.Items.Tiles.Blocks.Astral;
-using CalValEX.Dusts;
 
 namespace CalValEX.Tiles.AstralBlocks
 {

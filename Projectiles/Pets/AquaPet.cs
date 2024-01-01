@@ -1,19 +1,14 @@
-using CalValEX.Items.Pets;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
 using Terraria;
-using Terraria.ModLoader;
 
 namespace CalValEX.Projectiles.Pets
 {
     public class AquaPet : BaseWormPet
     {
         public override string Texture => "CalValEX/Projectiles/Pets/AquaHead";
-        public override WormPetVisualSegment HeadSegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/AquaHead");
-        public override WormPetVisualSegment BodySegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/AquaBody");
-        public override WormPetVisualSegment TailSegment() => new WormPetVisualSegment("CalValEX/Projectiles/Pets/AquaTail");
+        public override WormPetVisualSegment HeadSegment() => new("CalValEX/Projectiles/Pets/AquaHead");
+        public override WormPetVisualSegment BodySegment() => new("CalValEX/Projectiles/Pets/AquaBody");
+        public override WormPetVisualSegment TailSegment() => new("CalValEX/Projectiles/Pets/AquaTail");
 
         public override int SegmentSize() => 10;
 

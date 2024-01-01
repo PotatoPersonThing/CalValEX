@@ -128,7 +128,7 @@ namespace CalValEX.Projectiles.Pong
             if (modPlayer.pongactive)
             {
                 Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongBG").Value;
-                Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2.Width, texture2.Height / Main.projFrames[Projectile.type]);
+                Rectangle rectangle2 = new(0, texture2.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2.Width, texture2.Height / Main.projFrames[Projectile.type]);
                 Vector2 position2 = Projectile.Center - Main.screenPosition;
                 position2.X += DrawOffsetX;
                 position2.Y += DrawOriginOffsetY;
@@ -182,7 +182,7 @@ namespace CalValEX.Projectiles.Pong
                 {
                     mapicon = ModContent.Request<Texture2D>("CalValEX/Buffs/Pets/HivelingBuff").Value;
                 }
-                Rectangle rectangle3 = new Rectangle(0, mapicon.Height / Main.projFrames[Projectile.type] * Projectile.frame, mapicon.Width, mapicon.Height / Main.projFrames[Projectile.type]);
+                Rectangle rectangle3 = new(0, mapicon.Height / Main.projFrames[Projectile.type] * Projectile.frame, mapicon.Width, mapicon.Height / Main.projFrames[Projectile.type]);
                 Vector2 position3 = Projectile.Center - Main.screenPosition;
                 position3.X = position3.X + DrawOffsetX + 400;
                 position3.Y = position3.Y + DrawOriginOffsetY - 16;

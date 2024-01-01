@@ -1,13 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Enums;
-using static Terraria.Projectile;
-using System.IO;
-using System.Linq;
 using CalamityMod.Projectiles.BaseProjectiles;
 using ReLogic.Content;
 

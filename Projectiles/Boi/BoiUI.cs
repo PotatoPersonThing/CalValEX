@@ -29,12 +29,12 @@ namespace CalValEX.Projectiles.Boi
         public int roomcool = 0;
         public int localboistage = 0;
         int[] rooms = new int[10];
-        List<int> enemies = new List<int>() { ModContent.ProjectileType<Brimhita>(), ModContent.ProjectileType<Spider>(), ModContent.ProjectileType<Mire>(), ModContent.ProjectileType<Terror>() };
-        List<int> objects = new List<int>() { ModContent.ProjectileType<BoiRock>() };
-        Vector2 topdoor = new Vector2(10, -270);
-        Vector2 bottomdoor = new Vector2(10, 260);
-        Vector2 leftdoor = new Vector2(-420, -20);
-        Vector2 rightdoor = new Vector2(435, -20);
+        List<int> enemies = new() { ModContent.ProjectileType<Brimhita>(), ModContent.ProjectileType<Spider>(), ModContent.ProjectileType<Mire>(), ModContent.ProjectileType<Terror>() };
+        List<int> objects = new() { ModContent.ProjectileType<BoiRock>() };
+        Vector2 topdoor = new(10, -270);
+        Vector2 bottomdoor = new(10, 260);
+        Vector2 leftdoor = new(-420, -20);
+        Vector2 rightdoor = new(435, -20);
         public override string Texture => "CalValEX/ExtraTextures/Pong/PongBG";
 
         public override void SetStaticDefaults()
@@ -142,7 +142,7 @@ namespace CalValEX.Projectiles.Boi
         void Teleport(Projectile ana, int boxtype)
         {
             Player player = Main.player[Projectile.owner];
-            Vector2 playp = new Vector2(player.position.X + player.width / 2, player.position.Y + player.height / 2);
+            Vector2 playp = new(player.position.X + player.width / 2, player.position.Y + player.height / 2);
             switch (boxtype)
             {
                 //Top door
@@ -207,7 +207,7 @@ namespace CalValEX.Projectiles.Boi
                     {
                         if (i == 0) //Leave a space for Ana to move through
                         {
-                            Vector2 rockpos = new Vector2(player.position.X + player.width / 2 - 330 + (i * 90 + i * 6), player.position.Y + player.height / 2 - 192 + j * 90);
+                            Vector2 rockpos = new(player.position.X + player.width / 2 - 330 + (i * 90 + i * 6), player.position.Y + player.height / 2 - 192 + j * 90);
                             if (j > 2)
                             {
                                 rockpos.Y -= 10;
@@ -236,7 +236,7 @@ namespace CalValEX.Projectiles.Boi
                     {
                         if (j != 2 && i < 1 || i > 6) 
                         {
-                            Vector2 rockpos = new Vector2(player.position.X + player.width / 2 - 330 + (i * 90 + i * 6), player.position.Y + player.height / 2 - 192 + j * 90);
+                            Vector2 rockpos = new(player.position.X + player.width / 2 - 330 + (i * 90 + i * 6), player.position.Y + player.height / 2 - 192 + j * 90);
                             if (j > 2)
                             {
                                 rockpos.Y -= 10;
@@ -258,7 +258,7 @@ namespace CalValEX.Projectiles.Boi
                     {
                         if (j != 2) //Leave a space for Ana to move through
                         {
-                            Vector2 rockpos = new Vector2(player.position.X + player.width / 2 - 330 + (i * 90 + i * 6), player.position.Y + player.height / 2 - 192 + j * 90);
+                            Vector2 rockpos = new(player.position.X + player.width / 2 - 330 + (i * 90 + i * 6), player.position.Y + player.height / 2 - 192 + j * 90);
                             if (j > 2)
                             {
                                 rockpos.Y -= 10;
@@ -305,7 +305,7 @@ namespace CalValEX.Projectiles.Boi
                     {
                         if ((i == 0 && j == 0) || (i == 7 && j == 4) || (i == 7 && j == 0) || (i == 0 && j == 4)) 
                         {
-                            Vector2 rockpos = new Vector2(player.position.X + player.width / 2 - 330 + (i * 90 + i * 6), player.position.Y + player.height / 2 - 192 + j * 90);
+                            Vector2 rockpos = new(player.position.X + player.width / 2 - 330 + (i * 90 + i * 6), player.position.Y + player.height / 2 - 192 + j * 90);
                             if (j > 2)
                             {
                                 rockpos.Y -= 10;
@@ -409,7 +409,7 @@ namespace CalValEX.Projectiles.Boi
                                     break;
                             }
                             Texture2D mapicon = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Door").Value;
-                            Rectangle rectangle3 = new Rectangle(0, mapicon.Height / Main.projFrames[proj.type] * proj.frame, mapicon.Width, mapicon.Height / Main.projFrames[proj.type]);
+                            Rectangle rectangle3 = new(0, mapicon.Height / Main.projFrames[proj.type] * proj.frame, mapicon.Width, mapicon.Height / Main.projFrames[proj.type]);
                             Main.EntitySpriteDraw(mapicon, new Vector2(position3.X, position3.Y), rectangle3, Color.YellowGreen, orientation, proj.Size / 2f, 1f, (proj.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally), 0);
 
                         }
@@ -424,7 +424,7 @@ namespace CalValEX.Projectiles.Boi
                     if (proj != null && proj.active && proj.type == ModContent.ProjectileType<Anahita>())
                     {
                         Texture2D mapicon = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Heart").Value;
-                        Rectangle rectangle3 = new Rectangle(0, mapicon.Height / Main.projFrames[Projectile.type] * Projectile.frame, mapicon.Width, mapicon.Height / Main.projFrames[Projectile.type]);
+                        Rectangle rectangle3 = new(0, mapicon.Height / Main.projFrames[Projectile.type] * Projectile.frame, mapicon.Width, mapicon.Height / Main.projFrames[Projectile.type]);
                         Vector2 position3 = Projectile.Center - Main.screenPosition;
                         position3.X = position3.X + DrawOffsetX + 20;
                         position3.Y = position3.Y + DrawOriginOffsetY - 35;
@@ -446,7 +446,7 @@ namespace CalValEX.Projectiles.Boi
                     if (proj != null && proj.active && proj.type == ModContent.ProjectileType<Terror>())
                     {
                         Texture2D mapicon = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Pixel").Value;
-                        Rectangle rectangle3 = new Rectangle(0, mapicon.Height / Main.projFrames[Projectile.type] * Projectile.frame, mapicon.Width, 20);
+                        Rectangle rectangle3 = new(0, mapicon.Height / Main.projFrames[Projectile.type] * Projectile.frame, mapicon.Width, 20);
                         Vector2 position3 = Projectile.Center - Main.screenPosition;
                         position3.X = position3.X + DrawOffsetX + 142;
                         position3.Y = position3.Y + DrawOriginOffsetY + 525;
@@ -463,7 +463,7 @@ namespace CalValEX.Projectiles.Boi
                 //Map
                 {
                     Texture2D mapicon = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Pong/PongBall").Value;
-                    Rectangle rectangle3 = new Rectangle(0, mapicon.Height / Main.projFrames[Projectile.type] * Projectile.frame, mapicon.Width, mapicon.Height / Main.projFrames[Projectile.type]);
+                    Rectangle rectangle3 = new(0, mapicon.Height / Main.projFrames[Projectile.type] * Projectile.frame, mapicon.Width, mapicon.Height / Main.projFrames[Projectile.type]);
                     Vector2 position3 = Projectile.Center - Main.screenPosition;
                     position3.X = position3.X + DrawOffsetX + 380;
                     position3.Y = position3.Y + DrawOriginOffsetY - 150;
@@ -528,7 +528,7 @@ namespace CalValEX.Projectiles.Boi
 
         void BasicProjectileDraw(Texture2D texture, Projectile proj, Color color, bool fip = true, float size = 1f)
         {
-            Rectangle rectangle23 = new Rectangle(0, texture.Height / Main.projFrames[proj.type] * proj.frame, texture.Width, texture.Height / Main.projFrames[proj.type]);
+            Rectangle rectangle23 = new(0, texture.Height / Main.projFrames[proj.type] * proj.frame, texture.Width, texture.Height / Main.projFrames[proj.type]);
             SpriteEffects fx = fip ? (proj.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally) : SpriteEffects.None;
             Vector2 pos = proj.Center - Main.screenPosition;
             if (proj.type == ModContent.ProjectileType<Brimhita>())

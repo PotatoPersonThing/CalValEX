@@ -1,46 +1,31 @@
 //using CalValEX.Buffs.LightPets;
-using CalValEX.Buffs.Pets;
 using CalValEX.Items;
-using CalValEX.Items.Critters;
 using CalValEX.Items.Equips.Balloons;
 using CalValEX.Items.Equips.Hats;
 using CalValEX.Items.Equips.Legs;
 using CalValEX.Items.Equips.Scarves;
 using CalValEX.Items.Equips.Shields;
 using CalValEX.Items.Equips.Shirts;
-using CalValEX.Items.Equips.Transformations;
 using CalValEX.Items.Equips.Wings;
 using CalValEX.Items.Hooks;
 using CalValEX.Items.LightPets;
-using CalValEX.Buffs.Mounts;
 using CalValEX.Items.Mounts.InfiniteFlight;
-using CalValEX.Items.Mounts.Ground;
 using CalValEX.Items.Mounts.LimitedFlight;
 using CalValEX.Items.Pets;
 using CalValEX.Items.Pets.Elementals;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Blocks;
-using CalValEX.Items.Tiles.FurnitureSets.Bloodstone;
 using CalValEX.Tiles.Blocks;
 using CalValEX.Tiles;
-using CalValEX.Tiles.MiscFurniture;
 using CalValEX.Items.Tiles.Monoliths;
-using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
 using CalValEX.Items.Tiles.Statues;
-using CalValEX.AprilFools;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria.GameContent.ItemDropRules;
 using System.Linq;
-using Terraria.ModLoader.Default;
-using CalValEX.Items.Tiles.Blueprints;
-using Microsoft.Xna.Framework.Graphics;
 using CalValEX.CalamityID;
-using Terraria.UI;
 
 namespace CalValEX
 {
@@ -88,15 +73,15 @@ namespace CalValEX
         [JITWhenModsEnabled("CalamityMod")]
 		public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
 		{
-            LeadingConditionRule rule = new LeadingConditionRule(new DropsEnabled());
-            LeadingConditionRule rule2 = new LeadingConditionRule(new BlockDrops());
-            LeadingConditionRule rule6 = new LeadingConditionRule(new CalamityDay());
-            LeadingConditionRule rule7 = new LeadingConditionRule(new ThanatosDowned());
-            LeadingConditionRule rule8 = new LeadingConditionRule(new TwinsDowned());
-            LeadingConditionRule rule9 = new LeadingConditionRule(new AresDowned());
-            LeadingConditionRule rule10 = new LeadingConditionRule(new MidhardmodeDowned());
-            LeadingConditionRule rule11 = new LeadingConditionRule(new PolterDowned());
-            LeadingConditionRule rule12 = new LeadingConditionRule(new AquaDowned());
+            LeadingConditionRule rule = new(new DropsEnabled());
+            LeadingConditionRule rule2 = new(new BlockDrops());
+            LeadingConditionRule rule6 = new(new CalamityDay());
+            LeadingConditionRule rule7 = new(new ThanatosDowned());
+            LeadingConditionRule rule8 = new(new TwinsDowned());
+            LeadingConditionRule rule9 = new(new AresDowned());
+            LeadingConditionRule rule10 = new(new MidhardmodeDowned());
+            LeadingConditionRule rule11 = new(new PolterDowned());
+            LeadingConditionRule rule12 = new(new AquaDowned());
 
             #region bags
             if (item.type == CalItemID.StarterBag)
@@ -427,7 +412,7 @@ namespace CalValEX
         {
             if (!CalValEX.CalamityActive)
                 return;
-            LeadingConditionRule blockGeneral = new LeadingConditionRule(new BlockDrops());
+            LeadingConditionRule blockGeneral = new(new BlockDrops());
             if (otherworldlyDrop)
             {
                 blockGeneral = new LeadingConditionRule(new OtherworldlyStoneDrop());

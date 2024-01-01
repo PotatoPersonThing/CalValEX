@@ -1,13 +1,10 @@
-﻿using System;
-
-using Terraria;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 
 namespace CalValEX.CalamityID
 {
-	public class CalamityID
+    public class CalamityID
 	{
         public static int NPCRelation(string calamity, int vanilla)
         {

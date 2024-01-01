@@ -6,7 +6,6 @@ using Terraria.ObjectData;
 using CalValEX.Items.Tiles.FurnitureSets.Astral;
 using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.GameContent.ObjectInteractions;
 using Terraria.Localization;
 
 namespace CalValEX.Tiles.FurnitureSets.Astral
@@ -17,7 +16,7 @@ namespace CalValEX.Tiles.FurnitureSets.Astral
         {
             Main.tileFrameImportant[Type] = true;
             TileID.Sets.HasOutlines[Type] = true;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2);
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
             TileID.Sets.CanBeSleptIn[Type] = true; // Facilitates calling ModifySleepingTargetInfo

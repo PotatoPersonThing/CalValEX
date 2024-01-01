@@ -3,6 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
+using CalValEX.Projectiles.Pets;
 
 namespace CalValEX.Items.Pets
 {
@@ -22,7 +23,7 @@ namespace CalValEX.Items.Pets
             Item.UseSound = SoundID.NPCHit4;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.DeusPet>();
             Item.value = Item.sellPrice(0, 2, 0, 0);
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             Item.buffType = ModContent.BuffType<Buffs.Pets.DeusBuff>();
             ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
@@ -39,28 +40,12 @@ namespace CalValEX.Items.Pets
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            type = ModContent.ProjectileType<Projectiles.Pets.DeusPet>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
-            type = ModContent.ProjectileType<Projectiles.Pets.DeusPetSmall>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
-            type = ModContent.ProjectileType<Projectiles.Pets.DeusPetSmall>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
-            type = ModContent.ProjectileType<Projectiles.Pets.DeusPetSmall>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
-            type = ModContent.ProjectileType<Projectiles.Pets.DeusPetSmall>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
-            type = ModContent.ProjectileType<Projectiles.Pets.DeusPetSmall>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
-            type = ModContent.ProjectileType<Projectiles.Pets.DeusPetSmall>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
-            type = ModContent.ProjectileType<Projectiles.Pets.DeusPetSmall>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
-            type = ModContent.ProjectileType<Projectiles.Pets.DeusPetSmall>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
-            type = ModContent.ProjectileType<Projectiles.Pets.DeusPetSmall>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
-            type = ModContent.ProjectileType<Projectiles.Pets.DeusPetSmall>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
+            Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<DeusPet>(), damage, knockback, player.whoAmI);
+            for (int i = 0; i < 10; i++)
+            {
+                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<DeusPetSmall>(), damage, knockback, player.whoAmI);
+            }
+            return false;
         }
     }
 }

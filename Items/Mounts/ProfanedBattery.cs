@@ -1,7 +1,6 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Items.Mounts
 {
@@ -14,7 +13,7 @@ namespace CalValEX.Items.Mounts
             Item.height = 20;
             Item.maxStack = 1;
             Item.value = Item.sellPrice(0, 0, 33, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
         }
     }
 }

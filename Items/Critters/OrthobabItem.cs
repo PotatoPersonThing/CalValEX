@@ -1,6 +1,7 @@
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.NPCs.Critters;
+using Terraria.ID;
 
 namespace CalValEX.Items.Critters
 {
@@ -13,7 +14,7 @@ namespace CalValEX.Items.Critters
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.autoReuse = true;
             Item.useTurn = true;
             Item.useAnimation = 15;
@@ -25,7 +26,7 @@ namespace CalValEX.Items.Critters
             Item.makeNPC = 360;
             Item.noUseGraphic = true;
             Item.bait = 5;
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.makeNPC = (short)NPCType<Orthobab>();
         }
     }

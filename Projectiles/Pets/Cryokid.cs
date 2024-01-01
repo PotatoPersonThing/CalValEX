@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 
 namespace CalValEX.Projectiles.Pets
@@ -8,7 +7,7 @@ namespace CalValEX.Projectiles.Pets
     {
         public override float TeleportThreshold => 1440f;
 
-        public override Vector2 FlyingOffset => new Vector2(68f * -Main.player[Projectile.owner].direction, -50f);
+        public override Vector2 FlyingOffset => new(68f * -Main.player[Projectile.owner].direction, -50f);
 
         public override void SetStaticDefaults()
         {

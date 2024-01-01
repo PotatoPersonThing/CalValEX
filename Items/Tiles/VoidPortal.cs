@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using CalValEX.Tiles.MiscFurniture;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Items.Tiles
 {
@@ -17,7 +18,7 @@ namespace CalValEX.Items.Tiles
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -27,7 +28,7 @@ namespace CalValEX.Items.Tiles
             Item.createTile = ModContent.TileType<VoidPortalPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 10;
+            Item.rare = ItemRarityID.Red;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

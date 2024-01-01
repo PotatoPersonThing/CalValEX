@@ -6,7 +6,6 @@ using Terraria.Enums;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using CalValEX.Items.Tiles.Banners;
 
 namespace CalValEX.Tiles.Banners
 {

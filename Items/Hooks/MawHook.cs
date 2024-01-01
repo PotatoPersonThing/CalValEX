@@ -14,7 +14,7 @@ namespace CalValEX.Items.Hooks
             Item.CloneDefaults(ItemID.BatHook);
             Item.shootSpeed = 18f;
             Item.shoot = ProjectileType<MawTeeth>();
-            Item.rare = 5;
+            Item.rare = ItemRarityID.Pink;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

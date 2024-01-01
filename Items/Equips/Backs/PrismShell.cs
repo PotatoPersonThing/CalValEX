@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -19,7 +17,7 @@ namespace CalValEX.Items.Equips.Backs
             Item.width = 14;
             Item.height = 34;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.accessory = true;
             Item.vanity = true;
         }

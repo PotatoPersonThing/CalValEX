@@ -26,7 +26,7 @@ namespace CalValEX.Items.Pets
             Item.height = 42;
             Item.shoot = ModContent.ProjectileType<CalamityBABY>();
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.buffType = ModContent.BuffType<CalamityBABYBuff>();
             Item.useTime = 30;
             Item.useAnimation = 30;
@@ -51,7 +51,7 @@ namespace CalValEX.Items.Pets
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
             {
                 player.AddBuff(Item.buffType, 3600, true);
-                Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCDeath4, player.position);
+                SoundEngine.PlaySound(SoundID.NPCDeath4, player.position);
             }
         }
 

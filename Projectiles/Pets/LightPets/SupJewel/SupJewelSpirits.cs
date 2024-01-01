@@ -1,87 +1,84 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 
 namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
 {
-   /*
-    public class NWings : ModProjectile
-    {
-       
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Nightmare Fuel Wings");
-            Main.projFrames[Projectile.type] = 4;
-            Main.projPet[Projectile.type] = true;
-        }
+    /*
+     public class NWings : ModProjectile
+     {
 
-        public override void SetDefaults()
-        {
-            Projectile.damage = 0;
-            Projectile.friendly = true;
-            Projectile.tileCollide = false;
-            Projectile.ignoreWater = true;
-            Projectile.hostile = false;
-            Projectile.width = 154;
-            Projectile.height = 184;
-            Projectile.netImportant = true;
-            Projectile.scale = 1f;
-            Projectile.alpha = 20;
-        }
+         public override void SetStaticDefaults()
+         {
+             DisplayName.SetDefault("Nightmare Fuel Wings");
+             Main.projFrames[Projectile.type] = 4;
+             Main.projPet[Projectile.type] = true;
+         }
 
-        public override bool? CanCutTiles()
-        {
-            return false;
-        }
+         public override void SetDefaults()
+         {
+             Projectile.damage = 0;
+             Projectile.friendly = true;
+             Projectile.tileCollide = false;
+             Projectile.ignoreWater = true;
+             Projectile.hostile = false;
+             Projectile.width = 154;
+             Projectile.height = 184;
+             Projectile.netImportant = true;
+             Projectile.scale = 1f;
+             Projectile.alpha = 20;
+         }
 
-	    public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
-        {
-            Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/LightPets/SupJewel/NWings_Glow");
-            int frameHeight = texture.Height / Main.projFrames[Projectile.type];
-            int hei = frameHeight * Projectile.frame;
-            spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, hei, texture.Width, frameHeight)), Color.Transparent, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, SpriteEffects.None, 0f);
-        }
+         public override bool? CanCutTiles()
+         {
+             return false;
+         }
 
-        public override void AI()
-        {
-            Player player = Main.player[Projectile.owner];
+         public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
+         {
+             Texture2D texture = ModContent.GetTexture("CalValEX/Projectiles/Pets/LightPets/SupJewel/NWings_Glow");
+             int frameHeight = texture.Height / Main.projFrames[Projectile.type];
+             int hei = frameHeight * Projectile.frame;
+             spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, hei, texture.Width, frameHeight)), Color.Transparent, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, SpriteEffects.None, 0f);
+         }
 
-            CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
+         public override void AI()
+         {
+             Player player = Main.player[Projectile.owner];
 
-            if (player.dead)
-                modPlayer.SupJ = false;
-            if (modPlayer.SupJ)
-                Projectile.timeLeft = 2;
+             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
 
-            Vector2 idlePosition = player.Center;
-            idlePosition.Y -= Projectile.height / 2;
-            idlePosition.X -= Projectile.width / 2;
+             if (player.dead)
+                 modPlayer.SupJ = false;
+             if (modPlayer.SupJ)
+                 Projectile.timeLeft = 2;
 
-            Projectile.position = idlePosition;
-            Projectile.spriteDirection = 1;
+             Vector2 idlePosition = player.Center;
+             idlePosition.Y -= Projectile.height / 2;
+             idlePosition.X -= Projectile.width / 2;
 
-            Projectile.frameCounter++;
-            if (Projectile.frameCounter > 22)
-            {
-                Projectile.frame++;
-                Projectile.frameCounter = 0;
-            }
-            if (Projectile.frame == 3)
-            {
-                Projectile.frame = 0;
-            }
+             Projectile.position = idlePosition;
+             Projectile.spriteDirection = 1;
 
-            Mod calamityMod = ModLoader.GetMod("CalamityMod");
-            if (calamityMod != null)
-            {
-                calamityMod.Call("AddAbyssLightStrength", Projectile.owner, 2);
-            }
-        }
-       
-    }
-   */
+             Projectile.frameCounter++;
+             if (Projectile.frameCounter > 22)
+             {
+                 Projectile.frame++;
+                 Projectile.frameCounter = 0;
+             }
+             if (Projectile.frame == 3)
+             {
+                 Projectile.frame = 0;
+             }
+
+             Mod calamityMod = ModLoader.GetMod("CalamityMod");
+             if (calamityMod != null)
+             {
+                 calamityMod.Call("AddAbyssLightStrength", Projectile.owner, 2);
+             }
+         }
+
+     }
+    */
 
     public class Bishop : ModFlyingPet
     {
@@ -89,7 +86,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
 
         public override float TeleportThreshold => 1600f;
 
-        public override Vector2 FlyingOffset => new Vector2(-120f, -70f);
+        public override Vector2 FlyingOffset => new(-120f, -70f);
 
         public override float FlyingSpeed => 10f;
 
@@ -145,7 +142,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
 
         public override float SpeedupThreshold => 640f;
 
-        public override Vector2 FlyingOffset => new Vector2(100f * - Main.player[Projectile.owner].direction, -60f);
+        public override Vector2 FlyingOffset => new(100f * - Main.player[Projectile.owner].direction, -60f);
 
         public override void SetStaticDefaults()
         {
@@ -225,7 +222,7 @@ namespace CalValEX.Projectiles.Pets.LightPets.SupJewel
     {
         public override float TeleportThreshold => 3400f;
 
-        public override Vector2 FlyingOffset => new Vector2(80f * -Main.player[Projectile.owner].direction, -20f);
+        public override Vector2 FlyingOffset => new(80f * -Main.player[Projectile.owner].direction, -20f);
 
         public override float FlyingSpeed => 15f;
 

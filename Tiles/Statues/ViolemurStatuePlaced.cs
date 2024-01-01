@@ -1,11 +1,9 @@
-using CalValEX.Items.Critters;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
-using CalValEX.Items.Tiles.Statues;
 using CalValEX.NPCs.Critters;
 
 namespace CalValEX.Tiles.Statues
@@ -54,11 +52,11 @@ namespace CalValEX.Tiles.Statues
             int critter;
             if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneAstral)
             {
-                critter = ModContent.NPCType<Blightolemur>();
+                critter = NPCType<Blightolemur>();
             }
             else
             {
-                critter = ModContent.NPCType<Violemur>();
+                critter = NPCType<Violemur>();
             }
             if (Wiring.CheckMech(x, y, 30) && NPC.MechSpawn((float)spawnX, (float)spawnY, (critter)))
             {

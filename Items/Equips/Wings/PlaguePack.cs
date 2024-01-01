@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Items.Equips.Wings
 {
@@ -18,7 +19,7 @@ namespace CalValEX.Items.Equips.Wings
             Item.width = 40;
             Item.height = 34;
             Item.value = Item.buyPrice(0, 2, 0, 0);
-            Item.rare = 8;
+            Item.rare = ItemRarityID.Yellow;
             Item.accessory = true;
         }
 

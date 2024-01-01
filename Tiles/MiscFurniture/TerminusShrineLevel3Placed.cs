@@ -4,17 +4,16 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ID;
-using CalValEX.Items.Tiles;
 using Terraria.ObjectData;
 //using CalamityMod;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-	public class TerminusShrineLevel3Placed : ModTile
+    public class TerminusShrineLevel3Placed : ModTile
 	{
 		public override void SetStaticDefaults()
 		{
-			Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
 			Main.tileFrameImportant[Type] = true;
 			Main.tileLighted[Type] = true;
 			Main.tileLavaDeath[Type] = true;
@@ -58,13 +57,13 @@ namespace CalValEX.Tiles.MiscFurniture
 				}
 				Texture2D auraTexture = ModContent.Request<Texture2D>("CalValEX/Tiles/MiscFurniture/TerminusShrineStone_Aura").Value;
 				Texture2D stoneTexture = ModContent.Request<Texture2D>("CalValEX/Tiles/MiscFurniture/TerminusShrineStone").Value;
-				Rectangle sourceRectangle = new Rectangle(0, 0, auraTexture.Width, auraTexture.Height);
-				Rectangle stoneRectangle = new Rectangle(0, 0, stoneTexture.Width, stoneTexture.Height);
+				Rectangle sourceRectangle = new(0, 0, auraTexture.Width, auraTexture.Height);
+				Rectangle stoneRectangle = new(0, 0, stoneTexture.Width, stoneTexture.Height);
 				Vector2 zero = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
 				Vector2 position = new Vector2((i * 16) + 31 - Main.screenPosition.X, (j * 16) - 16 - Main.screenPosition.Y) + zero;
 				Vector2 stoneposition = new Vector2((i * 16) + 43 - Main.screenPosition.X + stonepos, (j * 16) - 10 - Main.screenPosition.Y) + zero;
 				Color color = Color.White;
-				Vector2 origin = new Vector2(auraTexture.Width, auraTexture.Height);
+				Vector2 origin = new(auraTexture.Width, auraTexture.Height);
 
 				//if (!tile.halfBrick() && tile.slope() == 0)
 				{

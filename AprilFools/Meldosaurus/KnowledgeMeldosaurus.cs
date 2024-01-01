@@ -18,7 +18,7 @@ namespace CalValEX.AprilFools.Meldosaurus
         {
             Item.width = 20;
             Item.height = 20;
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
             Item.consumable = false;
         }
 

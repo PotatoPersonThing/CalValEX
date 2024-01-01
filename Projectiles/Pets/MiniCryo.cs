@@ -52,8 +52,8 @@ namespace CalValEX.Projectiles.Pets
         {
             Vector2 vectorToOwner = player.Center - Projectile.Center;
             float distanceToOwner = vectorToOwner.Length();
-            Vector2 placementrun = new Vector2(Projectile.Center.X + Main.rand.Next(-5, 5), Projectile.Center.Y + Main.rand.Next(-6, 6));
-            if ((Math.Abs(Projectile.velocity.X) > 5 || Math.Abs(Projectile.velocity.Y) > 5) && Main.rand.Next(2) == 0)
+            Vector2 placementrun = new(Projectile.Center.X + Main.rand.Next(-5, 5), Projectile.Center.Y + Main.rand.Next(-6, 6));
+            if ((Math.Abs(Projectile.velocity.X) > 5 || Math.Abs(Projectile.velocity.Y) > 5) && Main.rand.NextBool(2))
             {
                 CalamityMod.Particles.Particle mist = new CalamityMod.Particles.MediumMistParticle(placementrun, Vector2.Zero, new Color(172, 238, 255), new Color(145, 170, 188), Main.rand.NextFloat(0.15f, 0.45f), 245 - Main.rand.Next(50), 0.02f);
                 mist.Velocity = (mist.Position - Projectile.Center) * 0.2f + Projectile.velocity;

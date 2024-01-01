@@ -26,7 +26,7 @@ namespace CalValEX.Items.Tiles.Blocks
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = false;
-            Item.rare = 7;
+            Item.rare = ItemRarityID.Lime;
             Item.value = Item.buyPrice(0, 0, 50, 0);
             Item.tileWand = 1124;
             Item.createTile = TileType<PlagueHivePlaced>();

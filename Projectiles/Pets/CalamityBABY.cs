@@ -95,12 +95,12 @@ namespace CalValEX.Projectiles.Pets
             if (state == States.Transition)
             {
                 Texture2D auraTexture_1 = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/CalamityBABY_Aura_1").Value;
-                Rectangle sourceRectangle_1 = new Rectangle(0, 0, auraTexture_1.Width, auraTexture_1.Height);
-                Vector2 origin_1 = new Vector2(auraTexture_1.Width, auraTexture_1.Height);
+                Rectangle sourceRectangle_1 = new(0, 0, auraTexture_1.Width, auraTexture_1.Height);
+                Vector2 origin_1 = new(auraTexture_1.Width, auraTexture_1.Height);
                 Main.EntitySpriteDraw(auraTexture_1, Projectile.Center - Main.screenPosition, sourceRectangle_1, Color.White, myRotation[0], origin_1 / 2f, scale, SpriteEffects.None, 0);
                 Texture2D auraTexture_2 = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/CalamityBABY_Aura_2").Value;
-                Rectangle sourceRectangle_2 = new Rectangle(0, 0, auraTexture_2.Width, auraTexture_2.Height);
-                Vector2 origin_2 = new Vector2(auraTexture_2.Width, auraTexture_2.Height);
+                Rectangle sourceRectangle_2 = new(0, 0, auraTexture_2.Width, auraTexture_2.Height);
+                Vector2 origin_2 = new(auraTexture_2.Width, auraTexture_2.Height);
                 Main.EntitySpriteDraw(auraTexture_2, Projectile.Center - Main.screenPosition, sourceRectangle_2, Color.White, myRotation[1], origin_2 / 2f, scale * 0.75f, SpriteEffects.None, 0);
             }
             return base.PreDraw(ref lightColor);
@@ -269,7 +269,7 @@ namespace CalValEX.Projectiles.Pets
             }
         }
 
-        private List<string> bossList = new List<string>
+        private List<string> bossList = new()
         {
             "Yharon",
             "SupremeCalamitas",
@@ -281,7 +281,7 @@ namespace CalValEX.Projectiles.Pets
             "AstralSlime"
         };
 
-        public static List<string> nameList = new List<string>
+        public static List<string> nameList = new()
         {
             "Yharex",
             "Yharex87",

@@ -1,15 +1,15 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace CalValEX.Projectiles.Pets {
+namespace CalValEX.Projectiles.Pets
+{
     public class GhastlyZygote : ModFlyingPet {
         public Player Owner => Main.player[Projectile.owner];
         public new bool ShouldFlip = false;
-        public override Vector2 FlyingOffset => new Vector2(94f * -Main.player[Projectile.owner].direction, -100f);
+        public override Vector2 FlyingOffset => new(94f * -Main.player[Projectile.owner].direction, -100f);
         public override void SetStaticDefaults() {
             PetSetStaticDefaults(lightPet: false);
             // DisplayName.SetDefault("Ghastly Zygote");
@@ -49,7 +49,7 @@ namespace CalValEX.Projectiles.Pets {
         [JITWhenModsEnabled("CalamityMod")]
         private void DrawCord() {
                 //This is absolutely disgusting but I'm too lazy to math out something better
-                Vector2 chainlink = new Vector2(Projectile.Center.X, Projectile.Center.Y);
+                Vector2 chainlink = new(Projectile.Center.X, Projectile.Center.Y);
                 if (Projectile.frame == 0)
                 {
                     chainlink = new Vector2(Projectile.Center.X + (-24 * Projectile.direction), Projectile.Center.Y + 50);
@@ -79,7 +79,7 @@ namespace CalValEX.Projectiles.Pets {
                 Vector2 controlPoint1 = Owner.Center - new Vector2(0, 0.5f) * mainCurv;
                 Vector2 controlPoint2 = Projectile.Center + new Vector2(0, 1.2f) * mainCurv;
 
-                BezierCurve curve = new BezierCurve(new Vector2[] { Owner.Center, controlPoint1, controlPoint2, chainlink });
+                BezierCurve curve = new(new Vector2[] { Owner.Center, controlPoint1, controlPoint2, chainlink });
                 int numPoints = 25; //"Should make dynamic based on curve length, but I'm not sure how to smoothly do that while using a bezier curve" -Graydee, from the code i referenced. I do agree.
                 Vector2[] cordPositions = curve.GetPoints(numPoints).ToArray();
 
@@ -89,9 +89,9 @@ namespace CalValEX.Projectiles.Pets {
                     Vector2 position = cordPositions[i];
                     float rotation = (cordPositions[i] - cordPositions[i - 1]).ToRotation() - MathHelper.PiOver2; //Calculate rotation based on direction from last point
                     float yScale = Vector2.Distance(cordPositions[i], cordPositions[i - 1]) / cordTex.Height; //Calculate how much to squash/stretch for smooth chain based on distance between points
-                    Vector2 scale = new Vector2(1, yScale);
+                    Vector2 scale = new(1, yScale);
                     Color chainLightColor = Color.White; //Lighting of the position of the chain segment
-                    Vector2 origin = new Vector2(cordTex.Width / 2, cordTex.Height); //Draw from center bottom of texture
+                    Vector2 origin = new(cordTex.Width / 2, cordTex.Height); //Draw from center bottom of texture
                     Main.EntitySpriteDraw(cordTex, position - Main.screenPosition, null, chainLightColor, rotation, origin, scale, SpriteEffects.None, 0);
                 }
         }

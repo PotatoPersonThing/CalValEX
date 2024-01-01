@@ -23,7 +23,7 @@ namespace CalValEX.Items.Tiles.Banners
             Item.useTime = 10;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.consumable = true;
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.value = Item.buyPrice(0, 0, 10, 0);
             Item.createTile = TileType<XerocodileBannerPlaced>();
             Item.placeStyle = 0;

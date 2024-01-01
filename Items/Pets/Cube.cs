@@ -24,7 +24,7 @@ namespace CalValEX.Items.Pets
             Item.UseSound = SoundID.Item58;
             Item.shoot = ModContent.ProjectileType<Blockaroz>();
             Item.value = Item.sellPrice(0, 0, 10, 0);
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
             Item.buffType = ModContent.BuffType<BlockarozBuff>();
         }
 

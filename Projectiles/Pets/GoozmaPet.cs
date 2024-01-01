@@ -35,7 +35,7 @@ namespace CalValEX.Projectiles.Pets
             Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
-        public List<int> GoozmaSlimeGods = new List<int>();
+        public List<int> GoozmaSlimeGods = new();
 
         [JITWhenModsEnabled("CalamityMod")]
         public override void AI()

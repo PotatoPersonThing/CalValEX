@@ -20,7 +20,7 @@ namespace CalValEX.Items.Pets.Elementals
             Item.UseSound = SoundID.NPCHit5;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.Elementals.Sandmini>();
             Item.value = Item.sellPrice(0, 2, 0, 0);
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.buffType = ModContent.BuffType<Buffs.Pets.Elementals.SsandBuff>();
         }
 

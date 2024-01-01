@@ -19,7 +19,7 @@ namespace CalValEX.Items.LightPets
             Item.UseSound = SoundID.NPCHit51;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.LightPets.Skeetyeet>();
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
             Item.buffType = ModContent.BuffType<Buffs.LightPets.YeetBuff>();
         }
 

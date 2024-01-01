@@ -11,8 +11,8 @@ namespace CalValEX.Projectiles.Boi
         public int iframes;
         public int shotcooldown;
         public bool checkpos;
-        List<int> enemies = new List<int>() { ModContent.ProjectileType<Brimhita>(), ModContent.ProjectileType<Spider>(), ModContent.ProjectileType<Mire>(), ModContent.ProjectileType<Terror>() };
-        List<int> hostproj = new List<int>() { ModContent.ProjectileType<AcidRound>() };
+        List<int> enemies = new() { ModContent.ProjectileType<Brimhita>(), ModContent.ProjectileType<Spider>(), ModContent.ProjectileType<Mire>(), ModContent.ProjectileType<Terror>() };
+        List<int> hostproj = new() { ModContent.ProjectileType<AcidRound>() };
 
         Vector2 nipah;
         public override string Texture => "CalValEX/ExtraTextures/Boi/Anahita";
@@ -88,7 +88,7 @@ namespace CalValEX.Projectiles.Boi
             Vector2 cursor = Main.MouseWorld;
             if (player.controlUseItem && shotcooldown <= 0 && Main.myPlayer == Projectile.owner)
             {
-                Vector2 position = new Vector2(Projectile.Center.X, Projectile.Center.Y - 25);
+                Vector2 position = new(Projectile.Center.X, Projectile.Center.Y - 25);
                 Vector2 targetPosition = cursor;
                 Vector2 direction = targetPosition - position;
                 direction.Normalize();
@@ -177,7 +177,7 @@ namespace CalValEX.Projectiles.Boi
             {
                 Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/Anahita").Value;
                 Texture2D texture3 = ModContent.Request<Texture2D>("CalValEX/ExtraTextures/Boi/AnahitaShadow").Value;
-                Rectangle rectangle2 = new Rectangle(0, texture2.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2.Width, texture2.Height / Main.projFrames[Projectile.type]);
+                Rectangle rectangle2 = new(0, texture2.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2.Width, texture2.Height / Main.projFrames[Projectile.type]);
                 Vector2 position2 = Projectile.Center - Main.screenPosition;
                 position2.X -= 15;
                 position2.Y -= 60;

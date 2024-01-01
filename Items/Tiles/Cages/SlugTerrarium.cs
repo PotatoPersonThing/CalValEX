@@ -1,4 +1,3 @@
-using CalValEX.Items.Critters;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ID;
@@ -17,7 +16,7 @@ namespace CalValEX.Items.Tiles.Cages
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -27,7 +26,7 @@ namespace CalValEX.Items.Tiles.Cages
             Item.createTile = ModContent.TileType<SlugTerrariumPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

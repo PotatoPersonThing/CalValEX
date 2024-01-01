@@ -5,7 +5,6 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
-using CalValEX.Items.Tiles.Blueprints;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace CalValEX.Tiles.Blueprints
@@ -19,7 +18,7 @@ namespace CalValEX.Tiles.Blueprints
             Main.tileLavaDeath[Type] = true;
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3Wall);
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.Width = 7;
             TileObjectData.newTile.Height = 5;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16 }; //
@@ -45,7 +44,7 @@ namespace CalValEX.Tiles.Blueprints
         }
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
-            CalValEXGlobalTile.TileGlowmask(i, j, ModContent.Request<Texture2D>("CalValEX/Tiles/Blueprints/DogBlueprintPlaced_Glow").Value, spriteBatch, AnimationFrameHeight, Type);
+            CalValEXGlobalTile.TileGlowmask(i, j, Request<Texture2D>("CalValEX/Tiles/Blueprints/DogBlueprintPlaced_Glow").Value, spriteBatch, AnimationFrameHeight, Type);
         }
     }
 }

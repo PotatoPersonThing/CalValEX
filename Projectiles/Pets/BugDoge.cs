@@ -7,7 +7,7 @@ namespace CalValEX.Projectiles.Pets
     {
         public override float TeleportThreshold => 1440f;
 
-        public override Vector2 FlyingOffset => new Vector2(108f * -Main.player[Projectile.owner].direction, -50f);
+        public override Vector2 FlyingOffset => new(108f * -Main.player[Projectile.owner].direction, -50f);
 
         public override float FlyingSpeed => 14f;
 

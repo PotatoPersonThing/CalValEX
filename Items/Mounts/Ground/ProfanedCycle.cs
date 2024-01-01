@@ -1,4 +1,3 @@
-using CalamityMod.Particles;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -85,7 +84,7 @@ namespace CalValEX.Items.Mounts.Ground
                 if (Math.Abs(player.velocity.X) > 20)
                 {
                     if (player.whoAmI == Main.myPlayer)
-                    Dust.NewDust(player.position, 47, 30, 6, 3.684211f, 0f, 0, new Color(255, 255, 255), 1f);
+                    Dust.NewDust(player.position, 47, 30, DustID.Torch, 3.684211f, 0f, 0, new Color(255, 255, 255), 1f);
                 }
             }
             else

@@ -24,7 +24,7 @@ namespace CalValEX.Items.Pets
             Item.UseSound = SoundID.NPCHit33;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.PhantomPet>();
             Item.value = Item.sellPrice(0, 2, 0, 0);
-            Item.rare = 4;
+            Item.rare = ItemRarityID.LightRed;
             Item.buffType = ModContent.BuffType<Buffs.Pets.DebrisPet>();
             Item.noUseGraphic = true;
         }

@@ -15,7 +15,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Wulfrum
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;

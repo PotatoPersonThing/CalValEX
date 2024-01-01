@@ -1,7 +1,6 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
+using Terraria.ID;
 
 namespace CalValEX.Items.Equips.Legs
 {
@@ -14,7 +13,7 @@ namespace CalValEX.Items.Equips.Legs
         {
             Item.width = 18;
             Item.height = 14;
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.vanity = true;
             Item.value = Item.sellPrice(0, 3, 0, 0);
         }

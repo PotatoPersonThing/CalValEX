@@ -12,13 +12,10 @@ using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using System.Collections.Generic;
 using Terraria.GameContent.Bestiary;
-using Terraria.DataStructures;
 using Terraria.Utilities;
 using CalValEX.Projectiles.NPCs;
 using System.IO;
 using Terraria.GameContent.Personalities;
-using CalValEX.Items.Tiles.FurnitureSets.Arsenal;
-using CalValEX.Items.Tiles.FurnitureSets.Wulfrum;
 using CalValEX.Items.Tiles.Monoliths;
 using CalValEX.Items.Tiles.Blocks;
 using static CalValEX.CalValEXConditions;
@@ -104,7 +101,7 @@ namespace CalValEX.NPCs.JellyPriest
             }
         }
 
-        public static List<string> PossibleNames = new List<string>()
+        public static List<string> PossibleNames = new()
         {
             "Eika", "Feferi", "Netlia", "Atollia", "Melodi", "Signathia", "Manawa", "Kanji", "Mariacala", "Cuboza", "Nidaria", "Crasqua", "Kuti", "Ooma"
         };
@@ -156,7 +153,7 @@ namespace CalValEX.NPCs.JellyPriest
                 }
             }
 
-            WeightedRandom<string> dialogue = new WeightedRandom<string>();
+            WeightedRandom<string> dialogue = new();
 
             //Main.NewText("MISC EQUIPS 0 TYPE: " + Main.player[Main.myPlayer].miscEquips[0].type + "|MISC EQUIPS 1 TYPE: " + Main.player[Main.myPlayer].miscEquips[1].type);
 
@@ -314,7 +311,7 @@ namespace CalValEX.NPCs.JellyPriest
                 }
             }
         }
-        public static List<(string, int, int, Condition, string)> shopEntries = new List<(string, int, int, Condition, string)>();
+        public static List<(string, int, int, Condition, string)> shopEntries = new();
 
         public override void AddShops()
         {
@@ -527,7 +524,7 @@ namespace CalValEX.NPCs.JellyPriest
 
         public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
         {
-            projType = ModContent.ProjectileType<InkShot>();
+            projType = ProjectileType<InkShot>();
             attackDelay = 1;
             return;
         }

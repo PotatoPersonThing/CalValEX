@@ -1,7 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using CalValEX.Tiles.Plants;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace CalValEX.Items.Tiles.Plants
 {
@@ -16,7 +16,7 @@ namespace CalValEX.Items.Tiles.Plants
 
         public override void SetDefaults()
         {
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.useTurn = true;
             Item.useAnimation = 15;
             Item.useTime = 10;
@@ -26,7 +26,7 @@ namespace CalValEX.Items.Tiles.Plants
             Item.createTile = ModContent.TileType<FleshThingPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 2;
+            Item.rare = ItemRarityID.Green;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips) => ItemUtils.CheckRarity(CalamityRarity.DedicatedEX, tooltips);

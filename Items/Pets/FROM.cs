@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -23,7 +22,7 @@ namespace CalValEX.Items.Pets
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.MechaGeorge>();
             Item.value = Item.sellPrice(0, 2, 0, 0);
             Item.expert = true;
-            Item.rare = 7;
+            Item.rare = ItemRarityID.Lime;
             Item.buffType = ModContent.BuffType<Buffs.Pets.MechaGeorgeBuff>();
         }
 

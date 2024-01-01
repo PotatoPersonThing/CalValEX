@@ -21,7 +21,7 @@ namespace CalValEX.Items.Pets.Scuttlers
             Item.UseSound = SoundID.NPCHit31;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.Scuttlers.AmethystPet>();
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = 1;
+            Item.rare = ItemRarityID.Blue;
             Item.buffType = ModContent.BuffType<Buffs.Pets.Scuttlers.AmethystBuff>();
         }
 

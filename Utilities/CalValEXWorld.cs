@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,18 +6,14 @@ using static Terraria.ModLoader.ModContent;
 using CalValEX.Tiles.AstralBlocks;
 using CalValEX.Items.Equips.Wings;
 using CalValEX.Items.Pets;
-using CalValEX.Items.Tiles;
 using CalValEX.Items.Plushies;
 using CalValEX.Items.Tiles.Plushies;
 using System.IO;
 using System;
-using CalValEX.AprilFools;
-using CalValEX.Tiles.Plants;
 using CalValEX.NPCs.TownPets.Nuggets;
 using Terraria.Chat;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
-using Microsoft.VisualBasic;
 using Humanizer;
 
 namespace CalValEX
@@ -170,7 +165,7 @@ namespace CalValEX
 
         public override void NetSend(BinaryWriter writer)
         {
-            BitsByte flags = new BitsByte();
+            BitsByte flags = new();
             flags[0] = rescuedjelly;
             flags[1] = jharim;
             flags[2] = orthofound;
@@ -179,14 +174,14 @@ namespace CalValEX
             flags[5] = RockshrinEX;
             flags[6] = jharinter;
 
-            BitsByte flags2 = new BitsByte();
+            BitsByte flags2 = new();
             flags2[0] = downedMeldosaurus;
             flags2[1] = downedFogbound;
             flags2[2] = ninja;
             flags2[3] = astro;
             flags2[4] = tar;
 
-            BitsByte flags3 = new BitsByte();
+            BitsByte flags3 = new();
             flags3[0] = nugget;
             flags3[1] = draco;
             flags3[2] = folly;
@@ -346,36 +341,36 @@ namespace CalValEX
             if (CalValEX.CalamityActive)
             {
                 RecipeGroup sand = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Sand"]];
-                sand.ValidItems.Add(ModContent.ItemType<Items.Tiles.Blocks.Astral.AstralSand>());
+                sand.ValidItems.Add(ItemType<Items.Tiles.Blocks.Astral.AstralSand>());
                 RecipeGroup fieref = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Fireflies"]];
-                fieref.ValidItems.Add(ModContent.ItemType<Items.Critters.VaporoflyItem>());
-                fieref.ValidItems.Add(ModContent.ItemType<Items.Critters.BlinkerItem>());
+                fieref.ValidItems.Add(ItemType<Items.Critters.VaporoflyItem>());
+                fieref.ValidItems.Add(ItemType<Items.Critters.BlinkerItem>());
                 RecipeGroup bf = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Butterflies"]];
-                bf.ValidItems.Add(ModContent.ItemType<Items.Critters.ProvFlyItem>());
-                bf.ValidItems.Add(ModContent.ItemType<Items.Critters.CrystalFlyItem>());
+                bf.ValidItems.Add(ItemType<Items.Critters.ProvFlyItem>());
+                bf.ValidItems.Add(ItemType<Items.Critters.CrystalFlyItem>());
                 if (RecipeGroup.recipeGroupIDs.ContainsKey("WingsGroup"))
                 {
                     int index = RecipeGroup.recipeGroupIDs["WingsGroup"];
                     RecipeGroup groupe = RecipeGroup.recipeGroups[index];
-                    groupe.ValidItems.Add(ModContent.ItemType<WulfrumHelipack>());
-                    groupe.ValidItems.Add(ModContent.ItemType<AeroWings>());
-                    groupe.ValidItems.Add(ModContent.ItemType<GodspeedBoosters>());
-                    groupe.ValidItems.Add(ModContent.ItemType<FollyWings>());
-                    groupe.ValidItems.Add(ModContent.ItemType<JunglePhoenixWings>());
-                    groupe.ValidItems.Add(ModContent.ItemType<LeviWings>());
-                    groupe.ValidItems.Add(ModContent.ItemType<OldVoidWings>());
-                    groupe.ValidItems.Add(ModContent.ItemType<VoidWings>());
-                    groupe.ValidItems.Add(ModContent.ItemType<PlaugeWings>());
-                    groupe.ValidItems.Add(ModContent.ItemType<ScryllianWings>());
-                    groupe.ValidItems.Add(ModContent.ItemType<TerminalWings>());
+                    groupe.ValidItems.Add(ItemType<WulfrumHelipack>());
+                    groupe.ValidItems.Add(ItemType<AeroWings>());
+                    groupe.ValidItems.Add(ItemType<GodspeedBoosters>());
+                    groupe.ValidItems.Add(ItemType<FollyWings>());
+                    groupe.ValidItems.Add(ItemType<JunglePhoenixWings>());
+                    groupe.ValidItems.Add(ItemType<LeviWings>());
+                    groupe.ValidItems.Add(ItemType<OldVoidWings>());
+                    groupe.ValidItems.Add(ItemType<VoidWings>());
+                    groupe.ValidItems.Add(ItemType<PlaugeWings>());
+                    groupe.ValidItems.Add(ItemType<ScryllianWings>());
+                    groupe.ValidItems.Add(ItemType<TerminalWings>());
                 }
                 if (RecipeGroup.recipeGroupIDs.ContainsKey("AnyIceBlock"))
                 {
                     int index = RecipeGroup.recipeGroupIDs["AnyIceBlock"];
                     RecipeGroup groupe = RecipeGroup.recipeGroups[index];
-                    groupe.ValidItems.Add(ModContent.ItemType<Items.Tiles.Blocks.Astral.AstralIce>());
+                    groupe.ValidItems.Add(ItemType<Items.Tiles.Blocks.Astral.AstralIce>());
                 }
-                RecipeGroup group = new RecipeGroup(() => "Any Plate", new int[]
+                RecipeGroup group = new(() => "Any Plate", new int[]
                 {
                 CalValEX.CalamityItem("Plagueplate"),
                 CalValEX.CalamityItem("Cinderplate"),
@@ -401,9 +396,9 @@ namespace CalValEX
         {
             if (CalValEX.instance.cata != null)
             {
-                CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<AstrageldonPlush>(), true);
-                CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<AstrageldonPlushThrowable>(), true);
-                CalValEX.instance.cata.Call("itemset_superbossrarity", ModContent.ItemType<SpaceJunk>(), true);
+                CalValEX.instance.cata.Call("itemset_superbossrarity", ItemType<AstrageldonPlush>(), true);
+                CalValEX.instance.cata.Call("itemset_superbossrarity", ItemType<AstrageldonPlushThrowable>(), true);
+                CalValEX.instance.cata.Call("itemset_superbossrarity", ItemType<SpaceJunk>(), true);
             }
         }
 

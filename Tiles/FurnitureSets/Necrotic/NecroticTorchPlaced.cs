@@ -7,8 +7,6 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using static Terraria.ModLoader.ModContent;
-using CalValEX.Items.Tiles.FurnitureSets.Necrotic;
 
 namespace CalValEX.Tiles.FurnitureSets.Necrotic
 {
@@ -19,7 +17,7 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileSolid[Type] = false;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileNoFail[Type] = true;
             Main.tileWaterDeath[Type] = true;
@@ -74,7 +72,7 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
             ulong randSeed = Main.TileFrameSeed ^ (ulong)((long)j << 32 | (long)(uint)i);
-            Color color = new Color(100, 100, 100, 0);
+            Color color = new(100, 100, 100, 0);
             int frameX = Main.tile[i, j].TileFrameX;
             int frameY = Main.tile[i, j].TileFrameY;
             int width = 20;
@@ -88,7 +86,7 @@ namespace CalValEX.Tiles.FurnitureSets.Necrotic
                     offsetY = 4;
                 }
             }
-            Vector2 zero = new Vector2(Main.offScreenRange, Main.offScreenRange);
+            Vector2 zero = new(Main.offScreenRange, Main.offScreenRange);
         }
     }
 }

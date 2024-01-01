@@ -4,7 +4,6 @@ using CalValEX.Projectiles.Pets.Wulfrum;
 using CalValEX.Projectiles.Pets.Scuttlers;
 using CalValEX.Projectiles.Pets.Elementals;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 

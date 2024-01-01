@@ -168,7 +168,7 @@ namespace CalValEX.Projectiles.Pets
                             {
                                 for (int a = 0; a < 20; a++)
                                 {
-                                    Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 173, 0f, 0f, 0, new Color(255, 255, 255), 1.4f);
+                                    Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.ShadowbeamStaff, 0f, 0f, 0, new Color(255, 255, 255), 1.4f);
                                 }
                                 if (sigcounter > 0)
                                 {

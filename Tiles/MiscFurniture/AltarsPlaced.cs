@@ -3,11 +3,10 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using static Terraria.ModLoader.ModContent;
-using CalValEX.Items.Tiles;
 using Terraria.ID;
 
-namespace CalValEX.Tiles.MiscFurniture {
+namespace CalValEX.Tiles.MiscFurniture
+{
     public class MoulderingAltarPlaced : ModTile {
 
         public override void SetStaticDefaults() {

@@ -16,7 +16,7 @@ namespace CalValEX.Tiles.MiscFurniture
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = false;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileLavaDeath[Type] = false;
             Main.tileFrameImportant[Type] = true;
             TileID.Sets.HasOutlines[Type] = false;
@@ -119,7 +119,7 @@ namespace CalValEX.Tiles.MiscFurniture
         }
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
-            CalValEXGlobalTile.TileGlowmask(i, j, ModContent.Request<Texture2D>("CalValEX/Tiles/MiscFurniture/RespirationShrinePlaced_Glow").Value, spriteBatch);
+            CalValEXGlobalTile.TileGlowmask(i, j, Request<Texture2D>("CalValEX/Tiles/MiscFurniture/RespirationShrinePlaced_Glow").Value, spriteBatch);
             Tile tile = Main.tile[i, j];
             if (tile.TileFrameX == 0 && tile.TileFrameY == 0)
             {
@@ -140,12 +140,12 @@ namespace CalValEX.Tiles.MiscFurniture
                 {
                     stoneup = false;
                 }
-                Texture2D auraTexture = ModContent.Request<Texture2D>("CalValEX/Tiles/MiscFurniture/RespirationStar").Value;
-                Rectangle sourceRectangle = new Rectangle(0, 0, auraTexture.Width, auraTexture.Height);
+                Texture2D auraTexture = Request<Texture2D>("CalValEX/Tiles/MiscFurniture/RespirationStar").Value;
+                Rectangle sourceRectangle = new(0, 0, auraTexture.Width, auraTexture.Height);
                 Vector2 zero = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
                 Vector2 position = new Vector2((i * 16) + 24 - Main.screenPosition.X, (j * 16) - 4 - stonepos - Main.screenPosition.Y) + zero;
                 Color color = Color.White;
-                Vector2 origin = new Vector2(auraTexture.Width, auraTexture.Height);
+                Vector2 origin = new(auraTexture.Width, auraTexture.Height);
 
                 if (!tile.IsHalfBlock)
                 {

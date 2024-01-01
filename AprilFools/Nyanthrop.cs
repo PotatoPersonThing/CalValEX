@@ -1,12 +1,11 @@
-﻿using CalValEX.AprilFools;
-using System;
+﻿using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.AprilFools
 {
-	public class Nyanthrop : ModItem
+    public class Nyanthrop : ModItem
 	{
 		public override void SetStaticDefaults()
 		{

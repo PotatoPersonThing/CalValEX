@@ -1,14 +1,11 @@
-﻿using Microsoft.Xna.Framework;
-using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader.Config;
 
 namespace CalValEX
 {
-     [BackgroundColor(49, 32, 36, 216)]
+    [BackgroundColor(49, 32, 36, 216)]
     public class CalValEXConfig : ModConfig
     {
         public static CalValEXConfig Instance;
@@ -108,7 +105,7 @@ namespace CalValEX
         /// <returns></returns>
         public static bool IsPlayerLocalServerOwner(Player player)
         {
-            if (Main.netMode == 1)
+            if (Main.netMode == NetmodeID.MultiplayerClient)
             {
                 return Netplay.Connection.Socket.GetRemoteAddress().IsLocalHost();
             }

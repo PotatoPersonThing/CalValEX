@@ -2,8 +2,8 @@ using Terraria;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using System.IO;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.Audio;
+using Terraria.ID;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -11,7 +11,7 @@ namespace CalValEX.Projectiles.Pets
     {
         public override float TeleportThreshold => 1440f;
 
-        public override Vector2 FlyingOffset => new Vector2(54f * -Main.player[Projectile.owner].direction, -130f);
+        public override Vector2 FlyingOffset => new(54f * -Main.player[Projectile.owner].direction, -130f);
 
         //Mod orthoceraDLC = ModLoader.GetMod("CalValPlus");
 
@@ -111,7 +111,7 @@ namespace CalValEX.Projectiles.Pets
             {
                 if (!entropy)
                 {
-                    Terraria.Audio.SoundEngine.PlaySound(new SoundStyle("CalValEX/Sounds/ReaperEnragedRoar"), Projectile.position);
+                    SoundEngine.PlaySound(new SoundStyle("CalValEX/Sounds/ReaperEnragedRoar"), Projectile.position);
                     Projectile.NewProjectile(Projectile.GetSource_FromAI(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<SiremberSpook>(), 0, 0, Projectile.owner);
                     Projectile.alpha = 255;
                     entropy = true;
@@ -123,7 +123,7 @@ namespace CalValEX.Projectiles.Pets
                 Projectile.alpha = 0;
                 for (int x = 0; x < 60; x++)
                 {
-                    Dust.NewDust(Projectile.Center, 30, 30, 16, 0f, 0f, 0, new Color(255, 255, 255), 1.644737f);
+                    Dust.NewDust(Projectile.Center, 30, 30, DustID.Cloud, 0f, 0f, 0, new Color(255, 255, 255), 1.644737f);
                 }
                 apocalypse = 0;
                 entropy = false;

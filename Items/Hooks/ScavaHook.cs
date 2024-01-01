@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -14,7 +12,7 @@ namespace CalValEX.Items.Hooks
             Item.CloneDefaults(ItemID.BatHook);
             Item.shootSpeed = 19f;
             Item.shoot = ProjectileType<ScavaClaw>();
-            Item.rare = 9;
+            Item.rare = ItemRarityID.Cyan;
         }
     }
 }

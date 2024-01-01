@@ -4,7 +4,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
-using CalamityMod.Items.Accessories;
 
 namespace CalValEX.Items.Pets
 {
@@ -25,7 +24,7 @@ namespace CalValEX.Items.Pets
             Item.UseSound = SoundID.NPCHit2;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.SepulcherNeo.SepulcherHeadNeo>();
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = 11;
+            Item.rare = ItemRarityID.Purple;
             Item.buffType = ModContent.BuffType<Buffs.Pets.SepulcherBuffNeo>();
         }
 

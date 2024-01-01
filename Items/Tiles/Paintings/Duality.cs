@@ -24,7 +24,7 @@ namespace CalValEX.Items.Tiles.Paintings
             Item.createTile = ModContent.TileType<DualityPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = 3;
+            Item.rare = ItemRarityID.Orange;
         }
     }
 }

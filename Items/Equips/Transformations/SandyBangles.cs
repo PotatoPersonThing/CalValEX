@@ -1,15 +1,10 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Items.Equips.Capes;
-using CalValEX.Items.Equips.Legs;
-using CalValEX.Items.Equips.Scarves;
 
 namespace CalValEX.Items.Equips.Transformations
 {
-	public class SandyBangles : ModItem
+    public class SandyBangles : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -45,7 +40,7 @@ namespace CalValEX.Items.Equips.Transformations
 			Item.width = 24;
 			Item.height = 28;
 			Item.accessory = true;
-			Item.rare = 5;
+			Item.rare = ItemRarityID.Pink;
 			Item.hasVanityEffects = true;
 		}
 

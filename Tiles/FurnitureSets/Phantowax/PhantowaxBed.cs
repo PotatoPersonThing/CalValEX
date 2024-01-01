@@ -6,7 +6,6 @@ using Terraria.ObjectData;
 using CalValEX.Items.Tiles.FurnitureSets.Phantowax;
 using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.GameContent.ObjectInteractions;
 using Terraria.Localization;
 
 namespace CalValEX.Tiles.FurnitureSets.Phantowax
@@ -19,7 +18,7 @@ namespace CalValEX.Tiles.FurnitureSets.Phantowax
             TileID.Sets.HasOutlines[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2);
             TileObjectData.newTile.Width = 4;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
+            TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
             TileID.Sets.CanBeSleptIn[Type] = true; // Facilitates calling ModifySleepingTargetInfo

@@ -3,11 +3,11 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-using CalValEX.Items.Tiles.Blocks;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace CalValEX.Tiles.Blocks {
-	public class WulfrumPlatingPlaced : ModTile {
+namespace CalValEX.Tiles.Blocks
+{
+    public class WulfrumPlatingPlaced : ModTile {
 		public override void SetStaticDefaults()  {
 			Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = false;

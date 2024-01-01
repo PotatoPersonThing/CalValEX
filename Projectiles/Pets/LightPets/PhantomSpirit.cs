@@ -57,7 +57,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
             float extra = 240f;
             float extra2 = 60f;
 
-            Vector2 extraPos = new Vector2(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
+            Vector2 extraPos = new(Projectile.position.X + Projectile.width * 0.5f, Projectile.position.Y + Projectile.height * 0.5f);
             float posX = player.position.X + (player.width / 2) - extraPos.X;
             float posY = player.position.Y + player.gfxOffY + (player.height / 2) - extraPos.Y;
             if (player.controlLeft)
@@ -102,7 +102,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
 
                 if (Main.rand.NextFloat() < 0.75f)
                 {
-                    int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 66, 0f, 0f, 164, new Color(255, 0, 251), 1f);
+                    int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.RainbowTorch, 0f, 0f, 164, new Color(255, 0, 251), 1f);
                     Main.dust[dust].scale = 0.75f;
                     Main.dust[dust].noGravity = true;
                     Main.dust[dust].shader = GameShaders.Armor.GetSecondaryShader(player.cLight, player);

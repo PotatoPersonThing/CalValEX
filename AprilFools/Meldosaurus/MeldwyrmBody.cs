@@ -4,17 +4,15 @@ using Terraria.ID;
 using Terraria.ModLoader;
 //using CalamityMod.World;
 //using CalamityMod;
-using Microsoft.Xna.Framework.Graphics;
-using System.IO;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
-	public class MeldwyrmBody : ModNPC
+    public class MeldwyrmBody : ModNPC
 	{
 		[JITWhenModsEnabled("CalamityMod")]
 		public override void SetStaticDefaults()
 		{
-			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+			NPCID.Sets.NPCBestiaryDrawModifiers value = new(0)
 			{
 				Hide = true
 			};

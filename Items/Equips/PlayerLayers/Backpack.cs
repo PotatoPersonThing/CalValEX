@@ -56,7 +56,7 @@ namespace CalValEX.Items.Equips.PlayerLayers
                 int drawX = (int)(drawInfo.Position.X + drawPlayer.width / 2f - Main.screenPosition.X - gnuflip + (15 * gnuflip));
                 int drawY = (int)(drawInfo.Position.Y + drawInfo.drawPlayer.height - Main.screenPosition.Y - 4 - secondyoffset);
 
-                DrawData dat = new DrawData(texture, new Vector2(drawX, drawY), null, Color.White * alb, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, 
+                DrawData dat = new(texture, new Vector2(drawX, drawY), null, Color.White * alb, 0f, new Vector2(texture.Width / 2f, texture.Height), 1f, 
                     drawPlayer.direction != -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally, 0);
                 dat.shader = dyeShader;
                 drawInfo.DrawDataCache.Add(dat);
