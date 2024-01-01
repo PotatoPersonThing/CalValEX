@@ -28,7 +28,7 @@ namespace CalValEX.Items.Critters
             Item.noUseGraphic = true;
             Item.rare = ItemRarityID.Red;
             Item.makeNPC = (short)NPCType<Xerocodile>();
-            Item.rare = CalamityID.CalRarityID.PureGreen;
+            Item.rare = CalamityID.CalRarityID.Turquoise;
         }
     }
 }

@@ -26,7 +26,7 @@ namespace CalValEX.Items.Tiles.Cages
             Item.createTile = ModContent.TileType<XerocodileCagePlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = CalamityID.CalRarityID.PureGreen;
+            Item.rare = CalamityID.CalRarityID.Turquoise;
         }
     }
 }
