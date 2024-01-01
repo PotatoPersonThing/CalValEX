@@ -81,5 +81,13 @@ namespace CalValEX
                 return true;
             return false;
         }
+
+        public static int CalamityRarity(string name)
+        {
+            if (CalamityContent(name, out ModRarity content))
+                return content.Type;
+            Main.NewText(name + " not found. Report this to the Calamity's Vanities developers if you see this.", Color.Red);
+            return -1;
+        }
     }
 }

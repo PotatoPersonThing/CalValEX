@@ -1,4 +1,5 @@
-﻿using Terraria.ID;
+﻿using CalamityMod.Rarities;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 
@@ -19,6 +20,14 @@ namespace CalValEX.CalamityID
             if (CalValEX.CalamityActive)
             {
                 return CalValEX.Calamity.Find<ModItem>(calamity).Type;
+            }
+            return vanilla;
+        }
+        public static int RarityRelation(string calamity, int vanilla)
+        {
+            if (CalValEX.CalamityActive)
+            {
+                return CalValEX.Calamity.Find<ModRarity>(calamity).Type;
             }
             return vanilla;
         }
@@ -105,5 +114,16 @@ namespace CalValEX.CalamityID
         public static int SunkenCrate => CalamityID.ItemRelation("SunkenCrate", ItemID.OasisCrateHard);
         public static int AstralCrate => CalamityID.ItemRelation("AstralCrate", ItemID.FloatingIslandFishingCrateHard);
         #endregion
+    }
+
+    public class CalRarityID
+    {
+        public static int Turquoise => CalamityID.RarityRelation("Turquoise", ModContent.RarityType<Turquoise>());
+        public static int PureGreen => CalamityID.RarityRelation("PureGreen", ModContent.RarityType<PureGreen>());
+        public static int DarkBlue => CalamityID.RarityRelation("DarkBlue", ModContent.RarityType<DarkBlue>());
+        public static int Violet => CalamityID.RarityRelation("Violet", ModContent.RarityType<Violet>());
+        public static int HotPink => CalamityID.RarityRelation("HotPink", ModContent.RarityType<HotPink>());
+        public static int CalamityRed => CalamityID.RarityRelation("CalamityRed", ModContent.RarityType<CalamityRed>());
+        public static int Darkorange => CalamityID.RarityRelation("DarkOrange", ModContent.RarityType<DarkOrange>());
     }
 }
