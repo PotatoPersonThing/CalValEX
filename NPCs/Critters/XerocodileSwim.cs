@@ -50,7 +50,15 @@ namespace CalValEX.NPCs.Critters
             {
                 NPC.Transform(NPCType<Xerocodile>());
             }
-            if (!Main.bloodMoon)
+            bool inGarden = false;
+            if (CalValEX.instance.wotg != null)
+            {
+                if ((bool)ModLoader.GetMod("SubworldLibrary").Call("AnyActive", CalValEX.instance.wotg))
+                {
+                    inGarden = true;
+                }
+            }
+            if (!Main.bloodMoon && !inGarden)
             {
                 if (CalValEX.CalamityActive)
                     Item.NewItem(NPC.GetSource_FromAI(), NPC.position, NPC.width, NPC.height, CalValEX.CalamityItem("Gorecodile"), 1, false, 0, false, false);
@@ -64,17 +72,27 @@ namespace CalValEX.NPCs.Critters
         [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (CalValEX.CalamityActive)
+            if (!CalValEXConfig.Instance.CritterSpawns)
             {
-                if ((bool)CalValEX.Calamity.Call("GetBossDowned", "providence") && Main.bloodMoon && !CalValEXConfig.Instance.CritterSpawns)
+                if (CalValEX.CalamityActive)
                 {
-                    if (spawnInfo.PlayerSafe)
+                    if ((bool)CalValEX.Calamity.Call("GetBossDowned", "providence") && Main.bloodMoon)
                     {
-                        return Terraria.ModLoader.Utilities.SpawnCondition.WaterCritter.Chance * 0.01f;
+                        if (spawnInfo.PlayerSafe)
+                        {
+                            return Terraria.ModLoader.Utilities.SpawnCondition.WaterCritter.Chance * 0.01f;
+                        }
+                        else if (!Main.eclipse && !Main.pumpkinMoon && !Main.snowMoon)
+                        {
+                            return Terraria.ModLoader.Utilities.SpawnCondition.OceanMonster.Chance * 0.0015f;
+                        }
                     }
-                    else if (!Main.eclipse && !Main.pumpkinMoon && !Main.snowMoon)
+                }
+                if (CalValEX.instance.wotg != null)
+                {
+                    if (spawnInfo.Player.InModBiome(CalValEX.instance.wotg.Find<ModBiome>("EternalGardenBiome")))
                     {
-                        return Terraria.ModLoader.Utilities.SpawnCondition.OceanMonster.Chance * 0.0015f;
+                        return Terraria.ModLoader.Utilities.SpawnCondition.WaterCritter.Chance;
                     }
                 }
             }

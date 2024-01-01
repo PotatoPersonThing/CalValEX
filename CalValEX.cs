@@ -32,6 +32,7 @@ namespace CalValEX
         public Mod ortho;
         public Mod bossChecklist;
         public Mod cata;
+        public Mod wotg;
 
         public const string heropermission = "CalValEX";
         public const string heropermissiondisplayname = "Calamity's Vanities";
@@ -58,6 +59,7 @@ namespace CalValEX
             ModLoader.TryGetMod("HEROsMod", out herosmod);
             ModLoader.TryGetMod("CalValPlus", out ortho);
             ModLoader.TryGetMod("BossChecklist", out bossChecklist);
+            ModLoader.TryGetMod("NoxusBoss", out wotg);
 
             DateTime dateTime = DateTime.Now;
             currentDate = dateTime.ToString("dd/MM/yyyy");
@@ -88,6 +90,7 @@ namespace CalValEX
             cata = null;
             // infernum = null;
             hasPermission = false;
+            wotg = null;
 
             currentDate = null;
             Bumble = false;
