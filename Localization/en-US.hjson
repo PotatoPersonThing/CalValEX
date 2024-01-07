@@ -4779,6 +4779,31 @@ Mods: {
 				DisplayName: Aeroplate Wall
 				Tooltip: ""
 			}
+
+			ProvidenceAltar: {
+				DisplayName: Holder of the Profaned Godess' Core
+				Tooltip: Holds the core of the Profaned Goddess
+			}
+
+			PolterCable: {
+				DisplayName: Polter Cable
+				Tooltip: ""
+			}
+
+			PolterRemote: {
+				DisplayName: Polter Remote
+				Tooltip: ""
+			}
+
+			PolterDrawOrderer: {
+				DisplayName: Polter Draw Orderer
+				Tooltip: ""
+			}
+
+			PolterRemoteChainer: {
+				DisplayName: Polter Remote Chainer
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -5369,6 +5394,8 @@ Mods: {
 			ViolemurStatuePlaced.MapEntry: Violemur Statue
 			TyrantFeedPlaced.MapEntry: Tyrant Feed Placed
 			GoozmaPlushPlaced.MapEntry: Goozma Plush Placed
+			ProvidenceAltarPlaced.MapEntry: Providence Altar Placed
+			PolterCablePlaced.MapEntry: Polter Cable Placed
 		}
 
 		Buffs: {

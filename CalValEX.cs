@@ -14,6 +14,9 @@ using Terraria.Localization;
 using ReLogic.Content;
 using CalValEX.NPCs.TownPets.Nuggets;
 using CalValEX.Items.Pets.TownPets;
+using CalValEX.AprilFools.Meldosaurus;
+using Microsoft.Xna.Framework;
+using Terraria.Audio;
 
 namespace CalValEX
 {
@@ -33,6 +36,7 @@ namespace CalValEX
         public Mod bossChecklist;
         public Mod cata;
         public Mod wotg;
+        public Mod infernum;
 
         public const string heropermission = "CalValEX";
         public const string heropermissiondisplayname = "Calamity's Vanities";
@@ -60,6 +64,7 @@ namespace CalValEX
             ModLoader.TryGetMod("CalValPlus", out ortho);
             ModLoader.TryGetMod("BossChecklist", out bossChecklist);
             ModLoader.TryGetMod("NoxusBoss", out wotg);
+            ModLoader.TryGetMod("InfernumMode", out infernum);
 
             DateTime dateTime = DateTime.Now;
             currentDate = dateTime.ToString("dd/MM/yyyy");
@@ -177,6 +182,36 @@ namespace CalValEX
                     throw new Exception("There was an error when adding Discord Rich Presence support!", ex);
                 }
             }*/
+            /*if (infernum != null)
+            {
+                Func<bool> isActiveDelegate = () => NPC.AnyNPCs(ModContent.NPCType<Meldosaurus>());
+                LocalizedText title = Terraria.Localization.Language.GetOrRegister("Meldosaurus");
+                Func<float, float, Color> textColorSelectionDelegate = (float horizontalCompletion, float animationCompletion) => { return new Color(2, 48, 24); };
+                object instance = infernum.Call("InitializeIntroScreen", title, 180, true, isActiveDelegate, textColorSelectionDelegate);
+                // Check for optional data and then apply things as needed via optional mod calls.
+
+                // On-completion effects.
+                Action onCompletionDelegate = new Action(LiterallyNothing);
+                infernum.Call("IntroScreenSetupCompletionEffects", instance, onCompletionDelegate);
+
+                // Letter addition sound.
+                Func<SoundStyle> chooseLetterSoundDelegate = ()=>SoundID.Bird;
+                infernum.Call("IntroScreenSetupLetterAdditionSound", instance, chooseLetterSoundDelegate);
+
+                // Main sound.
+                Func<SoundStyle> chooseMainSoundDelegate = ()=> SoundID.Bird;
+                Func<int, int, float, float, bool> why = (_, _2, _3, _4) => true;
+                infernum.Call("IntroScreenSetupMainSound", instance, why, chooseMainSoundDelegate);
+
+                // Text scale.
+                infernum.Call("IntroScreenSetupTextScale", instance, 1f);
+                infernum.Call("RegisterIntroScreen", instance);
+            }*/
+        }
+
+        public static void LiterallyNothing()
+        {
+
         }
 
         public override object Call(params object[] args)

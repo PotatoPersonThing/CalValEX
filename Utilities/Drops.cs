@@ -605,6 +605,7 @@ namespace CalValEX
                         AddBlockDrop(npcLoot, CalValEX.CalamityItem("ProfanedRock"));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProviCrystal>(), 4));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProfanedHeart>(), 3));
+                        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProvidenceAltar>(), 3));
                         AddPlushDrop(npcLoot, ModContent.ItemType<ProvidencePlush>());
                     }
                     //Storm Weaver

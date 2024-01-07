@@ -181,7 +181,8 @@ namespace CalValEX
                 AddBlockDrop(ref itemLoot, "ProfanedRock");
                 itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<ProfanedHeart>(), 10, chanceNumerator: 3)));
 				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<ProviCrystal>(), 10, chanceNumerator: 3)));
-			}
+                itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<ProvidenceAltar>(), 10, chanceNumerator: 3)));
+            }
 			else if (item.type == CalItemID.StormWeaverBag)
             {
                 AddBlockDrop(ref itemLoot, "OtherworldlyStone", otherworldlyDrop: true);

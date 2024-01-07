@@ -15,6 +15,7 @@ using Terraria.Chat;
 using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using Humanizer;
+using CalValEX.Tiles.MiscFurniture;
 
 namespace CalValEX
 {
@@ -70,6 +71,7 @@ namespace CalValEX
             ninja = false;
             astro = false;
             tar = false;
+            PolterCableTE.UpdateHooks();
         }
 
         public override void OnWorldUnload()
