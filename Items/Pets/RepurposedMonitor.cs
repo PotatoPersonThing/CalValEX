@@ -21,7 +21,7 @@ namespace CalValEX.Items.Pets
             Item.UseSound = SoundID.Item15;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.RepairBot>();
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = CalamityID.CalRarityID.Darkorange;
+            Item.rare = CalamityID.CalRarityID.DarkOrange;
             Item.buffType = ModContent.BuffType<Buffs.Pets.RepurposedMonitorBuff>();
         }
 

@@ -26,7 +26,7 @@ namespace CalValEX.Items.Tiles.Banners
             Item.createTile = ModContent.TileType<CalamitasBannerPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = CalamityID.CalRarityID.Darkorange;
+            Item.rare = CalamityID.CalRarityID.DarkOrange;
         }
     }
 }

@@ -36,6 +36,7 @@ namespace CalValEX
         public Mod bossChecklist;
         public Mod cata;
         public Mod wotg;
+        public Mod hunt;
         public Mod infernum;
 
         public const string heropermission = "CalValEX";
@@ -65,6 +66,7 @@ namespace CalValEX
             ModLoader.TryGetMod("BossChecklist", out bossChecklist);
             ModLoader.TryGetMod("NoxusBoss", out wotg);
             ModLoader.TryGetMod("InfernumMode", out infernum);
+            ModLoader.TryGetMod("CalamityHunt", out hunt);
 
             DateTime dateTime = DateTime.Now;
             currentDate = dateTime.ToString("dd/MM/yyyy");
@@ -96,6 +98,7 @@ namespace CalValEX
             // infernum = null;
             hasPermission = false;
             wotg = null;
+            hunt = null;
 
             currentDate = null;
             Bumble = false;

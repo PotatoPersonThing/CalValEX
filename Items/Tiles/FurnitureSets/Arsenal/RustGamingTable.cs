@@ -27,7 +27,7 @@ namespace CalValEX.Items.Tiles.FurnitureSets.Arsenal
             Item.createTile = ModContent.TileType<RustGamingTablePlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = CalamityID.CalRarityID.Darkorange;
+            Item.rare = CalamityID.CalRarityID.DarkOrange;
         }
     }
 }

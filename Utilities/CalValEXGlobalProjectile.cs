@@ -374,27 +374,13 @@ namespace CalValEX
 
 		public override bool? CanHitNPC(Projectile projectile, NPC target)
         {
-			if (CalValEX.CalamityActive)
+			if (projectile.type == CalamityID.CalProjectileID.MeldFlames && target.type == ModContent.NPCType<AprilFools.Jharim.Jharim>())
 			{
-				if (projectile.type == CalValEX.CalamityProjectile("CosmicFire") && target.type == ModContent.NPCType<AprilFools.Jharim.Jharim>())
-				{
-					return true;
-				}
-				else
-				{
-					return null;
-				}
+				return true;
 			}
 			else
 			{
-				if (projectile.type == ProjectileID.VortexBeaterRocket && target.type == ModContent.NPCType<AprilFools.Jharim.Jharim>())
-				{
-					return true;
-				}
-				else
-				{
-					return null;
-				}
+				return null;
 			}
         }
     }

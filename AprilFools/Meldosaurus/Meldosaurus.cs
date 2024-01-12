@@ -591,6 +591,7 @@ namespace CalValEX.AprilFools.Meldosaurus
         public override void OnKill()
         {
             CalValEXWorld.downedMeldosaurus = true;
+			CalValEXWorld.UpdateWorldBool();
         }
 
         /*public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)

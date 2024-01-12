@@ -28,7 +28,7 @@ namespace CalValEX.Items.Tiles.Blueprints
             Item.createTile = ModContent.TileType<AgedLogPlaced>();
             Item.width = 46;
             Item.height = 32;
-            Item.rare = CalamityID.CalRarityID.Darkorange;
+            Item.rare = CalamityID.CalRarityID.DarkOrange;
         }
 
         /*public override void AddRecipes()

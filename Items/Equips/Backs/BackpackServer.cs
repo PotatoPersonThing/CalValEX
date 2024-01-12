@@ -19,7 +19,7 @@ namespace CalValEX.Items.Equips.Backs
             Item.width = 14;
             Item.height = 34;
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = CalamityID.CalRarityID.Darkorange;
+            Item.rare = CalamityID.CalRarityID.DarkOrange;
             Item.accessory = true;
             Item.vanity = true;
         }

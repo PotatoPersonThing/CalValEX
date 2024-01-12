@@ -125,7 +125,7 @@ namespace CalValEX.AprilFools.Jharim
         [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
-            if (!CalValEX.AprilFoolMonth && CalValEX.CalamityActive)
+            if (!CalValEX.AprilFoolMonth && CalValEX.CalamityActive && !Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok)
             {
                 NPC.active = false;
             }

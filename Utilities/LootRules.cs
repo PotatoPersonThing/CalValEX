@@ -368,7 +368,7 @@ namespace CalValEX
         {
             public bool CanDrop(DropAttemptInfo info)
             {
-                return CalValEXWorld.downedMeldosaurus;
+                return !CalValEXWorld.downedMeldosaurus;
             }
 
             public bool CanShowItemDropInUI()

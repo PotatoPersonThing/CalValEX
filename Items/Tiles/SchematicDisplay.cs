@@ -27,7 +27,7 @@ namespace CalValEX.Items.Tiles
             Item.createTile = ModContent.TileType<SchematicDisplayPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = CalamityID.CalRarityID.Darkorange;
+            Item.rare = CalamityID.CalRarityID.DarkOrange;
         }
     }
 }
