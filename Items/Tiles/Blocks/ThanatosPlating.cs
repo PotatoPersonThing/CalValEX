@@ -10,7 +10,7 @@ namespace CalValEX.Items.Tiles.Blocks {
         public override void SetDefaults() {
             Item.width = 12;
             Item.height = 12;
-            Item.maxStack = 999;
+            Item.maxStack = 9999;
             Item.rare = ItemRarityID.Purple;
             Item.useTurn = true;
             Item.autoReuse = true;
@@ -28,7 +28,7 @@ namespace CalValEX.Items.Tiles.Blocks {
         public override void SetDefaults() {
             Item.width = 12;
             Item.height = 12;
-            Item.maxStack = 999;
+            Item.maxStack = 9999;
             Item.rare = ItemRarityID.Purple;
             Item.useTurn = true;
             Item.autoReuse = true;

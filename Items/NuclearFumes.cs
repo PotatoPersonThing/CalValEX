@@ -21,7 +21,7 @@ namespace CalValEX.Items
             Item.width = 28;
             Item.height = 18;
             Item.value = Item.sellPrice(0, 10, 0, 0);
-            Item.maxStack = 999;
+            Item.maxStack = 9999;
             Item.rare = CalamityID.CalRarityID.PureGreen;
         }
     }
