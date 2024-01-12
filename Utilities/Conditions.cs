@@ -1,3 +1,4 @@
+using CalValEX.CalamityID;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -46,7 +47,7 @@ namespace CalValEX
         public static Condition sammy = new("While in the Underworld Lab", () => CalValEXWorld.hellTiles > 20 && Main.LocalPlayer.ZoneUnderworldHeight);
         public static Condition jun = new("While in the Jungle Lab", () => CalValEXWorld.jungleTiles > 20 && Main.LocalPlayer.ZoneJungle);
         // NPC conditions
-        public static Condition bandit = new("If the Bandit is present", () => CalValEX.CalamityActive ? NPC.AnyNPCs(CalValEX.Calamity.Find<ModNPC>("THIEF").Type) : NPC.AnyNPCs(NPCID.Golfer));
-        public static Condition perma = new("If the Archmage is present", () => CalValEX.CalamityActive ? NPC.AnyNPCs(CalValEX.Calamity.Find<ModNPC>("DILF").Type) : NPC.AnyNPCs(NPCID.Wizard));
+        public static Condition bandit = new("If the Bandit is present", () => CalValEX.CalamityActive ? NPC.AnyNPCs(CalNPCID.THIEF) : NPC.AnyNPCs(NPCID.Golfer));
+        public static Condition perma = new("If the Archmage is present", () => CalValEX.CalamityActive ? NPC.AnyNPCs(CalNPCID.DILF) : NPC.AnyNPCs(NPCID.Wizard));
     }
 }

@@ -79,24 +79,24 @@ namespace CalValEX
             }
             if (CalValEX.CalamityActive)
             {
-                if (type == CalValEX.Calamity.Find<ModNPC>("SEAHOE").Type)
+                if (type == CalNPCID.SEAHOE)
                 {
                     shop.Add(ModContent.ItemType<BloodwormScarf>(), CalValEXConditions.boomer)
                         .Add(ModContent.ItemType<Yharlamitas>(), CalValEXConditions.scal);
                 }
-                if (type == CalValEX.Calamity.Find<ModNPC>("DILF").Type)
+                if (type == CalNPCID.DILF)
                 {
                     shop.Add(ModContent.ItemType<FrostflakeBrick>())
                         .Add(ModContent.ItemType<Signut>(), CalValEXConditions.siggy);
                 }
-                if (type == CalValEX.Calamity.Find<ModNPC>("THIEF").Type)
+                if (type == CalNPCID.THIEF)
                 {
                     shop.Add(ModContent.ItemType<AureicFedora>(), CalValEXConditions.oreo)
                         .Add(ModContent.ItemType<AstrachnidCranium>(), CalValEXConditions.oreo)
                         .Add(ModContent.ItemType<AstrachnidTentacles>(), CalValEXConditions.oreo)
                         .Add(ModContent.ItemType<AstrachnidThorax>(), CalValEXConditions.oreo);
                 }
-                if (type == CalValEX.Calamity.Find<ModNPC>("FAP").Type)
+                if (type == CalNPCID.FAP)
                 {
                     shop.Add(ModContent.ItemType<OddMushroomPot>(), CalValEXConditions.oreo);
                 }
@@ -144,11 +144,11 @@ namespace CalValEX
             {
                 if (CalValEX.CalamityActive)
                 {
-                    if (npc.type == CalValEX.CalamityNPC("DILF"))
+                    if (npc.type == CalNPCID.DILF)
                     {
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Permascarf>(), 1));
                     }
-                    if (npc.type == CalValEX.CalamityNPC("THIEF"))
+                    if (npc.type == CalNPCID.THIEF)
                     {
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BanditHat>(), 1));
                     }
@@ -873,7 +873,7 @@ namespace CalValEX
             if (CalValEX.CalamityActive)
             {
                 Mod.TryFind<ModProjectile>("JharimKiller", out ModProjectile brimbuck);
-                if (npc.type == CalValEX.CalamityNPC("WITCH") && (!CalValEXWorld.jharinter || !NPC.downedMoonlord))
+                if (npc.type == CalNPCID.WITCH && (!CalValEXWorld.jharinter || !NPC.downedMoonlord))
                 {
                     if (NPC.AnyNPCs(ModContent.NPCType<AprilFools.Jharim.Jharim>()))
                     {
@@ -992,7 +992,7 @@ namespace CalValEX
         {
              if (npc.aiStyle == NPCAIStyleID.Slime && !NPC.AnyNPCs(ModContent.NPCType<NPCs.TownPets.Slimes.NinjaSlime>()) && Main.rand.NextBool(22))
                 {
-                    bool titShuriken = CalValEX.CalamityActive ? projectile.type == CalValEX.CalamityProjectile("TitaniumShurikenProjectile") : false;
+                    bool titShuriken = CalValEX.CalamityActive ? projectile.type == CalProjectileID.TitaniumShuriken : false;
                     bool boomShuriken = false;
                     if (ModLoader.HasMod("Fargowiltas"))
                     {
@@ -1019,7 +1019,7 @@ namespace CalValEX
             {
                 if (npc.type == CalNPCID.AstrumAureus)
                 {
-                    if (projectile.type == CalValEX.CalamityProjectile("AstrageldonLaser") || projectile.type == CalValEX.CalamityProjectile("AstrageldonSummon"))
+                    if (projectile.type == CalProjectileID.AstrageldonLaser || projectile.type == CalProjectileID.AstrageldonMinion)
                     {
                         npc.GetGlobalNPC<CalValEXGlobalNPC>().geldonSummon = true;
                         if (!NPC.AnyNPCs(ModContent.NPCType<NPCs.TownPets.Slimes.AstroSlime>()))
@@ -1035,7 +1035,7 @@ namespace CalValEX
                             int dustAmt = 16;
                             for (int dustIndex = 0; dustIndex < dustAmt; dustIndex++)
                             {
-                                int assdust = CalValEX.Calamity.Find<ModDust>("AstralOrange").Type;
+                                int assdust = CalDustID.AstralOrange;
                                 Vector2 vector6 = Vector2.Normalize(projectile.velocity) * new Vector2((float)projectile.width / 2f, (float)projectile.height) * 0.75f;
                                 vector6 = vector6.RotatedBy((double)((float)(dustIndex - (dustAmt / 2 - 1)) * MathHelper.TwoPi / (float)dustAmt), default) + projectile.Center;
                                 Vector2 vector7 = vector6 - projectile.Center;
@@ -1054,7 +1054,7 @@ namespace CalValEX
                 }
                 else if (npc.type == CalNPCID.Bumblebirb)
                 {
-                    if (projectile.type == CalValEX.CalamityProjectile("MiniatureFolly") && projectile.DamageType != DamageClass.Ranged)
+                    if (projectile.type == CalProjectileID.BabyFolly && projectile.DamageType != DamageClass.Ranged)
                     {
                         npc.GetGlobalNPC<CalValEXGlobalNPC>().bdogeMount = true;
                     }
@@ -1065,7 +1065,7 @@ namespace CalValEX
                 }
                 else if (npc.type == CalNPCID.Yharon)
                 {
-                    if (projectile.type == CalValEX.CalamityProjectile("WulfrumDroid"))
+                    if (projectile.type == CalProjectileID.WulfrumDroid)
                     {
                         npc.GetGlobalNPC<CalValEXGlobalNPC>().wolfram = true;
                     }
@@ -1076,8 +1076,8 @@ namespace CalValEX
                 }
                 else if (npc.type == CalNPCID.Signus)
                 {
-                    if (projectile.type == CalValEX.CalamityProjectile("PristineFire") ||
-                        projectile.type == CalValEX.CalamityProjectile("PristineSecondary"))
+                    if (projectile.type == CalProjectileID.PristineFire ||
+                        projectile.type == CalProjectileID.PristineAlt)
                     {
                         npc.GetGlobalNPC<CalValEXGlobalNPC>().junkoReference = true;
                     }
@@ -1160,12 +1160,12 @@ namespace CalValEX
                 BossExclam(npc, new int[] { oracleID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "devourerofgods"), CalNPCID.DevourerofGods);
                 BossExclam(npc, new int[] { oracleID }, (bool)CalValEX.Calamity.Call("GetBossDowned", "yharon"), CalNPCID.Yharon);
 
-                BossExclam(npc, new int[] { CalValEX.CalamityNPC("SEAHOE") }, (bool)CalValEX.Calamity.Call("GetBossDowned", "oldduke"), CalNPCID.OldDuke);
-                BossExclam(npc, new int[] { CalValEX.CalamityNPC("SEAHOE") }, (bool)CalValEX.Calamity.Call("GetBossDowned", "scal"), CalNPCID.SupremeCalamitas);
+                BossExclam(npc, new int[] { CalNPCID.SEAHOE }, (bool)CalValEX.Calamity.Call("GetBossDowned", "oldduke"), CalNPCID.OldDuke);
+                BossExclam(npc, new int[] { CalNPCID.SEAHOE }, (bool)CalValEX.Calamity.Call("GetBossDowned", "scal"), CalNPCID.SupremeCalamitas);
 
-                BossExclam(npc, new int[] { CalValEX.CalamityNPC("DILF") }, (bool)CalValEX.Calamity.Call("GetBossDowned", "signus"), CalNPCID.Signus);
+                BossExclam(npc, new int[] { CalNPCID.DILF }, (bool)CalValEX.Calamity.Call("GetBossDowned", "signus"), CalNPCID.Signus);
 
-                BossExclam(npc, new int[] { CalValEX.CalamityNPC("THIEF") }, (bool)CalValEX.Calamity.Call("GetBossDowned", "astrumaureus"), CalNPCID.AstrumAureus);
+                BossExclam(npc, new int[] { CalNPCID.THIEF }, (bool)CalValEX.Calamity.Call("GetBossDowned", "astrumaureus"), CalNPCID.AstrumAureus);
 
                 BossExclam(npc, new int[] { NPCID.PartyGirl }, (bool)CalValEX.Calamity.Call("GetBossDowned", "polterghast"), CalNPCID.Polterghast);
 

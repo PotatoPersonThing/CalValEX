@@ -39,6 +39,30 @@ namespace CalValEX.CalamityID
             }
             return vanilla;
         }
+        public static int DustRelation(string calamity, int vanilla)
+        {
+            if (CalValEX.CalamityActive)
+            {
+                return CalValEX.Calamity.Find<ModDust>(calamity).Type;
+            }
+            return vanilla;
+        }
+        public static int TileRelation(string calamity, int vanilla)
+        {
+            if (CalValEX.CalamityActive)
+            {
+                return CalValEX.Calamity.Find<ModTile>(calamity).Type;
+            }
+            return vanilla;
+        }
+        public static int WallRelation(string calamity, int vanilla)
+        {
+            if (CalValEX.CalamityActive)
+            {
+                return CalValEX.Calamity.Find<ModWall>(calamity).Type;
+            }
+            return vanilla;
+        }
     }
 }
 
@@ -86,6 +110,13 @@ namespace CalValEX.CalamityID
         public static int PrimordialWyrm ;// => CalamityID.NPCRelation("PrimordialWyrmHead", NPCID.MoonLordCore);
         #endregion
 
+        public static int WITCH;
+        public static int DILF;
+        public static int FAP;
+        public static int SEAHOE;
+        public static int THIEF;
+        public static int YHARM;
+
         public override void PostSetupContent()
         {
             GiantClam = CalamityID.NPCRelation("GiantClam", NPCID.EyeofCthulhu);
@@ -122,6 +153,12 @@ namespace CalValEX.CalamityID
             Thanatos = CalamityID.NPCRelation("ThanatosHead", NPCID.TheDestroyer);
             SupremeCalamitas = CalamityID.NPCRelation("SupremeCalamitas", NPCID.CultistBoss);
             PrimordialWyrm = CalamityID.NPCRelation("PrimordialWyrmHead", NPCID.MoonLordCore);
+            WITCH = CalamityID.NPCRelation("WITCH", NPCID.WitchDoctor);
+            SEAHOE = CalamityID.NPCRelation("SEAHOE", NPCID.Angler);
+            DILF = CalamityID.NPCRelation("DILF", NPCID.Wizard);
+            FAP = CalamityID.NPCRelation("FAP", NPCID.Princess);
+            THIEF = CalamityID.NPCRelation("THIEF", NPCID.GoblinTinkerer);
+            //YHARM = CalamityID.NPCRelation("YHARM", NPCID.Wizard);
         }
     }
     public class CalItemID : ModSystem
@@ -160,6 +197,11 @@ namespace CalValEX.CalamityID
         public static int SunkenCrate;// => CalamityID.ItemRelation("SunkenCrate", ItemID.OasisCrateHard);
         public static int AstralCrate;// => CalamityID.ItemRelation("AstralCrate", ItemID.FloatingIslandFishingCrateHard);
         #endregion
+        public static int AquaticHeart;
+        public static int CirrusDress;
+        public static int Bloodstone;
+        public static int CeremonialUrn;
+        public static int MeldConstruct;
 
         public override void PostSetupContent()
         {
@@ -192,6 +234,11 @@ namespace CalValEX.CalamityID
             SulphurousCrate = CalamityID.ItemRelation("SulphurousCrate", ItemID.OceanCrateHard);
             SunkenCrate = CalamityID.ItemRelation("SunkenCrate", ItemID.OasisCrateHard);
             AstralCrate = CalamityID.ItemRelation("AstralCrate", ItemID.FloatingIslandFishingCrateHard);
+            AquaticHeart = CalamityID.ItemRelation("AquaticHeart", ItemID.NeptunesShell);
+            CirrusDress = CalamityID.ItemRelation("CirrusDress", ItemID.PrincessDressNew);
+            Bloodstone = CalamityID.ItemRelation("Bloodstone", ItemID.FragmentNebula);
+            MeldConstruct = CalamityID.ItemRelation("MeldConstruct", ItemID.FragmentNebula);
+            CeremonialUrn = CalamityID.ItemRelation("CeremonialUrn", ItemID.NebulaPickaxe);
         }
     }
 
@@ -220,9 +267,31 @@ namespace CalValEX.CalamityID
     public class CalProjectileID : ModSystem
     {
         public static int MeldFlames;
+        public static int AstrageldonLaser;
+        public static int AstrageldonMinion;
+        public static int PristineFire;
+        public static int PristineAlt;
+        public static int BabyFolly;
+        public static int TitaniumShuriken;
+        public static int WulfrumDroid;
         public override void PostSetupContent()
         {
             MeldFlames = CalamityID.ProjectileRelation("CosmicFire", ProjectileID.VortexBeaterRocket);
+            AstrageldonLaser = CalamityID.ProjectileRelation("AstrageldonLaser", ProjectileID.GreenLaser);
+            AstrageldonMinion = CalamityID.ProjectileRelation("AstrageldonSummon", ProjectileID.GreenLaser);
+            PristineFire = CalamityID.ProjectileRelation("PristineFire", ProjectileID.Fireball);
+            PristineAlt = CalamityID.ProjectileRelation("PristineSecondary", ProjectileID.Fireball);
+            BabyFolly = CalamityID.ProjectileRelation("MiniatureFolly", ProjectileID.RocketFireworkRed);
+            WulfrumDroid = CalamityID.ProjectileRelation("WulfrumDroid", ProjectileID.UFOMinion);
+            TitaniumShuriken = CalamityID.ProjectileRelation("TitaniumShurikenProjectile", ProjectileID.Shuriken);
+        }
+    }
+    public class CalDustID : ModSystem
+    {
+        public static int AstralOrange;
+        public override void PostSetupContent()
+        {
+            AstralOrange = CalamityID.DustRelation("AstralOrange", DustID.AmberBolt);
         }
     }
 }

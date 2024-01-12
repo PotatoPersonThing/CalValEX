@@ -40,11 +40,11 @@ namespace CalValEX
             if (!CalValEX.CalamityActive)
                 return;
 
-            MakePlaceable(item, CalValEX.CalamityItem("Bloodstone"), ModContent.TileType<BloodstonePlaced>());
-            MakePlaceable(item, CalValEX.CalamityItem("MeldConstruct"), ModContent.TileType<MeldConstructPlaced>());
-            MakePlaceable(item, CalValEX.CalamityItem("CeremonialUrn"), ModContent.TileType<CeremonialUrnPlaced>());
-            MakePlaceable(item, CalValEX.CalamityItem("SupremeCalamitasCoffer"), ModContent.TileType<CalamitasCofferPlaced>());
-            MakePlaceable(item, CalValEX.CalamityItem("DraedonBag"), ModContent.TileType<DraedonQuoteonQuoteBagPlaced>());
+            MakePlaceable(item, CalItemID.Bloodstone, ModContent.TileType<BloodstonePlaced>());
+            MakePlaceable(item, CalItemID.MeldConstruct, ModContent.TileType<MeldConstructPlaced>());
+            MakePlaceable(item, CalItemID.CeremonialUrn, ModContent.TileType<CeremonialUrnPlaced>());
+            MakePlaceable(item, CalItemID.SupremeCalamitasCoffer, ModContent.TileType<CalamitasCofferPlaced>());
+            MakePlaceable(item, CalItemID.DraedonBox, ModContent.TileType<DraedonQuoteonQuoteBagPlaced>());
         }
 
         public void MakePlaceable(Item item, int theitem, int tile)
@@ -486,11 +486,11 @@ namespace CalValEX
             CalValEXPlayer modplayer = player.GetModPlayer<CalValEXPlayer>();
             if (CalValEX.CalamityActive)
             {
-                if (item.type == CalValEX.CalamityItem("AquaticHeart") && !hide)
+                if (item.type == CalItemID.AquaticHeart && !hide)
                 {
                     modplayer.SirenHeart = true;
                 }
-                if (item.type == CalValEX.CalamityItem("CirrusDress"))
+                if (item.type == CalItemID.CirrusDress)
                 {
                     modplayer.CirrusDress = true;
                 }
@@ -502,11 +502,11 @@ namespace CalValEX
             CalValEXPlayer modplayer = player.GetModPlayer<CalValEXPlayer>();
             if (CalValEX.CalamityActive)
             {
-                if (item.type == CalValEX.CalamityItem("AquaticHeart"))
+                if (item.type == CalItemID.AquaticHeart)
                 {
                     modplayer.SirenHeart = true;
                 }
-                if (item.type == CalValEX.CalamityItem("CirrusDress"))
+                if (item.type == CalItemID.CirrusDress)
                 {
                     modplayer.CirrusDress = true;
                 }
@@ -518,7 +518,7 @@ namespace CalValEX
             CalValEXPlayer modplayer = player.GetModPlayer<CalValEXPlayer>();
             if (CalValEX.CalamityActive)
             {
-                if (item.type == CalValEX.CalamityItem("CirrusDress"))
+                if (item.type == CalItemID.CirrusDress)
                 {
                     modplayer.CirrusDress = true;
                 }
