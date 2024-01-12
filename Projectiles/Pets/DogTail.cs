@@ -109,12 +109,23 @@ namespace CalValEX.Projectiles.Pets
                 Projectile.timeLeft = 2;
             }
         }
-        public override void PostDraw(Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
+            Texture2D main = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/DogTail").Value;
             Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/DogTail_Glow").Value;
+            if (CalValEX.instance.infernum != null)
+            {
+                if ((bool)CalValEX.instance.infernum.Call("GetInfernumActive"))
+                {
+                    main = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/DogITail").Value;
+                    texture = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/DogITail_Glow").Value;
+                }
+            }
             int frameHeight = texture.Height / Main.projFrames[Projectile.type];
             int hei = frameHeight * Projectile.frame;
+            Main.EntitySpriteDraw(main, Projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * Projectile.frame, texture.Width, frameHeight)), Projectile.GetAlpha(lightColor), Projectile.rotation, Projectile.Size / 2f, 1f, SpriteEffects.None, 0);
             Main.EntitySpriteDraw(texture, Projectile.Center - Main.screenPosition, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * Projectile.frame, texture.Width, frameHeight)), Color.White, Projectile.rotation, Projectile.Size / 2f, 1f, SpriteEffects.None, 0);
+            return false;
         }
     }
 }

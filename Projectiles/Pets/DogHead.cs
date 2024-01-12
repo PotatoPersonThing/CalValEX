@@ -161,7 +161,16 @@ namespace CalValEX.Projectiles.Pets
         }
         public override bool PreDraw(ref Color lightColor)
         {
+            Texture2D main = ModContent.Request<Texture2D>(Texture).Value;
             Texture2D texture = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/DogHead_Glow").Value;
+            if (CalValEX.instance.infernum != null)
+            {
+                if ((bool)CalValEX.instance.infernum.Call("GetInfernumActive"))
+                {
+                    main = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/DogIHead").Value;
+                    texture = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/DogIHead_Glow").Value;
+                }
+            }
             int frameHeight = texture.Height / Main.projFrames[Projectile.type];
             int hei = frameHeight * Projectile.frame;
             Vector2 defaultpos = Projectile.Center - Main.screenPosition;
@@ -170,7 +179,7 @@ namespace CalValEX.Projectiles.Pets
             float rotation = Projectile.isAPreviewDummy ? MathHelper.PiOver2 : Projectile.rotation;
             float size = Projectile.isAPreviewDummy ? 0.2f : 1f;
 
-            Main.EntitySpriteDraw(ModContent.Request<Texture2D>(Texture).Value, finalPos, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * Projectile.frame, texture.Width, frameHeight)), Projectile.GetAlpha(lightColor), rotation, Projectile.Size / 2f, size, SpriteEffects.None, 0);
+            Main.EntitySpriteDraw(main, finalPos, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * Projectile.frame, texture.Width, frameHeight)), Projectile.GetAlpha(lightColor), rotation, Projectile.Size / 2f, size, SpriteEffects.None, 0);
             Main.EntitySpriteDraw(texture, finalPos, new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, frameHeight * Projectile.frame, texture.Width, frameHeight)), Color.White, rotation, Projectile.Size / 2f, size, SpriteEffects.None, 0);
 
             return false;
