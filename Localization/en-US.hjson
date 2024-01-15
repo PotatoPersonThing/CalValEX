@@ -556,98 +556,111 @@ Mods: {
 			}
 
 			# Balloons
-			ApolloBallonSmall.DisplayName: Small Apollo Balloon
+			ApolloBallonSmall.DisplayName: Apollo Balloon
 
 			ArtemisBalloonSmall: {
-				DisplayName: Small Artemis Balloon
-				Tooltip: ""
+				DisplayName: Artemis Balloon
+				Tooltip: "'From the Moon, Knowledge'"
 			}
 
 			ApolloBalloon: {
 				DisplayName: XS Leash-03
-				Tooltip: ""
+				Tooltip: "'Houston...'"
 			}
 
 			ArtemisBalloon: {
 				DisplayName: XS Leash-01
-				Tooltip: ""
+				Tooltip: "'Hunting has never been easier'"
 			}
 
 			AuricBalloon: {
 				DisplayName: Auric Balloon
-				Tooltip: ""
+				Tooltip: "'You're lucky I didn't make you get every other balloon for this.'"
 			}
 
 			BoB2: {
 				DisplayName: Bundle of Water Balloons
-				Tooltip: ""
+				Tooltip:
+					'''
+					The Party Girl can tie this for you
+					'How did none of them pop down there?'
+					'''
 			}
 
 			BoxBalloon: {
 				DisplayName: Cuboidal Balloon
-				Tooltip: ""
+				Tooltip:
+					'''
+					The Party Girl can tie this for you
+					'Feeling square'
+					'''
 			}
 
 			ChaosBalloon: {
 				DisplayName: Puffer Balloon
-				Tooltip: ""
+				Tooltip:
+					'''
+					The Party Girl can tie this for you
+					'May go off any minute now...'
+					'''
 			}
 
 			ExoTwinsBalloon: {
 				DisplayName: XS Leash Bundle
-				Tooltip: ""
+				Tooltip: "'smile.'"
 			}
 
 			FoilAtlantis: {
 				DisplayName: Foil Atlantis
-				Tooltip: ""
+				Tooltip: "'A miniature, inflatable replica of the magical halberd'"
 			}
 
 			FoilSpoon: {
 				DisplayName: Foil Spoon
-				Tooltip: ""
+				Tooltip: "'spoon'"
 			}
 
 			Mirballoon: {
 				DisplayName: Mirage Balloon
-				Tooltip: ""
+				Tooltip:
+					'''
+					The Party Girl can tie this for you
+					'Keep away from sharp objects!'
+					'''
 			}
 
 			OldMirage: {
 				DisplayName: Ancient Mirage Balloon
-				Tooltip: ""
+				Tooltip:
+					'''
+					'Keep away from the ocean'
+					'Balloons are nasty pollutants'
+					'''
 			}
 
 			ProfanedBalloon: {
 				DisplayName: Profaned Balloon
-				Tooltip: ""
+				Tooltip: "'Patronage for Providence!'"
 			}
 
 			ShuttleBalloon: {
 				DisplayName: Shuttle Balloon
-				Tooltip: ""
+				Tooltip: "'Marketable Martian'"
 			}
 
 			SignusBalloon: {
 				DisplayName: Cosmic Lantern Balloon
-				Tooltip: ""
+				Tooltip: "'Keep away from ectoplasm'"
 			}
 
 			SkullBalloon: {
 				DisplayName: Skull Balloon
-				Tooltip: ""
+				Tooltip: "'Looks like there's still a brain inside this one'"
 			}
 
 			WulfrumBalloon: {
 				DisplayName: Wulfrum Gyro Balloon
-				Tooltip: ""
-			}
-
-			EidCape: {
-				# Capes
-				DisplayName: Eidolist Cape
-				# Capes
-				Tooltip: Whispers of the deep can be heard through the weavings of this eldritch fabric...
+				Tooltip: "'I'm Using Tilt Controls!'"
 			}
 
 			SigCape: {
@@ -1148,7 +1161,7 @@ Mods: {
 				Tooltip: Engulfs the wearer in Brimstone Flames
 			}
 
-			CloudWaistBelt: {
+			CloudWaistbelt: {
 				DisplayName: Valkyrian Garments
 				Tooltip: Surrounds the wearer with clouds
 			}
@@ -2048,23 +2061,23 @@ Mods: {
 			}
 
 			ApolloBalloonSmall: {
-				DisplayName: Apollo Balloon Small
-				Tooltip: ""
+				DisplayName: Apollo Balloon
+				Tooltip: "'Stirred to go among wild beasts'"
 			}
 
 			Eidcape: {
-				DisplayName: Eidcape
-				Tooltip: ""
+				DisplayName: Eidolist's Cape
+				Tooltip: Whispers of the deep can be heard through the weavings of this eldritch fabric...
 			}
 
 			Birbhat: {
-				DisplayName: Birbhat
-				Tooltip: ""
+				DisplayName: Follyhat
+				Tooltip: "'The one hat to rule them all'"
 			}
 
 			Calacirclet: {
-				DisplayName: Calacirclet
-				Tooltip: ""
+				DisplayName: Circlet of Calamity
+				Tooltip: "'Cursed?'"
 			}
 
 			ShroomiteVisage: {
@@ -2073,13 +2086,8 @@ Mods: {
 			}
 
 			Permascarf: {
-				DisplayName: Permascarf
-				Tooltip: ""
-			}
-
-			CloudWaistbelt: {
-				DisplayName: Cloud Waistbelt
-				Tooltip: ""
+				DisplayName: Permafrost's Scarf
+				Tooltip: Stay Frosty
 			}
 
 			Polterhook: {

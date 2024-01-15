@@ -172,6 +172,10 @@ namespace CalValEX
                     {
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DecayingFishtail>(), 10));
                     }
+                    if (npc.type == CalValEX.CalamityNPC("Trasher"))
+                    {
+                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<OlTrashtooth>(), 10));
+                    }
                     if (npc.type == CalValEX.CalamityNPC("DespairStone"))
                     {
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DespairMask>(), 20));
@@ -187,6 +191,10 @@ namespace CalValEX
                     if (npc.type == CalValEX.CalamityNPC("RepairUnitCritter"))
                     {
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DisrepairUnit>(), 20));
+                    }
+                    if (npc.type == CalValEX.CalamityNPC("SuperDummy"))
+                    {
+                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DummyMask>()));
                     }
                     if (npc.type == CalValEX.CalamityNPC("WulfrumAmplifier"))
                     {
@@ -418,11 +426,13 @@ namespace CalValEX
                     {
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NuclearFumes>(), 1, 10, 25));
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BubbledFin>(), 10));
+                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MaulerMask>(), 3));
                         npcLoot.Add(ItemDropRule.ByCondition(new MasterRevCondition(), ModContent.ItemType<MaulerPlush>(), 4));
                     }
                     if (npc.type == CalValEX.CalamityNPC("NuclearTerror"))
                     {
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NuclearFumes>(), 1, 10, 25));
+                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TerrorLegs>(), 10));
                         npcLoot.Add(ItemDropRule.ByCondition(new MasterRevCondition(), ModContent.ItemType<NuclearTerrorPlush>(), 4));
                     }
                     if (npc.type == CalNPCID.GiantClam)
@@ -570,6 +580,7 @@ namespace CalValEX
                         ModContent.ItemType<StonePile>(),
                         ModContent.ItemType<RavaHook>(),
                         ModContent.ItemType<SkullCluster>() }));
+                        npcLoot.Add(notExpertRule);
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ScavaHook>(), 15));
                         AddBlockDrop(npcLoot, ModContent.ItemType<Necrostone>());
                         AddPlushDrop(npcLoot, ModContent.ItemType<RavagerPlush>());
@@ -594,6 +605,7 @@ namespace CalValEX
                         ModContent.ItemType<FollyWings>(),
                         ModContent.ItemType<DocilePheromones>()}));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new SilvaCrystal(), CalValEX.CalamityItem("SilvaCrystal"), 1, 155, 265));
+                        npcLoot.Add(notExpertRule);
                         npcLoot.Add(ItemDropRule.ByCondition(new MasterRevCondition(), ModContent.ItemType<ExtraFluffyFeather>()));
                         AddPlushDrop(npcLoot, ModContent.ItemType<BumblefuckPlush>()); ;
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 500));
@@ -631,6 +643,7 @@ namespace CalValEX
                         ModContent.ItemType<ShadowCloth>(),
                         ModContent.ItemType<SignusNether>()}));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new OtherworldlyStoneDrop(), CalValEX.CalamityItem("OtherworldlyStone"), 1, 155, 265));
+                        npcLoot.Add(notExpertRule);
                         npcLoot.Add(ItemDropRule.ByCondition(new JunkoDrop(), ModContent.ItemType<SuspiciousLookingChineseCrown>()));
                         AddPlushDrop(npcLoot, ModContent.ItemType<SignusPlush>());
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 250));
@@ -771,6 +784,7 @@ namespace CalValEX
                 notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, new int[]{
                         ModContent.ItemType<ShadesBane>(),
                         ModContent.ItemType<Nyanthrop>()}));
+                npcLoot.Add(notExpertRule);
 
 
                 npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusTrophy>(), 10));

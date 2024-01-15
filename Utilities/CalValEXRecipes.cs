@@ -421,9 +421,16 @@ namespace CalValEX
             {
                 Recipe recipe = Recipe.Create(ItemType<TrueCosmicCone>());
                 recipe.AddIngredient(ItemType<CosmicCone>());
-                recipe.AddIngredient(ItemType<CosmicCone>());
+                recipe.AddIngredient(ItemType<StonePile>());
                 recipe.AddIngredient(CalValEX.CalamityItem("CosmiliteBar"));
                 recipe.AddTile(CalValEX.CalamityTile("CosmicAnvil"));
+                recipe.Register();
+            }
+            {
+                Recipe recipe = Recipe.Create(ItemType<SpectralstormHat>());
+                recipe.AddIngredient(ItemID.FragmentSolar, 5);
+                recipe.AddIngredient(ItemID.Ectoplasm, 8);
+                recipe.AddTile(TileID.LunarCraftingStation);
                 recipe.Register();
             }
             /*{
