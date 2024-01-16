@@ -718,6 +718,7 @@ namespace CalValEX
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new Exodrop(), ModContent.ItemType<OminousCore>(), 3));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new Exodrop(), ModContent.ItemType<AncientAuricTeslaHelm>(), 3));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new ExoPlating(), CalValEX.CalamityItem("ExoPlating"), 1, 155, 265));
+                        npcLoot.Add(notExpertRule);
                         npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), ModContent.ItemType<AresPlush>()));
                         npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), ModContent.ItemType<DraedonPlush>(), 10));
                     }
@@ -732,6 +733,7 @@ namespace CalValEX
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new Exodrop(), ModContent.ItemType<GunmetalRemote>(), 3));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new Exodrop(), ModContent.ItemType<AncientAuricTeslaHelm>(), 3));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new ExoPlating(), CalValEX.CalamityItem("ExoPlating"), 1, 155, 265));
+                        npcLoot.Add(notExpertRule);
                         npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), ModContent.ItemType<ThanatosPlush>()));
                         npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), ModContent.ItemType<DraedonPlush>(), 10));
                     }
@@ -747,6 +749,7 @@ namespace CalValEX
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new Exodrop(), ModContent.ItemType<GeminiMarkImplants>(), 3));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new Exodrop(), ModContent.ItemType<AncientAuricTeslaHelm>(), 3));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new ExoPlating(), CalValEX.CalamityItem("ExoPlating"), 1, 155, 265));
+                        npcLoot.Add(notExpertRule);
                         npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), ModContent.ItemType<ArtemisPlush>()));
                         npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), ModContent.ItemType<ApolloPlush>()));
                         npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), ModContent.ItemType<DraedonPlush>(), 10));

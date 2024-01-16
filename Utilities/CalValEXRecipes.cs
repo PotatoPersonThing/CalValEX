@@ -513,6 +513,15 @@ namespace CalValEX
                 recipe.AddTile(TileID.LunarCraftingStation);
                 recipe.Register();
             }
+            {
+                Recipe recipe = Recipe.Create(ItemType<BurningEye>());
+                recipe.AddIngredient(CalValEX.CalamityItem("BrimstoneWaifuMask"));
+                recipe.AddIngredient(ItemType<BrimmyBody>());
+                recipe.AddIngredient(ItemType<BrimmySpirit>());
+                recipe.AddIngredient(CalValEX.CalamityItem("UnholyCore"), 5);
+                recipe.AddTile(TileID.MythrilAnvil);
+                recipe.Register();
+            }
             #endregion
 
             #region //Wings
