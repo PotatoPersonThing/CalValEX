@@ -1,7 +1,8 @@
 ﻿using CalamityMod.Rarities;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-
+using Terraria.UI.Gamepad;
 
 namespace CalValEX.CalamityID
 {
@@ -291,7 +292,10 @@ namespace CalValEX.CalamityID
         public static int AstralOrange;
         public override void PostSetupContent()
         {
-            AstralOrange = CalamityID.DustRelation("AstralOrange", DustID.AmberBolt);
+            if (!Main.dedServ)
+                AstralOrange = CalamityID.DustRelation("AstralOrange", DustID.AmberBolt);
+            else
+                AstralOrange = DustID.AmberBolt;
         }
     }
 }

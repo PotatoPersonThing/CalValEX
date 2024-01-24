@@ -1041,8 +1041,10 @@ namespace CalValEX
                         npc.GetGlobalNPC<CalValEXGlobalNPC>().geldonSummon = true;
                         if (!NPC.AnyNPCs(ModContent.NPCType<NPCs.TownPets.Slimes.AstroSlime>()))
                         {
-                            if (Main.netMode != NetmodeID.MultiplayerClient)                            
+                            if (Main.netMode != NetmodeID.MultiplayerClient)
+                            {
                                 NPC.NewNPC(npc.GetSource_FromThis(), (int)projectile.Center.X, (int)projectile.Center.Y, ModContent.NPCType<NPCs.TownPets.Slimes.AstroSlime>());
+                            }
                             if (!CalValEXWorld.astro)
                             {
                                 CalValEXWorld.astro = true;
