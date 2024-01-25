@@ -7,6 +7,10 @@ using static Terraria.ModLoader.ModContent;
 using System;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using Terraria.GameContent.ItemDropRules;
+using System.Linq;
+using Terraria.GameContent.Animations;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
@@ -26,6 +30,8 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
             TileObjectData.newTile.Origin = new Point16(0, 1);
+            TileObjectData.newTile.UsesCustomCanPlace = true;
+            TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(ModContent.GetInstance<SepulcherTubemanTE>().Hook_AfterPlacement, -1, 0, false);
             TileObjectData.addTile(Type);
         }
 
@@ -34,6 +40,10 @@ namespace CalValEX.Tiles.MiscFurniture
         public override void PlaceInWorld(int i, int j, Item item)
         {
             rotationbottom = -35;
+        }
+        public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
+        {
+            GetInstance<SepulcherTubemanTE>().Kill(i, j);
         }
 
         /*public override void RandomUpdate(int i, int j)
@@ -55,107 +65,6 @@ namespace CalValEX.Tiles.MiscFurniture
             Tile tile = Main.tile[i, j];
             if (tile.TileFrameX == 0 && tile.TileFrameY == 0)
             {
-                Player player = Main.LocalPlayer;
-                CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-
-                /*if (modPlayer.rockhat)
-                {
-                    if (rotationbottom == -30f)
-                    {
-                        Main.NewText("Absolute negative", Color.Orange.R, Color.Orange.G, Color.Orange.B);
-                    }
-                    if (rotationbottom == 30f)
-                    {
-                        Main.NewText("Absolute positive", Color.Orange.R, Color.Orange.G, Color.Orange.B);
-                    }
-                }
-
-                if (modPlayer.prismshell)
-                {
-                    if (rotationbottom == 0)
-                    {
-                        Main.NewText("Center", Color.Orange.R, Color.Orange.G, Color.Orange.B);
-                    }
-                }
-
-                if (modPlayer.conejo)
-                {
-                    rotationbottom = -30;
-                }
-                else if (modPlayer.aesthetic)
-                {
-                    rotationbottom = 30;
-                }
-                else if (modPlayer.classicTrans)
-                {
-                    rotationbottom = 0;
-                }*/
-
-                if (rotationbottom <= -30f)
-                {
-                    shittypostimer = true;
-                    shittynegatimer = false;
-                }
-                else if (rotationbottom >= 30f)
-                {
-                    shittypostimer = false;
-                    shittynegatimer = true;
-                }
-
-                if (shittypostimer)
-                {
-                    rotationbottom += 7;
-                }
-
-                if (shittynegatimer)
-                {
-                    rotationbottom -= 7;
-                }
-
-                //X offsets
-                //If rotationcounter = 30, x2 will = 6
-                //If rotationcounter = -30, x2 will = -6
-                //If rotationcounter = 0, y2 will = 0;
-                //This means left rotations will make it move left, and right rotations will make it move right.
-
-                float x1 = 28;
-                float x2 = rotationbottom / 5 + x1;
-                float x3 = rotationbottom / 3.75f + x1;
-                float x4 = rotationbottom / 3 + x1;
-                float x5 = rotationbottom / 2.5f + x1;
-                float x6 = rotationbottom / 2.14f + x1;
-                float x7 = rotationbottom / 1.875f + x1;
-                float xl = rotationbottom / 2.14f + x1;
-                float xr = rotationbottom / 2.14f + x1;
-
-                //If rotation counter = 30, navgar will be negative
-                //If rotation counter = - 30, navgar will be positive
-                //If rotation conuter = 0, navgar will be negative because lol 0
-
-                if (rotationbottom < 0)
-                {
-                    negavar = 1;
-                }
-                else
-                {
-                    negavar = -1;
-                }
-                //Y offsets. 
-                //If rotationcounter = 30, y2 will = 3
-                //If rotationcounter = -30, y2 will = 3
-                //If rotationcounter = 0, y2 will = 0
-                //This means that any rotation will cause the segments to go downwards, while going towards 0 makes it go up, giving a ^ effect to the motion
-
-                float y1 = 4;
-                float y2 = rotationbottom / 10 * negavar + y1;
-                float y3 = rotationbottom / 5 * negavar + y1;
-                float y4 = rotationbottom / 3.75f * negavar + y1;
-                float y5 = rotationbottom / 3 * negavar + y1;
-                float y6 = rotationbottom / 2.5f * negavar + y1;
-                float y7 = rotationbottom / 2.14f * negavar + y1;
-                float yl = rotationbottom / 2.5f * negavar + y1;
-                float yr = rotationbottom / 2.5f * negavar + y1;
-
                 //Sproots
 
                 Texture2D Seg1 = Request<Texture2D>("CalValEX/ExtraTextures/Sepulcher/SepulcherBottomOrb").Value;
@@ -165,109 +74,230 @@ namespace CalValEX.Tiles.MiscFurniture
                 Texture2D Seg5 = Request<Texture2D>("CalValEX/ExtraTextures/Sepulcher/SepulcherMiddleSegment").Value;
                 Texture2D Seg6 = Request<Texture2D>("CalValEX/ExtraTextures/Sepulcher/SepulcherTopOrb").Value;
                 Texture2D Seg7 = Request<Texture2D>("CalValEX/ExtraTextures/Sepulcher/SepulcherHead").Value;
-                Texture2D ArmL = Request<Texture2D>("CalValEX/ExtraTextures/Sepulcher/SepulcherLeftArm").Value;
                 Texture2D ArmR = Request<Texture2D>("CalValEX/ExtraTextures/Sepulcher/SepulcherRightArm").Value;
+                Texture2D ArmRU = Request<Texture2D>("CalValEX/ExtraTextures/Sepulcher/SepulcherRightArmUpper").Value;                
 
-                //Base positions
-
-                Vector2 zero = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
-                Vector2 position = new Vector2((i * 16) - 7 - Main.screenPosition.X, (j * 16) - 18 - Main.screenPosition.Y) + zero;
-
-                //Defining the sizes and stuff
-
-                Rectangle sourceRectangle1 = new(0, 0, Seg1.Width, Seg1.Height);
-                Vector2 origin1 = new(Seg1.Width, Seg1.Height);
-
-                Rectangle sourceRectangle2 = new(0, 0, Seg2.Width, Seg2.Height);
-                Vector2 origin2 = new(Seg2.Width, Seg2.Height);
-
-                Rectangle sourceRectangle3 = new(0, 0, Seg3.Width, Seg3.Height);
-                Vector2 origin3 = new(Seg1.Width, Seg3.Height);
-
-                Rectangle sourceRectangle4 = new(0, 0, Seg4.Width, Seg4.Height);
-                Vector2 origin4 = new(Seg1.Width, Seg4.Height);
-
-                Rectangle sourceRectangle7 = new(0, 0, Seg7.Width, Seg7.Height);
-                Vector2 origin7 = new(Seg7.Width, Seg7.Height);
-
-                Rectangle sourceRectangle5 = new(0, 0, Seg5.Width, Seg5.Height);
-                Vector2 origin5 = new(Seg5.Width, Seg5.Height);
-
-                Rectangle sourceRectangle6 = new(0, 0, Seg6.Width, Seg6.Height);
-                Vector2 origin6 = new(Seg6.Width, Seg6.Height);
-
-                Rectangle sourceRectanglel = new(0, 0, ArmL.Width, ArmL.Height);
-                Vector2 originl = new(ArmL.Width, ArmL.Height);
-
-                Rectangle sourceRectangler = new(0, 0, ArmR.Width, ArmR.Height);
-                Vector2 originr = new(ArmR.Width, ArmR.Height);
-
-                //Just the color and tile pos
-
-                Color color = Color.White;
-
-                //Positions. X positions are simply the main position with the dynamic x offset added
-                //Y positions add all previous segment heights + a few extra sometimes because lol offsets.
-                //Arms get larger x offsets due to arms
-
-                Vector2 position1 = new(position.X + x1, position.Y + 6 + y1);
-                Vector2 position2 = new(position.X + x2, position.Y - Seg1.Height + y2);
-                Vector2 position3 = new(position.X - 10 + x3, position.Y - Seg1.Height - Seg2.Height + y3);
-                Vector2 position4 = new(position.X + x4, position.Y - Seg1.Height - Seg2.Height - Seg3.Height + 6 + y4);
-                Vector2 position5 = new(position.X + x5, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height + 6 + y5);
-                Vector2 position6 = new(position.X + x6, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height + 9 + y6);
-                Vector2 position7 = new(position.X + x7, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height - Seg6.Height + 8 + y7);
-                Vector2 leftposition = new(position.X + xl - 25, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height + yl);
-                Vector2 rightposition = new(position.X + xr + 25, position.Y - Seg1.Height - Seg2.Height - Seg3.Height - Seg4.Height - Seg5.Height + yr);
-
-                //Prevent dividing by 0 errors. If rotation counter is not zero, then absolute value is 30 / 30 or - 30 / 30
-
-                if (Math.Abs(rotationbottom) != 0)
+                SepulcherTubemanTE cables = new SepulcherTubemanTE();
+                GetTEFromCoords(i, j + 1, out cables);
+                Vector2 weirdOffset = new Vector2(224, 176);
+                if (tile.TileFrameX == 0 && tile.TileFrameY == 0)
                 {
-                    abso = (rotationbottom / Math.Abs(rotationbottom));
-                }
-                else
-                {
-                    abso = 0.0001f;
-                }
+                    GetTEFromCoords(i, j + 1, out cables);
+                    if (cables != null)
+                    {
 
-                //Rotation of the segment is equal to the rotation counter with an added offset multiplied by negative of the direction. 
-                //Segment 2 for example would have 30 rotation at value 30 once we readd the offsets.
-		//These are all currently equal, but can be modified for future use
-                float rotationbottom1 = (rotationbottom) * 0.01f;
-                float rotationbottom2 = (rotationbottom) * 0.01f;
-                float rotationbottom3 = (rotationbottom) * 0.01f;
-                float rotationbottom4 = (rotationbottom) * 0.01f;
-                float rotationbottom5 = (rotationbottom) * 0.01f;
-                float rotationbottom6 = (rotationbottom) * 0.01f;
-                float rotationbottom7 = (rotationbottom) * 0.01f;
-                float rotationbottoml = (rotationbottom) * 0.01f;
-                float rotationbottomr = (rotationbottom) * 0.01f;
+                        if (cables.Segments != null)
+                        {
+                            for (int u = 0; u < cables.Segments.Count; u++)
+                            {
+                                VerletSimulatedSegment v = cables.Segments[u];
+                                float rot = u == 0 ? 0f : v.position.DirectionTo(cables.Segments[u - 1].position).ToRotation() - MathHelper.PiOver2;
+                                int ct = cables.Segments.Count;
+                                //Main.NewText(v.position);
+                                Texture2D s2u = Seg1;
+                                switch (u)
+                                {
+                                    case 0:
+                                        s2u = Seg1;
+                                        break;
+                                    case 1:
+                                        s2u = Seg2;
+                                        break;
+                                    case 2:
+                                    case 4:
+                                    case 6:
+                                        s2u = Seg3;
+                                        break;
+                                    case 3:
+                                    case 5:
+                                    case 7:
+                                        s2u = Seg4;
+                                        break;
+                                    case 8:
+                                        s2u = Seg5;
+                                        break;
+                                    case 9:
+                                        s2u = Seg6;
+                                        break;
+                                    case 10:
+                                        s2u = Seg7;
+                                        break;
 
+                                }
+                                Vector2 origine = new(s2u.Width / 2, s2u.Height);
+                                spriteBatch.Draw(s2u, v.position - Main.screenPosition - Vector2.UnitX * s2u.Width / 2 + weirdOffset, new(0, 0, s2u.Width, s2u.Height), Color.White, rot, origine, 1f, SpriteEffects.None, 0f);
+                            }
+                        }
+                        else
+                        {
+                            if (cables.Segments is null || cables.Segments.Count < 7)
+                            {
+                                cables.Segments = new List<VerletSimulatedSegment>();
+                                for (int jh = 0; jh < 7; ++jh)
+                                    cables.Segments.Add(new VerletSimulatedSegment(new Vector2((int)cables.Position.X * 16, (int)cables.Position.Y * 16), false));
+                            }
 
-                //if (!tile.halfBrick() && tile.slope() == 0)
-                {
-                    spriteBatch.End();
-                    spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied);
-                    spriteBatch.Draw(Seg1, position1, sourceRectangle1, color, rotationbottom1, origin1 / 2f, 1f, SpriteEffects.None, 0f);
+                            cables.Segments[0].oldPosition = cables.Segments[0].position;
+                            cables.Segments[0].position = new Vector2((int)cables.Position.X * 16, (int)cables.Position.Y * 16);
 
-                    spriteBatch.Draw(Seg2, position2, sourceRectangle2, color, rotationbottom2, origin2 / 2f, 1f, SpriteEffects.None, 0f);
-
-                    spriteBatch.Draw(Seg3, position3, sourceRectangle3, color, rotationbottom3, origin3 / 2f, 1f, SpriteEffects.None, 0f);
-
-                    spriteBatch.Draw(Seg4, position4, sourceRectangle4, color, rotationbottom4, origin4 / 2f, 1f, SpriteEffects.None, 0f);
-
-                    spriteBatch.Draw(Seg5, position5, sourceRectangle5, color, rotationbottom5, origin5 / 2f, 1f, SpriteEffects.None, 0f);
-
-                    spriteBatch.Draw(Seg6, position6, sourceRectangle6, color, rotationbottom6, origin6 / 2f, 1f, SpriteEffects.None, 0f);
-
-                    spriteBatch.Draw(Seg7, position7, sourceRectangle7, color, rotationbottom7, origin7 / 2f, 1f, SpriteEffects.None, 0);
-
-                    spriteBatch.Draw(ArmL, leftposition, sourceRectanglel, color, rotationbottoml, originl / 2f, 1f, SpriteEffects.None, 0f);
-
-                    spriteBatch.Draw(ArmR, rightposition, sourceRectangler, color, rotationbottomr, originr / 2f, 1f, SpriteEffects.None, 0f);
+                            cables.Segments = VerletSimulatedSegment.SimpleSimulation(cables.Segments, 20);
+                        }
+                        if (cables.ArmSegmentsL != null)
+                        {
+                            for (int u = 1; u < cables.ArmSegmentsL.Count; u++)
+                            {
+                                VerletSimulatedSegment v = cables.ArmSegmentsL[u];
+                                float rot = u == 0 ? 0f : v.position.DirectionTo(cables.ArmSegmentsL[u - 1].position).ToRotation() - MathHelper.PiOver2;
+                                Texture2D s2u = Seg1;
+                                switch (u)
+                                {
+                                    case 0:
+                                        s2u = Seg1;
+                                        break;
+                                    case 1:
+                                        s2u = ArmRU;
+                                        break;
+                                    case 2:
+                                        s2u = ArmR;
+                                        break;
+                                }
+                                Vector2 origine = new(0, s2u.Height / 2);
+                                spriteBatch.Draw(s2u, v.position - Main.screenPosition - Vector2.UnitX * s2u.Width / 2 + weirdOffset, new(0, 0, s2u.Width, s2u.Height), Color.White, rot, origine, 1f, SpriteEffects.None, 0f);
+                            }
+                        }
+                        if (cables.ArmSegmentsR != null)
+                        {
+                            for (int u = 1; u < cables.ArmSegmentsR.Count; u++)
+                            {
+                                VerletSimulatedSegment v = cables.ArmSegmentsR[u];
+                                float rot = u == 0 ? 0f : v.position.DirectionTo(cables.ArmSegmentsR[u - 1].position).ToRotation() - MathHelper.PiOver4;
+                                Texture2D s2u = Seg1;
+                                switch (u)
+                                {
+                                    case 0:
+                                        s2u = Seg1;
+                                        break;
+                                    case 1:
+                                        s2u = ArmRU;
+                                        break;
+                                    case 2:
+                                        s2u = ArmR;
+                                        break;
+                                }
+                                Vector2 origine = new(s2u.Width, s2u.Height / 2);
+                                spriteBatch.Draw(s2u, v.position - Main.screenPosition - Vector2.UnitX * s2u.Width / 2 + weirdOffset, new(0, 0, s2u.Width, s2u.Height), Color.White, rot, origine, 1f, SpriteEffects.FlipHorizontally, 0f);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Main.NewText("Cables was null");
+                    }
                 }
             }
+        }
+        public bool GetTEFromCoords(int i, int j, out SepulcherTubemanTE cable)
+        {
+            cable = new SepulcherTubemanTE();
+            //for (int k = 0; k <= TileEntity.ByPosition.Count; k++)
+            {
+                if (TileEntity.ByPosition[new Point16(i, j)] == null)
+                    return false;
+                if (TileEntity.ByPosition[new Point16(i, j)].type == ModContent.TileEntityType<SepulcherTubemanTE>())
+                {
+                    if (TileEntity.ByPosition[new Point16(i, j)].Position == new Point16(i, j))
+                    {
+                        cable = TileEntity.ByPosition[new Point16(i, j)] as SepulcherTubemanTE;
+                        return true;
+                    }
+                }
+            }
+            cable = new SepulcherTubemanTE();
+            return false;
+        }
+    }
+
+    public class SepulcherTubemanTE : ModTileEntity
+    {
+        public List<VerletSimulatedSegment> Segments;
+        public List<VerletSimulatedSegment> ArmSegmentsL;
+        public List<VerletSimulatedSegment> ArmSegmentsR;
+        public override bool IsTileValidForEntity(int x, int y)
+        {
+            Tile tile = Main.tile[x, y];
+            return tile.HasTile && tile.TileType == TileType<SePlaced>();
+        }
+        public override int Hook_AfterPlacement(int i, int j, int type, int style, int direction, int alternate)
+        {
+            TileObjectData tileData = TileObjectData.GetTileData(type, style, alternate);
+
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+            {
+                //Sync the entire multitile's area. 
+                NetMessage.SendTileSquare(Main.myPlayer, i, j, tileData.Width, tileData.Height);
+
+                //Sync the placement of the tile entity with other clients
+                NetMessage.SendData(MessageID.TileEntityPlacement, -1, -1, null, i, j, Type);
+
+                return -1;
+            }
+
+            int placedEntity = Place(i, j);
+
+            return placedEntity;
+        }
+
+        public override void OnNetPlace()
+        {
+            NetMessage.SendData(MessageID.TileEntitySharing, -1, -1, null, ID, Position.X, Position.Y);
+        }
+
+        public override void Update()
+        {
+            if (Segments is null || Segments.Count < 11)
+            {
+                Segments = new List<VerletSimulatedSegment>();
+                for (int i = 0; i < 11; ++i)
+                    Segments.Add(new VerletSimulatedSegment(new Vector2((int)Position.X * 16, (int)Position.Y * 16), false));
+            }
+            if (ArmSegmentsL is null || ArmSegmentsL.Count < 3)
+            {
+                ArmSegmentsL = new List<VerletSimulatedSegment>();
+                for (int i = 0; i < 3; ++i)
+                    ArmSegmentsL.Add(new VerletSimulatedSegment(new Vector2((int)Position.X * 16, (int)Position.Y * 16), false));
+            }
+            if (ArmSegmentsR is null || ArmSegmentsR.Count < 3)
+            {
+                ArmSegmentsR = new List<VerletSimulatedSegment>();
+                for (int i = 0; i < 3; ++i)
+                    ArmSegmentsR.Add(new VerletSimulatedSegment(new Vector2((int)Position.X * 16, (int)Position.Y * 16), false));
+            }
+
+            char numbo = Position.X.ToString()[(short)(Position.X.ToString().Length - 1)];
+            double num = char.GetNumericValue(numbo);
+            if (num < 4)
+            {
+                num += 4;
+            }
+            Main.windSpeedCurrent = 1;
+            Segments[Segments.Count - 7].oldPosition = Segments[Segments.Count - 7].position;
+            Segments[Segments.Count - 7].position = new Vector2(Position.X * 16, Position.Y * 16) + Vector2.UnitX * (float)Math.Sin(Main.GlobalTimeWrappedHourly * num) * 92 + Main.windSpeedCurrent * 100 * Vector2.UnitX - Vector2.UnitY * 140 + Vector2.UnitY * Math.Abs((float)Math.Cos(Main.GlobalTimeWrappedHourly * 6)) * 42;
+            Segments[0].locked = true;
+            Segments[0].oldPosition = Segments[0].position;
+            Segments[0].position = new Vector2((int)Position.X * 16, (int)Position.Y * 16);
+
+            ArmSegmentsL[0].locked = true;
+            ArmSegmentsR[0].locked = true;
+
+            ArmSegmentsL[0].oldPosition = Segments[Segments.Count - 5].oldPosition;
+            ArmSegmentsL[0].position = Segments[Segments.Count - 5].position;
+
+            ArmSegmentsR[0].oldPosition = Segments[Segments.Count - 5].oldPosition;
+            ArmSegmentsR[0].position = Segments[Segments.Count - 5].position;
+
+            Segments = VerletSimulatedSegment.SimpleSimulation(Segments, 16, loops: 22, gravity : - 0.9f);
+            ArmSegmentsR = VerletSimulatedSegment.SimpleSimulation(ArmSegmentsR, 30, loops: 10, gravity: -0.2f);
+            ArmSegmentsL = VerletSimulatedSegment.SimpleSimulation(ArmSegmentsL, 30, loops: 10, gravity: 0.2f);
         }
     }
 }
