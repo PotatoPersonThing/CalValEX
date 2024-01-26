@@ -1,4 +1,9 @@
+using CalamityMod;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -6,29 +11,20 @@ namespace CalValEX.Items.Dyes
 {
     public class BlightedAstralYellowDye : ModItem
     {
-        public override void SetStaticDefaults()
+        public override string Texture => "CalValEX/Items/Dyes/SulphuricDye";
+        public sealed override void SetStaticDefaults()
         {
-            Item.ResearchUnlockCount = 3;
+            if (!Main.dedServ)
+            {
+                GameShaders.Armor.BindShader(Type, new ArmorShaderData(new Ref<Effect>(Mod.Assets.Request<Effect>("Effects/BlightedYellowDye", AssetRequestMode.ImmediateLoad).Value), "DyePass").
+            UseColor(new Color(180, 23, 180)).UseSecondaryColor(new Color(180, 23, 222)).SetShaderTextureArmor(ModContent.Request<Texture2D>("CalValEX/ExtraTextures/BlobbyNoise", AssetRequestMode.ImmediateLoad)));
+            }
         }
-
-        public override void SetDefaults()
+        public sealed override void SetDefaults()
         {
             int dye = Item.dye;
             Item.CloneDefaults(ItemID.GelDye);
-            Item.width = 22;
-            Item.height = 26;
-            Item.value = Item.sellPrice(0, 0, 0, 5);
             Item.dye = dye;
         }
-
-        /*public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.BottledWater);
-            recipe.AddIngredient(ModContent.ItemType<Items.Tiles.Blocks.BlightedEggBlock>(), 3);
-            recipe.AddTile(TileID.DyeVat);
-            recipe.SetResult(this, 3);
-            recipe.AddRecipe();
-        }*/
     }
 }

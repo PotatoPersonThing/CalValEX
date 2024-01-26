@@ -529,13 +529,13 @@ Mods: {
 			}
 
 			BlighedAstralPinkDye: {
-				DisplayName: Blighted Astral Pink Dye
-				Tooltip: Unobtainable
+				DisplayName: Blighted Astral Purple Dye
+				Tooltip: ""
 			}
 
 			BlighedAstralYellowDye: {
 				DisplayName: Blighted Astral Yellow Dye
-				Tooltip: Unobtainable
+				Tooltip: ""
 			}
 
 			DraedonHologramDye: {

@@ -312,6 +312,20 @@ namespace CalValEX
                 recipe.AddTile(TileID.DyeVat);
                 recipe.Register();
             }
+            {
+                Recipe recipe = Recipe.Create(ItemType<BlightedAstralPinkDye>());
+                recipe.AddIngredient(ItemID.BottledWater);
+                recipe.AddIngredient(ItemType<AstralTreeWood>());
+                recipe.AddTile(TileID.DyeVat);
+                recipe.Register();
+            }
+            {
+                Recipe recipe = Recipe.Create(ItemType<BlightedAstralYellowDye>());
+                recipe.AddIngredient(ItemID.BottledWater);
+                recipe.AddIngredient(ItemType<AstralTreeWood>());
+                recipe.AddTile(TileID.DyeVat);
+                recipe.Register();
+            }
             #endregion
 
             #region //Backpacks
