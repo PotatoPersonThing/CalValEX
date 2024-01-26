@@ -31,7 +31,7 @@ namespace CalValEX.Tiles.MiscFurniture
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
             TileObjectData.newTile.Origin = new Point16(0, 1);
             TileObjectData.newTile.UsesCustomCanPlace = true;
-            TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(ModContent.GetInstance<SepulcherTubemanTE>().Hook_AfterPlacement, -1, 0, false);
+            TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(GetInstance<SepulcherTubemanTE>().Hook_AfterPlacement, -1, 0, false);
             TileObjectData.addTile(Type);
         }
 
@@ -203,7 +203,7 @@ namespace CalValEX.Tiles.MiscFurniture
             {
                 if (TileEntity.ByPosition[new Point16(i, j)] == null)
                     return false;
-                if (TileEntity.ByPosition[new Point16(i, j)].type == ModContent.TileEntityType<SepulcherTubemanTE>())
+                if (TileEntity.ByPosition[new Point16(i, j)].type == TileEntityType<SepulcherTubemanTE>())
                 {
                     if (TileEntity.ByPosition[new Point16(i, j)].Position == new Point16(i, j))
                     {

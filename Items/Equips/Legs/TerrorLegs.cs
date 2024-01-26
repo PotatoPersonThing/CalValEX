@@ -18,7 +18,7 @@ namespace CalValEX.Items.Equips.Legs
             Item.rare = CalamityID.CalRarityID.PureGreen;
             Item.vanity = true;
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Terraria.ID.ArmorIDs.Legs.Sets.OverridesLegs[Item.legSlot] = true;
+            ArmorIDs.Legs.Sets.OverridesLegs[Item.legSlot] = true;
         }
     }
 }

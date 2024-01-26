@@ -198,9 +198,9 @@ namespace CalValEX.Tiles.MiscFurniture
             if (ByID.Count != 0)
             for (int k = 0; k < ByID.Keys.Max(); k++)
             {
-                if (!TileEntity.ByID.ContainsKey(k))
+                if (!ByID.ContainsKey(k))
                     continue;
-                if (TileEntity.ByID[k] == null)
+                if (ByID[k] == null)
                     continue;
                 if (ByID[k].type != ModContent.TileEntityType<PolterCableTE>())
                     continue;

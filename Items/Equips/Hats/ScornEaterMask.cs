@@ -16,7 +16,7 @@ namespace CalValEX.Items.Equips.Hats
             Item.rare = ItemRarityID.Purple;
             Item.vanity = true;
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Terraria.ID.ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
     }
 }

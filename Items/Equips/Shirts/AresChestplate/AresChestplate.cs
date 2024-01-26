@@ -17,7 +17,7 @@ namespace CalValEX.Items.Equips.Shirts.AresChestplate
             Item.rare = CalamityID.CalRarityID.Violet;
             Item.vanity = true;
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Terraria.ID.ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = true;
+            ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = true;
         }
 
         public override void UpdateEquip(Player player)

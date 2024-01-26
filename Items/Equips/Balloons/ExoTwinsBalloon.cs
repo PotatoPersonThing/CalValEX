@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using CalValEX.Projectiles;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -24,6 +25,16 @@ namespace CalValEX.Items.Equips.Balloons
         public override void UpdateEquip(Player player)
         {
             player.GetModPlayer<CalValEXPlayer>().twinballoon = true;
+            if (player.ownedProjectileCounts[ModContent.ProjectileType<ArtemisBalloonProj>()] <= 0 && player.whoAmI == Main.myPlayer)
+            {
+                Projectile.NewProjectile(player.GetSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                    0, 0, ModContent.ProjectileType<ArtemisBalloonProj>(), 0, 0f, player.whoAmI);
+            }
+            if (player.ownedProjectileCounts[ModContent.ProjectileType<ApolloBalloonProj>()] <= 0 && player.whoAmI == Main.myPlayer)
+            {
+                Projectile.NewProjectile(player.GetSource_Accessory(Item), player.position.X + player.width / 2, player.position.Y + player.height / 2,
+                    0, 0, ModContent.ProjectileType<ApolloBalloonProj>(), 0, 0f, player.whoAmI);
+            }
         }
 
         public override void UpdateVanity(Player player)

@@ -19,7 +19,7 @@ namespace CalValEX.Items.Equips.Legs
             Item.rare = CalamityID.CalRarityID.Turquoise;
             Item.accessory = true;
             Item.vanity = true;
-            Terraria.ID.ArmorIDs.Legs.Sets.OverridesLegs[Item.legSlot] = true;
+            ArmorIDs.Legs.Sets.OverridesLegs[Item.legSlot] = true;
         }
     }
 }

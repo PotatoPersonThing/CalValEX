@@ -16,6 +16,7 @@ using CalValEX.Items.Equips.Shirts;
 using CalValEX.Items.Equips.Wings;
 using CalValEX.Items.Mounts.Ground;
 using CalamityMod.Particles;
+using CalValEX.Projectiles;
 
 namespace CalValEX
 {
@@ -408,13 +409,39 @@ namespace CalValEX
                     sartballoon = true;
                 } else if (item.type == ItemType<ApolloBalloonSmall>()) {
                     sapballoon = true;
-                } else if (item.type == ItemType<ApolloBalloon>()) {
+                } else if (item.type == ItemType<ApolloBalloon>())
+                {
                     apballoon = true;
-                } else if (item.type == ItemType<ArtemisBalloon>()) {
+                    if (Player.ownedProjectileCounts[ProjectileType<ApolloBalloonProj>()] <= 0 && Player.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
+                            0, 0, ProjectileType<ApolloBalloonProj>(), 0, 0f, Player.whoAmI);
+                    }
+                }
+                else if (item.type == ItemType<ArtemisBalloon>()) 
+                {
                     artballoon = true;
-                } else if (item.type == ItemType<ExoTwinsBalloon>()) {
-                    twinballoon = true;
-                } else if (item.type == ItemType<WulfrumHelipack>()) {
+                    if (Player.ownedProjectileCounts[ProjectileType<ArtemisBalloonProj>()] <= 0 && Player.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
+                            0, 0, ProjectileType<ArtemisBalloonProj>(), 0, 0f, Player.whoAmI);
+                    }
+                } else if (item.type == ItemType<ExoTwinsBalloon>())
+                {
+                    artballoon = true;
+                    if (Player.ownedProjectileCounts[ProjectileType<ArtemisBalloonProj>()] <= 0 && Player.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
+                            0, 0, ProjectileType<ArtemisBalloonProj>(), 0, 0f, Player.whoAmI);
+                    }
+                    apballoon = true;
+                    if (Player.ownedProjectileCounts[ProjectileType<ApolloBalloonProj>()] <= 0 && Player.whoAmI == Main.myPlayer)
+                    {
+                        Projectile.NewProjectile(Player.GetSource_Accessory(item), Player.position.X + Player.width / 2, Player.position.Y + Player.height / 2,
+                            0, 0, ProjectileType<ApolloBalloonProj>(), 0, 0f, Player.whoAmI);
+                    }
+                } 
+                else if (item.type == ItemType<WulfrumHelipack>()) {
                     helipack = true;
                 }
             }

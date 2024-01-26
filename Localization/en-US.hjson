@@ -5058,6 +5058,8 @@ Mods: {
 			GoozmaPlush.DisplayName: Goozma Plush
 			OmegaCultistCandle.DisplayName: Omega Cultist
 			OmegaCultistTrident.DisplayName: Omega Cultist
+			ArtemisBalloonProj.DisplayName: Artemis Balloon Proj
+			ApolloBalloonProj.DisplayName: Apollo Balloon Proj
 		}
 
 		Tiles: {
