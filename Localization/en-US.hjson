@@ -3996,7 +3996,7 @@ Mods: {
 
 			ModIconPainting: {
 				DisplayName: Calamity's Vanities
-				Tooltip: "'IbanPlay and Starr'"
+				Tooltip: "'IbanPlay and Enamoured'"
 			}
 
 			NotLikeHome: {
@@ -5060,6 +5060,7 @@ Mods: {
 			OmegaCultistTrident.DisplayName: Omega Cultist
 			ArtemisBalloonProj.DisplayName: Artemis Balloon Proj
 			ApolloBalloonProj.DisplayName: Apollo Balloon Proj
+			ScalPet.DisplayName: Scal Pet
 		}
 
 		Tiles: {
