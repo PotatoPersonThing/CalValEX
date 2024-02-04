@@ -21,6 +21,9 @@ namespace CalValEX.Tiles.AstralBlocks
             HitSound = SoundID.Item50;
             TileID.Sets.IcesSnow[Type] = true;
             TileID.Sets.ChecksForMerge[Type] = true;
+            Main.tileMerge[Type][ModContent.TileType<AstralIcePlaced>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<AstralDirtPlaced>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<AstralGrassPlaced>()] = true;
         }
 
         /*public override void ChangeWaterfallStyle(ref int style)

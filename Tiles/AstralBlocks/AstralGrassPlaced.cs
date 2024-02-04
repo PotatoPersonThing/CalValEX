@@ -22,6 +22,7 @@ namespace CalValEX.Tiles.AstralBlocks
             TileID.Sets.Conversion.Grass[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
             TileID.Sets.NeedsGrassFramingDirt[Type] = ModContent.TileType<AstralDirtPlaced>();
+            Main.tileMerge[Type][ModContent.TileType<AstralDirtPlaced>()] = true;
 
         }
         public override void NumDust(int i, int j, bool fail, ref int num)

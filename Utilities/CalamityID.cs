@@ -1,4 +1,4 @@
-﻿using CalamityMod.Rarities;
+﻿using CalValEX.Rarities;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

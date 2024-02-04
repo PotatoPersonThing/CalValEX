@@ -1,7 +1,7 @@
-using CalamityMod;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using System.Reflection;
 using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -25,6 +25,16 @@ namespace CalValEX.Items.Dyes
             int dye = Item.dye;
             Item.CloneDefaults(ItemID.GelDye);
             Item.dye = dye;
+        }
+    }
+    public static class ImDying
+    {
+        internal static readonly FieldInfo UImageFieldArmor = typeof(ArmorShaderData).GetField("_uImage", BindingFlags.NonPublic | BindingFlags.Instance);
+
+        public static ArmorShaderData SetShaderTextureArmor(this ArmorShaderData shader, Asset<Texture2D> texture)
+        {
+            UImageFieldArmor.SetValue(shader, texture);
+            return shader;
         }
     }
 }

@@ -24,6 +24,9 @@ namespace CalValEX.Tiles.AstralBlocks
             TileID.Sets.IcesSnow[Type] = true;
             TileID.Sets.ChecksForMerge[Type] = true;
             TileID.Sets.Conversion.Ice[Type] = true;
+            Main.tileMerge[Type][ModContent.TileType<AstralSnowPlaced>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<AstralDirtPlaced>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<AstralGrassPlaced>()] = true;
         }
 
         /*public override void ChangeWaterfallStyle(ref int style)

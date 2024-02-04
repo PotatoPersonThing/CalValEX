@@ -19,6 +19,9 @@ namespace CalValEX.Tiles.AstralBlocks
             DustType = ModContent.DustType<AstralDust>();
             //ItemDrop = ModContent.ItemType<AstralSandstone>();
             AddMapEntry(new Color(78, 45, 91));
+            Main.tileMerge[Type][ModContent.TileType<AstralSandPlaced>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<AstralHardenedSandPlaced>()] = true;
+            Main.tileMerge[Type][ModContent.TileType<XenostonePlaced>()] = true;
         }
         public override void NumDust(int i, int j, bool fail, ref int num)
         {
