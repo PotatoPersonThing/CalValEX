@@ -4770,12 +4770,12 @@ Mods: {
 
 			GoozmaPlush: {
 				Tooltip: ""
-				DisplayName: Goozma Plush
+				DisplayName: Goozma Plush (Placeable)
 			}
 
 			GoozmaPlushThrowable: {
-				Tooltip: ""
-				DisplayName: Goozma Plush Throwable
+				Tooltip: Can be thrown
+				DisplayName: Goozma Plushie (Throwable)
 			}
 
 			Aeroplate: {
