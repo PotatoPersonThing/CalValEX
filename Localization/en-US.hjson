@@ -3891,7 +3891,7 @@ Mods: {
 
 			AccidentalAbominationn: {
 				DisplayName: Accidental Abomination
-				Tooltip: "'Mathew Maple'"
+				Tooltip: "'Maple'"
 			}
 
 			BlazingConflict: {
@@ -3905,7 +3905,7 @@ Mods: {
 
 			CalamiteaTime: {
 				DisplayName: Calamitea Time
-				Tooltip: Original by 'caligulas,' repainted by 'Mathew Maple'
+				Tooltip: Original by 'caligulas,' repainted by 'Maple'
 			}
 
 			CalamityFriends: {
@@ -3948,17 +3948,17 @@ Mods: {
 
 			DarkMagic: {
 				DisplayName: Dark Magic
-				Tooltip: "'Mathew Maple'"
+				Tooltip: "'Maple'"
 			}
 
 			DraedonPopcorn: {
 				DisplayName: The Mechanical Gamer
-				Tooltip: "'Mathew Maple'"
+				Tooltip: "'Maple'"
 			}
 
 			Duality: {
 				DisplayName: Duality
-				Tooltip: "'Mathew Maple'"
+				Tooltip: "'Maple'"
 			}
 
 			Espelho: {
@@ -3973,7 +3973,7 @@ Mods: {
 
 			Frozen: {
 				DisplayName: Frozen
-				Tooltip: "'Mathew Maple'"
+				Tooltip: "'Maple'"
 			}
 
 			GallusYharus: {
@@ -3990,7 +3990,7 @@ Mods: {
 				Tooltip:
 					'''
 					'Lost and Afraid'
-					'Mathew Maple'
+					'Maple'
 					'''
 			}
 
@@ -4004,7 +4004,7 @@ Mods: {
 				Tooltip:
 					'''
 					'Friends!'
-					'Mathew Maple'
+					'Maple'
 					'''
 			}
 
@@ -4039,14 +4039,14 @@ Mods: {
 				DisplayName: Rogue Extractor
 				Tooltip:
 					'''
-					'Mathew Maple'
+					'Maple'
 
 					'''
 			}
 
 			Scourgy: {
 				DisplayName: Scourgy
-				Tooltip: "'Mathew Maple'"
+				Tooltip: "'Maple'"
 			}
 
 			Signut: {
@@ -4060,27 +4060,27 @@ Mods: {
 
 			SleepingGiant: {
 				DisplayName: Sleeping Behemoth
-				Tooltip: "'Mathew Maple'"
+				Tooltip: "'Maple'"
 			}
 
 			Snouts: {
 				DisplayName: Snouts
-				Tooltip: "'Mathew Maple'"
+				Tooltip: "'Maple'"
 			}
 
 			SundayAfternoon: {
 				DisplayName: A Sunday Afternoon in the World of Calamity
-				Tooltip: "'Mathew Maple'"
+				Tooltip: "'Maple'"
 			}
 
 			SwearingShroom: {
 				DisplayName: Angry Shroom
-				Tooltip: "'Mathew Maple'"
+				Tooltip: "'Maple'"
 			}
 
 			TheGreatSandworm: {
 				DisplayName: The Great Sandworm
-				Tooltip: "'Mathew Maple'"
+				Tooltip: "'Maple'"
 			}
 
 			TheYhar: {
@@ -4121,7 +4121,7 @@ Mods: {
 				Tooltip:
 					'''
 					'One day...'
-					'Mathew Maple'
+					'Maple'
 					'''
 			}
 

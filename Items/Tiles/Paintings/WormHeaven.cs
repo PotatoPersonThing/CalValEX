@@ -8,7 +8,7 @@ namespace CalValEX.Items.Tiles.Paintings
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Worm to the Heavens");
-            // Tooltip.SetDefault("'Mathew Maple'\nOne day...");
+            // Tooltip.SetDefault("'Maple'\nOne day...");
             Item.ResearchUnlockCount = 1;
         }
 

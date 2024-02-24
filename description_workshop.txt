@@ -17,6 +17,6 @@ Currently adds the following:
 [*] A large amount of vanity clothing, hats, and accessories
 [/olist]
 
-Sprite Credits: Kawaggy, Poddy, Blockaroz, William, YuH, Yharex87, TimerFun, caligulasAquarium, Krysmun, IbanPlay, Willowmaine, Enreden, Gamagamer64, L0st, Cooper, RyanLolz1, Vectix, Mochi, Leon, NnickykunN, Dorira, VinniSauce, Tobias, Mathew, Ramen Guy, Criss, Nitro, YeH, F-3R, Sok, Triangle, Drædon Gaming, Rocketlauncher269, PokerFace, ImitableBeetle6, and MrPlague
+Sprite Credits: Kawaggy, Poddy, Blockaroz, William, YuH, Yharex87, TimerFun, caligulasAquarium, Krysmun, IbanPlay, Willowmaine, Enreden, Gamagamer64, L0st, Cooper, RyanLolz1, Vectix, Mochi, Leon, NnickykunN, Dorira, VinniSauce, Tobias, Maple, Ramen Guy, Criss, Nitro, YeH, F-3R, Sok, Triangle, Drædon Gaming, Rocketlauncher269, PokerFace, ImitableBeetle6, Scorn, z_e_n_, chromaticalblight, habibi, and MrPlague
 Music Credits: Heart Plus Up! and apotofkoolaid
-Code Credits: Potato Person, Kawaggy, nalyddd, Hypera, Phupperbat, Seraph, Stevie, Dominic Karma, IbanPlay, Willowmaine, Drædon Gaming
+Code Credits: Potato Person, Kawaggy, Hypera, Phupperbat, Seraph, Stevie, Dominic Karma, IbanPlay, Willowmaine, Drædon Gaming

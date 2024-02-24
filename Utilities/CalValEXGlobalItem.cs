@@ -328,7 +328,7 @@ namespace CalValEX
                 new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Tess"))),
                 new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Enreden"))),
                 new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Iban", "IbanPlay", "IBlockaroz"))),
-                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Mathew", "Mathew Maple", "Maple"))),
+                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Maple", "Maple", "Maple"))),
                 new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Emerald", "EmeraldXLapis"))),
                 new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Yharex87", "Yharex"))),
                 new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Scarfy", "ScarfyScout", "Krysmun", "DodoNation", "Dodo"))),

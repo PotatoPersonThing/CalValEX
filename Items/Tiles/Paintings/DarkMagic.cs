@@ -8,7 +8,7 @@ namespace CalValEX.Items.Tiles.Paintings
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Dark Magic");
-            // Tooltip.SetDefault("'Mathew Maple'");
+            // Tooltip.SetDefault("'Maple'");
             Item.ResearchUnlockCount = 1;
         }
 

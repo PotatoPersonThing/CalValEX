@@ -10,7 +10,7 @@ namespace CalValEX.Items.Tiles.Paintings
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Calamitea Time");
-            // Tooltip.SetDefault("Original by 'caligulas,' sprite by 'Mathew Maple'");
+            // Tooltip.SetDefault("Original by 'caligulas,' sprite by 'Maple'");
             Item.ResearchUnlockCount = 1;
         }
 
