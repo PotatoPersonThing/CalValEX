@@ -5,6 +5,7 @@ using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ObjectData;
+using Terraria.GameContent.Metadata;
 
 namespace CalValEX.Tiles.AstralMisc
 {
@@ -31,6 +32,7 @@ namespace CalValEX.Tiles.AstralMisc
             TileObjectData.newTile.RandomStyleRange = 21;
             TileObjectData.addTile(Type);
             HitSound = SoundID.Grass;
+            TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Plant"]);
         }
     }
 }

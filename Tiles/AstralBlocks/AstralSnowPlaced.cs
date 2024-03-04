@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using CalValEX.Dusts;
+using Terraria.GameContent.Metadata;
 
 namespace CalValEX.Tiles.AstralBlocks
 {
@@ -21,6 +22,7 @@ namespace CalValEX.Tiles.AstralBlocks
             HitSound = SoundID.Item50;
             TileID.Sets.IcesSnow[Type] = true;
             TileID.Sets.ChecksForMerge[Type] = true;
+            TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Snow"]);
             Main.tileMerge[Type][ModContent.TileType<AstralIcePlaced>()] = true;
             Main.tileMerge[Type][ModContent.TileType<AstralDirtPlaced>()] = true;
             Main.tileMerge[Type][ModContent.TileType<AstralGrassPlaced>()] = true;

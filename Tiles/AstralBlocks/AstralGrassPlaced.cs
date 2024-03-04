@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Dusts;
 using CalValEX.Tiles.AstralMisc;
+using Terraria.GameContent.Metadata;
 
 namespace CalValEX.Tiles.AstralBlocks
 {
@@ -17,6 +18,7 @@ namespace CalValEX.Tiles.AstralBlocks
             Main.tileBrick[Type] = true;
             //ItemDrop = ModContent.ItemType<AstralDirt>();
             DustType = ModContent.DustType<AstralSolutionDust>();
+            TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Grass"]);
             AddMapEntry(new Color(252, 88, 252));
             TileID.Sets.Grass[Type] = true;
             TileID.Sets.Conversion.Grass[Type] = true;

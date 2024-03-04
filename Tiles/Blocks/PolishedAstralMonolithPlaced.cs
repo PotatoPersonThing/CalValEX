@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.Metadata;
 using Terraria.ModLoader;
 
 namespace CalValEX.Tiles.Blocks
@@ -17,6 +18,7 @@ namespace CalValEX.Tiles.Blocks
             //DustType = calamityMod.DustType("AstralBlue");
             AddMapEntry(new Color(260, 42, 24));
             Main.tileBlendAll[this.Type] = true;
+            TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Wood"]);
         }
     }
 }

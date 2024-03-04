@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.GameContent.Metadata;
 
 namespace CalValEX.Tiles.Blocks
 {
@@ -16,6 +17,7 @@ namespace CalValEX.Tiles.Blocks
             AddMapEntry(new Color(19, 24, 27));
             Main.tileBlendAll[this.Type] = true;
             HitSound = SoundID.Item154;
+            TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Sticky"]);
         }
     }
 }

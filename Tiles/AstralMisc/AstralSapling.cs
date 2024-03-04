@@ -8,6 +8,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Tiles.AstralBlocks;
+using Terraria.GameContent.Metadata;
 
 namespace CalValEX.Tiles.AstralMisc
 {
@@ -38,8 +39,9 @@ namespace CalValEX.Tiles.AstralMisc
 			TileObjectData.newSubTile.CopyFrom(TileObjectData.newTile);
 			TileObjectData.addSubTile(1);
 			TileObjectData.addTile(Type);
+            TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Plant"]);
 
-			LocalizedText name = CreateMapEntryName();
+            LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Blighted Astral Sapling");
 			AddMapEntry(new Color(200, 200, 200), name);
 

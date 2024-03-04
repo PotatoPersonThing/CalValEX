@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using CalValEX.Dusts;
+using Terraria.GameContent.Metadata;
 
 namespace CalValEX.Tiles.AstralBlocks
 {
@@ -15,6 +16,7 @@ namespace CalValEX.Tiles.AstralBlocks
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
+            TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Dirt"]);
             //ItemDrop = ModContent.ItemType<AstralDirt>();
             DustType = ModContent.DustType<AstralDust>();
             AddMapEntry(new Color(40, 0, 50));

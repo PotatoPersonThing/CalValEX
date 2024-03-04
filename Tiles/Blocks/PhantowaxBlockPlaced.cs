@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.Metadata;
 using Terraria.ModLoader;
 
 namespace CalValEX.Tiles.Blocks
@@ -14,6 +15,7 @@ namespace CalValEX.Tiles.Blocks
             Main.tileLighted[Type] = true;
             //ItemDrop = ModContent.ItemType<PhantowaxBlock>();
             AddMapEntry(new Color(94, 39, 93));
+            TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Sticky"]);
         }
     }
 }

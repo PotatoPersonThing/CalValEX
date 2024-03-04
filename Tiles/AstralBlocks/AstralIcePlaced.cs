@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using CalValEX.Dusts;
+using Terraria.GameContent.Metadata;
 
 namespace CalValEX.Tiles.AstralBlocks
 {
@@ -24,6 +25,7 @@ namespace CalValEX.Tiles.AstralBlocks
             TileID.Sets.IcesSnow[Type] = true;
             TileID.Sets.ChecksForMerge[Type] = true;
             TileID.Sets.Conversion.Ice[Type] = true;
+            TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Ice"]);
             Main.tileMerge[Type][ModContent.TileType<AstralSnowPlaced>()] = true;
             Main.tileMerge[Type][ModContent.TileType<AstralDirtPlaced>()] = true;
             Main.tileMerge[Type][ModContent.TileType<AstralGrassPlaced>()] = true;

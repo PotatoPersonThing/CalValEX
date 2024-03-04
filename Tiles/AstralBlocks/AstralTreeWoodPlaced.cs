@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.Metadata;
 using Terraria.ModLoader;
 
 namespace CalValEX.Tiles.AstralBlocks
@@ -13,6 +14,7 @@ namespace CalValEX.Tiles.AstralBlocks
             //ItemDrop = ModContent.ItemType<AstralTreeWood>();
             AddMapEntry(new Color(78, 45, 91));
             AnimationFrameHeight = 90;
+            TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Wood"]);
         }
 
         private readonly int AnimationFrameWidth = 234;

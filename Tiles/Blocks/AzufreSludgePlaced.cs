@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.Metadata;
 using Terraria.ModLoader;
 
 namespace CalValEX.Tiles.Blocks
@@ -15,6 +16,7 @@ namespace CalValEX.Tiles.Blocks
             //ItemDrop = ModContent.ItemType<AzufreSludge>();
             AddMapEntry(new Color(242, 202, 39));
             DustType = 75;
+            TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Sticky"]);
         }
     }
 }

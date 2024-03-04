@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 using CalValEX.Dusts;
 using CalValEX.Projectiles;
 using Terraria.DataStructures;
+using Terraria.GameContent.Metadata;
 
 namespace CalValEX.Tiles.AstralBlocks
 {
@@ -25,8 +26,9 @@ namespace CalValEX.Tiles.AstralBlocks
 			TileID.Sets.ForAdvancedCollision.ForSandshark[Type] = true;
 			TileID.Sets.Falling[Type] = true;
 			AddMapEntry(new Color(104, 127, 164));
-			//ItemDrop = ModContent.ItemType<AstralSand>();
-			TileID.Sets.CanBeDugByShovel[Type] = true;
+            TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Sand"]);
+            //ItemDrop = ModContent.ItemType<AstralSand>();
+            TileID.Sets.CanBeDugByShovel[Type] = true;
             Main.tileMerge[Type][ModContent.TileType<AstralHardenedSandPlaced>()] = true;
             Main.tileMerge[Type][ModContent.TileType<AstralSandstonePlaced>()] = true;
         }

@@ -8,6 +8,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using CalValEX.Tiles.AstralBlocks;
+using Terraria.GameContent.Metadata;
 
 namespace CalValEX.Tiles.AstralMisc
 {
@@ -45,7 +46,8 @@ namespace CalValEX.Tiles.AstralMisc
 			AddMapEntry(new Color(200, 200, 200), name);
 
 			AdjTiles = new int[] { TileID.Saplings };
-		}
+            TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Plant"]);
+        }
 
 		public override void NumDust(int i, int j, bool fail, ref int num) => num = fail ? 1 : 3;
 

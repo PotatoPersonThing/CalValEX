@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using CalValEX.Dusts;
+using Terraria.GameContent.Metadata;
 
 namespace CalValEX.Tiles.AstralBlocks
 {
@@ -17,6 +18,7 @@ namespace CalValEX.Tiles.AstralBlocks
             DustType = ModContent.DustType<AstralDust>();
             AddMapEntry(new Color(271, 49, 42));
             Main.tileBlendAll[this.Type] = true;
+            TileMaterials.SetForTileId(Type, TileMaterials._materialsByName["Wood"]);
         }
 
        /* public override void ChangeWaterfallStyle(ref int style)
