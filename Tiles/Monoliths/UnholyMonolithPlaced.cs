@@ -22,8 +22,9 @@ namespace CalValEX.Tiles.Monoliths
             AddMapEntry(new Color(75, 139, 166));
             DustType = 1;
             AnimationFrameHeight = 54;
-            
+
             //AdjTiles = new int[] { TileID.LunarMonolith };
+            RegisterItemDrop(ModContent.ItemType<UnholyMonolith>());
         }
         
         private bool providenceon;

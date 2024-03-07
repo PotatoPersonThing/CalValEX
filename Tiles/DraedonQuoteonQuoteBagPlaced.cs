@@ -22,6 +22,10 @@ namespace CalValEX.Tiles
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Draedon Box");
             AddMapEntry(new Color(249, 119, 48), name);
+            if (CalValEX.CalamityActive)
+            {
+                RegisterItemDrop(CalamityID.CalItemID.DraedonBox);
+            }
         }
     }
 }

@@ -6,6 +6,8 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.DataStructures;
+using Terraria.Enums;
 
 namespace CalValEX.Tiles.FurnitureSets.Auric
 {
@@ -22,6 +24,7 @@ namespace CalValEX.Tiles.FurnitureSets.Auric
             TileObjectData.newTile.Width = 3;
             TileObjectData.newTile.Height = 3;
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 18 }; //
+            TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, 1, 1);
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
             

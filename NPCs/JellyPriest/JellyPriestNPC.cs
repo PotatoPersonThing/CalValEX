@@ -537,11 +537,14 @@ namespace CalValEX.NPCs.JellyPriest
 
         public override void HitEffect(NPC.HitInfo hit)
         {
-            /*if (NPC.life <= 0)
+            /*if (Main.netMode == NetmodeID.Server)
+                return;
+
+            if (NPC.life <= 0)
             {
-                Gore.NewGore(NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/JellyPriest"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, mod.GetGoreSlot("Gores/JellyPriest2"), 1f);
-                Gore.NewGore(NPC.position, NPC.velocity, mod.GetGoreSlot("Gores/JellyPriest3"), 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("JellyPriest").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("JellyPriest2").Type, 1f);
+                Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("JellyPriest3").Type, 1f);
             }*/
         }
         public override void SendExtraAI(BinaryWriter writer)

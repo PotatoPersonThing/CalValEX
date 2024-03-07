@@ -22,6 +22,10 @@ namespace CalValEX.Tiles
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Treasure Coffer");
             AddMapEntry(new Color(249, 119, 48), name);
+            if (CalValEX.CalamityActive)
+            {
+                RegisterItemDrop(CalamityID.CalItemID.SupremeCalamitasCoffer);
+            }
         }
     }
 }

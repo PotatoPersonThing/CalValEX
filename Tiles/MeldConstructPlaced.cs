@@ -20,6 +20,10 @@ namespace CalValEX.Tiles
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
             TileObjectData.newTile.CoordinateHeights = new[] { 16 };
             AddMapEntry(new Color(70, 45, 45));
+            if (CalValEX.CalamityActive)
+            {
+                RegisterItemDrop(CalamityID.CalItemID.MeldConstruct);
+            }
         }
     }
 }

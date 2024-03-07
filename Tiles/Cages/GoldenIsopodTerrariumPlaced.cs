@@ -1,4 +1,6 @@
 using Terraria;
+using Terraria.DataStructures;
+using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -17,6 +19,7 @@ namespace CalValEX.Tiles.Cages
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
             TileObjectData.newTile.Width = 6;
             TileObjectData.newTile.Height = 3;
+            TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, 6, 0);
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16 }; //
 
             AnimationFrameHeight = 58;

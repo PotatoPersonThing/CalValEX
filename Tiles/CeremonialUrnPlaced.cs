@@ -23,6 +23,10 @@ namespace CalValEX.Tiles
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Ceremonial Urn");
             AddMapEntry(new Color(255, 0, 251), name);
+            if (CalValEX.CalamityActive)
+            {
+                RegisterItemDrop(CalamityID.CalItemID.CeremonialUrn);
+            }
         }
     }
 }

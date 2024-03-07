@@ -468,6 +468,8 @@ namespace CalValEX.NPCs.Oracle
 
         public override void HitEffect(NPC.HitInfo hit)
         {
+            if (Main.netMode == NetmodeID.Server)
+                return;
             if (NPC.life <= 0)
             {
                 Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, NPC.velocity, Mod.Find<ModGore>("OracleNPC").Type, 1f);

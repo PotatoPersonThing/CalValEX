@@ -24,6 +24,7 @@ namespace CalValEX.Tiles.Monoliths
             AnimationFrameHeight = 56;
             
             AdjTiles = new int[] { TileID.LunarMonolith };
+            RegisterItemDrop(ModContent.ItemType<AquaticMonolith>());
         }
 
         public override void AnimateTile(ref int frame, ref int frameCounter)

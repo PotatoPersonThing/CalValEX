@@ -1,5 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using CalamityMod.Items.TreasureBags.MiscGrabBags;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Tiles.Blocks
@@ -13,8 +16,12 @@ namespace CalValEX.Tiles.Blocks
             Main.tileBlockLight[Type] = true;
             Main.tileLighted[Type] = true;
             AddMapEntry(new Color(0, 76, 82));
-            RegisterItemDrop(Terraria.ID.ItemID.HoneyBlock);
+            RegisterItemDrop(Terraria.ID.ItemID.Hive); // fuck you you're useless and don't work god f
             DustType = 214;
+        }
+        public override IEnumerable<Item> GetItemDrops(int i, int j)
+        {
+            yield return new Item(ItemID.Hive);
         }
     }
 }

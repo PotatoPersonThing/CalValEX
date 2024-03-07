@@ -26,6 +26,7 @@ namespace CalValEX.Tiles.Monoliths
             AnimationFrameHeight = 90;
             
             AdjTiles = new int[] { TileID.LunarMonolith };
+            RegisterItemDrop(ModContent.ItemType<DimensionalMonolith>());
         }
 
 

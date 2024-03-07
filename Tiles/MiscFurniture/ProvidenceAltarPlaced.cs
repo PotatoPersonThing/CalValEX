@@ -8,6 +8,8 @@ using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Tiles;
 using System;
+using Terraria.DataStructures;
+using Terraria.Enums;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
@@ -19,10 +21,11 @@ namespace CalValEX.Tiles.MiscFurniture
             Main.tileLighted[Type] = false;
             TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileLavaDeath[Type] = false;
-            Main.tileFrameImportant[Type] = true;
-            TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3);
+            TileObjectData.newTile.Width = 4;
+            TileObjectData.newTile.Height = 4;
+            TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, 4, 0);
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16 }; //
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
             AddMapEntry(new Color(0, 255, 200), name);
@@ -37,7 +40,7 @@ namespace CalValEX.Tiles.MiscFurniture
                 Rectangle sourceRectangle = new(0, 0, auraTexture.Width, auraTexture.Height);
                 Vector2 zero = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
                 int rem = i % 12; // add some variance
-                Vector2 position = new Vector2((i * 16) + 16 - Main.screenPosition.X, (j * 16) - 48 - (float)Math.Sin(Main.GlobalTimeWrappedHourly * 2) * 8 + (float)Math.Sin(Main.GlobalTimeWrappedHourly + rem) * 2 - Main.screenPosition.Y) + zero;
+                Vector2 position = new Vector2((i * 16) + 32 - Main.screenPosition.X, (j * 16) - 42 - (float)Math.Sin(Main.GlobalTimeWrappedHourly * 2) * 8 + (float)Math.Sin(Main.GlobalTimeWrappedHourly + rem) * 2 - Main.screenPosition.Y) + zero;
                 Color color = Color.White;
                 Vector2 origin = new(auraTexture.Width, auraTexture.Height);
 
