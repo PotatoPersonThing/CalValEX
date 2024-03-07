@@ -91,10 +91,7 @@ namespace CalValEX
                     case ProjectileID.CorruptSpray:
                         VoidConvert((int)(proj.position.X + proj.width / 2) / 16, (int)(proj.position.Y + proj.height / 2) / 16, 2);
                         break;
-
                 }
-                if (CalValEX.CalamityActive && proj.type == CalProjectileID.AstralSpray)
-                    InfectionConvert((int)(proj.position.X + proj.width / 2) / 16, (int)(proj.position.Y + proj.height / 2) / 16, 2);
             }
 
 		}
