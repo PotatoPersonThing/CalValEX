@@ -76,39 +76,41 @@ namespace CalValEX.CalamityID
         #endregion
 
         #region Bosses
-        public static int DesertScourge ;// => CalamityID.NPCRelation("DesertScourgeHead", NPCID.EyeofCthulhu);
-        public static int Crabulon ;// => CalamityID.NPCRelation("Crabulon", NPCID.BrainofCthulhu);
-        public static int HiveMind ;// => CalamityID.NPCRelation("HiveMind", NPCID.EaterofWorldsHead);
-        public static int Perforators ;// => CalamityID.NPCRelation("PerforatorHive", NPCID.BrainofCthulhu);
-        public static int SlimeGod ;// => CalamityID.NPCRelation("SlimeGodCore", NPCID.SkeletronHead);
-        public static int Cryogen ;// => CalamityID.NPCRelation("Cryogen", NPCID.TheDestroyer);
-        public static int AquaticScourge ;// => CalamityID.NPCRelation("AquaticScourgeHead", NPCID.Spazmatism);
-        public static int BrimstoneElemental ;// => CalamityID.NPCRelation("BrimstoneElemental", NPCID.SkeletronPrime);
-        public static int CalamitasClone ;// => CalamityID.NPCRelation("CalamitasClone", NPCID.Retinazer);
-        public static int Anahita ;// => CalamityID.NPCRelation("Anahita", NPCID.Plantera);
-        public static int Leviathan ;// => CalamityID.NPCRelation("Leviathan", NPCID.Plantera);
-        public static int AstrumAureus ;// => CalamityID.NPCRelation("AstrumAureus", NPCID.Plantera);
-        public static int PlaguebringerGoliath ;// => CalamityID.NPCRelation("PlaguebringerGoliath", NPCID.Golem);
-        public static int Ravager ;// => CalamityID.NPCRelation("RavagerBody", NPCID.Golem);
-        public static int AstrumDeus ;// => CalamityID.NPCRelation("AstrumDeusHead", NPCID.CultistBoss);
-        public static int GuardianCommander ;// => CalamityID.NPCRelation("ProfanedGuardianCommander", NPCID.QueenSlimeBoss);
-        public static int GuardianHealer ;// => CalamityID.NPCRelation("ProfanedGuardianHealer", NPCID.QueenSlimeBoss);
-        public static int GuardianDefender ;// => CalamityID.NPCRelation("ProfanedGuardianDefender", NPCID.QueenSlimeBoss);
-        public static int Bumblebirb ;// => CalamityID.NPCRelation("Bumblefuck", NPCID.DD2Betsy);
-        public static int Providence ;// => CalamityID.NPCRelation("Providence", NPCID.HallowBoss);
-        public static int StormWeaver ;// => CalamityID.NPCRelation("StormWeaverHead", NPCID.TheDestroyer);
-        public static int CeaselessVoid ;// => CalamityID.NPCRelation("CeaselessVoid", NPCID.Spazmatism);
-        public static int Signus ;// => CalamityID.NPCRelation("Signus", NPCID.SkeletronPrime);
-        public static int Polterghast ;// => CalamityID.NPCRelation("Polterghast", NPCID.Plantera);
-        public static int OldDuke ;// => CalamityID.NPCRelation("OldDuke", NPCID.DukeFishron);
-        public static int DevourerofGods ;// => CalamityID.NPCRelation("DevourerofGodsHead", NPCID.MoonLordCore);
-        public static int Yharon ;// => CalamityID.NPCRelation("Yharon", NPCID.DukeFishron);
-        public static int Ares ;// => CalamityID.NPCRelation("AresBody", NPCID.SkeletronPrime);
-        public static int Apollo ;// => CalamityID.NPCRelation("Apollo", NPCID.Spazmatism);
-        public static int Artemis ;// => CalamityID.NPCRelation("Artemis", NPCID.Retinazer);
-        public static int Thanatos ;// => CalamityID.NPCRelation("ThanatosHead", NPCID.TheDestroyer);
-        public static int SupremeCalamitas ;// => CalamityID.NPCRelation("SupremeCalamitas", NPCID.CultistBoss);
-        public static int PrimordialWyrm ;// => CalamityID.NPCRelation("PrimordialWyrmHead", NPCID.MoonLordCore);
+        public static int DesertScourge;
+        public static int Crabulon;
+        public static int HiveMind;
+        public static int Perforators;
+        public static int SlimeGod;
+        public static int Cryogen;
+        public static int AquaticScourge;
+        public static int BrimstoneElemental;
+        public static int CalamitasClone;
+        public static int Anahita;
+        public static int Leviathan;
+        public static int AstrumAureus;
+        public static int PlaguebringerGoliath;
+        public static int Ravager;
+        public static int AstrumDeus;
+        public static int AstrumDeusBody;
+        public static int AstrumDeusTail;
+        public static int GuardianCommander;
+        public static int GuardianHealer;
+        public static int GuardianDefender;
+        public static int Bumblebirb;
+        public static int Providence;
+        public static int StormWeaver;
+        public static int CeaselessVoid;
+        public static int Signus;
+        public static int Polterghast;
+        public static int OldDuke;
+        public static int DevourerofGods;
+        public static int Yharon;
+        public static int Ares;
+        public static int Apollo;
+        public static int Artemis;
+        public static int Thanatos;
+        public static int SupremeCalamitas;
+        public static int PrimordialWyrm;
         #endregion
 
         public static int WITCH;
@@ -136,6 +138,8 @@ namespace CalValEX.CalamityID
             PlaguebringerGoliath = CalamityID.NPCRelation("PlaguebringerGoliath", NPCID.Golem);
             Ravager = CalamityID.NPCRelation("RavagerBody", NPCID.Golem);
             AstrumDeus = CalamityID.NPCRelation("AstrumDeusHead", NPCID.CultistBoss);
+            AstrumDeusBody = CalamityID.NPCRelation("AstrumDeusBody", NPCID.CultistBoss);
+            AstrumDeusTail = CalamityID.NPCRelation("AstrumDeusTail", NPCID.CultistBoss);
             GuardianCommander = CalamityID.NPCRelation("ProfanedGuardianCommander", NPCID.QueenSlimeBoss);
             GuardianHealer = CalamityID.NPCRelation("ProfanedGuardianHealer", NPCID.QueenSlimeBoss);
             GuardianDefender = CalamityID.NPCRelation("ProfanedGuardianDefender", NPCID.QueenSlimeBoss);
@@ -275,6 +279,8 @@ namespace CalValEX.CalamityID
         public static int BabyFolly;
         public static int TitaniumShuriken;
         public static int WulfrumDroid;
+        public static int AstralSpray;
+        public static int BrimstoneMonster;
         public override void PostSetupContent()
         {
             MeldFlames = CalamityID.ProjectileRelation("CosmicFire", ProjectileID.VortexBeaterRocket);
@@ -285,6 +291,8 @@ namespace CalValEX.CalamityID
             BabyFolly = CalamityID.ProjectileRelation("MiniatureFolly", ProjectileID.RocketFireworkRed);
             WulfrumDroid = CalamityID.ProjectileRelation("WulfrumDroid", ProjectileID.UFOMinion);
             TitaniumShuriken = CalamityID.ProjectileRelation("TitaniumShurikenProjectile", ProjectileID.Shuriken);
+            AstralSpray = CalamityID.ProjectileRelation("AstralSpray", -1);
+            BrimstoneMonster = CalamityID.ProjectileRelation("BrimstoneMonster", -1);
         }
     }
     public class CalDustID : ModSystem
@@ -296,6 +304,30 @@ namespace CalValEX.CalamityID
                 AstralOrange = CalamityID.DustRelation("AstralOrange", DustID.AmberBolt);
             else
                 AstralOrange = DustID.AmberBolt;
+        }
+    }
+    public class CalTileID : ModSystem
+    {
+        public static int AstralMonolith;
+        public static int AstralGrass;
+        public static int AstralDirt;
+        public static int AstralClay;
+        public static int AstralSnow;
+        public override void PostSetupContent()
+        {
+            AstralMonolith = CalamityID.TileRelation("AstralMonolith", -1);
+            AstralGrass = CalamityID.TileRelation("AstralGrass", -1);
+            AstralDirt = CalamityID.TileRelation("AstralDirt", -1);
+            AstralClay = CalamityID.TileRelation("AstralClay", -1);
+            AstralSnow = CalamityID.TileRelation("AstralSnow", -1);
+        }
+    }
+    public class CalWallID : ModSystem
+    {
+        public static int AstralDirtWall;
+        public override void PostSetupContent()
+        {
+            AstralDirtWall = CalamityID.WallRelation("AstralDirtWall", -1);
         }
     }
 }
