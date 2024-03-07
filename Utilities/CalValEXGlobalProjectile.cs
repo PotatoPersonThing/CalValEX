@@ -43,6 +43,15 @@ namespace CalValEX
             }
             return true;
         }
+        public override bool PreAI(Projectile proj)
+        {
+            if (proj.owner == Main.myPlayer)
+            {
+                if (CalValEX.CalamityActive && proj.type == CalProjectileID.AstralSpray)
+                    InfectionConvert((int)(proj.position.X + proj.width / 2) / 16, (int)(proj.position.Y + proj.height / 2) / 16, 2);
+            }
+            return true;
+        }
 
         public override void AI(Projectile proj)
         {
@@ -166,7 +175,7 @@ namespace CalValEX
 				if (t.TileType == initialtype)
 				{
 					Main.tile[k, l].TileType = (ushort)finaltype;
-					WorldGen.SquareWallFrame(k, l, true);
+					WorldGen.SquareTileFrame(k, l, true);
 					NetMessage.SendTileSquare(-1, k, l, 1);
 				}
 			}
