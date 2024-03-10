@@ -1,10 +1,15 @@
-﻿using Microsoft.Xna.Framework;
+﻿using CalamityMod.Items.Potions.Alcohol;
+using CalValEX.CalamityID;
+using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.GameContent.Achievements;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
+using static Terraria.Player;
 
 namespace CalValEX.NPCs.TownPets.Slimes
 {
@@ -13,6 +18,123 @@ namespace CalValEX.NPCs.TownPets.Slimes
     [AutoloadHead]
     public class AstroSlime : ModNPC {
         public static double spawnTime = double.MaxValue;
+        public override void Load()
+        {
+            // Adjust the player's position to make it look like they're actually patting the wider shorter slimes
+            Terraria.On_Player.ItemCheck_ApplyHoldStyle_Inner += PetSlime;
+            Terraria.On_Player.PetAnimal += PetSlime2;
+            Terraria.On_Player.UpdatePettingAnimal += PetSlime3;
+        }
+
+        public static void PetSlime(Terraria.On_Player.orig_ItemCheck_ApplyHoldStyle_Inner orig, Player p, float mountOffset, Item sItem, Rectangle heldItemFrame)
+        {
+            if (p.isPettingAnimal && (p.TalkNPC?.type == ModContent.NPCType<AstroSlime>() || p.TalkNPC?.type == ModContent.NPCType<NinjaSlime>()))
+            {
+                int counter = p.miscCounter % 14 / 7;
+                CompositeArmStretchAmount stretch = CompositeArmStretchAmount.ThreeQuarters;
+                if (counter == 1)
+                {
+                    stretch = CompositeArmStretchAmount.Full;
+                }
+                p.SetCompositeArmBack(enabled: true, stretch, (float)Math.PI * -2f * 0.18f * (float)p.direction);
+            }
+            else
+            {
+                orig(p, mountOffset, sItem, heldItemFrame);
+            }
+        }
+        public static void PetSlime2(Terraria.On_Player.orig_PetAnimal orig, Player p, int npc)
+        {
+            if (p.TalkNPC?.type == ModContent.NPCType<AstroSlime>() || p.TalkNPC?.type == ModContent.NPCType<NinjaSlime>())
+            {
+                int targetDirection = (p.TalkNPC.Center.X > p.Center.X) ? 1 : (-1);
+                Vector2 playerPositionWhenPetting = Main.npc[p.talkNPC].Bottom + new Vector2(-targetDirection * 30, 0f);
+                playerPositionWhenPetting = playerPositionWhenPetting.Floor();
+                if (p.talkNPC == -1)
+                {
+                    return;
+                }
+                int dirtoplayer = System.Math.Sign(p.TalkNPC.Center.X - p.Center.X);
+                if (p.controlLeft || p.controlRight || p.controlUp || p.controlDown || p.controlJump || p.pulley || p.mount.Active || dirtoplayer != p.direction)
+                {
+                    return;
+                }
+                Vector2 offset = playerPositionWhenPetting - p.Bottom;
+                bool cansnaptopos = p.CanSnapToPosition(offset);
+                if (cansnaptopos && !WorldGen.SolidTileAllowBottomSlope((int)playerPositionWhenPetting.X / 16, (int)playerPositionWhenPetting.Y / 16))
+                {
+                    cansnaptopos = false;
+                }
+                if (!cansnaptopos)
+                {
+                    return;
+                }
+                if (p.isPettingAnimal && p.Bottom == playerPositionWhenPetting)
+                {
+                    p.isPettingAnimal = false;
+                    p.isTheAnimalBeingPetSmall = false;
+                    return;
+                }
+                p.StopVanityActions();
+                p.RemoveAllGrapplingHooks();
+                if (p.mount.Active)
+                {
+                   p.mount.Dismount(p);
+                }
+                p.Bottom = playerPositionWhenPetting;
+                p.ChangeDir(targetDirection);
+                p.isPettingAnimal = true;
+                p.isTheAnimalBeingPetSmall = true;
+                p.velocity = Vector2.Zero;
+                p.gravDir = 1f;
+                if (p.whoAmI == Main.myPlayer)
+                {
+                    AchievementsHelper.HandleSpecialEvent(p, 21);
+                }
+                return;
+            }
+            else
+            {
+                orig(p, npc);
+            }
+        }
+
+        public static void PetSlime3(Terraria.On_Player.orig_UpdatePettingAnimal orig, Player p)
+        {
+            if (p.TalkNPC?.type == ModContent.NPCType<AstroSlime>() || p.TalkNPC?.type == ModContent.NPCType<NinjaSlime>())
+            {
+                if (!p.isPettingAnimal)
+                {
+                    return;
+                }
+                if (p.talkNPC == -1)
+                {
+                    p.isPettingAnimal = false;
+                    p.isTheAnimalBeingPetSmall = false;
+                    return;
+                }
+                int playerdir = Math.Sign(Main.npc[p.talkNPC].Center.X - p.Center.X);
+                int targetDirection = (p.TalkNPC.Center.X > p.Center.X) ? 1 : (-1);
+                Vector2 playerPositionWhenPetting = Main.npc[p.talkNPC].Bottom + new Vector2(-targetDirection * 30, 0f);
+                playerPositionWhenPetting = playerPositionWhenPetting.Floor();
+                if (p.controlLeft || p.controlRight || p.controlUp || p.controlDown || p.controlJump || p.pulley || p.mount.Active || playerdir != p.direction)
+                {
+                    p.isPettingAnimal = false;
+                    p.isTheAnimalBeingPetSmall = false;
+                    return;
+                }
+                if (p.Bottom.Distance(playerPositionWhenPetting) > 2f)
+                {
+                    p.isPettingAnimal = false;
+                    p.isTheAnimalBeingPetSmall = false;
+                }
+            }
+            else
+            {
+                orig(p);
+            }
+        }
+
         public override void SetStaticDefaults() {
             Main.npcFrameCount[Type] = 14;
             NPCID.Sets.ExtraFramesCount[Type] = 0;
@@ -49,87 +171,12 @@ namespace CalValEX.NPCs.TownPets.Slimes
         };
         public override List<string> SetNPCNameList() => PossibleNames;
 
-        /*public int Frame(int firstFrame, int lastFrame, int speed) {
-            frameCounter++;
-            if (frameCounter > speed) {
-                frameCounter = 0;
-                frame++;
-                if (frame > lastFrame)
-                    frame = firstFrame;
-            }
-
-            return frame;
-        }*/
-        public override void SetChatButtons(ref string button, ref string button2)
-        {
-            //button = "";
-        }
-
-        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
-        {
-        }
-
         public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */ {
             return CalValEXWorld.astro;
         }
 
-        public override void AI() {
-            Player player = Main.player[Main.myPlayer];
-            if (player.talkNPC > -1 && Main.npc[player.talkNPC].type == Type)
-            {
-                int targetDirection = (NPC.Center.X > player.Center.X) ? 1 : (-1);
-                Vector2 playerPositionWhenPetting2 = (NPC.Bottom + new Vector2((float)(-targetDirection * 30), 0f)).Floor();
-                if (player.talkNPC == -1)
-                {
-                    return;
-                }
-                int num = System.Math.Sign(NPC.Center.X - player.Center.X);
-                if (player.controlLeft || player.controlRight || player.controlUp || player.controlDown || player.controlJump || player.pulley || player.mount.Active || num != player.direction)
-                {
-                    return;
-                }
-                /*if (player.Bottom.Distance(playerPositionWhenPetting2) > 31f)
-                {
-                    return;
-                }*/
-                Vector2 offset = playerPositionWhenPetting2 - player.Bottom;
-                bool flag = player.CanSnapToPosition(offset);
-                if (flag && !WorldGen.SolidTileAllowBottomSlope((int)playerPositionWhenPetting2.X / 16, (int)playerPositionWhenPetting2.Y / 16))
-                {
-                    flag = false;
-                }
-                if (!flag)
-                {
-                    return;
-                }
-                player.StopVanityActions();
-                player.RemoveAllGrapplingHooks();
-                if (player.mount.Active)
-                {
-                    player.mount.Dismount(player);
-                }
-                player.Bottom = playerPositionWhenPetting2;
-                player.ChangeDir(targetDirection);
-                player.velocity = Vector2.Zero;
-                player.gravDir = 1f;
-                if (player.whoAmI == Main.myPlayer)
-                {
-                    Terraria.GameContent.Achievements.AchievementsHelper.HandleSpecialEvent(player, 21);
-                }
-                int num17 = player.miscCounter % 14 / 7;
-                Player.CompositeArmStretchAmount stretch11 = Player.CompositeArmStretchAmount.ThreeQuarters;
-                if (num17 == 1)
-                {
-                    stretch11 = Player.CompositeArmStretchAmount.Full;
-                }
-                float num16 = 0.1f;
-                if (player.isTheAnimalBeingPetSmall)
-                {
-                    num16 = 0.1f;
-                }
-                player.SetCompositeArmBack(enabled: true, stretch11, MathHelper.Pi * -2f * num16 * (float)player.direction);
-            }
-
+        public override void AI() 
+        {
             NPC.position.X = MathHelper.Clamp(NPC.position.X, 150f, Main.maxTilesX * 16f - 150f);
             NPC.position.Y = MathHelper.Clamp(NPC.position.Y, 150f, Main.maxTilesY * 16f - 150f);
             if (!CalValEXWorld.astro)
@@ -142,7 +189,7 @@ namespace CalValEX.NPCs.TownPets.Slimes
         {
             if (CalValEX.CalamityActive)
             {
-                if (attacker.type == CalValEX.CalamityNPC("AstrumAureus") || attacker.type == CalValEX.CalamityNPC("AureusSpawn"))
+                if (attacker.type == CalNPCID.AstrumAureus || attacker.type == CalValEX.CalamityNPC("AureusSpawn"))
                 {
                     return false;
                 }
