@@ -46,7 +46,6 @@ using CalValEX.Tiles.FurnitureSets.Auric;
 using CalValEX.Tiles.Plants;
 using System.Collections.Generic;
 using System.Linq;
-//using CalamityMod.CustomRecipes;
 using static Terraria.ModLoader.ModContent;
 
 namespace CalValEX
@@ -1095,6 +1094,14 @@ namespace CalValEX
                 recipe.AddIngredient(CalValEX.CalamityItem("WulfrumMetalScrap"));
                 recipe.AddIngredient(ItemID.StoneBlock, 50);
                 recipe.AddTile(TileID.Anvils);
+                recipe.Register();
+            }
+            {
+                Recipe recipe = Recipe.Create(ItemType<Booger>(), 50);
+                recipe.AddIngredient(CalValEX.CalamityItem("GrandMarquisBait"));
+                recipe.AddIngredient(ItemID.StoneBlock, 50);
+                recipe.AddTile(TileID.Anvils);
+                recipe.DisableDecraft();
                 recipe.Register();
             }
             #endregion

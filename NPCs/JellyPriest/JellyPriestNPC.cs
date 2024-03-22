@@ -330,6 +330,7 @@ namespace CalValEX.NPCs.JellyPriest
             shopEntries.Add(("Blocks1", CalValEX.CalamityItem("SmoothNavystone"), Item.buyPrice(0, 0, 2, 5), clam, ""));
             shopEntries.Add(("Blocks1", CalValEX.CalamityItem("AbyssGravel"), Item.buyPrice(0, 0, 2, 5), Condition.DownedSkeletron, ""));
             shopEntries.Add(("Blocks1", CalValEX.CalamityItem("StatigelBlock"), Item.buyPrice(0, 0, 3, 5), sg, ""));
+            shopEntries.Add(("Blocks1", ItemType<Booger>(), Item.buyPrice(0, 0, 10, 0), new Condition("Lots of angler quests", () => Main.LocalPlayer.anglerQuestsFinished > 22), ""));
             shopEntries.Add(("Blocks1", ItemType<Aeroplate>(), Item.buyPrice(0, 0, 5, 0), Condition.Hardmode, ""));
             shopEntries.Add(("Blocks1", ItemType<AstralGrass>(), Item.buyPrice(0, 0, 0, 10), Condition.Hardmode, ""));
             shopEntries.Add(("Blocks1", CalValEX.CalamityItem("AstralMonolith"), Item.buyPrice(0, 0, 2, 5), Condition.Hardmode, ""));

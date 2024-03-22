@@ -1922,7 +1922,7 @@ Mods: {
 			}
 
 			JaredPlushThrowable: {
-				DisplayName: Eidolon Wyrm Plushie (Throwable)
+				DisplayName: Primordial Wyrm Plushie (Throwable)
 				Tooltip: Can be thrown
 			}
 
@@ -4350,7 +4350,7 @@ Mods: {
 			}
 
 			JaredPlush: {
-				DisplayName: Eidolon Wyrm Plushie (Placeable)
+				DisplayName: Primordial Wyrm Plushie (Placeable)
 				Tooltip: Master drop
 			}
 
@@ -4811,6 +4811,11 @@ Mods: {
 			PolterRemoteChainer: {
 				DisplayName: Polter Remote Chainer
 				Tooltip: ""
+			}
+
+			Booger: {
+				DisplayName: Grand Marquis Block
+				Tooltip: "'Booger'"
 			}
 		}
 
