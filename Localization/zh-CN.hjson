@@ -1922,7 +1922,7 @@ Mods: {
 			}
 
 			JaredPlushThrowable: {
-				DisplayName: 幻海妖龙毛绒玩具（可投掷）
+				DisplayName: 始源妖龙毛绒玩具（可投掷）
 				Tooltip: 可以扔出去
 			}
 
@@ -4350,7 +4350,7 @@ Mods: {
 			}
 
 			JaredPlush: {
-				DisplayName: 幻海妖龙毛绒玩具 （可放置）
+				DisplayName: 始源妖龙毛绒玩具 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
@@ -4812,7 +4812,12 @@ Mods: {
 				DisplayName: 幽魂远链
 				Tooltip: ""
 			}
-		}
+
+			Booger: {
+				DisplayName: 尊爵砖
+				Tooltip: "'嗝~~'"
+			}
+                  }
 
 		Projectiles: {
 			# Meldosaurus stuff
