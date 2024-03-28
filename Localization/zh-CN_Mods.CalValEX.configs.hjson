@@ -1,0 +1,29 @@
+# 本文件包含了所有模组配置的翻译文本。
+
+CalValExConfig: {
+	DisplayName: 模组配置
+	DropsGen_L: 禁用物品掉落
+	DropsGen_T: 使模组所有物品无法直接掉落
+
+	DisableVanityDrops: {
+		Label: 禁用虚荣掉落
+		Tooltip: 使所有虚荣模组中的物品无法直接掉落
+	}
+
+	DropsBlock_L: 禁用Boss砖块掉落
+	DropsBlock_T: 使所有Boss及其宝藏袋不再掉落砖块
+
+	ConfigBossBlocks: {
+		Label: 禁用Boss砖块掉落
+		Tooltip: 使所有Boss及其宝藏袋不再掉落砖块
+	}
+
+	Headers: {
+		DropsHeaderAmongus: 掉落物
+		PetsHeader: 宠物
+		NPCsHeader: NPC
+		VanityHeader: 虚荣召唤物
+		MiscHeader: 其他
+		ConfigHeader: 模组配置
+	}
+}
