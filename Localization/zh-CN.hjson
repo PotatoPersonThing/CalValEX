@@ -17,12 +17,12 @@ Mods: {
 					LoveBiome: 我喜欢闻蘑菇的味道！
 					DislikeBiome: 呱啊啊啊啊啊啊啊哇哇哇哇哇哇哇哇哇，把我从这弄出去！
 					HateBiome: 我讨厌这海洋中存在的东西！它一直在朝我尖叫！
-					LikeNPC: 我一直都想成为一名海盗，而{NPCName}是一位很好的导师！
-					LoveNPC: “{NPCName}让我想起了我的母亲，我爱她！啊，母亲……”
-					DislikeNPC: 我拒绝向{NPCName}纳税，这个邪恶的东西！
+					LikeNPC: 我一直都想成为一名海盗，而 {NPCName} 是一位很好的导师！
+					LoveNPC: "{NPCName} 让我想起了我的母亲，我爱她！啊，母亲……"
+					DislikeNPC: 我拒绝向 {NPCName} 纳税，这个邪恶的东西！
 					HateNPC: 哦不不不，把那个婊——我是说女巫，让她离我远点！
-					LikeNPC_Princess: 杰瑞姆认为{NPCName}是杰瑞姆族的一个有价值的盟友。
-					Princess_LovesNPC: “{NPCName}真是蠢到家了。”
+					LikeNPC_Princess: 杰瑞姆认为 {NPCName} 是杰瑞姆族的一个有价值的盟友。
+					Princess_LovesNPC: "{NPCName} 真是蠢到家了。"
 					HateCrowded: 我讨厌这里，这也太挤了。
 				}
 
@@ -64,7 +64,7 @@ Mods: {
 				}
 
 				ChatButtons0: 商店
-				ChatButtons1: “商店”
+				ChatButtons1: "商店 "
 				ChatButtons2: 切换商店
 				ChatButtons3: 召唤
 				ButtonClicked1: 你把我唤醒了……现在，是时候该付出代价了……
@@ -115,16 +115,16 @@ Mods: {
 					FarFromHome: 请带我回家，在这我可能会受伤。
 					DislikeCrowded: 这里的人太多了，我的雕像可能会被人打坏。
 					HateCrowded: 我不能在这里好好的创作。这里太嘈杂了，我的东西被搞得到处都是！
-					LoveBiome: {BiomeName}非常不错，我能感觉到一个温暖的存在……也许女神就住在这里……
-					LikeBiome: 安静祥和的地方，在{BiomeName}中，创作永远不会出错。
+					LoveBiome: "{BiomeName} 非常不错，我能感觉到一个温暖的存在……也许女神就住在这里……"
+					LikeBiome: 安静祥和的地方，在 {BiomeName} 中，创作永远不会出错。
 					DislikeBiome: 这里酷热难耐，我想女神不会愿意到这种地方来。
 					HateBiome: 这里有可怕的怪物，有他们在周围游荡时我无法创作任何东西！
-					LikeNPC: “{NPCName}能和我共赏艺术之美，他们的品味很不错。”
-					DislikeNPC: “{NPCName}的火药太可怕了，我担心他哪天就把我的植物炸了！”
-					LikeNPC_Princess: “{NPCName}有一些漂亮的饰品，我喜欢她的风格。”
-					Princess_LovesNPC: “{NPCName}似乎和我差不多，我们都卖漂亮的装饰品，希望她没有看到任何竞争！”
-					LoveNPC: 我喜欢{NPCName}。
-					HateNPC: 我讨厌{NPCName}。
+					LikeNPC: "{NPCName} 能和我共赏艺术之美，他们的品味很不错。"
+					DislikeNPC: "{NPCName} 的火药太可怕了，我担心他哪天就把我的植物炸了！"
+					LikeNPC_Princess: "{NPCName} 有一些漂亮的饰品，我喜欢她的风格。"
+					Princess_LovesNPC: "{NPCName} 似乎和我差不多，我们都卖漂亮的装饰品，希望她没有看到任何竞争！"
+					LoveNPC: 我喜欢 {NPCName} 。
+					HateNPC: 我讨厌 {NPCName} 。
 				}
 
 				Chat: {
@@ -186,16 +186,16 @@ Mods: {
 					FarFromHome: 我们离家实在是太远了，T.U.B好像不太舒服。
 					DislikeCrowded: 这里太喧闹了让我有点不舒服——我的小家伙们都没有空间落脚了。
 					HateCrowded: 这么多人，T.U.B都被吓坏了！
-					LikeBiome: {BiomeName} 是一个很好、很和平的地方，适合我和我的小家伙们安顿下来。
-					DislikeBiome: {BiomeName} 对于我的大部分小家伙们来说并不是一个很适合的地方。
+					LikeBiome: 对于我和我的小伙伴来说，{BiomeName}是一个落脚的好地方。
+					DislikeBiome: 对于我的大多数小伙伴来说，{BiomeName}并不是一个合适的地方。
 					HateBiome: 这些怪物很令人担忧，我认为T.U.B在这很不安全。
-					LikeNPC: “{NPCName} 非常棒。她和T.U.B是好朋友。”
-					DislikeNPC: “{NPCName} 是一个令人讨厌的家伙，为了好玩而猎杀小动物，什么恶趣味！”
-					LikeNPC_Princess: “{NPCName} 似乎在动物中很受欢迎，她带来了一种和谐的氛围。”
+					LikeNPC: "{NPCName} 非常棒。她和T.U.B是好朋友。"
+					DislikeNPC: "{NPCName} 是一个令人讨厌的家伙，为了好玩而猎杀小动物，什么恶趣味！"
+					LikeNPC_Princess: "{NPCName} 似乎在动物中很受欢迎，她带来了一种和谐的氛围。"
 					Princess_LovesNPC: 我喜欢冷静的 {NPCName} 。她的小T.U.B也很可爱！
-					LoveBiome: 我喜欢{BiomeName}.
-					LoveNPC: 我喜欢{NPCName}.
-					HateNPC: 我讨厌{NPCName}.
+					LoveBiome: 我喜欢 {BiomeName} 。
+					LoveNPC: 我喜欢 {NPCName} 。
+					HateNPC: 我讨厌 {NPCName} 。
 				}
 				
                 Chat: {
