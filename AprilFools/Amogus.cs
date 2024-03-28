@@ -315,24 +315,24 @@ namespace CalValEX.AprilFools
                         }
                         if (deathcounter == 300)
                         {
-                            EdgyTalk("等等等等等等等等一下", Color.White, true);
+                            EdgyTalk("HOOOOOOOOOOOOOOOOLD UP", Color.White, true);
                         }
                         if (deathcounter == 420)
                         {
-                            EdgyTalk("现在不是四月，我怎么会在这？", Color.White, true);
+                            EdgyTalk("This isn't April... why am I here...", Color.White, true);
                         }
                         if (deathcounter == 540)
                         {
-                            EdgyTalk("难道是……有人在作弊？还是一个冒名的顶替者？", Color.White, true);
+                            EdgyTalk("Could it be that... Someone has been cheating!? AN IMPOSTER EVEN?!?!?!", Color.White, true);
                             Projectile.rotation = 0;
                         }
                         if (deathcounter == 680)
                         {
-                            EdgyTalk("这真是太棒了，你知道我们对那些可怜虫做了什么，对吧？", Color.White, true);
+                            EdgyTalk("That's pretty sus kid, and you know what we do to sussy little ones right?", Color.White, true);
                         }
                         if (deathcounter == 820)
                         {
-                            EdgyTalk("我们放逐了他们。", Color.DarkRed, true);
+                            EdgyTalk("We eject them.", Color.DarkRed, true);
                             Projectile.alpha = 50;
                             Projectile.rotation = 0;
                         }
@@ -358,15 +358,15 @@ namespace CalValEX.AprilFools
                     }
                     if (lifecounter == 300)
                     {
-                        EdgyTalk("有趣，你竟然活下来了。", Color.White, true);
+                        EdgyTalk("Interesting, you survived...", Color.White, true);
                     }
                     if (lifecounter == 420)
                     {
-                        EdgyTalk("老实说，要么是你作弊了，要么就是这些狗屁代码无法正常运行了。", Color.White, true);
+                        EdgyTalk("You probably cheated tbh, or the attacks weren't working properly.", Color.White, true);
                     }
                     if (lifecounter == 540)
                     {
-                        EdgyTalk("如果你想向我证明你并不是一文不值的话，戴上那顶石头帽子，与我再战三百回合！", Color.White, true);
+                        EdgyTalk("Oh well, guess you proved your worthiness to me. Wear the stone hat if you wanna go again.", Color.White, true);
                         CalValEXWorld.amogus = true;
                         CalValEXWorld.UpdateWorldBool();
                     }
