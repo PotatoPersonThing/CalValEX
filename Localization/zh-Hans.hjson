@@ -691,7 +691,7 @@ Mods: {
 
 			Aestheticrown: {
 				DisplayName: 美学羽冠
-				Tooltip: '美的'频道赞助播出
+				Tooltip: 美的频道赞助播出
 			}
 
 			AncientAuricTeslaHelm: {
@@ -3387,17 +3387,17 @@ Mods: {
 
 			DemonShield: {
 				DisplayName: 撒旦盾牌
-				Tooltip: " "太大了以至于无法装备" "
+				Tooltip: " '太大了以至于无法装备' "
 			}
 
 			DisrepairUnit: {
 				DisplayName: 破损修复机器人
-				Tooltip: " "你可能有什么毛病" "
+				Tooltip: " '你可能有什么毛病' "
 			}
 
 			Evolution: {
 				DisplayName: 玩具进化者
-				Tooltip: " "好好看着这球...""
+				Tooltip: " '好好看着这球...'"
 			}
 
 			AgedRustGamingTable: {
@@ -3412,7 +3412,7 @@ Mods: {
 
 			RustGamingTable2: {
 				DisplayName: 锈蚀游戏桌2号
-				Tooltip: " "从内容上看，这是一部衍生作" "
+				Tooltip: " '从内容上看，这是一部衍生作' "
 			}
 
 			OldAstralBathtubItem: {
@@ -3836,12 +3836,12 @@ Mods: {
 
 			JunkArt: {
 				DisplayName: 重建的粒子加速器
-				Tooltip: "从旧蓝图重新组装而成。里面的花在五年时间内长得生机勃勃。
+				Tooltip: "从旧蓝图重新组装而成。里面的花在五年时间内长得生机勃勃。"
 			}
 
 			MireAquarium: {
 				DisplayName: 峭咽潭水族箱
-				Tooltip: " "希望玻璃不要碎掉..." "
+				Tooltip: " '希望玻璃不要碎掉...' "
 			}
 
 			AquaticMonolith: {
