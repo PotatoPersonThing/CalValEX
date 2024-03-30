@@ -547,7 +547,7 @@ Mods: {
 				# Backs
 				DisplayName: 随身服务器
 				# Backs
-				Tooltip: ""嘉登之眼在注视着你" "
+				Tooltip: "'嘉登之眼在注视着你' "
 			}
 
 			PrismShell: {
