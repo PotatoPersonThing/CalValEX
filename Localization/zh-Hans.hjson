@@ -18,11 +18,11 @@ Mods: {
 					DislikeBiome: 呱啊啊啊啊啊啊啊哇哇哇哇哇哇哇哇哇，把我从这弄出去！
 					HateBiome: 我讨厌这海洋中存在的东西！它一直在朝我尖叫！
 					LikeNPC: 我一直都想成为一名海盗，而{NPCName}是一位很好的导师！
-					LoveNPC: “{NPCName}让我想起了我的母亲，我爱她！啊，母亲……”
+					LoveNPC: "{NPCName}让我想起了我的母亲，我爱她！啊，母亲……"
 					DislikeNPC: 我拒绝向{NPCName}纳税，这个邪恶的东西！
 					HateNPC: 哦不不不，把那个婊——我是说女巫，让她离我远点！
 					LikeNPC_Princess: 杰瑞姆认为{NPCName}是杰瑞姆族的一个有价值的盟友。
-					Princess_LovesNPC: “{NPCName}真是蠢到家了。”
+					Princess_LovesNPC: "{NPCName}真是蠢到家了。"
 					HateCrowded: 我讨厌这里，这也太挤了。
 				}
 
@@ -64,7 +64,7 @@ Mods: {
 				}
 
 				ChatButtons0: 商店
-				ChatButtons1: “商店”
+				ChatButtons1: "商店"
 				ChatButtons2: 切换商店
 				ChatButtons3: 召唤
 				ButtonClicked1: 你把我唤醒了……现在，是时候该付出代价了……
@@ -79,7 +79,7 @@ Mods: {
 			Fogbound.DisplayName: 超级无敌至尊雾气之神EX：幽冥降临版
 			# Critters
 			AstJR.DisplayName: 星胶史莱姆
-			Blightolemur.DisplayName: 辐星狐猴 
+			Blightolemur.DisplayName: 辐星狐猴
 			Blinker.DisplayName: 辉星萤火虫
 			CrystalFly.DisplayName: 亵渎晶蝶
 			Eyedol.DisplayName: 星瞳
@@ -105,24 +105,24 @@ Mods: {
 			# Town NPCs
 			JellyPriestBound.DisplayName: 受缚的水母祭司
 
-            JellyPriestNPC: {
-                    DisplayName: 水母祭司
+			JellyPriestNPC: {
+				DisplayName: 水母祭司
 
-                    TownNPCMood: {
-                    Content: 这个地方应该很适合做一个圣地。
+				TownNPCMood: {
+					Content: 这个地方应该很适合做一个圣地。
 					NoHome: 我需要一个可以创作和朝拜的地方！
 					LoveSpace: 很不错，我能利用这些空间做很多事！
 					FarFromHome: 请带我回家，在这我可能会受伤。
 					DislikeCrowded: 这里的人太多了，我的雕像可能会被人打坏。
 					HateCrowded: 我不能在这里好好的创作。这里太嘈杂了，我的东西被搞得到处都是！
-					LoveBiome: {BiomeName}非常不错，我能感觉到一个温暖的存在……也许女神就住在这里……
+					LoveBiome: "{BiomeName}非常不错，我能感觉到一个温暖的存在……也许女神就住在这里……"
 					LikeBiome: 安静祥和的地方，在{BiomeName}中，创作永远不会出错。
 					DislikeBiome: 这里酷热难耐，我想女神不会愿意到这种地方来。
 					HateBiome: 这里有可怕的怪物，有他们在周围游荡时我无法创作任何东西！
-					LikeNPC: “{NPCName}能和我共赏艺术之美，他们的品味很不错。”
-					DislikeNPC: “{NPCName}的火药太可怕了，我担心他哪天就把我的植物炸了！”
-					LikeNPC_Princess: “{NPCName}有一些漂亮的饰品，我喜欢她的风格。”
-					Princess_LovesNPC: “{NPCName}似乎和我差不多，我们都卖漂亮的装饰品，希望她没有看到任何竞争！”
+					LikeNPC: "{NPCName}能和我共赏艺术之美，他们的品味很不错。"
+					DislikeNPC: "{NPCName}的火药太可怕了，我担心他哪天就把我的植物炸了！"
+					LikeNPC_Princess: "{NPCName}有一些漂亮的饰品，我喜欢她的风格。"
+					Princess_LovesNPC: "{NPCName}似乎和我差不多，我们都卖漂亮的装饰品，希望她没有看到任何竞争！"
 					LoveNPC: 我喜欢{NPCName}。
 					HateNPC: 我讨厌{NPCName}。
 				}
@@ -135,7 +135,7 @@ Mods: {
 					Kuti1: 哇,你那个漂浮的泡泡真可爱！这让我想起了我童年的故乡！我想家了……
 					homeless1: 能摆脱那些藤蔓真不错，但是我仍需要一个能静下心来做我的雕刻的地方。
 					homeless2: 你好，陆地生灵！我来自这片古老的大海，并希望来一场旅行，去寻找一个古老时代的偶像，那个时代的大海对许多人来说是一个美丽的国度。你有什么找到他们的线索吗？
-					FAP1: 当我向那个“公主”展示一些装饰品时，她凑得实在是太近了，这让我很不舒服！我开始觉得她是想从我这里找乐子……！
+					FAP1: 当我向那个"公主"展示一些装饰品时，她凑得实在是太近了，这让我很不舒服！我开始觉得她是想从我这里找乐子……！
 					FAP2: 上次醉仙女靠近我的装饰时，她扯下了我一个半身像的头！
 					WITCH1: 那个女巫……我对她的可没什么好的回忆……
 					WITCH2: 你听说过阿萨福勒被熊熊烈火燃尽的故事吗？一场惨绝人寰的悲剧……如今只余一片废墟！
@@ -173,7 +173,7 @@ Mods: {
 				ChatButtons5: 物块
 				ChatButtons0: 切换商店
 				Bestiary: 一种经历了奇怪进化转折的水母。她对建筑的热爱与她对水元素的忠诚相辅相成。
-				Census.SpawnCondition:一种经历了奇怪进化转折的水母。她对建筑的热爱与她对水元素的忠诚相辅相成。
+				Census.SpawnCondition: 一种经历了奇怪进化转折的水母。她对建筑的热爱与她对水元素的忠诚相辅相成。
 			}
 
 			OracleNPC: {
@@ -186,22 +186,22 @@ Mods: {
 					FarFromHome: 我们离家实在是太远了，T.U.B好像不太舒服。
 					DislikeCrowded: 这里太喧闹了让我有点不舒服——我的小家伙们都没有空间落脚了。
 					HateCrowded: 这么多人，T.U.B都被吓坏了！
-					LikeBiome: {BiomeName} 是一个很好、很和平的地方，适合我和我的小家伙们安顿下来。
-					DislikeBiome: {BiomeName} 对于我的大部分小家伙们来说并不是一个很适合的地方。
+					LikeBiome: "{BiomeName} 是一个很好、很和平的地方，适合我和我的小家伙们安顿下来。"
+					DislikeBiome: "{BiomeName} 对于我的大部分小家伙们来说并不是一个很适合的地方。"
 					HateBiome: 这些怪物很令人担忧，我认为T.U.B在这很不安全。
-					LikeNPC: “{NPCName} 非常棒。她和T.U.B是好朋友。”
-					DislikeNPC: “{NPCName} 是一个令人讨厌的家伙，为了好玩而猎杀小动物，什么恶趣味！”
-					LikeNPC_Princess: “{NPCName} 似乎在动物中很受欢迎，她带来了一种和谐的氛围。”
+					LikeNPC: "{NPCName} 非常棒。她和T.U.B是好朋友。"
+					DislikeNPC: "{NPCName} 是一个令人讨厌的家伙，为了好玩而猎杀小动物，什么恶趣味！"
+					LikeNPC_Princess: "{NPCName} 似乎在动物中很受欢迎，她带来了一种和谐的氛围。"
 					Princess_LovesNPC: 我喜欢冷静的 {NPCName} 。她的小T.U.B也很可爱！
 					LoveBiome: 我喜欢{BiomeName}.
 					LoveNPC: 我喜欢{NPCName}.
 					HateNPC: 我讨厌{NPCName}.
 				}
-				
-                Chat: {
-                    homeless1: 我懂，我懂，你不能给我的每个小伙伴都建造一个小家，但是你能为我提供一个住处吗？
+
+				Chat: {
+					homeless1: 我懂，我懂，你不能给我的每个小伙伴都建造一个小家，但是你能为我提供一个住处吗？
 					homeless2: 也许我对你的冒险派不上什么用场，但是请相信我，我的小家伙们都很可爱！
-					miscEquips1: “啊...我喜欢你的小伙伴，”
+					miscEquips1: "啊...我喜欢你的小伙伴，"
 					miscEquips11: 好好照顾它，好吗？
 					miscEquips2: 你的小伙伴真可爱，小子！你最好要照顾好它，好吗？
 					miscEquips3: 你应该感到高兴，你的小伙伴可不像T.U.B。
@@ -211,14 +211,14 @@ Mods: {
 					Bumblefuck: 那边的那个似乎有很多你可以拯救的小伙伴。
 					WITCH: 有些人可能会害怕灾厄女巫，但她身边有很多可爱的小东西跟着她，像那些蝙蝠和死冥虫！她不可能像传说中那么坏。
 					CirrusDress: 嘿，你宁愿穿那些带酒渍的破布而不是更时尚的新衣吗？我没有冒犯之意。
-					Wizard1: “虽然他看起来像个穿着傻傻的服装的怪老头，但他的魔法绝对是真实的。”
-					Wizard2: “嘿，小子，你能和”
+					Wizard1: "虽然他看起来像个穿着傻傻的服装的怪老头，但他的魔法绝对是真实的。"
+					Wizard2: "嘿，小子，你能和"
 					Wizard22: ?交流一下吗？我有一个他可能会喜欢的小家伙！
 					expertMode1: 你知道吗，孩子，我的这些小家伙大多只会追随那些挑战自己的人。可以说他们中的一部分只会追随专家。
 					expertMode2: 虽然你目前的冒险旅程拥有了了找到小伙伴许多的机会，但我听说专家模式会吸引更多小伙伴！
 					eclipse1: 我很高兴我的朋友们没有变成这些失去理智的怪物！
-					eclipse2: “嘿”
-					eclipse22: “，如果你看到我的小家伙们比平时更狂躁，也请不要伤害它们。”
+					eclipse2: "嘿"
+					eclipse22: "，如果你看到我的小家伙们比平时更狂躁，也请不要伤害它们。"
 					eclipse3: 嘿，小子！答应我，保护我和我的小家伙们，好不好？
 					eclipse4: 我很高兴我的小家伙们没有在这个奇怪的日子里变得疯狂。
 					PartyIsUp1: 我的可爱的小家伙们在这美好的一天里玩得很开心！你应该也找个方式来度过这样一个美好的日子！
@@ -227,7 +227,7 @@ Mods: {
 					Day1: 嘿，小子！我有些可爱的宠物，我知道你想来一个。
 					Day2: 你注定会做出些了不起的事情，兄弟。比如现在就给这些小家伙一个家。
 					Day3: 我的小宠物T.U.B是怎么吃饭的？嗯...你不会想知道的，伙计。
-					Day4: “预知未来的能力可以帮助我找到需要收养的宠物和他们的新家。你今天得到了哪个”
+					Day4: "预知未来的能力可以帮助我找到需要收养的宠物和他们的新家。你今天得到了哪个"
 					Day44: ?
 					Day5: 小子，我一直在等你。现在，让我们探讨一下这些可爱的小家伙们。
 					Night1: 星星正在看着你，小子。别让它们失望。
@@ -238,8 +238,8 @@ Mods: {
 					bloodMoon1: 你最好也养一只小伙伴，否则……
 					bloodMoon2: 在这种情况下，你不会想知道我的宠物T.U.B能对你做什么的。
 					bloodMoon3: 你最好不要挡在我和我的小家伙们之间。
-					bloodMoon4: “嘿！”
-					bloodMoon44: “也许今晚你该试着躲起来。”
+					bloodMoon4: "嘿！"
+					bloodMoon44: "也许今晚你该试着躲起来。"
 					bloodMoon5: 今晚你最好跑远点，小子。T.U.B在寻找你，它可不会轻易的放过你。
 					bloodMoon6: 如果你想活命，那你最好应该躲起来。
 				}
@@ -253,10 +253,10 @@ Mods: {
 
 			OracleNPCPet_Pet.DisplayName: TUB
 
-            NuggetNugget: {
+			NuggetNugget: {
 				# Town NPCs
 				DisplayName: 鸡块
-				NuggetSpawn: “{0} 从 {1} 的灰尘中重生！”
+				NuggetSpawn: "{0} 从 {1} 的灰尘中重生！"
 				Canspawn: 正在发送外卖订单给金拱门炸鸡店……
 				Nospace: 这没有足够的空间让这只可爱的 {0} 重生！
 				Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
@@ -315,7 +315,7 @@ Mods: {
 			GoldEyedol: 一尊特制的附灵偶像。是以前首都的统治者们自用的。
 			GoldViolemur: 一种稀有的生物变种。据说这些金紫星狐猴是最先被星辉瘟疫感染的那一批。
 			Orthobab: 直角石的新生代。尽管现在的它们看起来很笨拙，但假以时日，他们中的任何一只都能变成可怕的存在。
-			ProvFly: 一只“普通的蝴蝶”，蕴含着亵渎天神所拥有的两大力量之一。
+			ProvFly: 一只"普通的蝴蝶"，蕴含着亵渎天神所拥有的两大力量之一。
 			PerfoGrub: 一种像幼虫一样的寄生虫，是血肉宿主的肮脏后代。
 			Eyedol: 在首都的鼎盛时期，有些人会制作偶像以便在家中崇拜女神。首都的毁灭事件为其中一些偶像注入了魔力，这赋予了它们感知能力。
 			OrthoceraApparition: 一种末日的先兆。不要轻视它的警告。
@@ -329,7 +329,7 @@ Mods: {
 			Xerocodile: 一种古老的爬行动物，只在血月期间出现。他们是如此的脆弱，以至不能在此做过多的逗留，任何程度的阳光照射对他们来说都是致命的。
 			Vaporofly: 一种因核废水辐射而复苏的古老的昆虫。
 			Blinker: 一种适应枯萎星辉独特环境的发光体。它们是最受枯萎星辉住民们欢迎的一种食物。
-			CrystalFly: 一只“普通的蝴蝶”，蕴含着亵渎天神所拥有的两大力量之一。
+			CrystalFly: 一只"普通的蝴蝶"，蕴含着亵渎天神所拥有的两大力量之一。
 			Isopod: 一种温顺的清道夫，在深渊底部安静地居住。它们善于清理深渊中其他生物的遗骸。
 			GodSlayerSlug: 这种蠕虫拥有和宇宙蠕虫一样的紫色外观，安静地漫游在上层大气中。
 			NeuroFly: 作为一种拥有蜂群意识的生物，它们有着心灵上的联系，尽管身体上并无关联。它活着的唯一目的就是传播病毒。
@@ -337,7 +337,7 @@ Mods: {
 			Meldosaurus: 它在进化的过程中因邪神的残余而堕落。它试图获得其他星际生物的认可，但未能成功。
 			MeldwyrmHead: 一种寄生绦虫，在外星恐龙体内寻求庇护。天界柱很可能是由类似的生物创造的。
 		}
-        
+
 		Items: {
 			AmogusItem: {
 				# April fools!
@@ -349,17 +349,17 @@ Mods: {
 					无法获得
 					欺骗这位船员可能会带来灾难性的后果
 					讨厌外星恐龙
-					''' 
+					'''
 			}
 
 			ShadesBane: {
 				DisplayName: 暗影之祸
 				Tooltip:
 					'''
-			 	    使用真近战效果命中敌人时会从敌人身上爆出咒火
+					    使用真近战效果命中敌人时会从敌人身上爆出咒火
 					单机右键会向任意方向发射咒火和玛瑙镖
-					“前卫大剑第2940358304号”
-					''' 
+					"前卫大剑第2940358304号"
+					'''
 			}
 
 			Nyanthrop: {
@@ -374,7 +374,7 @@ Mods: {
 					冥思暴龙……
 					腐烂的意志所孕育出的可怕的生物。没有人知道它为什么存在，它想要什么……
 					啊！很高兴他现在离开了！！！他在我体内让我感觉很痒！
-					''' 
+					'''
 			}
 
 			MeldosaurusMask: {
@@ -397,7 +397,7 @@ Mods: {
 				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 			}
 
-            JharimHead: {
+			JharimHead: {
 				DisplayName: 被斩首的丛林暴君之头
 				Tooltip:
 					'''
@@ -411,7 +411,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤弥漫之雾
-					“为什么”
+					"为什么"
 					'''
 			}
 
@@ -547,12 +547,12 @@ Mods: {
 				# Backs
 				DisplayName: 随身服务器
 				# Backs
-				Tooltip: "“嘉登之眼在注视着你” "
+				Tooltip: ""嘉登之眼在注视着你" "
 			}
 
 			PrismShell: {
 				DisplayName: 棱晶壳
-				Tooltip: "“看起来很锋利”"
+				Tooltip: "看起来很锋利"
 			}
 
 			# Balloons
@@ -560,7 +560,7 @@ Mods: {
 
 			ArtemisBalloonSmall: {
 				DisplayName: 阿尔忒弥斯气球
-				Tooltip: "‘月球科技，小子！’"
+				Tooltip: 月球科技，小子！’
 			}
 
 			ApolloBalloon: {
@@ -575,7 +575,7 @@ Mods: {
 
 			AuricBalloon: {
 				DisplayName: 圣金源气球
-				Tooltip: "‘你应该很庆幸我没有让你去找其他所有的气球来制作它。'"
+				Tooltip: 你应该很庆幸我没有让你去找其他所有的气球来制作它。'
 			}
 
 			BoB2: {
@@ -583,16 +583,16 @@ Mods: {
 				Tooltip:
 					'''
 					派对女孩可以把它系起来
-					“它们怎么都不掉下来？”
+					"它们怎么都不掉下来？"
 					'''
-			}    
+			}
 
 			BoxBalloon: {
 				DisplayName: 钟水母气球
 				Tooltip:
 					'''
 					派对女孩可以把它系起来
-					“方方正正”
+					"方方正正"
 					'''
 			}
 
@@ -601,23 +601,23 @@ Mods: {
 				Tooltip:
 					'''
 					派对女孩可以把它系起来
-					“随时都有可能熄灭……”
+					"随时都有可能熄灭……"
 					'''
 			}
 
 			ExoTwinsBalloon: {
 				DisplayName: XS项束圈
-				Tooltip: "“乐”"
+				Tooltip: "乐"
 			}
 
 			FoilAtlantis: {
 				DisplayName: 亚特兰蒂斯铝箔杖
-				Tooltip: "“一把三叉戟的廉价仿制品”"
+				Tooltip: "一把三叉戟的廉价仿制品"
 			}
 
 			FoilSpoon: {
 				DisplayName: 铝箔勺
-				Tooltip: "“只是个勺子。”"
+				Tooltip: "只是个勺子。"
 			}
 
 			Mirballoon: {
@@ -625,7 +625,7 @@ Mods: {
 				Tooltip:
 					'''
 					派对女孩可以把它系起来
-					“离那些尖锐物品远点！”
+					"离那些尖锐物品远点！"
 					'''
 			}
 
@@ -633,34 +633,34 @@ Mods: {
 				DisplayName: 远古幻影气球
 				Tooltip:
 					'''
-					‘请远离海洋’
-					“气球是令人讨厌的污染源”
+					请远离海洋’
+					"气球是令人讨厌的污染源"
 					'''
 			}
 
 			ProfanedBalloon: {
 				DisplayName: 亵渎气球
-				Tooltip: "“由普罗维登斯独家赞助”"
+				Tooltip: "由普罗维登斯独家赞助"
 			}
 
 			ShuttleBalloon: {
 				DisplayName: 飞碟气球
-				Tooltip: "“在火星很畅销”"
+				Tooltip: "在火星很畅销"
 			}
 
 			SignusBalloon: {
 				DisplayName: 无限灯笼气球
-				Tooltip: "“离那些灵气远点”"
+				Tooltip: "离那些灵气远点"
 			}
 
 			SkullBalloon: {
 				DisplayName: 头骨气球
-				Tooltip: "“看起来大脑还在”"
+				Tooltip: "看起来大脑还在"
 			}
 
 			WulfrumBalloon: {
 				DisplayName: 钨钢回转气球
-				Tooltip: "“用陀螺仪操控！”"
+				Tooltip: "用陀螺仪操控！"
 			}
 
 			SigCape: {
@@ -675,7 +675,7 @@ Mods: {
 
 			YharimCapeBaby: {
 				DisplayName: 圣金源斗篷
-				Tooltip: "“也不是真品，更像小孩子的玩具”"
+				Tooltip: "也不是真品，更像小孩子的玩具"
 			}
 
 			DraedonHelmet: {
@@ -691,7 +691,7 @@ Mods: {
 
 			Aestheticrown: {
 				DisplayName: 美学羽冠
-				Tooltip: ‘美的’频道赞助播出
+				Tooltip: '美的'频道赞助播出
 			}
 
 			AncientAuricTeslaHelm: {
@@ -701,7 +701,7 @@ Mods: {
 
 			AncientPerennialFlower: {
 				DisplayName: 古永恒郁金香
-				Tooltip: "“我真漂亮！”"
+				Tooltip: "我真漂亮！"
 			}
 
 			AstrachnidCranium: {
@@ -711,12 +711,12 @@ Mods: {
 
 			AstrumDeusMask: {
 				DisplayName: 枯萎星神游龙面具
-				Tooltip: "“堕星复明”"
+				Tooltip: "堕星复明"
 			}
 
 			AureicFedora: {
 				DisplayName: 星舰软呢帽
-				Tooltip: "“不要把它直接扣到别人头上”"
+				Tooltip: "不要把它直接扣到别人头上"
 			}
 
 			BanditHat: {
@@ -731,7 +731,7 @@ Mods: {
 
 			BigWorm: {
 				DisplayName: 大血肉寄生者面具
-				Tooltip: "‘寄生类动物的领导者’"
+				Tooltip: 寄生类动物的领导者’
 			}
 
 			BirbHat: {
@@ -751,12 +751,12 @@ Mods: {
 
 			ClamMask: {
 				DisplayName: 灾谔蛤帽
-				Tooltip: "“等下，那是个错字是吧？”"
+				Tooltip: "等下，那是个错字是吧？"
 			}
 
 			CoralMask: {
 				DisplayName: 喷嗝珊瑚面具
-				Tooltip: "“现在是盐水时间！”"
+				Tooltip: "现在是盐水时间！"
 			}
 
 			CosmicCone: {
@@ -810,7 +810,7 @@ Mods: {
 			}
 
 			FallenPaladinsHelmet: {
-				DisplayName: “堕骑士头盔”
+				DisplayName: "堕骑士头盔"
 				Tooltip: ""
 			}
 
@@ -836,7 +836,7 @@ Mods: {
 
 			MidWorm: {
 				DisplayName: 中血肉寄生者面具
-				Tooltip: "“一路爬向顶峰！”"
+				Tooltip: "一路爬向顶峰！"
 			}
 
 			OlTrashtooth: {
@@ -856,7 +856,7 @@ Mods: {
 
 			PerennialFlower: {
 				DisplayName: 永恒郁金香
-				Tooltip: "“我漂亮吗？”"
+				Tooltip: "我漂亮吗？"
 			}
 
 			PolterMask: {
@@ -886,13 +886,13 @@ Mods: {
 
 			SmallWorm: {
 				DisplayName: 小血肉寄生者面具
-				Tooltip: "“那堆血肉中长得最像蠕虫的一个。”"
+				Tooltip: "那堆血肉中长得最像蠕虫的一个。"
 			}
 
 			SpectralstormHat: {
 				DisplayName: 光谱帽
-				Tooltip: "“有史以来最愚蠢的主意”"
-            }
+				Tooltip: "有史以来最愚蠢的主意"
+			}
 
 			SquidHat: {
 				DisplayName: 乌贼帽
@@ -901,7 +901,7 @@ Mods: {
 
 			StonePile: {
 				DisplayName: 石堆
-				Tooltip: "“只要你觉得你很头铁”"
+				Tooltip: "只要你觉得你很头铁"
 			}
 
 			TerminalMask: {
@@ -915,7 +915,7 @@ Mods: {
 
 			TrueCosmicCone: {
 				DisplayName: 真·宇宙尖锥
-				Tooltip: "“一顶与宇宙同样无限的帽子，尖的可以刺穿维度”"
+				Tooltip: "一顶与宇宙同样无限的帽子，尖的可以刺穿维度"
 			}
 
 			UnloadedHelm: {
@@ -941,7 +941,7 @@ Mods: {
 			}
 
 			BrimmySpirit: {
-				DisplayName: 硫磺火 
+				DisplayName: 硫磺火
 				Tooltip: ""
 			}
 
@@ -966,7 +966,7 @@ Mods: {
 			}
 
 			FallenPaladinsGreaves: {
-				DisplayName: “堕骑士的护腿”
+				DisplayName: "堕骑士的护腿"
 				Tooltip: ""
 			}
 
@@ -982,14 +982,14 @@ Mods: {
 
 			TerrorLegs: {
 				DisplayName: 骇兽腿
-				Tooltip: "“它们焦躁不安”"
+				Tooltip: "它们焦躁不安"
 			}
 
 			AstBandana: {
 				# Scarves
 				DisplayName: 星幻方巾
 				# Scarves
-				Tooltip: "“太空时代的时尚！”"
+				Tooltip: "太空时代的时尚！"
 			}
 
 			BloodwormScarf: {
@@ -999,7 +999,7 @@ Mods: {
 
 			CosmicWormScarf: {
 				DisplayName: 宇宙之虫围巾
-				Tooltip: "“太空时尚！”"
+				Tooltip: "太空时尚！"
 			}
 
 			DesertMedallion: {
@@ -1029,12 +1029,12 @@ Mods: {
 
 			StormBandana: {
 				DisplayName: 风暴头巾
-				Tooltip: "“触电般的潮流！”"
+				Tooltip: "触电般的潮流！"
 			}
 
 			UniversalWormScarf: {
 				DisplayName: 噬宇之虫围巾
-				Tooltip: "“足以吞下世间万物，不会导致时空的扭曲”"
+				Tooltip: "足以吞下世间万物，不会导致时空的扭曲"
 			}
 
 			YharonShackle: {
@@ -1051,7 +1051,7 @@ Mods: {
 
 			EarthShield: {
 				DisplayName: 元素塔盾
-				Tooltip: "“看起来很坚固，但实际上只是块无用的石头罢了。”"
+				Tooltip: "看起来很坚固，但实际上只是块无用的石头罢了。"
 			}
 
 			Invishield: {
@@ -1061,7 +1061,7 @@ Mods: {
 
 			TrilobiteShield: {
 				DisplayName: 三叶虫盾
-				Tooltip: "“一个远古的盾牌。它太古老了，根本挡不住任何攻击。”"
+				Tooltip: "一个远古的盾牌。它太古老了，根本挡不住任何攻击。"
 			}
 
 			AresChestplate: {
@@ -1071,7 +1071,7 @@ Mods: {
 				Tooltip:
 					'''
 					在你身旁召唤四根玩具机械臂
-					“你的意思是，他们看起来和实物长得不一样？!？”
+					"你的意思是，他们看起来和实物长得不一样？!？"
 					'''
 			}
 
@@ -1181,7 +1181,7 @@ Mods: {
 				Tooltip:
 					'''
 					将佩戴者变成一位虚空之灵 
-					“虚空中的一部分”
+					"虚空中的一部分"
 					'''
 			}
 
@@ -1191,8 +1191,8 @@ Mods: {
 				# Wings
 				Tooltip:
 					'''
-					“大风起兮云飞扬！”
-				    水平飞行速度: 1
+					"大风起兮云飞扬！"
+					   水平飞行速度: 1
 					加速倍率: 1
 					飞行时间: 32 
 					'''
@@ -1202,8 +1202,8 @@ Mods: {
 				DisplayName: 痴愚之翼
 				Tooltip:
 					'''
-					“飞的时候看着像只鹰”
-				    水平飞行速度: 9
+					"飞的时候看着像只鹰"
+					   水平飞行速度: 9
 					加速倍率: 2.5
 					飞行时间: 210 
 					'''
@@ -1213,8 +1213,8 @@ Mods: {
 				DisplayName: 神速助推器
 				Tooltip:
 					'''
-					“虔诚地推进”
-				    水平飞行速度: 9
+					"虔诚地推进"
+					   水平飞行速度: 9
 					加速倍率: 2.7
 					飞行时间: 200 
 					'''
@@ -1224,8 +1224,8 @@ Mods: {
 				DisplayName: 鸡翅
 				Tooltip:
 					'''
-					“热气腾腾，可以上菜了。”
-				    水平飞行速度: 11.5
+					"热气腾腾，可以上菜了。"
+					   水平飞行速度: 11.5
 					加速倍率: 2.9
 					飞行时间: 140 
 					'''
@@ -1235,8 +1235,8 @@ Mods: {
 				DisplayName: 利维坦鳍翼
 				Tooltip:
 					'''
-					“飞不起来……”
-				    水平飞行速度: 6.75
+					"飞不起来……"
+					   水平飞行速度: 6.75
 					加速倍率: 1.4
 					飞行时间: 120 
 					'''
@@ -1246,8 +1246,8 @@ Mods: {
 				DisplayName: 虚空之翼
 				Tooltip:
 					'''
-					“以黑暗作为推动力。”
-				    水平飞行速度: 9
+					"以黑暗作为推动力。"
+					   水平飞行速度: 9
 					加速倍率: 2.5
 					飞行时间: 250 
 					'''
@@ -1257,8 +1257,8 @@ Mods: {
 				DisplayName: 旧爵之翼
 				Tooltip:
 					'''
-					“剧毒动力！”
-				    水平飞行速度: 9.5
+					"剧毒动力！"
+					   水平飞行速度: 9.5
 					加速倍率: 2.7
 					飞行时间: 190 
 					'''
@@ -1268,8 +1268,8 @@ Mods: {
 				DisplayName: 疫魔助推器
 				Tooltip:
 					'''
-					“他们想知道蜜蜂是如何离开地面的……”
-				    水平飞行速度: 7.8
+					"他们想知道蜜蜂是如何离开地面的……"
+					   水平飞行速度: 7.8
 					加速倍率: 1.9
 					飞行时间: 170 
 					'''
@@ -1279,8 +1279,8 @@ Mods: {
 				DisplayName: 瘟疫使者机翼
 				Tooltip:
 					'''
-					“不含有纳米机器。”
-				    水平飞行速度: 7.75
+					"不含有纳米机器。"
+					   水平飞行速度: 7.75
 					加速倍率: 1.5
 					飞行时间: 150 
 					'''
@@ -1290,8 +1290,8 @@ Mods: {
 				DisplayName: 殒命灵翼
 				Tooltip:
 					'''
-					“起飞！”
-				    水平飞行速度: 6.5
+					"起飞！"
+					   水平飞行速度: 6.5
 					加速倍率: 1
 					飞行时间: 60 
 					'''
@@ -1303,7 +1303,7 @@ Mods: {
 					'''
 					幻蝶轻飞舞彩翼，赴难身死踏铁骑。
 					初笋缀青盖朽竹，方立寰宇登新级。
-				    水平飞行速度: 1
+					   水平飞行速度: 1
 					加速倍率: 1
 					飞行时间: 60 
 					'''
@@ -1313,7 +1313,7 @@ Mods: {
 				DisplayName: 虚空之翼
 				Tooltip:
 					'''
-					“让黑暗携你轻翔。”
+					"让黑暗携你轻翔。"
 					水平飞行速度: 9
 					加速倍率: 2.5
 					飞行时间: 230 
@@ -1325,7 +1325,7 @@ Mods: {
 				Tooltip:
 					'''
 					严重损坏
-				    水平飞行速度: 0.8
+					   水平飞行速度: 0.8
 					加速倍率: 0.8
 					飞行时间: 0.6 
 					'''
@@ -1337,8 +1337,8 @@ Mods: {
 				# Hooks
 				Tooltip:
 					'''
-					“史前动力！”
-				    长度: 31
+					"史前动力！"
+					   长度: 31
 					发射速度: 18
 					牵引速度: 17 
 					'''
@@ -1350,8 +1350,8 @@ Mods: {
 				DisplayName: 惊魂链钩
 				Tooltip:
 					'''
-					“让万劫不复的恶灵们带你前进！”
-				    长度: 46
+					"让万劫不复的恶灵们带你前进！"
+					   长度: 46
 					发射速度: 16
 					牵引速度: 20 
 					'''
@@ -1363,8 +1363,8 @@ Mods: {
 				DisplayName: 亵渎能量勾
 				Tooltip:
 					'''
-					“扯下神圣的枷锁”
-				    长度: 37
+					"扯下神圣的枷锁"
+					   长度: 37
 					发射速度: 16
 					牵引速度: 30 
 					'''
@@ -1376,8 +1376,8 @@ Mods: {
 				DisplayName: 魔像爪
 				Tooltip:
 					'''
-					“可用来挖出你的眼睛”
-				    长度: 43
+					"可用来挖出你的眼睛"
+					   长度: 43
 					发射速度: 18
 					牵引速度: 20 
 					'''
@@ -1389,8 +1389,8 @@ Mods: {
 				DisplayName: 远古魔像爪
 				Tooltip:
 					'''
-					“用古北欧人的方式挖出你的眼睛！”
-				    长度: 50
+					"用古北欧人的方式挖出你的眼睛！"
+					   长度: 50
 					发射速度: 19
 					牵引速度: 25 
 					'''
@@ -1402,9 +1402,9 @@ Mods: {
 				DisplayName: XM—光电钩爪
 				Tooltip:
 					'''
-					“啪！电掣风驰！”
+					"啪！电掣风驰！"
 					无法在混沌状态下使用
-				    长度: 60
+					   长度: 60
 					发射速度: 62
 					牵引速度: 35 
 					'''
@@ -1436,7 +1436,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤观星眼群
-					“你可以看到远处有什么东西”
+					"你可以看到远处有什么东西"
 					在深渊中提供适量光照 
 					'''
 			}
@@ -1455,7 +1455,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤热能之魂和寻阳鱼跟随你
-					“结冰的那家伙在休息”
+					"结冰的那家伙在休息"
 					在深渊中提供大量光照
 					'''
 			}
@@ -1465,7 +1465,7 @@ Mods: {
 				Tooltip:
 					'''
 					在你的旅途中召唤宇宙助手帮助你
-					“专属Enreden的开发者宠物，如果没有他的付出，这个模组可能就不会存在了”
+					"专属Enreden的开发者宠物，如果没有他的付出，这个模组可能就不会存在了"
 					在深渊中提供巨额光照
 					'''
 			}
@@ -1484,7 +1484,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤一个神圣的实体
-					“飞升”
+					"飞升"
 					在深渊中提供大量光照
 					'''
 			}
@@ -1494,7 +1494,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤一对热能之魂提供照明
-					“与我一同燃烧”
+					"与我一同燃烧"
 					在深渊中提供适量光照
 					'''
 			}
@@ -1504,7 +1504,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤小寻阳鱼
-					“阳鱼帮，阳鱼帮。”
+					"阳鱼帮，阳鱼帮。"
 					在深渊中提供微量光照
 					'''
 			}
@@ -1523,7 +1523,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤幻魂来提供照明
-					“想都别想。”
+					"想都别想。"
 					在深渊中提供大量光照
 					'''
 			}
@@ -1533,7 +1533,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤亵渎天神和她的守卫们
-					“不过是最纯粹的愤怒罢了”
+					"不过是最纯粹的愤怒罢了"
 					在深渊中提供大量光照
 					'''
 			}
@@ -1544,7 +1544,7 @@ Mods: {
 					'''
 					召唤炽阳圣兔
 					稍微提高兔兔的繁殖率……
-					“至尊之兔”
+					"至尊之兔"
 					在深渊中提供大量光照
 					'''
 			}
@@ -1554,17 +1554,17 @@ Mods: {
 				Tooltip:
 					'''
 					召唤一位元素，两个吸能符文和两只幻影鲨鱼跟着你，并散发出剧烈的光芒
-					“看起来像玻璃制品，但其中所蕴含的魔力是真实的。”
+					"看起来像玻璃制品，但其中所蕴含的魔力是真实的。"
 					在深渊中提供巨额光照
 					'''
 			}
-			
-            WulfrumTransmitter: {
+
+			WulfrumTransmitter: {
 				DisplayName: 钨钢通讯器
 				Tooltip:
 					'''
 					召唤钨钢增幅器模型
-					“它发出了很多拨号噪音”
+					"它发出了很多拨号噪音"
 					在深渊中提供微量光照
 					'''
 			}
@@ -1577,7 +1577,7 @@ Mods: {
 					'''
 					召唤可骑乘的圣金源小汽车
 					当附近有BOSS存活时，大幅度降低玩家的伤害与生命回复速度
-					“魔君快乐车”
+					"魔君快乐车"
 					'''
 			}
 
@@ -1587,7 +1587,7 @@ Mods: {
 					'''
 					召唤玩家可骑乘的血石马车
 					当附近有BOSS存活时，降低玩家的伤害与生命回复速度
-					“真诚的邀请你在亡者的马车上拥有一段快乐的时光”
+					"真诚的邀请你在亡者的马车上拥有一段快乐的时光"
 					'''
 			}
 
@@ -1597,7 +1597,7 @@ Mods: {
 					'''
 					召唤可骑乘的珊瑚蟹坐骑
 					当附近有BOSS存活时，降低玩家的伤害与生命回复速度
-					“它还在动？！”
+					"它还在动？！"
 					'''
 			}
 
@@ -1606,7 +1606,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤可骑乘的飞毯坐骑
-					“一个用真能飞起来的东西做的飞毯！”
+					"一个用真能飞起来的东西做的飞毯！"
 					'''
 			}
 
@@ -1616,7 +1616,7 @@ Mods: {
 					'''
 					召唤可骑乘的神明悬浮摩托坐骑
 					当附近有BOSS存活时，降低玩家的伤害与生命回复速度
-					‘眨眼间吞噬数公里’
+					眨眼间吞噬数公里’
 					'''
 			}
 
@@ -1635,7 +1635,7 @@ Mods: {
 					'''
 					召唤可骑乘的瘟疫使者坐骑
 					当附近有BOSS存活时，降低玩家的伤害与生命回复速度
-					‘发出8-bit的嗡嗡声’
+					发出8-bit的嗡嗡声’
 					'''
 			}
 
@@ -1669,7 +1669,7 @@ Mods: {
 					'''
 					召唤可骑乘的亵渎摩托坐骑
 					当附近有BOSS存活时，大幅度降低玩家的伤害与生命回复速度
-					“这辆摩托能借时尚之风把你送到任何地方”
+					"这辆摩托能借时尚之风把你送到任何地方"
 					'''
 			}
 
@@ -1680,7 +1680,7 @@ Mods: {
 
 			ProfanedWheels: {
 				DisplayName: 炽热车轮
-				Tooltip: "‘用纯粹亵渎能量制成的车轮’"
+				Tooltip: 用纯粹亵渎能量制成的车轮’
 			}
 
 			RadJuice: {
@@ -1689,7 +1689,7 @@ Mods: {
 					'''
 					召唤可骑乘的辐核骇兽坐骑
 					当附近有BOSS存活时，降低玩家的伤害与生命回复速度
-					“你大概不该喝这个”
+					"你大概不该喝这个"
 					'''
 			}
 
@@ -1699,7 +1699,7 @@ Mods: {
 					'''
 					召唤可骑乘的腐巢意志
 					当附近有BOSS存活时，降低玩家的伤害与生命回复速度
-					“腐化纵横！”
+					"腐化纵横！"
 					'''
 			}
 
@@ -1709,7 +1709,7 @@ Mods: {
 					'''
 					召唤可骑乘的始源林海吉普车坐骑
 					当附近有BOSS存活时，大幅度降低玩家的伤害与生命回复速度 
-					“是时候去探险了”
+					"是时候去探险了"
 					'''
 			}
 
@@ -1719,7 +1719,7 @@ Mods: {
 					'''
 					召唤可骑乘的钨钢坦克坐骑	
 					当附近有BOSS存活时，降低玩家的伤害与生命回复速度
-					“不知怎的……你已经知道如何驾驶了……”
+					"不知怎的……你已经知道如何驾驶了……"
 					'''
 			}
 
@@ -1728,7 +1728,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤可骑乘的小犽戎坐骑
-					“这是我给你的留言……”
+					"这是我给你的留言……"
 					'''
 			}
 
@@ -1781,15 +1781,15 @@ Mods: {
 
 			VaselineBell: {
 				DisplayName: 矿脂铃铛
-				Tooltip: "“我一下子就活了过来，这是一次重生！”"
+				Tooltip: "我一下子就活了过来，这是一次重生！"
 			}
 
 			WormBell: {
 				DisplayName: 蠕动吊坠
 				Tooltip:
 					'''
-					“它能发出声音吗？
-					还是我没注意到？”
+					"它能发出声音吗？
+					还是我没注意到？"
 					'''
 			}
 
@@ -1797,8 +1797,8 @@ Mods: {
 				DisplayName: 刮伤的旧锣
 				Tooltip:
 					'''
-					“你的耐心是值得倾佩的
-					你一定会得到属于你的奖励”
+					"你的耐心是值得倾佩的
+					你一定会得到属于你的奖励"
 					'''
 			}
 
@@ -1808,7 +1808,7 @@ Mods: {
 					'''
 					旅途的结束，你所能达到的顶峰
 					召唤在你旅程中遇见的每一只宠物
-					“我希望我是唯一一个离开的人。”
+					"我希望我是唯一一个离开的人。"
 					'''
 			}
 
@@ -1907,7 +1907,7 @@ Mods: {
 			}
 
 			DraedonPlushThrowable: {
-				DisplayName:  嘉登毛绒玩具（可投掷）
+				DisplayName: 嘉登毛绒玩具（可投掷）
 				Tooltip: 可以扔出去
 			}
 
@@ -2047,7 +2047,7 @@ Mods: {
 
 			ChaoticPuffball: {
 				DisplayName: 混乱刺鲀气球
-				Tooltip: "“它应该不会爆炸……”"
+				Tooltip: "它应该不会爆炸……"
 			}
 
 			BlightedAstralPinkDye: {
@@ -2072,12 +2072,12 @@ Mods: {
 
 			Birbhat: {
 				DisplayName: 痴愚金帽
-				Tooltip: "“一顶帽子统治着他们”"
+				Tooltip: "一顶帽子统治着他们"
 			}
 
 			Calacirclet: {
 				DisplayName: 灾厄头环
-				Tooltip: "“貌似被诅咒了？”"
+				Tooltip: "貌似被诅咒了？"
 			}
 
 			ShroomiteVisage: {
@@ -2102,7 +2102,7 @@ Mods: {
 
 			NuclearFumes: {
 				DisplayName: 核废气
-				Tooltip: "“不要吸入”"
+				Tooltip: "不要吸入"
 			}
 
 			OldCassette: {
@@ -2110,7 +2110,7 @@ Mods: {
 				Tooltip:
 					'''
 					标记为收藏后会使玩家移动时出现残影
-					“它包含了一些90年代的前卫动漫名场面。”
+					"它包含了一些90年代的前卫动漫名场面。"
 					'''
 			}
 
@@ -2119,7 +2119,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤一只硫海爬虫
-					“里面好像有卵”
+					"里面好像有卵"
 					'''
 			}
 
@@ -2128,7 +2128,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤一对天蓝史莱姆
-					“一个覆盖着光胶的奇怪球体”
+					"一个覆盖着光胶的奇怪球体"
 					'''
 			}
 
@@ -2137,7 +2137,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤迷你风暴探测器
-					“不是什么宝物，但可以吸引一位探针朋友！”
+					"不是什么宝物，但可以吸引一位探针朋友！"
 					'''
 			}
 
@@ -2146,7 +2146,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤灾厄缝合神龙陪伴着你
-					“请不要再问他是怎么出生的了”
+					"请不要再问他是怎么出生的了"
 					'''
 			}
 
@@ -2155,7 +2155,7 @@ Mods: {
 				Tooltip:
 					'''
 					变成金黄色葡萄球菌噬星体
-					“主动出击！”
+					"主动出击！"
 					'''
 			}
 
@@ -2169,7 +2169,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤小熊猫宠物
-					“它的气味吸引来一种独特的动物”
+					"它的气味吸引来一种独特的动物"
 					'''
 			}
 
@@ -2183,7 +2183,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤来自过去的一种水果
-					常被用为供奉硫火女神的贡品”
+					常被用为供奉硫火女神的贡品"
 					'''
 			}
 
@@ -2192,7 +2192,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤渊海狂鲨宠物
-					“他是怎么进来的？”
+					"他是怎么进来的？"
 					'''
 			}
 
@@ -2217,7 +2217,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤幻海妖虫
-					“它经常勉励自己：虫也能羽化成龙”
+					"它经常勉励自己：虫也能羽化成龙"
 					'''
 			}
 
@@ -2226,7 +2226,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤吸入了熔渣气体的硫海遗爵之首
-					“一把高达千度的烈焰之刃！”
+					"一把高达千度的烈焰之刃！"
 					'''
 			}
 
@@ -2244,7 +2244,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤小菌生蟹
-					“咔嚓 咔嚓！”
+					"咔嚓 咔嚓！"
 					'''
 			}
 
@@ -2253,7 +2253,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤迷你极地之灵
-					“赞”
+					"赞"
 					'''
 			}
 
@@ -2262,7 +2262,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤奇形怪状的小极地之灵
-					“释放酷酷射线”
+					"释放酷酷射线"
 					'''
 			}
 
@@ -2271,7 +2271,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤被斩首的硫海遗爵
-					“骰子与砍杀”
+					"骰子与砍杀"
 					'''
 			}
 
@@ -2286,7 +2286,7 @@ Mods: {
 					'''
 					召唤一个盒子
 					只有召唤神龙，才能揭露秘密……
-					“盒子王万岁！”
+					"盒子王万岁！"
 					'''
 			}
 
@@ -2295,7 +2295,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤锈蚀宝箱怪
-					“锈迹斑斑但很结实”
+					"锈迹斑斑但很结实"
 					'''
 			}
 
@@ -2304,7 +2304,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤宠物猫鱼……？
-					“只有不洁可怕的憎恶之物才想要这腐烂的东西”
+					"只有不洁可怕的憎恶之物才想要这腐烂的东西"
 					'''
 			}
 
@@ -2313,7 +2313,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤幻渊鱼
-					"“可能会召来一只正在觅食的生物"
+					""可能会召来一只正在觅食的生物"
 					'''
 			}
 
@@ -2322,7 +2322,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤绝望之石
-					'“这是抑郁的前兆”'
+					'"这是抑郁的前兆"'
 					'''
 			}
 
@@ -2331,7 +2331,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤小癫狂龙裔
-					“柠檬香精，再加一点胡椒粉”
+					"柠檬香精，再加一点胡椒粉"
 					'''
 			}
 
@@ -2345,7 +2345,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤黄沙恶虫
-					“里面有只虫子在动”
+					"里面有只虫子在动"
 					'''
 			}
 
@@ -2354,7 +2354,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤旱海狂鲨的大外孙
-					“痛失挚爱”
+					"痛失挚爱"
 					'''
 			}
 
@@ -2363,16 +2363,16 @@ Mods: {
 				Tooltip:
 					'''
 					腐化神庙滚石宝宝
-					“等等，他有生命？！”
+					"等等，他有生命？！"
 					'''
 			}
 
 			CloudCandy: {
 				DisplayName: 棉花糖
-                Tooltip:
+				Tooltip:
 					'''
 					召唤迷你雨云元素
-					“元素们最爱的甜食！”
+					"元素们最爱的甜食！"
 					'''
 			}
 
@@ -2381,7 +2381,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤所有迷你元素
-					“好像在开幼儿园一样...”
+					"好像在开幼儿园一样..."
 					'''
 			}
 
@@ -2390,7 +2390,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤稀有硫磺火元素
-					“元素们最爱的花！”
+					"元素们最爱的花！"
 					'''
 			}
 
@@ -2399,7 +2399,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤迷你沙暴元素
-					“元素们最爱的玩具！”
+					"元素们最爱的玩具！"
 					'''
 			}
 
@@ -2408,7 +2408,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤袖珍沙暴元素
-					“元素们最爱的玩偶！”
+					"元素们最爱的玩偶！"
 					'''
 			}
 
@@ -2417,7 +2417,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤活泼的小塞壬
-					“元素们最爱的声音！”
+					"元素们最爱的声音！"
 					'''
 			}
 
@@ -2449,7 +2449,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤一个机械恶魔的玩具版本
-					“凶狠的外表下喷出的是友好的烟雾”
+					"凶狠的外表下喷出的是友好的烟雾"
 					'''
 			}
 
@@ -2458,7 +2458,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤微型癫痫鸟
-					“能够吸引最后一只癫痫鸟”
+					"能够吸引最后一只癫痫鸟"
 					'''
 			}
 
@@ -2467,7 +2467,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤癫痫鸟群，这太可怕了，你会死的
-					“嘈杂的鸟鸣***”
+					"嘈杂的鸟鸣***"
 					'''
 			}
 
@@ -2486,7 +2486,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤阿瓦隆，一个注入了亵渎和宇宙能量的飞升亵渎守卫
-					“芜湖！”
+					"芜湖！"
 					'''
 			}
 
@@ -2495,7 +2495,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤虚拟、私密的实体
-					“这儿还有串...序列号？”
+					"这儿还有串...序列号？"
 					'''
 			}
 
@@ -2504,7 +2504,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤11条较小的星神游龙
-					“一颗高度浓缩的中子星”
+					"一颗高度浓缩的中子星"
 					'''
 			}
 
@@ -2513,7 +2513,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤小西格纳斯、风暴编织者和暗能量
-					“仆从们将归从于新的领袖”
+					"仆从们将归从于新的领袖"
 					'''
 			}
 
@@ -2522,7 +2522,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤幻骸幼虫
-					“怪喔~”
+					"怪喔~"
 					'''
 			}
 
@@ -2531,7 +2531,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤三只鲨鱼
-					“鲨鱼周时间！”
+					"鲨鱼周时间！"
 					'''
 			}
 
@@ -2540,7 +2540,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤一组蓝色欧米茄教徒
-					“欧米茄版打五折！！”
+					"欧米茄版打五折！！"
 					'''
 			}
 
@@ -2549,7 +2549,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤乌贼宝宝
-					“我们对环境所做的一切是种耻辱”
+					"我们对环境所做的一切是种耻辱"
 					'''
 			}
 
@@ -2561,13 +2561,13 @@ Mods: {
 
 
 					你听说过无形之神古泽玛的悲剧吗？我想你应该没听说过，这不是魔君会告诉你的故事。
-                    这是一个监视者的传说。古泽玛是所有史莱姆的终极进化形态，它如此强大，以至于能够影响构成其他所有史莱姆的细胞。
-                    它甚至可以创造新的史莱姆之神，它对世界上的生物群落都有着亲和力。
-                    世界的能量不断聚集出通往许多被认为超自然力量的道路。
-                    它变得如此强大，唯一害怕的就是失去力量，最终，当然，它确实失去了。
-                    不幸的是，古泽玛的力量增长得如此之大，以至于成为了一个时间异常。
-                    一个我们宇宙之外的力量别无选择，只能将其抹去，使其从一开始就不存在。
-                    讽刺至极，正是这股力量使古泽玛首次成为神明，同时也导致了它的灭亡。
+					               这是一个监视者的传说。古泽玛是所有史莱姆的终极进化形态，它如此强大，以至于能够影响构成其他所有史莱姆的细胞。
+					               它甚至可以创造新的史莱姆之神，它对世界上的生物群落都有着亲和力。
+					               世界的能量不断聚集出通往许多被认为超自然力量的道路。
+					               它变得如此强大，唯一害怕的就是失去力量，最终，当然，它确实失去了。
+					               不幸的是，古泽玛的力量增长得如此之大，以至于成为了一个时间异常。
+					               一个我们宇宙之外的力量别无选择，只能将其抹去，使其从一开始就不存在。
+					               讽刺至极，正是这股力量使古泽玛首次成为神明，同时也导致了它的灭亡。
 					'''
 			}
 
@@ -2576,7 +2576,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤带有尖刺的小血肉宿主
-					“或许还带着一些蠕虫”
+					"或许还带着一些蠕虫"
 					'''
 			}
 
@@ -2585,7 +2585,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤一小团暗物质
-					“人们总说打破镜子是不吉利的”
+					"人们总说打破镜子是不吉利的"
 					'''
 			}
 
@@ -2594,7 +2594,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤小渊海灾虫宠物
-					“这里也有只虫子在动”
+					"这里也有只虫子在动"
 					'''
 			}
 
@@ -2603,7 +2603,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤丛林鸡块
-					“每个丛林鸡块都无法拒绝的待遇！”
+					"每个丛林鸡块都无法拒绝的待遇！"
 					'''
 			}
 
@@ -2622,7 +2622,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤一个邪恶且疯狂的家伙
-					“尘土飞扬”
+					"尘土飞扬"
 					'''
 			}
 
@@ -2631,7 +2631,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤从冥河归来的造物
-					“别让他跑了”
+					"别让他跑了"
 					'''
 			}
 
@@ -2640,7 +2640,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤行走的裂魂鲨
-					“所以它们才会这么强壮……”
+					"所以它们才会这么强壮……"
 					'''
 			}
 
@@ -2655,7 +2655,7 @@ Mods: {
 					'''
 					召唤斗牛犬
 					当有稀有生物在附近时吠叫
-					“美味...”
+					"美味..."
 					'''
 			}
 
@@ -2664,7 +2664,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤一块腐巢意志
-					“安抚微生物群的关键”
+					"安抚微生物群的关键"
 					'''
 			}
 
@@ -2673,7 +2673,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤宠物灾坟魔物
-					“坟墓升起”
+					"坟墓升起"
 					'''
 			}
 
@@ -2682,7 +2682,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤似曾相识的钨钢机器人
-					“非常坚硬”
+					"非常坚硬"
 					'''
 			}
 
@@ -2691,7 +2691,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤欧洛斯
-					“来打，来撞，来断一只手”
+					"来打，来撞，来断一只手"
 					'''
 			}
 
@@ -2700,7 +2700,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤琥珀爬虫
-					“也许藏着爬虫”
+					"也许藏着爬虫"
 					'''
 			}
 
@@ -2709,7 +2709,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤紫水晶爬虫
-					“可能藏着爬虫”
+					"可能藏着爬虫"
 					'''
 			}
 
@@ -2718,7 +2718,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤彩虹爬虫
-					“绚丽多彩的爬虫”
+					"绚丽多彩的爬虫"
 					'''
 			}
 
@@ -2736,7 +2736,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤钻石爬虫
-					“大概藏着一只爬虫”
+					"大概藏着一只爬虫"
 					'''
 			}
 
@@ -2745,7 +2745,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤绿宝石爬虫
-					“应该藏着一只爬虫”
+					"应该藏着一只爬虫"
 					'''
 			}
 
@@ -2754,7 +2754,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤红宝石爬虫
-					“这里说不定藏着爬虫”
+					"这里说不定藏着爬虫"
 					'''
 			}
 
@@ -2763,7 +2763,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤蓝宝石爬虫
-					“可以容纳一个爬虫”
+					"可以容纳一个爬虫"
 					'''
 			}
 
@@ -2772,7 +2772,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤黄玉爬虫
-					“大抵藏着爬虫”
+					"大抵藏着爬虫"
 					'''
 			}
 
@@ -2782,11 +2782,11 @@ Mods: {
 			}
 
 			Sirember: {
-				DisplayName: "塞壬大头贴"
+				DisplayName: 塞壬大头贴
 				Tooltip:
 					'''
 					召唤深海的愤怒
-					“永远铭记……”
+					"永远铭记……"
 					'''
 			}
 
@@ -2795,7 +2795,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤迷你血肉魔像
-					“两个头骨从骨堆中跳出来，眼中仿佛有光”
+					"两个头骨从骨堆中跳出来，眼中仿佛有光"
 					'''
 			}
 
@@ -2804,7 +2804,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤如干的灾虫
-					“没错，这里也有只虫子在动”
+					"没错，这里也有只虫子在动"
 					'''
 			}
 
@@ -2813,7 +2813,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤被圣卫两面包夹芝士的迷你史莱姆之神核心
-					“渴求猩红与腐化的力量”
+					"渴求猩红与腐化的力量"
 					'''
 			}
 
@@ -2822,7 +2822,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤戴兜帽的幻妖灵巫
-					“宝宝的第一个帽子”
+					"宝宝的第一个帽子"
 					'''
 			}
 
@@ -2831,7 +2831,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤幻海妖龙跟随你
-					“深渊的疯狂在你体内回响……”
+					"深渊的疯狂在你体内回响……"
 					'''
 			}
 
@@ -2845,7 +2845,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤小风暴无人机
-					“这是个探针还是个蠕虫？”
+					"这是个探针还是个蠕虫？"
 					'''
 			}
 
@@ -2854,7 +2854,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤弱小的卧龙海马
-					“一种受卧龙海马喜欢的酥脆小点心”
+					"一种受卧龙海马喜欢的酥脆小点心"
 					'''
 			}
 
@@ -2863,7 +2863,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤宇宙之灵中最纯洁的孩子
-					“她来了”
+					"她来了"
 					'''
 			}
 
@@ -2872,17 +2872,17 @@ Mods: {
 				Tooltip:
 					'''
 					召唤从垃圾堆里拾来的仙女座扫除机
-					“这是什么意思？”
+					"这是什么意思？"
 					'''
 			}
-             //悼念鸟山明老师，看到龙珠想起来了，没有其他含义。
+
 			TheDragonball: {
 				DisplayName: 龙珠
 				Tooltip:
 					'''
 					召唤球型痴愚金龙
 					克隆失败的龙会引发认知危机
-					“哦吼”
+					"哦吼"
 					'''
 			}
 
@@ -2891,7 +2891,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤宠物渊海灾虫、荒漠灾虫
-					“请赐予我灾虫之力！”
+					"请赐予我灾虫之力！"
 					'''
 			}
 
@@ -2900,7 +2900,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤幽花酱
-					“一个淘气的幽灵”
+					"一个淘气的幽灵"
 					'''
 			}
 
@@ -2909,7 +2909,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤非常生气的狗狗
-					“据说能驯服最暴躁狗狗的咀嚼玩具”
+					"据说能驯服最暴躁狗狗的咀嚼玩具"
 					'''
 			}
 
@@ -2918,7 +2918,7 @@ Mods: {
 				Tooltip:
 					'''
 					召唤T.U.B
-					“胖胖”
+					"胖胖"
 					'''
 			}
 
@@ -2933,7 +2933,7 @@ Mods: {
 			}
 
 			HypnosPlushThrowable: {
-				DisplayName:  修普诺斯玩偶 （可投掷）
+				DisplayName: 修普诺斯玩偶 （可投掷）
 				Tooltip: 可以扔出去
 			}
 
@@ -2967,7 +2967,7 @@ Mods: {
 				Tooltip:
 					'''
 					用于制作终末主题的物品
-					“请勿吞食”
+					"请勿吞食"
 					'''
 			}
 
@@ -2978,7 +2978,7 @@ Mods: {
 
 			AuricTrashCan: {
 				DisplayName: 圣金源垃圾桶
-				Tooltip: "“我无法掌控自己的生活”"
+				Tooltip: "我无法掌控自己的生活"
 			}
 
 			TiedBoB2: {
@@ -3387,17 +3387,17 @@ Mods: {
 
 			DemonShield: {
 				DisplayName: 撒旦盾牌
-				Tooltip: " “太大了以至于无法装备” "
+				Tooltip: " "太大了以至于无法装备" "
 			}
 
 			DisrepairUnit: {
-				DisplayName: 破损修复机器人	
-				Tooltip: " “你可能有什么毛病” "
+				DisplayName: 破损修复机器人
+				Tooltip: " "你可能有什么毛病" "
 			}
 
 			Evolution: {
 				DisplayName: 玩具进化者
-				Tooltip: " “好好看着这球...”"
+				Tooltip: " "好好看着这球...""
 			}
 
 			AgedRustGamingTable: {
@@ -3412,7 +3412,7 @@ Mods: {
 
 			RustGamingTable2: {
 				DisplayName: 锈蚀游戏桌2号
-				Tooltip: " “从内容上看，这是一部衍生作” "
+				Tooltip: " "从内容上看，这是一部衍生作" "
 			}
 
 			OldAstralBathtubItem: {
@@ -3820,7 +3820,7 @@ Mods: {
 				Tooltip:
 					'''
 					可投喂绿色蘑菇
-					‘帮帮我’
+					帮帮我’
 					'''
 			}
 
@@ -3836,12 +3836,12 @@ Mods: {
 
 			JunkArt: {
 				DisplayName: 重建的粒子加速器
-				Tooltip: "“从旧蓝图重新组装而成。里面的花在五年时间内长得生机勃勃。"
+				Tooltip: "从旧蓝图重新组装而成。里面的花在五年时间内长得生机勃勃。
 			}
 
 			MireAquarium: {
 				DisplayName: 峭咽潭水族箱
-				Tooltip: " “希望玻璃不要碎掉...” "
+				Tooltip: " "希望玻璃不要碎掉..." "
 			}
 
 			AquaticMonolith: {
@@ -3881,7 +3881,7 @@ Mods: {
 
 			UnholyMonolith: {
 				DisplayName: 亵渎喷泉
-				Tooltip: "“嫑用，这东西不会更改水的颜色”"
+				Tooltip: "嫑用，这东西不会更改水的颜色"
 			}
 
 			MoulderingAltarItem: {
@@ -3898,12 +3898,12 @@ Mods: {
 				DisplayName: 爆焰争霸战
 				Tooltip:
 					'''
-					“圣火与硫磺火的对决”
+					"圣火与硫磺火的对决"
 					'Yharex'
 					'''
 			}
 
-		CalamiteaTime: {
+			CalamiteaTime: {
 				DisplayName: 灾厄茶时光
 				Tooltip: 原作者'caligulas' ,由'Mathew Maple'重绘
 			}
@@ -3912,7 +3912,7 @@ Mods: {
 				DisplayName: 小家伙们
 				Tooltip:
 					'''
-					“好兄弟！”
+					"好兄弟！"
 					'Mochi'
 					'''
 			}
@@ -3980,7 +3980,7 @@ Mods: {
 				DisplayName: 犽戎鸡
 				Tooltip:
 					'''
-					“真诚的感谢一位出色的女性监护人”
+					"真诚的感谢一位出色的女性监护人"
 					'Willow'
 					'''
 			}
@@ -3989,7 +3989,7 @@ Mods: {
 				DisplayName: 失落之魂
 				Tooltip:
 					'''
-					“迷失与恐惧”
+					"迷失与恐惧"
 					'Mathew Maple'
 					'''
 			}
@@ -4003,7 +4003,7 @@ Mods: {
 				DisplayName: 家？
 				Tooltip:
 					'''
-					“乐，不思蜀也”
+					"乐，不思蜀也"
 					'Mathew Maple'
 					'''
 			}
@@ -4012,7 +4012,7 @@ Mods: {
 				DisplayName: 灾厄虚荣（旧）
 				Tooltip:
 					'''
-					“旧的！！！”
+					"旧的！！！"
 					'Yharex'
 					'''
 			}
@@ -4021,8 +4021,8 @@ Mods: {
 				DisplayName: 非官方灾厄音乐（旧）
 				Tooltip:
 					'''
-					“复古曲调”
-					“心跳加快！”
+					"复古曲调"
+					"心跳加快！"
 					'''
 			}
 
@@ -4030,7 +4030,7 @@ Mods: {
 				DisplayName: "22"
 				Tooltip:
 					'''
-					“被诅咒的数字”
+					"被诅咒的数字"
 					'Willow'
 					'''
 			}
@@ -4053,7 +4053,7 @@ Mods: {
 				DisplayName: 西格纳特
 				Tooltip:
 					'''
-					“你别说，长期被冻在冰块里真会影响心智”
+					"你别说，长期被冻在冰块里真会影响心智"
 					'Yharex'
 					'''
 			}
@@ -4084,15 +4084,15 @@ Mods: {
 			}
 
 			TheYhar: {
-				DisplayName: "亚利姆肖像画"
-				Tooltip: "“不得不说，尽管他是坏蛋，但他还是个很酷的家伙”"
+				DisplayName: 亚利姆肖像画
+				Tooltip: "不得不说，尽管他是坏蛋，但他还是个很酷的家伙"
 			}
 
 			UCMMPainting: {
 				DisplayName: 非官方灾厄音乐
 				Tooltip:
 					'''
-					“世界之声”
+					"世界之声"
 					'IbanPlay'
 					'''
 			}
@@ -4103,10 +4103,10 @@ Mods: {
 			}
 
 			VVanities: {
-				DisplayName: V代表Vanities！ 
+				DisplayName: V代表Vanities！
 				Tooltip:
 					'''
-					“V!”
+					"V!"
 					'Willow'
 					'''
 			}
@@ -4120,7 +4120,7 @@ Mods: {
 				DisplayName: 上天堂的龙
 				Tooltip:
 					'''
-					“有一天...”
+					"有一天..."
 					'Mathew Maple'
 					'''
 			}
@@ -4132,7 +4132,7 @@ Mods: {
 
 			PlagueDialysis: {
 				DisplayName: 细胞保护仓
-				Tooltip: "“封存终生”"
+				Tooltip: "封存终生"
 			}
 
 			AcidGun: {
@@ -4157,7 +4157,7 @@ Mods: {
 
 			BelchingCoral: {
 				DisplayName: 硫磺珊瑚
-				Tooltip: "“别拿手碰它”"
+				Tooltip: "别拿手碰它"
 			}
 
 			BloodstoneRoses: {
@@ -4294,7 +4294,7 @@ Mods: {
 				DisplayName: 灾厄毛绒玩具 （可放置）
 				Tooltip:
 					'''
-					“一件必须小心处理的黑暗玩偶”
+					"一件必须小心处理的黑暗玩偶"
 					大师模式掉落
 					'''
 			}
@@ -4477,8 +4477,8 @@ Mods: {
 				DisplayName: 帆鱼纪念章
 				Tooltip:
 					'''
-					“如果挂在墙上的家伙 
-					是你呢？”
+					"如果挂在墙上的家伙 
+					是你呢？"
 					'''
 			}
 
@@ -4522,7 +4522,7 @@ Mods: {
 
 			Knight: {
 				DisplayName: 大地骑士雕像
-				Tooltip: "“有违骑士准则”"
+				Tooltip: "有违骑士准则"
 			}
 
 			NukeFlyStatue: {
@@ -4537,7 +4537,7 @@ Mods: {
 
 			Provibust: {
 				DisplayName: 亵渎圣像
-				Tooltip: "“我愿为您而死，大人”"
+				Tooltip: "我愿为您而死，大人"
 			}
 
 			ShrineoftheTides: {
@@ -4560,7 +4560,7 @@ Mods: {
 				Tooltip:
 					'''
 					右键可切换外观
-					“危险！当心点！”
+					"危险！当心点！"
 					'''
 			}
 
@@ -4788,9 +4788,9 @@ Mods: {
 				Tooltip: ""
 			}
 
-			rovidenceAltar: {
-				DisplayName: 亵渎天神核心底座
-				Tooltip: 支撑着亵渎核心
+			ProvidenceAltar: {
+				// DisplayName: Holder of the Profaned Godess' Core
+				// Tooltip: Holds the core of the Profaned Goddess
 			}
 
 			PolterCable: {
@@ -4817,7 +4817,12 @@ Mods: {
 				DisplayName: 尊爵砖
 				Tooltip: "'嗝~~'"
 			}
-                  }
+
+			rovidenceAltar: {
+				DisplayName: 亵渎天神核心底座
+				Tooltip: 支撑着亵渎核心
+			}
+		}
 
 		Projectiles: {
 			# Meldosaurus stuff
@@ -5065,6 +5070,7 @@ Mods: {
 			OmegaCultistTrident.DisplayName: 欧米茄教徒
 			ArtemisBalloonProj.DisplayName: 阿尔忒尼斯气球
 			ApolloBalloonProj.DisplayName: 阿波罗气球
+			// ScalPet.DisplayName: Scal Pet
 		}
 
 		Tiles: {
@@ -5139,7 +5145,7 @@ Mods: {
 
 			OldAstralLamp.MapEntry: 枯萎灯
 			OldAstralLantern.MapEntry: 枯萎灯笼
-			OldAstralPiano.MapEntry:枯萎管风琴
+			OldAstralPiano.MapEntry: 枯萎管风琴
 			OldAstralSink.MapEntry: 枯萎水槽
 			OldAstralSofa.MapEntry: 枯萎沙发
 			OldAstralTable.MapEntry: 枯萎桌
@@ -5331,10 +5337,10 @@ Mods: {
 			SundayAfternoonCalPlaced.MapEntry: 灾厄世界的周末午后
 			SwearingShroomPlaced.MapEntry: 愤怒寄生菌
 			TheGreatSandwormPlaced.MapEntry: 大沙虫
-			TheYharPlaced.MapEntry: "亚利姆肖像画"
+			TheYharPlaced.MapEntry: 亚利姆肖像画
 			UCMMPlaced.MapEntry: 原版灾厄曲包
 			UnholyTripPlaced.MapEntry: 邪恶之旅
-			VVanitiesPlaced.MapEntry: V代表Vanities！ 
+			VVanitiesPlaced.MapEntry: V代表Vanities！
 			WilliamPaintingPlaced.MapEntry: 灾厄虚荣
 			WormHeavenPlaced.MapEntry: 天堂之龙
 			YharlamitasPlaced.MapEntry: 害怕
@@ -6028,7 +6034,7 @@ Mods: {
 
 			SWPetBuff: {
 				DisplayName: 小风暴无人机
-				Description: ''' "我想他们还是没有全部灭绝" '''
+				Description: '''"我想他们还是没有全部灭绝" '''
 			}
 
 			TerminalRockBuff: {
@@ -6173,7 +6179,7 @@ Mods: {
 			NurseryBellBuff: {
 				DisplayName: 幼儿园的铃铛
 				Description: 铃儿响叮当~
-			}	
+			}
 
 			MorshuBuff: {
 				DisplayName: Morshu
