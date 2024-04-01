@@ -64,7 +64,7 @@ Mods: {
 				}
 
 				ChatButtons0: 商店
-				ChatButtons1: "商店"
+				ChatButtons1: 商店
 				ChatButtons2: 切换商店
 				ChatButtons3: 召唤
 				ButtonClicked1: 你把我唤醒了……现在，是时候该付出代价了……
@@ -201,7 +201,7 @@ Mods: {
 				Chat: {
 					homeless1: 我懂，我懂，你不能给我的每个小伙伴都建造一个小家，但是你能为我提供一个住处吗？
 					homeless2: 也许我对你的冒险派不上什么用场，但是请相信我，我的小家伙们都很可爱！
-					miscEquips1: "啊...我喜欢你的小伙伴，"
+					miscEquips1: 啊...我喜欢你的小伙伴，
 					miscEquips11: 好好照顾它，好吗？
 					miscEquips2: 你的小伙伴真可爱，小子！你最好要照顾好它，好吗？
 					miscEquips3: 你应该感到高兴，你的小伙伴可不像T.U.B。
@@ -211,14 +211,14 @@ Mods: {
 					Bumblefuck: 那边的那个似乎有很多你可以拯救的小伙伴。
 					WITCH: 有些人可能会害怕灾厄女巫，但她身边有很多可爱的小东西跟着她，像那些蝙蝠和死冥虫！她不可能像传说中那么坏。
 					CirrusDress: 嘿，你宁愿穿那些带酒渍的破布而不是更时尚的新衣吗？我没有冒犯之意。
-					Wizard1: "虽然他看起来像个穿着傻傻的服装的怪老头，但他的魔法绝对是真实的。"
-					Wizard2: "嘿，小子，你能和"
+					Wizard1: 虽然他看起来像个穿着傻傻的服装的怪老头，但他的魔法绝对是真实的。
+					Wizard2: 嘿，小子，你能和
 					Wizard22: ?交流一下吗？我有一个他可能会喜欢的小家伙！
 					expertMode1: 你知道吗，孩子，我的这些小家伙大多只会追随那些挑战自己的人。可以说他们中的一部分只会追随专家。
 					expertMode2: 虽然你目前的冒险旅程拥有了了找到小伙伴许多的机会，但我听说专家模式会吸引更多小伙伴！
 					eclipse1: 我很高兴我的朋友们没有变成这些失去理智的怪物！
-					eclipse2: "嘿"
-					eclipse22: "，如果你看到我的小家伙们比平时更狂躁，也请不要伤害它们。"
+					eclipse2: 嘿
+					eclipse22: ，如果你看到我的小家伙们比平时更狂躁，也请不要伤害它们。
 					eclipse3: 嘿，小子！答应我，保护我和我的小家伙们，好不好？
 					eclipse4: 我很高兴我的小家伙们没有在这个奇怪的日子里变得疯狂。
 					PartyIsUp1: 我的可爱的小家伙们在这美好的一天里玩得很开心！你应该也找个方式来度过这样一个美好的日子！
@@ -227,7 +227,7 @@ Mods: {
 					Day1: 嘿，小子！我有些可爱的宠物，我知道你想来一个。
 					Day2: 你注定会做出些了不起的事情，兄弟。比如现在就给这些小家伙一个家。
 					Day3: 我的小宠物T.U.B是怎么吃饭的？嗯...你不会想知道的，伙计。
-					Day4: "预知未来的能力可以帮助我找到需要收养的宠物和他们的新家。你今天得到了哪个"
+					Day4: 预知未来的能力可以帮助我找到需要收养的宠物和他们的新家。你今天得到了哪个
 					Day44: ?
 					Day5: 小子，我一直在等你。现在，让我们探讨一下这些可爱的小家伙们。
 					Night1: 星星正在看着你，小子。别让它们失望。
@@ -238,8 +238,8 @@ Mods: {
 					bloodMoon1: 你最好也养一只小伙伴，否则……
 					bloodMoon2: 在这种情况下，你不会想知道我的宠物T.U.B能对你做什么的。
 					bloodMoon3: 你最好不要挡在我和我的小家伙们之间。
-					bloodMoon4: "嘿！"
-					bloodMoon44: "也许今晚你该试着躲起来。"
+					bloodMoon4: 嘿！
+					bloodMoon44: 也许今晚你该试着躲起来。
 					bloodMoon5: 今晚你最好跑远点，小子。T.U.B在寻找你，它可不会轻易的放过你。
 					bloodMoon6: 如果你想活命，那你最好应该躲起来。
 				}
@@ -552,7 +552,7 @@ Mods: {
 
 			PrismShell: {
 				DisplayName: 棱晶壳
-				Tooltip: "看起来很锋利"
+				Tooltip: 看起来很锋利
 			}
 
 			# Balloons
@@ -607,17 +607,17 @@ Mods: {
 
 			ExoTwinsBalloon: {
 				DisplayName: XS项束圈
-				Tooltip: "乐"
+				Tooltip: 乐
 			}
 
 			FoilAtlantis: {
 				DisplayName: 亚特兰蒂斯铝箔杖
-				Tooltip: "一把三叉戟的廉价仿制品"
+				Tooltip: 一把三叉戟的廉价仿制品
 			}
 
 			FoilSpoon: {
 				DisplayName: 铝箔勺
-				Tooltip: "只是个勺子。"
+				Tooltip: 只是个勺子。
 			}
 
 			Mirballoon: {
@@ -640,27 +640,27 @@ Mods: {
 
 			ProfanedBalloon: {
 				DisplayName: 亵渎气球
-				Tooltip: "由普罗维登斯独家赞助"
+				Tooltip: 由普罗维登斯独家赞助
 			}
 
 			ShuttleBalloon: {
 				DisplayName: 飞碟气球
-				Tooltip: "在火星很畅销"
+				Tooltip: 在火星很畅销
 			}
 
 			SignusBalloon: {
 				DisplayName: 无限灯笼气球
-				Tooltip: "离那些灵气远点"
+				Tooltip: 离那些灵气远点
 			}
 
 			SkullBalloon: {
 				DisplayName: 头骨气球
-				Tooltip: "看起来大脑还在"
+				Tooltip: 看起来大脑还在
 			}
 
 			WulfrumBalloon: {
 				DisplayName: 钨钢回转气球
-				Tooltip: "用陀螺仪操控！"
+				Tooltip: 用陀螺仪操控！
 			}
 
 			SigCape: {
@@ -675,7 +675,7 @@ Mods: {
 
 			YharimCapeBaby: {
 				DisplayName: 圣金源斗篷
-				Tooltip: "也不是真品，更像小孩子的玩具"
+				Tooltip: 也不是真品，更像小孩子的玩具
 			}
 
 			DraedonHelmet: {
@@ -701,7 +701,7 @@ Mods: {
 
 			AncientPerennialFlower: {
 				DisplayName: 古永恒郁金香
-				Tooltip: "我真漂亮！"
+				Tooltip: 我真漂亮！
 			}
 
 			AstrachnidCranium: {
@@ -711,12 +711,12 @@ Mods: {
 
 			AstrumDeusMask: {
 				DisplayName: 枯萎星神游龙面具
-				Tooltip: "堕星复明"
+				Tooltip: 堕星复明
 			}
 
 			AureicFedora: {
 				DisplayName: 星舰软呢帽
-				Tooltip: "不要把它直接扣到别人头上"
+				Tooltip: 不要把它直接扣到别人头上
 			}
 
 			BanditHat: {
@@ -751,12 +751,12 @@ Mods: {
 
 			ClamMask: {
 				DisplayName: 灾谔蛤帽
-				Tooltip: "等下，那是个错字是吧？"
+				Tooltip: 等下，那是个错字是吧？
 			}
 
 			CoralMask: {
 				DisplayName: 喷嗝珊瑚面具
-				Tooltip: "现在是盐水时间！"
+				Tooltip: 现在是盐水时间！
 			}
 
 			CosmicCone: {
@@ -810,7 +810,7 @@ Mods: {
 			}
 
 			FallenPaladinsHelmet: {
-				DisplayName: "堕骑士头盔"
+				DisplayName: 堕骑士头盔
 				Tooltip: ""
 			}
 
@@ -836,7 +836,7 @@ Mods: {
 
 			MidWorm: {
 				DisplayName: 中血肉寄生者面具
-				Tooltip: "一路爬向顶峰！"
+				Tooltip: 一路爬向顶峰！
 			}
 
 			OlTrashtooth: {
@@ -856,7 +856,7 @@ Mods: {
 
 			PerennialFlower: {
 				DisplayName: 永恒郁金香
-				Tooltip: "我漂亮吗？"
+				Tooltip: 我漂亮吗？
 			}
 
 			PolterMask: {
@@ -886,12 +886,12 @@ Mods: {
 
 			SmallWorm: {
 				DisplayName: 小血肉寄生者面具
-				Tooltip: "那堆血肉中长得最像蠕虫的一个。"
+				Tooltip: 那堆血肉中长得最像蠕虫的一个。
 			}
 
 			SpectralstormHat: {
 				DisplayName: 光谱帽
-				Tooltip: "有史以来最愚蠢的主意"
+				Tooltip: 有史以来最愚蠢的主意
 			}
 
 			SquidHat: {
@@ -901,7 +901,7 @@ Mods: {
 
 			StonePile: {
 				DisplayName: 石堆
-				Tooltip: "只要你觉得你很头铁"
+				Tooltip: 只要你觉得你很头铁
 			}
 
 			TerminalMask: {
@@ -915,7 +915,7 @@ Mods: {
 
 			TrueCosmicCone: {
 				DisplayName: 真·宇宙尖锥
-				Tooltip: "一顶与宇宙同样无限的帽子，尖的可以刺穿维度"
+				Tooltip: 一顶与宇宙同样无限的帽子，尖的可以刺穿维度
 			}
 
 			UnloadedHelm: {
@@ -966,7 +966,7 @@ Mods: {
 			}
 
 			FallenPaladinsGreaves: {
-				DisplayName: "堕骑士的护腿"
+				DisplayName: 堕骑士的护腿
 				Tooltip: ""
 			}
 
@@ -982,14 +982,14 @@ Mods: {
 
 			TerrorLegs: {
 				DisplayName: 骇兽腿
-				Tooltip: "它们焦躁不安"
+				Tooltip: 它们焦躁不安
 			}
 
 			AstBandana: {
 				# Scarves
 				DisplayName: 星幻方巾
 				# Scarves
-				Tooltip: "太空时代的时尚！"
+				Tooltip: 太空时代的时尚！
 			}
 
 			BloodwormScarf: {
@@ -999,7 +999,7 @@ Mods: {
 
 			CosmicWormScarf: {
 				DisplayName: 宇宙之虫围巾
-				Tooltip: "太空时尚！"
+				Tooltip: 太空时尚！
 			}
 
 			DesertMedallion: {
@@ -1029,12 +1029,12 @@ Mods: {
 
 			StormBandana: {
 				DisplayName: 风暴头巾
-				Tooltip: "触电般的潮流！"
+				Tooltip: 触电般的潮流！
 			}
 
 			UniversalWormScarf: {
 				DisplayName: 噬宇之虫围巾
-				Tooltip: "足以吞下世间万物，不会导致时空的扭曲"
+				Tooltip: 足以吞下世间万物，不会导致时空的扭曲
 			}
 
 			YharonShackle: {
@@ -1051,7 +1051,7 @@ Mods: {
 
 			EarthShield: {
 				DisplayName: 元素塔盾
-				Tooltip: "看起来很坚固，但实际上只是块无用的石头罢了。"
+				Tooltip: 看起来很坚固，但实际上只是块无用的石头罢了。
 			}
 
 			Invishield: {
@@ -1061,7 +1061,7 @@ Mods: {
 
 			TrilobiteShield: {
 				DisplayName: 三叶虫盾
-				Tooltip: "一个远古的盾牌。它太古老了，根本挡不住任何攻击。"
+				Tooltip: 一个远古的盾牌。它太古老了，根本挡不住任何攻击。
 			}
 
 			AresChestplate: {
@@ -1781,7 +1781,7 @@ Mods: {
 
 			VaselineBell: {
 				DisplayName: 矿脂铃铛
-				Tooltip: "我一下子就活了过来，这是一次重生！"
+				Tooltip: 我一下子就活了过来，这是一次重生！
 			}
 
 			WormBell: {
@@ -2047,7 +2047,7 @@ Mods: {
 
 			ChaoticPuffball: {
 				DisplayName: 混乱刺鲀气球
-				Tooltip: "它应该不会爆炸……"
+				Tooltip: 它应该不会爆炸……
 			}
 
 			BlightedAstralPinkDye: {
@@ -2072,12 +2072,12 @@ Mods: {
 
 			Birbhat: {
 				DisplayName: 痴愚金帽
-				Tooltip: "一顶帽子统治着他们"
+				Tooltip: 一顶帽子统治着他们
 			}
 
 			Calacirclet: {
 				DisplayName: 灾厄头环
-				Tooltip: "貌似被诅咒了？"
+				Tooltip: 貌似被诅咒了？
 			}
 
 			ShroomiteVisage: {
@@ -2102,7 +2102,7 @@ Mods: {
 
 			NuclearFumes: {
 				DisplayName: 核废气
-				Tooltip: "不要吸入"
+				Tooltip: 不要吸入
 			}
 
 			OldCassette: {
@@ -2978,7 +2978,7 @@ Mods: {
 
 			AuricTrashCan: {
 				DisplayName: 圣金源垃圾桶
-				Tooltip: "我无法掌控自己的生活"
+				Tooltip: 我无法掌控自己的生活
 			}
 
 			TiedBoB2: {
@@ -3836,7 +3836,7 @@ Mods: {
 
 			JunkArt: {
 				DisplayName: 重建的粒子加速器
-				Tooltip: "从旧蓝图重新组装而成。里面的花在五年时间内长得生机勃勃。"
+				Tooltip: 从旧蓝图重新组装而成。里面的花在五年时间内长得生机勃勃。
 			}
 
 			MireAquarium: {
@@ -3881,7 +3881,7 @@ Mods: {
 
 			UnholyMonolith: {
 				DisplayName: 亵渎喷泉
-				Tooltip: "嫑用，这东西不会更改水的颜色"
+				Tooltip: 嫑用，这东西不会更改水的颜色
 			}
 
 			MoulderingAltarItem: {
@@ -4085,7 +4085,7 @@ Mods: {
 
 			TheYhar: {
 				DisplayName: 亚利姆肖像画
-				Tooltip: "不得不说，尽管他是坏蛋，但他还是个很酷的家伙"
+				Tooltip: 不得不说，尽管他是坏蛋，但他还是个很酷的家伙
 			}
 
 			UCMMPainting: {
@@ -4132,7 +4132,7 @@ Mods: {
 
 			PlagueDialysis: {
 				DisplayName: 细胞保护仓
-				Tooltip: "封存终生"
+				Tooltip: 封存终生
 			}
 
 			AcidGun: {
@@ -4157,7 +4157,7 @@ Mods: {
 
 			BelchingCoral: {
 				DisplayName: 硫磺珊瑚
-				Tooltip: "别拿手碰它"
+				Tooltip: 别拿手碰它
 			}
 
 			BloodstoneRoses: {
@@ -4522,7 +4522,7 @@ Mods: {
 
 			Knight: {
 				DisplayName: 大地骑士雕像
-				Tooltip: "有违骑士准则"
+				Tooltip: 有违骑士准则
 			}
 
 			NukeFlyStatue: {
@@ -4537,7 +4537,7 @@ Mods: {
 
 			Provibust: {
 				DisplayName: 亵渎圣像
-				Tooltip: "我愿为您而死，大人"
+				Tooltip: 我愿为您而死，大人
 			}
 
 			ShrineoftheTides: {
@@ -4818,9 +4818,9 @@ Mods: {
 				Tooltip: "'嗝~~'"
 			}
 
-			rovidenceAltar: {
-				DisplayName: 亵渎天神核心底座
-				Tooltip: 支撑着亵渎核心
+			FriendExtinguisher: {
+				// DisplayName: Friend Extinguisher
+				// Tooltip: Toggles Fanny the Flame
 			}
 		}
 

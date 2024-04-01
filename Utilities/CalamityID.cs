@@ -105,6 +105,7 @@ namespace CalValEX.CalamityID
         public static int OldDuke;
         public static int DevourerofGods;
         public static int Yharon;
+        public static int Draedon;
         public static int Ares;
         public static int Apollo;
         public static int Artemis;
@@ -152,6 +153,7 @@ namespace CalValEX.CalamityID
             OldDuke = CalamityID.NPCRelation("OldDuke", NPCID.DukeFishron);
             DevourerofGods = CalamityID.NPCRelation("DevourerofGodsHead", NPCID.MoonLordCore);
             Yharon = CalamityID.NPCRelation("Yharon", NPCID.DukeFishron);
+            Draedon = CalamityID.NPCRelation("Draedon", NPCID.TheDestroyer);
             Ares = CalamityID.NPCRelation("AresBody", NPCID.SkeletronPrime);
             Apollo = CalamityID.NPCRelation("Apollo", NPCID.Spazmatism);
             Artemis = CalamityID.NPCRelation("Artemis", NPCID.Retinazer);
@@ -249,13 +251,13 @@ namespace CalValEX.CalamityID
 
     public class CalRarityID : ModSystem
     {
-        public static int Turquoise;// => CalamityID.RarityRelation("Turquoise", ModContent.RarityType<Turquoise>());
-        public static int PureGreen;// => CalamityID.RarityRelation("PureGreen", ModContent.RarityType<PureGreen>());
-        public static int DarkBlue;// => CalamityID.RarityRelation("DarkBlue", ModContent.RarityType<DarkBlue>());
-        public static int Violet;// => CalamityID.RarityRelation("Violet", ModContent.RarityType<Violet>());
-        public static int HotPink;// => CalamityID.RarityRelation("HotPink", ModContent.RarityType<HotPink>());
-        public static int CalamityRed;// => CalamityID.RarityRelation("CalamityRed", ModContent.RarityType<CalamityRed>());
-        public static int DarkOrange;// => CalamityID.RarityRelation("DarkOrange", ModContent.RarityType<DarkOrange>());
+        public static int Turquoise;
+        public static int PureGreen;
+        public static int DarkBlue;
+        public static int Violet;
+        public static int HotPink;
+        public static int CalamityRed;
+        public static int DarkOrange;
 
         public override void PostSetupContent()
         {

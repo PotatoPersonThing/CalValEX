@@ -38,6 +38,7 @@ namespace CalValEX.AprilFools.Jharim
             Projectile.friendly = true;
             Projectile.npcProj = true;
             Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 10;
         }
         public override bool PreAI()
         {

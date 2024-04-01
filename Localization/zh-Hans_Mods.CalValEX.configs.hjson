@@ -1,29 +1,29 @@
-# 本文件包含了所有模组配置的翻译文本。
+# This file contains all the translations for ModConfig elements.
 
 CalValExConfig: {
-	DisplayName: 模组配置
-	DropsGen_L: 禁用物品掉落
-	DropsGen_T: 使模组所有物品无法直接掉落
+	// DisplayName: Config
+	// DropsGen_L: Disable All Drops
+	// DropsGen_T: Disables all of the mod's direct drops
 
 	DisableVanityDrops: {
-		Label: 禁用虚荣掉落
-		Tooltip: 使所有虚荣模组中的物品无法直接掉落
+		// Label: Disable Vanity Drops
+		// Tooltip: Disables all of the mod's vanity drops
 	}
 
-	DropsBlock_L: 禁用Boss砖块掉落
-	DropsBlock_T: 使所有Boss及其宝藏袋不再掉落砖块
+	// DropsBlock_L: Disable Boss Block Drops
+	// DropsBlock_T: Makes it so that bosses and their bags no longer drop blocks
 
 	ConfigBossBlocks: {
-		Label: 禁用Boss砖块掉落
-		Tooltip: 使所有Boss及其宝藏袋不再掉落砖块
+		// Label: Disable Boss Block Drops
+		// Tooltip: Disables all of the mod's block drops
 	}
 
 	Headers: {
-		DropsHeaderAmongus: 掉落物
-		PetsHeader: 宠物
-		NPCsHeader: NPC
-		VanityHeader: 虚荣召唤物
-		MiscHeader: 其他
-		ConfigHeader: 模组配置
+		// DropsHeaderAmongus: Drops
+		// PetsHeader: Pets
+		// NPCsHeader: NPCs
+		// VanityHeader: Vanity Minions
+		// MiscHeader: Other
+		// ConfigHeader: Config Access
 	}
 }

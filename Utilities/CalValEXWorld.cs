@@ -16,6 +16,7 @@ using Terraria.Localization;
 using Microsoft.Xna.Framework;
 using Humanizer;
 using CalValEX.Tiles.MiscFurniture;
+using CalValEX.AprilFools.Fanny;
 
 namespace CalValEX
 {
@@ -72,6 +73,22 @@ namespace CalValEX
             astro = false;
             tar = false;
             PolterCableTE.UpdateHooks();
+
+            if ((DateTime.Now.Month == 4 && DateTime.Now.Day == 1) || (Main.zenithWorld && DateTime.Now.Month == 4 && DateTime.Now.Day <= 7))
+            {
+                FannyManager.fannyEnabled = true;
+                if (CalValEX.instance.cremix != null)
+                {
+                    if (CalValEX.instance.cremix.Version == new System.Version(2, 4, 1))
+                    {
+                        FannyManager.fannyEnabled = false;
+                    }
+                }
+            }
+            else
+            {
+                FannyManager.fannyEnabled = false;
+            }
         }
 
         public override void OnWorldUnload()
@@ -88,6 +105,7 @@ namespace CalValEX
             ninja = false;
             astro = false;
             tar = false;
+            FannyManager.fannyEnabled = false;
 
             nugget = draco = folly = godnug = mammoth = shadow = isThereAHouse = false;
         }
@@ -272,7 +290,6 @@ namespace CalValEX
                 CalValEX.AprilFoolWeek = true;
                 CalValEX.AprilFoolMonth = true;
             }
-
             // Call the spawning method
             if (nugget)
                 SpawnBitches<NuggetNugget>(nugget);

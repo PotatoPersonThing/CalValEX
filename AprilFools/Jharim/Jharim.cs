@@ -11,6 +11,7 @@ using Terraria.GameContent;
 using Terraria.GameContent.Personalities;
 using System.Collections.Generic;
 using Terraria.Localization;
+using CalValEX.AprilFools.Fanny;
 
 namespace CalValEX.AprilFools.Jharim
 {
@@ -418,6 +419,7 @@ namespace CalValEX.AprilFools.Jharim
             {
                 var blockShop = new NPCShop(Type, "Jharim");
                 blockShop.Add(ItemType<AmogusItem>());
+                blockShop.Add(ItemType<FriendExtinguisher>());
                 blockShop.Register();
             }
             else

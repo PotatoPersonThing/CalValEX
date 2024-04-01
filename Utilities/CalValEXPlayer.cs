@@ -17,6 +17,7 @@ using CalValEX.Items.Equips.Wings;
 using CalValEX.Items.Mounts.Ground;
 using CalamityMod.Particles;
 using CalValEX.Projectiles;
+using CalValEX.AprilFools.Fanny;
 
 namespace CalValEX
 {

@@ -38,6 +38,8 @@ namespace CalValEX
         public Mod wotg;
         public Mod hunt;
         public Mod infernum;
+        public Mod cremix;
+        public Mod subworldLibrary;
 
         public const string heropermission = "CalValEX";
         public const string heropermissiondisplayname = "Calamity's Vanities";
@@ -67,13 +69,15 @@ namespace CalValEX
             ModLoader.TryGetMod("NoxusBoss", out wotg);
             ModLoader.TryGetMod("InfernumMode", out infernum);
             ModLoader.TryGetMod("CalamityHunt", out hunt);
+            ModLoader.TryGetMod("CalRemix", out cremix);
+            ModLoader.TryGetMod("SubworldLibrary", out subworldLibrary);
 
             DateTime dateTime = DateTime.Now;
             currentDate = dateTime.ToString("dd/MM/yyyy");
             day = dateTime.Day;
             month = dateTime.Month;
 
-            AprilFoolWeek = ortho != null || (DateTime.Now.Month == 4 && (DateTime.Now.Day == 1 || DateTime.Now.Day == 2 || DateTime.Now.Day == 3 || DateTime.Now.Day == 4 || DateTime.Now.Day == 5 || DateTime.Now.Day == 6 || DateTime.Now.Day == 7));
+            AprilFoolWeek = ortho != null || (DateTime.Now.Month == 4 && DateTime.Now.Day <= 7);
             AprilFoolDay = ortho != null || (DateTime.Now.Month == 4 && DateTime.Now.Day == 1);
             AprilFoolMonth = ortho != null || (DateTime.Now.Month == 4);
 
@@ -99,6 +103,8 @@ namespace CalValEX
             hasPermission = false;
             wotg = null;
             hunt = null;
+            cremix = null;
+            subworldLibrary = null;
 
             currentDate = null;
             Bumble = false;
@@ -365,6 +371,23 @@ namespace CalValEX
         public bool getPermission()
         {
             return hasPermission;
+        }
+
+        internal static bool InAnySubworld()
+        {
+            if (instance.subworldLibrary is null)
+                return false;
+
+            foreach (Mod mod in ModLoader.Mods)
+            {
+                if (mod.Name.Equals(instance.subworldLibrary.Name))
+                    continue;
+
+                bool anySubworldForMod = (instance.subworldLibrary.Call("AnyActive", mod) as bool?) ?? false;
+                if (anySubworldForMod)
+                    return true;
+            }
+            return false;
         }
     }
 }

@@ -4817,6 +4817,11 @@ Mods: {
 				DisplayName: Grand Marquis Block
 				Tooltip: "'Booger'"
 			}
+
+			FriendExtinguisher: {
+				DisplayName: Friend Extinguisher
+				Tooltip: Toggles Fanny the Flame
+			}
 		}
 
 		Projectiles: {
