@@ -356,7 +356,7 @@ Mods: {
 				DisplayName: 暗影之祸
 				Tooltip:
 					'''
-					    使用真近战效果命中敌人时会从敌人身上爆出咒火
+					使用真近战效果命中敌人时会从敌人身上爆出咒火
 					单机右键会向任意方向发射咒火和玛瑙镖
 					"前卫大剑第2940358304号"
 					'''
@@ -1192,7 +1192,7 @@ Mods: {
 				Tooltip:
 					'''
 					"大风起兮云飞扬！"
-					   水平飞行速度: 1
+					水平飞行速度: 1
 					加速倍率: 1
 					飞行时间: 32 
 					'''
@@ -1203,7 +1203,7 @@ Mods: {
 				Tooltip:
 					'''
 					"飞的时候看着像只鹰"
-					   水平飞行速度: 9
+					水平飞行速度: 9
 					加速倍率: 2.5
 					飞行时间: 210 
 					'''
@@ -1214,7 +1214,7 @@ Mods: {
 				Tooltip:
 					'''
 					"虔诚地推进"
-					   水平飞行速度: 9
+					水平飞行速度: 9
 					加速倍率: 2.7
 					飞行时间: 200 
 					'''
@@ -1225,7 +1225,7 @@ Mods: {
 				Tooltip:
 					'''
 					"热气腾腾，可以上菜了。"
-					   水平飞行速度: 11.5
+					水平飞行速度: 11.5
 					加速倍率: 2.9
 					飞行时间: 140 
 					'''
@@ -1236,7 +1236,7 @@ Mods: {
 				Tooltip:
 					'''
 					"飞不起来……"
-					   水平飞行速度: 6.75
+					水平飞行速度: 6.75
 					加速倍率: 1.4
 					飞行时间: 120 
 					'''
@@ -1247,7 +1247,7 @@ Mods: {
 				Tooltip:
 					'''
 					"以黑暗作为推动力。"
-					   水平飞行速度: 9
+					水平飞行速度: 9
 					加速倍率: 2.5
 					飞行时间: 250 
 					'''
@@ -1258,7 +1258,7 @@ Mods: {
 				Tooltip:
 					'''
 					"剧毒动力！"
-					   水平飞行速度: 9.5
+					水平飞行速度: 9.5
 					加速倍率: 2.7
 					飞行时间: 190 
 					'''
@@ -1269,7 +1269,7 @@ Mods: {
 				Tooltip:
 					'''
 					"他们想知道蜜蜂是如何离开地面的……"
-					   水平飞行速度: 7.8
+					水平飞行速度: 7.8
 					加速倍率: 1.9
 					飞行时间: 170 
 					'''
@@ -1280,7 +1280,7 @@ Mods: {
 				Tooltip:
 					'''
 					"不含有纳米机器。"
-					   水平飞行速度: 7.75
+					水平飞行速度: 7.75
 					加速倍率: 1.5
 					飞行时间: 150 
 					'''
@@ -1291,7 +1291,7 @@ Mods: {
 				Tooltip:
 					'''
 					"起飞！"
-					   水平飞行速度: 6.5
+					水平飞行速度: 6.5
 					加速倍率: 1
 					飞行时间: 60 
 					'''
@@ -1303,7 +1303,7 @@ Mods: {
 					'''
 					幻蝶轻飞舞彩翼，赴难身死踏铁骑。
 					初笋缀青盖朽竹，方立寰宇登新级。
-					   水平飞行速度: 1
+					水平飞行速度: 1
 					加速倍率: 1
 					飞行时间: 60 
 					'''
@@ -1338,7 +1338,7 @@ Mods: {
 				Tooltip:
 					'''
 					"史前动力！"
-					   长度: 31
+					长度: 31
 					发射速度: 18
 					牵引速度: 17 
 					'''
@@ -1351,7 +1351,7 @@ Mods: {
 				Tooltip:
 					'''
 					"让万劫不复的恶灵们带你前进！"
-					   长度: 46
+					长度: 46
 					发射速度: 16
 					牵引速度: 20 
 					'''
@@ -1364,7 +1364,7 @@ Mods: {
 				Tooltip:
 					'''
 					"扯下神圣的枷锁"
-					   长度: 37
+					长度: 37
 					发射速度: 16
 					牵引速度: 30 
 					'''
@@ -1377,7 +1377,7 @@ Mods: {
 				Tooltip:
 					'''
 					"可用来挖出你的眼睛"
-					   长度: 43
+					长度: 43
 					发射速度: 18
 					牵引速度: 20 
 					'''
@@ -1390,7 +1390,7 @@ Mods: {
 				Tooltip:
 					'''
 					"用古北欧人的方式挖出你的眼睛！"
-					   长度: 50
+					长度: 50
 					发射速度: 19
 					牵引速度: 25 
 					'''
@@ -1404,7 +1404,7 @@ Mods: {
 					'''
 					"啪！电掣风驰！"
 					无法在混沌状态下使用
-					   长度: 60
+					长度: 60
 					发射速度: 62
 					牵引速度: 35 
 					'''
@@ -1867,7 +1867,7 @@ Mods: {
 			}
 
 			BumblefuckPlushThrowable: {
-				DisplayName: 痴愚金龙毛绒玩具（（可投掷）
+				DisplayName: 痴愚金龙毛绒玩具（可投掷）
 				Tooltip: 可以扔出去
 			}
 
@@ -2561,13 +2561,13 @@ Mods: {
 
 
 					你听说过无形之神古泽玛的悲剧吗？我想你应该没听说过，这不是魔君会告诉你的故事。
-					               这是一个监视者的传说。古泽玛是所有史莱姆的终极进化形态，它如此强大，以至于能够影响构成其他所有史莱姆的细胞。
-					               它甚至可以创造新的史莱姆之神，它对世界上的生物群落都有着亲和力。
-					               世界的能量不断聚集出通往许多被认为超自然力量的道路。
-					               它变得如此强大，唯一害怕的就是失去力量，最终，当然，它确实失去了。
-					               不幸的是，古泽玛的力量增长得如此之大，以至于成为了一个时间异常。
-					               一个我们宇宙之外的力量别无选择，只能将其抹去，使其从一开始就不存在。
-					               讽刺至极，正是这股力量使古泽玛首次成为神明，同时也导致了它的灭亡。
+					这是一个监视者的传说。古泽玛是所有史莱姆的终极进化形态，它如此强大，以至于能够影响构成其他所有史莱姆的细胞。
+					它甚至可以创造新的史莱姆之神，它对世界上的生物群落都有着亲和力。
+					世界的能量不断聚集出通往许多被认为超自然力量的道路。
+					它变得如此强大，唯一害怕的就是失去力量，最终，当然，它确实失去了。
+					不幸的是，古泽玛的力量增长得如此之大，以至于成为了一个时间异常。
+					一个我们宇宙之外的力量别无选择，只能将其抹去，使其从一开始就不存在。
+					讽刺至极，正是这股力量使古泽玛首次成为神明，同时也导致了它的灭亡。
 					'''
 			}
 
@@ -2933,17 +2933,17 @@ Mods: {
 			}
 
 			HypnosPlushThrowable: {
-				DisplayName: 修普诺斯玩偶 （可投掷）
+				DisplayName: 修普诺斯毛绒玩具 （可投掷）
 				Tooltip: 可以扔出去
 			}
 
 			MirePlushThrowableP1: {
-				DisplayName: 峭咽潭玩偶 （可投掷）
+				DisplayName: 峭咽潭毛绒玩具 （可投掷）
 				Tooltip: 可以扔出去
 			}
 
 			MirePlushThrowableP2: {
-				DisplayName: 黏液峭咽潭玩偶 （可投掷）
+				DisplayName: 黏液峭咽潭毛绒玩具 （可投掷）
 				Tooltip: 可以扔出去
 			}
 
@@ -3022,7 +3022,7 @@ Mods: {
 			}
 
 			GodSlayerSlugBanner: {
-				DisplayName: 黄金噬神蛞蝓
+				DisplayName: 噬神蛞蝓旗帜
 				Tooltip: ""
 			}
 
@@ -3042,7 +3042,7 @@ Mods: {
 			}
 
 			ViolemurBanner: {
-				DisplayName: 紫星狐猴
+				DisplayName: 紫星狐猴旗帜
 				Tooltip: ""
 			}
 
@@ -3232,7 +3232,7 @@ Mods: {
 			}
 
 			OrthoceraLog: {
-				DisplayName: 直角石放逐计划
+				DisplayName: 直角石投放计划
 				Tooltip: 请宣扬出去
 			}
 
@@ -3341,7 +3341,7 @@ Mods: {
 			}
 
 			ProvFlyJar: {
-				DisplayName: 炽热蝴蝶罐
+				DisplayName: 亵渎火蝶罐
 				Tooltip: ""
 			}
 
@@ -3820,7 +3820,7 @@ Mods: {
 				Tooltip:
 					'''
 					可投喂绿色蘑菇
-					帮帮我’
+					帮帮我
 					'''
 			}
 
@@ -4241,57 +4241,57 @@ Mods: {
 			}
 
 			AnahitaPlush: {
-				DisplayName: 阿娜希塔毛绒玩具 （可放置）
+				DisplayName: 阿娜希塔玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			ApolloPlush: {
-				DisplayName: 阿波罗毛绒玩具 （可放置）
+				DisplayName: 阿波罗玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			AquaticScourgePlush: {
-				DisplayName: 渊海灾虫毛绒玩具 （可放置）
+				DisplayName: 渊海灾虫玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			AresPlush: {
-				DisplayName: 阿瑞斯毛绒玩具 （可放置）
+				DisplayName: 阿瑞斯玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			ArtemisPlush: {
-				DisplayName: 阿尔忒弥斯毛绒玩具 （可放置）
+				DisplayName: 阿尔忒弥斯玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			AstrageldonPlush: {
-				DisplayName: 末世星史莱姆毛绒玩具 （可放置）
+				DisplayName: 末世星史莱姆玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			AstrumAureusPlush: {
-				DisplayName: 白金星舰毛绒玩具 （可放置）
+				DisplayName: 白金星舰玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			AstrumDeusPlush: {
-				DisplayName: 星神游龙毛绒玩具 （可放置）
+				DisplayName: 星神游龙玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			BrimstoneElementalPlush: {
-				DisplayName: 硫磺火元素毛绒玩具 （可放置）
+				DisplayName: 硫磺火元素玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			BumblefuckPlush: {
-				DisplayName: 痴愚金龙毛绒玩具 （可放置）
+				DisplayName: 痴愚金龙玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			CalamitasFumo: {
-				DisplayName: 灾厄毛绒玩具 （可放置）
+				DisplayName: 灾厄玩偶 （可放置）
 				Tooltip:
 					'''
 					"一件必须小心处理的黑暗玩偶"
@@ -4300,147 +4300,147 @@ Mods: {
 			}
 
 			CeaselessVoidPlush: {
-				DisplayName: 无尽虚空毛绒玩具 （可放置）
+				DisplayName: 无尽虚空玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			ClonePlush: {
-				DisplayName: 灾厄之影毛绒玩具 （可放置）
+				DisplayName: 灾厄之影玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			CrabulonPlush: {
-				DisplayName: 菌生蟹毛绒玩具 （可放置）
+				DisplayName: 菌生蟹玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			CryogenPlush: {
-				DisplayName: 极地之灵毛绒玩具 （可放置）
+				DisplayName: 极地之灵玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			DesertScourgePlush: {
-				DisplayName: 荒漠灾虫毛绒玩具 （可放置）
+				DisplayName: 荒漠灾虫玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			DevourerofGodsPlush: {
-				DisplayName: 神明吞噬者毛绒玩具 （可放置）
+				DisplayName: 神明吞噬者玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			DraedonPlush: {
-				DisplayName: 嘉登毛绒玩具 （可放置）
+				DisplayName: 嘉登玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			GiantClamPlush: {
-				DisplayName: 巨像蛤毛绒玩具 （可放置）
+				DisplayName: 巨像蛤玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			HiveMindPlush: {
-				DisplayName: 腐巢意志毛绒玩具 （可放置）
+				DisplayName: 腐巢意志玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			HypnosPlush: {
-				DisplayName: 修普诺斯毛绒玩具 （可放置）
+				DisplayName: 修普诺斯玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			JaredPlush: {
-				DisplayName: 始源妖龙毛绒玩具 （可放置）
+				DisplayName: 始源妖龙玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			LeviathanPlush: {
-				DisplayName: 利维坦毛绒玩具 （可放置）
+				DisplayName: 利维坦玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			MaulerPlush: {
-				DisplayName: 渊海狂鲨毛绒玩具 （可放置）
+				DisplayName: 渊海狂鲨玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			MirePlushP1: {
-				DisplayName: 峭咽潭毛绒玩具 （可放置）
+				DisplayName: 峭咽潭玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			MirePlushP2: {
-				DisplayName: 黏液峭咽潭毛绒玩具 （可放置）
+				DisplayName: 黏液峭咽潭玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			NuclearTerrorPlush: {
-				DisplayName: 辐核骇兽毛绒玩具 （可放置）
+				DisplayName: 辐核骇兽玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			OldDukePlush: {
-				DisplayName: 硫海遗爵毛绒玩具 （可放置）
+				DisplayName: 硫海遗爵玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			PerforatorPlush: {
-				DisplayName: 血肉宿主毛绒玩具 （可放置）
+				DisplayName: 血肉宿主玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			PlaguebringerGoliathPlush: {
-				DisplayName: 瘟疫使者歌莉娅毛绒玩具 （可放置）
+				DisplayName: 瘟疫使者歌莉娅玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			PolterghastPlush: {
-				DisplayName: 噬魂幽花毛绒玩具 （可放置）
+				DisplayName: 噬魂幽花玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			ProfanedGuardianPlush: {
-				DisplayName: 亵渎守卫毛绒玩具 （可放置）
+				DisplayName: 亵渎守卫玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			ProvidencePlush: {
-				DisplayName: 亵渎天神毛绒玩具 （可放置）
+				DisplayName: 亵渎天神玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			RavagerPlush: {
-				DisplayName: 毁灭魔像毛绒玩具 （可放置）
+				DisplayName: 毁灭魔像玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			SandSharkPlush: {
-				DisplayName: 旱海狂鲨毛绒玩具 （可放置）
+				DisplayName: 旱海狂鲨玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			SignusPlush: {
-				DisplayName: 西格纳斯毛绒玩具 （可放置）
+				DisplayName: 西格纳斯玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			SlimeGodPlush: {
-				DisplayName: 史莱姆之神毛绒玩具 （可放置）
+				DisplayName: 史莱姆之神玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			StormWeaverPlush: {
-				DisplayName: 风暴编织者毛绒玩具 （可放置）
+				DisplayName: 风暴编织者玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			ThanatosPlush: {
-				DisplayName: 塔纳托斯毛绒玩具 （可放置）
+				DisplayName: 塔纳托斯玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
 			YharonPlush: {
-				DisplayName: 犽戎毛绒玩具 （可放置）
+				DisplayName: 犽戎玩偶 （可放置）
 				Tooltip: 大师模式掉落
 			}
 
@@ -4725,7 +4725,7 @@ Mods: {
 			}
 
 			PolishedXenomonolithWall: {
-				DisplayName: 抛光枯萎木材
+				DisplayName: 抛光枯萎木墙
 				Tooltip: ""
 			}
 
@@ -4794,12 +4794,12 @@ Mods: {
 			}
 
 			PolterCable: {
-				DisplayName: 惧魂线缆
+				DisplayName: 幽魂线缆
 				Tooltip: ""
 			}
 
 			PolterRemote: {
-				DisplayName: 惧魂遥控器
+				DisplayName: 幽魂遥控器
 				Tooltip: ""
 			}
 
