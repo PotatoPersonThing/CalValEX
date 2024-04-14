@@ -23,7 +23,7 @@ namespace CalValEX.Buffs.Pets {
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, int buffIndex, ref BuffDrawParams drawParams) {
-            bool seek = CalValEX.CalamityActive &&  Main.LocalPlayer.HasItem(CalValEX.CalamityItem("DormantBrimseeker"));
+            bool seek = CalValEX.CalamityActive &&  Main.LocalPlayer.HasItem(CalamityID.CalItemID.DormantBrimseeker);
             Texture2D tex = Request<Texture2D>("CalValEX/Buffs/Pets/BrimberryBuff").Value;
             Rectangle frame = new(seek ? 36 : 0, 0, 32, 32);
             Main.EntitySpriteDraw(tex, drawParams.Position, frame, drawParams.DrawColor, 0, Vector2.Zero, 1, SpriteEffects.None, 0);

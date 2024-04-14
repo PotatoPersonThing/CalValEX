@@ -209,6 +209,7 @@ namespace CalValEX.CalamityID
         public static int Bloodstone;
         public static int CeremonialUrn;
         public static int MeldConstruct;
+        public static int DormantBrimseeker;
 
         public override void PostSetupContent()
         {
@@ -246,6 +247,7 @@ namespace CalValEX.CalamityID
             Bloodstone = CalamityID.ItemRelation("Bloodstone", ItemID.FragmentNebula);
             MeldConstruct = CalamityID.ItemRelation("MeldConstruct", ItemID.FragmentNebula);
             CeremonialUrn = CalamityID.ItemRelation("CeremonialUrn", ItemID.NebulaPickaxe);
+            DormantBrimseeker = CalamityID.ItemRelation("DormantBrimseeker", ItemID.Milkshake);
         }
     }
 

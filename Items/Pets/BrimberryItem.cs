@@ -42,7 +42,7 @@ namespace CalValEX.Items.Pets
         }
 
         private Tuple<Texture2D, bool> Assets() {
-            return Tuple.Create(Request<Texture2D>("CalValEX/Items/Pets/BrimberryItem").Value, Main.LocalPlayer.HasItem(CalValEX.CalamityItem("DormantBrimseeker")));
+            return Tuple.Create(Request<Texture2D>("CalValEX/Items/Pets/BrimberryItem").Value, Main.LocalPlayer.HasItem(CalamityID.CalItemID.DormantBrimseeker));
         }
 
         public override void UseStyle(Player player, Rectangle heldItemFrame) {
