@@ -14,6 +14,7 @@ namespace CalValEX.Buffs.Mounts
 
         public override void Update(Player player, ref int buffIndex)
         {
+            player.GetModPlayer<CalValEXPlayer>().silvajeep = true;
             player.mount.SetMount(ModContent.MountType<SilvaJeep>(), player);
             player.buffTime[buffIndex] = 10;
             CalValEX.MountNerf(player, 0.9f, 0.85f);

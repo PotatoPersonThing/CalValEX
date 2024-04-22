@@ -82,6 +82,8 @@ namespace CalValEX
             AprilFoolMonth = ortho != null || (DateTime.Now.Month == 4);
 
             AstralSky = ModContent.Request<Texture2D>("CalValEX/Biomes/AstralSky", AssetRequestMode.ImmediateLoad).Value;
+            if (!Main.dedServ)
+                AddBossHeadTexture("CalValEX/NPCs/AstrumDeus/AstrumDeusMap", -1);
 
             if (Main.dedServ)
                 return;

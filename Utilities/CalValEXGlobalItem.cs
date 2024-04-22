@@ -26,6 +26,7 @@ using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using System.Linq;
 using CalValEX.CalamityID;
+using CalValEX.Items.Tiles.Paintings;
 
 namespace CalValEX
 {
@@ -82,12 +83,14 @@ namespace CalValEX
             LeadingConditionRule rule10 = new(new MidhardmodeDowned());
             LeadingConditionRule rule11 = new(new PolterDowned());
             LeadingConditionRule rule12 = new(new AquaDowned());
+            LeadingConditionRule rule13 = new(new April14());
 
             #region bags
             if (item.type == CalItemID.StarterBag)
 			{
 				itemLoot.Add(rule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<C>())));
-			}
+                itemLoot.Add(rule13.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GallusYharus>())));
+            }
 			else if (item.type == CalItemID.DesertScourgeBag)
 			{
 				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<DesertMedallion>(), 10, chanceNumerator: 3)));

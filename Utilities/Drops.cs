@@ -41,6 +41,7 @@ using CalValEX.AprilFools;
 using CalValEX.NPCs.JellyPriest;
 using CalValEX.CalamityID;
 using ReLogic.Content;
+using CalValEX.Items.Dyes;
 
 namespace CalValEX
 {
@@ -1374,6 +1375,20 @@ namespace CalValEX
             if (npc.type == type)
             {
                 spriteBatch.Draw(texture, npc.Center - Main.screenPosition + new Vector2(0f, npc.gfxOffY), null, color, npc.rotation, texture.Size() / 2f, npc.scale, SpriteEffects.None, 0f);
+            }
+        }
+
+        public override void BossHeadSlot(NPC npc, ref int index)
+        {
+            if (CalValEX.CalamityActive)
+            {
+                if (npc.type == CalNPCID.AstrumDeus)
+                {
+                    if (Main.LocalPlayer.InModBiome(ModContent.GetInstance<Biomes.AstralBlight>()) || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().Blok)
+                    {
+                        index = ModContent.GetModBossHeadSlot("CalValEX/NPCs/AstrumDeus/AstrumDeusMap");
+                    }
+                }
             }
         }
 

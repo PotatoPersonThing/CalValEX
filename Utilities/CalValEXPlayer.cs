@@ -236,6 +236,7 @@ namespace CalValEX
         public bool cassette;
         public bool specan;
         public bool carriage;
+        public bool silvajeep;
         public float bcarriagewheel = 0.0f;
         public bool twinballoon;
         public bool artballoon;
@@ -570,10 +571,12 @@ namespace CalValEX
             }
             stwincounter++;
 
+            int wheelspeed = silvajeep ? 2 : 1;
+
             if (Main.LocalPlayer.velocity.X > 0) {
-                bcarriagewheel += 1.0f;
+                bcarriagewheel += wheelspeed;
             } else if (Main.LocalPlayer.velocity.X < 0) {
-                bcarriagewheel -= 1.0f;
+                bcarriagewheel -= wheelspeed;
             }
             if (bossded > 0) {
                 bossded--;
@@ -848,6 +851,7 @@ namespace CalValEX
             cassette = false;
             specan = false;
             carriage = false;
+            silvajeep = false;
             yharcar = false;
             sepneo = false;
             twinballoon = false;

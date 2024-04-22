@@ -624,4 +624,21 @@ namespace CalValEX
             return null;
         }
     }
+    public class April14 : IItemDropRuleCondition
+    {
+        public bool CanDrop(DropAttemptInfo info)
+        {
+            return CalValEX.month == 4 && CalValEX.day == 14;
+        }
+
+        public bool CanShowItemDropInUI()
+        {
+            return true;
+        }
+
+        public string GetConditionDescription()
+        {
+            return null;
+        }
+    }
 }

@@ -11,8 +11,8 @@ namespace CalValEX.Tiles.MiscFurniture
 {
     public class Helplaced : ModTile
     {
-        Terraria.Audio.SoundStyle helpm = new("CalValEX/Sounds/Help");
-        Terraria.Audio.SoundStyle chug = new("CalValEX/Sounds/Nom");
+        public static Terraria.Audio.SoundStyle helpm = new("CalValEX/Sounds/Help");
+        public static Terraria.Audio.SoundStyle chug = new("CalValEX/Sounds/Nom");
         public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
