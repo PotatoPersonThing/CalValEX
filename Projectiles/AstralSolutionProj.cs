@@ -70,7 +70,7 @@ namespace CalValEX.Projectiles
 		}
 
 		[JITWhenModsEnabled("CalamityMod")]
-		public void Convert(int i, int j, int size = 4) 
+		public static void Convert(int i, int j, int size = 4) 
         {
 			for (int k = i - size; k <= i + size; k++) {
 				for (int l = j - size; l <= j + size; l++) 

@@ -200,9 +200,12 @@ namespace CalValEX.CalamityID
         #endregion
 
         #region Crates
-        public static int SulphurousCrate;// => CalamityID.ItemRelation("SulphurousCrate", ItemID.OceanCrateHard);
-        public static int SunkenCrate;// => CalamityID.ItemRelation("SunkenCrate", ItemID.OasisCrateHard);
-        public static int AstralCrate;// => CalamityID.ItemRelation("AstralCrate", ItemID.FloatingIslandFishingCrateHard);
+        public static int SulphurousCrate;
+        public static int SunkenCrate;
+        public static int AstralCrate;
+        public static int HydrothermalCrate;
+        public static int PrismCrate;
+        public static int MonolithCrate;
         #endregion
         public static int AquaticHeart;
         public static int CirrusDress;
@@ -242,6 +245,9 @@ namespace CalValEX.CalamityID
             SulphurousCrate = CalamityID.ItemRelation("SulphurousCrate", ItemID.OceanCrateHard);
             SunkenCrate = CalamityID.ItemRelation("SunkenCrate", ItemID.OasisCrateHard);
             AstralCrate = CalamityID.ItemRelation("AstralCrate", ItemID.FloatingIslandFishingCrateHard);
+            HydrothermalCrate = CalamityID.ItemRelation("HydrothermalCrate", ItemID.OceanCrateHard);
+            PrismCrate = CalamityID.ItemRelation("PrismCrate", ItemID.OasisCrateHard);
+            MonolithCrate = CalamityID.ItemRelation("MonolithCrate", ItemID.FloatingIslandFishingCrateHard);
             AquaticHeart = CalamityID.ItemRelation("AquaticHeart", ItemID.NeptunesShell);
             CirrusDress = CalamityID.ItemRelation("CirrusDress", ItemID.PrincessDressNew);
             Bloodstone = CalamityID.ItemRelation("Bloodstone", ItemID.FragmentNebula);

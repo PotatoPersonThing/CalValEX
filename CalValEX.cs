@@ -17,6 +17,8 @@ using CalValEX.Items.Pets.TownPets;
 using CalValEX.AprilFools.Meldosaurus;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
+using CalValEX.Items;
+using CalValEX.Projectiles;
 
 namespace CalValEX
 {
@@ -140,6 +142,10 @@ namespace CalValEX
         {
             Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().oracleInv = enabled;
         }
+        public static void BlightRoomba(NPC npc)
+        {
+            AstralSolutionProj.Convert((int)(npc.position.X + npc.width / 2) / 16, (int)(npc.position.Y + npc.height / 2) / 16, 3);
+        }
 
         public override void PostSetupContent()
         {
@@ -149,6 +155,7 @@ namespace CalValEX
                 cal.Call("MakeItemExhumable", ModContent.ItemType<RottingCalamitousArtifact>(), ModContent.ItemType<CalamitousSoulArtifact>());
                 cal.Call("RegisterNPCShop", ModContent.NPCType<JellyPriestNPC>(), new Predicate<Player>(GetShopJelly), new Action<Player, bool>(SetShopJelly));
                 cal.Call("RegisterNPCShop", ModContent.NPCType<OracleNPC>(), new Predicate<Player>(GetShopOracle), new Action<Player, bool>(SetShopOracle));
+                cal.Call("AddAndrombaSolution", ModContent.ItemType<XenoSolution>(), "CalValEX/ExtraTextures/AndroombaBlight", new Action<NPC>(BlightRoomba));
             }
 
             //Census support

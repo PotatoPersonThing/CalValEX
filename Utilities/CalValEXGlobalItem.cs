@@ -279,7 +279,7 @@ namespace CalValEX
 			#endregion
 
 			#region crates
-            if (item.type == CalItemID.SulphurousCrate)
+            if (item.type == CalItemID.SulphurousCrate || item.type == CalItemID.HydrothermalCrate)
 			{
                 itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AcidGun>(), 100)));
                 itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<CursedLockpick>(), 50)));
@@ -291,12 +291,12 @@ namespace CalValEX
                 itemLoot.Add(rule11.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<NuclearFumes>(), 10, 2, 11)));
                 itemLoot.Add(rule12.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<BelchingCoral>(), 20)));
             }
-            else if (item.type == CalItemID.AstralCrate)
+            else if (item.type == CalItemID.AstralCrate || item.type == CalItemID.MonolithCrate)
             {
                 itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<MonolithPot>(), 100, 1, 1, 3)));
                 itemLoot.Add(rule11.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<NetherTree>(), 20)));
             }
-            else if (item.type == CalItemID.SunkenCrate)
+            else if (item.type == CalItemID.SunkenCrate || item.type == CalItemID.PrismCrate)
             {
                 itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<SSCoral>(), 100, 1, 1, 3)));
                 itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<Anemone>(), 100, 1, 1, 3)));

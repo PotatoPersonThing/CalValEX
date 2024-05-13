@@ -4822,6 +4822,11 @@ Mods: {
 				DisplayName: Friend Extinguisher
 				Tooltip: Toggles Fanny the Flame
 			}
+
+			TestDye: {
+				DisplayName: Test Dye
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
