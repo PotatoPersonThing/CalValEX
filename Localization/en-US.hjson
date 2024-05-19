@@ -4766,7 +4766,7 @@ Mods: {
 
 			GoozmaPlush: {
 				Tooltip: ""
-				DisplayName: Goozma Plush
+				DisplayName: Goozma Plushie
 			}
 
 			GoozmaPlushThrowable: {
@@ -4835,12 +4835,22 @@ Mods: {
 			}
 
 			CalamitasPlush: {
-				DisplayName: Calamitas Plush
+				DisplayName: Calamitas Plushie
 				Tooltip:
 					'''
 					'A dark artifact that must be handled with care'
 					Right click to throw!
 					'''
+			}
+
+			ShadowPlush: {
+				DisplayName: Forgotten Shadow of Calamitas Plushie
+				Tooltip: Right click to throw!
+			}
+
+			BereftVassalPlush: {
+				DisplayName: Bereft Vassal Plushie
+				Tooltip: Right click to throw!
 			}
 		}
 
@@ -5094,6 +5104,8 @@ Mods: {
 			MireP1Plush.DisplayName: Mire P1 Plush
 			MireP2Plush.DisplayName: Mire P2 Plush
 			CalamitasPlush.DisplayName: Calamitas Plush
+			ShadowPlush.DisplayName: Shadow Plush
+			BereftVassalPlush.DisplayName: Bereft Vassal Plush
 		}
 
 		Tiles: {
@@ -5444,6 +5456,8 @@ Mods: {
 			MireP1PlushPlaced.MapEntry: Shielded Cragmaw Mire Plush Placed
 			MireP2PlushPlaced.MapEntry: Slimy Cragmaw Mire Plush Placed
 			CalamitasPlushPlaced.MapEntry: Calamitas Plush Placed
+			ShadowPlushPlaced.MapEntry: Shadow Plush Placed
+			BereftVassalPlushPlaced.MapEntry: Bereft Vassal Plush Placed
 		}
 
 		Buffs: {

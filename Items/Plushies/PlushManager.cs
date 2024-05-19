@@ -6,6 +6,8 @@ using Terraria.ObjectData;
 using Terraria;
 using System.Collections.Generic;
 using CalValEX.CalamityID;
+using CalValEX.Projectiles.Plushies;
+using Terraria.DataStructures;
 
 namespace CalValEX.Items.Plushies
 {
@@ -29,11 +31,13 @@ namespace CalValEX.Items.Plushies
             LoadPlush("AquaticScourge", ItemUtils.BossRarity("AS"));
             LoadPlush("BrimstoneElemental", ItemUtils.BossRarity("Brimmy"));
             LoadPlush("Clone", ItemUtils.BossRarity("Cal"));
+            LoadPlush("Shadow", ItemUtils.BossRarity("Cal"), false);
             LoadPlush("Leviathan", ItemUtils.BossRarity("Leviathan"));
             LoadPlush("Anahita", ItemUtils.BossRarity("Leviathan"));
             LoadPlush("AstrumAureus", ItemUtils.BossRarity("Aureus"));
             LoadPlush("PlaguebringerGoliath", ItemUtils.BossRarity("PBG"));
             LoadPlush("Ravager", ItemUtils.BossRarity("Ravager"));
+            LoadPlush("BereftVassal", ItemUtils.BossRarity("Deus"), false);
             LoadPlush("AstrumDeus", ItemUtils.BossRarity("Deus"));
             LoadPlush("ProfanedGuardian", ItemRarityID.Purple);
             LoadPlush("Providence", 12);
@@ -144,6 +148,10 @@ namespace CalValEX.Items.Plushies
                 Item.shoot = ProjectileType;
                 Item.shootSpeed = 6f;
                 Item.createTile = -1;
+                if (Item.type == PlushManager.PlushItems["Calamitas"])
+                {
+                    Item.shoot = ModContent.ProjectileType<CalaFumoSpeen>();
+                }
             }
             else
             {
@@ -151,6 +159,35 @@ namespace CalValEX.Items.Plushies
                 Item.shootSpeed = 0f;
                 Item.createTile = TileType;
             }
+        }
+
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            if (Item.type == PlushManager.PlushItems["Calamitas"])
+            {
+                if (Main.rand.NextFloat() < 0.01f)
+                {
+                    type = ModContent.ProjectileType<ItsReal>();
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit49, player.position);
+                    Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
+                    return false;
+                }
+                else if (Main.rand.NextFloat() < 0.1f && CalValEX.month == 6 && CalValEX.day == 22)
+                {
+                    type = ModContent.ProjectileType<ItsReal>();
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit49, player.position);
+                    Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
+                    return false;
+                }
+                else if (Main.rand.NextFloat() < 0.002f)
+                {
+                    type = ModContent.ProjectileType<ItsRealAlt>();
+                    Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit49, player.position);
+                    Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
+                    return false;
+                }
+            }
+            return true;
         }
 
         public override void AddRecipes()
