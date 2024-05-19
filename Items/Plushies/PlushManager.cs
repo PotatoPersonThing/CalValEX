@@ -19,9 +19,9 @@ namespace CalValEX.Items.Plushies
             LoadPlush("GiantClam", ItemUtils.BossRarity("DesertScourge"));
             LoadPlush("SandShark", ItemUtils.BossRarity("Aureus"));
             LoadPlush("MireP1", ItemUtils.BossRarity("AS"), false);
-            LoadPlush("MireP2", CalRarityID.PureGreen, false);
-            LoadPlush("NuclearTerror", CalRarityID.PureGreen);
-            LoadPlush("Mauler", CalRarityID.PureGreen);
+            LoadPlush("MireP2", 13, false);
+            LoadPlush("NuclearTerror", 13);
+            LoadPlush("Mauler", 13);
             LoadPlush("DesertScourge", ItemUtils.BossRarity("DesertScourge"));
             LoadPlush("Crabulon", ItemUtils.BossRarity("Crabulon"));
             LoadPlush("Perforator", ItemUtils.BossRarity("Perforator"));
