@@ -1,3 +1,4 @@
+﻿using CalValEX.Items.Plushies;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Localization;
@@ -8,8 +9,10 @@ namespace CalValEX.Tiles.Plushies
 {
     public class CalaFumoPlaced : ModTile
     {
+        public override string Texture => "CalValEX/Tiles/Plushies/CalamitasPlushPlaced";
         public override void SetStaticDefaults()
         {
+            RegisterItemDrop(PlushManager.PlushItems["Calamitas"]);
             Main.tileFrameImportant[Type] = true;
             Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileObsidianKill[Type] = true;
@@ -22,7 +25,7 @@ namespace CalValEX.Tiles.Plushies
             // name.SetDefault("Calamitas Fumo");
             AddMapEntry(new Color(144, 148, 144), name);
             DustType = 11;
-            
+
         }
     }
 }

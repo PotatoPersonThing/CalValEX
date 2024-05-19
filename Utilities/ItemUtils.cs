@@ -103,7 +103,7 @@ namespace CalValEX
                     tooltipLine.OverrideColor = color;
                 }
         }
-        /*public int BossRarity(string type)
+        public static int BossRarity(string type)
         {
             switch (type)
             {
@@ -141,7 +141,7 @@ namespace CalValEX
                     return 5;
                 case "BrimstoneElemental":
                 case "Brimstone Elemental":
-                case "Brimstone Brimmy":
+                case "Brimmy":
                     return 5;
                 case "Clonelamitas":
                 case "Calamitas":
@@ -174,6 +174,6 @@ namespace CalValEX
                 default: 
                     return 11;
             }
-        }*/
+        }
     }
 }

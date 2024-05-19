@@ -1,12 +1,12 @@
-﻿﻿using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Items.Plushies
 {
-    public class CalaFumoYeetable : ModItem
+    public class MirePlushThrowableP2 : ModItem
     {
-        public override string Texture => "CalValEX/Items/Plushies/CalamitasPlush";
+        public override string Texture => "CalValEX/Items/Plushies/MireP2Plush";
         public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
 
         public override void SetDefaults()
@@ -20,7 +20,7 @@ namespace CalValEX.Items.Plushies
 
         public override void UpdateInventory(Player player)
         {
-            Item.SetDefaults(PlushManager.PlushItems["Calamitas"]);
+            Item.SetDefaults(PlushManager.PlushItems["MireP2"]);
         }
     }
 }

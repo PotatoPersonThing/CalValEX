@@ -24,7 +24,6 @@ using CalValEX.Items.Pets.ExoMechs;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Balloons;
 using CalValEX.Items.Tiles.Blocks;
-using CalValEX.Items.Tiles.Plushies;
 using CalValEX.NPCs.Critters;
 using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
@@ -42,6 +41,7 @@ using CalValEX.NPCs.JellyPriest;
 using CalValEX.CalamityID;
 using ReLogic.Content;
 using CalValEX.Items.Dyes;
+using CalValEX.Items.Plushies;
 
 namespace CalValEX
 {
@@ -452,19 +452,19 @@ namespace CalValEX
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NuclearFumes>(), 1, 10, 25));
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<BubbledFin>(), 10));
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MaulerMask>(), 3));
-                        npcLoot.Add(ItemDropRule.ByCondition(new MasterRevCondition(), ModContent.ItemType<MaulerPlush>(), 4));
+                        npcLoot.Add(ItemDropRule.ByCondition(new MasterRevCondition(), PlushManager.PlushItems["Mauler"], 4));
                     }
                     if (npc.type == CalValEX.CalamityNPC("NuclearTerror"))
                     {
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<NuclearFumes>(), 1, 10, 25));
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TerrorLegs>(), 10));
-                        npcLoot.Add(ItemDropRule.ByCondition(new MasterRevCondition(), ModContent.ItemType<NuclearTerrorPlush>(), 4));
+                        npcLoot.Add(ItemDropRule.ByCondition(new MasterRevCondition(), PlushManager.PlushItems["NuclearTerror"], 4));
                     }
                     if (npc.type == CalNPCID.GiantClam)
                     {
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ClamHermitMedallion>(), 10));
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ClamMask>(), 10));
-                        npcLoot.Add(ItemDropRule.ByCondition(new MasterRevCondition(), ModContent.ItemType<GiantClamPlush>(), 4));
+                        npcLoot.Add(ItemDropRule.ByCondition(new MasterRevCondition(), PlushManager.PlushItems["GiantClam"], 4));
                     }
                     if (npc.type == CalValEX.CalamityNPC("ThiccWaifu"))
                     {
@@ -477,13 +477,13 @@ namespace CalValEX
                     {
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MawHook>(), 1));
                         npcLoot.Add(ItemDropRule.ByCondition(new PolterDowned(), ModContent.ItemType<NuclearFumes>(), 1, 5, 8));
-                        npcLoot.Add(ItemDropRule.ByCondition(new Polteralive(), ModContent.ItemType<MirePlushP1>(), 4));
-                        npcLoot.Add(ItemDropRule.ByCondition(new Polterdead(), ModContent.ItemType<MirePlushP1>(), 8));
-                        npcLoot.Add(ItemDropRule.ByCondition(new Polterdead(), ModContent.ItemType<MirePlushP2>(), 8));
+                        npcLoot.Add(ItemDropRule.ByCondition(new Polteralive(), PlushManager.PlushItems["MireP1"], 4));
+                        npcLoot.Add(ItemDropRule.ByCondition(new Polterdead(), PlushManager.PlushItems["MireP2"], 8));
+                        npcLoot.Add(ItemDropRule.ByCondition(new Polterdead(), PlushManager.PlushItems["MireP1"], 8));
                     }
                     if (npc.type == CalValEX.CalamityNPC("GreatSandShark"))
                     {
-                        AddPlushDrop(npcLoot, ModContent.ItemType<SandSharkPlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["SandShark"]);
                     }
                     if (npc.type == ModContent.NPCType<Xerocodile>())
                     {
@@ -499,13 +499,13 @@ namespace CalValEX
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<DesertMedallion>(), 5));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SlightlyMoistbutalsoSlightlyDryLocket>(), 7));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<DriedLocket>(), 3));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<DesertScourgePlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["DesertScourge"]);
                     }
                     //Crabulon
                     if (npc.type == CalNPCID.Crabulon)
                     {
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ClawShroom>(), 3));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<CrabulonPlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Crabulon"]);
                     }
                     //Perfs
                     if (npc.type == CalNPCID.Perforators)
@@ -514,19 +514,19 @@ namespace CalValEX
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<MidWorm>(), 7));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<BigWorm>(), 7));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<MeatyWormTumor>(), 3));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<PerforatorPlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Perforator"]);
                     }
                     //Hive Mind
                     if (npc.type == CalNPCID.HiveMind)
                     {
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<RottenKey>(), 3));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<HiveMindPlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["HiveMind"]);
                     }
                     //Slime Gods
                     if (npc.type == CalNPCID.SlimeGod)
                     {
                         AddBlockDrop(npcLoot, CalValEX.CalamityItem("StatigelBlock"));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<SlimeGodPlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["SlimeGod"]);
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<IonizedJellyCrystal>(), 50));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SlimeGodMask>(), 7));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SlimeDeitysSoul>(), 3));
@@ -535,14 +535,14 @@ namespace CalValEX
                     if (npc.type == CalNPCID.Cryogen)
                     {
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<CoolShades>(), 3));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<CryogenPlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Cryogen"]);
                     }
                     //Aqua
                     if (npc.type == CalNPCID.AquaticScourge)
                     {
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<MoistLocket>(), 3));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<BleachBallItem>(), 4));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<AquaticScourgePlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["AquaticScourge"]);
                     }
                     //Brimmy
                     if (npc.type == CalNPCID.BrimstoneElemental)
@@ -552,29 +552,29 @@ namespace CalValEX
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<BrimmyBody>(), 10));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<FoilSpoon>(), 20));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<RareBrimtulip>(), 3));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<BrimstoneElementalPlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["BrimstoneElemental"]);
                     }
                     //Clone
                     if (npc.type == CalNPCID.CalamitasClone)
                     {
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Calacirclet>(), 5));
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 10000));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<ClonePlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Clone"]);
                     }
                     //Leviathan
                     if (npc.type == CalNPCID.Leviathan)
                     {
                         npcLoot.Add(ItemDropRule.ByCondition(new Levihita(), ModContent.ItemType<FoilAtlantis>(), 3));
                         npcLoot.Add(ItemDropRule.ByCondition(new Levihita(), ModContent.ItemType<StrangeMusicNote>(), 40));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<LeviathanPlush>());
-                        npcLoot.Add(ItemDropRule.ByCondition(new LevihitaPlushies(), ModContent.ItemType<AnahitaPlush>(), 20));
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Leviathan"]);
+                        npcLoot.Add(ItemDropRule.ByCondition(new LevihitaPlushies(), PlushManager.PlushItems["Anahita"], 20));
                     }
                     if (npc.type == CalNPCID.Anahita)
                     {
                         npcLoot.Add(ItemDropRule.ByCondition(new Levihita(), ModContent.ItemType<FoilAtlantis>(), 3));
                         npcLoot.Add(ItemDropRule.ByCondition(new Levihita(), ModContent.ItemType<StrangeMusicNote>(), 40));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<AnahitaPlush>());
-                        npcLoot.Add(ItemDropRule.ByCondition(new LevihitaPlushies(), ModContent.ItemType<LeviathanPlush>(), 20));
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Anahita"]);
+                        npcLoot.Add(ItemDropRule.ByCondition(new LevihitaPlushies(), PlushManager.PlushItems["Leviathan"], 20));
                     }
                     //Astrum Aureus
                     if (npc.type == CalNPCID.AstrumAureus)
@@ -582,7 +582,7 @@ namespace CalValEX
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AureusShield>(), 5));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AstralInfectedIcosahedron>(), 3));
                         npcLoot.Add(ItemDropRule.ByCondition(new MasterRevCondition(), ModContent.ItemType<SpaceJunk>()));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<AstrumAureusPlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["AstrumAureus"]);
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 10000));
                         npcLoot.Add(ItemDropRule.ByCondition(new GeldonDrop(), ModContent.ItemType<SpaceJunk>()));
                     }
@@ -592,7 +592,7 @@ namespace CalValEX
                         AddBlockDrop(npcLoot, CalValEX.CalamityItem("PlaguedContainmentBrick"));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<InfectedController>(), 5));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<PlaguePack>(), 5));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<PlaguebringerGoliathPlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["PlaguebringerGoliath"]);
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 1000));
                     }
                     //Ravager
@@ -608,7 +608,7 @@ namespace CalValEX
                         npcLoot.Add(notExpertRule);
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ScavaHook>(), 15));
                         AddBlockDrop(npcLoot, ModContent.ItemType<Necrostone>());
-                        AddPlushDrop(npcLoot, ModContent.ItemType<RavagerPlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Ravager"]);
                     }
                     //Deus
                     //PS: FUCK deus lootcode, I pray to anyone who wants to make weakref support for this abomination _ YuH 2022
@@ -616,7 +616,7 @@ namespace CalValEX
                     {
                         LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
                         npcLoot.Add(ItemDropRule.ByCondition(new DeusFUCKBlight(), ModContent.ItemType<AstrumDeusMask>()));
-                        npcLoot.Add(ItemDropRule.ByCondition(new DeusFUCKMasorev(), ModContent.ItemType<AstrumDeusPlush>(), 4));
+                        npcLoot.Add(ItemDropRule.ByCondition(new DeusFUCKMasorev(), PlushManager.PlushItems["AstrumDeus"], 4));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new DeusFUCK(), ModContent.ItemType<AstBandana>(), 4));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new DeusFUCK(), ModContent.ItemType<Geminga>(), 3));
                     }
@@ -632,7 +632,7 @@ namespace CalValEX
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new SilvaCrystal(), CalValEX.CalamityItem("SilvaCrystal"), 1, 155, 265));
                         npcLoot.Add(notExpertRule);
                         npcLoot.Add(ItemDropRule.ByCondition(new MasterRevCondition(), ModContent.ItemType<ExtraFluffyFeather>()));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<BumblefuckPlush>()); ;
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Bumblefuck"]); ;
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 500));
                         npcLoot.Add(ItemDropRule.ByCondition(new DogeDrop(), ModContent.ItemType<ExtraFluffyFeather>()));
                     }
@@ -643,7 +643,7 @@ namespace CalValEX
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProviCrystal>(), 4));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProfanedHeart>(), 3));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ProvidenceAltar>(), 3));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<ProvidencePlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Providence"]);
                     }
                     //Storm Weaver
                     if (npc.type == CalNPCID.StormWeaver)
@@ -653,7 +653,7 @@ namespace CalValEX
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<StormBandana>(), 10));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ArmoredScrap>(), 6));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<StormMedal>(), 6));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<StormWeaverPlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["StormWeaver"]);
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 250));
                     }
                     //Signus
@@ -670,7 +670,7 @@ namespace CalValEX
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new OtherworldlyStoneDrop(), CalValEX.CalamityItem("OtherworldlyStone"), 1, 155, 265));
                         npcLoot.Add(notExpertRule);
                         npcLoot.Add(ItemDropRule.ByCondition(new JunkoDrop(), ModContent.ItemType<SuspiciousLookingChineseCrown>()));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<SignusPlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Signus"]);
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 250));
                     }
                     //CV
@@ -681,7 +681,7 @@ namespace CalValEX
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<VoidWings>(), 10));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<OldVoidWings>(), 15));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<MirrorMatter>(), 3));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<CeaselessVoidPlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["CeaselessVoid"]);
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 250));
                     }
                     //Polterghast
@@ -692,7 +692,7 @@ namespace CalValEX
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new BlockDrops(), ModContent.ItemType<PhantowaxBlock>(), 2, 155, 265));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Polterhook>(), 20));
                         npcLoot.Add(ItemDropRule.ByCondition(new MasterRevCondition(), ModContent.ItemType<ToyScythe>(), 3));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<PolterghastPlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Polterghast"]);
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ZygoteinaBucket>(), 3));
                     }
                     //Old Duke
@@ -701,7 +701,7 @@ namespace CalValEX
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<OldWings>(), 3));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<CorrodedCleaver>(), 3));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<CharredChopper>(), 6));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<OldDukePlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["OldDuke"]);
                     }
                     //DoG
                     if (npc.type == CalNPCID.DevourerofGods)
@@ -709,7 +709,7 @@ namespace CalValEX
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<CosmicWormScarf>(), 5));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<RapturedWormScarf>(), 20));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<CosmicRapture>(), 3));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<DevourerofGodsPlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["DevourerofGods"]);
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 100));
                     }
                     //Yharon
@@ -719,7 +719,7 @@ namespace CalValEX
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<JunglePhoenixWings>(), 5));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<YharonsAnklet>(), 10));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<NuggetinaBiscuit>(), 3));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<YharonPlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Yharon"]);
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 20));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Termipebbles>(), 1, 3, 8));
                         npcLoot.Add(ItemDropRule.ByCondition(new RoverDrop(), ModContent.ItemType<RoverSpindle>()));
@@ -729,7 +729,7 @@ namespace CalValEX
                     {
                         AddBlockDrop(npcLoot, CalValEX.CalamityItem("OccultBrickItem"));
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<GruelingMask>(), 3));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<CalamitasFumo>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Calamitas"]);
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AncientAuricTeslaHelm>(), 10));
                     }
                     //Ares
@@ -744,8 +744,8 @@ namespace CalValEX
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new Exodrop(), ModContent.ItemType<AncientAuricTeslaHelm>(), 3));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new ExoPlating(), CalValEX.CalamityItem("ExoPlating"), 1, 155, 265));
                         npcLoot.Add(notExpertRule);
-                        npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), ModContent.ItemType<AresPlush>()));
-                        npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), ModContent.ItemType<DraedonPlush>(), 10));
+                        npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), PlushManager.PlushItems["Ares"]));
+                        npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), PlushManager.PlushItems["Draedon"], 10));
                     }
                     //Thanatos
                     if (npc.type == CalNPCID.Thanatos)
@@ -759,8 +759,8 @@ namespace CalValEX
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new Exodrop(), ModContent.ItemType<AncientAuricTeslaHelm>(), 3));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new ExoPlating(), CalValEX.CalamityItem("ExoPlating"), 1, 155, 265));
                         npcLoot.Add(notExpertRule);
-                        npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), ModContent.ItemType<ThanatosPlush>()));
-                        npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), ModContent.ItemType<DraedonPlush>(), 10));
+                        npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), PlushManager.PlushItems["Thanatos"]));
+                        npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), PlushManager.PlushItems["Draedon"], 10));
                     }
                     //Apollo
                     if (npc.type == CalNPCID.Apollo)
@@ -775,16 +775,16 @@ namespace CalValEX
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new Exodrop(), ModContent.ItemType<AncientAuricTeslaHelm>(), 3));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new ExoPlating(), CalValEX.CalamityItem("ExoPlating"), 1, 155, 265));
                         npcLoot.Add(notExpertRule);
-                        npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), ModContent.ItemType<ArtemisPlush>()));
-                        npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), ModContent.ItemType<ApolloPlush>()));
-                        npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), ModContent.ItemType<DraedonPlush>(), 10));
+                        npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), PlushManager.PlushItems["Artemis"]));
+                        npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), PlushManager.PlushItems["Apollo"]));
+                        npcLoot.Add(ItemDropRule.ByCondition(new ExoPlush(), PlushManager.PlushItems["Draedon"], 10));
                     }
                     //Wyrm
                     if (npc.type == CalNPCID.PrimordialWyrm)
                     {
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Tiles.RespirationShrine>()));
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SoulShard>()));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<JaredPlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Jared"]);
                     }
                     //Donuts
                     if (npc.type == CalNPCID.GuardianCommander)
@@ -792,7 +792,7 @@ namespace CalValEX
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedWheels>(), 3));
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedCultistMask>(), 5));
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedCultistRobes>(), 5));
-                        AddPlushDrop(npcLoot, ModContent.ItemType<ProfanedGuardianPlush>());
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["ProfanedGuardian"]);
                     }
                     if (npc.type == CalNPCID.GuardianDefender)
                     {
@@ -841,14 +841,14 @@ namespace CalValEX
             {
                 if (npc.type == Hypnos.Find<ModNPC>("HypnosBoss").Type)
                 {
-                    AddPlushDrop(npcLoot, ModContent.ItemType<HypnosPlush>());
+                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Hypnos"]);
                 }
             }
             if (CatalystMod != null)
             {
                 if (npc.type == CatalystMod.Find<ModNPC>("Astrageldon").Type)
                 {
-                    AddPlushDrop(npcLoot, ModContent.ItemType<AstrageldonPlush>());
+                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Astrageldon"]);
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SpaceJunk>(), 3));
                 }
             }
@@ -856,7 +856,7 @@ namespace CalValEX
             {
                 if (npc.type == CalValEX.instance.hunt.Find<ModNPC>("Goozma").Type)
                 {
-                    AddPlushDrop(npcLoot, ModContent.ItemType<GoozmaPlush>());
+                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Goozma"]);
                 }
             }
 

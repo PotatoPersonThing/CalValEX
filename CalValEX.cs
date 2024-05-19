@@ -19,6 +19,7 @@ using Microsoft.Xna.Framework;
 using Terraria.Audio;
 using CalValEX.Items;
 using CalValEX.Projectiles;
+using CalValEX.Items.Plushies;
 
 namespace CalValEX
 {

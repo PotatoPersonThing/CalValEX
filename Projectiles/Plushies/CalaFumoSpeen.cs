@@ -21,7 +21,7 @@ namespace CalValEX.Projectiles.Plushies
 
         public override void OnKill(int timeLeft)
         {
-            Item.NewItem(Projectile.GetSource_DropAsItem(), Projectile.getRect(), ModContent.ItemType<CalaFumoYeetable>());
+            Item.NewItem(Projectile.GetSource_DropAsItem(), Projectile.getRect(), PlushManager.PlushItems["Calamitas"]);
         }
 
         public override void AI()

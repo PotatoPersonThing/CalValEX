@@ -7,12 +7,12 @@ using Terraria.ObjectData;
 
 namespace CalValEX.Tiles.Plushies
 {
-    public class ClamPlushPlaced : ModTile
+    public class MirePlushPlacedP1 : ModTile
     {
-        public override string Texture => "CalValEX/Tiles/Plushies/GiantClamPlushPlaced";
+        public override string Texture => "CalValEX/Tiles/Plushies/MireP1PlushPlaced";
         public override void SetStaticDefaults()
         {
-            RegisterItemDrop(PlushManager.PlushItems["GiantClam"]);
+            RegisterItemDrop(PlushManager.PlushItems["MireP1"]);
             Main.tileFrameImportant[Type] = true;
             Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileObsidianKill[Type] = true;
@@ -22,7 +22,6 @@ namespace CalValEX.Tiles.Plushies
             TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
-            // name.SetDefault("Calamitas Fumo");
             AddMapEntry(new Color(144, 148, 144), name);
             DustType = 11;
 

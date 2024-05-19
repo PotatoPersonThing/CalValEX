@@ -6,8 +6,6 @@ using static Terraria.ModLoader.ModContent;
 using CalValEX.Tiles.AstralBlocks;
 using CalValEX.Items.Equips.Wings;
 using CalValEX.Items.Pets;
-using CalValEX.Items.Plushies;
-using CalValEX.Items.Tiles.Plushies;
 using System.IO;
 using System;
 using CalValEX.NPCs.TownPets.Nuggets;
@@ -409,15 +407,6 @@ namespace CalValEX
                     ItemID.TitaniumDrill,
                 });
                 RecipeGroup.RegisterGroup("AnyHardmodeDrill", group2);*/
-            }
-        }
-        public override void AddRecipes()/* tModPorter Note: Removed. Use ModSystem.AddRecipes */
-        {
-            if (CalValEX.instance.cata != null)
-            {
-                CalValEX.instance.cata.Call("itemset_superbossrarity", ItemType<AstrageldonPlush>(), true);
-                CalValEX.instance.cata.Call("itemset_superbossrarity", ItemType<AstrageldonPlushThrowable>(), true);
-                CalValEX.instance.cata.Call("itemset_superbossrarity", ItemType<SpaceJunk>(), true);
             }
         }
 

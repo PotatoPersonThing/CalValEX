@@ -1,10 +1,10 @@
-﻿﻿using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Items.Plushies
 {
-    public class CalaFumoYeetable : ModItem
+    public class CalamitasFumo : ModItem
     {
         public override string Texture => "CalValEX/Items/Plushies/CalamitasPlush";
         public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;

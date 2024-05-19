@@ -23,10 +23,8 @@ using CalValEX.Items.Pets;
 using CalValEX.Items.Pets.Elementals;
 using CalValEX.Items.Pets.ExoMechs;
 using CalValEX.Items.Pets.Scuttlers;
-using CalValEX.Items.Plushies;
 using CalValEX.Items.Tiles.Blocks;
 using CalValEX.Items.Tiles.Blocks.Astral;
-using CalValEX.Items.Tiles.Plushies;
 using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Blueprints;
 using CalValEX.Items.Tiles.Cages;
@@ -76,54 +74,6 @@ namespace CalValEX
                 recipe.AddCondition(new Condition("During April Fools month on the getfixedboi seed.", () => Main.zenithWorld || CalValEX.AprilFoolMonth));
                 recipe.Register();
             }
-            #endregion
-
-            #region //Plushies
-            PlushRecipe(ItemType<AnahitaPlushThrowable>(), ItemType<AnahitaPlush>());
-            PlushRecipe(ItemType<ApolloPlushThrowable>(), ItemType<ApolloPlush>());
-            PlushRecipe(ItemType<AquaticScourgePlushThrowable>(), ItemType<AquaticScourgePlush>());
-            PlushRecipe(ItemType<AresPlushThrowable>(), ItemType<AresPlush>());
-            PlushRecipe(ItemType<ArtemisPlushThrowable>(), ItemType<ArtemisPlush>());
-            PlushRecipe(ItemType<AstrageldonPlushThrowable>(), ItemType<AstrageldonPlush>());
-            PlushRecipe(ItemType<AstrumAureusPlushThrowable>(), ItemType<AstrumAureusPlush>());
-            PlushRecipe(ItemType<AstrumDeusPlushThrowable>(), ItemType<AstrumDeusPlush>());
-            PlushRecipe(ItemType<BrimstoneElementalPlushThrowable>(), ItemType<BrimstoneElementalPlush>());
-            PlushRecipe(ItemType<BumblefuckPlushThrowable>(), ItemType<BumblefuckPlush>());
-            PlushRecipe(ItemType<CalaFumoYeetable>(), ItemType<CalamitasFumo>());
-            PlushRecipe(ItemType<CeaselessVoidPlushThrowable>(), ItemType<CeaselessVoidPlush>());
-            PlushRecipe(ItemType<ClonePlushThrowable>(), ItemType<ClonePlush>());
-            PlushRecipe(ItemType<CrabulonPlushThrowable>(), ItemType<CrabulonPlush>());
-            PlushRecipe(ItemType<CryogenPlushThrowable>(), ItemType<CryogenPlush>());
-            PlushRecipe(ItemType<DesertScourgePlushThrowable>(), ItemType<DesertScourgePlush>());
-            PlushRecipe(ItemType<DevourerofGodsPlushThrowable>(), ItemType<DevourerofGodsPlush>());
-            PlushRecipe(ItemType<DraedonPlushThrowable>(), ItemType<DraedonPlush>());
-            PlushRecipe(ItemType<GiantClamPlushThrowable>(), ItemType<GiantClamPlush>());
-            PlushRecipe(ItemType<GoozmaPlushThrowable>(), ItemType<GoozmaPlush>());
-            PlushRecipe(ItemType<SandSharkPlushThrowable>(), ItemType<SandSharkPlush>());
-            PlushRecipe(ItemType<HiveMindPlushThrowable>(), ItemType<HiveMindPlush>());
-            PlushRecipe(ItemType<HypnosPlushThrowable>(), ItemType<HypnosPlush>());
-            PlushRecipe(ItemType<JaredPlushThrowable>(), ItemType<JaredPlush>());
-            PlushRecipe(ItemType<LeviathanPlushThrowable>(), ItemType<LeviathanPlush>());
-            PlushRecipe(ItemType<MaulerPlushThrowable>(), ItemType<MaulerPlush>());
-            PlushRecipe(ItemType<MirePlushThrowableP1>(), ItemType<MirePlushP1>());
-            PlushRecipe(ItemType<MirePlushThrowableP1>(), ItemType<MirePlushThrowableP2>());
-            PlushRecipe(ItemType<MirePlushThrowableP2>(), ItemType<MirePlushP2>());
-            PlushRecipe(ItemType<MirePlushThrowableP2>(), ItemType<MirePlushThrowableP1>());
-            PlushRecipe(ItemType<MirePlushP1>(), ItemType<MirePlushP2>());
-            PlushRecipe(ItemType<MirePlushP2>(), ItemType<MirePlushP1>());
-            PlushRecipe(ItemType<NuclearTerrorPlushThrowable>(), ItemType<NuclearTerrorPlush>());
-            PlushRecipe(ItemType<OldDukePlushThrowable>(), ItemType<OldDukePlush>());
-            PlushRecipe(ItemType<PerforatorPlushThrowable>(), ItemType<PerforatorPlush>());
-            PlushRecipe(ItemType<PlaguebringerGoliathPlushThrowable>(), ItemType<PlaguebringerGoliathPlush>());
-            PlushRecipe(ItemType<PolterghastPlushThrowable>(), ItemType<PolterghastPlush>());
-            PlushRecipe(ItemType<ProfanedGuardianPlushThrowable>(), ItemType<ProfanedGuardianPlush>());
-            PlushRecipe(ItemType<ProvidencePlushThrowable>(), ItemType<ProvidencePlush>());
-            PlushRecipe(ItemType<RavagerPlushThrowable>(), ItemType<RavagerPlush>());
-            PlushRecipe(ItemType<SignusPlushThrowable>(), ItemType<SignusPlush>());
-            PlushRecipe(ItemType<SlimeGodPlushThrowable>(), ItemType<SlimeGodPlush>());
-            PlushRecipe(ItemType<StormWeaverPlushThrowable>(), ItemType<StormWeaverPlush>());
-            PlushRecipe(ItemType<ThanatosPlushThrowable>(), ItemType<ThanatosPlush>());
-            PlushRecipe(ItemType<YharonPlushThrowable>(), ItemType<YharonPlush>());
             #endregion
 
             #region The few things that don't need Calamity

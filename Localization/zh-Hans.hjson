@@ -4827,6 +4827,25 @@ Mods: {
 				// DisplayName: Test Dye
 				// Tooltip: ""
 			}
+
+			MireP1Plush: {
+				// DisplayName: Shielded Cragmaw Mire Plushie
+				// Tooltip: Right click to throw!
+			}
+
+			MireP2Plush: {
+				// DisplayName: Slimy Cragmaw Mire Plushie
+				// Tooltip: Right click to throw!
+			}
+
+			CalamitasPlush: {
+				// DisplayName: Calamitas Plush
+				/* Tooltip:
+					'''
+					'A dark artifact that must be handled with care'
+					Right click to throw!
+					''' */
+			}
 		}
 
 		Projectiles: {
@@ -5076,6 +5095,9 @@ Mods: {
 			ArtemisBalloonProj.DisplayName: 阿尔忒尼斯气球
 			ApolloBalloonProj.DisplayName: 阿波罗气球
 			// ScalPet.DisplayName: Scal Pet
+			// MireP1Plush.DisplayName: Mire P1 Plush
+			// MireP2Plush.DisplayName: Mire P2 Plush
+			// CalamitasPlush.DisplayName: Calamitas Plush
 		}
 
 		Tiles: {
@@ -5422,6 +5444,10 @@ Mods: {
 			GoozmaPlushPlaced.MapEntry: 放置的古泽玛毛绒玩具
 			ProvidenceAltarPlaced.MapEntry: 亵渎天神核心底座
 			PolterCablePlaced.MapEntry: 惧魂线缆
+			// GiantClamPlushPlaced.MapEntry: Giant Clam Plush Placed
+			// MireP1PlushPlaced.MapEntry: Shielded Cragmaw Mire Plush Placed
+			// MireP2PlushPlaced.MapEntry: Slimy Cragmaw Mire Plush Placed
+			// CalamitasPlushPlaced.MapEntry: Calamitas Plush Placed
 		}
 
 		Buffs: {
