@@ -87,7 +87,7 @@ namespace CalValEX.NPCs.Critters
         {
             if (CalValEX.CalamityActive)
             {
-                if (CalValEX.InCalamityBiome(spawnInfo.Player, "AbovegroundAstralBiome") && !CalValEXConfig.Instance.CritterSpawns)
+                if (CalValEX.InCalamityBiome(spawnInfo.Player, "AstralInfectionBiome") && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     if (spawnInfo.PlayerSafe)
                     {

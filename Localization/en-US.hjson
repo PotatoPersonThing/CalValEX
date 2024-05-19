@@ -4018,7 +4018,7 @@ Mods: {
 			}
 
 			OldUCMMPainting: {
-				DisplayName: Unofficial Calamity Mod Music (old)
+				DisplayName: Vanilla Calamity Mod Music (old)
 				Tooltip:
 					'''
 					'Vintage tunes'
@@ -4089,7 +4089,7 @@ Mods: {
 			}
 
 			UCMMPainting: {
-				DisplayName: Unofficial Calamity Mod Music
+				DisplayName: Vanilla Calamity Mod Music
 				Tooltip:
 					'''
 					'World of sound'
@@ -5332,7 +5332,7 @@ Mods: {
 			ModIconPaintingPlaced.MapEntry: Calamity's Vanities
 			NotLikeHomePlaced.MapEntry: Not like home...
 			OldModIconPaintingPlaced.MapEntry: Calamity's Vanities... but OLD!
-			OldUCMMPlaced.MapEntry: Unofficial Calamity Mod Music... but OLD!
+			OldUCMMPlaced.MapEntry: Vanilla Calamity Mod Music... but OLD!
 			Plague22Placed.MapEntry: "22"
 			RogueExtractorPlaced.MapEntry: Rogue Extractor
 			ScourgyPlaced.MapEntry: Scourgy
@@ -5343,7 +5343,7 @@ Mods: {
 			SwearingShroomPlaced.MapEntry: Swearshroom
 			TheGreatSandwormPlaced.MapEntry: The Great Sandworm
 			TheYharPlaced.MapEntry: ":THE_YHAR:"
-			UCMMPlaced.MapEntry: Unofficial Calamity Mod Music
+			UCMMPlaced.MapEntry: Vanilla Calamity Mod Music
 			UnholyTripPlaced.MapEntry: Unholy Trip
 			VVanitiesPlaced.MapEntry: V for Vanities!
 			WilliamPaintingPlaced.MapEntry: Calamity's Vanities
