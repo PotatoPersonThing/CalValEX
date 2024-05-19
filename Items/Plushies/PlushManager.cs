@@ -192,7 +192,7 @@ namespace CalValEX.Items.Plushies
 
         public override void AddRecipes()
         {
-            Recipe.Create(Type).AddIngredient(LegacyType).Register();
+            Recipe.Create(Type).AddIngredient(LegacyType).DisableDecraft().Register();
         }
     }
 
