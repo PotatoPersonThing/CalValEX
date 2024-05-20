@@ -4855,7 +4855,12 @@ Mods: {
 
 			Ohio: {
 				DisplayName: Ohio
-				Tooltip: ""
+				Tooltip: "'Chroma'"
+			}
+
+			DraedonCart: {
+				DisplayName: Draedon Cart
+				Tooltip: "'Draedon's true greatest invention'"
 			}
 		}
 
@@ -6231,6 +6236,11 @@ Mods: {
 			MorshuBuff: {
 				DisplayName: Morshu
 				Description: Rope coil? Gel? Bombs? You want it? It's yours my friend, as long as you have a giant ruby...
+			}
+
+			DraedonCartBuff: {
+				DisplayName: Draedon Cart
+				Description: train2
 			}
 		}
 

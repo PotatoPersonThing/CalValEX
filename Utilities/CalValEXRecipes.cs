@@ -45,6 +45,7 @@ using CalValEX.Tiles.Plants;
 using System.Collections.Generic;
 using System.Linq;
 using static Terraria.ModLoader.ModContent;
+using CalValEX.Items.Mounts.Minecart;
 
 namespace CalValEX
 {
@@ -623,6 +624,13 @@ namespace CalValEX
                 recipe.AddIngredient(ItemID.Bomb, 10);
                 recipe.AddIngredient(ItemID.Gel, 20);
                 recipe.AddTile(TileID.MythrilAnvil);
+                recipe.Register();
+            }
+            {
+                Recipe recipe = Recipe.Create(ItemType<DraedonCart>());
+                recipe.AddIngredient(CalValEX.CalamityItem("ExoPrism"), 20);
+                recipe.AddIngredient(ItemID.MinecartMech);
+                recipe.AddTile(CalValEX.CalamityTile("DraedonsForge"));
                 recipe.Register();
             }
             #endregion

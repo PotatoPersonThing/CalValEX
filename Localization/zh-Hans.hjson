@@ -4839,7 +4839,7 @@ Mods: {
 			}
 
 			CalamitasPlush: {
-				// DisplayName: Calamitas Plush
+				// DisplayName: Calamitas Plushie
 				/* Tooltip:
 					'''
 					'A dark artifact that must be handled with care'
@@ -4848,23 +4848,23 @@ Mods: {
 			}
 
 			ShadowPlush: {
-				// DisplayName: Shadow Plush
-				// Tooltip: ""
-			}
-
-			ShadowPlushThrowable: {
-				// DisplayName: Shadow Plush Throwable
-				// Tooltip: ""
+				// DisplayName: Forgotten Shadow of Calamitas Plushie
+				// Tooltip: Right click to throw!
 			}
 
 			BereftVassalPlush: {
-				// DisplayName: Bereft Vassal Plush
-				// Tooltip: ""
+				// DisplayName: Bereft Vassal Plushie
+				// Tooltip: Right click to throw!
 			}
 
-			BereftVassalPlushThrowable: {
-				// DisplayName: Bereft Vassal Plush Throwable
-				// Tooltip: ""
+			Ohio: {
+				// DisplayName: Ohio
+				// Tooltip: "'Chroma'"
+			}
+
+			DraedonCart: {
+				// DisplayName: Draedon Cart
+				// Tooltip: "'Draedon's true greatest invention'"
 			}
 		}
 
@@ -5472,6 +5472,7 @@ Mods: {
 			// CalamitasPlushPlaced.MapEntry: Calamitas Plush Placed
 			// ShadowPlushPlaced.MapEntry: Shadow Plush Placed
 			// BereftVassalPlushPlaced.MapEntry: Bereft Vassal Plush Placed
+			// OhioPlaced.MapEntry: Ohio Placed
 		}
 
 		Buffs: {
@@ -6239,6 +6240,11 @@ Mods: {
 			MorshuBuff: {
 				DisplayName: Morshu
 				Description: 绳圈? 凝胶? 炸弹? 你想要? 只要你有一颗巨大的红宝石,它们就都是你的...
+			}
+
+			DraedonCartBuff: {
+				// DisplayName: Draedon Cart
+				// Description: train2
 			}
 		}
 
