@@ -72,16 +72,9 @@ namespace CalValEX
             tar = false;
             PolterCableTE.UpdateHooks();
 
-            if ((DateTime.Now.Month == 4 && DateTime.Now.Day == 1) || (Main.zenithWorld && DateTime.Now.Month == 4 && DateTime.Now.Day <= 7))
+            if ((DateTime.Now.Month == 4 && DateTime.Now.Day == 1) || (Main.zenithWorld && DateTime.Now.Month == 4 && DateTime.Now.Day <= 7) || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().fannyOverride)
             {
                 FannyManager.fannyEnabled = true;
-                if (CalValEX.instance.cremix != null)
-                {
-                    if (CalValEX.instance.cremix.Version == new System.Version(2, 4, 1))
-                    {
-                        FannyManager.fannyEnabled = false;
-                    }
-                }
             }
             else
             {
