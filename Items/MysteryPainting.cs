@@ -68,6 +68,7 @@ namespace CalValEX.Items
                 ModContent.ItemType<WormHeaven>(),
                 ModContent.ItemType<GallusYharus>(),
                 ModContent.ItemType<TyrantFeed>(),
+                ModContent.ItemType<Ohio>(),
             };
 
             itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, paintings));

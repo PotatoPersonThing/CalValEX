@@ -22,15 +22,8 @@ namespace CalValEX.Items.Pets
             Item.UseSound = SoundID.NPCHit13;
             Item.shoot = ProjectileType<Projectiles.Pets.FathomEelHead>();
             Item.value = Item.sellPrice(0, 0, 10, 0);
-            Item.rare = ItemRarityID.LightPurple;
+            Item.rare = ModContent.RarityType<Rarities.Aqua>();
             Item.buffType = BuffType<Buffs.Pets.FathomEelBuff>();
-        }
-
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
-        {
-            foreach (TooltipLine tooltipLine in tooltips)
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
-                    tooltipLine.OverrideColor = new Color(107, 240, 255);
         }
 
         public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)

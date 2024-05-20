@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -24,6 +25,37 @@ namespace CalValEX.Tiles.Paintings
             LocalizedText name = CreateMapEntryName();
             // name.SetDefault("Gyate Gyate");
             AddMapEntry(new Color(139, 0, 0), name);
+        }
+
+        public override void NearbyEffects(int i, int j, bool closer)
+        {
+            CalValEXPlayer player = Main.LocalPlayer.GetModPlayer<CalValEXPlayer>();
+            if (!player.hasOhiod)
+            {
+                if (player.ohio)
+                {
+                    for (int x = i -5; x < i + 5; x++)
+                    {
+                        for (int y = j-5; y < j+5; y++)
+                        {
+                            if (Main.tile[x, y] != null)
+                            {
+                                if (Main.tile[x, y].TileType == Type)
+                                {
+                                    Main.tile[x, y].TileType = (ushort)ModContent.TileType<OhioPlaced>();
+                                }
+                            }
+                        }
+                    }
+                    player.hasOhiod = true;
+                    player.ohio = false;
+                }
+                if (Main.rand.NextBool(222222))
+                {
+                    SoundEngine.PlaySound(SoundID.BloodZombie);
+                    player.ohio = true;
+                }
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ using Terraria.ID;
 using CalValEX.Tiles.MiscFurniture;
 using Terraria.ModLoader;
 using Terraria;
+using CalValEX.CalamityID;
 
 namespace CalValEX.Items.Tiles {
     public class CalamityLamp : ModItem {
@@ -24,14 +25,7 @@ namespace CalValEX.Items.Tiles {
             Item.createTile = ModContent.TileType<CalamityLampPlaced>();
             Item.width = 32;
             Item.height = 50;
-            Item.rare = ItemRarityID.Purple;
-        }
-
-        public override void ModifyTooltips(List<TooltipLine> tooltips) {
-            foreach (TooltipLine tooltipLine in tooltips) {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
-                    tooltipLine.OverrideColor = new Color(108, 45, 199);
-            }
+            Item.rare = CalRarityID.Violet;
         }
     }
 }

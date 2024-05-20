@@ -16,14 +16,11 @@ namespace CalValEX.Items.Mounts.Morshu
             Item.useAnimation = 20;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.value = Item.sellPrice(gold: 2);
-            Item.rare = ItemRarityID.Pink;
+            Item.rare = ModContent.RarityType<Rarities.Aqua>();
             Item.UseSound = new Terraria.Audio.SoundStyle("CalValEX/Sounds/Item/MorshuBomb");
             Item.noMelee = true;
             Item.mountType = ModContent.MountType<MorshuMount>();
         }
-
-        public override void ModifyTooltips(List<TooltipLine> tooltips) => ItemUtils.CheckRarity(CalamityRarity.DedicatedEX, tooltips);
-
         /*public override void AddRecipes()
         {
             Mod calamityMod = ModLoader.GetMod("CalamityMod");

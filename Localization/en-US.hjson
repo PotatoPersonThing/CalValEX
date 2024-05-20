@@ -4852,6 +4852,11 @@ Mods: {
 				DisplayName: Bereft Vassal Plushie
 				Tooltip: Right click to throw!
 			}
+
+			Ohio: {
+				DisplayName: Ohio
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -5458,6 +5463,7 @@ Mods: {
 			CalamitasPlushPlaced.MapEntry: Calamitas Plush Placed
 			ShadowPlushPlaced.MapEntry: Shadow Plush Placed
 			BereftVassalPlushPlaced.MapEntry: Bereft Vassal Plush Placed
+			OhioPlaced.MapEntry: Ohio Placed
 		}
 
 		Buffs: {

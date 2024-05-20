@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using CalValEX.Tiles.Paintings;
 using Terraria.ModLoader;
+using CalValEX.CalamityID;
 
 namespace CalValEX.Items.Tiles.Paintings
 {
@@ -27,18 +28,7 @@ namespace CalValEX.Items.Tiles.Paintings
             Item.createTile = ModContent.TileType<EyeofXerocPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = ItemRarityID.Purple;
-        }
-
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
-        {
-            foreach (TooltipLine tooltipLine in tooltips)
-            {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
-                {
-                    tooltipLine.OverrideColor = new Color(108, 45, 199);
-                }
-            }
+            Item.rare = CalRarityID.HotPink;
         }
     }
 }

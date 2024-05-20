@@ -28,16 +28,5 @@ namespace CalValEX.Items.Tiles.Paintings
             Item.height = 12;
             Item.rare = ItemRarityID.Purple;
         }
-
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
-        {
-            foreach (TooltipLine tooltipLine in tooltips)
-            {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
-                {
-                    tooltipLine.OverrideColor = new Color(255, 0, 255);
-                }
-            }
-        }
     }
 }

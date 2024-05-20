@@ -23,7 +23,7 @@ namespace CalValEX.Items.Pets
             Item.UseSound = SoundID.NPCHit55;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.Puppo>();
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            Item.rare = ItemRarityID.Orange;
+            Item.rare = ModContent.RarityType<Rarities.Aqua>();
             Item.buffType = ModContent.BuffType<Buffs.Pets.PuppoBuff>();
         }
 
@@ -33,13 +33,6 @@ namespace CalValEX.Items.Pets
             {
                 player.AddBuff(Item.buffType, 3600, true);
             }
-        }
-
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
-        {
-            foreach (TooltipLine tooltipLine in tooltips)
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
-                    tooltipLine.OverrideColor = new Color(107, 240, 255);
         }
     }
 }

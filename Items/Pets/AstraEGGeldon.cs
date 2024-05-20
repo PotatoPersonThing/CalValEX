@@ -26,7 +26,7 @@ namespace CalValEX.Items.Pets
             Item.height = 42;
             Item.shoot = ModContent.ProjectileType<CalamityBABY>();
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = ItemRarityID.Purple;
+            Item.rare = ModContent.RarityType<Rarities.Aqua>();
             Item.buffType = ModContent.BuffType<CalamityBABYBuff>();
             Item.useTime = 30;
             Item.useAnimation = 30;
@@ -59,13 +59,6 @@ namespace CalValEX.Items.Pets
         {
             position.Y -= 50f;
             return true;
-        }
-
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
-        {
-            foreach (TooltipLine tooltipLine in tooltips)
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
-                    tooltipLine.OverrideColor = new Color(107, 240, 255);
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Terraria.ModLoader;
 using CalValEX.Tiles.Statues;
 using Terraria.ID;
+using CalValEX.CalamityID;
 
 namespace CalValEX.Items.Tiles.Statues {
     public class Provibust : ModItem {
@@ -20,14 +21,7 @@ namespace CalValEX.Items.Tiles.Statues {
             Item.createTile = ModContent.TileType<ProfanedIdolPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = ItemRarityID.Purple;
-        }
-
-        public override void ModifyTooltips(List<TooltipLine> tooltips) {
-            foreach (TooltipLine tooltipLine in tooltips) {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
-                    tooltipLine.OverrideColor = new Color(0, 255, 200);
-            }
+            Item.rare = CalRarityID.Turquoise;
         }
     }
 }

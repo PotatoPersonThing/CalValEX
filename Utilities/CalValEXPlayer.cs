@@ -18,6 +18,8 @@ using CalValEX.Items.Mounts.Ground;
 using CalamityMod.Particles;
 using CalValEX.Projectiles;
 using CalValEX.AprilFools.Fanny;
+using Terraria.ModLoader.IO;
+using System.Linq;
 
 namespace CalValEX
 {
@@ -93,6 +95,8 @@ namespace CalValEX
         public bool mNaked;
         public bool moistPet;
         public bool conejo;
+        public bool ohio;
+        public bool hasOhiod = false;
 
         public int morshuscal = 0;
         public int morshuTimer;
@@ -1052,6 +1056,16 @@ namespace CalValEX
                 packet.Write(SCalHits);
                 packet.Send();
             }
+        }
+
+        public override void SaveData(TagCompound tag)
+        {
+            tag["Ohio"] = hasOhiod;
+        }
+
+        public override void LoadData(TagCompound tag)
+        {
+            hasOhiod = tag.GetBool("Ohio");
         }
 
         /*public static readonly PlayerLayer Mimigun = new PlayerLayer("CalValEX", "Mimigun", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)

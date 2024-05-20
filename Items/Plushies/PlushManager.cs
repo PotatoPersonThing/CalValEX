@@ -241,8 +241,8 @@ namespace CalValEX.Items.Plushies
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             TileObjectData.newTile.Width = Width;
             TileObjectData.newTile.Height = Height;
-            List<int> heightArray = new List<int>(16);
-            for (int i = 1; i < Height; i++)
+            List<int> heightArray = new List<int>(0);
+            for (int i = 0; i < Height; i++)
             {
                 heightArray.Add(16);
             }

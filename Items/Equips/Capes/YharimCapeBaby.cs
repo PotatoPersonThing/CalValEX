@@ -1,3 +1,4 @@
+using CalValEX.CalamityID;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
@@ -13,16 +14,9 @@ namespace CalValEX.Items.Equips.Capes {
             Item.width = 38;
             Item.height = 32;
             Item.value = Item.sellPrice(0, 3, 0, 0);
-            Item.rare = ItemRarityID.Purple;
+            Item.rare = CalRarityID.HotPink;
             Item.accessory = true;
             Item.vanity = true;
-        }
-
-        public override void ModifyTooltips(List<TooltipLine> tooltips) {
-            foreach (TooltipLine tooltipLine in tooltips) {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
-                    tooltipLine.OverrideColor = new Color(255, 0, 255);
-            }
         }
     }
 }

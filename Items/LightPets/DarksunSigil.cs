@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
+using CalValEX.CalamityID;
 
 namespace CalValEX.Items.LightPets
 {
@@ -26,18 +27,7 @@ namespace CalValEX.Items.LightPets
             Item.useAnimation = 20;
             Item.useTime = 20;
             Item.buffType = ModContent.BuffType<DarksunSpiritBuff>();
-            Item.rare = ItemRarityID.Purple;
-        }
-
-        public override void ModifyTooltips(List<TooltipLine> tooltips)
-        {
-            foreach (TooltipLine tooltipLine in tooltips)
-            {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
-                {
-                    tooltipLine.OverrideColor = new Color(108, 45, 199);
-                }
-            }
+            Item.rare = CalRarityID.Violet;
         }
     }
 }

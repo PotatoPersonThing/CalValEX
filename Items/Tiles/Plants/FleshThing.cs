@@ -26,9 +26,8 @@ namespace CalValEX.Items.Tiles.Plants
             Item.createTile = ModContent.TileType<FleshThingPlaced>();
             Item.width = 12;
             Item.height = 12;
-            Item.rare = ItemRarityID.Green;
-        }
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips) => ItemUtils.CheckRarity(CalamityRarity.DedicatedEX, tooltips);
+            Item.rare = ModContent.RarityType<Rarities.Aqua>();
+        }
     }
 }
