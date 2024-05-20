@@ -13,13 +13,17 @@ namespace CalValEX.Items.Plushies
 {
     public class PlushManager : ModSystem
     {
+        // Contains all of the plush items
+        // To get a plush item, just insert the boss' name as per the wall of entries below
         public static Dictionary<string, int> PlushItems = new Dictionary<string, int>();
+
+        // Load all of the plushies
         public override void Load()
         {
             LoadPlush("GiantClam", ItemUtils.BossRarity("DesertScourge"));
             LoadPlush("SandShark", ItemUtils.BossRarity("Aureus"));
-            LoadPlush("MireP1", ItemUtils.BossRarity("AS"), false);
-            LoadPlush("MireP2", 13, false);
+            LoadPlush("MireP1", ItemUtils.BossRarity("AS"), false); // Has an unorthodox old name, so it must be done separately
+            LoadPlush("MireP2", 13, false); // Has an unorthodox old name, so it must be done separately
             LoadPlush("NuclearTerror", 13);
             LoadPlush("Mauler", 13);
             LoadPlush("DesertScourge", ItemUtils.BossRarity("DesertScourge"));
@@ -31,7 +35,7 @@ namespace CalValEX.Items.Plushies
             LoadPlush("AquaticScourge", ItemUtils.BossRarity("AS"));
             LoadPlush("BrimstoneElemental", ItemUtils.BossRarity("Brimmy"));
             LoadPlush("Clone", ItemUtils.BossRarity("Cal"));
-            LoadPlush("Shadow", ItemUtils.BossRarity("Cal"), false);
+            LoadPlush("Shadow", ItemUtils.BossRarity("Cal"), false); 
             LoadPlush("Leviathan", ItemUtils.BossRarity("Leviathan"));
             LoadPlush("Anahita", ItemUtils.BossRarity("Leviathan"));
             LoadPlush("AstrumAureus", ItemUtils.BossRarity("Aureus"));
@@ -54,13 +58,19 @@ namespace CalValEX.Items.Plushies
             LoadPlush("Thanatos", 15);
             LoadPlush("Ares", 15);
             LoadPlush("Draedon", 15);
-            LoadPlush("Calamitas", 15, false);
+            LoadPlush("Calamitas", 15, false); // Has an unorthodox old name, so it must be done separately
             LoadPlush("Jared", 16);
             LoadPlush("Astrageldon", 12);
             LoadPlush("Goozma", 15);
             LoadPlush("Hypnos", 15);
         }
 
+        /// <summary>
+        /// Adds a plush 
+        /// </summary>
+        /// <param name="name">The name of the entity a plush is being made of. The sprites should follow the same naming convention with XPlush and XPlushPlaced</param>
+        /// <param name="rarity">The rarity, same as the boss drops.</param>
+        /// <param name="loadLegacy">Whether or not a legacy plush should be loaded for refunding. Set this to false for all future plushies.</param>
         public static void LoadPlush(string name, int rarity, bool loadLegacy = true)
         {
             PlushItem item = new PlushItem(name, rarity);
@@ -69,15 +79,18 @@ namespace CalValEX.Items.Plushies
             ModContent.GetInstance<CalValEX>().AddContent(item);
             ModContent.GetInstance<CalValEX>().AddContent(tile);
             ModContent.GetInstance<CalValEX>().AddContent(proj);
+            // Add the legacy "throwable" plush
             if (loadLegacy)
             {
                 CompensatedPlushItem comp = new CompensatedPlushItem(name);
                 ModContent.GetInstance<CalValEX>().AddContent(comp);
                 item.LegacyType = comp.Type;
             }
+            // Set the item's projectile and tile types, as well as the projectile's item drop type
             item.ProjectileType = proj.Type;
             item.TileType = tile.Type;
             proj.ItemType = item.Type;
+            // Add the item to the plush list
             PlushItems.Add(name, item.Type);
         }
     }
@@ -111,6 +124,7 @@ namespace CalValEX.Items.Plushies
             Item.consumable = true;
             Item.UseSound = SoundID.Item1;
             Item.rare = Rarity;
+            // CalRarityID isn't done by load time, so unfortunately, this has to be done like this
             if (Rarity > 11)
             {
                 Item.rare = CalRarityID.Turquoise;
@@ -148,6 +162,7 @@ namespace CalValEX.Items.Plushies
                 Item.shoot = ProjectileType;
                 Item.shootSpeed = 6f;
                 Item.createTile = -1;
+                // Calamitas plush has a custom projectile
                 if (Item.type == PlushManager.PlushItems["Calamitas"])
                 {
                     Item.shoot = ModContent.ProjectileType<CalaFumoSpeen>();
@@ -163,6 +178,7 @@ namespace CalValEX.Items.Plushies
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
+            // Calamitas plush can randomly throw out very concerning alt variants
             if (Item.type == PlushManager.PlushItems["Calamitas"])
             {
                 if (Main.rand.NextFloat() < 0.01f)
@@ -192,7 +208,10 @@ namespace CalValEX.Items.Plushies
 
         public override void AddRecipes()
         {
-            Recipe.Create(Type).AddIngredient(LegacyType).DisableDecraft().Register();
+            if (LegacyType > 0)
+            {
+                Recipe.Create(Type).AddIngredient(LegacyType).DisableDecraft().Register();
+            }
         }
     }
 
@@ -204,6 +223,9 @@ namespace CalValEX.Items.Plushies
 
         public string InternalName;
         public string TexturePath;
+
+        public int Height = 2;
+        public int Width = 2;
 
         public PlushTile(string name)
         {
@@ -217,9 +239,14 @@ namespace CalValEX.Items.Plushies
             Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileObsidianKill[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
-            TileObjectData.newTile.Width = 2;
-            TileObjectData.newTile.Height = 2;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
+            TileObjectData.newTile.Width = Width;
+            TileObjectData.newTile.Height = Height;
+            List<int> heightArray = new List<int>(16);
+            for (int i = 1; i < Height; i++)
+            {
+                heightArray.Add(16);
+            }
+            TileObjectData.newTile.CoordinateHeights = heightArray.ToArray();
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();
             AddMapEntry(new Color(144, 148, 144), name);
