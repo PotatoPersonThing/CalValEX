@@ -4866,6 +4866,21 @@ Mods: {
 				// DisplayName: Draedon Cart
 				// Tooltip: "'Draedon's true greatest invention'"
 			}
+
+			LeviathanEXPlush: {
+				// DisplayName: Leviathan E X Plush
+				// Tooltip: ""
+			}
+
+			YharonEXPlush: {
+				// DisplayName: Yharon E X Plush
+				// Tooltip: ""
+			}
+
+			DevourerofGodsEXPlush: {
+				// DisplayName: Devourerof Gods E X Plush
+				// Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -5120,6 +5135,9 @@ Mods: {
 			// CalamitasPlush.DisplayName: Calamitas Plush
 			// ShadowPlush.DisplayName: Shadow Plush
 			// BereftVassalPlush.DisplayName: Bereft Vassal Plush
+			// LeviathanEXPlush.DisplayName: Leviathan E X Plush
+			// YharonEXPlush.DisplayName: Yharon E X Plush
+			// DevourerofGodsEXPlush.DisplayName: Devourerof Gods E X Plush
 		}
 
 		Tiles: {
@@ -5473,6 +5491,9 @@ Mods: {
 			// ShadowPlushPlaced.MapEntry: Shadow Plush Placed
 			// BereftVassalPlushPlaced.MapEntry: Bereft Vassal Plush Placed
 			// OhioPlaced.MapEntry: Ohio Placed
+			// LeviathanEXPlushPlaced.MapEntry: Leviathan E X Plush Placed
+			// YharonEXPlushPlaced.MapEntry: Yharon E X Plush Placed
+			// DevourerofGodsEXPlushPlaced.MapEntry: Devourerof Gods E X Plush Placed
 		}
 
 		Buffs: {

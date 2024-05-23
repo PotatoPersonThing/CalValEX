@@ -63,6 +63,9 @@ namespace CalValEX.Items.Plushies
             LoadPlush("Astrageldon", 12);
             LoadPlush("Goozma", 15);
             LoadPlush("Hypnos", 15);
+            LoadPlush("LeviathanEX", ItemUtils.BossRarity("Leviathan"), false, 3, 3);
+            LoadPlush("YharonEX", 15, false, 3, 3);
+            LoadPlush("DevourerofGodsEX", 14, false, 3, 3);
         }
 
         /// <summary>
@@ -71,7 +74,9 @@ namespace CalValEX.Items.Plushies
         /// <param name="name">The name of the entity a plush is being made of. The sprites should follow the same naming convention with XPlush and XPlushPlaced</param>
         /// <param name="rarity">The rarity, same as the boss drops.</param>
         /// <param name="loadLegacy">Whether or not a legacy plush should be loaded for refunding. Set this to false for all future plushies.</param>
-        public static void LoadPlush(string name, int rarity, bool loadLegacy = true)
+        /// <param name="width">The plush tile width</param>
+        /// <param name="height">The plush tile height</param>
+        public static void LoadPlush(string name, int rarity, bool loadLegacy = true, int width = 2, int height = 2)
         {
             PlushItem item = new PlushItem(name, rarity);
             PlushTile tile = new PlushTile(name);
@@ -90,6 +95,8 @@ namespace CalValEX.Items.Plushies
             item.ProjectileType = proj.Type;
             item.TileType = tile.Type;
             proj.ItemType = item.Type;
+            tile.Width = width;
+            tile.Height = height;
             // Add the item to the plush list
             PlushItems.Add(name, item.Type);
         }
@@ -107,13 +114,24 @@ namespace CalValEX.Items.Plushies
         public string TexturePath;
         public string InternalName;
         public int LegacyType;
+        public string PlushName;
         protected override bool CloneNewInstances => true;
 
         public PlushItem(string name, int rarity)
         {
+            PlushName = name;
             InternalName = name + "Plush";
             TexturePath = "CalValEX/Items/Plushies/" + name + "Plush";
             Rarity = rarity;
+        }
+        public override void SetStaticDefaults()
+        {
+            if (Name.Contains("EX"))
+            {
+                string withoutEX = PlushName.Replace("EX", "");
+                ItemID.Sets.ShimmerTransformToItem[Type] = PlushManager.PlushItems[withoutEX];
+                ItemID.Sets.ShimmerTransformToItem[PlushManager.PlushItems[withoutEX]] = Type;
+            }
         }
 
         public override void SetDefaults()
