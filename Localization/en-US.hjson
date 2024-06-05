@@ -4865,7 +4865,7 @@ Mods: {
 
 			LeviathanEXPlush: {
 				DisplayName: Leviathan Plushie (EX)
-				Tooltip: 
+				Tooltip:
 					'''
 					Can be shrunken with Shimmer
 					Right click to throw!
@@ -4874,7 +4874,7 @@ Mods: {
 
 			YharonEXPlush: {
 				DisplayName: Yharon Plushie (EX)
-				Tooltip: 
+				Tooltip:
 					'''
 					Can be shrunken with Shimmer
 					Right click to throw!
@@ -4883,7 +4883,7 @@ Mods: {
 
 			DevourerofGodsEXPlush: {
 				DisplayName: Devourer of Gods Plushie (EX)
-				Tooltip: 
+				Tooltip:
 					'''
 					Can be shrunken with Shimmer
 					Right click to throw!

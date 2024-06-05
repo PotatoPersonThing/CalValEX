@@ -346,7 +346,7 @@ namespace CalValEX
         }
 
         [JITWhenModsEnabled("CalamityMod")]
-        public override void AddRecipeGroups()/* tModPorter Note: Removed. Use ModSystem.AddRecipeGroups */
+        public override void AddRecipeGroups()
         {
             if (CalValEX.CalamityActive)
             {
@@ -386,7 +386,8 @@ namespace CalValEX
                 CalValEX.CalamityItem("Cinderplate"),
                 CalValEX.CalamityItem("Chaosplate"),
                 CalValEX.CalamityItem("Navyplate"),
-                CalValEX.CalamityItem("Elumplate")
+                CalValEX.CalamityItem("Elumplate"),
+                CalValEX.CalamityItem("Onyxplate")
                 });
                 RecipeGroup.RegisterGroup("AnyPlate", group);
 
@@ -403,7 +404,7 @@ namespace CalValEX
             }
         }
 
-        public override void PostAddRecipes()/* tModPorter Note: Removed. Use ModSystem.PostAddRecipes */
+        public override void PostAddRecipes()
         {
             CalValEX.instance.SetupHerosMod();
         }
