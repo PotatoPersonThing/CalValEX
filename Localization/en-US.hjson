@@ -4889,6 +4889,11 @@ Mods: {
 					Right click to throw!
 					'''
 			}
+
+			ExodygenPlush: {
+				DisplayName: Exodygen Plush
+				Tooltip: Right click to throw!
+			}
 		}
 
 		Projectiles: {
@@ -5146,6 +5151,7 @@ Mods: {
 			LeviathanEXPlush.DisplayName: Leviathan Plush EX
 			YharonEXPlush.DisplayName: Yharon Plush EX
 			DevourerofGodsEXPlush.DisplayName: Devourerof Gods Plush EX
+			ExodygenPlush.DisplayName: Exodygen Plush
 		}
 
 		Tiles: {
@@ -5493,15 +5499,16 @@ Mods: {
 			ProvidenceAltarPlaced.MapEntry: Providence Altar Placed
 			PolterCablePlaced.MapEntry: Polter Cable Placed
 			GiantClamPlushPlaced.MapEntry: Giant Clam Plush Placed
-			MireP1PlushPlaced.MapEntry: Shielded Cragmaw Mire Plush Placed
-			MireP2PlushPlaced.MapEntry: Slimy Cragmaw Mire Plush Placed
-			CalamitasPlushPlaced.MapEntry: Calamitas Plush Placed
-			ShadowPlushPlaced.MapEntry: Shadow Plush Placed
-			BereftVassalPlushPlaced.MapEntry: Bereft Vassal Plush Placed
+			MireP1PlushPlaced.MapEntry: Shielded Cragmaw Mire Plush
+			MireP2PlushPlaced.MapEntry: Slimy Cragmaw Mire Plush
+			CalamitasPlushPlaced.MapEntry: Calamitas Plush
+			ShadowPlushPlaced.MapEntry: Shadow Plush
+			BereftVassalPlushPlaced.MapEntry: Bereft Vassal Plush
 			OhioPlaced.MapEntry: Ohio Placed
 			LeviathanEXPlushPlaced.MapEntry: Leviathan Plush EX
 			YharonEXPlushPlaced.MapEntry: Yharon Plush EX
 			DevourerofGodsEXPlushPlaced.MapEntry: Devourerof Gods Plush EX
+			ExodygenPlushPlaced.MapEntry: Exodygen Plush
 		}
 
 		Buffs: {

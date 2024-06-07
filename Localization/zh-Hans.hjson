@@ -4893,6 +4893,11 @@ Mods: {
 					Right click to throw!
 					''' */
 			}
+
+			ExodygenPlush: {
+				// DisplayName: Exodygen Plush
+				// Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -5150,6 +5155,7 @@ Mods: {
 			// LeviathanEXPlush.DisplayName: Leviathan Plush EX
 			// YharonEXPlush.DisplayName: Yharon Plush EX
 			// DevourerofGodsEXPlush.DisplayName: Devourerof Gods Plush EX
+			// ExodygenPlush.DisplayName: Exodygen Plush
 		}
 
 		Tiles: {
@@ -5506,6 +5512,7 @@ Mods: {
 			// LeviathanEXPlushPlaced.MapEntry: Leviathan Plush EX
 			// YharonEXPlushPlaced.MapEntry: Yharon Plush EX
 			// DevourerofGodsEXPlushPlaced.MapEntry: Devourerof Gods Plush EX
+			// ExodygenPlushPlaced.MapEntry: Exodygen Plush Placed
 		}
 
 		Buffs: {

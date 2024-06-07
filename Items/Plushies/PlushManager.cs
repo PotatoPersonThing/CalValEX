@@ -63,6 +63,7 @@ namespace CalValEX.Items.Plushies
             LoadPlush("Astrageldon", 12);
             LoadPlush("Goozma", 15);
             LoadPlush("Hypnos", 15);
+            LoadPlush("Exodygen", 16, false);
             LoadPlush("LeviathanEX", ItemUtils.BossRarity("Leviathan"), false, 3, 3);
             LoadPlush("YharonEX", 15, false, 3, 3);
             LoadPlush("DevourerofGodsEX", 14, false, 3, 3);

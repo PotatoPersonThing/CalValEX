@@ -43,6 +43,7 @@ namespace CalValEX
         public Mod infernum;
         public Mod cremix;
         public Mod subworldLibrary;
+        public Mod sloome;
 
         public const string heropermission = "CalValEX";
         public const string heropermissiondisplayname = "Calamity's Vanities";
@@ -74,6 +75,7 @@ namespace CalValEX
             ModLoader.TryGetMod("CalamityHunt", out hunt);
             ModLoader.TryGetMod("CalRemix", out cremix);
             ModLoader.TryGetMod("SubworldLibrary", out subworldLibrary);
+            ModLoader.TryGetMod("Bloopsitems", out sloome);
 
             DateTime dateTime = DateTime.Now;
             currentDate = dateTime.ToString("dd/MM/yyyy");
@@ -110,6 +112,7 @@ namespace CalValEX
             hunt = null;
             cremix = null;
             subworldLibrary = null;
+            sloome = null;
 
             currentDate = null;
             Bumble = false;
