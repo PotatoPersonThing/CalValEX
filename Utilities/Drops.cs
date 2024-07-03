@@ -839,6 +839,7 @@ namespace CalValEX
             ModLoader.TryGetMod("CatalystMod", out CatalystMod);
             ModLoader.TryGetMod("Hypnos", out Hypnos);
             ModLoader.TryGetMod("InfernumMode", out Infernum);
+            ModLoader.TryGetMod("CalRemix", out Mod remix);
             if (Hypnos != null)
             {
                 if (npc.type == Hypnos.Find<ModNPC>("HypnosBoss").Type)
@@ -870,6 +871,25 @@ namespace CalValEX
                 if (npc.type == CalNPCID.CalamitasClone)
                 {
                     AddPlushDrop(npcLoot, PlushManager.PlushItems["Shadow"]);
+                }
+            }
+            if (remix != null)
+            {
+                if (npc.type == remix.Find<ModNPC>("Exotrexia").Type)
+                {
+                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Exotrexia"]);
+                }
+                if (npc.type == remix.Find<ModNPC>("Astigmageddon").Type)
+                {
+                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Astigmageddon"]);
+                }
+                if (npc.type == remix.Find<ModNPC>("Conjunctivirus").Type)
+                {
+                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Conjunctivirus"]);
+                }
+                if (npc.type == remix.Find<ModNPC>("Cataractacomb").Type)
+                {
+                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Cataractacomb"]);
                 }
             }
 

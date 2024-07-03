@@ -104,8 +104,8 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
             if (Main.player[Main.myPlayer].talkNPC > -1 && Main.npc[Main.player[Main.myPlayer].talkNPC].type == Type)
                 Main.player[Main.myPlayer].isTheAnimalBeingPetSmall = true;
 
-            NPC.position.X = MathHelper.Clamp(NPC.position.X, 150f, Main.maxTilesX * 16f - 150f);
-            NPC.position.Y = MathHelper.Clamp(NPC.position.Y, 150f, Main.maxTilesY * 16f - 150f);
+            NPC.position.X = MathHelper.Clamp(NPC.position.X, 300f, Main.maxTilesX * 16f - 300f);
+            NPC.position.Y = MathHelper.Clamp(NPC.position.Y, 300f, Main.maxTilesY * 16f - 300f);
         }
 
         public override void FindFrame(int frameHeight) {

@@ -170,16 +170,16 @@ namespace CalValEX
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<JellyPriestNPC>(),
                     "Find at the Sulphurous Sea after defeating the Acid Rain's first tier");
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<AprilFools.Jharim.Jharim>(), "It's a secret");
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<NPCs.TownPets.Slimes.AstroSlime>(), "Hit Astrum Aureus with the ABandoned Slime Staff's minion");
+                censusMod.Call("TownNPCCondition", ModContent.NPCType<NPCs.TownPets.Slimes.AstroSlime>(), "Hit Astrum Aureus with the Abandoned Slime Staff's minion");
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<NPCs.TownPets.Slimes.NinjaSlime>(), "Has a chance to spawn upon hitting any normal slime with a Shuriken");
                 censusMod.Call("TownNPCCondition", ModContent.NPCType<NPCs.TownPets.Slimes.Tarr>(), "Defeat Goozma (with CalamityHunt) or let the Slime God eat a town slime (without CalamityHunt)");
 
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<NuggetNugget>(), Language.GetText("Mods.CalValEX.Census") + $" [i:{ModContent.ItemType<NuggetLicense>()}]");
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<DracoNugget>(), Language.GetTextValue("Mods.CalValEX.Census") + $" [i:{ModContent.ItemType<NuggetLicense>()}]");
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<FollyNugget>(), Language.GetTextValue("Mods.CalValEX.Census") + $" [i:{ModContent.ItemType<NuggetLicense>()}]");
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<GODNugget>(), Language.GetTextValue("Mods.CalValEX.Census") + $" [i:{ModContent.ItemType<NuggetLicense>()}]");
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<MammothNugget>(), Language.GetTextValue("Mods.CalValEX.Census") + $" [i:{ModContent.ItemType<NuggetLicense>()}]");
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<ShadowNugget>(), Language.GetTextValue("Mods.CalValEX.Census") + $" [i:{ModContent.ItemType<NuggetLicense>()}]");
+                censusMod.Call("TownNPCCondition", ModContent.NPCType<NuggetNugget>(), "Use a Nugget License bought from The Oracle");
+                censusMod.Call("TownNPCCondition", ModContent.NPCType<DracoNugget>(), "Use a Nugget License bought from The Oracle");
+                censusMod.Call("TownNPCCondition", ModContent.NPCType<FollyNugget>(), "Use a Nugget License bought from The Oracle");
+                censusMod.Call("TownNPCCondition", ModContent.NPCType<GODNugget>(), "Use a Nugget License bought from The Oracle");
+                censusMod.Call("TownNPCCondition", ModContent.NPCType<MammothNugget>(), "Use a Nugget License bought from The Oracle");
+                censusMod.Call("TownNPCCondition", ModContent.NPCType<ShadowNugget>(), "Use a Nugget License bought from The Oracle");
             }
 
             //Christmas textures

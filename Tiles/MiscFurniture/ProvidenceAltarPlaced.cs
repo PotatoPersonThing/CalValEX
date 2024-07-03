@@ -66,8 +66,6 @@ namespace CalValEX.Tiles.MiscFurniture
                 {
                     if ((tile.TileFrameX == 0 && tile.TileFrameY == 0))
                     {
-                        spriteBatch.End();
-                        spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied);
                         spriteBatch.Draw(auraTexture, mirrorPos, sourceRectangle, Color.HotPink * 0.6f, 0f, origin / 2f, 1f, SpriteEffects.None, 0f);
                         spriteBatch.Draw(auraTexture, mirrorPos2, sourceRectangle, Color.HotPink * 0.6f, 0f, origin / 2f, 1f, SpriteEffects.None, 0f);
                         spriteBatch.Draw(auraTexture, mirrorPos3, sourceRectangle, Color.HotPink * 0.6f, 0f, origin / 2f, 1f, SpriteEffects.None, 0f);

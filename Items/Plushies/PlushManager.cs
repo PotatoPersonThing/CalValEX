@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using CalValEX.CalamityID;
 using CalValEX.Projectiles.Plushies;
 using Terraria.DataStructures;
+using Terraria.Audio;
 
 namespace CalValEX.Items.Plushies
 {
@@ -20,53 +21,67 @@ namespace CalValEX.Items.Plushies
         // Load all of the plushies
         public override void Load()
         {
-            LoadPlush("GiantClam", ItemUtils.BossRarity("DesertScourge"));
-            LoadPlush("SandShark", ItemUtils.BossRarity("Aureus"));
-            LoadPlush("MireP1", ItemUtils.BossRarity("AS"), false); // Has an unorthodox old name, so it must be done separately
-            LoadPlush("MireP2", 13, false); // Has an unorthodox old name, so it must be done separately
-            LoadPlush("NuclearTerror", 13);
-            LoadPlush("Mauler", 13);
-            LoadPlush("DesertScourge", ItemUtils.BossRarity("DesertScourge"));
-            LoadPlush("Crabulon", ItemUtils.BossRarity("Crabulon"));
-            LoadPlush("Perforator", ItemUtils.BossRarity("Perforator"));
-            LoadPlush("HiveMind", ItemUtils.BossRarity("HiveMind"));
-            LoadPlush("SlimeGod", ItemUtils.BossRarity("SlimeGod"));
-            LoadPlush("Cryogen", ItemUtils.BossRarity("Cryogen"));
-            LoadPlush("AquaticScourge", ItemUtils.BossRarity("AS"));
-            LoadPlush("BrimstoneElemental", ItemUtils.BossRarity("Brimmy"));
-            LoadPlush("Clone", ItemUtils.BossRarity("Cal"));
-            LoadPlush("Shadow", ItemUtils.BossRarity("Cal"), false); 
-            LoadPlush("Leviathan", ItemUtils.BossRarity("Leviathan"));
-            LoadPlush("Anahita", ItemUtils.BossRarity("Leviathan"));
-            LoadPlush("AstrumAureus", ItemUtils.BossRarity("Aureus"));
-            LoadPlush("PlaguebringerGoliath", ItemUtils.BossRarity("PBG"));
-            LoadPlush("Ravager", ItemUtils.BossRarity("Ravager"));
-            LoadPlush("BereftVassal", ItemUtils.BossRarity("Deus"), false);
-            LoadPlush("AstrumDeus", ItemUtils.BossRarity("Deus"));
-            LoadPlush("ProfanedGuardian", ItemRarityID.Purple);
-            LoadPlush("Providence", 12);
-            LoadPlush("Bumblefuck", ItemRarityID.Purple);
-            LoadPlush("StormWeaver", 12);
-            LoadPlush("Signus", 12);
-            LoadPlush("CeaselessVoid", 12);
-            LoadPlush("OldDuke", 13);
-            LoadPlush("Polterghast", 13);
-            LoadPlush("DevourerofGods", 14);
-            LoadPlush("Yharon", 15);
-            LoadPlush("Apollo", 15);
-            LoadPlush("Artemis", 15);
-            LoadPlush("Thanatos", 15);
-            LoadPlush("Ares", 15);
-            LoadPlush("Draedon", 15);
-            LoadPlush("Calamitas", 15, false); // Has an unorthodox old name, so it must be done separately
-            LoadPlush("Jared", 16);
-            LoadPlush("Astrageldon", 12);
-            LoadPlush("Goozma", 15);
-            LoadPlush("Hypnos", 15);
-            LoadPlush("Exodygen", 16, false);
-            LoadPlush("LeviathanEX", ItemUtils.BossRarity("Leviathan"), false, 3, 3);
-            LoadPlush("YharonEX", 15, false, 3, 3);
-            LoadPlush("DevourerofGodsEX", 14, false, 3, 3);
+            LoadPlush("GiantClam", ItemUtils.BossRarity("DesertScourge"), sound: GetCalamitySound("Item/ClamImpact", SoundID.NPCHit4));
+            LoadPlush("SandShark", ItemUtils.BossRarity("Aureus"), sound: GetCalamitySound("Custom/GreatSandSharkRoar", SoundID.Zombie7));
+            LoadPlush("MireP1", ItemUtils.BossRarity("AS"), false, sound: SoundID.NPCHit42); // Has an unorthodox old name, so it must be done separately
+            LoadPlush("MireP2", 13, false, sound: SoundID.NPCHit1); // Has an unorthodox old name, so it must be done separately
+            LoadPlush("NuclearTerror", 13, sound: GetCalamitySound("Custom/NuclearTerrorSpawn", SoundID.NPCDeath10));
+            LoadPlush("Mauler", 13, sound: GetCalamitySound("Custom/GreatSandSharkRoar", SoundID.Zombie7));
+            LoadPlush("DesertScourge", ItemUtils.BossRarity("DesertScourge"), sound: GetCalamitySound("Custom/MaulerRoar", SoundID.Zombie92));
+            LoadPlush("Crabulon", ItemUtils.BossRarity("Crabulon"), sound: SoundID.NPCHit45);
+            LoadPlush("Perforator", ItemUtils.BossRarity("Perforator"), sound: GetCalamitySound("Custom/Perforator/PerfHiveWormSpawn", SoundID.NPCDeath23));
+            LoadPlush("HiveMind", ItemUtils.BossRarity("HiveMind"), sound: GetCalamitySound("Custom/HiveMindRoar", SoundID.NPCHit9));
+            LoadPlush("SlimeGod", ItemUtils.BossRarity("SlimeGod"), sound: GetCalamitySound("Custom/SlimeGodPossession", SoundID.NPCDeath1));
+            LoadPlush("Cryogen", ItemUtils.BossRarity("Cryogen"), sound: GetCalamitySound("NPCHit/CryogenHit1", SoundID.NPCHit5));
+            LoadPlush("AquaticScourge", ItemUtils.BossRarity("AS"), sound: SoundID.NPCDeath13);
+            LoadPlush("BrimstoneElemental", ItemUtils.BossRarity("Brimmy"), sound: SoundID.NPCHit23);
+            LoadPlush("Clone", ItemUtils.BossRarity("Cal"), sound: GetCalamitySound("Custom/SCalSounds/BrimstoneShoot", SoundID.NPCHit4));
+            LoadPlush("Shadow", ItemUtils.BossRarity("Cal"), false, sound: GetCalamitySound("Custom/SupremeCalamitasSpawn", SoundID.Zombie109)); 
+            LoadPlush("Leviathan", ItemUtils.BossRarity("Leviathan"), sound: GetCalamitySound("Custom/LeviathanRoarMeteor", SoundID.Zombie39));
+            LoadPlush("Anahita", ItemUtils.BossRarity("Leviathan"), sound: SoundID.Item26);
+            LoadPlush("AstrumAureus", ItemUtils.BossRarity("Aureus"), sound: GetCalamitySound("NPCHit/AureusHit1", SoundID.Item109));
+            LoadPlush("Exotrexia", ItemUtils.BossRarity("Aureus"), false, sound: SoundID.NPCHit1);
+            LoadPlush("Astigmageddon", ItemUtils.BossRarity("Aureus"), false, sound: SoundID.NPCHit1);
+            LoadPlush("Cataractacomb", ItemUtils.BossRarity("Aureus"), false, sound: SoundID.NPCHit1);
+            LoadPlush("Conjunctivirus", ItemUtils.BossRarity("Aureus"), false, sound: SoundID.NPCHit1);
+            LoadPlush("Polyphemalus", ItemUtils.BossRarity("Aureus"), false, 3, 3, sound: SoundID.NPCDeath1);
+            LoadPlush("PlaguebringerGoliath", ItemUtils.BossRarity("PBG"), sound: GetCalamitySound("Custom/PlagueSounds/PBGNukeWarning", SoundID.NPCDeath14));
+            LoadPlush("Ravager", ItemUtils.BossRarity("Ravager"), sound: GetCalamitySound("NPCKilled/RavagerLimbLoss1", SoundID.NPCHit41));
+            LoadPlush("BereftVassal", ItemUtils.BossRarity("Deus"), false, sound: SoundID.DD2_OgreHurt);
+            LoadPlush("AstrumDeus", ItemUtils.BossRarity("Deus"), sound: GetCalamitySound("Custom/AstrumDeus/AstrumDeusMine", SoundID.Item4));
+            LoadPlush("ProfanedGuardian", ItemRarityID.Purple, sound: GetCalamitySound("Custom/ProfanedGuardians/GuardianRockShieldActivate", SoundID.NPCHit52));
+            LoadPlush("Providence", 12, sound: GetCalamitySound("Custom/Providence/ProvidenceHolyRay", SoundID.NPCHit44));
+            LoadPlush("Bumblefuck", ItemRarityID.Purple, sound: SoundID.NPCHit51);
+            LoadPlush("StormWeaver", 12, sound: GetCalamitySound("Item/StormWeaverSpawn", SoundID.Thunder));
+            LoadPlush("Signus", 12, sound: GetCalamitySound("Item/SignusSpawn", SoundID.NPCHit54));
+            LoadPlush("CeaselessVoid", 12, sound: GetCalamitySound("Item/CeaselessVoidSpawn", SoundID.NPCHit4));
+            LoadPlush("OldDuke", 13, sound: GetCalamitySound("Custom/OldDukeRoar", SoundID.NPCHit14));
+            LoadPlush("Polterghast", 13, sound: GetCalamitySound("Custom/Polterghast/PolterSpook1", SoundID.NPCHit36));
+            LoadPlush("DevourerofGods", 14, sound: GetCalamitySound("Custom/DevourerAttack", SoundID.Item27));
+            LoadPlush("Yharon", 15, sound: GetCalamitySound("Custom/Yharon/YharonRoarShort", SoundID.Zombie92));
+            LoadPlush("Apollo", 15, sound: GetCalamitySound("Custom/ExoMechs/ArtemisApolloDash", SoundID.Item34));
+            LoadPlush("Artemis", 15, sound: GetCalamitySound("Custom/ExoMechs/ArtemisShotgunLaser", SoundID.Item27));
+            LoadPlush("Thanatos", 15, sound: GetCalamitySound("Custom/ExoMechs/ThanatosVent", SoundID.Item27));
+            LoadPlush("Ares", 15, sound: GetCalamitySound("Custom/ExoMechs/AresCircleLaserStart", SoundID.Item34));
+            LoadPlush("Draedon", 15, sound: GetCalamitySound("Custom/DraedonLaugh", SoundID.Clown));
+            LoadPlush("Calamitas", 15, false, sound: GetCalamitySound("Custom/SupremeCalamitasSpawn", SoundID.Zombie109)); // Has an unorthodox old name, so it must be done separately
+            LoadPlush("Jared", 16, sound: GetCalamitySound("Custom/PrimordialWyrmCharge", SoundID.NPCHit1));
+            LoadPlush("Astrageldon", 12, sound: SoundID.Item4);
+            LoadPlush("Goozma", 15, sound: SoundID.NPCDeath1);
+            LoadPlush("Hypnos", 15, sound: GetCalamitySound("Custom/ExoMechs/ExoLaserShoot", SoundID.Item34));
+            LoadPlush("Exodygen", 16, false, sound: SoundID.NPCDeath61);
+            LoadPlush("LeviathanEX", ItemUtils.BossRarity("Leviathan"), false, 3, 3, sound: GetCalamitySound("Custom/LeviathanRoarCharge", SoundID.Zombie39));
+            LoadPlush("YharonEX", 15, false, 3, 3, sound: GetCalamitySound("Custom/Yharon/YharonRoar", SoundID.Zombie92));
+            LoadPlush("DevourerofGodsEX", 14, false, 3, 3, sound: GetCalamitySound("Custom/DevourerSpawn", SoundID.Meowmere));
+        }
+
+        public SoundStyle GetCalamitySound(string calPath, SoundStyle vanillaSound)
+        {
+            if (ModLoader.HasMod("CalamityMod"))
+            {
+                return new SoundStyle("CalamityMod/Sounds/" + calPath);
+            }
+            return vanillaSound;
         }
 
         /// <summary>
@@ -77,10 +92,10 @@ namespace CalValEX.Items.Plushies
         /// <param name="loadLegacy">Whether or not a legacy plush should be loaded for refunding. Set this to false for all future plushies.</param>
         /// <param name="width">The plush tile width</param>
         /// <param name="height">The plush tile height</param>
-        public static void LoadPlush(string name, int rarity, bool loadLegacy = true, int width = 2, int height = 2)
+        public static void LoadPlush(string name, int rarity, bool loadLegacy = true, int width = 2, int height = 2, SoundStyle sound = default)
         {
             PlushItem item = new PlushItem(name, rarity);
-            PlushTile tile = new PlushTile(name);
+            PlushTile tile = new PlushTile(name, sound);
             PlushProj proj = new PlushProj(name);
             ModContent.GetInstance<CalValEX>().AddContent(item);
             ModContent.GetInstance<CalValEX>().AddContent(tile);
@@ -98,6 +113,7 @@ namespace CalValEX.Items.Plushies
             proj.ItemType = item.Type;
             tile.Width = width;
             tile.Height = height;
+            tile.ItemType = item.Type;
             // Add the item to the plush list
             PlushItems.Add(name, item.Type);
         }
@@ -246,10 +262,15 @@ namespace CalValEX.Items.Plushies
         public int Height = 2;
         public int Width = 2;
 
-        public PlushTile(string name)
+        public SoundStyle ClickSound;
+
+        public int ItemType;
+
+        public PlushTile(string name, SoundStyle sound)
         {
             InternalName = name + "PlushPlaced";
             TexturePath = "CalValEX/Tiles/Plushies/" + name + "PlushPlaced";
+            ClickSound = sound;
         }
 
         public override void SetStaticDefaults()
@@ -271,6 +292,39 @@ namespace CalValEX.Items.Plushies
             AddMapEntry(new Color(144, 148, 144), name);
             DustType = 11;
         }
+        public override void MouseOver(int i, int j)
+        {
+            Player localPlayer = Main.LocalPlayer;
+            localPlayer.noThrow = 2;
+            localPlayer.cursorItemIconEnabled = true;
+            localPlayer.cursorItemIconID = ItemType;
+        }
+        public override bool RightClick(int i, int j)
+        {
+            Player player = Main.LocalPlayer;
+            SoundEngine.PlaySound(ClickSound with { Pitch = 0.5f }, new Vector2(i * 16, j * 16));
+            if (CalValEX.CalamityActive)
+            {
+                if (ItemType == PlushManager.PlushItems["DevourerofGods"] || ItemType == PlushManager.PlushItems["DevourerofGodsEX"])
+                {
+                    List<string> dialogue =
+                    [
+                        Language.GetTextValue("Mods.CalamityMod.Status.Boss.EdgyBossText"),
+                        Language.GetTextValue("Mods.CalamityMod.Status.Boss.EdgyBossText2"),
+                        Language.GetTextValue("Mods.CalamityMod.Status.Boss.EdgyBossText3"),
+                        Language.GetTextValue("Mods.CalamityMod.Status.Boss.EdgyBossText4"),
+                        Language.GetTextValue("Mods.CalamityMod.Status.Boss.EdgyBossText5"),
+                        Language.GetTextValue("Mods.CalamityMod.Status.Boss.EdgyBossText6"),
+                        Language.GetTextValue("Mods.CalamityMod.Status.Boss.EdgyBossText7"),
+                        Language.GetTextValue("Mods.CalamityMod.Status.Boss.EdgyBossText8"),
+                    ];
+                    CombatText.NewText(new Rectangle(i * 16, j * 16, 16 * Width, 16 * Height), Color.LightBlue, dialogue[Main.rand.Next(0, dialogue.Count - 1)]);
+                }
+            }
+            return true;
+        }
+
+
     }
 
     [Autoload(false)]

@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using CalValEX.Dusts;
 using CalValEX.Tiles.AstralMisc;
 using Terraria.GameContent.Metadata;
+using CalValEX.Items.Tiles.Blocks.Astral;
 
 namespace CalValEX.Tiles.AstralBlocks
 {
@@ -25,6 +26,7 @@ namespace CalValEX.Tiles.AstralBlocks
             TileID.Sets.NeedsGrassFraming[Type] = true;
             TileID.Sets.NeedsGrassFramingDirt[Type] = ModContent.TileType<AstralDirtPlaced>();
             Main.tileMerge[Type][ModContent.TileType<AstralDirtPlaced>()] = true;
+            RegisterItemDrop(ModContent.ItemType<AstralDirt>());
 
         }
         public override void NumDust(int i, int j, bool fail, ref int num)

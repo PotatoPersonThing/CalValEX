@@ -4896,6 +4896,31 @@ Mods: {
 
 			ExodygenPlush: {
 				// DisplayName: Exodygen Plush
+				// Tooltip: Right click to throw!
+			}
+
+			ExotrexiaPlush: {
+				// DisplayName: Exotrexia Plush
+				// Tooltip: ""
+			}
+
+			AstigmageddonPlush: {
+				// DisplayName: Astigmageddon Plush
+				// Tooltip: ""
+			}
+
+			CataractacombPlush: {
+				// DisplayName: Cataractacomb Plush
+				// Tooltip: ""
+			}
+
+			ConjunctivirusPlush: {
+				// DisplayName: Conjunctivirus Plush
+				// Tooltip: ""
+			}
+
+			PolyphemalusPlush: {
+				// DisplayName: Polyphemalus Plush
 				// Tooltip: ""
 			}
 		}
@@ -5156,6 +5181,11 @@ Mods: {
 			// YharonEXPlush.DisplayName: Yharon Plush EX
 			// DevourerofGodsEXPlush.DisplayName: Devourerof Gods Plush EX
 			// ExodygenPlush.DisplayName: Exodygen Plush
+			// ExotrexiaPlush.DisplayName: Exotrexia Plush
+			// AstigmageddonPlush.DisplayName: Astigmageddon Plush
+			// CataractacombPlush.DisplayName: Cataractacomb Plush
+			// ConjunctivirusPlush.DisplayName: Conjunctivirus Plush
+			// PolyphemalusPlush.DisplayName: Polyphemalus Plush
 		}
 
 		Tiles: {
@@ -5503,16 +5533,21 @@ Mods: {
 			ProvidenceAltarPlaced.MapEntry: 亵渎天神核心底座
 			PolterCablePlaced.MapEntry: 惧魂线缆
 			// GiantClamPlushPlaced.MapEntry: Giant Clam Plush Placed
-			// MireP1PlushPlaced.MapEntry: Shielded Cragmaw Mire Plush Placed
-			// MireP2PlushPlaced.MapEntry: Slimy Cragmaw Mire Plush Placed
-			// CalamitasPlushPlaced.MapEntry: Calamitas Plush Placed
-			// ShadowPlushPlaced.MapEntry: Shadow Plush Placed
-			// BereftVassalPlushPlaced.MapEntry: Bereft Vassal Plush Placed
+			// MireP1PlushPlaced.MapEntry: Shielded Cragmaw Mire Plush
+			// MireP2PlushPlaced.MapEntry: Slimy Cragmaw Mire Plush
+			// CalamitasPlushPlaced.MapEntry: Calamitas Plush
+			// ShadowPlushPlaced.MapEntry: Shadow Plush
+			// BereftVassalPlushPlaced.MapEntry: Bereft Vassal Plush
 			// OhioPlaced.MapEntry: Ohio Placed
 			// LeviathanEXPlushPlaced.MapEntry: Leviathan Plush EX
 			// YharonEXPlushPlaced.MapEntry: Yharon Plush EX
 			// DevourerofGodsEXPlushPlaced.MapEntry: Devourerof Gods Plush EX
-			// ExodygenPlushPlaced.MapEntry: Exodygen Plush Placed
+			// ExodygenPlushPlaced.MapEntry: Exodygen Plush
+			// ExotrexiaPlushPlaced.MapEntry: Exotrexia Plush Placed
+			// AstigmageddonPlushPlaced.MapEntry: Astigmageddon Plush Placed
+			// CataractacombPlushPlaced.MapEntry: Cataractacomb Plush Placed
+			// ConjunctivirusPlushPlaced.MapEntry: Conjunctivirus Plush Placed
+			// PolyphemalusPlushPlaced.MapEntry: Polyphemalus Plush Placed
 		}
 
 		Buffs: {

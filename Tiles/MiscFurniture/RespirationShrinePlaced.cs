@@ -117,6 +117,7 @@ namespace CalValEX.Tiles.MiscFurniture
         {
             stonepos = -8.00001f;
         }
+
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
             CalValEXGlobalTile.TileGlowmask(i, j, Request<Texture2D>("CalValEX/Tiles/MiscFurniture/RespirationShrinePlaced_Glow").Value, spriteBatch);
@@ -153,8 +154,6 @@ namespace CalValEX.Tiles.MiscFurniture
                     {
                         if ((tile.TileFrameX == 0 && tile.TileFrameY == 0))
                         {
-                            spriteBatch.End();
-                            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied);
                             spriteBatch.Draw(auraTexture, position, sourceRectangle, color, Main.GlobalTimeWrappedHourly * 1f, origin / 2f, 1f, SpriteEffects.None, 0f);
                         }
                     }

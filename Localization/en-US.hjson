@@ -4894,6 +4894,31 @@ Mods: {
 				DisplayName: Exodygen Plush
 				Tooltip: Right click to throw!
 			}
+
+			ExotrexiaPlush: {
+				DisplayName: Exotrexia Plush
+				Tooltip: Right click to throw!
+			}
+
+			AstigmageddonPlush: {
+				DisplayName: Astigmageddon Plush
+				Tooltip: Right click to throw!
+			}
+
+			CataractacombPlush: {
+				DisplayName: Cataractacomb Plush
+				Tooltip: Right click to throw!
+			}
+
+			ConjunctivirusPlush: {
+				DisplayName: Conjunctivirus Plush
+				Tooltip: Right click to throw!
+			}
+
+			PolyphemalusPlush: {
+				DisplayName: Polyphemalus Plush
+				Tooltip: Right click to throw!
+			}
 		}
 
 		Projectiles: {
@@ -5140,8 +5165,8 @@ Mods: {
 			GoozmaPlush.DisplayName: Goozma Plush
 			OmegaCultistCandle.DisplayName: Omega Cultist
 			OmegaCultistTrident.DisplayName: Omega Cultist
-			ArtemisBalloonProj.DisplayName: Artemis Balloon Proj
-			ApolloBalloonProj.DisplayName: Apollo Balloon Proj
+			ArtemisBalloonProj.DisplayName: Artemis Balloon
+			ApolloBalloonProj.DisplayName: Apollo Balloon
 			ScalPet.DisplayName: Scal Pet
 			MireP1Plush.DisplayName: Mire P1 Plush
 			MireP2Plush.DisplayName: Mire P2 Plush
@@ -5152,6 +5177,11 @@ Mods: {
 			YharonEXPlush.DisplayName: Yharon Plush EX
 			DevourerofGodsEXPlush.DisplayName: Devourerof Gods Plush EX
 			ExodygenPlush.DisplayName: Exodygen Plush
+			ExotrexiaPlush.DisplayName: Exotrexia Plush
+			AstigmageddonPlush.DisplayName: Astigmageddon Plush
+			CataractacombPlush.DisplayName: Cataractacomb Plush
+			ConjunctivirusPlush.DisplayName: Conjunctivirus Plush
+			PolyphemalusPlush.DisplayName: Polyphemalus Plush
 		}
 
 		Tiles: {
@@ -5509,6 +5539,11 @@ Mods: {
 			YharonEXPlushPlaced.MapEntry: Yharon Plush EX
 			DevourerofGodsEXPlushPlaced.MapEntry: Devourerof Gods Plush EX
 			ExodygenPlushPlaced.MapEntry: Exodygen Plush
+			ExotrexiaPlushPlaced.MapEntry: Exotrexia Plush Placed
+			AstigmageddonPlushPlaced.MapEntry: Astigmageddon Plush Placed
+			CataractacombPlushPlaced.MapEntry: Cataractacomb Plush Placed
+			ConjunctivirusPlushPlaced.MapEntry: Conjunctivirus Plush Placed
+			PolyphemalusPlushPlaced.MapEntry: Polyphemalus Plush Placed
 		}
 
 		Buffs: {

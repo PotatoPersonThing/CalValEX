@@ -279,7 +279,6 @@ namespace CalValEX.Tiles.MiscFurniture
             {
                 num += 4;
             }
-            Main.windSpeedCurrent = 1;
             Segments[Segments.Count - 7].oldPosition = Segments[Segments.Count - 7].position;
             Segments[Segments.Count - 7].position = new Vector2(Position.X * 16, Position.Y * 16) + Vector2.UnitX * (float)Math.Sin(Main.GlobalTimeWrappedHourly * num) * 92 + Main.windSpeedCurrent * 100 * Vector2.UnitX - Vector2.UnitY * 140 + Vector2.UnitY * Math.Abs((float)Math.Cos(Main.GlobalTimeWrappedHourly * 6)) * 42;
             Segments[0].locked = true;

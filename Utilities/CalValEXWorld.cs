@@ -15,6 +15,7 @@ using Microsoft.Xna.Framework;
 using Humanizer;
 using CalValEX.Tiles.MiscFurniture;
 using CalValEX.AprilFools.Fanny;
+using CalValEX.Items.Tiles.Blocks;
 
 namespace CalValEX
 {
@@ -387,7 +388,8 @@ namespace CalValEX
                 CalValEX.CalamityItem("Chaosplate"),
                 CalValEX.CalamityItem("Navyplate"),
                 CalValEX.CalamityItem("Elumplate"),
-                CalValEX.CalamityItem("Onyxplate")
+                CalValEX.CalamityItem("Onyxplate"),
+                ItemType<Aeroplate>()
                 });
                 RecipeGroup.RegisterGroup("AnyPlate", group);
 

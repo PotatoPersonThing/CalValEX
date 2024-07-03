@@ -46,6 +46,7 @@ using System.Collections.Generic;
 using System.Linq;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Mounts.Minecart;
+using CalValEX.Items.Plushies;
 
 namespace CalValEX
 {
@@ -235,6 +236,15 @@ namespace CalValEX
                 recipe.AddIngredient(ItemType<JunglePhoenixWings>());
                 recipe.AddIngredient(ItemID.ChickenNugget);
                 recipe.AddTile(CalValEX.CalamityTile("CosmicAnvil"));
+                recipe.Register();
+            }
+            {
+                Recipe recipe = Recipe.Create(PlushManager.PlushItems["Polyphemalus"]);
+                recipe.AddIngredient(PlushManager.PlushItems["Exotrexia"]);
+                recipe.AddIngredient(PlushManager.PlushItems["Cataractacomb"]);
+                recipe.AddIngredient(PlushManager.PlushItems["Astigmageddon"]);
+                recipe.AddIngredient(PlushManager.PlushItems["Conjunctivirus"]);
+                recipe.AddTile(TileID.MythrilAnvil);
                 recipe.Register();
             }
             #endregion
