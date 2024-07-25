@@ -1222,6 +1222,7 @@ namespace CalValEX
                 recipe.AddIngredient(ItemType<TerminusShrine2>());
                 recipe.AddIngredient(CalValEX.CalamityItem("Rock"));
                 recipe.AddTile(CalValEX.CalamityTile("DraedonsForge"));
+                recipe.AddCondition(new Condition("During April Fools week or on the getfixedboi seed.", () => Main.zenithWorld || CalValEX.AprilFoolWeek));
                 recipe.Register();
             }
             {

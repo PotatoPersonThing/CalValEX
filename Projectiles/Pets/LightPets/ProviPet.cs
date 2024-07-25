@@ -67,7 +67,7 @@ namespace CalValEX.Projectiles.Pets.LightPets
                 Projectile.timeLeft = 2;
             }
 
-            Lighting.AddLight(Projectile.position, new Vector3(1.61568627f, 0.901960784f, 0.462745098f));
+            Lighting.AddLight(Projectile.position, new Vector3(2.2f, 1.1f, 0.6f));
 
             Vector2 vectorToOwner = player.Center - Projectile.Center;
             float distanceToOwner = vectorToOwner.Length();
