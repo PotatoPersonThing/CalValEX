@@ -4901,26 +4901,31 @@ Mods: {
 
 			ExotrexiaPlush: {
 				// DisplayName: Exotrexia Plush
-				// Tooltip: ""
+				// Tooltip: Right click to throw!
 			}
 
 			AstigmageddonPlush: {
 				// DisplayName: Astigmageddon Plush
-				// Tooltip: ""
+				// Tooltip: Right click to throw!
 			}
 
 			CataractacombPlush: {
 				// DisplayName: Cataractacomb Plush
-				// Tooltip: ""
+				// Tooltip: Right click to throw!
 			}
 
 			ConjunctivirusPlush: {
 				// DisplayName: Conjunctivirus Plush
-				// Tooltip: ""
+				// Tooltip: Right click to throw!
 			}
 
 			PolyphemalusPlush: {
 				// DisplayName: Polyphemalus Plush
+				// Tooltip: Right click to throw!
+			}
+
+			YhogoStick: {
+				// DisplayName: Yhogo Stick
 				// Tooltip: ""
 			}
 		}
@@ -6320,6 +6325,11 @@ Mods: {
 			DraedonCartBuff: {
 				// DisplayName: Draedon Cart
 				// Description: train2
+			}
+
+			YhogoStickBuff: {
+				// DisplayName: Yhogo Stick Buff
+				// Description: Mods.CalValEX.Buffs.YhogoStickBuff.Description
 			}
 		}
 

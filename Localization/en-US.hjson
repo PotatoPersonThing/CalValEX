@@ -4919,6 +4919,11 @@ Mods: {
 				DisplayName: Polyphemalus Plush
 				Tooltip: Right click to throw!
 			}
+
+			YhogoStick: {
+				DisplayName: Godseeking Pogo Stick
+				Tooltip: "'Yharim would most definitely hate you for this'"
+			}
 		}
 
 		Projectiles: {
@@ -6316,6 +6321,11 @@ Mods: {
 			DraedonCartBuff: {
 				DisplayName: Draedon Cart
 				Description: train2
+			}
+
+			YhogoStickBuff: {
+				DisplayName: Godseeker Pogo
+				Description: You're riding a Yhogo Stick
 			}
 		}
 

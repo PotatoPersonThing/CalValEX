@@ -638,8 +638,17 @@ namespace CalValEX
             }
             {
                 Recipe recipe = Recipe.Create(ItemType<DraedonCart>());
-                recipe.AddIngredient(CalValEX.CalamityItem("ExoPrism"), 20);
                 recipe.AddIngredient(ItemID.MinecartMech);
+                recipe.AddIngredient(CalValEX.CalamityItem("ExoPrism"), 20);
+                recipe.AddTile(CalValEX.CalamityTile("DraedonsForge"));
+                recipe.Register();
+            }
+            {
+                Recipe recipe = Recipe.Create(ItemType<YhogoStick>());
+                recipe.AddIngredient(ItemID.PogoStick);
+                recipe.AddIngredient(CalValEX.CalamityItem("AuricBar"), 20);
+                recipe.AddIngredient(CalValEX.CalamityItem("ExoPrism"), 2);
+                recipe.AddIngredient(CalValEX.CalamityItem("AshesofAnnihilation"), 2);
                 recipe.AddTile(CalValEX.CalamityTile("DraedonsForge"));
                 recipe.Register();
             }

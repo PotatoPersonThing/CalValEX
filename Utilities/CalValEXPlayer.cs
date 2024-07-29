@@ -689,6 +689,23 @@ namespace CalValEX
                    // Player.position.Y -= 16f;
                 }*/
             }
+            if (Player.mount.Type == MountType<YhogoStickMount>())
+            {
+
+                if (Player.velocity.Y == 0f)
+                {
+                    Player.isPerformingPogostickTricks = false;
+                }
+                if (Player.isPerformingPogostickTricks)
+                {
+                    Player.fullRotation += (float)Player.direction * ((float)Math.PI * 2f) / 30f;
+                }
+                else
+                {
+                    Player.fullRotation = (float)Math.Sign(Player.velocity.X) * Utils.GetLerpValue(0f, Player.mount.RunSpeed - 0.2f, Math.Abs(Player.velocity.X), clamped: true) * 0.4f;
+                }
+                Player.fullRotationOrigin = new Vector2(Player.width / 2, (float)Player.height * 0.8f);
+            }
         }
         [JITWhenModsEnabled("CalamityMod")]
 
