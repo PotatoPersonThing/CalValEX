@@ -259,32 +259,32 @@ Mods: {
 				NuggetSpawn: "{0} has risen from {1}'s ashes!"
 				Canspawn: The license teleports away to the McNugget delivery service...
 				Nospace: There's not enough space for a rebirth in {0} !
-				Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
+				Census.SpawnCondition: Use a [i:CalValEX/NuggetLicense] bought from The Oracle
 			}
 
 			DracoNugget: {
 				DisplayName: Draconian Nugget
-				Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
+				Census.SpawnCondition: Use a [i:CalValEX/NuggetLicense] bought from The Oracle
 			}
 
 			FollyNugget: {
 				DisplayName: Fluffy Nugget
-				Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
+				Census.SpawnCondition: Use a [i:CalValEX/NuggetLicense] bought from The Oracle
 			}
 
 			GODNugget: {
 				DisplayName: Phoenix Nugget
-				Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
+				Census.SpawnCondition: Use a [i:CalValEX/NuggetLicense] bought from The Oracle
 			}
 
 			MammothNugget: {
 				DisplayName: Mini Mammoth Nugget
-				Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
+				Census.SpawnCondition: Use a [i:CalValEX/NuggetLicense] bought from The Oracle
 			}
 
 			ShadowNugget: {
 				DisplayName: Shadow Nugget
-				Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
+				Census.SpawnCondition: Use a [i:CalValEX/NuggetLicense] bought from The Oracle
 			}
 
 			MeldwyrmBody.DisplayName: Meldwyrm
@@ -296,17 +296,17 @@ Mods: {
 
 			NinjaSlime: {
 				DisplayName: Ninja Slime
-				Census.SpawnCondition: Conditions unknown
+				Census.SpawnCondition: Has a chance to spawn upon hitting any normal slime with a [i:42]
 			}
 
 			AstroSlime: {
 				DisplayName: Astro Slime
-				Census.SpawnCondition: Conditions unknown
+				Census.SpawnCondition: Hit Astrum Aureus with the Abandoned Slime Staff's minion
 			}
 
 			Tarr: {
 				DisplayName: Tarr
-				Census.SpawnCondition: Defeat Goozma (with CalamityHunt) or let the Slime God eat a town slime (without CalamityHunt)
+				Census.SpawnCondition: Defeat Goozma (with Hunt of the Old God) or let the Slime God eat a town slime (without HotOG)
 			}
 		}
 

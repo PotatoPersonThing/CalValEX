@@ -162,26 +162,6 @@ namespace CalValEX
                 cal.Call("AddAndrombaSolution", ModContent.ItemType<XenoSolution>(), "CalValEX/ExtraTextures/AndroombaBlight", new Action<NPC>(BlightRoomba));
             }
 
-            //Census support
-            ModLoader.TryGetMod("Census", out Mod censusMod);
-            if (censusMod != null)
-            {
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<OracleNPC>(), "Equip a Pet or Light Pet");
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<JellyPriestNPC>(),
-                    "Find at the Sulphurous Sea after defeating the Acid Rain's first tier");
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<AprilFools.Jharim.Jharim>(), "It's a secret");
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<NPCs.TownPets.Slimes.AstroSlime>(), "Hit Astrum Aureus with the Abandoned Slime Staff's minion");
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<NPCs.TownPets.Slimes.NinjaSlime>(), "Has a chance to spawn upon hitting any normal slime with a Shuriken");
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<NPCs.TownPets.Slimes.Tarr>(), "Defeat Goozma (with CalamityHunt) or let the Slime God eat a town slime (without CalamityHunt)");
-
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<NuggetNugget>(), "Use a Nugget License bought from The Oracle");
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<DracoNugget>(), "Use a Nugget License bought from The Oracle");
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<FollyNugget>(), "Use a Nugget License bought from The Oracle");
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<GODNugget>(), "Use a Nugget License bought from The Oracle");
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<MammothNugget>(), "Use a Nugget License bought from The Oracle");
-                censusMod.Call("TownNPCCondition", ModContent.NPCType<ShadowNugget>(), "Use a Nugget License bought from The Oracle");
-            }
-
             //Christmas textures
             ChristmasTextureChange.Load();
             /*if (ModContent.GetInstance<CalValEXConfig>().DiscordRichPresence)
