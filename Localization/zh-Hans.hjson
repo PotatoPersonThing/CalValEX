@@ -4925,8 +4925,8 @@ Mods: {
 			}
 
 			YhogoStick: {
-				// DisplayName: Yhogo Stick
-				// Tooltip: ""
+				// DisplayName: Godseeking Pogo Stick
+				// Tooltip: "'Yharim would most definitely hate you for this'"
 			}
 		}
 
@@ -6328,8 +6328,8 @@ Mods: {
 			}
 
 			YhogoStickBuff: {
-				// DisplayName: Yhogo Stick Buff
-				// Description: Mods.CalValEX.Buffs.YhogoStickBuff.Description
+				// DisplayName: Godseeker Pogo
+				// Description: You're riding a Yhogo Stick
 			}
 		}
 
