@@ -641,4 +641,21 @@ namespace CalValEX
             return null;
         }
     }
+    public class MoonLord : IItemDropRuleCondition
+    {
+        public bool CanDrop(DropAttemptInfo info)
+        {
+            return NPC.downedMoonlord;
+        }
+
+        public bool CanShowItemDropInUI()
+        {
+            return NPC.downedMoonlord;
+        }
+
+        public string GetConditionDescription()
+        {
+            return null;
+        }
+    }
 }

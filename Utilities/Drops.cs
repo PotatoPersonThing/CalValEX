@@ -42,6 +42,7 @@ using CalValEX.CalamityID;
 using ReLogic.Content;
 using CalValEX.Items.Dyes;
 using CalValEX.Items.Plushies;
+using CalValEX.Items.Equips;
 
 namespace CalValEX
 {
@@ -284,6 +285,7 @@ namespace CalValEX
                     if (npc.type == CalValEX.CalamityNPC("ShockstormShuttle"))
                     {
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShuttleBalloon>(), 10));
+                        npcLoot.Add(ItemDropRule.ByCondition(new MoonLord(), ModContent.ItemType<ExodiumMoon>(), 10));
                     }
                     if (npc.type == CalValEX.CalamityNPC("SulphurousSkater"))
                     {
