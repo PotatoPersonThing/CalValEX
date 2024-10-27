@@ -83,13 +83,12 @@ namespace CalValEX
             LeadingConditionRule rule10 = new(new MidhardmodeDowned());
             LeadingConditionRule rule11 = new(new PolterDowned());
             LeadingConditionRule rule12 = new(new AquaDowned());
-            LeadingConditionRule rule13 = new(new April14());
 
             #region bags
             if (item.type == CalItemID.StarterBag)
 			{
 				itemLoot.Add(rule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<C>())));
-                itemLoot.Add(rule13.OnSuccess(ItemDropRule.Common(ModContent.ItemType<GallusYharus>())));
+                itemLoot.Add(ItemDropRule.ByCondition(new April14(), ModContent.ItemType<GallusYharus>()));
             }
 			else if (item.type == CalItemID.DesertScourgeBag)
 			{

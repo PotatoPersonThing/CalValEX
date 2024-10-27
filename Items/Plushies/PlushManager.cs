@@ -47,7 +47,7 @@ namespace CalValEX.Items.Plushies
             LoadPlush("Polyphemalus", ItemUtils.BossRarity("Aureus"), false, 3, 3, sound: SoundID.NPCDeath1);
             LoadPlush("PlaguebringerGoliath", ItemUtils.BossRarity("PBG"), sound: GetCalamitySound("Custom/PlagueSounds/PBGNukeWarning", SoundID.NPCDeath14));
             LoadPlush("Ravager", ItemUtils.BossRarity("Ravager"), sound: GetCalamitySound("NPCKilled/RavagerLimbLoss1", SoundID.NPCHit41));
-            LoadPlush("BereftVassal", ItemUtils.BossRarity("Deus"), false, sound: SoundID.DD2_OgreHurt);
+            LoadPlush("BereftVassal", ItemUtils.BossRarity("Deus"), false, sound: GetOtherModSound("InfernumMode", "InfernumMode/Assets/Sounds/Custom/BereftVassal/VassalHornSound", SoundID.DD2_OgreHurt));
             LoadPlush("AstrumDeus", ItemUtils.BossRarity("Deus"), sound: GetCalamitySound("Custom/AstrumDeus/AstrumDeusMine", SoundID.Item4));
             LoadPlush("ProfanedGuardian", ItemRarityID.Purple, sound: GetCalamitySound("Custom/ProfanedGuardians/GuardianRockShieldActivate", SoundID.NPCHit52));
             LoadPlush("Providence", 12, sound: GetCalamitySound("Custom/Providence/ProvidenceHolyRay", SoundID.NPCHit44));
@@ -66,8 +66,8 @@ namespace CalValEX.Items.Plushies
             LoadPlush("Draedon", 15, sound: GetCalamitySound("Custom/DraedonLaugh", SoundID.Clown));
             LoadPlush("Calamitas", 15, false, sound: GetCalamitySound("Custom/SupremeCalamitasSpawn", SoundID.Zombie109)); // Has an unorthodox old name, so it must be done separately
             LoadPlush("Jared", 16, sound: GetCalamitySound("Custom/PrimordialWyrmCharge", SoundID.NPCHit1));
-            LoadPlush("Astrageldon", 12, sound: SoundID.Item4);
-            LoadPlush("Goozma", 15, sound: SoundID.NPCDeath1);
+            LoadPlush("Astrageldon", 12, sound: GetOtherModSound("CatalystMod", "CatalystMod/Assets/Sounds/AstrageldonImpact", SoundID.Item4));
+            LoadPlush("Goozma", 15, sound: GetOtherModSound("CalamityHunt", "CalamityHunt/Assets/Sounds/Goozma/GoozmaAwaken", SoundID.NPCDeath1));
             LoadPlush("Hypnos", 15, sound: GetCalamitySound("Custom/ExoMechs/ExoLaserShoot", SoundID.Item34));
             LoadPlush("Exodygen", 16, false, sound: SoundID.NPCDeath61);
             LoadPlush("LeviathanEX", ItemUtils.BossRarity("Leviathan"), false, 3, 3, sound: GetCalamitySound("Custom/LeviathanRoarCharge", SoundID.Zombie39));
@@ -80,6 +80,18 @@ namespace CalValEX.Items.Plushies
             if (ModLoader.HasMod("CalamityMod"))
             {
                 return new SoundStyle("CalamityMod/Sounds/" + calPath);
+            }
+            return vanillaSound;
+        }
+
+        public SoundStyle GetOtherModSound(string modName, string path, SoundStyle vanillaSound)
+        {
+            if (ModLoader.TryGetMod(modName, out _))
+            {
+                SoundStyle style = new SoundStyle(path);
+
+                if (style != default)
+                    return new SoundStyle(path);
             }
             return vanillaSound;
         }

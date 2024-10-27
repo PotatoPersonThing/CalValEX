@@ -42,7 +42,7 @@ namespace CalValEX
         public static Condition evil = new("If either the Hive Mind or The Perforators have been defeated", () => CalValEX.CalamityActive ? ((bool)CalValEX.Calamity.Call("GetBossDowned", "hivemind") || (bool)CalValEX.Calamity.Call("GetBossDowned", "perforators")) : false);
         public static Condition nugget = new("If the Calamity and Calamity's Vanities bestiaries are more than 36.5% complete or if The Dragonfolly has been defeated", () => CalValEX.CalamityActive ? ((Main.BestiaryDB.GetCompletedPercentByMod(CalValEX.Calamity) > 0.365 && Main.GetBestiaryProgressReport().CompletionPercent > 0.324) || (bool)CalValEX.Calamity.Call("GetBossDowned", "dragonfolly")) : (Main.GetBestiaryProgressReport().CompletionPercent > 0.324));
         // Biome conditions
-        public static Condition dungeon = new("While in the Dungeon", () => Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().ZoneMockDungeon || Main.LocalPlayer.ZoneDungeon);
+        public static Condition dungeon = new("While in the Dungeon", () => CalValEXWorld.dungeontiles > 22 || Main.LocalPlayer.ZoneDungeon);
         public static Condition ass = new("While in the Astral Blight biome", () => Main.LocalPlayer.InModBiome<Biomes.AstralBlight>());
         public static Condition sammy = new("While in the Underworld Lab", () => CalValEXWorld.hellTiles > 20 && Main.LocalPlayer.ZoneUnderworldHeight);
         public static Condition jun = new("While in the Jungle Lab", () => CalValEXWorld.jungleTiles > 20 && Main.LocalPlayer.ZoneJungle);

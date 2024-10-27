@@ -23,8 +23,8 @@ namespace CalValEX.AprilFools.Fanny
         public override bool? UseItem(Player player)
         {
             FannyManager.fannyEnabled = !FannyManager.fannyEnabled;
-            if (FannyManager.fannyEnabled)
-            player.GetModPlayer<CalValEXPlayer>().fannyOverride = true;
+            CalValEXWorld.fannyOverride = CalValEXWorld.fannyOverride == 1 ? 2 : 1;
+            CalValEXWorld.UpdateWorldBool();
             return true;
         }
     }

@@ -97,7 +97,6 @@ namespace CalValEX
         public bool conejo;
         public bool ohio;
         public bool hasOhiod = false;
-        public bool fannyOverride = false;
 
         public int morshuscal = 0;
         public int morshuTimer;
@@ -1079,13 +1078,11 @@ namespace CalValEX
         public override void SaveData(TagCompound tag)
         {
             tag["Ohio"] = hasOhiod;
-            tag["Fanson"] = fannyOverride;
         }
 
         public override void LoadData(TagCompound tag)
         {
             hasOhiod = tag.GetBool("Ohio");
-            fannyOverride = tag.GetBool("Fanson");
         }
 
         /*public static readonly PlayerLayer Mimigun = new PlayerLayer("CalValEX", "Mimigun", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)

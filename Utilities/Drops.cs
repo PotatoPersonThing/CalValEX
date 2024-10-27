@@ -872,7 +872,7 @@ namespace CalValEX
                 }
                 if (npc.type == CalNPCID.CalamitasClone)
                 {
-                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Shadow"]);
+                    npcLoot.Add(ItemDropRule.ByCondition(new Infernum(), PlushManager.PlushItems["Shadow"], 4));
                 }
             }
             if (remix != null)

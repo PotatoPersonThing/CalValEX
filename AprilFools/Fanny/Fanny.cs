@@ -495,7 +495,7 @@ namespace CalValEX.AprilFools.Fanny
     {
         public static List<FannyMessage> fannyMessages = new List<FannyMessage>();
         public static Dictionary<string, FannyPortrait> Portraits = new Dictionary<string, FannyPortrait>();
-        public static bool fannyEnabled = true;
+        public static bool fannyEnabled = false;
         public static bool hasRemix = false;
         public static bool hasIsaac = false;
         public static bool hasUndertale = false;

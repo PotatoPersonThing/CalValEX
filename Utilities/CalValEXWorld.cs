@@ -41,6 +41,7 @@ namespace CalValEX
         public static bool downedMeldosaurus;
         public static bool downedFogbound;
         public static bool masorev;
+        public static int fannyOverride; // 0 = auto enabled. 1 = disabled. 2 = manually enabled
 
         // Chickens
         public static bool nugget;
@@ -71,16 +72,8 @@ namespace CalValEX
             ninja = false;
             astro = false;
             tar = false;
+            fannyOverride = 0;
             PolterCableTE.UpdateHooks();
-
-            if ((DateTime.Now.Month == 4 && DateTime.Now.Day == 1) || (Main.zenithWorld && DateTime.Now.Month == 4 && DateTime.Now.Day <= 7) || Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().fannyOverride)
-            {
-                FannyManager.fannyEnabled = true;
-            }
-            else
-            {
-                FannyManager.fannyEnabled = false;
-            }
         }
 
         public override void OnWorldUnload()
@@ -98,6 +91,7 @@ namespace CalValEX
             astro = false;
             tar = false;
             FannyManager.fannyEnabled = false;
+            fannyOverride = 0;
 
             nugget = draco = folly = godnug = mammoth = shadow = isThereAHouse = false;
         }
@@ -131,6 +125,8 @@ namespace CalValEX
             if (downedFogbound)
                 tag["downedFogbound"] = true;
 
+            tag["fanson"] = fannyOverride;
+
             // Chickens
             if (nugget)
                 tag["nugget"] = true;
@@ -162,6 +158,7 @@ namespace CalValEX
             jharinter = tag.ContainsKey("jharinter");
             downedMeldosaurus = tag.ContainsKey("downedMeldosaurus");
             downedFogbound = tag.ContainsKey("downedFogbound");
+            fannyOverride = tag.GetInt("fanson");
 
             nugget = tag.ContainsKey("nugget");
             draco = tag.ContainsKey("draco");
@@ -251,6 +248,8 @@ namespace CalValEX
             {
                 // Hell Lab tiles
                 hellTiles = tileCounts[CalValEX.CalamityTile("Chaosplate")];
+                // Jungle Lab tiles
+                jungleTiles = tileCounts[CalValEX.CalamityTile("PlagueContainmentCells")];
                 // Lab tiles
                 labTiles = tileCounts[CalValEX.CalamityTile("LaboratoryPlating")] + tileCounts[CalValEX.CalamityTile("LaboratoryPanels")] + tileCounts[CalValEX.CalamityTile("RustedPlating")] + tileCounts[CalValEX.CalamityTile("LaboratoryPipePlating")] + tileCounts[CalValEX.CalamityTile("RustedPipes")];
             }
@@ -275,6 +274,10 @@ namespace CalValEX
             else
             {
                 masorev = false;
+            }
+            if ((DateTime.Now.Month == 4 && DateTime.Now.Day == 1) || (Main.zenithWorld && DateTime.Now.Month == 4 && DateTime.Now.Day <= 7) || fannyOverride == 2)
+            {
+                FannyManager.fannyEnabled = true;
             }
             if (Main.drunkWorld)
             {

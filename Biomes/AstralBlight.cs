@@ -5,8 +5,8 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Biomes
 {
-    // Shows setting up two basic biomes. For a more complicated example, please request.
-    public class AstralBlight : ModBiome
+	// Shows setting up two basic biomes. For a more complicated example, please request.
+	public class AstralBlight : ModBiome
 	{
 		//public override bool IsPrimaryBiome => true; // Allows this biome to impact NPC prices
 
@@ -18,7 +18,7 @@ namespace CalValEX.Biomes
 		public override CaptureBiome.TileColorStyle TileColorStyle => CaptureBiome.TileColorStyle.Corrupt;
 
 		// Select Music
-		public override int Music => MusicLoader.GetMusicSlot(Mod, "Sounds/Music/AstralBlight");
+		public override int Music => Main.LocalPlayer.ZoneRockLayerHeight ? MusicLoader.GetMusicSlot(Mod, "Sounds/Music/AstralUnderground") : MusicLoader.GetMusicSlot(Mod, "Sounds/Music/AstralBlight");
 
 		// Populate the Bestiary Filter
 		public override string BestiaryIcon => "CalValEX/Biomes/AstralBlightIcon";

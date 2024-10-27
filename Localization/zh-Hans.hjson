@@ -4928,6 +4928,11 @@ Mods: {
 				// DisplayName: Godseeking Pogo Stick
 				// Tooltip: "'Yharim would most definitely hate you for this'"
 			}
+
+			AstralUndergroundMusicBox: {
+				// DisplayName: Astral Underground Music Box
+				// Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -5553,6 +5558,7 @@ Mods: {
 			// CataractacombPlushPlaced.MapEntry: Cataractacomb Plush Placed
 			// ConjunctivirusPlushPlaced.MapEntry: Conjunctivirus Plush Placed
 			// PolyphemalusPlushPlaced.MapEntry: Polyphemalus Plush Placed
+			// AstralUndergroundMusicBoxPlaced.MapEntry: Astral Underground Music Box Placed
 		}
 
 		Buffs: {

@@ -658,4 +658,23 @@ namespace CalValEX
             return null;
         }
     }
+    public class Infernum : IItemDropRuleCondition
+    {
+        public bool CanDrop(DropAttemptInfo info)
+        {
+            if (CalValEX.instance.infernum == null)
+                return false;
+            return (bool)CalValEX.instance.infernum.Call("GetInfernumActive");
+        }
+
+        public bool CanShowItemDropInUI()
+        {
+            return CalValEX.instance.infernum != null;
+        }
+
+        public string GetConditionDescription()
+        {
+            return null;
+        }
+    }
 }
