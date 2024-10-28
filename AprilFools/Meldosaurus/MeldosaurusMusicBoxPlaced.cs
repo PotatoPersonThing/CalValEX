@@ -20,12 +20,8 @@ namespace CalValEX.AprilFools.Meldosaurus
 			TileObjectData.addTile(Type);
 			LocalizedText name = CreateMapEntryName();
 			AddMapEntry(new Color(200, 200, 200), name);
-		}
-
-		public override void KillMultiTile(int i, int j, int frameX, int frameY)
-		{
-			Item.NewItem(new Terraria.DataStructures.EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 48, ModContent.ItemType<MeldosaurusMusicBox>());
-		}
+            RegisterItemDrop(ModContent.ItemType<MeldosaurusMusicBox>());
+        }
 
 		public override void MouseOver(int i, int j)
 		{

@@ -23,6 +23,7 @@ namespace CalValEX.Tiles.MiscFurniture
 			LocalizedText name = CreateMapEntryName();
 			// name.SetDefault("Music Box");
 			AddMapEntry(new Color(200, 200, 200), name);
+			RegisterItemDrop(ModContent.ItemType<AstralMusicBox>());
 		}
 
 		public override void MouseOver(int i, int j)
