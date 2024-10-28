@@ -864,6 +864,13 @@ namespace CalValEX
                     AddPlushDrop(npcLoot, PlushManager.PlushItems["Goozma"]);
                 }
             }
+            if (CalValEX.instance.sloome != null)
+            {
+                if (npc.type == CalValEX.instance.sloome.Find<ModNPC>("ExoSlimeGod").Type)
+                {
+                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Exodygen"]);
+                }
+            }
             if (Infernum != null)
             {
                 if (npc.type == Infernum.Find<ModNPC>("BereftVassal").Type)
