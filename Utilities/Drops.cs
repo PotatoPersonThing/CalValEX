@@ -155,7 +155,8 @@ namespace CalValEX
                     .Add(ModContent.ItemType<TiedBoxBalloon>(), Condition.PlayerCarriesItem(ModContent.ItemType<BoxBalloon>()))
                     .Add(ModContent.ItemType<TiedChaosBalloon>(), Condition.PlayerCarriesItem(ModContent.ItemType<ChaosBalloon>()))
                     .Add(ModContent.ItemType<TiedBoB2>(), Condition.PlayerCarriesItem(ModContent.ItemType<BoB2>()))
-                    .Add(ModContent.ItemType<ChaoticPuffball>(), CalValEXConditions.polt);
+                    .Add(ModContent.ItemType<ChaoticPuffball>(), CalValEXConditions.polt)
+                    .Add(ModContent.ItemType<AuricFirework>(), Condition.DownedMoonLord);
             }
         }
 

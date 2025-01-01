@@ -4933,6 +4933,11 @@ Mods: {
 				// DisplayName: Astral Underground Music Box
 				// Tooltip: ""
 			}
+
+			AuricFirework: {
+				// DisplayName: Auric Firework
+				// Tooltip: Explodes into fireworks shaped like nearly any item in the game
+			}
 		}
 
 		Projectiles: {
@@ -5196,6 +5201,7 @@ Mods: {
 			// CataractacombPlush.DisplayName: Cataractacomb Plush
 			// ConjunctivirusPlush.DisplayName: Conjunctivirus Plush
 			// PolyphemalusPlush.DisplayName: Polyphemalus Plush
+			// Firework.DisplayName: Firework
 		}
 
 		Tiles: {
