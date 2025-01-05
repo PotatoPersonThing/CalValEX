@@ -708,7 +708,7 @@ namespace CalValEX
             }
             {
                 Recipe recipe = Recipe.Create(ItemType<ExtraFluffyFeatherClump>());
-                recipe.AddIngredient(CalValEX.CalamityItem("SparrowMeat"));
+                recipe.AddIngredient(ItemType<SparrowMeat>());
                 recipe.AddIngredient(CalValEX.CalamityItem("HolyCollider"));
                 recipe.AddIngredient(CalValEX.CalamityItem("BansheeHook"));
                 recipe.AddIngredient(CalValEX.CalamityItem("CosmicDischarge"));

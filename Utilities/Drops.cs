@@ -843,6 +843,7 @@ namespace CalValEX
             ModLoader.TryGetMod("Hypnos", out Hypnos);
             ModLoader.TryGetMod("InfernumMode", out Infernum);
             ModLoader.TryGetMod("CalRemix", out Mod remix);
+            ModLoader.TryGetMod("NoxusBoss", out Mod xeroxus);
             if (Hypnos != null)
             {
                 if (npc.type == Hypnos.Find<ModNPC>("HypnosBoss").Type)
@@ -856,6 +857,13 @@ namespace CalValEX
                 {
                     AddPlushDrop(npcLoot, PlushManager.PlushItems["Astrageldon"]);
                     npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SpaceJunk>(), 3));
+                }
+            }
+            if (xeroxus != null)
+            {
+                if (npc.type == xeroxus.Find<ModNPC>("NamelessDeityBoss").Type)
+                {
+                    AddPlushDrop(npcLoot, PlushManager.PlushItems["NamelessDeityEX"]);
                 }
             }
             if (CalValEX.instance.hunt != null)

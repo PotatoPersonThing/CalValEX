@@ -15,7 +15,7 @@ namespace CalValEX.Projectiles.Pets
         {
             PetSetStaticDefaults(lightPet: false);
             // DisplayName.SetDefault("Void Orb");
-            Main.projFrames[Projectile.type] = 6;
+            Main.projFrames[Projectile.type] = 10;
         }
 
         public override void SetDefaults()
@@ -35,7 +35,7 @@ namespace CalValEX.Projectiles.Pets
        
         public override void Animation(int state)
         {
-            SimpleAnimation(speed: 12);
+            SimpleAnimation(speed: 6);
         }
 
         public override void PetFunctionality(Player player)

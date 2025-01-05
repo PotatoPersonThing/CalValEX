@@ -187,6 +187,7 @@ namespace CalValEX
         public bool scaldown;
         public bool yharcar;
         public bool sepneo;
+        public bool ogscule;
         //Signus Transformation bools
         public bool signutHide;
         public bool signutForce;
@@ -917,8 +918,7 @@ namespace CalValEX
             helipack = false;
             CalValPat = false;
             bikeShred = false;
-
-
+            ogscule = false;
         }
 
         public override void OnHurt(Player.HurtInfo info) {

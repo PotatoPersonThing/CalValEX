@@ -4934,6 +4934,26 @@ Mods: {
 				DisplayName: Auric Firework
 				Tooltip: Explodes into fireworks shaped like nearly any item in the game
 			}
+
+			OgliveBranch: {
+				DisplayName: Oglive Branch
+				Tooltip: ""
+			}
+
+			NamelessDeityPlush: {
+				DisplayName: Nameless Deity Plush
+				Tooltip: ""
+			}
+
+			NamelessDeityPlushThrowable: {
+				DisplayName: Nameless Deity Plush Throwable
+				Tooltip: ""
+			}
+
+			NamelessDeityEXPlush: {
+				DisplayName: Nameless Deity E X Plush
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -5198,6 +5218,9 @@ Mods: {
 			ConjunctivirusPlush.DisplayName: Conjunctivirus Plush
 			PolyphemalusPlush.DisplayName: Polyphemalus Plush
 			Firework.DisplayName: Firework
+			Birdscule.DisplayName: Birdscule
+			NamelessDeityPlush.DisplayName: Nameless Deity Plush
+			NamelessDeityEXPlush.DisplayName: Nameless Deity Plush EX
 		}
 
 		Tiles: {
@@ -5561,6 +5584,8 @@ Mods: {
 			ConjunctivirusPlushPlaced.MapEntry: Conjunctivirus Plush Placed
 			PolyphemalusPlushPlaced.MapEntry: Polyphemalus Plush Placed
 			AstralUndergroundMusicBoxPlaced.MapEntry: Astral Underground Music Box Placed
+			NamelessDeityPlushPlaced.MapEntry: Nameless Deity Plush 
+			NamelessDeityEXPlushPlaced.MapEntry: Nameless Deity Plush EX
 		}
 
 		Buffs: {
@@ -6338,6 +6363,11 @@ Mods: {
 			YhogoStickBuff: {
 				DisplayName: Godseeker Pogo
 				Description: You're riding a Yhogo Stick
+			}
+
+			BirdsculeBuff: {
+				DisplayName: Birdscule Buff
+				Description: Mods.CalValEX.Buffs.BirdsculeBuff.Description
 			}
 		}
 
