@@ -5224,7 +5224,7 @@ Mods: {
 			// Firework.DisplayName: Firework
 			// Birdscule.DisplayName: Birdscule
 			// NamelessDeityPlush.DisplayName: Nameless Deity Plush
-			// NamelessDeityEXPlush.DisplayName: Nameless Deity E X Plush
+			// NamelessDeityEXPlush.DisplayName: Nameless Deity Plush EX
 		}
 
 		Tiles: {
@@ -5588,8 +5588,8 @@ Mods: {
 			// ConjunctivirusPlushPlaced.MapEntry: Conjunctivirus Plush Placed
 			// PolyphemalusPlushPlaced.MapEntry: Polyphemalus Plush Placed
 			// AstralUndergroundMusicBoxPlaced.MapEntry: Astral Underground Music Box Placed
-			// NamelessDeityPlushPlaced.MapEntry: Nameless Deity Plush Placed
-			// NamelessDeityEXPlushPlaced.MapEntry: Nameless Deity E X Plush Placed
+			// NamelessDeityPlushPlaced.MapEntry: Nameless Deity Plush
+			// NamelessDeityEXPlushPlaced.MapEntry: Nameless Deity Plush EX
 		}
 
 		Buffs: {

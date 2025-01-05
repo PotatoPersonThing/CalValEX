@@ -4945,13 +4945,8 @@ Mods: {
 				Tooltip: ""
 			}
 
-			NamelessDeityPlushThrowable: {
-				DisplayName: Nameless Deity Plush Throwable
-				Tooltip: ""
-			}
-
 			NamelessDeityEXPlush: {
-				DisplayName: Nameless Deity E X Plush
+				DisplayName: Nameless Deity Plush (EX)
 				Tooltip: ""
 			}
 		}
@@ -5584,7 +5579,7 @@ Mods: {
 			ConjunctivirusPlushPlaced.MapEntry: Conjunctivirus Plush Placed
 			PolyphemalusPlushPlaced.MapEntry: Polyphemalus Plush Placed
 			AstralUndergroundMusicBoxPlaced.MapEntry: Astral Underground Music Box Placed
-			NamelessDeityPlushPlaced.MapEntry: Nameless Deity Plush 
+			NamelessDeityPlushPlaced.MapEntry: Nameless Deity Plush
 			NamelessDeityEXPlushPlaced.MapEntry: Nameless Deity Plush EX
 		}
 
