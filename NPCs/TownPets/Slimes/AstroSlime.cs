@@ -160,14 +160,26 @@ namespace CalValEX.NPCs.TownPets.Slimes
         public override string GetChat() {
             Main.player[Main.myPlayer].currentShoppingSettings.HappinessReport = "";
             WeightedRandom<string> chat = new();
-            chat.Add(Language.GetTextValue("... .-.. ..- .-. .--. / ... .-.. --- .-. .--."));
-            chat.Add(Language.GetTextValue("Zip zippity zip slip slorp"));
-            chat.Add(Language.GetTextValue("Bwewewowowo broooing"));
+            chat.Add(Language.GetTextValue("Mods.CalValEX.NPCs.AstroSlime.Chat1"));
+            chat.Add(Language.GetTextValue("Mods.CalValEX.NPCs.AstroSlime.Chat2"));
+            chat.Add(Language.GetTextValue("Mods.CalValEX.NPCs.AstroSlime.Chat3"));
             return chat;
         }
         public static List<string> PossibleNames = new()
         {
-            "Spacey", "Star", "Sky", "Sagittarius", "Saga", "Shuttle", "Saturn", "Solaris", "Spiral", "Supernova", "Sedna", "SOS", "Susy"
+            Language.GetTextValue("Mods.CalValEX.NPCs.AstroSlime.SlimeName1"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.AstroSlime.SlimeName2"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.AstroSlime.SlimeName3"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.AstroSlime.SlimeName4"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.AstroSlime.SlimeName5"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.AstroSlime.SlimeName6"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.AstroSlime.SlimeName7"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.AstroSlime.SlimeName8"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.AstroSlime.SlimeName9"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.AstroSlime.SlimeName10"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.AstroSlime.SlimeName11"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.AstroSlime.SlimeName12"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.AstroSlime.SlimeName13")
         };
         public override List<string> SetNPCNameList() => PossibleNames;
 

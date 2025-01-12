@@ -101,11 +101,23 @@ namespace CalValEX.NPCs.JellyPriest
             }
         }
 
-        public static List<string> PossibleNames = new()
+        public override List<string> SetNPCNameList() => new List<string>()
         {
-            "Eika", "Feferi", "Netlia", "Atollia", "Melodi", "Signathia", "Manawa", "Kanji", "Mariacala", "Cuboza", "Nidaria", "Crasqua", "Kuti", "Ooma"
+            Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.NPCName1"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.NPCName2"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.NPCName3"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.NPCName4"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.NPCName5"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.NPCName6"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.NPCName7"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.NPCName8"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.NPCName9"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.NPCName10"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.NPCName11"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.NPCName12"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.NPCName13"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.NPCName14")
         };
-        public override List<string> SetNPCNameList() => PossibleNames;
 
         [JITWhenModsEnabled("CalamityMod")]
         public override string GetChat()

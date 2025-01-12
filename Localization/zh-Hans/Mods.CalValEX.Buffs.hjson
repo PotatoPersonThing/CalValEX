@@ -1,0 +1,780 @@
+AmogusBuff: {
+	# When the april is fooled
+	DisplayName: 幻云宇航员
+	# April fools
+	Description: 在我们之中……
+}
+
+DarksunSpiritBuff: {
+	# Light pets
+	DisplayName: 暗日圣灵
+	# Light pets
+	Description: 暗日精灵们决定跟随你！
+}
+
+EnredBuff: {
+	DisplayName: 宇宙助理
+	Description: 他是来帮忙的！
+}
+
+DiggerBuff: {
+	DisplayName: 重构掘地虫
+	Description: 召唤掘地机器人来照亮你的道路
+}
+
+GodrgeBuff: {
+	DisplayName: 原子之蛤
+	Description: 可悲。
+}
+
+HeatBuff: {
+	DisplayName: 混沌头骨
+	Description: 你感觉你的罪恶爬上了脊梁……这不是真的
+}
+
+ImpBuff: {
+	DisplayName: 迷你献祭者
+	Description: 嘿！
+}
+
+PhantomBuff: {
+	DisplayName: 进击的幻魂
+	Description: 终于自由了，但仍然跟随你！
+}
+
+ProBuff: {
+	DisplayName: 亵渎无敌舰队
+	Description: 天神率领她的部下在黑暗中闪耀着神圣的光芒
+}
+
+PylonBuff: {
+	DisplayName: 增幅器原型
+	Description: 强化其他钨钢士兵
+}
+
+SeerBuff: {
+	DisplayName: 星界观光团
+	Description: 一起看世界
+}
+
+SolarBunBuff: {
+	DisplayName: 阳光小面包
+	Description: 沐浴在圣光下
+}
+
+SupJewelBuff: {
+	DisplayName: 谜之宝珠
+	Description: 纯有是无
+}
+
+VanityCoreBuff: {
+	DisplayName: 虚荣之核
+	Description: 手拉手大家都是好朋友！
+}
+
+YeetBuff: {
+	DisplayName: 小鱼
+	Description: 一只寻阳鱼宝宝会跟随你
+}
+
+AnthozoanBuff: {
+	# Mounts
+	DisplayName: 寒武纪甲壳动物
+	# Mounts
+	Description: 这家伙不会向你扔石头的
+}
+
+AuricTeslaBuff: {
+	DisplayName: 圣金源小汽车
+	Description:
+		'''
+		亚利姆快乐车
+		亚利姆快乐车
+		'''
+}
+
+BikeBuff: {
+	DisplayName: 渎神摩托
+	Description: 行车不规范，亲人两行泪
+}
+
+BloodstoneCarriageBuff: {
+	DisplayName: 血石马车
+	Description: 你甚至可以叫它小不点
+}
+
+FloatyBuff: {
+	DisplayName: 蜉蝣地毯
+	Description: 警告：无法飞行。
+}
+
+GodRiderBuff: {
+	DisplayName: 神明骑士
+	Description: 飞驰于维度浪潮之间
+}
+
+HadarianBuff: {
+	DisplayName: 哈达尔幼雏
+	Description: 吓！！
+}
+
+HiveVuff: {
+	DisplayName: 意志混合体
+	Description: 我发誓不是你想的那样
+}
+
+LeviathanMountBuff: {
+	DisplayName: 利维坦虹鳉
+	Description: 最好抓条鱼给它
+}
+
+NuclearHorrorBuff: {
+	DisplayName: 辐核惧兽
+	Description: 为什么它会帮你
+}
+
+PBGMountBuff: {
+	DisplayName: 瘟疫骑士
+	Description: 请相信蜂的力量！
+}
+
+SilvaJeepBuff: {
+	DisplayName: Silvian吉普车
+	Description: Beep beep I'm a jeep
+}
+
+TractorMount: {
+	DisplayName: 钨钢坦克
+	Description: 前进，士兵！
+}
+
+YharonMountBuff: {
+	DisplayName: Yharite
+	Description: 他终于来了！
+}
+
+cloudbuff: {
+	# Elementals
+	DisplayName: 娇小雨云
+	# Elementals
+	Description: 她已经在尽力守护你了，但没什么用
+}
+
+minihotebuff: {
+	DisplayName: 儿童之心
+	Description: 就好像在开幼稚园什么的
+}
+
+MoistBuff: {
+	DisplayName: 充满活力的塞壬宝宝
+	Description: 她已经在尽力保护你了，但没什么用
+}
+
+rarebrimlingbuff: {
+	DisplayName: 稀有硫火元素
+	Description: 她已经在尽力保卫你了，但没什么用
+}
+
+RareSsandBuff: {
+	DisplayName: 小小沙暴元素
+	Description: 她已经在尽力治疗你了，但没什么用
+}
+
+SsandBuff: {
+	DisplayName: 迷你沙暴元素
+	Description: 她已经在尽力守卫你了，但没什么用
+}
+
+AresBuff: {
+	# Exos
+	DisplayName: XF型-阿瑞斯玩具
+	# Exos
+	Description: 他现身了
+}
+
+ExoMayhemBuff: {
+	DisplayName: 星流巨械玩具
+	Description: 完美的娱乐供应商
+}
+
+ThanatosBuff: {
+	DisplayName: XM型-塔纳托斯玩具
+	Description: 对，它就是个玩具，不要害怕
+}
+
+TwinsBuff: {
+	DisplayName: XS型-阿尔忒弥斯和阿波罗玩具
+	Description: 他们在这儿
+}
+
+AmberBuff: {
+	# Scuttlers
+	DisplayName: 琥珀爬虫
+	# Scuttlers
+	Description: 仍不肯丢掉它的宝石
+}
+
+AmethystBuff: {
+	DisplayName: 紫晶爬虫
+	Description: 仍不肯丢掉它的宝石
+}
+
+BejeweledBuff: {
+	DisplayName: 彩虹爬虫
+	Description: 仍不肯丢掉它的宝石们
+}
+
+CrystalBuff: {
+	DisplayName: 水晶爬虫
+	Description: 仍不肯丢掉它的水晶
+}
+
+DiamondBuff: {
+	DisplayName: 钻石爬虫
+	Description: 仍不肯丢掉它的宝石
+}
+
+EmeraldBuff: {
+	DisplayName: 翡翠爬虫
+	Description: 仍不肯丢掉它的宝石
+}
+
+RubyBuff: {
+	DisplayName: 红玉爬虫
+	Description: 仍不肯丢掉它的宝石
+}
+
+SapphireBuff: {
+	DisplayName: 蓝玉爬虫
+	Description: 仍不肯丢掉它的宝石
+}
+
+TopazBuff: {
+	DisplayName: 黄玉爬虫
+	Description: 仍不肯丢掉它的宝石
+}
+
+AeroBuff: {
+	# Pets
+	DisplayName: 天蓝史莱姆群
+	# Pets
+	Description: 我们一起滑翔
+}
+
+AndroombaBuff: {
+	DisplayName: 仙女座
+	Description: 嗡嗡嗡嗡嗡！
+}
+
+AquaBuff: {
+	DisplayName: 渊海虫虫
+	Description: 哇袄！
+}
+
+AvalonBuff: {
+	DisplayName: 飞升亵渎守卫
+	Description: 因为蓝色的火焰看起来更酷
+}
+
+BabySquidBuff: {
+	DisplayName: 小鱿鱼
+	Description: ^-^
+}
+
+BeeBuff: {
+	DisplayName: 重编瘟疫使者
+	Description: 哔哔，嘟嘟，滋滋。
+}
+
+BlockarozBuff: {
+	DisplayName: 盒子
+	Description: 我为我自己代言
+}
+
+BuppyBuff: {
+	DisplayName: 狗狗
+	Description: 你会扔那颗球吗？
+}
+
+BrimberryBuff: {
+	DisplayName: 硫火草莓
+	Description: 地狱之路其修远兮…
+}
+
+CalamityBABYBuff: {
+	DisplayName: 神一般的存在
+	Description: 全知全能的神之子伴随你...只是别受伤了
+}
+
+CatfishBuff: {
+	DisplayName: 鱼猫
+	Description: 怎么啦？这是一条猫鱼，你在说些什么啊？
+}
+
+ChilledOut: {
+	DisplayName: 很酷的家伙
+	Description: 一个非常酷的家伙会一直跟随你
+}
+
+ckidbuff: {
+	DisplayName: 小极寒之灵
+	Description: 冰灵的波加罗舞
+}
+
+ClamHermitBuff: {
+	DisplayName: 蛤隐士
+	Description: 一个奇怪的小家伙
+}
+
+CnidBuff: {
+	DisplayName: 小卧龙海马
+	Description: 这个可怜的小家伙真的需要些纸巾...
+}
+
+CoolBlueBuff: {
+	DisplayName: 蓝色酷家伙
+	Description: 一些非常酷的蓝色伙计
+}
+
+CrabBuff: {
+	DisplayName: 真菌蟹
+	Description: 它是很有趣的真菌家伙
+}
+
+DebrisPet: {
+	DisplayName: 幻魂幼虫
+	Description: 听着，你这小...
+}
+
+DEBuff: {
+	DisplayName: 暗黑气场
+	Description: 一种纯粹的虚无光体在你身边漂浮
+}
+
+DesertBuff: {
+	DisplayName: 荒漠虫虫
+	Description: 哇嗷
+}
+
+DeusBuff: {
+	DisplayName: 星神游龙们
+	Description: 龙灾
+}
+
+DogBuff: {
+	DisplayName: 神明吞噬者
+	Description: 一切都是经典
+}
+
+Doggobuff: {
+	DisplayName: 愤怒狗狗
+	Description: 像是，灾厄排名里第五受欢迎的狗狗
+}
+
+EggBuff: {
+	DisplayName: 孤蛋
+	Description: 这...它以为你是它的妈妈...
+}
+
+EurosBuff: {
+	DisplayName: 小欧洛斯
+	Description: 他在小心翼翼的跟着你
+}
+
+Excalibuff: {
+	DisplayName: 光辉圣剑
+	Description: 不要仅仅因为某人丢了把剑给你就觉得自己能统治世界了！
+}
+
+FathomEelBuff: {
+	DisplayName: 幻渊鳝鱼
+	Description: 爬行的形状入侵！
+}
+
+FistuloidBuff: {
+	DisplayName: 血肉瘤块
+	Description: 恶心
+}
+
+FogBuff: {
+	DisplayName: 迷雾
+	Description: 啊哈
+}
+
+FollyBuff: {
+	DisplayName: 痴愚幼龙细胞
+	Description: 一个克隆的克隆的克隆的克隆
+}
+
+GeorgeBuff: {
+	DisplayName: 蛤蟆
+	Description: 蛤
+}
+
+GoozmaBuff: {
+	DisplayName: 古泽玛
+	Description: 时间抹去了它最后的痕迹...
+}
+
+GrandBuff: {
+	DisplayName: 沙鱼大外孙
+	Description: 王位继承人
+}
+
+HivelingBuff: {
+	DisplayName: 意志集思物
+	Description: 一小群微生物在跟随你
+}
+
+HoodiedolistBuff: {
+	DisplayName: 穿卫衣的幻妖灵巫
+	Description: 斗篷就是他的家
+}
+
+JaredBuff: {
+	DisplayName: 幻海妖龙
+	Description: 从深渊中现身
+}
+
+JellyBuff: {
+	DisplayName: 星体果冻
+	Description: 被遗忘之物
+}
+
+JunkoBuff: {
+	DisplayName: 西格纯狐
+	Description: 心之所在，身之所往
+}
+
+LumpyBuff: {
+	DisplayName: 笨笨
+	Description: 笨笨
+}
+
+MechaGeorgeBuff: {
+	DisplayName: -1s
+	Description: ...KDlt7S1U9x8
+}
+
+MiniBumbleBuff: {
+	DisplayName: 迷你鸟
+	Description: 啾啾
+}
+
+MiniDogeBuff: {
+	DisplayName: 暗杀鸟群
+	Description: 地雷们紧跟着你
+}
+
+MoistScourgeBuff: {
+	DisplayName: 沙丘灾虫
+	Description: 死神
+}
+
+NuclearFuryshronBuff: {
+	DisplayName: 断头
+	Description: 众多之一...
+}
+
+NuggetBuff: {
+	DisplayName: 丛林鸡块
+	Description: 嘎！
+}
+
+OmegaSquidBuff: {
+	DisplayName: 欧米茄教徒
+	Description: 你自己的小小信徒
+}
+
+OrbBuff: {
+	DisplayName: 龙珠
+	Description: 以强烈的速度震动
+}
+
+PhageBuff: {
+	DisplayName: 太空病毒
+	Description: 你被噬星体感染了！
+}
+
+PillagerBuff: {
+	DisplayName: 毁灭魔盗
+	Description: 我要把你砍断，切开，剁碎！
+}
+
+PolterBuff: {
+	DisplayName: 幽花酱
+	Description: 幽幽幽幽幽幽花酱酱酱酱酱酱
+}
+
+PuppoBuff: {
+	DisplayName: 吉娃娃
+	Description: 他是个好孩子
+}
+
+ReaperBuff: {
+	DisplayName: 筋肉Man
+	Description: 你可以说他...加了肌肉buff
+}
+
+RedPandaBuff: {
+	DisplayName: 塔拉
+	Description: 塔拉，这只很塔拉的小熊猫会跟随你
+}
+
+Rembuff: {
+	DisplayName: 巨大幽浮塞壬头
+	Description: 始于2018！
+}
+
+RepurposedMonitorBuff: {
+	DisplayName: 查尔顿
+	Description: 合不来却又不可替代
+}
+
+RoverSpindleBuff: {
+	DisplayName: 钨钢漫步者
+	Description: 独一无二的聪慧...
+}
+
+RustyBuff: {
+	DisplayName: 锈蚀宝箱怪
+	Description: 还好没有更大的
+}
+
+SadStoneBuff: {
+	DisplayName: 悲伤之石
+	Description: ":("
+}
+
+ScorchingFuryshronBuff: {
+	DisplayName: 灼烧硫海遗爵之首
+	Description: 别被熔渣呛到了，孩子
+}
+
+ScourgeBuff: {
+	DisplayName: 双子灾虫
+	Description: 哇嗷^2
+}
+
+SentiPet: {
+	DisplayName: 你的仆从
+	Description: 宇宙的恐惧保护着你
+}
+
+SepulcherBuff: {
+	DisplayName: 宠物灾坟魔物
+	Description:
+		'''
+		一些由早已逝去的无辜者们的灵魂聚合成的暗黑构造物...
+		怪可爱的
+		'''
+}
+
+SepulcherBuffNeo: {
+	DisplayName: 善良的灾坟魔物
+	Description: 介个是友好的
+}
+
+ShartBuff: {
+	DisplayName: 鲨鲨三重奏
+	Description: 不，他们不会打曲棍球
+}
+
+SigBuff: {
+	DisplayName: 小西格纳斯
+	Description: 虚空的刺客会守着你背后... 或许
+}
+
+SkaterBuff: {
+	DisplayName: 硫海爬虫
+	Description: 给它喂一些酸性气泡来让它变得更强壮!
+}
+
+SlimeBuff: {
+	DisplayName: 迷你史莱姆之神
+	Description: 王位继承者
+}
+
+SmaulerBuff: {
+	DisplayName: 渊海狂鲨
+	Description: 吼~
+}
+
+StasisArmoredBuff: {
+	DisplayName: 迷你风暴探测器
+	Description: 我为何存在
+}
+
+StasisNakedBuff: {
+	DisplayName: 去装甲的迷你风暴探测器
+	Description: 穿点衣服吧
+}
+
+SWPetBuff: {
+	DisplayName: 小风暴无人机
+	Description: '''"我想他们还是没有全部灭绝" '''
+}
+
+TerminalRockBuff: {
+	DisplayName: 克希洛克的宠物石头
+	Description: '''"这确实让我会心一笑..." '''
+}
+
+TUBBUFF: {
+	DisplayName: T.U.B
+	Description: 一个触手怪物正在跟着你
+}
+
+UngodlyBuff: {
+	DisplayName: 渎神者
+	Description: 在吃你袜子的路上
+}
+
+WulfrumArmy: {
+	DisplayName: 钨钢军团
+	Description: 叮叮当当和敌人较量
+}
+
+WyrmBuff: {
+	DisplayName: 幻海妖虫
+	Description: 呃, 粘粘的...
+}
+
+YharimSquidBuff: {
+	DisplayName: 魔君乌贼
+	Description: 这货在人生之路上走的够远了
+}
+
+ZygoteBuff: {
+	DisplayName: 幽花之魂
+	Description: 他可能会造成一些问题...
+}
+
+ClassicBrimmyBuff: {
+	# Transformations
+	DisplayName: 硫火元素变身
+	# Transformations
+	Description: 是的, 你可以碰水
+}
+
+CloudTransformationBuff: {
+	DisplayName: 云元素变身
+	Description: 拥抱云朵
+}
+
+ProtoRingBuff: {
+	DisplayName: 仙女座原型
+	Description: 仍可解决问题
+}
+
+SandTransformationBuff: {
+	DisplayName: 沙元素变身
+	Description: 嘿.
+}
+
+SignutTransformationBuff: {
+	DisplayName: 虚空刺客
+	Description: 从未如此急躁
+}
+
+AlarmClockBuff: {
+	# Pandemonium Box
+	DisplayName: 闹钟
+	# Pandemonium Box
+	Description: 小心，它们可能会短路
+}
+
+AlterBellBuff.DisplayName: 圣坛之铃
+
+BestInstrumentBuff: {
+	DisplayName: 最棒的乐器
+	Description: 旅程中的一部分, 照顾好它们
+}
+
+DustChimeBuff: {
+	DisplayName: 尘钟
+	Description: 冒险开始了!
+}
+
+HarbingerOfWorkBuff: {
+	DisplayName: 开工预兆
+	Description:
+		'''
+		它们激情四射
+		它们动力十足
+		'''
+}
+
+MaladyBellsBuff: {
+	DisplayName: 疫病铃铛
+	Description: 这是你旅途的中点, 它们会照顾你的
+}
+
+NurseryBellsBuff: {
+	DisplayName: 幼儿园的铃铛
+	Description: 泰拉人最好的伙伴!
+}
+
+ScratchedGongBuff: {
+	DisplayName: 刮伤的旧锣
+	Description: 你盛大的表演已接近尾声
+}
+
+SpiritDinerBuff: {
+	DisplayName: 死亡之铃
+	Description: 它们会帮助你完成任务
+}
+
+TubRuneBuff: {
+	DisplayName: T.U.B.符咒
+	Description: ...我们最后的信息
+}
+
+VaselineBuff: {
+	DisplayName: 矿脂铃铛
+	Description: 阳光照耀着我们
+}
+
+WormBellBuff: {
+	DisplayName: 蠕动吊坠
+	Description: *扭曲的蠕动*
+}
+
+PandoraBuff: {
+	DisplayName: 潘多拉魔盒
+	Description:
+		'''
+		为时已晚
+		没时间了
+		'''
+}
+
+AltarBellBuff: {
+	DisplayName: 圣坛之铃
+	Description: 星光指引前路
+}
+
+NurseryBellBuff: {
+	DisplayName: 幼儿园的铃铛
+	Description: 铃儿响叮当~
+}
+
+MorshuBuff: {
+	DisplayName: Morshu
+	Description: 绳圈? 凝胶? 炸弹? 你想要? 只要你有一颗巨大的红宝石,它们就都是你的...
+}
+
+DraedonCartBuff: {
+	// DisplayName: Draedon Cart
+	// Description: train2
+}
+
+YhogoStickBuff: {
+	// DisplayName: Godseeker Pogo
+	// Description: You're riding a Yhogo Stick
+}
+
+BirdsculeBuff: {
+	// DisplayName: Birdscule Buff
+	// Description: Mods.CalValEX.Buffs.BirdsculeBuff.Description
+}

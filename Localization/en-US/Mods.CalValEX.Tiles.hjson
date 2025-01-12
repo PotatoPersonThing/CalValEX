@@ -1,0 +1,362 @@
+# Meldosaurus stuff
+MeldosaurusMusicBoxPlaced.MapEntry: Music Box
+MeldosaurusTrophyPlaced.MapEntry: Meldosaurus Trophy
+AstralPalmSapling.MapEntry: Blighted Astral Palm Sapling
+AstralSapling.MapEntry: Blighted Astral Sapling
+SnowAstralSapling.MapEntry: Blighted Astral Sapling
+TiedBoB2Placed.MapEntry: Tied Water Balloons
+TiedBoxBalloonPlaced.MapEntry: Tied Box Balloon
+TiedChaosBalloonPlaced.MapEntry: Tied Chaos Balloon
+TiedMirageBalloonPlaced.MapEntry: Tied Mirage Balloon
+AstragellySlimeBannerPlaced.MapEntry: Astragelly Slime Banner
+BleamurBannerPlaced.MapEntry: Bleamur Banner
+CalamitasBannerPlaced.MapEntry: Acursed Banner
+EyedolBannerPlaced.MapEntry: Eyedol Banner
+GodSlayerSlugBannerPlaced.MapEntry: God Slayer Slug Banner
+IsopodBannerPlaced.MapEntry: Abyssal Isopod Banner
+SandTurtleBannerPlaced.MapEntry: Sand Turtle Banner
+VeilBannerPlaced.MapEntry: Veil Banner
+ViolemurBannerPlaced.MapEntry: Violemur Banner
+XerocodileBannerPlaced.MapEntry: Xerocodile Banner
+AgedLogPlaced.MapEntry: Aged Blueprint
+AstrumAureusBlueprintPlaced.MapEntry: Astrum Aureus Blueprint
+BumblebirbBlueprintPlaced.MapEntry: Yharon Cloning Project Blueprint
+CalamitasBlueprintPlaced.MapEntry: Calamitas Blueprint
+DestroyerBlueprintPlaced.MapEntry: Destroyer Blueprint
+DogBlueprintPlaced.MapEntry: Cosmilite Plating Blueprint
+MurasamaBlueprintPlaced.MapEntry: Murasama Blueprint
+OrthoceraBlueprintPlaced.MapEntry: Orthocera Exile Plan
+PlagueBlueprintPlaced.MapEntry: Plague Blueprint
+PrimeBlueprintPlaced.MapEntry: Skeletron Prime Blueprint
+SamBlueprintPlaced.MapEntry: Murasama Blueprint EX
+TwinsBlueprintPlaced.MapEntry: Twins Blueprint
+YharmorBlueprintPlaced.MapEntry: Auric Armor Blueprint
+AstJarPlaced.MapEntry: Astrageldon in a Jar
+BleamurPerchPlaced.MapEntry: Bleamur Perch
+BlinkerInABottlePlaced.MapEntry: Blinker in a Bottle
+GAstJarPlaced.MapEntry: Cooler Astrageldon in a Jar
+GoldViolemurMonolithPlaced.MapEntry: Gold Violemur Perch
+NukeJarPlaced.MapEntry: Nuclear Fly in a Jar
+OrthoJarPlaced.MapEntry: Orthocera in a Jar
+ViolemurMonolithPlaced.MapEntry: Violemur Perch
+CalamitasCofferPlaced.MapEntry: Treasure Coffer
+CeremonialUrnPlaced.MapEntry: Ceremonial Urn
+DraedonQuoteonQuoteBagPlaced.MapEntry: Draedon Box
+AgedRustGamingTablePlaced.MapEntry: Aged Lab Gaming Table
+RustGamingTablePlaced.MapEntry: Lab Gaming Table
+RustGamingTablePlaced2.MapEntry: Lab Gaming Table 2
+OldAstralBathtub.MapEntry: Xenomonolith Bathtub
+OldAstralBed.MapEntry: Xenomonolith Bed
+OldAstralBookshelf.MapEntry: Xenomonolith Bookcase
+OldAstralCandelabra.MapEntry: Xenomonolith Candelabra
+OldAstralCandle.MapEntry: Xenomonolith Candle
+OldAstralChair.MapEntry: Xenomonolith Chair
+OldAstralChandelier.MapEntry: Xenomonolith Chandelier
+
+OldAstralChest: {
+	MapEntry: Xenomonolith Chest
+	ContainerName: Xenomonolith Chest
+}
+
+OldAstralClock.MapEntry: Mods.CalValEX.MapObject.OldAstralClock
+OldAstralDoorClosed.MapEntry: Xenomonolith Door
+OldAstralDoorOpen.MapEntry: Xenomonolith Door
+
+OldAstralDresser: {
+	MapEntry: Xenomonolith Dresser
+	ContainerName: Xenomonolith Dresser
+}
+
+OldAstralLamp.MapEntry: Xenomonolith Lamp
+OldAstralLantern.MapEntry: Xenomonolith Lantern
+OldAstralPiano.MapEntry: Xenomonolith Pipe Organ
+OldAstralSink.MapEntry: Xenomonolith Sink
+OldAstralSofa.MapEntry: Xenomonolith Bench
+OldAstralTable.MapEntry: Xenomonolith Table
+OldAstralWorkbench.MapEntry: Xenomonolith Work Bench
+AuricBathtub.MapEntry: Auric Bathtub
+AuricBed.MapEntry: Auric Bed
+AuricBookshelf.MapEntry: Auric Bookcase
+AuricCandelabra.MapEntry: Auric Candelabra
+AuricCandle.MapEntry: Auric Candle
+AuricChair.MapEntry: Auric Chair
+AuricChandelier.MapEntry: Auric Chandelier
+
+AuricChest: {
+	MapEntry: Auric Chest
+	ContainerName: Auric Chest
+}
+
+AuricClock.MapEntry: Mods.CalValEX.MapObject.AuricClock
+AuricDoorClosed.MapEntry: Auric Door
+AuricDoorOpen.MapEntry: Auric Door
+
+AuricDresser: {
+	MapEntry: Auric Dresser
+	ContainerName: Auric Dresser
+}
+
+AuricLamp.MapEntry: Auric Lamp
+AuricLantern.MapEntry: Auric Lantern
+AuricManufacturerPlaced.MapEntry: Auric Manufacturer
+AuricPiano.MapEntry: Auric Piano
+AuricSink.MapEntry: Auric Sink
+AuricSofa.MapEntry: Auric Sofa
+AuricTable.MapEntry: Auric Table
+AuricWorkbench.MapEntry: Auric Work Bench
+BloodstoneBathtub.MapEntry: Bloodstone Bathtub
+BloodstoneBed.MapEntry: Bloodstone Bed
+BloodstoneBookshelf.MapEntry: Bloodstone Bookcase
+BloodstoneCandelabra.MapEntry: Bloodstone Candelabra
+BloodstoneCandle.MapEntry: Bloodstone Candle
+BloodstoneChair.MapEntry: Bloodstone Chair
+BloodstoneChandelier.MapEntry: Bloodstone Chandelier
+
+BloodstoneChest: {
+	MapEntry: Bloodstone Chest
+	ContainerName: Bloodstone Chest
+}
+
+BloodstoneClock.MapEntry: Mods.CalValEX.MapObject.BloodstoneClock
+BloodstoneDoorClosed.MapEntry: Bloodstone Door
+BloodstoneDoorOpen.MapEntry: Bloodstone Door
+
+BloodstoneDresser: {
+	MapEntry: Bloodstone Dresser
+	ContainerName: Bloodstone Dresser
+}
+
+BloodstoneLamp.MapEntry: Bloodstone Lamp
+BloodstoneLantern.MapEntry: Bloodstone Lantern
+BloodstonePiano.MapEntry: Bloodstone Piano
+BloodstoneSink.MapEntry: Bloodstone Sink
+BloodstoneSofa.MapEntry: Bloodstone Sofa
+BloodstoneTable.MapEntry: Bloodstone Table
+BloodstoneWorkbench.MapEntry: Bloodstone Work Bench
+NecroticTorchPlaced.MapEntry: Torch
+RavamperPlaced.MapEntry: Necrotic Bonfire
+PhantowaxBathtub.MapEntry: Phantowax Bathtub
+PhantowaxBed.MapEntry: Phantowax Bed
+PhantowaxBookshelf.MapEntry: Phantowax Bookcase
+PhantowaxCandelabra.MapEntry: Phantowax Candelabra
+PhantowaxCandle.MapEntry: Phantowax Candle
+PhantowaxChair.MapEntry: Phantowax Chair
+PhantowaxChandelier.MapEntry: Phantowax Chandelier
+
+PhantowaxChest: {
+	MapEntry: Phantowax Chest
+	ContainerName: Phantowax Chest
+}
+
+PhantowaxClock.MapEntry: Mods.CalValEX.MapObject.PhantowaxClock
+PhantowaxDoorClosed.MapEntry: Phantowax Door
+PhantowaxDoorOpen.MapEntry: Phantowax Door
+
+PhantowaxDresser: {
+	MapEntry: Phantowax Dresser
+	ContainerName: Phantowax Dresser
+}
+
+PhantowaxLamp.MapEntry: Phantowax Lamp
+PhantowaxLantern.MapEntry: Phantowax Lantern
+PhantowaxPiano.MapEntry: Phantowax Piano
+PhantowaxSink.MapEntry: Phantowax Sink
+PhantowaxSofa.MapEntry: Phantowax Sofa
+PhantowaxTable.MapEntry: Phantowax Table
+PhantowaxWorkbench.MapEntry: Phantowax Work Bench
+WulfrumBathtub.MapEntry: Wulfrum Bathtub
+WulfrumBed.MapEntry: Wulfrum Bed
+WulfrumBookshelf.MapEntry: Wulfrum Bookcase
+WulfrumCandelabra.MapEntry: Wulfrum Candelabra
+WulfrumCandle.MapEntry: Wulfrum Candle
+WulfrumChair.MapEntry: Wulfrum Chair
+WulfrumChandelier.MapEntry: Wulfrum Chandelier
+
+WulfrumChest: {
+	MapEntry: Wulfrum Chest
+	ContainerName: Wulfrum Chest
+}
+
+WulfrumClock.MapEntry: Mods.CalValEX.MapObject.WulfrumClock
+
+WulfrumDresser: {
+	MapEntry: Wulfrum Dresser
+	ContainerName: Wulfrum Dresser
+}
+
+WulfrumLabstation.MapEntry: Wulfrum Work Bench
+WulfrumLamp.MapEntry: Wulfrum Lamp
+WulfrumLantern.MapEntry: Wulfrum Lantern
+WulfrumPiano.MapEntry: Wulfrum Piano
+WulfrumSink.MapEntry: Wulfrum Sink
+WulfrumSofa.MapEntry: Wulfrum Sofa
+WulfrumTable.MapEntry: Wulfrum Table
+WulfrumToilet.MapEntry: Wulfrum Toilet
+WulfrumWorkbench.MapEntry: Wulfrum Work Bench
+AstralMusicBoxPlaced.MapEntry: Music Box
+
+AuricTrashCanPlaced: {
+	MapEntry: Auric Trash Can
+	ContainerName: Auric Trash Can
+}
+
+BoiMachinePlaced.MapEntry: Boi Machine
+BrimstoneHeartPlaced.MapEntry: Hanging Heart
+BubbleMachinePlaced.MapEntry: Glub glub
+CalamityLampPlaced.MapEntry: Calamity Torch
+CosmiliteChairEXPlaced.MapEntry: Cosmlite Chair EX
+DecommissionedDaedalusGolemPlaced.MapEntry: Decommissioned Daedalus Golem
+DemonShieldPlaced.MapEntry: Wall accessory.,,
+DisrepairUnitPlaced.MapEntry: Charletron's dead...
+EvolutionPlaced.MapEntry: Evolution
+HeartoftheCommunityPlaced.MapEntry: Heart of the Community
+Helplaced.MapEntry: Help me
+HesfinePlaced.MapEntry: I'm still not fine
+JunkArtPlaced.MapEntry: Reconstructed Particle Accelerator
+MireAquariumPlaced.MapEntry: Mire Aquarium
+MoulderingAltarPlaced.MapEntry: Mouldering Altar
+PlagueDialysisPlaced.MapEntry: Bumbletube
+PongMachinePlaced.MapEntry: Pong Machine
+RespirationShrinePlaced.MapEntry: Respiration Shrine
+RoxFakePlaced.MapEntry: Fake Roxcalibur
+SailfishTrophyPlaced.MapEntry: Sailfish Trophy
+SchematicDisplayPlaced.MapEntry: Schematic Display
+StarstruckSynthesizerPlaced.MapEntry: Starstruck Synthesizer
+SulphuricTankPlaced.MapEntry: Irradiated Tank
+SunkenLampPlaced.MapEntry: Sunken Lamp
+TerminusShrineLevel2Placed.MapEntry: Terminus Shrine
+TerminusShrineLevel3Placed.MapEntry: Terminus Shrine
+TerminusShrinePlaced.MapEntry: Terminus Shrine
+TeslaPlaced.MapEntry: Weaver Coil
+VisceralAltarPlaced.MapEntry: Visceral Altar
+VoidPortalPlaced.MapEntry: Void Portal
+YellowSeaFountainPlaced.MapEntry: Yellow Sea Fountain
+AccidentalAbominationnPlaced.MapEntry: Accidental Abominationn
+BlazingConflictPlaced.MapEntry: Blazing Conflict
+CalamiteaTimePlaced.MapEntry: Calamitea Time
+CalamityFriendsPlaced.MapEntry: Friends!
+CalamityPaintPlaced.MapEntry: Calamity Paint
+CalamityPaintRetoldPlaced.MapEntry: Calamity Paint
+CirrusBoozePlaced.MapEntry: FineChalice
+ClamPlaced.MapEntry: Gyate Gyate
+CosmicTerrorPlaced.MapEntry: Cosmic Terror
+DarkMagicPlaced.MapEntry: Dark Magic
+DraedonPopcornPlaced.MapEntry: Gamers don't die... THEY RESPAWN!!!
+DualityPlaced.MapEntry: Duality
+EspelhoPlaced.MapEntry: Espelho
+EyeofXerocPlaced.MapEntry: The Eye of Xeroc
+FrozenPlaced.MapEntry: Frozen
+GallusYharusPlaced.MapEntry: Gallus Yharus
+LostSoulsPlaced.MapEntry: Lost Souls
+ModIconPaintingPlaced.MapEntry: Calamity's Vanities
+NotLikeHomePlaced.MapEntry: Not like home...
+OldModIconPaintingPlaced.MapEntry: Calamity's Vanities... but OLD!
+OldUCMMPlaced.MapEntry: Vanilla Calamity Mod Music... but OLD!
+Plague22Placed.MapEntry: "22"
+RogueExtractorPlaced.MapEntry: Rogue Extractor
+ScourgyPlaced.MapEntry: Scourgy
+SignutPlaced.MapEntry: Signut
+SleepingGiantPlaced.MapEntry: Sleeping Giant
+SnoutsPlaced.MapEntry: Snouts
+SundayAfternoonCalPlaced.MapEntry: A Sunday Afternoon in the World of Calamity.
+SwearingShroomPlaced.MapEntry: Swearshroom
+TheGreatSandwormPlaced.MapEntry: The Great Sandworm
+TheYharPlaced.MapEntry: ":THE_YHAR:"
+UCMMPlaced.MapEntry: Vanilla Calamity Mod Music
+UnholyTripPlaced.MapEntry: Unholy Trip
+VVanitiesPlaced.MapEntry: V for Vanities!
+WilliamPaintingPlaced.MapEntry: Calamity's Vanities
+WormHeavenPlaced.MapEntry: Worm Heaven
+YharlamitasPlaced.MapEntry: Fear
+AnemonePlaced.MapEntry: Potted Anemone
+AstralOldPurplePlaced.MapEntry: Purple Xenomonolith
+AstralOldYellowPlaced.MapEntry: Yellow Xenomonolith
+BelchingCoralPlaced.MapEntry: Sulphuric Coral
+BloodstoneRosesPlaced.MapEntry: Bloodstone Roses
+BotanicPotPlaced.MapEntry: Botanic Bonsai
+BrainCoralPlaced.MapEntry: Potted Brain Coral
+BrimPlantPlaced.MapEntry: Brimberry Plant
+DecapoditaSproutPlaced.MapEntry: Potted Decapodita Sprout
+FanCoralPlaced.MapEntry: Potted Fan Coral
+FleshThingPlaced.MapEntry: Weird flesh thing
+HolyStudedBonsaiPlaced.MapEntry: Holy Studded Bonsai
+MonolithPotPlaced.MapEntry: Potted Astral Monolith
+NetherTreeBigPlaced.MapEntry: Nether Willow
+NetherTreePlaced.MapEntry: Twisting Nether Sapling
+OddMushromPotPlaced.MapEntry: Fungus
+SSCoralPlaced.MapEntry: Potted Sunken Coral
+SulphurousCactusPlaced.MapEntry: Potted Sulphurous Cactus
+SulphurousPlanterPlaced.MapEntry: Acid Vine Planter
+TableCoralPlaced.MapEntry: Potted Table Coral
+AnahitaPlushPlaced.MapEntry: Anahita Plush
+ApolloPlushPlaced.MapEntry: Apollo Plush
+AquaticScourgePlushPlaced.MapEntry: Aquatic Scourge Plush
+AresPlushPlaced.MapEntry: Ares Plush
+ArtemisPlushPlaced.MapEntry: Artemis Plush
+AstrageldonPlushPlaced.MapEntry: Astrageldon Plush
+AstrumAureusPlushPlaced.MapEntry: Astrum Aureus Plush
+AstrumDeusPlushPlaced.MapEntry: Astrum Deus Plush
+BrimstoneElementalPlushPlaced.MapEntry: Brimstone Elemental Plush
+BumblefuckPlushPlaced.MapEntry: Dragonfolly Plush
+CalaFumoPlaced.MapEntry: Calamitas Fumo
+CeaselessVoidPlushPlaced.MapEntry: Ceaseless Void Plush
+ClamPlushPlaced.MapEntry: Giant Clam Plush
+ClonePlushPlaced.MapEntry: Calamitas Clone Plush
+CrabulonPlushPlaced.MapEntry: Crabulon Plush
+CryogenPlushPlaced.MapEntry: Cryogen Plush
+DesertScourgePlushPlaced.MapEntry: Desert Scourge Plush
+DevourerofGodsPlushPlaced.MapEntry: Devourer of Gods Plush
+DraedonPlushPlaced.MapEntry: Draedon Plush
+HiveMindPlushPlaced.MapEntry: Hive Mind Plush
+HypnosPlushPlaced.MapEntry: Hypnos Plush
+JaredPlushPlaced.MapEntry: Eidolon Wyrm Plush
+LeviathanPlushPlaced.MapEntry: Leviathan Plush
+MaulerPlushPlaced.MapEntry: Mauler Plush
+MirePlushPlacedP1.MapEntry: Cragmaw Mire Plush
+MirePlushPlacedP2.MapEntry: Cragmaw Mire Plush
+NuclearTerrorPlushPlaced.MapEntry: Nuclear Terror Plush
+OldDukePlushPlaced.MapEntry: Old Duke Plush
+PerforatorPlushPlaced.MapEntry: Perforator Plush
+PlaguebringerGoliathPlushPlaced.MapEntry: Plaguebringer Goliath Plush
+PolterghastPlushPlaced.MapEntry: Polterghast Plush
+ProfanedGuardianPlushPlaced.MapEntry: Profaned Guardian Plush
+ProvidencePlushPlaced.MapEntry: Providence Plush
+RavagerPlushPlaced.MapEntry: Ravager Plush
+SandSharkPlushPlaced.MapEntry: Great Sand Shark Plush
+SignusPlushPlaced.MapEntry: Signus Plush
+SlimeGodPlushPlaced.MapEntry: Slime God Plush
+StormWeaverPlushPlaced.MapEntry: Storm Weaver Plush
+ThanatosPlushPlaced.MapEntry: Thanatos Plush
+YharonPlushPlaced.MapEntry: Yharon Plush
+CPlaced.MapEntry: Calamity
+EyedolStatuePlaced.MapEntry: Eyedol Statue
+IsopodStatuePlaced.MapEntry: Isopod Statue
+KnightPlaced.MapEntry: Earthen Knight Statue
+NukeFlyStatuePlaced.MapEntry: Vaporofly Statue
+PlagueFrogStatuePlaced.MapEntry: Plagued Frog Statue
+ProfanedIdolPlaced.MapEntry: Profaned Idol
+ShrineoftheTidesPlaced.MapEntry: Shrine of the Tides
+ViolemurStatuePlaced.MapEntry: Violemur Statue
+TyrantFeedPlaced.MapEntry: Tyrant Feed Placed
+GoozmaPlushPlaced.MapEntry: Goozma Plush Placed
+ProvidenceAltarPlaced.MapEntry: Providence Altar Placed
+PolterCablePlaced.MapEntry: Polter Cable Placed
+GiantClamPlushPlaced.MapEntry: Giant Clam Plush Placed
+MireP1PlushPlaced.MapEntry: Shielded Cragmaw Mire Plush
+MireP2PlushPlaced.MapEntry: Slimy Cragmaw Mire Plush
+CalamitasPlushPlaced.MapEntry: Calamitas Plush
+ShadowPlushPlaced.MapEntry: Shadow Plush
+BereftVassalPlushPlaced.MapEntry: Bereft Vassal Plush
+OhioPlaced.MapEntry: Ohio Placed
+LeviathanEXPlushPlaced.MapEntry: Leviathan Plush EX
+YharonEXPlushPlaced.MapEntry: Yharon Plush EX
+DevourerofGodsEXPlushPlaced.MapEntry: Devourerof Gods Plush EX
+ExodygenPlushPlaced.MapEntry: Exodygen Plush
+ExotrexiaPlushPlaced.MapEntry: Exotrexia Plush Placed
+AstigmageddonPlushPlaced.MapEntry: Astigmageddon Plush Placed
+CataractacombPlushPlaced.MapEntry: Cataractacomb Plush Placed
+ConjunctivirusPlushPlaced.MapEntry: Conjunctivirus Plush Placed
+PolyphemalusPlushPlaced.MapEntry: Polyphemalus Plush Placed
+AstralUndergroundMusicBoxPlaced.MapEntry: Astral Underground Music Box Placed
+NamelessDeityPlushPlaced.MapEntry: Nameless Deity Plush
+NamelessDeityEXPlushPlaced.MapEntry: Nameless Deity Plush EX

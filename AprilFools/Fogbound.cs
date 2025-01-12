@@ -7,6 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.Bestiary;
 using Terraria.Audio;
+using Terraria.Localization;
 //using Terraria.World.Generation;
 
 namespace CalValEX.AprilFools
@@ -76,11 +77,11 @@ namespace CalValEX.AprilFools
 				NPC.active = false;
 				if (CalValEX.CalamityActive)
 				{
-					CalamityText("You foolish mortal, you may only witness me at my fullest at the witching hour...", Color.Gray);
+					CalamityText(Language.GetTextValue("Mods.CalValEX.NPCs.Fogbound.TheLine"), Color.Gray);
 				}
 				else
                 {
-					Main.NewText("You foolish mortal, you may only witness me at my fullest at the witching hour...", Color.Gray);
+					Main.NewText(Language.GetTextValue("Mods.CalValEX.NPCs.Fogbound.TheLine"), Color.Gray);
                 }
 			}
 			NPC.localAI[0]++;

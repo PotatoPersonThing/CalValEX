@@ -1,0 +1,362 @@
+# Meldosaurus stuff
+MeldosaurusMusicBoxPlaced.MapEntry: 音乐盒
+MeldosaurusTrophyPlaced.MapEntry: 冥思暴龙纪念章
+AstralPalmSapling.MapEntry: 枯萎棕榈树苗
+AstralSapling.MapEntry: 枯萎树苗
+SnowAstralSapling.MapEntry: 枯萎树苗
+TiedBoB2Placed.MapEntry: 海洋气球束
+TiedBoxBalloonPlaced.MapEntry: 钟水母气球束
+TiedChaosBalloonPlaced.MapEntry: 混乱刺鲀气球束
+TiedMirageBalloonPlaced.MapEntry: 幻影气球束
+AstragellySlimeBannerPlaced.MapEntry: 星胶史莱姆旗帜
+BleamurBannerPlaced.MapEntry: 辐星狐猴旗帜
+CalamitasBannerPlaced.MapEntry: 憎恶之旗
+EyedolBannerPlaced.MapEntry: 星瞳旗帜
+GodSlayerSlugBannerPlaced.MapEntry: 噬神蛞蝓旗帜
+IsopodBannerPlaced.MapEntry: 具足虫旗帜
+SandTurtleBannerPlaced.MapEntry: 沙龟旗帜
+VeilBannerPlaced.MapEntry: 面纱旗帜
+ViolemurBannerPlaced.MapEntry: 紫星狐猴
+XerocodileBannerPlaced.MapEntry: 苏醒的克洛希克鳄旗帜
+AgedLogPlaced.MapEntry: 久经蓝图
+AstrumAureusBlueprintPlaced.MapEntry: 白金星舰设计图
+BumblebirbBlueprintPlaced.MapEntry: 犽戎克隆计划蓝图
+CalamitasBlueprintPlaced.MapEntry: 灾厄之影计划蓝图
+DestroyerBlueprintPlaced.MapEntry: 毁灭者设计图
+DogBlueprintPlaced.MapEntry: 宇宙镀层设计图
+MurasamaBlueprintPlaced.MapEntry: 鬼妖村正设计图
+OrthoceraBlueprintPlaced.MapEntry: 直角石放逐计划
+PlagueBlueprintPlaced.MapEntry: 歌莉娅设计图
+PrimeBlueprintPlaced.MapEntry: 骷髅王prime设计图
+SamBlueprintPlaced.MapEntry: 鬼妖村正EX设计图
+TwinsBlueprintPlaced.MapEntry: 双子魔眼设计图
+YharmorBlueprintPlaced.MapEntry: 古圣金源盔甲设计图
+AstJarPlaced.MapEntry: 阿娜希塔的结合游戏机
+BleamurPerchPlaced.MapEntry: 辐星狐猴栖枝
+BlinkerInABottlePlaced.MapEntry: 辉星萤火虫瓶
+GAstJarPlaced.MapEntry: 黄金辉星果冻罐
+GoldViolemurMonolithPlaced.MapEntry: 黄金狐猴栖枝
+NukeJarPlaced.MapEntry: 蒸汽飞蝇瓶
+OrthoJarPlaced.MapEntry: 直角石瓶
+ViolemurMonolithPlaced.MapEntry: 狐猴栖枝
+CalamitasCofferPlaced.MapEntry: 宝箱
+CeremonialUrnPlaced.MapEntry: 祭魂瓮
+DraedonQuoteonQuoteBagPlaced.MapEntry: 嘉登箱
+AgedRustGamingTablePlaced.MapEntry: 老旧锈蚀游戏桌
+RustGamingTablePlaced.MapEntry: 锈蚀游戏桌
+RustGamingTablePlaced2.MapEntry: 锈蚀游戏桌2
+OldAstralBathtub.MapEntry: 枯萎浴缸
+OldAstralBed.MapEntry: 枯萎床
+OldAstralBookshelf.MapEntry: 枯萎书架
+OldAstralCandelabra.MapEntry: 枯萎烛台
+OldAstralCandle.MapEntry: 枯萎蜡烛
+OldAstralChair.MapEntry: 枯萎椅
+OldAstralChandelier.MapEntry: 枯萎吊灯
+
+OldAstralChest: {
+	MapEntry: 枯萎箱
+	ContainerName: 枯萎箱
+}
+
+OldAstralClock.MapEntry: Mods.CalValEX.MapObject.OldAstralClock
+OldAstralDoorClosed.MapEntry: 枯萎门
+OldAstralDoorOpen.MapEntry: 枯萎门
+
+OldAstralDresser: {
+	MapEntry: 枯萎梳妆台
+	ContainerName: 枯萎梳妆台
+}
+
+OldAstralLamp.MapEntry: 枯萎灯
+OldAstralLantern.MapEntry: 枯萎灯笼
+OldAstralPiano.MapEntry: 枯萎管风琴
+OldAstralSink.MapEntry: 枯萎水槽
+OldAstralSofa.MapEntry: 枯萎沙发
+OldAstralTable.MapEntry: 枯萎桌
+OldAstralWorkbench.MapEntry: 枯萎工作台
+AuricBathtub.MapEntry: 圣金源浴缸
+AuricBed.MapEntry: 圣金源床
+AuricBookshelf.MapEntry: 圣金源书架
+AuricCandelabra.MapEntry: 圣金源烛台
+AuricCandle.MapEntry: 圣金源蜡烛
+AuricChair.MapEntry: 圣金源椅
+AuricChandelier.MapEntry: 圣金源吊灯
+
+AuricChest: {
+	MapEntry: 圣金源箱
+	ContainerName: 圣金源箱
+}
+
+AuricClock.MapEntry: Mods.CalValEX.MapObject.AuricClock
+AuricDoorClosed.MapEntry: 圣金源门
+AuricDoorOpen.MapEntry: 圣金源门
+
+AuricDresser: {
+	MapEntry: 圣金源梳妆台
+	ContainerName: 圣金源梳妆台
+}
+
+AuricLamp.MapEntry: 圣金源灯
+AuricLantern.MapEntry: 圣金源灯笼
+AuricManufacturerPlaced.MapEntry: 圣金源工作站
+AuricPiano.MapEntry: 圣金源钢琴
+AuricSink.MapEntry: 圣金源水槽
+AuricSofa.MapEntry: 圣金源沙发
+AuricTable.MapEntry: 圣金源桌
+AuricWorkbench.MapEntry: 圣金源工作台
+BloodstoneBathtub.MapEntry: 血石浴缸
+BloodstoneBed.MapEntry: 血石床
+BloodstoneBookshelf.MapEntry: 血石书架
+BloodstoneCandelabra.MapEntry: 血石烛台
+BloodstoneCandle.MapEntry: 血石蜡烛
+BloodstoneChair.MapEntry: 血石椅
+BloodstoneChandelier.MapEntry: 血石吊灯
+
+BloodstoneChest: {
+	MapEntry: 血石箱
+	ContainerName: 血石箱
+}
+
+BloodstoneClock.MapEntry: Mods.CalValEX.MapObject.BloodstoneClock
+BloodstoneDoorClosed.MapEntry: 血石门
+BloodstoneDoorOpen.MapEntry: 血石门
+
+BloodstoneDresser: {
+	MapEntry: 血石梳妆台
+	ContainerName: 血石梳妆台
+}
+
+BloodstoneLamp.MapEntry: 血石灯
+BloodstoneLantern.MapEntry: 血石灯笼
+BloodstonePiano.MapEntry: 血石钢琴
+BloodstoneSink.MapEntry: 血石水槽
+BloodstoneSofa.MapEntry: 血石沙发
+BloodstoneTable.MapEntry: 血石桌
+BloodstoneWorkbench.MapEntry: 血石工作台
+NecroticTorchPlaced.MapEntry: 死灵火把
+RavamperPlaced.MapEntry: 死灵篝火
+PhantowaxBathtub.MapEntry: 幽魂浴缸
+PhantowaxBed.MapEntry: 幽魂床
+PhantowaxBookshelf.MapEntry: 幽魂书架
+PhantowaxCandelabra.MapEntry: 幽魂烛台
+PhantowaxCandle.MapEntry: 幽魂蜡烛
+PhantowaxChair.MapEntry: 幽魂椅
+PhantowaxChandelier.MapEntry: 幽魂吊灯
+
+PhantowaxChest: {
+	MapEntry: 幽魂箱
+	ContainerName: 幽魂箱
+}
+
+PhantowaxClock.MapEntry: Mods.CalValEX.MapObject.PhantowaxClock
+PhantowaxDoorClosed.MapEntry: 幽魂门
+PhantowaxDoorOpen.MapEntry: 幽魂门
+
+PhantowaxDresser: {
+	MapEntry: 幽魂梳妆台
+	ContainerName: 幽魂梳妆台
+}
+
+PhantowaxLamp.MapEntry: 幽魂灯
+PhantowaxLantern.MapEntry: 幽魂灯笼
+PhantowaxPiano.MapEntry: 幽魂钢琴
+PhantowaxSink.MapEntry: 幽魂水槽
+PhantowaxSofa.MapEntry: 幽魂沙发
+PhantowaxTable.MapEntry: 幽魂桌
+PhantowaxWorkbench.MapEntry: 幽魂工作台
+WulfrumBathtub.MapEntry: 钨钢浴缸
+WulfrumBed.MapEntry: 钨钢床
+WulfrumBookshelf.MapEntry: 钨钢书架
+WulfrumCandelabra.MapEntry: 钨钢烛台
+WulfrumCandle.MapEntry: 钨钢蜡烛
+WulfrumChair.MapEntry: 钨钢椅
+WulfrumChandelier.MapEntry: 钨钢吊灯
+
+WulfrumChest: {
+	MapEntry: 钨钢箱
+	ContainerName: 钨钢箱
+}
+
+WulfrumClock.MapEntry: Mods.CalValEX.MapObject.WulfrumClock
+
+WulfrumDresser: {
+	MapEntry: 钨钢梳妆台
+	ContainerName: 钨钢梳妆台
+}
+
+WulfrumLabstation.MapEntry: 钨钢工作台
+WulfrumLamp.MapEntry: 钨钢灯
+WulfrumLantern.MapEntry: 钨钢灯笼
+WulfrumPiano.MapEntry: 钨钢琴
+WulfrumSink.MapEntry: 钨钢水槽
+WulfrumSofa.MapEntry: 钨钢沙发
+WulfrumTable.MapEntry: 钨钢桌
+WulfrumToilet.MapEntry: 钨钢马桶
+WulfrumWorkbench.MapEntry: 钨钢工作台
+AstralMusicBoxPlaced.MapEntry: 音乐盒
+
+AuricTrashCanPlaced: {
+	MapEntry: 圣金源垃圾桶
+	ContainerName: 圣金源垃圾桶
+}
+
+BoiMachinePlaced.MapEntry: 阿娜希塔的结合
+BrimstoneHeartPlaced.MapEntry: 吊挂硫火之心
+BubbleMachinePlaced.MapEntry: 泡腾式泡泡机
+CalamityLampPlaced.MapEntry: 灾厄火炬
+CosmiliteChairEXPlaced.MapEntry: 宇宙抛瓦椅
+DecommissionedDaedalusGolemPlaced.MapEntry: 退役代达罗斯守卫
+DemonShieldPlaced.MapEntry: 墙上挂件...
+DisrepairUnitPlaced.MapEntry: 查尔斯顿之死……
+EvolutionPlaced.MapEntry: 玩具进化者
+HeartoftheCommunityPlaced.MapEntry: 归元心一石
+Helplaced.MapEntry: 救我
+HesfinePlaced.MapEntry: 我还不是很好
+JunkArtPlaced.MapEntry: 重建的粒子加速器
+MireAquariumPlaced.MapEntry: 峭咽潭水族箱
+MoulderingAltarPlaced.MapEntry: 腐败祭坛
+PlagueDialysisPlaced.MapEntry: 细胞保护仓
+PongMachinePlaced.MapEntry: 乒乓机
+RespirationShrinePlaced.MapEntry: 呼吸神龛
+RoxFakePlaced.MapEntry: 石约与失败之剑
+SailfishTrophyPlaced.MapEntry: 帆鱼纪念章
+SchematicDisplayPlaced.MapEntry: 加密原型展示图
+StarstruckSynthesizerPlaced.MapEntry: 星辉探测仪
+SulphuricTankPlaced.MapEntry: 硫酸罐
+SunkenLampPlaced.MapEntry: 沉沦灯
+TerminusShrineLevel2Placed.MapEntry: 终末神龛
+TerminusShrineLevel3Placed.MapEntry: 终末神龛
+TerminusShrinePlaced.MapEntry: 终末神龛
+TeslaPlaced.MapEntry: 磁爆线圈
+VisceralAltarPlaced.MapEntry: 猩红祭坛
+VoidPortalPlaced.MapEntry: 虚空传送门
+YellowSeaFountainPlaced.MapEntry: 硫海喷泉
+AccidentalAbominationnPlaced.MapEntry: 意外的失败
+BlazingConflictPlaced.MapEntry: 爆焰争霸战
+CalamiteaTimePlaced.MapEntry: 灾厄茶时光
+CalamityFriendsPlaced.MapEntry: 小家伙们
+CalamityPaintPlaced.MapEntry: 灾厄图标
+CalamityPaintRetoldPlaced.MapEntry: 灾厄图标
+CirrusBoozePlaced.MapEntry: 精致酒杯
+ClamPlaced.MapEntry: Gyate Gyate
+CosmicTerrorPlaced.MapEntry: 宇宙虫虫
+DarkMagicPlaced.MapEntry: 黑魔法
+DraedonPopcornPlaced.MapEntry: 玩家不会死...他们会复活！！！
+DualityPlaced.MapEntry: 二元性
+EspelhoPlaced.MapEntry: Espelho
+EyeofXerocPlaced.MapEntry: 克希洛克之眼
+FrozenPlaced.MapEntry: 完美冻结
+GallusYharusPlaced.MapEntry: 犽戎鸡
+LostSoulsPlaced.MapEntry: 失落之魂
+ModIconPaintingPlaced.MapEntry: 灾厄虚荣
+NotLikeHomePlaced.MapEntry: 不像家...
+OldModIconPaintingPlaced.MapEntry: 灾厄虚荣..但是旧版！
+OldUCMMPlaced.MapEntry: 原版灾厄曲包...但是旧版！
+Plague22Placed.MapEntry: "22"
+RogueExtractorPlaced.MapEntry: 游荡的机器
+ScourgyPlaced.MapEntry: 灾祸
+SignutPlaced.MapEntry: 西格纳特
+SleepingGiantPlaced.MapEntry: 沉睡的巨兽
+SnoutsPlaced.MapEntry: 猪嘴
+SundayAfternoonCalPlaced.MapEntry: 灾厄世界的周末午后
+SwearingShroomPlaced.MapEntry: 愤怒寄生菌
+TheGreatSandwormPlaced.MapEntry: 大沙虫
+TheYharPlaced.MapEntry: 亚利姆肖像画
+UCMMPlaced.MapEntry: 原版灾厄曲包
+UnholyTripPlaced.MapEntry: 邪恶之旅
+VVanitiesPlaced.MapEntry: V代表Vanities！
+WilliamPaintingPlaced.MapEntry: 灾厄虚荣
+WormHeavenPlaced.MapEntry: 天堂之龙
+YharlamitasPlaced.MapEntry: 害怕
+AnemonePlaced.MapEntry: 海葵盆栽
+AstralOldPurplePlaced.MapEntry: 紫星枯萎树
+AstralOldYellowPlaced.MapEntry: 黄陨枯萎树
+BelchingCoralPlaced.MapEntry: 硫磺珊瑚
+BloodstoneRosesPlaced.MapEntry: 血石玫瑰
+BotanicPotPlaced.MapEntry: 植物盆景
+BrainCoralPlaced.MapEntry: 脑珊瑚盆栽
+BrimPlantPlaced.MapEntry: 硫磺浆果
+DecapoditaSproutPlaced.MapEntry: 节肢芽孢盆栽
+FanCoralPlaced.MapEntry: 扇珊瑚盆栽
+FleshThingPlaced.MapEntry: 生草
+HolyStudedBonsaiPlaced.MapEntry: 圣钉盆景
+MonolithPotPlaced.MapEntry: 枯星盆栽
+NetherTreeBigPlaced.MapEntry: 扭曲根树
+NetherTreePlaced.MapEntry: 扭曲根树苗
+OddMushromPotPlaced.MapEntry: 真菌
+SSCoralPlaced.MapEntry: 沉沦珊瑚盆栽
+SulphurousCactusPlaced.MapEntry: 硫磺仙人掌盆栽
+SulphurousPlanterPlaced.MapEntry: 酸蚀藤蔓盆栽
+TableCoralPlaced.MapEntry: 苔表珊瑚盆栽
+AnahitaPlushPlaced.MapEntry: 阿娜希塔毛绒玩具
+ApolloPlushPlaced.MapEntry: 阿波罗毛绒玩具
+AquaticScourgePlushPlaced.MapEntry: 渊海灾虫毛绒玩具
+AresPlushPlaced.MapEntry: 阿瑞斯毛绒玩具
+ArtemisPlushPlaced.MapEntry: 阿尔忒弥斯毛绒玩具
+AstrageldonPlushPlaced.MapEntry: 末世星史莱姆毛绒玩具
+AstrumAureusPlushPlaced.MapEntry: 白金星舰毛绒玩具
+AstrumDeusPlushPlaced.MapEntry: 星神游龙毛绒玩具
+BrimstoneElementalPlushPlaced.MapEntry: 硫磺火元素毛绒玩具
+BumblefuckPlushPlaced.MapEntry: 痴愚金龙毛绒玩具
+CalaFumoPlaced.MapEntry: 灾厄fumo
+CeaselessVoidPlushPlaced.MapEntry: 无尽虚空毛绒玩具
+ClamPlushPlaced.MapEntry: 巨像蛤毛绒玩具
+ClonePlushPlaced.MapEntry: 灾厄之影毛绒玩具
+CrabulonPlushPlaced.MapEntry: 菌生蟹毛绒玩具
+CryogenPlushPlaced.MapEntry: 极地之灵毛绒玩具
+DesertScourgePlushPlaced.MapEntry: 荒漠灾虫毛绒玩具
+DevourerofGodsPlushPlaced.MapEntry: 神明吞噬者毛绒玩具
+DraedonPlushPlaced.MapEntry: 嘉登毛绒玩具
+HiveMindPlushPlaced.MapEntry: 腐巢意志毛绒玩具
+HypnosPlushPlaced.MapEntry: 修普诺斯毛绒玩具
+JaredPlushPlaced.MapEntry: 幻海妖龙毛绒玩具
+LeviathanPlushPlaced.MapEntry: 利维坦毛绒玩具
+MaulerPlushPlaced.MapEntry: 渊海狂鲨毛绒玩具
+MirePlushPlacedP1.MapEntry: 峭咽潭毛绒玩具
+MirePlushPlacedP2.MapEntry: 峭咽潭毛绒玩具
+NuclearTerrorPlushPlaced.MapEntry: 辐核骇兽毛绒玩具
+OldDukePlushPlaced.MapEntry: 硫海遗爵毛绒玩具
+PerforatorPlushPlaced.MapEntry: 血肉宿主毛绒玩具
+PlaguebringerGoliathPlushPlaced.MapEntry: 瘟疫使者歌莉娅毛绒玩具
+PolterghastPlushPlaced.MapEntry: 噬魂幽花毛绒玩具
+ProfanedGuardianPlushPlaced.MapEntry: 亵渎守卫毛绒玩具
+ProvidencePlushPlaced.MapEntry: 亵渎天神毛绒玩具
+RavagerPlushPlaced.MapEntry: 毁灭魔像毛绒玩具
+SandSharkPlushPlaced.MapEntry: 旱海狂鲨毛绒玩具
+SignusPlushPlaced.MapEntry: 西格纳斯毛绒玩具
+SlimeGodPlushPlaced.MapEntry: 史莱姆之神毛绒玩具
+StormWeaverPlushPlaced.MapEntry: 风暴编织者毛绒玩具
+ThanatosPlushPlaced.MapEntry: 塔纳托斯毛绒玩具
+YharonPlushPlaced.MapEntry: 犽戎毛绒玩具
+CPlaced.MapEntry: 灾厄雕像
+EyedolStatuePlaced.MapEntry: 星瞳雕像
+IsopodStatuePlaced.MapEntry: 深渊具足虫雕像
+KnightPlaced.MapEntry: 大地骑士雕像
+NukeFlyStatuePlaced.MapEntry: 蒸汽飞蝇雕像
+PlagueFrogStatuePlaced.MapEntry: 瘟疫箭毒蛙雕像
+ProfanedIdolPlaced.MapEntry: 亵渎圣像
+ShrineoftheTidesPlaced.MapEntry: 潮汐神龛
+ViolemurStatuePlaced.MapEntry: 紫星狐猴雕像
+TyrantFeedPlaced.MapEntry: 暴君播报
+GoozmaPlushPlaced.MapEntry: 放置的古泽玛毛绒玩具
+ProvidenceAltarPlaced.MapEntry: 亵渎天神核心底座
+PolterCablePlaced.MapEntry: 惧魂线缆
+// GiantClamPlushPlaced.MapEntry: Giant Clam Plush Placed
+// MireP1PlushPlaced.MapEntry: Shielded Cragmaw Mire Plush
+// MireP2PlushPlaced.MapEntry: Slimy Cragmaw Mire Plush
+// CalamitasPlushPlaced.MapEntry: Calamitas Plush
+// ShadowPlushPlaced.MapEntry: Shadow Plush
+// BereftVassalPlushPlaced.MapEntry: Bereft Vassal Plush
+// OhioPlaced.MapEntry: Ohio Placed
+// LeviathanEXPlushPlaced.MapEntry: Leviathan Plush EX
+// YharonEXPlushPlaced.MapEntry: Yharon Plush EX
+// DevourerofGodsEXPlushPlaced.MapEntry: Devourerof Gods Plush EX
+// ExodygenPlushPlaced.MapEntry: Exodygen Plush
+// ExotrexiaPlushPlaced.MapEntry: Exotrexia Plush Placed
+// AstigmageddonPlushPlaced.MapEntry: Astigmageddon Plush Placed
+// CataractacombPlushPlaced.MapEntry: Cataractacomb Plush Placed
+// ConjunctivirusPlushPlaced.MapEntry: Conjunctivirus Plush Placed
+// PolyphemalusPlushPlaced.MapEntry: Polyphemalus Plush Placed
+// AstralUndergroundMusicBoxPlaced.MapEntry: Astral Underground Music Box Placed
+// NamelessDeityPlushPlaced.MapEntry: Nameless Deity Plush
+// NamelessDeityEXPlushPlaced.MapEntry: Nameless Deity Plush EX

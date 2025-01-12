@@ -315,24 +315,24 @@ namespace CalValEX.AprilFools
                         }
                         if (deathcounter == 300)
                         {
-                            EdgyTalk("HOOOOOOOOOOOOOOOOLD UP", Color.White, true);
+                            EdgyTalk(Language.GetTextValue("Mods.CalValEX.NPCs.Amogus.FightTalk1"), Color.White, true);
                         }
                         if (deathcounter == 420)
                         {
-                            EdgyTalk("This isn't April... why am I here...", Color.White, true);
+                            EdgyTalk(Language.GetTextValue("Mods.CalValEX.NPCs.Amogus.FightTalk2"), Color.White, true);
                         }
                         if (deathcounter == 540)
                         {
-                            EdgyTalk("Could it be that... Someone has been cheating!? AN IMPOSTER EVEN?!?!?!", Color.White, true);
+                            EdgyTalk(Language.GetTextValue("Mods.CalValEX.NPCs.Amogus.FightTalk3"), Color.White, true);
                             Projectile.rotation = 0;
                         }
                         if (deathcounter == 680)
                         {
-                            EdgyTalk("That's pretty sus kid, and you know what we do to sussy little ones right?", Color.White, true);
+                            EdgyTalk(Language.GetTextValue("Mods.CalValEX.NPCs.Amogus.FightTalk4"), Color.White, true);
                         }
                         if (deathcounter == 820)
                         {
-                            EdgyTalk("We eject them.", Color.DarkRed, true);
+                            EdgyTalk(Language.GetTextValue("Mods.CalValEX.NPCs.Amogus.FightTalk5"), Color.DarkRed, true);
                             Projectile.alpha = 50;
                             Projectile.rotation = 0;
                         }
@@ -358,15 +358,15 @@ namespace CalValEX.AprilFools
                     }
                     if (lifecounter == 300)
                     {
-                        EdgyTalk("Interesting, you survived...", Color.White, true);
+                        EdgyTalk(Language.GetTextValue("Mods.CalValEX.NPCs.Amogus.CutsceneTalk1"), Color.White, true);
                     }
                     if (lifecounter == 420)
                     {
-                        EdgyTalk("You probably cheated tbh, or the attacks weren't working properly.", Color.White, true);
+                        EdgyTalk(Language.GetTextValue("Mods.CalValEX.NPCs.Amogus.CutsceneTalk2"), Color.White, true);
                     }
                     if (lifecounter == 540)
                     {
-                        EdgyTalk("Oh well, guess you proved your worthiness to me. Wear the stone hat if you wanna go again.", Color.White, true);
+                        EdgyTalk(Language.GetTextValue("Mods.CalValEX.NPCs.Amogus.CutsceneTalk3"), Color.White, true);
                         CalValEXWorld.amogus = true;
                         CalValEXWorld.UpdateWorldBool();
                     }
