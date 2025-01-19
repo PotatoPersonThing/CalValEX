@@ -1,0 +1,4625 @@
+AmogusItem: {
+	# April fools!
+	DisplayName: Polus Communicator
+	# April fools!
+	Tooltip:
+		'''
+		Summons a Stratus Astronaut
+		UNOBTAINABLE
+		Cheating this item in may have disastrous consequences
+		Hates alien dinosaurs
+		'''
+}
+
+ShadesBane: {
+	DisplayName: The Shade's Bane
+	Tooltip:
+		'''
+		Makes cursed fireballs erupt from enemies on true melee hits
+		Right click to unleash fireballs in random directions along with an onyx dart
+		'Edgy sword #2940358304' 
+		'''
+}
+
+Nyanthrop: {
+	DisplayName: Nyanthrop
+	Tooltip: Fires typhoons in random directions
+}
+
+KnowledgeMeldosaurus: {
+	DisplayName: Meldosaurus
+	Tooltip:
+		'''
+		The Meldosaurus...
+		A dreaded creature birthed from the wills of decay. Nobody knows why it exists, and what it wants...
+		HUGH! Glad he's gone now!!! Him being inside me was making me itchy!
+		'''
+}
+
+MeldosaurusMask: {
+	DisplayName: Meldosaurus Mask
+	Tooltip: ""
+}
+
+MeldosaurusTrophy: {
+	DisplayName: Meldosaurus Trophy
+	Tooltip: ""
+}
+
+MeldosaurusMusicBox: {
+	DisplayName: Music Box (Meldosaurus)
+	Tooltip: ""
+}
+
+MeldosaurusBag: {
+	DisplayName: Treasure Bag
+	Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+}
+
+JharimHead: {
+	DisplayName: Jungle Tyrant Jharim's Decapitated Head
+	Tooltip:
+		'''
+		Summons the Jungle Tyrant
+		Does not work outside of April Fools
+		'''
+}
+
+FogG: {
+	DisplayName: Purified Fog
+	Tooltip:
+		'''
+		Summons the Fogbound
+		':Why:'
+		'''
+}
+
+AstJRItem: {
+	# Critters
+	DisplayName: Astragelly Slime
+	Tooltip: ""
+}
+
+BlightolemurItem: {
+	DisplayName: Bleamur
+	Tooltip: ""
+}
+
+BlinkerItem: {
+	DisplayName: Blinker
+	Tooltip: ""
+}
+
+CrystalFlyItem: {
+	DisplayName: Profaned Butterfly
+	Tooltip: ""
+}
+
+EyedolItem: {
+	DisplayName: Eyedol
+	Tooltip: ""
+}
+
+GAstJRItem: {
+	DisplayName: Gold Astragelly Slime
+	Tooltip: ""
+}
+
+GodSlayerSlugItem: {
+	DisplayName: God Slayer Slug
+	Tooltip: ""
+}
+
+GoldenIsopodItem: {
+	DisplayName: Gold Isopod
+	Tooltip: ""
+}
+
+GoldEyedolItem: {
+	DisplayName: Gold Eyedol
+	Tooltip: ""
+}
+
+GoldViolemurItem: {
+	DisplayName: Gold Violemur
+	Tooltip: ""
+}
+
+IsopodItem: {
+	DisplayName: Abyssal Isopod
+	Tooltip: ""
+}
+
+VaporoflyItem: {
+	DisplayName: Vaporofly
+	Tooltip: ""
+}
+
+NeuroFlyItem: {
+	DisplayName: Neuro Fly
+	Tooltip: ""
+}
+
+OrthobabItem: {
+	DisplayName: Orthocera Hatchling
+	Tooltip: ""
+}
+
+PerfoGrubItem: {
+	DisplayName: Perforator Grub
+	Tooltip: ""
+}
+
+PlagueFrogItem: {
+	DisplayName: Plagued Frog
+	Tooltip: ""
+}
+
+ProvFlyItem: {
+	DisplayName: Profaned Butterfly
+	Tooltip: ""
+}
+
+SandTurtleItem: {
+	DisplayName: Sand Turtle
+	Tooltip: ""
+}
+
+SwearshroomItem: {
+	DisplayName: Swearshroom
+	Tooltip: ""
+}
+
+ViolemurItem: {
+	DisplayName: Violemur
+	Tooltip: ""
+}
+
+XerocodileItem: {
+	DisplayName: Awakened Xerocodile
+	Tooltip: ""
+}
+
+BlightedAstralDye: {
+	# Dyes
+	DisplayName: Ethereal Dye
+	# Dyes
+	Tooltip: Unobtainable
+}
+
+BlighedAstralPinkDye: {
+	DisplayName: Blighted Astral Purple Dye
+	Tooltip: ""
+}
+
+BlighedAstralYellowDye: {
+	DisplayName: Blighted Astral Yellow Dye
+	Tooltip: ""
+}
+
+DraedonHologramDye: {
+	DisplayName: Draedon's Hologram Dye
+	Tooltip: ""
+}
+
+BackpackServer: {
+	# Backs
+	DisplayName: Backpack Server
+	# Backs
+	Tooltip: "'Draedon's eyes are on you' "
+}
+
+PrismShell: {
+	DisplayName: Prism Shell
+	Tooltip: "'Lookin' sharp' "
+}
+
+# Balloons
+ApolloBallonSmall.DisplayName: Apollo Balloon
+
+ArtemisBalloonSmall: {
+	DisplayName: Artemis Balloon
+	Tooltip: "'From the Moon, Knowledge'"
+}
+
+ApolloBalloon: {
+	DisplayName: XS Leash-03
+	Tooltip: "'Houston...'"
+}
+
+ArtemisBalloon: {
+	DisplayName: XS Leash-01
+	Tooltip: "'Hunting has never been easier'"
+}
+
+AuricBalloon: {
+	DisplayName: Auric Balloon
+	Tooltip: "'You're lucky I didn't make you get every other balloon for this.'"
+}
+
+BoB2: {
+	DisplayName: Bundle of Water Balloons
+	Tooltip:
+		'''
+		The Party Girl can tie this for you
+		'How did none of them pop down there?'
+		'''
+}
+
+BoxBalloon: {
+	DisplayName: Cuboidal Balloon
+	Tooltip:
+		'''
+		The Party Girl can tie this for you
+		'Feeling square'
+		'''
+}
+
+ChaosBalloon: {
+	DisplayName: Puffer Balloon
+	Tooltip:
+		'''
+		The Party Girl can tie this for you
+		'May go off any minute now...'
+		'''
+}
+
+ExoTwinsBalloon: {
+	DisplayName: XS Leash Bundle
+	Tooltip: "'smile.'"
+}
+
+FoilAtlantis: {
+	DisplayName: Foil Atlantis
+	Tooltip: "'A miniature, inflatable replica of the magical halberd'"
+}
+
+FoilSpoon: {
+	DisplayName: Foil Spoon
+	Tooltip: "'spoon'"
+}
+
+Mirballoon: {
+	DisplayName: Mirage Balloon
+	Tooltip:
+		'''
+		The Party Girl can tie this for you
+		'Keep away from sharp objects!'
+		'''
+}
+
+OldMirage: {
+	DisplayName: Ancient Mirage Balloon
+	Tooltip:
+		'''
+		'Keep away from the ocean'
+		'Balloons are nasty pollutants'
+		'''
+}
+
+ProfanedBalloon: {
+	DisplayName: Profaned Balloon
+	Tooltip: "'Patronage for Providence!'"
+}
+
+ShuttleBalloon: {
+	DisplayName: Shuttle Balloon
+	Tooltip: "'Marketable Martian'"
+}
+
+SignusBalloon: {
+	DisplayName: Cosmic Lantern Balloon
+	Tooltip: "'Keep away from ectoplasm'"
+}
+
+SkullBalloon: {
+	DisplayName: Skull Balloon
+	Tooltip: "'Looks like there's still a brain inside this one'"
+}
+
+WulfrumBalloon: {
+	DisplayName: Wulfrum Gyro Balloon
+	Tooltip: "'I'm Using Tilt Controls!'"
+}
+
+SigCape: {
+	DisplayName: Signus' Cape
+	Tooltip: Mask yourself in the shadows
+}
+
+YharimCape: {
+	DisplayName: Tyrant's Cape
+	Tooltip: Not the true one, but still regal and elegant
+}
+
+YharimCapeBaby: {
+	DisplayName: Auric Mantle
+	Tooltip: "'Still not the true one, looks like a kid's toy'"
+}
+
+DraedonHelmet: {
+	# Hats
+	DisplayName: Arsenal Soldier Helmet
+	# Hats
+	Tooltip:
+		'''
+		Changes appearance depending on held item damage type
+		CURRENTLY UNSTABLE
+		'''
+}
+
+Aestheticrown: {
+	DisplayName: Aestheticrest
+	Tooltip: Biteki-Chan
+}
+
+AncientAuricTeslaHelm: {
+	DisplayName: Ancient Auric Tesla Helm
+	Tooltip: A polished piece of an ancient armor
+}
+
+AncientPerennialFlower: {
+	DisplayName: Ancient Perennial Tulip
+	Tooltip: "'I'm a pretty girl!'"
+}
+
+AstrachnidCranium: {
+	DisplayName: Astrachnid Cranium
+	Tooltip: ""
+}
+
+AstrumDeusMask: {
+	DisplayName: Blighted Deus Mask
+	Tooltip: "'A faded star reignited' "
+}
+
+AureicFedora: {
+	DisplayName: Aureic Fedora
+	Tooltip: "'Just don't tip it on someone directly'"
+}
+
+BanditHat: {
+	DisplayName: Bandit's Hat
+	Tooltip: ""
+}
+
+BelladonnaHat: {
+	DisplayName: Belladona Spirit Hat
+	Tooltip: Poisonous, but stylish
+}
+
+BigWorm: {
+	DisplayName: Large Perforator Mask
+	Tooltip: "'In the anne-lead'"
+}
+
+BirbHat: {
+	DisplayName: Follyhat
+	Tooltip: The one hat to rule them all
+}
+
+BloodyMaryHat: {
+	DisplayName: Bloody Mary Hat
+	Tooltip: Feeling elegant
+}
+
+CalaCirclet: {
+	DisplayName: Calamity Circlet
+	Tooltip: Cursed?
+}
+
+ClamMask: {
+	DisplayName: Clamitous Hat
+	Tooltip: "'That's a typo, right?'"
+}
+
+CoralMask: {
+	DisplayName: Belching Coral Mask
+	Tooltip: "'It's big brine time'"
+}
+
+CosmicCone: {
+	DisplayName: The Cosmic Cone
+	Tooltip: A hat so pointy it could pierce the heavens
+}
+
+Cryocap: {
+	DisplayName: Cryocap
+	Tooltip: Brain Freeze!
+}
+
+CultistHood: {
+	DisplayName: Cultist Assassin Hood
+	Tooltip: ""
+}
+
+DemonshadeHood: {
+	DisplayName: Ancient Demonshade Helm
+	Tooltip: ""
+}
+
+DevilfishMask1: {
+	DisplayName: Curly Devil Fish Mask
+	Tooltip: Edgy
+}
+
+DevilfishMask2: {
+	DisplayName: Pointed Devil Fish Mask
+	Tooltip: Edgier
+}
+
+DevilfishMask3: {
+	DisplayName: Exposed Devil Fish Mask
+	Tooltip: Rubbing salt on the wound
+}
+
+DummyMask: {
+	DisplayName: Dummy Mask
+	Tooltip: The only dummy here is you
+}
+
+EarthenHelmet: {
+	DisplayName: Earthen Helmet
+	Tooltip: ""
+}
+
+EidoMask: {
+	DisplayName: Eidolist Mask
+	Tooltip: ""
+}
+
+FallenPaladinsHelmet: {
+	DisplayName: "Fallen Paladin's Helmet "
+	Tooltip: ""
+}
+
+FlakHeadCrab: {
+	DisplayName: Flak Head Crab
+	Tooltip: It appears you have a parasite
+}
+
+GammaHelmet: {
+	DisplayName: Gamma Sludge
+	Tooltip: I'm Radioactive!
+}
+
+GruelingMask: {
+	DisplayName: Grueling Mask
+	Tooltip: Yaaagh!
+}
+
+MaulerMask: {
+	DisplayName: Mauler Mask
+	Tooltip: Mauling faces since the 80s
+}
+
+MidWorm: {
+	DisplayName: Medium Perforator Mask
+	Tooltip: "'Worming its way to the top!'"
+}
+
+OlTrashtooth: {
+	DisplayName: Ol Trashtooth
+	Tooltip: ""
+}
+
+OmegaBlue: {
+	DisplayName: Ancient Omega Blue Helmet
+	Tooltip: You are beneath my notice, wyrm!
+}
+
+OracleBeanie: {
+	DisplayName: Oracle's Beanie
+	Tooltip: ""
+}
+
+PerennialFlower: {
+	DisplayName: Perennial Tulip
+	Tooltip: "'Am I a pretty girl?'"
+}
+
+PolterMask: {
+	DisplayName: Odd Polterghast Mask
+	Tooltip: ""
+}
+
+ProfanedCultistMask: {
+	DisplayName: Profaned Cultist Mask
+	Tooltip: ""
+}
+
+ScornEaterMask: {
+	DisplayName: Scorn Eater Mask
+	Tooltip: The searing fire blazes fiercly
+}
+
+SeaCrown: {
+	DisplayName: Sea Empress Crown
+	Tooltip: Wearing this will make you feel royal
+}
+
+SlimeGodMask: {
+	DisplayName: Slime God Core Mask
+	Tooltip: ""
+}
+
+SmallWorm: {
+	DisplayName: Small Perforator Mask
+	Tooltip: "'The worm-st one of the bunch'"
+}
+
+SpectralstormHat: {
+	DisplayName: Spectralstorm Hat
+	Tooltip: "'The actual dumbest idea ever submitted to suggestions'"
+}
+
+SquidHat: {
+	DisplayName: The Squid Hat
+	Tooltip: Splattershot sold separately
+}
+
+StonePile: {
+	DisplayName: Stone Pile
+	Tooltip: "'Requires a strong head to wear'"
+}
+
+TerminalMask: {
+	DisplayName: Terminal Facemask
+	Tooltip:
+		'''
+		Through bloodshed and turmoil new sight is attained,
+		through eyes of a God forgotten
+		'''
+}
+
+TrueCosmicCone: {
+	DisplayName: True Cosmic Cone
+	Tooltip: "'A cosmically large hat so pointy it could pierce through dimensions' "
+}
+
+UnloadedHelm: {
+	DisplayName: Unloaded Helm
+	Tooltip: Still reeks
+}
+
+DraedonLeggings: {
+	# Legs
+	DisplayName: Arsenal Soldier Leggings
+	# Legs
+	Tooltip:
+		'''
+		CURRENTLY UNSTABLE
+		Well, not really, only the other pieces are,
+		but why would you use these without them? 
+		'''
+}
+
+AstrachnidTentacles: {
+	DisplayName: Astrachnid Legs
+	Tooltip: ""
+}
+
+BrimmySpirit: {
+	DisplayName: Brimstone Flames
+	Tooltip: ""
+}
+
+CultistLegs: {
+	DisplayName: Cultist Assassin Pants
+	Tooltip: ""
+}
+
+DemonshadePants: {
+	DisplayName: Ancient Demonshade Greaves
+	Tooltip: ""
+}
+
+DraedonLegs: {
+	DisplayName: Draedon Legs
+	Tooltip: ""
+}
+
+EarthenLeggings: {
+	DisplayName: Earthen Leggings
+	Tooltip: ""
+}
+
+FallenPaladinsGreaves: {
+	DisplayName: "Fallen Paladin's Greaves "
+	Tooltip: ""
+}
+
+PolterStockings: {
+	DisplayName: Odd Polterghast Stockings
+	Tooltip: ""
+}
+
+SignusNether: {
+	DisplayName: Nether Spirit
+	Tooltip: Gaining literal nether regions
+}
+
+TerrorLegs: {
+	DisplayName: Terror Legs
+	Tooltip: "'They're twitching'"
+}
+
+AstBandana: {
+	# Scarves
+	DisplayName: Astral Bandana
+	# Scarves
+	Tooltip: "'Space Age Fashion!'"
+}
+
+BloodwormScarf: {
+	DisplayName: Bloodworm Scarf
+	Tooltip: That bloody creature is trying to burrow into your neck!
+}
+
+CosmicWormScarf: {
+	DisplayName: Cosmic Worm Scarf
+	Tooltip: "'Spacetime Fashion!'"
+}
+
+DesertMedallion: {
+	DisplayName: Budget Desert Medallion
+	Tooltip: Because the other one is too cursed to wear
+}
+
+PermaScarf: {
+	DisplayName: Permafrost's Scarf
+	Tooltip: Stay Frosty
+}
+
+ProviCrystal: {
+	DisplayName: Unholy Charm
+	Tooltip: A rare treasure gifted from the profaned goddess
+}
+
+RapturedWormScarf: {
+	DisplayName: Raptured Worm Scarf
+	Tooltip: So stylish it bends the fabric of reality!
+}
+
+SignusEmblem: {
+	DisplayName: Signus Emblem
+	Tooltip: Contains some abyssal energy
+}
+
+StormBandana: {
+	DisplayName: Storm Bandanna
+	Tooltip: "'Electrifying Fashion!'"
+}
+
+UniversalWormScarf: {
+	DisplayName: Universal Worm Scarf
+	Tooltip: "'Eat it all, without bending reality' "
+}
+
+YharonShackle: {
+	DisplayName: Yharon's Shackle
+	Tooltip: It barely fits you...
+}
+
+AureusShield: {
+	# Shields
+	DisplayName: Aureus Bulwark
+	# Shields
+	Tooltip: Smaller in execution
+}
+
+EarthShield: {
+	DisplayName: Tower Shield of the Elemental
+	Tooltip: "'Looks sturdy, but it's actually soft, useless stone!'"
+}
+
+Invishield: {
+	DisplayName: Compensation
+	Tooltip: Can be sold
+}
+
+TrilobiteShield: {
+	DisplayName: Trilobuckler
+	Tooltip: "'An ancient shield that's too old to block attacks'"
+}
+
+AresChestplate: {
+	# Shirts
+	DisplayName: XF Model Chestplate
+	# Shirts
+	Tooltip:
+		'''
+		Summons four toy weapons to extend around you
+		'What do you MEAN they don't look the same?!?' 
+		'''
+}
+
+DraedonChestplate: {
+	DisplayName: Arsenal Soldier Chestplate
+	Tooltip:
+		'''
+		Changes appearance depending on held item damage type
+		CURRENTLY UNSTABLE 
+		'''
+}
+
+AstrachnidThorax: {
+	DisplayName: Astrachnid Thorax
+	Tooltip: ""
+}
+
+BelladonnaCloak: {
+	DisplayName: Belladonna Spirit Cloak
+	Tooltip: The latest in fashion, all natural
+}
+
+BloodyMaryDress: {
+	DisplayName: Bloody Mary Dress
+	Tooltip: ""
+}
+
+BrimmyBody: {
+	DisplayName: Brimstone Elemental Suit
+	Tooltip: ""
+}
+
+Cryocoat: {
+	DisplayName: Cryocoat
+	Tooltip: ""
+}
+
+CultistRobe: {
+	DisplayName: Cultist Assassin Robe
+	Tooltip: ""
+}
+
+DemonshadeRobe: {
+	DisplayName: Ancient Demonshade Breastplate
+	Tooltip: ""
+}
+
+DraedonBody: {
+	DisplayName: Draedon Thorax
+	Tooltip: ""
+}
+
+EarthenBreastplate: {
+	DisplayName: Earthen Breastplate
+	Tooltip: ""
+}
+
+FallenPaladinsPlateMail: {
+	DisplayName: Fallen Paladin's Plate Mail
+	Tooltip: ""
+}
+
+PerennialDress: {
+	DisplayName: Perennial Dress
+	Tooltip: Flowering out
+}
+
+Polterskirt: {
+	DisplayName: Odd Polterghast Dress
+	Tooltip: ""
+}
+
+ProfanedCultistRobes: {
+	DisplayName: Profaned Cultist Robes
+	Tooltip: ""
+}
+
+ReaperSharkArms: {
+	DisplayName: Reaper Shark Arms
+	Tooltip: Hitting the gym was never this easy!
+}
+
+BurningEye: {
+	# Transformations
+	DisplayName: Burning Eye
+	# Transformations
+	Tooltip: Engulfs the wearer in Brimstone Flames
+}
+
+CloudWaistbelt: {
+	DisplayName: Valkyrian Garments
+	Tooltip: Surrounds the wearer with clouds
+}
+
+ProtoRing: {
+	DisplayName: Prototype Ring
+	Tooltip: Transforms the wearer into a small mech
+}
+
+SandyBangles: {
+	DisplayName: Sandy Bangles
+	Tooltip: Encompasses the wearer in sand
+}
+
+Signus: {
+	DisplayName: Twilight Charm
+	Tooltip:
+		'''
+		Transforms the wearer into a nether spirit 
+		'One with the void'
+		'''
+}
+
+AeroWings: {
+	# Wings
+	DisplayName: Aero Wings
+	# Wings
+	Tooltip:
+		'''
+		'It's a windy day'
+		Horizontal speed: 1
+		Acceleration multiplier: 1
+		Flight time: 32 
+		'''
+}
+
+FollyWings: {
+	DisplayName: Folly Wings
+	Tooltip:
+		'''
+		'Fly like an eagle'
+		Horizontal speed: 9
+		Acceleration multiplier: 2.5
+		Flight time: 210 
+		'''
+}
+
+GodspeedBoosters: {
+	DisplayName: Godspeed Boosters
+	Tooltip:
+		'''
+		'Devout propulsion!'
+		Horizontal speed: 9
+		Acceleration multiplier: 2.7
+		Flight time: 200 
+		'''
+}
+
+JunglePhoenixWings: {
+	DisplayName: Chicken Wings
+	Tooltip:
+		'''
+		'Hot and ready'
+		Horizontal speed: 11.5
+		Acceleration multiplier: 2.9
+		Flight time: 140 
+		'''
+}
+
+LeviWings: {
+	DisplayName: Leviathan Fin Wings
+	Tooltip:
+		'''
+		'Flip flop'
+		Horizontal speed: 6.75
+		Acceleration multiplier: 1.4
+		Flight time: 120 
+		'''
+}
+
+OldVoidWings: {
+	DisplayName: Revoided Wings
+	Tooltip:
+		'''
+		'Literally carried out of the darkness'
+		Horizontal speed: 9
+		Acceleration multiplier: 2.5
+		Flight time: 250 
+		'''
+}
+
+OldWings: {
+	DisplayName: Old Duke Wings
+	Tooltip:
+		'''
+		'Toxic propulsion!'
+		Horizontal speed: 9.5
+		Acceleration multiplier: 2.7
+		Flight time: 190 
+		'''
+}
+
+PlaguePack: {
+	DisplayName: Beelzebooster
+	Tooltip:
+		'''
+		'And they wonder how bees can get themselves off the ground...'
+		Horizontal speed: 7.8
+		Acceleration multiplier: 1.9
+		Flight time: 170 
+		'''
+}
+
+PlaugeWings: {
+	DisplayName: Plaguebringer Wings
+	Tooltip:
+		'''
+		'Nanomachines not included'
+		Horizontal speed: 7.75
+		Acceleration multiplier: 1.5
+		Flight time: 150 
+		'''
+}
+
+ScryllianWings: {
+	DisplayName: Scryllian Wings
+	Tooltip:
+		'''
+		'RISE!'
+		Horizontal speed: 6.5
+		Acceleration multiplier: 1
+		Flight time: 60 
+		'''
+}
+
+TerminalWings: {
+	DisplayName: Wings of Termina
+	Tooltip:
+		'''
+		Through death and destruction new heights are attained
+		on wings of a pandemonic butterfly 
+		Horizontal speed: 1
+		Acceleration multiplier: 1
+		Flight time: 60 
+		'''
+}
+
+VoidWings: {
+	DisplayName: Void Wings
+	Tooltip:
+		'''
+		'Let the darkness carry you'
+		Horizontal speed: 9
+		Acceleration multiplier: 2.5
+		Flight time: 230 
+		'''
+}
+
+WulfrumHelipack: {
+	DisplayName: Wulfrum Helipack
+	Tooltip:
+		'''
+		Extremely faulty
+		Horizontal speed: 0.8
+		Acceleration multiplier: 0.8
+		Flight time: 0.6 
+		'''
+}
+
+MawHook: {
+	# Hooks
+	DisplayName: Cragmaw Spinehook
+	# Hooks
+	Tooltip:
+		'''
+		'Prehistoric pull power!'
+		Reach: 31
+		Launch Velocity: 18
+		Pull Velocity: 17 
+		'''
+}
+
+MawTeeth.DisplayName: Maw Jaw
+
+PolterHook: {
+	DisplayName: Ghastly Chains
+	Tooltip:
+		'''
+		'Let the eternally suffering souls pull you forward!'
+		Reach: 46
+		Launch Velocity: 16
+		Pull Velocity: 20 
+		'''
+}
+
+PhantomHook.DisplayName: Phantom Hook
+
+ProfanedEnergyHook: {
+	DisplayName: Profaned Energy Hook
+	Tooltip:
+		'''
+		'Jerk the holy chains'
+		Reach: 37
+		Launch Velocity: 16
+		Pull Velocity: 30 
+		'''
+}
+
+ProfanedHook.DisplayName: Profaned Hook
+
+RavaHook: {
+	DisplayName: Ravager Claw
+	Tooltip:
+		'''
+		'Here to gouge out your eyes'
+		Reach: 43
+		Launch Velocity: 18
+		Pull Velocity: 20 
+		'''
+}
+
+RavaClaw.DisplayName: Ravager Claw
+
+ScavaHook: {
+	DisplayName: Ancient Scavenger Claw
+	Tooltip:
+		'''
+		'Here to gouge out your eyes, runic style!'
+		Reach: 50
+		Launch Velocity: 19
+		Pull Velocity: 25 
+		'''
+}
+
+ScavaClaw.DisplayName: Scavenger Claw
+
+XMLightningHook: {
+	DisplayName: XM-Lightning Hook
+	Tooltip:
+		'''
+		'Snap at lightning speed!'
+		Cannot be used while Chaos State is active
+		Reach: 60
+		Launch Velocity: 62
+		Pull Velocity: 35 
+		'''
+}
+
+THanosHook.DisplayName: T Hanos Hook
+
+ExodiumMoon: {
+	# Misc
+	DisplayName: Exodium Orbiter
+	# Misc
+	Tooltip: A world revolving
+}
+
+AntarcticEssence: {
+	# Light Pets
+	DisplayName: Antarctic Essence
+	# Light Pets
+	Tooltip:
+		'''
+		UNOBTAINABLE
+		Does nothing for now 
+		'''
+}
+
+AstralBinoculars: {
+	DisplayName: Astral Binoculars
+	# Provides a moderate amount of light in the abyss
+	Tooltip:
+		'''
+		Summons a Sightseeing Tour
+		'You can see something in the distance'
+		Provides a moderate amount of light in the abyss 
+		'''
+}
+
+ConstructionRemote: {
+	DisplayName: Construction Remote
+	Tooltip:
+		'''
+		Summons a small digger to follow you and light your way
+		Caution: Pairing with a repair unit will result in supercharging! 
+		'''
+}
+
+CoreofVanity: {
+	DisplayName: Core of Vanity
+	Tooltip:
+		'''
+		Summons pet Heat Sprits and a Sunskater to follow you
+		'The frozen one is taking a break'
+		Provides a large amount of light in the abyss 
+		'''
+}
+
+CosmicBubble: {
+	DisplayName: Cosmic Bubble
+	Tooltip:
+		'''
+		Summons the cosmic assistant to help you in your endeavors
+		'Enreden's developer pet, without him this mod likely wouldn't be here' 
+		Provides a gigantic amount of light in the abyss
+		'''
+}
+
+DarksunSigil: {
+	DisplayName: Darksun Sigil
+	Tooltip:
+		'''
+		Summons Darksun Spirits to follow you
+		Provides a gigantic amount of light in the abyss 
+		'''
+}
+
+DivineFly: {
+	DisplayName: Divine Fly
+	Tooltip:
+		'''
+		Summons a Grand Entity
+		'Ascension'
+		Provides a large amount of light in the abyss 
+		'''
+}
+
+EssenceofDisorder: {
+	DisplayName: Essence of Disorder
+	Tooltip:
+		'''
+		Summons a pair of Heat Spirits to light your way 
+		'Come burn with me' 
+		Provides a moderate amount of light in the abyss
+		'''
+}
+
+EssenceofYeet: {
+	DisplayName: Essence of Yeet
+	Tooltip:
+		'''
+		Summons a small Sunskater
+		'Sunfish gang, sunfish gang.'
+		Provides a small amount of light in the abyss 
+		'''
+}
+
+HolyTorch: {
+	DisplayName: The Holy Torch
+	Tooltip:
+		'''
+		Attracts an annoying fairy
+		Provides a large amount of light in the abyss 
+		'''
+}
+
+PhantominaJar: {
+	DisplayName: Phantom in a Jar
+	Tooltip:
+		'''
+		Summons a Phantom Spirit to light your way
+		'Don't even think about it.'
+		Provides a large amount of light in the abyss 
+		'''
+}
+
+ProfanedHeart: {
+	DisplayName: Profaned Heart
+	Tooltip:
+		'''
+		Summons a miniature Providence, accompanied by her guardians
+		'Nothing but the purest of furies'
+		Provides a large amount of light in the abyss 
+		'''
+}
+
+SunBun: {
+	DisplayName: Sun Bun
+	Tooltip:
+		'''
+		Summons the Sun Bun
+		Boosts Bunny spawnrates a tiny bit
+		'The bun above all'
+		Provides a large amount of light in the abyss
+		'''
+}
+
+SuperstitiousJewel: {
+	DisplayName: Superstitious Jewel
+	Tooltip:
+		'''
+		Summons an Elemental, two Endothermic Runes, and two Phantom Sharks to follow you, emitting a crazy amount of light
+		'It looks like glass, but the magic is real' 
+		Provides a colossal amount of light in the abyss
+		'''
+}
+
+WulfrumTransmitter: {
+	DisplayName: Wulfrum Transmitter
+	Tooltip:
+		'''
+		Summons a Prototype Wulfrum Amplifier
+		'It's making a lot of dial up noises'
+		Provides a small amount of light in the abyss 
+		'''
+}
+
+AuricCarKey: {
+	# Mounts
+	DisplayName: Auric Car Key
+	# Mounts
+	Tooltip:
+		'''
+		Summons a rideable Auric Tesla mount
+		Mortally reduces health and damage if a boss is nearby 
+		'Yharim Car'
+		'''
+}
+
+BloodstoneCarriageItem: {
+	DisplayName: Bloodstone Invitation
+	Tooltip:
+		'''
+		Summons a rideable Bloodflare Carriage mount
+		Reduces damage and health while a boss is nearby 
+		'An invitation to take a merry little stroll on a ride made of the deceased!'
+		'''
+}
+
+CrackedFossil: {
+	DisplayName: Crab Fossil
+	Tooltip:
+		'''
+		Summons a rideable Anthozoan Crab mount
+		Reduces damage and health when a boss is nearby 
+		'It's moving...'
+		'''
+}
+
+FloatyCarpetItem: {
+	DisplayName: Floaty Carpet
+	Tooltip:
+		'''
+		Summons a rideable floaty carpet mount
+		'A floating carpet made out of a real Floaty!'
+		'''
+}
+
+GodRiderItem: {
+	DisplayName: God Rider Kit
+	Tooltip:
+		'''
+		Summons a rideable God Rider Hoverbike mount
+		Reduces damage and health when a boss is nearby 
+		'Devour miles in the blink of an eye'
+		'''
+}
+
+HadarianTail: {
+	DisplayName: Hadarian Egg
+	Tooltip:
+		'''
+		Summons a rideable Hadrian mount
+		Reduces damage and health when a boss is nearby 
+		'''
+}
+
+InfectedController: {
+	DisplayName: Diseased Joystick
+	Tooltip:
+		'''
+		Summons a rideable Plaguebringer mount
+		Reduces damage and health when a boss is nearby 
+		'It's emitting 8 bit buzzing'
+		'''
+}
+
+LeviathanEgg: {
+	DisplayName: Leviathan Egg
+	Tooltip:
+		'''
+		Summons a rideable young Leviathan mount
+		Reduces damage and health when a boss is nearby 
+		'''
+}
+
+PopUpShop: {
+	DisplayName: Pop-up Shop
+	Tooltip:
+		'''
+		Summons a rideable Morshu mount
+			Consumes a Copper Coin from the coin slots every 5 seconds and becomes super-sonic
+			If there are no Copper Coins in the coin slots then Morshu becomes crippled 
+		'''
+}
+
+ProfanedBattery: {
+	DisplayName: Holy Crystal Core
+	Tooltip: Charged core of a Profaned Guardian
+}
+
+ProfanedCycleItem: {
+	DisplayName: Profaned Cycle
+	Tooltip:
+		'''
+		Summons a rideable Profaned Cycle mount
+		Dramatically reduces health and damage if a boss is nearby 
+		'When you need to get somewhere, in style'
+		'''
+}
+
+ProfanedFrame: {
+	DisplayName: Profaned Frame
+	Tooltip: Some sort of ancient framework
+}
+
+ProfanedWheels: {
+	DisplayName: Hot Wheels
+	Tooltip: "'Wheels made of pure profaned energy'"
+}
+
+RadJuice: {
+	DisplayName: Radioactive Carton
+	Tooltip:
+		'''
+		Summons a rideable Nuclear Terror mount
+		Reduces damage and health when a boss is nearby 
+		'You probably shouldn't drink this'
+		'''
+}
+
+ShadowShedding: {
+	DisplayName: Shadow Shedding
+	Tooltip:
+		'''
+		Summons a rideable Hive Mind mount thing
+		Reduces damage and health when a boss is nearby 
+		'Infestation!'
+		'''
+}
+
+SilvaJeepItem: {
+	DisplayName: Silvian Jeep Keys
+	Tooltip:
+		'''
+		Summons a rideable Silvan Jeep mount
+		Greatly reduces health and damage if a boss is nearby 
+		'It's time for a safari'
+		'''
+}
+
+WulfrumKeys: {
+	DisplayName: Wulfrum Keys
+	Tooltip:
+		'''
+		Summons a rideable Wulfrum Tank mount
+		Reduces damage and health when a boss is nearby 
+		'You already know how to operate it... somehow...'
+		'''
+}
+
+YharonsAnklet: {
+	DisplayName: Infernal Message Book
+	Tooltip:
+		'''
+		Summons a rideable lesser Yharon mount
+		'This is my message...' 
+		'''
+}
+
+AlarmClock: {
+	# Pandemonium Box
+	DisplayName: Alarm Clock
+	# Pandemonium Box
+	Tooltip: Spare parts for your travels
+}
+
+NurseryBell: {
+	DisplayName: Nursery Bell
+	Tooltip: Our best friends...
+}
+
+DustChime: {
+	DisplayName: Dust Chime
+	Tooltip: The winds of progress!
+}
+
+BestInstrument: {
+	DisplayName: Best Instrument
+	Tooltip: Pieces of your journey
+}
+
+HarbingerOfWork: {
+	DisplayName: Harbinger of Work
+	Tooltip: Feels like robot love!
+}
+
+MaladyBells: {
+	DisplayName: Malady Bells
+	Tooltip: Starting anew!
+}
+
+SpiritDinerBell: {
+	DisplayName: Dead Ringer
+	Tooltip: Halfway there
+}
+
+AltarBell: {
+	DisplayName: Altar Bell
+	Tooltip: The gods from the heavens on the palm of your hand
+}
+
+TubRune: {
+	DisplayName: T.U.B. Rune
+	Tooltip: Change the world...
+}
+
+VaselineBell: {
+	DisplayName: Vaseline Bell
+	Tooltip: "'All at once I come alive, it's a rebirth!'"
+}
+
+WormBell: {
+	DisplayName: Slither Charm
+	Tooltip:
+		'''
+		'But does it ring any bells?
+		That I don't mention the hell?' 
+		'''
+}
+
+ScratchedGong: {
+	DisplayName: Scratched Gong
+	Tooltip:
+		'''
+		'Your patience is admirable
+		You will soon be rewarded...'
+		'''
+}
+
+PandemoniumBox: {
+	DisplayName: Pandemonium Box
+	Tooltip:
+		'''
+		The end of our journey, your zenith
+		Summons every pet you've met in your path
+		'And I wish I was the only one to leave'
+		'''
+}
+
+NuggetLicense: {
+	# Town pets
+	DisplayName: Nugget License
+	# Town pets
+	Tooltip: Use to adopt a nugget for your town
+}
+
+AnahitaPlushThrowable: {
+	# Plushies
+	DisplayName: Compensation
+	# Plushies
+	Tooltip: Deprecated item
+}
+
+ApolloPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+AquaticScourgePlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+AresPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+ArtemisPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+AstrageldonPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+AstrumAureusPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+AstrumDeusPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+BrimstoneElementalPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+BumblefuckPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+CalaFumoYeetable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+CeaselessVoidPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+ClonePlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+CrabulonPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+CryogenPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+DesertScourgePlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+DevourerofGodsPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+DraedonPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+GiantClamPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+HiveMindPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+JaredPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+LeviathanPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+MaulerPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+MirePlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+NuclearTerrorPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+OldDukePlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+PerforatorPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+PlaguebringerGoliathPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+PolterghastPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+ProfanedGuardianPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+ProvidencePlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+RavagerPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+SandSharkPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+SignusPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+SlimeGodPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+StormWeaverPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+ThanatosPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+YharonPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+BubbleMachine: {
+	# Tiles
+	DisplayName: Effervescent Bubbler
+	# Tiles
+	Tooltip: "'That's like, groovy mannn'"
+}
+
+MeldBlockItem.DisplayName: Meld Block
+
+WulfrumPlating: {
+	DisplayName: Wulfrum Brick
+	Tooltip: ""
+}
+
+ThanatosPlating: {
+	DisplayName: XM-05 Armor Plating
+	Tooltip: ""
+}
+
+ThanatosPlatingVent: {
+	DisplayName: XM-05 Armor Plating (Vent)
+	Tooltip: ""
+}
+
+MeldosaurusRelic: {
+	DisplayName: Meldosaurus Relic
+	Tooltip: ""
+}
+
+BleachBallItem: {
+	DisplayName: Bleach Ball Beach Ball
+	Tooltip: Careful, might pop
+}
+
+ChaoticPuffball: {
+	DisplayName: Chaotic Puffball
+	Tooltip: "'It probably won't detonate...'"
+}
+
+BlightedAstralPinkDye: {
+	DisplayName: Blighted Astral Pink Dye
+	Tooltip: ""
+}
+
+BlightedAstralYellowDye: {
+	DisplayName: Blighted Astral Yellow Dye
+	Tooltip: ""
+}
+
+ApolloBalloonSmall: {
+	DisplayName: Apollo Balloon
+	Tooltip: "'Stirred to go among wild beasts'"
+}
+
+Eidcape: {
+	DisplayName: Eidolist's Cape
+	Tooltip: Whispers of the deep can be heard through the weavings of this eldritch fabric...
+}
+
+Birbhat: {
+	DisplayName: Follyhat
+	Tooltip: "'The one hat to rule them all'"
+}
+
+Calacirclet: {
+	DisplayName: Circlet of Calamity
+	Tooltip: "'Cursed?'"
+}
+
+ShroomiteVisage: {
+	DisplayName: Shroomite Visage
+	Tooltip: ""
+}
+
+Permascarf: {
+	DisplayName: Permafrost's Scarf
+	Tooltip: Stay Frosty
+}
+
+Polterhook: {
+	DisplayName: Polterhook
+	Tooltip: ""
+}
+
+MysteryPainting: {
+	DisplayName: Mystery Painting
+	Tooltip: <right> for a random painting
+}
+
+NuclearFumes: {
+	DisplayName: Nuclear Fumes
+	Tooltip: "'Don't inhale them'"
+}
+
+OldCassette: {
+	DisplayName: Old Cassette
+	Tooltip:
+		'''
+		Favorite this item to activate player afterimages
+		'It contains some edgy anime episodes from the 90's'
+		'''
+}
+
+AcidLamp: {
+	DisplayName: Acid Lamp
+	Tooltip:
+		'''
+		Summons a Sulphurous Skater Nymph
+		'There seems to be an egg inside'
+		'''
+}
+
+AerialiteBubble: {
+	DisplayName: Aerialite Bubble
+	Tooltip:
+		'''
+		Summons a duo of Aero Slimes
+		'An odd sphere covered in light gel'
+		'''
+}
+
+ArmoredScrap: {
+	DisplayName: Armored Scrap
+	Tooltip:
+		'''
+		Summons a small Stasis Probe
+		'Can't be salvaged, but attracts a probe friend!'
+		'''
+}
+
+AstraEGGeldon: {
+	DisplayName: AstraEGGeldon
+	Tooltip:
+		'''
+		Summons a calamitous amalgamate to accompany you
+		'Now you can stop asking how I was born'
+		'''
+}
+
+AstralInfectedIcosahedron: {
+	DisplayName: Astral Infected Icosahedron
+	Tooltip:
+		'''
+		Transforms into an Aureophage
+		'Roll for initiative!'
+		'''
+}
+
+AuricBottle: {
+	DisplayName: Auric Bottle
+	Tooltip: Summons a Godly Squid to follow you
+}
+
+BambooStick: {
+	DisplayName: Strange Bamboo Stick
+	Tooltip:
+		'''
+		Summons a Red Panda pet
+		'Its scent attracts a unique animal'
+		'''
+}
+
+BleuBlob: {
+	DisplayName: Bleu Blob
+	Tooltip: Summons some cool blue dudes
+}
+
+BrimberryItem: {
+	DisplayName: Brimstone Berry
+	Tooltip:
+		'''
+		Summons an ancient fruit
+		'Often used as offering to the Brimstone Goddess'
+		'''
+}
+
+BubbledFin: {
+	DisplayName: Bubbled Fin
+	Tooltip:
+		'''
+		Summons a Smauler
+		'How did it even get in there?'
+		'''
+}
+
+BubbleGum: {
+	DisplayName: Bubble Gum
+	Tooltip: Summons a divine entity
+}
+
+CalamitousSoulArtifact: {
+	DisplayName: Calamitous Soul Artifact
+	Tooltip:
+		'''
+		Entropy
+		Summons a benevolent necropede
+		[c/C61B40:After crawling for decades in everlasting agony]
+		[c/C61B40:the mobile graveyard finally finds a true friend.]
+		'''
+}
+
+CanofWyrms: {
+	DisplayName: Can of Wyrms
+	Tooltip:
+		'''
+		Summons an Eidolon Inchwyrm
+		'It's surprising how the deep adapted to the scraps above'
+		'''
+}
+
+CharredChopper: {
+	DisplayName: Charred Chopper
+	Tooltip:
+		'''
+		Summons a decapitated Sulphurous Fishron that inhaled Scoria fumes
+		'A burning knife measuring a thousand degrees!'
+		'''
+}
+
+ClamHermitMedallion: {
+	DisplayName: Clam Hermit Medallion
+	Tooltip:
+		'''
+		Summons a Clam Hermit
+		'Holding this makes your hands feel clammy'
+		'''
+}
+
+ClawShroom: {
+	DisplayName: Clawshroom
+	Tooltip:
+		'''
+		Summons a small Crabulon
+		'Snip snap!'
+		'''
+}
+
+CoolShades: {
+	DisplayName: Cool Shades
+	Tooltip:
+		'''
+		Summons a miniature Cryogen
+		'Rad'
+		'''
+}
+
+CooperShortsword: {
+	DisplayName: Cooper Shortsword
+	Tooltip:
+		'''
+		Summons an oddly shapped small Cryogen
+		'Unleash the power of cool'
+		'''
+}
+
+CorrodedCleaver: {
+	DisplayName: Corroded Cleaver
+	Tooltip:
+		'''
+		Summons a decapitated Sulphurous Fishron
+		'Slice n' Dice'
+		'''
+}
+
+CosmicRapture: {
+	DisplayName: Cosmic Rapture
+	Tooltip: Summons the Devourer of the cosmos to follow you
+}
+
+Cube: {
+	DisplayName: A Cube
+	Tooltip:
+		'''
+		Summons a cube
+		Causes sickened star deities to blight
+		'Heil the Cube Lord'
+		'''
+}
+
+CursedLockpick: {
+	DisplayName: Cursed Lockpick
+	Tooltip:
+		'''
+		Summons a Rusty Mimic
+		'Rusty and crusty'
+		'''
+}
+
+DecayingFishtail: {
+	DisplayName: Decaying Fishtail
+	Tooltip:
+		'''
+		Summons a pet catfish...?
+		'Only an unholy nightmarish abomination would want something this putrid'
+		'''
+}
+
+DeepseaLantern: {
+	DisplayName: Deep Sea Lantern
+	Tooltip:
+		'''
+		Summons a Fathomable Eel
+		"'Might call upon a creature looking for food'"
+		'''
+}
+
+DespairMask: {
+	DisplayName: Despair Mask
+	Tooltip:
+		'''
+		Summons a sad stone
+		'It reeks of depression'
+		'''
+}
+
+DocilePheromones: {
+	DisplayName: Docile Pheromones
+	Tooltip:
+		'''
+		Summons a small Draconic Swarmer
+		'Lemon extract, with a hint of pepper'
+		'''
+}
+
+DoggoCollar: {
+	DisplayName: Doggo Collar
+	Tooltip: Summons a pet Chihuahua
+}
+
+DriedLocket: {
+	DisplayName: Dried Locket
+	Tooltip:
+		'''
+		Summons a Desert Pest
+		'There's a worm wriggling in it'
+		'''
+}
+
+DustyBadge: {
+	DisplayName: Dusty Badge
+	Tooltip:
+		'''
+		Summons the Great Sand Shark's Great Grandson
+		'Bereft to the core'
+		'''
+}
+
+Eggstone: {
+	DisplayName: Eggstone
+	Tooltip:
+		'''
+		Hatches into a baby Bohldohr
+		'Wait, it's alive?!'
+		'''
+}
+
+CloudCandy: {
+	DisplayName: Cloud Candy
+	Tooltip:
+		'''
+		Summons a Miniature Cloud Elemental
+		'An elemental's favorite sweet!'
+		'''
+}
+
+MiniatureElementalHeart: {
+	DisplayName: Miniature Elemental Heart
+	Tooltip:
+		'''
+		Summons all of the Miniature Elementals
+		'It's like you're running a daycare or something...'
+		'''
+}
+
+RareBrimtulip: {
+	DisplayName: Rare Brimtulip
+	Tooltip:
+		'''
+		Summons a Rare Brimling
+		'An elemental's favorite flower!'
+		'''
+}
+
+SmallSandPail: {
+	DisplayName: Small Sand Lamp
+	Tooltip:
+		'''
+		Summons a Miniature Sand Elemental
+		'An elemental's favorite toy!'
+		'''
+}
+
+SmallSandPlushie: {
+	DisplayName: Small Sand Plushie
+	Tooltip:
+		'''
+		Summons a Rare Miniature Sand Elemental
+		'An elemental's favorite toy!'
+		'''
+}
+
+StrangeMusicNote: {
+	DisplayName: Strange Music Note
+	Tooltip:
+		'''
+		Summons a Vibrant Siren Child
+		'An elemental's favorite sound!'
+		'''
+}
+
+ExoGemstone: {
+	DisplayName: Exo Gemstone
+	Tooltip: Summons the full miniaturized exo ensemble
+}
+
+GeminiMarkImplants: {
+	DisplayName: Gemini Mark Implants
+	Tooltip:
+		'''
+		Summons smaller replicas of the advanced surveillance ships
+		'22 Vision'
+		'''
+}
+
+GunmetalRemote: {
+	DisplayName: Dark Gunmetal Remote
+	Tooltip:
+		'''
+		Summons a shorter and friendlier version of the high-tech digger
+		'T Hanos'
+		'''
+}
+
+OminousCore: {
+	DisplayName: Ominous Core
+	Tooltip:
+		'''
+		Summons a toy variant of the diabolical monstrosity
+		'The rotting mechanism emits surprisingly friendly fumes'
+		'''
+}
+
+ExtraFluffyFeather: {
+	DisplayName: Extra Fluffy Feather
+	Tooltip:
+		'''
+		Summons a Mini Birb
+		'Attracts the last of a species'
+		'''
+}
+
+ExtraFluffyFeatherClump: {
+	DisplayName: Extra Fluffy Feather Clump
+	Tooltip:
+		'''
+		Summons beasts, so horrific, that you will die
+		'ISEJFDOIJNJSNFDGUISDBJNGSDJG'
+		'''
+}
+
+Finality: {
+	DisplayName: Finality
+	Tooltip:
+		'''
+		Summons a pet Rock
+		The stone before was merely a shell for the true creation, 
+		the Creator's first and favorite source of entertainment
+		'''
+}
+
+FlareRune: {
+	DisplayName: Flare Rune
+	Tooltip:
+		'''
+		Summons Avalon, an ascended Profaned Guardian infused with profaned and cosmic energy
+		'WuH'
+		'''
+}
+
+FROM: {
+	DisplayName: Frog-Only Memory
+	Tooltip:
+		'''
+		Summons a virtual private entity
+		'There's also a serial code...?'
+		'''
+}
+
+Geminga: {
+	DisplayName: Geminga
+	Tooltip:
+		'''
+		Summons a swarm of 11 lesser star deities
+		'A highly condensed star'
+		'''
+}
+
+GodSlayerDoll: {
+	DisplayName: God Slayer Doll
+	Tooltip:
+		'''
+		Summons a small Cosmic Assassin, Stasis Probe, and Dark Energy
+		'The sentinels will recognize a new leader'
+		'''
+}
+
+HauntedPebble: {
+	DisplayName: Haunted Pebble
+	Tooltip:
+		'''
+		Summons a Phantom Debris larvae
+		'Spookay~'
+		'''
+}
+
+HeartoftheSharks: {
+	DisplayName: Heart of the Sharks
+	Tooltip:
+		'''
+		Summons a trio of sharks
+		'It's time for shark week!'
+		'''
+}
+
+InkyArtifact: {
+	DisplayName: Inky Artifact
+	Tooltip:
+		'''
+		Summons a pair of Omega Blue Cultists
+		'For Omega version 50% off!!'
+		'''
+}
+
+InkyPollution: {
+	DisplayName: Inky Pollution
+	Tooltip:
+		'''
+		Summons a baby squid
+		'It's a shame what we do to the environment'
+		'''
+}
+
+IonizedJellyCrystal: {
+	DisplayName: Ionized Jelly Crystal
+	Tooltip:
+		'''
+		Summons the pinnacle of slime evolution
+
+
+		'Did you ever hear the tragedy of Goozma The Amorphous Deity? I thought not. It's not a story the Tyrant would tell you.
+		It's an Overseer legend. Goozma was the ultimate evolution of all slimes, so powerful it could influence the cells that comprise all other slime.
+		It could even create new slime gods, with affinities to the world's biomes.
+		The energy of the world is a pathway to many abilities some consider to be unnatural.
+		It became so powerful that the only thing it was afraid of was losing it's power, which eventually, of course, it did.
+		Unfortunately, Goozma's power grew so great for it to become a temporal anomaly.
+		A temporal anomaly which a power beyond our universe had no choice but to erase, so that it never existed in the first place.
+		Ironic. The very growth in power which made Goozma a deity in the first place, was also the cause of its demise'
+		'''
+}
+
+MeatyWormTumor: {
+	DisplayName: Meaty Worm Tumor
+	Tooltip:
+		'''
+		Summons a ball of flesh with a small Perforator sticking out
+		'May contain tied worms'
+		'''
+}
+
+MirrorMatter: {
+	DisplayName: Mirror Matter
+	Tooltip:
+		'''
+		Summons a small piece of Dark Energy
+		'They always say breaking mirrors is bad luck'
+		'''
+}
+
+MoistLocket: {
+	DisplayName: Moist Locket
+	Tooltip:
+		'''
+		Summons a small Aquatic Pest
+		'There's a worm wriggling in it'
+		'''
+}
+
+NuggetinaBiscuit: {
+	DisplayName: Nugget in a Biscuit
+	Tooltip:
+		'''
+		Summons the Jungle Nugget
+		'An alluring treat no jungle nugget can resist!'
+		'''
+}
+
+PlaguebringerPowerCell: {
+	DisplayName: Compensation
+	Tooltip: Can be sold for a decent price
+}
+
+PristineExcalibur: {
+	DisplayName: Compensation
+	Tooltip: Could be sold for a decent price
+}
+
+ProfanedChewToy: {
+	DisplayName: Profaned Chew Toy
+	Tooltip:
+		'''
+		Summons an ungodly radical dude
+		'Seems dusty'
+		'''
+}
+
+PurifiedFog: {
+	DisplayName: Purified Fog
+	Tooltip:
+		'''
+		Summons a creature of stygian depths
+		'Keep him bound'
+		'''
+}
+
+ReaperoidPills: {
+	DisplayName: Reaperoid Pills
+	Tooltip:
+		'''
+		Summons a walking Reaper
+		'So that's how they got so buff...'
+		'''
+}
+
+RepurposedMonitor: {
+	DisplayName: Repurposed Monitor
+	Tooltip: Summons a faulty repair bot to follow you
+}
+
+RottenHotdog: {
+	DisplayName: Rotten Hotdog
+	Tooltip:
+		'''
+		Summons a Pitbull puppy
+		Barks when any rare enemies are nearby
+		'Delicious...'
+		'''
+}
+
+RottenKey: {
+	DisplayName: Rotten Key
+	Tooltip:
+		'''
+		Summons a chunk of The Hive Mind
+		'The key to pacifying a microbial cluster'
+		'''
+}
+
+RottingCalamitousArtifact: {
+	DisplayName: Rotting Calamitous Artifact
+	Tooltip:
+		'''
+		Summons a pet Sepulchling
+		'The grave rises'
+		'''
+}
+
+RoverSpindle: {
+	DisplayName: Rover Spindle
+	Tooltip:
+		'''
+		Summons a suspiciously familiar Wulfrum Robot
+		'Crusty'
+		'''
+}
+
+RuinedBandage: {
+	DisplayName: Ruined Bandage
+	Tooltip:
+		'''
+		Summons Euros
+		'le punch, le smash, and break a hand'
+		'''
+}
+
+AmberGeode: {
+	DisplayName: Amber Geode
+	Tooltip:
+		'''
+		Summons an Amber Scuttler
+		'Could contain a scuttler'
+		'''
+}
+
+AmethystGeode: {
+	DisplayName: Amethyst Geode
+	Tooltip:
+		'''
+		Summons an Amythest Scuttler
+		'May contain a scuttler'
+		'''
+}
+
+BejeweledSpike: {
+	DisplayName: Bejeweled Spike
+	Tooltip:
+		'''
+		Summons a rainbow Bejeweled Scuttler
+		'A blend of every flavor in one package'
+		'''
+}
+
+CrystalGeode: {
+	DisplayName: Crystal Geode
+	Tooltip:
+		'''
+		Summons a Crystal Scuttler
+		'Might contain a scuttler'
+		'''
+}
+
+DiamondGeode: {
+	DisplayName: Diamond Geode
+	Tooltip:
+		'''
+		Summons a Diamond Scuttler
+		'Can contain a scuttler'
+		'''
+}
+
+EmeraldGeode: {
+	DisplayName: Emerald Geode
+	Tooltip:
+		'''
+		Summons an Emerald Scuttler
+		'Should contain a scuttler'
+		'''
+}
+
+RubyGeode: {
+	DisplayName: Ruby Geode
+	Tooltip:
+		'''
+		Summons a Ruby Scuttler
+		'Possibly contains a scuttler'
+		'''
+}
+
+SapphireGeode: {
+	DisplayName: Sapphire Geode
+	Tooltip:
+		'''
+		Summons an Sapphire Scuttler
+		'Capable of containing a scuttler'
+		'''
+}
+
+TopazGeode: {
+	DisplayName: Topaz Geode
+	Tooltip:
+		'''
+		Summons an Topaz Scuttler
+		'Potentially contains a scuttler'
+		'''
+}
+
+ShadowCloth: {
+	DisplayName: Shadow Cloth
+	Tooltip: Summons an assassin to lurk behind you
+}
+
+Sirember: {
+	DisplayName: ":Sirember:"
+	Tooltip:
+		'''
+		Summons the wrath of the water elemental
+		'Alway Rember...'
+		'''
+}
+
+SkullCluster: {
+	DisplayName: Skull Cluster
+	Tooltip:
+		'''
+		Summons a miniature necrotic flesh golem
+		'Two skulls pop out of the pile with glowing eyes'
+		'''
+}
+
+SlightlyMoistbutalsoSlightlyDryLocket: {
+	DisplayName: Slightly Moist, but also Slightly Dry Locket
+	Tooltip:
+		'''
+		Summons a Slightly Moisturized Pest
+		'There's a worm wriggling in it'
+		'''
+}
+
+SlimeDeitysSoul: {
+	DisplayName: Slime Deity's Soul
+	Tooltip:
+		'''
+		Summons a miniature Slime God core, orbitted by its guards
+		'Power hungry for rot'
+		'''
+}
+
+SmolEldritchHoodie: {
+	DisplayName: Smol Eldritch Hoodie
+	Tooltip:
+		'''
+		Summons a hooded Eidolist
+		'Baby's first hood'
+		'''
+}
+
+SoulShard: {
+	DisplayName: Soul Shard
+	Tooltip:
+		'''
+		Summons an Eidolon Wyrm to follow you
+		'The madness of the abyss echoes through your flesh'
+		'''
+}
+
+SpaceJunk: {
+	DisplayName: Space Junk
+	Tooltip: Summons the forgotten blob of the astral meteor
+}
+
+StormMedal: {
+	DisplayName: Storm Medal
+	Tooltip:
+		'''
+		Summons a young Storm Weaver
+		'Heads or worms?'
+		'''
+}
+
+SunDriedShrimp: {
+	DisplayName: Sun Dried Shrimp
+	Tooltip:
+		'''
+		Summons a little sick sneeze dragon
+		'A crispy snack favored by Cnidrions'
+		'''
+}
+
+SuspiciousLookingChineseCrown: {
+	DisplayName: Suspicious Looking Chinese Crown
+	Tooltip:
+		'''
+		Summons the pure child of cosmic wraith 
+		'She's coming'
+		'''
+}
+
+SuspiciousLookingGBC: {
+	DisplayName: Suspicious Looking GBC
+	Tooltip:
+		'''
+		Summons an abandonded roomba rescued from a trash heap
+		'What could this mean?'
+		'''
+}
+
+TheDragonball: {
+	DisplayName: The Dragonball
+	Tooltip:
+		'''
+		Summons a spherical Dragonfolly
+		Causes failed dragon clones to have identity crises
+		'Uh oh'
+		'''
+}
+
+TheSeaKingsCoin: {
+	DisplayName: The Sea King's Coin
+	Tooltip:
+		'''
+		Summons both the Aquatic and Desert Pests
+		'Blessed with pest power'
+		'''
+}
+
+ToyScythe: {
+	DisplayName: Toy Scythe
+	Tooltip:
+		'''
+		Summons a small Polter-Chan
+		'Belongs to a mischievous spirit'
+		'''
+}
+
+TundraBall: {
+	DisplayName: Tundra Ball
+	Tooltip:
+		'''
+		Summons a very angry puppy
+		'A chew toy said to have the power to tame the angriest of dogs'
+		'''
+}
+
+UglyTentacle: {
+	DisplayName: Ugly Tentacle
+	Tooltip:
+		'''
+		Summons T.U.B
+		'fat'
+		'''
+}
+
+WulfrumController: {
+	DisplayName: Wulfrum Control Panel
+	Tooltip: Allows the user to control an army of mechs
+}
+
+ZygoteinaBucket: {
+	DisplayName: Zygote in a Bucket
+	Tooltip: Summons an ancient ghastly fetus
+}
+
+HypnosPlushThrowable: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+MirePlushThrowableP1: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+MirePlushThrowableP2: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+PutridShroom: {
+	DisplayName: Aromatic Shroom
+	Tooltip:
+		'''
+		Causes the great fungus crab's Crab Shrooms to become passive, but also enrage upon defeat
+		Keeps the small fungal crab on your head, even when moving
+		'Smells like cheese...?'
+		'''
+}
+
+SparrowMeat: {
+	DisplayName: Sparrow Meat
+	Tooltip: There's a bit of pink cloth in it
+}
+
+Termipebbles: {
+	DisplayName: Termipebbles
+	Tooltip:
+		'''
+		Used to craft Terminus-themed vanities
+		'Do NOT eat.'
+		'''
+}
+
+AstralMusicBox: {
+	DisplayName: Music Box (Astral Blight)
+	Tooltip: ""
+}
+
+AuricTrashCan: {
+	DisplayName: Auric Trash Can
+	Tooltip: "'I've lost control of my life'"
+}
+
+TiedBoB2: {
+	DisplayName: Tied Water Balloons
+	Tooltip: ""
+}
+
+TiedBoxBalloon: {
+	DisplayName: Tied Box Balloon
+	Tooltip: ""
+}
+
+TiedChaosBalloon: {
+	DisplayName: Tied Chaos Balloon
+	Tooltip: ""
+}
+
+TiedMirageBalloon: {
+	DisplayName: Tied Mirage Balloon
+	Tooltip: ""
+}
+
+AstragellySlimeBanner: {
+	DisplayName: Astragelly Slime Banner
+	Tooltip: ""
+}
+
+BleamurBanner: {
+	DisplayName: Bleamur Banner
+	Tooltip: ""
+}
+
+CalamitasBanner: {
+	DisplayName: Acursed Banner
+	Tooltip: ""
+}
+
+EyedolBanner: {
+	DisplayName: Eyedol Banner
+	Tooltip: ""
+}
+
+GodSlayerSlugBanner: {
+	DisplayName: God Slayer Slug Banner
+	Tooltip: ""
+}
+
+IsopodBanner: {
+	DisplayName: Isopod Banner
+	Tooltip: ""
+}
+
+SandTurtleBanner: {
+	DisplayName: Sand Turtle Banner
+	Tooltip: ""
+}
+
+VeilBanner: {
+	DisplayName: Veil Banner
+	Tooltip: Great for blocking out the sun!
+}
+
+ViolemurBanner: {
+	DisplayName: Violemur Banner
+	Tooltip: ""
+}
+
+XerocodileBanner: {
+	DisplayName: Xerocodile Banner
+	Tooltip: ""
+}
+
+AstralClay: {
+	DisplayName: Blighted Astral Clay
+	Tooltip: ""
+}
+
+AstralDirt: {
+	DisplayName: Blighted Astral Dirt
+	Tooltip: ""
+}
+
+AstralHardenedSand: {
+	DisplayName: Hardened Blighted Astral Sand
+	Tooltip: ""
+}
+
+AstralIce: {
+	DisplayName: Blighted Astral Ice
+	Tooltip: ""
+}
+
+AstralSand: {
+	DisplayName: Blighted Astral Sand
+	Tooltip: ""
+}
+
+AstralSandstone: {
+	DisplayName: Blighted Astral Sandstone
+	Tooltip: ""
+}
+
+AstralSnow: {
+	DisplayName: Blighted Astral Snow
+	Tooltip: ""
+}
+
+AstralTreeWood: {
+	DisplayName: Xenomonolith
+	Tooltip: ""
+}
+
+Xenostone: {
+	DisplayName: Xenostone
+	Tooltip: ""
+}
+
+AstralBrick: {
+	DisplayName: Blighted Astral Brick
+	Tooltip: ""
+}
+
+AstralGrass: {
+	DisplayName: Blighted Astral Grass Seeds
+	Tooltip: Places grass on blighted astral dirt
+}
+
+AstralPearlBlock: {
+	DisplayName: Astral Pearl Block
+	Tooltip: ""
+}
+
+AstralPlating: {
+	DisplayName: Astral Plating
+	Tooltip: ""
+}
+
+AuricBrick: {
+	DisplayName: Auric Brick
+	Tooltip: ""
+}
+
+AzufreSludge: {
+	DisplayName: Azufre Sludge
+	Tooltip: ""
+}
+
+BlightedEggBlock: {
+	DisplayName: Blighted Egg Block
+	Tooltip: ""
+}
+
+Bloodstone: {
+	DisplayName: Compensation
+	Tooltip: Can be sold
+}
+
+BloodstoneBrick: {
+	DisplayName: Bloodstone Brick
+	Tooltip: ""
+}
+
+ChiseledBloodstone: {
+	DisplayName: Chiseled Bloodstone
+	Tooltip: Used to make Bloodstone furniture
+}
+
+EidolicSlab: {
+	DisplayName: Eidolic Slab
+	Tooltip: ""
+}
+
+FrostflakeBrick: {
+	DisplayName: Frostflake Brick
+	Tooltip: ""
+}
+
+HallowedBrick: {
+	DisplayName: Hallowed Brick
+	Tooltip: ""
+}
+
+MeldBlock: {
+	DisplayName: Meld Block
+	Tooltip: ""
+}
+
+Necrostone: {
+	DisplayName: Necrostone
+	Tooltip: ""
+}
+
+PhantowaxBlock: {
+	DisplayName: Phantowax Block
+	Tooltip: ""
+}
+
+PlagueHiveWand: {
+	DisplayName: Plague Hive Wand
+	Tooltip: Places Plague Hives
+}
+
+PolishedAstralMonolith: {
+	DisplayName: Polished Astral Monolith
+	Tooltip: ""
+}
+
+PolishedXenomonolith: {
+	DisplayName: Polished Xenomonolith
+	Tooltip: ""
+}
+
+ShadowBrick: {
+	DisplayName: Shade Brick
+	Tooltip: ""
+}
+
+AgedBlueprint: {
+	DisplayName: Aged Blueprint
+	Tooltip: Do Not Distribute?
+}
+
+AstrumAureusLog: {
+	DisplayName: Astrum Aureus Blueprint
+	Tooltip: Do Not Distribute
+}
+
+BumblebirbLog: {
+	DisplayName: "[SCRAPPED] Yharon Cloning Project Blueprint"
+	Tooltip: Do Not Distribute
+}
+
+CalamitasLog: {
+	DisplayName: Calamitas Cloning Project Blueprint
+	Tooltip: Do Not Distribute
+}
+
+DestroyerLog: {
+	DisplayName: Destroyer Blueprint
+	Tooltip: Do Not Distribute
+}
+
+DogLog: {
+	DisplayName: Cosmilite Plating Blueprint
+	Tooltip: Do Not Distribute
+}
+
+MurasamaLog: {
+	DisplayName: Murasama Blueprint
+	Tooltip: Do Not Distribute
+}
+
+OrthoceraLog: {
+	DisplayName: Orthocera Exile Plan
+	Tooltip: Please Distribute
+}
+
+PlagueLog: {
+	DisplayName: Plague Blueprint
+	Tooltip: Do Not Distribute
+}
+
+PrimeLog: {
+	DisplayName: Skeletron Prime Blueprint
+	Tooltip: Do Not Distribute
+}
+
+SamLog: {
+	DisplayName: Murasama Blueprint EX
+	Tooltip: Do Not Distribute
+}
+
+TwinsLog: {
+	DisplayName: Twins Blueprint
+	Tooltip: Do Not Distribute
+}
+
+YharmorLog: {
+	DisplayName: Auric Armor Blueprint
+	Tooltip: Do Not Distribute
+}
+
+BoiMachine: {
+	DisplayName: Binding of Anahita Machine
+	Tooltip:
+		'''
+		INCOMPLETE ITEM, EXTREMELY UNSTABLE
+		Roguelike game
+		'''
+}
+
+BrimstoneHeart: {
+	DisplayName: Hanging Brimstone Heart
+	Tooltip: Plus Up
+}
+
+AstJar: {
+	DisplayName: Astral Jelly Jar
+	Tooltip: ""
+}
+
+BleamurPerch: {
+	DisplayName: Bleamur Perch
+	Tooltip: ""
+}
+
+BlinkerInABottle: {
+	DisplayName: Blinker in a Bottle
+	Tooltip: ""
+}
+
+CrystalFlyJar: {
+	DisplayName: Crystal Butterfly Jar
+	Tooltip: ""
+}
+
+EyedolTerrarium: {
+	DisplayName: Eyedol Cage
+	Tooltip: ""
+}
+
+GAstJar: {
+	DisplayName: Gold Astral Jelly Jar
+	Tooltip: ""
+}
+
+GoldenIsopodTerrarium: {
+	DisplayName: Gold Isopod Cage
+	Tooltip: ""
+}
+
+GoldEyedolTerrarium: {
+	DisplayName: Gold Eyedol Cage
+	Tooltip: ""
+}
+
+GoldViolemurMonolith: {
+	DisplayName: Gold Violemur Perch
+	Tooltip: ""
+}
+
+IsopodTerrarium: {
+	DisplayName: Isopod Cage
+	Tooltip: ""
+}
+
+NukeJar: {
+	DisplayName: Vaporofly in a Jar
+	Tooltip: ""
+}
+
+OrthoJar: {
+	DisplayName: Orthocera in a Jar
+	Tooltip: ""
+}
+
+PlagueFrogTerrarium: {
+	DisplayName: Plagued Frog Cage
+	Tooltip: ""
+}
+
+ProvFlyJar: {
+	DisplayName: Blazing Butterfly Jar
+	Tooltip: ""
+}
+
+SandTurtleCage: {
+	DisplayName: Sand Turtle Cage
+	Tooltip: ""
+}
+
+SlugTerrarium: {
+	DisplayName: God Slayer Slug Cage
+	Tooltip: ""
+}
+
+SwearshroomCage: {
+	DisplayName: Swearshroom Cage
+	Tooltip: ""
+}
+
+ViolemurMonolith: {
+	DisplayName: Violemur Perch
+	Tooltip: ""
+}
+
+XerocodileCage: {
+	DisplayName: Xerocodile Cage
+	Tooltip: ""
+}
+
+CalamityLamp: {
+	DisplayName: Brimstone Flambeau
+	Tooltip: Something malicious is brewing
+}
+
+CosmiliteChairEX: {
+	DisplayName: Cosmilite Monobloc Chair
+	Tooltip: ""
+}
+
+DecommissionedDaedalusGolem: {
+	DisplayName: Decommissioned Daedalus Golem
+	Tooltip: "'4.3%...'"
+}
+
+DemonShield: {
+	DisplayName: Demon Ram Shield
+	Tooltip: "'It's too big to wear'"
+}
+
+DisrepairUnit: {
+	DisplayName: Disrepair Unit
+	Tooltip: "'You're sick in the head'"
+}
+
+Evolution: {
+	DisplayName: Toy Evolution
+	Tooltip: "'Pondering the orb...'"
+}
+
+AgedRustGamingTable: {
+	DisplayName: Aged Lab Gaming Table
+	Tooltip: G@m3 0n1
+}
+
+RustGamingTable: {
+	DisplayName: Lab Gaming Table
+	Tooltip: Game On!
+}
+
+RustGamingTable2: {
+	DisplayName: Lab Gaming Table 2
+	Tooltip: "'Technically a spinoff'"
+}
+
+OldAstralBathtubItem: {
+	DisplayName: Xenomonolith Bathtub
+	Tooltip: ""
+}
+
+OldAstralBedItem: {
+	DisplayName: Xenomonolith Bed
+	Tooltip: ""
+}
+
+OldAstralBookshelfItem: {
+	DisplayName: Xenomonolith Bookcase
+	Tooltip: ""
+}
+
+OldAstralCandelabraItem: {
+	DisplayName: Xenomonolith Candelabra
+	Tooltip: ""
+}
+
+OldAstralCandleItem: {
+	DisplayName: Xenomonolith Candle
+	Tooltip: ""
+}
+
+OldAstralChairItem: {
+	DisplayName: Xenomonolith Chair
+	Tooltip: ""
+}
+
+OldAstralChandelierItem: {
+	DisplayName: Xenomonolith Chandelier
+	Tooltip: ""
+}
+
+OldAstralChestItem: {
+	DisplayName: Xenomonolith Chest
+	Tooltip: ""
+}
+
+OldAstralClockItem: {
+	DisplayName: Xenomonolith Grandfather Clock
+	Tooltip: ""
+}
+
+OldAstralDoorItem: {
+	DisplayName: Xenomonolith Door
+	Tooltip: ""
+}
+
+OldAstralDresserItem: {
+	DisplayName: Xenomonolith Dresser
+	Tooltip: ""
+}
+
+OldAstralLampItem: {
+	DisplayName: Xenomonolith Lamp
+	Tooltip: ""
+}
+
+OldAstralLanternItem: {
+	DisplayName: Xenomonolith Lantern
+	Tooltip: ""
+}
+
+OldAstralPianoItem: {
+	DisplayName: Xenomonolith Pipe Organ
+	Tooltip: ""
+}
+
+OldAstralSinkItem: {
+	DisplayName: Xenomonolith Sink
+	Tooltip: ""
+}
+
+OldAstralSofaItem: {
+	DisplayName: Xenomonolith Bench
+	Tooltip: ""
+}
+
+OldAstralTableItem: {
+	DisplayName: Xenomonolith Table
+	Tooltip: ""
+}
+
+OldAstralWorkbenchItem: {
+	DisplayName: Xenomonolith Work Bench
+	Tooltip: ""
+}
+
+AuricBathtubItem: {
+	DisplayName: Auric Bathtub
+	Tooltip: ""
+}
+
+AuricBedItem: {
+	DisplayName: Auric Bed
+	Tooltip: ""
+}
+
+AuricBookshelfItem: {
+	DisplayName: Auric Bookcase
+	Tooltip: ""
+}
+
+AuricCandelabraItem: {
+	DisplayName: Auric Candelabra
+	Tooltip: ""
+}
+
+AuricCandleItem: {
+	DisplayName: Auric Candle
+	Tooltip: ""
+}
+
+AuricChairItem: {
+	DisplayName: Auric Chair
+	Tooltip: ""
+}
+
+AuricChandelierItem: {
+	DisplayName: Auric Chandelier
+	Tooltip: ""
+}
+
+AuricChestItem: {
+	DisplayName: Auric Chest
+	Tooltip: ""
+}
+
+AuricClockItem: {
+	DisplayName: Auric Grandfather Clock
+	Tooltip: ""
+}
+
+AuricDoorItem: {
+	DisplayName: Auric Door
+	Tooltip: ""
+}
+
+AuricDresserItem: {
+	DisplayName: Auric Dresser
+	Tooltip: ""
+}
+
+AuricLampItem: {
+	DisplayName: Auric Lamp
+	Tooltip: ""
+}
+
+AuricLanternItem: {
+	DisplayName: Auric Lantern
+	Tooltip: ""
+}
+
+AuricManufacturer: {
+	DisplayName: Auric Manufacturer
+	Tooltip: Used for special crafting
+}
+
+AuricPianoItem: {
+	DisplayName: Auric Piano
+	Tooltip: ""
+}
+
+AuricPlatformItem: {
+	DisplayName: Chiseled Auric Platform
+	Tooltip: ""
+}
+
+AuricSinkItem: {
+	DisplayName: Auric Sink
+	Tooltip: ""
+}
+
+AuricSofaItem: {
+	DisplayName: Auric Sofa
+	Tooltip: ""
+}
+
+AuricTableItem: {
+	DisplayName: Auric Table
+	Tooltip: ""
+}
+
+AuricWorkbenchItem: {
+	DisplayName: Auric Work Bench
+	Tooltip: ""
+}
+
+BloodstoneBathtubItem: {
+	DisplayName: Bloodstone Bathtub
+	Tooltip: ""
+}
+
+BloodstoneBedItem: {
+	DisplayName: Bloodstone Bed
+	Tooltip: ""
+}
+
+BloodstoneBookshelfItem: {
+	DisplayName: Bloodstone Bookcase
+	Tooltip: ""
+}
+
+BloodstoneCandelabraItem: {
+	DisplayName: Bloodstone Candelabra
+	Tooltip: ""
+}
+
+BloodstoneCandleItem: {
+	DisplayName: Bloodstone Candle
+	Tooltip: ""
+}
+
+BloodstoneChairItem: {
+	DisplayName: Bloodstone Chair
+	Tooltip: ""
+}
+
+BloodstoneChandelierItem: {
+	DisplayName: Bloodstone Chandelier
+	Tooltip: ""
+}
+
+BloodstoneChestItem: {
+	DisplayName: Bloodstone Chest
+	Tooltip: ""
+}
+
+BloodstoneClockItem: {
+	DisplayName: Bloodstone Grandfather Clock
+	Tooltip: ""
+}
+
+BloodstoneDoorItem: {
+	DisplayName: Bloodstone Door
+	Tooltip: ""
+}
+
+BloodstoneDresserItem: {
+	DisplayName: Bloodstone Dresser
+	Tooltip: ""
+}
+
+BloodstoneLampItem: {
+	DisplayName: Bloodstone Lamp
+	Tooltip: ""
+}
+
+BloodstoneLanternItem: {
+	DisplayName: Bloodstone Lantern
+	Tooltip: ""
+}
+
+BloodstonePianoItem: {
+	DisplayName: Bloodstone Piano
+	Tooltip: ""
+}
+
+BloodstonePlatformItem: {
+	DisplayName: Chiseled Bloodstone Platform
+	Tooltip: ""
+}
+
+BloodstoneSinkItem: {
+	DisplayName: Bloodstone Sink
+	Tooltip: ""
+}
+
+BloodstoneSofaItem: {
+	DisplayName: Bloodstone Sofa
+	Tooltip: ""
+}
+
+BloodstoneTableItem: {
+	DisplayName: Bloodstone Table
+	Tooltip: ""
+}
+
+BloodstoneWorkbenchItem: {
+	DisplayName: Bloodstone Work Bench
+	Tooltip: ""
+}
+
+NecroticTorch: {
+	DisplayName: Necrotic Torch
+	Tooltip: ""
+}
+
+Ravamper: {
+	DisplayName: Necrotic Bonfire
+	Tooltip: Praise the sun!
+}
+
+PhantowaxBathtubItem: {
+	DisplayName: Phantowax Bathtub
+	Tooltip: ""
+}
+
+PhantowaxBedItem: {
+	DisplayName: Phantowax Bed
+	Tooltip: ""
+}
+
+PhantowaxBookshelfItem: {
+	DisplayName: Phantowax Bookcase
+	Tooltip: ""
+}
+
+PhantowaxCandelabraItem: {
+	DisplayName: Phantowax Candelabra
+	Tooltip: ""
+}
+
+PhantowaxCandleItem: {
+	DisplayName: Phantowax Candle
+	Tooltip: ""
+}
+
+PhantowaxChairItem: {
+	DisplayName: Phantowax Chair
+	Tooltip: ""
+}
+
+PhantowaxChandelierItem: {
+	DisplayName: Phantowax Chandelier
+	Tooltip: ""
+}
+
+PhantowaxChestItem: {
+	DisplayName: Phantowax Chest
+	Tooltip: ""
+}
+
+PhantowaxClockItem: {
+	DisplayName: Phantowax Grandfather Clock
+	Tooltip: ""
+}
+
+PhantowaxDoorItem: {
+	DisplayName: Phantowax Door
+	Tooltip: ""
+}
+
+PhantowaxDresserItem: {
+	DisplayName: Phantowax Dresser
+	Tooltip: ""
+}
+
+PhantowaxLampItem: {
+	DisplayName: Phantowax Lamp
+	Tooltip: ""
+}
+
+PhantowaxLanternItem: {
+	DisplayName: Phantowax Lantern
+	Tooltip: ""
+}
+
+PhantowaxPianoItem: {
+	DisplayName: Phantowax Piano
+	Tooltip: ""
+}
+
+PhantowaxPlatformItem: {
+	DisplayName: Phantowax Platform
+	Tooltip: ""
+}
+
+PhantowaxSinkItem: {
+	DisplayName: Phantowax Sink
+	Tooltip: ""
+}
+
+PhantowaxSofaItem: {
+	DisplayName: Phantowax Sofa
+	Tooltip: ""
+}
+
+PhantowaxTableItem: {
+	DisplayName: Phantowax Table
+	Tooltip: ""
+}
+
+PhantowaxWorkbenchItem: {
+	DisplayName: Phantowax Work Bench
+	Tooltip: ""
+}
+
+WulfrumGlobe: {
+	DisplayName: Wulfrum Globe
+	Tooltip: Spin spin spin
+}
+
+HeartoftheCommunity: {
+	DisplayName: Heart of the Community
+	Tooltip: My greatest creation, handle it with care
+}
+
+Help: {
+	DisplayName: Stuck Orthocera
+	Tooltip:
+		'''
+		Can be fed Green Mushrooms
+		'Help me'
+		'''
+}
+
+Hesfine: {
+	DisplayName: Orthocera Jacuzzi
+	Tooltip: "':Grab:'"
+}
+
+InactivePowerFactory: {
+	DisplayName: Compensation
+	Tooltip: Can be sold
+}
+
+JunkArt: {
+	DisplayName: Reconstructed Particle Accelerator
+	Tooltip: "'Reassembled from old blueprints. The flower inside has grown vibrantly after five years.'"
+}
+
+MireAquarium: {
+	DisplayName: Mire Aquarium
+	Tooltip: "'Hopefully it doesn't try to break out...'"
+}
+
+AquaticMonolith: {
+	DisplayName: Tiny Decapitated Leviathan Head
+	Tooltip: Why would you even want this
+}
+
+AuroraMonolith: {
+	DisplayName: Bittercold Construct
+	Tooltip: "'][[]][][][][[]'"
+}
+
+CalamitousMonolith: {
+	DisplayName: Calamitous Ritual Basin
+	Tooltip: The fire dances above it with entertaining intent
+}
+
+DimensionalMonolith: {
+	DisplayName: Dimensional Obelisk
+	Tooltip: It appears to be trying to signal something, with no success
+}
+
+ExoMonolith: {
+	DisplayName: Gunmetal Mechanism
+	Tooltip: ""
+}
+
+InfernalMonolith: {
+	DisplayName: Infernal Altar
+	Tooltip: The flame roars with uselessness
+}
+
+PlagueMonolith: {
+	DisplayName: Plague Dialysis Machine
+	Tooltip: ""
+}
+
+UnholyMonolith: {
+	DisplayName: Profaned Fountain
+	Tooltip: "'No, it doesn't change any liquid colors'"
+}
+
+MoulderingAltarItem: {
+	DisplayName: Mouldering Altar
+	Tooltip: Counts as a demon altar
+}
+
+AccidentalAbominationn: {
+	DisplayName: Accidental Abomination
+	Tooltip: "'Maple'"
+}
+
+BlazingConflict: {
+	DisplayName: Blazing Conflict
+	Tooltip:
+		'''
+		'Fire vs fire'
+		'Yharex'
+		'''
+}
+
+CalamiteaTime: {
+	DisplayName: Calamitea Time
+	Tooltip: Original by 'caligulas,' repainted by 'Maple'
+}
+
+CalamityFriends: {
+	DisplayName: Little Buddies
+	Tooltip:
+		'''
+		'Friends!'
+		'Mochi'
+		'''
+}
+
+CalamityPaint: {
+	DisplayName: An Ancient Calamity
+	Tooltip: "'Blockaroz'"
+}
+
+CalamityPaintRetold: {
+	DisplayName: A Calamity
+	Tooltip: "'IbanPlay'"
+}
+
+CirrusBooze: {
+	DisplayName: A Fine Chalice
+	Tooltip:
+		'''
+		'A fine chalice indeed'
+		'TimerFun'
+		'''
+}
+
+Clam: {
+	DisplayName: Ohayou!
+	Tooltip: "'Yharex'"
+}
+
+CosmicTerror: {
+	DisplayName: Cosmic Terror
+	Tooltip: "'Giacomo'"
+}
+
+DarkMagic: {
+	DisplayName: Dark Magic
+	Tooltip: "'Maple'"
+}
+
+DraedonPopcorn: {
+	DisplayName: The Mechanical Gamer
+	Tooltip: "'Maple'"
+}
+
+Duality: {
+	DisplayName: Duality
+	Tooltip: "'Maple'"
+}
+
+Espelho: {
+	DisplayName: Espelho
+	Tooltip: "'Triangle'"
+}
+
+EyeofXeroc: {
+	DisplayName: The Eye of Xeroc
+	Tooltip: "'PokerFace'"
+}
+
+Frozen: {
+	DisplayName: Frozen
+	Tooltip: "'Maple'"
+}
+
+GallusYharus: {
+	DisplayName: Gallus Yharus
+	Tooltip:
+		'''
+		'A grand thank you to a wonderful woman and guardian'
+		'Willow'
+		'''
+}
+
+LostSouls: {
+	DisplayName: Lost Souls
+	Tooltip:
+		'''
+		'Lost and Afraid'
+		'Maple'
+		'''
+}
+
+ModIconPainting: {
+	DisplayName: Calamity's Vanities
+	Tooltip: "'IbanPlay and Enamoured'"
+}
+
+NotLikeHome: {
+	DisplayName: Not Like Home
+	Tooltip:
+		'''
+		'Friends!'
+		'Maple'
+		'''
+}
+
+OldModIconPainting: {
+	DisplayName: Calamity's Vanities (old)
+	Tooltip:
+		'''
+		'Old!!!'
+		'Yharex'
+		'''
+}
+
+OldUCMMPainting: {
+	DisplayName: Vanilla Calamity Mod Music (old)
+	Tooltip:
+		'''
+		'Vintage tunes'
+		'Heart Plus Up!'
+		'''
+}
+
+Plague22: {
+	DisplayName: "22"
+	Tooltip:
+		'''
+		'Accursed number'
+		'Willow'
+		'''
+}
+
+RogueExtractor: {
+	DisplayName: Rogue Extractor
+	Tooltip:
+		'''
+		'Maple'
+
+		'''
+}
+
+Scourgy: {
+	DisplayName: Scourgy
+	Tooltip: "'Maple'"
+}
+
+Signut: {
+	DisplayName: Signut
+	Tooltip:
+		'''
+		'Don't judge me, being trapped in ice for a long time does stuff to your mind'
+		'Yharex'
+		'''
+}
+
+SleepingGiant: {
+	DisplayName: Sleeping Behemoth
+	Tooltip: "'Maple'"
+}
+
+Snouts: {
+	DisplayName: Snouts
+	Tooltip: "'Maple'"
+}
+
+SundayAfternoon: {
+	DisplayName: A Sunday Afternoon in the World of Calamity
+	Tooltip: "'Maple'"
+}
+
+SwearingShroom: {
+	DisplayName: Angry Shroom
+	Tooltip: "'Maple'"
+}
+
+TheGreatSandworm: {
+	DisplayName: The Great Sandworm
+	Tooltip: "'Maple'"
+}
+
+TheYhar: {
+	DisplayName: ":THE_YHAR:"
+	Tooltip: "'You gotta admit, he's a very cool dude despite his crimes'"
+}
+
+UCMMPainting: {
+	DisplayName: Vanilla Calamity Mod Music
+	Tooltip:
+		'''
+		'World of sound'
+		'IbanPlay'
+		'''
+}
+
+UnholyTrip: {
+	DisplayName: Unholy Trip
+	Tooltip: "'Triangle'"
+}
+
+VVanities: {
+	DisplayName: V for Vanities!
+	Tooltip:
+		'''
+		'V!'
+		'Willow'
+		'''
+}
+
+WilliamPainting: {
+	DisplayName: Calamity's Vanities (alt)
+	Tooltip: "'Giacomo'"
+}
+
+WormHeaven: {
+	DisplayName: Worm to the Heavens
+	Tooltip:
+		'''
+		'One day...'
+		'Maple'
+		'''
+}
+
+Yharlamitas: {
+	DisplayName: Calamity Moment
+	Tooltip: Wait...
+}
+
+PlagueDialysis: {
+	DisplayName: Swarmer Conservation Tube
+	Tooltip: "'Sealed away for eternity'"
+}
+
+AcidGun: {
+	DisplayName: Acid Tape Dispenser
+	Tooltip: Places an infinite amount of Sulphurous Vines
+}
+
+Anemone: {
+	DisplayName: Potted Anemone
+	Tooltip: ""
+}
+
+AstralOldPurple: {
+	DisplayName: Potted Purple Xenomonolith
+	Tooltip: ""
+}
+
+AstralOldYellow: {
+	DisplayName: Potted Yellow Xenomonolith
+	Tooltip: ""
+}
+
+BelchingCoral: {
+	DisplayName: Sulphuric Coral
+	Tooltip: "'Don't put your bare hand into it'"
+}
+
+BloodstoneRoses: {
+	DisplayName: Bloodstone Roses
+	Tooltip: ""
+}
+
+BotanicPot: {
+	DisplayName: Botanic Bonsai
+	Tooltip: ""
+}
+
+BrainCoral: {
+	DisplayName: Potted Brain Coral
+	Tooltip: ""
+}
+
+EidolonTree: {
+	DisplayName: Eidolic Tree
+	Tooltip: ""
+}
+
+FanCoral: {
+	DisplayName: Potted Fan Coral
+	Tooltip: ""
+}
+
+FleshThing: {
+	DisplayName: Living Grass
+	Tooltip: A strange fleshy substance birthed by the crimson and cared for by Draedon
+}
+
+HolyStudedBonsai: {
+	DisplayName: Holy Studded Bonsai
+	Tooltip: ""
+}
+
+MonolithPot: {
+	DisplayName: Potted Astral Monolith
+	Tooltip: ""
+}
+
+NetherTree: {
+	DisplayName: Twisting Nether Sapling
+	Tooltip: Vicious
+}
+
+NetherTreeBig: {
+	DisplayName: Twisting Nether Tree
+	Tooltip: Vehement
+}
+
+OddMushroomPot: {
+	DisplayName: Odd Mushroom Pot
+	Tooltip: Now you can grow your own shrooms!... Not really
+}
+
+PottedDecapoditaSprout: {
+	DisplayName: Potted Decapodita Sprout
+	Tooltip: Have a fungus
+}
+
+SSCoral: {
+	DisplayName: Potted Sunken Coral
+	Tooltip: ""
+}
+
+SulphurousCactus: {
+	DisplayName: Potted Sulphurous Cactus
+	Tooltip: ""
+}
+
+SulphurousPlanter: {
+	DisplayName: Acid Vine Planter
+	Tooltip: You are baffled by how they are standing up
+}
+
+TableCoral: {
+	DisplayName: Potted Table Coral
+	Tooltip: ""
+}
+
+AnahitaPlush: {
+	DisplayName: Anahita Plushie
+	Tooltip: Right click to throw!
+}
+
+ApolloPlush: {
+	DisplayName: Apollo Plushie
+	Tooltip: Right click to throw!
+}
+
+AquaticScourgePlush: {
+	DisplayName: Aquatic Scourge Plushie
+	Tooltip: Right click to throw!
+}
+
+AresPlush: {
+	DisplayName: Ares Plushie
+	Tooltip: Right click to throw!
+}
+
+ArtemisPlush: {
+	DisplayName: Artemis Plushie
+	Tooltip: Right click to throw!
+}
+
+AstrageldonPlush: {
+	DisplayName: Astrageldon Plushie
+	Tooltip: Right click to throw!
+}
+
+AstrumAureusPlush: {
+	DisplayName: Astrum Aureus Plushie
+	Tooltip: Right click to throw!
+}
+
+AstrumDeusPlush: {
+	DisplayName: Astrum Deus Plushie
+	Tooltip: Right click to throw!
+}
+
+BrimstoneElementalPlush: {
+	DisplayName: Brimstone Elemental Plushie
+	Tooltip: Right click to throw!
+}
+
+BumblefuckPlush: {
+	DisplayName: Dragonfolly Plushie
+	Tooltip: Right click to throw!
+}
+
+CalamitasFumo: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+CeaselessVoidPlush: {
+	DisplayName: Ceaseless Void Plushie
+	Tooltip: Right click to throw!
+}
+
+ClonePlush: {
+	DisplayName: Calamitas Clone Plushie
+	Tooltip: Right click to throw!
+}
+
+CrabulonPlush: {
+	DisplayName: Crabulon Plushie
+	Tooltip: Right click to throw!
+}
+
+CryogenPlush: {
+	DisplayName: Cryogen Plushie
+	Tooltip: Right click to throw!
+}
+
+DesertScourgePlush: {
+	DisplayName: Desert Scourge Plushie
+	Tooltip: Right click to throw!
+}
+
+DevourerofGodsPlush: {
+	DisplayName: Devourer of Gods Plushie
+	Tooltip: Right click to throw!
+}
+
+DraedonPlush: {
+	DisplayName: Draedon Plushie
+	Tooltip: Right click to throw!
+}
+
+GiantClamPlush: {
+	DisplayName: Giant Clam Plushie
+	Tooltip: Right click to throw!
+}
+
+HiveMindPlush: {
+	DisplayName: Hive Mind Plushie
+	Tooltip: Right click to throw!
+}
+
+HypnosPlush: {
+	DisplayName: Hypnos Plushie
+	Tooltip: Right click to throw!
+}
+
+JaredPlush: {
+	DisplayName: Primordial Wyrm Plushie
+	Tooltip: Right click to throw!
+}
+
+LeviathanPlush: {
+	DisplayName: Leviathan Plushie
+	Tooltip: Right click to throw!
+}
+
+MaulerPlush: {
+	DisplayName: Mauler Plushie
+	Tooltip: Right click to throw!
+}
+
+MirePlushP1: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+MirePlushP2: {
+	DisplayName: Compensation
+	Tooltip: Deprecated item
+}
+
+NuclearTerrorPlush: {
+	DisplayName: Nuclear Terror Plushie
+	Tooltip: Right click to throw!
+}
+
+OldDukePlush: {
+	DisplayName: Old Duke Plushie
+	Tooltip: Right click to throw!
+}
+
+PerforatorPlush: {
+	DisplayName: Perforator Plushie
+	Tooltip: Right click to throw!
+}
+
+PlaguebringerGoliathPlush: {
+	DisplayName: Plaguebringer Goliath Plushie
+	Tooltip: Right click to throw!
+}
+
+PolterghastPlush: {
+	DisplayName: Polterghast Plushie
+	Tooltip: Right click to throw!
+}
+
+ProfanedGuardianPlush: {
+	DisplayName: Profaned Guardian Plushie
+	Tooltip: Right click to throw!
+}
+
+ProvidencePlush: {
+	DisplayName: Providence Plushie
+	Tooltip: Right click to throw!
+}
+
+RavagerPlush: {
+	DisplayName: Ravager Plushie
+	Tooltip: Right click to throw!
+}
+
+SandSharkPlush: {
+	DisplayName: Great Sand Shark Plushie
+	Tooltip: Right click to throw!
+}
+
+SignusPlush: {
+	DisplayName: Signus Plushie
+	Tooltip: Right click to throw!
+}
+
+SlimeGodPlush: {
+	DisplayName: Slime God Plushie
+	Tooltip: Right click to throw!
+}
+
+StormWeaverPlush: {
+	DisplayName: Storm Weaver Plushie
+	Tooltip: Right click to throw!
+}
+
+ThanatosPlush: {
+	DisplayName: Thanatos Plushie
+	Tooltip: Right click to throw!
+}
+
+YharonPlush: {
+	DisplayName: Yharon Plushie
+	Tooltip: Right click to throw!
+}
+
+PongMachine: {
+	DisplayName: Pong Machine
+	Tooltip:
+		'''
+		INCOMPLETE ITEM, EXTREMELY UNSTABLE
+		Pong game
+		'''
+}
+
+RespirationShrine: {
+	DisplayName: Respiration Shrine
+	Tooltip:
+		'''
+		Provides infinite breath in the Abyss within a certain radius, for your Abyss base needs.
+		Deactivating will near instantly cause you to start drowning
+		'Basically cheating.'
+		'''
+}
+
+Ribrod: {
+	DisplayName: Compensation
+	Tooltip: Can be sold
+}
+
+RoxFake: {
+	DisplayName: Compensation
+	Tooltip: Can be sold
+}
+
+SailfishTrophy: {
+	DisplayName: Sailfish Trophy
+	Tooltip:
+		'''
+		'What if it were you 
+		hanging up on this wall?'
+		'''
+}
+
+SchematicDisplay: {
+	DisplayName: Schematic Display
+	Tooltip:
+		'''
+		Displays a letter
+		<right> to display another letter
+		'''
+}
+
+Se: {
+	DisplayName: Tubeman of Entropy
+	Tooltip:
+		'''
+		Inflates into a flailing Sepulcher balloon
+		'Embrace chaos'
+		'''
+}
+
+StarstruckSynthesizer: {
+	DisplayName: Starstruck Synthesizer
+	Tooltip: Used for special crafting
+}
+
+C: {
+	DisplayName: Statue of Calamity
+	Tooltip: A tale begins
+}
+
+EyedolStatue: {
+	DisplayName: Eyedol Statue
+	Tooltip: ""
+}
+
+IsopodStatue: {
+	DisplayName: Abyssal Isopod Statue
+	Tooltip: ""
+}
+
+Knight: {
+	DisplayName: Earthen Knight Statue
+	Tooltip: "'Not tournament legal'"
+}
+
+NukeFlyStatue: {
+	DisplayName: Vaporofly Statue
+	Tooltip: ""
+}
+
+PlagueFrogStatue: {
+	DisplayName: Plague Frog Statue
+	Tooltip: ""
+}
+
+Provibust: {
+	DisplayName: Profaned Idol
+	Tooltip: "'I shall die for you m'lord'"
+}
+
+ShrineoftheTides: {
+	DisplayName: Shrine of the Tides
+	Tooltip: My gift to the Water Elemental
+}
+
+ViolemurStatue: {
+	DisplayName: Violemur Statue
+	Tooltip: ""
+}
+
+SulphurColumn: {
+	DisplayName: Compensation
+	Tooltip: Can be sold
+}
+
+SulphurGeyser: {
+	DisplayName: Steam Geyser
+	Tooltip:
+		'''
+		Right click to cycle between variants
+		'Hazardous! Be careful!'
+		'''
+}
+
+SulphuricTank: {
+	DisplayName: Sulphuric Tank
+	Tooltip: ZZZX93
+}
+
+SunkenLamp: {
+	DisplayName: Sunken Lamp
+	Tooltip: Trippy
+}
+
+TerminusShrine: {
+	DisplayName: Terminus Shrine
+	Tooltip: An altar made to hold the apocalyptic artifact
+}
+
+TerminusShrine2: {
+	DisplayName: Terminus Shrine Level 2
+	Tooltip: An altar witholding an apocalyptic artifact
+}
+
+TerminusShrine3: {
+	DisplayName: Terminus Shrine Level 3
+	Tooltip: The End.
+}
+
+Tesla: {
+	DisplayName: Storm Coil
+	Tooltip: Zap
+}
+
+VisceralAltarItem: {
+	DisplayName: Visceral Altar
+	Tooltip: Counts as a crimson altar
+}
+
+VoidPortal: {
+	DisplayName: Void Portal
+	Tooltip: The void calls out
+}
+
+YellowSeaFountain: {
+	DisplayName: Yellow Sea Fountain
+	Tooltip: ""
+}
+
+AstralDirtWall: {
+	DisplayName: Blighted Astral Dirt Wall
+	Tooltip: ""
+}
+
+AstralGrassWall: {
+	DisplayName: Blighted Astral Grass Wall
+	Tooltip: ""
+}
+
+AstralHardenedSandWall: {
+	DisplayName: Hardened Blighted Astral Sand Wall
+	Tooltip: ""
+}
+
+AstralIceWall: {
+	DisplayName: Blighted Astral Ice Wall
+	Tooltip: ""
+}
+
+AstralSandstoneWall: {
+	DisplayName: Blighted Astral Sandstone Wall
+	Tooltip: ""
+}
+
+XenomonolithWall: {
+	DisplayName: Xenomonolith Wall
+	Tooltip: ""
+}
+
+XenostoneWall: {
+	DisplayName: Xenostone Wall
+	Tooltip: ""
+}
+
+AstralBrickWall: {
+	DisplayName: Blighted Astral Brick Wall
+	Tooltip: ""
+}
+
+AstralPearlWall: {
+	DisplayName: Astral Pearl Wall
+	Tooltip: ""
+}
+
+AstralPlatingWall: {
+	DisplayName: Astral Plating Wall
+	Tooltip: ""
+}
+
+AuricBrickWall: {
+	DisplayName: Auric Brick Wall
+	Tooltip: ""
+}
+
+BlightedEggWall: {
+	DisplayName: Blighted Egg Wall
+	Tooltip: ""
+}
+
+BloodstoneBrickWall: {
+	DisplayName: Bloodstone Brick Wall
+	Tooltip: ""
+}
+
+BloodstoneWall: {
+	DisplayName: Bloodstone Wall
+	Tooltip: ""
+}
+
+ChiseledBloodstoneBrickWall: {
+	DisplayName: Chiseled Bloodstone Brick Wall
+	Tooltip: ""
+}
+
+EidolicSlabWall: {
+	DisplayName: Eidolic Slab Wall
+	Tooltip: ""
+}
+
+FrostflakeWall: {
+	DisplayName: Frostflake Brick Wall
+	Tooltip: ""
+}
+
+HallowedBrickWall: {
+	DisplayName: Hallowed Brick Wall
+	Tooltip: ""
+}
+
+MossyGravelWall: {
+	DisplayName: Compensation
+	Tooltip: Can be sold
+}
+
+NecrostoneWall: {
+	DisplayName: Necrostone Wall
+	Tooltip: ""
+}
+
+PhantowaxWall: {
+	DisplayName: Phantowax Wall
+	Tooltip: ""
+}
+
+PlagueHiveWall: {
+	DisplayName: Plague Hive Wall
+	Tooltip: ""
+}
+
+PolishedAstralMonolithWall: {
+	DisplayName: Polished Astral Monolith Wall
+	Tooltip: ""
+}
+
+PolishedXenomonolithWall: {
+	DisplayName: Polished Xenomonolith Wall
+	Tooltip: ""
+}
+
+ShadowBrickWall: {
+	DisplayName: Shade Brick Wall
+	Tooltip: ""
+}
+
+WulfrumPanelWall: {
+	DisplayName: Wulfrum Panel Wall
+	Tooltip: ""
+}
+
+XenoSolution: {
+	DisplayName: Blighted Astral Solution
+	Tooltip:
+		'''
+		Used by the Clentaminator
+		Spreads the Astral Blight
+		'''
+}
+
+YellowSolution: {
+	DisplayName: Compensation
+	Tooltip: Can be sold
+}
+
+KnowledgeFogbound: {
+	DisplayName: Fogbound
+	Tooltip: ""
+	Lore:
+		'''
+		Undoubtedly one of the most threatening beings in Terraria, for even I nearly lost my life in my encounter with him.
+		Upon readying my final blow against the Death God, he cowardly split his soul from his body in hopes to evade his demise.
+		His incorporeal form returned to haunt me as the Fogbound, and attempted to cut my life short before I could formulate a strategic retreat.
+		Fortunately, however, he had a fatal weakness: as his physical body withered away, so too did the brain that his ghostly form still relied on.
+		Using his newfound lack of wits to my advantage, I led him into a carefully laid trap containing sealing runes placed by the Archmage.
+		It was a success. I swiftly sealed the spirit away inside the nearest object to myself, with fate deeming my jester an adequate vessel.
+		Ironic that of all the gods, it was the one who’s domain was Death that feared dying the most.
+		'''
+	ShortTooltip:
+		'''
+		[c/E3AF40:Whispers from on high dance in your ears...]
+		[c/BEBEBE:Press "Left Shift" to listen closer]
+		'''
+}
+
+SulphuricDye: {
+	DisplayName: Sulphuric Dye
+	Tooltip: ""
+}
+
+TyrantFeed: {
+	DisplayName: Tyrant Feed
+	Tooltip: Potassium
+}
+
+GoozmaPlush: {
+	Tooltip: ""
+	DisplayName: Goozma Plushie
+}
+
+GoozmaPlushThrowable: {
+	Tooltip: Deprecated item
+	DisplayName: Compensation
+}
+
+Aeroplate: {
+	DisplayName: Aeroplate
+	Tooltip: ""
+}
+
+AeroplateWall: {
+	DisplayName: Aeroplate Wall
+	Tooltip: ""
+}
+
+ProvidenceAltar: {
+	DisplayName: Holder of the Profaned Godess' Core
+	Tooltip: Holds the core of the Profaned Goddess
+}
+
+PolterCable: {
+	DisplayName: Polter Cable
+	Tooltip: ""
+}
+
+PolterRemote: {
+	DisplayName: Polter Remote
+	Tooltip: ""
+}
+
+PolterDrawOrderer: {
+	DisplayName: Polter Draw Orderer
+	Tooltip: ""
+}
+
+PolterRemoteChainer: {
+	DisplayName: Polter Remote Chainer
+	Tooltip: ""
+}
+
+Booger: {
+	DisplayName: Grand Marquis Block
+	Tooltip: "'Booger'"
+}
+
+FriendExtinguisher: {
+	DisplayName: Friend Extinguisher
+	Tooltip: Toggles Fanny the Flame
+}
+
+TestDye: {
+	DisplayName: Test Dye
+	Tooltip: ""
+}
+
+MireP1Plush: {
+	DisplayName: Shielded Cragmaw Mire Plushie
+	Tooltip: Right click to throw!
+}
+
+MireP2Plush: {
+	DisplayName: Slimy Cragmaw Mire Plushie
+	Tooltip: Right click to throw!
+}
+
+CalamitasPlush: {
+	DisplayName: Calamitas Plushie
+	Tooltip:
+		'''
+		'A dark artifact that must be handled with care'
+		Right click to throw!
+		'''
+}
+
+ShadowPlush: {
+	DisplayName: Forgotten Shadow of Calamitas Plushie
+	Tooltip: Right click to throw!
+}
+
+BereftVassalPlush: {
+	DisplayName: Bereft Vassal Plushie
+	Tooltip: Right click to throw!
+}
+
+Ohio: {
+	DisplayName: Ohio
+	Tooltip: "'Chroma'"
+}
+
+DraedonCart: {
+	DisplayName: Draedon Cart
+	Tooltip: "'Draedon's true greatest invention'"
+}
+
+LeviathanEXPlush: {
+	DisplayName: Leviathan Plushie (EX)
+	Tooltip:
+		'''
+		Can be shrunken with Shimmer
+		Right click to throw!
+		'''
+}
+
+YharonEXPlush: {
+	DisplayName: Yharon Plushie (EX)
+	Tooltip:
+		'''
+		Can be shrunken with Shimmer
+		Right click to throw!
+		'''
+}
+
+DevourerofGodsEXPlush: {
+	DisplayName: Devourer of Gods Plushie (EX)
+	Tooltip:
+		'''
+		Can be shrunken with Shimmer
+		Right click to throw!
+		'''
+}
+
+ExodygenPlush: {
+	DisplayName: Exodygen Plush
+	Tooltip: Right click to throw!
+}
+
+ExotrexiaPlush: {
+	DisplayName: Exotrexia Plush
+	Tooltip: Right click to throw!
+}
+
+AstigmageddonPlush: {
+	DisplayName: Astigmageddon Plush
+	Tooltip: Right click to throw!
+}
+
+CataractacombPlush: {
+	DisplayName: Cataractacomb Plush
+	Tooltip: Right click to throw!
+}
+
+ConjunctivirusPlush: {
+	DisplayName: Conjunctivirus Plush
+	Tooltip: Right click to throw!
+}
+
+PolyphemalusPlush: {
+	DisplayName: Polyphemalus Plush
+	Tooltip: Right click to throw!
+}
+
+YhogoStick: {
+	DisplayName: Godseeking Pogo Stick
+	Tooltip: "'Yharim would most definitely hate you for this'"
+}
+
+AstralUndergroundMusicBox: {
+	DisplayName: Astral Underground Music Box
+	Tooltip: ""
+}
+
+AuricFirework: {
+	DisplayName: Auric Firework
+	Tooltip: Explodes into fireworks shaped like nearly any item in the game
+}
+
+OgliveBranch: {
+	DisplayName: Oglive Branch
+	Tooltip: ""
+}
+
+NamelessDeityPlush: {
+	DisplayName: Nameless Deity Plush
+	Tooltip: ""
+}
+
+NamelessDeityEXPlush: {
+	DisplayName: Nameless Deity Plush (EX)
+	Tooltip: ""
+}

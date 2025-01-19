@@ -1,0 +1,442 @@
+# April fools!
+Meldosaurus.DisplayName: 冥思暴龙
+
+Jharim: {
+	DisplayName: 丛林暴君
+	// NPCName: Jharim
+
+	TownNPCMood: {
+		Content: 嗨嗨嗨，这个世界一切安好。
+		NoHome: 给我个家，求求了，待着外边会给我一种野性的冲动。
+		LoveSpace: 杰瑞姆很高兴，让我更高兴的唯一办法就是立刻马上向我俯首称臣！
+		FarFromHome: 我命令你把伟大的杰瑞姆带回他的家
+		DislikeCrowded: 在这些乡巴佬制造的噪音中，我甚至都没办法听见自己的想法，呼呼呼……
+		LikeBiome: 啊，{BiomeName}，很高兴回到这里！
+		LoveBiome: 我喜欢闻蘑菇的味道！
+		DislikeBiome: 呱啊啊啊啊啊啊啊哇哇哇哇哇哇哇哇哇，把我从这弄出去！
+		HateBiome: 我讨厌这海洋中存在的东西！它一直在朝我尖叫！
+		LikeNPC: 我一直都想成为一名海盗，而{NPCName}是一位很好的导师！
+		LoveNPC: "{NPCName}让我想起了我的母亲，我爱她！啊，母亲……"
+		DislikeNPC: 我拒绝向{NPCName}纳税，这个邪恶的东西！
+		HateNPC: 哦不不不，把那个婊——我是说女巫，让她离我远点！
+		LikeNPC_Princess: 杰瑞姆认为{NPCName}是杰瑞姆族的一个有价值的盟友。
+		Princess_LovesNPC: "{NPCName}真是蠢到家了。"
+		HateCrowded: 我讨厌这里，这也太挤了。
+	}
+
+	Chat: {
+		homeless1: 嗨嗨嗨，你好呀，我是伟大的丛林暴君杰瑞姆。我想找人来帮我打败一只巨兽。
+		homeless2: 那个袋子太不舒服了，我感觉好像在里边吃了只苍蝇。
+		homeless3: 嗨嗨嗨，作为伟大的丛林暴君，我将会协助你打败不伟大的丛林暴君……当然，我什么都不会做！
+		LunarTower: 这些天界柱令人毛骨悚然，而它们的朋友所掉落的黑色球体是……我不想碰的东西……特别是着火了的，所以请别用这玩意做成的火焰武器射击我。
+		CirrusDress: 不不不，别再穿这玩意了！
+		FAP: 呼呼呼……那个穿紫衣服的女人偷了我的酒。
+		WITCH: 让那个被诅咒的女巫离我远点！
+		SEAHOE1: 阿米迪亚斯怎么还活着，我还以为他早就被那个愚 蠢的女巫烧死了。
+		SEAHOE2: 阿米迪亚斯怎么还活着，我还以为他被烧成灾厄烤鱼了。
+		Draedon: 嘉嘉嘉嘉嘉嘉嘉嘉登登登登登登登登，我知道你做了些什么！
+		THELORDE: 这个冒名顶替者！
+		Yharon: 嗨嗨嗨，我那忠诚的朋友犽戎！我要求你停止攻击！……额，我猜他已经不认识我了……
+		GetBossDowned1: 你是时候该去面对他了。
+		GetBossDowned2: 宇宙之神……现在他愿意面对你了。
+		WaterElementalMinion: 哦哦哦哦哦哦哦！鱼女士，告诉我！我的炸鱼玉米卷在哪！
+		eclipse1: 嗨嗨嗨，为什么这里这么黑。
+		eclipse2: 嗯，我知道了！我应该去跟那些蛾子打一架！我以前跟不少蛾子打过架！
+		bossrush1: 天穹溃灭，末日再临！
+		bossrush2: 飞蛾，它们将带来灾难，让我不复于世间，啊啊啊啊啊啊啊啊
+		AcidRainActive1: 呱呱呱。
+		AcidRainActive2: 咳咳，我感觉我现在有点醉了，也许我应该停止喝那些有毒的酸……
+		PartyIsUp1: 嗨嗨嗨嗨嗨嗨嗨嗨嗨嗨嗨嗨嗨嗨嗨嗨嗨嗨嗨嗨嗨嗨嗨嗨。
+		PartyIsUp2: 嗨嗨嗨，派派派派派派派派派派派派对时间。
+		Day1: 嗨嗨嗨，伟大的杰瑞姆命令你去抓鱼给我！……什么意思，你说你不想！？
+		Day2: 亚利姆是个骗子，我才是这世间唯一的丛林暴君！
+		Day3: 嗨，YuH！等等，我为什么要说这个？
+		Day4: 年轻时，我折磨了一只蜜蜂整整一分钟，还把指甲戳到了它身体里。太有意思了！这玩意在油管上还有不少播放量。
+		Night1: 好黑。
+		Night2: 嗨嗨嗨，夜晚，这让我想起了有次我去了沙滩上，结果差点被暗杀了！
+		Night3: 我想知道我的宠物狗去哪了。
+		bloodMoon1: 润。
+		bloodMoon2: 红月……一个诅咒之物……不管咋说，我的蛋到哪去了？快点，小家伙。
+		bloodMoon3: 啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊。
+		0: 一德格拉米
+	}
+
+	ChatButtons0: 商店
+	ChatButtons1: 商店
+	ChatButtons2: 切换商店
+	ChatButtons3: 召唤
+	ButtonClicked1: 你把我唤醒了……现在，是时候该付出代价了……
+	ButtonClicked2: 时机尚未到来，他只会在至尊女巫和机械造物都被击败后出现。
+	EdgyTalk1: 额啊啊啊啊你为什么要这样做啊啊啊！
+	EdgyTalk2: 它马上要醒了啊啊啊啊救命救命救命
+	EdgyTalk3: 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
+	Bestiary: 一个脑子有问题的傻瓜。
+	Census.SpawnCondition: 这是个秘密。
+}
+
+Amogus: {
+	// FightTalk1: HOOOOOOOOOOOOOOOOLD UP
+	// FightTalk2: This isn't April... why am I here...
+	// FightTalk3: Could it be that... Someone has been cheating!? AN IMPOSTER EVEN?!?!?!
+	// FightTalk4: That's pretty sus kid, and you know what we do to sussy little ones right?
+	// FightTalk5: We eject them.
+	// CutsceneTalk1: Interesting, you survived...
+	// CutsceneTalk2: You probably cheated tbh, or the attacks weren't working properly.
+	// CutsceneTalk3: Oh well, guess you proved your worthiness to me. Wear the stone hat if you wanna go again.
+}
+
+Fogbound: {
+	DisplayName: 超级无敌至尊雾气之神EX：幽冥降临版
+	// ThePhrase: You foolish mortal, you may only witness me at my fullest at the witching hour...
+}
+
+# Critters
+AstJR.DisplayName: 星胶史莱姆
+Blightolemur.DisplayName: 辐星狐猴
+Blinker.DisplayName: 辉星萤火虫
+CrystalFly.DisplayName: 亵渎晶蝶
+Eyedol.DisplayName: 星瞳
+GAstJR.DisplayName: 金星胶史莱姆
+GodSlayerSlug.DisplayName: 噬神蛞蝓
+GoldenIsopod.DisplayName: 黄金具足虫
+GoldEyedol.DisplayName: 黄金星瞳
+GoldViolemur.DisplayName: 金紫星狐猴
+Isopod.DisplayName: 深渊具足虫
+NeuroFly.DisplayName: 腐蝇
+NukeFly.DisplayName: 蒸汽飞蝇
+Orthobab.DisplayName: 幼年直角石
+OrthoceraApparition.DisplayName: 直角石
+PerfoGrub.DisplayName: 血蛆
+PlagueFrog.DisplayName: 瘟疫箭毒蛙
+ProvFly.DisplayName: 亵渎火蝶
+SandTurtle.DisplayName: 沙龟
+Swearshroom.DisplayName: 寄生菌
+Vaporofly.DisplayName: 蒸汽飞蝇
+Violemur.DisplayName: 紫星狐猴
+Xerocodile.DisplayName: 苏醒的克洛希克鳄
+XerocodileSwim.DisplayName: 苏醒的克洛希克鳄
+# Town NPCs
+JellyPriestBound.DisplayName: 受缚的水母祭司
+
+JellyPriestNPC: {
+	DisplayName: 水母祭司
+	// NPCName1: Eika
+	// NPCName2: Feferi
+	// NPCName3: Netlia
+	// NPCName4: Atollia
+	// NPCName5: Melodi
+	// NPCName6: Manawa
+	// NPCName7: Signathia
+	// NPCName8: Kanji
+	// NPCName9: Mariacala
+	// NPCName10: Cuboza
+	// NPCName11: Nidaria
+	// NPCName12: Crasqua
+	// NPCName13: Kuti
+	// NPCName14: Ooma
+
+	TownNPCMood: {
+		Content: 这个地方应该很适合做一个圣地。
+		NoHome: 我需要一个可以创作和朝拜的地方！
+		LoveSpace: 很不错，我能利用这些空间做很多事！
+		FarFromHome: 请带我回家，在这我可能会受伤。
+		DislikeCrowded: 这里的人太多了，我的雕像可能会被人打坏。
+		HateCrowded: 我不能在这里好好的创作。这里太嘈杂了，我的东西被搞得到处都是！
+		LoveBiome: "{BiomeName}非常不错，我能感觉到一个温暖的存在……也许女神就住在这里……"
+		LikeBiome: 安静祥和的地方，在{BiomeName}中，创作永远不会出错。
+		DislikeBiome: 这里酷热难耐，我想女神不会愿意到这种地方来。
+		HateBiome: 这里有可怕的怪物，有他们在周围游荡时我无法创作任何东西！
+		LikeNPC: "{NPCName}能和我共赏艺术之美，他们的品味很不错。"
+		DislikeNPC: "{NPCName}的火药太可怕了，我担心他哪天就把我的植物炸了！"
+		LikeNPC_Princess: "{NPCName}有一些漂亮的饰品，我喜欢她的风格。"
+		Princess_LovesNPC: "{NPCName}似乎和我差不多，我们都卖漂亮的装饰品，希望她没有看到任何竞争！"
+		LoveNPC: 我喜欢{NPCName}。
+		HateNPC: 我讨厌{NPCName}。
+	}
+
+	Chat: {
+		0: 我的天啊！是她！我得赶紧准备好！
+		00: 历经重重准备，她终于来了！潮汐的阿娜希塔!
+		bossed: 那TM是什么鬼东西？！
+		Kuti0: ……说实话，那玩意有点可爱。
+		Kuti1: 哇,你那个漂浮的泡泡真可爱！这让我想起了我童年的故乡！我想家了……
+		homeless1: 能摆脱那些藤蔓真不错，但是我仍需要一个能静下心来做我的雕刻的地方。
+		homeless2: 你好，陆地生灵！我来自这片古老的大海，并希望来一场旅行，去寻找一个古老时代的偶像，那个时代的大海对许多人来说是一个美丽的国度。你有什么找到他们的线索吗？
+		FAP1: 当我向那个"公主"展示一些装饰品时，她凑得实在是太近了，这让我很不舒服！我开始觉得她是想从我这里找乐子……！
+		FAP2: 上次醉仙女靠近我的装饰时，她扯下了我一个半身像的头！
+		WITCH1: 那个女巫……我对她的可没什么好的回忆……
+		WITCH2: 你听说过阿萨福勒被熊熊烈火燃尽的故事吗？一场惨绝人寰的悲剧……如今只余一片废墟！
+		SEAHOE1: 我听过伟大的海王的很多故事……你说你是在一个大蛤蜊里面发现了他……？哦，天哪，那不是很可怜么。
+		SEAHOE2: 你觉得海王了解我正在寻找的海洋偶像吗？这个老家伙应该比较了解这个故事。
+		leviathan1: 哦！所以你确实找到了我所寻找的那位偶像的位置？请详细解释他们的一切，我将尽快开始制作我的祭品和纪念碑。
+		leviathan2: 出于某种原因，我感觉那位偶像的存在被削弱了。我希望她一切安好。
+		scal: 非常好！在你冒险的过程中，我已经做出了很多作品存货！
+		WaterElementalMinion: 你成功地与伟大的水元素交上了朋友？令我印象深刻。
+		SirenHeart: 哦！欢迎光临我的商店。我一直在为你准备这些好东西。
+		CirrusDress: 多好看的一条裙子！我知道有人曾在做一条相似的，但是耗时过长，无疾而终。
+		OceanSpirit: 哇，那个小家伙很可爱。她让我想起了我正在寻找的偶像。
+		babywaterclone: 这个小家伙的存在与我正在寻找的偶像相似，但不同。
+		eclipse1: 外面好像很恐怖，且来我寒舍一避如何？
+		eclipse2: 嗯，也许我可以利用那些生物身上的布料做一些东西。
+		PartyIsUp1: 派对很有趣！希望有一天，我能帮助制作一个能吸引我所寻找的偶像视线的东西。
+		PartyIsUp2: 今天有很多庆祝活动。希望我的装饰品派上了用场！
+		Day1: 这个地方处处散发着悲伤的气息，让我来帮你装饰得更好看一些。
+		Day2: 我都说过了我不会再帮你到那片臭海里去获取你需要的材料...除非你加钱。
+		Day3: 我很想免费帮你装饰房子，但是我需要钱币来买祭品，知道不？
+		Day4: 哦，你问我的围裙和工具哪买的？这些东西都是我用周边的资源自己做的！有志者，事竟成。
+		Night1: 虽然夜空让东西更难看清楚，不过我的一些五彩斑斓的发光装饰可以打破这片黑暗。
+		Night2: 说实话，晚上我更有工作的热情，因为月亮可以让我想起某个人...
+		Night3: 我正在寻找的偶像，是否也在望着这一轮明月呢。
+		bloodMoon1: 今晚不想工作。
+		bloodMoon2: 亲爱的，帮我照看一下家具可以吗？出于某种原因这些东西好像失控了。
+		bloodMoon3: 天空这诡异的红色和我的装饰似乎不配...
+		bloodMoon4: 离我的雕像远点！
+	}
+
+	ChatButtons1: 物块
+	ChatButtons2: 后期物块
+	ChatButtons3: 通用
+	ChatButtons4: 植栽
+	ChatButtons5: 物块
+	ChatButtons0: 切换商店
+	Bestiary: 一种经历了奇怪进化转折的水母。她对建筑的热爱与她对水元素的忠诚相辅相成。
+	Census.SpawnCondition: 一种经历了奇怪进化转折的水母。她对建筑的热爱与她对水元素的忠诚相辅相成。
+}
+
+OracleNPC: {
+	DisplayName: 占卜师
+	// NPCName1: Maddi
+	// NPCName2: Tiggy
+	// NPCName3: Gabriel
+	// NPCName4: Lex
+	// NPCName5: Gwyn
+	// NPCName6: Sammy
+	// NPCName7: Eve
+	// NPCName8: Emily
+	// NPCName9: Lilith
+	// NPCName10: Rachel
+	// NPCName11: Leah
+	// NPCName12: Rebecca
+	// NPCName13: Alex
+	// NPCName14: Mabel
+
+	TownNPCMood: {
+		Content: 这里相当舒适。
+		NoHome: 老兄，没有合适的住所，你要我怎么照顾这些小家伙。
+		LoveSpace: 真宽敞啊，T.U.B可以在这里自由奔跑，太好了！
+		FarFromHome: 我们离家实在是太远了，T.U.B好像不太舒服。
+		DislikeCrowded: 这里太喧闹了让我有点不舒服——我的小家伙们都没有空间落脚了。
+		HateCrowded: 这么多人，T.U.B都被吓坏了！
+		LikeBiome: "{BiomeName} 是一个很好、很和平的地方，适合我和我的小家伙们安顿下来。"
+		DislikeBiome: "{BiomeName} 对于我的大部分小家伙们来说并不是一个很适合的地方。"
+		HateBiome: 这些怪物很令人担忧，我认为T.U.B在这很不安全。
+		LikeNPC: "{NPCName} 非常棒。她和T.U.B是好朋友。"
+		DislikeNPC: "{NPCName} 是一个令人讨厌的家伙，为了好玩而猎杀小动物，什么恶趣味！"
+		LikeNPC_Princess: "{NPCName} 似乎在动物中很受欢迎，她带来了一种和谐的氛围。"
+		Princess_LovesNPC: 我喜欢冷静的 {NPCName} 。她的小T.U.B也很可爱！
+		LoveBiome: 我喜欢{BiomeName}.
+		LoveNPC: 我喜欢{NPCName}.
+		HateNPC: 我讨厌{NPCName}.
+	}
+
+	Chat: {
+		homeless1: 我懂，我懂，你不能给我的每个小伙伴都建造一个小家，但是你能为我提供一个住处吗？
+		homeless2: 也许我对你的冒险派不上什么用场，但是请相信我，我的小家伙们都很可爱！
+		miscEquips1: 啊...我喜欢你的小伙伴，
+		miscEquips11: 好好照顾它，好吗？
+		miscEquips2: 你的小伙伴真可爱，小子！你最好要照顾好它，好吗？
+		miscEquips3: 你应该感到高兴，你的小伙伴可不像T.U.B。
+		miscEquips4: 为了你的安全着想，也许你该把你的小伙伴收起来。
+		astro1: 那天当我观望那个来自星际的区域的时候，我看到了一个巨大的机器。它似乎从体内漏出了一些史莱姆...不知道能否用更多的太空粘液或其他什么玩意来解决这个情况。
+		astro2: 你知道吗，如果你想找到某个小水元素，你最好去钓鱼，而不是采取暴力手段。
+		Bumblefuck: 那边的那个似乎有很多你可以拯救的小伙伴。
+		WITCH: 有些人可能会害怕灾厄女巫，但她身边有很多可爱的小东西跟着她，像那些蝙蝠和死冥虫！她不可能像传说中那么坏。
+		CirrusDress: 嘿，你宁愿穿那些带酒渍的破布而不是更时尚的新衣吗？我没有冒犯之意。
+		Wizard1: 虽然他看起来像个穿着傻傻的服装的怪老头，但他的魔法绝对是真实的。
+		Wizard2: 嘿，小子，你能和
+		Wizard22: ?交流一下吗？我有一个他可能会喜欢的小家伙！
+		expertMode1: 你知道吗，孩子，我的这些小家伙大多只会追随那些挑战自己的人。可以说他们中的一部分只会追随专家。
+		expertMode2: 虽然你目前的冒险旅程拥有了了找到小伙伴许多的机会，但我听说专家模式会吸引更多小伙伴！
+		eclipse1: 我很高兴我的朋友们没有变成这些失去理智的怪物！
+		eclipse2: 嘿
+		eclipse22: ，如果你看到我的小家伙们比平时更狂躁，也请不要伤害它们。
+		eclipse3: 嘿，小子！答应我，保护我和我的小家伙们，好不好？
+		eclipse4: 我很高兴我的小家伙们没有在这个奇怪的日子里变得疯狂。
+		PartyIsUp1: 我的可爱的小家伙们在这美好的一天里玩得很开心！你应该也找个方式来度过这样一个美好的日子！
+		PartyIsUp2: 今天是个领养新伙伴的好日子！兄弟你今天应该来一个！
+		ninja: 你有没有试过向史莱姆投掷金属星星？我听说如果你扔的足够多的话，它会开始喜欢你。
+		Day1: 嘿，小子！我有些可爱的宠物，我知道你想来一个。
+		Day2: 你注定会做出些了不起的事情，兄弟。比如现在就给这些小家伙一个家。
+		Day3: 我的小宠物T.U.B是怎么吃饭的？嗯...你不会想知道的，伙计。
+		Day4: 预知未来的能力可以帮助我找到需要收养的宠物和他们的新家。你今天得到了哪个
+		Day44: ?
+		Day5: 小子，我一直在等你。现在，让我们探讨一下这些可爱的小家伙们。
+		Night1: 星星正在看着你，小子。别让它们失望。
+		Night2: 外面又黑又阴沉。为什么不买个小伙伴来提振士气呢？
+		Night3: 什么时候养这些小家伙都不算晚。赶快来一个吧，小子！
+		Night4: 在这黑暗的时刻，你需要一个朋友吗？
+		Next: 轮到你了。
+		bloodMoon1: 你最好也养一只小伙伴，否则……
+		bloodMoon2: 在这种情况下，你不会想知道我的宠物T.U.B能对你做什么的。
+		bloodMoon3: 你最好不要挡在我和我的小家伙们之间。
+		bloodMoon4: 嘿！
+		bloodMoon44: 也许今晚你该试着躲起来。
+		bloodMoon5: 今晚你最好跑远点，小子。T.U.B在寻找你，它可不会轻易的放过你。
+		bloodMoon6: 如果你想活命，那你最好应该躲起来。
+	}
+
+	ChatButtons: 占卜
+	ButtonClicked1: 这是T.U.B通过我的占卜找到的东西！
+	ButtonClicked2: 抱歉，占卜一天仅限一次！
+	Bestiary: 一位钟爱收集小生物的预言家。她有一个由她的神秘力量创造的柔软的小动物陪伴着她。
+	Census.SpawnCondition: 装备一个宠物或照明宠物
+}
+
+OracleNPCPet_Pet.DisplayName: TUB
+
+NuggetPet: {
+	// Bc big smoke
+	// NuggetNameCommon1: Melvin
+	// The headless chicken
+	// NuggetNameCommon2: Mike
+	// Rango chicken
+	// NuggetNameCommon3: Gordy
+	// NuggetNameCommon4: Cluckin Bell
+	// NuggetNameCommon5: McDonald
+	// NuggetNameCommon6: Buckbeak
+	// NuggetNameCommon7: Doodle
+	// NuggetNameCommon8: Beaky
+	// NuggetNameCommon9: Randy
+	// NuggetNameCommon10: Spurs
+	// NuggetNameCommon11: Pollito
+	// Chat1: Cluck!
+	// Chat2: Peep peep
+	// Chat3: Cluck cluck
+	// Chat4: Bawk!
+	// Chat5: Pock pock
+	// Chat6: Cock-a-doodle-doo
+}
+
+NuggetNugget: {
+	# Town NPCs
+	DisplayName: 鸡块
+	// NuggetName1: Yhary
+	// NuggetName2: Kulu-Ya-Ku
+	// NuggetName3: Kazooie
+	// NuggetName4: Taco
+	NuggetSpawn: "{0} 从 {1} 的灰尘中重生！"
+	Canspawn: 正在发送外卖订单给金拱门炸鸡店……
+	Nospace: 这没有足够的空间让这只可爱的 {0} 重生！
+	Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
+}
+
+DracoNugget: {
+	DisplayName: 炽焰鸡块
+	// NuggetName1: Rocky
+	// NuggetName2: Aknosom
+	// NuggetName3: Pico
+	// NuggetName4: Frijol
+	Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
+}
+
+FollyNugget: {
+	DisplayName: 愚笨鸡块
+	// NuggetName1: Yatagarasu
+	// NuggetName2: Huginn
+	// NuggetName3: Munnin
+	// NuggetName4: Alitas
+	Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
+}
+
+GODNugget: {
+	DisplayName: 神炎鸡块
+	// NuggetName1: Fiery
+	// NuggetName2: Fatalis
+	// NuggetName3: Guacamole
+	Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
+}
+
+MammothNugget: {
+	DisplayName: 猛犸鸡块
+	// NuggetName1: Betty
+	// NuggetName2: Ibushi
+	// NuggetName3: Pechuga
+	// NuggetName4: Sobras
+	Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
+}
+
+ShadowNugget: {
+	DisplayName: 暗影鸡块
+	// NuggetName1: Darky
+	// NuggetName2: Gore Magala
+	// NuggetName3: JubJub
+	// NuggetName4: Mole
+	Census.SpawnCondition: Mods.CalValEX.Census [i:8279]
+}
+
+MeldwyrmBody.DisplayName: 冥思暴龙
+MeldwyrmHead.DisplayName: 冥思暴龙
+MeldwyrmTail.DisplayName: 冥思暴龙
+MeldWyrmBody.DisplayName: 冥思暴龙身
+MeldWyrmHead.DisplayName: 冥思暴龙头
+MeldWyrmTail.DisplayName: 冥思暴龙尾
+
+NinjaSlime: {
+	DisplayName: 忍者史莱姆
+	// SlimeName1: Slipstream Sam
+	// SlimeName2: Sasuke
+	// SlimeName3: Sine
+	// SlimeName4: Sekiro
+	// SlimeName5: Sakura
+	// SlimeName6: Slash
+	// SlimeName7: Shadow
+	// SlimeName8: Shade
+	// SlimeName9: Shatter
+	// SlimeName10: Strike
+	Census.SpawnCondition: 生成条件未知
+	// Chat1: Gooyah!
+	// Chat2: Splitch splotch!
+	// Chat3: Herb.
+	// Chat4: Squaaargh!
+	// Chat5: *drowning noises*
+}
+
+AstroSlime: {
+	DisplayName: 星陨史莱姆
+	// SlimeName1: Spacey
+	// SlimeName2: Star
+	// SlimeName3: Sky
+	// SlimeName4: Sagittarius
+	// SlimeName5: Saga
+	// SlimeName6: Shuttle
+	// SlimeName7: Saturn
+	// SlimeName8: Solaris
+	// SlimeName9: Spiral
+	// SlimeName10: Supernova
+	// SlimeName11: Sedna
+	// SlimeName12: SOS
+	// SlimeName13: Susy
+	Census.SpawnCondition: 生成条件未知
+	// Chat1: ... .-.. ..- .-. .--. / ... .-.. --- .-. .--.
+	// Chat2: Zip zippity zip slip slorp
+	// Chat3: Bwewewowowo broooing
+}
+
+Tarr: {
+	DisplayName: 塔尔
+	// SlimeName1: Sugma
+	// SlimeName2: Sludgetar
+	// SlimeName3: Sooty
+	// SlimeName4: Slabbish
+	// SlimeName5: Slickster
+	// SlimeName6: Swirls
+	// SlimeName7: Sable
+	// SlimeName8: Stickytoil
+	// SlimeName9: Smoltar
+	// SlimeName10: Slithergrime
+	Census.SpawnCondition: 在安装旧神之猎模组的情况下打败古泽玛或将一只城镇史莱姆献祭给史莱姆之神。
+	// Chat1: Grah!
+	// Chat2: Grooz...
+	// Chat3: It's ya boy Goozma
+	// Chat4: Gronch
+}

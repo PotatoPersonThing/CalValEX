@@ -38,16 +38,25 @@ namespace CalValEX.NPCs.TownPets.Slimes
         public override string GetChat() {
             Main.player[Main.myPlayer].currentShoppingSettings.HappinessReport = "";
             WeightedRandom<string> chat = new();
-            chat.Add(Language.GetTextValue("Gooyah!"));
-            chat.Add(Language.GetTextValue("Splitch splotch!"));
-            chat.Add(Language.GetTextValue("Herb."), 0.05f);
-            chat.Add(Language.GetTextValue("Squaaargh!"));
-            chat.Add(Language.GetTextValue("*drowning noises*"), 0.01f);
+            chat.Add(Language.GetTextValue("Mods.CalValEX.NPCs.NinjaSlime.Chat1"));
+            chat.Add(Language.GetTextValue("Mods.CalValEX.NPCs.NinjaSlime.Chat2"));
+            chat.Add(Language.GetTextValue("Mods.CalValEX.NPCs.NinjaSlime.Chat3"), 0.05f);
+            chat.Add(Language.GetTextValue("Mods.CalValEX.NPCs.NinjaSlime.Chat4"));
+            chat.Add(Language.GetTextValue("Mods.CalValEX.NPCs.NinjaSlime.Chat5"), 0.01f);
             return chat;
         }
         public static List<string> PossibleNames = new()
         {
-            "Slipstream Sam", "Sasuke", "Sine", "Sekiro", "Sakura", "Slash", "Shadow", "Shade", "Shatter", "Strike"
+            Language.GetTextValue("Mods.CalValEX.NPCs.NinjaSlime.SlimeName1"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.NinjaSlime.SlimeName2"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.NinjaSlime.SlimeName3"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.NinjaSlime.SlimeName4"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.NinjaSlime.SlimeName5"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.NinjaSlime.SlimeName6"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.NinjaSlime.SlimeName7"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.NinjaSlime.SlimeName8"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.NinjaSlime.SlimeName9"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.NinjaSlime.SlimeName10")
         };
         public override List<string> SetNPCNameList() => PossibleNames;
 

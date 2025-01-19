@@ -44,12 +44,12 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
         public override string GetChat() {
             Main.player[Main.myPlayer].currentShoppingSettings.HappinessReport = "";
             WeightedRandom<string> chat = new();
-            chat.Add(Language.GetTextValue("Cluck!"));
-            chat.Add(Language.GetTextValue("Peep peep"));
-            chat.Add(Language.GetTextValue("Cluck cluck"));
-            chat.Add(Language.GetTextValue("Bawk!"));
-            chat.Add(Language.GetTextValue("Pock pock"));
-            chat.Add(Language.GetTextValue("Cock-a-doodle-doo"));
+            chat.Add(Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.Chat1"));
+            chat.Add(Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.Chat2"));
+            chat.Add(Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.Chat3"));
+            chat.Add(Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.Chat4"));
+            chat.Add(Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.Chat5"));
+            chat.Add(Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.Chat6"));
             return chat;
         }
 
@@ -133,21 +133,21 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
     public class NuggetNugget : TownNuggets {
         public override List<string> SetNPCNameList() {
             return new List<string>() {
-                "Melvin", // Bc big smoke
-                "Mike", // The headless chicken
-                "Gordy", // Rango chicken
-                "Cluckin Bell",
-                "McDonald",
-                "Buckbeak",
-                "Doodle",
-                "Beaky",
-                "Randy",
-                "Spurs",
-                "Pollito",
-                "Yhary",
-                "Kulu-Ya-Ku",
-                "Kazooie",
-                "Taco"
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon1"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon2"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon3"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon4"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon5"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon6"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon7"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon8"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon9"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon10"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon11"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetNugget.NuggetName1"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetNugget.NuggetName2"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetNugget.NuggetName3"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetNugget.NuggetName4")
             };
         }
 
@@ -180,21 +180,21 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
     public class DracoNugget : TownNuggets {
         public override List<string> SetNPCNameList() {
             return new List<string>() {
-                "Melvin", // Bc big smoke
-                "Mike", // The headless chicken
-                "Gordy", // Rango chicken
-                "Cluckin Bell",
-                "McDonald",
-                "Buckbeak",
-                "Doodle",
-                "Beaky",
-                "Randy",
-                "Spurs",
-                "Pollito",
-                "Rocky",
-                "Aknosom",
-                "Pico",
-                "Frijol"
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon1"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon2"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon3"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon4"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon5"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon6"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon7"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon8"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon9"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon10"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon11"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.DracoNugget.NuggetName1"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.DracoNugget.NuggetName2"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.DracoNugget.NuggetName3"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.DracoNugget.NuggetName4")
             };
         }
 
@@ -227,21 +227,21 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
     public class FollyNugget : TownNuggets {
         public override List<string> SetNPCNameList() {
             return new List<string>() {
-                "Melvin", // Bc big smoke
-                "Mike", // The headless chicken
-                "Gordy", // Rango chicken
-                "Cluckin Bell",
-                "McDonald",
-                "Buckbeak",
-                "Doodle",
-                "Beaky",
-                "Randy",
-                "Spurs",
-                "Pollito",
-                "Yatagarasu",
-                "Huginn",
-                "Munnin",
-                "Alitas"
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon1"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon2"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon3"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon4"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon5"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon6"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon7"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon8"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon9"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon10"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon11"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.FollyNugget.NuggetName1"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.FollyNugget.NuggetName2"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.FollyNugget.NuggetName3"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.FollyNugget.NuggetName4")
             };
         }
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) => DrawGlow(GetType().Name, screenPos);
@@ -273,20 +273,20 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
     public class GODNugget : TownNuggets {
         public override List<string> SetNPCNameList() {
             return new List<string>() {
-                "Melvin", // Bc big smoke
-                "Mike", // The headless chicken
-                "Gordy", // Rango chicken
-                "Cluckin Bell",
-                "McDonald",
-                "Buckbeak",
-                "Doodle",
-                "Beaky",
-                "Randy",
-                "Spurs",
-                "Pollito",
-                "Fiery",
-                "Fatalis",
-                "Guacamole"
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon1"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon2"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon3"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon4"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon5"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon6"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon7"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon8"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon9"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon10"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon11"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.GODNugget.NuggetName1"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.GODNugget.NuggetName2"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.GODNugget.NuggetName3")
             };
         }
 
@@ -319,21 +319,21 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
     public class MammothNugget : TownNuggets {
         public override List<string> SetNPCNameList() {
             return new List<string>() {
-                "Melvin", // Bc big smoke
-                "Mike", // The headless chicken
-                "Gordy", // Rango chicken
-                "Cluckin Bell",
-                "McDonald",
-                "Buckbeak",
-                "Doodle",
-                "Beaky",
-                "Randy",
-                "Spurs",
-                "Pollito",
-                "Betty",
-                "Ibushi",
-                "Pechuga",
-                "Sobras"
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon1"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon2"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon3"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon4"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon5"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon6"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon7"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon8"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon9"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon10"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon11"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.MammothNugget.NuggetName1"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.MammothNugget.NuggetName2"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.MammothNugget.NuggetName3"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.MammothNugget.NuggetName4")
             };
         }
 
@@ -366,21 +366,21 @@ namespace CalValEX.NPCs.TownPets.Nuggets {
     public class ShadowNugget : TownNuggets {
         public override List<string> SetNPCNameList() {
             return new List<string>() {
-                "Melvin", // Bc big smoke
-                "Mike", // The headless chicken
-                "Gordy", // Rango chicken
-                "Cluckin Bell",
-                "McDonald",
-                "Buckbeak",
-                "Doodle",
-                "Beaky",
-                "Randy",
-                "Spurs",
-                "Pollito",
-                "Darky",
-                "Gore Magala",
-                "JubJub",
-                "Mole"
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon1"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon2"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon3"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon4"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon5"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon6"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon7"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon8"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon9"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon10"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.NuggetPet.NuggetNameCommon11"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.ShadowNugget.NuggetName1"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.ShadowNugget.NuggetName2"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.ShadowNugget.NuggetName3"),
+                Language.GetTextValue("Mods.CalValEX.NPCs.ShadowNugget.NuggetName4")
             };
         }
 

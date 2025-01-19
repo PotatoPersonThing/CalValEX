@@ -1,0 +1,96 @@
+# This file contains all the translations for ModConfig elements.
+
+CalValEXConfig: {
+	DisplayName: 配置
+
+	DisableVanityDrops: {
+		Label: 禁用掉落物
+		Tooltip: 禁用模组的所有直接掉落
+	}
+
+	ConfigBossBlocks: {
+		Label: 禁用Boss砖块掉落
+		Tooltip: 开启后，Boss及其宝藏袋不再掉落砖块
+	}
+
+	FatDog: {
+		Label: 真实尺寸
+		Tooltip: 开启后，一些宠物会变得更大
+	}
+
+	SupCombo: {
+		Label: 信仰宝珠元素大游行
+		Tooltip: 开启后，允许合成信仰宝珠所用到的11个元素宠物同时显示
+	}
+
+	DragonballName: {
+		Label: 禁用龙珠复活节彩蛋
+		Tooltip: 禁用龙珠宠物造成的复活节彩蛋
+	}
+
+	Polterskin: {
+		Label: 禁用幽花酱皮肤
+		Tooltip: 使玩具镰刀宠物始终使用其默认皮肤
+	}
+
+	Pitbul: {
+		Label: 禁用斗牛犬吼叫
+		Tooltip: 使得腐烂热狗宠物将不会对稀有生物发出叫声
+	}
+
+	Headers.NPCs: NPC
+
+	TownNPC: {
+		Label: 禁用模组城镇NPC
+		Tooltip: 禁用预言家和水母祭司的自然生成
+	}
+
+	IsopodBait: {
+		Label: 禁用深渊具足虫鱼饵力修改
+		Tooltip: 使深渊具足虫总是有最大鱼饵力
+	}
+
+	CritterSpawns: {
+		Label: 禁用模组小动物
+		Tooltip: 禁用灾厄虚荣模组小动物的自然生成
+	}
+
+	GroundMountLol: {
+		Label: 禁用模组坐骑负面效果
+		Tooltip: 禁用模组坐骑对玩家的减益效果
+	}
+
+	DiscordRichPresence: {
+		Label: Discord Rich Presence ([c/ffa11:需要 DRP 模组！])
+		Tooltip:
+			'''
+			是否为 Purplefin Neptuna 制作的 Discord Rich Presence addons 模组初始化 Discord Rich Presence
+			需要该模组启用才能执行任何操作
+			'''
+	}
+
+	OwnerOnly: {
+		Label: 启用房主独占设置修改权限
+		Tooltip:
+			'''
+			推荐多人模式连击时开启
+			推荐用于主机和播放或在您播放的同一台机器上的主机服务器
+			'''
+	}
+
+	HerosPerm: {
+		Label: 通过权限系统管理 Heros 模组的功能
+		Tooltip:
+			'''
+			用于在多人模式下开启 Heros 模组的玩家
+			推荐用于主机和播放或在您播放的同一台机器上的主机服务器
+			'''
+	}
+}
+
+// ChangeGood: Your changes have been accepted.
+// HostOnly: Only the server host can change the config.
+// NoPerms: You do not have the proper permission assigned.
+Drops: 掉落物
+Pets: 宠物
+// OtherHeader: Other

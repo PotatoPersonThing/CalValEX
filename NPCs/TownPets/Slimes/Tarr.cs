@@ -44,15 +44,24 @@ namespace CalValEX.NPCs.TownPets.Slimes
         public override string GetChat() {
             Main.player[Main.myPlayer].currentShoppingSettings.HappinessReport = "";
             WeightedRandom<string> chat = new();
-            chat.Add(Language.GetTextValue("Grah!"));
-            chat.Add(Language.GetTextValue("Grooz..."));
-            chat.Add(Language.GetTextValue("It's ya boy Goozma"), 0.05f);
-            chat.Add(Language.GetTextValue("Gronch"));
+            chat.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Tarr.Chat1"));
+            chat.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Tarr.Chat2"));
+            chat.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Tarr.Chat3"), 0.05f);
+            chat.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Tarr.Chat4"));
             return chat;
         }
         public static List<string> PossibleNames = new()
         {
-            "Sugma", "Sludgetar", "Sooty", "Slabbish", "Slickster", "Swirls", "Sable", "Stickytoil", "Smoltar", "Slithergrime"
+            Language.GetTextValue("Mods.CalValEX.NPCs.Tarr.SlimeName1"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.Tarr.SlimeName2"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.Tarr.SlimeName3"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.Tarr.SlimeName4"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.Tarr.SlimeName5"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.Tarr.SlimeName6"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.Tarr.SlimeName7"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.Tarr.SlimeName8"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.Tarr.SlimeName9"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.Tarr.SlimeName10")
         };
         public override List<string> SetNPCNameList() => PossibleNames;
 

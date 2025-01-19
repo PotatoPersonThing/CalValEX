@@ -1,0 +1,74 @@
+Bestiary: {
+	GoldenIsopod: Even in the darkest of places, gilded entities such as the Gold Isopod can be found.
+	GoldEyedol: A specially crafted idol possessed by a spirit. The construct was previously used by the ruler of the capital themself.
+	GoldViolemur: A rare critter variant. The Gold Violemur is said to be a leader of sorts to the infection's other Violemurs.
+	Orthobab: Newer offspring of The Shelled. Despite their bumbling appearance, any one of these may very well grow into something horrific.
+	ProvFly: A butterfly possessing energy from one of two halves of a fiery goddess' power.
+	PerfoGrub: A small grub-like parasite, the vile offspring of the Perforators.
+	Eyedol: Back in the prime of the capital, some would make small idols to worship the goddess at home. The destruction of the capital infused some of these with magic, giving them sentience.
+	OrthoceraApparition: A harbinger of an apocalypse to come. Do not take its warning lightly.
+	AstJR: A sentient glob from the alien environment. Unlike other slimes, it possesses no offensive capabilities.
+	GAstJR: A sentient glob from the alien environment. Unlike other slimes, it possesses no offensive capabilities.
+	Blightolemur: On another fractal of the light spectrum from the Violemurs, the Bleamurs frollic peacefully in the Astral Blight, while using their tail patterns to attract prey.
+	PlagueFrog: The plague unleashed by the scientist didn't just infect the already hostile creatures. Peaceful lifeforms such as frogs were also unfortunate enough to fall victim to it.
+	Violemur: Curious little mammals that have fallen victim to the extraterrestrial virus. Violemurs still hold some degree of independence in contrast to the infection's other lifeforms.
+	Swearshroom: The great crustacean's spores are not happy that their host has been destroyed. These wicked fungi have psychopathic tendencies, but are completely harmless.
+	SandTurtle: A horrific and violent testudine with high defensive capabilities. They are too dangerous to be left alive.
+	Xerocodile: An ancient species of reptile that only comes out during Blood Moons. They are otherwise too frail to linger, and any sunlight exposure is lethal.
+	Vaporofly: An ancient insect species that was revitalized by the radioactive waters.
+	Blinker: A Twinkler that has adapted to the Astral Blight's unique environment. They are a popular food source for its inhabitants.
+	CrystalFly: A butterfly possessing energy from one of two halves of a fiery goddess' power.
+	Isopod: A docile scavenger that makes itself at home at the bottom of the Abyss. They are known to clean up the remains of any victims to the Abyss' other fauna.
+	GodSlayerSlug: Mimicking the purple worm-like appearance of the cosmic worms, this little bug peacefully wanders the upper atmosphere.
+	NeuroFly: One of the many creatures assisting the Hive Mind, although not physically connected, they share a psychic connection. Its sole purpose is to spread the virus.
+	Fogbound: The soul the Death God, we call it the Fogbound. Although one may logically assume that a god possesses two souls when they consume an Auric Soul, this is not the case. Rather, they fuse into something greater than the sum of its parts.
+	Meldosaurus: Evolution corrupted by the remains of the dark gods. It seeks acceptance from the other celestial creatures to no success.
+	MeldwyrmHead: A parasitic tapewyrm that saught refuge inside of the alien dinosaur. It is likely that similar creatures carve out the insides of the mysterious pillars.
+}
+
+Biomes: {
+	AstralBlight: {
+		DisplayName: Astral Blight
+		TownNPCDialogueName: the Astral Blight
+	}
+}
+
+Conditions: {
+	CalamityActive: While the Calamity Mod is active
+	ClamDefeated: After Giant Clam has been defeated
+	Scourge1Defeated: After Desert Scourge has been defeated
+	CrabulonDefeated: After Crabulon has been defeated
+	HiveMindDefeated: After The Hive Mind has been defeated
+	PerfsDefeated: After The Perforators have been defeated
+	SlimeGodDefeated: After Slime God has been defeated
+	CirnogenDefeated: After Cryogen has been defeated
+	Scourge2Defeated: After Aquatic Scourge has been defeated
+	BrimEleDefeated: After Brimstone Elemental has been defeated
+	CalCloneDefeated: After Calamitas Clone has been defeated
+	AureusDefeated: After Astrum Aureus has been defeated
+	LevAnaDefeated: After Leviathan and Anahita have been defeated
+	GoliathDefeated: After The Plaguebringer Goliath has been defeated
+	RavagerDefeated: After Ravager has been defeated
+	DeusDefeated: After Astrum Deus has been defeated
+	GuardsDefeated: After the Profaned Guardians have been defeated
+	FollyDefeated: After The Dragonfolly has been defeated
+	ProviDefeated: After Providence has been defeated
+	WeaverDefeated: After Storm Weaver has been defeated
+	VoidDefeated: After Ceaseless Void has been defeated
+	SignusDefeated: After Signus has been defeated
+	PolterDefeated: After Polterghast has been defeated
+	OldDukeDefeated: After The Old Duke has been defeated
+	DogDefeated: After The Devourer of Gods has been defeated
+	YharonDefeated: After Yharon has been defeated
+	ExosDefeated: After the Exo Mechs have been defeated
+	SCalDefeated: After Calamitas has been defeated
+	AcidGeneral: After Acid Rain tier 2 has been cleared or in the Sulphurous Sea
+	Evil2Defeated: If either the Hive Mind or The Perforators have been defeated
+	NuggetsSpawn: If the Calamity and Calamity's Vanities bestiaries are more than 36.5% complete or if The Dragonfolly has been defeated
+	DungeonBiome: While in the Dungeon
+	BlightBiome: While in the Astral Blight biome
+	UnderLabBiome: While in the Underworld Lab
+	JungleLabBiome: While in the Jungle Lab
+	BanditReal: If the Bandit is present
+	ArchmageReal: If the Archmage is present
+}

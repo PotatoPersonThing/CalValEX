@@ -87,13 +87,24 @@ namespace CalValEX.NPCs.Oracle
 
         private bool rachelname = false;
 
-
-
-        public static List<string> PossibleNames = new()
+        public override List<string> SetNPCNameList() => new List<string>()
         {
-            "Maddi", "Tiggy", "Gabriel", "Lex", "Gwyn", "Sammy", "Eve", "Emily", "Lilith", "Rachel", "Leah", "Rebecca", "Alex", "Mabel"
+            Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.NPCName1"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.NPCName2"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.NPCName3"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.NPCName4"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.NPCName5"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.NPCName6"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.NPCName7"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.NPCName8"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.NPCName9"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.NPCName10"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.NPCName11"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.NPCName12"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.NPCName13"),
+            Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.NPCName14")
         };
-        public override List<string> SetNPCNameList() => PossibleNames;
+
 
         [JITWhenModsEnabled("CalamityMod")]
         public override string GetChat()

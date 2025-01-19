@@ -211,7 +211,7 @@ namespace CalValEX.AprilFools.Jharim
             }
         }
 
-        public override List<string> SetNPCNameList() => new() { "Jharim" };
+        public override List<string> SetNPCNameList() => new() { Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.NPCName") };
         public override ITownNPCProfile TownNPCProfile()
         {
             return NPCProfile;

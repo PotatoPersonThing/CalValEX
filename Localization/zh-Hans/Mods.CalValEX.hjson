@@ -1,0 +1,74 @@
+Bestiary: {
+	GoldenIsopod: 即使在最黑暗的地方，也是存在金质小生物的，比如金具足虫。
+	GoldEyedol: 一尊特制的附灵偶像。是以前首都的统治者们自用的。
+	GoldViolemur: 一种稀有的生物变种。据说这些金紫星狐猴是最先被星辉瘟疫感染的那一批。
+	Orthobab: 直角石的新生代。尽管现在的它们看起来很笨拙，但假以时日，他们中的任何一只都能变成可怕的存在。
+	ProvFly: 一只"普通的蝴蝶"，蕴含着亵渎天神所拥有的两大力量之一。
+	PerfoGrub: 一种像幼虫一样的寄生虫，是血肉宿主的肮脏后代。
+	Eyedol: 在首都的鼎盛时期，有些人会制作偶像以便在家中崇拜女神。首都的毁灭事件为其中一些偶像注入了魔力，这赋予了它们感知能力。
+	OrthoceraApparition: 一种末日的先兆。不要轻视它的警告。
+	AstJR: 来自地外的有知觉的明胶状生物。与其他史莱姆不同的是，它没有任何攻击性。
+	GAstJR: 来自地外的有知觉的明胶状生物。与其他史莱姆不同的是，它没有任何攻击性。
+	Blightolemur: 作为紫星狐猴谱系下的另外一种分支，辐星狐猴在枯萎星辉中和平地嬉戏。捕食时，它们会使用尾部特殊的图案来吸引猎物。
+	PlagueFrog: 科学家释放的瘟疫不仅仅感染了那些充满敌意的生物，连青蛙这种和平的生物也不幸地成为了牺牲品。
+	Violemur: 一种充满好奇心的小型哺乳动物，不过已经成为星辉瘟疫的受害者。与感染域中的其他生物相比，这些狐猴仍然保持一定的自我思想。
+	Swearshroom: 这些大甲壳动物内的孢子并不喜欢它们的宿主被摧毁。虽然这些邪恶的真菌具有造成精神病的倾向，但是完全无害。
+	SandTurtle: 一种具有高防御的可怕且暴力的龟类。留着它们实在是太危险了。
+	Xerocodile: 一种古老的爬行动物，只在血月期间出现。他们是如此的脆弱，以至不能在此做过多的逗留，任何程度的阳光照射对他们来说都是致命的。
+	Vaporofly: 一种因核废水辐射而复苏的古老的昆虫。
+	Blinker: 一种适应枯萎星辉独特环境的发光体。它们是最受枯萎星辉住民们欢迎的一种食物。
+	CrystalFly: 一只"普通的蝴蝶"，蕴含着亵渎天神所拥有的两大力量之一。
+	Isopod: 一种温顺的清道夫，在深渊底部安静地居住。它们善于清理深渊中其他生物的遗骸。
+	GodSlayerSlug: 这种蠕虫拥有和宇宙蠕虫一样的紫色外观，安静地漫游在上层大气中。
+	NeuroFly: 作为一种拥有蜂群意识的生物，它们有着心灵上的联系，尽管身体上并无关联。它活着的唯一目的就是传播病毒。
+	Fogbound: 死亡之神的精神本质，我们称其为超级无敌至尊雾气之神EX：幽冥降临版本。尽管逻辑上人们可能会认为当神灵会在消耗金源魂时获得第二个灵魂，但事实并非人们所猜想的那样简单。相反，它们融合在一起，形成了比原先更强大更高级的不可思议的究极存在。
+	Meldosaurus: 它在进化的过程中因邪神的残余而堕落。它试图获得其他星际生物的认可，但未能成功。
+	MeldwyrmHead: 一种寄生绦虫，在外星恐龙体内寻求庇护。天界柱很可能是由类似的生物创造的。
+}
+
+Biomes: {
+	AstralBlight: {
+		DisplayName: 辉星枯萎
+		TownNPCDialogueName: 辉星枯萎
+	}
+}
+
+Conditions: {
+	// CalamityActive: While the Calamity Mod is active
+	// ClamDefeated: After Giant Clam has been defeated
+	// Scourge1Defeated: After Desert Scourge has been defeated
+	// CrabulonDefeated: After Crabulon has been defeated
+	// HiveMindDefeated: After The Hive Mind has been defeated
+	// PerfsDefeated: After The Perforators have been defeated
+	// SlimeGodDefeated: After Slime God has been defeated
+	// CirnogenDefeated: After Cryogen has been defeated
+	// Scourge2Defeated: After Aquatic Scourge has been defeated
+	// BrimEleDefeated: After Brimstone Elemental has been defeated
+	// CalCloneDefeated: After Calamitas Clone has been defeated
+	// AureusDefeated: After Astrum Aureus has been defeated
+	// LevAnaDefeated: After Leviathan and Anahita have been defeated
+	// GoliathDefeated: After The Plaguebringer Goliath has been defeated
+	// RavagerDefeated: After Ravager has been defeated
+	// DeusDefeated: After Astrum Deus has been defeated
+	// GuardsDefeated: After the Profaned Guardians have been defeated
+	// FollyDefeated: After The Dragonfolly has been defeated
+	// ProviDefeated: After Providence has been defeated
+	// WeaverDefeated: After Storm Weaver has been defeated
+	// VoidDefeated: After Ceaseless Void has been defeated
+	// SignusDefeated: After Signus has been defeated
+	// PolterDefeated: After Polterghast has been defeated
+	// OldDukeDefeated: After The Old Duke has been defeated
+	// DogDefeated: After The Devourer of Gods has been defeated
+	// YharonDefeated: After Yharon has been defeated
+	// ExosDefeated: After the Exo Mechs have been defeated
+	// SCalDefeated: After Calamitas has been defeated
+	// AcidGeneral: After Acid Rain tier 2 has been cleared or in the Sulphurous Sea
+	// Evil2Defeated: If either the Hive Mind or The Perforators have been defeated
+	// NuggetsSpawn: If the Calamity and Calamity's Vanities bestiaries are more than 36.5% complete or if The Dragonfolly has been defeated
+	// DungeonBiome: While in the Dungeon
+	// BlightBiome: While in the Astral Blight biome
+	// UnderLabBiome: While in the Underworld Lab
+	// JungleLabBiome: While in the Jungle Lab
+	// BanditReal: If the Bandit is present
+	// ArchmageReal: If the Archmage is present
+}
