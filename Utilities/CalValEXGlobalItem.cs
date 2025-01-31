@@ -102,7 +102,7 @@ namespace CalValEX
 			}
 			else if (item.type == CalItemID.HiveMindBag)
 			{
-				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<RottenKey>(), 10, chanceNumerator: 3)));
+				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<Corruppuccino>(), 10, chanceNumerator: 3)));
 			}
 			else if (item.type == CalItemID.PerforatorBag)
 			{

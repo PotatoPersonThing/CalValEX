@@ -320,7 +320,7 @@ namespace CalValEX.NPCs.Oracle
             shopEntries.Add(("Pets", ItemType<UglyTentacle>(), Item.buyPrice(0, 20, 0, 0), Condition.NpcIsPresent(NPC.type), ""));
             shopEntries.Add(("Pets", ItemType<BubbleGum>(), Item.buyPrice(0, 1, 0, 0), acid, ""));
             shopEntries.Add(("Pets", ItemType<MeatyWormTumor>(), Item.buyPrice(0, 20, 0, 0), hive, ""));
-            shopEntries.Add(("Pets", ItemType<RottenKey>(), Item.buyPrice(0, 20, 0, 0), perf, ""));
+            shopEntries.Add(("Pets", ItemType<Corruppuccino>(), Item.buyPrice(0, 20, 0, 0), perf, ""));
             shopEntries.Add(("Pets", ItemType<CooperShortsword>(), Item.buyPrice(0, 10, 0, 0), cirno, ""));
             shopEntries.Add(("Pets", ItemType<BrimberryItem>(), Item.buyPrice(0, 15, 0, 0), brim, ""));
             shopEntries.Add(("Pets", ItemType<SuspiciousLookingGBC>(), Item.buyPrice(0, 20, 0, 0), cala, ""));

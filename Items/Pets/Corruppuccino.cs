@@ -4,8 +4,8 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Pets
 {
-    [LegacyName("MissingFang")]
-    public class RottenKey : ModItem
+    [LegacyName("MissingFang", "RottenKey")]
+    public class Corruppuccino : ModItem
     {
         public override void SetStaticDefaults()
         {

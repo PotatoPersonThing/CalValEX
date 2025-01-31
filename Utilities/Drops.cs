@@ -522,7 +522,7 @@ namespace CalValEX
                     //Hive Mind
                     if (npc.type == CalNPCID.HiveMind)
                     {
-                        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<RottenKey>(), 3));
+                        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<Corruppuccino>(), 3));
                         AddPlushDrop(npcLoot, PlushManager.PlushItems["HiveMind"]);
                     }
                     //Slime Gods

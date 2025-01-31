@@ -1,16 +1,20 @@
+﻿using Microsoft.Xna.Framework;
 using Terraria;
 
 namespace CalValEX.Projectiles.Pets
 {
-    public class Hiveling : ModFlyingPet
+    public class HivelingBob : ModFlyingPet
     {
+        public override bool ShouldFlip => false;
+
         public override float TeleportThreshold => 1440f;
+
+        public override Vector2 FlyingOffset => new(88f * -Main.player[Projectile.owner].direction, -20f);
 
         public override void SetStaticDefaults()
         {
             PetSetStaticDefaults(lightPet: false);
-            // DisplayName.SetDefault("Hiveling");
-            Main.projFrames[Projectile.type] = 12;
+            Main.projFrames[Projectile.type] = 1;
         }
 
         public override void SetDefaults()
@@ -24,7 +28,6 @@ namespace CalValEX.Projectiles.Pets
 
         public override void Animation(int state)
         {
-            SimpleAnimation(speed: 8);
         }
 
         public override void PetFunctionality(Player player)

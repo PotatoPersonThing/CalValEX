@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,8 +12,7 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("The Sea King's Coin");
-            // Tooltip.SetDefault("Blessed with pest power\n" + "Summons both the Aquatic and Desert Pests");
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 15));
             Item.ResearchUnlockCount = 1;
         }
 
