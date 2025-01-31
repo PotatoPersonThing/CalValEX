@@ -247,6 +247,13 @@ namespace CalValEX
                 recipe.AddTile(TileID.MythrilAnvil);
                 recipe.Register();
             }
+            {
+                Recipe recipe = Recipe.Create(ItemType<BottledSulphurousWater>());
+                recipe.AddIngredient(ItemID.Bottle);
+                recipe.AddCondition(Condition.NearWater);
+                recipe.AddCondition(CalValEXConditions.sulph);
+                recipe.Register();
+            }
             #endregion
             #region //Critters
             {

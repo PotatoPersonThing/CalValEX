@@ -47,6 +47,7 @@ namespace CalValEX
         public static Condition ass = new(Language.GetTextValue("Mods.CalValEX.Conditions.BlightBiome"), () => Main.LocalPlayer.InModBiome<Biomes.AstralBlight>());
         public static Condition sammy = new(Language.GetTextValue("Mods.CalValEX.Conditions.UnderLabBiome"), () => CalValEXWorld.hellTiles > 20 && Main.LocalPlayer.ZoneUnderworldHeight);
         public static Condition jun = new(Language.GetTextValue("Mods.CalValEX.Conditions.JungleLabBiome"), () => CalValEXWorld.jungleTiles > 20 && Main.LocalPlayer.ZoneJungle);
+        public static Condition sulph = new(Language.GetTextValue("Mods.CalValEX.Conditions.SulphurousSeaBiome"), () => CalValEX.CalamityActive ? CalValEX.InCalamityBiome(Main.LocalPlayer, "SulphurousSeaBiome") : false);
         // NPC conditions
         public static Condition bandit = new(Language.GetTextValue("Mods.CalValEX.Conditions.BanditReal"), () => CalValEX.CalamityActive ? NPC.AnyNPCs(CalNPCID.THIEF) : NPC.AnyNPCs(NPCID.Golfer));
         public static Condition perma = new(Language.GetTextValue("Mods.CalValEX.Conditions.ArchmageReal"), () => CalValEX.CalamityActive ? NPC.AnyNPCs(CalNPCID.DILF) : NPC.AnyNPCs(NPCID.Wizard));

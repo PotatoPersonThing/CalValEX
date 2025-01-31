@@ -4623,3 +4623,8 @@ NamelessDeityEXPlush: {
 	DisplayName: Nameless Deity Plush (EX)
 	Tooltip: ""
 }
+
+BottledSulphurousWater: {
+	DisplayName: Bottled Sulphurous Water
+	Tooltip: "Probably not healthy to drink"
+}
