@@ -6,9 +6,9 @@ namespace CalValEX.Projectiles.Pets
     public class AquaPet : BaseWormPet
     {
         public override string Texture => "CalValEX/Projectiles/Pets/AquaHead";
-        public override WormPetVisualSegment HeadSegment() => new("CalValEX/Projectiles/Pets/AquaHead");
-        public override WormPetVisualSegment BodySegment() => new("CalValEX/Projectiles/Pets/AquaBody");
-        public override WormPetVisualSegment TailSegment() => new("CalValEX/Projectiles/Pets/AquaTail");
+        public override WormPetVisualSegment HeadSegment() => new("CalValEX/Projectiles/Pets/AquaHead", frames: 8);
+        public override WormPetVisualSegment BodySegment() => new("CalValEX/Projectiles/Pets/AquaBody", frames: 8);
+        public override WormPetVisualSegment TailSegment() => new("CalValEX/Projectiles/Pets/AquaTail", frames: 8);
 
         public override int SegmentSize() => 10;
 
@@ -24,7 +24,7 @@ namespace CalValEX.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             // DisplayName.SetDefault("Aquatic Pest");
-            Main.projFrames[Projectile.type] = 1;
+            Main.projFrames[Projectile.type] = 8;
             Main.projPet[Projectile.type] = true;
         }
 
@@ -62,7 +62,41 @@ namespace CalValEX.Projectiles.Pets
 
         public override void CustomAI()
         {
-            
+            // every so often do a lil spin
+            if (Main.rand.NextBool(300) && Projectile.ai[2] <= 0)
+            {
+                Projectile.ai[2] = 600;
+            }
+            Projectile.ai[2]--;
+        }
+
+        public override void Animate()
+        {
+            foreach (WormPetSegment segment in Segments)
+            {
+                // do a spin if ai[2] has been tampered with
+                if (Projectile.ai[2] > 0)
+                {
+                    segment.visual.FrameCounter++;
+                    if (segment.visual.FrameCounter > segment.visual.FrameDuration)
+                    {
+                        segment.visual.Frame--;
+                        if (segment.visual.Frame < 0)
+                            segment.visual.Frame = segment.visual.FrameCount - 1;
+                        // if we're back on frame 1, set ai[2] to 1,
+                        // due to the constant decrementing, this will make the pet exit its animation after the tail is done
+                        if (segment.visual.Frame == segment.visual.FrameCount - 1)
+                            Projectile.ai[2] = 1;
+
+                        segment.visual.FrameCounter = 0;
+                    }
+                }
+                // otherwise just use static frames
+                else
+                {
+                    segment.visual.Frame = segment.visual.FrameCount - 1;
+                }
+            }
         }
     }
 }

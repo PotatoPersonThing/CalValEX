@@ -4626,5 +4626,5 @@ NamelessDeityEXPlush: {
 
 BottledSulphurousWater: {
 	DisplayName: Bottled Sulphurous Water
-	Tooltip: "Probably not healthy to drink"
+	Tooltip: Probably not healthy to drink
 }
