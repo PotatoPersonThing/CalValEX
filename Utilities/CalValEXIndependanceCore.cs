@@ -8,7 +8,7 @@ namespace CalValEX
     {
         private Mod calamity;
         private bool calamityActive;
-        public static bool CalamityActive => instance.calamityActive;
+        public static bool CalamityActive => instance?.calamityActive ?? false;
         public static Mod Calamity => CalamityActive ? instance.calamity : null;
 
         public static bool CalamityContent<T>(string name, out T content) where T : IModType
