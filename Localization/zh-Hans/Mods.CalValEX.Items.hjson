@@ -2318,15 +2318,6 @@ RottenHotdog: {
 		'''
 }
 
-RottenKey: {
-	DisplayName: 腐败钥匙
-	Tooltip:
-		'''
-		召唤一块腐巢意志
-		"安抚微生物群的关键"
-		'''
-}
-
 RottingCalamitousArtifact: {
 	DisplayName: 腐败的灾厄神器
 	Tooltip:
@@ -4635,5 +4626,14 @@ BottledSulphurousWater: {
 
 Corruppuccino: {
 	// DisplayName: Corruppuccino
+	/* Tooltip:
+		'''
+		Summons a tired Hive Mind and its family
+		'Drink up!'
+		''' */
+}
+
+EntropicNoxusPlush: {
+	// DisplayName: Entropic Noxus Plush
 	// Tooltip: ""
 }

@@ -86,7 +86,6 @@ namespace CalValEX.ExtraTextures.ChristmasPets
                 TextureAssets.Projectile[ModContent.ProjectileType<PolterChan>()] = ModContent.Request<Texture2D>(path + "PolterChan");
                 TextureAssets.Projectile[ModContent.ProjectileType<Junko>()] = ModContent.Request<Texture2D>(path + "Junko");
                 TextureAssets.Projectile[ModContent.ProjectileType<Pillager>()] = ModContent.Request<Texture2D>(path + "Pillager");
-                TextureAssets.Projectile[ModContent.ProjectileType<PhantomPet>()] = ModContent.Request<Texture2D>(path + "PhantomPet");
                 TextureAssets.Projectile[ModContent.ProjectileType<PBGmini>()] = ModContent.Request<Texture2D>(path + "PBGmini");
                 TextureAssets.Projectile[ModContent.ProjectileType<Nugget>()] = ModContent.Request<Texture2D>(path + "Nugget");
                 TextureAssets.Projectile[ModContent.ProjectileType<MiniBumble>()] = ModContent.Request<Texture2D>(path + "MiniBumble");

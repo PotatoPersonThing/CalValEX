@@ -333,12 +333,6 @@ namespace CalValEX.Buffs.PetComboBuffs
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<TopazPet>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
-            bool petProjectileNotSpawnedAR = player.ownedProjectileCounts[ModContent.ProjectileType<PhantomPet>()] <= 0;
-            if (petProjectileNotSpawnedAR && player.whoAmI == Main.myPlayer){
-                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
-                    player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<PhantomPet>(), 0, 0f, player.whoAmI, 0f, 0f);
-            }
-
             bool petProjectileNotSpawnedAS = player.ownedProjectileCounts[ModContent.ProjectileType<VoidOrb>()] <= 0;
             if (petProjectileNotSpawnedAS && player.whoAmI == Main.myPlayer){
                 Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),

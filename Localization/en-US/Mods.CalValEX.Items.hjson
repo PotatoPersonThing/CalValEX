@@ -2318,15 +2318,6 @@ RottenHotdog: {
 		'''
 }
 
-RottenKey: {
-	DisplayName: Rotten Key
-	Tooltip:
-		'''
-		Summons a chunk of The Hive Mind
-		'The key to pacifying a microbial cluster'
-		'''
-}
-
 RottingCalamitousArtifact: {
 	DisplayName: Rotting Calamitous Artifact
 	Tooltip:
@@ -4631,5 +4622,14 @@ BottledSulphurousWater: {
 
 Corruppuccino: {
 	DisplayName: Corruppuccino
+	Tooltip:
+		'''
+		Summons a tired Hive Mind and its family
+		'Drink up!'
+		'''
+}
+
+EntropicNoxusPlush: {
+	DisplayName: Entropic Noxus Plush
 	Tooltip: ""
 }

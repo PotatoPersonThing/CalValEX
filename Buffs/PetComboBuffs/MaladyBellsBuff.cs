@@ -31,12 +31,6 @@ namespace CalValEX.Buffs.PetComboBuffs
                     player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<Cryokid>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
 
-            bool petProjectileNotSpawnedB = player.ownedProjectileCounts[ModContent.ProjectileType<PhantomPet>()] <= 0;
-            if (petProjectileNotSpawnedB && player.whoAmI == Main.myPlayer){
-                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),
-                    player.position.Y + (player.height / 2), 0f, 0f, ModContent.ProjectileType<PhantomPet>(), 0, 0f, player.whoAmI, 0f, 0f);
-            }
-
             bool petProjectileNotSpawnedC = player.ownedProjectileCounts[ModContent.ProjectileType<Hoodieidolist>()] <= 0;
             if (petProjectileNotSpawnedC && player.whoAmI == Main.myPlayer){
                 Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (player.width / 2),

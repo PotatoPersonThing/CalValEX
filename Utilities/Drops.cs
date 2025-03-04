@@ -909,6 +909,14 @@ namespace CalValEX
                 {
                     AddPlushDrop(npcLoot, PlushManager.PlushItems["Cataractacomb"]);
                 }
+                if (npc.type == remix.Find<ModNPC>("Hypnos").Type)
+                {
+                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Hypnos"]);
+                }
+                if (npc.type == remix.Find<ModNPC>("EntropicGod").Type)
+                {
+                    AddPlushDrop(npcLoot, PlushManager.PlushItems["EntropicNoxus"]);
+                }
             }
 
             //Yharexs' Dev Pet (Calamity BABY)

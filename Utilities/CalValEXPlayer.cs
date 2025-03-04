@@ -20,6 +20,7 @@ using CalValEX.Projectiles;
 using CalValEX.AprilFools.Fanny;
 using Terraria.ModLoader.IO;
 using System.Linq;
+using CalValEX.Items.Mounts.InfiniteFlight;
 
 namespace CalValEX
 {
@@ -705,6 +706,19 @@ namespace CalValEX
                     Player.fullRotation = (float)Math.Sign(Player.velocity.X) * Utils.GetLerpValue(0f, Player.mount.RunSpeed - 0.2f, Math.Abs(Player.velocity.X), clamped: true) * 0.4f;
                 }
                 Player.fullRotationOrigin = new Vector2(Player.width / 2, (float)Player.height * 0.8f);
+            }
+            if (Player.mount.Type == MountType<YharonMount>())
+            {
+                if (Math.Abs(Player.velocity.X) >= 13)
+                {
+                    Player.fullRotation = Utils.AngleLerp(Player.fullRotation, Player.velocity.ToRotation() + (Player.direction == -1 ? MathHelper.Pi : 0), 0.04f);
+                    Player.fullRotationOrigin = new Vector2(Player.width / 2, (float)Player.height * 0.8f);
+                }
+                else
+                {
+                    Player.fullRotation = Utils.AngleLerp(Player.fullRotation, 0, 0.04f);
+                    Player.fullRotationOrigin = new Vector2(Player.width / 2, (float)Player.height * 0.8f);
+                }
             }
         }
         [JITWhenModsEnabled("CalamityMod")]

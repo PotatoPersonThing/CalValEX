@@ -776,5 +776,10 @@ YhogoStickBuff: {
 
 BirdsculeBuff: {
 	// DisplayName: Birdscule Buff
-	// Description: Mods.CalValEX.Buffs.BirdsculeBuff.Description
+	// Description: Best not let it peck your scalp
+}
+
+DebrisMount: {
+	// DisplayName: Debris Mount
+	// Description: They used to ride these back in the days
 }

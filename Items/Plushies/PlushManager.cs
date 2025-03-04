@@ -73,6 +73,7 @@ namespace CalValEX.Items.Plushies
             LoadPlush("LeviathanEX", ItemUtils.BossRarity("Leviathan"), false, 3, 3, sound: GetCalamitySound("Custom/LeviathanRoarCharge", SoundID.Zombie39));
             LoadPlush("YharonEX", 15, false, 3, 3, sound: GetCalamitySound("Custom/Yharon/YharonRoar", SoundID.Zombie92));
             LoadPlush("DevourerofGodsEX", 14, false, 3, 3, sound: GetCalamitySound("Custom/DevourerSpawn", SoundID.Meowmere));
+            LoadPlush("EntropicNoxus", 16, false, sound: GetOtherModSound("CalRemix", "CalRemix/Assets/Sounds/Noxus/NoxusScream", SoundID.Item104));
             LoadPlush("NamelessDeity", 16, false, sound: GetOtherModSound("NoxusBoss", "NoxusBoss/Assets/Sounds/Custom/NamelessDeity/ScreamShort", SoundID.Item163));
             LoadPlush("NamelessDeityEX", 16, false, 3, 3, sound: GetOtherModSound("NoxusBoss", "NoxusBoss/Assets/Sounds/Custom/NamelessDeity/ScreamLong", SoundID.Item164));
         }
