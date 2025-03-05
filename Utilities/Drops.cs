@@ -865,6 +865,10 @@ namespace CalValEX
                 {
                     AddPlushDrop(npcLoot, PlushManager.PlushItems["NamelessDeityEX"]);
                 }
+                /*if (npc.type == xeroxus.Find<ModNPC>("EntropicGod").Type)
+                {
+                    AddPlushDrop(npcLoot, PlushManager.PlushItems["EntropicNoxus"], rare: true);
+                }*/
             }
             if (CalValEX.instance.hunt != null)
             {
@@ -912,10 +916,6 @@ namespace CalValEX
                 if (npc.type == remix.Find<ModNPC>("Hypnos").Type)
                 {
                     AddPlushDrop(npcLoot, PlushManager.PlushItems["Hypnos"]);
-                }
-                if (npc.type == remix.Find<ModNPC>("EntropicGod").Type)
-                {
-                    AddPlushDrop(npcLoot, PlushManager.PlushItems["EntropicNoxus"]);
                 }
             }
 
