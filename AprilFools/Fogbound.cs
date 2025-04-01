@@ -77,11 +77,11 @@ namespace CalValEX.AprilFools
 				NPC.active = false;
 				if (CalValEX.CalamityActive)
 				{
-					CalamityText(Language.GetTextValue("Mods.CalValEX.NPCs.Fogbound.TheLine"), Color.Gray);
+					CalamityText(Language.GetTextValue("Mods.CalValEX.NPCs.Fogbound.ThePhrase"), Color.Gray);
 				}
 				else
                 {
-					Main.NewText(Language.GetTextValue("Mods.CalValEX.NPCs.Fogbound.TheLine"), Color.Gray);
+					Main.NewText(Language.GetTextValue("Mods.CalValEX.NPCs.Fogbound.ThePhrase"), Color.Gray);
                 }
 			}
 			NPC.localAI[0]++;
@@ -120,6 +120,11 @@ namespace CalValEX.AprilFools
 					break;
 				case 1:
                     {
+						if (target == null || !target.active)
+						{
+							NPC.velocity.Y += 1;
+							return;
+						}
 						NPC.damage = 69420666;
 						float fistGate = NERBValues(20, 15, 10, 7, 5);
 						Vector2 distanceFromDestination = target.Center - NPC.Center;
@@ -147,7 +152,12 @@ namespace CalValEX.AprilFools
 					break;
 				case 2:
                     {
-						float phaseTime = Math.Clamp(100 - (lifeRatio * 100), 10, 10000);
+                        if (target == null || !target.active)
+                        {
+                            NPC.velocity.Y += 1;
+                            return;
+                        }
+                        float phaseTime = Math.Clamp(100 - (lifeRatio * 100), 10, 10000);
 						float chargeSpeed = 20 + (10 - (lifeRatio * 10));
 						if (NPC.ai[1] == 0)
                         {

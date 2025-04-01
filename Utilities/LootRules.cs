@@ -351,7 +351,7 @@ namespace CalValEX
             {
                 if (!CalValEX.CalamityActive)
                     return false;
-                return CalValEX.CalamityActive && CalValEXWorld.downedFogbound; // Calamity must be active since the lore item relies on Calamity
+                return CalValEX.CalamityActive && !CalValEXWorld.downedFogbound; // Calamity must be active since the lore item relies on Calamity
             }
 
             public bool CanShowItemDropInUI()
