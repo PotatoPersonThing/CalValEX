@@ -68,6 +68,7 @@ DeusPetSmall.DisplayName: Astrum Demus
 DogBody.DisplayName: Devourer of Gods (real)
 DogHead.DisplayName: Devourer of Gods (real)
 DogTail.DisplayName: Devourer of Gods (real)
+Dog.DisplayName: Dog
 Dragonball.DisplayName: BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALL EXPLOSION
 Dstone.DisplayName: Unhappy Stone
 Ebonian.DisplayName: Ebonian Slime Demigod
@@ -84,6 +85,7 @@ TwinsPet.DisplayName: Toy Twins
 FathomEelBody.DisplayName: Fathom Eel
 FathomEelHead.DisplayName: Fathom Eel
 FathomEelTail.DisplayName: Fathom Eel
+FathomEel.DisplayName: Fathom Eel
 Fistuloid.DisplayName: Perfistuloid
 FogPet.DisplayName: Fogbound
 FollyPet.DisplayName: Bumblefolly
@@ -207,6 +209,7 @@ HypnosPlush.DisplayName: Hypnos Plush
 ItsReal.DisplayName: Its Real
 ItsRealAlt.DisplayName: Its Real Alt
 JaredPlush.DisplayName: Jared Plush
+Jared.DisplayName: Jared
 LeviathanPlush.DisplayName: Leviathan Plush
 MaulerPlush.DisplayName: Mauler Plush
 MirePlushP1.DisplayName: Mire Plush P1
@@ -266,3 +269,8 @@ HivelingBob.DisplayName: Bob
 HivelingDarek.DisplayName: Darek
 HivelingDivaHead.DisplayName: Diva
 EntropicNoxusPlush.DisplayName: Entropic Noxus Plush
+MarsPlush.DisplayName: Mars Plush
+AvatarPlush.DisplayName: Avatar Plush
+AvatarEXPlush.DisplayName: Avatar Plush EX
+SignathionPlush.DisplayName: Signathion Plush
+WulfrumGrapplerHook.DisplayName: Wulfrum Hand

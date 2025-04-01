@@ -4611,12 +4611,16 @@ OgliveBranch: {
 
 NamelessDeityPlush: {
 	// DisplayName: Nameless Deity Plush
-	// Tooltip: ""
+	// Tooltip: Right click to throw!
 }
 
 NamelessDeityEXPlush: {
 	// DisplayName: Nameless Deity Plush (EX)
-	// Tooltip: ""
+	/* Tooltip:
+		'''
+		Can be shrunken with Shimmer
+		Right click to throw!
+		''' */
 }
 
 BottledSulphurousWater: {
@@ -4635,5 +4639,89 @@ Corruppuccino: {
 
 EntropicNoxusPlush: {
 	// DisplayName: Entropic Noxus Plush
+	// Tooltip: Right click to throw!
+}
+
+PaintedGoggles: {
+	// DisplayName: Painted Goggles
+	/* Tooltip:
+		'''
+		Use this to toggle Calamity's Vanities' April Fools boss sprites
+		Can only be used in singleplayer
+		Does not work while Infernum Mode is enabled
+		''' */
+	// Enabled: Painted sprites forcefully enabled
+	// Disabled: Painted sprites forcefully disabled
+}
+
+MarsPlush: {
+	// DisplayName: Mars Plush
+	// Tooltip: Right click to throw!
+}
+
+AvatarPlush: {
+	// DisplayName: Avatar of Emptiness Plush
+	// Tooltip: Right click to throw!
+}
+
+AvatarEXPlush: {
+	// DisplayName: Avatar of Emptiness Plush (EX)
+	/* Tooltip:
+		'''
+		Can be shrunken with Shimmer
+		Right click to throw!
+		''' */
+}
+
+Fool: {
+	// DisplayName: The Fool
+	// Tooltip: "'Maple'"
+}
+
+FoolEX: {
+	// DisplayName: The Fool (EX)
+	// Tooltip: "'Maple'"
+}
+
+SignathionPlush: {
+	// DisplayName: Signathion Plush
+	// Tooltip: Right click to throw!
+}
+
+SeaguardShield: {
+	// DisplayName: Seaguard Shield
+	/* Tooltip:
+		'''
+		'Maybe he would have won the fight
+		...if his shield wasn't made of paper mache'
+		''' */
+}
+
+DustyGuitar: {
+	// DisplayName: Dusty Guitar
+	/* Tooltip:
+		'''
+		'Full of music to soothe the soul
+		and sand'
+		''' */
+}
+
+WulfrumGrappler: {
+	// DisplayName: Wulfrum Grabbler
+	/* Tooltip:
+		'''
+		Grabbed tiles act as pivot point from which the user swings forward from
+		Reach: 15
+		Launch Velocity: 8
+		''' */
+}
+
+DarklightMushroomCap: {
+	// DisplayName: Darklight Mushroom Cap
+	// Tooltip: ""
+}
+
+MushroomCap: {
+	// DisplayName: Mushroom Cap
 	// Tooltip: ""
 }

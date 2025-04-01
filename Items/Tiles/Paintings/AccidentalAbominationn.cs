@@ -1,6 +1,7 @@
 ﻿using Terraria.ID;
 using CalValEX.Tiles.Paintings;
 using Terraria.ModLoader;
+using Terraria;
 
 namespace CalValEX.Items.Tiles.Paintings
 {
@@ -20,7 +21,7 @@ namespace CalValEX.Items.Tiles.Paintings
             Item.useAnimation = 15;
             Item.useTime = 10;
             Item.autoReuse = true;
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<AccidentalAbominationnPlaced>();
             Item.width = 12;

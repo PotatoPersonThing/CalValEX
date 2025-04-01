@@ -22,7 +22,7 @@ namespace CalValEX.Items.Tiles
             Item.autoReuse = true;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<BoiMachinePlaced>();
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
             Item.width = 48;
             Item.height = 32;
             Item.rare = ItemRarityID.LightRed;

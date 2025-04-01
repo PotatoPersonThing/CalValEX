@@ -68,6 +68,7 @@ DeusPetSmall.DisplayName: 小星神游龙
 DogBody.DisplayName: 神明吞噬者身体（真）
 DogHead.DisplayName: 神明吞噬者头（真）
 DogTail.DisplayName: 神明吞噬者尾（真）
+// Dog.DisplayName: Dog
 Dragonball.DisplayName: 环绕于吾身的戒律之炉内，深渊之血肉争鸣咆哮，此刻，融于真红波动之中吧！贯穿天地吧，Explosion!
 Dstone.DisplayName: 愤怒之石
 Ebonian.DisplayName: 枯萎史莱姆之主
@@ -84,6 +85,7 @@ TwinsPet.DisplayName: 双子玩具
 FathomEelBody.DisplayName: 冥思暴龙身
 FathomEelHead.DisplayName: 冥思暴龙头
 FathomEelTail.DisplayName: 冥思暴龙尾
+// FathomEel.DisplayName: Fathom Eel
 Fistuloid.DisplayName: 血肉宿主
 FogPet.DisplayName: 超级无敌至尊雾气之神EX：幽冥降临版
 FollyPet.DisplayName: 痴愚龙
@@ -207,6 +209,7 @@ HypnosPlush.DisplayName: 修普诺斯毛绒玩具
 ItsReal.DisplayName: 真货
 ItsRealAlt.DisplayName: 真货Alt
 JaredPlush.DisplayName: 妖龙毛绒玩具
+// Jared.DisplayName: Jared
 LeviathanPlush.DisplayName: 利维坦毛绒玩具
 MaulerPlush.DisplayName: 渊海狂鲨毛绒玩具
 MirePlushP1.DisplayName: 峭咽潭毛绒玩具1
@@ -266,3 +269,8 @@ ApolloBalloonProj.DisplayName: 阿波罗气球
 // HivelingDarek.DisplayName: Darek
 // HivelingDivaHead.DisplayName: Diva
 // EntropicNoxusPlush.DisplayName: Entropic Noxus Plush
+// MarsPlush.DisplayName: Mars Plush
+// AvatarPlush.DisplayName: Avatar Plush
+// AvatarEXPlush.DisplayName: Avatar Plush EX
+// SignathionPlush.DisplayName: Signathion Plush
+// WulfrumGrapplerHook.DisplayName: Wulfrum Hand

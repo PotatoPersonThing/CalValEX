@@ -102,6 +102,7 @@ namespace CalValEX.NPCs.Critters
         [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
+            CVUtils.CritterBestiary(NPC, Type);
             if (CalValEX.CalamityActive)
             {
                 if (CalamityMod.DownedBossSystem.downedProvidence)

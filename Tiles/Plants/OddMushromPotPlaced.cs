@@ -7,7 +7,7 @@ using Terraria.ObjectData;
 
 namespace CalValEX.Tiles.Plants
 {
-    public class OddMushromPotPlaced : ModTile
+    public class OddMushroomPotPlaced : ModTile
     {
         public override void SetStaticDefaults()
         {
@@ -17,8 +17,8 @@ namespace CalValEX.Tiles.Plants
             TileID.Sets.FramesOnKillWall[Type] = true; // Necessary since Style3x3Wall uses AnchorWall
             TileObjectData.newTile.CopyFrom(TileObjectData.Style3x4);
             TileObjectData.newTile.Width = 3;
-            TileObjectData.newTile.Height = 5;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16 }; //
+            TileObjectData.newTile.Height = 4;
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16 }; //
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.addTile(Type);
             LocalizedText name = CreateMapEntryName();

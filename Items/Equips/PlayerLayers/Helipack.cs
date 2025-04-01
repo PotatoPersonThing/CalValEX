@@ -1,6 +1,7 @@
 ﻿using CalValEX.Items.Equips.Wings;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
@@ -10,6 +11,19 @@ namespace CalValEX.Items.Equips.PlayerLayers {
         private int frame;
         private int frameCounter;
         public override Position GetDefaultPosition() => new BeforeParent(PlayerDrawLayers.Wings);
+
+        public static Asset<Texture2D> helipackTex;
+        public static Asset<Texture2D> brokenHelipackTex;
+
+        public override void Load()
+        {
+            if (!Main.dedServ)
+            {
+
+                helipackTex = ModContent.Request<Texture2D>("CalValEX/Items/Equips/Wings/WulfrumHelipackEquipped");
+                brokenHelipackTex = ModContent.Request<Texture2D>("CalValEX/Items/Equips/Wings/WulfrumHelipackMalfunction");
+            }
+        }
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo) {
             bool heli = false;
@@ -66,9 +80,9 @@ namespace CalValEX.Items.Equips.PlayerLayers {
 
             Texture2D texture;
             if (!modPlayer.wulfrumjam)
-                texture = ModContent.Request<Texture2D>("CalValEX/Items/Equips/Wings/WulfrumHelipackEquipped").Value;
+                texture = helipackTex.Value;
             else
-                texture = ModContent.Request<Texture2D>("CalValEX/Items/Equips/Wings/WulfrumHelipackMalfunction").Value;
+                texture = brokenHelipackTex.Value;
 
             if (modPlayer.helipack) {
                 int dyeShader = drawPlayer.dye?[1].dye ?? 0;

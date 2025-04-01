@@ -25,7 +25,7 @@ namespace CalValEX.AprilFools.Jharim
         public bool firinglaser = false;
         public bool lasercheck = false;
         public int shopnum = 1;
-        public int maxshops = 18;
+        public static int maxshops = 18;
         public List<int> cvitems = new() { };
         Vector2 jharimpos;
 
@@ -420,6 +420,9 @@ namespace CalValEX.AprilFools.Jharim
                 var blockShop = new NPCShop(Type, "Jharim");
                 blockShop.Add(ItemType<AmogusItem>());
                 blockShop.Add(ItemType<FriendExtinguisher>());
+                blockShop.Add(ItemType<PaintedGoggles>());
+                blockShop.Add(ItemType<Fool>());
+                blockShop.Add(ItemType<FoolEX>());
                 blockShop.Register();
             }
             else
@@ -433,6 +436,9 @@ namespace CalValEX.AprilFools.Jharim
                         cvitems.Add(i);
                     }
                 }
+
+                int shopCount = (int)Math.Ceiling(cvitems.Count / 39f);
+                maxshops = shopCount;
 
                 int progress = 0;
 
@@ -483,7 +489,7 @@ namespace CalValEX.AprilFools.Jharim
             }
             return price;
         }
-        public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
+        public override bool CanTownNPCSpawn(int numTownNPCs)
         {
             if (!CalValEXConfig.Instance.TownNPC)
             {
@@ -493,7 +499,15 @@ namespace CalValEX.AprilFools.Jharim
                 }
                 else if (!CalValEX.CalamityActive)
                 {
-                    return true;
+                    // If Fables is enabled, only move in after defeating all 3 bosses
+                    if (CalValEX.FablesActive)
+                    {
+                        return Main.hardMode;
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
                 else
                 {

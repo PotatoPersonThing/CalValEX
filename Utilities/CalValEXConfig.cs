@@ -15,6 +15,7 @@ namespace CalValEX
         [Header("$Mods.CalValEX.Configs.Drops")]
 
         [BackgroundColor(192, 54, 64, 192)]
+        [ReloadRequired]
         [DefaultValue(false)]
         public bool DisableVanityDrops { get; set; }
 
@@ -44,6 +45,8 @@ namespace CalValEX
         [DefaultValue(false)]
         public bool Pitbul { get; set; }
 
+        [Header("$Mods.CalValEx.Configs.Gameplay")]
+
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(false)]
         public bool TownNPC { get; set; }
@@ -61,6 +64,11 @@ namespace CalValEX
         public bool GroundMountLol { get; set; }
 
         [Header("$Mods.CalValEx.Configs.OtherHeader")]
+
+        [BackgroundColor(192, 54, 64, 192)]
+        [DefaultValue(true)]
+        [ReloadRequired()]
+        public bool AprilFoolsContent { get; set; }
 
         [BackgroundColor(192, 54, 64, 192)]
         [DefaultValue(true)]

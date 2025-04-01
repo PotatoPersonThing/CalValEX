@@ -283,7 +283,6 @@ HolyStudedBonsaiPlaced.MapEntry: 圣钉盆景
 MonolithPotPlaced.MapEntry: 枯星盆栽
 NetherTreeBigPlaced.MapEntry: 扭曲根树
 NetherTreePlaced.MapEntry: 扭曲根树苗
-OddMushromPotPlaced.MapEntry: 真菌
 SSCoralPlaced.MapEntry: 沉沦珊瑚盆栽
 SulphurousCactusPlaced.MapEntry: 硫磺仙人掌盆栽
 SulphurousPlanterPlaced.MapEntry: 酸蚀藤蔓盆栽
@@ -341,7 +340,7 @@ TyrantFeedPlaced.MapEntry: 暴君播报
 GoozmaPlushPlaced.MapEntry: 放置的古泽玛毛绒玩具
 ProvidenceAltarPlaced.MapEntry: 亵渎天神核心底座
 PolterCablePlaced.MapEntry: 惧魂线缆
-// GiantClamPlushPlaced.MapEntry: Giant Clam Plush Placed
+// GiantClamPlushPlaced.MapEntry: Giant Clam Plush
 // MireP1PlushPlaced.MapEntry: Shielded Cragmaw Mire Plush
 // MireP2PlushPlaced.MapEntry: Slimy Cragmaw Mire Plush
 // CalamitasPlushPlaced.MapEntry: Calamitas Plush
@@ -352,12 +351,19 @@ PolterCablePlaced.MapEntry: 惧魂线缆
 // YharonEXPlushPlaced.MapEntry: Yharon Plush EX
 // DevourerofGodsEXPlushPlaced.MapEntry: Devourerof Gods Plush EX
 // ExodygenPlushPlaced.MapEntry: Exodygen Plush
-// ExotrexiaPlushPlaced.MapEntry: Exotrexia Plush Placed
-// AstigmageddonPlushPlaced.MapEntry: Astigmageddon Plush Placed
-// CataractacombPlushPlaced.MapEntry: Cataractacomb Plush Placed
-// ConjunctivirusPlushPlaced.MapEntry: Conjunctivirus Plush Placed
-// PolyphemalusPlushPlaced.MapEntry: Polyphemalus Plush Placed
-// AstralUndergroundMusicBoxPlaced.MapEntry: Astral Underground Music Box Placed
+// ExotrexiaPlushPlaced.MapEntry: Exotrexia Plush
+// AstigmageddonPlushPlaced.MapEntry: Astigmageddon Plush
+// CataractacombPlushPlaced.MapEntry: Cataractacomb Plush
+// ConjunctivirusPlushPlaced.MapEntry: Conjunctivirus Plush
+// PolyphemalusPlushPlaced.MapEntry: Polyphemalus Plush
+// AstralUndergroundMusicBoxPlaced.MapEntry: Astral Underground Music Box
 // NamelessDeityPlushPlaced.MapEntry: Nameless Deity Plush
 // NamelessDeityEXPlushPlaced.MapEntry: Nameless Deity Plush EX
-// EntropicNoxusPlushPlaced.MapEntry: Entropic Noxus Plush Placed
+// EntropicNoxusPlushPlaced.MapEntry: Entropic Noxus Plush
+// MarsPlushPlaced.MapEntry: Mars Plush
+// AvatarPlushPlaced.MapEntry: Avatar Plush
+// AvatarEXPlushPlaced.MapEntry: Avatar Plush EX
+// FoolEXPlaced.MapEntry: The Fool EX
+// FoolPlaced.MapEntry: The Fool
+// SignathionPlushPlaced.MapEntry: Signathion Plush
+// OddMushroomPotPlaced.MapEntry: Fungus

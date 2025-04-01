@@ -25,7 +25,7 @@ namespace CalValEX.Tiles
             AddMapEntry(new Color(255, 0, 251), name);
             if (CalValEX.CalamityActive)
             {
-                RegisterItemDrop(CalamityID.CalItemID.CeremonialUrn);
+                RegisterItemDrop(CalamityID.CalamityID.ItemRelation("CeremonialUrn", ItemID.NebulaPickaxe));
             }
         }
     }

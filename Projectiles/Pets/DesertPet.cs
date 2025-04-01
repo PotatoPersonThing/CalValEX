@@ -10,9 +10,9 @@ namespace CalValEX.Projectiles.Pets
         public override WormPetVisualSegment BodySegment() => new("CalValEX/Projectiles/Pets/DesertBody", false, 2, 1);
         public override WormPetVisualSegment TailSegment() => new("CalValEX/Projectiles/Pets/DesertTail");
 
-        public override int SegmentSize() => 10;
+        public override int SegmentSize() => 8;
 
-        public override int SegmentCount() => 10;
+        public override int SegmentCount() => 14;
 
         public override bool ExistenceCondition() => ModOwner.dsPet;
 

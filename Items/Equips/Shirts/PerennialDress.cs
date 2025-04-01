@@ -4,9 +4,19 @@ using Terraria.ID;
 
 namespace CalValEX.Items.Equips.Shirts
 {
-    [AutoloadEquip(EquipType.Body)]
-    public class PerennialDress : ModItem {
-        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
+    [AutoloadEquip(EquipType.Body, EquipType.Legs)]
+    public class PerennialDress : ModItem
+    {        
+        public override void SetStaticDefaults()
+        {
+            Item.ResearchUnlockCount = 1;
+
+            if (Main.netMode != NetmodeID.Server)
+            {
+                var legEquipSlot = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);
+                ArmorIDs.Legs.Sets.HidesBottomSkin[legEquipSlot] = true;
+            }
+        }
 
         public override void SetDefaults()
         {

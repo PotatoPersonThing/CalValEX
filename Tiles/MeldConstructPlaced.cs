@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -22,7 +23,7 @@ namespace CalValEX.Tiles
             AddMapEntry(new Color(70, 45, 45));
             if (CalValEX.CalamityActive)
             {
-                RegisterItemDrop(CalamityID.CalItemID.MeldConstruct);
+                RegisterItemDrop(CalamityID.CalamityID.ItemRelation("MeldConstruct", ItemID.FragmentNebula));
             }
         }
     }

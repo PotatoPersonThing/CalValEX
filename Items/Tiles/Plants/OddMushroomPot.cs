@@ -23,9 +23,9 @@ namespace CalValEX.Items.Tiles.Plants
             Item.useAnimation = 15;
             Item.useTime = 10;
             Item.autoReuse = true;
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
             Item.consumable = true;
-            Item.createTile = ModContent.TileType<OddMushromPotPlaced>();
+            Item.createTile = ModContent.TileType<OddMushroomPotPlaced>();
             Item.width = 12;
             Item.height = 12;
             Item.rare = ItemRarityID.LightRed;

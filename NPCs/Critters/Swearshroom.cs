@@ -53,9 +53,28 @@ namespace CalValEX.NPCs.Critters
 
 
         private int nohurt = 120;
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            if (CalValEX.CalamityActive)
+            {
+                if ((bool)CalValEX.Calamity.Call("GetBossDowned", "crabulon") && !CalValEXConfig.Instance.CritterSpawns && spawnInfo.Player.ZoneGlowshroom)
+                {
+                    if (spawnInfo.PlayerSafe)
+                    {
+                        return Terraria.ModLoader.Utilities.SpawnCondition.UndergroundMushroom.Chance * 0.025f;
+                    }
+                    else
+                    {
+                        return Terraria.ModLoader.Utilities.SpawnCondition.UndergroundMushroom.Chance * 0.05f;
+                    }
+                }
+            }
+            return 0f;
+        }
 
         public override void AI()
         {
+            CVUtils.CritterBestiary(NPC, Type);
             if (--nohurt == 0)
             {
                 NPC.dontTakeDamage = false;

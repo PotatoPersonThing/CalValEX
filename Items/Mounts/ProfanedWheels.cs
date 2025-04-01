@@ -5,7 +5,7 @@ using Terraria.ID;
 namespace CalValEX.Items.Mounts
 {
     public class ProfanedWheels : ModItem {
-        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
+        public override void SetStaticDefaults() => ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<ProfanedFrame>();
 
         public override void SetDefaults()
         {

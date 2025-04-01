@@ -24,7 +24,7 @@ namespace CalValEX.Tiles
             AddMapEntry(new Color(249, 119, 48), name);
             if (CalValEX.CalamityActive)
             {
-                RegisterItemDrop(CalamityID.CalItemID.DraedonBox);
+                RegisterItemDrop(CalamityID.CalamityID.ItemRelation("DraedonBag", ItemID.MoonLordBossBag));
             }
         }
     }

@@ -16,6 +16,7 @@ using Humanizer;
 using CalValEX.Tiles.MiscFurniture;
 using CalValEX.AprilFools.Fanny;
 using CalValEX.Items.Tiles.Blocks;
+using CalValEX.AprilFools;
 
 namespace CalValEX
 {
@@ -42,6 +43,7 @@ namespace CalValEX
         public static bool downedFogbound;
         public static bool masorev;
         public static int fannyOverride; // 0 = auto enabled. 1 = disabled. 2 = manually enabled
+        public static int paintEnabled; // 0 = auto enabled. 1 = disabled. 2 = manually enabled
 
         // Chickens
         public static bool nugget;
@@ -110,12 +112,6 @@ namespace CalValEX
             if (amogus)
                 tag["amogus"] = true;
 
-            if (Rockshrine)
-                tag["Rockshrine"] = true;
-
-            if (RockshrinEX)
-                tag["RockshrinEX"] = true;
-
             if (jharinter)
                 tag["jharinter"] = true;
 
@@ -126,6 +122,8 @@ namespace CalValEX
                 tag["downedFogbound"] = true;
 
             tag["fanson"] = fannyOverride;
+
+            tag["paintEnabled"] = paintEnabled;
 
             // Chickens
             if (nugget)
@@ -153,11 +151,10 @@ namespace CalValEX
             jharim = tag.ContainsKey("jharim");
             orthofound = tag.ContainsKey("orthofound");
             amogus = tag.ContainsKey("amogus");
-            Rockshrine = tag.ContainsKey("Rockshrine");
-            RockshrinEX = tag.ContainsKey("RockshrinEX");
             jharinter = tag.ContainsKey("jharinter");
             downedMeldosaurus = tag.ContainsKey("downedMeldosaurus");
             downedFogbound = tag.ContainsKey("downedFogbound");
+            paintEnabled = tag.GetInt("paintEnabled");
             fannyOverride = tag.GetInt("fanson");
 
             nugget = tag.ContainsKey("nugget");
@@ -179,8 +176,6 @@ namespace CalValEX
             flags[1] = jharim;
             flags[2] = orthofound;
             flags[3] = amogus;
-            flags[4] = Rockshrine;
-            flags[5] = RockshrinEX;
             flags[6] = jharinter;
 
             BitsByte flags2 = new();
@@ -201,6 +196,7 @@ namespace CalValEX
             writer.Write(flags);
             writer.Write(flags2);
             writer.Write(flags3);
+            writer.Write(paintEnabled);
         }
         public override void NetReceive(BinaryReader reader)
         {
@@ -209,8 +205,6 @@ namespace CalValEX
             jharim = flags[1];
             orthofound = flags[2];
             amogus = flags[3];
-            Rockshrine = flags[4];
-            RockshrinEX = flags[5];
             jharinter = flags[6];
 
             BitsByte flags2 = reader.ReadByte();
@@ -227,6 +221,8 @@ namespace CalValEX
             godnug  = flags3[3];
             mammoth = flags3[4];
             shadow = flags3[5];
+
+            paintEnabled = reader.ReadInt32();
         }
         #endregion
 
@@ -275,15 +271,55 @@ namespace CalValEX
             {
                 masorev = false;
             }
-            if ((DateTime.Now.Month == 4 && DateTime.Now.Day == 1) || (Main.zenithWorld && DateTime.Now.Month == 4 && DateTime.Now.Day <= 7) || fannyOverride == 2)
+            bool invasiveAFChange = (DateTime.Now.Month == 4 && DateTime.Now.Day == 1) || (Main.zenithWorld && DateTime.Now.Month == 4 && DateTime.Now.Day <= 7);
+            // Requires special logic
+            if (invasiveAFChange || fannyOverride == 2)
             {
-                FannyManager.fannyEnabled = true;
+                if (CalValEXConfig.Instance.AprilFoolsContent)
+                    FannyManager.fannyEnabled = true;
+                else
+                    FannyManager.fannyEnabled = false;
             }
-            if (Main.drunkWorld)
+            else if (CalValEXConfig.Instance.AprilFoolsContent)
+            {
+                FannyManager.fannyEnabled = false;
+            }
+
+            // Enable April Fool's content automatically in the drunk seed/gfb if the config is on
+            if (Main.drunkWorld && CalValEXConfig.Instance.AprilFoolsContent)
             {
                 CalValEX.AprilFoolDay = true;
                 CalValEX.AprilFoolWeek = true;
                 CalValEX.AprilFoolMonth = true;
+            }
+            // If the config is off, disable all April Fool's content
+            else if (!CalValEXConfig.Instance.AprilFoolsContent)
+            {
+                CalValEX.AprilFoolDay = false;
+                CalValEX.AprilFoolWeek = false;
+                CalValEX.AprilFoolMonth = false;
+            }
+            // Replace sprites with CalPaint on April Fools
+            if (Main.netMode == NetmodeID.SinglePlayer)
+            {
+                if (CalValEX.CalamityActive)
+                {
+                    if (CalPaintOverride.TexturesActive)
+                    {
+                        if (CalPaintOverride.originalFC.Count <= 0)
+                        {
+                            CalPaintOverride.ReplaceWithPaint(true);
+                        }
+                        else if (Main.npcFrameCount[CalamityID.CalNPCID.CalamitasClone] != 10)
+                        {
+                            CalPaintOverride.ReplaceWithPaint();
+                        }
+                    }
+                    if (!CalPaintOverride.TexturesActive && Main.npcFrameCount[CalamityID.CalNPCID.CalamitasClone] == 10)
+                    {
+                        CalPaintOverride.ReplaceWithPaint(revert: true);
+                    }
+                }
             }
             // Call the spawning method
             if (nugget)
@@ -362,22 +398,6 @@ namespace CalValEX
                 RecipeGroup bf = RecipeGroup.recipeGroups[RecipeGroup.recipeGroupIDs["Butterflies"]];
                 bf.ValidItems.Add(ItemType<Items.Critters.ProvFlyItem>());
                 bf.ValidItems.Add(ItemType<Items.Critters.CrystalFlyItem>());
-                if (RecipeGroup.recipeGroupIDs.ContainsKey("WingsGroup"))
-                {
-                    int index = RecipeGroup.recipeGroupIDs["WingsGroup"];
-                    RecipeGroup groupe = RecipeGroup.recipeGroups[index];
-                    groupe.ValidItems.Add(ItemType<WulfrumHelipack>());
-                    groupe.ValidItems.Add(ItemType<AeroWings>());
-                    groupe.ValidItems.Add(ItemType<GodspeedBoosters>());
-                    groupe.ValidItems.Add(ItemType<FollyWings>());
-                    groupe.ValidItems.Add(ItemType<JunglePhoenixWings>());
-                    groupe.ValidItems.Add(ItemType<LeviWings>());
-                    groupe.ValidItems.Add(ItemType<OldVoidWings>());
-                    groupe.ValidItems.Add(ItemType<VoidWings>());
-                    groupe.ValidItems.Add(ItemType<PlaugeWings>());
-                    groupe.ValidItems.Add(ItemType<ScryllianWings>());
-                    groupe.ValidItems.Add(ItemType<TerminalWings>());
-                }
                 if (RecipeGroup.recipeGroupIDs.ContainsKey("AnyIceBlock"))
                 {
                     int index = RecipeGroup.recipeGroupIDs["AnyIceBlock"];

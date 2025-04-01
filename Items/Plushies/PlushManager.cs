@@ -9,6 +9,7 @@ using CalValEX.CalamityID;
 using CalValEX.Projectiles.Plushies;
 using Terraria.DataStructures;
 using Terraria.Audio;
+using System.IO;
 
 namespace CalValEX.Items.Plushies
 {
@@ -21,6 +22,7 @@ namespace CalValEX.Items.Plushies
         // Load all of the plushies
         public override void Load()
         {
+            LoadPlush("Signathion", ItemRarityID.Blue, false, sound: GetOtherModSound("CalamityFables", "CalamityFables/Sounds/SirNautilus/SignathionScream1", SoundID.NPCHit12));
             LoadPlush("GiantClam", ItemUtils.BossRarity("DesertScourge"), sound: GetCalamitySound("Item/ClamImpact", SoundID.NPCHit4));
             LoadPlush("SandShark", ItemUtils.BossRarity("Aureus"), sound: GetCalamitySound("Custom/GreatSandSharkRoar", SoundID.Zombie7));
             LoadPlush("MireP1", ItemUtils.BossRarity("AS"), false, sound: SoundID.NPCHit42); // Has an unorthodox old name, so it must be done separately
@@ -73,7 +75,10 @@ namespace CalValEX.Items.Plushies
             LoadPlush("LeviathanEX", ItemUtils.BossRarity("Leviathan"), false, 3, 3, sound: GetCalamitySound("Custom/LeviathanRoarCharge", SoundID.Zombie39));
             LoadPlush("YharonEX", 15, false, 3, 3, sound: GetCalamitySound("Custom/Yharon/YharonRoar", SoundID.Zombie92));
             LoadPlush("DevourerofGodsEX", 14, false, 3, 3, sound: GetCalamitySound("Custom/DevourerSpawn", SoundID.Meowmere));
+            LoadPlush("Mars", 16, false, sound: GetOtherModSound("NoxusBoss", "NoxusBoss/Assets/Sounds/Custom/Mars/Laugh1", SoundID.Item34));
             LoadPlush("EntropicNoxus", 16, false, sound: GetOtherModSound("CalRemix", "CalRemix/Assets/Sounds/Noxus/NoxusScream", SoundID.Item104));
+            LoadPlush("Avatar", 16, false, sound: GetOtherModSound("NoxusBoss", "NoxusBoss/Assets/Sounds/Custom/Avatar/Roar1", SoundID.Item105));
+            LoadPlush("AvatarEX", 16, false, 3, 3, sound: GetOtherModSound("NoxusBoss", "NoxusBoss/Assets/Sounds/Custom/Avatar/Shriek", SoundID.Item104));
             LoadPlush("NamelessDeity", 16, false, sound: GetOtherModSound("NoxusBoss", "NoxusBoss/Assets/Sounds/Custom/NamelessDeity/ScreamShort", SoundID.Item163));
             LoadPlush("NamelessDeityEX", 16, false, 3, 3, sound: GetOtherModSound("NoxusBoss", "NoxusBoss/Assets/Sounds/Custom/NamelessDeity/ScreamLong", SoundID.Item164));
         }
@@ -194,6 +199,14 @@ namespace CalValEX.Items.Plushies
                         break;
                 }
             }
+            // Custom rarities for these guys
+            CrossmodRarity("Astrageldon", "CatalystMod", "SuperbossRarity");
+            CrossmodRarity("Mars", "NoxusBoss", "GenesisComponentRarity");
+            CrossmodRarity("NamelessDeity", "NoxusBoss", "NamelessDeityRarity");
+            CrossmodRarity("NamelessDeityEX", "NoxusBoss", "NamelessDeityRarity");
+            CrossmodRarity("Avatar", "NoxusBoss", "AvatarRarity");
+            CrossmodRarity("AvatarEX", "NoxusBoss", "AvatarRarity");
+
             Item.useAnimation = 20;
             Item.useTime = 20;
             Item.noUseGraphic = true;
@@ -201,6 +214,15 @@ namespace CalValEX.Items.Plushies
             Item.value = 20;
             Item.createTile = TileType;
             Item.maxStack = 9999;
+        }
+
+        // Gives the plush a rarity from another mod
+        public void CrossmodRarity(string plushName, string modName, string rarityName)
+        {
+            if (PlushName == plushName && ModLoader.TryGetMod(modName, out Mod modInstance))
+            {
+                Item.rare = modInstance.Find<ModRarity>(rarityName).Type;
+            }
         }
 
         public override bool AltFunctionUse(Player player) => true;
@@ -285,7 +307,7 @@ namespace CalValEX.Items.Plushies
         {
             InternalName = name + "PlushPlaced";
             TexturePath = "CalValEX/Tiles/Plushies/" + name + "PlushPlaced";
-            ClickSound = sound;
+            ClickSound = sound with { Pitch = 0.5f, MaxInstances = 0 };
         }
 
         public override void SetStaticDefaults()
@@ -317,7 +339,7 @@ namespace CalValEX.Items.Plushies
         public override bool RightClick(int i, int j)
         {
             Player player = Main.LocalPlayer;
-            SoundEngine.PlaySound(ClickSound with { Pitch = 0.5f }, new Vector2(i * 16, j * 16));
+            SoundEngine.PlaySound(ClickSound, new Vector2(i * 16, j * 16));
             if (CalValEX.CalamityActive)
             {
                 if (ItemType == PlushManager.PlushItems["DevourerofGods"] || ItemType == PlushManager.PlushItems["DevourerofGodsEX"])
@@ -339,7 +361,31 @@ namespace CalValEX.Items.Plushies
             return true;
         }
 
-
+        public override void HitWire(int i, int j)
+        {
+            int x = i - Main.tile[i, j].TileFrameX / 18 % Width;
+            int y = j - Main.tile[i, j].TileFrameY / 18 % Height;
+            if (Wiring.running)
+            {
+                Wiring.SkipWire(x, y);
+                Wiring.SkipWire(x + 1, y);
+                if (Height >= 2)
+                {
+                    Wiring.SkipWire(x, y + 1);
+                    Wiring.SkipWire(x + 1, y + 1);
+                }
+                if (Width >= 3)
+                {
+                    Wiring.SkipWire(x, y + 2);
+                    Wiring.SkipWire(x + 1, y + 2);
+                    Wiring.SkipWire(x + 2, y);
+                    Wiring.SkipWire(x + 2, y + 1);
+                    Wiring.SkipWire(x + 2, y + 2);
+                }
+            }
+            NetMessage.SendTileSquare(-1, x + 1, y + 1, Width);
+            SoundEngine.PlaySound(ClickSound, new Vector2(i * 16, j * 16));
+        }
     }
 
     [Autoload(false)]

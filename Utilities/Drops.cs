@@ -507,6 +507,7 @@ namespace CalValEX
                     //Crabulon
                     if (npc.type == CalNPCID.Crabulon)
                     {
+                        AddBlockDrop(npcLoot, ModContent.ItemType<MushroomCap>());
                         npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ClawShroom>(), 3));
                         AddPlushDrop(npcLoot, PlushManager.PlushItems["Crabulon"]);
                     }
@@ -622,6 +623,7 @@ namespace CalValEX
                         npcLoot.Add(ItemDropRule.ByCondition(new DeusFUCKMasorev(), PlushManager.PlushItems["AstrumDeus"], 4));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new DeusFUCK(), ModContent.ItemType<AstBandana>(), 4));
                         notExpertRule.OnSuccess(ItemDropRule.ByCondition(new DeusFUCK(), ModContent.ItemType<Geminga>(), 3));
+                        npcLoot.Add(notExpertRule);
                     }
                     //Bumblebirb
                     if (npc.type == CalNPCID.Bumblebirb)
@@ -806,116 +808,173 @@ namespace CalValEX
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ProfanedBattery>(), 3));
                     }
                 }
-            }
-            //Meldosaurus
-            if (npc.type == ModContent.NPCType<AprilFools.Meldosaurus.Meldosaurus>())
-            {
-                LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
+                //Meldosaurus
+                if (npc.type == ModContent.NPCType<AprilFools.Meldosaurus.Meldosaurus>())
+                {
+                    LeadingConditionRule notExpertRule = new(new Conditions.NotExpert());
 
-                notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, new int[]{
-                        ModContent.ItemType<ShadesBane>(),
-                        ModContent.ItemType<Nyanthrop>()}));
-                npcLoot.Add(notExpertRule);
+                    notExpertRule.OnSuccess(ItemDropRule.OneFromOptions(1, new int[]{
+                            ModContent.ItemType<ShadesBane>(),
+                            ModContent.ItemType<Nyanthrop>()}));
+                    npcLoot.Add(notExpertRule);
 
 
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusTrophy>(), 10));
-                npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusMask>(), 7));
-                npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusBag>()));
-                if (CalValEX.CalamityActive)
-                {
-                    npcLoot.Add(ItemDropRule.ByCondition(new MasterRevCondition(), ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusRelic>()));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusTrophy>(), 10));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusMask>(), 7));
+                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusBag>()));
+                    if (CalValEX.CalamityActive)
+                    {
+                        npcLoot.Add(ItemDropRule.ByCondition(new MasterRevCondition(), ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusRelic>()));
+                    }
+                    npcLoot.Add(ItemDropRule.ByCondition(new MeldosaurusDowned(), ModContent.ItemType<AprilFools.Meldosaurus.KnowledgeMeldosaurus>()));
                 }
-                npcLoot.Add(ItemDropRule.ByCondition(new MeldosaurusDowned(), ModContent.ItemType<AprilFools.Meldosaurus.KnowledgeMeldosaurus>()));
-            }
-            //Fogbound
-            if (npc.type == ModContent.NPCType<AprilFools.Fogbound>())
-            {
-                npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PurifiedFog>(), 1));
-                if (CalValEX.CalamityActive)
+                //Fogbound
+                if (npc.type == ModContent.NPCType<AprilFools.Fogbound>())
                 {
-                    npcLoot.Add(ItemDropRule.ByCondition(new Fogdowned(), Mod.Find<ModItem>("KnowledgeFogbound").Type));
+                    npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PurifiedFog>(), 1));
+                    if (CalValEX.CalamityActive)
+                    {
+                        npcLoot.Add(ItemDropRule.ByCondition(new Fogdowned(), Mod.Find<ModItem>("KnowledgeFogbound").Type));
+                    }
                 }
-            }
-            Mod CatalystMod;
-            Mod Hypnos;
-            Mod Infernum;
-            ModLoader.TryGetMod("CatalystMod", out CatalystMod);
-            ModLoader.TryGetMod("Hypnos", out Hypnos);
-            ModLoader.TryGetMod("InfernumMode", out Infernum);
-            ModLoader.TryGetMod("CalRemix", out Mod remix);
-            ModLoader.TryGetMod("NoxusBoss", out Mod xeroxus);
-            if (Hypnos != null)
-            {
-                if (npc.type == Hypnos.Find<ModNPC>("HypnosBoss").Type)
+                Mod CatalystMod;
+                Mod Hypnos;
+                Mod Infernum;
+                ModLoader.TryGetMod("CatalystMod", out CatalystMod);
+                ModLoader.TryGetMod("Hypnos", out Hypnos);
+                ModLoader.TryGetMod("InfernumMode", out Infernum);
+                ModLoader.TryGetMod("CalRemix", out Mod remix);
+                ModLoader.TryGetMod("NoxusBoss", out Mod xeroxus);
+                if (Hypnos != null)
                 {
-                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Hypnos"]);
+                    if (npc.type == Hypnos.Find<ModNPC>("HypnosBoss").Type)
+                    {
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Hypnos"]);
+                    }
                 }
-            }
-            if (CatalystMod != null)
-            {
-                if (npc.type == CatalystMod.Find<ModNPC>("Astrageldon").Type)
+                if (CatalystMod != null)
                 {
-                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Astrageldon"]);
-                    npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SpaceJunk>(), 3));
+                    if (npc.type == CatalystMod.Find<ModNPC>("Astrageldon").Type)
+                    {
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Astrageldon"]);
+                        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SpaceJunk>(), 3));
+                    }
                 }
-            }
-            if (xeroxus != null)
-            {
-                if (npc.type == xeroxus.Find<ModNPC>("NamelessDeityBoss").Type)
+                if (xeroxus != null)
                 {
-                    AddPlushDrop(npcLoot, PlushManager.PlushItems["NamelessDeityEX"]);
+                    if (npc.type == xeroxus.Find<ModNPC>("NamelessDeityBoss").Type)
+                    {
+                        npcLoot.Add(ItemDropRule.Common(PlushManager.PlushItems["NamelessDeityEX"], 4));
+                    }
+                    if (npc.type == xeroxus.Find<ModNPC>("AvatarOfEmptiness").Type)
+                    {
+                        npcLoot.Add(ItemDropRule.Common(PlushManager.PlushItems["AvatarEX"], 4));
+                    }
+                    if (npc.type == xeroxus.Find<ModNPC>("MarsBody").Type)
+                    {
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Mars"]);
+                    }
                 }
-                /*if (npc.type == xeroxus.Find<ModNPC>("EntropicGod").Type)
+                if (CalValEX.instance.hunt != null)
                 {
-                    AddPlushDrop(npcLoot, PlushManager.PlushItems["EntropicNoxus"], rare: true);
-                }*/
-            }
-            if (CalValEX.instance.hunt != null)
-            {
-                if (npc.type == CalValEX.instance.hunt.Find<ModNPC>("Goozma").Type)
-                {
-                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Goozma"]);
+                    if (npc.type == CalValEX.instance.hunt.Find<ModNPC>("Goozma").Type)
+                    {
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Goozma"]);
+                    }
                 }
-            }
-            if (CalValEX.instance.sloome != null)
-            {
-                if (npc.type == CalValEX.instance.sloome.Find<ModNPC>("ExoSlimeGod").Type)
+                if (CalValEX.instance.sloome != null)
                 {
-                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Exodygen"]);
+                    if (npc.type == CalValEX.instance.sloome.Find<ModNPC>("ExoSlimeGod").Type)
+                    {
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Exodygen"]);
+                    }
                 }
-            }
-            if (Infernum != null)
-            {
-                if (npc.type == Infernum.Find<ModNPC>("BereftVassal").Type)
+                if (Infernum != null)
                 {
-                    AddPlushDrop(npcLoot, PlushManager.PlushItems["BereftVassal"]);
+                    if (npc.type == Infernum.Find<ModNPC>("BereftVassal").Type)
+                    {
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["BereftVassal"]);
+                    }
+                    if (npc.type == CalNPCID.CalamitasClone)
+                    {
+                        npcLoot.Add(ItemDropRule.ByCondition(new Infernum(), PlushManager.PlushItems["Shadow"], 4));
+                    }
                 }
-                if (npc.type == CalNPCID.CalamitasClone)
+                if (remix != null)
                 {
-                    npcLoot.Add(ItemDropRule.ByCondition(new Infernum(), PlushManager.PlushItems["Shadow"], 4));
+                    if (npc.type == remix.Find<ModNPC>("Exotrexia").Type)
+                    {
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Exotrexia"]);
+                    }
+                    if (npc.type == remix.Find<ModNPC>("Astigmageddon").Type)
+                    {
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Astigmageddon"]);
+                    }
+                    if (npc.type == remix.Find<ModNPC>("Conjunctivirus").Type)
+                    {
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Conjunctivirus"]);
+                    }
+                    if (npc.type == remix.Find<ModNPC>("Cataractacomb").Type)
+                    {
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Cataractacomb"]);
+                    }
+                    if (npc.type == remix.Find<ModNPC>("Hypnos").Type)
+                    {
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Hypnos"]);
+                    }
                 }
-            }
-            if (remix != null)
-            {
-                if (npc.type == remix.Find<ModNPC>("Exotrexia").Type)
+                if (CalValEX.instance.fables != null)
                 {
-                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Exotrexia"]);
-                }
-                if (npc.type == remix.Find<ModNPC>("Astigmageddon").Type)
-                {
-                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Astigmageddon"]);
-                }
-                if (npc.type == remix.Find<ModNPC>("Conjunctivirus").Type)
-                {
-                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Conjunctivirus"]);
-                }
-                if (npc.type == remix.Find<ModNPC>("Cataractacomb").Type)
-                {
-                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Cataractacomb"]);
-                }
-                if (npc.type == remix.Find<ModNPC>("Hypnos").Type)
-                {
-                    AddPlushDrop(npcLoot, PlushManager.PlushItems["Hypnos"]);
+                    if (npc.type == CalValEX.instance.fables.Find<ModNPC>("SirNautilus").Type)
+                    {
+                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SeaguardShield>(), 3));
+                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DustyGuitar>(), 3));
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Signathion"]);
+                    }
+                    if (npc.type == CalValEX.instance.fables.Find<ModNPC>("WulfrumNexus").Type)
+                    {
+                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumTransmitter>(), 10));
+                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumKeys>(), 10));
+                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumHelipack>(), 20));
+                    }
+                    if (npc.type == CalValEX.instance.fables.Find<ModNPC>("WulfrumRoller").Type)
+                    {
+                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumController>(), 100));
+                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumBalloon>(), 100));
+                    }
+                    if (npc.type == CalValEX.instance.fables.Find<ModNPC>("WulfrumRover").Type)
+                    {
+                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumController>(), 100));
+                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RoverSpindle>(), 1000));
+                    }
+                    if (npc.type == CalValEX.instance.fables.Find<ModNPC>("WulfrumMagnetizer").Type)
+                    {
+                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumController>(), 100));
+                    }
+                    if (npc.type == CalValEX.instance.fables.Find<ModNPC>("WulfrumMortar").Type)
+                    {
+                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumController>(), 100));
+                    }
+                    if (npc.type == CalValEX.instance.fables.Find<ModNPC>("WulfrumGrappler").Type)
+                    {
+                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumController>(), 100));
+                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<WulfrumGrappler>(), 20));
+                    }
+                    //Scourge
+                    if (npc.type == CalValEX.instance.fables.Find<ModNPC>("DesertScourge").Type)
+                    {
+                        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<DesertMedallion>(), 5));
+                        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<SlightlyMoistbutalsoSlightlyDryLocket>(), 7));
+                        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<DriedLocket>(), 3));
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["DesertScourge"]);
+                    }
+                    //Crabulon
+                    if (npc.type == CalValEX.instance.fables.Find<ModNPC>("Crabulon").Type)
+                    {
+                        AddBlockDrop(npcLoot, ModContent.ItemType<MushroomCap>());
+                        npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<ClawShroom>(), 3));
+                        AddPlushDrop(npcLoot, PlushManager.PlushItems["Crabulon"]);
+                    }
                 }
             }
 

@@ -17,7 +17,7 @@ namespace CalValEX.Items.Tiles {
             Item.useAnimation = 15;
             Item.useTime = 10;
             Item.autoReuse = true;
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<MoulderingAltarPlaced>();
             Item.width = 32;
@@ -38,7 +38,7 @@ namespace CalValEX.Items.Tiles {
             Item.useAnimation = 15;
             Item.useTime = 10;
             Item.autoReuse = true;
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<VisceralAltarPlaced>();
             Item.width = 32;

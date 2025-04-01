@@ -25,7 +25,7 @@ namespace CalValEX.Items {
             Item.value = 20;
             Item.shoot = ModContent.ProjectileType<BleachBallThrown>();
             Item.shootSpeed = 6f;
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
         }
     }
 }

@@ -97,8 +97,9 @@ namespace CalValEX
 				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<SlightlyMoistbutalsoSlightlyDryLocket>(), 100, chanceNumerator: 7)));
 			}
 			else if (item.type == CalItemID.CrabulonBag)
-			{
-				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<ClawShroom>(), 10, chanceNumerator: 3)));
+            {
+                itemLoot.Add(rule2.OnSuccess(new CommonDrop(ModContent.ItemType<MushroomCap>(), 1, 205, 335)));
+                itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<ClawShroom>(), 10, chanceNumerator: 3)));
 			}
 			else if (item.type == CalItemID.HiveMindBag)
 			{
@@ -111,7 +112,7 @@ namespace CalValEX
 			}
 			else if (item.type == CalItemID.SlimeGodBag)
             {
-                AddBlockDrop(ref itemLoot, "StatigelBlock", otherworldlyDrop: true);
+                AddBlockDrop(ref itemLoot, "StatigelBlock");
                 itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<SlimeDeitysSoul>(), 10, chanceNumerator: 3)));
                 itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<SlimeGodMask>(), 7)));
             }
@@ -125,7 +126,7 @@ namespace CalValEX
 			}
 			else if (item.type == CalItemID.BrimstoneElementalBag)
             {
-                AddBlockDrop(ref itemLoot, "BrimstoneSlag", otherworldlyDrop: true);
+                AddBlockDrop(ref itemLoot, "BrimstoneSlag");
                 itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<BrimmyBody>(), 5)));
 				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<BrimmySpirit>(), 5)));
 				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<RareBrimtulip>(), 5)));
@@ -152,7 +153,7 @@ namespace CalValEX
 			}
 			else if (item.type == CalItemID.PlaguebringerGoliathBag)
             {
-                AddBlockDrop(ref itemLoot, "PlaguedContainmentBrick", otherworldlyDrop: true);
+                AddBlockDrop(ref itemLoot, "PlaguedContainmentBrick");
                 itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<AncientAuricTeslaHelm>(), 250)));
 				itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<InfectedController>(), 5)));
 				itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<PlaguePack>(), 10, chanceNumerator: 3)));
@@ -305,10 +306,27 @@ namespace CalValEX
                 itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SeaCrown>(), 100)));
                 itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<SunkenLamp>(), 40)));
             }
-			#endregion
+            #endregion
 
-			#region spaghetti starter
-			/*if (item.type != ModContent.ItemType<StarterBag>())
+            # region fables
+            if (CalValEX.FablesActive)
+            {
+                if (item.type == CalValEX.Fables.Find<ModItem>("DesertScourgeTreasureBag").Type)
+                {
+                    itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<DesertMedallion>(), 10, chanceNumerator: 3)));
+                    itemLoot.Add(rule.OnSuccess(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<DriedLocket>(), 5)));
+                    itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<SlightlyMoistbutalsoSlightlyDryLocket>(), 100, chanceNumerator: 7)));
+                }
+                else if (item.type == CalValEX.Fables.Find<ModItem>("CrabulonTreasureBag").Type)
+                {
+                    itemLoot.Add(rule2.OnSuccess(new CommonDrop(ModContent.ItemType<MushroomCap>(), 1, 205, 335)));
+                    itemLoot.Add(rule.OnSuccess(new CommonDrop(ModContent.ItemType<ClawShroom>(), 10, chanceNumerator: 3)));
+                }
+            }
+            #endregion
+
+            #region spaghetti starter
+            /*if (item.type != ModContent.ItemType<StarterBag>())
                 return;
 
             LeadingConditionRule[] names = new LeadingConditionRule[]

@@ -31,7 +31,7 @@ namespace CalValEX.Items
             Item.value = 20;
             Item.shoot = ModContent.ProjectileType<ChaoticPuffballThrown>();
             Item.shootSpeed = 6f;
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
         }
     }
 }

@@ -94,7 +94,7 @@ namespace CalValEX.Tiles.Statues {
 
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch) =>
             CalValEXGlobalTile.TileGlowmask(i, j, Request<Texture2D>("CalValEX/Tiles/Statues/ProfanedIdolPlaced_Glow").Value, 
-                spriteBatch, AnimationFrameHeight, (ushort)TileType<ProfanedIdolPlaced>());
+                spriteBatch, AnimationFrameHeight);
 
         public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings) => true;
     }

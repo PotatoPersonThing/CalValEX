@@ -41,6 +41,7 @@ namespace CalValEX.NPCs.Critters
 
         public override void AI()
         {
+            CVUtils.CritterBestiary(NPC, Type);
             var thisRect = NPC.getRect();
 
             for (int i = 0; i < Main.maxProjectiles; i++)

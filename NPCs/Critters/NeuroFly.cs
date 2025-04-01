@@ -62,7 +62,9 @@ namespace CalValEX.NPCs.Critters {
             return 0f;
         }
 
-        public override void AI() {
+        public override void AI()
+        {
+            CVUtils.CritterBestiary(NPC, Type);
             NPC.spriteDirection = -NPC.direction;
             NPC.TargetClosest(false);
         }

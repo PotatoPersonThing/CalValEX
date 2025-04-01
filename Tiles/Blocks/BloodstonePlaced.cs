@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Tiles.Blocks
@@ -11,10 +12,12 @@ namespace CalValEX.Tiles.Blocks
         {
             Main.tileSolid[Type] = true;
             Main.tileMergeDirt[Type] = false;
-            if (CalValEX.CalamityActive)
-            //ItemDrop = CalValEX.CalamityItem("Bloodstone");
             AddMapEntry(new Color(126, 94, 87));
             AnimationFrameHeight = 90;
+            if (CalValEX.CalamityActive)
+            {
+                RegisterItemDrop(CalamityID.CalamityID.ItemRelation("Bloodstone", ItemID.Hellstone));
+            }
         }
 
         private readonly int AnimationFrameWidth = 234;

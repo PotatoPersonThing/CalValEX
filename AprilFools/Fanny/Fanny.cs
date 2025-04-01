@@ -588,8 +588,8 @@ namespace CalValEX.AprilFools.Fanny
             fannyMessages.Add(ml3);
 
 
-            fannyMessages.Add(new FannyMessage("Raito", "Oh yeah! Something else, if for whatever reason you don't think you need my help, you can grab a \"Friend Extinguisher\" from that gold clown guy, and i'll go poof! But why would you want to do that?",
-                "Nuhuh", (FannySceneMetrics scene) => scene.onscreenNPCs.Any(n => n.type == ModContent.NPCType<Jharim.Jharim>())).AddItemDisplay(ModContent.ItemType<FriendExtinguisher>()));
+            fannyMessages.Add(new FannyMessage("Raito", "Oh yeah! Something else, if for whatever reason you don't think you need my help, you can grab a \"Friend Extinguisher\" or use the mod's April Fools Content configuration setting, and i'll go poof! But why would you want to do that?",
+                "Nuhuh").AddItemDisplay(ModContent.ItemType<FriendExtinguisher>()).AddEndEvent(() => Main.LocalPlayer.QuickSpawnItem(Main.LocalPlayer.GetSource_FromThis(), ModContent.ItemType<FriendExtinguisher>())));
 
             fannyMessages.Add(new FannyMessage("ShrineSnow", "Woah, is that a snow shrine? You better go loot it for its one-of-a-kind treasure! It gave you a really cool item that you'll use forever I think?",
                 "Awooga", (FannySceneMetrics scene) => Main.LocalPlayer.ZoneSnow && Main.LocalPlayer.ZoneRockLayerHeight && Main.rand.NextBool(116000)));
@@ -994,29 +994,36 @@ namespace CalValEX.AprilFools.Fanny
                     LoadCalamityDependantMessages();
                 }
 
-                if (Directory.Exists("C:\\Program Files (x86)\\Steam\\steamapps\\common\\"))
+                try
                 {
-                    List<string> games = Directory.GetDirectories("C:\\Program Files (x86)\\Steam\\steamapps\\common\\").ToList<string>();
-                    if (games.Count > 0)
+                    if (Directory.Exists("C:\\Program Files (x86)\\Steam\\steamapps\\common\\"))
                     {
-                        List<string> noTerraria = new List<string>();
-                        if (games != null && games.Count > 0)
+                        List<string> games = Directory.GetDirectories("C:\\Program Files (x86)\\Steam\\steamapps\\common\\").ToList<string>();
+                        if (games.Count > 0)
                         {
-                            for (int i = 0; i < games.Count; i++)
+                            List<string> noTerraria = new List<string>();
+                            if (games != null && games.Count > 0)
                             {
-                                string b = games[i].Remove(0, 46);
-                                if (!(b.Contains("Terraria") || b.Contains("tModLoader") || b.Contains("Steamworks")))
+                                for (int i = 0; i < games.Count; i++)
                                 {
-                                    noTerraria.Add(b);
+                                    string b = games[i].Remove(0, 46);
+                                    if (!(b.Contains("Terraria") || b.Contains("tModLoader") || b.Contains("Steamworks")))
+                                    {
+                                        noTerraria.Add(b);
+                                    }
                                 }
                             }
-                        }
-                        if (noTerraria.Count > 0)
-                        {
-                            fannyMessages.Add(new FannyMessage("StraightUpEvil", "By the way, $0, I see everything. Like how you have played " + noTerraria[Main.rand.Next(0, noTerraria.Count - 1)],
-                           "Cryptid", (FannySceneMetrics m) => NPC.downedMoonlord).AddDynamicText(SteamFriends.GetPersonaName).SetHoverTextOverride("Oh golly gee Fanny!"));
+                            if (noTerraria.Count > 0)
+                            {
+                                fannyMessages.Add(new FannyMessage("StraightUpEvil", "By the way, $0, I see everything. Like how you have played " + noTerraria[Main.rand.Next(0, noTerraria.Count - 1)],
+                               "Cryptid", (FannySceneMetrics m) => NPC.downedMoonlord).AddDynamicText(SteamFriends.GetPersonaName).SetHoverTextOverride("Oh golly gee Fanny!"));
+                            }
                         }
                     }
+                }
+                catch
+                {
+
                 }
 
                 discord1 = new FannyMessage("DiscordianHash", "Oh you're on Discord? What are they talking about in $0? I wanna see!",
@@ -1037,47 +1044,54 @@ namespace CalValEX.AprilFools.Fanny
 
         public static string GetDiscord()
         {
-            Process[] processes = Process.GetProcesses();
-            string discord = "";
-            foreach (Process p in processes)
+            try
             {
-                if (!String.IsNullOrEmpty(p.MainWindowTitle))
+                Process[] processes = Process.GetProcesses();
+                string discord = "";
+                foreach (Process p in processes)
                 {
-                    if (p.MainWindowTitle.Contains("Discord"))
+                    if (!String.IsNullOrEmpty(p.MainWindowTitle))
                     {
-                        discord = p.MainWindowTitle;
-                        break;
+                        if (p.MainWindowTitle.Contains("Discord"))
+                        {
+                            discord = p.MainWindowTitle;
+                            break;
+                        }
+                    }
+                }
+                if (discord != "")
+                {
+                    string finalDiscord = "";
+                    bool foundHash = false;
+                    for (int i = 0; i < discord.Length; i++)
+                    {
+                        if (!foundHash)
+                        {
+                            if (discord[i] == '#' || discord[i] == '@')
+                            {
+                                foundHash = true;
+                                if (discord[i] == '@')
+                                    continue;
+                            }
+                        }
+                        if (foundHash)
+                        {
+                            if (discord[i] != ' ')
+                            {
+                                finalDiscord += discord[i];
+                            }
+                            else
+                            {
+                                DiscordChat = finalDiscord;
+                                return finalDiscord;
+                            }
+                        }
                     }
                 }
             }
-            if (discord != "")
+            catch
             {
-                string finalDiscord = "";
-                bool foundHash = false;
-                for (int i = 0; i < discord.Length; i++)
-                {
-                    if (!foundHash)
-                    { 
-                        if (discord[i] == '#' || discord[i] == '@')
-                        {
-                            foundHash = true;
-                            if (discord[i] == '@')
-                                continue;
-                        }
-                    }
-                    if (foundHash)
-                    {
-                        if (discord[i] != ' ')
-                        {
-                            finalDiscord += discord[i];
-                        }
-                        else
-                        {
-                            DiscordChat = finalDiscord;
-                            return finalDiscord;
-                        }
-                    }
-                }
+
             }
             return "";
         }

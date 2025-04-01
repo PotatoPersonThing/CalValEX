@@ -15,17 +15,16 @@ namespace CalValEX
         /// <param name="j">The y coord of the tile</param> 
         /// <param name="text">The glowmask's file path</param>
         /// <param name="sprit">Just put 'spriteBatch' here</param> 
-        /// <param name="frameheight">Amount of frames the glowmask uses, typically you'll just need to put 'animationFrameHeight'</param> 
-        /// <param name="type">Id the tile, needed for an animated glowmask because YuHcode doesn't know how to automate this</param>
-        public static void TileGlowmask(int i, int j, Texture2D text, SpriteBatch sprit, int frameheight = 0, ushort type = 0)
+        /// <param name="frameheight">Amount of frames the glowmask uses, typically you'll just need to put 'animationFrameHeight'</param>
+        public static void TileGlowmask(int i, int j, Texture2D text, SpriteBatch sprit, int frameheight = 0)
         {
-            var frame = new Rectangle(Main.tile[i, j].TileFrameX, Main.tile[i, j].TileFrameY + frameheight * Main.tileFrame[type], 16, 16);
+            var frame = new Rectangle(Main.tile[i, j].TileFrameX, Main.tile[i, j].TileFrameY + frameheight * Main.tileFrame[Main.tile[i, j].TileType], 16, 16);
             int xFrameOffset = Main.tile[i, j].TileFrameX;
             int yFrameOffset = Main.tile[i, j].TileFrameY;
             Texture2D glowmask = text;
             Vector2 drawOffest = Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange);
             Vector2 drawPosition = new Vector2(i * 16 - Main.screenPosition.X, j * 16 - Main.screenPosition.Y) + drawOffest;
-            Color drawColour = Color.White;
+            Color drawColour = GetDrawColour(i, j, Color.White);
             Tile trackTile = Main.tile[i, j];
             if (frameheight == 0)
             {
@@ -41,6 +40,19 @@ namespace CalValEX
                 else if (trackTile.IsHalfBlock)
                     sprit.Draw(glowmask, drawPosition + new Vector2(0f, 8f), frame, drawColour, 0.0f, Vector2.Zero, 1f, SpriteEffects.None, 0.0f);
             }
+        }
+
+        public static Color GetDrawColour(int i, int j, Color colour)
+        {
+            int colType = Main.tile[i, j].TileColor;
+            Color paintCol = WorldGen.paintColor(colType);
+            if (colType >= 13 && colType <= 24)
+            {
+                colour.R = (byte)(paintCol.R / 255f * colour.R);
+                colour.G = (byte)(paintCol.G / 255f * colour.G);
+                colour.B = (byte)(paintCol.B / 255f * colour.B);
+            }
+            return colour;
         }
 
         public static void ChestGlowmask(int i, int j, Texture2D text, SpriteBatch sprit)

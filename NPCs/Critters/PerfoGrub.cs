@@ -72,5 +72,10 @@ namespace CalValEX.NPCs.Critters {
         }
 
         public override void OnCaughtBy(Player player, Item item, bool failed) => item.stack = 1;
+
+        public override void AI()
+        {
+            CVUtils.CritterBestiary(NPC, Type);
+        }
     }
 }

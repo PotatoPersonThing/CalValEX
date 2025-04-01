@@ -28,7 +28,7 @@ namespace CalValEX.Items.Pets
         }
 
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale) {
-            spriteBatch.Draw(Assets().Item1, position, new Rectangle(Assets().Item2 ? 22 : 0, 0, 20, 22), drawColor, 0f, Vector2.Zero, 1, SpriteEffects.None, 0f);
+            spriteBatch.Draw(Assets().Item1, position, new Rectangle(Assets().Item2 ? 22 : 0, 0, 20, 22), drawColor, 0f, Assets().Item1.Size() / new Vector2(4, 2), 1, SpriteEffects.None, 0f);
 
             return false;
         }
@@ -36,7 +36,7 @@ namespace CalValEX.Items.Pets
         public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI) {
             var pos = new Vector2(Item.position.X, Item.position.Y);
             spriteBatch.Draw(Assets().Item1, pos - Main.screenPosition, new Rectangle(Assets().Item2 ? 22 : 0, 0, 20, 22),
-                alphaColor, rotation, Vector2.Zero, 1, SpriteEffects.None, 0f);
+                alphaColor, rotation, Assets().Item1.Size() / new Vector2(4, 2), 1, SpriteEffects.None, 0f);
 
             return false;
         }

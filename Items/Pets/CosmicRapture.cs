@@ -20,7 +20,7 @@ namespace CalValEX.Items.Pets
         {
             Item.CloneDefaults(ItemID.ZephyrFish);
             Item.UseSound = SoundID.Item113;
-            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.DogHead>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.Pets.Dog>();
             Item.value = Item.sellPrice(0, 3, 0, 0);
             Item.rare = CalamityID.CalRarityID.DarkBlue;
             Item.buffType = ModContent.BuffType<Buffs.Pets.DogBuff>();

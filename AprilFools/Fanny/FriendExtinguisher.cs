@@ -17,7 +17,7 @@ namespace CalValEX.AprilFools.Fanny
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.UseSound = SoundID.Item14;
             Item.consumable = false;
-            Item.value = Item.buyPrice(gold: 22);
+            Item.value = 0;
         }
 
         public override bool? UseItem(Player player)

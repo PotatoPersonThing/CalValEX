@@ -46,6 +46,7 @@ namespace CalValEX.NPCs.Critters
         [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
+            CVUtils.CritterBestiary(NPC, ModContent.NPCType<Xerocodile>());
             if (!NPC.wet)
             {
                 NPC.Transform(NPCType<Xerocodile>());
@@ -84,7 +85,7 @@ namespace CalValEX.NPCs.Critters
                         }
                         else if (!Main.eclipse && !Main.pumpkinMoon && !Main.snowMoon)
                         {
-                            return Terraria.ModLoader.Utilities.SpawnCondition.OceanMonster.Chance * 0.0015f;
+                            return Terraria.ModLoader.Utilities.SpawnCondition.OceanMonster.Chance * 0.015f;
                         }
                     }
                 }

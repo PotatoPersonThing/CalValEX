@@ -52,12 +52,13 @@ namespace CalValEX.NPCs.Critters
             {
                 return 0f;
             }
-            return Terraria.ModLoader.Utilities.SpawnCondition.Underworld.Chance * 0.7f;
+            return Terraria.ModLoader.Utilities.SpawnCondition.Underworld.Chance * 0.35f;
         }
 
         [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
+            CVUtils.CritterBestiary(NPC, Type);
             if (CalValEX.CalamityActive)
             for (int i = 0; i < NPC.buffImmune.Length; i++)
             {

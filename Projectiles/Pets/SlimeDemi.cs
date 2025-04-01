@@ -42,10 +42,10 @@ namespace CalValEX.Projectiles.Pets
             Texture2D texture2 = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/SlimeDemi_Corruption").Value;
             Vector2 Circle = Projectile.Center + new Vector2(0, 50).RotatedBy(ballcounter);
             Vector2 draw = Circle - Main.screenPosition;
-            Main.EntitySpriteDraw(texture, draw, null, Color.White, textureRotation, new Vector2(texture.Width / 2f, texture.Height / 2), 1f, SpriteEffects.None, 0);
+            Main.EntitySpriteDraw(texture, draw, null, Projectile.GetAlpha(Lighting.GetColor(Circle.ToTileCoordinates())), textureRotation, new Vector2(texture.Width / 2f, texture.Height / 2), 1f, SpriteEffects.None, 0);
             Vector2 Circle2 = Projectile.Center + new Vector2(0, 50).RotatedBy(ballcounter2);
             Vector2 draw2 = Circle2 - Main.screenPosition;
-            Main.EntitySpriteDraw(texture2, draw2, null, Color.White, textureRotation, new Vector2(texture2.Width / 2f, texture2.Height / 2), 1f, SpriteEffects.None, 0);
+            Main.EntitySpriteDraw(texture2, draw2, null, Projectile.GetAlpha(Lighting.GetColor(Circle2.ToTileCoordinates())), textureRotation, new Vector2(texture2.Width / 2f, texture2.Height / 2), 1f, SpriteEffects.None, 0);
             return true;
         }
 

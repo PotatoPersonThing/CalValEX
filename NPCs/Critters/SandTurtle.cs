@@ -53,7 +53,8 @@ namespace CalValEX.NPCs.Critters
         public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
         public override void AI()
-        { 
+        {
+            CVUtils.CritterBestiary(NPC, Type);
             NPC.spriteDirection = NPC.direction;
             if (NPC.localAI[0] != 4)
             {

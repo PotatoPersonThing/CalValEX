@@ -44,7 +44,7 @@ namespace CalValEX.Tiles.Blueprints
         }
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
-            CalValEXGlobalTile.TileGlowmask(i, j, Request<Texture2D>("CalValEX/Tiles/Blueprints/CalamitasBlueprintPlaced_Glow").Value, spriteBatch, AnimationFrameHeight, Type);
+            CalValEXGlobalTile.TileGlowmask(i, j, Request<Texture2D>("CalValEX/Tiles/Blueprints/CalamitasBlueprintPlaced_Glow").Value, spriteBatch, AnimationFrameHeight);
         }
     }
 }

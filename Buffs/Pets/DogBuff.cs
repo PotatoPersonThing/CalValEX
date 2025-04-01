@@ -16,10 +16,10 @@ namespace CalValEX.Buffs.Pets
         {
             player.buffTime[buffIndex] = 18000;
             player.GetModPlayer<CalValEXPlayer>().voreworm = true;
-            bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<Projectiles.Pets.DogHead>()] <= 0;
+            bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<Projectiles.Pets.Dog>()] <= 0;
             if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
             {
-                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ProjectileType<Projectiles.Pets.DogHead>(), 0, 0f, player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ProjectileType<Projectiles.Pets.Dog>(), 0, 0f, player.whoAmI, 0f, 0f);
             }
         }
     }

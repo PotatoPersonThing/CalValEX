@@ -395,6 +395,79 @@ namespace CalValEX.Projectiles.Pets
             }
         }
 
+		public void OldWormMovement()
+		{
+            Segments[0].oldPosition = Segments[0].position;
+            Segments[0].position = Projectile.Center;
+            Vector2 PlayerCenter = Owner.Center;
+            float MinVel = 0.36f;
+            Vector2 ProjDistance = PlayerCenter - Projectile.Center;
+            if (ProjDistance.Length() < 100f)
+            {
+                MinVel = 0.22f;
+            }
+            if (ProjDistance.Length() < 80f)
+            {
+                MinVel = 0.1f;
+            }
+            if (ProjDistance.Length() > 50f)
+            {
+                if (Math.Abs(PlayerCenter.X - Projectile.Center.X) > 10f)
+                {
+                    Projectile.velocity.X = Projectile.velocity.X + MinVel * (float)Math.Sign(PlayerCenter.X - Projectile.Center.X);
+                }
+                if (Math.Abs(PlayerCenter.Y - Projectile.Center.Y) > 5f)
+                {
+                    Projectile.velocity.Y = Projectile.velocity.Y + MinVel * (float)Math.Sign(PlayerCenter.Y - Projectile.Center.Y);
+                }
+            }
+            float MaxVel = 15f;
+            if (ProjDistance.Length() > 800f)
+            {
+                MaxVel = 25;
+            }
+            else if (ProjDistance.Length() > 500f)
+            {
+                MaxVel = 22f;
+            }
+            else if (ProjDistance.Length() > 300f)
+            {
+                MaxVel = 18.5f;
+            }
+            else
+            {
+                MaxVel = 15;
+            }
+
+            if (Projectile.velocity.Length() > MaxVel)
+            {
+                Projectile.velocity = Vector2.Normalize(Projectile.velocity) * MaxVel;
+            }
+            if (ProjDistance.Length() > 2000f)
+            {
+                Projectile.Center = PlayerCenter;
+            }
+            if (Math.Abs(Projectile.velocity.Y) < 1f)
+            {
+                Projectile.velocity.Y = Projectile.velocity.Y - 0.1f;
+            }
+            // NOTE: If you wish for this worm to travel at very high speeds, the
+            // Body and tail segments will gain gaps. You would have to change the position adjusting
+            // In the body and tail's code to mitigate this problem.
+
+            Projectile.rotation = Projectile.velocity.ToRotation();
+
+            int oldDirection = Projectile.direction;
+            Projectile.direction = Projectile.spriteDirection = (Projectile.velocity.X > 0f).ToDirectionInt();
+
+            // Update the projectile in multiplayer if the determined direction is not the true direction.
+            // It will do weird things in multiplayer because of a lack of syncing among the directions
+            if (oldDirection != Projectile.direction)
+            {
+                Projectile.netUpdate = true;
+            }
+        }
+
         public override bool PreDraw(ref Color lightColor)
         {
 			if (Initialized == 0f)
@@ -408,7 +481,7 @@ namespace CalValEX.Projectiles.Pets
 			if (Initialized == 0f)
 				return;
 
-			DrawWorm(lightColor, true);
+			//DrawWorm(lightColor, true);
 		}
 
 
@@ -426,9 +499,9 @@ namespace CalValEX.Projectiles.Pets
 					continue;
 
 				bool bodySegment = i != 0 && i != SegmentCount() - 1;
-				Texture2D sprite = ModContent.Request<Texture2D>(currentSegment.TexturePath + (glow ? GlowmaskSuffix : "")).Value;
+				Texture2D sprite = ModContent.Request<Texture2D>(currentSegment.TexturePath).Value;
 
-				Vector2 angleVector = (i == 0 ? Projectile.rotation.ToRotationVector2() : (Segments[i - 1].position - Segments[i].position));
+                Vector2 angleVector = (i == 0 ? Projectile.rotation.ToRotationVector2() : (Segments[i - 1].position - Segments[i].position));
 				bool flipped = Math.Sign(angleVector.X) < 0 && currentSegment.Directional; 
 
 				//Get the horizontal start of the frame (for segments with variants)
@@ -454,10 +527,15 @@ namespace CalValEX.Projectiles.Pets
 
 				float rotation = i == 0 ? Projectile.rotation + MathHelper.PiOver2 : (Segments[i].position - Segments[i - 1].position).ToRotation() - MathHelper.PiOver2;
 
-				Color segmentLight = glow ? Color.White * GlowmaskOpacity : Lighting.GetColor((int)Segments[i].position.X / 16, (int)Segments[i].position.Y / 16); //Lighting of the position of the segment. Pure white if its a glowmask
+				Color segmentLight = Lighting.GetColor((int)Segments[i].position.X / 16, (int)Segments[i].position.Y / 16); //Lighting of the position of the segment. Pure white if its a glowmask
 
 				Main.EntitySpriteDraw(sprite, Segments[i].position - Main.screenPosition, frame, segmentLight, rotation, origin, Projectile.scale, flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
-			}
+				if (currentSegment.Glows)
+                {
+                    Texture2D glowT = ModContent.Request<Texture2D>(currentSegment.TexturePath + GlowmaskSuffix).Value;
+                    Main.EntitySpriteDraw(glowT, Segments[i].position - Main.screenPosition, frame, Color.White * GlowmaskOpacity, rotation, origin, Projectile.scale, flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
+				}
+            }
 		}
     }
 }

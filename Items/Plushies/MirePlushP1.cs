@@ -15,7 +15,7 @@ namespace CalValEX.Items.Plushies
             Item.height = 44;
             Item.rare = ItemRarityID.Gray;
             Item.value = 40;
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
         }
 
         public override void UpdateInventory(Player player)

@@ -19,7 +19,7 @@ namespace CalValEX.Items.Tiles.Plants
             Item.useAnimation = 15;
             Item.useTime = 10;
             Item.autoReuse = true;
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<TableCoralPlaced>();
             Item.width = 12;

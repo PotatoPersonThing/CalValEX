@@ -46,6 +46,7 @@ namespace CalValEX.NPCs.Critters
 
         public override void AI()
         {
+            CVUtils.CritterBestiary(NPC, Type);
             if (NPC.position.Y > Main.worldSurface * 7.0)
             {
                 NPC.life = 0;

@@ -5,7 +5,7 @@ using Terraria.ID;
 namespace CalValEX.Items.Mounts
 {
     public class ProfanedFrame : ModItem {
-        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
+        public override void SetStaticDefaults() => ItemID.Sets.ShimmerTransformToItem[Type] = ModContent.ItemType<ProfanedBattery>();
 
         public override void SetDefaults()
         {

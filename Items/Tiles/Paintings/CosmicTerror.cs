@@ -18,7 +18,7 @@ namespace CalValEX.Items.Tiles.Paintings
             Item.useAnimation = 15;
             Item.useTime = 10;
             Item.autoReuse = true;
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<CosmicTerrorPlaced>();
             Item.width = 12;

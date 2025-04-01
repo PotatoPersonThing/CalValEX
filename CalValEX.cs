@@ -38,12 +38,15 @@ namespace CalValEX
         public Mod ortho;
         public Mod bossChecklist;
         public Mod cata;
+        public Mod fables;
         public Mod wotg;
         public Mod hunt;
         public Mod infernum;
         public Mod cremix;
         public Mod subworldLibrary;
         public Mod sloome;
+        public Mod souls;
+        public Mod soulsDLC;
 
         public const string heropermission = "CalValEX";
         public const string heropermissiondisplayname = "Calamity's Vanities";
@@ -59,6 +62,32 @@ namespace CalValEX
         public static int day;
         public static int month;
         public static Texture2D AstralSky;
+
+        public static bool InfernumActive()
+        {
+            if (instance.infernum != null)
+            {
+                if ((bool)instance.infernum.Call("GetInfernumActive"))
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+
+        public static bool CalEModeActive()
+        {
+            if (instance.souls != null && instance.soulsDLC != null)
+            {
+                if ((bool)instance.souls.Call("EMode"))
+                {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
 
 
         public override void Load()
@@ -76,6 +105,9 @@ namespace CalValEX
             ModLoader.TryGetMod("CalRemix", out cremix);
             ModLoader.TryGetMod("SubworldLibrary", out subworldLibrary);
             ModLoader.TryGetMod("Bloopsitems", out sloome);
+            ModLoader.TryGetMod("CalamityFables", out fables);
+            ModLoader.TryGetMod("FargowiltasSouls", out souls);
+            ModLoader.TryGetMod("FargowiltasCrossmod", out soulsDLC);
 
             DateTime dateTime = DateTime.Now;
             currentDate = dateTime.ToString("dd/MM/yyyy");
@@ -106,13 +138,14 @@ namespace CalValEX
             ortho = null;
             bossChecklist = null;
             cata = null;
-            // infernum = null;
+            infernum = null;
             hasPermission = false;
             wotg = null;
             hunt = null;
             cremix = null;
             subworldLibrary = null;
             sloome = null;
+            fables = null;
 
             currentDate = null;
             Bumble = false;
@@ -129,37 +162,15 @@ namespace CalValEX
             ChristmasTextureChange.Unload();
         }
 
-        public static bool GetShopJelly(Player player)
-        {
-            return Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().jellyInv;
-        }
-        public static void SetShopJelly(Player player, bool enabled)
-        {
-            Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().jellyInv = enabled;
-        }
-
-        public static bool GetShopOracle(Player player)
-        {
-            return Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().oracleInv;
-        }
-        public static void SetShopOracle(Player player, bool enabled)
-        {
-            Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().oracleInv = enabled;
-        }
-        public static void BlightRoomba(NPC npc)
-        {
-            AstralSolutionProj.Convert((int)(npc.position.X + npc.width / 2) / 16, (int)(npc.position.Y + npc.height / 2) / 16, 3);
-        }
-
         public override void PostSetupContent()
         {
             if (CalamityActive)
             {
                 Mod cal = ModLoader.GetMod("CalamityMod");
                 cal.Call("MakeItemExhumable", ModContent.ItemType<RottingCalamitousArtifact>(), ModContent.ItemType<CalamitousSoulArtifact>());
-                cal.Call("RegisterNPCShop", ModContent.NPCType<JellyPriestNPC>(), new Predicate<Player>(GetShopJelly), new Action<Player, bool>(SetShopJelly));
-                cal.Call("RegisterNPCShop", ModContent.NPCType<OracleNPC>(), new Predicate<Player>(GetShopOracle), new Action<Player, bool>(SetShopOracle));
-                cal.Call("AddAndrombaSolution", ModContent.ItemType<XenoSolution>(), "CalValEX/ExtraTextures/AndroombaBlight", new Action<NPC>(BlightRoomba));
+                cal.Call("RegisterNPCShop", ModContent.NPCType<JellyPriestNPC>(), (Player player) => Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().jellyInv, (Player player, bool enabled) => Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().jellyInv = enabled);
+                cal.Call("RegisterNPCShop", ModContent.NPCType<OracleNPC>(), (Player player) => Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().oracleInv, (Player player, bool enabled) => Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().oracleInv = enabled);
+                cal.Call("AddAndrombaSolution", ModContent.ItemType<XenoSolution>(), "CalValEX/ExtraTextures/AndroombaBlight", (NPC npc) => AstralSolutionProj.Convert((int)(npc.position.X + npc.width / 2) / 16, (int)(npc.position.Y + npc.height / 2) / 16, 3));
             }
 
             //Christmas textures

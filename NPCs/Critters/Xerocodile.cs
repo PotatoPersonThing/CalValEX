@@ -49,6 +49,7 @@ namespace CalValEX.NPCs.Critters
         [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
+            CVUtils.CritterBestiary(NPC, Type);
             if (NPC.wet)
             {
                 NPC.Transform(NPCType<XerocodileSwim>());
@@ -84,7 +85,7 @@ namespace CalValEX.NPCs.Critters
                         }
                         else if (!Main.eclipse && !Main.pumpkinMoon && !Main.snowMoon)
                         {
-                            return 0.0015f;
+                            return 0.015f;
                         }
                     }
                 }

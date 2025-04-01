@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using CalValEX.CalamityID;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -24,7 +25,7 @@ namespace CalValEX.Tiles
             AddMapEntry(new Color(249, 119, 48), name);
             if (CalValEX.CalamityActive)
             {
-                RegisterItemDrop(CalamityID.CalItemID.SupremeCalamitasCoffer);
+                RegisterItemDrop(CalamityID.CalamityID.ItemRelation("CalamitasCoffer", ItemID.MoonLordBossBag));
             }
         }
     }

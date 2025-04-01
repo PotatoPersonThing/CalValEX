@@ -283,7 +283,6 @@ HolyStudedBonsaiPlaced.MapEntry: Holy Studded Bonsai
 MonolithPotPlaced.MapEntry: Potted Astral Monolith
 NetherTreeBigPlaced.MapEntry: Nether Willow
 NetherTreePlaced.MapEntry: Twisting Nether Sapling
-OddMushromPotPlaced.MapEntry: Fungus
 SSCoralPlaced.MapEntry: Potted Sunken Coral
 SulphurousCactusPlaced.MapEntry: Potted Sulphurous Cactus
 SulphurousPlanterPlaced.MapEntry: Acid Vine Planter
@@ -337,11 +336,11 @@ PlagueFrogStatuePlaced.MapEntry: Plagued Frog Statue
 ProfanedIdolPlaced.MapEntry: Profaned Idol
 ShrineoftheTidesPlaced.MapEntry: Shrine of the Tides
 ViolemurStatuePlaced.MapEntry: Violemur Statue
-TyrantFeedPlaced.MapEntry: Tyrant Feed Placed
-GoozmaPlushPlaced.MapEntry: Goozma Plush Placed
-ProvidenceAltarPlaced.MapEntry: Providence Altar Placed
-PolterCablePlaced.MapEntry: Polter Cable Placed
-GiantClamPlushPlaced.MapEntry: Giant Clam Plush Placed
+TyrantFeedPlaced.MapEntry: Tyrant Feed
+GoozmaPlushPlaced.MapEntry: Goozma Plush
+ProvidenceAltarPlaced.MapEntry: Providence Altar
+PolterCablePlaced.MapEntry: Polter Cable
+GiantClamPlushPlaced.MapEntry: Giant Clam Plush
 MireP1PlushPlaced.MapEntry: Shielded Cragmaw Mire Plush
 MireP2PlushPlaced.MapEntry: Slimy Cragmaw Mire Plush
 CalamitasPlushPlaced.MapEntry: Calamitas Plush
@@ -352,12 +351,19 @@ LeviathanEXPlushPlaced.MapEntry: Leviathan Plush EX
 YharonEXPlushPlaced.MapEntry: Yharon Plush EX
 DevourerofGodsEXPlushPlaced.MapEntry: Devourerof Gods Plush EX
 ExodygenPlushPlaced.MapEntry: Exodygen Plush
-ExotrexiaPlushPlaced.MapEntry: Exotrexia Plush Placed
-AstigmageddonPlushPlaced.MapEntry: Astigmageddon Plush Placed
-CataractacombPlushPlaced.MapEntry: Cataractacomb Plush Placed
-ConjunctivirusPlushPlaced.MapEntry: Conjunctivirus Plush Placed
-PolyphemalusPlushPlaced.MapEntry: Polyphemalus Plush Placed
-AstralUndergroundMusicBoxPlaced.MapEntry: Astral Underground Music Box Placed
+ExotrexiaPlushPlaced.MapEntry: Exotrexia Plush
+AstigmageddonPlushPlaced.MapEntry: Astigmageddon Plush
+CataractacombPlushPlaced.MapEntry: Cataractacomb Plush
+ConjunctivirusPlushPlaced.MapEntry: Conjunctivirus Plush
+PolyphemalusPlushPlaced.MapEntry: Polyphemalus Plush
+AstralUndergroundMusicBoxPlaced.MapEntry: Astral Underground Music Box
 NamelessDeityPlushPlaced.MapEntry: Nameless Deity Plush
 NamelessDeityEXPlushPlaced.MapEntry: Nameless Deity Plush EX
-EntropicNoxusPlushPlaced.MapEntry: Entropic Noxus Plush Placed
+EntropicNoxusPlushPlaced.MapEntry: Entropic Noxus Plush
+MarsPlushPlaced.MapEntry: Mars Plush
+AvatarPlushPlaced.MapEntry: Avatar Plush
+AvatarEXPlushPlaced.MapEntry: Avatar Plush EX
+FoolEXPlaced.MapEntry: The Fool EX
+FoolPlaced.MapEntry: The Fool
+SignathionPlushPlaced.MapEntry: Signathion Plush
+OddMushroomPotPlaced.MapEntry: Fungus

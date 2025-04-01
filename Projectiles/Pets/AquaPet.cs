@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 
 namespace CalValEX.Projectiles.Pets
 {
@@ -46,6 +47,28 @@ namespace CalValEX.Projectiles.Pets
 				RelativeIdealPosition = Main.rand.NextVector2CircularEdge(WanderDistance, WanderDistance);
                 return;
             }
+            // Chase after beach balls
+            if (Projectile.localAI[2] >= 0)
+            {
+                Projectile bol = Main.projectile[(int)Projectile.localAI[2]];
+                if (bol.active && bol.aiStyle == ProjAIStyleID.BeachBall)
+                {
+                    RelativeIdealPosition = bol.Center - Owner.Center;
+                    // inflate the scourge's hitbox to assure it hits because sometimes it doesnt because projectile collision is lol
+                    Rectangle bigScourge = Projectile.getRect();
+                    bigScourge.Inflate(bigScourge.Width * 2, bigScourge.Height * 2);
+                    // if it intersects, forget the ball exists and go on a 3 second cooldown before it can bounce another ball
+                    if (bigScourge.Intersects(bol.getRect()))
+                    {
+                        Projectile.localAI[2] = -1;
+                        Projectile.localAI[1] = 180;
+                    }
+                }
+                else
+                {
+                    Projectile.localAI[2] = -1;
+                }
+            }
 
         }
         public override void MoveTowardsIdealPosition()
@@ -68,6 +91,23 @@ namespace CalValEX.Projectiles.Pets
                 Projectile.ai[2] = 600;
             }
             Projectile.ai[2]--;
+
+            // Go after beach ball-like projectiles within a 2000px radius
+            if (Projectile.localAI[1] <= 0)
+            {
+                foreach (Projectile p in Main.ActiveProjectiles)
+                {
+                    if (p.aiStyle == ProjAIStyleID.BeachBall)
+                    {
+                        if (p.Distance(Projectile.Center) < 2000)
+                        {
+                            Projectile.localAI[2] = p.whoAmI;
+                            break;
+                        }
+                    }
+                }
+            }
+            Projectile.localAI[1]--;
         }
 
         public override void Animate()

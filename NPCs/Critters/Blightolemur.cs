@@ -101,6 +101,7 @@ namespace CalValEX.NPCs.Critters
                     NPC.buffImmune[CalValEX.CalamityBuff("AstralInfectionDebuff")] = false;
                 }
             }
+            CVUtils.CritterBestiary(NPC, Type);
         }
     }
 }

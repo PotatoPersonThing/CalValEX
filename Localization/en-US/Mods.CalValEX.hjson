@@ -73,3 +73,5 @@ Conditions: {
 	ArchmageReal: If the Archmage is present
 	SulphurousSeaBiome: Mods.CalValEX.Conditions.SulphurousSeaBiome
 }
+
+Emotes.JharimEmote.Command: Jharim

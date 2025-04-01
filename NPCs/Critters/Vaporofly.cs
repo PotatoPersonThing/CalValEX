@@ -73,6 +73,7 @@ namespace CalValEX.NPCs.Critters
         [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
+            CVUtils.CritterBestiary(NPC, Type);
             if (CalValEX.CalamityActive)
             {
                 for (int i = 0; i < NPC.buffImmune.Length; i++)

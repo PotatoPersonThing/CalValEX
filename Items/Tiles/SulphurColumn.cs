@@ -13,7 +13,7 @@ namespace CalValEX.Items.Tiles
 
         public override void SetDefaults()
         {
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
             Item.width = 16;
             Item.height = 28;
             Item.rare = -1;

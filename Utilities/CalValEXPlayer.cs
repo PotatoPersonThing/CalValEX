@@ -21,6 +21,9 @@ using CalValEX.AprilFools.Fanny;
 using Terraria.ModLoader.IO;
 using System.Linq;
 using CalValEX.Items.Mounts.InfiniteFlight;
+using CalValEX.AprilFools;
+using ReLogic.Content;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace CalValEX
 {
@@ -298,6 +301,9 @@ namespace CalValEX
         public bool profanedCultist;
         public bool profanedCultistHide;
         public bool profanedCultistForce;
+        public bool perennial;
+        public bool perennialHide;
+        public bool perennialForce;
         public bool zygote;
         public bool brimberry;
         public bool bellaCloak;
@@ -331,6 +337,7 @@ namespace CalValEX
             maryPrevious = maryTrans;
             maryTrans = maryHide = maryForce = maryPower = false;
             profanedCultist = profanedCultistHide = profanedCultistForce = false;
+            perennial = perennialHide = perennialForce = false;
             bellaCloak = bellaCloakHide = bellaCloakForce = false;
             ResetMyStuff();
         }
@@ -385,6 +392,11 @@ namespace CalValEX
             if (itemVan.type == ItemType<ProfanedCultistRobes>()) {
                 profanedCultistHide = false;
                 profanedCultistForce = true;
+            }
+            if (itemVan.type == ItemType<PerennialDress>())
+            {
+                perennialHide = false;
+                perennialForce = true;
             }
             if (itemVan.type == ItemType<BelladonnaCloak>()) {
                 bellaCloakHide = false;
@@ -459,6 +471,8 @@ namespace CalValEX
                 Player.legs = EquipLoader.GetEquipSlot(Mod, "BloodyMaryDress", EquipType.Legs);
             if ((profanedCultist || profanedCultistForce) && !profanedCultistHide)
                 Player.legs = EquipLoader.GetEquipSlot(Mod, "ProfanedCultistRobes", EquipType.Legs);
+            if ((perennial || perennialForce) && !perennialHide)
+                Player.legs = EquipLoader.GetEquipSlot(Mod, "PerennialDress", EquipType.Legs);
             if ((bellaCloak || bellaCloakForce) && !bellaCloakHide)
                 Player.legs = EquipLoader.GetEquipSlot(Mod, "BelladonnaCloak", EquipType.Legs);
 

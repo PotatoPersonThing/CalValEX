@@ -54,6 +54,7 @@ namespace CalValEX.NPCs.Critters
         [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
+            CVUtils.CritterBestiary(NPC, Type);
             NPC.TargetClosest(false);
 
             if (Main.rand.NextFloat() < 0.1f)

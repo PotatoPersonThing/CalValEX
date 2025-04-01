@@ -13,7 +13,7 @@ namespace CalValEX.Items.Tiles
             Item.useAnimation = 15;
             Item.useTime = 10;
             Item.autoReuse = true;
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<PolterCablePlaced>();
             Item.width = 38;
