@@ -37,7 +37,7 @@ namespace CalValEX.Items.Mounts.InfiniteFlight
             MountData.standingFrameCount = 6;
             MountData.standingFrameDelay = 8;
             MountData.standingFrameStart = 0;
-            MountData.runningFrameCount = 5;
+            MountData.runningFrameCount = 6;
             MountData.runningFrameDelay = 6;
             MountData.runningFrameStart = 0;
             MountData.flyingFrameCount = 6;
@@ -69,7 +69,7 @@ namespace CalValEX.Items.Mounts.InfiniteFlight
                 MountData.standingFrameCount = 2;
                 MountData.standingFrameDelay = 4;
                 MountData.standingFrameStart = 6;
-                MountData.runningFrameCount = 5;
+                MountData.runningFrameCount = 6;
                 MountData.runningFrameDelay = 2;
                 MountData.runningFrameStart = 6;
                 MountData.flyingFrameCount = 2;
@@ -91,7 +91,7 @@ namespace CalValEX.Items.Mounts.InfiniteFlight
                 MountData.standingFrameCount = 6;
                 MountData.standingFrameDelay = 8;
                 MountData.standingFrameStart = 0;
-                MountData.runningFrameCount = 5;
+                MountData.runningFrameCount = 6;
                 MountData.runningFrameDelay = 6;
                 MountData.runningFrameStart = 0;
                 MountData.flyingFrameCount = 6;

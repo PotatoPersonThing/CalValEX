@@ -70,7 +70,7 @@ namespace CalValEX.AprilFools
         public static bool TexturesActive => 
             CalValEX.CalamityActive &&
             CalValEXConfig.Instance.AprilFoolsContent && 
-            (((DateTime.Now.Month == 4 && DateTime.Now.Day == 1) || (Main.zenithWorld && DateTime.Now.Month == 4 && DateTime.Now.Day <= 7) && CalValEXWorld.paintEnabled == 0) || CalValEXWorld.paintEnabled == 2) &&
+            (((DateTime.Now.Month == 4 && (DateTime.Now.Day == 1 || DateTime.Now.Day == 2)) || (Main.zenithWorld && DateTime.Now.Month == 4 && DateTime.Now.Day <= 7) && CalValEXWorld.paintEnabled == 0) || CalValEXWorld.paintEnabled == 2) &&
             !CalValEX.InfernumActive() &&
             !CalValEX.CalEModeActive() &&
             Main.netMode == NetmodeID.SinglePlayer;

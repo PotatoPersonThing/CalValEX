@@ -37,12 +37,12 @@ namespace CalValEX.Items.Mounts.LimitedFlight
             MountData.runningFrameCount = 6;
             MountData.runningFrameDelay = 15;
             MountData.runningFrameStart = 1;
-            MountData.flyingFrameCount = 4;
+            MountData.flyingFrameCount = 3;
             MountData.flyingFrameDelay = 4;
             MountData.flyingFrameStart = 7;
             MountData.inAirFrameCount = 1;
             MountData.inAirFrameDelay = 8;
-            MountData.inAirFrameStart = 7;
+            MountData.inAirFrameStart = 10;
             MountData.idleFrameCount = 1;
             MountData.idleFrameDelay = 1;
             MountData.idleFrameStart = 0;
