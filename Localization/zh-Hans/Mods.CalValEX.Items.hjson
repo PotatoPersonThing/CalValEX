@@ -713,11 +713,6 @@ EarthShield: {
 	Tooltip: 看起来很坚固，但实际上只是块无用的石头罢了。
 }
 
-Invishield: {
-	DisplayName: 补偿道具
-	Tooltip: 作为补偿，可出售
-}
-
 TrilobiteShield: {
 	DisplayName: 三叶虫盾
 	Tooltip: 一个远古的盾牌。它太古老了，根本挡不住任何攻击。
@@ -2390,16 +2385,6 @@ ZygoteinaBucket: {
 	Tooltip: 召唤远古的灵魂
 }
 
-MirePlushThrowableP1: {
-	DisplayName: 峭咽潭毛绒玩具 （可投掷）
-	Tooltip: 可以扔出去
-}
-
-MirePlushThrowableP2: {
-	DisplayName: 黏液峭咽潭毛绒玩具 （可投掷）
-	Tooltip: 可以扔出去
-}
-
 PutridShroom: {
 	DisplayName: 异香蘑菇
 	Tooltip:
@@ -3733,15 +3718,6 @@ BumblefuckPlush: {
 	Tooltip: 大师模式掉落
 }
 
-CalamitasFumo: {
-	DisplayName: 灾厄玩偶 （可放置）
-	Tooltip:
-		'''
-		"一件必须小心处理的黑暗玩偶"
-		大师模式掉落
-		'''
-}
-
 CeaselessVoidPlush: {
 	DisplayName: 无尽虚空玩偶 （可放置）
 	Tooltip: 大师模式掉落
@@ -3804,16 +3780,6 @@ LeviathanPlush: {
 
 MaulerPlush: {
 	DisplayName: 渊海狂鲨玩偶 （可放置）
-	Tooltip: 大师模式掉落
-}
-
-MirePlushP1: {
-	DisplayName: 峭咽潭玩偶 （可放置）
-	Tooltip: 大师模式掉落
-}
-
-MirePlushP2: {
-	DisplayName: 黏液峭咽潭玩偶 （可放置）
 	Tooltip: 大师模式掉落
 }
 
