@@ -5,6 +5,7 @@ using CalValEX.Projectiles;
 
 namespace CalValEX.Items
 {
+	[LegacyName("YellowSolution")]
 	public class XenoSolution : ModItem
 	{
 		public override void SetStaticDefaults() {

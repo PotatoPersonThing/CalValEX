@@ -4,6 +4,7 @@ using CalValEX.Walls;
 
 namespace CalValEX.Items.Walls
 {
+    [LegacyName("MossyGravelWall")]
     public class EidolicSlabWall : ModItem
     {
         public override void SetStaticDefaults()

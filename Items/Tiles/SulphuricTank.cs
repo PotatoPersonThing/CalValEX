@@ -8,6 +8,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles
 {
+    [LegacyName("SulphurColumn", "Ribrod")]
     public class SulphuricTank : ModItem
     {
         public override void SetStaticDefaults()

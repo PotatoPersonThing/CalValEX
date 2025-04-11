@@ -231,14 +231,6 @@ namespace CalValEX
                 return;
             #region //Misc
             {
-                Recipe recipe = Recipe.Create(ItemType<SparrowMeat>());
-                recipe.AddIngredient(ItemType<ExtraFluffyFeather>());
-                recipe.AddIngredient(ItemType<JunglePhoenixWings>());
-                recipe.AddIngredient(ItemID.ChickenNugget);
-                recipe.AddTile(CalValEX.CalamityTile("CosmicAnvil"));
-                recipe.Register();
-            }
-            {
                 Recipe recipe = Recipe.Create(PlushManager.PlushItems["Polyphemalus"]);
                 recipe.AddIngredient(PlushManager.PlushItems["Exotrexia"]);
                 recipe.AddIngredient(PlushManager.PlushItems["Cataractacomb"]);
@@ -715,7 +707,7 @@ namespace CalValEX
             }
             {
                 Recipe recipe = Recipe.Create(ItemType<ExtraFluffyFeatherClump>());
-                recipe.AddIngredient(ItemType<SparrowMeat>());
+                recipe.AddIngredient(ItemType<ExtraFluffyFeather>());
                 recipe.AddIngredient(CalValEX.CalamityItem("HolyCollider"));
                 recipe.AddIngredient(CalValEX.CalamityItem("BansheeHook"));
                 recipe.AddIngredient(CalValEX.CalamityItem("CosmicDischarge"));

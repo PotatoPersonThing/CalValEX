@@ -123,9 +123,22 @@ namespace CalValEX.Items.Plushies
             // Add the legacy "throwable" plush
             if (loadLegacy)
             {
-                CompensatedPlushItem comp = new CompensatedPlushItem(name);
-                ModContent.GetInstance<CalValEX>().AddContent(comp);
-                item.LegacyType = comp.Type;
+                ModTypeLookup<ModItem>.RegisterLegacyNames(item, name + "PlushThrowable");
+            }
+            if (name == "Calamitas")
+            {
+                ModTypeLookup<ModItem>.RegisterLegacyNames(item, name + "CalaFumoYeetable");
+                ModTypeLookup<ModItem>.RegisterLegacyNames(item, name + "CalamitasFumo");
+            }
+            if (name == "MireP1")
+            {
+                ModTypeLookup<ModItem>.RegisterLegacyNames(item, name + "MirePlushP1");
+                ModTypeLookup<ModItem>.RegisterLegacyNames(item, name + "MirePlushThrowableP1");
+            }
+            if (name == "MireP2")
+            {
+                ModTypeLookup<ModItem>.RegisterLegacyNames(item, name + "MirePlushP2");
+                ModTypeLookup<ModItem>.RegisterLegacyNames(item, name + "MirePlushThrowableP2");
             }
             // Set the item's projectile and tile types, as well as the projectile's item drop type
             item.ProjectileType = proj.Type;
@@ -150,7 +163,6 @@ namespace CalValEX.Items.Plushies
         public int Rarity;
         public string TexturePath;
         public string InternalName;
-        public int LegacyType;
         public string PlushName;
         protected override bool CloneNewInstances => true;
 
@@ -276,14 +288,6 @@ namespace CalValEX.Items.Plushies
                 }
             }
             return true;
-        }
-
-        public override void AddRecipes()
-        {
-            if (LegacyType > 0)
-            {
-                Recipe.Create(Type).AddIngredient(LegacyType).DisableDecraft().Register();
-            }
         }
     }
 
@@ -414,38 +418,6 @@ namespace CalValEX.Items.Plushies
         public override void OnKill(int timeLeft)
         {
             Item.NewItem(Projectile.GetSource_DropAsItem(), Projectile.getRect(), ItemType);
-        }
-    }
-    [Autoload(false)]
-    public class CompensatedPlushItem : ModItem
-    {
-        public override string Texture => TexturePath;
-        public override string Name => InternalName;
-
-        public string TexturePath;
-        public string InternalName;
-        public string PlushName;
-        protected override bool CloneNewInstances => true;
-
-        public CompensatedPlushItem(string name)
-        {
-            PlushName = name;
-            InternalName = name + "PlushThrowable";
-            TexturePath = "CalValEX/Items/Plushies/" + name + "Plush";
-        }
-
-        public override void SetDefaults()
-        {
-            Item.width = 44;
-            Item.height = 44;
-            Item.rare = ItemRarityID.Gray;
-            Item.value = 40;
-            Item.maxStack = 9999;
-        }
-
-        public override void UpdateInventory(Player player)
-        {
-            Item.SetDefaults(PlushManager.PlushItems[PlushName]);
         }
     }
 }

@@ -1478,198 +1478,6 @@ NuggetLicense: {
 	Tooltip: 用于为城镇领养一只鸡块
 }
 
-AnahitaPlushThrowable: {
-	# Plushies
-	DisplayName: 阿娜希塔毛绒玩具（可投掷）
-	# Plushies
-	Tooltip: 可以扔出去
-}
-
-ApolloPlushThrowable: {
-	DisplayName: 阿波罗毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-AquaticScourgePlushThrowable: {
-	DisplayName: 渊海灾虫毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-AresPlushThrowable: {
-	DisplayName: 阿瑞斯毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-ArtemisPlushThrowable: {
-	DisplayName: 阿尔忒弥斯毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-AstrageldonPlushThrowable: {
-	DisplayName: 末世星史莱姆毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-AstrumAureusPlushThrowable: {
-	DisplayName: 白金星舰毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-AstrumDeusPlushThrowable: {
-	DisplayName: 星神游龙毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-BrimstoneElementalPlushThrowable: {
-	DisplayName: 硫磺火元素毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-BumblefuckPlushThrowable: {
-	DisplayName: 痴愚金龙毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-CalaFumoYeetable: {
-	DisplayName: 灾厄毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-CeaselessVoidPlushThrowable: {
-	DisplayName: 无尽虚空毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-ClonePlushThrowable: {
-	DisplayName: 灾厄之影毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-CrabulonPlushThrowable: {
-	DisplayName: 菌生蟹毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-CryogenPlushThrowable: {
-	DisplayName: 极地之灵毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-DesertScourgePlushThrowable: {
-	DisplayName: 荒漠灾虫毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-DevourerofGodsPlushThrowable: {
-	DisplayName: 神明吞噬者毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-DraedonPlushThrowable: {
-	DisplayName: 嘉登毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-GiantClamPlushThrowable: {
-	DisplayName: 巨像蛤毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-HiveMindPlushThrowable: {
-	DisplayName: 腐巢意志毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-JaredPlushThrowable: {
-	DisplayName: 始源妖龙毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-LeviathanPlushThrowable: {
-	DisplayName: 利维坦毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-MaulerPlushThrowable: {
-	DisplayName: 渊海狂鲨毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-MirePlushThrowable: {
-	DisplayName: 峭咽潭毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-NuclearTerrorPlushThrowable: {
-	DisplayName: 辐核骇兽毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-OldDukePlushThrowable: {
-	DisplayName: 硫海遗爵毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-PerforatorPlushThrowable: {
-	DisplayName: 血肉宿主毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-PlaguebringerGoliathPlushThrowable: {
-	DisplayName: 瘟疫使者歌莉娅毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-PolterghastPlushThrowable: {
-	DisplayName: 噬魂幽花毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-ProfanedGuardianPlushThrowable: {
-	DisplayName: 亵渎守卫毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-ProvidencePlushThrowable: {
-	DisplayName: 普罗维登斯毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-RavagerPlushThrowable: {
-	DisplayName: 毁灭魔像毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-SandSharkPlushThrowable: {
-	DisplayName: 瀚海狂鲨毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-SignusPlushThrowable: {
-	DisplayName: 西格纳斯毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-SlimeGodPlushThrowable: {
-	DisplayName: 史莱姆之神毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-StormWeaverPlushThrowable: {
-	DisplayName: 风暴编织者毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-ThanatosPlushThrowable: {
-	DisplayName: 塔纳托斯毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
-YharonPlushThrowable: {
-	DisplayName: 犽戎毛绒玩具（可投掷）
-	Tooltip: 可以扔出去
-}
-
 BubbleMachine: {
 	# Tiles
 	DisplayName: 泡腾式泡泡机
@@ -2582,11 +2390,6 @@ ZygoteinaBucket: {
 	Tooltip: 召唤远古的灵魂
 }
 
-HypnosPlushThrowable: {
-	DisplayName: 修普诺斯毛绒玩具 （可投掷）
-	Tooltip: 可以扔出去
-}
-
 MirePlushThrowableP1: {
 	DisplayName: 峭咽潭毛绒玩具 （可投掷）
 	Tooltip: 可以扔出去
@@ -2779,11 +2582,6 @@ AzufreSludge: {
 BlightedEggBlock: {
 	DisplayName: 枯萎蛋砖
 	Tooltip: ""
-}
-
-Bloodstone: {
-	DisplayName: 补偿道具
-	Tooltip: 卖出后能获得一笔钱
 }
 
 BloodstoneBrick: {
@@ -3479,11 +3277,6 @@ Hesfine: {
 	Tooltip: "'抓紧了'"
 }
 
-InactivePowerFactory: {
-	DisplayName: 补偿道具
-	Tooltip: 卖出后会得到一笔钱
-}
-
 JunkArt: {
 	DisplayName: 重建的粒子加速器
 	Tooltip: 从旧蓝图重新组装而成。里面的花在五年时间内长得生机勃勃。
@@ -4113,16 +3906,6 @@ RespirationShrine: {
 		'''
 }
 
-Ribrod: {
-	DisplayName: 补偿道具
-	Tooltip: 卖出后会得到一笔钱
-}
-
-RoxFake: {
-	DisplayName: 补偿道具
-	Tooltip: 卖出后会得到一笔钱
-}
-
 SailfishTrophy: {
 	DisplayName: 帆鱼纪念章
 	Tooltip:
@@ -4198,11 +3981,6 @@ ShrineoftheTides: {
 ViolemurStatue: {
 	DisplayName: 紫星狐猴雕像
 	Tooltip: ""
-}
-
-SulphurColumn: {
-	DisplayName: 补偿道具
-	Tooltip: 卖出后会得到一笔钱
 }
 
 SulphurGeyser: {
@@ -4349,11 +4127,6 @@ HallowedBrickWall: {
 	Tooltip: ""
 }
 
-MossyGravelWall: {
-	DisplayName: 补偿道具
-	Tooltip: 可出售
-}
-
 NecrostoneWall: {
 	DisplayName: 死灵石墙
 	Tooltip: ""
@@ -4398,11 +4171,6 @@ XenoSolution: {
 		'''
 }
 
-YellowSolution: {
-	DisplayName: 补偿道具
-	Tooltip: 卖出后会得到一笔钱
-}
-
 KnowledgeFogbound: {
 	DisplayName: 雾障
 	Tooltip: ""
@@ -4436,11 +4204,6 @@ TyrantFeed: {
 GoozmaPlush: {
 	Tooltip: ""
 	DisplayName: 古泽玛毛绒玩具
-}
-
-GoozmaPlushThrowable: {
-	Tooltip: ""
-	DisplayName: 古泽玛毛绒玩具（可投掷）
 }
 
 Aeroplate: {

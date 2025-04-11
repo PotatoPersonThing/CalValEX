@@ -713,11 +713,6 @@ EarthShield: {
 	Tooltip: "'Looks sturdy, but it's actually soft, useless stone!'"
 }
 
-Invishield: {
-	DisplayName: Compensation
-	Tooltip: Can be sold
-}
-
 TrilobiteShield: {
 	DisplayName: Trilobuckler
 	Tooltip: "'An ancient shield that's too old to block attacks'"
@@ -1476,198 +1471,6 @@ NuggetLicense: {
 	DisplayName: Nugget License
 	# Town pets
 	Tooltip: Use to adopt a nugget for your town
-}
-
-AnahitaPlushThrowable: {
-	# Plushies
-	DisplayName: Compensation
-	# Plushies
-	Tooltip: Deprecated item
-}
-
-ApolloPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-AquaticScourgePlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-AresPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-ArtemisPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-AstrageldonPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-AstrumAureusPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-AstrumDeusPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-BrimstoneElementalPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-BumblefuckPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-CalaFumoYeetable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-CeaselessVoidPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-ClonePlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-CrabulonPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-CryogenPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-DesertScourgePlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-DevourerofGodsPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-DraedonPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-GiantClamPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-HiveMindPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-JaredPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-LeviathanPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-MaulerPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-MirePlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-NuclearTerrorPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-OldDukePlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-PerforatorPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-PlaguebringerGoliathPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-PolterghastPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-ProfanedGuardianPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-ProvidencePlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-RavagerPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-SandSharkPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-SignusPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-SlimeGodPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-StormWeaverPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-ThanatosPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-YharonPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
 }
 
 BubbleMachine: {
@@ -2583,21 +2386,6 @@ ZygoteinaBucket: {
 	Tooltip: Summons an ancient ghastly fetus
 }
 
-HypnosPlushThrowable: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-MirePlushThrowableP1: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-MirePlushThrowableP2: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
 PutridShroom: {
 	DisplayName: Aromatic Shroom
 	Tooltip:
@@ -2780,11 +2568,6 @@ AzufreSludge: {
 BlightedEggBlock: {
 	DisplayName: Blighted Egg Block
 	Tooltip: ""
-}
-
-Bloodstone: {
-	DisplayName: Compensation
-	Tooltip: Can be sold
 }
 
 BloodstoneBrick: {
@@ -3480,11 +3263,6 @@ Hesfine: {
 	Tooltip: "':Grab:'"
 }
 
-InactivePowerFactory: {
-	DisplayName: Compensation
-	Tooltip: Can be sold
-}
-
 JunkArt: {
 	DisplayName: Reconstructed Particle Accelerator
 	Tooltip: "'Reassembled from old blueprints. The flower inside has grown vibrantly after five years.'"
@@ -3941,11 +3719,6 @@ BumblefuckPlush: {
 	Tooltip: Right click to throw!
 }
 
-CalamitasFumo: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
 CeaselessVoidPlush: {
 	DisplayName: Ceaseless Void Plushie
 	Tooltip: Right click to throw!
@@ -4009,16 +3782,6 @@ LeviathanPlush: {
 MaulerPlush: {
 	DisplayName: Mauler Plushie
 	Tooltip: Right click to throw!
-}
-
-MirePlushP1: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
-}
-
-MirePlushP2: {
-	DisplayName: Compensation
-	Tooltip: Deprecated item
 }
 
 NuclearTerrorPlush: {
@@ -4110,16 +3873,6 @@ RespirationShrine: {
 		'''
 }
 
-Ribrod: {
-	DisplayName: Compensation
-	Tooltip: Can be sold
-}
-
-RoxFake: {
-	DisplayName: Compensation
-	Tooltip: Can be sold
-}
-
 SailfishTrophy: {
 	DisplayName: Sailfish Trophy
 	Tooltip:
@@ -4195,11 +3948,6 @@ ShrineoftheTides: {
 ViolemurStatue: {
 	DisplayName: Violemur Statue
 	Tooltip: ""
-}
-
-SulphurColumn: {
-	DisplayName: Compensation
-	Tooltip: Can be sold
 }
 
 SulphurGeyser: {
@@ -4346,11 +4094,6 @@ HallowedBrickWall: {
 	Tooltip: ""
 }
 
-MossyGravelWall: {
-	DisplayName: Compensation
-	Tooltip: Can be sold
-}
-
 NecrostoneWall: {
 	DisplayName: Necrostone Wall
 	Tooltip: ""
@@ -4395,11 +4138,6 @@ XenoSolution: {
 		'''
 }
 
-YellowSolution: {
-	DisplayName: Compensation
-	Tooltip: Can be sold
-}
-
 KnowledgeFogbound: {
 	DisplayName: Fogbound
 	Tooltip: ""
@@ -4433,11 +4171,6 @@ TyrantFeed: {
 GoozmaPlush: {
 	Tooltip: ""
 	DisplayName: Goozma Plushie
-}
-
-GoozmaPlushThrowable: {
-	Tooltip: Deprecated item
-	DisplayName: Compensation
 }
 
 Aeroplate: {

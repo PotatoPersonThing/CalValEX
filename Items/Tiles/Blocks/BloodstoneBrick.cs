@@ -4,6 +4,7 @@ using CalValEX.Tiles.Blocks;
 
 namespace CalValEX.Items.Tiles.Blocks
 {
+    [LegacyName("Bloodstone")]
     public class BloodstoneBrick : ModItem
     {
         public override void SetStaticDefaults()

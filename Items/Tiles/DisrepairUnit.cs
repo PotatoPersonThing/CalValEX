@@ -6,6 +6,7 @@ using Terraria.ID;
 
 namespace CalValEX.Items.Tiles
 {
+    [LegacyName("InactivePowerFactory")]
     public class DisrepairUnit : ModItem
     {
         public override void SetStaticDefaults()

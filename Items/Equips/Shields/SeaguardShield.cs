@@ -5,6 +5,7 @@ using Terraria.ID;
 namespace CalValEX.Items.Equips.Shields
 {
     [AutoloadEquip(EquipType.Shield)]
+    [LegacyName("Invishield")]
     public class SeaguardShield : ModItem
     {
         public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;

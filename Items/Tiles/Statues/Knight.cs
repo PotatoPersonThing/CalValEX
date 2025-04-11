@@ -4,6 +4,7 @@ using Terraria.ID;
 
 namespace CalValEX.Items.Tiles.Statues
 {
+    [LegacyName("RoxFake")]
     public class Knight : ModItem
     {
         public override void SetStaticDefaults()

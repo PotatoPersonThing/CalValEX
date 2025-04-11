@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Pets
 {
-    [LegacyName("FluffyFur")]
+    [LegacyName("FluffyFur", "SparrowMeat")]
     public class ExtraFluffyFeatherClump : ModItem
     {
         public override void SetStaticDefaults()
