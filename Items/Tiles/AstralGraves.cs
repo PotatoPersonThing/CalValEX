@@ -11,9 +11,10 @@ using CalValEX.Dusts;
 
 namespace CalValEX.Tiles
 {
+    [ExtendsFromMod("CalamityFables")]
     public class BlightGrave : BaseGrave
     {
-        public override string Texture => "CalValEX/Tiles/AstralGraves";
+        public override string Texture => "CalValEX/Items/Tiles/AstralGraves";
 
         public readonly static List<int> ProjectileTypes = new List<int>();
         protected readonly static List<AutoloadedGravestoneProjectile> ProjectileInstances = new();
@@ -38,10 +39,11 @@ namespace CalValEX.Tiles
             }
         }
     }
+    [ExtendsFromMod("CalamityFables")]
 
     public class XenoGrave : CorruptGrave
     {
-        public override string Texture => "CalValEX/Tiles/AstralGraves";
+        public override string Texture => "CalValEX/Items/Tiles/AstralGraves";
 
         public readonly static new List<int> ProjectileTypes = new List<int>();
         protected readonly static new List<AutoloadedGravestoneProjectile> ProjectileInstances = new();
