@@ -1,13 +1,13 @@
-﻿using CalamityFables.Content.Tiles.Graves;
+﻿using System;
+using CalamityFables.Content.Tiles.Graves;
 using Terraria;
-using Terraria.GameContent.Drawing;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria.ID;
+using System.Reflection;
 using CalamityFables.Core;
 using Terraria.ModLoader;
 using CalValEX.Dusts;
-
+using MonoMod.Cil;
 
 namespace CalValEX.Tiles
 {
@@ -70,8 +70,37 @@ namespace CalValEX.Tiles
         }
     }
 
-    public class AstralGraveHijack : ModSystem
+    [ExtendsFromMod("CalamityFables")]
+    internal sealed class AstralGraveHijack : ModSystem
     {
+        private static Mod currentMod;
+        
+        public override void Load()
+        {
+            base.Load();
 
+            MonoModHooks.Add(
+                typeof(BaseGrave).GetMethod(nameof(BaseGrave.Load), BindingFlags.Public | BindingFlags.Instance),
+                (Action<BaseGrave> orig, BaseGrave self) =>
+                {
+                    currentMod = self.Mod;
+                    orig(self);
+                }
+            );
+
+            MonoModHooks.Modify(
+                typeof(GravestoneLoader).GetMethod(nameof(GravestoneLoader.LoadGravestone), BindingFlags.Public | BindingFlags.Static),
+                il =>
+                {
+                    var c = new ILCursor(il);
+                    
+                    while (c.TryGotoNext(MoveType.After, x => x.MatchCall<GravestoneLoader>("get_Fables")))
+                    {
+                        c.EmitPop();
+                        c.EmitLdsfld(GetType().GetField(nameof(currentMod), BindingFlags.NonPublic | BindingFlags.Static)!);
+                    }
+                }
+            );
+        }
     }
 }
