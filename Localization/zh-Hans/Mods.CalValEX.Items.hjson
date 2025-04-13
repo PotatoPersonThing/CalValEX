@@ -4454,3 +4454,23 @@ MushroomCap: {
 	// DisplayName: Mushroom Cap
 	// Tooltip: ""
 }
+
+AstralHeadstoneItem: {
+	// DisplayName: Astral Headstone
+	// Tooltip: ""
+}
+
+AstralGravestoneItem: {
+	// DisplayName: Astral Gravestone
+	// Tooltip: ""
+}
+
+AstralTombstoneItem: {
+	// DisplayName: Astral Tombstone
+	// Tooltip: ""
+}
+
+AstralGraveMarkerItem: {
+	// DisplayName: Astral Grave Marker
+	// Tooltip: ""
+}
