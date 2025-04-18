@@ -84,36 +84,11 @@ namespace CalValEX.Tiles
     [ExtendsFromMod("CalamityFables")]
     internal sealed class AstralGraveHijack : ModSystem
     {
-        private static Mod currentMod;
-
         MethodInfo nextTypeMethod = null;
         
         public override void Load()
         {
             base.Load();
-
-            MonoModHooks.Add(
-                typeof(BaseGrave).GetMethod(nameof(BaseGrave.Load), BindingFlags.Public | BindingFlags.Instance),
-                (Action<BaseGrave> orig, BaseGrave self) =>
-                {
-                    currentMod = self.Mod;
-                    orig(self);
-                }
-            );
-
-            MonoModHooks.Modify(
-                typeof(GravestoneLoader).GetMethod(nameof(GravestoneLoader.LoadGravestone), BindingFlags.Public | BindingFlags.Static),
-                il =>
-                {
-                    var c = new ILCursor(il);
-                    
-                    while (c.TryGotoNext(MoveType.After, x => x.MatchCall<GravestoneLoader>("get_Fables")))
-                    {
-                        c.EmitPop();
-                        c.EmitLdsfld(GetType().GetField(nameof(currentMod), BindingFlags.NonPublic | BindingFlags.Static)!);
-                    }
-                }
-            );
 
             typeHook = new Hook(getTypeField, NextValidGraveType);
             drawHook = new Hook(drawField, DrawGraveIcon);
