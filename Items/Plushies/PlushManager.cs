@@ -435,7 +435,7 @@ namespace CalValEX.Items.Plushies
                 if (t.TileFrameX == 0 && t.TileFrameY == 0)
                 {
                     Texture2D tex = TextureAssets.Item[ItemType].Value;
-                    spriteBatch.Draw(tex, new Vector2(i, j) * 16 - Main.screenPosition + new Vector2(16, 16 * Height + 16) + new Vector2(Main.offScreenRange, Main.offScreenRange), null, Lighting.GetColor(i, j), 0, new Vector2(tex.Width / 2, tex.Height), 1, 0, 0);
+                    spriteBatch.Draw(tex, new Vector2(i, j) * 16 - Main.screenPosition + new Vector2(16, 16 * Height + 16) + (Main.drawToScreen ? Vector2.Zero : new Vector2(Main.offScreenRange, Main.offScreenRange)), null, Lighting.GetColor(i, j), 0, new Vector2(tex.Width / 2, tex.Height), 1, 0, 0);
                 }
                 // Regardless of the above, cancel drawing
                 return false;
