@@ -44,7 +44,8 @@ namespace CalValEX.Items
             // Paintings that shouldn't be part of the pool
             List<string> blacklistedPaintings = new List<string>()
             {
-                "Signut"
+                "Signut",
+                "Scourgie"
             };
 
             foreach (var i in PaintingLoader.paintingItems)

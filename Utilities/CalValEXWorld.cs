@@ -17,6 +17,7 @@ using CalValEX.Tiles.MiscFurniture;
 using CalValEX.AprilFools.Fanny;
 using CalValEX.Items.Tiles.Blocks;
 using CalValEX.AprilFools;
+using CalValEX.Tiles.Paintings;
 
 namespace CalValEX
 {
@@ -432,6 +433,8 @@ namespace CalValEX
         public override void PostAddRecipes()
         {
             CalValEX.instance.SetupHerosMod();
+            ItemID.Sets.ShimmerTransformToItem[PaintingLoader.paintingItems["Scourgy"]] = PaintingLoader.paintingItems["Scourgie"];
+            ItemID.Sets.ShimmerTransformToItem[PaintingLoader.paintingItems["Scourgie"]] = PaintingLoader.paintingItems["Scourgy"];
         }
     }
 }
