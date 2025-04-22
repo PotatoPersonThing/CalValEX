@@ -39,7 +39,7 @@ namespace CalValEX.Projectiles.Pets
                 Projectile.timeLeft = 2;
         }
 
-        public override void PostAI() => Lighting.AddLight(Projectile.Center, Color.AliceBlue.ToVector3());
+        //public override void PostAI() => Lighting.AddLight(Projectile.Center, Color.AliceBlue.ToVector3());
 
         public override bool PreDrawExtras() {
             DrawCord();

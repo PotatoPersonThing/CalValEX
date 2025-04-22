@@ -70,19 +70,19 @@ namespace CalValEX.Items.Plushies
             LoadPlush("Draedon", 15, sound: GetCalamitySound("Custom/DraedonLaugh", SoundID.Clown));
             LoadPlush("Calamitas", 15, false, sound: GetCalamitySound("Custom/SupremeCalamitasSpawn", SoundID.Zombie109)); // Has an unorthodox old name, so it must be done separately
             LoadPlush("Jared", 16, sound: GetCalamitySound("Custom/PrimordialWyrmCharge", SoundID.NPCHit1));
-            LoadPlush("Astrageldon", 12, sound: GetOtherModSound("CatalystMod", "CatalystMod/Assets/Sounds/AstrageldonImpact", SoundID.Item4));
+            LoadPlush("Astrageldon", 12, sound: GetOtherModSound("CatalystMod", "CatalystMod/Assets/Sounds/AstrageldonImpact", SoundID.Item4), moddedRarity: CVUtils.AstrageldonRarity);
             LoadPlush("Goozma", 15, sound: GetOtherModSound("CalamityHunt", "CalamityHunt/Assets/Sounds/Goozma/GoozmaAwaken", SoundID.NPCDeath1));
             LoadPlush("Hypnos", 15, sound: GetCalamitySound("Custom/ExoMechs/ExoLaserShoot", SoundID.Item34));
             LoadPlush("Exodygen", 16, false, sound: SoundID.NPCDeath61);
             LoadPlush("LeviathanEX", ItemUtils.BossRarity("Leviathan"), false, 3, 3, sound: GetCalamitySound("Custom/LeviathanRoarCharge", SoundID.Zombie39));
             LoadPlush("YharonEX", 15, false, 3, 3, sound: GetCalamitySound("Custom/Yharon/YharonRoar", SoundID.Zombie92));
             LoadPlush("DevourerofGodsEX", 14, false, 3, 3, sound: GetCalamitySound("Custom/DevourerSpawn", SoundID.Meowmere));
-            LoadPlush("Mars", 16, false, sound: GetOtherModSound("NoxusBoss", "NoxusBoss/Assets/Sounds/Custom/Mars/Laugh1", SoundID.Item34));
+            LoadPlush("Mars", 16, false, sound: GetOtherModSound("NoxusBoss", "NoxusBoss/Assets/Sounds/Custom/Mars/Laugh1", SoundID.Item34), moddedRarity: CVUtils.MarsRarity);
             LoadPlush("EntropicNoxus", 16, false, sound: GetOtherModSound("CalRemix", "CalRemix/Assets/Sounds/Noxus/NoxusScream", SoundID.Item104));
-            LoadPlush("Avatar", 16, false, sound: GetOtherModSound("NoxusBoss", "NoxusBoss/Assets/Sounds/Custom/Avatar/Roar1", SoundID.Item105));
-            LoadPlush("AvatarEX", 16, false, 3, 3, sound: GetOtherModSound("NoxusBoss", "NoxusBoss/Assets/Sounds/Custom/Avatar/Shriek", SoundID.Item104));
-            LoadPlush("NamelessDeity", 16, false, sound: GetOtherModSound("NoxusBoss", "NoxusBoss/Assets/Sounds/Custom/NamelessDeity/ScreamShort", SoundID.Item163));
-            LoadPlush("NamelessDeityEX", 16, false, 3, 3, sound: GetOtherModSound("NoxusBoss", "NoxusBoss/Assets/Sounds/Custom/NamelessDeity/ScreamLong", SoundID.Item164));
+            LoadPlush("Avatar", 16, false, sound: GetOtherModSound("NoxusBoss", "NoxusBoss/Assets/Sounds/Custom/Avatar/Roar1", SoundID.Item105), moddedRarity: CVUtils.AvatarRarity);
+            LoadPlush("AvatarEX", 16, false, 3, 3, sound: GetOtherModSound("NoxusBoss", "NoxusBoss/Assets/Sounds/Custom/Avatar/Shriek", SoundID.Item104), CVUtils.AvatarRarity);
+            LoadPlush("NamelessDeity", 16, false, sound: GetOtherModSound("NoxusBoss", "NoxusBoss/Assets/Sounds/Custom/NamelessDeity/ScreamShort", SoundID.Item163), moddedRarity: CVUtils.NamelessRarity);
+            LoadPlush("NamelessDeityEX", 16, false, 3, 3, sound: GetOtherModSound("NoxusBoss", "NoxusBoss/Assets/Sounds/Custom/NamelessDeity/ScreamLong", SoundID.Item164), CVUtils.NamelessRarity);
         }
 
         public SoundStyle GetCalamitySound(string calPath, SoundStyle vanillaSound)
@@ -114,9 +114,9 @@ namespace CalValEX.Items.Plushies
         /// <param name="loadLegacy">Whether or not a legacy plush should be loaded for refunding. Set this to false for all future plushies.</param>
         /// <param name="width">The plush tile width</param>
         /// <param name="height">The plush tile height</param>
-        public static void LoadPlush(string name, int rarity, bool loadLegacy = true, int width = 2, int height = 2, SoundStyle sound = default)
+        public static void LoadPlush(string name, int rarity, bool loadLegacy = true, int width = 2, int height = 2, SoundStyle sound = default, string moddedRarity = "")
         {
-            PlushItem item = new PlushItem(name, rarity);
+            PlushItem item = new PlushItem(name, rarity, moddedRarity);
             PlushTile tile = new PlushTile(name, sound);
             PlushProj proj = new PlushProj(name);
             ModContent.GetInstance<CalValEX>().AddContent(item);
@@ -163,17 +163,19 @@ namespace CalValEX.Items.Plushies
         public int ProjectileType;
         public int TileType;
         public int Rarity;
+        public string ModdedRarity;
         public string TexturePath;
         public string InternalName;
         public string PlushName;
         protected override bool CloneNewInstances => true;
 
-        public PlushItem(string name, int rarity)
+        public PlushItem(string name, int rarity, string moddedRarity = "")
         {
             PlushName = name;
             InternalName = name + "Plush";
             TexturePath = "CalValEX/Items/Plushies/" + name + "Plush";
             Rarity = rarity;
+            ModdedRarity = moddedRarity;
         }
         public override void SetStaticDefaults()
         {
@@ -192,35 +194,7 @@ namespace CalValEX.Items.Plushies
             Item.height = 44;
             Item.consumable = true;
             Item.UseSound = SoundID.Item1;
-            Item.rare = Rarity;
-            // CalRarityID isn't done by load time, so unfortunately, this has to be done like this
-            if (Rarity > 11)
-            {
-                Item.rare = CalRarityID.Turquoise;
-                switch (Rarity)
-                {
-                    case 13:
-                        Item.rare = CalRarityID.PureGreen;
-                        break;
-                    case 14:
-                        Item.rare = CalRarityID.DarkBlue;
-                        break;
-                    case 15:
-                        Item.rare = CalRarityID.Violet;
-                        break;
-                    case 16:
-                        Item.rare = CalRarityID.HotPink;
-                        break;
-                }
-            }
-            // Custom rarities for these guys
-            CrossmodRarity("Astrageldon", "CatalystMod", "SuperbossRarity");
-            CrossmodRarity("Mars", "NoxusBoss", "GenesisComponentRarity");
-            CrossmodRarity("NamelessDeity", "NoxusBoss", "NamelessDeityRarity");
-            CrossmodRarity("NamelessDeityEX", "NoxusBoss", "NamelessDeityRarity");
-            CrossmodRarity("Avatar", "NoxusBoss", "AvatarRarity");
-            CrossmodRarity("AvatarEX", "NoxusBoss", "AvatarRarity");
-
+            Item.rare = CVUtils.SetRarity(Rarity, ModdedRarity);
             Item.useAnimation = 20;
             Item.useTime = 20;
             Item.noUseGraphic = true;
@@ -228,15 +202,6 @@ namespace CalValEX.Items.Plushies
             Item.value = 20;
             Item.createTile = TileType;
             Item.maxStack = 9999;
-        }
-
-        // Gives the plush a rarity from another mod
-        public void CrossmodRarity(string plushName, string modName, string rarityName)
-        {
-            if (PlushName == plushName && ModLoader.TryGetMod(modName, out Mod modInstance))
-            {
-                Item.rare = modInstance.Find<ModRarity>(rarityName).Type;
-            }
         }
 
         public override bool AltFunctionUse(Player player) => true;

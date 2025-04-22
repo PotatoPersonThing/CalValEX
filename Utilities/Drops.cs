@@ -43,6 +43,7 @@ using ReLogic.Content;
 using CalValEX.Items.Dyes;
 using CalValEX.Items.Plushies;
 using CalValEX.Items.Equips;
+using CalValEX.Tiles.Paintings;
 
 namespace CalValEX
 {
@@ -107,13 +108,12 @@ namespace CalValEX
             {
                 if (type == CalNPCID.SEAHOE)
                 {
-                    shop.Add(ModContent.ItemType<BloodwormScarf>(), CalValEXConditions.boomer)
-                        .Add(ModContent.ItemType<Yharlamitas>(), CalValEXConditions.scal);
+                    shop.Add(ModContent.ItemType<BloodwormScarf>(), CalValEXConditions.boomer);
                 }
                 if (type == CalNPCID.DILF)
                 {
                     shop.Add(ModContent.ItemType<FrostflakeBrick>())
-                        .Add(ModContent.ItemType<Signut>(), CalValEXConditions.siggy);
+                        .Add(PaintingLoader.paintingItems["Signut"], CalValEXConditions.siggy);
                 }
                 if (type == CalNPCID.THIEF)
                 {

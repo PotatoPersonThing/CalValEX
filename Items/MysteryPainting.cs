@@ -1,4 +1,8 @@
 using CalValEX.Items.Tiles.Paintings;
+using CalValEX.Tiles.Paintings;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -28,50 +32,32 @@ namespace CalValEX.Items
             return true;
         }
 
-		public override void ModifyItemLoot(ItemLoot itemLoot)
-		{
-            int[] paintings = new int[]
-            {
-                ModContent.ItemType<BlazingConflict>(),
-                ModContent.ItemType<CalamiteaTime>(),
-                ModContent.ItemType<CirrusBooze>(),
-                ModContent.ItemType<Clam>(),
-                ModContent.ItemType<CosmicTerror>(),
-                ModContent.ItemType<LostSouls>(),
-                ModContent.ItemType<NotLikeHome>(),
-                ModContent.ItemType<VVanities>(),
-                ModContent.ItemType<Scourgy>(),
-                ModContent.ItemType<SleepingGiant>(),
-                ModContent.ItemType<Snouts>(),
-                ModContent.ItemType<SundayAfternoon>(),
-                ModContent.ItemType<SwearingShroom>(),
-                ModContent.ItemType<TheGreatSandworm>(),
-                ModContent.ItemType<TheYhar>(),
-                ModContent.ItemType<Duality>(),
-                ModContent.ItemType<RogueExtractor>(),
-                ModContent.ItemType<Espelho>(),
-                ModContent.ItemType<DarkMagic>(),
-                ModContent.ItemType<Frozen>(),
-                ModContent.ItemType<UnholyTrip>(),
-                ModContent.ItemType<AccidentalAbominationn>(),
-                ModContent.ItemType<Plague22>(),
-                ModContent.ItemType<CalamityFriends>(),
-                ModContent.ItemType<WilliamPainting>(),
-                ModContent.ItemType<ModIconPainting>(),
-                ModContent.ItemType<CalamityPaint>(),
-                ModContent.ItemType<CalamityPaintRetold>(),
-                ModContent.ItemType<OldModIconPainting>(),
-                ModContent.ItemType<DraedonPopcorn>(),
-                ModContent.ItemType<EyeofXeroc>(),
-                ModContent.ItemType<UCMMPainting>(),
-                ModContent.ItemType<OldUCMMPainting>(),
-                ModContent.ItemType<WormHeaven>(),
-                ModContent.ItemType<GallusYharus>(),
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            List<int> paintings = new List<int>()
+            { 
                 ModContent.ItemType<TyrantFeed>(),
                 ModContent.ItemType<Ohio>(),
+                ModContent.ItemType<Clam>()
             };
 
-            itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, paintings));
+            // Paintings that shouldn't be part of the pool
+            List<string> blacklistedPaintings = new List<string>()
+            {
+                "Signut"
+            };
+
+            foreach (var i in PaintingLoader.paintingItems)
+            {
+                if (blacklistedPaintings.Contains(i.Key))
+                    continue;
+                int id = i.Value;
+                if (ContentSamples.ItemsByType[id].rare == -1)
+                    continue;
+                paintings.Add(id);
+            }
+
+            itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, paintings.ToArray()));
 		}
     }
 }

@@ -3319,7 +3319,7 @@ MoulderingAltarItem: {
 }
 
 AccidentalAbominationn: {
-	DisplayName: Accidental Abomination
+	DisplayName: Reborn Son
 	Tooltip: "'Maple'"
 }
 
@@ -3371,17 +3371,7 @@ Clam: {
 }
 
 CosmicTerror: {
-	DisplayName: Cosmic Terror
-	Tooltip: "'Giacomo'"
-}
-
-DarkMagic: {
-	DisplayName: Dark Magic
-	Tooltip: "'Maple'"
-}
-
-DraedonPopcorn: {
-	DisplayName: The Mechanical Gamer
+	DisplayName: Counseling the Devourer
 	Tooltip: "'Maple'"
 }
 
@@ -3390,19 +3380,9 @@ Duality: {
 	Tooltip: "'Maple'"
 }
 
-Espelho: {
-	DisplayName: Espelho
-	Tooltip: "'Triangle'"
-}
-
 EyeofXeroc: {
 	DisplayName: The Eye of Xeroc
 	Tooltip: "'PokerFace'"
-}
-
-Frozen: {
-	DisplayName: Frozen
-	Tooltip: "'Maple'"
 }
 
 GallusYharus: {
@@ -3446,7 +3426,7 @@ OldModIconPainting: {
 		'''
 }
 
-OldUCMMPainting: {
+OldUCMM: {
 	DisplayName: Vanilla Calamity Mod Music (old)
 	Tooltip:
 		'''
@@ -3461,15 +3441,6 @@ Plague22: {
 		'''
 		'Accursed number'
 		'Willow'
-		'''
-}
-
-RogueExtractor: {
-	DisplayName: Rogue Extractor
-	Tooltip:
-		'''
-		'Maple'
-
 		'''
 }
 
@@ -3493,17 +3464,12 @@ SleepingGiant: {
 }
 
 Snouts: {
-	DisplayName: Snouts
-	Tooltip: "'Maple'"
-}
-
-SundayAfternoon: {
-	DisplayName: A Sunday Afternoon in the World of Calamity
+	DisplayName: Dukenado
 	Tooltip: "'Maple'"
 }
 
 SwearingShroom: {
-	DisplayName: Angry Shroom
+	DisplayName: Shruming
 	Tooltip: "'Maple'"
 }
 
@@ -3517,7 +3483,7 @@ TheYhar: {
 	Tooltip: "'You gotta admit, he's a very cool dude despite his crimes'"
 }
 
-UCMMPainting: {
+UCMM: {
 	DisplayName: Vanilla Calamity Mod Music
 	Tooltip:
 		'''
@@ -4389,6 +4355,11 @@ MarsPlush: {
 	Tooltip: Right click to throw!
 }
 
+Mar: {
+	DisplayName: Mar
+	Tooltip: ""
+}
+
 AvatarPlush: {
 	DisplayName: Avatar of Emptiness Plush
 	Tooltip: Right click to throw!
@@ -4454,4 +4425,228 @@ DarklightMushroomCap: {
 MushroomCap: {
 	DisplayName: Mushroom Cap
 	Tooltip: ""
+}
+
+TheGreatWaveofAcid: {
+	DisplayName: The Great Wave of Acid
+	Tooltip: "'Maple'"
+}
+
+Abyssus: {
+	DisplayName: Abyssus
+	Tooltip: "'Maple'"
+}
+
+MissingPoster: {
+	DisplayName: Missing Poster
+	Tooltip: "'Maple'"
+}
+
+DivineGore: {
+	DisplayName: Divine Gore
+	Tooltip: "'Maple'"
+}
+
+RottingLands: {
+	DisplayName: Rotting Lands
+	Tooltip: "'Maple'"
+}
+
+Frozen2: {
+	DisplayName: Frozen
+	Tooltip: "'Maple'"
+}
+
+Scourgie: {
+	DisplayName: Scourgie
+	Tooltip: "'Maple'"
+}
+
+FalloftheFirstCity: {
+	DisplayName: Fall of the First City
+	Tooltip: "'Maple'"
+}
+
+TheClone: {
+	DisplayName: The Clone
+	Tooltip: "'Maple'"
+}
+
+TheRogueExtractor: {
+	DisplayName: Rogue Extractor
+	Tooltip: "'Maple'"
+}
+
+RecluseoftheDeep: {
+	DisplayName: Recluse of the Deep
+	Tooltip: "'Maple'"
+}
+
+CommonPlague: {
+	DisplayName: Common Plague
+	Tooltip: "'Maple'"
+}
+
+RAVAGE: {
+	DisplayName: RAVAGE
+	Tooltip: "'Maple'"
+}
+
+Strength: {
+	DisplayName: Strength
+	Tooltip: "'Maple'"
+}
+
+Wisdom: {
+	DisplayName: Wisdom
+	Tooltip: "'Maple'"
+}
+
+Courage: {
+	DisplayName: Courage
+	Tooltip: "'Maple'"
+}
+
+LighttheWorldAnew: {
+	DisplayName: Light the World Anew
+	Tooltip: "'Maple'"
+}
+
+Gateway: {
+	DisplayName: Gateway
+	Tooltip: "'Maple'"
+}
+
+Envoy: {
+	DisplayName: Envoy
+	Tooltip: "'Maple'"
+}
+
+Serpent: {
+	DisplayName: Serpent
+	Tooltip: "'Maple'"
+}
+
+NamelessSerpent: {
+	DisplayName: Nameless Serpent
+	Tooltip: "'Maple'"
+}
+
+Rebirth: {
+	DisplayName: Rebirth
+	Tooltip: "'Maple'"
+}
+
+CalamitasPortrait: {
+	DisplayName: Calamitas Portrait
+	Tooltip: "'Maple'"
+}
+
+CataclysmPortrait: {
+	DisplayName: Cataclysm Portrait
+	Tooltip: "'Maple'"
+}
+
+CatastrophePortrait: {
+	DisplayName: Catastrophe Portrait
+	Tooltip: "'Maple'"
+}
+
+Exhume: {
+	DisplayName: Exhume
+	Tooltip: "'Maple'"
+}
+
+Constructions: {
+	DisplayName: Fabrications
+	Tooltip: "'Maple'"
+}
+
+TheMechsMK1: {
+	DisplayName: The Mechs MK1
+	Tooltip: "'Maple'"
+}
+
+TheMechanicalGamer: {
+	DisplayName: The Mechanical Gamer
+	Tooltip: "'Maple'"
+}
+
+Goozling: {
+	DisplayName: Goozling
+	Tooltip: "'Maple'"
+}
+
+CreationoftheShadow: {
+	DisplayName: Creation of the Shadow
+	Tooltip: "'Maple'"
+}
+
+RestingPlace: {
+	DisplayName: Resting Place
+	Tooltip: "'Maple'"
+}
+
+PARRY: {
+	DisplayName: PARRY
+	Tooltip: "'Maple'"
+}
+
+Reclaimed: {
+	DisplayName: Reclaimed
+	Tooltip: "'Maple'"
+}
+
+GardenoftheDead: {
+	DisplayName: Garden of the Dead
+	Tooltip: "'Maple'"
+}
+
+GodlyVisions: {
+	DisplayName: Godly Visions
+	Tooltip: "'Maple'"
+}
+
+OurFounder: {
+	DisplayName: Our Founder
+	Tooltip:
+		'''
+		Dedicated to our founder - Jamiel Wulf Rummingson
+		'Maple'
+		'''
+}
+
+LightningStruck: {
+	DisplayName: Lightning Struck
+	Tooltip: "'Maple'"
+}
+
+Patula: {
+	DisplayName: Patula
+	Tooltip: "'Maple'"
+}
+
+Kumo: {
+	DisplayName: Kumo
+	Tooltip: "'Maple'"
+}
+
+TheMarionette: {
+	DisplayName: The Marionette
+	Tooltip: "'Maple'"
+}
+
+TheYu: {
+	DisplayName: The Yu
+	Tooltip: "'Maple'"
+}
+
+GhostLady: {
+	DisplayName: Ghost Lady
+	Tooltip: "'Maple'"
+}
+
+SundayAfternoonCal: {
+	DisplayName: A Sunday Afternoon in the World of Calamity
+	Tooltip: "'Maple'"
 }

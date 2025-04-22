@@ -27,6 +27,7 @@ using Terraria.GameContent.ItemDropRules;
 using System.Linq;
 using CalValEX.CalamityID;
 using CalValEX.Items.Tiles.Paintings;
+using CalValEX.Tiles.Paintings;
 
 namespace CalValEX
 {
@@ -88,7 +89,7 @@ namespace CalValEX
             if (item.type == CalItemID.StarterBag)
 			{
 				itemLoot.Add(rule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<C>())));
-                itemLoot.Add(ItemDropRule.ByCondition(new April14(), ModContent.ItemType<GallusYharus>()));
+                itemLoot.Add(ItemDropRule.ByCondition(new April14(), PaintingLoader.paintingItems["GallusYharus"]));
             }
 			else if (item.type == CalItemID.DesertScourgeBag)
 			{
