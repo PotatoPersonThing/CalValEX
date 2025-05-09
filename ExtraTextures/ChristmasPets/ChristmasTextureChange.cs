@@ -12,7 +12,6 @@ namespace CalValEX.ExtraTextures.ChristmasPets
     //I am aware that this is awful, but its the easiest way to do it.
     public static class ChristmasTextureChange
     {
-        [JITWhenModsEnabled("CalamityMod")]
         public static void Load()
         {
             string path = "CalValEX/ExtraTextures/ChristmasPets/";

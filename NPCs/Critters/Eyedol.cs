@@ -14,7 +14,6 @@ namespace CalValEX.NPCs.Critters
 
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Eyedol");
             Main.npcFrameCount[NPC.type] = 4;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
@@ -38,6 +37,12 @@ namespace CalValEX.NPCs.Critters
             NPC.npcSlots = 0.25f;
             Banner = NPC.type;
             BannerItem = ItemType<EyedolBanner>();
+            NPC.buffImmune[BuffID.OnFire] = true;
+            if (CalValEX.CalamityActive)
+            {
+                SpawnModBiomes = [CalValEX.CalamityBiome("BrimstoneCragsBiome").Type];
+                NPC.buffImmune[CalValEX.CalamityBuff("BrimstoneFlames")] = true;
+            }
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -48,9 +53,6 @@ namespace CalValEX.NPCs.Critters
                 //("Back in the prime of the capital, some would make small idols to worship the goddess at home. The destruction of the capital infused some of these with magic, giving them sentience."),
             });
         }
-        public override bool? CanBeHitByItem(Player player, Item item) => null;
-
-        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
 
         private const int Frame_Up = 0;
@@ -84,7 +86,6 @@ namespace CalValEX.NPCs.Critters
             }
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (CalValEX.CalamityActive)
@@ -112,12 +113,6 @@ namespace CalValEX.NPCs.Critters
                         NPC.ai[0]++;
                     }
                 }
-                for (int i = 0; i < NPC.buffImmune.Length; i++)
-                {
-                    NPC.buffImmune[CalValEX.CalamityBuff("BrimstoneFlames")] = false;
-                    NPC.buffImmune[(BuffID.OnFire)] = false;
-                }
-                //SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.BrimstoneCragsBiome>().Type };
             }
         }
     }

@@ -37,7 +37,6 @@ namespace CalValEX.Projectiles.Pets
 
         public List<int> GoozmaSlimeGods = new();
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
             // Custom AI here

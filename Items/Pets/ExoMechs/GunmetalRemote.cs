@@ -34,7 +34,6 @@ namespace CalValEX.Items.Pets.ExoMechs
         }
 
         //Listen for the mouseworld & right click from the owner. This is for mp syncing
-        [JITWhenModsEnabled("CalamityMod")]
         public override void HoldItem(Player player)
         {
             if (CalValEX.CalamityActive)

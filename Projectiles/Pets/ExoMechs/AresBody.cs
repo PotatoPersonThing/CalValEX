@@ -178,7 +178,6 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             Main.EntitySpriteDraw(handTex, handPosition + offset - Main.screenPosition, handFrame, Color.White, rotation + (flipped ? 0 : MathHelper.Pi), handOrigin, Projectile.scale, flip, 0);
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         private void DrawChain()
         {
                 Texture2D chainTex = ModContent.Request<Texture2D>("CalValEX/Projectiles/Pets/ExoMechs/AresChain").Value;

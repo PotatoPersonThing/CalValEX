@@ -11,7 +11,6 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Astragelly Slime");
             Main.npcFrameCount[NPC.type] = 2;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
@@ -26,7 +25,6 @@ namespace CalValEX.NPCs.Critters
             });
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void SetDefaults()
         {
             NPC.CloneDefaults(NPCID.BabySlime);
@@ -45,26 +43,19 @@ namespace CalValEX.NPCs.Critters
             NPC.chaseable = false;
             Banner = NPC.type;
             BannerItem = ItemType<AstragellySlimeBanner>();
-            //SpawnModBiomes = new int[1] { ModContent.GetInstance<Biomes.AstralBlight>().Type };
+            SpawnModBiomes = [GetInstance<Biomes.AstralBlight>().Type];
+            if (CalValEX.CalamityActive)
+            {
+                NPC.buffImmune[CalValEX.CalamityBuff("AstralInfectionDebuff")] = true;
+            }
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
             NPC.spriteDirection = -NPC.direction;
             NPC.TargetClosest(false);
-            if (CalValEX.CalamityActive)
-            {
-                for (int i = 0; i < NPC.buffImmune.Length; i++)
-                {
-                    NPC.buffImmune[CalValEX.CalamityBuff("AstralInfectionDebuff")] = false;
-                }
-            }
             CVUtils.CritterBestiary(NPC, Type);
         }
-        public override bool? CanBeHitByItem(Player player, Item item) => null;
-
-        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

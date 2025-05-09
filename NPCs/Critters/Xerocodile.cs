@@ -46,7 +46,6 @@ namespace CalValEX.NPCs.Critters
 
         public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
             CVUtils.CritterBestiary(NPC, Type);
@@ -65,12 +64,11 @@ namespace CalValEX.NPCs.Critters
             if (!Main.bloodMoon && !inGarden)
             {
                 if (CalValEX.CalamityActive)
-                Item.NewItem(NPC.GetSource_FromAI(), NPC.position, NPC.width, NPC.height, CalValEX.CalamityItem("Gorecodile"), 1, false, 0, false, false);
+                    Item.NewItem(NPC.GetSource_FromAI(), NPC.position, NPC.width, NPC.height, CalValEX.CalamityItem("Gorecodile"), 1, false, 0, false, false);
                 NPC.active = false;
             }
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (!CalValEXConfig.Instance.CritterSpawns)

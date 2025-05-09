@@ -5,7 +5,7 @@ Bestiary: {
 	Orthobab: Newer offspring of The Shelled. Despite their bumbling appearance, any one of these may very well grow into something horrific.
 	ProvFly: A butterfly possessing energy from one of two halves of a fiery goddess' power.
 	PerfoGrub: A small grub-like parasite, the vile offspring of the Perforators.
-	Eyedol: Back in the prime of the capital, some would make small idols to worship the goddess at home. The destruction of the capital infused some of these with magic, giving them sentience.
+	Eyedol: Back in the prime of the capital, some would make small idols to worship the elemental at home. The destruction of the capital infused some of these with magic, giving them sentience.
 	OrthoceraApparition: A harbinger of an apocalypse to come. Do not take its warning lightly.
 	AstJR: A sentient glob from the alien environment. Unlike other slimes, it possesses no offensive capabilities.
 	GAstJR: A sentient glob from the alien environment. Unlike other slimes, it possesses no offensive capabilities.
@@ -71,7 +71,7 @@ Conditions: {
 	JungleLabBiome: While in the Jungle Lab
 	BanditReal: If the Bandit is present
 	ArchmageReal: If the Archmage is present
-	SulphurousSeaBiome: Mods.CalValEX.Conditions.SulphurousSeaBiome
+	SulphurousSeaBiome: In the Sulphurous Sea
 }
 
 Emotes.JharimEmote.Command: Jharim

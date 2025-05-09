@@ -23,14 +23,14 @@ namespace CalValEX.Tiles.Cages
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16 };
             TileObjectData.newTile.StyleHorizontal = true;
 
-            TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.SolidBottom, TileObjectData.newTile.Width, 0);
+            TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.SolidBottom | AnchorType.Platform | AnchorType.PlanterBox, TileObjectData.newTile.Width, 0);
             TileObjectData.newTile.StyleWrapLimit = 111;
             TileObjectData.addTile(Type);
             DustType = -1;
             LocalizedText name = CreateMapEntryName();
-            // name.SetDefault("Nuclear Fly in a Jar");
             AddMapEntry(new Color(0, 255, 200), name);
         }
+        public override void SetDrawPositions(int i, int j, ref int width, ref int offsetY, ref int height, ref short tileFrameX, ref short tileFrameY) => CVUtils.PlatformHangOffset(i, j, ref offsetY);
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
             CalValEXGlobalTile.TileGlowmask(i, j, ModContent.Request<Texture2D>("CalValEX/Tiles/Cages/NukeJarPlaced_Glow").Value, spriteBatch);

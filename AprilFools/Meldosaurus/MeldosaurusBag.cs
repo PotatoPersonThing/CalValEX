@@ -24,7 +24,6 @@ namespace CalValEX.AprilFools.Meldosaurus
 
 		public override bool CanRightClick() => true;
 
-        [JITWhenModsEnabled("CalamityMod")]
 		public override void ModifyItemLoot(ItemLoot itemLoot)
 		{
 			itemLoot.Add(ItemDropRule.NotScalingWithLuck(ModContent.ItemType<MeldosaurusMask>(), 7));

@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.DataStructures;
+using Terraria.Enums;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -8,26 +10,28 @@ using Terraria.ObjectData;
 
 namespace CalValEX.Tiles.Cages
 {
-    // This class shows off many things common to Lamp tiles in Terraria. The process for creating this example is detailed in: https://github.com/tModLoader/tModLoader/wiki/Advanced-Vanilla-Code-Adaption#examplelamp-tile
-    // If you can't figure out how to recreate a vanilla tile, see that guide for instructions on how to figure it out yourself.
     public class AstJarPlaced : ModTile
     {
         public override void SetStaticDefaults()
         {
-            // Main.tileFlame[Type] = true; This breaks it.
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
-            AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
+            Main.tileLavaDeath[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
-            TileID.Sets.DisableSmartCursor[Type] = true;
-            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 }; //
+            TileObjectData.newTile.Height = 2;
+            TileObjectData.newTile.CoordinateHeights = new[] { 16, 16 };
+            TileObjectData.newTile.StyleHorizontal = true;
+
+            TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.SolidBottom | AnchorType.Platform | AnchorType.PlanterBox, TileObjectData.newTile.Width, 0);
+            TileObjectData.newTile.StyleWrapLimit = 111;
             TileObjectData.addTile(Type);
-            AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
+            DustType = -1;
             LocalizedText name = CreateMapEntryName();
-            // name.SetDefault("Astrageldon in a Jar");
             AddMapEntry(new Color(139, 0, 0), name);
         }
+        public override void SetDrawPositions(int i, int j, ref int width, ref int offsetY, ref int height, ref short tileFrameX, ref short tileFrameY) => CVUtils.PlatformHangOffset(i, j, ref offsetY);
 
         public override void HitWire(int i, int j)
         {

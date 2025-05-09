@@ -89,7 +89,6 @@ namespace CalValEX.Projectiles.Pets
                 Projectile.timeLeft = 2;
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void CustomBehaviour(Player player, ref int state, float flyingSpeed, float flyingInertia)
         {
             int time1 = 23600;

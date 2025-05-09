@@ -30,11 +30,8 @@ namespace CalValEX.Projectiles.Pets.ExoMechs
             Main.projPet[Projectile.type] = true;
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void MoveTowardsIdealPosition()
         {
-            //THIS CODE NEEDS CALAMITY 1.5.1.001 STUFF TO WORK PROPERLY!
-
             //If the owner is holding right click, shift its goal from the worms ideal position tothe mouse cursor
             if (CalValEX.CalamityActive)
             {

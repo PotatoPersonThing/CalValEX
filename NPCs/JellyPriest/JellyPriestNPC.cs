@@ -74,11 +74,17 @@ namespace CalValEX.NPCs.JellyPriest
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
             AnimationType = NPCID.Mechanic;
+            if (CalValEX.CalamityActive)
+            {
+                SpawnModBiomes = [CalValEX.CalamityBiome("SulphurousSeaBiome").Type];
+                NPC.buffImmune[CalValEX.CalamityBuff("SulphuricPoisoning")] = true;
+                NPC.buffImmune[CalValEX.CalamityBuff("Irradiated")] = true;
+            }
         }
 
         private bool jellyspawn = false;
 
-        public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
+        public override bool CanTownNPCSpawn(int numTownNPCs)
         {
             if (CalValEXWorld.rescuedjelly && !CalValEXConfig.Instance.TownNPC)
             {
@@ -119,7 +125,6 @@ namespace CalValEX.NPCs.JellyPriest
             Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.NPCName14")
         };
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override string GetChat()
         {
             Player player = Main.player[Main.myPlayer];
@@ -166,8 +171,6 @@ namespace CalValEX.NPCs.JellyPriest
             }
 
             WeightedRandom<string> dialogue = new();
-
-            //Main.NewText("MISC EQUIPS 0 TYPE: " + Main.player[Main.myPlayer].miscEquips[0].type + "|MISC EQUIPS 1 TYPE: " + Main.player[Main.myPlayer].miscEquips[1].type);
 
             if (CalValEX.CalamityActive)
             {
@@ -462,7 +465,6 @@ namespace CalValEX.NPCs.JellyPriest
             plantShop.Register();
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void ModifyActiveShop(string shopName, Item[] items)
         {
             for (int i = 0; i < items.Length; i++)

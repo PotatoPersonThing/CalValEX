@@ -1041,7 +1041,6 @@ namespace CalValEX
                 }
             }
         }
-        [JITWhenModsEnabled("CalamityMod")]
         public override void CatchFish(FishingAttempt attempt, ref int itemDrop, ref int npcSpawn, ref AdvancedPopupRequest sonar, ref Vector2 sonarPosition) {
             if (Player.ZoneBeach && Main.rand.NextFloat() < 0.021f) {
                 itemDrop = ItemType<Items.Pets.Elementals.StrangeMusicNote>();
@@ -1053,12 +1052,11 @@ namespace CalValEX
                 itemDrop = ItemType<Items.Tiles.Plants.AstralOldYellow>();
             }
             if (CalValEX.CalamityActive)
-            if ((bool)ModLoader.GetMod("CalamityMod").Call("GetInZone", Player, "sunkensea") && Main.hardMode && Main.rand.NextFloat() < 0.021f) {
+            if ((bool)CalValEX.Calamity.Call("GetInZone", Player, "sunkensea") && Main.hardMode && Main.rand.NextFloat() < 0.021f) {
                 itemDrop = ItemType<Items.Tiles.SailfishTrophy>();
             }
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void PostUpdateMiscEffects() {
             bool bossIsAlive2 = false;
             for (int i = 0; i < Main.maxNPCs; i++) {

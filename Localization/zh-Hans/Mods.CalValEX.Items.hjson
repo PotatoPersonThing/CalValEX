@@ -3425,18 +3425,13 @@ OldModIconPainting: {
 		'''
 }
 
-OldUCMMPainting: {
-	DisplayName: 非官方灾厄音乐（旧）
-	Tooltip:
-		'''
-		"复古曲调"
-		"心跳加快！"
-		'''
-}
-
 OldUCMM: {
-	// DisplayName: Old U C M M
-	// Tooltip: ""
+	// DisplayName: Vanilla Calamity Mod Music (old)
+	/* Tooltip:
+		'''
+		'Vintage tunes'
+		'Heart Plus Up!'
+		''' */
 }
 
 Plague22: {
@@ -3472,11 +3467,6 @@ Snouts: {
 	Tooltip: "'Mathew Maple'"
 }
 
-SundayAfternoon: {
-	DisplayName: 灾厄世界的星期天下午时光
-	Tooltip: "'Mathew Maple'"
-}
-
 SwearingShroom: {
 	DisplayName: 愤怒寄生菌
 	Tooltip: "'Mathew Maple'"
@@ -3492,18 +3482,13 @@ TheYhar: {
 	Tooltip: 不得不说，尽管他是坏蛋，但他还是个很酷的家伙
 }
 
-UCMMPainting: {
-	DisplayName: 非官方灾厄音乐
-	Tooltip:
-		'''
-		"世界之声"
-		'IbanPlay'
-		'''
-}
-
 UCMM: {
-	// DisplayName: U C M M
-	// Tooltip: ""
+	// DisplayName: Vanilla Calamity Mod Music
+	/* Tooltip:
+		'''
+		'World of sound'
+		'IbanPlay'
+		''' */
 }
 
 UnholyTrip: {
@@ -4661,6 +4646,6 @@ GhostLady: {
 }
 
 SundayAfternoonCal: {
-	// DisplayName: Sunday Afternoon Cal
-	// Tooltip: ""
+	// DisplayName: A Sunday Afternoon in the World of Calamity
+	// Tooltip: "'Maple'"
 }

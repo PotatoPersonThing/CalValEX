@@ -10,7 +10,6 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Swearshroom");
             Main.npcFrameCount[NPC.type] = 5;
             NPCID.Sets.CantTakeLunchMoney[Type] = true;
             Main.npcCatchable[NPC.type] = true;
@@ -30,7 +29,6 @@ namespace CalValEX.NPCs.Critters
 
             NPC.catchItem = (short)ItemType<SwearshroomItem>();
             NPC.lavaImmune = false;
-            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.Mouse;
             AnimationType = NPCID.Grubby;
             NPC.npcSlots = 0.25f;
@@ -47,10 +45,6 @@ namespace CalValEX.NPCs.Critters
                 //("The great crustacean's spores are not happy that their host has been destroyed. These wicked fungi have psychopathic tendencies, but are completely harmless."),
             });
         }
-        public override bool? CanBeHitByItem(Player player, Item item) => null;
-
-        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
-
 
         private int nohurt = 120;
         public override float SpawnChance(NPCSpawnInfo spawnInfo)

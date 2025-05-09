@@ -7,16 +7,10 @@ using CalValEX.Items.Critters;
 
 namespace CalValEX.NPCs.Critters
 {
-    /// <summary>
-    /// This file shows off a critter NPC. The unique thing about critters is how you can catch them with a bug net.
-    /// The important bits are: Main.npcCatchable, NPC.catchItem, and item.makeNPC
-    /// We will also show off adding an item to an existing RecipeGroup (see ExampleMod.AddRecipeGroups)
-    /// </summary>
     public class Blinker : ModNPC
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Blinker");
             Main.npcFrameCount[NPC.type] = 8;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
@@ -33,14 +27,17 @@ namespace CalValEX.NPCs.Critters
             NPC.npcSlots = 0.5f;
             NPC.catchItem = (short)ItemType<BlinkerItem>();
             NPC.lavaImmune = false;
-            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.LightningBug;
             AnimationType = NPCID.Firefly;
             NPC.lifeMax = 100;
             NPC.Opacity = 255;
             NPC.value = 0;
             NPC.chaseable = false;
-            //SpawnModBiomes = new int[1] { ModContent.GetInstance<Biomes.AstralBlight>().Type };
+            SpawnModBiomes = [GetInstance<Biomes.AstralBlight>().Type];
+            if (CalValEX.CalamityActive)
+            {
+                NPC.buffImmune[CalValEX.CalamityBuff("AstralInfectionDebuff")] = true;
+            }
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -51,11 +48,7 @@ namespace CalValEX.NPCs.Critters
                 //("A Twinkler that has adapted to the Astral Blight's unique environment. They are a popular food source for its inhabitants."),
             });
         }
-        public override bool? CanBeHitByItem(Player player, Item item) => null;
 
-        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
-
-        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         { 
             if (Main.rand.NextFloat() < 0.3421053f)
@@ -76,29 +69,20 @@ namespace CalValEX.NPCs.Critters
                 }
             }
             NPC.TargetClosest(false);
-            if (CalValEX.CalamityActive)
-            for (int i = 0; i < NPC.buffImmune.Length; i++)
-            {
-                NPC.buffImmune[CalValEX.CalamityBuff("AstralInfectionDebuff")] = false;
-            }
             CVUtils.CritterBestiary(NPC, Type);
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            //Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
-            //if (clamMod != null)
+            if (spawnInfo.Player.InModBiome(GetInstance<Biomes.AstralBlight>()) && !CalValEXConfig.Instance.CritterSpawns)
             {
-                if (spawnInfo.Player.InModBiome(GetInstance<Biomes.AstralBlight>()) && !CalValEXConfig.Instance.CritterSpawns)
+                if (spawnInfo.PlayerSafe)
                 {
-                    if (spawnInfo.PlayerSafe)
-                    {
-                        return Terraria.ModLoader.Utilities.SpawnCondition.TownCritter.Chance * 0.2f;
-                    }
-                    else if (!Main.eclipse && !Main.bloodMoon && !Main.pumpkinMoon && !Main.snowMoon)
-                    {
-                        return 0.15f;
-                    }
+                    return Terraria.ModLoader.Utilities.SpawnCondition.TownCritter.Chance * 0.2f;
+                }
+                else if (!Main.eclipse && !Main.bloodMoon && !Main.pumpkinMoon && !Main.snowMoon)
+                {
+                    return 0.15f;
                 }
             }
             return 0f;

@@ -34,9 +34,6 @@ namespace CalValEX
     public class CalValEXGlobalitem : GlobalItem
     {
         public override bool InstancePerEntity => true;
-        //public override bool CloneNewInstances => true;
-
-        [JITWhenModsEnabled("CalamityMod")]
         public override void SetDefaults(Item item)
         {
             if (!CalValEX.CalamityActive)
@@ -72,7 +69,6 @@ namespace CalValEX
 			}
 		}
 
-        [JITWhenModsEnabled("CalamityMod")]
 		public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
 		{
             LeadingConditionRule rule = new(new DropsEnabled());
@@ -490,7 +486,6 @@ namespace CalValEX
 			public string GetConditionDescription() => description;
 		}
         #endregion
-        [JITWhenModsEnabled("CalamityMod")]
         public override void RightClick(Item item, Player player)
         {
             if (!CalValEX.CalamityActive)

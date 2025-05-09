@@ -4,7 +4,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
-//using CalamityMod.CalPlayer;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -12,7 +11,6 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Violemur");
             Main.npcFrameCount[NPC.type] = 7;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CantTakeLunchMoney[Type] = true;
@@ -33,6 +31,11 @@ namespace CalValEX.NPCs.Critters
             BannerItem = ItemType<ViolemurBanner>();
             NPC.HitSound = new Terraria.Audio.SoundStyle("CalValEX/Sounds/ViolemurHit");
             NPC.DeathSound = new Terraria.Audio.SoundStyle("CalValEX/Sounds/ViolemurDeath");
+            if (CalValEX.CalamityActive)
+            {
+                SpawnModBiomes = [CalValEX.CalamityBiome("AstralInfectionBiome").Type];
+                NPC.buffImmune[CalValEX.CalamityBuff("AstralInfectionDebuff")] = true;
+            }
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -43,11 +46,7 @@ namespace CalValEX.NPCs.Critters
                 //("Curious little mammals that have fallen victim to the extraterrestrial virus. Violemurs still hold some degree of independence in contrast to the infection's other lifeforms."),
             });
         }
-        public override bool? CanBeHitByItem(Player player, Item item) => null;
 
-        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
-
-        [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (CalValEX.CalamityActive)
@@ -81,19 +80,9 @@ namespace CalValEX.NPCs.Critters
             }
         }
 
-
-        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
             CVUtils.CritterBestiary(NPC, Type);
-            if (CalValEX.CalamityActive)
-            {
-                for (int i = 0; i < NPC.buffImmune.Length; i++)
-                {
-                    NPC.buffImmune[CalValEX.CalamityBuff("AstralInfectionDebuff")] = false;
-                }
-                //SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.AbovegroundAstralBiome>().Type };
-            }
         }
     }
 }

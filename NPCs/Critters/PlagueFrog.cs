@@ -10,7 +10,6 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Plagued Frog");
             Main.npcFrameCount[NPC.type] = 13;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CantTakeLunchMoney[Type] = true;
@@ -22,11 +21,14 @@ namespace CalValEX.NPCs.Critters
             NPC.CloneDefaults(NPCID.Frog);
             NPC.catchItem = (short)ItemType<PlagueFrogItem>();
             NPC.lavaImmune = false;
-            //NPC.friendly = true;
             AIType = NPCID.Frog;
             AnimationType = NPCID.Frog;
             NPC.lifeMax = 20;
             NPC.chaseable = false;
+            if (CalValEX.CalamityActive)
+            {
+                NPC.buffImmune[CalValEX.CalamityBuff("Plague")] = true;
+            }
         }
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
         {
@@ -37,7 +39,6 @@ namespace CalValEX.NPCs.Critters
                 //("The plague unleashed by the scientist didn't just infect the already hostile creatures. Peaceful lifeforms such as frogs were also unfortunate enough to fall victim to it."),
             });
         }
-        [JITWhenModsEnabled("CalamityMod")]
 
         public override void AI()
         {
@@ -53,17 +54,7 @@ namespace CalValEX.NPCs.Critters
                     NPC.Transform(NPCID.Frog);
                 }
             }
-            if (CalValEX.CalamityActive)
-            {
-                for (int i = 0; i < NPC.buffImmune.Length; i++)
-                {
-                    NPC.buffImmune[CalValEX.CalamityBuff("Plague")] = false;
-                }
-            }
         }
-        public override bool? CanBeHitByItem(Player player, Item item) => null;
-
-        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

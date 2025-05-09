@@ -5,7 +5,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
-//using CalamityMod.CalPlayer;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -26,12 +25,16 @@ namespace CalValEX.NPCs.Critters
             NPC.CloneDefaults(NPCID.Firefly);
             NPC.catchItem = (short)ItemType<VaporoflyItem>();
             NPC.lavaImmune = false;
-            //NPC.aiStyle = 0;
-            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.Firefly;
             AnimationType = NPCID.Firefly;
             NPC.lifeMax = 20;
             NPC.chaseable = false;
+            if (CalValEX.CalamityActive)
+            {
+                SpawnModBiomes = [CalValEX.CalamityBiome("SulphurousSeaBiome").Type];
+                NPC.buffImmune[CalValEX.CalamityBuff("SulphuricPoisoning")] = true;
+                NPC.buffImmune[CalValEX.CalamityBuff("Irradiated")] = true;
+            }
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -42,11 +45,7 @@ namespace CalValEX.NPCs.Critters
                 //("An ancient insect species that was revitalized by the radioactive waters."),
             });
         }
-        public override bool? CanBeHitByItem(Player player, Item item) => null;
 
-        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
-
-        [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (CalValEX.CalamityActive)
@@ -63,29 +62,12 @@ namespace CalValEX.NPCs.Critters
             return 0f;
         }
 
-        public void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale)
-        {
-            Vector2 origin = new(NPC.width * .5f, NPC.height * .5f);
-            SpriteEffects effect = NPC.direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-            spriteBatch.Draw(Request<Texture2D>("Items/Critters/Vaporofly_Glow").Value, NPC.Center - Main.screenPosition, new Rectangle?(), Color.White, rotation, origin, scale, effect, 0f);
-        }
-
-        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
             CVUtils.CritterBestiary(NPC, Type);
-            if (CalValEX.CalamityActive)
-            {
-                for (int i = 0; i < NPC.buffImmune.Length; i++)
-                {
-                    NPC.buffImmune[CalValEX.CalamityBuff("SulphuricPoisoning")] = false;
-                }
-                //SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.SulphurousSeaBiome>().Type };
-            }
             if (Main.rand.NextFloat() < 0.3421053f)
             {
                 Dust dust;
-                // You need to set position depending on what you are doing. You may need to subtract width/2 and height/2 as well to center the spawn rectangle.
                 Vector2 positionLeft = new(NPC.position.X + 9, NPC.position.Y);
                 Vector2 positionRight = new(NPC.position.X - 9, NPC.position.Y);
                 if (NPC.direction == -1)

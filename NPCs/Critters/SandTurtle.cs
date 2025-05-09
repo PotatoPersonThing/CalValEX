@@ -24,13 +24,11 @@ namespace CalValEX.NPCs.Critters
             NPC.CloneDefaults(NPCID.Squirrel);
             NPC.catchItem = (short)ItemType<SandTurtleItem>();
             NPC.lavaImmune = false;
-            //NPC.aiStyle = 0;
-            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.Squirrel;
             AnimationType = -1;
             NPC.npcSlots = 0.25f;
             NPC.lifeMax = 300;
-            NPC.GivenName = Main.rand.NextFloat() < 0.014f ? "Debrina" : "Sand Turtle";
+            NPC.GivenName = Main.rand.NextBool(100) ? "Debrina" : "Sand Turtle";
             Banner = NPC.type;
             BannerItem = ItemType<Items.Tiles.Banners.SandTurtleBanner>();
             NPC.HitSound = SoundID.NPCHit50;
@@ -48,9 +46,6 @@ namespace CalValEX.NPCs.Critters
                 //("A horrific and violent testudine with high defensive capabilities. They are too dangerous to be left alive."),
             });
         }
-        public override bool? CanBeHitByItem(Player player, Item item) => null;
-
-        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
         public override void AI()
         {

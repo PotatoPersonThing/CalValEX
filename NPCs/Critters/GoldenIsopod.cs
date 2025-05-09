@@ -21,7 +21,6 @@ namespace CalValEX.NPCs.Critters
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void SetDefaults()
         {
             NPC.width = 56;
@@ -37,6 +36,12 @@ namespace CalValEX.NPCs.Critters
             NPC.chaseable = false;
             Banner = NPCType<Isopod>();
             BannerItem = ItemType<IsopodBanner>();
+            if (CalValEX.CalamityActive)
+            {
+                string biomeName = CalValEX.InfernumActive() ? "AbyssLayer3Biome" : "AbyssLayer4Biome";
+                SpawnModBiomes = [CalValEX.CalamityBiome(biomeName).Type];
+                NPC.buffImmune[CalValEX.CalamityBuff("CrushDepth")] = true;
+            }
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -47,16 +52,13 @@ namespace CalValEX.NPCs.Critters
                 //("Even in the darkest of places, gilded entities such as the Gold Isopod can be found."),
             });
         }
-        public override bool? CanBeHitByItem(Player player, Item item) => null;
 
-        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
-
-        [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (CalValEX.CalamityActive)
             {
-                if (CalValEX.InCalamityBiome(spawnInfo.Player, "AbyssLayer4Biome") && !CalValEXConfig.Instance.CritterSpawns)
+                string biomeName = CalValEX.InfernumActive() ? "AbyssLayer3Biome" : "AbyssLayer4Biome";
+                if (CalValEX.InCalamityBiome(spawnInfo.Player, biomeName) && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     if (spawnInfo.Water)
                     {
@@ -77,7 +79,6 @@ namespace CalValEX.NPCs.Critters
             }
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
             CVUtils.CritterBestiary(NPC, Type);
@@ -96,14 +97,6 @@ namespace CalValEX.NPCs.Critters
                     dust = Main.dust[Dust.NewDust(positionRight, 3, 3, DustID.GoldCoin, 0.4f, 1f, 0, new Color(255, 249, 57), 0.5f)];
                     dust.noGravity = true;
                 }
-            }
-            if (CalValEX.CalamityActive)
-            {
-                for (int i = 0; i < NPC.buffImmune.Length; i++)
-                {
-                    NPC.buffImmune[CalValEX.CalamityBuff("CrushDepth")] = false;
-                }
-                //SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.AbyssLayer4Biome>().Type };
             }
         }
     }

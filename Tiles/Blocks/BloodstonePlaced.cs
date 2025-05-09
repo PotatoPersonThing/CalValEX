@@ -7,7 +7,6 @@ namespace CalValEX.Tiles.Blocks
 {
     public class BloodstonePlaced : ModTile
     {
-        [JITWhenModsEnabled("CalamityMod")]
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;

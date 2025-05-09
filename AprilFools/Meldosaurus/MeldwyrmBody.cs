@@ -9,7 +9,6 @@ namespace CalValEX.AprilFools.Meldosaurus
 {
     public class MeldwyrmBody : ModNPC
 	{
-		[JITWhenModsEnabled("CalamityMod")]
 		public override void SetStaticDefaults()
 		{
 			NPCID.Sets.NPCBestiaryDrawModifiers value = new(0)
@@ -34,14 +33,13 @@ namespace CalValEX.AprilFools.Meldosaurus
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.netAlways = true;
+			NPC.noGravity = true;
 			if (CalValEX.CalamityActive)
 			{
 				CalValEX.Calamity.Call("SetDamageReductionSpecific", 0.2f);
 			}
 		}
 
-
-		[JITWhenModsEnabled("CalamityMod")]
 		public override void AI()
 		{
 			// Die immediately if the ahead segment is invalid.

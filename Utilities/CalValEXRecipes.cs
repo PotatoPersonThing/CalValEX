@@ -1360,7 +1360,6 @@ namespace CalValEX
         }
 
 
-        [JITWhenModsEnabled("CalamityMod")]
         void BlueprintRecipe(int ingredient, int result)
         {
             {

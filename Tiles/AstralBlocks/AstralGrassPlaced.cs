@@ -11,7 +11,6 @@ namespace CalValEX.Tiles.AstralBlocks
 {
     public class AstralGrassPlaced : ModTile
     {
-        [JITWhenModsEnabled("CalamityMod")]
         public override void SetStaticDefaults()
         {
             Main.tileSolid[Type] = true;

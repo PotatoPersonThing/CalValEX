@@ -56,22 +56,12 @@ namespace CalValEX.NPCs.Critters {
             return true;
         }
 
-        public override bool? CanBeHitByItem(Player player, Item item) {
-            return true;
-        }
-
-        public override bool? CanBeHitByProjectile(Projectile projectile) {
-            return true;
-        }
-
         public override float SpawnChance(NPCSpawnInfo spawnInfo) {
             if (spawnInfo.Player.ZoneCrimson && !CalValEXConfig.Instance.CritterSpawns) {
                 return 0.35f;
             }
             return 0f;
         }
-
-        public override void OnCaughtBy(Player player, Item item, bool failed) => item.stack = 1;
 
         public override void AI()
         {

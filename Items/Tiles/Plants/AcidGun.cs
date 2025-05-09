@@ -26,7 +26,6 @@ namespace CalValEX.Items.Tiles.Plants
             Item.rare = ItemRarityID.LightRed;
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override bool CanUseItem(Player player)
         {
             if (CalValEX.CalamityActive)

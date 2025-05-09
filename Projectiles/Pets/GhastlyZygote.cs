@@ -46,7 +46,6 @@ namespace CalValEX.Projectiles.Pets
             return true;
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         private void DrawCord() {
                 //This is absolutely disgusting but I'm too lazy to math out something better
                 Vector2 chainlink = new(Projectile.Center.X, Projectile.Center.Y);

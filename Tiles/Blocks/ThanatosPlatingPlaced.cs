@@ -9,7 +9,6 @@ namespace CalValEX.Tiles.Blocks
 {
     public class ThanatosPlatingPlaced : ModTile
 	{
-		[JITWhenModsEnabled("CalamityMod")]
 		public override void SetStaticDefaults()  {
 			Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = false;
@@ -32,7 +31,6 @@ namespace CalValEX.Tiles.Blocks
 
 	public class ThanatosPlatingVentPlaced : ModTile
 	{
-		[JITWhenModsEnabled("CalamityMod")]
 		public override void SetStaticDefaults() {
 			Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = false;

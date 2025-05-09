@@ -61,7 +61,6 @@ namespace CalValEX.NPCs.Critters
             }
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (CalValEX.CalamityActive)

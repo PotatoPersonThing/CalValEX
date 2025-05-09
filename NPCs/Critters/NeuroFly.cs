@@ -68,7 +68,5 @@ namespace CalValEX.NPCs.Critters {
             NPC.spriteDirection = -NPC.direction;
             NPC.TargetClosest(false);
         }
-
-        public override void OnCaughtBy(Player player, Item item, bool failed) => item.stack = 1;
     }
 }

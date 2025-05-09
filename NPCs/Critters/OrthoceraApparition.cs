@@ -3,7 +3,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Microsoft.Xna.Framework;
-//using CalamityMod.CalPlayer;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -15,7 +14,6 @@ namespace CalValEX.NPCs.Critters
             Main.npcFrameCount[NPC.type] = 5;
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void SetDefaults()
         {
             NPC.width = 62;
@@ -31,6 +29,10 @@ namespace CalValEX.NPCs.Critters
             NPC.chaseable = false;
             AIType = -1;
             NPC.npcSlots = 0.25f;
+            if (CalValEX.CalamityActive)
+            {
+                SpawnModBiomes = [CalValEX.CalamityBiome("SulphurousSeaBiome").Type];
+            }
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -55,14 +57,9 @@ namespace CalValEX.NPCs.Critters
         bool soundplayed = false;
         bool orthogod = false;
         int orthocount = 0;
-        [JITWhenModsEnabled("CalamityMod")]
+
         public override void AI()
         {
-            if (CalValEX.CalamityActive)
-            {
-                //SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.SulphurousSeaBiome>().Type };
-            }
-
             NPC.spriteDirection = -NPC.direction;
 
             Player player = Main.LocalPlayer;
@@ -134,12 +131,11 @@ namespace CalValEX.NPCs.Critters
             }
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (CalValEX.CalamityActive)
             {
-                Mod cal = ModLoader.GetMod("CalamityMod");
+                Mod cal = CalValEX.Calamity;
                 if ((bool)cal.Call("GetBossDowned", "scal") && (bool)cal.Call("GetBossDowned", "exomechs") && !NPC.AnyNPCs(NPCType<OrthoceraApparition>()) && !CalValEXWorld.orthofound)
                 {
                     if (CalValEX.InCalamityBiome(spawnInfo.Player, "SulphurousSeaBiome"))

@@ -10,7 +10,6 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Xerocodile");
             Main.npcFrameCount[NPC.type] = 6;
             NPCID.Sets.CantTakeLunchMoney[Type] = true;
             Main.npcCatchable[NPC.type] = true;
@@ -36,17 +35,16 @@ namespace CalValEX.NPCs.Critters
             NPC.npcSlots = 0.25f;
             NPC.catchItem = (short)ItemType<XerocodileItem>();
             NPC.lavaImmune = false;
-            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             Banner = NPCType<Xerocodile>();
             BannerItem = ItemType<Items.Tiles.Banners.XerocodileBanner>();
             AIType = NPCID.Goldfish;
             AnimationType = NPCID.Goldfish;
             NPC.chaseable = false;
         }
-        [JITWhenModsEnabled("CalamityMod")]
+
         public override void AI()
         {
-            CVUtils.CritterBestiary(NPC, ModContent.NPCType<Xerocodile>());
+            CVUtils.CritterBestiary(NPC, NPCType<Xerocodile>());
             if (!NPC.wet)
             {
                 NPC.Transform(NPCType<Xerocodile>());
@@ -66,11 +64,7 @@ namespace CalValEX.NPCs.Critters
                 NPC.active = false;
             }
         }
-        public override bool? CanBeHitByItem(Player player, Item item) => null;
 
-        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
-
-        [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (!CalValEXConfig.Instance.CritterSpawns)

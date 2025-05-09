@@ -12,7 +12,6 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Gold Astragelly Slime");
             Main.npcFrameCount[NPC.type] = 2;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
@@ -37,8 +36,13 @@ namespace CalValEX.NPCs.Critters
             NPC.chaseable = false;
             Banner = NPCType<AstJR>();
             BannerItem = ItemType<AstragellySlimeBanner>();
-            //SpawnModBiomes = new int[1] { ModContent.GetInstance<Biomes.AstralBlight>().Type };
+            SpawnModBiomes = [GetInstance<Biomes.AstralBlight>().Type];
+            if (CalValEX.CalamityActive)
+            {
+                NPC.buffImmune[CalValEX.CalamityBuff("AstralInfectionDebuff")] = true;
+            }
         }
+
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.UIInfoProvider = new Terraria.GameContent.Bestiary.CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
@@ -47,11 +51,7 @@ namespace CalValEX.NPCs.Critters
                 //("A sentient glob from the alien environment. Unlike other slimes, it possesses no offensive capabilities."),
             });
         }
-        public override bool? CanBeHitByItem(Player player, Item item) => null;
 
-        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
-
-        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
             CVUtils.CritterBestiary(NPC, Type);
@@ -73,32 +73,21 @@ namespace CalValEX.NPCs.Critters
                     dust.noGravity = true;
                 }
             }
-            if (CalValEX.CalamityActive)
-            {
-                for (int i = 0; i < NPC.buffImmune.Length; i++)
-                {
-                    NPC.buffImmune[CalValEX.CalamityBuff("AstralInfectionDebuff")] = false;
-                }
-            }
         }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            //Mod clamMod = ModLoader.GetMod("CalamityMod"); //this is to get calamity mod, you have to add 'weakReferences = CalamityMod@1.4.4.4' (without the '') in your build.txt for this to work
-            //if (clamMod != null)
+            if (spawnInfo.Player.InModBiome(GetInstance<Biomes.AstralBlight>()) && !CalValEXConfig.Instance.CritterSpawns)
             {
-                if (spawnInfo.Player.InModBiome(GetInstance<Biomes.AstralBlight>()) && !CalValEXConfig.Instance.CritterSpawns)
+                if (spawnInfo.PlayerSafe)
                 {
-                    if (spawnInfo.PlayerSafe)
-                    {
-                        return Terraria.ModLoader.Utilities.SpawnCondition.TownCritter.Chance * 0.5f;
-                    }
-                    else if (!Main.eclipse && !Main.bloodMoon && !Main.pumpkinMoon && !Main.snowMoon)
-                    {
-                        return 0.15f;
-                    }
+                    return Terraria.ModLoader.Utilities.SpawnCondition.TownCritter.Chance * 0.5f;
                 }
-            }
+                else if (!Main.eclipse && !Main.bloodMoon && !Main.pumpkinMoon && !Main.snowMoon)
+                {
+                    return 0.15f;
+                }
+            }            
             return 0f;
         }
 

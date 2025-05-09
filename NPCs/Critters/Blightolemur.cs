@@ -36,7 +36,11 @@ namespace CalValEX.NPCs.Critters
             BannerItem = ItemType<BleamurBanner>();
             NPC.HitSound = new Terraria.Audio.SoundStyle("CalValEX/Sounds/ViolemurHit");
             NPC.DeathSound = new Terraria.Audio.SoundStyle("CalValEX/Sounds/ViolemurDeath");
-            //SpawnModBiomes = new int[1] { ModContent.GetInstance<Biomes.AstralBlight>().Type };
+            SpawnModBiomes = [GetInstance<Biomes.AstralBlight>().Type];
+            if (CalValEX.CalamityActive)
+            {
+                NPC.buffImmune[CalValEX.CalamityBuff("AstralInfectionDebuff")] = true;
+            }
         }
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
         {
@@ -62,9 +66,6 @@ namespace CalValEX.NPCs.Critters
             }
             return 0f;
         }
-        public override bool? CanBeHitByItem(Player player, Item item) => null;
-
-        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
         public override void HitEffect(NPC.HitInfo hit) {
             if (Main.netMode == NetmodeID.Server)
@@ -91,16 +92,8 @@ namespace CalValEX.NPCs.Critters
             spriteBatch.Draw(minibirbsprite, NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), minibirbsquare, Color.White, NPC.rotation, Utils.Size(minibirbsquare) / 2f, NPC.scale, minibirbeffects, 0f);
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
-            if (CalValEX.CalamityActive)
-            {
-                for (int i = 0; i < NPC.buffImmune.Length; i++)
-                {
-                    NPC.buffImmune[CalValEX.CalamityBuff("AstralInfectionDebuff")] = false;
-                }
-            }
             CVUtils.CritterBestiary(NPC, Type);
         }
     }

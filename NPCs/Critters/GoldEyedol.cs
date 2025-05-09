@@ -22,7 +22,6 @@ namespace CalValEX.NPCs.Critters
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void SetDefaults()
         {
             NPC.width = 28;
@@ -41,6 +40,12 @@ namespace CalValEX.NPCs.Critters
             NPC.npcSlots = 0.25f;
             Banner = NPCType<Eyedol>();
             BannerItem = ItemType<EyedolBanner>();
+            NPC.buffImmune[BuffID.OnFire] = true;
+            if (CalValEX.CalamityActive)
+            {
+                SpawnModBiomes = [CalValEX.CalamityBiome("BrimstoneCragsBiome").Type];
+                NPC.buffImmune[CalValEX.CalamityBuff("BrimstoneFlames")] = true;
+            }
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -51,9 +56,6 @@ namespace CalValEX.NPCs.Critters
                 //("A specially crafted idol possessed by a spirit. The construct was previously used by the ruler of the capital themself."),
             });
         }
-        public override bool? CanBeHitByItem(Player player, Item item) => null;
-
-        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
         private const int Frame_Up = 0;
         private const int Frame_Rightup = 1;
@@ -86,7 +88,6 @@ namespace CalValEX.NPCs.Critters
             }
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (CalValEX.CalamityActive)
@@ -114,12 +115,6 @@ namespace CalValEX.NPCs.Critters
                         NPC.ai[0]++;
                     }
                 }
-                for (int i = 0; i < NPC.buffImmune.Length; i++)
-                {
-                    NPC.buffImmune[CalValEX.CalamityBuff("BrimstoneFlames")] = false;
-                    NPC.buffImmune[BuffID.OnFire] = false;
-                }
-                //SpawnModBiomes = new int[1] { GetInstance<CalamityMod.BiomeManagers.BrimstoneCragsBiome>().Type };
             }
             if (Main.rand.NextFloat() < 0.1f)
             {

@@ -12,14 +12,12 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Abyssal Isopod");
             Main.npcFrameCount[NPC.type] = 8;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CantTakeLunchMoney[Type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void SetDefaults()
         {
             NPC.width = 56;
@@ -34,6 +32,12 @@ namespace CalValEX.NPCs.Critters
             NPC.chaseable = false;
             Banner = NPC.type;
             BannerItem = ItemType<IsopodBanner>();
+            if (CalValEX.CalamityActive)
+            {
+                string biomeName = CalValEX.InfernumActive() ? "AbyssLayer3Biome" : "AbyssLayer4Biome";
+                SpawnModBiomes = [CalValEX.CalamityBiome(biomeName).Type];
+                NPC.buffImmune[CalValEX.CalamityBuff("CrushDepth")] = true;
+            }
         }
         public override bool? CanBeHitByItem(Player player, Item item) => null;
 
@@ -48,12 +52,12 @@ namespace CalValEX.NPCs.Critters
             });
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (CalValEX.CalamityActive)
             {
-                if (CalValEX.InCalamityBiome(spawnInfo.Player, "AbyssLayer4Biome") && !CalValEXConfig.Instance.CritterSpawns)
+                string biomeName = CalValEX.InfernumActive() ? "AbyssLayer3Biome" : "AbyssLayer4Biome";
+                if (CalValEX.InCalamityBiome(spawnInfo.Player, biomeName) && !CalValEXConfig.Instance.CritterSpawns)
                 {
                     if (spawnInfo.Water)
                     {
@@ -63,8 +67,6 @@ namespace CalValEX.NPCs.Critters
             }
             return 0f;
         }
-
-
 
         public override void HitEffect(NPC.HitInfo hit) {
             if (Main.netMode == NetmodeID.Server)
@@ -79,18 +81,9 @@ namespace CalValEX.NPCs.Critters
             }
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
             CVUtils.CritterBestiary(NPC, Type);
-            if (CalValEX.CalamityActive)
-            {
-                for (int i = 0; i < NPC.buffImmune.Length; i++)
-                {
-                    NPC.buffImmune[CalValEX.CalamityBuff("CrushDepth")] = false;
-                }
-                //SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.AbyssLayer4Biome>().Type };
-            }
         }
     }
 }

@@ -28,7 +28,6 @@ namespace CalValEX.Projectiles.Pets
             Projectile.GetGlobalProjectile<CalValEXGlobalProjectile>().isCalValPet = true;
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void Animation(int state)
         {
             Mod armasortof;

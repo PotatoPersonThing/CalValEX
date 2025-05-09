@@ -9,7 +9,6 @@ namespace CalValEX.Tiles.Plants
 {
     public class BrimPlantPlaced : ModTile
     {
-        [JITWhenModsEnabled("CalamityMod")]
         public override void SetStaticDefaults() {
             Main.tileFrameImportant[Type] = true;
             Main.tileLighted[Type] = true;

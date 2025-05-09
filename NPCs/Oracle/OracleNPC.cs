@@ -66,7 +66,7 @@ namespace CalValEX.NPCs.Oracle
             });
         }
 
-        public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
+        public override bool CanTownNPCSpawn(int numTownNPCs)
         {
             if (!CalValEXConfig.Instance.TownNPC)
             {
@@ -84,8 +84,6 @@ namespace CalValEX.NPCs.Oracle
             }
             return false;
         }
-
-        private bool rachelname = false;
 
         public override List<string> SetNPCNameList() => new List<string>()
         {
@@ -106,7 +104,6 @@ namespace CalValEX.NPCs.Oracle
         };
 
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override string GetChat()
         {
             if (NPC.homeless)

@@ -10,7 +10,6 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Profaned Butterfly");
             Main.npcFrameCount[NPC.type] = 3;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
@@ -35,6 +34,10 @@ namespace CalValEX.NPCs.Critters
             AIType = NPCID.GoldButterfly;
             AnimationType = NPCID.GoldButterfly;
             NPC.chaseable = false;
+            if (CalValEX.CalamityActive)
+            {
+                NPC.buffImmune[CalValEX.CalamityBuff("HolyFlames")] = true;
+            }
         }
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
         {
@@ -55,15 +58,9 @@ namespace CalValEX.NPCs.Critters
             return Terraria.ModLoader.Utilities.SpawnCondition.Underworld.Chance * 0.35f;
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
             CVUtils.CritterBestiary(NPC, Type);
-            if (CalValEX.CalamityActive)
-            for (int i = 0; i < NPC.buffImmune.Length; i++)
-            {
-                NPC.buffImmune[CalValEX.CalamityBuff("HolyFlames")] = false;
-            }
         }
     }
 }

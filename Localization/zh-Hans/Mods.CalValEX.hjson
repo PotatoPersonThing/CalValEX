@@ -71,7 +71,7 @@ Conditions: {
 	// JungleLabBiome: While in the Jungle Lab
 	// BanditReal: If the Bandit is present
 	// ArchmageReal: If the Archmage is present
-	// SulphurousSeaBiome: Mods.CalValEX.Conditions.SulphurousSeaBiome
+	// SulphurousSeaBiome: In the Sulphurous Sea
 }
 
 // Emotes.JharimEmote.Command: Jharim

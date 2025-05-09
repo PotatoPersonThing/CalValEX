@@ -3,7 +3,6 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
-//using CalamityMod.CalPlayer;
 
 namespace CalValEX.NPCs.Critters
 {
@@ -11,14 +10,12 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Orthocera Hatchling");
             Main.npcFrameCount[NPC.type] = 6;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
             NPCID.Sets.CantTakeLunchMoney[Type] = true;
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void SetDefaults()
         {
             NPC.noGravity = true;
@@ -33,11 +30,16 @@ namespace CalValEX.NPCs.Critters
             NPC.npcSlots = 0.25f;
             NPC.catchItem = (short)ItemType<OrthobabItem>();
             NPC.lavaImmune = false;
-            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.Goldfish;
             AnimationType = NPCID.Goldfish;
             NPC.lifeMax = 5;
             NPC.chaseable = false;
+            if (CalValEX.CalamityActive)
+            {
+                SpawnModBiomes = [CalValEX.CalamityBiome("SulphurousSeaBiome").Type];
+                NPC.buffImmune[CalValEX.CalamityBuff("SulphuricPoisoning")] = true;
+                NPC.buffImmune[CalValEX.CalamityBuff("Irradiated")] = true;
+            }
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -48,11 +50,7 @@ namespace CalValEX.NPCs.Critters
                 //("Newer offspring of The Shelled. Despite their bumbling appearance, any one of these may very well grow into something horrific."),
             });
         }
-        public override bool? CanBeHitByItem(Player player, Item item) => null;
 
-        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
-
-        [JITWhenModsEnabled("CalamityMod")]
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
             if (CalValEX.CalamityActive)
@@ -65,20 +63,9 @@ namespace CalValEX.NPCs.Critters
             return 0f;
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
             CVUtils.CritterBestiary(NPC, Type);
-            if (CalValEX.CalamityActive)
-            {
-                for (int i = 0; i < NPC.buffImmune.Length; i++)
-                {
-                    NPC.buffImmune[CalValEX.CalamityBuff("SulphuricPoisoning")] = false;
-                }
-
-                //SpawnModBiomes = new int[1] { ModContent.GetInstance<CalamityMod.BiomeManagers.SulphurousSeaBiome>().Type };
-            }
         }
-        // TODO: Hooks for Collision_MoveSnailOnSlopes and NPC.aiStyle = 67 problem
     }
 }

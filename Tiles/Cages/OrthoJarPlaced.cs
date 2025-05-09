@@ -15,22 +15,22 @@ namespace CalValEX.Tiles.Cages
         {
             Main.tileLighted[Type] = true;
             Main.tileFrameImportant[Type] = true;
-            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             Main.tileNoAttach[Type] = true;
             Main.tileLavaDeath[Type] = true;
+            Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
             TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16 };
             TileObjectData.newTile.StyleHorizontal = true;
 
-            TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.SolidBottom, TileObjectData.newTile.Width, 0);
+            TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.SolidBottom | AnchorType.Platform | AnchorType.PlanterBox, TileObjectData.newTile.Width, 0);
             TileObjectData.newTile.StyleWrapLimit = 111;
             TileObjectData.addTile(Type);
             DustType = -1;
             LocalizedText name = CreateMapEntryName();
-            // name.SetDefault("Orthocera in a Jar");
-            AddMapEntry(new Color(0, 255, 200), name);
+            AddMapEntry(new Color(139, 0, 0), name);
         }
+        public override void SetDrawPositions(int i, int j, ref int width, ref int offsetY, ref int height, ref short tileFrameX, ref short tileFrameY) => CVUtils.PlatformHangOffset(i, j, ref offsetY);
 
         public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)
         {

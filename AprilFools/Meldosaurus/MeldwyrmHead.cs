@@ -38,7 +38,8 @@ namespace CalValEX.AprilFools.Meldosaurus
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.netAlways = true;
-			if (CalValEX.CalamityActive)
+            NPC.noGravity = true;
+            if (CalValEX.CalamityActive)
 			{
 				CalValEX.Calamity.Call("SetDefenseDamageNPC", true);
 				CalValEX.Calamity.Call("SetDamageReductionSpecific", 0.2f);
@@ -55,7 +56,6 @@ namespace CalValEX.AprilFools.Meldosaurus
 			});
 			}
 		}
-		[JITWhenModsEnabled("CalamityMod")]
 		public override void AI()
 		{
 			if (CalValEXGlobalNPC.meldodon <= -1)
@@ -63,26 +63,23 @@ namespace CalValEX.AprilFools.Meldosaurus
 				NPC.HitEffect(0, NPC.lifeMax * 55, true);
             }
 			NPC meldosaurus = Main.npc[CalValEXGlobalNPC.meldodon];
-			// Create segments on the first frame.
-			if (Main.netMode != NetmodeID.MultiplayerClient && NPC.localAI[0] == 0f)
+            // Create segments on the first frame.
+            if (Main.netMode != NetmodeID.MultiplayerClient && NPC.localAI[0] == 0f)
 			{
 				SpawnSegments();
 				NPC.localAI[0] = 1f;
 			}
 			NPC.ai[0] += 3;
-			double deg = 120 * NPC.ai[1] + NPC.ai[0];
+			double deg = 180 * NPC.ai[1] + NPC.ai[0];
 			double rad = deg * (Math.PI / 180);
 			float hyposx = meldosaurus.Center.X - (int)(Math.Cos(rad) * 360) - NPC.width / 2;
 			float hyposy = meldosaurus.Center.Y - (int)(Math.Sin(rad) * 360) - NPC.height / 2;
-			float idealx = MathHelper.Lerp(NPC.position.X, hyposx, 0.4f);
-			float idealy = MathHelper.Lerp(NPC.position.Y, hyposy, 0.4f);
-			//NPC.position = new Vector2(idealx, idealy);
 			Vector2 idealpos = new(hyposx, hyposy);
 			Dust.NewDustDirect(idealpos, 1, 1, DustID.Stone);
 
-			NPC.velocity = NPC.position.DirectionTo(new Vector2(hyposx, hyposy)) * 30;
+			NPC.velocity = new Vector2(hyposx, hyposy) - NPC.position;
 
-			NPC.rotation = NPC.velocity.ToRotation();
+			NPC.rotation = NPC.velocity.ToRotation() + MathHelper.PiOver2;
 		}
 		public void SpawnSegments()
 		{

@@ -236,7 +236,6 @@ namespace CalValEX
             dungeontiles = 0;
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts)
         {
             // Old Astral tiles
@@ -386,7 +385,6 @@ namespace CalValEX
             return Main.dayTime;
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void AddRecipeGroups()
         {
             if (CalValEX.CalamityActive)

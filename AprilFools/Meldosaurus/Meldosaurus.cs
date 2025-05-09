@@ -30,8 +30,6 @@ namespace CalValEX.AprilFools.Meldosaurus
 			}
 		}
 
-
-		[JITWhenModsEnabled("CalamityMod")]
 		public override void SetDefaults()
 		{
 			NPC.damage = 110;
@@ -69,10 +67,9 @@ namespace CalValEX.AprilFools.Meldosaurus
 			});
 			}
 		}
-		[JITWhenModsEnabled("CalamityMod")]
+
 		public override void AI()
 		{
-			Main.OurFavoriteColor = Color.DarkBlue;
 			bool expert = Main.expertMode;
 			bool revenge = false;
 			bool death = false;

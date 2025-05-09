@@ -10,7 +10,6 @@ namespace CalValEX.NPCs.Critters
     {
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault("Profaned Butterfly");
             Main.npcFrameCount[NPC.type] = 3;
             Main.npcCatchable[NPC.type] = true;
             NPCID.Sets.CountsAsCritter[NPC.type] = true;
@@ -32,11 +31,14 @@ namespace CalValEX.NPCs.Critters
 
             NPC.catchItem = (short)ItemType<CrystalFlyItem>();
             NPC.lavaImmune = true;
-            //NPC.friendly = true; // We have to add this and CanBeHitByItem/CanBeHitByProjectile because of reasons.
             AIType = NPCID.GoldButterfly;
             AnimationType = NPCID.GoldButterfly;
             NPC.lifeMax = 20;
             NPC.chaseable = false;
+            if (CalValEX.CalamityActive)
+            {
+                NPC.buffImmune[CalValEX.CalamityBuff("HolyFlames")] = true;
+            }
         }
 
         public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
@@ -49,19 +51,10 @@ namespace CalValEX.NPCs.Critters
             });
         }
 
-        [JITWhenModsEnabled("CalamityMod")]
         public override void AI()
         {
-            if (CalValEX.CalamityActive)
-            for (int i = 0; i < NPC.buffImmune.Length; i++)
-            {
-                NPC.buffImmune[CalValEX.CalamityBuff("HolyFlames")] = false;
-            }
             CVUtils.CritterBestiary(NPC, Type);
         }
-        public override bool? CanBeHitByItem(Player player, Item item) => null;
-
-        public override bool? CanBeHitByProjectile(Projectile projectile) => null;
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
@@ -69,7 +62,7 @@ namespace CalValEX.NPCs.Critters
             {
                 return 0f;
             }
-            return Terraria.ModLoader.Utilities.SpawnCondition.OverworldHallow.Chance * 0.3f;
+            return Terraria.ModLoader.Utilities.SpawnCondition.OverworldHallow.Chance * 0.1f;
         }
 
        

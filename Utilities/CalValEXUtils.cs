@@ -6,6 +6,7 @@ using Terraria;
 using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ObjectData;
 
 namespace CalValEX
 {
@@ -96,6 +97,17 @@ namespace CalValEX
                     Main.BestiaryTracker.Kills.RegisterKill(nPC);
                     break;
                 }
+            }
+        }
+        public static void PlatformHangOffset(int i, int j, ref int offsetY)
+        {
+            Tile tile = Main.tile[i, j];
+            TileObjectData data = TileObjectData.GetTileData(tile);
+            int topLeftX = i - tile.TileFrameX / 18 % data.Width;
+            int topLeftY = j - tile.TileFrameY / 18 % data.Height;
+            if (WorldGen.IsBelowANonHammeredPlatform(topLeftX, topLeftY))
+            {
+                offsetY -= 8;
             }
         }
     }

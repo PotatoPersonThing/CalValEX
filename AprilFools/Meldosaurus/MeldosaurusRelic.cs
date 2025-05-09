@@ -10,7 +10,7 @@ namespace CalValEX.AprilFools.Meldosaurus
         {
             Item.ResearchUnlockCount = 1;
         }
-        [JITWhenModsEnabled("CalamityMod")]
+
         public override void SetDefaults()
         {
             Item.useStyle = ItemUseStyleID.Swing;
