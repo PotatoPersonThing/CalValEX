@@ -1,8 +1,6 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.Banners;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
 
 namespace CalValEX.Items.Tiles.Banners
 {

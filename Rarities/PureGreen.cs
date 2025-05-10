@@ -1,10 +1,9 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Rarities
 {
-	public class PureGreen : ModRarity
+    public class PureGreen : ModRarity
 	{
 		// Pure Green is Rarity 13
 		public override Color RarityColor => new Color(0, 255, 0);

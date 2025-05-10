@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,7 +6,8 @@ using CalValEX.Items.Critters;
 using Terraria.GameContent.Bestiary;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace CalValEX.NPCs.Critters {
+namespace CalValEX.NPCs.Critters
+{
     public class NeuroFly : ModNPC {
         public override void SetStaticDefaults() {
             Main.npcFrameCount[NPC.type] = 4;

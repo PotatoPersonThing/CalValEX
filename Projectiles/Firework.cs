@@ -1,5 +1,4 @@
 ﻿using CalamityMod.Particles;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
@@ -77,7 +76,7 @@ namespace CalValEX.Projectiles
         [JITWhenModsEnabled("CalamityMod")]
         public void SpawnParticles(Vector2 spawnPos, Color color)
         {
-            GeneralParticleHandler.SpawnParticle(new CalamityMod.Particles.GlowOrbParticle(spawnPos, (spawnPos - Projectile.position) * 0.2f, false, 60, 2.15f, color * 4, needed: true));
+            GeneralParticleHandler.SpawnParticle(new GlowOrbParticle(spawnPos, (spawnPos - Projectile.position) * 0.2f, false, 60, 2.15f, color * 4, needed: true));
         }
 
         public static Color[,] GetColorsFromTexture(Texture2D texture)

@@ -1,9 +1,6 @@
 ﻿using CalValEX.Buffs.Pets;
 using CalValEX.Projectiles.Pets;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
-using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -13,13 +10,6 @@ namespace CalValEX.Items.Pets
     [LegacyName("YharexsLetter")]
     public class AstraEGGeldon : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("AstraEGGeldon");
-            // Tooltip.SetDefault("'Now you can stop asking how I was born'\nSummons an edgy amalgamate to accompany you");
-            Item.ResearchUnlockCount = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 42;
@@ -31,6 +21,7 @@ namespace CalValEX.Items.Pets
             Item.useTime = 30;
             Item.useAnimation = 30;
             Item.useStyle = ItemUseStyleID.HoldUp;
+            Item.UseSound = SoundID.NPCDeath4;
         }
 
         public override bool? UseItem(Player player)
@@ -46,19 +37,10 @@ namespace CalValEX.Items.Pets
             return true;
         }
 
-        public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
-        {
-            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-            {
-                player.AddBuff(Item.buffType, 3600, true);
-                SoundEngine.PlaySound(SoundID.NPCDeath4, player.position);
-            }
-        }
-
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            position.Y -= 50f;
-            return true;
+            player.AddBuff(Item.buffType, 2);
+            return false;
         }
     }
 }

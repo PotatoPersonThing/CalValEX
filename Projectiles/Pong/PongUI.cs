@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -82,36 +81,36 @@ namespace CalValEX.Projectiles.Pong
                         if (!spawnstuff)
                         {
                             Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 - 240, player.position.Y + player.height / 2 - 40,
-                                0f, 0f, ModContent.ProjectileType<Projectiles.Pong.PlayerSlider>(), 0, 0f, player.whoAmI);
+                                0f, 0f, ModContent.ProjectileType<PlayerSlider>(), 0, 0f, player.whoAmI);
                             Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 80, player.position.Y + player.height / 2 - 40,
-                                -4f, -4f, ModContent.ProjectileType<Projectiles.Pong.PongBall>(), 0, 0f, player.whoAmI);
+                                -4f, -4f, ModContent.ProjectileType<PongBall>(), 0, 0f, player.whoAmI);
                             switch (modPlayer.pongstage)
                             {
                                 case 3:
                                     Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
-                                        0f, -4f, ModContent.ProjectileType<Projectiles.Pong.DSSlider>(), 0, 0f, player.whoAmI);
+                                        0f, -4f, ModContent.ProjectileType<DSSlider>(), 0, 0f, player.whoAmI);
                                     break;
                                 case 4:
                                     Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
-                                        0f, -4f, ModContent.ProjectileType<Projectiles.Pong.CrabSlider>(), 0, 0f, player.whoAmI);
+                                        0f, -4f, ModContent.ProjectileType<CrabSlider>(), 0, 0f, player.whoAmI);
                                     break;
                                 case 5:
                                     Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
-                                        0f, -4f, ModContent.ProjectileType<Projectiles.Pong.HiveSlider>(), 0, 0f, player.whoAmI);
+                                        0f, -4f, ModContent.ProjectileType<HiveSlider>(), 0, 0f, player.whoAmI);
                                     break;
                                 case 6:
                                     Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
-                                        0f, -4f, ModContent.ProjectileType<Projectiles.Pong.PerfSlider>(), 0, 0f, player.whoAmI);
+                                        0f, -4f, ModContent.ProjectileType<PerfSlider>(), 0, 0f, player.whoAmI);
                                     break;
                                 case 7:
                                     Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 20,
-                                        0f, 4f, ModContent.ProjectileType<Projectiles.Pong.SGSlider>(), 0, 0f, player.whoAmI);
+                                        0f, 4f, ModContent.ProjectileType<SGSlider>(), 0, 0f, player.whoAmI);
                                     Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 80,
-                                        0f, -4f, ModContent.ProjectileType<Projectiles.Pong.SGSlider>(), 0, 0f, player.whoAmI);
+                                        0f, -4f, ModContent.ProjectileType<SGSlider>(), 0, 0f, player.whoAmI);
                                     break;
                                 default:
                                     Projectile.NewProjectile(new Terraria.DataStructures.EntitySource_WorldEvent(), player.position.X + player.width / 2 + 260, player.position.Y + player.height / 2 - 40,
-                                        0f, -4f, ModContent.ProjectileType<Projectiles.Pong.DSSlider>(), 0, 0f, player.whoAmI);
+                                        0f, -4f, ModContent.ProjectileType<DSSlider>(), 0, 0f, player.whoAmI);
                                     break;
                             }
                                 spawnstuff = true;

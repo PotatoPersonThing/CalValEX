@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,14 +6,6 @@ namespace CalValEX.Items.Pets
 {
     public class BubbledFin : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Bubbled Fin");
-            /* Tooltip
-                .SetDefault("How did it even get in there?\n" + "Summons a Smauler"); */
-            Item.ResearchUnlockCount = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.ZephyrFish);
@@ -25,13 +15,10 @@ namespace CalValEX.Items.Pets
             Item.rare = CalamityID.CalRarityID.PureGreen;
             Item.buffType = ModContent.BuffType<Buffs.Pets.SmaulerBuff>();
         }
-
-        public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
+        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-            {
-                player.AddBuff(Item.buffType, 3600, true);
-            }
+            player.AddBuff(Item.buffType, 2);
+            return false;
         }
     }
 }

@@ -1,3 +1,4 @@
+global using Microsoft.Xna.Framework;
 using System;
 using System.IO;
 using CalValEX.ExtraTextures.ChristmasPets;
@@ -10,16 +11,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
-using Terraria.Localization;
 using ReLogic.Content;
-using CalValEX.NPCs.TownPets.Nuggets;
-using CalValEX.Items.Pets.TownPets;
-using CalValEX.AprilFools.Meldosaurus;
-using Microsoft.Xna.Framework;
-using Terraria.Audio;
 using CalValEX.Items;
 using CalValEX.Projectiles;
-using CalValEX.Items.Plushies;
 
 namespace CalValEX
 {

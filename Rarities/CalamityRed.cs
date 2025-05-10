@@ -1,9 +1,8 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
 namespace CalValEX.Rarities
 {
-	public class CalamityRed : ModRarity
+    public class CalamityRed : ModRarity
 	{
 		// Calamity Red is Rarity 17
 		// This rarity should never be assigned to any items.

@@ -1,12 +1,11 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
 using Terraria.Graphics.Capture;
 using Terraria.ModLoader;
 
 namespace CalValEX.Biomes
 {
-	// Shows setting up two basic biomes. For a more complicated example, please request.
-	public class AstralBlight : ModBiome
+    // Shows setting up two basic biomes. For a more complicated example, please request.
+    public class AstralBlight : ModBiome
 	{
 		//public override bool IsPrimaryBiome => true; // Allows this biome to impact NPC prices
 

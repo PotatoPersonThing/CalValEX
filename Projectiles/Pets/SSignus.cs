@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 using System.IO;
 using Terraria.ID;

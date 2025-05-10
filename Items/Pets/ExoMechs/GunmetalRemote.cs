@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,13 +6,6 @@ namespace CalValEX.Items.Pets.ExoMechs
 {
     public class GunmetalRemote : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Dark Gunmetal Remote");
-            // Tooltip.SetDefault("T Hanos\n" + "Summons a shorter and friendlier version of the high-tech digger");
-            Item.ResearchUnlockCount = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.ZephyrFish);
@@ -24,13 +15,10 @@ namespace CalValEX.Items.Pets.ExoMechs
             Item.rare = CalamityID.CalRarityID.Violet;
             Item.buffType = ModContent.BuffType<Buffs.Pets.ExoMechs.ThanatosBuff>();
         }
-
-        public override void UseStyle(Player player, Rectangle heldItemFrame)
+        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-            {
-                player.AddBuff(Item.buffType, 3600, true);
-            }
+            player.AddBuff(Item.buffType, 2);
+            return false;
         }
 
         //Listen for the mouseworld & right click from the owner. This is for mp syncing

@@ -2,7 +2,6 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
 namespace CalValEX.Items.LightPets
 {
@@ -13,7 +12,6 @@ namespace CalValEX.Items.LightPets
         {
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 6));
-            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()
@@ -27,18 +25,10 @@ namespace CalValEX.Items.LightPets
             Item.noUseGraphic = true;
         }
 
-        public override void UseStyle(Player player, Rectangle heldItemFrame)
+        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-            {
-                player.AddBuff(Item.buffType, 3600, true);
-            }
-        }
-
-       public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
-            type = ModContent.ProjectileType<Projectiles.Pets.LightPets.HeatBaby>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
+            player.AddBuff(Item.buffType, 2);
+            return false;
         }
     }
 }

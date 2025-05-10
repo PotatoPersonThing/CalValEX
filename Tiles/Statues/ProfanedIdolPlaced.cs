@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -10,7 +9,8 @@ using Terraria.DataStructures;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent.ObjectInteractions;
 
-namespace CalValEX.Tiles.Statues {
+namespace CalValEX.Tiles.Statues
+{
     public class ProfanedIdolPlaced : ModTile {
         // Free me from this bugfixing hell I'm in agony
         private bool paused;

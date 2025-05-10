@@ -1,7 +1,7 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 
-namespace CalValEX.Projectiles.Pets {
+namespace CalValEX.Projectiles.Pets
+{
     public class StasisNaked : ModFlyingPet {
         public override float TeleportThreshold => 1440f;
 

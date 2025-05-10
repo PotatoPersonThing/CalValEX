@@ -1,7 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using System.Drawing;
-using System;
-using Terraria;
+﻿using Terraria;
 
 namespace CalValEX.Projectiles.Pets
 {

@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,14 +7,6 @@ namespace CalValEX.Items.Pets
     [LegacyName("PuppoCollar")]
     public class DoggoCollar : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Doggo Collar");
-            /* Tooltip
-                .SetDefault("Summons a pet Chihuahua"); */
-            Item.ResearchUnlockCount = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.ZephyrFish);
@@ -27,12 +17,10 @@ namespace CalValEX.Items.Pets
             Item.buffType = ModContent.BuffType<Buffs.Pets.PuppoBuff>();
         }
 
-        public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
+        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-            {
-                player.AddBuff(Item.buffType, 3600, true);
-            }
+            player.AddBuff(Item.buffType, 2);
+            return false;
         }
     }
 }

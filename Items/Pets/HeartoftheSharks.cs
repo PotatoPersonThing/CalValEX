@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,13 +6,6 @@ namespace CalValEX.Items.Pets
 {
     public class HeartoftheSharks : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Heart of the Sharks");
-            // Tooltip.SetDefault("'It's time for the week of the shark!'\n" + "Summons a trio of sharks");
-            Item.ResearchUnlockCount = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.width = 22;
@@ -28,12 +19,10 @@ namespace CalValEX.Items.Pets
             Item.noUseGraphic = true;
         }
 
-        public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
+        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-            {
-                player.AddBuff(Item.buffType, 3600, true);
-            }
+            player.AddBuff(Item.buffType, 2);
+            return false;
         }
     }
 }

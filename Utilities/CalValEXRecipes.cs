@@ -199,10 +199,10 @@ namespace CalValEX
             #region //Wall Block conversion
             WallRecipe(ItemType<AuricBrick>(), ItemType<AuricBrickWall>());
             WallRecipe(ItemType<BlightedEggBlock>(), ItemType<BlightedEggWall>());
-            WallRecipe(ItemType<Items.Tiles.Blocks.Astral.AstralSandstone>(), ItemType<Items.Walls.Astral.AstralSandstoneWall>());
-            WallRecipe(ItemType<Items.Tiles.Blocks.Astral.AstralDirt>(), ItemType<Items.Walls.Astral.AstralDirtWall>());
+            WallRecipe(ItemType<AstralSandstone>(), ItemType<Items.Walls.Astral.AstralSandstoneWall>());
+            WallRecipe(ItemType<AstralDirt>(), ItemType<Items.Walls.Astral.AstralDirtWall>());
             WallRecipe(ItemType<AstralHardenedSand>(), ItemType<Items.Walls.Astral.AstralHardenedSandWall>());
-            WallRecipe(ItemType<Items.Tiles.Blocks.Astral.AstralIce>(), ItemType<Items.Walls.Astral.AstralIceWall>());
+            WallRecipe(ItemType<AstralIce>(), ItemType<Items.Walls.Astral.AstralIceWall>());
             WallRecipe(ItemType<FrostflakeBrick>(), ItemType<FrostflakeWall>());
             WallRecipe(ItemType<AstralTreeWood>(), ItemType<Items.Walls.Astral.XenomonolithWall>());
             WallRecipe(ItemType<Xenostone>(), ItemType<Items.Walls.Astral.XenostoneWall>());
@@ -224,7 +224,7 @@ namespace CalValEX
             AstralRecipe(ItemType<PolishedXenomonolithWall>(), ItemType<PolishedAstralMonolithWall>());
             AstralRecipe(ItemType<BlightolemurItem>(), ItemType<ViolemurItem>());
             AstralRecipe(ItemType<BleamurPerch>(), ItemType<ViolemurMonolith>());
-            AstralRecipe(ItemType<Items.Tiles.Blocks.BlightedEggBlock>(), ItemType<AstralPearlBlock>());
+            AstralRecipe(ItemType<BlightedEggBlock>(), ItemType<AstralPearlBlock>());
             AstralRecipe(ItemType<BlightedEggWall>(), ItemType<AstralPearlWall>());
 
             if (!CalValEX.CalamityActive)
@@ -981,7 +981,7 @@ namespace CalValEX
                 recipe.Register();
             }
             {
-                Recipe recipe = Recipe.Create(ItemType<Items.Tiles.Blocks.AstralBrick>(), 1);
+                Recipe recipe = Recipe.Create(ItemType<AstralBrick>(), 1);
                 recipe.AddIngredient(CalValEX.CalamityItem("AstralStone"));
                 recipe.AddIngredient(ItemID.StoneBlock);
                 recipe.AddTile(TileType<StarstruckSynthesizerPlaced>());
@@ -1112,15 +1112,15 @@ namespace CalValEX
             #endregion
 
             #region //SSS conversions
-            AstralRecipe(ItemType<Items.Tiles.Blocks.Astral.AstralTreeWood>(), CalValEX.CalamityItem("AstralMonolith"));
-            AstralRecipe(ItemType<Items.Tiles.Blocks.Astral.AstralDirt>(), CalValEX.CalamityItem("AstralDirt"));
-            AstralRecipe(ItemType<Items.Tiles.Blocks.Astral.AstralClay>(), CalValEX.CalamityItem("AstralClay"));
-            AstralRecipe(ItemType<Items.Tiles.Blocks.Astral.AstralSand>(), CalValEX.CalamityItem("AstralSand"));
-            AstralRecipe(ItemType<Items.Tiles.Blocks.Astral.AstralSandstone>(), CalValEX.CalamityItem("AstralSandstone"));
-            AstralRecipe(ItemType<Items.Tiles.Blocks.Astral.AstralHardenedSand>(), CalValEX.CalamityItem("HardenedAstralSand"));
-            AstralRecipe(ItemType<Items.Tiles.Blocks.Astral.Xenostone>(), CalValEX.CalamityItem("AstralStone"));
-            AstralRecipe(ItemType<Items.Tiles.Blocks.Astral.AstralSnow>(), CalValEX.CalamityItem("AstralSnow"));
-            AstralRecipe(ItemType<Items.Tiles.Blocks.Astral.AstralIce>(), CalValEX.CalamityItem("AstralIce"));
+            AstralRecipe(ItemType<AstralTreeWood>(), CalValEX.CalamityItem("AstralMonolith"));
+            AstralRecipe(ItemType<AstralDirt>(), CalValEX.CalamityItem("AstralDirt"));
+            AstralRecipe(ItemType<AstralClay>(), CalValEX.CalamityItem("AstralClay"));
+            AstralRecipe(ItemType<AstralSand>(), CalValEX.CalamityItem("AstralSand"));
+            AstralRecipe(ItemType<AstralSandstone>(), CalValEX.CalamityItem("AstralSandstone"));
+            AstralRecipe(ItemType<AstralHardenedSand>(), CalValEX.CalamityItem("HardenedAstralSand"));
+            AstralRecipe(ItemType<Xenostone>(), CalValEX.CalamityItem("AstralStone"));
+            AstralRecipe(ItemType<AstralSnow>(), CalValEX.CalamityItem("AstralSnow"));
+            AstralRecipe(ItemType<AstralIce>(), CalValEX.CalamityItem("AstralIce"));
             AstralRecipe(ItemType<Items.Walls.Astral.AstralDirtWall>(), CalValEX.CalamityItem("AstralDirtWall"));
             AstralRecipe(ItemType<Items.Walls.Astral.AstralHardenedSandWall>(), CalValEX.CalamityItem("HardenedAstralSandWall"));
             AstralRecipe(ItemType<Items.Walls.Astral.AstralIceWall>(), CalValEX.CalamityItem("AstralIceWall"));

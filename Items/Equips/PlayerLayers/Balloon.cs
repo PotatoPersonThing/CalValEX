@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
@@ -37,7 +36,7 @@ namespace CalValEX.Items.Equips.PlayerLayers
                 for (int n = 0; n < 18 + drawInfo.drawPlayer.extraAccessorySlots; n++)
                 {
                     Item item = drawInfo.drawPlayer.armor[n];
-                    if (item.type == ModContent.ItemType<Items.Equips.Balloons.ArtemisBalloonSmall>())
+                    if (item.type == ModContent.ItemType<Balloons.ArtemisBalloonSmall>())
                     {
                         if (n > 9)
                             dyeShader = drawPlayer.dye?[n - 10].dye ?? 0;
@@ -61,7 +60,7 @@ namespace CalValEX.Items.Equips.PlayerLayers
                 for (int n = 0; n < 18 + drawInfo.drawPlayer.extraAccessorySlots; n++)
                 {
                     Item item = drawInfo.drawPlayer.armor[n];
-                    if (item.type == ModContent.ItemType<Items.Equips.Balloons.ApolloBalloonSmall>())
+                    if (item.type == ModContent.ItemType<Balloons.ApolloBalloonSmall>())
                     {
                         if (n > 9)
                             dyeShader = drawPlayer.dye?[n - 10].dye ?? 0;

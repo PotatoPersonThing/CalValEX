@@ -1,5 +1,4 @@
 using System;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Enums;
@@ -13,7 +12,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace CalValEX.Tiles.FurnitureSets.Auric
 {
-	public class AuricDresser : ModTile
+    public class AuricDresser : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

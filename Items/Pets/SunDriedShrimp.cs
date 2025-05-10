@@ -7,30 +7,20 @@ namespace CalValEX.Items.Pets
     [LegacyName("DryShrimp")]
     public class SunDriedShrimp : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Sun Dried Shrimp");
-            // Tooltip.SetDefault("A crispy snack favored by Cnidrions\n" + "Summons a little sick sneeze dragon");
-            Item.ResearchUnlockCount = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.ZephyrFish);
             Item.UseSound = SoundID.Item2;
             Item.shoot = ModContent.ProjectileType<Projectiles.Pets.BabyCnidrion>();
             Item.value = Item.sellPrice(0, 1, 0, 0);
-            //Mod calamityMod = ModLoader.GetMod("CalamityMod");
             Item.rare = ItemRarityID.Green;
             Item.buffType = ModContent.BuffType<Buffs.Pets.CnidBuff>();
         }
 
-        public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
+        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-            {
-                player.AddBuff(Item.buffType, 3600, true);
-            }
+            player.AddBuff(Item.buffType, 2);
+            return false;
         }
     }
 }

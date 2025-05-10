@@ -1,8 +1,6 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using CalValEX.Items.Mounts.Ground;
-using Terraria.Audio;
-using Terraria.ID;
 
 namespace CalValEX.Buffs.Mounts
 {

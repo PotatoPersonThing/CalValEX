@@ -1,8 +1,6 @@
 using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Tiles.Paintings;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;

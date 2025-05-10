@@ -1,7 +1,6 @@
 ﻿using Terraria;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
 namespace CalValEX.Projectiles.Pets.Scuttlers
 {

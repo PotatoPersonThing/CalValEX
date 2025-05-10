@@ -1,20 +1,12 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
 namespace CalValEX.Items.Pets
 {
     [LegacyName("AquaticHide")]
     public class MoistLocket : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Moist Locket");
-            // Tooltip.SetDefault("'There's a worm wriggling in it'\n" + "Summons a small Aquatic Pest");
-            Item.ResearchUnlockCount = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.ZephyrFish);
@@ -24,12 +16,11 @@ namespace CalValEX.Items.Pets
             Item.rare = ItemRarityID.LightPurple;
             Item.buffType = ModContent.BuffType<Buffs.Pets.AquaBuff>();
         }
-        public override void UseStyle(Player player, Rectangle heldItemFrame)
+
+        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-            {
-                player.AddBuff(Item.buffType, 3600, true);
-            }
+            player.AddBuff(Item.buffType, 2);
+            return false;
         }
     }
 }

@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -14,7 +12,7 @@ namespace CalValEX.Items.Equips.Wings
         {
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(230, 9f, 2.5f);
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(230, 9f, 2.5f);
             ItemID.Sets.ItemNoGravity[Item.type] = true;
             Item.ResearchUnlockCount = 1;
         }

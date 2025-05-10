@@ -26,7 +26,6 @@ using Terraria.ModLoader;
 using Terraria.GameContent.ItemDropRules;
 using System.Linq;
 using CalValEX.CalamityID;
-using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Tiles.Paintings;
 
 namespace CalValEX

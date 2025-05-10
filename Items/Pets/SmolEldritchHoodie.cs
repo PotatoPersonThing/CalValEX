@@ -1,6 +1,4 @@
 using CalValEX.Rarities;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,14 +8,6 @@ namespace CalValEX.Items.Pets
     [LegacyName("Eidolistthingy")]
     public class SmolEldritchHoodie : ModItem
     {
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Smol Eldritch Hoodie");
-            /* Tooltip
-                .SetDefault("Baby's first hood\n" + "Summons a hooded Eidolist"); */
-            Item.ResearchUnlockCount = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.ZephyrFish);
@@ -26,6 +16,12 @@ namespace CalValEX.Items.Pets
             Item.value = Item.sellPrice(0, 2, 0, 0);
             Item.rare = ModContent.RarityType<Aqua>();
             Item.buffType = ModContent.BuffType<Buffs.Pets.HoodiedolistBuff>();
+        }
+
+        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            player.AddBuff(Item.buffType, 2);
+            return false;
         }
     }
 }

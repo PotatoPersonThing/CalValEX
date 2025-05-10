@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
@@ -6,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Equips.PlayerLayers
 {
-	public class TallHat : PlayerDrawLayer
+    public class TallHat : PlayerDrawLayer
 	{
 		public override bool IsHeadLayer => true;
 

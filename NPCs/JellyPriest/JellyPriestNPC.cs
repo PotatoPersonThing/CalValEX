@@ -3,7 +3,6 @@ using CalValEX.Items.Tiles.Banners;
 using CalValEX.Items.Tiles.Blueprints;
 using CalValEX.Items.Tiles.Plants;
 using CalValEX.Items.Tiles.Statues;
-using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.GameContent.Events;
@@ -376,7 +375,7 @@ namespace CalValEX.NPCs.JellyPriest
             shopEntries.Add(("Blocks2", CalValEX.CalamityItem("ExoPrismPanel"), Item.buyPrice(0, 2, 0, 0), exo, ""));
             shopEntries.Add(("Blocks2", CalValEX.CalamityItem("OccultBrickItem"), Item.buyPrice(0, 2, 0, 0), scal, ""));
 
-            shopEntries.Add(("Furniture", ItemType<Items.Tiles.Statues.C>(), Item.buyPrice(0, 1, 0, 0), Condition.NpcIsPresent(NPC.type), ""));
+            shopEntries.Add(("Furniture", ItemType<C>(), Item.buyPrice(0, 1, 0, 0), Condition.NpcIsPresent(NPC.type), ""));
             shopEntries.Add(("Furniture", ItemType<Items.Tiles.FurnitureSets.Wulfrum.WulfrumGlobe>(), Item.buyPrice(0, 1, 0, 0), Condition.NpcIsPresent(NPC.type), ""));
             shopEntries.Add(("Furniture", CalValEX.CalamityItem("LaboratoryConsoleItem"), Item.buyPrice(0, 2, 50, 0), calamity, ""));
             shopEntries.Add(("Furniture", ItemType<SulphurGeyser>(), Item.buyPrice(0, 0, 10, 0), calamity, ""));

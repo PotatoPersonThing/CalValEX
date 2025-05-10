@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -11,7 +10,7 @@ using CalValEX.Dusts;
 
 namespace CalValEX.Projectiles
 {
-	public class AstralSolutionProj : ModProjectile
+    public class AstralSolutionProj : ModProjectile
 	{
 		public override void SetStaticDefaults() {
 			// DisplayName.SetDefault("Xeno Spray");

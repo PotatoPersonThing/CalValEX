@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using CalValEX.Tiles.Plants;
+﻿using CalValEX.Tiles.Plants;
 using Terraria.ModLoader;
 using Terraria.ID;
 

@@ -25,7 +25,6 @@ using CalValEX.Items.Tiles;
 using CalValEX.Items.Tiles.Balloons;
 using CalValEX.Items.Tiles.Blocks;
 using CalValEX.NPCs.Critters;
-using CalValEX.Items.Tiles.Paintings;
 using CalValEX.Items.Tiles.Plants;
 using CalValEX.NPCs.Oracle;
 using Terraria.GameContent.ItemDropRules;
@@ -33,14 +32,12 @@ using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using CalValEX.AprilFools;
 using CalValEX.NPCs.JellyPriest;
 using CalValEX.CalamityID;
 using ReLogic.Content;
-using CalValEX.Items.Dyes;
 using CalValEX.Items.Plushies;
 using CalValEX.Items.Equips;
 using CalValEX.Tiles.Paintings;
@@ -787,7 +784,7 @@ namespace CalValEX
                     //Wyrm
                     if (npc.type == CalNPCID.PrimordialWyrm)
                     {
-                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Tiles.RespirationShrine>()));
+                        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<RespirationShrine>()));
                         npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<SoulShard>()));
                         AddPlushDrop(npcLoot, PlushManager.PlushItems["Jared"]);
                     }
@@ -829,7 +826,7 @@ namespace CalValEX
                     npcLoot.Add(ItemDropRule.ByCondition(new MeldosaurusDowned(), ModContent.ItemType<AprilFools.Meldosaurus.KnowledgeMeldosaurus>()));
                 }
                 //Fogbound
-                if (npc.type == ModContent.NPCType<AprilFools.Fogbound>())
+                if (npc.type == ModContent.NPCType<Fogbound>())
                 {
                     npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<PurifiedFog>(), 1));
                     if (CalValEX.CalamityActive)
@@ -1032,7 +1029,7 @@ namespace CalValEX
         {
             if (CalValEX.CalamityActive)
             {
-                Mod.TryFind<ModProjectile>("JharimKiller", out ModProjectile brimbuck);
+                Mod.TryFind("JharimKiller", out ModProjectile brimbuck);
                 if (npc.type == CalNPCID.WITCH && (!CalValEXWorld.jharinter || !NPC.downedMoonlord))
                 {
                     if (NPC.AnyNPCs(ModContent.NPCType<AprilFools.Jharim.Jharim>()))
@@ -1532,10 +1529,10 @@ namespace CalValEX
                 pool.Clear();
                 if (!CalValEXConfig.Instance.CritterSpawns)
                 {
-                    pool.Add(ModContent.NPCType<NPCs.Critters.Blightolemur>(), 0.1f);
-                    pool.Add(ModContent.NPCType<NPCs.Critters.Blinker>(), 0.1f);
-                    pool.Add(ModContent.NPCType<NPCs.Critters.AstJR>(), 0.1f);
-                    pool.Add(ModContent.NPCType<NPCs.Critters.GAstJR>(), 0.1f);
+                    pool.Add(ModContent.NPCType<Blightolemur>(), 0.1f);
+                    pool.Add(ModContent.NPCType<Blinker>(), 0.1f);
+                    pool.Add(ModContent.NPCType<AstJR>(), 0.1f);
+                    pool.Add(ModContent.NPCType<GAstJR>(), 0.1f);
                     if (modPlayer.sBun)
                     {
                         pool.Add(NPCID.Bunny, 0.001f);

@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.GameContent.Events;
@@ -204,7 +203,7 @@ namespace CalValEX.AprilFools.Jharim
                 if (textcounter == 360)
                 {
                     Terraria.Audio.SoundEngine.PlaySound(SoundID.NPCHit1, NPC.position);
-                    NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, NPCType<AprilFools.Meldosaurus.Meldosaurus>());
+                    NPC.NewNPC(NPC.GetSource_FromAI(), (int)NPC.Center.X, (int)NPC.Center.Y, NPCType<Meldosaurus.Meldosaurus>());
                     NPC.active = false;
                 }
 

@@ -1,9 +1,9 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using CalValEX.Projectiles;
 
-namespace CalValEX.Items {
+namespace CalValEX.Items
+{
     public class BottledSulphurousWater : ModItem {
         public override void SetStaticDefaults() {
             Item.ResearchUnlockCount = 30;

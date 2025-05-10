@@ -1,11 +1,9 @@
 using CalValEX.CalamityID;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace CalValEX.Items.Equips.Capes {
+namespace CalValEX.Items.Equips.Capes
+{
     [AutoloadEquip(EquipType.Back)]
     public class YharimCapeBaby : ModItem {
         public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;

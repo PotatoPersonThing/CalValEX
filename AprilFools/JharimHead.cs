@@ -39,7 +39,7 @@ namespace CalValEX.AprilFools
             {
 				return false;
             }
-			else if (NPC.AnyNPCs(ModContent.NPCType<AprilFools.Jharim.Jharim>()))
+			else if (NPC.AnyNPCs(ModContent.NPCType<Jharim.Jharim>()))
 			{
 				return false;
 			}

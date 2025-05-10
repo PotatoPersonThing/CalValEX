@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria.ModLoader;
 using CalValEX.Tiles.FurnitureSets.Arsenal;
 using Terraria.ID;

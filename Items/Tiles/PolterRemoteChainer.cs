@@ -2,8 +2,6 @@
 using CalValEX.Tiles.MiscFurniture;
 using Terraria.ID;
 using Terraria;
-using System.Drawing;
-using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using Terraria.Audio;
 

@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using CalValEX.Tiles.Paintings;
 using Terraria.ModLoader;
 using Terraria.ID;

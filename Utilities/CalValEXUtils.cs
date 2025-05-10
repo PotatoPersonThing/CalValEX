@@ -1,9 +1,5 @@
-﻿using CalamityMod.NPCs.NormalNPCs;
-using CalValEX.CalamityID;
-using MonoMod.ModInterop;
-using System.Collections;
+﻿using CalValEX.CalamityID;
 using Terraria;
-using Terraria.GameContent.UI;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;

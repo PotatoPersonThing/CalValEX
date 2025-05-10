@@ -5,9 +5,9 @@ using Terraria.GameContent.Bestiary;
 using static Terraria.ModLoader.ModContent;
 using CalValEX.Items.Critters;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
 
-namespace CalValEX.NPCs.Critters {
+namespace CalValEX.NPCs.Critters
+{
     public class PerfoGrub : ModNPC {
         public override void SetStaticDefaults() {
             Main.npcFrameCount[NPC.type] = 4;

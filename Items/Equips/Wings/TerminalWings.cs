@@ -15,7 +15,7 @@ namespace CalValEX.Items.Equips.Wings
             ItemID.Sets.ItemIconPulse[Item.type] = false;
             ItemID.Sets.ItemNoGravity[Item.type] = false;
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(60, 1f, 1f);
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(60, 1f, 1f);
             Item.ResearchUnlockCount = 1;
         }
 

@@ -1,5 +1,4 @@
 using CalValEX.Buffs.LightPets;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 

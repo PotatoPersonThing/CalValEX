@@ -2,11 +2,11 @@
 using Terraria.ModLoader;
 using CalValEX.Projectiles.Pets;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
 using Terraria.DataStructures;
 using static Terraria.ModLoader.ModContent;
 
-namespace CalValEX.Buffs.Pets {
+namespace CalValEX.Buffs.Pets
+{
     public class BrimberryBuff : ModBuff {
         public override void SetStaticDefaults() {
             Main.buffNoTimeDisplay[Type] = true;

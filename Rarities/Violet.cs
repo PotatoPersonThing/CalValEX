@@ -1,9 +1,8 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
 namespace CalValEX.Rarities
 {
-	public class Violet : ModRarity
+    public class Violet : ModRarity
 	{
 		// Violet is Rarity 15
 		public override Color RarityColor => new Color(108, 45, 199);

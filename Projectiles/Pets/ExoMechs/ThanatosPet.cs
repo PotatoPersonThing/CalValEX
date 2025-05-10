@@ -1,5 +1,4 @@
 ﻿using CalValEX.Items.Pets.ExoMechs;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 

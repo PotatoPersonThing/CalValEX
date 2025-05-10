@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using CalValEX.Items.Tiles.FurnitureSets.Auric;
 using Terraria;
 using Terraria.DataStructures;

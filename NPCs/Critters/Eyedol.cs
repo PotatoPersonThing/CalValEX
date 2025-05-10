@@ -1,5 +1,4 @@
 using CalValEX.Items.Tiles.Banners;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

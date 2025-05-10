@@ -1,10 +1,9 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria.ID;
 
-namespace CalValEX.Items.Equips.Shirts {
+namespace CalValEX.Items.Equips.Shirts
+{
     [AutoloadEquip(EquipType.Body, EquipType.Legs)]
     public class BloodyMaryDress : ModItem
     {

@@ -1,7 +1,5 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria.ID;
 
 namespace CalValEX.Items.Equips.Shirts

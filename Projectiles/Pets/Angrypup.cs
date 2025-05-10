@@ -1,6 +1,5 @@
 using Terraria;
 using System;
-using Microsoft.Xna.Framework;
 
 namespace CalValEX.Projectiles.Pets
 {

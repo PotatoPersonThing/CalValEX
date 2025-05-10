@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
@@ -12,7 +11,7 @@ using Terraria.GameContent.Metadata;
 
 namespace CalValEX.Tiles.AstralMisc
 {
-	public class AstralSapling : ModTile
+    public class AstralSapling : ModTile
 	{
 		public override void SetStaticDefaults() {
 			Main.tileFrameImportant[Type] = true;

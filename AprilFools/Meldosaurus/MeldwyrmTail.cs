@@ -1,11 +1,10 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
-	public class MeldwyrmTail : ModNPC
+    public class MeldwyrmTail : ModNPC
 
 	{
 		public override void SetStaticDefaults()

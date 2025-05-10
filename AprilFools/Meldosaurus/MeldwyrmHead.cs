@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 //using CalamityMod.World;
@@ -8,7 +7,7 @@ using System;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
-	public class MeldwyrmHead : ModNPC
+    public class MeldwyrmHead : ModNPC
 
 	{
 		public override void SetStaticDefaults()

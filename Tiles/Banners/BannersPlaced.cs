@@ -1,11 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.DataStructures;
-using Terraria.Enums;
-using Terraria.Localization;
-using Terraria.ModLoader;
-using Terraria.ObjectData;
+﻿using Terraria.ModLoader;
 
 namespace CalValEX.Tiles.Banners
 {

@@ -1,6 +1,5 @@
 using CalValEX.Items;
 using CalValEX.Items.Pets;
-using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.GameContent.Events;

@@ -6,11 +6,7 @@ using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
 using System;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using Terraria.GameContent.ItemDropRules;
-using System.Linq;
-using Terraria.GameContent.Animations;
 
 namespace CalValEX.Tiles.MiscFurniture
 {

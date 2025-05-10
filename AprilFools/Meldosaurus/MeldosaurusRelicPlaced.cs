@@ -7,6 +7,6 @@ namespace CalValEX.AprilFools.Meldosaurus
     {
         public override string RelicTextureName => "CalValEX/AprilFools/Meldosaurus/MeldosaurusRelicPlaced";
 
-        public override int AssociatedItem => ModContent.ItemType<AprilFools.Meldosaurus.MeldosaurusRelic>();
+        public override int AssociatedItem => ModContent.ItemType<MeldosaurusRelic>();
     }
 }

@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,14 +9,8 @@ using System;
 
 namespace CalValEX.Items.Pets
 {
-    public class BrimberryItem : ModItem {
-        public override void SetStaticDefaults() {
-            // DisplayName.SetDefault("Brimstone Berry");
-            /* Tooltip.SetDefault(CalValEX.month == 6 ? "I can double jump!" : "Summons an ancient fruit" +
-                "\nOften used as offering to the Brimstone Goddess"); */
-            Item.ResearchUnlockCount = 1;
-        }
-
+    public class BrimberryItem : ModItem 
+    {
         public override void SetDefaults() {
             Item.CloneDefaults(ItemID.ZephyrFish);
             Item.UseSound = SoundID.NPCHit1;
@@ -44,10 +37,10 @@ namespace CalValEX.Items.Pets
         private Tuple<Texture2D, bool> Assets() {
             return Tuple.Create(Request<Texture2D>("CalValEX/Items/Pets/BrimberryItem").Value, Main.LocalPlayer.HasItem(CalamityID.CalItemID.DormantBrimseeker));
         }
-
-        public override void UseStyle(Player player, Rectangle heldItemFrame) {
-            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-                player.AddBuff(Item.buffType, 3600, true);
+        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            player.AddBuff(Item.buffType, 2);
+            return false;
         }
     }
 }

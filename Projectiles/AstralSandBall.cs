@@ -2,11 +2,10 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using CalValEX.Tiles.AstralBlocks;
-using Microsoft.Xna.Framework;
 
 namespace CalValEX.Projectiles
 {
-	public class AstralSandBall : ModProjectile
+    public class AstralSandBall : ModProjectile
 	{
 		protected bool falling = true;
 		protected int tileType;

@@ -1,5 +1,4 @@
 using Terraria;
-using Microsoft.Xna.Framework;
 //using CalamityMod;
 using Terraria.ModLoader;
 using Terraria.ID;

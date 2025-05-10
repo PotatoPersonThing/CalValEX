@@ -21,7 +21,7 @@ namespace CalValEX.Projectiles
             if (Main.rand.NextBool(10))
             {
                 Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.Item20, Projectile.position);
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, new Microsoft.Xna.Framework.Vector2 (0, 0), Terraria.ID.ProjectileID.InfernoHostileBlast, 222, 10, Main.myPlayer);
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, new Vector2(0, 0), Terraria.ID.ProjectileID.InfernoHostileBlast, 222, 10, Main.myPlayer);
             }
         }
     }

@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,8 +6,6 @@ namespace CalValEX.Items.LightPets
 {
     [LegacyName("PhantomJar")]
     public class PhantominaJar : ModItem {
-        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
-
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.DD2PetGhost);
@@ -20,12 +16,10 @@ namespace CalValEX.Items.LightPets
             Item.buffType = ModContent.BuffType<Buffs.LightPets.PhantomBuff>();
         }
 
-        public override void UseStyle(Player player, Rectangle heldItemFrame)
+        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-            {
-                player.AddBuff(Item.buffType, 3600, true);
-            }
+            player.AddBuff(Item.buffType, 2);
+            return false;
         }
     }
 }

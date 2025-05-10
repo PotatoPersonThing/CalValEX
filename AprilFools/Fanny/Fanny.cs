@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using ReLogic.Graphics;
 using Steamworks;
@@ -7,17 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Reflection;
-using System.Runtime.InteropServices;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
-using Terraria.ModLoader.UI;
 using Terraria.UI;
 using CalValEX.Buffs.Pets;
 using CalValEX.Biomes;
@@ -25,11 +19,8 @@ using CalValEX.NPCs.Oracle;
 using CalValEX.NPCs.JellyPriest;
 using CalValEX.Items.Mounts.Ground;
 using CalValEX.Items.Mounts.InfiniteFlight;
-using CalamityMod.Items.Accessories;
 using CalValEX.CalamityID;
 using System.Diagnostics;
-using System.Threading;
-using CalValEX.AprilFools.Jharim;
 
 namespace CalValEX.AprilFools.Fanny
 {
@@ -998,7 +989,7 @@ namespace CalValEX.AprilFools.Fanny
                 {
                     if (Directory.Exists("C:\\Program Files (x86)\\Steam\\steamapps\\common\\"))
                     {
-                        List<string> games = Directory.GetDirectories("C:\\Program Files (x86)\\Steam\\steamapps\\common\\").ToList<string>();
+                        List<string> games = Directory.GetDirectories("C:\\Program Files (x86)\\Steam\\steamapps\\common\\").ToList();
                         if (games.Count > 0)
                         {
                             List<string> noTerraria = new List<string>();

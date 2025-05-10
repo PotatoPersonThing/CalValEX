@@ -1,10 +1,9 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Rarities
 {
-	public class Turquoise : ModRarity
+    public class Turquoise : ModRarity
 	{
 		// Turquoise is Rarity 12
 		public override Color RarityColor => new Color(0, 255, 200);

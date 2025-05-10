@@ -1,15 +1,12 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria;
 using System.Collections.Generic;
-using CalValEX.CalamityID;
 using CalValEX.Projectiles.Plushies;
 using Terraria.DataStructures;
 using Terraria.Audio;
-using System.IO;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 

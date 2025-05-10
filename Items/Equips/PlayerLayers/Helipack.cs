@@ -1,12 +1,12 @@
 ﻿using CalValEX.Items.Equips.Wings;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
 
-namespace CalValEX.Items.Equips.PlayerLayers {
+namespace CalValEX.Items.Equips.PlayerLayers
+{
     public class Helipack : PlayerDrawLayer {
         private int frame;
         private int frameCounter;

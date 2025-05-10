@@ -1,4 +1,3 @@
-using CalValEX.Items.Mounts.Ground;
 using CalValEX.Items.Mounts.LimitedFlight;
 using Terraria;
 using Terraria.ModLoader;

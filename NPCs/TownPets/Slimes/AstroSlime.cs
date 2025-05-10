@@ -1,6 +1,4 @@
-﻿using CalamityMod.Items.Potions.Alcohol;
-using CalValEX.CalamityID;
-using Microsoft.Xna.Framework;
+﻿using CalValEX.CalamityID;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -26,7 +24,7 @@ namespace CalValEX.NPCs.TownPets.Slimes
             Terraria.On_Player.UpdatePettingAnimal += PetSlime3;
         }
 
-        public static void PetSlime(Terraria.On_Player.orig_ItemCheck_ApplyHoldStyle_Inner orig, Player p, float mountOffset, Item sItem, Rectangle heldItemFrame)
+        public static void PetSlime(On_Player.orig_ItemCheck_ApplyHoldStyle_Inner orig, Player p, float mountOffset, Item sItem, Rectangle heldItemFrame)
         {
             if (p.isPettingAnimal && (p.TalkNPC?.type == ModContent.NPCType<AstroSlime>() || p.TalkNPC?.type == ModContent.NPCType<NinjaSlime>()))
             {
@@ -43,7 +41,7 @@ namespace CalValEX.NPCs.TownPets.Slimes
                 orig(p, mountOffset, sItem, heldItemFrame);
             }
         }
-        public static void PetSlime2(Terraria.On_Player.orig_PetAnimal orig, Player p, int npc)
+        public static void PetSlime2(On_Player.orig_PetAnimal orig, Player p, int npc)
         {
             if (p.TalkNPC?.type == ModContent.NPCType<AstroSlime>() || p.TalkNPC?.type == ModContent.NPCType<NinjaSlime>())
             {
@@ -99,7 +97,7 @@ namespace CalValEX.NPCs.TownPets.Slimes
             }
         }
 
-        public static void PetSlime3(Terraria.On_Player.orig_UpdatePettingAnimal orig, Player p)
+        public static void PetSlime3(On_Player.orig_UpdatePettingAnimal orig, Player p)
         {
             if (p.TalkNPC?.type == ModContent.NPCType<AstroSlime>() || p.TalkNPC?.type == ModContent.NPCType<NinjaSlime>())
             {

@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.IO;
@@ -128,7 +127,7 @@ namespace CalValEX.AprilFools
         public override void CustomBehaviour(Player player, ref int state, float walkingSpeed, float walkingInertia, float flyingSpeed, float flyingInertia)
         {
             CalValEXPlayer modPlayer = player.GetModPlayer<CalValEXPlayer>();
-            if (deathcounter <= 0 && !player.HasBuff(BuffType<AprilFools.AmogusBuff>()) && !NPC.AnyNPCs(NPCType<Meldosaurus.Meldosaurus>()))
+            if (deathcounter <= 0 && !player.HasBuff(BuffType<AmogusBuff>()) && !NPC.AnyNPCs(NPCType<Meldosaurus.Meldosaurus>()))
             {
                 Projectile.active = false;
             }

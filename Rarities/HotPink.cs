@@ -1,9 +1,8 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 
 namespace CalValEX.Rarities
 {
-	public class HotPink : ModRarity
+    public class HotPink : ModRarity
 	{
 		// Hot Pink is Rarity 16
 		public override Color RarityColor => new Color(255, 0, 255);

@@ -1,11 +1,10 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria.ModLoader;
 using CalValEX.Tiles.Statues;
 using Terraria.ID;
 using CalValEX.CalamityID;
 
-namespace CalValEX.Items.Tiles.Statues {
+namespace CalValEX.Items.Tiles.Statues
+{
     public class Provibust : ModItem {
         public override void SetStaticDefaults() => 
             Item.ResearchUnlockCount = 1;

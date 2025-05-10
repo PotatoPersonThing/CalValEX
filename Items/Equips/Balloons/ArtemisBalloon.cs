@@ -1,9 +1,5 @@
-﻿using CalValEX.Items.Equips.Shirts.AresChestplate;
-using CalValEX.Projectiles;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
+﻿using CalValEX.Projectiles;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace CalValEX.Items.Equips.Balloons

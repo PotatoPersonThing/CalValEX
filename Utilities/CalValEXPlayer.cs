@@ -5,7 +5,6 @@ using CalValEX.Items.Mounts.Morshu;
 using CalValEX.Items.Equips.Shirts.AresChestplate;
 using CalValEX.Items.Equips.Balloons;
 using CalValEX.Projectiles.Pets;
-using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.DataStructures;
@@ -17,13 +16,8 @@ using CalValEX.Items.Equips.Wings;
 using CalValEX.Items.Mounts.Ground;
 using CalamityMod.Particles;
 using CalValEX.Projectiles;
-using CalValEX.AprilFools.Fanny;
 using Terraria.ModLoader.IO;
-using System.Linq;
 using CalValEX.Items.Mounts.InfiniteFlight;
-using CalValEX.AprilFools;
-using ReLogic.Content;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace CalValEX
 {
@@ -356,7 +350,7 @@ namespace CalValEX
             if (Player.armor[10].type == ItemType<SpectralstormHat>()) {
                 specan = true;
             }
-            if (Player.armor[11].type == ItemType<Items.Equips.Shirts.AresChestplate.AresChestplate>()) {
+            if (Player.armor[11].type == ItemType<AresChestplate>()) {
                 bool gausspawned = Player.ownedProjectileCounts[ProjectileType<GaussArm>()] <= 0;
                 bool laserpawned = Player.ownedProjectileCounts[ProjectileType<LaserArm>()] <= 0;
                 bool teslaspawned = Player.ownedProjectileCounts[ProjectileType<TeslaArm>()] <= 0;
@@ -416,7 +410,7 @@ namespace CalValEX
                 } else if (item.type == ItemType<CloudWaistbelt>()) {
                     cloudHide = false;
                     cloudForce = true;
-                } else if (item.type == ItemType<Items.Equips.Transformations.SandyBangles>()) {
+                } else if (item.type == ItemType<SandyBangles>()) {
                     sandHide = false;
                     sandForce = true;
                 }

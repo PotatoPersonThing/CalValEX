@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -12,13 +10,8 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Storm Medal");
-            // Tooltip.SetDefault("'Heads or worms?'\n" + "Summons a young Storm Weaver");
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 6));
-            /// ItemID.Sets.AnimatesAsSoul[Item.type] = true;
-            ItemID.Sets.ItemIconPulse[Item.type] = false;
             ItemID.Sets.ItemNoGravity[Item.type] = true;
-            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()
@@ -34,12 +27,10 @@ namespace CalValEX.Items.Pets
             Item.noUseGraphic = true;
         }
 
-        public override void UseStyle(Player player, Microsoft.Xna.Framework.Rectangle heldItemFrame)
+        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-            {
-                player.AddBuff(Item.buffType, 3600, true);
-            }
+            player.AddBuff(Item.buffType, 2);
+            return false;
         }
     }
 }

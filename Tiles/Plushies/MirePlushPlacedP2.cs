@@ -1,5 +1,4 @@
 ﻿using CalValEX.Items.Plushies;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;

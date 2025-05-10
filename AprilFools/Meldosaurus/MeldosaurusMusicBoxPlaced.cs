@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
 using Terraria.DataStructures;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -7,7 +6,7 @@ using Terraria.ObjectData;
 
 namespace CalValEX.AprilFools.Meldosaurus
 {
-	public class MeldosaurusMusicBoxPlaced : ModTile
+    public class MeldosaurusMusicBoxPlaced : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

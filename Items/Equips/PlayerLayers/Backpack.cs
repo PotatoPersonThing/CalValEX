@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
@@ -14,7 +13,7 @@ namespace CalValEX.Items.Equips.PlayerLayers
             for (int n = 13; n < 18 + drawInfo.drawPlayer.extraAccessorySlots; n++)
             {
                 Item item = drawInfo.drawPlayer.armor[n];
-                if (item.type == ModContent.ItemType<Items.Equips.Backs.PrismShell>())
+                if (item.type == ModContent.ItemType<Backs.PrismShell>())
                 {
                     hastallhat = true;
                 }
@@ -33,7 +32,7 @@ namespace CalValEX.Items.Equips.PlayerLayers
             
             for (int n = 0; n < 18 + drawInfo.drawPlayer.extraAccessorySlots; n++) {
                 Item item = drawInfo.drawPlayer.armor[n];
-                if (item.type == ModContent.ItemType<Items.Equips.Backs.PrismShell>()) {
+                if (item.type == ModContent.ItemType<Backs.PrismShell>()) {
                     if (n > 9)
                         dyeShader = drawPlayer.dye?[n - 10].dye ?? 0;
                     else

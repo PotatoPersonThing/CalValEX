@@ -1,10 +1,9 @@
 ﻿using CalValEX.Buffs.LightPets;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria;
 using CalValEX.CalamityID;
+using CalValEX.Projectiles.Pets.LightPets;
 
 namespace CalValEX.Items.LightPets
 {
@@ -13,7 +12,6 @@ namespace CalValEX.Items.LightPets
         public override void SetStaticDefaults()
         {
             ItemID.Sets.ItemNoGravity[Item.type] = true;
-            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()
@@ -26,8 +24,15 @@ namespace CalValEX.Items.LightPets
             Item.value = Item.sellPrice(0, 3, 0, 0);
             Item.useAnimation = 20;
             Item.useTime = 20;
+            Item.shoot = ModContent.ProjectileType<DarksunSpirit_Fish>();
             Item.buffType = ModContent.BuffType<DarksunSpiritBuff>();
             Item.rare = CalRarityID.Violet;
+        }
+
+        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            player.AddBuff(Item.buffType, 2);
+            return false;
         }
     }
 }

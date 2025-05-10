@@ -2,7 +2,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.UI.Gamepad;
 
 namespace CalValEX.CalamityID
 {

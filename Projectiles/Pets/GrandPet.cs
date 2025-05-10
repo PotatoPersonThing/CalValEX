@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 
 namespace CalValEX.Projectiles.Pets

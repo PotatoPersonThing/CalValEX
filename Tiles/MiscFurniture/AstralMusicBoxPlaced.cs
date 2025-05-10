@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
 using Terraria.DataStructures;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -8,7 +7,7 @@ using CalValEX.Items.Tiles;
 
 namespace CalValEX.Tiles.MiscFurniture
 {
-	public class AstralMusicBoxPlaced : ModTile
+    public class AstralMusicBoxPlaced : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

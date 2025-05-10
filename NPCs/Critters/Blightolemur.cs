@@ -3,7 +3,6 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using CalValEX.Items.Critters;
 using Terraria.GameContent.Bestiary;
@@ -42,7 +41,7 @@ namespace CalValEX.NPCs.Critters
                 NPC.buffImmune[CalValEX.CalamityBuff("AstralInfectionDebuff")] = true;
             }
         }
-        public override void SetBestiary(Terraria.GameContent.Bestiary.BestiaryDatabase database, Terraria.GameContent.Bestiary.BestiaryEntry bestiaryEntry)
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.UIInfoProvider = new CommonEnemyUICollectionInfoProvider(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[Type], quickUnlock: true);
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {

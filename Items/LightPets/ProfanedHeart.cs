@@ -1,6 +1,4 @@
 using CalValEX.Buffs.LightPets;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -14,7 +12,6 @@ namespace CalValEX.Items.LightPets
         public override void SetStaticDefaults()
         {
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(9, 8));
-            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()
@@ -28,12 +25,10 @@ namespace CalValEX.Items.LightPets
             ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
 
-        public override void UseStyle(Player player, Rectangle heldItemFrame)
+        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-            {
-                player.AddBuff(Item.buffType, 3600, true);
-            }
+            player.AddBuff(Item.buffType, 2);
+            return false;
         }
     }
 }

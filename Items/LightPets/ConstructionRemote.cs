@@ -1,16 +1,12 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.DataStructures;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.Collections.Generic;
 using CalValEX.Buffs.LightPets;
-using CalValEX.Projectiles.Pets.LightPets;
 
-namespace CalValEX.Items.LightPets {
-    public class ConstructionRemote : ModItem {
-        public override void SetStaticDefaults() => Item.ResearchUnlockCount = 1;
-
+namespace CalValEX.Items.LightPets
+{
+    public class ConstructionRemote : ModItem 
+    {
         public override void SetDefaults() {
             Item.CloneDefaults(ItemID.ZephyrFish);
             Item.UseSound = SoundID.NPCHit4;
@@ -19,14 +15,10 @@ namespace CalValEX.Items.LightPets {
             Item.buffType = ModContent.BuffType<DiggerBuff>();
         }
 
-        public override void UseStyle(Player player, Rectangle heldItemFrame) {
-            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-                player.AddBuff(Item.buffType, 3600, true);
-        }
-
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
-            type = ModContent.ProjectileType<DiggerPet>();
-            return base.Shoot(player, source, position, velocity, type, damage, knockback);
+        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            player.AddBuff(Item.buffType, 2);
+            return false;
         }
         /*public override void AddRecipes()
         {

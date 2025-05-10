@@ -43,7 +43,7 @@ namespace CalValEX.Buffs.LightPets
             if (petProjectileNotSpawned3 && player.whoAmI == Main.myPlayer)
             {
                 Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + player.width / 2, player.position.Y + player.height / 2,
-                    0f, 0f, ModContent.ProjectileType<Projectiles.Pets.LightPets.Skeetyeet>(), 0, 0f, player.whoAmI);
+                    0f, 0f, ModContent.ProjectileType<Skeetyeet>(), 0, 0f, player.whoAmI);
             }
 
             /*player.buffTime[buffIndex] = 18000;

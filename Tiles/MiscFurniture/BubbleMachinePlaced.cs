@@ -1,11 +1,11 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.DataStructures;
 
-namespace CalValEX.Tiles.MiscFurniture {
+namespace CalValEX.Tiles.MiscFurniture
+{
     public class BubbleMachinePlaced : ModTile {
         public override void SetStaticDefaults() {
             Main.tileFrameImportant[Type] = true;

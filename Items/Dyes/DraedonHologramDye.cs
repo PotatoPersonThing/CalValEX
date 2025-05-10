@@ -5,7 +5,6 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
 namespace CalValEX.Items.Dyes
 {

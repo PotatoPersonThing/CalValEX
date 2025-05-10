@@ -2,7 +2,6 @@ using CalValEX.CalamityID;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
-using Terraria.ModLoader;
 
 
 namespace CalValEX

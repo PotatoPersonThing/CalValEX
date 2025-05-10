@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -12,7 +11,7 @@ using Terraria.GameContent.Metadata;
 
 namespace CalValEX.Tiles.AstralMisc
 {
-	public class SnowAstralSapling : ModTile
+    public class SnowAstralSapling : ModTile
 	{
 		public override void SetStaticDefaults()
 		{

@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,9 +9,7 @@ namespace CalValEX.Items.Pets
     {
         public override void SetStaticDefaults()
         {
-            // DisplayName.SetDefault("Cosmic Rapture");
-            // Tooltip.SetDefault("Summons the Devourer of the cosmos to follow you");
-            Item.ResearchUnlockCount = 1;
+            ItemID.Sets.ItemNoGravity[Type] = true;
         }
 
         public override void SetDefaults()
@@ -24,14 +20,12 @@ namespace CalValEX.Items.Pets
             Item.value = Item.sellPrice(0, 3, 0, 0);
             Item.rare = CalamityID.CalRarityID.DarkBlue;
             Item.buffType = ModContent.BuffType<Buffs.Pets.DogBuff>();
-            ItemID.Sets.ItemNoGravity[Item.type] = true;
         }
-        public override void UseStyle(Player player, Rectangle heldItemFrame)
+
+        public override bool Shoot(Player player, Terraria.DataStructures.EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-            {
-                player.AddBuff(Item.buffType, 3600, true);
-            }
+            player.AddBuff(Item.buffType, 2);
+            return false;
         }
     }
 }

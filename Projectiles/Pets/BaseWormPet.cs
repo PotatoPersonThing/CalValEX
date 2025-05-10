@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -8,7 +7,7 @@ using System.Collections.Generic;
 
 namespace CalValEX.Projectiles.Pets
 {
-	public class WormPetSegment
+    public class WormPetSegment
     {
 		public Vector2 position, oldPosition;
 		public bool head;

@@ -1,7 +1,5 @@
 //using CalValEX.Items.Equips.Hats;
 //using CalValEX.Items.Equips.Shields;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using CalValEX.Tiles.MiscFurniture;
 using Terraria.ID;
 using Terraria.ModLoader;

@@ -1,8 +1,6 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 
 namespace CalValEX.Items.Hooks
 {
