@@ -115,7 +115,6 @@ namespace CalValEX.CalamityID
 
         public static int WITCH;
         public static int DILF;
-        public static int FAP;
         public static int SEAHOE;
         public static int THIEF;
         public static int YHARM;
@@ -162,7 +161,6 @@ namespace CalValEX.CalamityID
             WITCH = CalamityID.NPCRelation("WITCH", NPCID.WitchDoctor);
             SEAHOE = CalamityID.NPCRelation("SEAHOE", NPCID.Angler);
             DILF = CalamityID.NPCRelation("DILF", NPCID.Wizard);
-            FAP = CalamityID.NPCRelation("FAP", NPCID.Princess);
             THIEF = CalamityID.NPCRelation("THIEF", NPCID.GoblinTinkerer);
             //YHARM = CalamityID.NPCRelation("YHARM", NPCID.Wizard);
         }
@@ -207,7 +205,6 @@ namespace CalValEX.CalamityID
         public static int MonolithCrate;
         #endregion
         public static int AquaticHeart;
-        public static int CirrusDress;
         public static int Bloodstone;
         public static int CeremonialUrn;
         public static int MeldConstruct;
@@ -248,7 +245,6 @@ namespace CalValEX.CalamityID
             PrismCrate = CalamityID.ItemRelation("PrismCrate", ItemID.OasisCrateHard);
             MonolithCrate = CalamityID.ItemRelation("MonolithCrate", ItemID.FloatingIslandFishingCrateHard);
             AquaticHeart = CalamityID.ItemRelation("AquaticHeart", ItemID.NeptunesShell);
-            CirrusDress = CalamityID.ItemRelation("CirrusDress", ItemID.PrincessDressNew);
             Bloodstone = CalamityID.ItemRelation("Bloodstone", ItemID.FragmentNebula);
             MeldConstruct = CalamityID.ItemRelation("MeldConstruct", ItemID.FragmentNebula);
             CeremonialUrn = CalamityID.ItemRelation("CeremonialUrn", ItemID.NebulaPickaxe);

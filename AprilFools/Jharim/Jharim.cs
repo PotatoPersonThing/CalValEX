@@ -249,17 +249,6 @@ namespace CalValEX.AprilFools.Jharim
 
                 if (CalValEX.CalamityActive)
                 {
-                    if (CalValEXPlayer.CirrusDress)
-                    {
-                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.CirrusDress"));
-                    }
-
-                    int FAP = NPC.FindFirstNPC(CalValEX.CalamityNPC("FAP"));
-                    if (FAP >= 0)
-                    {
-                        dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.Jharim.Chat.FAP"));
-                    }
-
                     int Cal = NPC.FindFirstNPC(CalValEX.CalamityNPC("WITCH"));
                     if (Cal >= 0)
                     {

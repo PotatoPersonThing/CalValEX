@@ -3355,15 +3355,6 @@ CalamityPaintRetold: {
 	Tooltip: "'IbanPlay'"
 }
 
-CirrusBooze: {
-	DisplayName: 精致酒杯
-	Tooltip:
-		'''
-		'一个不错的酒杯'
-		'TimerFun'
-		'''
-}
-
 Clam: {
 	DisplayName: 哦哈哟！
 	Tooltip: "'Yharex'"

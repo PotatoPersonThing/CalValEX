@@ -154,11 +154,6 @@ namespace CalValEX.NPCs.Oracle
                 {
                     dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.WITCH"));
                 }
-
-                if (Main.LocalPlayer.GetModPlayer<CalValEXPlayer>().CirrusDress)
-                {
-                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.OracleNPC.Chat.CirrusDress"));
-                }
             }
 
             int wizard = NPC.FindFirstNPC(NPCID.Wizard);

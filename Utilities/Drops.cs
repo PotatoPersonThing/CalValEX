@@ -119,10 +119,10 @@ namespace CalValEX
                         .Add(ModContent.ItemType<AstrachnidTentacles>(), CalValEXConditions.oreo)
                         .Add(ModContent.ItemType<AstrachnidThorax>(), CalValEXConditions.oreo);
                 }
-                if (type == CalNPCID.FAP)
-                {
-                    shop.Add(ModContent.ItemType<OddMushroomPot>(), CalValEXConditions.oreo);
-                }
+            }
+            if (type == NPCID.Truffle)
+            {
+                shop.Add(ModContent.ItemType<OddMushroomPot>());
             }
             if (type == NPCID.Steampunker)
             {

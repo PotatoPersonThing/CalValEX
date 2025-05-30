@@ -336,7 +336,6 @@ namespace CalValEX
                 new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Hypera"))),
                 new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Drakudragonx"))),
                 new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Spider", "spider", "Spooktacular", "spooktacular"))),
-                new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Fabsol"))),
                 new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Lucca"))),
                 new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Junko"))),
                 new(new Combine(true, null, new VanityDropsEnabled(), new PlayerNameRule("Lil Junko"))),
@@ -505,10 +504,6 @@ namespace CalValEX
                 {
                     modplayer.SirenHeart = true;
                 }
-                if (item.type == CalItemID.CirrusDress)
-                {
-                    modplayer.CirrusDress = true;
-                }
             }
         }
 
@@ -520,22 +515,6 @@ namespace CalValEX
                 if (item.type == CalItemID.AquaticHeart)
                 {
                     modplayer.SirenHeart = true;
-                }
-                if (item.type == CalItemID.CirrusDress)
-                {
-                    modplayer.CirrusDress = true;
-                }
-            }
-        }
-
-        public override void UpdateEquip(Item item, Player player)
-        {
-            CalValEXPlayer modplayer = player.GetModPlayer<CalValEXPlayer>();
-            if (CalValEX.CalamityActive)
-            {
-                if (item.type == CalItemID.CirrusDress)
-                {
-                    modplayer.CirrusDress = true;
                 }
             }
         }

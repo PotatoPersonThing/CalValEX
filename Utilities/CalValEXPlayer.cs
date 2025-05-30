@@ -275,7 +275,6 @@ namespace CalValEX
 
         // Bootleg Calamity bools
         public bool SirenHeart;
-        public bool CirrusDress;
 
         //Æ: Drae's bools
         public bool digger;

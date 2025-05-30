@@ -3356,15 +3356,6 @@ CalamityPaintRetold: {
 	Tooltip: "'IbanPlay'"
 }
 
-CirrusBooze: {
-	DisplayName: A Fine Chalice
-	Tooltip:
-		'''
-		'A fine chalice indeed'
-		'TimerFun'
-		'''
-}
-
 Clam: {
 	DisplayName: Ohayou!
 	Tooltip: "'Yharex'"

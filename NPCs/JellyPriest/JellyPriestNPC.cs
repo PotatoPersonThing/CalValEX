@@ -173,13 +173,6 @@ namespace CalValEX.NPCs.JellyPriest
 
             if (CalValEX.CalamityActive)
             {
-                int FAP = NPC.FindFirstNPC(CalValEX.CalamityNPC("FAP"));
-                if (FAP >= 0)
-                {
-                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.FAP1"));
-                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.FAP2"));
-                }
-
                 int WITCH = NPC.FindFirstNPC(CalValEX.CalamityNPC("WITCH"));
                 if (WITCH >= 0)
                 {
@@ -212,11 +205,6 @@ namespace CalValEX.NPCs.JellyPriest
                 if (CalValEXPlayer.SirenHeart)
                 {
                     dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.SirenHeart"));
-                }
-
-                if (CalValEXPlayer.CirrusDress)
-                {
-                    dialogue.Add(Language.GetTextValue("Mods.CalValEX.NPCs.JellyPriestNPC.Chat.CirrusDress"));
                 }
 
                 if (player.ownedProjectileCounts[CalValEX.CalamityProjectile("OceanSpirit")] > 0)

@@ -62,7 +62,6 @@ namespace CalValEX.Tiles.Paintings
             LoadPainting("Goozling", 2, 2, 15);
             LoadPainting("CalamiteaTime", 6, 4, 16);
 
-            LoadPainting("CirrusBooze", 3, 3, ItemUtils.BossRarity("Cryogen"));
             LoadPainting("Plague22", 3, 3, ItemUtils.BossRarity("PBG"));
             LoadPainting("UnholyTrip", 6, 4, 11, noPad: true);
             LoadPainting("BlazingConflict", 7, 5, 12);
