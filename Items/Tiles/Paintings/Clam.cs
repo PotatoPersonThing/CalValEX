@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 
 namespace CalValEX.Items.Tiles.Paintings
 {
+    [LegacyName("CirrusBooze")]
     public class Clam : ModItem
     {
         public override void SetStaticDefaults()
